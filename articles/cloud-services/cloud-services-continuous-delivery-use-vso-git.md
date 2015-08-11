@@ -153,7 +153,7 @@ Especifique los valores para las propiedades si desea que sean diferentes de los
 14.	Vaya a la dirección URL del sitio. Para una aplicación web, elija el botón **Examinar** en el portal. Para un servicio en la nube, elija la dirección URL de la sección **Vista rápida** de la página **Panel** que muestra el entorno de ensayo. Las implementaciones de la integración continua para los servicios en la nube se publican de forma predeterminada en el entorno de ensayo. Puede cambiarlo configurando la propiedad Entorno del servicio de nube alternativo en Producción. Aquí es donde está la dirección URL del sitio en la página del panel del servicio en la nube: <br/>
 ![][31]
 <br/>
-se abrirá una nueva pestaña del explorador para mostrar el sitio en ejecución.<br/>
+Se abrirá una nueva pestaña del explorador para mostrar el sitio en ejecución.<br/>
 ![][32]
 
 15.	Si realiza otros cambios en el proyecto, activará más compilaciones y acumulará varias implementaciones. La última de ellas marcada como Activa.<br/>
@@ -257,4 +257,4 @@ Para obtener más información, consulte Visual [Visual Studio Online](http://go
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!-----HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

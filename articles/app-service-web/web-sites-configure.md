@@ -36,7 +36,8 @@ La hoja **Configuración de la aplicación** tiene configuraciones agrupadas en 
 **Versiones del marco**. Configure estas opciones si su aplicación utiliza cualquiera de estos marcos:
 
 - **.NET Framework**: configure la versión de .NET Framework. 
-- **PHP**: configure la versión de PHP o seleccione **DESACTIVADO ** para deshabilitar PHP.- **Java**: seleccione la versión de Java o **DESACTIVADO** para deshabilitar Java. Utilice la opción **Contenedor web** para elegir entre las versiones Tomcat y Jetty.
+- **PHP**: configure la versión de PHP o seleccione **DESACTIVADO ** para deshabilitar PHP.
+- **Java**: seleccione la versión de Java o **DESACTIVADO** para deshabilitar Java. Utilice la opción **Contenedor web** para elegir entre las versiones Tomcat y Jetty.
 - **Python**: seleccione la versión de Python o seleccione **DESACTIVADO** para deshabilitar Python.
 
 Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan las opciones .NET, PHP y Python.
@@ -174,4 +175,4 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

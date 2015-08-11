@@ -144,7 +144,7 @@ Puede reemplazar cualquier vista (incluidos los diseños y las vistas parciales)
 
 En esta sección, creará un archivo de diseño específico para móviles.
 
-Para empezar, copie *Views\Shared\_Layout.cshtml* en *Views\Shared\_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* y cambie el título de **Aplicación MVC5** a **Aplicación MVC5 (móvil)**.
+Para empezar, copie *Views\Shared_Layout.cshtml* en *Views\Shared_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* y cambie el título de **Aplicación MVC5** a **Aplicación MVC5 (móvil)**.
 
 En cada `Html.ActionLink` llamada de de la barra de navegación, que "Explorar por" de cada vínculo *ActionLink*. El código siguiente muestra la etiqueta terminada `<ul class="nav navbar-nav">` del archivo de diseño móvil.
 
@@ -191,7 +191,7 @@ Como alternativa, puede agregar manualmente la siguiente línea a la sección `u
 
     using System.Web.WebPages;
 
-Guarde los cambios. Copie el archivo *Views\Shared\_Layout.Mobile.cshtml* a *Views\Shared\_Layout.iPhone.cshtml*. Abra el nuevo archivo y cambie el título de `MVC5 Application (Mobile)` a `MVC5 Application (iPhone)`.
+Guarde los cambios. Copie el archivo *Views\Shared_Layout.Mobile.cshtml* a *Views\Shared_Layout.iPhone.cshtml*. Abra el nuevo archivo y cambie el título de `MVC5 Application (Mobile)` a `MVC5 Application (iPhone)`.
 
 Copie el archivo *Views\Home\AllTags.Mobile.cshtml* a *Views\Home\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento `<h2>` de "Tags (M)" a "Tags (iPhone)".
 
@@ -209,14 +209,14 @@ En el explorador móvil, seleccione el vínculo **Oradores**. Como no hay una vi
 
 ![][AllSpeakers_LayoutMobile]
 
-Puede deshabilitar globalmente una vista predeterminada (no móvil) de su procesamiento dentro de un diseño móvil al establecer `RequireConsistentDisplayMode` en `true` en el archivo *Views\_ViewStart.cshtml*, como a continuación:
+Puede deshabilitar globalmente una vista predeterminada (no móvil) de su procesamiento dentro de un diseño móvil al establecer `RequireConsistentDisplayMode` en `true` en el archivo *Views_ViewStart.cshtml*, como a continuación:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-Cuando `RequireConsistentDisplayMode` se establece en `true`, se usa el diseño móvil (*\_Layout.Mobile.cshtml*) solo para vistas móviles (por ejemplo, cuando el archivo de vista tiene el formato ***ViewName**.Mobile.cshtml*). Es posible que quiera establecer `RequireConsistentDisplayMode` en `true` si el diseño móvil no funciona bien con las vistas que no son móviles. En la siguiente captura de pantalla se muestra cómo se presenta la página *Oradores* cuando `RequireConsistentDisplayMode` está establecido en `true` (sin la cadena "(Mobile)" en la barra de navegación de la parte superior).
+Cuando `RequireConsistentDisplayMode` se establece en `true`, se usa el diseño móvil (*_Layout.Mobile.cshtml*) solo para vistas móviles (por ejemplo, cuando el archivo de vista tiene el formato ***ViewName**.Mobile.cshtml*). Es posible que quiera establecer `RequireConsistentDisplayMode` en `true` si el diseño móvil no funciona bien con las vistas que no son móviles. En la siguiente captura de pantalla se muestra cómo se presenta la página *Oradores* cuando `RequireConsistentDisplayMode` está establecido en `true` (sin la cadena "(Mobile)" en la barra de navegación de la parte superior).
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
@@ -262,7 +262,7 @@ El estilo de [grupo de listas vinculadas][] de Bootstrap permite hacer clic en t
 
 ![][AllSpeakersFixedDesktop]
 
-Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\Home\AllSpeakers.cshtml*, agregue una etiqueta <form> justo después de la etiqueta <h2>, como se muestra a continuación:
+Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\Home\AllSpeakers.cshtml*, agregue una etiqueta \<form\> justo después de la etiqueta \<h2\>, como se muestra a continuación:
 
     @model IEnumerable<string>
 
@@ -616,4 +616,4 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

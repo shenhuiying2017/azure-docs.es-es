@@ -109,9 +109,9 @@ En este tutorial se demostraron los aspectos básicos de la habilitación de una
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

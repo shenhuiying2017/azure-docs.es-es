@@ -90,8 +90,8 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 <!-- URLs. -->
 [Incorporación de autenticación a su aplicación]: mobile-services-windows-phone-get-started-users.md
 [Incorporación de notificaciones de inserción a la aplicación]: mobile-services-javascript-backend-windows-phone-get-started-push.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de administración de Azure]: https://manage.windowsazure.com/
 
  
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

@@ -185,7 +185,8 @@ Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Ser
 
 ##Importación de Sqoop
 
-1. Utilice lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al ** directorio wasb:///tutorials/usesqoop/importeddata** en HDInsight: 
+1. Utilice lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al ** directorio wasb:///tutorials/usesqoop/importeddata** en HDInsight:
+
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
     Los datos importados tendrán campos separados por un carácter de tabulación y las líneas terminarán con un carácter de nueva línea.
@@ -261,4 +262,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

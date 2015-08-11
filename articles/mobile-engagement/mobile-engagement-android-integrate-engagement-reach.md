@@ -318,7 +318,7 @@ Si solo desea usar diseños alternativos para una categoría específica, puede 
 			  }
 			}
 
-**Ejemplo de `my_notification_overlay.xml`: **
+**Ejemplo de `my_notification_overlay.xml`:**
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<RelativeLayout
@@ -333,7 +333,7 @@ Si solo desea usar diseños alternativos para una categoría específica, puede 
 
 Como puede ver, el identificador de vista de superposición es distinto al estándar. Es importante que cada diseño utilice un identificador único para las superposiciones.
 
-**Ejemplo de `my_notification_area.xml`: **
+**Ejemplo de `my_notification_area.xml`:**
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<merge
@@ -647,4 +647,4 @@ Ahora, para comprobar su integración, lea Prueba de integración de Engagement 
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -505,7 +505,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
 
 		   <property>
 		       <name>sqlDatabaseConnectionString</name>
-		       <value>&quot;$sqlDatabaseConnectionString&quot;</value>
+		       <value>";$sqlDatabaseConnectionString";</value>
 		   </property>
 
 		   <property>
@@ -743,4 +743,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y un coordi
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

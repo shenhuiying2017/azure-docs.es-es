@@ -450,6 +450,8 @@ Si quita %3d%3d del final del valor de cadena de consulta `error`, esta es una c
 Vio como se codifica y configura una aplicación de API que se conecta a una plataforma de SaaS. Para obtener vínculos a otros tutoriales sobre cómo controlar la autenticación de aplicaciones de API, vea [Autenticación para aplicaciones de API y aplicaciones móviles: pasos siguientes](../app-service/app-service-authentication-overview.md#next-steps).
 
 [Azure preview portal]: https://portal.azure.com/
+[Portal de vista previa de Azure]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
+[Portal de Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

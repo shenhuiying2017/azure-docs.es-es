@@ -204,7 +204,7 @@ Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimien
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host\_name". Esta entrada contendrá el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo:
+		En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host_name". Esta entrada contendrá el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -437,4 +437,4 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Uso de la acción de script para personalizar un clúster de HBase"
  
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

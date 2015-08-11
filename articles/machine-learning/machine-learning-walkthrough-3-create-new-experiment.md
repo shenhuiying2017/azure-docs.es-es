@@ -53,7 +53,8 @@ Podemos agregar encabezados de columna mediante el módulo [Editor de metadatos]
 3.	Conecte el conjunto de datos al [Editor de metadatos][metadata-editor]: haga clic en el puerto de salida del conjunto de datos, arrastre el puerto de entrada del [Editor de metadatos][metadata-editor] y, a continuación, suelte el botón del mouse. El conjunto de datos y el módulo permanecerán conectados incluso si se desplaza por el lienzo.
 4.	Con el [Editor de metadatos][metadata-editor] aún seleccionado, en el panel **Propiedades** situado a la derecha del lienzo, haga clic en **Iniciar el selector de columnas**.
 5.	En el cuadro de diálogo **Seleccionar columnas**, establezca el campo **Empieza por** en "Todas las columnas".
-6.	La fila bajo **Empieza por** permite incluir o excluir columnas específicas para que el [Editor de metadatos][metadata-editor] las modifique. Puesto que deseamos modificar todas las columnas, elimine esta fila haciendo clic en el signo menos ("-") a la derecha de la fila. El cuadro de diálogo debe ser similar al siguiente: ![Selector de columnas con todas las columnas seleccionadas][4]
+6.	La fila bajo **Empieza por** permite incluir o excluir columnas específicas para que el [Editor de metadatos][metadata-editor] las modifique. Puesto que deseamos modificar todas las columnas, elimine esta fila haciendo clic en el signo menos ("-") a la derecha de la fila. El cuadro de diálogo debe ser similar al siguiente:  
+    ![Selector de columnas con todas las columnas seleccionadas][4]
 7.	Haga clic en la marca de verificación **Aceptar**. 
 8.	En el panel **propiedades**, busque el parámetro **Nuevo nombre de columna**. En este campo, escriba la lista de nombres de las 21 columnas del conjunto de datos, separadas por comas y en el orden de las columnas. Puede obtener los nombres de las columnas en la documentación del conjunto de datos en el sitio web de UCI o, para mayor comodidad, puede copiar y pegar lo siguiente:  
 
@@ -78,7 +79,7 @@ El siguiente paso del experimento es generar conjuntos de datos independientes q
 
 1.	Busque el módulo [Dividir][split], arrástrelo al lienzo y conéctelo al último módulo [Editor de metadatos][metadata-editor].
 2.	De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria**. Esto significa que una mitad aleatoria de los datos saldrá a través de un puerto del módulo [Dividir][split] y la otra mitad por el otro. Puede cambiar estos ajustes, así como el parámetro **Valor de inicialización aleatorio**, para cambiar la división entre datos de entrenamiento y de puntuación. Para este ejemplo, lo dejaremos como está.
-	> [AZURE.TIP]  
+	> [AZURE.TIP] la proporción de división determina fundamentalmente qué cantidad de datos sale a través del puerto de salida de la izquierda.Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.
 	
 Podemos utilizar las salidas del módulo [Dividir][split] como deseemos, pero vamos a optar por utilizar la salida de la izquierda como datos de entrenamiento y la salida de la derecha como datos de puntuación.
 
@@ -125,4 +126,4 @@ Para obtener más información sobre cómo utilizar los scripts de R en sus expe
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

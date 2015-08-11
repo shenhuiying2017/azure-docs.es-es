@@ -93,32 +93,36 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 	![Proporcionar detalles del clúster de HDInsight de Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page1.png)
 
     <table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Nombre del clúster</td>
-		<td><p>Dé un nombre al clúster. </p>
-			<ul>
-			<li>El nombre del Sistema de nombres de dominio (DNS) debe comenzar y terminar con un carácter alfanumérico y puede contener guiones.</li>
-			<li>El campo debe ser una cadena con una longitud comprendida entre 3 y 63 caracteres.</li>
-			</ul></td></tr>
-	<tr><td>Tipo de clúster</td>
-		<td>Seleccione <strong>Hadoop</strong>.</td></tr>
-	<tr><td>Sistema operativo</td>
-		<td>Seleccione <b>Ubuntu 12.04 LTS Preview</b> para aprovisionar un clúster de HDInsight en Linux. Para aprovisionar un clúster de Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop en Windows en HDInsight</a>.</td></tr>
-	<tr><td>Versión de HDInsight</td>
-		<td>Seleccione la versión. Para HDInsight en Linux, el valor predeterminado es la versión 3.2 de HDInsight, que usa Hadoop 2.6.</td></tr>
-	</table>Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Nombre del clúster</td>
+			<td><p>Dé un nombre al clúster. </p>
+				<ul>
+				<li>El nombre del Sistema de nombres de dominio (DNS) debe comenzar y terminar con un carácter alfanumérico y puede contener guiones.</li>
+				<li>El campo debe ser una cadena con una longitud comprendida entre 3 y 63 caracteres.</li>
+				</ul></td></tr>
+		<tr><td>Tipo de clúster</td>
+			<td>Seleccione <strong>Hadoop</strong>.</td></tr>
+		<tr><td>Sistema operativo</td>
+			<td>Seleccione <b>Ubuntu 12.04 LTS Preview</b> para aprovisionar un clúster de HDInsight en Linux. Para aprovisionar un clúster de Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop en Windows en HDInsight</a>.</td></tr>
+		<tr><td>Versión de HDInsight</td>
+			<td>Seleccione la versión. Para HDInsight en Linux, el valor predeterminado es la versión 3.2 de HDInsight, que usa Hadoop 2.6.</td></tr>
+		</table>
+
+	Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
 
 4. En la página **Configurar clúster**, escriba o seleccione los valores siguientes:
 
 	![Proporcionar detalles del clúster de HDInsight de Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-<tr><th>Nombre</th><th>Valor</th></tr>
-<tr><td>Nodos de datos</td><td>Número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
-<tr><td>Región/Red virtual</td><td><p>Elija la misma región que la cuenta de almacenamiento que almacenó anteriormente. Los clústeres de HDInsight requieren que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</p></td></tr>
-<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual (VM) para el nodo principal.</p></td></tr>
-<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
-</table>>[AZURE.NOTE]En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+	<tr><th>Nombre</th><th>Valor</th></tr>
+	<tr><td>Nodos de datos</td><td>Número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
+	<tr><td>Región/Red virtual</td><td><p>Elija la misma región que la cuenta de almacenamiento que almacenó anteriormente. Los clústeres de HDInsight requieren que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</p></td></tr>
+	<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual (VM) para el nodo principal.</p></td></tr>
+	<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE]En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 
 5. En la página **Configurar usuario de clúster** proporcione los siguientes valores:
@@ -126,23 +130,26 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
     ![Proporcionar usuario del clúster de HDInsight de Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page3.png)
 
     <table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Contraseña de HTTP</td>
-		<td>Especifique la contraseña para el usuario HTTP predeterminado, <strong>admin</strong>.</td></tr>
-	<tr><td>Nombre de usuario de SSH</td>
-		<td>Especifique el nombre de usuario de SSH. Usará este nombre de usuario para iniciar una sesión remota de SSH en los nodos del clúster de HDInsight.</td></tr>
-	<tr><td>Tipo de autenticación de SSH</td>
-		<td>Especifique si desea usar una contraseña o una clave SSH para autenticar un usuario de SSH.</td></tr>
-	<tr><td>Contraseña de SSH</td>
-		<td>Si eligió una contraseña como el tipo de autenticación, especifique la contraseña de SSH para autenticar un usuario de SSH. Esta contraseña se le solicitará cuando intente iniciar una sesión de SSH en el equipo remoto con Linux.</td></tr>
-	<tr><td>Clave pública SSH</td>
-		<td>Si eligió una clave como el tipo de autenticación, especifique la clave pública SSH que ya debe haber generado. Cuando inicie una sesión de SSH con un nodo en el clúster de Linux, utilizará la clave privada asociada con esta clave pública.<br>
-		Para obtener instrucciones sobre cómo generar una clave SSH en un equipo con Linux, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">aquí</a>. Para obtener instrucciones sobre cómo generar una clave SSH en un equipo con Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">aquí</a>.
-	</td></tr>
-	<tr><td>Especificación de la tienda de metadatos de Hive/Oozie</td>
-		<td>Active esta casilla para especificar una base de datos SQL que se encuentra en el mismo centro de datos que el clúster, que se usará como tienda de metadatos de Hive/Oozie. Si activa esta casilla, debe especificar detalles acerca de la base de datos SQL de Azure en las páginas siguientes del asistente. Esto resulta de gran utilidad si desea conservar los metadatos sobre trabajos de Hive/Oozie después de haber eliminado un clúster.</td></tr>
-	</td></tr>
-	</table>> [AZURE.NOTE]Se recomienda usar autenticación con clave pública SSH con SSH, dado que es más segura que la autenticación con contraseña.
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Contraseña de HTTP</td>
+			<td>Especifique la contraseña para el usuario HTTP predeterminado, <strong>admin</strong>.</td></tr>
+		<tr><td>Nombre de usuario de SSH</td>
+			<td>Especifique el nombre de usuario de SSH. Usará este nombre de usuario para iniciar una sesión remota de SSH en los nodos del clúster de HDInsight.</td></tr>
+		<tr><td>Tipo de autenticación de SSH</td>
+			<td>Especifique si desea usar una contraseña o una clave SSH para autenticar un usuario de SSH.</td></tr>
+		<tr><td>Contraseña de SSH</td>
+			<td>Si eligió una contraseña como el tipo de autenticación, especifique la contraseña de SSH para autenticar un usuario de SSH. Esta contraseña se le solicitará cuando intente iniciar una sesión de SSH en el equipo remoto con Linux.</td></tr>
+		<tr><td>Clave pública SSH</td>
+			<td>Si eligió una clave como el tipo de autenticación, especifique la clave pública SSH que ya debe haber generado. Cuando inicie una sesión de SSH con un nodo en el clúster de Linux, utilizará la clave privada asociada con esta clave pública.<br>
+			Para obtener instrucciones sobre cómo generar una clave SSH en un equipo con Linux, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">aquí</a>. Para obtener instrucciones sobre cómo generar una clave SSH en un equipo con Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">aquí</a>.
+		</td></tr>
+		<tr><td>Especificación de la tienda de metadatos de Hive/Oozie</td>
+			<td>Active esta casilla para especificar una base de datos SQL que se encuentra en el mismo centro de datos que el clúster, que se usará como tienda de metadatos de Hive/Oozie. Si activa esta casilla, debe especificar detalles acerca de la base de datos SQL de Azure en las páginas siguientes del asistente. Esto resulta de gran utilidad si desea conservar los metadatos sobre trabajos de Hive/Oozie después de haber eliminado un clúster.</td></tr>
+		</td></tr>
+		</table>
+
+
+	> [AZURE.NOTE]Se recomienda usar autenticación con clave pública SSH con SSH, dado que es más segura que la autenticación con contraseña.
 
 	Haga clic en la flecha derecha.
 
@@ -163,29 +170,31 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
     ![Proporcionar la cuenta de almacenamiento del clúster de HDInsight de Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page5.png)
 
 	<table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Cuenta de almacenamiento</td>
-		<td>Especifique la cuenta de almacenamiento de Azure que se usará como sistema de archivos predeterminado para el clúster de HDInsight. Puede elegir una de las tres opciones siguientes:
-		<ul>
-			<li><strong>Usar almacenamiento existente</strong></li>
-			<li><strong>Crear nuevo almacenamiento</strong></li>
-			<li><strong>Usar almacenamiento de otra suscripción</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>Nombre de cuenta</td>
-		<td><ul>
-			<li>Si decidió utilizar almacenamiento existente, en <strong>Nombre de cuenta</strong>, seleccione una cuenta de almacenamiento existente. En la lista desplegable solamente aparecen las cuentas de almacenamiento ubicadas en el mismo centro de datos en el que eligió aprovisionar el clúster.</li>
-			<li>Si eligió la opción <strong>Crear nuevo almacenamiento</strong> o  <strong>Usar almacenamiento de otra suscripción</strong>, debe proporcionar el nombre de la cuenta de almacenamiento.</li>
-		</ul></td></tr>
-	<tr><td>Clave de cuenta</td>
-		<td>Si eligió la opción <strong>Usar almacenamiento de otra suscripción</strong>, especifique la clave de cuenta para esa cuenta de almacenamiento.</td></tr>
-	<tr><td>Contenedor predeterminado</td>
-		<td><p>Especifique el contenedor predeterminado en la cuenta de almacenamiento que se utiliza como sistema de archivos predeterminado para el clúster de HDInsight. Si eligió <strong>Usar almacenamiento existente</strong> para el campo <strong>Cuenta de almacenamiento</strong> y no existen contenedores en esa cuenta, el contenedor se creará de forma predeterminada con el mismo nombre que el del clúster. Si ya existe un contenedor con el nombre del clúster, se anexará un número de secuencia al nombre del contenedor. Por ejemplo, mycontainer1, mycontainer2 y así sucesivamente. Sin embargo, si la cuenta de almacenamiento existente tiene un contenedor con un nombre diferente al del clúster especificado, también puede usar ese contenedor.</p>
-        <p>Si eligió crear un almacenamiento nuevo o usar almacenamiento de otra suscripción de Azure, debe especificar el nombre del contenedor predeterminado.</p>
-    </td></tr>
-	<tr><td>Cuentas de almacenamiento adicionales</td>
-		<td>HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página <strong>Cuenta de almacenamiento</strong> adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega la página 5 al diálogo.</td></tr>
-</table>Haga clic en la flecha derecha.
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Cuenta de almacenamiento</td>
+			<td>Especifique la cuenta de almacenamiento de Azure que se usará como sistema de archivos predeterminado para el clúster de HDInsight. Puede elegir una de las tres opciones siguientes:
+			<ul>
+				<li><strong>Usar almacenamiento existente</strong></li>
+				<li><strong>Crear nuevo almacenamiento</strong></li>
+				<li><strong>Usar almacenamiento de otra suscripción</strong></li>
+			</ul>
+			</td></tr>
+		<tr><td>Nombre de cuenta</td>
+			<td><ul>
+				<li>Si decidió utilizar almacenamiento existente, en <strong>Nombre de cuenta</strong>, seleccione una cuenta de almacenamiento existente. En la lista desplegable solamente aparecen las cuentas de almacenamiento ubicadas en el mismo centro de datos en el que eligió aprovisionar el clúster.</li>
+				<li>Si eligió la opción <strong>Crear nuevo almacenamiento</strong> o  <strong>Usar almacenamiento de otra suscripción</strong>, debe proporcionar el nombre de la cuenta de almacenamiento.</li>
+			</ul></td></tr>
+		<tr><td>Clave de cuenta</td>
+			<td>Si eligió la opción <strong>Usar almacenamiento de otra suscripción</strong>, especifique la clave de cuenta para esa cuenta de almacenamiento.</td></tr>
+		<tr><td>Contenedor predeterminado</td>
+			<td><p>Especifique el contenedor predeterminado en la cuenta de almacenamiento que se utiliza como sistema de archivos predeterminado para el clúster de HDInsight. Si eligió <strong>Usar almacenamiento existente</strong> para el campo <strong>Cuenta de almacenamiento</strong> y no existen contenedores en esa cuenta, el contenedor se creará de forma predeterminada con el mismo nombre que el del clúster. Si ya existe un contenedor con el nombre del clúster, se anexará un número de secuencia al nombre del contenedor. Por ejemplo, mycontainer1, mycontainer2 y así sucesivamente. Sin embargo, si la cuenta de almacenamiento existente tiene un contenedor con un nombre diferente al del clúster especificado, también puede usar ese contenedor.</p>
+	        <p>Si eligió crear un almacenamiento nuevo o usar almacenamiento de otra suscripción de Azure, debe especificar el nombre del contenedor predeterminado.</p>
+	    </td></tr>
+		<tr><td>Cuentas de almacenamiento adicionales</td>
+			<td>HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página <strong>Cuenta de almacenamiento</strong> adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega la página 5 al diálogo.</td></tr>
+	</table>
+
+	Haga clic en la flecha derecha.
 
 7. Si ha elegido configurar almacenamiento adicional para el clúster, escriba la información de la cuenta de almacenamiento adicional en la página **Cuenta de almacenamiento**:
 
@@ -758,4 +767,4 @@ En este artículo, ha aprendido varias maneras de aprovisionar un clúster de HD
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

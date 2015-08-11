@@ -56,7 +56,7 @@ Para crear un grupo elástico, agregue un nuevo grupo a un servidor. Puede agreg
 
 Configure el grupo estableciendo el nivel de precios, agregando las bases de datos y configurando las características de rendimiento del grupo.
 
-*Cuando se selecciona el comando **Agregar grupo**, debe aceptar los términos de la vista previa seleccionando el comando **TÉRMINOS DE VISTA PREVIA** y completando la hoja **Términos de vista previa**. Solo debe aceptar los términos una vez para cada suscripción.*
+*Cuando se selecciona el comando **Agregar grupo** , debe aceptar los términos de la vista previa seleccionando el comando **TÉRMINOS DE VISTA PREVIA** y completando la hoja **Términos de vista previa**. Solo debe aceptar los términos una vez para cada suscripción.*
 
    ![Configuración de grupos elásticos][2]
 
@@ -162,4 +162,4 @@ Para obtener más información, vea [Información general sobre los trabajos de 
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [8]: ./media/sql-database-elastic-pool-portal/configure-pool.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

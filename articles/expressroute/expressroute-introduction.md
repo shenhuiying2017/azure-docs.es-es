@@ -92,7 +92,13 @@ Revise la página [P+F](expressroute-faqs.md) para obtener más información sob
 
 La tabla siguiente comparan los tres dominios de enrutamiento.
 
-||**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**| |---|---|---|---| |**N.º máx. de prefijos compatibles por emparejamiento**|4000 de manera predeterminada, 10.000 con ExpressRoute Premium|4000 de manera predeterminada, 10.000 con ExpressRoute Premium|200| |**Intervalos de direcciones IP compatibles**|Cualquier dirección IPv4 válida dentro de la WAN|Direcciones IPv4 públicas suyas o del proveedor de conectividad|Direcciones IPv4 públicas suyas o del proveedor de conectividad| |**Requisitos de número de AS**|Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Solo números de AS públicos. El número de AS debe validarse con los registros de enrutamiento para validar la propiedad.| |**Direcciones IP de la interfaz de enrutamiento**|RFC1918 y direcciones IP públicas|Direcciones IP públicas registradas para los clientes / NSP en registros de enrutamiento.| Direcciones IP públicas registradas para los clientes / NSP en registros de enrutamiento.| |**Compatibilidad con hash MD5**| Sí|Sí|Sí|
+||**Emparejamiento privado**|**Emparejamiento público**|**Emparejamiento de Microsoft**|
+|---|---|---|---|
+|**N.º máx. de prefijos compatibles por emparejamiento**|4000 de manera predeterminada, 10.000 con ExpressRoute Premium|4000 de manera predeterminada, 10.000 con ExpressRoute Premium|200|
+|**Intervalos de direcciones IP compatibles**|Cualquier dirección IPv4 válida dentro de la WAN|Direcciones IPv4 públicas suyas o del proveedor de conectividad|Direcciones IPv4 públicas suyas o del proveedor de conectividad|
+|**Requisitos de número de AS**|Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Números de AS privados y públicos. El cliente debe poseer un número de AS público. | Solo números de AS públicos. El número de AS debe validarse con los registros de enrutamiento para validar la propiedad.|
+|**Direcciones IP de la interfaz de enrutamiento**|RFC1918 y direcciones IP públicas|Direcciones IP públicas registradas para los clientes / NSP en registros de enrutamiento.| Direcciones IP públicas registradas para los clientes / NSP en registros de enrutamiento.|
+|**Compatibilidad con hash MD5**| Sí|Sí|Sí|
 
 Puede elegir habilitar uno o varios de los dominios de enrutamiento como parte de un circuito dedicado. Puede elegir que todos los dominios de enrutamiento se coloquen en la misma VPN (para el caso NSP) si desean insertarlos en un único dominio de enrutamiento. También puede colocarlos en diferentes dominios de enrutamiento parecidos al diagrama anterior. La configuración recomendada es que el emparejamiento privado esté conectado directamente a la red principal y los vínculos de emparejamiento público y de Microsoft estén conectados a la extranet.
  
@@ -104,4 +110,4 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 - Busque un proveedor de servicios. Consulte [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md).
 - Configure su conexión ExpressRoute. Consulte [Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red](expressroute-configuring-nsps.md) o [Configurar una conexión ExpressRoute a través de un proveedor de Exchange](expressroute-configuring-exps.md) para obtener instrucciones. 
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

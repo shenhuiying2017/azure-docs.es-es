@@ -42,7 +42,7 @@ Los archivos del proyecto para este tutorial se almacenarán en un directorio ll
 
 Los pasos de este tutorial usan Node.js. Debe tener una versión reciente de [Node.js][node] en su entorno de desarrollo.
 
-Additionally, the [Git] must be available from the command-line in your development environment, as this is used to deploy the application to an Azure Website.
+Adicionalmente, el [Git] debe estar disponible para la línea de comandos en el entorno de desarrollo, ya que se usa para implementar la aplicación en un Sitio web de Azure.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -571,4 +571,4 @@ Para obtener información sobre la protección de MongoDB, consulte [MongoDB Sec
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

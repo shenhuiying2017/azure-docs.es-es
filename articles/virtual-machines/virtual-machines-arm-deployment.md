@@ -56,7 +56,7 @@ Para usar Azure AD para autenticar las solicitudes con el Administrador de recur
 
 5. Reemplace {application-id} por el identificador que acaba de anotar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
 
-        New-AzureADServicePrincipal -ApplicationId {application-id}
+        New-AzureADServicePrincipal -ApplicationId {application-id} 
 
 6. Establezca el permiso para usar la aplicación:
 
@@ -109,7 +109,7 @@ Ahora que la aplicación Azure Active Directory se crea y se instala la bibliote
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
             var result = context.AcquireToken("https://management.azure.com/", cc);
-
+          
           if (result == null)
           {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -142,7 +142,7 @@ Los recursos siempre se implementan en un grupo de recursos. Utilice las clases 
 		public async static void CreateResourceGroup(TokenCloudCredentials credential)
 		{
 		  Console.WriteLine("Creating the resource group...");
-
+		  
           using (var resourceManagementClient = new ResourceManagementClient(credential))
 		  {
 		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
@@ -170,7 +170,7 @@ Se necesita una cuenta de almacenamiento para almacenar el archivo de disco duro
 		public async static void CreateStorageAccount(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the storage account...");
-
+          
           using (var storageManagementClient = new StorageManagementClient(credential))
           {
             var saResult = await storageManagementClient.StorageAccounts.CreateAsync(
@@ -183,7 +183,7 @@ Se necesita una cuenta de almacenamiento para almacenar el archivo de disco duro
         }
 
 3.	Agregue el código siguiente al método Main para llamar al método que acaba de agregar:
-
+		
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
@@ -286,7 +286,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
                 Location = "West US"
               } );
             Console.WriteLine(avSetResponse.StatusCode);
-
+                
             var networkClient = new NetworkResourceProviderClient(credential);
             var nicResponse = await networkClient.NetworkInterfaces.GetAsync("mytestrg1", "mytestnic1");
 
@@ -335,7 +335,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
                   {
                     Name = "myosdisk1",
                     CreateOption = "FromImage",
-                    VirtualHardDisk = new VirtualHardDisk
+                    VirtualHardDisk = new VirtualHardDisk 
                     {
                       Uri = "http://mytestsa1.blob.core.windows.net/vhds/myosdisk1.vhd"
                     }
@@ -346,7 +346,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
           }
         }
 
-	>[AZURE.NOTE]Los nombres de imagen vhd cambiarán regularmente en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, consulte [Administrar imágenes de Windows con Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), y, a continuación, reemplace {source-image-name} por el nombre del archivo vhd que desea utilizar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
+	>[AZURE.NOTE]Los nombres de imagen vhd cambiarán regularmente en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, consulte [Administrar imágenes de Windows con Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), y, a continuación, reemplace {source-image-name} por el nombre del archivo vhd que desea utilizar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
 
 	Reemplace {subscription-id} por el identificador de su suscripción.
 
@@ -388,4 +388,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

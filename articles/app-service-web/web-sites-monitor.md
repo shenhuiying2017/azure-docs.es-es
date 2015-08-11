@@ -55,12 +55,14 @@ Para determinar el alcance del impacto de una aplicación web en las cuotas de u
 
 	Algunas cuotas pueden aplicarse por cada plan de hospedaje web, mientras que otras pueden aplicarse por cada sitio. Para obtener información detallada sobre las cuotas de uso de cada plan de hospedaje web, consulte [Límites de sitios web](azure-subscription-service-limits.md#websiteslimits).
 
+
 ##<a name="resourceusage"></a> Evitar exceder las cuotas
 
 Las cuotas no están relacionadas con el rendimiento ni con el coste, sino que se trata de la forma en que Azure rige el uso de recursos en un entorno multiempresa al prevenir que los inquilinos realicen un uso excesivo de los recursos compartidos. Puesto que superar las cuotas supone tiempo de inactividad o una reducción de la funcionalidad de la aplicación web, tenga en cuenta lo siguiente si desea mantener su sitio en funcionamiento cuando esté a punto de superar las cuotas:
 
 - Transfiera las aplicaciones web a un plan de Servicio de aplicaciones de nivel superior para beneficiarse de cuotas más altas. Por ejemplo, la única cuota para los planes **Básico** y **Estándar** es el almacenamiento del sistema de archivos.
 - A medida que aumenta el número de instancias de una aplicación web, también aumenta la probabilidad de que se superen las cuotas de recursos compartidos. Si resulta conveniente, plantéese volver a escalar instancias adicionales de una aplicación web cuando se excedan las cuotas de recursos compartidos.
+
 
 ##<a name="howtoconfigdiagnostics"></a>Configuración de registros de diagnóstico y descarga para una aplicación web
 
@@ -277,4 +279,4 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

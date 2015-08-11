@@ -54,7 +54,9 @@ Siga estos pasos para instalar, configurar y ejecutar la versión de la comunida
 > [AZURE.NOTE]Estos pasos son para la versión 5.6.23.0 de la comunidad de MySQL y Windows Server 2012 R2. Su experiencia podría ser diferente con versiones distintas de Windows Server o de MySQL.
 
 1.	Una vez conectado a la máquina virtual mediante el Escritorio remoto, haga clic en **Internet Explorer** desde la pantalla de inicio.
-2.	Seleccione el botón **Herramientas** de la esquina superior derecha (el icono de la rueda dentada) y, a continuación, haga clic en **Opciones de Internet**. Haga clic en la pestaña **Seguridad**, haga clic en el icono **Sitios de confianza** y, a continuación, haga clic en el botón **Sitios**. Agregue **http://*.mysql.com** a la lista de sitios de confianza. Haga clic en **Cerrar** y, a continuación, haga clic en **Aceptar**. 3.	En la barra de direcciones de Internet Explorer, escriba **http://dev.mysql.com/downloads/mysql/**. 4.	Utilice el sitio de MySQL para buscar y descargar la versión más reciente del instalador de MySQL para Windows. Al elegir el instalador de MySQL, descargue la versión que tenga el conjunto completo de archivos (por ejemplo, mysql-installer-community-5.6.23.0.msi con un tamaño de archivo de 282,4 MB) y guarde el archivo del instalador en el escritorio de Windows.
+2.	Seleccione el botón **Herramientas** de la esquina superior derecha (el icono de la rueda dentada) y, a continuación, haga clic en **Opciones de Internet**. Haga clic en la pestaña **Seguridad**, haga clic en el icono **Sitios de confianza** y, a continuación, haga clic en el botón **Sitios**. Agregue **http://*.mysql.com** a la lista de sitios de confianza. Haga clic en **Cerrar** y, a continuación, haga clic en **Aceptar**. 
+3.	En la barra de direcciones de Internet Explorer, escriba **http://dev.mysql.com/downloads/mysql/**.
+4.	Utilice el sitio de MySQL para buscar y descargar la versión más reciente del instalador de MySQL para Windows. Al elegir el instalador de MySQL, descargue la versión que tenga el conjunto completo de archivos (por ejemplo, mysql-installer-community-5.6.23.0.msi con un tamaño de archivo de 282,4 MB) y guarde el archivo del instalador en el escritorio de Windows.
 5.	En el escritorio, haga doble clic en el archivo del instalador para comenzar la instalación.
 6.	En la página **Contrato de licencia**, acepte el contrato de licencia y haga clic en **Siguiente**.
 7.	En la página **Elección de un tipo de instalación**, haga clic en el tipo de instalación que desee y, a continuación, haga clic en **Siguiente**. Los pasos siguientes presuponen que se ha seleccionado el tipo de instalación **Solo servidor**.
@@ -128,4 +130,4 @@ Para obtener más información sobre MySQL, consulte la [Documentación de MySQL
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

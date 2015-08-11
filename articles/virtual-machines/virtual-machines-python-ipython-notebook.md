@@ -160,31 +160,31 @@ Además de utilizar un certificado, también debe proporcionar una contraseña p
 
 Le solicitará una contraseña y su confirmación y, a continuación, imprimirá la contraseña de la forma siguiente.
 
-    Enter password:
-    Verify password:
+    Enter password: 
+    Verify password: 
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
-
+    
 A continuación, modificaremos el archivo de configuración del perfil, que es el archivo `ipython_notebook_config.py` en el directorio de perfil en el que se encuentra. Tenga en cuenta que es posible que este archivo no exista; si es así, créelo. Estearchivo tiene varios campos que, de manera predeterminada, se convierten en comentario. Puede abrir este archivo con el editor de texto que prefiera y debe asegurase de que al menos tiene el contenido siguiente.
 
     c = get_config()
-
+    
     # This starts plotting support always with matplotlib
     c.IPKernelApp.pylab = 'inline'
-
+    
     # You must give the path to the certificate file.
-
+    
     # If using a Linux VM:
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
-
+    
     # And if using a Windows VM:
     c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
-
+    
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
-
+    
     # Network and browser details. We use a fixed port (9999) so it matches
     # our Azure setup, where we've allowed traffic on that port
-
+    
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
@@ -263,11 +263,15 @@ Las características centrales de IPython también están disponibles en Visual 
 [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
 [NumPy]: http://www.numpy.org/ "NumPy"
 [Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
+
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
+
 [repositorio]: https://github.com/ipython/ipython
 [python Tools for visual studio]: http://aka.ms/ptvs
+
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+ 
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->

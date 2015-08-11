@@ -173,16 +173,18 @@ A continuación, configure SP1 para una nueva granja de SharePoint y un sitio de
 2.	En la página de productos de SharePoint, haga clic en **Siguiente**. 
 3.	En el cuadro de diálogo que le notifica si algunos servicios podrían tener que reiniciarse durante la configuración, haga clic en **Sí**.
 4.	En la página Conexión a una granja de servidores, haga clic en **Crear una nueva granja de servidores** y, a continuación, haga clic en **Siguiente**.
-5.	En la página Especificación de la configuración de la base de datos, introduzca **sql1.corp.contoso.com** en **Servidor de base de datos**, introduzca **CORP\SPFarmAdmin** en **Nombre de usuario**, escriba la contraseña de la cuenta de SPFarmAdmin en **Contraseña** y, a continuación, haga clic en **Siguiente**.
-6.	En la página Especificar la configuración de seguridad de la granja, escriba **P@ssphrase** tanto en **Frase de contraseña** como en **Confirmar frase de contraseña** y, a continuación, haga clic en **Siguiente**. 7.	En la página Configuración de la aplicación web de administración central de SharePoint, haga clic en **Siguiente**.
+5.	En la página Especificación de la configuración de la base de datos, introduzca **sql1.corp.contoso.com** en **Servidor de base de datos**, introduzca **CORP\\SPFarmAdmin** en **Nombre de usuario**, escriba la contraseña de la cuenta de SPFarmAdmin en **Contraseña** y, a continuación, haga clic en **Siguiente**.
+6.	En la página Especificar la configuración de seguridad de la granja, escriba **P@ssphrase** tanto en **Frase de contraseña** como en **Confirmar frase de contraseña** y, a continuación, haga clic en **Siguiente**.
+7.	En la página Configuración de la aplicación web de administración central de SharePoint, haga clic en **Siguiente**.
 8.	En la página Finalización del Asistente para la configuración de productos de SharePoint, haga clic en **Siguiente**. El Asistente para configuración de productos de SharePoint puede tardar unos minutos en completarse.
 9.	En la página Configuración realizada correctamente, haga clic en **Finalizar**. Una vez finalizado, Internet Explorer se inicia con una pestaña denominada Asistente de configuración de granja inicial.
 10.	En el cuadro de diálogo **Ayudar a que SharePoint mejore**, haga clic en **No, no deseo participar** y, a continuación, haga clic en **Aceptar**.
 11.	En **¿Cómo desea configurar la granja de SharePoint?**, haga clic en **Iniciar el asistente**.
 12.	En la página Configuración de la granja de SharePoint, en **Cuenta de servicio**, haga clic en **Usar una cuenta administrada ya existente**.
 13.	En **Servicios**, desactive las casillas de verificación excepto la casilla junto a **Servicio de estado** y, a continuación, haga clic en **Siguiente**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice.
-14.	En la página Creación de colección de sitios, en **Título y descripción**, escriba **Contoso Corporation** en **Título**, especifique la dirección URL **http://sp1**/ y, a continuación, haga clic en **Aceptar**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice. En este paso se crea un sitio de equipo en la dirección URL http://sp1. 15.	En la página Esto completa el asistente de configuración de granja, haga clic en **Finalizar**. La pestaña de Internet Explorer muestra el sitio de Administración central de SharePoint 2013.
-16.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\User1 y, a continuación, inicie Internet Explorer.
+14.	En la página Creación de colección de sitios, en **Título y descripción**, escriba **Contoso Corporation** en **Título**, especifique la dirección URL **http://sp1**/ y, a continuación, haga clic en **Aceptar**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice. En este paso se crea un sitio de equipo en la dirección URL http://sp1.
+15.	En la página Esto completa el asistente de configuración de granja, haga clic en **Finalizar**. La pestaña de Internet Explorer muestra el sitio de Administración central de SharePoint 2013.
+16.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, a continuación, inicie Internet Explorer.
 17.	En la barra de direcciones, escriba **http://sp1/** y, a continuación, presione ENTRAR. Debería ver el sitio del equipo de SharePoint de Contoso Corporation. El sitio puede tardar un rato en mostrarse. 
 Esta es su configuración actual.
 
@@ -209,4 +211,4 @@ Su granja de intranet de SharePoint en un entorno de nube híbrida ya está list
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

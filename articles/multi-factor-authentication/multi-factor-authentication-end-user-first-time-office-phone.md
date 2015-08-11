@@ -25,7 +25,7 @@ Este artículo puede serle útil si desea usar el teléfono de la oficina como m
 <ol>
 <li>Seleccione Teléfono de la oficina en la lista desplegable</li>
 
-<center>! [Setup] (. / media/multi-factor-authentication-end-user-first-time-office-phone/office.png)</center>
+<center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/office.png)</center>
 
 
 <li>Especifique el país en la lista desplegable y escriba su número de teléfono móvil.</li>
@@ -38,6 +38,6 @@ Este artículo puede serle útil si desea usar el teléfono de la oficina como m
 
 
 
-<center>! [Setup] (. / media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
+<center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

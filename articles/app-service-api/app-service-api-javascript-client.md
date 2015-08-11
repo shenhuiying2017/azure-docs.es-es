@@ -36,7 +36,7 @@ Normalmente, CORS (uso compartido de recursos entre orígenes) es necesario en l
 
 ### Habilitación de CORS para puertas de enlace de aplicación de API
 
-Es posible configurar puertas de enlace de aplicación de API para habilitar CORS mediante el portal de vista previa de Azure. Agregando el *appSetting* **MS\_CrossDomainOrigins** puede especificar qué direcciones URL pueden llamar a la aplicación de API. Esta sección explicará cómo utilizar este *appSetting* para habilitar CORS en el nivel de puerta de enlace de API.
+Es posible configurar puertas de enlace de aplicación de API para habilitar CORS mediante el portal de vista previa de Azure. Agregando el *appSetting* **MS_CrossDomainOrigins** puede especificar qué direcciones URL pueden llamar a la aplicación de API. Esta sección explicará cómo utilizar este *appSetting* para habilitar CORS en el nivel de puerta de enlace de API.
 
 1. Navegue hasta la hoja del portal de vista previa de Azure para la aplicación de API en la que quiere habilitar CORS. Una vez allí, haga clic en el icono *Puerta de enlace* de la aplicación de API. 
 
@@ -371,4 +371,4 @@ Este ejemplo muestra cómo puede utilizar AngularJS como plataforma de JavaScrip
 
 En este ejemplo se muestra el acceso no autenticado a una aplicación de API. Para obtener información sobre la autenticación en el Servicio de aplicaciones, consulte [Autenticación para aplicaciones de API y aplicaciones móviles](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=July15_HO5-->
+<!----HONumber=July15_HO5-->
