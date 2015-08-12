@@ -159,7 +159,7 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
       		}
 		}
 
-	> [AZURE.NOTE]Reemplace el valor **StartDateTime** por los tres días anteriores al día actual y el valor **EndDateTime** por el día actual. Tanto StartDateTime como EndDateTime deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La tabla de salida está programada para producirse cada día, por lo que habrá tres segmentos producidos.
+	> [AZURE.NOTE]Reemplace el valor **StartDateTime** por los tres días anteriores al día actual y el valor **EndDateTime** por el día actual. Tanto StartDateTime como EndDateTime deben estar en [formato ISO](http://es.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La tabla de salida está programada para producirse cada día, por lo que habrá tres segmentos producidos.
 	> 
 	> Reemplace **la cuenta de almacenamiento** del JSON por el nombre de su cuenta de almacenamiento.
 	
@@ -353,4 +353,4 @@ Artículo | Descripción
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

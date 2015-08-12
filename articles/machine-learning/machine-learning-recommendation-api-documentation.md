@@ -202,7 +202,8 @@ Recupera todos los modelos del usuario actual.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+|||
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -257,7 +258,7 @@ OData XML
 		</entry>
 	</feed>
 
-###5\.4. Actualizar modelo
+###5.4. Actualizar modelo
 
 Puede actualizar la descripción del modelo o el Id. de compilación activa.<br> <ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un Id. de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan recomendaciones, si no se especifica el Id. de compilación que desea usar, se utilizará automáticamente el predeterminado.<br> Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
 
@@ -269,8 +270,9 @@ Puede actualizar la descripción del modelo o el Id. de compilación activa.<br>
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	id | El identificador único del modelo (distingue mayúsculas de minúsculas) |
-|	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Tenga en cuenta que Description y ActiveBuildId son opcionales. Si no desea establecer Description o ActiveBuildId, elimine la etiqueta entera.|
+|	apiVersion | 1.0 |
+||| 
+| Cuerpo de la solicitud | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Tenga en cuenta que Description y ActiveBuildId son opcionales. Si no desea establecer Description o ActiveBuildId, elimine la etiqueta entera.|
 
 **Respuesta**:
 
@@ -286,8 +288,9 @@ Elimina un modelo existente por el Id.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	id |	El identificador único del modelo (distingue mayúsculas de minúsculas) |
-|	apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+|	apiVersion | 1.0 |
+|||
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -2790,7 +2793,8 @@ Recupera todas las notificaciones para todos los modelos o para un solo modelo.
 |:--------			|:--------								|
 | modelId | Parámetro opcional. Cuando se omite, obtendrá todas las notificaciones para todos los modelos. <br>Valor válido: identificador único del modelo.|
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+|||
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta:**
 
@@ -2841,7 +2845,8 @@ Elimina todas las notificaciones de lectura para un modelo.
 |:--------			|:--------								|
 | modelId | Identificador único del modelo |
 | apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+|||
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -2857,8 +2862,9 @@ Elimina todas las notificaciones para todos los modelos.
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-| apiVersion | 1\.0 |
-||| | Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+|||
+| Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -2871,4 +2877,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

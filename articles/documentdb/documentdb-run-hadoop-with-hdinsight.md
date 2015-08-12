@@ -341,7 +341,9 @@ En este tutorial, se usa la acción de script del portal de administración de A
 
 4. Por último, vamos a almacenar los resultados en nuestra nueva colección de salida.
 
-    > [AZURE.NOTE]Sí, permitir agregar varias colecciones como salida:</br> '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br> Se separan los nombres de la colección sin espacios en blanco, con una sola coma.</br> Documentos se distribuirán en cadena por las distintas colecciones. Un lote de documentos se almacenará en una colección. A continuación, un segundo lote de documentos se almacenará en la colección siguiente y así sucesivamente.
+    > [AZURE.NOTE] Sí, permitir agregar varias colecciones como salida:</br>
+    '\<DocumentDB Output Collection Name 1>,\<DocumentDB Output Collection Name 2>'</br> Se separan los nombres de la colección sin espacios en blanco, con una sola coma.</br>
+    Documentos se distribuirán en cadena por las distintas colecciones. Un lote de documentos se almacenará en una colección. A continuación, un segundo lote de documentos se almacenará en la colección siguiente y así sucesivamente.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -487,4 +489,4 @@ Para obtener más información, consulte los artículos siguientes:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!----HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

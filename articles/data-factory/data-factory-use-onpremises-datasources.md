@@ -397,7 +397,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
 	- En la sección de **transformación** , **SqlSource** está especificado como **tipo de origen** y **BlobSink ** está especificado como **tipo de receptor**. - La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
-	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
+	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://es.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
 	Si no especifica el valor para la propiedad **end**, se calcula como "**inicio + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
 	
@@ -625,4 +625,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureDataFactoryGateway
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->
