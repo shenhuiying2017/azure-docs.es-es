@@ -112,7 +112,7 @@ Para instalar IPython y sus dependencias en la máquina virtual de Windows, use 
 
 	* Necesitará agregar `C:\OpenSSL-Win32\bin` a su variable de entorno `PATH`.
 
-	> [AZURE.NOTE]Al instalar OpenSSL, use la versión 1.0.1g, o posterior, ya que incluyen una corrección para la vulnerabilidad de seguridad Heartbleed.
+> [AZURE.NOTE]Al instalar OpenSSL, use la versión 1.0.1g, o posterior, ya que incluyen una corrección para la vulnerabilidad de seguridad Heartbleed.
 
 1.  Instale IPython con el comando siguiente.
 
@@ -274,4 +274,4 @@ Las características centrales de IPython también están disponibles en Visual 
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!----HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->
