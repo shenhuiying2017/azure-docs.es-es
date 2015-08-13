@@ -247,7 +247,7 @@ Cuando modifica los diseños proporcionados, modifica el aspecto de todas las no
 
 Para registrar un controlador de categorías para las notificaciones, debe agregar una llamada cuando se inicializa la aplicación.
 
-> [AZURE.IMPORTANT] Lea la advertencia acerca del atributo android:process <android-sdk-engagement-process> en el tema Integración de Engagement en Android antes de continuar.
+> [AZURE.IMPORTANT] Lea la advertencia acerca del atributo android:process \<android-sdk-engagement-process\> en el tema Integración de Engagement en Android antes de continuar.
 
 El siguiente ejemplo supone que reconoció la advertencia anterior y que usa una subclase de `EngagementApplication`:
 
@@ -647,4 +647,4 @@ Ahora, para comprobar su integración, lea Prueba de integración de Engagement 
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!------HONumber=July15_HO4-->
+<!---------HONumber=July15_HO4-->
