@@ -203,4 +203,4 @@ Puede encontrar un ejemplo que muestra cómo usar Azure Active Directory y el in
 [Código de ejemplo PHP para Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!-----HONumber=July15_HO4-->
+<!--------HONumber=July15_HO4-->

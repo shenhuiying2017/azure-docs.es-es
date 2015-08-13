@@ -23,7 +23,7 @@ El conector Extractor XPath de BizTalk ayuda a su aplicación a buscar y extraer
 ##Uso del Extractor XPath de BizTalk
 1. Para utilizar el Extractor XPath de BizTalk, primero debe crear una instancia de la aplicación de API del Extractor XPath de BizTalk. Esto puede hacerse ya sea en línea, mediante la creación de una aplicación lógica o mediante la selección de la aplicación de API del Extractor XPath de BizTalk desde Azure Marketplace.
 
-	>[AZURE.NOTE]
+	>[AZURE.NOTE] No hay opciones de configuración asociadas a BizTalk Xpath Extractor.
 2. [Creación de una nueva aplicación lógica] Abra "Desencadenadores y acciones" en la aplicación lógica creada para abrir el Diseñador de aplicaciones lógicas y configure el flujo.
 3. En el diseñador, el panel derecho enumera las aplicaciones de API con las que se puede compilar el flujo. Busque el «Extractor XPath de BizTalk» Si se selecciona, el Extractor Xpath se agregará al flujo y aprovisionará una instancia de él.
 2. Una vez aprovisionada, el diseñador muestra la acción asociada con la aplicación de API Extractor XPath de BizTalk.
@@ -63,4 +63,4 @@ La acción devuelve la salida como una cadena - resultado. El resultado contiene
 <!-- Links -->
 [Creación de una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO4-->
+<!----------HONumber=July15_HO4-->

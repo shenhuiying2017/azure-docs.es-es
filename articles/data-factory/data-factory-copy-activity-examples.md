@@ -191,16 +191,16 @@ En este ejemplo se da por hecho lo siguiente:
 ### Creación de un servicio vinculado del sistema de archivos local
 El siguiente ejemplo JSON puede usarse para crear un servicio vinculado con el nombre **FolderDataStore** de tipo **OnPremisesFileSystemLinkedService**.
 
-	{
-	    "name": "FolderDataStore",
-	    "properties": {
-	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\\\contoso",
-	        "userId": "username",
-	        "password": "password",
-	        "gatewayName": "ContosoGateway"
-	    }
-	}
+		{
+		    "name": "FolderDataStore",
+	    	"properties": {
+		        "type": "OnPremisesFileSystemLinkedService",
+	        	"host": "\\\\contoso",
+	        	"userId": "username",
+	        	"password": "password",
+	        	"gatewayName": "ContosoGateway"
+	    	}
+		}
 
 > [AZURE.NOTE]Recuerde que debe usar el carácter de escape '' para nombres de host y carpetas en archivos JSON. Para **\Contoso**, utilice **\\Contoso**.
 
@@ -491,4 +491,4 @@ Consulte [Referencia JSON de canalizaciones](https://msdn.microsoft.com/library/
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!----HONumber=July15_HO4-->
+<!--------HONumber=July15_HO4-->

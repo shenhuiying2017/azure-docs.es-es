@@ -18,7 +18,7 @@
 
 #Integración de cobertura para Engagement en Android
 
-> [AZURE.IMPORTANT]Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
+> [AZURE.IMPORTANT] Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 
 ##Integración estándar
 
@@ -87,7 +87,7 @@ Edite su archivo `AndroidManifest.xml`:
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT]Esta sección es **obligatoria** si planifica utilizar notificaciones del sistema al crear campañas de cobertura. Android impide que se muestren las notificaciones del sistema sin iconos. Por tanto, si omite esta sección, los usuarios finales no podrán recibirlas.
+> [AZURE.IMPORTANT] Esta sección es **obligatoria** si planifica utilizar notificaciones del sistema al crear campañas de cobertura. Android impide que se muestren las notificaciones del sistema sin iconos. Por tanto, si omite esta sección, los usuarios finales no podrán recibirlas.
 
 -   Si crea campañas con notificaciones del sistema con imagen global, deberá agregar los siguientes permisos (después de la etiqueta `</application>`) si no se encuentran presentes:
 
@@ -191,7 +191,7 @@ De manera predeterminada, una notificación en aplicación es una vista que se a
 
 Para modificar el aspecto de las superposiciones de notificación, puede simplemente modificar el archivo `engagement_notification_area.xml` según sus necesidades.
 
-> [AZURE.NOTE]El archivo `engagement_notification_overlay.xml` es el que se usa para crear una superposición de notificación; incluye el archivo `engagement_notification_area.xml`. También puede personalizarla para ajustarse a sus necesidades (como para posicionar el área de notificación dentro de la superposición).
+> [AZURE.NOTE] El archivo `engagement_notification_overlay.xml` es el que se usa para crear una superposición de notificación; incluye el archivo `engagement_notification_area.xml`. También puede personalizarla para ajustarse a sus necesidades (como para posicionar el área de notificación dentro de la superposición).
 
 ##### Incluya el diseño de la notificación como parte de un diseño de actividad
 
@@ -231,7 +231,7 @@ En este ejemplo agregamos un contenedor principal, debido a que el diseño origi
 
 El SDK de cobertura para Engagement detecta automáticamente que el diseño de notificación está incluido en esta actividad y no agregará una superposición para esta actividad.
 
-> [AZURE.TIP]Si usa una ListActivity en su aplicación, una superposición de cobertura visible impedirá que vuelva a reaccionar ante los elementos en los que se ha hecho clic en la vista de lista. Este es un problema conocido. Para solucionar este problema, le recomendamos que incruste el diseño de notificación en su propio diseño de actividad de lista, como en el ejemplo anterior.
+> [AZURE.TIP] Si usa una ListActivity en su aplicación, una superposición de cobertura visible impedirá que vuelva a reaccionar ante los elementos en los que se ha hecho clic en la vista de lista. Este es un problema conocido. Para solucionar este problema, le recomendamos que incruste el diseño de notificación en su propio diseño de actividad de lista, como en el ejemplo anterior.
 
 ##### Deshabilitación de notificación de aplicación por actividad
 
@@ -247,7 +247,7 @@ Cuando modifica los diseños proporcionados, modifica el aspecto de todas las no
 
 Para registrar un controlador de categorías para las notificaciones, debe agregar una llamada cuando se inicializa la aplicación.
 
-> [AZURE.IMPORTANT]Lea la advertencia acerca del atributo android:process <android-sdk-engagement-process> en el tema Integración de Engagement en Android antes de continuar.
+> [AZURE.IMPORTANT] Lea la advertencia acerca del atributo android:process <android-sdk-engagement-process> en el tema Integración de Engagement en Android antes de continuar.
 
 El siguiente ejemplo supone que reconoció la advertencia anterior y que usa una subclase de `EngagementApplication`:
 
@@ -497,7 +497,7 @@ Si su implementación de pasa por alto `EngagementNotifier` el comportamiento pr
 -   En el caso de las notificaciones del sistema, anuló la `onNotificationPrepared` y modificó el `contentIntent` o el `deleteIntent` en el objeto `Notification`.
 -   En el caso de las notificaciones en aplicación, anuló `prepareInAppArea`; asegúrese de asignar, al menos `actionNotification`, a uno de sus controles de la interfaz de usuario.
 
-> [AZURE.NOTE]Si `handleNotification` arroja una excepción, se elimina el contenido y se llama a `dropContent`. Esto se informa en las estadísticas y ahora es posible procesar las siguientes campañas.
+> [AZURE.NOTE] Si `handleNotification` arroja una excepción, se elimina el contenido y se llama a `dropContent`. Esto se informa en las estadísticas y ahora es posible procesar las siguientes campañas.
 
 ### Anuncios y sondeos
 
@@ -647,4 +647,4 @@ Ahora, para comprobar su integración, lea Prueba de integración de Engagement 
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!----HONumber=July15_HO4-->
+<!--------HONumber=July15_HO4-->
