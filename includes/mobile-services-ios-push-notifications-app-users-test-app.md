@@ -3,4 +3,4 @@
 
 2. Compruebe que se recibe una notificación. Además (y opcionalmente), repita los pasos anteriores en un dispositivo iOS físico diferente, una vez usando la misma cuenta de inicio de sesión y otra vez usando una cuenta de inicio de sesión diferente. Compruebe que las notificación solo sean recibidas por dispositivos autenticados con la misma cuenta de usuario.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

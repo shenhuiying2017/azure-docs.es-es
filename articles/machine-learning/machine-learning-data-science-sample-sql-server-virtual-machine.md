@@ -26,7 +26,7 @@ Este documento trata los datos de muestreo almacenados en SQL Server en Azure co
 
 En esta sección se describen varios métodos con SQL para realizar un muestreo aleatorio simple con los datos de la base de datos. Elija un método basado en el tamaño de los datos y su distribución.
 
-Los dos elementos siguientes muestran cómo utilizar newid en SQL Server para realizar el muestreo. El método que elija depende de lo aleatoria que desee que sea la muestra (se supone que pk_id del código de muestreo siguiente es una clave principal generada automáticamente).
+Los dos elementos siguientes muestran cómo utilizar newid en SQL Server para realizar el muestreo. El método que elija depende de lo aleatoria que desee que sea la muestra (se supone que pk\_id del código de muestreo siguiente es una clave principal generada automáticamente).
 
 1. Muestra aleatoria menos estricta
 
@@ -114,4 +114,4 @@ Para obtener un ejemplo de tutorial de extremo a extremo sobre la Tecnología y 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

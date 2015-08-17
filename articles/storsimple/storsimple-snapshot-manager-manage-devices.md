@@ -262,4 +262,4 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
 
 [Uso de Administrador de instantáneas para ver y administrar volúmenes StorSimple](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

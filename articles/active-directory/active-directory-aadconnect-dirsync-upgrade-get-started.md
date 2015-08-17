@@ -126,7 +126,7 @@ Cuando instala Azure AD Connect en un nuevo servidor, no encontrará DirSync y s
 1. Ejecute el instalador de Azure AD Connect (MSI).
 2. Cuando aparezca la pantalla " Azure AD Connect", salga del asistente haciendo clic en la "X" en la esquina superior derecha de las ventanas.
 3. Abra un símbolo del sistema.
-4. Desde la ubicación de instalación de Azure AD Connect (predeterminada: C:\Archivos de programa\Microsoft Azure Active Directory Connect), ejecute el siguiente comando:
+4. Desde la ubicación de instalación de Azure AD Connect (predeterminada: C:\\Archivos de programa\\Microsoft Azure Active Directory Connect), ejecute el siguiente comando:
     * AzureADConnect.exe /migrate
 
 Azure AD se conecta y le muestra la interfaz de usuario siguiente:
@@ -206,4 +206,4 @@ La siguiente es una lista de requisitos previos y componentes de soporte que Azu
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

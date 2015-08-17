@@ -132,14 +132,14 @@ Utilice el procedimiento siguiente para eliminar un grupo de volúmenes.
 
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
 
-2. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**, haga clic con el botón derecho en el nombre de un grupo de volumen y, a continuación, haga clic en **Eliminar**.
+2. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**, haga clic con el botón derecho en el nombre de un grupo de volumen y después haga clic en **Eliminar**.
 
-3. Aparece el cuadro de diálogo **Eliminar grupo de volúmenes**. Escriba **Confirmar** en el cuadro de texto y, a continuación, haga clic en **Aceptar**.
+3. Aparece el cuadro de diálogo **Eliminar grupo de volúmenes**. Escriba **Confirmar** en el cuadro de texto y después haga clic en **Aceptar**.
 
-    El grupo de volúmenes desaparecerá de la lista en del panel **Resultados** y todas las copias de seguridad asociadas a ese grupo de volúmenes se eliminan desde el catálogo de copia de seguridad.
+    El grupo de volúmenes eliminado desaparecerá de la lista en del panel **Resultados** y todas las copias de seguridad asociadas a ese grupo de volúmenes se eliminan desde el catálogo de copia de seguridad.
 
 ## Pasos siguientes
 
-[Uso de Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md).
+[Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

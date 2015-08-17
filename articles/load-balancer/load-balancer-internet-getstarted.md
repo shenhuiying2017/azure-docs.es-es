@@ -13,10 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # Introducción a la configuración del equilibrador de carga accesible desde Internet
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 Los servicios de equilibrio de carga de Microsoft Azure funcionan con todos los tipos de inquilinos (IaaS o PaaS) y toda clase de sistemas operativos (Windows o cualquier sistema operativo Linux compatible).
 
@@ -135,4 +139,4 @@ En el ejemplo siguiente, agregará un equilibrador de carga denominado "webfarm"
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

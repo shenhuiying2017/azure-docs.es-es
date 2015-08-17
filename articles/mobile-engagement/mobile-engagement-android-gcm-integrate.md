@@ -99,11 +99,11 @@ En la fecha de redacción de este documento (5 de febrero de 2014), el procedimi
 
 -   Para ello, abra la [Consola de desarrolladores de Google].
 -   Seleccione el mismo proyecto que antes en el procedimiento (el que tiene el **número de proyecto** que integró en `AndroidManifest.xml`).
--   Vaya a APIs & auth-\ > Credenciales, haga clic en "CREAR NUEVA CLAVE" en la sección "Acceso a API pública".
+-   Vaya a APIs & auth-\\ > Credenciales, haga clic en "CREAR NUEVA CLAVE" en la sección "Acceso a API pública".
 -   Seleccione "Clave de servidor".
 -   En la siguiente pantalla, déjela en blanco **(sin restricciones de IP)** y haga clic en crear.
 -   Copie la **clave de API** generada.
--   Vaya a $/#application/YOUR_ENGAGEMENT_APPID/native-push.
+-   Vaya a $/#application/YOUR\_ENGAGEMENT\_APPID/native-push.
 -   En la sección GCM edite la clave de API con la que acaba de generar y copiar.
 
 Ahora es posible seleccionar "En cualquier momento" al crear sondeos y anuncios de Reach.
@@ -123,4 +123,4 @@ Ahora, para comprobar su integración, lea Prueba de integración de Engagement 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

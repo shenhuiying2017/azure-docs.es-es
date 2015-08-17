@@ -1,14 +1,14 @@
-## Invoking stored procedure for SQL Sink
+## Invocación del procedimiento almacenado para el receptor de SQL
 
-When copying data into SQL Server or Azure SQL/SQL Server Database, a user specified stored procedure could be configured and invoked with additional parameters. 
+Al copiar datos en SQL Server o en Base de datos SQL de Azure/SQL Server, se puede configurar e invocar un procedimiento almacenado especificado por el usuario con parámetros adicionales.
 
-A stored procedure can be leveraged when built-in copy mechanisms do not serve the purpose. This is typically leveraged when extra processing (merging columns, looking up additional values, insertion into multiple tables…) needs to be done before the final insertion of source data in the destination table. 
+Cuando los mecanismos de copia integrada no prestan el servicio, se puede aprovechar un procedimiento almacenado. Normalmente, este aprovechamiento se realiza cuando es necesario realizar procesos adicionales (combinación de columnas, buscar valores adicionales, inserción en varias tablas...) antes de la inserción final de datos de origen en la tabla de destino.
 
-You may invoke a stored procedure of choice. The following sample shows how to use a stored procedure to do a simple insertion into a table in the database. 
+Puede invocar un procedimiento almacenado de su elección. En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una inserción simple en una tabla de la base de datos.
 
-**Output dataset**
+**Conjunto de datos de salida**
 
-In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use with an Azure SQL database. 
+En este ejemplo, el tipo está definido como SqlServerTable. Establézcalo en AzureSqlTable para usarlo con una base de datos de SQL de Azure.
 
 	{
 	  "name": "SqlOutput",
@@ -25,7 +25,7 @@ In this example, type is set to: SqlServerTable. Set it to AzureSqlTable to use 
 	  }
 	}
 	
-Define the SqlSink section in copy activity JSON as follows. To call a stored procedure while insert data, both SqlWriterStoredProcedureName and SqlWriterTableType properties are needed.
+Defina la sección SqlSink en el JSON de actividad de copia como se indica a continuación. Llame a un procedimiento almacenado al insertar datos, las propiedades SqlWriterStoredProcedureName y SqlWriterTableType son necesarias.
 
 	"sink":
 	{
@@ -41,7 +41,7 @@ Define the SqlSink section in copy activity JSON as follows. To call a stored pr
 	            }
 	}
 
-In your database, define the stored procedure with the same name as SqlWriterStoredProcedureName. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the tableName defined in Table JSON file.
+En la base de datos, defina el procedimiento almacenado con el mismo nombre que SqlWriterStoredProcedureName. De este modo, se administran los datos de entrada desde el origen especificado y se insertan en la tabla de salida. Tenga en cuenta que el nombre del parámetro del procedimiento almacenado tiene que ser el mismo que el de TableName definido en el archivo JSON de la tabla.
 
 	CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
 	AS
@@ -51,11 +51,13 @@ In your database, define the stored procedure with the same name as SqlWriterSto
 	    SELECT * FROM @Marketing
 	END
 
-In your database, define the table type with the same name as SqlWriterTableType. Notice that the schema of the table type should be same as the schema returned by your input data.
+En la base de datos, defina el tipo de tabla con el mismo nombre que SqlWriterTableType. Tenga en cuenta que el esquema del tipo de tabla debe ser el mismo que el esquema devuelto por los datos de entrada.
 
 	CREATE TYPE [dbo].[MarketingType] AS TABLE(
 	    [ProfileID] [varchar](256) NOT NULL,
 	    [State] [varchar](256) NOT NULL,
 	)
 
-The stored procedure feature takes advantage of [Table-Valued Parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
+
+<!---HONumber=August15_HO6-->

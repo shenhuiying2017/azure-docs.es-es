@@ -50,7 +50,7 @@ Escriba un nombre para la aplicación, seleccione **Aplicación web y/o API web*
 
 Para la **URL de inicio de sesión**, copie la **URL de redireccionamiento** de la sección **Azure Active Directory** de la pestaña **Identidades externas** en el portal del publicador y quite el sufijo **-aad** del final de la dirección URL. En este ejemplo, la **URL de inicio de sesión** es `https://aad03.portal.current.int-azure-api.net/signin`.
 
-Para la **URL de id. de aplicación**, especifique el dominio predeterminado o un dominio personalizado para Azure Active Directory y anexe a este una cadena única. En este ejemplo, el dominio predeterminado de **https://contoso5api.onmicrosoft.com** se usa con el sufijo **/api** especificado.
+Para la **URL de id. de aplicación**, especifique el dominio predeterminado o un dominio personalizado para Azure Active Directory y anexe a este una cadena única. En este ejemplo, el dominio predeterminado de ****https://contoso5api.onmicrosoft.com** se usa con el sufijo **/api** especificado.
 
 ![Propiedades de la nueva aplicación de Azure Active Directory][api-management-new-aad-application-2]
 
@@ -228,4 +228,4 @@ Ahora el usuario ha iniciado sesión en el portal para desarrolladores para la i
 
 [Inicio de sesión en el portal para desarrolladores con una cuenta de Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

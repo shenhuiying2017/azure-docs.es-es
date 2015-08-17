@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/23/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 # Actores confiables: el escenario de tutorial de HelloWorld canónico
@@ -146,7 +146,7 @@ Las herramientas de Service Fabric para Visual Studio admiten la depuración en 
 
 ## Pasos siguientes
 
-[Introducción a los actores de Service Fabric](service-fabric-reliable-actors-introduction.md) [Documentación de referencia de API de actores](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
+[Introducción a Actores confiables de Service Fabric](service-fabric-reliable-actors-introduction.md) [Documentación de referencia de las API de actores](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +156,4 @@ Las herramientas de Service Fabric para Visual Studio admiten la depuración en 
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

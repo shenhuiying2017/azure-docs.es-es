@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
 
@@ -79,7 +79,7 @@ El Servicio de aplicaciones de Azure permite evitar fácilmente los costes de in
 
 ### <a id="smallbusiness"></a>Soy dueño de un negocio pequeño y necesito una forma económica de hospedar mi sitio, pero con un crecimiento a futuro en mente.
 
-El Servicio de aplicaciones de Azure es una solución excelente para este escenario, porque puede empezar a usarlo gratis y luego agregar más capacidades cuando las necesite. Cada aplicación web gratuita incluye un dominio proporcionado por Azure (*su_compañía*.azurewebsites.net), y la plataforma incluye tanto herramientas de administración e implementación integradas como una galería de aplicaciones que permiten empezar a usarla sin complicaciones. Hay muchos otros servicios y opciones de escalado que permiten que el sitio evolucione con cuando aumente la demanda de los usuarios. Con el Servicio de aplicaciones de Azure, puede:
+El Servicio de aplicaciones de Azure es una solución excelente para este escenario, porque puede empezar a usarlo gratis y luego agregar más capacidades cuando las necesite. Cada aplicación web gratuita incluye un dominio proporcionado por Azure (*su\_compañía*.azurewebsites.net), y la plataforma incluye tanto herramientas de administración e implementación integradas como una galería de aplicaciones que permiten empezar a usarla sin complicaciones. Hay muchos otros servicios y opciones de escalado que permiten que el sitio evolucione con cuando aumente la demanda de los usuarios. Con el Servicio de aplicaciones de Azure, puede:
 
 - Comenzar con el nivel gratis y luego escalar, según sea necesario.
 - Usar la Galería de aplicaciones para configurar rápidamente aplicaciones web conocidas, como WordPress.
@@ -140,197 +140,34 @@ Además, el Servicio de aplicaciones de Azure tiene una nueva característica de
 
 La siguiente tabla compara las capacidades del Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales para ayudarle a tomar la mejor decisión. Para obtener más información acerca de los contratos de nivel de servicio para cada opción, consulte [Contratos de nivel de servicio de Azure](/support/legal/sla/).
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Característica</th>
-   <th align="left" valign="middle">Servicio de aplicaciones (aplicaciones web)</th>
-   <th align="left" valign="middle">Servicios en la nube (roles web)</th>
-   <th align="left" valign="middle">Máquinas virtuales</th>
-   <th align="left" valign="middle">Notas</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Implementación casi instantánea</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle">La implementación de una aplicación o la actualización de una aplicación a un Servicio en la nube, o la creación de una máquina virtual, toma varios minutos; la implementación de una aplicación a una aplicación web tarda segundos.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Escalado horizontal a máquinas más grandes sin volver a implementar</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Las instancias de un servidor web comparten contenido y configuración; esto significa que no es necesario volver a implementar o configurar a medida que escale.</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Varios entornos de implementación (producción y ensayo)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Administración de actualización automática del SO</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Intercambio fluido entre plataformas (mover fácilmente entre 32 bits y 64 bits)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Código de implementación con GIT, FTP</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Código de implementación con Web Deploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">Servicios en la nube admite el uso de Web Deploy para implementar actualizaciones en instancias de rol individuales. Sin embargo, no puede utilizarlo para la implementación inicial de un rol, y si utiliza Web Deploy para una actualización, tiene que realizar la implementación por separado para cada instancia de un rol. Se requieren múltiples instancias para optar al contrato de nivel de servicio de Servicio en la nube para entornos de producción.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Soporte para WebMatrix</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Acceso a servicios como Bus de servicio, Almacenamiento, Base de datos SQL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Web de host o nivel de servicios web de una arquitectura multinivel</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Nivel medio del host de una arquitectura multinivel</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Las aplicaciones web del Servicio de aplicaciones pueden hospedar con facilidad un nivel medio de la API de REST y la característica <a href="http://go.microsoft.com/fwlink/?linkid=390226">Trabajos web</a> puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. La característica de vista previa [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md) ofrece incluso más características para hospedar servicios REST.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Soporte integrado de MySQL como servicio</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Servicios en la nube puede integrar MySQL como servicio mediante las ofertas de ClearDB, pero no como parte del flujo de trabajo del Portal de administración.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Soporte para ASP.NET, ASP clásico, Node.js, PHP, Python</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Escalado horizontal a varias instancias sin volver a implementar</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para que dirija solicitudes entre las máquinas y crear un Grupo de afinidad para evitar que todas las instancias se reinicien simultáneamente debido a errores de mantenimiento o hardware.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Soporte para SSL</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">En el caso de las aplicaciones web del Servicio de aplicaciones, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para obtener más información sobre el uso de SSL con aplicaciones web, consulte <a href="../web-sites-configure-ssl-certificate/">Configuración de un certificado SSL para un Sitio web Azure</a>.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Integración de Visual Studio</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Depuración remota</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Código de implementación con TFS</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Aislamiento de red con <a href="/services/virtual-network/">Red virtual de Azure</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">Consulte también <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Integración de redes virtuales de Sitios web Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Soporte técnico para el <a href="/services/traffic-manager/">Administrador de tráfico de Azure</a></p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Supervisión de extremo integrado</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Acceso de escritorio remoto a los servidores</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Instalación de cualquier MSI personalizado</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Capacidad de definir/ejecutar tareas de inicio</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Puede atender eventos de ETW</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-</table>
+Característica|Servicio de aplicaciones (aplicaciones web)|Servicios en la nube (roles web)|Máquinas virtuales|Notas
+---|---|---|---|---
+Implementación casi instantánea|X|||La implementación de una aplicación o la actualización de una aplicación a un Servicio en la nube, o la creación de una máquina virtual, toma varios minutos; la implementación de una aplicación a una aplicación web tarda segundos.
+Escalado horizontal a máquinas más grandes sin volver a implementar|X|||
+Las instancias de un servidor web comparten contenido y configuración; esto significa que no es necesario volver a implementar o configurar a medida que escale.|X|||
+Varios entornos de implementación (producción y ensayo)|X|X||
+Administración de actualización automática del SO|X|X||
+Intercambio fluido entre plataformas (mover fácilmente entre 32 bits y 64 bits)|X|X||
+Código de implementación con GIT, FTP|X||X|
+Código de implementación con Web Deploy|X||X|Servicios en la nube admite el uso de Web Deploy para implementar actualizaciones en instancias de rol individuales. Sin embargo, no puede utilizarlo para la implementación inicial de un rol, y si utiliza Web Deploy para una actualización, tiene que realizar la implementación por separado para cada instancia de un rol. Se requieren múltiples instancias para optar al contrato de nivel de servicio de Servicio en la nube para entornos de producción.
+Soporte para WebMatrix|X||X|
+Acceso a servicios como Bus de servicio, Almacenamiento, Base de datos SQL|X|X|X|
+Web de host o nivel de servicios web de una arquitectura multinivel|X|X|X|
+Nivel medio del host de una arquitectura multinivel|X|X|X|Las aplicaciones web del Servicio de aplicaciones pueden hospedar con facilidad un nivel medio de la API de REST y la característica [Trabajos web](http://go.microsoft.com/fwlink/?linkid=390226) puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel. La característica de [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform/) de vista previa proporciona incluso más características para hospedar servicios REST.
+Soporte integrado de MySQL como servicio|X|X|X|Servicios en la nube puede integrar MySQL como servicio mediante las ofertas de ClearDB, pero no como parte del flujo de trabajo del Portal de administración.
+Soporte para ASP.NET, ASP clásico, Node.js, PHP, Python|X|X|X|
+Escalado horizontal a varias instancias sin volver a implementar|X|X|X|Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para que dirija solicitudes entre las máquinas y crear un Grupo de afinidad para evitar que todas las instancias se reinicien simultáneamente debido a errores de mantenimiento o hardware.
+Soporte para SSL|X|X|X|En el caso de las aplicaciones web del Servicio de aplicaciones, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para obtener más información sobre el uso de SSL con aplicaciones web, consulte [Configuración de un certificado SSL para un Sitio web Azure](../app-service-web/web-sites-configure-ssl-certificate/).
+Integración de Visual Studio|X|X|X|
+Depuración remota|X|X|X|
+Código de implementación con TFS|X|X|X|
+Aislamiento de red con [Red virtual de Azure](../services/virtual-network/)|X|X|X|Consulte también [Integración de redes virtuales de Sitios web Azure](../blog/2014/09/15/azure-websites-virtual-network-integration/)
+Soporte técnico para el [Administrador de tráfico de Azure](../services/traffic-manager/)|X|X|X|
+Supervisión de extremo integrado|X|X|X|
+Acceso de escritorio remoto a los servidores||X|X|
+Instalación de cualquier MSI personalizado||X|X|
+Capacidad de definir/ejecutar tareas de inicio||X|X|
+Puede atender eventos de ETW||X|X|
 
 
 > [AZURE.NOTE]Si desea empezar a usar el Servicio de aplicaciones de Azure antes de registrarse para crear una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita una aplicación básica de ASP.NET de corta duración en el Servicio de aplicaciones de Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
@@ -367,4 +204,4 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci�
   [Almacenamiento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

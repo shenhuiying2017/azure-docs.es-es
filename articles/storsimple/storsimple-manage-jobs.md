@@ -31,7 +31,7 @@ Puede buscar rápidamente los trabajos que le interesan filtrando por campos com
 
 - **Dispositivos**: los trabajos se inician en un determinado dispositivo conectado a su servicio.
 
-- **De y Para**: los trabajos se pueden filtrar según el intervalo de fecha y hora.
+- **Desde y Hasta**: los trabajos se pueden filtrar según el intervalo de fecha y hora.
 
 A continuación, los trabajos filtrados se tabulan en función de los siguientes atributos:
 
@@ -39,7 +39,7 @@ A continuación, los trabajos filtrados se tabulan en función de los siguientes
 
 - **Estado**: en ejecución, programado, con error, completado, cancelándose o cancelado.
 
-- **Entidad**: los trabajos se pueden asociados a un volumen, una directiva de copia de seguridad o un dispositivo. Un trabajo de clonación se asocia a un volumen, mientras que un trabajo de copia de seguridad programado está asociado a una directiva de copia de seguridad. Se crea un trabajo de dispositivo como resultado de una recuperación ante desastres (DR) o una operación de restauración.
+- **Entidad**: los trabajos se pueden asociar a un volumen, una directiva de copia de seguridad o un dispositivo. Un trabajo de clonación se asocia a un volumen, mientras que un trabajo de copia de seguridad programado está asociado a una directiva de copia de seguridad. Se crea un trabajo de dispositivo como resultado de una recuperación ante desastres (DR) o una operación de restauración.
 
 - **Dispositivo**: el nombre del dispositivo en el que se inició el trabajo.
 
@@ -61,13 +61,13 @@ Realice los pasos siguientes para ver los detalles de cualquier trabajo.
 
 #### Para ver los detalles del trabajo
 
-1. En la página **Trabajos**, abra los trabajos en los que esté interesado mediante la ejecución de una consulta con los filtros apropiados. Puede buscar trabajos completados, en ejecución o cancelados.
+1. En la página **Trabajos**, para mostrar los trabajos en los que esté interesado, ejecute una consulta con los filtros adecuados. Puede buscar trabajos completados, en ejecución o cancelados.
 
 2. Seleccione un trabajo.
 
 3. En la parte inferior de la página, haga clic en **Detalles**.
 
-4. En el cuadro de diálogo **Detalles del trabajo de copia de seguridad**, puede ver el estado, los detalles, las estadísticas de tiempo y de los datos.
+4. En el cuadro de diálogo **Detalles del trabajo de copia de seguridad**, puede ver el estado, los detalles, así como las estadísticas de tiempo y de los datos.
 
 ## Cancelación de un trabajo
 
@@ -75,7 +75,7 @@ Realice los pasos siguientes para cancelar un trabajo en ejecución.
 
 ### Para cancelar un trabajo
 
-1. En la página **Trabajos**, muestre los trabajos en curso que desea cancelar mediante la ejecución de una consulta con los filtros apropiados.
+1. En la página **Trabajos**, para mostrar los trabajos en curso que desea cancelar, ejecute una consulta con los filtros adecuados.
 
 1. Seleccione el trabajo.
 
@@ -89,4 +89,4 @@ Ahora se cancelará este trabajo.
 
 [Obtenga información sobre cómo administrar las directivas de copia de seguridad de StorSimple](storsimple-manage-backup-policies.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

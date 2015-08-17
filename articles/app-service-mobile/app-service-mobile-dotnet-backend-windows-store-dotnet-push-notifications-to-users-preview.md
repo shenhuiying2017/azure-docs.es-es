@@ -57,7 +57,7 @@ Antes de iniciar este tutorial, debe haber completado estos tutoriales del Servi
 
     También deseará transferir algunas instrucciones using a **MainPage.cs**.
 
-2. Use este método justo después de la llamada a **AuthenticateAsync** en **ButtonLogin_Click**.
+2. Use este método justo después de la llamada a **AuthenticateAsync** en **ButtonLogin\_Click**.
 
         await AuthenticateAsync();
         InitNotificationAsync();
@@ -107,4 +107,4 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 [plantillas]: https://msdn.microsoft.com/es-es/library/dn530748.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

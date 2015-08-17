@@ -74,4 +74,4 @@ Un lugar excelente para ver más ejemplos de cómo usar la CLI de Azure para adm
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

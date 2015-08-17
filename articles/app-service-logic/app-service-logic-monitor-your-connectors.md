@@ -133,4 +133,4 @@ Puede agregar usuarios de forma fácil y asignarles roles específicos para su a
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

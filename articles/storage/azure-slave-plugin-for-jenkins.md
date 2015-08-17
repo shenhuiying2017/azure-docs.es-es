@@ -26,7 +26,7 @@ El complemento esclavo de Azure para Jenkins le permite aprovisionar los nodos s
 3. Haga clic en la pestaña **Available** (Disponible).
 4. En el campo Filter (Filtro) encima de la lista de complementos disponibles, escriba **Azure** para limitar la lista de complementos relevantes.
 
-	Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento esclavo de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida).
+	Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento secundario de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida).
 	 
 5. Active la casilla **Azure Slave Plugin** (Complemento esclavo de Azure).
 6. Haga clic en **Install without restart** (Instalar sin reiniciar) o **Download now and install after restart** (Descargar ahora e instalar después de reiniciar).
@@ -215,4 +215,4 @@ Jenkins creará luego un nodo subordinado con la plantilla que creó en la secci
 
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

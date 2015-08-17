@@ -133,4 +133,4 @@ En el gráfico inferior aparecen los mismos datos pero desglosados por departame
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Ilustración 8 - Programación de libros"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Ilustración 9 - Informe de ejemplo para el escenario de comparación de costos de carga de trabajo"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

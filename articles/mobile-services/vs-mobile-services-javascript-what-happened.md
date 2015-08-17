@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="07/02/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # ¿Qué le ha ocurrido a mi proyecto?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
 > - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
-###¿Qué le ha ocurrido a mi proyecto?</id>
+###¿Qué le ha ocurrido a mi proyecto?
 
 #####Paquete de NuGet agregado
 
@@ -46,4 +46,4 @@ En la carpeta servicios, se han agregado los archivos de configuración de servi
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

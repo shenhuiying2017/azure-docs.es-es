@@ -218,4 +218,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

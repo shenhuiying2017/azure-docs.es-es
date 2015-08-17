@@ -269,4 +269,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Creación de una máquina virtual de Windows con el Administrador de recursos de Azure y PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

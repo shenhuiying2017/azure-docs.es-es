@@ -1,6 +1,8 @@
 <properties
+	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Tutorial de la herramienta de división y combinación de Base de datos elástica | Microsoft Azure"
 	description="División y combinación con las herramientas de Base de datos elástica"
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
@@ -141,14 +143,14 @@ Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probableme
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Asegúrese de que el nombre del servidor no comience con **https://**.
+* Asegúrese de que el nombre del servidor no comience con ****https://**.
 * Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
 
 ## Prueba de la implementación del servicio División y combinación
 
 ### Conexión con un explorador web
 
-Determine el extremo web de su servicio División y combinación. Para averiguar esto, vaya al Portal de administración de Azure, seleccione el **Panel** de su servicio en la nube y busque en **Dirección URL** del sitio en el lado derecho. Sustituya **http://** por **https://** dado que la configuración de seguridad predeterminada deshabilita el extremo HTTP. Cargue la página de esta dirección URL en el explorador.
+Determine el extremo web de su servicio División y combinación. Para averiguar esto, vaya al Portal de administración de Azure, seleccione el **Panel** de su servicio en la nube y busque en **Dirección URL** del sitio en el lado derecho. Sustituya ****http://** por ****https://** dado que la configuración de seguridad predeterminada deshabilita el extremo HTTP. Cargue la página de esta dirección URL en el explorador.
 
 ### Pruebas con scripts de PowerShell
 
@@ -328,4 +330,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

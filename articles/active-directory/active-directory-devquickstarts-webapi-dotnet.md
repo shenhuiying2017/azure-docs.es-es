@@ -134,10 +134,10 @@ Para poder ver el servicio de lista Todo en acción, deberá configurar el clien
 
 Por último, limpie, compile y ejecute cada proyecto. Si aún no lo ha hecho, ahora es el momento de crear un nuevo usuario en su inquilino con un dominio *.onmicrosoft.com. Inicie sesión en el cliente de lista de tareas pendientes con ese usuario y agregue algunas tareas a la lista de tareas pendientes del usuario.
 
-Como referencia, se proporciona el ejemplo finalizado (sin sus valores de configuración) [aquí](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Ahora puede pasar a más escenarios de identidad adicionales que es posible que desee probar:
+Como referencia, [aquí](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip) puede ver el ejemplo finalizado (sin sus valores de configuración). Ahora puede pasar a más escenarios de identidad adicionales que es posible que desee probar:
 
 [Crear un cliente nativo de .NET con Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

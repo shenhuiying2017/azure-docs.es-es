@@ -562,7 +562,7 @@ En el Panel del SDK de WebJobs, las 100 líneas más recientes de los resultados
  
 ![Clic en Alternar resultados](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-En un WebJob continuo, los registros de aplicación aparecen en /data/jobs/continuous/*{webjobname}*/job_log.txt en el sistema de archivos de la aplicación web.
+En un WebJob continuo, los registros de aplicación aparecen en /data/jobs/continuous/*{webjobname}*/job\_log.txt en el sistema de archivos de la aplicación web.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -581,4 +581,4 @@ Y en una tabla de Azure, los registros de `Console.Out` y `Console.Error` tienen
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -43,4 +43,4 @@ Si utiliza la autenticación multifactor con Office 365, le interesará crear co
 <li>Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**</li>
 <li>Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.</li>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -119,23 +119,23 @@ Utilice el procedimiento siguiente dos veces, una vez para cada servidor SQL Ser
 3.	En el panel izquierdo, haga clic con el botón derecho en el nodo superior, la instancia predeterminada con el nombre después de la máquina y, a continuación, haga clic en **Propiedades**.
 4.	En **Propiedades del servidor**, haga clic en **Configuración de base de datos**.
 5.	En **Ubicaciones predeterminadas de la base de datos**, establezca los siguientes valores:
-- Para **Datos**, establezca la ruta de acceso en **f:\Data**.
-- Para **Registro**, establezca la ruta de acceso en **f:\Log**.
-- Para **Copia de seguridad**, establezca la ruta de acceso en **f:\Backup**.
+- Para **Datos**, establezca la ruta de acceso en **f:\\Data**.
+- Para **Registro**, establezca la ruta de acceso en **f:\\Log**.
+- Para **Copia de seguridad**, establezca la ruta de acceso en **f:\\Backup**.
 - solo las bases de datos nuevas utilizan estas ubicaciones.
 6.	Haga clic en **Aceptar** para cerrar la ventana.
 7.	En el panel izquierdo, expanda la **carpeta seguridad**.
 8.	Haga clic con el botón derecho en **Inicios de sesión** y, a continuación, haga clic en **Nuevo inicio de sesión**.
-9.	En **Nombre de inicio de sesión**, escriba *dominio*\sp_farm_db en (en el que *dominio* es el nombre del dominio en el que se creó la cuenta de sp_farm_db).
+9.	En **Nombre de inicio de sesión**, escriba *dominio*\\sp\_farm\_db en (en el que *dominio* es el nombre del dominio en el que se creó la cuenta de sp\_farm\_db).
 10.	En **Seleccionar una página**, haga clic en **Roles de servidor**, en **sysadmin** y, a continuación, en **Aceptar**.
 11.	Cierre SQL Server 2014 Management Studio.
 
-Utilice el procedimiento siguiente dos veces, una vez para cada servidor SQL Server, para permitir conexiones a Escritorio remoto con la cuenta de sp_farm_db.
+Utilice el procedimiento siguiente dos veces, una vez para cada servidor SQL Server, para permitir conexiones a Escritorio remoto con la cuenta de sp\_farm\_db.
 
 1.	En la pantalla de inicio, haga clic en **Este PC** y, a continuación, haga clic en **Propiedades**.
 2.	En la ventana **Sistema**, haga clic en **Configuración remota**.
 3.	En la sección **Escritorio remoto**, haga clic en **Seleccionar usuarios** y, a continuación, haga clic en **Agregar**.
-4.	En **Escribir los nombres de objeto para seleccionar**, escriba [dominio]** \sp_farm_db** y, a continuación, haga clic en **Aceptar** tres veces.
+4.	En **Escribir los nombres de objeto para seleccionar**, escriba [dominio]** \\sp\_farm\_db** y, a continuación, haga clic en **Aceptar** tres veces.
 
 SQL Server requiere un puerto que los clientes utilizan para tener acceso al servidor de base de datos. También necesita puertos para conectar con SQL Server Management Studio y para administrar el grupo de alta disponibilidad. A continuación, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell de nivel de administrador dos veces, una vez para cada servidor SQL Server, para agregar una regla de firewall que permita el tráfico entrante al servidor SQL Server.
 
@@ -167,7 +167,7 @@ Para ambos equipos de SQL Server y el nodo de la mayoría de clúster, ejecute e
 
 Debido al comportamiento compatible que no es RFC actual por DHCP en Azure, puede producirse errores de creación de un clúster de conmutación por error de Windows Server (WSFC). Para obtener más información, busque "Comportamiento de clúster de WSFC en redes de Azure" de alta disponibilidad y recuperación ante desastres para SQL Server en Máquinas virtuales de Azure. Sin embargo, hay una solución alternativa. Para crear el clúster, siga estos pasos.
 
-1.	Inicie sesión en la máquina virtual principal de SQL Server con la cuenta de **sp_install**.
+1.	Inicie sesión en la máquina virtual principal de SQL Server con la cuenta de **sp\_install**.
 2.	Desde la pantalla de inicio, escriba **Conmutación por error** y, a continuación, haga clic en **Administrador de clústeres de conmutación por error**.
 3.	En el panel izquierdo, haga clic con el botón derecho en **Administrador de clústeres de conmutación por error** y, a continuación, haga clic en **Crear clúster**.
 4.	En la página Antes de comenzar, haga clic en **Siguiente**.
@@ -197,12 +197,12 @@ El siguiente paso es habilitar los grupos de disponibilidad AlwaysOn con el Admi
 
 Utilice estos pasos para habilitar grupos de disponibilidad AlwaysOn en SQL Server.
 
-1.	Inicie sesión en el servidor SQL Server principal mediante la cuenta de **sp_farm_db** o alguna otra cuenta que tenga el rol de servidor de sysadmin en el servidor SQL Server.
+1.	Inicie sesión en el servidor SQL Server principal mediante la cuenta de **sp\_farm\_db** o alguna otra cuenta que tenga el rol de servidor de sysadmin en el servidor SQL Server.
 2.	En la pantalla de inicio, escriba **Configuración de SQL Server** y, a continuación, haga clic en **Administrador de configuración de SQL Server**.
 3.	En el panel izquierdo, haga clic en **Servicios de SQL Server**.
 4.	En el panel de contenido, haga doble clic en **SQL Server (MSSQLSERVER)**.
 5.	En **Propiedades de SQL Server (MSSQLSERVER)**, haga clic en la pestaña **Alta disponibilidad AlwaysOn**, seleccione **Habilitar los grupos de disponibilidad de AlwaysOn**, haga clic en **Aplicar** y, a continuación, haga clic en **Aceptar** cuando se le solicite. No cierre todavía la ventana Propiedades.
-6.	Haga clic en la pestaña virtual-machines-manage-availability y, a continuación, escriba [Dominio]**\sqlservice** en **Nombre de cuenta**. Escriba la contraseña de cuenta de sqlservice en **Contraseña** y **Contraseña de confirmación** y, a continuación, haga clic en **Aceptar**.
+6.	Haga clic en la pestaña virtual-machines-manage-availability y, a continuación, escriba [Dominio]**\\sqlservice** en **Nombre de cuenta**. Escriba la contraseña de cuenta de sqlservice en **Contraseña** y **Contraseña de confirmación** y, a continuación, haga clic en **Aceptar**.
 7.	En la ventana de mensaje, haga clic en **Sí** para reiniciar el servicio de SQL Server.
 8.	Inicie sesión en el servidor secundario de SQL y repita este proceso.
 
@@ -226,4 +226,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 4: C
 
 [Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

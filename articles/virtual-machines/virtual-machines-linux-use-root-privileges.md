@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
 
 
@@ -42,7 +42,7 @@ También puede habilitar sudo sin contraseña, si edita el archivo `/etc/sudoers
 	#/etc/sudoers.d/waagent
 	azureuser ALL = (ALL) NOPASSWD: ALL
 
-Este cambio permitirá que el usuario azureuser utilice sudo sin contraseña.
+Este cambio permitirá que el usuario "azureuser" use sudo sin contraseña.
 
 ## Solo clave SSH
 
@@ -54,4 +54,4 @@ En este caso **no** se solicitará la contraseña al usuario. Después de presio
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

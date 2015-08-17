@@ -36,4 +36,4 @@ Tenga en cuenta que es perfectamente razonable usar marcos diferentes para disti
 - [Obtener más información acerca de las API de actores confiables](service-fabric-reliable-actors-introduction.md)
 - [Obtener más información acerca de las API de servicios de confianza](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

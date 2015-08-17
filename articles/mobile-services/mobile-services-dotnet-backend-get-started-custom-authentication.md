@@ -251,7 +251,7 @@ Una de las construcciones básicas de la canalización de autenticación de Serv
 
 	Este método convierte un elemento [ClaimsIdentity] en un objeto [ProviderCredentials] que se usa en la fase de emisión de tokens de autenticación. De nuevo, puede capturar otras notificaciones adicionales en este método.
 	
-6. Abra el archivo de proyecto WebApiConfig.cs en la carpeta App_Start y se crea la siguiente línea de código después de **ConfigOptions**:
+6. Abra el archivo de proyecto WebApiConfig.cs en la carpeta App\_Start y se crea la siguiente línea de código después de **ConfigOptions**:
 		
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
@@ -346,7 +346,7 @@ En la aplicación de cliente, deberá desarrollar una pantalla de inicio de sesi
 
 	Esto inicia una nueva instancia de depuración de su proyecto de back-end del servicio móvil. Después de que el servicio se inicie correctamente, verá una página de inicio con el mensaje **Este servicio móvil está funcionando**.
 
-2. En la página de inicio del servicio, haga clic en **Pruébelo** y, a continuación, escriba la contraseña definida para la configuración de la aplicación **MS_ApplicationKey** en el archivo web.config con un nombre de usuario en blanco en el cuadro de diálogo de autenticación.
+2. En la página de inicio del servicio, haga clic en **Pruébelo** y, a continuación, escriba la contraseña definida para la configuración de la aplicación **MS\_ApplicationKey** en el archivo web.config con un nombre de usuario en blanco en el cuadro de diálogo de autenticación.
 
 3. En la página de ayuda, haga clic en el extremo **CustomRegistration** y, a continuación, haga clic en **Probar esto**.
 
@@ -420,4 +420,4 @@ De este modo finaliza este tutorial.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -15,4 +15,4 @@ Crea el plan de servicio para hospedar la aplicación web. Debe proporcionar el 
        }
     }
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="05/06/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # ¿Qué le ha ocurrido a mi proyecto?
 
@@ -22,9 +22,9 @@
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
 > - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
-###¿Qué le ha ocurrido a mi proyecto?</span>
+###¿Qué le ha ocurrido a mi proyecto?
 
-#####Se han agregado referencias.
+#####Se han agregado referencias
 
 Se ha habilitado el complemento de cliente de servicio móvil de Azure con todas las aplicaciones híbridas multidispositivo.
   
@@ -41,4 +41,4 @@ En `services\mobileServices\settings`, se ha generado un nuevo archivo JavaScrip
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

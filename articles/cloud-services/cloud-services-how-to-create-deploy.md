@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -66,9 +66,9 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 ## Creación de un servicio en la nube usando Creación rápida
 
-1. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Nuevo**>**Proceso**>**Servicio en la nube**>**Creación rápida**.
+1. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Nuevo** > **Proceso** > **Servicio en la nube** > **Creación rápida**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
 2. En **URL**, escriba el nombre del subdominio que vaya a usar en la URL pública para obtener acceso a su servicio en la nube en las implementaciones de producción. El formato de la URL para las implementaciones de producción es el siguiente: http://*myURL*.cloudapp.net.
 
@@ -76,20 +76,20 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 4. Haga clic en **Crear servicio en la nube**.
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+	![CloudServices\_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
 	Puede supervisar el estado del proceso en el área de mensajes situada en parte inferior de la ventana.
 
 	El área **Servicios en la nube** se abre y en ella se muestran los servicios. Si el estado cambia a "Created", significa que la creación de servicios en la nube se ha completado correctamente.
 
-	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+	![CloudServices\_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
 ## Carga de un certificado para un servicio en la nube
 
 1. En el [Portal de administración](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, haga clic en el nombre del servicio en la nube y, a continuación, haga clic en **Certificados**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
 
 2. Haga clic en **Cargar un certificado** o en **Cargar**.
@@ -100,11 +100,11 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 5. Haga clic en **Aceptar** (marca de verificación).
 
-	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
+	![CloudServices\_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
 	Puede ver el progreso de carga en el área de mensajes que se muestra a continuación. Cuando la carga termine, el certificado se agregará a la tabla. En el área de mensajes, haga clic en OK para cerrar el mensaje.
 
-	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
+	![CloudServices\_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
 ## Implementación de un servicio en la nube
 
@@ -127,11 +127,11 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 6. Haga clic en **Aceptar** (marca de verificación) para iniciar la implementación del servicio en la nube.
 
-	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
+	![CloudServices\_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
 	Puede supervisar el estado de la implementación en el área de mensajes. Haga clic en OK para ocultar el mensaje.
 
-	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
+	![CloudServices\_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
 ## Compruebe que la implementación se haya completado correctamente.
 
@@ -141,10 +141,10 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 2. Debajo de **Vista rápida**, haga clic en la URL del sitio para abrir su servicio en la nube en un explorador web.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

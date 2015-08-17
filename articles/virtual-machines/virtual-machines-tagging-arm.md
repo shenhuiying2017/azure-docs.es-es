@@ -19,7 +19,7 @@
 
 # Etiquetado de una máquina virtual en Azure
 
-Este artículo describe diferentes maneras de etiquetar una máquina virtual en Azure. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 15 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente.
+En este artículo se describen diferentes maneras de etiquetar una máquina virtual en Azure por medio del Administrador de recursos de Azure. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 15 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solamente son compatibles para los recursos creados mediante el Administrador de recursos de Azure.
 
 ## Etiquetado de una máquina virtual mediante plantillas
 
@@ -72,7 +72,7 @@ Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es pre
 
 En primer lugar, navegue a una máquina virtual a través del cmdlet `Get-AzureVM`.
 
-        PS C:> Get-AzureVM -ResourceGroupName "MyResourceGroup" -Name "MyWindowsVM"
+        PS C:\> Get-AzureVM -ResourceGroupName "MyResourceGroup" -Name "MyWindowsVM"
 
 Si la máquina virtual ya contiene etiquetas, verá todas ellas en el recurso:
 
@@ -87,11 +87,11 @@ Si desea agregar etiquetas a través de PowerShell, puede usar el comando `Set-A
 
 Este primer cmdlet establece todas las etiquetas colocadas en *MyWindowsVM* con la variable *tags*, para lo que emplea las funciones `Get-AzureResource` y `Tags`.
 
-        PS C:> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
+        PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
 El segundo comando muestra las etiquetas de la variable especificada.
 
-        PS C:> $tags
+        PS C:\> $tags
 
         Name		Value
         ----                           -----
@@ -106,15 +106,15 @@ El segundo comando muestra las etiquetas de la variable especificada.
 
 El tercer comando agrega una etiqueta adicional a la variable *tags*. Observe el uso de **+=** para anexar el nuevo par de clave-valor a la lista de *tags*.
 
-        PS C:> $tags +=@{Name="Location";Value="MyLocation"}
+        PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
 El cuarto comando establece todas las etiquetas definidas en la variable *tags* en el recurso especificado. En este caso, es MyWindowsVM.
 
-        PS C:> Set-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview -Tag $tags
+        PS C:\> Set-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview -Tag $tags
 
 El quinto comando muestra todas las etiquetas en el recurso. Como puede ver, *Location* está definido como una etiqueta, con *MyLocation* como valor.
 
-        PS C:> (Get-AzureResource -ResourceName "MyWindowsVM" -ResourceGroupName "MyResourceGroup" -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview).Tags
+        PS C:\> (Get-AzureResource -ResourceName "MyWindowsVM" -ResourceGroupName "MyResourceGroup" -ResourceType "Microsoft.Compute/VirtualMachines" -ApiVersion 2015-05-01-preview).Tags
 
         Name		Value
         ----                           -----
@@ -187,4 +187,4 @@ Mediante el análisis de estas junto con el uso, las organizaciones podrán obte
 [Comprender la factura de Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

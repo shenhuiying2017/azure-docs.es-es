@@ -302,4 +302,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y del panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -80,9 +80,9 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
  
 **Parámetros:**<br>
 
-|Nombre| Obligatorio/Repetición | Escriba | Notas |
+|Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **source1 .. sourceN ** | Obligatorio, número variable de veces | Cadena | valores de **origen** de entre los que elegir |
+| ****source1 .. sourceN ** | Obligatorio, número variable de veces | Cadena | valores **source** de entre los que elegir |
 
 
 
@@ -91,14 +91,14 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Función:**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Descripción:**<br> adopta una cadena de fecha de un formato y lo convierte a un formato distinto.
+**Descripción:**<br> adopta una cadena de fecha en un formato y la convierte a un formato distinto.
  
 **Parámetros:**<br>
 
-|Nombre| Obligatorio/Repetición | Escriba | Notas |
+|Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
 | **de origen** | Obligatorio | Cadena | Normalmente el nombre del atributo del objeto de origen. |
-| **inputFormat** | Obligatorio | Cadena | Formato esperado del valor de origen. Para los formatos admitidos, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** | Obligatorio | Cadena | Formato esperado del valor de origen. Para saber los formatos admitidos, vea [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** | Obligatorio | Cadena | Formato de la fecha de salida. |
 
 
@@ -118,7 +118,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
 | **separator** | Obligatorio | Cadena | Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
-| **source1 … sourceN ** | Obligatorio, número variable de veces | Cadena | Valores de cadena que se van a agrupar. |
+| ****source1 … sourceN ** | Obligatorio, número variable de veces | Cadena | Valores de cadena que se van a agrupar. |
 
 
 
@@ -134,11 +134,11 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br>
 
-|Nombre| Obligatorio/Repetición | Escriba | Notas |
+|Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
 | **de origen** | Obligatorio | Cadena | Valor **source** en el que buscar. |
 | **find** | Obligatorio | Cadena | Expresión regular que coincida en el valor **source**. |
-| **group** | Opcional | Cadena | Nombre del grupo dentro de la coincidencia de expresión regular cuyo valor se desea utilizar. |
+| **group** | Opcional | String | Nombre del grupo dentro de la coincidencia de expresión regular cuyo valor se desea utilizar. |
 
 
 
@@ -155,8 +155,8 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
 | **de origen** | Obligatorio | String | Normalmente el nombre del atributo. |
-| **start** | Obligatorio | integer | Índice en la cadena de **origen** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
-| **length** | Obligatorio | integer | Longitud de la subcadena. Si la longitud acaba fuera de la cadena de **origen**, la función devolverá la subcadena desde el índice de **inicio** hasta el final de la cadena de **origen**. |
+| **start** | Obligatorio | integer | Índice en la cadena **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
+| **length** | Obligatorio | integer | Longitud de la subcadena. Si la longitud acaba fuera de la cadena de **source**, la función devolverá la subcadena desde el índice **start** hasta el final de la cadena **source**. |
 
 
 
@@ -166,14 +166,14 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Función:**<br> Not(source)
 
-**Descripción:**<br> invierte el valor booleano del **origen**. Si el valor de **source** es "*True*", devuelve "*False*". De lo contrario, devuelve "*True*".
+**Descripción:**<br> invierte el valor booleano del valor **source**. Si el valor **source** es "*True*", devuelve "*False*". De lo contrario, devuelve "*True*".
 
 
 **Parámetros:**<br>
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **de origen** | Obligatorio | Cadena booleana | Los valores de **origen** esperados son "True" o "False". |
+| **de origen** | Obligatorio | Cadena booleana | Los valores **source** esperados son "True" o "False". |
 
 
 
@@ -193,17 +193,17 @@ Reemplaza los valores dentro de una cadena. Funciona de forma diferente dependie
 
 - Cuando se proporcionan **oldValue** y **template**:
 
-   - Reemplaza todas las ocurrencias de **oldValue** en **template** con el valor **source**
+   - Reemplaza todas las repeticiones de **oldValue** en **template** con el valor **source**
 
-- Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName** y **replacementValue**:
+- Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue**:
 
    - Reemplaza todos los valores que coinciden en oldValueRegexPattern en la cadena de origen con replacementValue
 
-- Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName** y **replacementPropertyName**:
+- Cuando se proporcionan **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName**:
 
    - Si **source** tiene algún valor, se devuelve **source**
 
-- Si **source** no tiene ningún valor, utiliza **oldValueRegexPattern** y **oldValueRegexGroupName**para extraer el valor de reemplazo de la propiedad con **replacementPropertyName**. El valor de reemplazo se devuelve como resultado
+- Si **source** no tiene ningún valor, usa **oldValueRegexPattern** y **oldValueRegexGroupName** para extraer el valor de reemplazo de la propiedad con **replacementPropertyName**. El valor de reemplazo se devuelve como resultado
 
 
 **Parámetros:**<br>
@@ -216,7 +216,7 @@ Reemplaza los valores dentro de una cadena. Funciona de forma diferente dependie
 | **regexGroupName** | Opcional | Cadena | Nombre del grupo dentro de **regexPattern**. Sólo cuando se utiliza replacementPropertyName, se extrae el valor de este grupo como replacementValue de la propiedad de reemplazo. |
 | **replacementValue** | Opcional | Cadena | Nuevo valor para reemplazar uno anterior. |
 | **replacementAttributeName** | Opcional | String | Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
-| **template** | Opcional | Cadena | Cuando se proporcione el valor **template**, buscaremos **oldValue**dentro de la plantilla y lo reemplazaremos por el valor de origen. |
+| **template** | Opcional | Cadena | Cuando se proporcione el valor **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de origen. |
 
 
 
@@ -225,15 +225,15 @@ Reemplaza los valores dentro de una cadena. Funciona de forma diferente dependie
 
 **Función:**<br> Replace(source, find, replace)
 
-**Descripción:**<br> reemplaza todas las ocurrencias del valor **find** en la cadena **source** con el valor del parámetro **replace**.
+**Descripción:**<br> reemplaza todas las repeticiones del valor **find** en la cadena **source** con el valor del parámetro **replace**.
 
 **Parámetros:**<br>
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **de origen** | Obligatorio | String | Valor **source** en el que buscar. |
+| **de origen** | Obligatorio | Cadena | Valor **source** en el que buscar. |
 | **find** | Obligatorio | String | Valor que hay que buscar. |
-| **replace** | Obligatorio | Cadena | Valor por el que reemplazar. |
+| **replace** | Obligatorio | String | Valor por el que reemplazar. |
 
 
 
@@ -242,7 +242,7 @@ Reemplaza los valores dentro de una cadena. Funciona de forma diferente dependie
 
 **Función:**<br> ReplaceRegex(source, find, replace, group)
 
-**Descripción:**<br> dentro de la cadena **source**, reemplaza todas las subcadenas que coinciden con la expresión regular **find** por el valor **replace**. Si se especifica un **grupo**, sólo reemplaza el valor de dicho grupo RegEx.
+**Descripción:**<br> dentro de la cadena **source**, reemplaza todas las subcadenas que coinciden con la expresión regular **find** por el valor **replace**. Si se especifica un parámetro **grupo**, solo reemplaza el valor de dicho grupo RegEx.
 
 **Parámetros:**<br>
 
@@ -267,7 +267,7 @@ Reemplaza los valores dentro de una cadena. Funciona de forma diferente dependie
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **de origen** | Obligatorio | String | Valor **source** para actualizar. |
+| **de origen** | Obligatorio | String | Valor **source** que se va a actualizar. |
 
 
 
@@ -276,16 +276,16 @@ Reemplaza los valores dentro de una cadena. Funciona de forma diferente dependie
 
 **Función:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
-**Descripción:**<br> si el valor **source** coincide con una **clave**, devuelve el **valor** para dicha **clave**. Si el valor de **source** no coincide con ninguna clave, devuelve **defaultValue**. Los parámetros **key** y **value** siempre deben estar emparejados. La función espera siempre un número par de parámetros.
+**Descripción:**<br> si el valor **source** coincide con un parámetro **key**, devuelve el parámetro **value** de dicho **key**. Si el valor de **source** no coincide con ninguna clave, devuelve **defaultValue**. Los parámetros **key** y **value** siempre deben estar emparejados. La función espera siempre un número par de parámetros.
 
 **Parámetros:**<br>
 
 |Nombre| Obligatorio/Repetición | Tipo | Notas |
 |--- | ---                 | ---  | ---   |
-| **de origen** | Obligatorio | String | Valor **source** para actualizar. |
+| **de origen** | Obligatorio | String | Valor **source** que se va a actualizar. |
 | **defaultValue** | Opcional | Cadena | Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
-| **key** | Obligatorio | Cadena | **Key** con que comparar el valor de **source**. |
-| **value** | Obligatorio | Cadena | Valor de reemplazo para el valor de **source** que coinciden con la clave. |
+| **key** | Obligatorio | Cadena | **Clave** con la que se compara el valor **source**. |
+| **value** | Obligatorio | Cadena | Valor de reemplazo para el valor **source** que coincide con la clave. |
 
 
 
@@ -293,14 +293,14 @@ Reemplaza los valores dentro de una cadena. Funciona de forma diferente dependie
 
 ### Seccionar un nombre de dominio conocido
 
-Debe seccionar un nombre de dominio conocido de correo electrónico de un usuario para obtener un nombre de usuario. <br> Por ejemplo, si el dominio es "contoso.com", puede utilizar la expresión siguiente:
+Debe seccionar un nombre de dominio conocido de correo electrónico de un usuario para obtener un nombre de usuario. <br> Por ejemplo, si el dominio es "contoso.com", puede usar la expresión siguiente:
 
 
 **Expresión:** <br> `Replace([mail], "@contoso.com", "")`
 
-**Entrada/salida de ejemplo:** <br>
+**Entrada/salida de muestra:** <br>
 
-- **ENTRADA** (correo): "john.doe@contoso.com"
+- **ENTRADA** (mail): "john.doe@contoso.com"
 
 - **SALIDA**: "john.doe"
 
@@ -315,7 +315,7 @@ Si está utilizando un espacio aislado de Salesforce, deberá anexar un sufijo a
 
 **Expresión:** <br> `Append([userPrincipalName], ".test"))`
 
-**Entrada/salida de ejemplo:**<br>
+**Entrada/salida de muestra:** <br>
 
 - **ENTRADA**: (userPrincipalName): "John.Doe@contoso.com"
 
@@ -333,20 +333,20 @@ Debe generar un alias de usuario con las tres primeras letras del nombre del usu
 
 **Expresión:** <br> `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**Entrada/salida de ejemplo:**<br>
+**Entrada/salida de muestra:** <br>
 
-- **ENTRADA** (Nombre): "John"
+- **ENTRADA** (givenName): "John"
 
-- **SALIDA** (apellido): "Doe"
+- **ENTRADA** (surname): "Doe"
 
-- **RESULTADO**: "JohDoe"
+- **SALIDA**: "JohDoe"
 
 
 
 
 ### Fecha de resultado como una cadena en un formato determinado
 
-Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br> Por ejemplo, desea formatear las fechas para ServiceNow.
+Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br> Por ejemplo, desea formatear fechas para ServiceNow.
 
 
 
@@ -366,7 +366,7 @@ Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br> 
 
 ### Reemplazar un valor basado en un conjunto predefinido de opciones
 
-Debe definir la zona horaria del usuario según el código de estado almacenado en Azure AD. <br> Si el código de estado no coincide con ninguna de las opciones predefinidas, utilice el valor predeterminado de "Australia/Sídney".
+Debe definir la zona horaria del usuario según el código de estado almacenado en Azure AD. <br> Si el código de estado no coincide con ninguna de las opciones predefinidas, use el valor predeterminado de "Australia/Sídney".
 
 
 **Expresión:** <br>
@@ -375,16 +375,11 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 
 **Entrada/salida de ejemplo:**
 
-- **ENTRADA** (estado): "QLD"
+- **ENTRADA** (state): "QLD"
 
 - **SALIDA**: "Australia/Brisbane"
 
 
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-## Recursos adicionales
-
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-<!--Image references-->
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

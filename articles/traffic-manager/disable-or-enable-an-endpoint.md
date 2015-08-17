@@ -50,4 +50,4 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 [Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

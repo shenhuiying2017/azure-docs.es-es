@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="mandia"/>
 
 # Conectores negocio a negocio y aplicaciones de API en el Servicio de aplicaciones de Microsoft Azure
@@ -49,7 +49,7 @@ Cuando cree aplicaciones de API B2B, necesitará algunos recursos. Estos element
 
 Requisito | Descripción
 --- | ---
-Base de datos SQL de Azure | Almacena elementos B2B, lo que incluye socios, esquemas, certificados y acuerdos. Cada una de las aplicaciones de API de B2B requiere su propia base de datos de SQL Azure. <br/><br/>**Nota** Copie la cadena de conexión en esta base de datos.<br/><br/>[Creación de una base de datos SQL Azure](../sql-database-create-configure.md)
+Base de datos SQL de Azure | Almacena elementos B2B, lo que incluye socios, esquemas, certificados y acuerdos. Cada una de las aplicaciones de API de B2B requiere su propia base de datos de SQL Azure. <br/><br/>**Nota** Copie la cadena de conexión en esta base de datos.<br/><br/>[Creación de una base de datos SQL Azure](../sql-database-get-started.md)
 Contenedor de Almacenamiento de blobs de Azure | Almacena las propiedades de los mensajes cuando está habilitado el archivado AS2. Si no necesita el archivado de mensajes de AS2, no se necesita un contenedor de almacenamiento. <br/><br/>**Nota** Si va a habilitar el archivado, copie la cadena de conexión para el almacenamiento de blobs.<br/><br/>[Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md)
 Espacio de nombres de Bus de servicio y sus valores de clave | Almacena datos de procesamiento por lotes X12 y EDIFACT. Si no necesita el procesamiento por lotes, no es necesario un espacio de nombres del Bus de servicio.<br/><br/>**Nota** Si va a habilitar el procesamiento por lotes, copie estos valores.<br/><br/>[Creación de un espacio de nombres del Bus de servicio](http://msdn.microsoft.com/library/azure/hh690931.aspx)
 Instancia de TPM | Una instancia de Administración de socios comerciales de BizTalk (TPM) es necesaria para crear un conector AS2 y la aplicación de API X12 o EDIFACT. Cuando crea la aplicación de API TPM, está creando la instancia de TPM.<br/><br/>**Nota** Conozca el nombre de su aplicación de API TPM. 
@@ -205,4 +205,4 @@ En los siguientes pasos se agregan las aplicaciones de API B2B a las aplicacione
 
 [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

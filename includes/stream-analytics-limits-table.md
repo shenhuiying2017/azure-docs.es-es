@@ -6,4 +6,4 @@
 | Limitación de la consulta de la instrucción SELECT | 5 salidas por consulta | Es posible que este límite aumente en el futuro. |
 | Limitación de la subconsulta de la instrucción SELECT | 14 agregados por subconsulta | Es posible que este límite aumente en el futuro. |
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

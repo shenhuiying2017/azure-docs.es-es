@@ -111,7 +111,7 @@ Al crear un servicio en la nube, servicio de almacenamiento o grupo de afinidad,
 - Oeste de EE. UU.
 - Este de EE. UU.
 
-En los siguientes ejemplos de código, las ubicaciones se traspasan a los métodos como cadenas. Sin embargo, también puede pasar las ubicaciones como enumeraciones con la utilización de la clase <code>WindowsAzure\ServiceManagement\Models\Locations</code>. Por ejemplo, en lugar de pasar "Oeste de EE. UU." a un método que acepta una ubicación, podría pasar <code>Locations::WEST_US</code>.
+En los siguientes ejemplos de código, las ubicaciones se traspasan a los métodos como cadenas. Sin embargo, también puede pasar las ubicaciones como enumeraciones con la utilización de la clase <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code>. Por ejemplo, en lugar de pasar "Oeste de EE. UU." a un método que acepta una ubicación, podría pasar <code>Locations::WEST\_US</code>.
 
 ## Creación de un servicio en la nube
 
@@ -485,7 +485,7 @@ Para crear un grupo de afinidad, necesita un nombre, una etiqueta (el nombre de 
 
 Tras haber creado un grupo de afinidad, puede especificar el grupo (en lugar de una ubicación) al [crear un servicio de almacenamiento](#CreateStorageService).
 
-Puede enumerar grupos de afinidad e inspeccionar sus propiedades si llama al método **listAffinityGroups** y, a continuación, llama a los métodos adecuados en la clase [AffinityGroup]:
+Puede enumerar grupos de afinidad e inspeccionar sus propiedades si llama al método **listAffinityGroups** y, a continuación, llama a los métodos adecuados en la clase [AffinityGroup]\:
 
 	$result = $serviceManagementRestProxy->listAffinityGroups();
 
@@ -555,4 +555,4 @@ Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método
 
 [Esquema de configuración del servicio de Azure (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

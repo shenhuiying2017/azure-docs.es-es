@@ -39,7 +39,7 @@ Para obtener información general de las opciones de implementación del clúste
 
 * **Suscripción de Azure**: puede usar una suscripción en el servicio Azure Global o Azure China. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de clúster con tamaños de VM de múltiples núcleos. Por ejemplo, en este artículo, necesitará al menos 24 núcleos. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo.
+* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de clúster con tamaños de VM de múltiples núcleos. Por ejemplo, en este artículo, necesitará al menos 24 núcleos. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
 ### Creación del archivo de configuración
 El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster pequeño que consta de un nodo principal y dos nodos de proceso de Linux, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para obtener más información sobre el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script o la [documentación de script](https://msdn.microsoft.com/library/azure/dn864734.aspx).
@@ -104,13 +104,13 @@ A continuación se incluyen descripciones breves de los elementos en el archivo 
 
 * **Nodo principal**: configuración del nodo principal de HPC Pack. En este ejemplo, crearemos un nodo principal de tamaño A7 denominado CentOS7RDMA-HN en el servicio en la nube centos7rdma-je. Para admitir el envío de trabajos de HPC desde equipos cliente remotos (no unidos a un dominio), el script habilitará la API de REST del programador de trabajos y el portal web de HPC.
 
-* **LinuxComputeNodes**:configuración de los nodos de proceso de HPC Pack Linux. En este ejemplo, crearemos nodos de proceso A7 CentOS Linux 7 Linux de dos tamaños (CentOS7RDMA-LN1 y CentOS7RDMA-LN2) en el servicio en la nube centos7rdma-je.
+* **LinuxComputeNodes**: configuración de los nodos de proceso de HPC Pack Linux. En este ejemplo, crearemos nodos de proceso A7 CentOS Linux 7 Linux de dos tamaños (CentOS7RDMA-LN1 y CentOS7RDMA-LN2) en el servicio en la nube centos7rdma-je.
 
 ### Consideraciones adicionales sobre los nodos de proceso de Linux
 
 * Actualmente, HPC Pack admite las siguientes distribuciones de Linux para nodos de proceso: Ubuntu Server 14.10, CentOS 6.6, CentOS 7.0 y SUSE Linux Enterprise Server 12.
 
-* En el ejemplo de este artículo, se usa una versión específica de CentOS que está disponible en Azure Marketplace para crear el clúster. Si desea usar otras imágenes disponibles, use el cmdlet **get-azurevmimage** de PowerShell de Azure para encontrar la que necesita. Por ejemplo, para enumerar todas las imágenes de CentOS 7.0, ejecute el comando siguiente: ```
+* En el ejemplo de este artículo, se usa una versión específica de CentOS que está disponible en Azure Marketplace para crear el clúster. Si desea usar otras imágenes disponibles, use el cmdlet **get-azurevmimage** de Azure PowerShell para encontrar la que necesita. Por ejemplo, para enumerar todas las imágenes de CentOS 7.0, ejecute el comando siguiente: ```
     get-azurevmimage | ?{$_.Label -eq "OpenLogic 7.0"}
     ```
 
@@ -274,7 +274,7 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
 > clusrun whoami
 ```
 
-* Instale la herramienta de depuración **gdb** con **yum**en todos los nodos del grupo linuxnodes y reinícielos después de 10 minutos.
+* Instale la herramienta de depuración **gdb** con **yum** en todos los nodos del grupo linuxnodes y reinícielos después de 10 minutos.
 
     ```
 > clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
@@ -292,7 +292,7 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
 
 ## Pasos siguientes
 
-* Use **clusrun**para instalar la aplicación de Linux en los nodos de proceso y envíe un trabajo al clúster de HPC Pack.
+* Use **clusrun** para instalar la aplicación de Linux en los nodos de proceso y envíe un trabajo al clúster de HPC Pack.
 
 * Intente escalar verticalmente el clúster a un número de nodos más grande o implemente nodos de proceso de tamaño[A8 o A9](virtual-machines-a8-a9-a10-a11-specs.md) para ejecutar cargas de trabajo de MPI.
 
@@ -311,4 +311,4 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

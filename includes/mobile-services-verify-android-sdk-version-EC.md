@@ -2,7 +2,7 @@ Debido al desarrollo en curso, la versión del SDK de Android instalada en Eclip
 
 Dos síntomas de error de coincidencia de la versión son los siguientes:
 
-1. Mire en la consola de Eclipse en el panel inferior. Es posible que vea los mensajes de error del tipo "**No se puede resolver el destino 'android-n'**".
+1. Mire en la consola de Eclipse en el panel inferior. Es posible que vea los mensajes de error del tipo "**Unable to resolve target 'android-n'**".
 
 2. Los objetos de Android estándar del código que deben resolverse según las instrucciones `import` pueden generar mensajes de error.
 
@@ -19,4 +19,4 @@ Si observa alguna de estas señales, es posible que la versión del SDK de Andro
 	
 3. En el Explorador de paquetes de Eclipse, haga clic con el botón secundario en el nodo de proyecto, seleccione **Properties** (Propiedades) y, en la columna izquierda, seleccione **Android**. Asegúrese de que **Destino de compilación de proyecto** se haya establecido en la misma versión de SDK que **targetSdkVersion**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

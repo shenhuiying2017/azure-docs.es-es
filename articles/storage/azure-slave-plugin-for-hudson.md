@@ -26,7 +26,7 @@ El complemento esclavo de Azure para Hudson le permite aprovisionar los nodos su
 3. Haga clic en la pestaña **Available** (Disponible).
 4. Haga clic en **Search** (Buscar) y escriba **Azure** para limitar la lista de complementos relevantes.
 
-	Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento esclavo de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida) de la pestaña **Others** (Otros).
+	Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento secundario de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida) de la pestaña **Others** (Otros).
 	 
 5. Active la casilla **Azure Slave Plugin** (Complemento esclavo de Azure).
 6. Haga clic en **Instalar**.
@@ -213,4 +213,4 @@ Hudson creará luego un nodo subordinado con la plantilla que creó en la secci�
 
   
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

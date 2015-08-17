@@ -134,4 +134,4 @@ Empiece a ejecutar cosas en su enjambre. Si necesita inspiración, consulte [htt
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

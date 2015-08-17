@@ -92,7 +92,6 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 	</pre>
 
 6.	Ahora realizará los cambios correspondientes en Web.config. Abra Web.config y modifique la configuración de la aplicación como se resalta a continuación:
-
 	<pre class="prettyprint">
 	&lt;appSettings>
 		&lt;add key="webpages:Version" value="3.0.0.0" />
@@ -354,4 +353,4 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
  
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

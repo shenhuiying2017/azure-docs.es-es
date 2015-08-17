@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="02/09/2015"
 	ms.author="huvalo"/>
 
@@ -139,4 +139,4 @@ Para obtener más información sobre el uso de servicios de Azure desde roles we
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

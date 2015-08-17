@@ -74,11 +74,11 @@ La herramienta de importación y exportación de Microsoft Azure genera un archi
 
 ### Creación del trabajo de importación
 
-1.	Una vez preparada la unidad, diríjase a su cuenta de almacenamiento en el Portal de administración y visualice el Panel. En <strong>Vista rápida</strong>, haga clic en <strong>Crear un trabajo de importación</strong>. 
+1.	Una vez preparada la unidad, diríjase a su cuenta de almacenamiento en el Portal de administración y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de importación**. 
  
 2.	En el paso 1 del asistente, indique que ha preparado su unidad y que tiene el archivo de diario de la unidad disponible.
  
-3.	En el paso 2, proporcione la información de contacto de la persona responsable de este trabajo de importación. Si desea guardar datos de registro detallados del trabajo de importación, active la opción <strong>Guardar el registro detallado en mi contenedor de blobs 'waimportexport'</strong>.
+3.	En el paso 2, proporcione la información de contacto de la persona responsable de este trabajo de importación. Si desea guardar datos de registro detallados del trabajo de importación, active la opción **Guardar el registro detallado en mi contenedor de blobs 'waimportexport'**.
 
 4.	En el paso 3, cargue los archivos de diario de unidad que haya obtenido durante el paso de preparación de la unidad. Tendrá que cargar un archivo por cada unidad que haya preparado.
 
@@ -104,9 +104,9 @@ La herramienta de importación y exportación de Microsoft Azure genera un archi
 
 Cree un trabajo de exportación para notificar al servicio de importación y exportación que va a enviar al centro de datos una o varias unidades vacías, para que se exporten los datos de su cuenta de almacenamiento a las unidades y recibirlas posteriormente.
 
-1. 	Para crear un trabajo de exportación, diríjase a su cuenta de almacenamiento en el Portal de administración y visualice el Panel. En <strong>Vista rápida</strong>, haga clic en <strong>Crear un trabajo de exportación</strong> y siga los pasos del asistente.
+1. 	Para crear un trabajo de exportación, diríjase a su cuenta de almacenamiento en el Portal de administración y visualice el Panel. En **vista rápida**, haga clic en **Crear un trabajo de exportación** y siga los pasos del asistente.
 
-2. 	En el paso 2, proporcione la información de contacto de la persona responsable de este trabajo de exportación. Si desea guardar datos de registro detallados del trabajo de exportación, active la opción <strong>Guardar el registro detallado en mi contenedor de blobs 'waimportexport</strong>'.
+2. 	En el paso 2, proporcione la información de contacto de la persona responsable de este trabajo de exportación. Si desea guardar datos de registro detallados del trabajo de exportación, active la opción **Guardar el registro detallado en mi contenedor de blobs 'waimportexport'**.
 
 3.	En el paso 3, especifique los datos de blobs que desea exportar desde su cuenta de almacenamiento a una o varias unidades vacías. Puede elegir exportar todos los datos de blobs de la cuenta de almacenamiento o especificar los blobs o conjuntos de blobs que se van a exportar.
 
@@ -117,50 +117,15 @@ Cree un trabajo de exportación para notificar al servicio de importación y exp
 
 	La tabla muestra ejemplos de rutas de blob válidas:
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Selector</strong></td>
-			<td><strong>Ruta del blob</strong></td>
-			<td><strong>Descripción</strong></td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/</td>
-			<td>Exporta todos los blobs de la cuenta de almacenamiento.</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/$root/</td>
-			<td>Exporta todos los blobs del contenedor raíz.</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/book</td>
-			<td>Exporta todos los blobs de cualquier contenedor que empiecen por el prefijo <strong>book</strong>.</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/music/</td>
-			<td>Exporta todos los blobs del contenedor <strong>music</strong>.</td>
-		</tr>
-		<tr>
-			<td>Starts With</td>
-			<td>/music/love</td>
-			<td>Exporta todos los blobs del contenedor <strong>music</strong> que empiecen por el prefijo <strong>love</strong>.</td>
-		</tr>
-		<tr>
-			<td>Equal To</td>
-			<td>$root/logo.bmp</td>
-			<td>Exporta el blob <strong>logo.bmp</strong> del contenedor raíz.</td>
-		</tr>
-		<tr>
-			<td>Equal To</td>
-			<td>videos/story.mp4</td>
-			<td>Exporta el blob <strong>story.mp4</strong> del contenedor <strong>videos</strong></td>
-		</tr>
-	</tbody>
-</table>
+	Selector|Ruta del blob|Descripción
+	---|---|---
+	Starts With|/|Exporta todos los blobs de la cuenta de almacenamiento.
+	Starts With|/$root/|Exporta todos los blobs del contenedor raíz.
+	Starts With|/book|Exporta todos los blobs de cualquier contenedor que empiecen por el prefijo **book**.
+	Starts With|/music/|Exporta todos los blobs del contenedor **music**.
+	Starts With|/music/love|Exporta todos los blobs del contenedor **music** que empiecen por el prefijo **love**.
+	Equal To|$root/logo.bmp|Exporta el blob **logo.bmp** del contenedor raíz.
+	Equal To|videos/story.mp4|Exporta el blob **story.mp4** del contenedor **videos**
 
 
 4.	En el paso 4, escriba un nombre descriptivo para el trabajo de exportación. El nombre que escriba solo puede contener letras minúsculas, números, guiones y caracteres de subrayado, debe empezar por una letra y no puede contener espacios.
@@ -171,7 +136,7 @@ Cree un trabajo de exportación para notificar al servicio de importación y exp
 
 	Si tiene un número de seguimiento, seleccione en la lista el transportista para la entrega y, a continuación, escriba el número de seguimiento.
 
-	Si todavía no tiene un número de seguimiento, elija <strong>Proporcionaré la información de envío de este trabajo de exportación cuando haya enviado el paquete</strong> y, a continuación, finalice el proceso de exportación.
+	Si todavía no tiene un número de seguimiento, elija **Proporcionaré la información de envío de este trabajo de exportación cuando haya enviado el paquete** y, a continuación, finalice el proceso de exportación.
 
 6. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal de administración, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
 	
@@ -187,34 +152,14 @@ Puede realizar el seguimiento del estado de sus trabajos de importación y expor
 
 La tabla describe lo que significa cada designación de estado del trabajo.
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td><strong>Estado del trabajo</strong></td>
-			<td><strong>Descripción</strong></td>
-		</tr>
-		<tr>
-			<td>Creating</td>
-			<td>El trabajo se ha creado pero todavía no se ha proporcionado la información de envío.</td>
-		</tr>
-		<tr>
-			<td>Envío</td>
-			<td>El trabajo se ha creado y ya se ha proporcionado la información de envío.</td>
-		</tr>
-		<tr>
-			<td>Transferring</td>
-			<td>Los datos se están transfiriendo desde su disco duro (para un trabajo de importación) o a su disco duro (para un trabajo de exportación).</td>
-		</tr>
-		<tr>
-			<td>Packaging</td>
-			<td>Se ha completado la transferencia de datos y se está preparando su disco duro para el envío de vuelta.</td>
-		</tr>
-		<tr>
-			<td>Complete</td>
-			<td>El disco duro ya se le ha enviado.</td>
-		</tr>
-	</tbody>
-</table>
+Estado del trabajo|Descripción
+---|---
+Creating|El trabajo se ha creado pero todavía no se ha proporcionado la información de envío.
+Envío|El trabajo se ha creado y ya se ha proporcionado la información de envío.
+Transferring|Los datos se están transfiriendo desde su disco duro (para un trabajo de importación) o a su disco duro (para un trabajo de exportación).
+Packaging|Se ha completado la transferencia de datos y se está preparando su disco duro para el envío de vuelta.
+Complete|El disco duro ya se le ha enviado.
+
 
 ## Visualización de claves de BitLocker de un trabajo de exportación ##
 
@@ -324,4 +269,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

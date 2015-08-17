@@ -1381,4 +1381,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-07-31-Preview
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

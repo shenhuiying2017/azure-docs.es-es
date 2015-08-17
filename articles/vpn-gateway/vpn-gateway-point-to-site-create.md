@@ -158,4 +158,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

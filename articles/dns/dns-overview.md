@@ -40,4 +40,4 @@ El servicio se basa en el Administrador de recursos de Azure (ARM). Los dominios
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

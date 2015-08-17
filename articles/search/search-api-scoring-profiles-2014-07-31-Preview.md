@@ -217,7 +217,6 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 
 ##Referencia de atributos de índice
 
-**Nota**
 **Nota** Las funciones de puntuación solo pueden aplicarse a campos filtrables.
 
 <table style="font-size:12">
@@ -324,4 +323,4 @@ Creación de índice (API de REST de servicio de Búsqueda de Azure)
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

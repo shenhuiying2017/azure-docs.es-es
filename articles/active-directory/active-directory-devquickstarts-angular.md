@@ -111,7 +111,7 @@ adalProvider.init(
 ...
 ```
 
-Ahora tiene una aplicación de una sola página segura con capacidad para iniciar la sesión de los usuarios y emitir solicitudes protegidas de token de portador a su API de back-end. Cuando un usuario hace clic en el vínculo `TodoList`, adal.js le redireccionará automáticamente a Azure AD para iniciar sesión si es necesario. Además, adal.js adjuntará automáticamente un access_token a cualquier solicitud de ajax que se envíe al servidor back-end de la aplicación. El ejemplo anterior es el mínimo necesario para crear una SPA con adal.js, pero hay otras características que son útiles en SPA:
+Ahora tiene una aplicación de una sola página segura con capacidad para iniciar la sesión de los usuarios y emitir solicitudes protegidas de token de portador a su API de back-end. Cuando un usuario hace clic en el vínculo `TodoList`, adal.js le redireccionará automáticamente a Azure AD para iniciar sesión si es necesario. Además, adal.js adjuntará automáticamente un access\_token a cualquier solicitud de ajax que se envíe al servidor back-end de la aplicación. El ejemplo anterior es el mínimo necesario para crear una SPA con adal.js, pero hay otras características que son útiles en SPA:
 
 - Para emitir explícitamente solicitudes de inicio y cierre de sesión, puede definir funciones en sus controladores que invocan adal.js. En `App/Scripts/homeCtrl.js`:
 
@@ -151,4 +151,4 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/SinglePageApp-Ang
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -46,14 +46,14 @@ El código siguiente crea un objeto **QueueService** utilizando el nombre de la 
 
 ## Inserción de un mensaje en una cola
 
-Para insertar un mensaje en una cola, use el método **put_message** para crear un nuevo mensaje y agregarlo a la cola.
+Para insertar un mensaje en una cola, use el método **put\_message** para crear un nuevo mensaje y agregarlo a la cola.
 
 	queue_service.put_message('taskqueue', 'Hello World')
 
 
 ## Inspección del siguiente mensaje
 
-Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, llamando al método **peek_messages**. De forma predeterminada, **peek_messages** ojea un único mensaje.
+Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, llamando al método **peek\_messages**. De forma predeterminada, **peek\_messages** ojea un único mensaje.
 
 	messages = queue_service.peek_messages('taskqueue')
 	for message in messages:
@@ -62,7 +62,7 @@ Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo d
 
 ## Extracción del siguiente mensaje de la cola
 
-El código borra un mensaje de una cola en dos pasos. Si llama a **get_messages**, obtiene el siguiente mensaje en una cola de forma predeterminada. Un mensaje devuelto por **get_messages** se hace invisible a cualquier otro código que lea mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar quitando el mensaje de la cola, también debe llamar a **delete_message**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **delete_message** justo después de que se haya procesado el mensaje.
+El código borra un mensaje de una cola en dos pasos. Si llama a **get\_messages**, obtiene el siguiente mensaje en una cola de forma predeterminada. Un mensaje devuelto por **get\_messages** se hace invisible a cualquier otro código que lea mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar quitando el mensaje de la cola, también debe llamar a **delete\_message**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **delete\_message** justo después de que se haya procesado el mensaje.
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
@@ -72,7 +72,7 @@ El código borra un mensaje de una cola en dos pasos. Si llama a **get_messages*
 
 ## Cambio del contenido de un mensaje en cola
 
-Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El código siguiente usa el método **update_message** para actualizar un mensaje.
+Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El código siguiente usa el método **update\_message** para actualizar un mensaje.
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
@@ -80,7 +80,7 @@ Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje represe
 
 ## Opciones adicionales para extraer mensajes de la cola
 
-Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **get_messages** para obtener 16 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle for. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
+Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **get\_messages** para obtener 16 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle for. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
 
 	messages = queue_service.get_messages('taskqueue', numofmessages=16, visibilitytimeout=5*60)
 	for message in messages:
@@ -89,14 +89,14 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
 
 ## Obtención de la longitud de la cola
 
-Puede obtener una estimación del número de mensajes existentes en una cola. El método **get_queue_metadata** pide al servicio de cola que devuelva metadatos acerca de la cola y se debe usar**x-ms-approximate-messages-count** como el índice en el diccionario devuelto para buscar el recuento. El resultado solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud.
+Puede obtener una estimación del número de mensajes existentes en una cola. El método **get\_queue\_metadata** pide al servicio de cola que devuelva metadatos acerca de la cola y se debe usar**x-ms-approximate-messages-count** como el índice en el diccionario devuelto para buscar el recuento. El resultado solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud.
 
 	queue_metadata = queue_service.get_queue_metadata('taskqueue')
 	count = queue_metadata['x-ms-approximate-messages-count']
 
 ## Eliminación de una cola
 
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **delete_queue**.
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **delete\_queue**.
 
 	queue_service.delete_queue('taskqueue')
 
@@ -112,4 +112,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

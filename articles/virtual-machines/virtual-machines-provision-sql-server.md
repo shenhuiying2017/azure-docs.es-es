@@ -60,7 +60,8 @@ Para conocer la información más actualizada sobre las imágenes compatibles de
 5. En la segunda página de **Configuración de máquina virtual**, configure recursos para las redes, el almacenamiento y la disponibilidad:
 	- En el cuadro **Servicio en la nube**, seleccione **Crear un nuevo servicio en la nube**.
 	- En el cuadro **Nombre DNS de servicio en la nube**, proporcione la primera parte de un nombre DNS que elija, para que así se complete un nombre con el formato **TESTNAME.cloudapp.net** 
-	- Seleccione una **SUSCRIPCIÓN**, si tiene varias suscripciones entre las que elegir. La opción determina qué **cuentas de almacenamiento **están disponibles. - En el cuadro **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL**, seleccione una región donde se hospedará esta imagen virtual.
+	- Seleccione una **SUSCRIPCIÓN**, si tiene varias suscripciones entre las que elegir. La opción determina qué **cuentas de almacenamiento **están disponibles.
+- En el cuadro **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL**, seleccione una región donde se hospedará esta imagen virtual.
 	- En la **Cuenta de almacenamiento**, genere automáticamente una cuenta o seleccione una en la lista. Cambie la **SUSCRIPCIÓN** para ver más cuentas. 
 	- En el cuadro **CONJUNTO DE DISPONIBILIDAD**, seleccione **(none)**.
 	- Lea y acepte los términos legales.
@@ -80,7 +81,7 @@ Para conocer la información más actualizada sobre las imágenes compatibles de
 	- Ejecución
 	
 
-##<a id="RemoteDesktop">Abra la máquina virtual utilizando el Escritorio remoto para completar la configuración</a>.
+##<a id="RemoteDesktop">Abra la máquina virtual usando el Escritorio remoto para completar la configuración</a>.
 
 1. Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 2. Haga clic en el botón **Abrir**. ![Haga clic en el botón Abrir][Image37]
@@ -92,7 +93,7 @@ Para conocer la información más actualizada sobre las imágenes compatibles de
 
 Una vez se haya conectado a la máquina virtual con el Escritorio remoto de Windows, la máquina virtual funcionará como cualquier otro equipo. Conéctese a la instancia predeterminada de SQL Server con SQL Server Management Studio (en ejecución en la máquina virtual) de manera normal.
 
-##<a id="SSMS">Conéctese a la instancia de máquina virtual de SQL Server desde SSMS en otro equipo</a>
+##<a id="SSMS">Conéctese a la instancia de máquina virtual de SQL Server desde SSMS en otro equipo</a>.
 
 Los pasos siguientes muestran cómo conectarse a la instancia de SQL Server a través de Internet mediante SQL Server Management Studio (SSMS). Sin embargo, se aplican los mismos pasos para hacer que la máquina virtual de SQL Server sea accesible para sus aplicaciones, tanto locales como de Azure.
 
@@ -115,7 +116,7 @@ El siguiente diagrama resume la ruta de conexión:
 
 Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener un extremo para escuchar la comunicación TCP de entrada. Este paso de la configuración de Azure dirige el tráfico del puerto TCP de entrada a un puerto TCP al que puede tener acceso la máquina virtual.
 
->[AZURE.NOTE]Si se va a conectar en el mismo servicio en la nube o red virtual, no es necesario crear un extremo accesible públicamente. En ese caso, puede continuar con el paso siguiente. Para obtener más información, consulte el tema [Consideraciones de conectividad para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
+>[AZURE.NOTE]Si se va a conectar en el mismo servicio en la nube o red virtual, no es necesario crear un extremo accesible públicamente. En ese caso, puede continuar con el paso siguiente. Para obtener más información, consulte [Consideraciones de conectividad para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133152.aspx).
 
 1. En el Portal de administración de Azure, haga clic en **MÁQUINAS VIRTUALES**.
 	
@@ -143,7 +144,7 @@ Para poder acceder a SQL Server desde Internet, la máquina virtual debe tener u
 
 3. En el cuadro de diálogo **Asistente para nueva regla de entrada**, en **Tipo de regla**, seleccione **Puerto** y, a continuación, haga clic en **Siguiente**.
 
-4. En el cuadro de diálogo **Protocolo y puertos**, use el **TCP** predeterminado. En el cuadro de diálogo **Puertos locales específicos**, escriba el número de puerto de la instancia del motor de base de datos (**1433** para la instancia predeterminada o la opción que elija para el puerto privado en el paso del extremo).
+4. En el cuadro de diálogo **Protocolo y puertos**, use el **TCP** predeterminado. En el cuadro **Puertos locales específicos**, escriba el número de puerto de la instancia del motor de base de datos (**1433** para la instancia predeterminada o la opción que elija para el puerto privado en el paso del extremo).
 
 	![Puerto TCP 1433][Image14]
 
@@ -180,7 +181,7 @@ Abra puertos adicionales para otros componentes cada vez que sea necesario. Para
 
 	![Habilitar TCP][Image10]
 
-5. En el panel de la consola, haga clic en **Servicios de SQL Server**. En el panel de detalles, haga clic con el botón derecho en **SQL Server (\_nombre de la instancia\_)** (la instancia predeterminada es **SQL Server (MSSQLSERVER)**) y, a continuación, haga clic en **Reiniciar** para detener y reiniciar la instancia de SQL Server.
+5. En el panel de la consola, haga clic en **Servicios de SQL Server**. En el panel de detalles, haga clic con el botón secundario en **SQL Server (_nombre de la instancia_)** (la instancia predeterminada es **SQL Server (MSSQLSERVER)**) y, a continuación, haga clic en **Reiniciar** para detener y reiniciar la instancia de SQL Server.
 
 	![Reiniciar el motor de base de datos][Image11]
 
@@ -364,4 +365,4 @@ Además de estos recursos, se recomienda seguir las instrucciones detalladas que
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

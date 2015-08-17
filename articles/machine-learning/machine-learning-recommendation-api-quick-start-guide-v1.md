@@ -42,9 +42,9 @@ Todos los pasos anteriores se realizan a través de la API de recomendaciones de
 
 * Número máximo de modelos por suscripción: 10
 * Número máximo de elementos que puede contener un catálogo: 100.000
-* La cantidad máxima de puntos de uso que se mantienen es ~ 5.000.000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
+* La cantidad máxima de puntos de uso que se mantienen es \~ 5.000.000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
 * El tamaño máximo de datos que puede enviarse en POST (por ejemplo, importar datos de catálogo, importar datos de uso) es de 200 MB.
-* El número de transacciones por segundo para una compilación de modelo de recomendación que no esté activa es de ~2TPS; solo la compilación de modelo de recomendación que está activa puede almacenar hasta 20TPS.
+* El número de transacciones por segundo para una compilación de modelo de recomendación que no esté activa es de \~2TPS; solo la compilación de modelo de recomendación que está activa puede almacenar hasta 20TPS.
 
 ##Integración
 
@@ -68,9 +68,7 @@ Creación de una solicitud de "creación de modelo":
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	modelName |	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (_).<br>Longitud máxima: 20 |
-|	apiVersion | 1.0 |
-||| | Cuerpo de la solicitud | NONE |
+|	modelName |	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 20 | | apiVersion | 1.0 | ||| | Cuerpo de la solicitud | NONE |
 
 
 **Respuesta**:
@@ -121,9 +119,7 @@ Si carga varios archivos de catálogo para el mismo modelo con varias llamadas, 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	El identificador único del modelo. |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (_).<br>Longitud máxima: 50 |
-|	apiVersion | 1.0 |
-||| | Cuerpo de la solicitud | Los datos del catálogo. Format:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Item Name</td><td>Yes</td><td>Alphanumeric, Max Length 255</td><td>The Item Name</td></tr><tr><td>Item Category</td><td>Yes</td><td>Alphanumeric, Max Length 255</td><td>The category to which this item belongs (e.g. Cooking Books, Drama…)</td></tr><tr><td>Description</td><td>No</td><td>Alphanumeric, Max Length 4000</td><td>A description of this item</td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 50 | | apiVersion | 1.0 | ||| | Cuerpo de la solicitud | Datos del catálogo. Format:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Item Name</td><td>Yes</td><td>Alphanumeric, Max Length 255</td><td>The Item Name</td></tr><tr><td>Item Category</td><td>Yes</td><td>Alphanumeric, Max Length 255</td><td>The category to which this item belongs (e.g. Cooking Books, Drama…)</td></tr><tr><td>Description</td><td>No</td><td>Alphanumeric, Max Length 4000</td><td>A description of this item</td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
 
 
 **Respuesta**:
@@ -169,9 +165,7 @@ En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	El identificador único del modelo. |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (_).<br>Longitud máxima: 50 |
-|	apiVersion | 1.0 |
-||| | Cuerpo de la solicitud | Los datos de uso. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>Alphanumeric</td><td>Unique identifier of a User</td></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 50 | | apiVersion | 1.0 | ||| | Cuerpo de la solicitud | Datos de uso. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>Alphanumeric</td><td>Unique identifier of a User</td></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, Max Length 50</td><td>Unique identifier of an Item</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data</td></tr><tr><td>Event</td><td>No, if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Respuesta**:
 
@@ -216,7 +210,7 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	apiVersion | 1.0 |
+|	apiVersion | 1\.0 |
 
 Cuerpo de la solicitud
 
@@ -321,7 +315,7 @@ Cuerpo de la solicitud
 |:--------			|:--------								|
 | modelId |	El identificador único del modelo. |
 | userDescription | Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 ||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
@@ -393,7 +387,7 @@ código de estado HTTP: 200
 |:--------			|:--------								|
 |	modelId |	El identificador único del modelo. |
 |	onlyLastBuild |	Indica si se devolverá todo el historial de compilaciones del modelo o solo el estado de la compilación más reciente. |
-|	apiVersion |	1.0 |
+|	apiVersion |	1\.0 |
 
 
 **Respuesta**:
@@ -458,7 +452,7 @@ código de estado HTTP: 200
 | itemIds | Lista separada por comas de los elementos para recomendar.<br>Longitud máxima: 200 |
 | numberOfResults | El número de resultados requeridos. |
 | includeMetatadata | Uso futuro, siempre es false. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 
 **Respuesta:**
 
@@ -633,7 +627,7 @@ Este mecanismo le permite tener un modelo de recomendación en producción para 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 | id | El identificador único del modelo. |
-| apiVersion | 1.0 |
+| apiVersion | 1\.0 |
 ||| | Cuerpo de la solicitud | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Tenga en cuenta que las etiquetas xml Description y ActiveBuildId son opcionales. Si no quiere establecer Description o ActiveBuildId, quite toda la etiqueta. |
 
 **Respuesta**:
@@ -654,4 +648,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

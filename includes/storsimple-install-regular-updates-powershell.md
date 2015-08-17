@@ -1,3 +1,19 @@
+<properties
+   pageTitle="Instalación de actualizaciones normales a través de Windows PowerShell para StorSimple"
+   description="Explica cómo usar la característica de actualización de StorSimple y de Windows PowerShell para StorSimple para instalar actualizaciones regulares."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="04/27/2015"
+   ms.author="v-sharos" />
 
 #### Para instalar actualizaciones regulares a través de Windows PowerShell para StorSimple
 
@@ -20,4 +36,4 @@
 > - Este comando solo se aplica a las actualizaciones regulares. Este comando se ejecuta en un solo controlador, pero se actualizarán ambos controladores. 
 > - Es posible que observe una conmutación por error del controlador durante el proceso de actualización. Sin embargo, la conmutación por error no afectará a la disponibilidad o el funcionamiento del sistema.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

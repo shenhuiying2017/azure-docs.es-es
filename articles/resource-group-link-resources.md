@@ -146,4 +146,4 @@ Para obtener más ejemplos, incluido cómo recuperar información acerca de los 
 - También puede organizar los recursos con etiquetas. Para obtener información sobre el etiquetado de recursos, consulte [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md).
 - Para obtener una descripción sobre cómo crear plantillas y definir los recursos que se van a implementar, consulte [Creación de plantillas](resource-group-authoring-templates.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

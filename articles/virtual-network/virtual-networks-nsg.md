@@ -65,15 +65,15 @@ Las reglas predeterminadas son:
 
 | Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
 |-----------------------------------|----------|--------------------|-------------|-----------------|------------------|----------|--------|
-| ALLOW VNET INBOUND (PERMITIR ENTRANTE DE RED VIRTUAL) | 65000 | VIRTUAL_NETWORK | * | VIRTUAL_NETWORK | * | * | PERMITIR |
-| ALLOW AZURE LOAD BALANCER INBOUND (PERMITIR ENTRANTE DEL EQUILIBRADOR DE CARGA DE AZURE) | 65001 | AZURE_LOADBALANCER | * | * | * | * | PERMITIR |
+| ALLOW VNET INBOUND (PERMITIR ENTRANTE DE RED VIRTUAL) | 65000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | PERMITIR |
+| ALLOW AZURE LOAD BALANCER INBOUND (PERMITIR ENTRANTE DEL EQUILIBRADOR DE CARGA DE AZURE) | 65001 | AZURE\_LOADBALANCER | * | * | * | * | PERMITIR |
 | DENY ALL INBOUND (DENEGAR TODO EL TRÁFICO ENTRANTE) | 65500 | * | * | * | * | * | DENEGAR |
 
 **Salida**
 
 | Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
 |-------------------------|----------|-----------------|-------------|-----------------|------------------|----------|--------|
-| ALLOW VNET OUTBOUND (PERMITIR SALIENTE DE RED VIRTUAL) | 65000 | VIRTUAL_NETWORK | * | VIRTUAL_NETWORK | * | * | PERMITIR |
+| ALLOW VNET OUTBOUND (PERMITIR SALIENTE DE RED VIRTUAL) | 65000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | PERMITIR |
 | ALLOW INTERNET OUTBOUND (PERMITIR SALIENTE DE INTERNET) | 65001 | * | * | INTERNET | * | * | PERMITIR |
 | DENY ALL OUTBOUND (DENEGAR TODO EL TRÁFICO SALIENTE) | 65500 | * | * | * | * | * | DENEGAR |
 
@@ -89,9 +89,9 @@ Las reglas de los grupos de seguridad de red son explícitas. No se permite ning
 
 Las etiquetas predeterminadas son identificadores proporcionados por el sistema para tratar una categoría de direcciones IP. Las etiquetas predeterminadas se pueden especificar en las reglas definidas por el cliente. Las etiquetas predeterminadas son las siguientes:
 
-- **VIRTUAL_NETWORK:** esta etiqueta predeterminada denota todo el espacio de dirección de red. Incluye el espacio de direcciones de red virtual (CIDR de IP en Azure), así como todos los espacios de direcciones locales conectados (redes locales). Esto también incluye espacios de direcciones VNet a VNet.
+- **VIRTUAL\_NETWORK:** esta etiqueta predeterminada denota todo el espacio de dirección de red. Incluye el espacio de direcciones de red virtual (CIDR de IP en Azure), así como todos los espacios de direcciones locales conectados (redes locales). Esto también incluye espacios de direcciones VNet a VNet.
 
-- **AZURE_LOADBALANCER:** esta etiqueta predeterminada denota el equilibrador de carga de la infraestructura de Azure. Esto se traducirá en una IP de centro de datos de Azure donde se originarán los sondeos de mantenimiento de Azure. Esto solo es necesario si la máquina virtual o un conjunto de máquinas virtuales asociado al grupo de seguridad de red participa en un conjunto de carga equilibrada.
+- **AZURE\_LOADBALANCER:** esta etiqueta predeterminada denota el equilibrador de carga de la infraestructura de Azure. Esto se traducirá en una IP de centro de datos de Azure donde se originarán los sondeos de mantenimiento de Azure. Esto solo es necesario si la máquina virtual o un conjunto de máquinas virtuales asociado al grupo de seguridad de red participa en un conjunto de carga equilibrada.
 
 - **INTERNET:** esta etiqueta predeterminada denota el espacio de dirección IP que se encuentra fuera de la red virtual y es accesible mediante Internet pública. Este intervalo incluye además un espacio de IP pública propiedad de Azure.
 
@@ -138,7 +138,7 @@ Imagine la siguiente regla NSG para este escenario:
 
 | Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|SIN INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|DENEGAR| 
+|SIN INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|DENEGAR| 
 
 Puesto que la regla deniega todo acceso desde la red virtual a Internet, las máquinas virtuales no podrán tener acceso a cualquier servicio PaaS de Azure que requiera un extremo de Internet público, como por ejemplo, las bases de datos SQL.
 
@@ -146,8 +146,8 @@ En lugar de usar una regla de denegación, pruebe a usar una regla para permitir
 
 | Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|A INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|PERMITIR|
-|DESDE INTERNET|110| INTERNET|&#42;|VIRTUAL_NETWORK|&#42;|TCP|DENEGAR| 
+|A INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|PERMITIR|
+|DESDE INTERNET|110| INTERNET|&#42;|VIRTUAL\_NETWORK|&#42;|TCP|DENEGAR| 
 
 
 ## Planificación: flujo de trabajo de grupos de seguridad de red
@@ -248,4 +248,4 @@ De momento, solo puede configurar y modificar los grupos de seguridad de red med
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

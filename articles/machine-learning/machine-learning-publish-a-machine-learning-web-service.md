@@ -109,4 +109,4 @@ Para actualizar el servicio web, abra el experimento de puntuación original que
 
 Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md).
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

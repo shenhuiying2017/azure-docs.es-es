@@ -302,4 +302,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -93,4 +93,4 @@ Eso es todo, ha creado e implementado correctamente su colección en la nube de 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

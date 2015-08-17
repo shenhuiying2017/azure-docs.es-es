@@ -122,4 +122,4 @@ Las siguientes características están actualmente en versión de vista previa p
 - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

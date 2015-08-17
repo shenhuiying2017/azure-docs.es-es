@@ -110,7 +110,7 @@ Si desea que el Almacén de claves de Azure cree una clave protegida mediante so
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
 
-Sin embargo, si ya tiene una clave protegida mediante software en un archivo .PFX guardada en la unidad C:\ en un archivo denominado softkey.pfx que desea cargar en el Almacén de claves de Azure, escriba lo siguiente para establecer la variable **securepfxpwd** para una contraseña de **123** para el archivo .PFX:
+Sin embargo, si ya tiene una clave protegida mediante software en un archivo .PFX guardada en la unidad C:\\ en un archivo denominado softkey.pfx que desea cargar en el Almacén de claves de Azure, escriba lo siguiente para establecer la variable **securepfxpwd** para una contraseña de **123** para el archivo .PFX:
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
@@ -119,7 +119,7 @@ A continuación, escriba lo siguiente para importar la clave desde el archivo .P
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obtener siempre la versión actual y use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obtener esta versión específica.
+Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Use ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obtener siempre la versión actual y ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obtener esta versión específica.
 
 Para mostrar el URI para esta clave, escriba:
 
@@ -133,7 +133,7 @@ A continuación, escriba lo siguiente:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual y **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obtener esta versión específica.
+Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Use ****https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual y ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obtener esta versión específica.
 
 Para mostrar el URI para este secreto, escriba:
 
@@ -248,4 +248,4 @@ Para obtener una lista de los cmdlets de Windows PowerShell para el Almacén de 
 Para obtener referencias de programación, consulte [Almacén de claves](https://msdn.microsoft.com/library/azure/dn903625.aspx) en la biblioteca de documentación de Microsoft Azure en MSDN.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

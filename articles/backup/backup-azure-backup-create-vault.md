@@ -1,28 +1,29 @@
 <properties
-	pageTitle="Copia de seguridad de Microsoft Azure: crear un almacén de copia de seguridad y especificar la redundancia de almacenamiento"
-	description="Aprenda a crear un almacén de copia de seguridad y especificar las opciones de redundancia de almacenamiento en la Copia de seguridad de Microsoft Azure."
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Copia de seguridad de Microsoft Azure: crear un almacén de copia de seguridad y especificar la redundancia de almacenamiento"
+   description="Aprenda a crear un almacén de copia de seguridad y especificar las opciones de redundancia de almacenamiento en la Copia de seguridad de Microsoft Azure."
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="shreeshd"
+   editor=""/>
 
-<tags 
-	ms.service="backup" 
-	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="jimpark"; "aashishr"/>
 
 # Creación de un almacén de copia de seguridad
 Para hacer una copia de seguridad de los archivos y los datos desde Windows Server o desde System Center Data Protection Manager (SCDPM) en Azure, o al realizar copias de seguridad de máquinas virtuales de IaaS, debe crear un almacén de copia de seguridad en la región geográfica donde desea almacenar los datos.
 
 Este tutorial le guiará a través de la creación del almacén que usará para almacenar las copias de seguridad.
 
+## Tutorial en vídeo
+
+Se trata del tutorial en formato de vídeo.
+
+[AZURE.VIDEO azure-backup-vault-creation]
+
+## Creación del almacén de copia de seguridad
+
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com/).
-2. Haga clic en **Nuevo** -> **Servicios de datos** -> **Servicios de recuperación** -> **Almacén de copia de seguridad** y elija **Creación rápida**.
+2. Haga clic en **Nuevo** -> **Servicios de datos** -> **Servicios de recuperación** -> **Almacén de copia de seguridad** y elija **Creación rápida**
 
   ![Crear almacén][1]
 
@@ -43,7 +44,7 @@ Este tutorial le guiará a través de la creación del almacén que usará para 
 
 El mejor momento para identificar la opción de redundancia de almacenamiento es justo después de la creación del almacén, y antes de que las máquinas se registren en este. Una vez que un elemento se ha registrado en el almacén, la opción de redundancia de almacenamiento está bloqueada y no se puede modificar.
 
-Sus necesidades empresariales determinarían la redundancia de almacenamiento del almacenamiento backend de Copia de seguridad de Azure. Si está usando Azure como un extremo de almacenamiento de copia de seguridad principal (por ejemplo, copia de seguridad en Azure desde un servidor de Windows), debe considerar seleccionar la opción de almacenamiento con redundancia geográfica (valor predeterminado). Esto se ve en la opción **Configurar** del almacén de copia de seguridad.
+Sus necesidades empresariales determinarían la redundancia de almacenamiento del almacenamiento backend de Copia de seguridad de Azure. Si está usando Azure como un extremo de almacenamiento de copia de seguridad principal (por ejemplo, copia de seguridad en Azure desde un servidor de Windows), debe considerar seleccionar la opción de almacenamiento con redundancia geográfica (valor predeterminado). Esto se ve en la opción **Configurar** de su almacén de copia de seguridad.
 
 ![GRS][4]
 
@@ -69,4 +70,4 @@ Si está usando Azure como un extremo de almacenamiento de copia de seguridad te
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

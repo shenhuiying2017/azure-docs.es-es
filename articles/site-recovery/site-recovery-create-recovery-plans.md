@@ -53,16 +53,18 @@ Los planes de recuperación se crean como se indica a continuación:
 	- Si va a realizar una réplica de VMM a VMM, seleccione VMM en **Tipo de origen** y los servidores VMM de origen y destino. Haga clic en **Hyper-V** para ver las nubes configuradas para usar réplica de Hyper-V. 
 	- Si va a realizar una réplica de VMM a VMM con SAN, seleccione VMM en **Tipo de origen** y los servidores VMM de origen y destino. Haga clic en **SAN** para ver las nubes configuradas para la replicación de SAN.
 	- Si va a realizar una réplica de VMM a Azure, seleccione VMM en **Tipo de origen**. Seleccione el servidor VMM de origen y **Azure** como destino.
-	- Si va a realizar una réplica de un sitio de Hyper-V, seleccione Sitio de Hyper-V en Tipo de origen. Seleccione el sitio como origen y **Azure **como destino. - Si va a realizar una réplica de VMware o un servidor físico de local a Azure, seleccione un servidor de configuración como el origen y **Azure** como destino.
+	- Si va a realizar una réplica de un sitio de Hyper-V, seleccione Sitio de Hyper-V en Tipo de origen. Seleccione el sitio como origen y **Azure **como destino.
+- Si va a realizar una réplica de VMware o un servidor físico de local a Azure, seleccione un servidor de configuración como el origen y **Azure** como destino.
 
-2. En **Seleccionar máquinas virtuales**, seleccione las máquinas virtuales (o un grupo de replicación) que desea agregar al grupo predeterminado (Grupo 1) del plan de recuperación.
+2\. En **Seleccionar máquinas virtuales**, seleccione las máquinas virtuales (o un grupo de replicación) que desea agregar al grupo predeterminado (Grupo 1) del plan de recuperación.
 
 ## Personalización de planes de recuperación
 
 Después de haber agregado máquinas virtuales o grupos de replicación protegidos al grupo del plan de recuperación predeterminado y haber creado el plan puede personalizarlo:
 
 - **Agregar grupos nuevos**: puede agregar grupos de planes de recuperación adicionales. Los grupos que agregue se numeran en el orden en que se agregan. Puede agregar hasta siete grupos. Puede agregar más máquinas o grupos de replicación a estos grupos nuevos. Tenga en cuenta que una máquina virtual o un grupo de replicación sólo puede incluirse en el grupo de planes de recuperación.
-- **Agregar un script**: puede agregar scripts que se ejecuten antes o después de un grupo de planes recuperación. Cuando se agrega un script, este agrega un nuevo conjunto de acciones al grupo. Por ejemplo, un conjunto de pasos previos para el grupo 1 se creará con el nombre: Grupo 1: pasos previos. Dentro de este conjunto se enumerarán todos los pasos previos. Tenga en cuenta que sólo puede agregar un script al sitio principal si hay un servidor VMM implementado. - **Agregar una acción manual**: puede agregar acciones manuales que se ejecuten antes o después de un grupo de planes de recuperación. Cuando se ejecuta el plan de recuperación, este se detiene en el punto en el que se insertó la acción manual y un cuadro de diálogo le pide que especifique que la acción manual se ha completado.
+- ****Agregar un script**: puede agregar scripts que se ejecuten antes o después de un grupo de planes recuperación. Cuando se agrega un script, este agrega un nuevo conjunto de acciones al grupo. Por ejemplo, un conjunto de pasos previos para el grupo 1 se creará con el nombre: Grupo 1: pasos previos. Dentro de este conjunto se enumerarán todos los pasos previos. Tenga en cuenta que solo puede agregar un script al sitio principal si hay un servidor VMM implementado.
+- **Agregar una acción manual**: puede agregar acciones manuales que se ejecuten antes o después de un grupo de planes de recuperación. Cuando se ejecuta el plan de recuperación, este se detiene en el punto en el que se insertó la acción manual y un cuadro de diálogo le pide que especifique que la acción manual se ha completado.
 
 ### Extensión de planes de recuperación con scripts
 
@@ -77,11 +79,11 @@ Antes de comenzar, tenga en cuenta lo siguiente:
 - Escriba los scripts con Windows PowerShell.
 - Los cmdlets de VMM se entregan en un módulo de Windows PowerShell. El módulo de Windows PowerShell de VMM se instala al instalar la consola VMM. El módulo VMM se puede cargar en el script, para lo que es preciso usar el siguiente comando en el script: Import-Module -Name virtualmachinemanager. [Obtenga más detalles](hhttps://technet.microsoft.com/library/hh875013.aspx).
 - Asegúrese de que tiene al menos un servidor de biblioteca en la implementación de VMM. De forma predeterminada, la ruta de acceso del recurso compartido de biblioteca para un servidor VMM se encuentra localmente en el servidor VMM con el nombre de carpeta MSCVMMLibrary.
-- Si la ruta de acceso del recurso compartido de biblioteca es remota, o local pero no se comparte con MSCVMMLibrary, configure el recurso compartido como se indica a continuación (por ejemplo, con \libserver2.contoso.com\share\):
+- Si la ruta de acceso del recurso compartido de biblioteca es remota, o local pero no se comparte con MSCVMMLibrary, configure el recurso compartido como se indica a continuación (por ejemplo, con \\libserver2.contoso.com\\share\\):
 	- Abra el Editor del registro.
-	- Navegue a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
+	- Navegue a HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration.
 	- Edite el valor ScriptLibraryPath.
-	- Coloque el valor como \libserver2.contoso.com\share. Especifique el nombre de dominio completo.
+	- Coloque el valor como \\libserver2.contoso.com\\share. Especifique el nombre de dominio completo.
 	- Proporcione permisos a la ubicación del recurso compartido.
 
 - Los scripts de los planes de recuperación se ejecutan en el contexto de la cuenta de servicio de VMM. Asegúrese de que esta cuenta tiene permisos de lectura en el recurso compartido remoto en el que se encuentra el script y pruebe que el script se ejecuta en el nivel de privilegios de la cuenta de servicio de VMM.
@@ -96,9 +98,9 @@ Antes de comenzar, tenga en cuenta lo siguiente:
 
 Cree el script como se indica a continuación:
 
-1. Cree una carpeta nueva en el recurso compartido de biblioteca, por ejemplo <nombreDeServidorVMM>\MSSCVMMLibrary\RPScripts. Colóquela en los servidores VMM de origen y destino.
+1. Cree una carpeta nueva en el recurso compartido de biblioteca, por ejemplo <nombreDeServidorVMM>\\MSSCVMMLibrary\\RPScripts. Colóquela en los servidores VMM de origen y destino.
 2. Cree el script (por ejemplo, RPScript) y compruebe que funciona según lo previsto.
-3. Coloque el script en la ubicación <nombreDeServidorVMM>\MSSCVMMLibrary de los servidores VMM de origen y destino.
+3. Coloque el script en la ubicación <nombreDeServidorVMM>\\MSSCVMMLibrary de los servidores VMM de origen y destino.
 
 #### Creación de un runbook de automatización de Azure
 
@@ -110,7 +112,7 @@ El plan de recuperación se puede extender mediante la ejecución de un runbook 
 1. Abra el plan de recuperación que desea personalizar.
 2. Haga clic en él para agregar una máquina virtual o un grupo nuevos.
 3. Para agregar un script o una acción manual, haga clic en cualquiera de los elementos de la lista **Paso** y, a continuación, haga clic en **Script** o **Acción manual**. Especifique si desea agregar el script o la acción antes o después del elemento seleccionado. Utilice los botones de comando **Subir** y **Bajar** para mover la posición del script hacia arriba o hacia abajo.
-4. Si va a agregar un script de VMM, seleccione **Conmutación por error en script de VMM** y en **Ruta del script** escriba la ruta de acceso relativa al recurso compartido. Así, en nuestro ejemplo, donde se encuentra en el recurso compartido \<VMMServerName>\MSSCVMMLibrary\RPScripts, especifique la ruta de acceso: \RPScripts\RPScript.PS1.
+4. Si va a agregar un script de VMM, seleccione **Conmutación por error en script de VMM** y en **Ruta del script** escriba la ruta de acceso relativa al recurso compartido. Así, en nuestro ejemplo, donde se encuentra en el recurso compartido \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, especifique la ruta de acceso: \\RPScripts\\RPScript.PS1.
 5. Si va a agregar un runbook de automatización de Azure, especifique la **cuenta de Automatización de Azure ** en que se encuentra el runbook y seleccione el valor de **Script de runbook de Azure**.
 5. Realice una conmutación por error del plan de recuperación para asegurarse de que el script funciona según lo previsto.
 
@@ -122,4 +124,4 @@ Puede ejecutar diferentes tipos de plan de recuperación de conmutaciones por er
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

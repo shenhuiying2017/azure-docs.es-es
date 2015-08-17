@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Importación de datos en DocumentDB | Azure" 
+	pageTitle="Importación de datos en DocumentDB | Microsoft Azure" 
 	description="Obtenga información sobre cómo utilizar la herramienta de migración de datos de código abierto DocumentDB para importar datos a DocumentDB desde diversos orígenes, incluidos archivos JSON, archivos CSV, SQL, MongoDB, almacenamiento de tablas de Azure, Amazon DynamoDB y colecciones de DocumentDB." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -501,4 +501,4 @@ En la pantalla Configuración avanzada, especifique la ubicación del archivo de
 
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

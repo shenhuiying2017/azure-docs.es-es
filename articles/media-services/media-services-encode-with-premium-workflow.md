@@ -265,4 +265,4 @@ El siguiente ejemplo es un ejemplo completo. Para obtener información sobre có
 
 Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

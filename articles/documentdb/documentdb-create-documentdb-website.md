@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Implementación de DocumentDB y aplicaciones web del Servicio de aplicaciones de Azure mediante una plantilla del Administrador de recursos de Azure | Azure" 
+	pageTitle="Implementación de DocumentDB y aplicaciones web del Servicio de aplicaciones de Azure mediante una plantilla del Administrador de recursos de Azure | Microsoft Azure" 
 	description="Aprenda a implementar una cuenta de DocumentDB, aplicaciones web del Servicio de aplicaciones de Azure y una aplicación web de ejemplo mediante una plantilla del Administrador de recursos de Azure." 
 	services="documentdb, app-service\web" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 # Implementación de DocumentDB y aplicaciones web de servicio de aplicación de Azure mediante una plantilla del Administrador de recursos de Azure #
@@ -38,9 +38,9 @@ Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo 
 ##<a id="CreateDB"></a>Paso 1: Descarga y extracción de los archivos de ejemplo ##
 Vamos a empezar descargando los archivos de ejemplo que usaremos en este tutorial.
 
-1. Descargue el [ejemplo Creación de una cuenta de DocumentDB y aplicaciones web, e implementación de una aplicación de demostración](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) en una carpeta local (por ejemplo, C:\DocumentDBTemplates) y extraiga los archivos. En este ejemplo se implementará una cuenta de DocumentDB, un sitio web de servicio de aplicación y una aplicación web. También se configurará automáticamente la aplicación web para conectar con la cuenta de DocumentDB.
+1. Descargue el [ejemplo Creación de una cuenta de DocumentDB y aplicaciones web, e implementación de una aplicación de demostración](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) en una carpeta local (por ejemplo, C:\\DocumentDBTemplates) y extraiga los archivos. En este ejemplo se implementará una cuenta de DocumentDB, un sitio web de servicio de aplicación y una aplicación web. También se configurará automáticamente la aplicación web para conectar con la cuenta de DocumentDB.
 
-2. Descargue el [ejemplo Creación de una cuenta de DocumentDB y aplicaciones web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) en una carpeta local (por ejemplo, C:\DocumentDBTemplates) y extraiga los archivos. En este ejemplo se implementará una cuenta de DocumentDB y una aplicación web de servicio de aplicación, y se modificará la configuración de la aplicación web para exponer fácilmente la información de conexión de DocumentDB, pero no se incluye una aplicación web.
+2. Descargue el [ejemplo Creación de una cuenta de DocumentDB y aplicaciones web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) en una carpeta local (por ejemplo, C:\\DocumentDBTemplates) y extraiga los archivos. En este ejemplo se implementará una cuenta de DocumentDB y una aplicación web de servicio de aplicación, y se modificará la configuración de la aplicación web para exponer fácilmente la información de conexión de DocumentDB, pero no se incluye una aplicación web.
 
 > [AZURE.TIP]Tenga en cuenta que en función de la configuración de seguridad de su equipo, puede que tenga que desbloquear los archivos extraídos; para ello, haga clic en ellos con el botón derecho, haga clic en **Propiedades** y haga clic en **Desbloquear**.
 
@@ -53,7 +53,7 @@ Ahora vamos a implementar nuestra primera plantilla.
 
 > [AZURE.TIP]La plantilla no valida que el nombre de la aplicación web y el nombre de la cuenta de DocumentDB especificados a continuación sean a) válidos y b) estén disponibles. Es muy recomendable que compruebe la disponibilidad de los nombres que planea suministrar antes de ejecutar el script de implementación de PowerShell.
 
-1. Abra Microsoft Azure PowerShell y vaya a la carpeta en la que ha descargado y extraído el [ejemplo Creación de una cuenta de DocumentDB y una aplicación de servicio web, e implementación de una aplicación de demostración](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (por ejemplo, C:\DocumentDBTemplates\CreateDocDBWebsiteTodo).
+1. Abra Microsoft Azure PowerShell y vaya a la carpeta en la que ha descargado y extraído el [ejemplo Creación de una cuenta de DocumentDB y una aplicación de servicio web, e implementación de una aplicación de demostración](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) (por ejemplo, C:\\DocumentDBTemplates\\CreateDocDBWebsiteTodo).
 
 
 2. Vamos a ejecutar el script de PowerShell CreateDocDBWebsiteTodo.ps1. El script toma los siguientes parámetros obligatorios:
@@ -153,7 +153,7 @@ Ahora implementaremos nuestra segunda plantilla.
 
 > [AZURE.TIP]La plantilla no valida que el nombre de la aplicación web y el nombre de la cuenta de DocumentDB especificados a continuación sean a) válidos y b) estén disponibles. Es muy recomendable que compruebe la disponibilidad de los nombres que planea suministrar antes de ejecutar el script de implementación de PowerShell.
 
-1. Abra Microsoft Azure PowerShell y vaya a la carpeta en la que descargó y extrajo el [ejemplo Creación de una cuenta de DocumentDB y un ejemplo de aplicación web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (por ejemplo, C:\DocumentDBTemplates\CreateDocDBWebsite).
+1. Abra Microsoft Azure PowerShell y vaya a la carpeta en la que descargó y extrajo el [ejemplo Creación de una cuenta de DocumentDB y un ejemplo de aplicación web](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip) (por ejemplo, C:\\DocumentDBTemplates\\CreateDocDBWebsite).
 
 
 2. Vamos a ejecutar el script CreateDocDBWebsite.ps1 de PowerShell. El script toma los mismos parámetros que la primera plantilla que hemos implementado, a saber:
@@ -210,4 +210,4 @@ Ahora implementaremos nuestra segunda plantilla.
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

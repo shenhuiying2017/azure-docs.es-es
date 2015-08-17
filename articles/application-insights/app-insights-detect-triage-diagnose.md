@@ -4,15 +4,15 @@
 	authors="alancameronwills"
 	services="application-insights"
     documentationCenter=""
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.topic="article" 
+	ms.date="08/04/2015"
 	ms.author="awills"/>
 
 # Detección, evaluación de errores y diagnóstico con Application Insights
@@ -48,7 +48,7 @@ Application Insights funciona para aplicaciones de dispositivos y aplicaciones w
 ## Detección de disponibilidad insuficiente
 
 
-Marcela Markova es especialista en pruebas del equipo OBS y es responsable de supervisar el rendimiento en línea. Para tal fin, prepara varias [pruebas web][availability]:
+Marcela Markova es especialista en pruebas del equipo OBS y es responsable de supervisar el rendimiento en línea. Para tal fin, prepara varias [pruebas web][availability]\:
 
 * Primero, una prueba con una sola dirección URL para la página de aterrizaje principal de la aplicación. http://fabrikambank.com/onlinebanking/. Establece los criterios de código HTTP 200 y el texto 'Welcome!'. Si se produce un error en esta prueba, es que sucede algo grave con la red o los servidores o quizás sea un problema de implementación. (O bien, alguien ha cambiado el mensaje Welcome! en la página sin que ella lo sepa).
 
@@ -59,7 +59,7 @@ Marcela Markova es especialista en pruebas del equipo OBS y es responsable de su
 Con estas pruebas preparadas, está segura de que el equipo se enterará rápidamente de cualquier interrupción.
 
 
-Los errores se muestran como puntos rojos en el gráfico de información general de pruebas web:
+Los errores se muestran como puntos rojos en el gráfico de pruebas web:
 
 ![Presentación de pruebas web que se han ejecutado durante el período anterior](./media/app-insights-detect-triage-diagnose/04-webtests.png)
 
@@ -70,22 +70,21 @@ Pero lo más importante, se enviará por correo electrónico una alerta sobre cu
 ## Supervisión de las métricas de rendimiento.
 
 
-En la misma página de información general que el gráfico de disponibilidad, hay un gráfico que muestra diversas [métricas clave][perf].
-
+En la misma página de información general de Application Insights, hay un gráfico que muestra diversas [métricas clave][perf].
 
 ![Varias métricas](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
-El tiempo de procesamiento del cliente se obtiene de la telemetría enviada directamente desde las páginas web. En las demás páginas se muestran las métricas calculadas en los servidores web.
+El tiempo de carga de la página del explorador se obtiene de la telemetría enviada directamente desde las páginas web. El tiempo de respuesta del servidor, el número de solicitudes del servidor y el número de solicitudes con error se miden en el servidor web y se envían a Application Insights desde allí.
 
 
 El número de solicitudes con error indica los casos donde los usuarios han visto un error, normalmente a continuación de una excepción en el código. Quizás verán un mensaje que dice "Lo sentimos, no pudimos actualizar sus datos ahora" o, en el peor de los casos, un volcado de la pila en la pantalla del usuario, cortesía del servidor web.
 
 
-A Marcela le gusta mirar estos gráficos de vez en cuando. El fondo constante de solicitudes con error es algo deprimente, pero se refiere a un error que el equipo está investigando, por lo que debe incluirse cuando se lance la corrección. Pero si se produce un pico repentino en las solicitudes con error o en algunas de las demás métricas como el tiempo de respuesta del servidor, Marcela desea saberlo inmediatamente. Esto podría indicar un problema imprevisto causado por una versión de código o un error en una dependencia, como una base de datos, o quizás una reacción sin gracia a una carga elevada de solicitudes.
+A Marcela le gusta mirar estos gráficos de vez en cuando. La ausencia de solicitudes con error es alentadora, aunque cuando cambia el intervalo del gráfico para cubrir la semana pasada, aparecen errores ocasionales. Esto es un nivel aceptable en un servidor ocupado. Pero si se produce un salto repentino en los errores o en algunas de las demás métricas como el tiempo de respuesta del servidor, Marcela desea saberlo inmediatamente. Esto podría indicar un problema imprevisto causado por una versión de código o un error en una dependencia, como una base de datos, o quizás una reacción sin gracia a una carga elevada de solicitudes.
 
 #### Alertas
 
-Así que establece dos [alertas][metrics]: una para tiempos de respuesta superiores a un umbral típico y otro para una tasa de solicitudes con error mayor que el fondo actual.
+Así que establece dos [alertas][metrics]\: una para tiempos de respuesta superiores a un umbral típico y otro para una tasa de solicitudes con error mayor que el fondo actual.
 
 
 Junto con la alerta de disponibilidad, estas le proporcionan la seguridad de que tendrá información al respecto tan pronto ocurra algo inusual.
@@ -103,7 +102,7 @@ También es posible establecer alertas para una amplia variedad de otras métric
 ## Detección de excepciones
 
 
-Las excepciones se notifican a Application Insights llamando a [TrackException()][api]:
+Con un poco de configuración, se notifican [excepciones](app-insights-asp-net-exceptions.md)automáticamente a Application Insights. También se pueden capturar de manera explícita mediante la inserción de llamadas a [TrackException()](app-insights-api-custom-events-metrics.md#track-exception) en el código:
 
     var telemetry = new TelemetryClient();
     ...
@@ -144,19 +143,20 @@ Las excepciones y los eventos se muestran en la hoja [Búsqueda de diagnóstico]
 
 ![En la búsqueda de diagnóstico, utilice filtros para mostrar determinados tipos de datos.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Supervisión de eventos correctos
+## Seguimiento de la actividad de usuario
+
+Cuando el tiempo de respuesta es bueno de manera coherente y hay algunas excepciones, el equipo de desarrollo puede pensar en cómo mejorar la experiencia del usuario y en cómo animar a más usuarios a lograr los objetivos deseados.
 
 
-Al equipo de desarrollo de Fabrikam le gusta realizar el seguimiento tanto de las cosas buenas como de las malas. En parte porque es conveniente saber cuántas cosas buenas ocurren y dónde, y en segundo lugar porque cuando dejan de ocurrir de repente cosas buenas, es muy desagradable.
+Por ejemplo, un viaje de usuario típico a través del sitio web tiene un claro 'embudo': muchos clientes examinan las tasas de diferentes tipos de préstamo; algunos de ellos rellenan el formulario de presupuesto; y de aquellos que reciben un presupuesto, algunos siguen adelante y obtienen el préstamo.
 
+![](./media/app-insights-detect-triage-diagnose/12-funnel.png)
 
-Por ejemplo, muchos viajes de usuario tienen un claro 'embudo': muchos clientes examinan las tasas de diferentes tipos de préstamo; algunos de ellos rellenan el formulario de presupuesto; y de aquellos que reciben un presupuesto, algunos siguen adelante y obtienen el préstamo.
+Teniendo en cuenta dónde abandonan los mayores números de clientes, la empresa puede calcula cómo conseguir que más usuarios pasen a la parte inferior del embudo. En algunos casos se puede producir en la experiencia de usuario (UX) experiencia: por ejemplo, es difícil encontrar el botón "siguiente" o las instrucciones no son evidentes. Lo más probable es que haya motivos empresariales más importantes para los abandonos: quizás las tasas de préstamo son demasiado altas.
 
+Independientemente de los motivos, los datos ayudan al equipo a averiguar qué hacen los usuarios. Se pueden insertar más llamadas de seguimiento para averiguar más detalles. TrackEvent() se puede usar para contar las acciones del usuario, desde los detalles mínimos como los clics de botón individuales hasta logros importantes como la liquidación de un préstamo.
 
-El equipo de desarrollo inserta llamadas a TrackMetric() en cada etapa del embudo. En el Explorador de métricas, Brian, el arquitecto empresarial, puede comparar los valores de cada métrica, para estimar si el sistema está vendiendo préstamos.
-
-
-Ursula, la especialista en experiencia de usuario, también vigila que las métricas sean correctas. Si el gráfico muestra un descenso repentino en alguna etapa del embudo, indica que ahí existe algún problema. Quizá sea difícil encontrar el botón secundario, o quizás el texto no sea muy alentador. O quizás haya un error: los usuarios presionan el botón, pero no ocurre nada.
+El equipo se está acostumbrando a tener información sobre la actividad del usuario. En la actualidad, cada vez que diseñan una nueva característica, calculan cómo obtendrán comentarios de su uso. Diseñan llamadas de seguimiento en la característica desde el principio. Usan los comentarios para mejorar la característica de cada ciclo de desarrollo.
 
 
 ## Supervisión proactiva  
@@ -260,4 +260,4 @@ Así es como un equipo usa Application Insights no solo para solucionar problema
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

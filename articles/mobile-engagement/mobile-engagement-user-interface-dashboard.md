@@ -129,4 +129,4 @@ La secci√≥n del panel de la interfaz de usuario permite a los clientes crear gr√
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -78,7 +78,7 @@ ForceRestart                   : False
 UpgradeReplicaSetCheckTimeout  : 00:00:00
 ~~~
 
-En este ejemplo, podemos ver que la actualización generó error en el dominio de actualización*MYUD1* y que se bloquearon dos particiones (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* y *4b43f4d8-b26b-424e-9307-7a7a62e79750*); no se pueden colocar las réplicas principales (*WaitForPrimaryPlacement*) en los nodos de destino *Nodo1* y *Nodo4*. El comando **Get-ServiceFabricNode** se puede usar para comprobar que estos dos nodos están en el dominio de actualización *MYUD1*. La fase *UpgradePhase* indica *PostUpgradeSafetyCheck*, lo que significa que estas comprobaciones de seguridad se producen después de que todos los nodos del dominio de actualización hayan finalizado la actualización. Toda esta información combinada señala a un posible problema con la nueva versión del código de la aplicación. Los problemas más habituales son errores de servicio en la apertura o promoción a rutas de acceso de código principal.
+En este ejemplo, podemos ver que la actualización generó un error en el dominio de actualización*MYUD1* y que se bloquearon dos particiones (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* y *4b43f4d8-b26b-424e-9307-7a7a62e79750*), por lo que no pudieron colocar las réplicas principales (*WaitForPrimaryPlacement*) en los nodos de destino *Nodo1* y *Nodo4*. El comando **Get-ServiceFabricNode** se puede usar para comprobar que estos dos nodos están en el dominio de actualización *MYUD1*. La fase *UpgradePhase* indica *PostUpgradeSafetyCheck*, lo que significa que estas comprobaciones de seguridad se producen después de que todos los nodos del dominio de actualización hayan finalizado la actualización. Toda esta información combinada señala a un posible problema con la nueva versión del código de la aplicación. Los problemas más habituales son errores de servicio en la apertura o promoción a rutas de acceso de código principal.
 
 Una *UpgradePhase* de *PreUpgradeSafetyCheck* indica que se produjeron problemas al preparar el dominio de actualización antes de realizar realmente la actualización. Los problemas más habituales en este caso son errores de servicio en el cierre o disminución de nivel de las rutas de acceso de código principales.
 
@@ -140,7 +140,7 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 ~~~
 
-La investigación de los errores de comprobación de estado requiere la comprensión del modelo de estado de Service Fabric, pero incluso sin una comprensión profunda, podemos ver que los dos servicios son incorrectos: *fabric:/DemoApp/Svc3* y *fabric:/DemoApp/Svc2* junto con los informes de mantenimiento de error ("InjectedFault" en este caso). En este ejemplo, 2 de cada 4 servicios son incorrectos, por debajo del objetivo predeterminado de 0 % incorrecto (*MaxPercentUnhealthyServices*).
+La investigación de los errores de comprobación de estado requiere la comprensión del modelo de estado de Service Fabric, pero incluso sin una comprensión profunda, podemos ver que los dos servicios son incorrectos: *fabric:/DemoApp/Svc3* y *fabric:/DemoApp/Svc2* junto con los informes de mantenimiento de error ("InjectedFault" en este caso). En este ejemplo, 2 de cada 4 servicios son incorrectos, están por debajo del objetivo predeterminado de 0 % incorrecto (*MaxPercentUnhealthyServices*).
 
 La actualización se suspendió tras el error especificando una **FailureAction** de manual al iniciar la actualización, por lo que podemos investigar el sistema activo en el estado de error si se desea antes de llevar a cabo cualquier acción adicional.
 
@@ -225,4 +225,4 @@ El tiempo de actualización de un dominio de actualización está limitado por *
 [Serialización de datos](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -18,9 +18,11 @@
 
 #Inserción segura de los Centros de notificaciones de Azure
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##Información general
 
@@ -78,7 +80,7 @@ Este tutorial Inserción segura muestra cómo enviar una notificación de inserc
 
 El paso siguiente es crear el componente de segundo plano de inserción.
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en el nodo de nivel superior de la solución (**Solución SecurePush** en este caso), después haga clic en **Agregar** y, por último, haga clic en **Nuevo proyecto**.
+1. En el Explorador de soluciones, haga clic con el botón secundario en el nodo de nivel superior de la solución (**Solución SecurePush** en este caso), después haga clic en **Agregar** y, por último, haga clic en **Nuevo proyecto**.
 
 2. Expanda **Aplicaciones de la Tienda**, haga clic en **Aplicaciones Windows Phone** y después en **Componente de Windows en tiempo de ejecución (Windows Phone)**. Asigne un nombre al proyecto **PushBackgroundComponent** y haga clic en **Aceptar** para crear el proyecto.
 
@@ -185,4 +187,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

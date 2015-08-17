@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure" 
+<properties
+	pageTitle="Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure"
 	description="Si no puede acceder a una aplicación que se ejecuta en una máquina virtual de Azure, siga estos pasos para aislar la causa del problema."
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/01/2015"
+	ms.author="dkshir"/>
 
 # Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure
 
@@ -26,7 +26,7 @@ Si no tiene acceso a una aplicación que se ejecuta en una máquina virtual de A
 Hay cuatro áreas principales para solucionar el acceso de una aplicación que se ejecuta en una máquina virtual de Azure.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access1.png)
- 
+
 1.	La aplicación que se ejecuta en la máquina virtual de Azure.
 2.	La máquina virtual de Azure.
 3.	Extremos de Azure para el servicio en la nube que contiene la máquina virtual (para las máquinas virtuales creadas en la Administración de servicio), reglas NAT entrantes (para las máquinas virtuales creadas en el Administrador de recursos) y grupos de seguridad de red.
@@ -37,7 +37,7 @@ Para los equipos cliente que tienen acceso a la aplicación a través de una con
 ## Paso 1: ¿Puede acceder a la aplicación desde la máquina virtual de destino?
 
 Intente acceder a la aplicación con el programa de cliente apropiado de la máquina virtual en la que se ejecuta la aplicación, use el nombre de host local, la dirección IP local o la dirección de bucle invertido (127.0.0.1).
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access2.png)
 
 Por ejemplo, si la aplicación es un servidor web, ejecute un explorador en la máquina virtual e intente obtener acceso a una página web hospedada en la máquina virtual.
@@ -54,7 +54,7 @@ En máquinas virtuales basadas en Windows y Linux, use el comando **netstat -a**
 ## <a id="step2"></a>Paso 2: ¿Tiene acceso a la aplicación desde otra máquina virtual en la misma red virtual?
 
 Intente acceder a la aplicación desde una máquina virtual diferente en la misma red virtual que la de la máquina virtual en el que se ejecuta la aplicación con el nombre de host de la máquina virtual o su dirección IP de proveedor, privada o pública asignada por Azure. Para las máquinas virtuales creadas en la Administración de servicios, no use la dirección IP pública del servicio en la nube.
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
 Por ejemplo, si la aplicación es un servidor web, intente tener acceso a una página web desde un explorador en una máquina virtual diferente de la misma red virtual.
@@ -75,7 +75,7 @@ En una máquina virtual basada en Windows, use el Firewall de Windows con seguri
 Intente tener acceso a la aplicación desde un equipo situado fuera de la red virtual como la máquina virtual en la que se está ejecutando la aplicación, pero que no esté en la misma red que el equipo cliente original.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access4.png)
- 
+
 Por ejemplo, si la aplicación es un servidor web, intente tener acceso a la página web desde un explorador de un equipo que no esté en la red virtual.
 
 Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
@@ -110,4 +110,4 @@ Si ha efectuado los pasos del 1 al 3 de este artículo y necesita ayuda adiciona
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

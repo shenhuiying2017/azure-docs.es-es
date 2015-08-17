@@ -48,19 +48,9 @@ La acción Validar XML valida un entrada XML dada con respecto a esquemas precon
 
 ![Acción Validar XML del Validador XML de BizTalk][5]
 
-<table>
-	<tr>
-		<th>Parámetro</th>
-		<th>Tipo</th>
-		<th>Descripción del parámetro</th>
-	</tr>
-	<tr>
-		<td>XML de entrada</td>
-		<td>cadena</td>
-		<td>XML de entrada para validar</td>
-	</tr>
-</table>
-
+Parámetro|Tipo|Descripción del parámetro
+---|---|---
+XML de entrada|cadena|XML de entrada para validar
 
 La acción devuelve la salida como un objeto. La salida contiene el modelo que representa la respuesta del Validador XML. Consta de resultado, nombre de esquema, nodo raíz y descripción del error.
 
@@ -75,4 +65,4 @@ La acción devuelve la salida como un objeto. La salida contiene el modelo que r
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

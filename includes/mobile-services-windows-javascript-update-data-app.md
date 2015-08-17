@@ -45,4 +45,4 @@
 
 Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para almacenamiento back-end, es momento de probar la aplicación con Servicios móviles.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -218,4 +218,4 @@ Información que el SDK intenta extraer del entorno acerca del dispositivo, la u
 
 Lea o contribuya al [código para el SDK](https://github.com/Microsoft/ApplicationInsights-js).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

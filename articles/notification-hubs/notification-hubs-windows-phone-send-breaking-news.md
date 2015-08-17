@@ -161,9 +161,9 @@ Estos pasos permiten registrar el Centro de notificaciones en el inicio mediante
 
 	Esto devuelve las categorías definidas en la clase.
 
-1. Abra el archivo App.xaml.cs y agregue el modificador **async** al método **Application_Launching**.
+1. Abra el archivo App.xaml.cs y agregue el modificador **async** al método **Application\_Launching**.
 
-2. En el método **Application_Launching**, busque y reemplace el código de registro de los Centros de notificaciones que agregó en [Introducción a los Centros de notificaciones] con la siguiente línea de código:
+2. En el método **Application\_Launching**, busque y reemplace el código de registro de los Centros de notificaciones que agregó en [Introducción a los Centros de notificaciones] con la siguiente línea de código:
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
@@ -259,4 +259,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

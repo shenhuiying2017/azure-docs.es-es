@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/02/2015"
 	ms.author="piyushjo" />
 
@@ -233,7 +233,7 @@ Edite **www/js/index.js** para agregar la llamada a Mobile Engagement para solic
 
 **[iOS]**
 
-1. Usaremos XCode para compilar e implementar la aplicación en el dispositivo para probar las notificaciones push porque iOS solo permite notificaciones push a un dispositivo real. Vaya a la ubicación donde se creará el proyecto Cordova y vaya a la ubicación **...\platforms\ios**. Abra el archivo .xcodeproj nativo en XCode. 
+1. Usaremos XCode para compilar e implementar la aplicación en el dispositivo para probar las notificaciones push porque iOS solo permite notificaciones push a un dispositivo real. Vaya a la ubicación donde se creará el proyecto Cordova y vaya a la ubicación **...\\platforms\\ios**. Abra el archivo .xcodeproj nativo en XCode. 
 	
 2. Compile e implemente la aplicación de Cordova en el dispositivo iOS usando la cuenta que tiene el perfil de aprovisionamiento que contiene el certificado que acaba de cargar al portal de Mobile Engagement y el identificador de la aplicación que coincide con el que proporcionó al crear la aplicación de Cordova. Puede consultar el *identificador del paquete* en su archivo **Resources*-info.plist** en XCode para que coincidan.
 
@@ -273,7 +273,7 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 
 	![][15]
 
-5. [Opcional] También puede proporcionar la dirección URL de una acción. Asegúrese de que usa un esquema de URL proporcionado al configurar la variable **AZME REDIRECT URL** del complemento, por ejemplo, *myapp://test*. 
+5. [Opcional] También puede proporcionar la dirección URL de una acción. Asegúrese de que usa un esquema de URL proporcionado al configurar la variable **AZME REDIRECT URL** del complemento, por ejemplo, **myapp://test*.
 
 5. Ha terminado de configurar la campaña más básica posible. Ahora, desplácese hacia abajo de nuevo y **cree** la campaña para guardarla.
 	
@@ -312,4 +312,4 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 [20]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
 [21]: ./media/mobile-engagement-cordova-get-started/api-key.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

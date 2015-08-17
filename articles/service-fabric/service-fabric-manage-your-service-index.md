@@ -50,4 +50,4 @@ En los siguientes artículos se describen el escalado y la creación de particio
 - [Escalar aplicaciones de Service Fabric](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

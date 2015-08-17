@@ -42,4 +42,4 @@ En el archivo web.config del proyecto, se actualizaron `AzureWebJobsStorage` y `
 
 Para obtener más información, consulte [Recursos recomendados de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

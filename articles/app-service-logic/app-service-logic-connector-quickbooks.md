@@ -21,12 +21,27 @@
 
 Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. El conector de QuickBooks permite crear y modificar diferentes entidades de QuickBooks. A continuación se proporciona la lista de entidades de QuickBooks compatibles con el conector de QuickBooks.
 
-<Table>
-<TR><TD><B>Entidades</TD><TD><B>Descripción</TR> <TR> <TD> Cuenta </TD> <TD> La cuenta es un componente de un plan contable y forma parte de un libro mayor. Se usa para registrar un importe monetario asignado en relación con un uso específico </TD> </TR> <TR> <TD> Nota de crédito </TD> <TD> La nota de crédito es una transacción financiera que representa una devolución o abono del pago o parte de un pago por las mercancías o los servicios que se han vendido. </TD> </TR> <TR> <TD> Cliente </TD> <TD> Un cliente es un consumidor del servicio o producto que ofrece su negocio. </TD> </TR> <TR> <TD> Presupuesto </TD> <TD> El presupuesto representa una propuesta para una transacción financiera de una empresa a un cliente por bienes o servicios puestos a la venta, incluidos los precios propuestos. </TD> </TR> <TR> <TD> Factura </TD> <TD> Una factura representa un formulario de venta donde el cliente paga un producto o servicio más adelante. Aquí se encuentra información adicional acerca de cómo utilizar el modelo de datos de la factura. </TD> </TR> <TR> <TD> Artículo </TD> <TD> Un artículo es algo que su compañía adquiere, vende o revende; por ejemplo, productos, gastos de envío y manipulación, descuentos e impuestos (si corresponde). Un elemento se muestra como una línea en una factura u otro formulario de venta. </TD> </TR> <TR> <TD> Recibo de ventas </TD> <TD> Esta entidad representa el recibo de venta entregado a un cliente. </TD> </TR> </Table>
+Entidades|Descripción
+---|---
+Cuenta|Una cuenta es un componente de un plan de cuentas y forma parte de un libro mayor. Permite registrar un importe monetario total asignado para un uso específico
+Nota de crédito|Una nota de crédito es una transacción financiera que representa un reembolso o el abono de un pago o parte de un pago por bienes o servicios que se han vendido.
+Cliente|Un cliente es un consumidor del servicio o producto que ofrece su negocio.
+Presupuesto|El presupuesto representa una propuesta para una transacción financiera de una empresa a un cliente por bienes o servicios puestos a la venta, incluidos los precios propuestos.
+Factura|Una factura representa un formulario de venta donde el cliente paga un producto o servicio más adelante. Aquí se encuentra información adicional acerca de cómo utilizar el modelo de datos de la factura.
+Elemento|Un elemento es algo que su compañía adquiere, vende o revende; por ejemplo, productos, gastos de envío y manipulación, descuentos e impuestos (si corresponde). Un elemento se muestra como una línea en una factura u otro formulario de venta.
+Recibo de venta|Esta entidad representa el recibo de venta entregado a un cliente.
+
 
 
 ##Acciones de QuickBooks ##
-A continuación se muestran las distintas acciones disponibles en el conector de QuickBooks. <table> <tbody> <tr><td> <strong>Acción</strong> </td> <td> <strong>Descripción</strong> </td> </tr> <tr> <td> Leer entidad </td> <td> Permite leer objetos de entidad. </td> </tr> <tr> <td> Crear o actualizar entidad </td> <td> Permite crear o actualizar objetos de entidad. El objeto se actualiza si ya existe; de lo contrario, se crea un nuevo objeto. </td> </tr> <tr> <td> Eliminar </td> <td> Esta acción elimina el objeto especificado de la entidad seleccionada. </td> </tr> <tr> <td> Consulta </td> <td> La operación de consulta es el método para crear una consulta guiada con respecto a una entidad. </td> </tr> </tbody> </table>
+A continuación se muestran las distintas acciones disponibles en el conector de QuickBooks.
+
+Acción|Descripción
+---|---
+Leer entidad|Lee el objeto entidad.
+Crear o actualizar entidad|Crea o actualiza el objeto entidad. El objeto se actualiza si ya existe; de lo contrario, se crea un nuevo objeto.
+Eliminar|Esta acción elimina el objeto especificado de la entidad seleccionada.
+Consultar|La operación de consulta es el método para crear una consulta guiada en una entidad.
 
 ##Creación de una aplicación de API del conector de QuickBooks##
 1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior derecha del Portal de Azure.
@@ -119,4 +134,4 @@ Nos permite crear una aplicación lógica sencilla que crea una cuenta en QuickB
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Supervisión del rendimiento y diagnósticos de actores de Service Fabric de Azure"
-   description="En este artículo se describen las características de supervisión del rendimiento y los diagnósticos en el tiempo de ejecución de los actores de Fabric, incluidos los contadores de rendimiento y los eventos que emite."
+   pageTitle="Supervisión de diagnóstico y rendimiento de Actores confiables"
+   description="En este artículo se describen las características de supervisión del rendimiento y diagnósticos en el tiempo de ejecución de Actores confiables, incluidos los contadores de rendimiento y los eventos que emite."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# Supervisión del rendimiento y diagnósticos de actores de Fabric
-El tiempo de ejecución de los actores de Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) y [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) que ofrecen información sobre cómo está funcionando el tiempo de ejecución y ayudan con la solución de problemas y la supervisión del rendimiento.
+# Supervisión de diagnósticos y rendimiento para actores confiables
+El tiempo de ejecución de Actores confiables emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) y [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) que ofrecen información sobre cómo está funcionando el tiempo de ejecución y ayudan en la solución de problemas y la supervisión del rendimiento.
 
 ## Eventos EventSource
-El nombre de EventSource del tiempo de ejecución de los actores de Fabric es "Microsoft-ServiceFabric-Actors". Los eventos de este origen de eventos aparecen en la ventana [Eventos de diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) cuando la aplicación de actor se [depura en Visual Studio](service-fabric-debugging-your-application.md).
+El nombre de EventSource del tiempo de ejecución de Actores confiables es "Microsoft-ServiceFabric-Actors". Los eventos de este origen de eventos aparecen en la ventana [Eventos de diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) cuando la aplicación de actor se [depura en Visual Studio](service-fabric-debugging-your-application.md).
 
 Service Fabric también ofrece la opción de dirigir estos eventos a [Application Insights](http://azure.microsoft.com/services/application-insights/). Para obtener más información, consulte el artículo [Configuración de Application Insights para Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
 
 Otros ejemplos de herramientas y tecnologías que ayudan a recopilar o ver eventos EventSource son [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnósticos de Azure](../cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) y [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Palabras clave
-Todos los eventos que pertenecen al EventSource de actores de Fabric están asociados a una o más palabras clave. Esto habilita el filtrado de los eventos que se recopilan. Se definen los siguientes bits de palabras clave:
+Todos los eventos que pertenecen al EventSource de Actores fiables están asociados a una o varias palabras clave. Esto habilita el filtrado de los eventos que se recopilan. Se definen los siguientes bits de palabras clave:
 
 |Bit|Descripción|
 |---|---|
@@ -37,7 +37,7 @@ Todos los eventos que pertenecen al EventSource de actores de Fabric están asoc
 |0x8|Conjunto de eventos relacionados con la simultaneidad basada en turnos en el actor. Para obtener más información, consulte el tema sobre [simultaneidad](service-fabric-reliable-actors-introduction.md#concurrency).|
 
 ## Contadores de rendimiento
-El tiempo de ejecución de los actores de Fabric define las siguientes categorías de contador de rendimiento.
+El tiempo de ejecución de Actores confiables define las siguientes categorías de contador de rendimiento.
 
 |Categoría|Descripción|
 |---|---|
@@ -88,7 +88,7 @@ En el ejemplo anterior, `ivoicemailboxactor.leavemessageasync` es un nombre de m
 ## Lista de eventos y contadores de rendimiento
 
 ### Eventos de método de actor y contadores de rendimiento
-El tiempo de ejecución de actores de Fabric emite los siguientes eventos relacionados con los [métodos de actor](service-fabric-reliable-actors-introduction.md#actors).
+El tiempo de ejecución de Actores confiable emite los siguientes eventos relacionados con los [métodos de actor](service-fabric-reliable-actors-introduction.md#actors).
 
 |Nombre del evento|Id. del evento|Level|Palabras clave|Descripción|
 |---|---|---|---|---|
@@ -96,7 +96,7 @@ El tiempo de ejecución de actores de Fabric emite los siguientes eventos relaci
 |ActorMethodStop|8|Detallado|0x2|Un método de actor terminó de ejecutarse; por ejemplo, se ha devuelto la llamada asincrónica del tiempo de ejecución al método de actor y se completó la tarea que el método de actor devolvió.|
 |ActorMethodThrewException|9|Warning (Advertencia)|0x3|Se produjo una excepción durante la ejecución de un método de actor, bien durante la llamada asincrónica del tiempo de ejecución al método actor o bien durante la ejecución de la tarea el método de actor devolvió. Este evento indica algún tipo de error en el código de actor que debe investigarse.|
 
-El tiempo de ejecución de los actores de Fabric publica los siguientes contadores de rendimiento relacionados con la ejecución de los métodos de actor.
+El tiempo de ejecución de Actores confiables publica los siguientes contadores de rendimiento relacionados con la ejecución de los métodos de actor.
 
 |Nombre de la categoría|Nombre del contador|Descripción|
 |---|---|---|
@@ -105,34 +105,34 @@ El tiempo de ejecución de los actores de Fabric publica los siguientes contador
 |Método del actor de Service Fabric|Excepciones generadas/seg.|Número de veces que el método de servicio del actor genera una excepción por segundo|
 
 ### Contadores de rendimiento y eventos de simultaneidad
-El tiempo de ejecución de los actores de Fabric emite los siguientes eventos relacionados con la [simultaneidad](service-fabric-reliable-actors-introduction.md#concurrency).
+El tiempo de ejecución de Actores confiables emite los siguientes eventos relacionados con la [simultaneidad](service-fabric-reliable-actors-introduction.md#concurrency).
 
 |Nombre del evento|Id. del evento|Level|Palabras clave|Descripción|
 |---|---|---|---|---|
 |ActorMethodCallsWaitingForLock|12|Detallado|0x8|Este evento se escribe al comienzo de cada turno nuevo en un actor. Contiene el número de llamadas de actor en espera para adquirir el bloqueo por actor que exige la simultaneidad basada en turnos.|
 
-El tiempo de ejecución de los actores de Fabric publica los siguientes contadores de rendimiento relacionados con la simultaneidad.
+El tiempo de ejecución de Actores confiables publica los siguientes contadores de rendimiento relacionados con la simultaneidad.
 
 |Nombre de la categoría|Nombre del contador|Descripción|
 |---|---|---|
 |Actor de Service Fabric|Número de llamadas de actor en espera de un bloqueo de actor|Número de llamadas de actor en espera para adquirir el bloqueo por actor que exige la simultaneidad basada en turnos.|
 
 ### Contadores de rendimiento y eventos de administración del estado de los actores
-El tiempo de ejecución de actores de Fabric emite los siguientes eventos relacionados con la [administración del estado de los actores](service-fabric-reliable-actors-introduction.md#actor-state-management).
+El tiempo de ejecución de Actores confiables emite los siguientes eventos relacionados con la [administración del estado de los actores](service-fabric-reliable-actors-introduction.md#actor-state-management).
 
 |Nombre del evento|Id. del evento|Level|Palabras clave|Descripción|
 |---|---|---|---|---|
 |ActorSaveStateStart|10|Detallado|0x4|El tiempo de ejecución de los actores está a punto de guardar el estado del actor.|
 |ActorSaveStateStop|11|Detallado|0x4|El tiempo de ejecución de los actores finalizó de guardar el estado del actor.|
 
-El tiempo de ejecución de los actores de Fabric publica los siguientes contadores de rendimiento relacionados con la administración del estado de los actores.
+El tiempo de ejecución de Actores confiables publica los siguientes contadores de rendimiento relacionados con la administración del estado de los actores.
 
 |Nombre de la categoría|Nombre del contador|Descripción|
 |---|---|---|
 |Actor de Service Fabric|Promedio de milisegundos por operación de almacenamiento del estado|Tiempo necesario para guardar el estado de un actor en milisegundos|
 
 ### Eventos relacionados con las instancias de actores sin estado
-El tiempo de ejecución de actores de Fabric emite los siguientes eventos relacionados con las [instancias de actores sin estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
+El tiempo de ejecución de Actores confiables emite los siguientes eventos relacionados con las [instancias de actores sin estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors).
 
 |Nombre del evento|Id. del evento|Level|Palabras clave|Descripción|
 |---|---|---|---|---|
@@ -140,7 +140,7 @@ El tiempo de ejecución de actores de Fabric emite los siguientes eventos relaci
 |ServiceInstanceClose|4|Informativo|0x1|Se cierra la instancia del actor sin estado. Esto implica que los actores de esta partición ya no se crearán dentro de esta instancia. Ninguna solicitud nueva se entregará a los actores ya creados en esta instancia. Los actores se destruirán cuando se completen las solicitudes en curso.|
 
 ### Eventos relacionados con las réplicas de actores con estado
-El tiempo de ejecución de actores de Fabric emite los siguientes eventos relacionados con las [réplicas de actores con estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+El tiempo de ejecución de Actores confiables emite los siguientes eventos relacionados con las [réplicas de actores con estado](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors).
 
 |Nombre del evento|Id. del evento|Level|Palabras clave|Descripción|
 |---|---|---|---|---|
@@ -148,11 +148,11 @@ El tiempo de ejecución de actores de Fabric emite los siguientes eventos relaci
 |ReplicaChangeRoleFromPrimary|2|Informativo|0x1|La réplica del actor con estado cambió el rol a No principal. Esto implica que los actores de esta partición ya no se crearán dentro de esta réplica. Ninguna solicitud nueva se entregará a los actores ya creados en esta réplica. Los actores se destruirán cuando se completen las solicitudes en curso.|
 
 ### Eventos de activación y desactivación de actores
-El tiempo de ejecución de actores de Fabric emite los siguientes eventos relacionados con la [activación y desactivación de actores](service-fabric-reliable-actors-lifecycle.md).
+El tiempo de ejecución de Actores confiables emite los siguientes eventos relacionados con la [activación y desactivación de actores](service-fabric-reliable-actors-lifecycle.md).
 
 |Nombre del evento|Id. del evento|Level|Palabras clave|Descripción|
 |---|---|---|---|---|
 |ActorActivated|5|Informativo|0x1|Se activó un actor.|
 |ActorDeactivated|6|Informativo|0x1|Se desactivó un actor.|
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

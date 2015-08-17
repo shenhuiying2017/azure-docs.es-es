@@ -4,6 +4,7 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
+	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -12,7 +13,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
@@ -71,7 +72,7 @@ La reposición de directorios tuvo lugar en octubre de 2013 como parte de una me
 
 No hay costes asociados al uso de Azure AD. El directorio es un recurso gratuito. Existe un nivel adicional Azure Active Directory Premium que se ofrece como licencia separada y proporciona características adicionales, como la información de marca de empresa y el autoservicio de restablecimiento de contraseñas.
 
-Para cambiar el nombre para mostrar del directorio, haga clic en el directorio del portal y luego en **Configurar**. Como se explica más adelante en este tema, puede agregar un nuevo directorio o eliminar uno que ya no necesite. Para asociar su suscripción a un directorio diferente, haga clic en la extensión **Configuración** del panel izquierdo y, en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. También puede crear un dominio personalizado mediante un nombre DNS que haya registrado en lugar del predeterminado *.onmicrosoft.com, que puede ser preferible para un servicio como SharePoint Online. 
+Para cambiar el nombre para mostrar del directorio, haga clic en el directorio del portal y luego en **Configurar**. Como se explica más adelante en este tema, puede agregar un nuevo directorio o eliminar uno que ya no necesite. Para asociar su suscripción a un directorio diferente, haga clic en la extensión **Configuración** del panel izquierdo y, en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. También puede crear un dominio personalizado mediante un nombre DNS que haya registrado en lugar del predeterminado *.onmicrosoft.com, que puede ser preferible para un servicio como SharePoint Online.
 
 ## ¿Cómo puedo administrar datos de directorio?
 
@@ -147,4 +148,4 @@ Se comprueban las condiciones siguientes:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

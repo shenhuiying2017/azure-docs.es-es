@@ -9,7 +9,7 @@
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/21/2015"
@@ -102,13 +102,13 @@ Las tablas siguientes muestran los puertos relacionados con estas tareas.
 |*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net/*|Puerto 443|
 |data.systemcenteradvisor.com|Puerto 443|
 |ods.systemcenteradvisor.com|Puerto 443|
-|*.systemcenteradvisor.com|Port 443|
+|**.systemcenteradvisor.com|Puerto 443|
 
 
 |**Recurso de la consola de Operations Manager y Visión operativa**|**Puertos**|
 |---|---|
 |*.systemcenteradvisor.com|Port 80 and 443| |*.live.com|Puerto 80 y 443|
-|*.microsoftonline.com|Port 80 and 443| |login.windows.net|Port 80 and 443|
+|**.microsoftonline.com|Puerto 80 y 443| |login.windows.net|Puerto 80 y 443|
 
 
 Utilice los procedimientos siguientes para registrar el grupo de administración de Operations Manager con el servicio de Visión operativa. Si tiene problemas de comunicación entre el grupo de administración y el servicio de Visión operativa, use los procedimientos de validación para solucionar los problemas de transmisión de datos al servicio de Visión operativa.
@@ -129,7 +129,7 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 
 3. En la vista Conexión a Vista operativa, haga clic en **Configurar servidor proxy**.![Configurar servidor proxy de Conexión a Visión operativa de Operations Manager](./media/operational-insights-proxy-firewall/proxy-om02.png)
 
-4. En el asistente de configuración de Visión operativa: servidor proxy, seleccione **Uso de un servidor proxy para tener acceso al servicio web de Visión operativa** y, a continuación, escriba la dirección URL con el número de puerto, por ejemplo, **http://myproxy:80**.![Dirección proxy de Visión operativa de Operations Manager](./media/operational-insights-proxy-firewall/proxy-om03.png)
+4. En el asistente de configuración de Visión operativa: servidor proxy, seleccione **Uso de un servidor proxy para tener acceso al servicio web de Visión operativa** y, a continuación, escriba la dirección URL con el número de puerto, por ejemplo, ****http://myproxy:80**. ![Dirección proxy de Visión operativa de Operations Manager](./media/operational-insights-proxy-firewall/proxy-om03.png)
 
 
 ### Para especificar las credenciales si el servidor proxy requiere autenticación
@@ -166,4 +166,4 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 3. Agregue todos los contadores que comienzan con **HTTP**.![agregar contadores](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Si la configuración de Operations Manager es correcta, verá actividad para los contadores de Administración de Servicio de mantenimiento para eventos y otros elementos de datos, según los módulos de administración que agregó en Visión operativa y la directiva de recopilación de registros configurada.![Monitor rendimiento mostrando actividad](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

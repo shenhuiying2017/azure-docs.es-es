@@ -114,4 +114,4 @@ Ahora que ha instalado Azure AD Connect puede usar el vínculo [aquí](active-di
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

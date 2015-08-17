@@ -70,15 +70,11 @@ Según este filtro de ámbito, los usuarios deben cumplir los siguientes criteri
 3. Deben trabajar en San Francisco o Canadá.
 
 
-## Recursos adicionales
-
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
- 
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

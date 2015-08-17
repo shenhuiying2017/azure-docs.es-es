@@ -29,7 +29,7 @@ En este método, el asistente generó un nuevo archivo push.register.cs en su pr
 
 	Con esto se garantiza que el registro se realiza con la misma instancia del cliente que tiene las credenciales de usuario autenticadas. De lo contrario, el registro producirá un error "No autorizado" (401).
 
-3. Abra el archivo de proyecto compartido MainPage.cs y sustituya el controlador **ButtonLogin_Click** por lo siguiente:
+3. Abra el archivo de proyecto compartido MainPage.cs y sustituya el controlador **ButtonLogin\_Click** por lo siguiente:
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +44,7 @@ En este método, el asistente generó un nuevo archivo push.register.cs en su pr
 
 	De esta forma, se garantiza que la autenticación se produce antes de que se intente el registro de inserción.
 
-4. 	En el código anterior, debe reemplazar el nombre de la clase de inserción generada (`todolistPush`) por el nombre de la clase que ha generado el asistente, normalmente en el formato <code><em>mobile_service</em>Push</code>.
+4. 	En el código anterior, debe reemplazar el nombre de la clase de inserción generada (`todolistPush`) por el nombre de la clase que ha generado el asistente, normalmente en el formato <code><em>mobile\_service</em>Push</code>.
 
 ###Notificaciones de inserción activadas manualmente		
 
@@ -54,7 +54,7 @@ En este método, agregó un código de registro desde el tutorial directamente e
  
 2. Cambie la accesibilidad del método **InitNotificationsAsync** de `private` a `public` y agregue el modificador `static`.
 
-3. Abra el archivo de proyecto compartido MainPage.cs y sustituya el controlador **ButtonLogin_Click** por lo siguiente:
+3. Abra el archivo de proyecto compartido MainPage.cs y sustituya el controlador **ButtonLogin\_Click** por lo siguiente:
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -69,4 +69,4 @@ En este método, agregó un código de registro desde el tutorial directamente e
 	
 	De esta forma, se garantiza que la autenticación se produce antes de que se intente el registro de inserción.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

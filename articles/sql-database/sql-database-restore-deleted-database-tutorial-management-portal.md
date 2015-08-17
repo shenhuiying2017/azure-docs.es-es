@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restaurar una base de datos SQL de Azure eliminada en el portal de Azure
@@ -73,4 +73,4 @@ Para obtener más información, consulte los temas siguientes:
 
 [Copia de seguridad y restauración de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

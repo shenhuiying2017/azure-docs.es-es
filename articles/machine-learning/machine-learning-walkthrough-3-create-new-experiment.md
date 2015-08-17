@@ -79,7 +79,7 @@ El siguiente paso del experimento es generar conjuntos de datos independientes q
 
 1.	Busque el módulo [Dividir][split], arrástrelo al lienzo y conéctelo al último módulo [Editor de metadatos][metadata-editor].
 2.	De manera predeterminada, la proporción de división es 0,5 y se establece el parámetro **División aleatoria**. Esto significa que una mitad aleatoria de los datos saldrá a través de un puerto del módulo [Dividir][split] y la otra mitad por el otro. Puede cambiar estos ajustes, así como el parámetro **Valor de inicialización aleatorio**, para cambiar la división entre datos de entrenamiento y de puntuación. Para este ejemplo, lo dejaremos como está.
-	> [AZURE.TIP] la proporción de división determina fundamentalmente qué cantidad de datos sale a través del puerto de salida de la izquierda.Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.
+	> [AZURE.TIP]Sugerencia: la proporción de división determina fundamentalmente qué cantidad de datos sale a través del puerto de salida de la izquierda. Por ejemplo, si establece la proporción en 0,7, el 70 % de los datos sale por el puerto de la izquierda y el 30 % por el puerto de la derecha.  
 	
 Podemos utilizar las salidas del módulo [Dividir][split] como deseemos, pero vamos a optar por utilizar la salida de la izquierda como datos de entrenamiento y la salida de la derecha como datos de puntuación.
 
@@ -109,7 +109,7 @@ Nuestro experimento tiene ahora un aspecto similar al siguiente:
  
 ![Adding Split module and R scripts][3]
 
-Para obtener más información sobre cómo utilizar los scripts de R en sus experimentos, consulte [Extender el experimento con R](machine-learning-extend-your-experiment-with-r.md).
+Para obtener más información sobre cómo usar los scripts de R en sus experimentos, consulte [Extender el experimento con R](machine-learning-extend-your-experiment-with-r.md).
 
 **A continuación: [Entrenamiento y evaluación de los modelos](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
 
@@ -126,4 +126,4 @@ Para obtener más información sobre cómo utilizar los scripts de R en sus expe
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

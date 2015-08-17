@@ -57,10 +57,10 @@ La restauración geográfica permite recuperar una base de datos de un grupo en 
 
 ### Replicación geográfica
 
-Las bases de datos que tienen habilitada la replicación geográfica se pueden mover dentro y fuera del grupo de bases de datos elásticas sin que ello repercuta en el funcionamiento de la replicación. Actualmente en la vista previa, no se puede habilitar la replicación geográfica en una base de datos que ya se encuentre en un grupo.
+Las bases de datos que tienen habilitada la replicación geográfica se pueden mover dentro y fuera del grupo de bases de datos elásticas sin que ello repercuta en el funcionamiento de la replicación. Puede habilitar la replicación geográfica en una base de datos que ya está en el grupo si el servidor de destino que especifique tiene un grupo con el mismo nombre que el grupo de origen. Actualmente en la vista previa, no puede habilitar la replicación geográfica en una base de datos que ya está en un grupo a un grupo con un nombre diferente o a una base de datos de singleton secundaria.
 
 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

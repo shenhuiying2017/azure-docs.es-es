@@ -98,9 +98,9 @@ Los clústeres de HDInsight basado en Linux proporcionan un conjunto de ejemplos
 
     	hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
 
-    La entrada de este trabajo se lee desde **wasb:///example/data/gutenberg/davinci.txt**.
+    La entrada de este trabajo se lee desde ****wasb:///example/data/gutenberg/davinci.txt**.
 
-    La salida de este ejemplo se almacenará en **wasb:///example/data/davinciwordcount**.
+    La salida de este ejemplo se almacenará en ****wasb:///example/data/davinciwordcount**.
 
     > [AZURE.NOTE]Como se indica en la Ayuda del ejemplo wordcount, también puede especificar varios archivos de entrada. Por ejemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contaría las palabras de davinci.txt y ulysses.txt.
 
@@ -185,7 +185,7 @@ Este ejemplo utiliza tres conjuntos de programas de MapReduce:
 
 - **TeraGen**: programa de MapReduce que genera filas de datos que se van a ordenar.
 
-- **TeraSort**: toma una muestra de los datos de entrada y usa MapReduce para ordenar los datos de manera absoluta.
+- **TeraSort** toma una muestra de los datos de entrada y usa MapReduce para ordenar los datos de manera absoluta.
 
     TeraSort es un ordenamiento estándar de funciones de MapReduce, con la excepción de un particionador personalizado que utiliza una lista ordenada de N-1 claves de muestra que definen el rango de claves para cada reducción. En concreto, todas las claves, como esa muestra[i-1] <= clave < muestra[i] se envían a la reducción i. Esto garantiza que las salidas de la reducción i sean todas menores que la salida de la reducción i+1.
 
@@ -195,10 +195,11 @@ Este ejemplo utiliza tres conjuntos de programas de MapReduce:
 
 Utilice los siguientes pasos para generar datos, ordenarlos y, a continuación, validar el resultado:
 
-1. Genere 10 GB de datos, que se guardarán en el almacenamiento predeterminado del clúster de HDInsight en **wasb:///example/data/10GB-sort-input**: 
+1. Genere 10 GB de datos, que se guardarán en el almacenamiento predeterminado del clúster de HDInsight en ****wasb:///example/data/10GB-sort-input**:
+
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar teragen -Dmapred.map.tasks=50 100000000 /example/data/10GB-sort-input
 
-	`-Dmapred.map.tasks` indica a Hadoop cuántas tareas de asignación se usarán para el trabajo. Los dos parámetros finales indican al trabajo que cree 10 GB de datos y los almacene en **wasb:///example/data/10GB-sort-input**.
+	`-Dmapred.map.tasks` indica a Hadoop cuántas tareas de asignación se usarán para el trabajo. Los dos parámetros finales indican al trabajo que cree 10 GB de datos y los almacene en ****wasb:///example/data/10GB-sort-input**.
 
 2. Use el siguiente comando para ordenar los datos:
 
@@ -241,4 +242,4 @@ En este artículo, ha obtenido información acerca de cómo ejecutar los ejemplo
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

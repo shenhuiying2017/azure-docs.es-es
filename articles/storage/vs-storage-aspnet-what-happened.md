@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # ¿Qué le ha ocurrido a mi proyecto?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
 
-###¿Qué le ha ocurrido a mi proyecto?</span>
+###¿Qué le ha ocurrido a mi proyecto?
 
 ##### Se han agregado referencias.
 
@@ -42,4 +42,4 @@ En el archivo web.config de su proyecto, se ha creado un elemento con la cadena 
 
 Para obtener más información, consulte [ASP.NET](http://www.asp.net).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -27,7 +27,7 @@ Twilio está potenciando el futuro de las comunicaciones empresariales, al permi
 **Twilio Voice** permite que sus aplicaciones realicen y reciban llamadas. **Twilio SMS** permite que sus aplicaciones envíen y reciban mensajes SMS. **Twilio Client** permite realizar llamadas VoIP desde cualquier teléfono, tableta o explorador, y es compatible con WebRTC.
 
 ## <a id="Pricing"></a>Precios de Twilio y ofertas especiales
-Los clientes de Azure reciben una [oferta especial][special_offer]: 10 $ de regalo en crédito Twilio al actualizar su cuenta Twilio. Este crédito Twilio se puede aplicar a cualquier uso de Twilio (10 $ de crédito equivalen al envío de aproximadamente 1.000 mensajes SMS o recibir hasta 1.000 minutos de voz entrante, según la ubicación del número de teléfono y el destino del mensaje o de la llamada). Canjee este crédito Twilio y comience en [ahoy.twilio.com/azure][special_offer].
+Los clientes de Azure reciben una [oferta especial][special_offer]\: 10 $ de regalo en crédito Twilio al actualizar su cuenta Twilio. Este crédito Twilio se puede aplicar a cualquier uso de Twilio (10 $ de crédito equivalen al envío de aproximadamente 1.000 mensajes SMS o recibir hasta 1.000 minutos de voz entrante, según la ubicación del número de teléfono y el destino del mensaje o de la llamada). Canjee este crédito Twilio y comience en [ahoy.twilio.com/azure][special_offer].
 
 Twilio es un servicio de pago por uso. No hay comisiones establecidas y puede cerrar su cuenta en cualquier momento. Puede encontrar más detalles en [Precios de Twilio][twilio_pricing].
 
@@ -105,7 +105,7 @@ Para usar la biblioteca node.js de Twilio en el servicio móvil, debe aprovechar
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]La dependencia de Twilio se debe agregar como `"twilio": "~1.7.0"`, con un (~). No se admite una referencia con un símbolo de intercalación (^).
+	>[AZURE.NOTE]La dependencia de Twilio se debe agregar como `"twilio": "~1.7.0"`, con un (\~). No se admite una referencia con un símbolo de intercalación (^).
 
 4. Confirme la actualización de este archivo y vuelva a insertar la actualización en el servicio móvil.
 
@@ -170,7 +170,7 @@ El código siguiente muestra cómo enviar un mensaje SMS mediante la función **
 
 Cuando la aplicación inicia una llamada a la API de Twilio, por ejemplo, mediante el método client.InitiateOutboundCall, Twilio envía su solicitud a una dirección URL que se espera que devuelva una respuesta de TwiML. En el ejemplo de Realización de una llamada saliente se usa la dirección URL http://twimlets.com/message de Twilio para devolver la respuesta.
 
-> [AZURE.NOTE]Aun cuando TwiML está diseñado para que lo usen los servicios web, puede ver el TwiML en su explorador. Por ejemplo, haga clic en [twimlet_message_url](http://twimlets.com/message) para ver un elemento &lt;Response&gt; vacío; otro ejemplo, haga clic en [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver un elemento &lt;Response&gt; que contiene un elemento &lt;Say&gt;.
+> [AZURE.NOTE]Aun cuando TwiML está diseñado para que lo usen los servicios web, puede ver el TwiML en su explorador. Por ejemplo, haga clic en [twimlet\_message\_url](http://twimlets.com/message) para ver un elemento &lt;Response&gt; vacío; otro ejemplo, haga clic en [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver un elemento &lt;Response&gt; que contiene un elemento &lt;Say&gt;.
 
 En lugar de confiar en la URL que Twilio proporciona, puede crear su propio sitio URL que devuelve procesos HTTP. Puede crear el sitio en cualquier lenguaje que devuelva respuestas HTTP. En este tema se asume que va a hospedar la URL desde un controlador de ASP.NET genérico.
 
@@ -207,7 +207,7 @@ Cuando haya configurado una manera de proporcionar respuestas de TwiML, puede pa
         });
     };
 
-[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../../includes/twilio_additional_services_and_next_steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
@@ -230,4 +230,4 @@ Cuando haya configurado una manera de proporcionar respuestas de TwiML, puede pa
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

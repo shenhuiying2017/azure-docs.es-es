@@ -34,4 +34,4 @@ En el ejemplo anterior se pone en contacto con el proveedor de identidades y el 
 				[self loadAuthInfo];
 ```
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/01/2015"
@@ -119,4 +119,4 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

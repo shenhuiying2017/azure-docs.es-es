@@ -110,4 +110,4 @@ Toda la automatización y los scripts que ha creado continuarán funcionando par
 Esto no se admite en este momento. No se pueden conectar las redes virtuales creadas mediante las nuevas API del Administrador de recursos de Azure con un circuito Route Express. Se admitirán en el futuro.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

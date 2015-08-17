@@ -70,7 +70,7 @@ La convención de nomenclatura de los archivos se especifica mediante el atribut
 	   </OutputFormat>
 	</MediaFile>
 
-El codificador insertará guiones bajos entre cada macro; por ejemplo, la configuración anterior generará un nombre de archivo como el siguiente: MyVideo_H264_4500kpbs_AAC_und_ch2_128kbps.mp4.
+El codificador insertará guiones bajos entre cada macro; por ejemplo, la configuración anterior generará un nombre de archivo como el siguiente: MyVideo\_H264\_4500kpbs\_AAC\_und\_ch2\_128kbps.mp4.
 
 
 ##Creación de superposiciones
@@ -243,7 +243,7 @@ Al editar la cadena Preset, debe asegurarse de lo siguiente:
 
 ##Unión de segmentos de vídeo
 
-El codificador de servicios multimedia permite unir un conjunto de vídeos. Los vídeos se pueden unir juntos de un extremo a otro o se pueden especificar las partes de uno o de ambos vídeos que se van a unir. El resultado de la unión es un único recurso de salida que contiene el vídeo especificado de los recursos de entrada. Los vídeos que se van a unir pueden estar contenidos en varios recursos o en uno solo. El XML preestablecido que se pasa al codificador controla la unión. Para obtener una descripción completa del esquema preestablecido, consulte [Esquema de Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn584702.aspx).
+El codificador de servicios multimedia permite unir un conjunto de vídeos. Los vídeos se pueden unir juntos de un extremo a otro o se pueden especificar las partes de uno o de ambos vídeos que se van a unir. El resultado de la unión es un único recurso de salida que contiene el vídeo especificado de los recursos de entrada. Los vídeos que se van a unir pueden estar contenidos en varios recursos o en uno solo. El XML preestablecido que se pasa al codificador controla la unión. Para obtener una descripción completa del esquema preestablecido, consulte [Esquema del Codificador multimedia de Azure](https://msdn.microsoft.com/library/azure/dn584702.aspx).
 
 ###Unión con el Codificador de Servicios multimedia
 
@@ -292,7 +292,7 @@ Para cada vídeo que se va a unir, se agrega un elemento <Source> al elemento <S
 
 ###Unión de vídeos de varios recursos
 
-Cuando se unen vídeos de varios recursos, se utiliza un índice basado en cero para el atributo MediaFile del elemento <Source> a fin de identificar el recurso al que corresponde el elemento <Source>. El índice cero no se especifica, el elemento <Source> que no especifica un atributo MediaFile hace referencia al primer recurso de entrada. Todos los demás elementos <Source> deben especificar el índice basado en cero del recurso de entrada al que hace referencia mediante el uso de la sintaxis %n% donde n es el índice basado en cero del recurso de entrada. En el ejemplo anterior, el primer elemento <Source> especifica el primer recurso de entrada y el segundo elemento <Source>, el segundo recurso de entrada, y así sucesivamente. No es necesario que se haga referencia a los recursos de entrada en orden, por ejemplo:
+Cuando se unen vídeos de varios recursos, se usa un índice basado en cero para el atributo MediaFile del elemento <Source> a fin de identificar el recurso al que corresponde el elemento <Source>. El índice cero no se especifica, el elemento <Source> que no especifica un atributo MediaFile hace referencia al primer recurso de entrada. Todos los demás elementos <Source> deben especificar el índice basado en cero del recurso de entrada al que hace referencia mediante el uso de la sintaxis %n% donde n es el índice basado en cero del recurso de entrada. En el ejemplo anterior, el primer elemento <Source> especifica el primer recurso de entrada y el segundo elemento <Source>, el segundo recurso de entrada, y así sucesivamente. No es necesario que se haga referencia a los recursos de entrada en orden, por ejemplo:
 	
 	<MediaFile
 	    DeinterlaceMode="AutoPixelAdaptive"
@@ -458,11 +458,11 @@ Para evitar la amplificación del ruido de fondo, haga lo siguiente:
 
 1. Guarde el archivo preestablecido modificado en el disco duro local y utilice código como el siguiente para codificar con los valores preestablecidos personalizados:
 	
-	// Cargar archivo y crear recurso IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
+	// Cargar archivo y crear recurso IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
 	 
-	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
-	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
+	IJob job = \_context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
 	Console.WriteLine("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Para evitar la amplificación del ruido de fondo, haga lo siguiente:
 
 [Esquema de Azure Media Encoder XML Schema](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

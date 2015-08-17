@@ -71,10 +71,10 @@ A medida que genera un experimento, la lista de trabajo de conjuntos de datos es
 
 Un módulo es un algoritmo que puede aplicar sobre sus datos. Estudio de aprendizaje automático cuenta con diversos módulos que van desde las funciones de incorporación de datos hasta procesos de entrenamiento, puntuación y validación. A continuación se muestran algunos ejemplos de los módulos incluidos:
 
-- [Convertir a ARFF][convert-to-arff]: convierte un conjunto de datos serializados de .NET a formato ARFF. 
-- [Estadísticas elementales][elementary-statistics]: calcula estadísticas elementales como la media, la desviación estándar, etc. 
-- [Regresión lineal][linear-regression]: crea un modelo de regresión lineal basado en un descenso de gradiente en línea. 
-- [Puntuar modelo][score-model]: puntúa un modelo entrenado de clasificación o regresión. 
+- [Convertir a ARFF][convert-to-arff]\: convierte un conjunto de datos serializados de .NET a formato ARFF. 
+- [Estadísticas elementales][elementary-statistics]\: calcula estadísticas elementales como la media, la desviación estándar, etc. 
+- [Regresión lineal][linear-regression]\: crea un modelo de regresión lineal basado en un descenso de gradiente en línea. 
+- [Puntuar modelo][score-model]\: puntúa un modelo entrenado de clasificación o regresión. 
 
 A medida que genera un experimento, la lista de trabajo de módulos está disponible a la izquierda del lienzo.
 
@@ -91,4 +91,4 @@ Un módulo puede tener un conjunto de parámetros que puede utilizar para config
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

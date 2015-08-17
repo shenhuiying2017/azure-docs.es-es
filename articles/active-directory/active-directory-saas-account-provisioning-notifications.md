@@ -40,15 +40,10 @@ Puede introducir una lista de distribución a modo de destinatario, pero tenga e
 Si tiene las notificaciones de aprovisionamiento de cuentas habilitadas, recibirá correos electrónicos de todos los problemas críticos que estén relacionados con el aprovisionamiento de usuarios. De todos modos, y para evitar una sobrecarga de correos electrónicos, solo recibirá un correo electrónico de notificación al día para cada aplicación SaaS para la que esté habilitado dicho correo.
 
 
-
-
-## Recursos adicionales
-
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

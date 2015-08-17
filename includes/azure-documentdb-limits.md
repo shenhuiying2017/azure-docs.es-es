@@ -108,4 +108,4 @@
 
 Las cuotas que aparecen con un asterisco (*) [se pueden ajustar poniéndose en contacto con el soporte técnico de Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

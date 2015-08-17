@@ -7,14 +7,7 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services"" 
-	ms.tgt_pltfrm="command-line-interface" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="danlep"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
 
 # Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure
 
@@ -157,7 +150,7 @@ Debe poder iniciar esta máquina virtual mediante la ejecución del siguiente co
 
 	azure vm start "testrg" "testvm"
 
-A continuación, SSH en él mediante el comando **sshusername@ipaddress**. Para buscar rápidamente la dirección IP de su recurso de IP pública, use el siguiente comando.
+A continuación, SSH en él mediante el comando **ssh username@ipaddress**. Para buscar rápidamente la dirección IP de su recurso de IP pública, use el siguiente comando.
 
 	azure network public-ip show "testrg" "testip"
 
@@ -215,7 +208,7 @@ La CLI de Azure creará una máquina virtual con el tamaño de máquina virtual 
 
 	Cuando utiliza una plantilla, puede suministrar parámetros como parte de los parámetros de la línea de comandos o bien especificar un archivo que contenga los valores de parámetro. También puede escribir sus campos **valor** directamente dentro de la sección **parámetros** en la plantilla, aunque eso haría que la plantilla estuviera estrechamente enlazada a una implementación determinada y no sería reutilizable fácilmente. En cualquier caso, los parámetros deben estar en formato JSON y debe proporcionar sus propios valores para las claves que no tienen valores predeterminados.
 
-	Por ejemplo, para crear un archivo que contiene parámetros para la plantilla CoreOS.CoreOSStable.0.2.40-preview template, use los siguientes datos para crear un archivo denominado params.json. Reemplace los valores utilizados en este ejemplo por sus propios valores. El valor **Location** debe especificar una región de Azure cercana, como **Europa del Norte** o **Centro-Sur de EE. UU**. (Este ejemplo usa **Oeste de EE.UU.**).
+	Por ejemplo, para crear un archivo que contiene parámetros para la plantilla CoreOS.CoreOSStable.0.2.40-preview template, use los siguientes datos para crear un archivo denominado params.json. Reemplace los valores utilizados en este ejemplo por sus propios valores. El valor **Location** debe especificar una región de Azure cercana, como **Europa del Norte** o **Centro-Sur de EE. UU**. (Este ejemplo usa **Oeste de EE. UU.**).
 
 		{
 		  "newStorageAccountName": {
@@ -346,4 +339,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

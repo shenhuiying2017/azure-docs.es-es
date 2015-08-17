@@ -66,4 +66,4 @@ El cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn6902
 - [Programación de un runbook en Automatización de Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

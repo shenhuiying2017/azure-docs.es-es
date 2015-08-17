@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Administración de la capacidad de la infraestructura
@@ -25,7 +25,7 @@ Por ejemplo, una proyección puede identificar cuándo serán necesarios núcleo
 
 ## Panel Administración de capacidad
 
-Para poder usar el panel Administración de capacidad en Visión operativa de Microsoft Azure, debe tener instalada la solución. Para obtener más información sobre cómo instalar soluciones, vea [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-add-solution.md). Después de instalar la solución de planeamiento de capacidad, puede ver la capacidad de los servidores supervisados mediante el icono **Planeamiento de capacidad** de la página **Información general** de Visión operativa.
+Para poder usar el panel Administración de capacidad en Visión operativa de Microsoft Azure, debe tener instalada la solución. Para obtener más información sobre cómo instalar soluciones, consulte [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-setup-workspace.md). Después de instalar la solución de planeamiento de capacidad, puede ver la capacidad de los servidores supervisados mediante el icono **Planeamiento de capacidad** de la página **Información general** de Visión operativa.
 
 ![imagen del icono Planeamiento de capacidad](./media/operational-insights-capacity/overview-cap-plan.png)
 
@@ -164,4 +164,4 @@ Mediante la herramienta de proyección, puede ver las tendencias históricas del
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

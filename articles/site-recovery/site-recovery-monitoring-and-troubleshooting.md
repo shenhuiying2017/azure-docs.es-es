@@ -142,7 +142,7 @@ Para elevar la incidencia de soporte técnico para ASR, contacte con el soporte 
 ## Artículos de Knowledge Base
 
 -   [Cómo mantener la letra de la unidad para máquinas virtuales protegidas
-    > http://support.microsoft.com/kb/3031135
+    > que se han conmutado por error o migrado a Azure](http://support.microsoft.com/kb/3031135)
 
 -   [Cómo solucionar problemas de Servicios de recuperación
     > de Azure](http://support.microsoft.com/kb/3005185)
@@ -222,4 +222,4 @@ Servidor de configuración (CS), Servidor de proceso (PS) y Destino principal (M
 ### Solución de problemas del escritorio remoto después de la conmutación por error
 Muchos clientes tienen que afrontar problemas para conectarse a máquina virtual con conmutación por error en Azure. Use el documento de solución de problemas para RDP en la máquina virtual. [Vínculo de documento](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -278,7 +278,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 
 	Tenga en cuenta lo siguiente:
 	
-	- **type** está definido en **SqlServerTable**.
+	- **type** está establecido en **SqlServerTable**.
 	- **tableName** está establecido en **emp**.
 	- **linkedServiceName** está establecido en **SqlServerLinkedService** (creó este servicio vinculado en el paso 2).
 	- Para una tabla de entrada no generada por otra canalización en la Factoría de datos de Azure, debe especificar la propiedad **external** en **true**. De manera opcional, puede especificar las directivas en la sección **externalData**.   
@@ -314,7 +314,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
   
 	Tenga en cuenta lo siguiente:
 	
-	- **type** se establece en **AzureBlob**.
+	- **type** está establecido en **AzureBlob**.
 	- **linkedServiceName** está establecido en **StorageLinkedService** (creó este servicio vinculado en el paso 2).
 	- **folderPath** está establecido en **adftutorial/outfromonpremdf**, donde outfromonpremdf es la carpeta del contenedor adftutorial. Solo tiene que crear el contenedor **adftutorial**.
 	- El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval**, en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure. 
@@ -395,7 +395,8 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
  
 	- En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
-	- En la sección de **transformación** , **SqlSource** está especificado como **tipo de origen** y **BlobSink ** está especificado como **tipo de receptor**. - La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
+	- En la sección **transformation** , **SqlSource** está especificado como el **tipo de origen** y **BlobSink ** está especificado como el **tipo de receptor**.
+- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
 	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://es.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
@@ -625,4 +626,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureDataFactoryGateway
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

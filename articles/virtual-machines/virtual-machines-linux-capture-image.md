@@ -97,4 +97,4 @@ La imagen está lista para ser utilizada como plantilla para crear máquinas vir
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

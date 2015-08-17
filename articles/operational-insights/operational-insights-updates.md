@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Actualización de servidores con actualizaciones del sistema
@@ -23,7 +23,7 @@ Puede usar la solución de actualizaciones del sistema de Microsoft Azure Operat
 
 ## Uso de actualizaciones del sistema para actualizar servidores
 
-Para poder usar actualizaciones del sistema en Visión operativa de Microsoft Azure, debe tener instalado el paquete de la solución. Para obtener más información sobre la instalación de soluciones, vea [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-add-solution.md). Una vez instalado, puede ver las actualizaciones que faltan en sus servidores supervisados mediante el mosaico **Evaluación de actualizaciones del sistema** en la página **Información general** de Visión operativa.
+Para poder usar actualizaciones del sistema en Visión operativa de Microsoft Azure, debe tener instalado el paquete de la solución. Para obtener más información sobre la instalación de soluciones, consulte [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-setup-workspace.md). Una vez instalado, puede ver las actualizaciones que faltan en sus servidores supervisados mediante el mosaico **Evaluación de actualizaciones del sistema** en la página **Información general** de Visión operativa.
 
 ### Para trabajar con actualizaciones, siga estos pasos:
 
@@ -36,4 +36,4 @@ Para poder usar actualizaciones del sistema en Visión operativa de Microsoft Az
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

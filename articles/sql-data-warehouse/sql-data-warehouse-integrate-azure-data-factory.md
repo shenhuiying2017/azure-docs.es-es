@@ -43,7 +43,7 @@ Para obtener información general sobre la integración, consulte [Información 
 
 <!--Article references-->
 
-[Copia de datos con Factoría de datos de Azure]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
 [información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop/
 [Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integration/
 
@@ -51,5 +51,6 @@ Para obtener información general sobre la integración, consulte [Información 
 
 <!--Other Web references-->
 [documentación sobre Factoría de datos de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
+[Copia de datos con Factoría de datos de Azure]: https://azure.microsoft.com/es-es/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

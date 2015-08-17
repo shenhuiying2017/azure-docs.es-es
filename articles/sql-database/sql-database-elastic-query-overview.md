@@ -92,7 +92,7 @@ Una credencial representa el identificador y la contraseña de usuario que usar�
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
-Asegúrese de que &lt; shard_map_username > no incluye ningún sufijo "@servername".
+Asegúrese de que &lt; shard\_map\_username > no incluye ningún sufijo "@servername".
 
 Puede usar la siguiente sintaxis para quitar la clave maestra y las credenciales:
 
@@ -204,9 +204,9 @@ Una vez que ha definido los orígenes de datos externos y las tablas, puede util
     where w_id > 100 and w_id < 200
     group by w_id, o_c_id
 
-### Procedimiento almacenado SP_ EXECUTE_FANOUT
+### Procedimiento almacenado SP\_ EXECUTE\_FANOUT
 
-SP_EXECUTE_FANOUT es un procedimiento almacenado que proporciona acceso a las bases de datos representadas por un mapa de particiones. El procedimiento almacenado toma los parámetros siguientes:
+SP\_EXECUTE\_FANOUT es un procedimiento almacenado que proporciona acceso a las bases de datos representadas por un mapa de particiones. El procedimiento almacenado toma los parámetros siguientes:
 
 -    **Nombre del servidor** (nvarchar): nombre completo del servidor lógico que hospeda el mapa de particiones.
 -    **Nombre de la base de datos del mapa de particiones** (nvarchar): nombre de la base de datos del mapa de particiones.
@@ -240,7 +240,7 @@ La consulta de Base de datos elástica se incluye con el costo de las bases de d
 Hay algunas cosas que se deben tener en cuenta con la vista previa:
 
 *    La característica de consulta de Base de datos elástica inicialmente solo estará disponible en el nivel de rendimiento Premium de SQL DB v12, aunque las bases de datos remotas a las que tiene acceso una consulta de bases de datos elásticas puede ser de cualquier nivel.
-* Las tablas externas a las que hace referencia el origen de datos externo solo admiten operaciones de lectura en las bases de datos remotas. Sin embargo, puede señalar toda la funcionalidad de Transact-SQL en la base de datos de consulta de bases de datos elásticas donde reside la propia definición de tabla externa. Esto puede ser útil, por ejemplo, para conservar los resultados temporales mediante SELECT lista_columnas INTO tabla_local o para definir procedimientos almacenados en la base de datos de consulta de bases de datos elásticas que hacen referencia a tablas externas.
+* Las tablas externas a las que hace referencia el origen de datos externo solo admiten operaciones de lectura en las bases de datos remotas. Sin embargo, puede señalar toda la funcionalidad de Transact-SQL en la base de datos de consulta de bases de datos elásticas donde reside la propia definición de tabla externa. Esto puede ser útil, por ejemplo, para conservar los resultados temporales mediante SELECT lista\_columnas INTO tabla\_local o para definir procedimientos almacenados en la base de datos de consulta de bases de datos elásticas que hacen referencia a tablas externas.
 *    Los parámetros de consultas actualmente no se pueden trasladar a bases de datos remotas. Las consultas parametrizadas, necesitarán poner todos los datos en el nodo principal y pueden sufrir un mal rendimiento en función del tamaño de datos. Una solución temporal es evitar parámetros en las consultas o usar la opción RECOMPILE para tener parámetros reemplazados automáticamente por sus valores actuales.
 * Actualmente las estadísticas de nivel de columna a través de tablas externas no se admiten.
 * La consulta de Base de datos elástica actualmente no realiza eliminación de particiones cuando los predicados de la clave de particiones permitirían excluir de forma segura determinadas bases de datos remotas del procesamiento. Por lo tanto, las consultas siempre tocarán todas las bases de datos remotas representadas por los orígenes de datos externos de la consulta.
@@ -263,4 +263,4 @@ Para comenzar a explorar la consulta de Base de datos elástica, pruebe nuestro 
 
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

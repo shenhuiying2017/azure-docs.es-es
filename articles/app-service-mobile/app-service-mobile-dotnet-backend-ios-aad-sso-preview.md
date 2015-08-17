@@ -20,9 +20,9 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-En este tutorial, agregará la autenticación al proyecto de inicio rápido mediante la biblioteca de autenticación de Active Directory.
+En este tutorial, agregará la autenticación al proyecto de inicio rápido mediante la biblioteca de autenticación de Active Directory (ADAL). También puede habilitar la autenticación con menos configuración si simplemente usa el SDK de Aplicaciones móviles, como se indicó en el tutorial [Incorporación de autenticación a la aplicación]. El uso de este tema en ADAL proporciona una experiencia de autenticación más integrada para los usuarios finales y ADAL proporciona funcionalidades enriquecidas para tener acceso a otros recursos protegidos por AAD.
 
-Para poder autenticar usuarios, debe registrar su aplicación en el inquilino de Azure Active Directory (AAD). Para ello, debe realizar dos pasos. Primero, debe registrar su Servicio de aplicaciones y exponer los permisos sobre él. En segundo lugar, debe registrar la aplicación iOS y otorgar acceso a esos permisos.
+Para poder autenticar usuarios con ADAL, debe registrar su aplicación en el inquilino de Azure Active Directory (AAD). Para ello, debe realizar dos pasos. Primero, debe registrar su Servicio de aplicaciones y exponer los permisos sobre él. En segundo lugar, debe registrar la aplicación iOS y otorgar acceso a esos permisos.
 
 Este tutorial requiere lo siguiente:
 
@@ -121,6 +121,6 @@ Ahora podrá hacer referencia a la biblioteca de autenticación de Active Direct
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [biblioteca de autenticación de Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  [Introducción a las aplicaciones móviles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
- 
+ [Incorporación de autenticación a la aplicación]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -164,4 +164,4 @@ La aplicación Azure Active Directory se actualizó para incluir el permiso *Lee
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

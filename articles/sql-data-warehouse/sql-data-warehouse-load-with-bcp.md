@@ -71,7 +71,7 @@ Abra el Bloc de notas y copie las siguientes líneas de datos en un nuevo archiv
 20150101,1,3
 ```
 
-Guárdelo en el directorio temporal local, C:\Temp\DimDate2.txt.
+Guárdelo en el directorio temporal local, C:\\Temp\\DimDate2.txt.
 
 > [AZURE.NOTE]Es importante recordar que bcp.exe no admite la codificación de archivos UTF-8. Use archivos codificados en ASCII o la codificación UTF-16 para los archivos al usar bcp.exe.
 
@@ -107,7 +107,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151201 |4 |2
 
 ## Exportación de datos de Almacenamiento de datos SQL
-En este tutorial, creará un archivo de datos a partir de una tabla de Almacenamiento de datos SQL. Se exportarán los datos creados anteriormente a un nuevo archivo de datos denominado DimDate2_export.txt.
+En este tutorial, creará un archivo de datos a partir de una tabla de Almacenamiento de datos SQL. Se exportarán los datos creados anteriormente a un nuevo archivo de datos denominado DimDate2\_export.txt.
 
 ### Paso 1: Exportar los datos
 
@@ -152,4 +152,4 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

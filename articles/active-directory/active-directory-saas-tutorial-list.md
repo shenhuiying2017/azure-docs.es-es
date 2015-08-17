@@ -151,8 +151,7 @@ Logotipo | Nombre de la aplicación
 ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg) | [Zscaler One](https://go.microsoft.com/fwLink/?LinkID=512737&clcid=0x409)
 ![Logotipo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg) | [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)
 
-##Otras referencias
 
-- [Acceso de aplicaciones](https://msdn.microsoft.com/library/azure/dn308590.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

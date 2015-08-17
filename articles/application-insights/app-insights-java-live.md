@@ -25,7 +25,7 @@ En primer lugar, necesita una suscripción a [Microsoft Azure](http://azure.com)
 
 > [AZURE.NOTE]El procedimiento en esta página agrega el SDK a la aplicación web en tiempo de ejecución. Esto es útil si no desea actualizar o volver a generar el código fuente. Pero si es posible, se recomienda [agregar el SDK al código fuente](app-insights-java-get-started.md) en su lugar. Que proporciona más opciones, como la escritura de código para realizar el seguimiento de actividad del usuario.
 
-## 1. Obtención de una clave de instrumentación de Application Insights
+## 1\. Obtención de una clave de instrumentación de Application Insights
 
 1. Inicio de sesión en el [Portal de Microsoft Azure](https://portal.azure.com)
 2. Creación de un recurso de Application Insights
@@ -38,13 +38,13 @@ En primer lugar, necesita una suscripción a [Microsoft Azure](http://azure.com)
 
     ![En la información general de nuevos recursos, haga clic en Propiedades y copie la clave de instrumentación.](./media/app-insights-java-get-started/03-key.png)
 
-## 2. Descarga del SDK
+## 2\. Descarga del SDK
 
 1. Descargue del [SDK de Application Insights para Java](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip). 
 2. En el servidor, extraiga el contenido del SDK en el directorio desde el que se cargan los archivos binarios de proyecto. Si usa Tomcat, estará normalmente en `webapps<your_app_name>\WEB-INF\lib`.
 
 
-## 3. Adición de un archivo xml de Application Insights
+## 3\. Adición de un archivo xml de Application Insights
 
 Cree ApplicationInsights.xml en la carpeta en la que se ha agregado el SDK. Ponga el archivo en el siguiente XML.
 
@@ -86,7 +86,7 @@ Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
 * La correlación de eventos es un complemento del componente de la solicitud HTTP. Asigna un identificador a cada solicitud recibida por el servidor y lo agrega como una propiedad a cada elemento de telemetría como la propiedad 'Operation.Id'. Le permite correlacionar la telemetría asociada a cada solicitud estableciendo un filtro en la [búsqueda de diagnóstico](app-insights-diagnostic-search.md).
 
 
-## 4. Adición de un filtro HTTP
+## 4\. Adición de un filtro HTTP
 
 Busque y abra el archivo web.xml en el proyecto y combine el siguiente fragmento de código bajo el nodo web-app, donde se han configurado los filtros de aplicación.
 
@@ -103,9 +103,9 @@ Para obtener los resultados más precisos, el filtro debe asignarse antes de tod
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-## 5. Reinicio de la aplicación web
+## 5\. Reinicio de la aplicación web
 
-## 6. Visualización de la telemetría en Application Insights
+## 6\. Visualización de la telemetría en Application Insights
 
 Vuelva al recurso Application Insights en el [Portal de Microsoft Azure](https://portal.azure.com).
 
@@ -139,4 +139,4 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

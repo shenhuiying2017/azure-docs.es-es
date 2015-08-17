@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Administración de servidores y uso de datos
@@ -27,7 +27,7 @@ Puede ver el uso con el mosaico **Servidores y uso** en el panel **Información 
 
 ![imagen del mosaico Servidores y uso](./media/operational-insights-usage/overview-servers-usage.png)
 
-Si ha superado su límite de uso diario, o está cerca del límite, tiene la posibilidad de quitar una solución para reducir la cantidad de datos que envía al servicio Visión operativa. Para obtener más información sobre como quitar soluciones, vea [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-add-solution.md).
+Si ha superado su límite de uso diario, o está cerca del límite, tiene la posibilidad de quitar una solución para reducir la cantidad de datos que envía al servicio Visión operativa. Para obtener más información sobre como quitar soluciones, consulte [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-setup-workspace.md).
 
 Si un grupo de administración de Operations Manager tiene problemas para enviar datos al servicio de Operational Insights, puede solucionar el problema o quitar el grupo de Operational Insights, si es necesario.
 
@@ -59,4 +59,4 @@ El panel **Uso** muestra la siguiente información:
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -40,7 +40,8 @@ Con los cmdlets de HDInsight de Azure puede automatizar tareas como aprovisionar
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar HDInsight de Azure, siga este vínculo para obtener más información acerca de Automatización de Azure.
 
 * Consulte el [Tutorial de introducción](../automation-create-runbook-from-samples.md) de Automatización de Azure.
+* Vea ejemplos en el [Centro de scripts](http://aka.ms/scriptcentergallery).  
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

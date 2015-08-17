@@ -90,4 +90,4 @@ Ha realizado correctamente el ensayo de la implementación y la actualización d
   [Información general de administración de implementaciones en Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

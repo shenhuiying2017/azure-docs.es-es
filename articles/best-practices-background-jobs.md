@@ -97,8 +97,8 @@ Puede usar WebJobs de Azure para ejecutar trabajos personalizados como tareas en
 
 Al configurar un trabajo web:
 
-- Si quiere que el trabajo responda a un desencadenador impulsado por eventos, debe configurarse como **Ejecutar continuamente**. El script o programa se almacena en la carpeta denominada site/wwwroot/app_data/jobs/continuous.
-- Si quiere que el trabajo responsa a un desencadenador impulsado por programación, debe configurarse como **Ejecutar de acuerdo con una programación**. El script o programa se almacena en la carpeta denominada site/wwwroot/app_data/jobs/triggered.
+- Si quiere que el trabajo responda a un desencadenador impulsado por eventos, debe configurarse como **Ejecutar continuamente**. El script o programa se almacena en la carpeta denominada site/wwwroot/app\_data/jobs/continuous.
+- Si quiere que el trabajo responsa a un desencadenador impulsado por programación, debe configurarse como **Ejecutar de acuerdo con una programación**. El script o programa se almacena en la carpeta denominada site/wwwroot/app\_data/jobs/triggered.
 - Si elige la opción **Ejecutar a petición** al configurar un trabajo, se ejecutará el mismo código que la opción **Ejecutar de acuerdo con una programación** cuando se inicia.
 
 WebJobs de Azure se ejecutan en el recinto de seguridad del sitio web, lo que significa que pueden tener acceso a las variables de entorno y compartir información como cadenas de conexión con el sitio web. El trabajo tiene acceso al identificador único del equipo que ejecuta el trabajo. La cadena de conexión denominada **AzureJobsStorage** proporciona acceso a las colas de almacenamiento, blobs y tablas de Azure para los datos de aplicación y Bus de servicio para la comunicación y mensajería. La cadena de conexión denominada **AzureJobsDashboard** proporciona acceso a los archivos de registro de acciones del trabajo.
@@ -108,18 +108,18 @@ WebJobs de Azure tiene las siguientes características:
 - **Seguridad**: los trabajos web se protegen mediante las credenciales de implementación del sitio web.
 - **Tipos de archivo admitidos**: los trabajos web se pueden definir con scripts (.cmd), archivos por lotes (.bat), scripts de PowerShell (. ps1), scripts de shell de bash (.sh), scripts PHP (.php), scripts de Python (.py), código JavaScript (.js) y programas ejecutables (.exe, .jar etc.).
 - **Implementación**: los scripts y ejecutables se pueden implementar con el portal de Azure, y crear e implementar con el complemento [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) para Visual Studio o [Visual Studio 2013 Update 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs), a través del [SDK de WebJobs de Azure](websites-dotnet-webjobs-sdk-get-started.md) o bien copiándolos directamente en las siguientes ubicaciones:
-  - En el caso de la ejecución desencadenada: site/wwwroot/app_data/jobs/triggered/{nombre del trabajo}
-  - En el caso de la ejecución continua: site/wwwroot/app_data/jobs/continuous/{nombre del trabajo}
+  - En el caso de la ejecución desencadenada: site/wwwroot/app\_data/jobs/triggered/{nombre del trabajo}
+  - En el caso de la ejecución continua: site/wwwroot/app\_data/jobs/continuous/{nombre del trabajo}
 - **Registro**: Console.Out se considera (marca) como INFO y Console.Error como ERROR. La información de supervisión y diagnóstico es accesible a través del portal de Azure y los archivos de registro se pueden descargar directamente del sitio. Se guardan en las siguientes ubicaciones:
   - Ejecución desencadena: Vfs/data/jobs/continuous/NombreTrabajo
   - Ejecución continua: Vfs/data/jobs/triggered/NombreTrabajo
 - **Configuración**: los trabajos web se pueden configurar a través del portal, la API de REST y PowerShell. Para proporcionar la información de configuración de un trabajo se puede usar un archivo de configuración denominado settings.job en el mismo directorio raíz que el script de trabajo. Por ejemplo:
-  - { "stopping_wait_time": 60 }
-  - { "is_singleton": true }
+  - { "stopping\_wait\_time": 60 }
+  - { "is\_singleton": true }
 
 ### Consideraciones
 
-- De forma predeterminada, la escala de los trabajos web con el sitio web. Sin embargo, los trabajos se pueden configurar para que se ejecuten en la instancia única al establecer la propiedad de configuración **is_singleton** en true. Los trabajos web de instancia única son útiles para las tareas que no quiera escalar o ejecutar como varias instancias simultáneamente, por ejemplo, la reindización, el análisis de datos y tareas similares.
+- De forma predeterminada, la escala de los trabajos web con el sitio web. Sin embargo, los trabajos se pueden configurar para que se ejecuten en la instancia única al establecer la propiedad de configuración **is\_singleton** en true. Los trabajos web de instancia única son útiles para las tareas que no quiera escalar o ejecutar como varias instancias simultáneamente, por ejemplo, la reindización, el análisis de datos y tareas similares.
 - Para minimizar el impacto de los trabajos en el rendimiento del sitio web, considere la posibilidad de crear una instancia vacía de Sitios web de Azure en un nuevo plan de Servicio de aplicaciones para hospedar trabajos web que pueden ser de larga ejecución o que hagan un uso intensivo de los recursos.
 
 ### Más información
@@ -236,9 +236,9 @@ Los roles web y de trabajo pasan por un conjunto de fases como al iniciarse, eje
 
 - Azure carga el ensamblado de roles y busca en él una clase que deriva de **RoleEntryPoint**.
 - Si encuentra esta clase, llama a **RoleEntryPoint.OnStart()**. Invalide este método para inicializar las tareas en segundo plano.
-- Una vez completado el método **OnStart**, Azure llama a **Application_Start ()** en archivo Global de la aplicación si está presente (por ejemplo, Global.asax en un rol web que ejecuta ASP.NET).
+- Una vez completado el método **OnStart**, Azure llama a **Application\_Start ()** en archivo Global de la aplicación si está presente (por ejemplo, Global.asax en un rol web que ejecuta ASP.NET).
 - Azure llama a **RoleEntryPoint.Run()** en un nuevo subproceso en primer plano que se ejecuta en paralelo con **OnStart()**. Invalide este método para iniciar las tareas en segundo plano.
-- Cuando finalice el método Run, Azure llama primero a **Application_End()** en el archivo Global de la aplicación si está presente y luego llamada a **RoleEntryPoint.OnStop()**. Invalide el método **OnStop** para detener las tareas en segundo plano, limpiar los recursos, eliminar objetos y cerrar las conexiones que las tareas podrían haber usado.
+- Cuando finalice el método Run, Azure llama primero a **Application\_End()** en el archivo Global de la aplicación si está presente y luego llamada a **RoleEntryPoint.OnStop()**. Invalide el método **OnStop** para detener las tareas en segundo plano, limpiar los recursos, eliminar objetos y cerrar las conexiones que las tareas podrían haber usado.
 - Se detiene el proceso de host del rol de trabajado de Azure. En este punto, el rol se reciclará y se reiniciará.
 
 Para obtener más detalles y un ejemplo del uso de los métodos de la clase **RoleEntryPoint**, consulte el artículo sobre el [patrón de consolidación de recursos de proceso](http://msdn.microsoft.com/library/dn589778.aspx).
@@ -290,7 +290,7 @@ Las tareas en segundo plano deben ofrecer un rendimiento suficiente como para as
 - En las tareas en segundo plano con una capacidad de rendimiento diferente de las demás partes de una aplicación de Servicios en la nube (por ejemplo, la interfaz de usuario o los componentes, como la capa de acceso a datos), el hospedaje de las tareas en segundo plano en un rol de trabajo independiente permite que los roles de la interfaz de usuario y de tarea en segundo plano se escalen independientemente para administrar la carga. Si varias tareas en segundo plano tienen capacidades de rendimiento muy diferentes entre sí, considere la posibilidad de dividirlas en roles de trabajado independientes y escalar cada tipo de rol de forma independiente. No obstante, tenga en cuenta que esto puede aumentar los costos de tiempo de ejecución en comparación con la combinación de todas las tareas en menos roles.
 - Es posible que el simple escalado de los roles no sea suficiente para impedir la pérdida de rendimiento bajo carga. También es posible que necesite escalar las colas de almacenamiento y otros recursos para impedir que un único punto de la cadena de procesamiento general se convierta en un cuello de botella. Asimismo, considere otras limitaciones, como por ejemplo, el rendimiento máximo de almacenamiento y otros servicios en los que dependen la aplicación y las tareas en segundo plano.
 - Las tareas en segundo plano deben diseñarse para el escalado. Por ejemplo, debe poder detectar dinámicamente el número de colas de almacenamiento en uso para escuchar en la cola adecuada o enviar mensajes a ella.
-- De manera predeterminada, los trabajos web se escalan con su instancia asociada de Sitios web de Azure. Sin embargo, si quiere que un trabajo web se ejecute solo como una única instancia, puede crear un archivo Settings.job que contenga los datos JSON **{"is_singleton": true}**. Esto obliga a Azure a ejecutar solo una instancia de del trabajo web, incluso si hay varias instancias del sitio web asociado. Esto puede ser una técnica útil para los trabajos programados que se deben ejecutar como una sola instancia.
+- De manera predeterminada, los trabajos web se escalan con su instancia asociada de Sitios web de Azure. Sin embargo, si quiere que un trabajo web se ejecute solo como una única instancia, puede crear un archivo Settings.job que contenga los datos JSON **{"is\_singleton": true}**. Esto obliga a Azure a ejecutar solo una instancia de del trabajo web, incluso si hay varias instancias del sitio web asociado. Esto puede ser una técnica útil para los trabajos programados que se deben ejecutar como una sola instancia.
 
 ## Patrones relacionados
 
@@ -317,4 +317,4 @@ Las tareas en segundo plano deben ofrecer un rendimiento suficiente como para as
 - [Colas de Azure y colas de Bus de servicio: comparación y diferencias](http://msdn.microsoft.com/library/hh767287.aspx)
 - [Cómo habilitar diagnósticos en un Servicio en la nube](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

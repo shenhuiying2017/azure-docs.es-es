@@ -388,4 +388,4 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 - Para iterar una cantidad de veces específica al crear un tipo de recursos, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md)
 - Para ver cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

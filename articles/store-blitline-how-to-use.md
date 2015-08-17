@@ -47,7 +47,7 @@ Para aclarar para qué sirve Blitline, normalmente es más sencillo identificar 
 
 - Blitline NO acepta cargas de imágenes y no puede insertar imágenes en Blitline directamente. Debe insertarlas en Almacenamiento de Azure o en otros lugares compatibles con Blitline y luego indicar a Blitline el lugar donde conseguirlas.
 
-- Blitline funciona de una forma totalmente paralela y NO realiza ningún procesamiento sincrónico. Esto significa que debe proporcionarnos una dirección URL postback_url para que podamos indicarle cuándo acabamos el procedimiento.
+- Blitline funciona de una forma totalmente paralela y NO realiza ningún procesamiento sincrónico. Esto significa que debe proporcionarnos una dirección URL postback\_url para que podamos indicarle cuándo acabamos el procedimiento.
 
 ## <a id="createaccount"></a>Creación de una cuenta Blitline
 
@@ -95,11 +95,11 @@ Obtendrá un resultado JSON con una apariencia similar a la siguiente:
     }
 
 
-Esto indica que Blitline recibió la solicitud, la puso en la cola de procesamiento y, cuando se haya completado, la imagen estará disponible en: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**.
+Esto indica que Blitline recibió la solicitud, la puso en la cola de procesamiento y, cuando se haya completado, la imagen estará disponible en: ****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure
 
-Si dispone de una cuenta de Almacenamiento de Azure, puede hacer que Blitline inserte las imágenes procesadas en el contenedor de Azure. Si agrega "azure_destination", defina la ubicación y los permisos de inserción de Blitline.
+Si dispone de una cuenta de Almacenamiento de Azure, puede hacer que Blitline inserte las imágenes procesadas en el contenedor de Azure. Si agrega "azure\_destination", defina la ubicación y los permisos de inserción de Blitline.
 
 Aquí tiene un ejemplo:
 
@@ -150,4 +150,4 @@ Visite blitline.com para conocer toda la información sobre otras característic
   [Creación de un trabajo Blitline]: #createjob
   [Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure]: #saveazure
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

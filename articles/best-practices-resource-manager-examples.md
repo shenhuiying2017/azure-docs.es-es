@@ -252,4 +252,4 @@ Por último, puede que se quiera garantizar que determinados recursos no se elim
 - Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, vea [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 - Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, vea [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

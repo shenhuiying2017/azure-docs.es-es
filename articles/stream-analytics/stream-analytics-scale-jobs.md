@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/13/2015"
+	ms.date="08/04/2015"
 	ms.author="jeffstok"/>
 
 # Escalar los trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento #
@@ -228,7 +228,7 @@ A continuación se muestran los resultados por número creciente de unidades de 
 ![IMG.Stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Obtener ayuda ##
-Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes ##
@@ -260,4 +260,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

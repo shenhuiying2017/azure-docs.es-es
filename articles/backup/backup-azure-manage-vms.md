@@ -152,4 +152,4 @@ En la página **Panel**, puede revisar la información sobre las máquinas virtu
 
   ![Panel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015"
 	ms.author="sethm"/>
 
@@ -91,11 +91,11 @@ Los espacios de nombres y las entidades de mensajería del Bus de servicio se pu
 
     IMPORTANTE: seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
-6.	Deje los demás campos en el cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
+6.	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 	![][38]
 
-El espacio de nombres que creó aparecerá en el portal de administración, aunque puede tardar un poco en activarse. Espere a que el estado sea **Activo** para continuar.
+El espacio de nombres que creó aparecerá en el portal de administración, aunque puede tardar un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
@@ -122,11 +122,11 @@ Para realizar operaciones de administración en el nuevo espacio de nombres, com
 
 En primer lugar, cree un sistema de catálogo de productos local (ficticio). Será bastante simple; puede considerar que representa un sistema de catálogo de productos local real con una superficie de servicio completa que se intenta integrar.
 
-Este proyecto se inicia como una aplicación de consola de Visual Studio. El proyecto usa el paquete Service Bus NuGet para incluir las bibliotecas y los ajustes de configuración del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. Para obtener más información acerca del uso del paquete de NuGet y del Bus de servicio, consulte [Uso del paquete del Bus de servicio de NuGet][].
+Este proyecto se inicia como una aplicación de consola de Visual Studio. El proyecto usa el paquete Service Bus NuGet para incluir las bibliotecas y los ajustes de configuración del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. Para obtener más información acerca del uso del paquete NuGet y del bus de servicio, consulte [Using the NuGet Service Bus Package][].
 
 ### Creación del proyecto
 
-1.  Con privilegios de administrador, inicie Microsoft Visual Studio 2013 o Microsoft Visual Studio Express. Para iniciar Visual Studio con privilegios de administrador, haga clic con el botón derecho en **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)** y, a continuación, haga clic en **Ejecutar como administrador**.
+1.  Con privilegios de administrador, inicie Microsoft Visual Studio 2013 o Microsoft Visual Studio Express. Para iniciar Visual Studio con privilegios de administrador, haga clic con el botón secundario en **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)** y, a continuación, haga clic en **Ejecutar como administrador**.
 
 2.  En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
 
@@ -138,29 +138,29 @@ Este proyecto se inicia como una aplicación de consola de Visual Studio. El pro
 
 4.  Haga clic en **Aceptar** para crear el proyecto **ProductsServer**.
 
-5.  En el **Explorador de soluciones**, haga clic con el botón derecho en **ProductsServer** y, a continuación, en **Propiedades**.
+5.  En el **Explorador de soluciones**, haga clic con el botón secundario en **ProductsServer** y, a continuación, en **Propiedades**.
 
-6.  Haga clic en la pestaña **Aplicación** de la izquierda y asegúrese de que **.NET Framework 4** o **.NET Framework 4.5** aparecen en la lista desplegable **Marco de destino**:. Si no aparecen, selecciónelas en la lista desplegable y haga clic en **Sí** cuando se le solicite volver a cargar el proyecto.
+6.  Haga clic en la pestaña **Application** de la izquierda y asegúrese de que **.NET Framework 4** o **.NET Framework 4.5** aparecen en la lista desplegable **Target framework:**. Si no aparecen, selecciónelas en la lista desplegable y haga clic en **Yes** cuando se le solicite volver a cargar el proyecto.
 
     ![][12]
 
-7.  Si ya ha instalado el administrador del paquete NuGet para Visual Studio, vaya al paso siguiente. De lo contrario, vaya a [NuGet][] y haga clic en [Instalar NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Siga las indicaciones para instalar el administrador del paquete NuGet y, a continuación, reinicie Visual Studio.
+7.  Si ya ha instalado el administrador del paquete NuGet para Visual Studio, vaya al paso siguiente. De lo contrario, visite [NuGet][] y haga clic en [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Siga las indicaciones para instalar el administrador del paquete NuGet y, a continuación, reinicie Visual Studio.
 
-7.  En el **Explorador de soluciones**, haga clic con el botón derecho en **Referencias** y luego en **Administrar paquetes de NuGet**.
+7.  En el **Explorador de soluciones**, haga clic con el botón secundario en **References** y, a continuación, haga clic en **Manage NuGet Packages**...
 
-8.  En la columna de la izquierda del cuadro de diálogo de NuGet, haga clic en **En línea**.
+8.  En la columna de la izquierda del cuadro de diálogo de NuGet, haga clic en **Online**.
 
-9. 	En la columna de la derecha, haga clic en el cuadro **Buscar**, escriba "**Bus de servicio**" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Haga clic en **Instalar** para completar la instalación y, luego, cierre este cuadro de diálogo.
+9. 	En la columna de la derecha, haga clic en el cuadro **Buscar**, escriba "**Bus de servicio**" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Haga clic en **Install** para completar la instalación y, a continuación, cierre este diálogo.
 
     ![][13]
 
     Tenga en cuenta que ahora se hace referencia a los ensamblados del cliente requeridos.
 
-9.  Agregue una clase nueva para el contrato de su producto. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **ProductsServer**, a continuación en **Agregar** y, por último, en **Clase**.
+9.  Agregue una clase nueva para el contrato de su producto. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto **ProductsServer**, a continuación en **Add** y, por último, en **Class**.
 
     ![][14]
 
-10. En el cuadro **Nombre**, escriba el nombre **ProductsContract.cs**. A continuación, haga clic en **Agregar**.
+10. En el cuadro **Name**, escriba el nombre **ProductsContract.cs**. A continuación, haga clic en **Agregar**.
 
 11. En **ProductsContract.cs**, sustituya la definición del espacio de nombres por el siguiente código, que define el contrato del servicio:
 
@@ -250,7 +250,7 @@ Este proyecto se inicia como una aplicación de consola de Visual Studio. El pro
             }
         }
 
-13. En el **Explorador de soluciones**, haga doble clic en el archivo **App.config** para abrirlo en el editor de **Visual Studio**. Sustituya el contenido de **&lt;system.ServiceModel&gt;** por el siguiente código XML. Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres de servicio y *yourKey* por la clave SAS recuperada anteriormente del Portal de administración de Azure:
+13. En el **Explorador de soluciones**, haga doble clic en el archivo **App.config** para abrirlo en el editor de **Visual Studio**. Reemplace el contenido de **&lt;system.ServiceModel&gt;** por el siguiente código XML. Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres de servicio y *yourKey* por la clave SAS que recuperó del Portal de administración de Azure:
 
         <system.serviceModel>
           <extensions>
@@ -280,7 +280,7 @@ Este proyecto se inicia como una aplicación de consola de Visual Studio. El pro
           </behaviors>
         </system.serviceModel>
 
-14. Pulse **F6** o, en el menú **Compilar**, haga clic en **Compilar solución** para compilar la aplicación y comprobar la precisión del trabajo realizado hasta el momento.
+14. Presione **F6**, o bien en el menú **Build**, haga clic en **Build Solution** para compilar la aplicación para comprobar la precisión del trabajo realizado hasta el momento.
 
 ## Crear una aplicación ASP.NET MVC
 
@@ -288,19 +288,19 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
 
 ### Creación del proyecto
 
-1.  Asegúrese de que se está ejecutando Visual Studio con privilegios de administrador. Si no es así, inicie Visual Studio con privilegios de administrador, haga clic con el botón derecho en **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)** y, a continuación, haga clic en **Ejecutar como administrador**. El emulador de proceso de Microsoft Azure, descrito posteriormente en esta guía, requiere que se inicie Visual Studio con privilegios de administrador.
+1.  Asegúrese de que se está ejecutando Visual Studio con privilegios de administrador. Si no es así, inicie Visual Studio con privilegios de administrador, haga clic con el botón secundario en **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)** y, a continuación, haga clic en **Ejecutar como administrador**. El emulador de proceso de Microsoft Azure, descrito posteriormente en esta guía, requiere que se inicie Visual Studio con privilegios de administrador.
 
 2.  En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
 
-3.  En **Plantillas instaladas**, en **Visual C#**, haga clic en **Aplicación web ASP.NET**. Denomine el proyecto **ProductsPortal**. y, a continuación, haga clic en **Aceptar**.
+3.  En **Installed Templates**, en **Visual C#**, haga clic en **ASP.NET Web Application**. Asigne al proyecto el nombre **ProductsPortal**. y, a continuación, haga clic en **Aceptar**.
 
     ![][15]
 
-4.  En la lista **Seleccionar una plantilla**, haga clic en **MVC** y, a continuación, en **Aceptar**.
+4.  En la lista **Select a template**, haga clic en **MVC** y, a continuación, en **Aceptar**.
 
     ![][16]
 
-5.  En el **Explorador de soluciones**, haga clic con el botón secundario en **Modelos** y, a continuación, en **Agregar** y, por último, en **Clase**. En el cuadro **Nombre**, escriba el nombre **Product.cs**. A continuación, haga clic en **Agregar**.
+5.  En el **Explorador de soluciones**, haga clic con el botón secundario en **Modelos** y, a continuación, en **Agregar** y, por último, en **Clase**. En el cuadro **Name**, escriba el nombre **Product.cs**. A continuación, haga clic en **Agregar**.
 
     ![][17]
 
@@ -340,19 +340,19 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
             }
         }
 
-3.  En el **Explorador de soluciones**, expanda Views\Shared:
+3.  En el **Explorador de soluciones**, expanda Views\\Shared:
 
     ![][18]
 
-4.  A continuación, haga doble clic en _Layout.cshtml para abrirlo en el editor de Visual Studio.
+4.  A continuación, haga doble clic en \_Layout.cshtml para abrirlo en el editor de Visual Studio.
 
-5.  Cambie todas las apariciones de **My ASP.NET Application** por **LITWARE'S Products**.
+5.  Cambie todas las ocurrencias de **My ASP.NET Application** por **LITWARE'S Products**.
 
-6. Quite los vínculos **Página principal**, **Acerca de** y **Contacto**. Elimine el código resaltado:
+6. Suprima los vínculos **Home**, **About** y **Contact**. Elimine el código resaltado:
 
 	![][41]
 
-7.  En el **Explorador de soluciones**, expanda Views\Home:
+7.  En el **Explorador de soluciones**, expanda Views\\Home:
 
     ![][20]
 
@@ -391,14 +391,14 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
 		</table>
 
 
-9.  Para comprobar la precisión del trabajo realizado hasta el momento, presione **F6** o **Ctrl+Mayús+B** para compilar el proyecto.
+9.  Para comprobar la precisión del trabajo realizado hasta el momento, puede presionar **F6** o **Ctrl+Mayús+B** para compilar el proyecto.
 
 
 ### Ejecución de la aplicación de forma local
 
 Ejecute la aplicación para comprobar que funciona.
 
-1.  Asegúrese de que **ProductsPortal** es el proyecto activo. Haga clic con el botón derecho en el nombre del proyecto en el **Explorador de soluciones** y seleccione **Establecer como proyecto de inicio**.
+1.  Asegúrese de que **ProductsPortal** es el proyecto activo. Haga clic con el botón secundario en el nombre del proyecto en el **Explorador de soluciones** y seleccione **Set As Startup Project**.
 2.  En **Visual Studio**, presione **F5**.
 3.  La aplicación debería aparecer ejecutándose en un explorador:
 
@@ -406,7 +406,7 @@ Ejecute la aplicación para comprobar que funciona.
 
 ## Preparación de la aplicación para que se implemente en Azure
 
-Cualquier aplicación se puede implementar en un servicio en la nube de Azure o en un sitio web de Azure. Para obtener más información sobre la diferencia entre Sitios web y Servicios en la nube, consulte [Modelos de ejecución de Azure][executionmodels]. Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Esta sección contiene los pasos detallados para implementar la aplicación en un servicio en la nube de Azure.
+Cualquier aplicación se puede implementar en un servicio en la nube de Azure o en un sitio web de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Cálculo de las opciones de hospedaje proporcionadas por Azure][executionmodels]. Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure](http://azure.microsoft.com/develop/net/tutorials/get-started/). Esta sección contiene los pasos detallados para implementar la aplicación en un servicio en la nube de Azure.
 
 Para implementar una aplicación en un servicio en la nube, va a agregar a la solución un proyecto de implementación de un proyecto de servicio en la nube. El proyecto de implementación contiene información de configuración necesaria para ejecutar correctamente la aplicación en la nube.
 
@@ -428,11 +428,11 @@ El siguiente paso es conectar el servidor de productos local con la aplicación 
 
 1.  Si no está abierto, vuelva a abrir en Visual Studio el proyecto **ProductsPortal** que ha creado en la sección "Creación de una aplicación ASP.NET MVC".
 
-2.  Agregue el paquete NuGet a las referencias del proyecto de forma similar al paso de la sección "Creación de un servidor local". En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y luego en **Administrar paquetes de NuGet**.
+2.  Agregue el paquete NuGet a las referencias del proyecto de forma similar al paso de la sección "Creación de un servidor local". En el Explorador de soluciones, haga clic con el botón secundario en **References** y, a continuación, en **Manage NuGet Packages**.
 
 3.  Busque "Bus de servicio" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Después finalice la instalación y cierre este cuadro de diálogo.
 
-4.  En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **ProductsPortal**, a continuación, haga clic en **Agregar**, y, finalmente, en **Elemento existente**.
+4.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto **ProductsPortal** y, a continuación, haga clic en **Add** y, finalmente, en **Existing Item**.
 
 5.  Desplácese al archivo **ProductsContract.cs** desde el proyecto de consola **ProductsServer**. Haga clic para resaltar ProductsContract.cs. Haga clic en la flecha abajo situada junto a **Agregar** y, a continuación, haga clic en **Agregar como vínculo**.
 
@@ -477,19 +477,19 @@ El siguiente paso es conectar el servidor de productos local con la aplicación 
                     }
                 }
             }
-7.  En el Explorador de soluciones, haga clic con el botón derecho en la solución **ProductsPortal**, a continuación, haga clic en **Agregar** y, finalmente, en **Proyecto existente**.
+7.  En el Explorador de soluciones, haga clic con el botón secundario en la solución **ProductsPortal** y, a continuación, haga clic en **Add** y, finalmente, en **Existing Project**.
 
-8.  Desplácese al proyecto **ProductsServer** y haga doble clic en el archivo de la solución **ProductsServer.csproj** para agregarlo.
+8.  Desplácese al proyecto **ProductsServer** y haga doble clic en la solución **ProductsServer.csproj** para agregarla.
 
-9.  En el Explorador de soluciones, haga clic con el botón derecho en la solución **ProductsPortal** y, a continuación, haga clic en **Propiedades**.
+9.  En el Explorador de soluciones, haga clic con el botón secundario en la solución **ProductsPortal** y, a continuación, haga clic en **Properties**.
 
-10. En el lado izquierdo, haga clic en **Proyecto de inicio**. En el lado derecho, haga clic en **Varios proyectos de inicio**. Asegúrese de que **ProductsServer**, **ProductsPortal.Azure** y **ProductsPortal** aparezcan, en ese orden, con **Inicio** establecido como acción para **ProductsServer** y **ProductsPortal.Azure** y **Ninguno** establecido como acción para **ProductsPortal**. Por ejemplo:
+10. A la izquierda, haga clic en **Startup Project**. A la derecha, haga clic en **Multiple startup projects**. Asegúrese de que **ProductsServer**, **ProductsPortal.Azure** y **ProductsPortal** aparezcan, en ese orden, con **Start** establecido como acción para **ProductsServer** y **ProductsPortal.Azure**, y **None** establecido como acción para **ProductsPortal**. Por ejemplo:
 
       ![][25]
 
-11. Todavía en el cuadro de diálogo Propiedades, haga clic en **ProjectDependencies** a la izquierda.
+11. Aún en el cuadro de diálogo Properties, haga clic en **ProjectDependencies** a la izquierda.
 
-12. En la lista desplegable **Proyectos**, haga clic en **ProductsServer**. Asegúrese de que **ProductsPortal** está desactivado y **ProductsPortal.Azure** está activado. A continuación, haga clic en **Aceptar**.
+12. En la lista desplegable **Projects**, haga clic en **ProductsServer**. Asegúrese de que **ProductsPortal** está desactivado y que **ProductsPortal.Azure** está activado. A continuación, haga clic en **Aceptar**:
 
     ![][26]
 
@@ -507,7 +507,7 @@ El siguiente paso es conectar el servidor de productos local con la aplicación 
 
 2.  Para ver todas sus suscripciones, es posible que tenga que iniciar sesión.
 
-    Haga clic en **Iniciar sesión para ver más suscripciones**:
+    Haga clic en **Sign in to see more subscriptions**:
 
     ![][27]
 
@@ -516,11 +516,11 @@ El siguiente paso es conectar el servidor de productos local con la aplicación 
 
 8.  Haga clic en **Siguiente**. Si la suscripción no contiene servicios hospedados, se le pedirá que cree uno. El servicio hospedado actúa como contenedor para su aplicación en su suscripción de Azure. Escriba un nombre que identifique su aplicación y elija la región para la que debe optimizarse la aplicación (cabe esperar que los usuarios que obtengan acceso a ella desde esta región tengan tiempos de carga inferiores).
 
-9.  Seleccione el servicio hospedado en el que desea publicar la aplicación. En la configuración restante, conserve los valores predeterminados, como se muestra a continuación. Haga clic en **Siguiente**.
+9.  Seleccione el servicio hospedado en el que desea publicar la aplicación. En la configuración restante, conserve los valores predeterminados, como se muestra a continuación. Haga clic en **Next**:
 
     ![][33]
 
-10. En la última página, haga clic en **Publicar** para iniciar el proceso de implementación:
+10. En la última página, haga clic en **Publish** para iniciar el proceso de implementación:
 
     ![][34]
 
@@ -577,7 +577,7 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
 
 
 
-  [Uso del paquete del Bus de servicio de NuGet]: http://go.microsoft.com/fwlink/?LinkId=234589
+  [Using the NuGet Service Bus Package]: http://go.microsoft.com/fwlink/?LinkId=234589
   [10]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [12]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-3.png
@@ -620,4 +620,4 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -52,8 +52,8 @@ La pieza clave en este diagrama arquitectónico es el Bus de servicio de Azure q
 ###Requisitos previos
 Para familiarizarse con los conceptos, así como con los pasos comunes de creación y configuración, debe realizar los siguientes tutoriales:
 
-1. [Programación Pub/Sub del Bus de servicio]: en este tutorial se explican los detalles de trabajar con temas y suscripciones del Bus de servicio, cómo crear un espacio de nombres que contenga temas y suscripciones o cómo enviar y recibir mensajes de ellos. 
-2. [Tutorial sobre Centros de notificaciones: Windows Universal]: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar los Centros de notificaciones para registrar y, después, recibir notificaciones. 
+1. [Programación Pub/Sub del Bus de servicio]\: en este tutorial se explican los detalles de trabajar con temas y suscripciones del Bus de servicio, cómo crear un espacio de nombres que contenga temas y suscripciones o cómo enviar y recibir mensajes de ellos. 
+2. [Tutorial sobre Centros de notificaciones: Windows Universal]\: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar los Centros de notificaciones para registrar y, después, recibir notificaciones. 
 
 ###Código de ejemplo
 
@@ -271,4 +271,4 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 [Tutorial sobre Centros de notificaciones: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

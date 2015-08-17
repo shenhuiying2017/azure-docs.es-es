@@ -280,4 +280,4 @@ Los datos que crea alguna actividad que no tienen un vínculo saliente se agrega
 - [Recursos de automatización](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

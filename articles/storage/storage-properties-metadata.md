@@ -1,7 +1,7 @@
 
 <properties 
-  pageTitle="Establecer y recuperar propiedades y metadatos para el almacenamiento de blobs | Microsoft Azure" 
-  description="Obtenga información acerca de cómo establecer y recuperar propiedades y metadatos para los blobs y contenedores del Almacenamiento de Azure." 
+  pageTitle="Establecer y recuperar propiedades y metadatos para los recursos de almacenamiento | Microsoft Azure" 
+  description="Obtenga información acerca de cómo establecer y recuperar propiedades y metadatos para los recursos de Almacenamiento de Azure." 
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="04/21/2015" 
+  ms.date="08/04/2015" 
   ms.author="tamram"/>
 
 
@@ -22,102 +22,47 @@
 
 ## Información general
 
-Los contenedores y los blobs admiten dos formas de datos asociados, además de los datos que contienen:
+Objetos en las propiedades de compatibilidad de sistema de Almacenamiento de Azure y metadatos definidos por el usuario, además de los datos que contienen:
 
-*   **Propiedades del sistema.** En cada recurso de contenedor o blob existen propiedades del sistema. Algunas se pueden leer o establecer, mientras que otras son de solo lectura. En segundo plano, algunas propiedades del sistema corresponden a ciertos encabezados HTTP estándar, que la biblioteca administrada de Azure mantiene automáticamente.  
+*   **Propiedades del sistema.** En cada recurso de almacenamiento existen propiedades del sistema. Algunas se pueden leer o establecer, mientras que otras son de solo lectura. En segundo plano, algunas propiedades del sistema corresponden a ciertos encabezados HTTP estándar. La biblioteca de cliente de almacenamiento de Azure las mantiene automáticamente.  
 
-*   **Metadatos definidos por el usuario.** Los metadatos definidos por el usuario son los metadatos que se especifican en un recurso determinado, en forma de par nombre-valor. Puede usar metadatos para almacenar valores adicionales con un contenedor o blob; estos valores son únicamente para sus propios fines y no afectan a la manera en que se comporta el contenedor o blob.
-
-> [AZURE.IMPORTANT]El proceso de recuperación de los valores de propiedad y metadatos de un recurso consta de dos pasos. Para poder leer estos valores, debe capturarlos explícitamente en los objetos [CloudBlobContainer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx), [CloudBlockBlob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx) o [CloudPageBlob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudpageblob.aspx). Para capturar propiedades y metadatos de forma sincrónica, llame al método **FetchAttributes** en el contenedor o blob; para capturarlos de forma asincrónica, llame a **FetchAttributesAsync**.
+*   **Metadatos definidos por el usuario.** Los metadatos definidos por el usuario son los metadatos que se especifican en un recurso determinado, en forma de par nombre-valor. Puede usar metadatos para almacenar valores adicionales con un recurso de almacenamiento; estos valores son únicamente para sus propios fines y no afectan a la manera en que se comporta el recurso.
 
 ## Establecer y recuperar propiedades
 
-Un contenedor tiene únicamente propiedades de solo lectura, mientras que un blob tiene propiedades tanto de solo lectura como de lectura y escritura. Para establecer propiedades en un blob, especifique el valor de propiedad y, a continuación, llame al método [SetProperties](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.setproperties.aspx) o [SetProperties](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudpageblob.setproperties.aspx).
+El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando el método **FetchAttributes** o **FetchAttributesAsync**.
 
-Para leer las propiedades de un contenedor o blob, llame al método **FetchAttributes** y, a continuación, recupere el valor de propiedad.
+> [AZURE.IMPORTANT]Los valores de propiedad y los metadatos para un recurso de almacenamiento no se rellenan, a menos que se llame a uno de los métodos **FetchAttributes**.
 
-En el ejemplo de código siguiente se crea un contenedor y un blob y se escriben los valores de propiedad en una ventana de la consola. Este ejemplo usa el emulador de almacenamiento, por lo que el servicio de almacenamiento emulado debe estar en ejecución para que el código funcione:
+Para establecer propiedades en un blob, especifique el valor de propiedad y, a continuación, llame al método **SetProperties** o **SetPropertiesAsync**.
 
-	// Use the storage emulator account.
-	CloudStorageAccount storageAccount = CloudStorageAccount.DevelopmentStorageAccount;
+En el ejemplo de código siguiente se crea un contenedor y se escriben los valores de propiedad en una ventana de la consola:
 
-	// As an alternative, you can create the credentials from the account name and key.
-	// string accountName = "myaccount";
-	// string accountKey = "SzlFqgzqhfkj594cFoveYqCuvo8v9EESAnOLcTBeBIo31p16rJJRZx/5vU/oY3ZsK/VdFNaVpm6G8YSD2K48Nw==";
-	// StorageCredentials credentials = new StorageCredentials(accountName, accountKey);
-	// CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	
+	//Create the service client object for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    // Retrieve a reference to a container. 
+    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-	// Retrieve a reference to a container. 
-	CloudBlobContainer container = blobClient.GetContainerReference(<span style="color:#A31515;">"mycontainer");
+    // Create the container if it does not already exist.
+    container.CreateIfNotExists();
 
-	// Create the container if it does not already exist.
-	container.CreateIfNotExists();
+    // Fetch container properties and write out their values.
+    container.FetchAttributes();
+    Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
+    Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
+    Console.WriteLine("ETag: {0}", container.Properties.ETag);
+    Console.WriteLine();
 
-	// Fetch container properties and write out their values.
-	container.FetchAttributes();
-	Console.WriteLine(<span style="color:#A31515;">"Properties for container " + container.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"LastModifiedUTC: " + container.Properties.LastModified);
-	Console.WriteLine(<span style="color:#A31515;">"ETag: " + container.Properties.ETag);
-	Console.WriteLine();
-
-	// Create a blob.
-	CloudBlockBlob blob = container.GetBlockBlobReference(<span style="color:#A31515;">"myblob.txt");
-
-	// Create or overwrite the "myblob.txt" blob with contents from a local file.
-	<span style="color:Blue;">using (<span style="color:Blue;">var fileStream = System.IO.File.OpenRead(<span style="color:#A31515;">@"c:\test\myblob.txt"))
-	{
-	   blob.UploadFromStream(fileStream);
-	} 
-
-	// Fetch container properties and write out their values.
-	container.FetchAttributes();
-	Console.WriteLine(<span style="color:#A31515;">"Properties for container " + container.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"LastModifiedUTC: " + container.Properties.LastModified);
-	Console.WriteLine(<span style="color:#A31515;">"ETag: " + container.Properties.ETag);
-	Console.WriteLine();
-
-	// Create a blob.
-	Uri blobUri =<span style="color:Blue;">new UriBuilder(containerUri.AbsoluteUri + <span style="color:#A31515;">"/ablob.txt").Uri;
-	CloudPageBlob blob = <span style="color:Blue;">new CloudPageBlob(blobUri, credentials);
-	blob.Create(1024);
-				
-
-	// Set the CacheControl property.
-	blob.Properties.CacheControl = <span style="color:#A31515;">"public, max-age=31536000";
-	blob.SetProperties();
-
-	// Fetch blob attributes.
-	blob.FetchAttributes();
-
-	Console.WriteLine(<span style="color:#A31515;">"Read-only properties for blob " + blob.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"BlobType: " + blob.Properties.BlobType);
-	Console.WriteLine(<span style="color:#A31515;">"ETag: " + blob.Properties.ETag);
-	Console.WriteLine(<span style="color:#A31515;">"LastModifiedUtc: " + blob.Properties.LastModified);
-	Console.WriteLine(<span style="color:#A31515;">"Length: " + blob.Properties.Length);
-	Console.WriteLine();
-
-	Console.WriteLine(<span style="color:#A31515;">"Read-write properties for blob " + blob.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"CacheControl: " +
-	   (blob.Properties.CacheControl == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.CacheControl));
-	Console.WriteLine(<span style="color:#A31515;">"ContentEncoding: " +
-	   (blob.Properties.ContentEncoding == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentEncoding));
-	Console.WriteLine(<span style="color:#A31515;">"ContentLanguage: " +
-	   (blob.Properties.ContentLanguage == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentLanguage));
-	Console.WriteLine(<span style="color:#A31515;">"ContentMD5: " +
-	   (blob.Properties.ContentMD5 == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentMD5));
-	Console.WriteLine(<span style="color:#A31515;">"ContentType: " +
-	   (blob.Properties.ContentType == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentType));
-
-	// Clean up.
-	blob.DeleteIfExists();
-	container.Delete();
 ## Establecer y recuperar metadatos
 
 Puede especificar metadatos como uno o más pares nombre-valor en un recurso de blob o contenedor. Para establecer los metadatos, agregue pares nombre-valor a la colección **Metadata** del recurso y, a continuación, llame al método **SetMetadata** para guardar los valores en el servicio.
 
-> [AZURE.NOTE]: El nombre de los metadatos debe cumplir las convenciones de nomenclatura para los identificadores de C#.
+> [AZURE.NOTE]\: El nombre de los metadatos debe cumplir las convenciones de nomenclatura para los identificadores de C#.
  
 Para recuperar metadatos, llame al método **FetchAttributes** en el blob o contenedor para rellenar la colección **Metadata** y, a continuación, lea los valores.
 
@@ -161,4 +106,4 @@ En el ejemplo de código siguiente se crea un nuevo contenedor, se establecen su
 - [Introducción al almacenamiento de blobs para .NET](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

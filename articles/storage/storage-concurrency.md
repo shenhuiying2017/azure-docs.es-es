@@ -93,14 +93,11 @@ Get Container Properties|	Sí|	No|
 Get Container Metadata|	Sí|	No|
 Set Container Metadata|	Sí|	Sí|
 Get Container ACL|	Sí|	No|
-Set Container ACL|	Sí|	Sí (*)|
-Delete Container|	No|	Sí|
-Lease Container|	Sí|	Sí|
-List Blobs|	No|	No  
+Set Container ACL|	Sí|	Sí (*)|Delete Container| No| Sí|Lease Container| Sí| Sí|List Blobs| No| No 
 
 (*) Los permisos definidos por SetContainerACL se almacenan en caché y las actualizaciones a estos permisos tardan 30 segundos en propagarse durante los cuales no se garantiza la coherencia de las actualizaciones.
 
-En la siguiente tabla, se resumen las operaciones de blob que aceptan encabezados condicionales como **If-Match** en la solicitud y que devuelven un valor ETag en la respuesta.
+En la siguiente tabla se resumen las operaciones de blob que aceptan encabezados condicionales como **If-Match** en la solicitud y que devuelven un valor ETag en la respuesta.
 
 Operación |Devuelve el valor ETag |Acepta encabezados condicionales|
 -----------|-------------------|----------------------------|
@@ -110,16 +107,7 @@ Get Blob Properties|	Sí|	Sí|
 Set Blob Properties|	Sí|	Sí|
 Get Blob Metadata|	Sí|	Sí|
 Set Blob Metadata|	Sí|	Sí|
-Lease Blob (*)|	Sí|	Sí|
-Instantánea de blob|	Sí|	Sí|
-Copia de blobs|	Sí|	Sí (para blob de origen y destino)|
-Abort Copy Blob|	No|	No|
-Delete Blob|	No|	Sí|
-Put Block|	No|	No|
-Put Block List|	Sí|	Sí|
-Get Block List|	Sí|	No|
-Put Page|	Sí|	Sí|
-Get Page Ranges|	Sí|	Sí
+Lease Blob (*)| Sí| Sí| Snapshot Blob| Sí| Sí| Copy Blob| Sí| Sí (para blob de origen y de destino)| Abort Copy Blob| No| No| Delete Blob| No| Sí| Put Block| No| No| Put Block List| Sí| Sí| Get Block List| Sí| No| Put Page| Sí| Sí| Get Page Ranges| Sí| Sí
 
 (*) Lease Blob no cambia ETag en un blob.
 
@@ -155,7 +143,7 @@ En el siguiente fragmento de código de C# se muestra un ejemplo de adquisición
 	        throw;
 	}  
 
-Si intenta una operación de escritura en un blob concedido sin pasar el identificador de concesión, la solicitud no se puede realizar y muestra el error 412. Tenga en cuenta que si la concesión expira antes de llamar al método **UploadText**, pero sigue pasando el identificador de concesión, la solicitud tampoco se podrá realizar y mostrará el error **412**. Para obtener más información acerca de la administración de los tiempos de expiración de la concesión y los identificadores de concesión, vea la documentación de REST sobre las [concesiones de blob](http://msdn.microsoft.com/library/azure/ee691972.aspx).
+Si intenta una operación de escritura en un blob concedido sin pasar el identificador de concesión, la solicitud no se puede realizar y muestra el error 412. Tenga en cuenta que si la concesión espira antes de llamar al método **UploadText**, pero sigue pasando el identificador de concesión, la solicitud tampoco se podrá realizar y mostrará el error **412**. Para obtener más información acerca de la administración de tiempos de expiración de la concesión y de identificadores de concesión, vea la documentación REST [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx).
 
 Las siguientes operaciones de blob pueden usar concesiones para administrar simultaneidad pesimista:
 
@@ -202,12 +190,12 @@ El servicio tabla usa comprobaciones de simultaneidad optimista como el comporta
 Para usar simultaneidad optimista y comprobar si otro proceso modificó una entidad desde que la recuperó del servicio de almacenamiento Tabla, puede usar el valor ETag que recibe cuando el servicio Tabla devuelve una entidad. El esquema de este proceso es el siguiente:
 
 1.	Recuperar una entidad del servicio de almacenamiento Tabla. La respuesta incluye un valor ETag que muestra el identificador actual asociado con esa entidad en el servicio de almacenamiento.
-2.	Cuando actualice la entidad, incluya el valor ETag recibido en el paso 1 en el encabezado obligatorio **If-Match** de la solicitud que envía al servicio.
+2.	Cuando actualice la entidad, incluya el valor ETag recibido en el paso 1 en el encabezado **If-Match** obligatorio de la solicitud que envía al servicio.
 3.	El servicio compara el valor ETag de la solicitud con el valor ETag actual de la entidad.
 4.	Si el valor ETag actual de la entidad es diferente al valor ETag del encabezado **If-Match** obligatorio de la solicitud, el servicio devuelve un error 412 al cliente. Esto indica al cliente que otro proceso ha actualizado la entidad desde que el cliente la recuperó.
-5.	Si el valor ETag actual de la entidad es el mismo que el valor ETag del encabezado **If-Match** obligatorio de la solicitud o si el encabezado **If-Match** contiene el carácter comodín (*), el servicio realiza la operación solicitada y actualiza el valor ETag actual de la entidad para mostrar que se ha actualizado.  
+5.	Si el valor ETag actual de la entidad es el mismo que el valor ETag del encabezado **If-Match** obligatorio de la solicitud o el encabezado **If-Match** contiene el carácter comodín (*), el servicio realiza la operación solicitada y actualiza el valor ETAg actual de la entidad para mostrar que se ha actualizado.
 
-Tenga en cuenta que, a diferencia del servicio Blob, el servicio Tabla requiere que el cliente incluya un encabezado **If-Match** en las solicitudes de actualización. Sin embargo, es posible imponer una actualización no condicional (estrategia de tipo "El último en escribir gana") y omitir comprobaciones de simultaneidad si el cliente establece el encabezado **If-Match** en el carácter comodín (*) en la solicitud.
+Tenga en cuenta que, a diferencia del servicio BLOB, el servicio Tabla requiere que el cliente incluya un encabezado **If-Match** en las solicitudes de actualización. Sin embargo, es posible imponer una actualización no condicional (estrategia de tipo El último en escribir gana) y omitir comprobaciones de simultaneidad si el cliente establece el encabezado **If-Match** en el carácter comodín (*) en la solicitud.
 
 El siguiente fragmento de código C# muestra una entidad customer que se creó o recuperó previamente teniendo su dirección de correo electrónico actualizada. La operación de inserción o recuperación inicial almacena el valor ETag en el objeto customer y, dado que el ejemplo usa la misma instancia de objeto cuando ejecuta la operación de reemplazo, automáticamente vuelve a enviar el valor ETag al servicio Tabla, permitiendo al servicio comprobar las infracciones de simultaneidad. Si otro proceso ha actualizado la entidad en el almacenamiento de tabla, el servicio devuelve un mensaje de estado HTTP 412 (Error en la condición previa). Puede descargar el ejemplo completo [aquí](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
 
@@ -226,7 +214,7 @@ El siguiente fragmento de código C# muestra una entidad customer que se creó o
 	        throw; 
 	}  
 
-Para deshabilitar explícitamente la comprobación de simultaneidad, debe establecer la propiedad **ETag** del objeto **employee** en "*" antes de ejecutar la operación de reemplazo.
+Para deshabilitar explícitamente la comprobación de simultaneidad, debe establecer la propiedad **ETag** del objeto **employee** en “*” antes de ejecutar la operación de reemplazo.
 
 customer.ETag = "*";
 
@@ -242,7 +230,7 @@ Delete Entity|	No|	Sí|
 Insert or Replace Entity|	Sí|	No|
 Insert or Merge Entity|	Sí|	No 
 
-Tenga en cuenta que las operaciones **Insert or Replace Entity** e **Insert or Merge Entity** *no* realizan ninguna comprobación de simultaneidad porque no envían un valor de ETag al servicio Tabla.
+Tenga en cuenta que las operaciones **Insert or Replace Entity** e **Insert or Merge Entity** *no* realizan ninguna comprobación de simultaneidad porque no envían un valor ETag al servicio Tabla.
 
 En general, los desarrolladores que usan tablas deben basarse en simultaneidad optimista cuando desarrollan aplicaciones escalables. Si se necesita el bloqueo pesimista, un enfoque que los desarrolladores pueden usar cuando obtienen acceso a tablas es asignar un blob designado para cada tabla e intentar llevar a cabo una concesión en el blob antes de realizar operaciones en la tabla. Este enfoque no requiere que la aplicación garantice que todas las rutas de acceso a los datos obtienen la concesión antes de realizar operaciones en la tabla. También debe tener en cuenta que el tiempo mínimo de concesión es 15 segundos, lo que requiere una consideración cuidadosa para escalabilidad.
 
@@ -285,4 +273,4 @@ Para obtener más información acerca de Almacenamiento de Azure, consulte:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

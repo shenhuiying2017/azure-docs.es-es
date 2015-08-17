@@ -74,7 +74,7 @@ En esta sección, usará una plantilla de [Administrador de recursos de Azure](.
 
 8. Modifique el parámetro **newStorageAccountName**. Esta es la cuenta de almacenamiento para los discos del sistema operativo de la máquina virtual. Este nombre de cuenta debe ser único globalmente.
 
-9. Modifique el parámetro **publicDomainName**. Esto pasará a formar parte del nombre DNS asociado con la IP pública del equilibrador de carga. El FQDN final tendrá el formato de _[valor de este parámetro]_._[region]_.cloudapp.azure.com. Por ejemplo, si especifica el nombre como deishbai32 y el grupo de recursos se implementa en la región Oeste de EE. UU., el FQDN final del equilibrador de carga final será deishbai32.westus.cloudapp.azure.com.
+9. Modifique el parámetro **publicDomainName**. Esto pasará a formar parte del nombre DNS asociado con la IP pública del equilibrador de carga. El FQDN final tendrá el formato de _[valor de este parámetro]_._[región]_.cloudapp.azure.com. Por ejemplo, si especifica el nombre como deishbai32 y el grupo de recursos se implementa en la región Oeste de EE. UU., el FQDN final del equilibrador de carga final será deishbai32.westus.cloudapp.azure.com.
 
 10. Guarde el archivo de parámetros. A continuación, podrá aprovisionar el clúster usando Azure PowerShell:
 
@@ -124,7 +124,7 @@ Ahora puede usar deisctl para instalar e iniciar la plataforma Deis:
     deisctl install platform
     deisctl start platform
 
-> [AZURE.NOTE]Iniciar la plataforma tarda unos instantes (hasta 10 minutos). Especialmente, iniciar el servicio generador puede tardar mucho tiempo. En ocasiones precisa unos intentos para tener éxito: si parece que la operación se bloquea, intente escribir `ctrl+c` para interrumpir la ejecución del comando y vuelva a intentarlo.
+> [AZURE.NOTE]Iniciar la plataforma tarda unos instantes (hasta 10 minutos). Especialmente, iniciar el servicio generador puede tardar mucho tiempo. En ocasiones precisa unos intentos para iniciar correctamente: si parece que la operación se bloquea, intente escribir `ctrl+c` para interrumpir la ejecución del comando y vuelva a intentarlo.
 
 Puede usar `deisctl list` para comprobar si se están ejecutando todos los servicios:
 
@@ -180,7 +180,7 @@ Los pasos siguientes muestran cómo implementar una aplicación Go "Hello World"
         cd ~/.ssh
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 
-4. Agregue id_rsa.pub o la clave pública que desee a GitHub. Puede hacerlo mediante el botón Agregar clave SSH en la pantalla de configuración de claves SSH:
+4. Agregue id\_rsa.pub o la clave pública que desee a GitHub. Puede hacerlo mediante el botón Agregar clave SSH en la pantalla de configuración de claves SSH:
 
   ![Clave de Github](media/virtual-machines-deis-cluster/github-key.png) <p /> 5. Registre un nuevo usuario:
 
@@ -197,7 +197,7 @@ Los pasos siguientes muestran cómo implementar una aplicación Go "Hello World"
         deis create
         git push deis master
 <p />
-8. La inserción de git desencadenará imágenes Docker para generar e implementar, lo cual llevará unos minutos. Según mi experiencia, en ocasiones es posible que el paso 10 (insertar la imagen en el repositorio privado) se cuelgue. Cuando esto suceda, puede detener el proceso, quitar la aplicación mediante `deis apps:destroy –a <application name>` para quitar la aplicación e intentarlo de nuevo. Puede usar `deis apps:list` para averiguar el nombre de la aplicación. Si todo funciona, debería ver algo parecido a lo siguiente al final de las salidas de comando:
+8. La inserción de git desencadenará imágenes Docker para generar e implementar, lo cual llevará unos minutos. Según mi experiencia, en ocasiones es posible que el paso 10 (insertar la imagen en el repositorio privado) se cuelgue. Cuando esto suceda, puede detener el proceso, quitar la aplicación mediante `deis apps:destroy –a <application name>` e intentarlo de nuevo. Puede usar `deis apps:list` para averiguar el nombre de la aplicación. Si todo funciona, debería ver algo parecido a lo siguiente al final de las salidas de comando:
 
         -----> Launching...
                done, lambda-underdog:v2 deployed to Deis
@@ -248,10 +248,10 @@ Los pasos siguientes muestran cómo implementar una aplicación Go "Hello World"
 
 En este artículo le guiamos a través de todos los pasos para aprovisionar un nuevo clúster Deis en Azure mediante una plantilla de Administrador de recursos de Azure. La plantilla admite la redundancia en conexiones de herramientas, así como el equilibrio de cargas para aplicaciones implementadas. La plantilla también evita el uso de direcciones IP públicas en los nodos de miembro, lo cual ahorra valiosos recursos IP públicos y proporciona un entorno más seguro para hospedar aplicaciones. Para obtener más información, consulte los artículos siguientes:
 
-[Información general sobre el Administrador de recursos de azure][resource-group-overview] [Cómo usar la CLI de Azure][azure-command-line-tools] [Uso de Azure PowerShell con el Administrador de recursos de Azure][powershell-azure-resource-manager]
+[Información general sobre el Administrador de recursos de Azure][resource-group-overview] [Cómo usar la CLI de Azure][azure-command-line-tools] [Uso de Azure PowerShell con el Administrador de recursos de Azure][powershell-azure-resource-manager]
 
 [azure-command-line-tools]: ../xplat-cli.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

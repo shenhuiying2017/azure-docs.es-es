@@ -191,4 +191,4 @@ Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Ade
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

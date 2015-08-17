@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido | Microsoft Azure" 
-	description="Obtenga información acerca de cómo delegar el acceso a los recursos de Almacenamiento de Azure, incluidos blobs, colas y tablas usando firmas de acceso compartido (SAS). Con las firmas de acceso compartido, puede proteger la clave de la cuenta de almacenamiento y conceder acceso a recursos de su cuenta a otros usuarios. Puede controlar los permisos que concede y el intervalo durante el cual la firma de acceso compartido es válida. Si establece también una directiva de acceso almacenada, puede revocar la SAS por si le preocupa que la seguridad de la cuenta se vea comprometida." 
+	description="Obtenga información acerca de cómo delegar el acceso a los recursos de Almacenamiento de Azure, incluidos blobs, colas, tablas y archivos usando firmas de acceso compartido (SAS). Con las firmas de acceso compartido, puede proteger la clave de la cuenta de almacenamiento y conceder acceso a recursos de su cuenta a otros usuarios. Puede controlar los permisos que concede y el intervalo durante el cual la firma de acceso compartido es válida. Si establece también una directiva de acceso almacenada, puede revocar la SAS por si le preocupa que la seguridad de la cuenta se vea comprometida." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tamram"/>
 
 
@@ -22,11 +22,11 @@
 
 ## Información general
 
-Usar una firma de acceso compartido (SAS) es una manera eficaz de conceder acceso limitado a los blobs, las tablas y las colas en la cuenta de almacenamiento a otros clientes sin tener que exponer la clave de cuenta. En la parte 1 de este tutorial sobre firmas de acceso compartido, le ofreceremos información general del modelo SAS y una revisión de las prácticas recomendadas de SAS. [La parte 2](storage-dotnet-shared-access-signature-part-2.md) de este tutorial le guiará a través del proceso de creación de firmas de acceso compartido con el servicio BLOB.
+Usar una firma de acceso compartido (SAS) es una manera eficaz de conceder acceso limitado a los objetos en la cuenta de almacenamiento a otros clientes sin tener que exponer la clave de cuenta. En la parte 1 de este tutorial sobre firmas de acceso compartido, le ofreceremos información general del modelo SAS y una revisión de las prácticas recomendadas de SAS. [La parte 2](storage-dotnet-shared-access-signature-part-2.md) de este tutorial le guiará a través del proceso de creación de firmas de acceso compartido con el servicio BLOB.
 
 ## ¿Qué es una firma de acceso compartido? ##
 
-Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Esto significa que puede conceder permisos limitados de los clientes a blobs, colas o tablas durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. La SAS es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la SAS, el cliente solo tiene que pasar la SAS al método o constructor adecuados.
+Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Esto significa que puede conceder permisos limitados de los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. La SAS es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la SAS, el cliente solo tiene que pasar la SAS al método o constructor adecuados.
 
 ## ¿Cuándo debe usar una firma de acceso compartido? ##
 
@@ -39,11 +39,17 @@ Un escenario común en el que es útil una SAS es un servicio en el que los usua
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2\.	Un servicio ligero realiza la autenticación del cliente según sea necesario y, a continuación, genera una SAS. Una vez que el cliente recibe la SAS, puede obtener acceso a los recursos de la cuenta de almacenamiento directamente con los permisos definidos por la SAS y para el intervalo permitido por ella. La SAS mitiga la necesidad de enrutar todos los datos a través del servicio de proxy front-end.
+2\. Un servicio ligero realiza la autenticación del cliente según sea necesario y, a continuación, genera una SAS. Una vez que el cliente recibe la SAS, puede obtener acceso a los recursos de la cuenta de almacenamiento directamente con los permisos definidos por la SAS y para el intervalo permitido por ella. La SAS mitiga la necesidad de enrutar todos los datos a través del servicio de proxy front-end.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
 Muchos servicios en tiempo real pueden usar una combinación de estos dos enfoques, según el escenario implicado, con algunos datos procesados y validados a través del proxy front-end mientras se guardan o leen los demás datos directamente mediante la SAS.
+
+Además, deberá usar una SAS para autenticar el objeto de origen en una operación de copia en ciertos escenarios:
+
+- Cuando copia un blob en otro blob que reside en otra cuenta de almacenamiento, debe usar una SAS para autenticar el blob de origen. Opcionalmente, puede usar una SAS para autenticar el blob de destino, siempre y cuando use la versión de 2013-08-15 de los servicios de almacenamiento o una posterior.
+- Cuando copia un archivo en otro archivo que reside en otra cuenta de almacenamiento, debe usar una SAS para autenticar el archivo de origen. También puede usar una SAS para autenticar el archivo de destino.
+- Si va a copiar un blob en un archivo, o un archivo en un blob, tiene que usar una firma de acceso compartido (SAS) para autenticar el objeto de origen, incluso si los objetos de origen y destino residen dentro la misma cuenta de almacenamiento.
 
 ## Funcionamiento de una firma de acceso compartido ##
 
@@ -51,14 +57,18 @@ Una firma de acceso compartido es un URI que hace referencia a un recurso de alm
 
 Las firmas de acceso compartido tienen las siguientes restricciones que las definen, que se representan como un parámetro en el URI:
 
-- **El recurso de almacenamiento.** Recursos de almacenamiento para los que puede delegar el acceso, incluidos contenedores, blobs, colas, tablas y rangos de entidades de tabla.
+- **El recurso de almacenamiento.** Los recursos de almacenamiento para los que puede delegar el acceso incluyen:
+	- Contenedores y blobs
+	- Archivos y recursos compartidos de archivo
+	- Colas
+	- Las tablas y los intervalos de las entidades de tabla.
 - **Hora de inicio.** Es la hora en la que la SAS comienza a ser válida. La hora de inicio de una firma de acceso compartido es opcional; si se omite, la SAS se activa de inmediato. 
 - **Hora de expiración.** Es la hora a partir de la que la SAS deja de ser válida. Las prácticas recomendadas aconsejan que especifique una hora de expiración para una SAS o que la asocie a una directiva de acceso almacenada (puede obtener más información a continuación).
 - **Permisos.** Los permisos especificados en una SAS indican qué operaciones puede realizar el cliente en el recurso de almacenamiento con la SAS. 
 
 A continuación se muestra un ejemplo de un URI de SAS que ofrece permisos de lectura y escritura en un blob. En la tabla siguiente se divide cada parte del URI para saber cómo contribuye a la SAS:
 
-https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+	https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
 <table border="1" cellpadding="0" cellspacing="0">
     <tbody>
@@ -184,13 +194,12 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
     </tbody>
 </table>
 
-
 ## Control de firmas de acceso compartido con una directiva de acceso almacenada ##
 
 Una firma de acceso compartido puede presentar una de estas dos formas:
 
-- **SAS ad-hoc**: cuando cree una SAS ad-hoc, la hora de inicio, la hora de expiración y los permisos para la SAS se especifican en el URI de SAS (o se encuentran implícitos en el caso en el que se omita la hora de inicio). Este tipo de SAS puede crearse en un contenedor, un blob, una tabla o una cola.
-- **SAS con directiva de acceso almacenada:** se define una directiva de acceso almacenada en un contenedor de recursos (un contenedor de blobs, una tabla o una cola) y se puede usar para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
+- **SAS ad-hoc**: cuando cree una SAS ad-hoc, la hora de inicio, la hora de expiración y los permisos para la SAS se especifican en el URI de SAS (o se encuentran implícitos en el caso en el que se omita la hora de inicio). Este tipo de SAS puede crearse en un contenedor, un blob, un archivo compartido, un archivo, una tabla o una cola.
+- **SAS con directiva de acceso almacenada:** se define una directiva de acceso almacenada en un contenedor de recursos (un contenedor de blobs, un archivo compartido, un archivo, una tabla o una cola) y se puede usar para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
 
 La diferencia entre las dos formas es importante para un escenario principal: revocación. Una SAS es una dirección URL, por lo que cualquier persona que obtenga la SAS puede usarla, independientemente de quién la solicitó para comenzar. Si una SAS se encuentra disponible públicamente, cualquier persona del mundo puede usarla. Una SAS distribuida es válida hasta que se produzca una de las cuatro situaciones:
 
@@ -238,4 +247,4 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 
  
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

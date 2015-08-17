@@ -40,4 +40,4 @@ Para agregar un directorio de Azure AD en el Portal de administración de Azure,
 
 Para obtener una amplia visión general de los problemas de licencias de Azure AD y prácticas recomendadas, consulte [¿Qué es la licencia de Azure Active Directory?](active-directory-licensing-what-is.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -97,7 +97,7 @@ Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes.
 
 2. En la lista tabular de cuentas de almacenamiento, desplace el mouse sobre la cuenta que desea eliminar.
 
-3. Aparecerá un icono de eliminación (**x**) en la columna de la derecha de todo para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
+3. Aparecerá un icono de eliminación (**x**) en la columna en el extremo derecho para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
 
 4. Cuando se le pida confirmación, haga clic en **Sí** para continuar con la eliminación. La lista tabular se actualizará para reflejar los cambios.
 
@@ -150,6 +150,6 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 
 ## Pasos siguientes
 
-Obtener más información sobre la [Seguridad de StorSimple](storsimple-security.md)
+Obtenga más información acerca de la [seguridad de StorSimple](storsimple-security.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

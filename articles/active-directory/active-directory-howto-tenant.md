@@ -65,4 +65,4 @@ Si todo lo anterior es un galimatías para usted, no se preocupe. Simplemente vi
 
 Como parte del proceso de registro en Azure, se le solicitará que proporcione la información de tarjeta de crédito. Puede continuar con confianza: no se le cobrará por publicar aplicaciones en Azure AD o crear nuevos inquilinos.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

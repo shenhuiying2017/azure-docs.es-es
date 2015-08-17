@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Ciclo de vida de los actores de Service Fabric de Azure"
-   description="Explica el ciclo de vida y la recolección de elementos no utilizados de los actores de Service Fabric de Azure"
+   pageTitle="Ciclo de vida de Actores confiables"
+   description="Explica el ciclo de vida y la recolección de elementos no utilizados de Actores confiables de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
-#Ciclo de vida de actor y recolección de elementos no utilizados
+# Ciclo de vida de actor y recolección de elementos no utilizados
 Un actor se activa cuando se le llama por primera vez y se desactiva (el tiempo de ejecución de los actores lo recolecta como elemento no usado) si no se usa durante un período de tiempo. Para configurar este período de tiempo, consulte la sección siguiente sobre la recolección de actores no utilizados.
 
 ¿Qué ocurre durante la activación del actor?
@@ -89,6 +89,5 @@ Tenga en cuenta que un actor nunca se recolectará mientras se está ejecutando 
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

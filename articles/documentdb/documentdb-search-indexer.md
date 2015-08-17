@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Conexión de DocumentDB con Búsqueda de Azure mediante indizadores | Azure" 
+    pageTitle="Conexión de DocumentDB con Búsqueda de Azure mediante indizadores | Microsoft Azure" 
     description="En este artículo se muestra cómo usar el indizador de Búsqueda de Azure con DocumentDB como origen de datos."
     services="documentdb" 
     documentationCenter="" 
@@ -132,50 +132,16 @@ Asegúrese de que el esquema del índice de destino es compatible con el de los 
 
 ###Figura A: asignación entre tipos de datos de JSON y de Búsqueda de Azure
 
-<table style="font-size:12">
-    <tr>
-        <th>Tipo de datos de JSON</th>
-        <th>Tipos de campos de índice de destino compatibles</th>
-    </tr>
-    <tr>
-        <td>Booleano</td>
-        <td>Edm.Boolean, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Números que parecen enteros</td>
-        <td>Edm.Int32, Edm.Int64, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Números que parecen puntos flotantes</td>
-        <td>Edm.Double, Edm.String</td>
-    </tr>
-    <tr>
-        <td>String</td>
-        <td>Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Matrices de tipos primitivos<br/>
-            Por ejemplo, ["a", "b", "c"]
-        </td>
-        <td>Collection(Edm.String)</td>
-    </tr>
-    <tr>
-        <td>Cadenas que parecen fechas</td>
-        <td>Edm.DateTimeOffset, Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Objetos GeoJSON<br/>
-            Por ejemplo, {"tipo": "Punto", "coordenadas": [long, lat]}
-        </td>
-        <td>Edm.GeographyPoint</td>
-    </tr>
-    <tr>
-        <td>Otros objetos JSON</td>
-        <td>N/D</td>
-    </tr>
-</table>
+| TIPO DE DATOS DE JSON|	TIPOS DE CAMPOS DE ÍNDICE DE DESTINO COMPATIBLES|
+|---|---|
+|Booleano|Edm.Boolean, Edm.String|
+|Números que parecen enteros|Edm.Int32, Edm.Int64, Edm.String|
+|Números que parecen puntos flotantes|Edm.Double, Edm.String|
+|String|Edm.String|
+|Matrices de tipos primitivos, por ejemplo, "a", "b", "c" |Collection(Edm.String)|
+|Cadenas que parecen fechas| Edm.DateTimeOffset, Edm.String|
+|Objetos GeoJSON, por ejemplo, {"tipo": "Punto", "coordenadas": [long, lat]} | Edm.GeographyPoint |
+|Otros objetos JSON|N/D|
 
 ###<a id="CreateIndexExample"></a>Ejemplo de cuerpo de solicitud
 
@@ -243,7 +209,7 @@ En el ejemplo siguiente se crea un indizador que copia datos de la colección a 
 
 Si el indizador se crea correctamente, recibirá una respuesta HTTP 201 que indica que se ha creado.
 
-##<a id="RunIndexer"></a>Paso 4: Ejecutar un indizador
+##<a id="RunIndexer"></a>Paso 4: Ejecución de un indizador
 
 Además de ejecutarse periódicamente según una programación, un indizador también puede invocarse a petición mediante la emisión de la siguiente solicitud HTTP POST:
 
@@ -304,4 +270,4 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
  - Para obtener más información sobre Búsqueda de Azure, haga clic [aquí](/services/search/).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

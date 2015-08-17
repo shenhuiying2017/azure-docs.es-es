@@ -83,7 +83,7 @@ Descargue el vínculo No seguro para subprocesos (NTS) x86 para la versión de P
 
 ### Habilitar la extensión php\_memcache
 
-Después de descargar el archivo, descomprima y cargue **php\_memcache.dll** en el directorio **d:\\home\\site\\wwwroot\\bin\\ext**. Una vez que el archivo php\_memcache.dll se cargó en la aplicación web, es necesario habilitar la extensión para tiempo de ejecución de PHP. Para habilitar la extensión Memcache en el Portal de Azure, abra la hoja **Configuración de aplicación** de la aplicación web y, a continuación, agregue la nueva configuración de aplicación con la clave de **PHP\_EXTENSIONS** y el valor **bin\\ext\\php\_memcache.dll**.
+Después de descargar el archivo, descomprima y cargue **php\_memcache.dll** en el directorio **d:\\home\\site\\wwwroot\\bin\\ext\**. Una vez que el archivo php\_memcache.dll se cargó en la aplicación web, es necesario habilitar la extensión para tiempo de ejecución de PHP. Para habilitar la extensión Memcache en el Portal de Azure, abra la hoja **Configuración de aplicación** de la aplicación web y, a continuación, agregue la nueva configuración de aplicación con la clave de **PHP\_EXTENSIONS** y el valor **bin\\ext\\php\_memcache.dll**.
 
 
 > Si la aplicación web necesita cargar varias extensiones PHP, el valor de PHP\_EXTENSIONS debe ser una lista delimitada por comas de rutas de acceso relativas a archivos DLL.
@@ -197,4 +197,4 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -120,4 +120,4 @@ El siguiente material adicional muestra cómo compilar y administrar aplicacione
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

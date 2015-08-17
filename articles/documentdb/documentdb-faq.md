@@ -111,4 +111,4 @@ Sí. Como Base de datos de documentos es un servicio RESTful, los vínculos de r
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

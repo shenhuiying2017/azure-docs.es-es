@@ -51,9 +51,9 @@ ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
 ```
 
-La cuenta de administrador de servidor con la que se está conectando forma parte de db_owner, que tiene autoridad para realizar cualquier acción en la base de datos. Guarde esta cuenta para implementar las actualizaciones de los esquemas y otras operaciones de administración. Utilice la cuenta "ApplicationUser" con permisos más limitados para conectarse desde la aplicación a la base de datos con los privilegios mínimos que necesita la aplicación.
+La cuenta de administrador de servidor con la que se está conectando forma parte de db\_owner, que tiene autoridad para realizar cualquier acción en la base de datos. Guarde esta cuenta para implementar las actualizaciones de los esquemas y otras operaciones de administración. Utilice la cuenta "ApplicationUser" con permisos más limitados para conectarse desde la aplicación a la base de datos con los privilegios mínimos que necesita la aplicación.
 
-Existen formas para limitar aún más lo que un usuario puede hacer con Base de datos SQL de Azure:- pueden utilizarse [roles de base de datos][] distintos de db_datareader y db_datawriter para crear cuentas de usuario de aplicaciones más eficaces o cuentas de administración menos eficaces. - Granular los [permisos][] permite controlar qué operaciones se pueden realizar en columnas, tablas, vistas, procedimientos y otros objetos de la base de datos. - Los [procedimientos almacenados][] se pueden usar para limitar las acciones que se pueden realizar en la base de datos.
+Existen formas para limitar aún más lo que un usuario puede hacer con Base de datos SQL de Azure:- pueden utilizarse [roles de base de datos][] distintos de db\_datareader y db\_datawriter para crear cuentas de usuario de aplicaciones más eficaces o cuentas de administración menos eficaces. - Granular los [permisos][] permite controlar qué operaciones se pueden realizar en columnas, tablas, vistas, procedimientos y otros objetos de la base de datos. - Los [procedimientos almacenados][] se pueden usar para limitar las acciones que se pueden realizar en la base de datos.
 
 La administración bases de datos y servidores lógicos desde el Portal de administración de Azure o mediante la API del Administrador de recursos de Azure la controlan las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en roles en el Portal de vista previa de Azure][].
 
@@ -78,4 +78,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Control de acceso basado en roles en el Portal de vista previa de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

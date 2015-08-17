@@ -84,4 +84,4 @@ El agente tarda unos minutos en empezar la ejecución cuando se instala. Despué
 [Inicio de sesión en una máquina virtual con Windows Server]: virtual-machines-log-on-windows-server.md
 [Características y extensiones de máquina virtual de Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

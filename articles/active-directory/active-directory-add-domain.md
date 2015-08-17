@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/12/2015" 
 	ms.author="Justinha"/>
 
@@ -58,7 +58,8 @@ Si piensa utilizar el inicio de sesión único con el servicio en la nube, se re
 ### Agregar y comprobar un dominio mediante el Portal de administración de Azure
 
 1. En el portal, haga clic en **Active Directory** y, a continuación, haga clic en el nombre del directorio de su organización. Puede realizar una de las acciones siguientes:
-    1. En la página del directorio predeterminado, haga clic en **Agregar dominio** en la sección **Mejorar la experiencia de inicio de sesión del usuario**. 2. Haga clic en **Dominios** y, a continuación, haga clic en **Agregar un dominio de cliente** o en el botón **Agregar**.
+    1. En la página del directorio predeterminado, haga clic en **Agregar dominio** en la sección **Mejorar la experiencia de inicio de sesión del usuario**.
+2. Haga clic en **Dominios** y, a continuación, haga clic en **Agregar un dominio de cliente** o en el botón **Agregar**.
 2. En la página **Agregar dominio**, escriba el nombre de dominio que desea agregar y realice una de las acciones siguientes:
     1. Si no tiene previsto integrar Active Directory local con Azure AD, haga lo siguiente:
         1. Deje la casilla **Pretendo configurar este dominio para el inicio de sesión único con mi Active Directory local** desactivada y haga clic en el botón **Agregar**.
@@ -211,4 +212,4 @@ Si agrega el nombre de dominio personalizado al servicio en la nube después de 
 - [Registro en Azure como una organización](sign-up-organization.md)
 - [Administración de dominios en Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

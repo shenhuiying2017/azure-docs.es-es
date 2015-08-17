@@ -18,9 +18,6 @@
 
 
 # Generación de aplicaciones en tiempo real con Servicios móviles y Pusher
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="" title="iOS" class="current">iOS</a>
-</div>
 
 En este tema se muestra cómo puede agregar funcionalidad en tiempo real a su aplicación basada en Servicios móviles de Azure. Cuando lo complete, los datos de TodoList se sincronizarán en tiempo real en todas las instancias en ejecución de la aplicación.
 
@@ -76,11 +73,11 @@ La biblioteca [libPusher][] permite obtener acceso a Pusher desde iOS.
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. Finalmente, en **Build Settings** (Configuración de compilación), busque la configuración de compilación del destino **Other Linker Flags** (Otras marcas de vinculador) y agregue la marca **-all_load**.
+9. Finalmente, en **Build Settings** (Configuración de compilación), busque la configuración de compilación del destino **Other Linker Flags** (Otras marcas de vinculador) y agregue la marca **-all\_load**.
 
 	![][add-linker-flag]
 
-	Esto muestra la marca **-all_load** establecida para el destino de compilación de depuración.
+	Esto muestra la marca **-all\_load** establecida para el destino de compilación de depuración.
 
 La biblioteca está ahora instalada y lista para usar.
 
@@ -444,4 +441,4 @@ Para obtener más información sobre el registro y uso de scripts de servidor, c
 [Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -45,7 +45,7 @@ Para crear una granja de SharePoint con la plantilla de la granja de servidores 
 4. Si desea una granja de alta disponibilidad, haga clic en **Habilitar alta disponibilidad**.
 5. Para configurar controladores de dominio, haga clic en la flecha. Puede especificar un prefijo de nombre de host (el predeterminado es el nombre del grupo de recursos), un nombre de dominio raíz del bosque (el predeterminado es contoso.com) y el tamaño de los controladores de dominio (el predeterminado es A1).
 6. Para configurar servidores SQL Server, haga clic en la flecha. Puede especificar un prefijo de nombre de host (el predeterminado es el nombre del grupo de recursos), el tamaño de los servidores SQL Server (el predeterminado es A5), un nombre y una contraseña para la cuenta de acceso a la base de datos (la opción predeterminada es la cuenta de administrador) y un nombre de cuenta de servicio (el predeterminado es sqlservice) y una contraseña (la predeterminada es la misma que la de la cuenta de administrador) del servidor SQL Server.
-7. Para configurar servidores SharePoint, haga clic en la flecha. Puede especificar un prefijo de nombre de host (el predeterminado es el nombre del grupo de recursos), el tamaño de los servidores SharePoint (el predeterminado es A2), una cuenta de usuario (el predeterminado es sp_setup) y una contraseña de SharePoint, un nombre de cuenta para la granja de SharePoint (el predeterminado es sp_farm) y una contraseña y una frase de contraseña para la granja de SharePoint. La opción predeterminada es usar la contraseña de administrador para la cuenta de usuario de SharePoint, la cuenta para la granja y la frase de contraseña.
+7. Para configurar servidores SharePoint, haga clic en la flecha. Puede especificar un prefijo de nombre de host (el predeterminado es el nombre del grupo de recursos), el tamaño de los servidores SharePoint (el predeterminado es A2), una cuenta de usuario (el predeterminado es sp\_setup) y una contraseña de SharePoint, un nombre de cuenta para la granja de SharePoint (el predeterminado es sp\_farm) y una contraseña y una frase de contraseña para la granja de SharePoint. La opción predeterminada es usar la contraseña de administrador para la cuenta de usuario de SharePoint, la cuenta para la granja y la frase de contraseña.
 8. Para establecer la configuración opcional para la red virtual, la cuenta de almacenamiento o los diagnósticos, haga clic en la flecha correspondiente.
 9. Para especificar la suscripción, haga clic en la flecha.
 10. Cuando haya terminado, haga clic en **Crear**.
@@ -95,4 +95,4 @@ La función de granja de servidores de SharePoint del Portal de vista previa de 
 
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

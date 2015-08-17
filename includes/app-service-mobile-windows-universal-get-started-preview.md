@@ -7,4 +7,4 @@ A continuación se muestran las capturas de pantalla de la aplicación completad
 
 La finalización de este tutorial es un requisito previo para los restantes tutoriales de aplicaciones móviles para las aplicaciones de Tienda Windows y Tienda de Windows Phone.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

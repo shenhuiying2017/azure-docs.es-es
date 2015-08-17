@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="06/12/2015"
+   ms.date="08/03/2015"
    ms.author="tamram"/>
 
 # Guía de diseño de la tabla de almacenamiento de Azure: diseño escalable y tablas de rendimiento
@@ -28,7 +28,7 @@ En esta sección se resaltan algunas de las características clave del servicio 
 
 ¿Qué es el servicio Tabla? Como cabría esperar del nombre, el servicio Tabla usa un formato tabular para almacenar los datos. En la terminología estándar, cada fila de la tabla representa una entidad y las columnas almacenan las distintas propiedades de la entidad. Cada entidad tiene un par de claves para identificar de forma exclusiva y una columna de marca de tiempo que el servicio Tabla utiliza para realizar un seguimiento de cuando la entidad se ha actualizado por última vez (esto ocurre automáticamente y no se puede sobrescribir manualmente la marca de tiempo con un valor arbitrario). El servicio Tabla usa esta última marca de tiempo modificada (LMT) para administrar la simultaneidad optimista.
 
->[AZURE.NOTE]Las operaciones de API de REST del servicio tabla también devuelven un valor **ETag** que se deriva del LMT. En este documento se utilizarán los términos ETag y LMT indistintamente porque hacen referencia a los mismos datos subyacentes.
+>[AZURE.NOTE]Las operaciones de API de REST del servicio Tabla también devuelven un valor **ETag** que se deriva del LMT. En este documento se utilizarán los términos ETag y LMT indistintamente porque hacen referencia a los mismos datos subyacentes.
 
 En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacenar las entidades employee y department. Muchos de los ejemplos que se muestran más adelante en esta guía se basan en este diseño simple.
 
@@ -215,7 +215,7 @@ En la sección [Descripción general del servicio Tabla de Azure](#azure-table-s
 -	Un ***Examen de tabla*** no incluye la **PartitionKey** y es bastante ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realizará un recorrido de tabla independientemente de si su filtro usa **RowKey**. Por ejemplo: $filter=LastName eq 'Jones'  
 -	Las consultas que devuelven varias entidades las devuelven ordenadas en orden **PartitionKey** y **RowKey**. Para evitar reordenar las entidades del cliente, seleccione un **RowKey** que defina el criterio de ordenación más común.  
 
-Tenga en cuenta que si usa un"**or**" para especificar un filtro basado en valores **RowKey**, se obtendrá un recorrido de partición y no se tratará como una consulta de intervalo. Por lo tanto, debe evitar las consultas que usan filtros como: $filter=PartitionKey eq 'Sales' y (RowKey eq '121' o RowKey eq '322')
+Tenga en cuenta que si usa un "**or**" para especificar un filtro basado en valores **RowKey**, se obtendrá un recorrido de partición y no se tratará como una consulta de intervalo. Por lo tanto, debe evitar las consultas que usan filtros como: $filter=PartitionKey eq 'Sales' y (RowKey eq '121' o RowKey eq '322')
 
 Para obtener ejemplos de código de cliente que utilizan la biblioteca de cliente de almacenamiento para ejecutar consultas eficaces, consulte:
 
@@ -231,9 +231,11 @@ Para obtener ejemplos de código de cliente que pueda administrar varios tipos d
 
 La elección del **PartitionKey** debe equilibrar la necesidad de habilitar el uso de EGT (para garantizar la coherencia) frente a la necesidad de distribuir las entidades en varias particiones (para asegurar que una solución escalable).
 
-En un extremo, puede almacenar todas las entidades en una sola partición, pero esto puede limitar la escalabilidad de su solución y podría impedir al servicio Tabla equilibrar la carga de las solicitudes. En el otro extremo, puede almacenar una entidad por cada partición que sería escalable y el servicio de tabla para las solicitudes de equilibrio de carga, pero que podrían impedir que se utilicen EGT.
+En un extremo, puede almacenar todas las entidades en una sola partición, pero esto puede limitar la escalabilidad de su solución y podría impedir al servicio Tabla equilibrar la carga de las solicitudes. En el otro extremo, puede almacenar una entidad por cada partición que sería escalable y el servicio de tabla para las solicitudes de equilibrio de carga, pero que podrían impedir que se utilicen transacciones de grupo de la entidad.
 
 Un **PartitionKey** idóneo es el que permite utilizar consultas eficaces y que tiene suficientes particiones para asegurarse de que su solución es escalable. Normalmente, encontrará que las entidades tendrán una propiedad adecuada que distribuye las entidades entre particiones suficientes.
+
+>[AZURE.NOTE]Por ejemplo, en un sistema que almacena información acerca de los usuarios o empleados, el identificador del usuario puede ser un buen PartitionKey. Puede que tenga varias entidades que utilizan un determinado identificador de usuario como clave de partición. Cada entidad que almacena los datos de un usuario se agrupa en una sola partición y, de esta manera estas entidades están accesibles a través de las transacciones de grupo de entidad, y continúan siendo altamente escalables.
 
 Existen otros puntos adicionales que se tienen en cuenta al elegir **PartitionKey** y que están relacionados con la forma de insertar, actualizar y eliminar entidades: consulte la sección [Diseño de modificación de datos](#design-for-data-modification).
 
@@ -284,7 +286,7 @@ Los siguientes patrones de la sección [Patrones de diseño de tabla](#table-des
 -	[Patrón de desnormalización](#denormalization-pattern): combinar datos relacionados entre sí en una sola entidad para recuperar todos los datos que necesita con una consulta de punto único.  
 -	[Patrón de serie de datos](#data-series-pattern): almacenar una serie de datos completa en una sola entidad para minimizar el número de solicitudes que realice.  
 
-Para obtener información sobre los EGT, consulte la sección [Transacciones de grupo de entidades](#entity-group-transactions).
+Para obtener información sobre EGT, consulte la sección [Transacciones de grupo de entidad (EGT)](#entity-group-transactions).
 
 ### Garantizar su diseño para efectuar modificaciones eficientes facilita la realización de consultas eficaces  
 
@@ -419,19 +421,19 @@ El servicio Tabla indexa automáticamente entidades mediante los valores **Parti
 Si desea ser capaz de encontrar una entidad de empleado basada en el valor de otra propiedad, como la dirección de correo electrónico, debe usar un examen de la partición menos eficiente para encontrar a coincidencia. Esto se debe a que el servicio Tabla no proporciona índices secundarios. Además, no hay ninguna opción para solicitar una lista de empleados ordenados en un orden diferente a **RowKey**.
 
 #### Solución
-Para evitar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia usando un valor **RowKey** diferente. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de **RowKey**, "empid_" y "email_" permiten consultar un empleado único o un rango de empleados utilizando un intervalo de direcciones de correo electrónico o id. de empleado.
+Para evitar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia usando un valor **RowKey** diferente. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de **RowKey**, "empid\_" y "email\_" permiten consultar un empleado único o un rango de empleados utilizando un intervalo de direcciones de correo electrónico o id. de empleado.
 
 ![][7]
 
 Los dos criterios de filtro siguientes (uno de búsqueda por identificador de empleado y uno de búsqueda por dirección de correo electrónico) especifican consultas de punto:
 
--	$filter=(PartitionKey eq 'Sales') y (RowKey eq 'empid_000223')  
+-	$filter=(PartitionKey eq 'Sales') y (RowKey eq 'empid\_000223')  
 -	$filter=(PartitionKey eq 'Sales') y (RowKey eq 'email_jonesj@contoso.com')  
 
 Si consulta un rango de entidades de empleado, puede especificar un rango ordenado en orden de identificador de empleado o un rango ordenado en orden de dirección de correo electrónico mediante la consulta de entidades con el prefijo adecuado en **RowKey**.
 
--	Para buscar todos los empleados del departamento de ventas con un id. de empleado en el rango de 000100 a 000199 use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
--	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por la letra 'a' use: $filter=(PartitionKey eq 'Sales') y (RowKey ge 'email_a') y (RowKey lt 'email_b')  
+-	Para buscar todos los empleados del departamento de ventas con un id. de empleado en el rango de 000100 a 000199 use: $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid\_000100') and (RowKey le 'empid\_000199')  
+-	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por la letra 'a' use: $filter=(PartitionKey eq 'Sales') y (RowKey ge 'email\_a') y (RowKey lt 'email\_b')  
 
  Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos anteriores corresponde a la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) en MSDN.
 
@@ -476,19 +478,19 @@ Si desea ser capaz de encontrar una entidad de empleado basada en el valor de ot
 Prevé un gran volumen de transacciones en estas entidades y desea minimizar el riesgo de que el servicio Tabla limite a su cliente.
 
 #### Solución  
-Para evitar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia con valores **PartitionKey** y **RowKey** diferentes. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de la **PartitionKey**, "empid_" y "email_" le permiten identificar qué índice desea utilizar para una consulta.
+Para evitar la falta de índices secundarios, puede almacenar varias copias de cada entidad con cada copia con valores **PartitionKey** y **RowKey** diferentes. Si almacena una entidad con las estructuras que se muestran a continuación, puede recuperar eficazmente las entidades de empleado en función de un identificador de empleado o de dirección de correo electrónico. Los valores de prefijo de la **PartitionKey**, "empid\_" y "email\_" le permiten identificar qué índice desea utilizar para una consulta.
 
 ![][10]
 
 Los dos criterios de filtro siguientes (uno de búsqueda por identificador de empleado y uno de búsqueda por dirección de correo electrónico) especifican consultas de punto:
 
--	$filter=(PartitionKey eq 'empid_Sales') y (RowKey eq '000223')
--	$filter=(PartitionKey eq 'email_Sales') y (RowKey eq 'jonesj@contoso.com')  
+-	$filter=(PartitionKey eq 'empid\_Sales') y (RowKey eq '000223')
+-	$filter=(PartitionKey eq 'email\_Sales') y (RowKey eq 'jonesj@contoso.com')  
 
 Si consulta un rango de entidades de empleado, puede especificar un rango ordenado en orden de identificador de empleado o un rango ordenado en orden de dirección de correo electrónico mediante la consulta de entidades con el prefijo adecuado en **RowKey**.
 
--	Para buscar todos los empleados del departamento de ventas con un id. de empleado en el rango de **000100** a **000199** ordenados en orden de id. de empleado, use: $filter=(PartitionKey eq 'empid_Sales') y (RowKey ge '000100') y (RowKey le '000199')  
--	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por 'a' ordenados en el orden de dirección de correo electrónico, use: $filter=(PartitionKey eq 'email_Sales') y (RowKey ge 'a') y (RowKey lt 'b')  
+-	Para buscar todos los empleados del departamento de ventas con un Id. de empleado en el rango de **000100** a **000199** ordenados en orden de id. de empleado, use: $filter=(PartitionKey eq 'empid\_Sales') y (RowKey ge '000100') y (RowKey le '000199')  
+-	Para buscar todos los empleados del departamento de ventas con una dirección de correo electrónico que empiece por 'a' ordenados en el orden de dirección de correo electrónico, use: $filter=(PartitionKey eq 'email\_Sales') y (RowKey ge 'a') y (RowKey lt 'b')  
 
 Tenga en cuenta que la sintaxis de filtro utilizada en los ejemplos anteriores corresponde a la API de REST del servicio Tabla. Para obtener más información, consulte [Entidades de consulta](http://msdn.microsoft.com/library/azure/dd179421.aspx) en MSDN.
 
@@ -586,7 +588,7 @@ Para habilitar la búsqueda por apellido con la estructura de entidad mostrada a
 
 Para la primera opción, cree un blob para cada apellido único y, en cada almacén de blobs una lista de los valores **PartitionKey** (departamento) y **RowKey** (Id. de empleado) para los empleados que tienen ese apellido. Al agregar o eliminar a un empleado debe asegurarse de que el contenido del blob relevante es coherente con las entidades employee.
 
-<u>Opción n.º 2:</u> cree entidades de índice en la misma partición
+<u>Opción n.º 2:</u> Crear entidades de índice en la misma partición
 
 Para la segunda opción, utilice las entidades de índice que almacenan los datos siguientes:
 
@@ -594,9 +596,9 @@ Para la segunda opción, utilice las entidades de índice que almacenan los dato
 
 La propiedad **EmployeeIDs** contiene una lista de identificadores de empleado con el apellido almacenado en **RowKey**.
 
-Los siguientes pasos describen el proceso que debe seguir al agregar un nuevo empleado si utiliza la segunda opción. En este ejemplo, agregamos a un empleado con id. 000152 y el apellido Jones en el departamento de ventas: 1. Recupere la entidad de índice con un valor **PartitionKey** "Ventas" y el valor **RowKey** "Jones". Guarde el valor ETag de esta entidad para usar en el paso 2.2. Cree un EGT que inserte la nueva entidad employee (valor **PartitionKey** "Ventas" y **RowKey** "000152") y actualiza la entidad de índice (valor **PartitionKey** "ventas" y **RowKey** "Jones") agregando el nuevo identificador de empleado a la lista en el campo EmployeeIDs. 3. Si el ETG falla debido a un error de simultaneidad optimista (alguien ha modificado la entidad de índice), necesitará comenzar de nuevo en el paso 1.
+Los siguientes pasos describen el proceso que debe seguir al agregar un nuevo empleado si utiliza la segunda opción. En este ejemplo, agregamos a un empleado con id. 000152 y el apellido Jones en el departamento de ventas: 1. Recupere la entidad de índice con un valor **PartitionKey** "Ventas" y el valor **RowKey** "Jones". Guarde el valor ETag de esta entidad para usar en el paso 2.2. Cree una transacción de grupo de entiedad (es decir, una operación de lotes) que inserte la nueva entidad employee (valor **PartitionKey** "Ventas" y **RowKey** "000152") y actualiza la entidad de índice (valor **PartitionKey** "Ventas" y **RowKey** "Jones") agregando el nuevo identificador de empleado a la lista en el campo EmployeeIDs. Para obtener información sobre EGT, consulte la sección [Transacciones de grupo de entidad (EGT)](#entity-group-transactions). 3. Si la transacción de grupo de entidad falla debido a un error de simultaneidad optimista (alguien ha modificado la entidad de índice), necesitará comenzar de nuevo en el paso 1.
 
-Puede usar un enfoque similar a la eliminación de un empleado si utiliza la segunda opción. Cambiar el apellido de un empleado es ligeramente más complejo porque necesitará ejecutar un ETG que actualice tres entidades: la entidad employee, la entidad de índice para el apellido antiguo y la entidad de índice para el nombre nuevo. Debe recuperar cada entidad antes de realizar cambios para recuperar los valores de ETag que puede utilizar para realizar las actualizaciones mediante la simultaneidad optimista.
+Puede usar un enfoque similar a la eliminación de un empleado si utiliza la segunda opción. Cambiar el apellido de un empleado es ligeramente más complejo porque necesitará ejecutar una transacción de grupo de entidad que actualice tres entidades: la entidad employee, la entidad de índice para el apellido antiguo y la entidad de índice para el nombre nuevo. Debe recuperar cada entidad antes de realizar cambios para recuperar los valores de ETag que puede utilizar para realizar las actualizaciones mediante la simultaneidad optimista.
 
 Los siguientes pasos describen el proceso que debe llevar a cabo cuando se necesita buscar todos los empleados con un apellido determinado en un departamento si utiliza la segunda opción. En este ejemplo se buscan todos los empleados con el apellido Jones en el departamento de ventas:
 
@@ -604,7 +606,7 @@ Los siguientes pasos describen el proceso que debe llevar a cabo cuando se neces
 2.	Analice la lista de identificadores de empleado en el campo EmployeeIDs.  
 3.	Si necesita información adicional sobre cada uno de los empleados (por ejemplo, sus direcciones de correo electrónico), recupere cada una de las entidades de empleado mediante los valores **PartitionKey** "Ventas" y **RowKey** de la lista de empleados que obtuvo en el paso 2.  
 
-<u>Opción n.º 3:</u> cree entidades de índice en una tabla o una partición independiente
+<u>Opción n.º 3:</u> Crear entidades de índice en una tabla o una partición independiente
 
 Para la tercera opción, utilice las entidades de índice que almacenan los datos siguientes:
 
@@ -684,12 +686,12 @@ Observe cómo **RowKey** ahora es una clave compuesta formada por el identificad
 
 El ejemplo siguiente describe cómo se pueden recuperar todos los datos de revisión para un empleado concreto (como employee 000123 en el departamento de ventas):
 
-$filter=(PartitionKey eq 'Ventas') y (RowKey ge 'empid_000123') y (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments
+$filter=(PartitionKey eq 'Ventas') y (RowKey ge 'empid\_000123') y (RowKey lt 'empid\_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments
 
 #### Problemas y consideraciones
 Tenga en cuenta los puntos siguientes al decidir cómo implementar este patrón:
 
--	Debe usar un carácter separador adecuado que facilite analizar el valor **RowKey**: por ejemplo, **000123_2012**.  
+-	Debe usar un carácter separador adecuado que facilite analizar el valor **RowKey**: por ejemplo, **000123\_2012**.  
 -	También almacena esta entidad en la misma partición que otras entidades que contienen datos relacionados correspondientes al mismo empleado, lo que significa que puede usar EGT para mantener una coherencia segura.
 -	Debe considerar la frecuencia con la que consultará los datos para determinar si este patrón es adecuado. Por ejemplo, si tendrá acceso a los datos de revisión con poca frecuencia y a menudo a los datos de empleados principales debe guardarlos como entidades independientes.  
 
@@ -1205,7 +1207,7 @@ El servicio Tabla es un almacén de tablas *schema-less* que significa que una s
 
 Tenga en cuenta que cada entidad debe tener todavía valores **PartitionKey**, **RowKey** y **Timestamp**, pero puede tener cualquier conjunto de propiedades. Además, no hay nada que indique el tipo de una entidad a menos que elija almacenar esa información en algún lugar. Hay dos opciones para identificar el tipo de entidad:
 
--	Anteponer el tipo de entidad a **RowKey** (o posiblemente **PartitionKey**). Por ejemplo, **EMPLOYEE_000123** o **DEPARTMENT_SALES** como valores **RowKey**.  
+-	Anteponer el tipo de entidad a **RowKey** (o posiblemente **PartitionKey**). Por ejemplo, **EMPLOYEE\_000123** o **DEPARTMENT\_SALES** como valores **RowKey**.  
 -	Utilice una propiedad independiente para registrar el tipo de entidad como se muestra en la tabla siguiente.  
 
 <table>
@@ -1548,4 +1550,4 @@ También nos gustaría dar las gracias a los siguientes MVP de Microsoft por sus
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -300,4 +300,4 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Uso de Dropbox para compartir repositorios de Git]: https://gist.github.com/trey/2722927
 [Entrega continua a Azure con Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

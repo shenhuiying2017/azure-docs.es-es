@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -47,7 +47,7 @@ Para suscribirse a New Relic directamente desde Azure Marketplace, siga estos cu
 
 ## Paso 1. Creación de una cuenta de New Relic
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y, en la esquina inferior izquierda, haga clic en **Nuevo**.
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y, en la esquina, haga clic en **Nuevo**.
 3. Haga clic en **Servicios para desarrolladores** > **New Relic APM**.
 4. Configure la cuenta de New Relic especificando los siguientes valores y haga clic en **Crear**.
 	- **Name**
@@ -63,12 +63,16 @@ Para suscribirse a New Relic directamente desde Azure Marketplace, siga estos cu
 
 ## Paso 2: Configuración de la integración de New Relic para la aplicación web
 
-2. En el [Portal de vista previa de Azure](https://portal.azure.com), abra la hoja de la aplicación web.
-3. Haga clic en **Supervisión de aplicaciones** > **New Relic**. Seleccione la cuenta que creó en el paso anterior y haga clic en **Aceptar**. 
+1. En el [Portal de vista previa de Azure](https://portal.azure.com), abra la hoja de la aplicación web.
+2. Haga clic en el menú "..." que aparece en la parte superior de la hoja y seleccione **Agregar iconos**.
+3. En la ficha **Supervisión**, seleccione **Resumen de la aplicación** y arrástrelo al lugar donde desea que aparezca el icono en la hoja de su aplicación web.
+4. Haga clic en Listo para terminar de agregar iconos.
+5. Haga clic en el icono **Supervisión de aplicaciones** y seleccione **New Relic**.
+6. Seleccione la cuenta que creó en el paso anterior y haga clic en **Aceptar**. 
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
-	Cuando termine de guardarse, haga clic en **Toda la configuración** en la hoja de la aplicación web y luego en **Configuración de la aplicación**. Debería ver el parámetro **NEWRELIC_LICENSEKEY** agregado a la sección **Configuración de la aplicación** de la hoja para admitir New Relic:
+	Cuando termine de guardarse, haga clic en **Toda la configuración** en la hoja de la aplicación web y luego en **Configuración de la aplicación**. Debería ver el parámetro **NEWRELIC\_LICENSEKEY** agregado a la sección **Configuración de la aplicación** de la hoja para admitir New Relic:
 
 	>[AZURE.NOTE]Se puede tardar hasta 30 segundos en que la nueva configuración de la aplicación surta efecto. Para que la configuración surta efecto de inmediato, reinicie la aplicación web.
 
@@ -176,4 +180,4 @@ Consulte estos recursos adicionales para obtener más información:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

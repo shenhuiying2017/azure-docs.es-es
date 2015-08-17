@@ -81,7 +81,7 @@ Los métodos enumerados en la siguiente sección requieren que el documento JSON
 	
 	SELECT * FROM StudentsOneLine
 
-El archivo sin formato de JSON se encuentra en **wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabla de Hive *StudentsRaw* apunta al documento JSON sin formato y no acoplado.
+El archivo sin formato de JSON se encuentra en ****wasb://processjson@hditutorialdata.blob.core.windows.net/**. La tabla de Hive *StudentsRaw* apunta al documento JSON sin formato y no acoplado.
 
 La tabla de Hive *StudentsOneLine* almacenará los datos en el sistema de archivos predeterminado de HDInsight en la ruta de acceso */json/students/*.
 
@@ -126,7 +126,7 @@ Este es el motivo de que el sitio wiki de Hive recomiende el uso de json\_tuple.
 
 ### Use la UDF JSON\_TUPLE.
 
-Otra UDF proporcionada por Hive se denomina [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple) y es más eficaz que [get\_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Este método toma un conjunto de claves y una cadena JSON y devuelve una tupla de valores mediante una función. La siguiente consulta devuelve el identificador y el curso del estudiante del documento JSON:
+Otra UDF proporcionada por Hive se denomina [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple) y es más eficaz que [get\_ json \_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Este método toma un conjunto de claves y una cadena JSON y devuelve una tupla de valores mediante una función. La siguiente consulta devuelve el identificador y el curso del estudiante del documento JSON:
 
     SELECT q1.StudentId, q1.Grade 
       FROM StudentsOneLine jt
@@ -154,7 +154,7 @@ SerDe es la mejor opción para analizar documentos JSON anidados ya que le permi
 
 	1. Abra **Ver la configuración avanzada del sistema** desde la pantalla de Windows.
 	2. Haga clic en **Variables de entorno**.  
-	3. Agregue una nueva variable de entorno **JAVA\_HOME** que apunte **C:\\Program Files\\Java\\jdk1.7.0\_55** o a donde esté instalado el JDK.
+	3. Agregue una nueva variable de entorno **JAVA\_HOME** que apunte a **C:\\Program Files\\Java\\jdk1.7.0\_55** o a donde esté instalado el JDK.
 
 	![Configuración de los valores correctos para JDK][image-hdi-hivejson-jdk]
 
@@ -261,4 +261,4 @@ Para ver otros artículos relacionados, consulte
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
@@ -41,7 +41,7 @@ Como estos tutoriales le ayudan a crear una máquina virtual rápidamente, le mu
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-Si simplemente está empezando a conocer las máquinas virtuales de Azure, asegúrese de consultar también las [preguntas más frecuentes](virtual-machines-questions.md).
+Si simplemente está empezando a conocer las máquinas virtuales de Azure, asegúrese de consultar también las [Preguntas más frecuentes](virtual-machines-questions.md).
 
 
 <!--links-->
@@ -49,4 +49,4 @@ Si simplemente está empezando a conocer las máquinas virtuales de Azure, aseg�
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -23,4 +23,4 @@ Ahora que la aplicación se ha actualizado para usar los Servicios móviles para
 
 Así concluye el tutorial **Introducción a los datos** para Android.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

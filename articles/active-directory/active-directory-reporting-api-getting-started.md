@@ -56,7 +56,7 @@ La API de informes utiliza [OAuth](https://msdn.microsoft.com/library/azure/dn64
 
 ### Obtención del id. de directorio, el id. de cliente y el secreto de cliente
 
-Los pasos siguientes le guiarán para obtener el id. de cliente y el secreto de cliente de la aplicación. También necesitará saber el nombre del inquilino, que puede ser su *. onmicrosoft.com o un nombre de dominio personalizado. Cópielos en un lugar independiente; los usará para modificar el script.
+Los pasos siguientes le guiarán para obtener el id. de cliente y el secreto de cliente de la aplicación. También necesitará saber el nombre del inquilino, que puede ser su *.onmicrosoft.com o un nombre de dominio personalizado. Cópielos en un lugar independiente; los usará para modificar el script.
 
 #### Id. de cliente de la aplicación
 - Vaya a la pestaña Aplicaciones.
@@ -137,4 +137,4 @@ El script devuelve listas de todos los informes disponibles y devuelve los resul
 - Consulte [Eventos del informe de auditoría de Azure AD](active-directory-reporting-audit-events.md) para obtener más detalles sobre el informe de auditoría.
 - Consulte [Informes y eventos de Azure AD (vista previa)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obtener más detalles sobre el servicio REST de API Graph.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

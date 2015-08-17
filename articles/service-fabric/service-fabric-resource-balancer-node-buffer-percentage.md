@@ -47,4 +47,4 @@ Si no se especifica el valor en esta sección, se usará 0 como valor predetermi
 Para obtener más información: [Arquitectura de equilibrador de recursos](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

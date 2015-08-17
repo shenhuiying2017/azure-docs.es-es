@@ -212,4 +212,4 @@ Se puede canalizar igualmente esta secuencia:
 [Introducción a los cmdlets de Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 #Creación de una aplicación web de Umbraco desde el Marketplace en Microsoft Azure#
@@ -34,15 +34,9 @@ En este tutorial, aprenderá a:
 
 2. Elija el icono **Marketplace**.
 	
-	![Choose Web Gallery][01Startboard]
-	
-3. En el **Marketplace**, seleccione la pestaña **Aplicaciones web** y, a continuación, seleccione **CMS de Umbraco**.
-	
-	![Select Umbraco in the Web Gallery][02WebGallery]
+3. En **Marketplace**, seleccione la pestaña **Web y móvil** y seleccione **CMS de Umbraco**.
 	
 4. Para crear una nueva aplicación web de CMS de Umbraco, haga clic en **Crear**.
-	
-	![Click Create][03UmbracoCMS]
 	
 5. El siguiente paso es configurar todos los recursos asociados con CMS de Umbraco. En este caso, los recursos son una aplicación web y una base de datos de SQL Server. En primer lugar, seleccione **Aplicación web** para definir la configuración de la aplicación web, como **Dirección URL**, **Plan del servicio de aplicaciones**, **Configuración de aplicación web** y **Ubicación**.
 	
@@ -57,8 +51,6 @@ En este tutorial, aprenderá a:
 	![Click Create][06UmbracoCMSGroup]
 	
 Una vez completada la implementación, el portal mostrará la hoja correspondiente al grupo de recursos de la aplicación web CMS de Umbraco. En la sección **Resumen**, haga clic en el nombre de la aplicación web para ver las propiedades de la página web. Así mismo, en la sección **Resumen**, puede seleccionar el recurso de base de datos para ver las propiedades de la base de datos asociada.
-	
-![][07UmbracoCMSGroupBlade]
 
 ## Inicio y configuración del sitio web de CMS de Umbraco ##
 
@@ -135,4 +127,4 @@ Una vez completada la implementación, el portal mostrará la hoja correspondien
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

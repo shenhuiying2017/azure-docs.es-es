@@ -25,4 +25,4 @@ Observe el `apiDefinition` extremo `/swagger/docs/v1`: de forma predeterminada, 
 
 Para este tutorial, puede aceptar los valores predeterminados. En la sección [Metadatos de la aplicación de API](#api-app-metadata), más adelante en este tutorial, se explica cómo personalizar estos metadatos.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

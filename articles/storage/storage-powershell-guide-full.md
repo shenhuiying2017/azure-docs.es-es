@@ -736,4 +736,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [Next Steps]: #next
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

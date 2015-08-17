@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/17/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restaurar una base de datos SQL de Azure eliminada con la API de REST
@@ -52,4 +52,4 @@ Para obtener más información, consulte los temas siguientes:
 
 [Referencia de la API de REST de administración de servicios](http://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

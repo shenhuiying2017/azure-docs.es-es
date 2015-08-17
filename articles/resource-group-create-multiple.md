@@ -114,4 +114,4 @@ Use la siguiente plantilla:
 - [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
 - [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

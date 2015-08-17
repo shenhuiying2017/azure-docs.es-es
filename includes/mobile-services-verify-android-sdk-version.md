@@ -20,4 +20,4 @@ Si aparece cualquiera de estos mensajes, es posible que la versión del SDK de A
 
 4. En Android Studio, el archivo de manifiesto ya no se utiliza para especificar el SDK de destino y la versión del SDK mínima, al contrario que ocurre con Eclipse.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

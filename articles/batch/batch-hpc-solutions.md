@@ -94,7 +94,7 @@ Herramientas de administración de clústeres y de programación de trabajos ayu
 
 Azure tiene una amplia gama de servicios de proceso, datos, redes y relacionados que puede usar para soluciones y flujos de trabajo Big Compute. Para obtener información detallada acerca de cada uno de estos servicios, consulte la documentación de los servicios de Azure. Consulte [Escenarios de la solución](#solution-scenarios) en este artículo para obtener algunos enfoques comunes con aplicaciones HPC y Lote.
 
->[AZURE.NOTE]Con frecuencia se introducen nuevos servicios en la plataforma Azure que podrían ser útiles para su escenario. El uso de los servicios de vista previa solo se recomienda para implementaciones de prueba o de prueba de concepto, no para cargas de trabajo de producción. Si tiene alguna pregunta, póngase en contacto con un [asociado de Azure](https://pinpoint.microsoft.com/en-US/search?keyword=azure) o envíe un correo electrónico a *bigcompute@microsoft.com*.
+>[AZURE.NOTE]Con frecuencia se introducen nuevos servicios en la plataforma Azure que podrían ser útiles para su escenario. El uso de los servicios de vista previa solo se recomienda para implementaciones de prueba o de prueba de concepto, no para cargas de trabajo de producción. Si tiene alguna pregunta, póngase en contacto con un [asociado de Azure](https://pinpoint.microsoft.com/es-es/search?keyword=azure) o envíe un correo electrónico a **bigcompute@microsoft.com*.
 
 ### Servicios de proceso
 
@@ -104,15 +104,15 @@ Los Servicios proceso de Azure son el núcleo de una solución Big Compute. Los 
 
 Servicio | Descripción
 ------------- | -----------
-**[Servicios en la nube](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/> |• Puede ejecutar aplicaciones de Big Compute en instancias de rol de trabajo, que son máquinas virtuales que ejecutan una versión de Windows Server y están administradas completamente por Azure<br/><br/>• Habilite aplicaciones escalables y fiables con baja sobrecarga administrativa, que se ejecutan en un modelo de plataforma como servicio (PaaS)<br/><br/>• Es posible que requieran herramientas adicionales o desarrollo para la integración con soluciones de clúster HPC locales
-**[Máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/> |• Proporcionan una infraestructura de proceso como servicio (IaaS) mediante la tecnología Microsoft Hyper-V<br/><br/>• Permiten aprovisionar y administrar de manera flexible equipos en la nube persistentes desde imágenes de Windows Server o Linux estándar o imágenes y discos de datos proporcionados por usted o de [Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Ejecutan herramientas y aplicaciones de clúster de proceso locales completamente en la nube
+**[Servicios en la nube](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/> |• Puede ejecutar aplicaciones de Big Compute en instancias de rol de trabajo, que son máquinas virtuales que ejecutan una versión de Windows Server y están administradas completamente por Azure<br/><br/>• Habilite aplicaciones escalables y confiables con baja sobrecarga administrativa, que se ejecutan en un modelo de plataforma como servicio (PaaS)<br/><br/>• Es posible que requieran herramientas adicionales o desarrollo para la integración de soluciones de clúster HPC locales
+**[Máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/> |• Proporcionan una infraestructura de proceso como servicio (IaaS)<br/><br/>• Permiten aprovisionar y administrar de manera flexible equipos en la nube persistentes desde imágenes de Windows Server o Linux estándar o imágenes y discos de datos proporcionados por usted o de [Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>• Ejecutan herramientas y aplicaciones de clúster de proceso locales completamente en la nube
 **[Lote](http://azure.microsoft.com/documentation/services/batch)**<br/><br/> |• Ejecuta cargas de trabajo en lotes y paralelas a gran escala, como la representación de imágenes y la codificación y transcodificación multimedia en un servicio totalmente administrado<br/><br/>• Proporciona la programación de trabajos y el escalamiento automático de un grupo de máquinas virtuales administrado<br/><br/>• Permite a los programadores crear y ejecutar aplicaciones como un servicio o habilitar aplicaciones existentes para la nube<br/>
 
 ### Servicios de almacenamiento
 
 Normalmente, una solución Big Compute funciona en un conjunto de datos de entrada y genera datos para sus resultados. Entre algunos de los servicios de almacenamiento de Azure que se usan en muchas soluciones Big Compute se incluyen los siguientes:
 
-* [Almacenamiento de blobs, tablas y en cola](http://azure.microsoft.com/documentation/services/storage): administre grandes cantidades de datos no estructurados, datos NoSQL y mensajes de flujo de trabajo y comunicación, respectivamente. Por ejemplo, puede usar el almacenamiento de blobs para grandes conjuntos de datos técnicos o las imágenes de entrada o archivos multimedia que su aplicación procesa. Puede usar colas para la comunicación asincrónica en una solución. Consulte [introducción al Almacenamiento de Microsoft Azure](../storage/storage-introduction.md) para obtener más información acerca de estas soluciones de almacenamiento.
+* [Almacenamiento de blobs, tablas y colas](http://azure.microsoft.com/documentation/services/storage): administre grandes cantidades de datos no estructurados, datos NoSQL y mensajes de flujo de trabajo y comunicación, respectivamente. Por ejemplo, puede usar el almacenamiento de blobs para grandes conjuntos de datos técnicos o las imágenes de entrada o archivos multimedia que su aplicación procesa. Puede usar colas para la comunicación asincrónica en una solución. Consulte [Introducción al Almacenamiento de Microsoft Azure](../storage/storage-introduction.md) para obtener más información acerca de estas soluciones de almacenamiento.
 
 * [Almacenamiento de archivos de Azure](http://azure.microsoft.com/services/storage/files/): comparte archivos comunes y datos en Azure mediante el protocolo SMB estándar, que es necesario para algunas soluciones de clúster HPC.
 
@@ -124,7 +124,7 @@ Algunos escenarios Big Compute implican flujos de datos a gran escala o generan 
 
 * [Base de datos SQL](http://azure.microsoft.com/documentation/services/sql-database): proporciona las características clave de un sistema de administración de base de datos relacional de Microsoft SQL Server en un servicio de plataforma administrada.
 
-* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight): implementa y aprovisiona clústeres Apache Hadoop basados en Windows Server o Linux en la nube para administrar, analizar e informar sobre big data con alta confiabilidad y disponibilidad.
+* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight): implementa y aprovisiona clústeres de Apache Hadoop basados en Windows Server o Linux en la nube para administrar, analizar e informar sobre macrodatos con alta confiabilidad y disponibilidad.
 
 * [Aprendizaje automático](http://azure.microsoft.com/documentation/services/machine-learning): le ayuda a crear, probar, operar y administrar soluciones de análisis predictivas en un servicio de plataforma totalmente administrada.
 
@@ -148,11 +148,11 @@ Los siguientes son escenarios comunes para ejecutar cargas de trabajo de Big Com
 
 **¿Cuando seleccionaría esta opción?**: puede que ya tenga un clúster HPC local ejecutando sus cargas de trabajo de proceso intensivo, pero necesita recursos de proceso adicionales para períodos de máxima actividad, como la generación de informes de fin de mes o proyectos especiales. En lugar de adquirir, implementar y administrar hardware y software adicional que es posible que esté inactivo la mayor parte del tiempo, puede usar Azure para agregar capacidad de proceso a petición al clúster existente.
 
-Por ejemplo, si su clúster HPC local existente se genera con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), puede agregar recursos de proceso adicionales en forma de instancias de rol de trabajo de Azure que se ejecutan en un servicio en la nube. Consulte la siguiente figura. Para obtener más información e instrucciones paso a paso, consulte [Introducción en Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
+Por ejemplo, si su clúster HPC local existente se genera con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), puede agregar recursos de proceso adicionales en forma de instancias de rol de trabajo de Azure que se ejecutan en un servicio en la nube. Consulte la siguiente figura. Para obtener más información e instrucciones paso a paso, consulte [Irrupción en Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 ![Ráfaga de clúster][burst_cluster]
 
->[AZURE.NOTE]Si desea minimizar el impacto del clúster de HPC Pack, podría reducir el clúster local a tan solo el nodo principal de HPC Pack. A continuación, agregue todos los recursos de proceso a petición en Azure. Para obtener un tutorial que le guíe en este escenario, consulte [Configuración de un clúster híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md).
+>[AZURE.NOTE]Si desea minimizar el impacto del clúster de HPC Pack, podría reducir el clúster local a tan solo el nodo principal de HPC Pack. A continuación, agregue todos los recursos de proceso a petición en Azure. Para obtener un tutorial que le guíe en este escenario, consulte [Configuración de un clúster de proceso híbrido con Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md).
 
 Esta solución híbrida aprovecha la inversión existente en un clúster local, pero permite escalar la infraestructura local fija para cargas de trabajo típicas (que no se produzcan en horas punta). Si necesita tener acceso a un almacén de datos o servidor de licencias local, puede configurar una red virtual Azure para conectar el clúster local a Azure.
 
@@ -170,7 +170,7 @@ Por ejemplo, puede crear un clúster HPC basado en Windows Server con [Microsoft
 
 **Implementación automatizada**: para implementar un gran número de máquinas virtuales de Windows Server o Linux, puede usar imágenes de máquina virtual estándar o personalizadas y herramientas de automatización de Azure como la [interfaz de línea de comandos de Azure](../xplat-cli.md) o [Azure PowerShell](../powershell-install-configure.md). Algunos ejemplos son:
 
-* Para implementar un clúster de HPC Pack en servicios de infraestructura de Azure, puede ejecutar un [script de Azure PowerShell](https://msdn.microsoft.com/library/azure/dn864734.aspx)desde un equipo cliente; el script usa una imagen de máquina virtual Windows Server con HPC Pack preinstalado. También puede usar una [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)con Azure PowerShell o la CLI de Azure para implementar un clúster de HPC Pack.
+* Para implementar un clúster de HPC Pack en servicios de infraestructura de Azure, puede ejecutar un [script de Azure PowerShell](https://msdn.microsoft.com/library/azure/dn864734.aspx) desde un equipo cliente; el script usa una imagen de máquina virtual Windows Server con HPC Pack preinstalado. También puede usar una [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) con Azure PowerShell o la CLI de Azure para implementar un clúster de HPC Pack.
 
 * Puede usar una [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/slurm/) con Azure PowerShell o la CLI de Azure para implementar un clúster de Linux que ejecute el administrador de cargas de trabajo de código abierto [SLURM](https://computing.llnl.gov/linux/slurm/).
 
@@ -211,7 +211,7 @@ Consulte la figura siguiente para obtener información acerca de un flujo de tra
 
 ## Pasos siguientes
 
-* Consulte [Recursos técnicos para HPC y Lote](big-compute-resources.md)para encontrar orientación técnica para su solución.
+* Consulte [Recursos técnicos para HPC y Lote](big-compute-resources.md) para encontrar orientación técnica para su solución.
 
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](http://azure.microsoft.com/blog/tag/hpc/).
 
@@ -222,4 +222,4 @@ Consulte la figura siguiente para obtener información acerca de un flujo de tra
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Descripción general de los actores de Service Fabric de Azure"
-   description="Introducción al modelo de programación de los actores de Service Fabric de Azure"
+   pageTitle="Descripción general de Actores confiables de Service Fabric"
+   description="Introducción al modelo de programación de Actores confiables de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Introducción a los actores de Service Fabric de Azure
+# Introducción a Actores confiables de Service Fabric.
 La API de Actores confiables es uno de los dos marcos de alto nivel proporcionados por [Service Fabric](service-fabric-technical-overview.md), junto con la [API de servicios confiables](service-fabric-reliable-services-introduction.md).
 
 En función del patrón de Actor, la API de Actores confiables proporciona un modelo de programación asincrónico, de subproceso único que simplifica el código mientras continúa aprovechando las garantías de confiabilidad y escalabilidad proporcionadas por Service Fabric.
@@ -191,11 +191,11 @@ Las devoluciones de llamada de temporizador se pueden marcar con el atributo `Re
 
 [Cómo usan los actores de Fabric la plataforma Service Fabric](service-fabric-reliable-actors-platform.md)
 
-[Configuración del actor KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
+[Configuración del actor KVSActorStateProvider](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
 [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

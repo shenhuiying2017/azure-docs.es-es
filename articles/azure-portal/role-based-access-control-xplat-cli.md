@@ -18,7 +18,9 @@
 
 # Administración del control de acceso basado en roles con la interfaz de la línea de comandos de Azure (CLI de Azure) #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-../xplat-cli.md" title="CLI de Azure">CLI de Azure</a></div>
+> [AZURE.SELECTOR]
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](/role-based-access-control-xplat-cli.md)
 
 El control de acceso basado en rol (RBAC) del Portal de vista previa de Azure y la API del Administrador de recursos de Azure le permite administrar el acceso a su suscripción y sus recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
 
@@ -148,4 +150,4 @@ Si quiere más información sobre cómo administrar el control de acceso basado 
 - [Solución de problemas de control de acceso basado en roles](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

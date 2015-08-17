@@ -3,4 +3,4 @@
 
 2. Inicie sesión con las credenciales de Azure y seleccione su servicio en **Aplicaciones web existentes** (puede que el servicio tenga un sufijo «-code»). Visual Studio descarga la configuración de publicación directamente desde Azure. Finalmente, haga clic en **Publicar**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

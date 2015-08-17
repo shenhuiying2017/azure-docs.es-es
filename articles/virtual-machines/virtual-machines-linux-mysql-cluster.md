@@ -310,15 +310,15 @@ Después de unos segundos, y usando `sudo crm_mon –L`, compruebe que uno de lo
 
 La siguiente captura de pantalla muestra `crm_mon` con un nodo detenido (salir usando Control-C):
 
-![crm_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
+![crm\_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
 
 Y esta captura de pantalla muestra ambos nodos, con uno maestro y otro esclavo:
 
-![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
+![crm\_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
 
 ## Prueba
 
-Estamos preparados para llevar a cabo una simulación de conmutación por error automática. Existen dos formas de hacerlo: suave y dura. Para llevar a cabo la simulación por software, usaremos la función de cierre del clúster: ``crm_standby -U `uname -n` -v on``. Usando esto en el maestro, el esclavo asumirá el control. No olvide volver a desactivarlo (crm_mon le indicará que un nodo se encuentra en espera si no es así).
+Estamos preparados para llevar a cabo una simulación de conmutación por error automática. Existen dos formas de hacerlo: suave y dura. Para llevar a cabo la simulación por software, usaremos la función de cierre del clúster: ``crm_standby -U `uname -n` -v on``. Usando esto en el maestro, el esclavo asumirá el control. No olvide volver a desactivarlo (crm\_mon le indicará que un nodo se encuentra en espera si no es así).
 
 Si optamos por la opción de hardware, lo que haremos será cerrar la máquina virtual principal (hadb01) mediante el Portal o cambiar el nivel de ejecución en dicha máquina virtual (es decir, detenerla o cerrarla); de esta forma ayudamos a Corosync y Pacemaker indicando el apagado del maestro. Podemos probar esto (útil para ventanas de mantenimiento) pero también podemos forzar el escenario simplemente congelando la máquina virtual.
 
@@ -348,4 +348,4 @@ Se aplican las siguientes limitaciones:
 - El rendimiento de escritura dependerá de la interconexión de las máquinas virtuales en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

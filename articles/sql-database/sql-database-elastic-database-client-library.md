@@ -18,16 +18,13 @@
 
 # Información general de la biblioteca de cliente de bases de datos elásticas
 
-La **biblioteca de cliente de bases de datos elásticas** le permite crear aplicaciones cliente que administran colecciones de cientos, o incluso miles, de bases de datos de SQL de Azure hospedadas en Microsoft Azure. Estas colecciones se utilizan normalmente para aplicaciones de Software como servicio (SaaS), que son normalmente arquitecturas de inquilino único, donde cada inquilino se aprovisiona con una base de datos. Uno de los objetivos de la biblioteca es crear y administrar este tipo de aplicación.
-
-La biblioteca de cliente es una biblioteca de .NET Framework que se puede instalar en cualquier proyecto de aplicación mediante Visual Studio y Nuget. La biblioteca de cliente forma parte de un conjunto de [herramientas de base de datos elástica](sql-azure-database-elastic-scale-introduction.md).
-
+La **biblioteca de cliente de bases de datos elásticas** le ayuda a desarrollar fácilmente aplicaciones compartidas usando cientos, o incluso miles, de bases de datos de SQL de Azure hospedadas en Microsoft Azure. Estos diseños se usan normalmente para aplicaciones de Software como servicio (SaaS), que son generalmente arquitecturas de inquilino único, donde cada inquilino se aprovisiona con una base de datos. Uno de los objetivos de la biblioteca es crear y administrar este tipo de aplicación.  La biblioteca de cliente es una biblioteca de .NET Framework que se puede instalar en cualquier proyecto de aplicación mediante [Visual Studio](sql-database-elastic-scale-add-references-visual-studio.md) y [Nuget](http://go.microsoft.com/?linkid=9862605). La biblioteca de cliente forma parte de las herramientas de la base de datos flexible que es una [característica específica de base de datos flexible](sql-database-elastic-scale-introduction.md).
 
 ## Capacidades de cliente
 
 Desarrollar, escalar y administrar aplicaciones de escalado horizontal mediante *particionamiento* (se trata a continuación) presenta desafíos para el desarrollador y para el administrador. La biblioteca de cliente facilita las operaciones de estos roles. Los números de la ilustración que aparece a continuación describen las funciones principales que brinda la biblioteca de cliente de bases de datos elásticas y la herramienta de división y combinación. La ilustración muestra un entorno con muchas bases de datos, donde cada base de datos corresponde a una partición. Las herramientas facilitan el desarrollo de aplicaciones de Base de datos SQL de Azure particionadas a través de las siguientes funcionalidades específicas:
 
-Si desea obtener las definiciones de los términos que se usan aquí, consulte el [glosario de herramientas de Escalado elástico](sql-database-elastic-scale-glossary.md).
+Si desea obtener las definiciones de los términos que se usan aquí, consulte el [glosario de las herramientas de bases de datos elásticas](sql-database-elastic-scale-glossary.md).
 
 ![Capacidades de Escalado elástico][1]
 
@@ -54,4 +51,4 @@ Para obtener instrucciones sobre cómo usar la herramienta de división y combin
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -24,7 +24,7 @@
 
 Service Fabric proporciona varios modos de actualización para admitir un clúster de desarrollo y producción. Cada una de las opciones de implementación son ideales para diversos entornos. La actualización de la aplicación gradual en modo supervisado es la actualización más típica que se va a usar en producción. Cuando se especifica la directiva de actualización, Service Fabric garantiza que la aplicación sea correcta antes de que la actualización continúe. En ciertas situaciones donde se requiere una política de evaluación de estado más personalizada o compleja o bien una actualización no convencional (la aplicación ya sufre la pérdida de datos, etc.), el administrador de la aplicación puede usar el modo de actualización de la aplicación gradual manual para tener control total sobre el progreso de la actualización a través de los diversos dominios de actualización. Por último, la actualización de la aplicación gradual automatizada es útil para que el entorno de desarrollo o prueba proporcione un ciclo de iteración rápido durante el desarrollo de servicios.
 
-**Manual**: detenga la actualización de la aplicación en el dominio de actualización actual y cambie el modo de actualización a manual no supervisado. El administrador debe llamar manualmente a **MoveNextApplicationUpgradeDomainAsync** para continuar con la actualización o desencadenar una reversión iniciando una nueva actualización. Una vez que la actualización adopte el modo manual, permanecerá en dicho modo hasta que se inicie una nueva actualización. El comando **GetApplicationUpgradeProgressAsync** devuelve FABRIC_APPLICATION_UPGRADE_STATE_ROLLING_FORWARD_PENDING.
+**Manual**: detenga la actualización de la aplicación en el dominio de actualización actual y cambie el modo de actualización a manual no supervisado. El administrador debe llamar manualmente a **MoveNextApplicationUpgradeDomainAsync** para continuar con la actualización o desencadenar una reversión iniciando una nueva actualización. Una vez que la actualización adopte el modo manual, permanecerá en dicho modo hasta que se inicie una nueva actualización. El comando **GetApplicationUpgradeProgressAsync** devuelve FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
 
 ## Actualización con un paquete de diferencias
 
@@ -51,4 +51,4 @@ Casos en los que usar un paquete de diferencias sería una buena opción:
 [Solucionar problemas de una actualización de aplicación ](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -43,7 +43,7 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde 
 
 >[AZURE.NOTE]No todos los centros de datos admiten la codificación en directo con Servicios multimedia de Azure.
 >
->Si usas el Portal de administración de Azure para crear canales, tendrá dos opciones de tipo de codificación de canal disponibles: **Ninguno** y **Estándar**. Si solo ve la opción **Ninguno**, significa que su centro de datos no admite la codificación en directo con AMS.
+>Si usa el Portal de administración de Azure para crear canales, tendrá dos opciones de tipo de codificación de canal disponibles: **Ninguno** y **Estándar**. Si solo ve la opción **Ninguno**, significa que su centro de datos no admite la codificación en directo con AMS.
 >
 >Si usa .NET SDK o API de REST, haga lo siguiente para comprobar:
 >
@@ -278,16 +278,16 @@ Especifica el valor preestablecido que usará el codificador en directo dentro d
 
 ####Secuencia de vídeo de salida
 
-<table border="1">
-<tr><th>Velocidad de bits</th><th>Ancho</th><th>Alto</th><th>Fotogramas/seg. máx.</th><th>Perfil</th><th>Nombre secuencia salida</th></tr>
-<tr><td>3500</td><td>1280</td><td>720</td><td>30</td><td>Alto</td><td>Video_1280x720_30fps_3500kbps</td></tr>
-<tr><td>2200</td><td>960</td><td>540</td><td>30</td><td>Principal</td><td>Video_960x540_30fps_2200kbps</td></tr>
-<tr><td>1350</td><td>704</td><td>396</td><td>30</td><td>Principal</td><td>Video_704x396_30fps_1350kbps</td></tr>
-<tr><td>850</td><td>512</td><td>288</td><td>30</td><td>Principal</td><td>Video_512x288_30fps_850kbps</td></tr>
-<tr><td>550</td><td>384</td><td>216</td><td>30</td><td>Principal</td><td>Video_384x216_30fps_550kbps</td></tr>
-<tr><td>350</td><td>340</td><td>192</td><td>30</td><td>Línea base</td><td>Video_340x192_30fps_350kbps</td></tr>
-<tr><td>200</td><td>340</td><td>192</td><td>30</td><td>Línea base</td><td>Video_340x192_30fps_200kbps</td></tr>
-</table>
+Velocidad de bits|Ancho|Alto|Fotogramas/seg. máx.|Perfil|Nombre secuencia salida
+---|---|---|---|---|---
+3500|1280|720|30|Alto|Video\_1280x720\_30fps\_3500kbps
+2200|960|540|30|Principal|Video\_960x540\_30fps\_2200kbps
+1350|704|396|30|Principal|Video\_704x396\_30fps\_1350kbps
+850|512|288|30|Principal|Video\_512x288\_30fps\_850kbps
+550|384|216|30|Principal|Video\_384x216\_30fps\_550kbps
+350|340|192|30|Línea base|Video\_340x192\_30fps\_350kbps
+200|340|192|30|Línea base|Video\_340x192\_30fps\_200kbps
+
 
 ####Secuencia de audio de salida
 
@@ -314,7 +314,7 @@ Identificador único de la pausa comercial que la aplicación correspondiente us
 
 ###Mostrar pizarra
 
-Opcional. Indica al codificador en directo que cambie a la [pizarra predeterminada](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante una pausa comercial y ocultar la fuente de vídeo entrante. El audio también está desactivado durante el uso de la pizarra. El valor predeterminado es **false**.
+Opcional. Indica al codificador en directo que cambie a la [careta predeterminada](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante una pausa comercial y oculte la fuente de vídeo entrante. El audio también está desactivado durante el uso de la pizarra. El valor predeterminado es **false**.
  
 La imagen usada será la especificada mediante la propiedad Id del recurso de pizarra predeterminado en el momento de la creación del canal. La pizarra se estira para ajustarse al tamaño de la imagen en pantalla.
 
@@ -333,15 +333,16 @@ La duración de la pizarra en segundos. Para iniciar la pizarra, este debe ser u
 
 Cuando está establecido en true, este valor configura el codificador en directo para insertar una imagen de pizarra durante una pausa de anuncio. El valor predeterminado es true.
 
-###<a id="default_slate"></a>Id. del recurso de pizarra predeterminado
+###<a id="default_slate"></a>Id. del recurso de careta predeterminado
 
 Opcional. Especifica el identificador del recurso de Servicios multimedia que contiene la imagen de pizarra. El valor predeterminado es null.
 
-**Nota**: antes de crear el canal, la imagen de pizarra debe cargarse con las siguientes restricciones como recurso dedicado (no debe haber ningún otro archivo en este recurso).
+**Nota**: antes de crear el canal, la imagen de careta debe cargarse con las siguientes restricciones como recurso dedicado (no debe haber ningún otro archivo en este recurso).
 
 - Máximo 1920x1080 de resolución.
 - Al menos 3 MB de tamaño.
-- El nombre de archivo debe tener una *extensión .jpg. - La imagen se debe cargar en un recurso como el único AssetFile en ese recurso y este AssetFile debe marcarse como el archivo principal. El recurso no se puede almacenar cifrado.
+- El nombre de archivo debe tener una extensión *.jpg.
+- La imagen se debe cargar en un recurso como el único AssetFile en ese recurso y este AssetFile debe marcarse como el archivo principal. El recurso no se puede almacenar cifrado.
 
 Si no se especifica el **Id. del recurso de pizarra predeterminado** y el valor **Insertar pizarra en marcador de anuncio** está establecido en **true**, se usará una imagen de Servicios multimedia de Azure predeterminada para ocultar la secuencia de vídeo de entrada. El audio también está desactivado durante el uso de la pizarra.
 
@@ -383,13 +384,12 @@ El estado actual de un canal. Los valores posibles son:
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación.
  
-<table border="1">
-<tr><th>Estado del canal</th><th>Indicadores IU del portal</th><th>¿Facturado?</th></tr>
-<tr><td>Iniciando</td><td>Iniciando</td><td>No (estado transitorio)</td></tr>
-<tr><td>En ejecución</td><td>Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)</td><td>Sí</td></tr>
-<tr><td>Deteniéndose</td><td>Deteniéndose</td><td>No (estado transitorio)</td></tr>
-<tr><td>Detenido</td><td>Detenido</td><td>No</td></tr>
-</table>
+Estado del canal|Indicadores IU del portal|¿Facturado?
+---|---|---
+Iniciando|Iniciando|No (estado transitorio)
+Ejecución|Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)|Sí
+Deteniéndose|Deteniéndose|No (estado transitorio)
+Detenido|Detenido|No
 
 
 >[AZURE.NOTE]Actualmente en versión preliminar; el inicio del canal puede tardar hasta 20 minutos. El restablecimiento de canal puede tardar hasta 5 minutos.
@@ -408,7 +408,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 
 - El inicio del canal puede tardar más de 20 minutos.
 - La compatibilidad con RTP está dirigida a los operadores de radiodifusión profesionales. Revise las notas sobre RTP en [este](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
-- Las imágenes de pizarra deben cumplir las restricciones descritas [aquí](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si intenta crear un canal con una pizarra predeterminada que sea superior a 1920x1080, la solicitud terminará por producir un error.
+- Las imágenes de careta deben cumplir las restricciones descritas [aquí](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si intenta crear un canal con una pizarra predeterminada que sea superior a 1920x1080, la solicitud terminará por producir un error.
 
 
 ##<a id="tasks"></a>Tareas relacionadas con el streaming en vivo
@@ -505,4 +505,4 @@ Para obtener información sobre el escalado de unidades de streaming, consulte: 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

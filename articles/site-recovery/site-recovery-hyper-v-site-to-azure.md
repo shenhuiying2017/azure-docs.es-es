@@ -61,7 +61,12 @@ Como parte de la implementación de Azure Site Recovery, instalará el proveedor
 - Debe ejecutar las versiones más recientes del proveedor y del agente.
 - Todos los servidores de Hyper-V de un almacén de credenciales deben tener las mismas versiones.
 - El proveedor necesitará conectarse a Azure Site Recovery a través de Internet. Puede seleccionar hacerlo sin un proxy, utilizando la configuración de proxy que ya está definida en el servidor VMM o la configuración de proxy personalizada que estableció durante la instalación del proveedor. Para usar un servidor proxy existente, asegúrese de que están permitidas las direcciones URL para conectarse a Azure a través del firewall:
-	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 - Para usar un proxy personalizado, configúrelo antes de instalar el proveedor. Durante la configuración del proveedor, deberá especificar la dirección y el puerto del servidor proxy, y las credenciales que pueden utilizarse para el acceso.
 
 La siguiente imagen muestra los distintos canales y puertos de comunicación utilizados por Azure Site Recovery para la orquestación y la replicación
@@ -139,7 +144,12 @@ Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, re
 	- Si el proxy predeterminado en el servidor de Hyper-V requiere autenticación, debe utilizar un servidor proxy personalizado. Escriba los detalles del proxy predeterminado y especifique las credenciales.
 	- Si desea utilizar un servidor proxy personalizado, debe configurarlo antes de instalar el proveedor. 
 	- Las siguientes direcciones URL deben ser accesibles desde el host de Hyper-v
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- Permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
 9. En la página **Configuración de almacén**, haga clic en **Examinar** para seleccionar el archivo de clave. Especifique la suscripción de Azure Site Recovery, el nombre del almacén y el sitio de Hyper-V al que pertenece el servidor Hyper-V.
@@ -157,7 +167,7 @@ Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, re
 
 Tenga en cuenta que si desea instalar el proveedor en Server Core para Windows Server 2012 R2 o Hyper-V Server 2012 R2 independiente, debe hacer lo siguiente:
 
-1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta C:\ASR.
+1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta C:\\ASR.
 2. Extraiga el instalador de proveedor escribiendo:
 
 	    C:\Windows\System32> CD C:\ASR
@@ -218,13 +228,13 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 	Comienzan los trabajos de Habilitar protección. Puede realizar un seguimiento del progreso en la pestaña **Trabajos**. La máquina virtual estará preparada para la conmutación por error después de que finalice el trabajo de Finalizar protección. 
 3. Una vez configurada la protección, puede:
 
-	- Ver máquinas virtuales en **Elementos protegidos** > **Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales**. Puede desplazarse hasta los detalles de la máquina en la pestaña **Propiedades**.
-	- Configurar las propiedades de conmutación por error de una máquina virtual en **Elementos protegidos** > **Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales** *nombre_máquina_virtual* > **Configurar**. Puede configurar:
+	- Ver máquinas virtuales en **Elementos protegidos** > **Grupos de protección** > *nombre\_grupo\_protección* > **Máquinas virtuales**. Puede desplazarse hasta los detalles de la máquina en la pestaña **Propiedades**.
+	- Configurar las propiedades de conmutación por error de una máquina virtual en **Elementos protegidos** > **Grupos de protección** > *nombre\_grupo\_protección* > **Máquinas virtuales** *nombre\_máquina\_virtual* > **Configurar**. Puede configurar:
 		- **Nombre**: el nombre de la máquina virtual en Azure.
 		- **Tamaño**: el tamaño de destino de la máquina virtual que conmuta por error.
 
 		![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- Establecer la configuración de una máquina virtual adicional en *Elementos protegidos* > **Grupos de protección** > *nombre_grupo_protección* > **Máquinas virtuales** *nombre_máquina_virtual* > **Configurar**, incluidos:
+	- Establecer la configuración de una máquina virtual adicional en *Elementos protegidos* > **Grupos de protección** > *nombre\_grupo\_protección* > **Máquinas virtuales** *nombre\_máquina\_virtual* > **Configurar**, incluidos:
 
 		- **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. 
 			- Grande (A3) y A6: 2
@@ -296,4 +306,4 @@ Para ejecutar una conmutación por error de prueba, realice lo siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

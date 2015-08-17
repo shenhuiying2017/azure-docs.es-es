@@ -5,4 +5,4 @@
 > 
 > Si no ha iniciado sesión en su suscripción de Azure, se le solicitará que la inicie cuando visite el [Portal de vista previa](https://portal.azure.com/).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

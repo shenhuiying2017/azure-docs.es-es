@@ -3,7 +3,7 @@
 
 Los servicios en la nube son un ejemplo de plataforma como-servicio (PaaS). Como [Servicios de aplicaciones](app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y económicas de operar. Al igual que un [Servicios de aplicaciones](app-service-web-overview.md) se hospedan en máquinas virtuales, así que también son servicios en la nube; sin embargo, se tiene más control sobre las máquinas virtuales. Puede instalar su propio software en máquinas virtuales de Servicio en la nube y tener acceso remoto a ellas.
 
-![cs_diagram](./media/cloud-services-choose-me-content/diagram.png)
+![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
 Más control también significa que es menos fácil de usar; a menos que necesite opciones de control adicionales, por lo general es más rápido y fácil que una aplicación web esté en funcionamiento en Sitios web en comparación con Servicios en la nube.
 
@@ -30,4 +30,4 @@ Servicios en la nube también brinda supervisión. Al igual que con Máquinas vi
 
 La naturaleza de PaaS de Servicios en la nube tiene también otras implicaciones. Una de las más importantes es que las aplicaciones creadas sobre la base de esta tecnología deben estar escritas para ejecutarse correctamente en caso de cualquier error en instancia de rol web o de trabajo. Para lograrlo, una aplicación de Servicios en la nube no debiera mantener estado en el sistema de archivos de sus propias máquinas virtuales. A diferencia de las máquinas virtuales creadas con Máquinas virtuales de Azure, las escrituras que se realizan en las máquinas virtuales de Servicios en la nube no son permanentes; no hay nada parecido a un disco de datos de Máquinas virtuales. En lugar de eso, una aplicación de Servicios en la nube debe escribir explícitamente todo estado en la base de datos de SQL, blogs, tablas u algún otro tipo de almacenamiento externo. Cuando se crean aplicaciones de esta manera, estas resultan más fáciles de escalar y son más resistentes ante los errores, ambos objetivos importantes de Servicios en la nube.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

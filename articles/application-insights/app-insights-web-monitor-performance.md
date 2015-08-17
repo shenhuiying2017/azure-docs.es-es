@@ -29,8 +29,8 @@ Application Insights puede supervisar las aplicaciones web ASP.NET y los servici
 
 Si todavía no ha agregado Application Insights a un proyecto (es decir, si no dispone de ApplicationInsights.config), puede comenzar con uno de estos procedimientos:
 
-* [Agregar Application Insights a un proyecto en Visual Studio][greenbrown]: opción recomendada. Puede realizar una supervisión pasiva del rendimiento, insertar el registro de diagnósticos y seguir el uso.
-* [Supervisar el rendimiento de un sitio web activo ahora][redfield]: este procedimiento no precisa actualizar el proyecto de aplicación ni volver a implementar el sitio web.
+* [Agregar Application Insights a un proyecto en Visual Studio][greenbrown]\: opción recomendada. Puede realizar una supervisión pasiva del rendimiento, insertar el registro de diagnósticos y seguir el uso.
+* [Supervisar el rendimiento de un sitio web activo ahora][redfield]\: este procedimiento no precisa actualizar el proyecto de aplicación ni volver a implementar el sitio web.
 * [Para un sitio web de Microsoft Azure](../insights-how-to-customize-monitoring.md) ya puede ver las métricas en el modo Supervisión de dicho sitio. 
 
 Con cualquiera de estos métodos puede ver los datos rápidamente en la hoja de información general en Application Insights.
@@ -154,13 +154,13 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
 ## <a name="next"></a>Pasos siguientes
 
-[Pruebas web][availability]: reciba solicitudes web en su aplicación de forma periódica desde distintos lugares del mundo.
+[Pruebas web][availability]\: reciba solicitudes web en su aplicación de forma periódica desde distintos lugares del mundo.
 
-[Capture y busque seguimientos de diagnóstico][diagnostic]: inserte llamadas de seguimiento y cribe los resultados para identificar los problemas.
+[Capture y busque seguimientos de diagnóstico][diagnostic]\: inserte llamadas de seguimiento y cribe los resultados para identificar los problemas.
 
-[Seguimiento de uso][usage]: averigüe cuántas personas usan una aplicación.
+[Seguimiento de uso][usage]\: averigüe cuántas personas usan una aplicación.
 
-[Solución de problemas][qna]: junto con preguntas y respuestas.
+[Solución de problemas][qna]\: junto con preguntas y respuestas.
 
 ## Vídeo
 
@@ -178,4 +178,4 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

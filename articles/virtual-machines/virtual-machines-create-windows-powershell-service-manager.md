@@ -74,7 +74,7 @@ Ahora, cree y establezca la cuenta de almacenamiento mediante los comandos sigui
 
 A continuación, necesitará un servicio en la nube. Si no tiene un servicio en la nube existente, debe crear uno. Debe elegir un nombre único que contenga solo letras, números y guiones. El primer y el último carácter del campo deben ser una letra o un número.
 
-Por ejemplo, podría asignarle el nombre TestCS-* UniqueSequence *, en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio en la nube Tailspin TestCS.
+Por ejemplo, podría asignarle el nombre TestCS-*UniqueSequence*, en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio en la nube Tailspin TestCS.
 
 Se puede comprobar la exclusividad del nombre con este comando de Azure PowerShell:
 
@@ -209,4 +209,4 @@ Para adjuntar discos de datos desde un archivo .vhd existente en el almacenamien
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

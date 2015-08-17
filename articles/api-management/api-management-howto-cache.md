@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/16/2015"
+	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
 # Incorporación del almacenamiento en caché para mejorar el rendimiento en Administración de API de Azure
@@ -161,4 +161,4 @@ Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. De
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

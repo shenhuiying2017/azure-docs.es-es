@@ -3,7 +3,7 @@
 	description="Obtenga información sobre el Explorador de scripts de Microsoft Azure DocumentDB, una herramienta del portal de vista previa de Azure para ver los artefactos de programación del lado servidor de DocumentDB, incluidos procedimientos almacenados, desencadenadores y funciones definidas por el usuario."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
@@ -75,11 +75,11 @@ El Explorador de scripts le permite ver fácilmente los artefactos de programaci
 
 	![Captura de pantalla de la vista de propiedades de script del Explorador de scripts](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]La propiedad de marca de tiempo (_ts) se representa internamente como tiempo de época, pero el Explorador de scripts muestra el valor en formato GMT en lenguaje natural.
+	> [AZURE.NOTE]La propiedad de marca de tiempo (\_ts) se representa internamente como tiempo de época, pero el Explorador de scripts muestra el valor en formato GMT en lenguaje natural.
 
 ## Pasos siguientes
 
 Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

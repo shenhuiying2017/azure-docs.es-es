@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Crear una aplicación web de PHP-SQL e implementarla en el Servicio de aplicaciones de Azure mediante Git
@@ -49,7 +49,7 @@ Siga estos pasos para crear una aplicación web de Azure y una base de datos SQL
 
 5. Después de leer la descripción de la aplicación web + SQL, elija **Crear**.
 
-6. Haga clic en cada parte (**Grupo de recursos**, **Aplicación web**, **Base de datos** y **Suscripción**) y escriba o elija los valores para los campos obligatorios:
+6. Haga clic en cada parte (**Grupo de recursos**, **Aplicación web**, **Base de datos** y **Suscripción**) y escriba o seleccione los valores para los campos obligatorios:
 	
 	- Escriba un nombre de URL de su elección.	
 	- Configuración de credenciales de servidor de bases de datos
@@ -132,7 +132,7 @@ Para ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en 
 
 	Tenga en cuenta que necesitará actualizar los valores de <code>$user</code> y <code>pwd</code> con el nombre de usuario y la contraseña SQL local.
 
-4. Abra un explorador web y diríjase a **http://localhost/registration/createtable.php**. Esto creará la tabla `registration_tbl` en la base de datos.
+4. Abra un explorador web y diríjase a ****http://localhost/registration/createtable.php**. Esto creará la tabla `registration_tbl` en la base de datos.
 
 5. Abra el archivo **index.php** en un editor de texto o IDE y agregue el código HTML y CSS básico para la página (el código de PHP se agregará en pasos posteriores).
 
@@ -228,7 +228,7 @@ Para ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en 
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-Ahora puede dirigirse a **http://localhost/registration/index.php** para probar la aplicación.
+Ahora puede dirigirse a ****http://localhost/registration/index.php** para probar la aplicación.
 
 ##Publicación de la aplicación
 
@@ -292,4 +292,4 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

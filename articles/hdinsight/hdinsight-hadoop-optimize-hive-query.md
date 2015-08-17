@@ -27,8 +27,8 @@ El aumento del número de nodos de trabajo de un clúster puede aprovechar más 
 
 - En el momento de aprovisionamiento, puede especificar el número de nodos de trabajo mediante el portal de Azure, PowerShell de Azure y la interfaz de la línea de comandos entre plataformas. Para obtener más información, consulte [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md). En la siguiente pantalla se muestra la configuración del nodo de trabajo en el portal de Azure:
 
-	![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-- En tiempo de ejecución, también puede escalar horizontalmente un clúster sin volver a crear uno. Esto se muestra a continuación. ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
+- En tiempo de ejecución, también puede escalar horizontalmente un clúster sin volver a crear uno. Esto se muestra a continuación. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
 Para obtener más detalles sobre las distintas máquinas virtuales admitidas por HDInsight, vea [precios HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -36,7 +36,7 @@ Para obtener más detalles sobre las distintas máquinas virtuales admitidas por
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/) es un motor de ejecución alternativa al motor de MapReduce:
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez_1]
 
 
 Tez es más rápido porque:
@@ -215,4 +215,4 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

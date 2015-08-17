@@ -15,4 +15,4 @@ Los límites siguientes se aplican al usar el Administrador de recursos de Azure
 </tr>
 </table>
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

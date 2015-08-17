@@ -51,11 +51,11 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
 2. Compruebe que la solicitud procede de Administración de API de Azure (opcional, pero especialmente recomendado por motivos de seguridad).
 
 	* Procese un hash HMAC-SHA512 de una cadena según los parámetros de consulta **returnUrl** y **salt** ([se proporciona código de ejemplo a continuación]):
-        > **returnUrl**
+        > HMAC(**salt** + '\\n' + **returnUrl**)
 		 
 	* Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig**. Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
 
-2. Compruebe que ha recibido una solicitud para inicio de sesión / suscripción: el parámetro de consulta **operation** se establece en "**SignIn**".
+2. Compruebe que ha recibido una solicitud para inicio de sesión/suscripción: el parámetro de consulta **operation** se establecerá en "**SignIn**".
 
 3. Presente al usuario la interfaz de usuario para que inicie sesión o se suscriba.
 
@@ -107,7 +107,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 2. Compruebe que la solicitud procede de Administración de API de Azure (opcional, pero especialmente recomendado por motivos de seguridad).
 
 	* Procesar un hash HMAC-SHA512 de una cadena en función de los parámetros de consulta **productId**, **userId** y **salt**:
-		> **productId****userId**
+		> HMAC(**salt** + '\\n' + **productId** + '\\n' + **userId**)
 		 
 	* Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig**. Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
 	
@@ -168,4 +168,4 @@ Para obtener más información acerca de la delegación, vea el siguiente vídeo
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

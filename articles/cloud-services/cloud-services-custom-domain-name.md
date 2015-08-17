@@ -79,7 +79,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
 
 2.  Ahora busque el lugar en el que puede seleccionar o especificar los registros CNAME. Es posible que tenga que seleccionar el tipo de registro de un menú desplegable o ir a una página de configuración avanzada. Debe buscar las palabras **CNAME**, **Alias** o **Subdominios**.
 
-3.  También debe proporcionar el alias del dominio o subdominio para el registro CNAME, como **www** si desea crear un alias para **www.customdomain.com**. Si desea crear un alias para el dominio raíz, puede ponerse en una lista como el símbolo '**@** en las herramientas de DNS de su registrador.
+3.  También debe proporcionar el alias del dominio o subdominio para el registro CNAME, como **www** si desea crear un alias para **www.customdomain.com**. Si desea crear un alias para el dominio raíz, puede ponerse en una lista como el símbolo '**@**' en las herramientas de DNS de su registrador.
 
 4. A continuación, debe proporcionar un nombre de host canónico que, en este caso, es el dominio **cloudapp.net** de su aplicación.
 
@@ -91,7 +91,7 @@ Por ejemplo, el siguiente registro CNAME reenvía todo el tráfico de **www.cont
 
 Los visitantes de **www.contoso.com** no verán nunca el verdadero host (contoso.cloudapp.net), por lo que el usuario final no percibirá el proceso de desvío.
 
-> [AZURE.NOTE]El ejemplo anterior solo se aplica al tráfico en el subdominio **www**. Puesto que no puede usar caracteres comodín con registros CNAME, debe crear un CNAME para cada dominio/subdominio. Si desea dirigir el tráfico desde subdominios, como *.contoso.com, a su dirección cloudapp.net, puede configurar una entrada de **Redirección de URL** o de **Reenvío de URL** en la configuración de DNS, o bien crear un registro D.
+> [AZURE.NOTE]El ejemplo anterior solo se aplica al tráfico en el subdominio **www**. Puesto que no puede usar caracteres comodín con registros CNAME, debe crear un CNAME para cada dominio/subdominio. Si desea dirigir el tráfico desde subdominios, como *.contoso.com, a su dirección cloudapp.net, puede configurar una entrada **Redirección de URL** o **Desvío de URL** en la configuración de DNS o crear un registro D.
 
 
 ## Agregar un registro D para el dominio personalizado
@@ -106,7 +106,7 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
     
         **O bien**
     
-    * Instale y configure [Azure Powershell](../install-configure-powershell.md) y, luego, use el siguiente comando:
+    * Instale y configure [Azure Powershell](../install-configure-powershell.md) y, a continuación, use el siguiente comando:
     
         ```powershell
         get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -122,7 +122,7 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
 
 3. Seleccione o especifique el dominio o subdominio que usará el registro D. Por ejemplo, seleccione **www** si desea crear un alias para **www.customdomain.com**. Si desea crear una entrada de comodín para todos los subdominios, especifique '\_\_*\_\_'. De esta forma, se incluirán todos los subdominios como **mail.customdomain.com**, **login.customdomain.com** y **www.customdomain.com**.
 
-    Si desea crear un registro D para el dominio raíz, debe aparecer como símbolo '**@** en las herramientas DNS del registrador.
+    Si desea crear un registro D para el dominio raíz, debe aparecer como símbolo '**@**’ en las herramientas DNS del registrador.
 
 4. Especifique la dirección IP del servicio en la nube en el campo proporcionado. De esta forma, se asocia la entrada del dominio utilizada en el registro D a la dirección IP de la implementación del servicio en la nube.
 
@@ -153,4 +153,4 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

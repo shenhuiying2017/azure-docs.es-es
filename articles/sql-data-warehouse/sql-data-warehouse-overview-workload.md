@@ -69,4 +69,4 @@ Para empezar a desarrollar el almacenamiento de datos, vea [Introducción al des
 
 <!--Other web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -215,7 +215,7 @@ En esta sección, compilará un paquete de aplicación de la Tienda Windows para
 
    	![][11]
 
-5. Copie la carpeta del paquete, "todolist_1.0.0.0_AnyCPU_Debug_Test", a la segunda máquina. En ese equipo, abra la carpeta del paquete y haga clic con el botón derecho en el script de PowerShell **Add-AppDevPackage.ps1** y haga clic en **Run with PowerShell** como se muestra a continuación. Siga las indicaciones para instalar la aplicación.
+5. Copie la carpeta del paquete, "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test", a la segunda máquina. En ese equipo, abra la carpeta del paquete y haga clic con el botón derecho en el script de PowerShell **Add-AppDevPackage.ps1** y haga clic en **Run with PowerShell** como se muestra a continuación. Siga las indicaciones para instalar la aplicación.
 
 	![][12]
   
@@ -366,4 +366,4 @@ Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows pa
 [propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -45,4 +45,4 @@ Para conectarse a Servicios en la nube de Microsoft con ExpressRoute, deberá co
 	- [Configuración de una conexión ExpressRoute a través de un proveedor de Exchange](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

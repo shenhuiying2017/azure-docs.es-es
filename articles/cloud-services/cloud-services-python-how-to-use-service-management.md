@@ -74,7 +74,7 @@ Tras haber obtenido el identificador de la suscripción, haber creado un certifi
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\my\AzureCertificate'
+	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -82,7 +82,7 @@ En el ejemplo anterior, `sms` es un objeto **ServiceManagementService**. La clas
 
 ## <a name="ListAvailableLocations"> </a>Enumeración de las ubicaciones disponibles
 
-Para enumerar las ubicaciones disponibles para los servicios hospedados, use el método **list_locations**:
+Para enumerar las ubicaciones disponibles para los servicios hospedados, use el método **list\_locations**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -93,7 +93,7 @@ Para enumerar las ubicaciones disponibles para los servicios hospedados, use el 
 	for location in result:
 		print(location.name)
 
-Al crear un servicio en la nube o un servicio de almacenamiento, necesitará proporcionar una ubicación válida. El método **list_locations** siempre devolverá una lista actualizada de las ubicaciones disponibles actualmente. En el momento de la redacción de este documento, las ubicaciones disponibles son:
+Al crear un servicio en la nube o un servicio de almacenamiento, necesitará proporcionar una ubicación válida. El método **list\_locations** siempre devolverá una lista actualizada de las ubicaciones disponibles actualmente. En el momento de la redacción de este documento, las ubicaciones disponibles son:
 
 - Europa occidental
 - Europa del Norte
@@ -112,7 +112,7 @@ Al crear un servicio en la nube o un servicio de almacenamiento, necesitará pro
 
 ## <a name="CreateCloudService"> </a>Creación de un servicio en la nube
 
-Al crear una aplicación y ejecutarla en Azure, al código y a la configuración se les denomina de forma conjunta un [servicio en la nube] de Azure (conocido como un *servicio hospedado* en las versiones anteriores de Azure). El método **create_hosted_service** le permite crear un nuevo servicio hospedado, para lo que debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (codificada automáticamente como base 64), una descripción y una ubicación.
+Al crear una aplicación y ejecutarla en Azure, al código y a la configuración se les denomina de forma conjunta un [servicio en la nube] de Azure (conocido como un *servicio hospedado* en las versiones anteriores de Azure). El método **create\_hosted\_service** le permite crear un nuevo servicio hospedado, para lo que debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (codificada automáticamente como base 64), una descripción y una ubicación.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -126,7 +126,7 @@ Al crear una aplicación y ejecutarla en Azure, al código y a la configuración
 
 	sms.create_hosted_service(name, label, desc, location)
 
-Puede enumerar todos los servicios hospedados para la suscripción con el método **list_hosted_services**:
+Puede enumerar todos los servicios hospedados para la suscripción con el método **list\_hosted\_services**:
 
 	result = sms.list_hosted_services()
 
@@ -136,7 +136,7 @@ Puede enumerar todos los servicios hospedados para la suscripción con el métod
 		print('Location: ' + hosted_service.hosted_service_properties.location)
 		print('')
 
-Si desea obtener información acerca de un servicio hospedado en particular, puede hacerlo si transfiere el nombre del servicio hospedado al método **get_hosted_service_properties**:
+Si desea obtener información acerca de un servicio hospedado en particular, puede hacerlo si transfiere el nombre del servicio hospedado al método **get\_hosted\_service\_properties**:
 
 	hosted_service = sms.get_hosted_service_properties('myhostedservice')
 
@@ -144,11 +144,11 @@ Si desea obtener información acerca de un servicio hospedado en particular, pue
 	print('Management URL: ' + hosted_service.url)
 	print('Location: ' + hosted_service.hosted_service_properties.location)
 
-Después de haber creado un servicio en la nube, puede implementar el código en el servicio con el método **create_deployment**.
+Después de haber creado un servicio en la nube, puede implementar el código en el servicio con el método **create\_deployment**.
 
 ## <a name="DeleteCloudService"> </a>Eliminación de un servicio en la nube
 
-Puede eliminar un servicio en la nube si transfiere el nombre del archivo al método **delete_hosted_service**:
+Puede eliminar un servicio en la nube si transfiere el nombre del archivo al método **delete\_hosted\_service**:
 
 	sms.delete_hosted_service('myhostedservice')
 
@@ -156,7 +156,7 @@ Tenga en cuenta que antes de eliminar un servicio, primero es necesario eliminar
 
 ## <a name="DeleteDeployment"> </a>Eliminación de una implementación
 
-Para eliminar una implementación, use el método **delete_deployment**. En el ejemplo siguiente se muestra cómo eliminar una implementación llamada `v1`.
+Para eliminar una implementación, use el método **delete\_deployment**. En el ejemplo siguiente se muestra cómo eliminar una implementación llamada `v1`.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -184,9 +184,9 @@ Un [servicio de almacenamiento] le proporciona acceso a [blobs][azure-blobs], [t
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-Observe en el ejemplo anterior que el estado de la operación **create_storage_account** puede recuperarse transfiriendo el resultado devuelto por **create_storage_account** al método **get_operation_status**.
+Observe en el ejemplo anterior que el estado de la operación **create\_storage\_account** puede recuperarse transfiriendo el resultado devuelto por **create\_storage\_account** al método **get\_operation\_status**.
 
-Puede enumerar las cuentas de almacenamiento y sus propiedades con el método **list_storage_accounts**:
+Puede enumerar las cuentas de almacenamiento y sus propiedades con el método **list\_storage\_accounts**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -201,7 +201,7 @@ Puede enumerar las cuentas de almacenamiento y sus propiedades con el método **
 
 ## <a name="DeleteStorageService"> </a>Eliminación de un servicio de almacenamiento
 
-Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho servicio de almacenamiento al método **delete_storage_account**. Con la eliminación del servicio de almacenamiento también se eliminarán todos los datos almacenados en el servicio (blobs, tablas y colas).
+Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho servicio de almacenamiento al método **delete\_storage\_account**. Con la eliminación del servicio de almacenamiento también se eliminarán todos los datos almacenados en el servicio (blobs, tablas y colas).
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -212,7 +212,7 @@ Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho se
 
 ## <a name="ListOperatingSystems"> </a>Enumeración de los sistemas operativos disponibles
 
-Para enumerar los sistemas operativos que están disponibles para los servicios hospedados, use el método **list_operating_systems**:
+Para enumerar los sistemas operativos que están disponibles para los servicios hospedados, use el método **list\_operating\_systems**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -226,7 +226,7 @@ Para enumerar los sistemas operativos que están disponibles para los servicios 
 		print('Family: ' + os.family_label)
 		print('Active: ' + str(os.is_active))
 
-De manera alternativa, también puede usar el método **list_operating_system_families**, que agrupa los sistemas operativos por familia:
+De manera alternativa, también puede usar el método **list\_operating\_system\_families**, que agrupa los sistemas operativos por familia:
 
 	result = sms.list_operating_system_families()
 
@@ -240,7 +240,7 @@ De manera alternativa, también puede usar el método **list_operating_system_fa
 
 ## <a name="CreateVMImage"> </a>Creación de una imagen de sistema operativo
 
-Para agregar una imagen del sistema operativo al repositorio de imágenes, use el método **add_os_image**:
+Para agregar una imagen del sistema operativo al repositorio de imágenes, use el método **add\_os\_image**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -257,7 +257,7 @@ Para agregar una imagen del sistema operativo al repositorio de imágenes, use e
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-Para enumerar las imágenes del sistema operativo disponibles, use el método **list_os_images**. Estas imágenes comprenden todas las imágenes de la plataforma y las imágenes de usuario:
+Para enumerar las imágenes del sistema operativo disponibles, use el método **list\_os\_images**. Estas imágenes comprenden todas las imágenes de la plataforma y las imágenes de usuario:
 
 	result = sms.list_os_images()
 
@@ -273,7 +273,7 @@ Para enumerar las imágenes del sistema operativo disponibles, use el método **
 
 ## <a name="DeleteVMImage"> </a>Eliminación de una imagen de sistema operativo
 
-Para eliminar una imagen de usuario, use el método **delete_os_image**:
+Para eliminar una imagen de usuario, use el método **delete\_os\_image**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -287,7 +287,7 @@ Para eliminar una imagen de usuario, use el método **delete_os_image**:
 
 ## <a name="CreateVM"> </a>Creación de una máquina virtual
 
-Para crear una máquina virtual, primero debe crear un [servicio en la nube](#CreateCloudService). A continuación, cree la implementación de máquina virtual con el método **create_virtual_machine_deployment**:
+Para crear una máquina virtual, primero debe crear un [servicio en la nube](#CreateCloudService). A continuación, cree la implementación de máquina virtual con el método **create\_virtual\_machine\_deployment**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -326,7 +326,7 @@ Para crear una máquina virtual, primero debe crear un [servicio en la nube](#Cr
 
 ## <a name="DeleteVM"> </a>Eliminación de una máquina virtual
 
-Para eliminar una máquina virtual, primero debe eliminar la implementación con el método **delete_deployment**:
+Para eliminar una máquina virtual, primero debe eliminar la implementación con el método **delete\_deployment**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -336,13 +336,13 @@ Para eliminar una máquina virtual, primero debe eliminar la implementación con
 	sms.delete_deployment(service_name='myvm',
 		deployment_name='myvm')
 
-El servicio en la nube puede eliminarse entonces con el método**delete_hosted_service**:
+El servicio en la nube puede eliminarse entonces con el método**delete\_hosted\_service**:
 
 	sms.delete_hosted_service(service_name='myvm')
 
 ##Creación de una máquina virtual a partir de una imagen de máquina virtual capturada.
 
-Para capturar una imagen de máquina virtual, primero llame al método **capture_vm_image**:
+Para capturar una imagen de máquina virtual, primero llame al método **capture\_vm\_image**:
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -369,11 +369,11 @@ Para capturar una imagen de máquina virtual, primero llame al método **capture
 			image
 		)
 
-A continuación, para asegurarse de que ha capturado la imagen correctamente, use la API **list_vm_images** y asegúrese de que la imagen se muestra en los resultados:
+A continuación, para asegurarse de que ha capturado la imagen correctamente, use la API **list\_vm\_images** y asegúrese de que la imagen se muestra en los resultados:
 
 	images = sms.list_vm_images()
 
-Para crear finalmente la máquina virtual con la imagen capturada, use el método **create_virtual_machine_deployment** como se ha descrito anteriormente, pero esta vez páselo en vm_image_name.
+Para crear finalmente la máquina virtual con la imagen capturada, use el método **create\_virtual\_machine\_deployment** como se ha descrito anteriormente, pero esta vez páselo en vm\_image\_name.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -445,4 +445,4 @@ Ahora que ha aprendido los conceptos básicos de la administración de servicios
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

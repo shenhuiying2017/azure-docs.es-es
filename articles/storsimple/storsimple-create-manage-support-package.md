@@ -199,4 +199,4 @@ A continuación se muestra un ejemplo que explica cómo descifrar, editar y volv
 
 Aprenda cómo [utilizar paquetes de soporte y registros de dispositivos para solucionar problemas de implementación de su dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

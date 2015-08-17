@@ -12,7 +12,7 @@
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/14/2015" 
 	ms.author="mandia"/>
 
@@ -103,4 +103,4 @@ Port | Por qué es necesario
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

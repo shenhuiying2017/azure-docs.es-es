@@ -130,9 +130,9 @@ Para obtener instrucciones sobre cómo agregar más cuentas de almacenamiento, c
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]La sintaxis *wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis *asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
+> [AZURE.NOTE]La sintaxis **wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis **asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
 
-> [AZURE.NOTE]La ruta de acceso *wasb://* es una ruta de acceso virtual. Para obtener más información, consulte [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight (Uso de almacenamiento de blobs de Azure compatible con HDFS con Hadoop in HDInsight)][hdinsight-storage].
+> [AZURE.NOTE]La ruta de acceso **wasb://* es una ruta de acceso virtual. Para obtener más información, consulte [Uso de almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
 
 Para acceder a un archivo almacenado en el blog del sistema de archivos predeterminado desde HDInsight se puede usar cualquiera de los URI siguientes (en los siguientes ejemplos se usa sample.log):
 
@@ -153,7 +153,7 @@ Creará dos tablas en la base de datos SQL de Azure o en SQL Server. Sqoop las u
 
 **Para una base de datos SQL de Azure**
 
-1. Abra Windows PowerShell ISE (en la pantalla Inicio de Windows 8, escriba **PowerShell_ISE** y, a continuación, haga clic en **Windows PowerShell ISE**. Consulte [Inicio de Windows PowerShell en Windows 8 y Windows][powershell-start]).
+1. Abra Windows PowerShell ISE (en la pantalla Inicio de Windows 8, escriba **PowerShell\_ISE** y, a continuación, haga clic en **Windows PowerShell ISE**. Consulte [Inicio de Windows PowerShell en Windows 8 y Windows][powershell-start]).
 
 2. Copie el script siguiente en el panel de scripts y, a continuación, establezca las primeras cuatro variables:
 
@@ -408,7 +408,7 @@ En esta sección, usará Azure PowerShell para ejecutar el comando de exportaci�
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	Tenga en cuenta el delimitador de campo es**\0x20**, que equivale a un espacio. El delimitador se define en el script de Azure PowerShell de archivo sample.log. Para obtener información sobre el valor**-m 1**, consulte el [manual del usuario de Sqoop (en inglés)][sqoop-user-guide-1.4.4].
+	Tenga en cuenta el delimitador de campo es**\\0x20**, que equivale a un espacio. El delimitador se define en el script de Azure PowerShell de archivo sample.log. Para obtener información sobre el valor**-m 1**, consulte el [manual del usuario de Sqoop (en inglés)][sqoop-user-guide-1.4.4].
 
 5. Haga clic en **Ejecutar script** o presione **F5** para ejecutar el script.
 6. Use el [Portal de Azure][azure-management-portal] para examinar los datos exportados.
@@ -620,9 +620,9 @@ En esta sección, volverá a importar los registros log4j (que ha exportado a la
 
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
-- [Uso de Oozie con HDInsight][hdinsight-use-oozie]: use la acción Sqoop en un flujo de trabajo de Oozie.
-- [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]: use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
-- [Carga de datos en HDInsight][hdinsight-upload-data]: busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
+- [Uso de Oozie con HDInsight][hdinsight-use-oozie]\: use la acción Sqoop en un flujo de trabajo de Oozie.
+- [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]\: use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
+- [Carga de datos en HDInsight][hdinsight-upload-data]\: busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
 
 
 
@@ -648,4 +648,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

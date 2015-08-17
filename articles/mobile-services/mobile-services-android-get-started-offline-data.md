@@ -45,7 +45,7 @@ Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de
 	    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 
-2. Agregue las siguientes instrucciones **import** *ToDoActivity.java*:
+2. Agregue las siguientes instrucciones **import** a *ToDoActivity.java*:
 
 		import java.util.Map;
 		
@@ -57,7 +57,7 @@ Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de
 		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType; 
 		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore; 
 
-3. Cerca de la parte superior de la clase `ToDoActivity`, cambie la declaración de la variable `mToDoTable` desde una clase `MobileServiceTable<ToDoItem>` a una clase `MobileServiceSyncTable<ToDoItem>`.
+3. Cerca de la parte superior de la clase `ToDoActivity`, cambie la declaración de la variable `mToDoTable` de una clase `MobileServiceTable<ToDoItem>` a una clase `MobileServiceSyncTable<ToDoItem>`.
 
 		 private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
@@ -84,7 +84,7 @@ Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de
 			// Get the Mobile Service Table instance to use
 			mToDoTable = mClient.getSyncTable(ToDoItem.class);
 
-5. Siguiendo el código anterior, que está dentro de un bloque `try`, agregue otro bloque `catch` siguiendo el de `MalformedURLException`:
+5. Siguiendo el código anterior, que está dentro de un bloque `try`, agregue otro bloque `catch` después de `MalformedURLException`:
 
 		} catch (Exception e) {
 			Throwable t = e;
@@ -129,7 +129,7 @@ Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de
 		}
 
 
-8. En el método `onCreate`, agregue este código como línea próxima a la última, directamente antes de la llamada a `refreshItemsFromTable`:
+8. En el método `onCreate`, agregue este código después de la última línea, directamente antes de la llamada a `refreshItemsFromTable`:
 
 			syncAsync();
 
@@ -174,14 +174,14 @@ Permite probar los escenarios siguientes.
 One thing which is important to point out: if there are pending changes in the local store, a pull operation will first push those changes to the server (so that if there are changes in the same row, the push operation will fail and the application has an opportunity to handle the conflicts appropriately). That means that the push call in the code above isn’t necessarily required, but I think it’s always a good practice to be explicit about what the code is doing.
 -->
 
-1. Coloque el dispositivo o el simulador en *modo avión*. Esto crea un escenario sin conexión.
+1. Coloque el dispositivo o el simulador en *Modo avión*. Esto crea un escenario sin conexión.
 
-2. Agregue algunos elementos *ToDo* o marque de alguno de los elementos como completados. Salga del dispositivo o del simulador (o fuerce el cierre de la aplicación) y reinicie. Compruebe que los cambios se conservan en el dispositivo porque se guardan en el almacén local de SQL Light.
+2. Agregue algunos elementos *ToDo* o marque algunos elementos como completados. Salga del dispositivo o del simulador (o fuerce el cierre de la aplicación) y reinicie. Compruebe que los cambios se conservan en el dispositivo porque se guardan en el almacén local de SQL Light.
 
-3. Vea el contenido de la tabla *TodoItem* de Azure: Compruebe que los nuevos elementos _no_ se han sincronizado con el servidor:
+3. Consulte el contenido de la tabla *TodoItem* de Azure. Compruebe que los nuevos elementos _no_ se han sincronizado con el servidor:
 
    - Para el backend de JavaScript, vaya al Portal de administración y haga clic en la pestaña Datos para ver el contenido de la tabla `TodoItem`.
-   - En el back-end de .NET, vea el contenido de la tabla con una herramienta SQL, como *SQL Server Management Studio*, o con un cliente REST como *Fiddler* o *Postman*.
+   - Para el back-end de .NET, consulte el contenido de la tabla con una herramienta SQL, como *SQL Server Management Studio*, o con un cliente REST como *Fiddler* o *Postman*.
 
 4. Active la red inalámbrica en el dispositivo o el simulador. Después, presione el botón **Actualizar**.
 
@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial del Inicio rápido de Servicios móviles]: mobile-services-android-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

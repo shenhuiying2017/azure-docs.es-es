@@ -41,4 +41,4 @@ Si utiliza la autenticación multifactor con Office 365 deberá administrar la c
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-manage-o365/addsec.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

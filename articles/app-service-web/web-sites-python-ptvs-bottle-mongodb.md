@@ -98,7 +98,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
 1.  En el [Portal de administración de Azure], haga clic en **MARKETPLACE** y, a continuación, en el servicio de MongoLab que ha creado anteriormente.
 
-1.  Haga clic en **INFORMACIÓN DE CONEXIÓN**. Puede usar el botón Copiar para colocar el valor de **MONGOLAB_URI** en el Portapapeles.
+1.  Haga clic en **INFORMACIÓN DE CONEXIÓN**. Puede usar el botón Copiar para colocar el valor de **MONGOLAB\_URI** en el Portapapeles.
 
   	<!--![Connection Info Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonMongoLabConnectionInfo.png) -->
 
@@ -128,17 +128,17 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
 Puede usar una aplicación como [RoboMongo] para consultar una base de datos MongoDB y realizar modificaciones en ella. En esta sección, vamos a utilizar RoboMongo para ver el contenido de la base de datos de la aplicación de sondeos.
 
-1.  Cree una conexión nueva. Necesitará el valor de **MONGOLAB_URI** que hemos recuperado en la sección anterior.
+1.  Cree una conexión nueva. Necesitará el valor de **MONGOLAB\_URI** que hemos recuperado en la sección anterior.
 
     Tenga en cuenta el formato del URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     El nombre coincide con el nombre indicado al crear el servicio con Azure. Se usa para el nombre de la base de datos y para el nombre de usuario.
 
-1.  En la página de conexión, establezca el valor **Nombre** con el nombre que desee para la conexión. Defina también los campos **Dirección** y **Puerto** para la *dirección* y el *puerto* de **MONGOLAB_URI**.
+1.  En la página de conexión, establezca el valor **Nombre** con el nombre que desee para la conexión. Defina también los campos **Dirección** y **Puerto** para la *dirección* y el *puerto* de **MONGOLAB\_URI**.
 
   	![Cuadro de diálogo Configuración de conexión](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  En la página de autenticación, defina los valores **Base de datos** y **Nombre de usuario** para el *nombre* de **MONGOLAB_URI**. Defina también el valor **Contraseña** para la *contraseña* de **MONGOLAB_URI**.
+1.  En la página de autenticación, defina los valores **Base de datos** y **Nombre de usuario** para el *nombre* de **MONGOLAB\_URI**. Defina también el valor **Contraseña** para la *contraseña* de **MONGOLAB\_URI**.
 
   	![Cuadro de diálogo Configuración de conexión](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -183,7 +183,7 @@ En esta sección, vamos a configurar las variables del entorno para la instancia
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Desplácese hacia abajo hasta la sección **Configuración de la aplicación** y establezca los valores para **REPOSITORY_NAME**, **MONGODB_HOST** y **MONGODB_DATABASE**, como se describe en la sección anterior.
+1.  Desplácese hacia abajo hasta la sección **Configuración de la aplicación** y establezca los valores para **REPOSITORY\_NAME**, **MONGODB\_HOST** y **MONGODB\_DATABASE**, como se describe en la sección anterior.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png) -->
 
@@ -238,4 +238,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

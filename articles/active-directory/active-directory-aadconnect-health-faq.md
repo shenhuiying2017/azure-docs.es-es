@@ -43,7 +43,7 @@ Los números siguientes son una aproximación.
 - Consumo de CPU: aumento de ~1%
 - Consumo de memoria: hasta 10 % de la memoria total del sistema
 - Uso de ancho de banda de la red: ~1 MB por cada 1000 solicitudes de ADFS
->[AZURE.NOTE]En el caso de que el agente no pueda comunicarse con Azure, almacenará los datos de forma local, hasta un límite máximo de un 10 % de la memoria total del sistema. Una vez que el agente alcance el 10% de ese total, si no ha podido cargar los datos en el servicio, las nuevas transacciones ADFS sobrescribirán cualquier transacción almacenada en caché basándose en “el menos atendido recientemente”.
+>[AZURE.NOTE]Ante la eventualidad de que el agente no pueda comunicarse con Azure, el agente almacenará localmente los datos, hasta un límite máximo de 10 % de la memoria total del sistema. Una vez que el agente alcance el 10 % de la memoria física total, si no hay podido cargar los datos al servicio, las nuevas transacciones ADFS sobreescribirán cualquier transacción almacenada en caché o que haya sido menos atendida recientemente.
 
 
 - Almacenamiento en búfer local para el agente de AD Health: ~20 MB
@@ -129,4 +129,4 @@ Las alertas de Azure AD Connect Health se resuelven con una condición de aciert
 
 Deberá abrir los puertos 80 y 443 TCP/UDP para que el agente de Azure AD Connect Health pueda comunicarse con los extremos de servicio de Azure AD Health.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

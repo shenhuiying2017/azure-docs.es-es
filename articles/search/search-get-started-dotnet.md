@@ -129,7 +129,7 @@ Cada proyecto incluye archivos de configuración que especifican el nombre del s
 
 1. En **DataIndexer**, reemplace App.config por el siguiente ejemplo y actualice [SERVICE NAME] y [SERVICE KEY] con valores que sean válidos para el servicio.
 
-   El nombre del servicio no es la dirección URL completa. Por ejemplo, si el extremo de servicio de Búsqueda es *https://mysearchsrv.search.microsoft.net*, el nombre de servicio que escribirá en App.config es *mysearchsrv*.
+   El nombre del servicio no es la dirección URL completa. Por ejemplo, si el extremo de servicio de Búsqueda es **https://mysearchsrv.search.microsoft.net*, el nombre de servicio que escribirá en App.config es *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
@@ -798,4 +798,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

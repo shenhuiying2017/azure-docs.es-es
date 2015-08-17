@@ -80,7 +80,7 @@ En las tablas siguientes se enumeran los errores comunes que pueden aparecer en 
 
 | Nº| Mensaje de error | Causas posibles | Acción recomendada |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard: Parámetro no válido (excepción de HRESULT: 0x80070057) | Uno de los parámetros proporcionados para la configuración del proxy no es válido.| El URI no se indica con el formato correcto. Utilice el siguiente formato: http://*<IP address or FQDN of the web proxy server>*: *<TCP port number>* |
+| 1 | Invoke-HcsSetupWizard: Parámetro no válido (excepción de HRESULT: 0x80070057) | Uno de los parámetros proporcionados para la configuración del proxy no es válido.| El URI no se indica con el formato correcto. Use el siguiente formato: http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
 | 2 | Invoke-HcsSetupWizard: Servidor RPC no disponible (excepción de HRESULT: 0x800706ba) | La causa principal es una de las siguientes:<ol><li>El clúster no está activo.</li><li>El controlador pasivo no puede comunicarse con el controlador activo y el comando se ejecuta desde el controlador pasivo.</li></ol> | Dependiendo de la causa principal:<ol><li>[Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para asegurarse de que el clúster está activo.</li><li>Ejecute el comando desde el controlador activo. Si desea ejecutar el comando desde el controlador pasivo, deberá asegurarse de que el controlador pasivo puede comunicarse con el controlador activo. Tendrá que [ponerse en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) si se interrumpe la conectividad.</li></ol> |
 | 3 | Invoke-HcsSetupWizard: Error en la llamada RPC (excepción de HRESULT: 0x800706be) | El clúster está inactivo. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para asegurarse de que el clúster está activo.|
 | 4 | Invoke-HcsSetupWizard: El recurso de clúster no se encontró (excepción de HRESULT: 0x8007138f). | No se encuentra el recurso de clúster. Esto puede ocurrir si la instalación no se realizó correctamente. | Puede que necesite restablecer la configuración predeterminada de fábrica del dispositivo. [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para crear un recurso de clúster.|
@@ -167,8 +167,8 @@ Un paquete de soporte contiene todos los registros relevantes que pueden ayudar 
 
 5. Cuando los registros se abran en el Visor de eventos, busque los siguientes registros, que contienen problemas relacionados con la configuración del dispositivo:
 
-  - hcs_pfconfig/registro operativo
-  - hcs_pfconfig/registro de configuración
+  - hcs\_pfconfig/registro operativo
+  - hcs\_pfconfig/registro de configuración
 
 6. En los archivos de registro, busque cadenas relacionadas con los cmdlets a los que llama el Asistente para instalación. Consulte [Proceso del Asistente para instalación por primera vez](#first-time-setup-wizard-process) para obtener una lista de estos cmdlets. 
 
@@ -575,4 +575,4 @@ El error puede deberse a alguna de las siguientes causas:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

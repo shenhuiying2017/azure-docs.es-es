@@ -114,7 +114,7 @@ Este desencadenador se activa cuando hay un documento disponible en ’Documento
 
 Nombre | Obligatorio | Descripción
 --- | --- | ---
-Nombre de vista | No | Especifique una vista válida para filtrar los documentos que se deben seleccionar. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los documentos existentes, deje este campo en blanco. 
+Nombre de vista | No | Especifique una vista válida para filtrar los documentos que se deben seleccionar. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los documentos existentes, deje este campo en blanco.
 Ubicación del archivo | No | Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los documentos procesados.
 Sobrescribir en archivo | No | Active esta opción para sobrescribir un archivo en la ruta de los archivos, en caso de que ya exista.
 Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar documentos. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -122,7 +122,7 @@ Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtra
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 Nombre | Nombre del documento.
 Contenido | Contenido del documento.
 ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none"o ”base64”)
@@ -137,14 +137,14 @@ Este desencadenador se activa cuando se agrega un nuevo elemento a la lista ’T
 
 Nombre | Obligatorio | Descripción
 --- | --- | ---
-Nombre de vista | No | Especifique una vista válida utilizada para filtrar elementos en la lista. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los nuevos elementos, deje este campo en blanco. 
+Nombre de vista | No | Especifique una vista válida utilizada para filtrar elementos en la lista. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los nuevos elementos, deje este campo en blanco.
 Ubicación del archivo | No | Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los elementos de lista procesados.
 Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar documentos. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 Las columnas de la lista se rellenan dinámicamente y se muestran en los parámetros de salida. | &nbsp;
 
 
@@ -156,7 +156,7 @@ Este desencadenador se activa cuando hay un documento disponible en ’Documento
 
 Nombre | Obligatorio | Descripción
 --- | --- | ---
-Nombre de vista | No | Especifique una vista válida para filtrar los documentos que se deben seleccionar. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los documentos existentes, deje este campo en blanco. 
+Nombre de vista | No | Especifique una vista válida para filtrar los documentos que se deben seleccionar. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los documentos existentes, deje este campo en blanco.
 Ubicación del archivo | No | Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los documentos de lista procesados.
 Sobrescribir en archivo | No | Active esta opción para sobrescribir un archivo en la ruta de los archivos, en caso de que ya exista.
 Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar documentos. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
@@ -164,7 +164,7 @@ Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtra
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 Contenido | Contenido del documento.
 ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none"o ”base64”)
 
@@ -177,14 +177,14 @@ Este desencadenador se activa cuando se agrega un nuevo elemento a la lista ’T
 
 Nombre | Obligatorio | Descripción
 --- | --- | ---
-Nombre de vista | No | Especifique una vista válida utilizada para filtrar elementos en la lista. Ejemplo: 'Pedidos aprobados'. Para procesar todos los nuevos elementos, deje este campo en blanco. 
+Nombre de vista | No | Especifique una vista válida utilizada para filtrar elementos en la lista. Ejemplo: 'Pedidos aprobados'. Para procesar todos los nuevos elementos, deje este campo en blanco.
 Ubicación del archivo | No | Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los elementos de lista procesados.
 Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar los elementos de lista. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 Contenido | Contenido del documento.
 ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none"o ”base64”)
 
@@ -214,7 +214,7 @@ OptionalParam2* | No. Avanzado | Se trata de uno de los parámetros opcionales p
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 ItemId | Id. de elemento del documento agregado a la biblioteca de documentos.
 Estado | Si la carga del documento es correcta, se devuelve el código de estado 200 (correcto).
 
@@ -233,8 +233,8 @@ Dirección URL relativa del documento | No | Especifique la dirección URL del d
 #### Salida
 
 Nombre | Descripción
---- | --- 
-Contenido | Contenido del documento 
+--- | ---
+Contenido | Contenido del documento
 ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none" o ”base64”)
 Estado | Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).
 Param1* | Se trata de uno de los parámetros de un documento en la biblioteca de documentos.
@@ -242,7 +242,7 @@ Param2* | Se trata de uno de los parámetros de un documento en la biblioteca de
 
 **Nota**: todos los parámetros de la biblioteca de documentos se rellenan de forma dinámica. Y se encuentran en la sección avanzada.
 
- 
+ 
 
 ### 3. Eliminación de elementos de los documentos compartidos
 
@@ -257,7 +257,7 @@ Dirección URL relativa del documento | No | Especifique la dirección URL del d
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 Estado | Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).
 
 
@@ -279,7 +279,7 @@ OptionalParam2* | No. Avanzado | Se trata de uno de los parámetros necesarios p
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 ItemId | Id. de elemento del elemento de la lista agregado.
 Estado | Si la inserción del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
@@ -303,7 +303,7 @@ OptionalParam2* | No. Avanzado | Se trata de uno de los parámetros necesarios p
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 Estado | Si la actualización del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
 
@@ -320,7 +320,7 @@ ItemId | Sí | Id. de elemento del elemento de la lista.
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 Column1* | Se trata de uno de los parámetros en la lista.
 Column2* | Se trata de uno de los parámetros en la lista.
 Estado | Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).
@@ -353,13 +353,13 @@ Esta acción enumera todos los documentos incluidos en una biblioteca de documen
 
 Nombre | Obligatorio | Descripción
 --- | --- | ---
-Nombre de vista | No | Especifique una vista válida para filtrar los documentos que se deben seleccionar. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los documentos existentes, deje este campo en blanco. 
+Nombre de vista | No | Especifique una vista válida para filtrar los documentos que se deben seleccionar. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los documentos existentes, deje este campo en blanco.
 Consulta Caml | No | Especifique una consulta Caml válida para filtrar documentos. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 Documentos | Conjunto de todos los documentos. Cada documento tiene los siguientes campos: <ul><li>Documentos </li><li>Nombre</li><li>Id. de elemento</li><li>URL completa del elemento</li><li>Avanzado</li><li>URL de edición de elemento</li><li>Nombre de lista</li><li>URL completa de la lista</li></ul>
 Estado | Si la inserción del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
@@ -367,7 +367,7 @@ Estado | Si la inserción del elemento de lista es correcta, se devuelve el cód
 ### 9. Elemento cargado en los documentos compartidos (XML)
 
 Esta acción carga un nuevo documento en ’Documentos compartidos’. El documento de entrada debe ser una carga XML. La respuesta de la acción será una carga XML.
- 
+ 
 #### Entrada
 
 Nombre | Obligatorio | Descripción
@@ -376,11 +376,11 @@ Nombre | Sí | Nombre del documento.
 Contenido | Sí | Contenido del documento.
 ContentTransferEncoding | Sí | Codificación de transferencia de contenido del mensaje. ("none" o ”base64”)
 Forzar sobrescritura | Sí | Si se establece como TRUE y existe un documento con el nombre especificado, este se sobrescribe.
- 
+ 
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 XML de salida | Respuesta de la acción de carga en formato XML.
 Estado | Si la carga del documento es correcta, se devuelve el código de estado 200 (correcto).
 
@@ -398,7 +398,7 @@ Tipo de archivo | Sí | Especifique si el archivo es binario o de texto.
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 XML de salida | Contenido del documento
 ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none" o ”base64”)
 Estado | Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).
@@ -482,6 +482,5 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-sharepoint/image_4.jpg
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
- 
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

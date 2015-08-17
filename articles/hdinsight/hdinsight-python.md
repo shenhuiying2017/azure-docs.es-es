@@ -109,13 +109,13 @@ Un script de Python se puede usar como UDF desde Pig a través de la instrucció
 
 A continuación se muestra cómo funciona este ejemplo:
 
-1. Registra el archivo que contiene el script de Python (**jython.py**) mediante **Jython** y lo expone a Pig como **myfuncs**. Jython es una implementación de Python en Java, y se ejecuta en la misma máquina virtual Java que Pig. Esto nos permite tratar el script de Python como una llamada a función tradicional frente al enfoque de transmisión por secuencias usado con Hive.
+1. Registra el archivo que contiene el script de Python (**jython.py**), mediante **Jython**, y lo expone a Pig como **myfuncs**. Jython es una implementación de Python en Java, y se ejecuta en la misma máquina virtual Java que Pig. Esto nos permite tratar el script de Python como una llamada a función tradicional frente al enfoque de transmisión por secuencias usado con Hive.
 
-2. La siguiente línea carga el archivo de datos de ejemplo **sample.log** en **LOGS**. Como este archivo de registro no tiene un esquema coherente, también define cada registro (en este caso **LINE**) como **chararray**. Chararray es básicamente una cadena.
+2. La siguiente línea carga el archivo de datos de ejemplo **sample.log** en **LOGS**. Como este archivo de registro no tiene un esquema coherente, también define cada registro (en este caso **LINE**) como una **chararray**. Chararray es básicamente una cadena.
 
 3. La tercera línea filtra los valores nulos y almacena el resultado de la operación en **LOG**.
 
-4. A continuación, recorre en iteración los registros de **LOG** y usa **GENERATE** para invocar el método **create_structure** contenido en el script **jython.py** cargado como **myfuncs**. **LINE** se usa para pasar el registro actual a la función.
+4. A continuación, recorre en iteración los registros de **LOG** y usa **GENERATE** para invocar el método **create\_structure** contenido en el script **jython.py** cargado como **myfuncs**. **LINE** se usa para pasar el registro actual a la función.
 
 5. Por último, los resultados se vuelcan en STDOUT con el comando **DUMP**. Esta acción se realiza para mostrar inmediatamente los resultados una vez que la operación ha finalizado; en un script real los datos se almacenarían (**STORE**) normalmente en un nuevo archivo.
 
@@ -138,9 +138,9 @@ Recuerde que anteriormente hemos definido la entrada **LINE** como chararray por
 	* level: el nivel de registro
 	* detail: los detalles de la entrada del registro
 
-2. A continuación, **def create_structure(input)** define la función a la que Pig pasará elementos de línea.
+2. A continuación, **def create\_structure(input)** define la función a la que Pig pasará elementos de línea.
 
-3. Los datos de ejemplo, **sample.log**, se ajustan principalmente al esquema de date, time, classname, level y detail que queremos devolver. Pero también contiene unas cuantas líneas que comienzan por la cadena '*java.lang.Exception*' y que han de modificarse para que coincidan con el esquema. La instrucción if las busca, y luego modifica los datos de entrada para mover la cadena '*java.lang.Exception*' al final, de forma que pone los datos en línea con nuestro esquema de salida esperado.
+3. Los datos de ejemplo, **sample.log**, se ajustan principalmente al esquema de date, time, classname, level y detail que queremos devolver. Pero también contiene unas cuantas líneas que comienzan por la cadena '*java.lang.Exception*' y que han de modificarse para que coincidan con el esquema. La instrucción **if** las busca, y luego modifica los datos de entrada para mover la cadena '*java.lang.Exception*' al final, de forma que pone los datos en línea con nuestro esquema de salida esperado.
 
 4. A continuación, se usa el comando **split** para dividir los datos en los primeros cuatro caracteres de espacio. El resultado son cinco valores, que se asignan a **date**, **time**, **classname**, **level** y **detail**.
 
@@ -330,4 +330,4 @@ Para conocer otras formas de usar Pig y Hive, y para obtener información sobre 
 
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

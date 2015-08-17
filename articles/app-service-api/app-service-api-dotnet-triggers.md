@@ -256,7 +256,7 @@ Por ejemplo, el parámetro **triggerState** para los desencadenadores de sondeo 
 
 NOTA: para obtener una explicación de las funciones utilizadas en la expresión anterior, consulte la documentación sobre el [lenguaje de definición del flujo de trabajo de la aplicación lógica](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Los usuarios de la aplicación lógica deben proporcionar la expresión anterior para el parámetro **triggerState** mientras usan el desencadenador. Este valor se puede preconfigurar en el diseñador de aplicaciones lógicas mediante la propiedad de extensión **x-ms-scheduler_recommendation**. La propiedad de extensión **x-ms-visibility** se puede establecer en el valor *internal*, de modo que el propio parámetro no se muestre en el diseñador. El siguiente fragmento de código ilustra este hecho.
+Los usuarios de la aplicación lógica deben proporcionar la expresión anterior para el parámetro **triggerState** mientras usan el desencadenador. Este valor se puede preconfigurar en el diseñador de aplicaciones lógicas mediante la propiedad de extensión **x-ms-scheduler\_recommendation**. La propiedad de extensión **x-ms-visibility** se puede establecer en el valor *internal*, de modo que el propio parámetro no se muestre en el diseñador. El siguiente fragmento de código ilustra este hecho.
 
     "/api/Messages/poll": {
       "get": {
@@ -341,4 +341,4 @@ El siguiente es un ejemplo de cómo esta clase se puede implementar para facilit
     }
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

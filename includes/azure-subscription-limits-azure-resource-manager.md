@@ -35,6 +35,11 @@
    <td valign="middle"><p>1200 por hora</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>Tamaño de recursos de API de Administrador de recursos</p></td>
+   <td valign="middle"><p>4194304 bytes</p></td>
+   <td valign="middle"><p>4194304 bytes</p></td>
+</tr>
+<tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Servicios en la nube</a> por suscripción</p></td>
    <td valign="middle"><p>En desuso<sup>3</sup></p></td>
    <td valign="middle"><p>En desuso<sup>3</sup></p></td>
@@ -52,4 +57,4 @@
 
 <sup>3</sup>Estas características ya no son necesarias con los grupos de recursos de Azure y el Administrador de recursos de Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

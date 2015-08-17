@@ -33,15 +33,15 @@ Agregue un intervalo de direcciones IP públicas del mismo modo que agregaría u
 
 Hay algunos intervalos de direcciones IP que no están permitidos:
 
-- 224.0.0.0/4 (multidifusión)
+- 224\.0.0.0/4 (multidifusión)
 
-- 255.255.255.255/32 (difusión)
+- 255\.255.255.255/32 (difusión)
 
-- 127.0.0.0/8 (bucle invertido)
+- 127\.0.0.0/8 (bucle invertido)
 
-- 169.254.0.0/16 (local de vínculo)
+- 169\.254.0.0/16 (local de vínculo)
 
-- 68.63.129.16/32 (DNS interno)
+- 68\.63.129.16/32 (DNS interno)
 
 ## Pasos siguientes
 
@@ -51,4 +51,4 @@ Hay algunos intervalos de direcciones IP que no están permitidos:
 
 [Eliminación de una red virtual](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

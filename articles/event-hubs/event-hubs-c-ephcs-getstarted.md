@@ -12,7 +12,7 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="c"
 	ms.devlang="csharp"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
@@ -116,4 +116,4 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

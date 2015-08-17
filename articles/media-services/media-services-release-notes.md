@@ -54,11 +54,19 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 ### <a id="general_issues"></a>Problemas generales de Servicios multimedia
 
-<table border="1"> <tr><th>Problema</th><th>Descripción</yt></tr> <tr><td>Varios encabezados comunes HTTP no se proporcionan en la API de REST.</td><td>Si desarrolla aplicaciones de Servicios multimedia mediante la API de REST, encontrará que algunos campos de encabezado comunes HTTP (como CLIENT-REQUEST-ID, REQUEST-ID y RETURN-CLIENT-REQUEST-ID) no se admiten. Los encabezados se agregarán en una futura actualización.</td></tr> <tr><td>Al codificar un activo con un nombre de archivo que contiene caracteres de escape (por ejemplo, %20), se muestra el error "MediaProcessor: archivo no encontrado".</td><td>Los nombres de archivos que se van a agregar a un activo y que luego se van a codificar deben contener caracteres alfanuméricos y espacios. El problema se corregirá en una futura actualización.</td></tr> <tr><td>El método ListBlobs, que forma parte del SDK de almacenamiento de Azure versión 3.x genera un error.</td>Los Servicios multimedia generan URL de SAS basadas en la versión del<td> Services genera direcciones URL de SAS basadas en la versión del <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">12-02-2012</a>. Si desea usar el SDK de almacenamiento de Azure para mostrar los blobs de un contenedor de blobs, utilice el método <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> que es parte del SDK de almacenamiento de Azure, versión 2.x. El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funcionará correctamente.</td></tr> <tr><td>El mecanismo de limitación de Servicios multimedia restringe el uso de recursos en las aplicaciones que realizan un número excesivo de solicitudes al servicio. El servicio puede devolver el código de estado HTTP de servicio no disponible (503).</td><td>Para obtener más información, consulte la descripción del código de estado HTTP 503 en el tema <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Códigos de error de Servicios multimedia de Azure</a>.</td></tr> </table><br/>
- 
+Problema|Descripción
+---|---
+Varios encabezados comunes HTTP no se proporcionan en la API de REST.|Si desarrolla aplicaciones de Servicios multimedia mediante la API de REST, encontrará que algunos campos de encabezado comunes HTTP (como CLIENT-REQUEST-ID, REQUEST-ID y RETURN-CLIENT-REQUEST-ID) no se admiten. Los encabezados se agregarán en una futura actualización.
+Al codificar un activo con un nombre de archivo que contiene caracteres de escape (por ejemplo, %20), se muestra el error "MediaProcessor: archivo no encontrado".|Los nombres de archivos que se van a agregar a un activo y que luego se van a codificar deben contener caracteres alfanuméricos y espacios. El problema se corregirá en una futura actualización.
+El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funciona correctamente.|Los Servicios multimedia generan URL de SAS basadas en la versión del [12-02-2012](http://msdn.microsoft.com/library/azure/dn592123.aspx). Si desea usar el SDK de almacenamiento de Azure para mostrar los blobs de un contenedor de blobs, utilice el método [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que es parte del SDK de almacenamiento de Azure, versión 2.x. El método ListBlobs que es parte del SDK de almacenamiento de Azure, versión 3.x, no funcionará correctamente.
+El mecanismo de limitación de Servicios multimedia restringe el uso de recursos en las aplicaciones que realizan un número excesivo de solicitudes al servicio. El servicio puede devolver el código de estado HTTP de servicio no disponible (503).|Para obtener más información, consulte la descripción del código de estado HTTP 503 en el tema [Códigos de error de Azure Media Services](http://msdn.microsoft.com/library/azure/dn168949.aspx).
+
+
 ### <a id="dotnet_issues"></a>Problemas del SDK .NE de Servicios multimedia
 
-<table border="1"> <tr><th>Problema</th><th>descripción</yt></tr> <tr><td>Los objetos de Servicios multimedia del SDK no se pueden serializar y, como resultado, no funcionan con el almacenamiento en caché de Azure.</td><td>Si intenta serializar el objeto AssetCollection del SDK para agregarlo al almacenamiento en caché de Azure, se produce una excepción.</td></tr> </table><br/>
+Problema|Descripción
+---|---
+Los objetos de Servicios multimedia del SDK no se pueden serializar y, como resultado, no funcionan con el almacenamiento en caché de Azure.|Si intenta serializar el objeto AssetCollection del SDK para agregarlo al almacenamiento en caché de Azure, se produce una excepción.
 
 ##<a id="rest_version_history"></a>Historial de versiones de API de REST
 
@@ -68,7 +76,7 @@ Para obtener información sobre el historial de versiones de la API de REST de S
 
 Anuncia la disponibilidad general de Media Encoder estándar. Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Media Encoder estándar utiliza valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada **Premium **. Para obtener más información, consulte [Escalado de codificación](media-services-portal-encoding-units).
+Media Encoder Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalado de codificación](media-services-portal-encoding-units).
 
 
 ###Actualizaciones del SDK .NET de Servicios multimedia
@@ -79,7 +87,7 @@ Ahora la versión del SDK de Servicios multimedia para .NET de Azure es la 3.4.0
 - Se ha implementado compatibilidad para filtros dinámicos.
 - Se ha implementado compatibilidad una funcionalidad que permite a los usuarios a mantener el contenedor de almacenamiento al eliminar el recurso.
 - Correcciones de errores relacionados con directivas de reintentos en canales.
-- Para más información, consulte **Flujo de trabajo de Codificador multimedia Premium**.
+- **Flujo de trabajo premium de codificación de medios** habilitado.
 
 ##<a id="june_changes_15"></a>Versión de junio de 2015
 
@@ -554,4 +562,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

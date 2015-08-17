@@ -81,7 +81,7 @@ Si usa el back-end de .NET para el servicio móvil, siga estos pasos para actual
           }
 
 
-3. En el Explorador de soluciones de Visual Studio, expanda la carpeta **App_Start** y abra el archivo WebApiConfig.cs.
+3. En el Explorador de soluciones de Visual Studio, expanda la carpeta **App\_Start** y abra el archivo WebApiConfig.cs.
 
     En el archivo WebApiConfig.cs, observe que la clase del inicializador de base de datos predeterminado procede de la clase `DropCreateDatabaseIfModelChanges`. Esto significa que cualquier cambio en el modelo tendrá como resultado la anulación y la recreación de la tabla para adaptarse al modelo nuevo. De esta manera, los datos de la tabla se pierden y la tabla se reinicializa. Modifique el método Seed del inicializador de base de datos para que la inicialización de `Seed()` funcione como sigue para inicializar la nueva columna DueDate. Guarde el archivo WebApiConfig.cs.
 
@@ -240,4 +240,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

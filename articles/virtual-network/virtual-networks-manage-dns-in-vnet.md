@@ -65,4 +65,4 @@ Para editar una lista de servidores DNS mediante el uso de un archivo de configu
 
 [Eliminación de una red virtual](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -93,4 +93,4 @@ Las IP de confianza permiten a los usuarios omitir Azure Multi-Factor Authentica
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

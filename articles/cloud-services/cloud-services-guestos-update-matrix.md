@@ -326,4 +326,4 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

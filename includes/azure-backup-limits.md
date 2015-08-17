@@ -13,4 +13,4 @@ Los límites siguientes corresponden a Copia de seguridad de Azure.
 - <sup>1</sup>El límite de 1,65 TB no se aplica a la copia de seguridad de máquinas virtuales IaaS.
 - <sup>2</sup>Puede usar cualquier permutación cuyo resultado sea un número inferior a 366.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

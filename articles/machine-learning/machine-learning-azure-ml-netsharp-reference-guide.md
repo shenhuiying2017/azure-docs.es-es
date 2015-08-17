@@ -188,7 +188,7 @@ Para obtener más información acerca de las redes convolucionales y sus aplicac
 
 -	[http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
 -	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
--	[http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
+-	[http://people.csail.mit.edu/jvb/papers/cnn\_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
 ##Conjuntos de agrupación
 Un **conjunto de agrupación** aplica una geometría similar a la conectividad convolucional, pero usa funciones predefinidas sobre los valores de los nodos de origen para derivar el valor del nodo de destino. Por tanto, los conjuntos de agrupación no tienen estado entrenable (ponderaciones o sesgos). Los paquetes de agrupación admiten todos los atributos convolucionales, excepto **Sharing**, **MapCount** y **Weights**.
@@ -401,4 +401,4 @@ La definición de la siguiente red está diseñada para reconocer los números y
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

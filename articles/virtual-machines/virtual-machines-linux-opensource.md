@@ -228,7 +228,7 @@ En esta sección se incluye información acerca de distintos enfoques y tecnolog
     - [Arquitectura de MySQL de alta disponibilidad en Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [Creación de un clúster con varios maestros de MariaDbs](virtual-machines-mariadb-cluster.md)
-8. [Instalación de Postgres con corosync, pg_bouncer con ILB](https://github.com/chgeuer/postgres-azure)
+8. [Instalación de Postgres con corosync, pg\_bouncer con ILB](https://github.com/chgeuer/postgres-azure)
 
 
 ## Autenticación y cifrado
@@ -296,4 +296,4 @@ Esta sección comienza con una entrada de blog que contiene una serie de vídeos
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

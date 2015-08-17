@@ -58,4 +58,4 @@ Pruebe el siguiente ejemplo: [Análisis de datos de sensor usando Hive con HDIns
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

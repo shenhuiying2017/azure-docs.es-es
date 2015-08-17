@@ -114,7 +114,9 @@ En esta tarea, configurará ACS para reconocer la aplicación web de Java como u
 3.  En la página **Adición de aplicación de usuarios de confianza**, haga lo siguiente:
     1.  En **Nombre**, escriba el nombre del RP. Para los fines de este tutorial, escriba **Azure Web App**.
     2.  En **Modo**, seleccione **Especificar la configuración manualmente**.
-    3.  En **Territorio**, escriba el URI al que se aplica el token de seguridad que emitió ACS. Para esta tarea, escriba **http://localhost:8080/**. ![El dominio de usuario de confianza para utilizar en el emulador de proceso][relying_party_realm_emulator] 4.  En **Dirección URL de retorno**, escriba la dirección URL a la cual ACS devuelve el token de seguridad. Para esta tarea, escriba **http://localhost:8080/MyACSHelloWorld/index.jsp** ![La dirección URL de retorno de usuario de confianza para utilizar en el emulador de proceso][relying_party_return_url_emulator] 5.  Acepte los valores predeterminados en el resto de los campos.
+    3.  En **Territorio**, escriba el URI al que se aplica el token de seguridad que emitió ACS. Para esta tarea, escriba ****http://localhost:8080/**. ![El dominio de usuario de confianza para utilizar en el emulador de proceso][relying_party_realm_emulator]
+4.  En **Dirección URL de retorno**, escriba la dirección URL a la cual ACS devuelve el token de seguridad. Para esta tarea, escriba ****http://localhost:8080/MyACSHelloWorld/index.jsp** ![La dirección URL de retorno de usuario de confianza para utilizar en el emulador de proceso][relying_party_return_url_emulator]
+5.  Acepte los valores predeterminados en el resto de los campos.
 
 4.  Haga clic en **Guardar**.
 
@@ -250,7 +252,7 @@ Para analizar el lenguaje de marcado de aserción de seguridad (SAML) que devuel
 
 Además, en este ejemplo se utilizó la opción **Insertar el certificado en el archivo WAR**. Esta opción facilita la implementación del certificado. Si, por el contrario, desea mantener el certificado de firma independiente del archivo WAR, puede utilizar la siguiente técnica:
 
-1. En la sección **Seguridad** del cuadro de diálogo **Filtro de servicios de control de acceso de Azure**, escriba **${env.JAVA_HOME}/mycert.cer** y desactive la opción **Insertar el certificado en el archivo WAR**. (Ajuste mycert.cer si el nombre del archivo de certificado es distinto). Haga clic en **Finalizar** para cerrar el cuadro de diálogo.
+1. En la sección **Seguridad** del cuadro de diálogo **Filtro de servicios de control de acceso de Azure**, escriba **${env.JAVA\_HOME}/mycert.cer** y desactive la opción **Insertar el certificado en el archivo WAR**. (Ajuste mycert.cer si el nombre del archivo de certificado es distinto). Haga clic en **Finalizar** para cerrar el cuadro de diálogo.
 2. En el explorador de proyectos de Eclipse, expanda **MyAzureACSProject**, haga clic con el botón derecho en **WorkerRole1**, haga clic en **Propiedades**, expanda **Rol de azure** y, a continuación, haga clic en **Componentes**.
 3. Haga clic en **Agregar**.
 4. Dentro del cuadro de diálogo **Agregar componente**:
@@ -260,7 +262,7 @@ Además, en este ejemplo se utilizó la opción **Insertar el certificado en el 
     2. En **Como nombre**, haga clic en el cuadro de texto y acepte el nombre predeterminado.
     3. En la sección **Implementación**:
         1. En **Método**, seleccione **copiar**.
-        2. En **Directorio de destino**, escriba **%JAVA_HOME%**.
+        2. En **Directorio de destino**, escriba **%JAVA\_HOME%**.
     4. El cuadro de diálogo **Agregar componente** debe parecerse al siguiente.
 
         ![Agregar componente de certificado][add_cert_component]
@@ -307,4 +309,4 @@ En este punto, su certificado se incluiría en la implementación. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

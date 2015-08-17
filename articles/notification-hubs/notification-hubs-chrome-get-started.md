@@ -129,7 +129,7 @@ La aplicación Chrome se crea con JavaScript y puede utilizar su editor de texto
 		  "icons": { "128": "gcm_128.png" }
 		}
 
-	Observe el elemento *permissions* que especifica que esta aplicación de Chrome puede recibir notificaciones push de GCM. También debe especificar el URI del Centro de notificaciones de Azure donde la aplicación Chrome realizará una llamada REST para registrarse. Utiliza un gcm_128.png del archivo de icono que encontrará en el origen reutilizado de la muestra original de GCM. Puede utilizar cualquier imagen que desee.
+	Observe el elemento *permissions* que especifica que esta aplicación de Chrome puede recibir notificaciones push de GCM. También debe especificar el URI del Centro de notificaciones de Azure donde la aplicación Chrome realizará una llamada REST para registrarse. Utiliza un gcm\_128.png del archivo de icono que encontrará en el origen reutilizado de la muestra original de GCM. Puede utilizar cualquier imagen que desee.
 
 5. Cree un archivo llamado background.js con el código siguiente:
 
@@ -385,11 +385,11 @@ La aplicación Chrome se crea con JavaScript y puede utilizar su editor de texto
 
 ###Configuración y prueba de la aplicación Chrome
 
-1. Abra el explorador Chrome. Abra las **extensiones de Chrome** y habilite el **modo de desarrollador**.
+1. Abra el explorador Chrome. Abra las **extensiones de Chrome** y habilite el **Modo de desarrollador**.
 
    	![][16]
 
-2. Haga clic en **Load unpacked extension** (Cargar extensión sin empaquetar) donde creó los archivos. Opcionalmente, también puede usar la **Herramienta para desarrolladores de aplicaciones y extensiones de Chrome** que es en sí misma una aplicación de Chrome (que tendrá que instalar desde la tienda web de Chrome) y proporciona capacidades de depuración avanzadas para el desarrollo de aplicaciones de Chrome.
+2. Haga clic en **Cargar extensión descomprimida** donde creó los archivos. Opcionalmente, también puede usar la **Herramienta para desarrolladores de aplicaciones y extensiones de Chrome** que es en sí misma una aplicación de Chrome (que tendrá que instalar desde la tienda web de Chrome) y proporciona capacidades de depuración avanzadas para el desarrollo de aplicaciones de Chrome.
 
    	![][17]
 
@@ -397,11 +397,11 @@ La aplicación Chrome se crea con JavaScript y puede utilizar su editor de texto
 
    	![][18]
 
-4. Escriba el **número de proyecto** que obtuvo anteriormente de la **consola en la nube de Google**, como el identificador del remitente y haga clic en **Register with GCM** (Registrar con GCM). Debe ver el mensaje *Registration with GCM succeeded* (El registro en GCM se ha realizado correctamente)
+4. Escriba el **número de proyecto** que obtuvo anteriormente de la **consola en la nube de Google**, como el identificador del remitente y haga clic en **Register with GCM** (Registrar con GCM). Debe ver el mensaje *Registration with GCM succeeded* (El registro en GCM se ha realizado correctamente).
 
    	![][19]
 
-5. Escriba su **nombre del Centro de notificaciones** y el valor de **DefaultListenSharedAccessSignature** obtenido anteriormente del Portal de administración de Azure y haga clic en **Register with Azure Notification Hub** (Registrarse en el Centro de notificaciones de Azure). Debe ver el mensaje *Notification Hub Registration succesful!* (El registro en el Centro de notificaciones se ha realizado correctamente) y los detalles de la respuesta de registro que contiene el identificador de registro de los Centros de notificaciones de Azure.
+5. Escriba su **Nombre del Centro de notificaciones** y el valor de **DefaultListenSharedAccessSignature** obtenido anteriormente del Portal de administración de Azure y haga clic en **Register with Azure Notification Hub** (Registrarse en el Centro de notificaciones de Azure). Debe ver el mensaje *Notification Hub Registration succesful!* (El registro en el Centro de notificaciones se ha realizado correctamente) y los detalles de la respuesta de registro que contiene el identificador de registro de los Centros de notificaciones de Azure.
 
    	![][20]
 
@@ -409,11 +409,11 @@ La aplicación Chrome se crea con JavaScript y puede utilizar su editor de texto
 
 En este tutorial enviará notificaciones con la aplicación de consola de .NET, aunque puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end mediante la <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz REST</a>.
 
-Para ver un ejemplo de cómo enviar notificaciones desde un back-end de los Servicios móviles de Azure integrado en Centros de notificaciones, consulte **Introducción a las notificaciones de inserción en Servicios móviles** ([back-end .NET](../mobile-services-javascript-backend-android-get-started-push.md) | [back-end JavaScript](../mobile-services-javascript-backend-android-get-started-push.md)). Para obtener un ejemplo de cómo enviar notificaciones con las API de REST, vea **Uso de Centros de notificaciones desde Java/PHP/Python** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
+Para ver un ejemplo de cómo enviar notificaciones desde un backend de los Servicios móviles de Azure integrado en centros de notificaciones, vea **Introducción a las notificaciones de inserción en Servicios móviles** ([.NET backend](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](../mobile-services-javascript-backend-android-get-started-push.md)). Para obtener un ejemplo de cómo enviar notificaciones con las API de REST, vea **Uso de Centros de notificaciones desde Java/PHP/Python** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
 
 1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y luego **Proyecto...**, a continuación en **Visual C#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**. Esto crea un nuevo proyecto de aplicación de consola.
 
-2. En el menú **Tools**, haga clic en **Library Package Manager** y, a continuación, en **Consola del Administrador de paquetes**. Esto muestra la Consola del Administrador de paquetes.
+2. En el menú **Tools**, haga clic en **Library Package Manager** y, a continuación, en **Package Manager Console**. Esto muestra la Consola del Administrador de paquetes.
 
 3. En la ventana de la consola, ejecute el siguiente comando:
 
@@ -495,4 +495,4 @@ En este sencillo ejemplo, difundirá notificaciones a la aplicación Chrome. Obt
 [Noticias de última hora de los Centros de notificaciones de Azure]: notification-hubs-windows-store-dotnet-send-breaking-news.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

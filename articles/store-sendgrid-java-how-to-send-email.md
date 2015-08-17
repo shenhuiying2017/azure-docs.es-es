@@ -136,7 +136,7 @@ El siguiente código muestra cómo agregar un archivo adjunto.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\myfiles\"; 
+    String attachmentPath = "c:\\myfiles\"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -228,4 +228,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
   [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

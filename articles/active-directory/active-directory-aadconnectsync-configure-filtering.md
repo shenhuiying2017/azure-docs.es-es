@@ -162,29 +162,29 @@ En el siguiente ejemplo filtraremos todos los usuarios en los que extensionAttri
 1. Inicie sesión en el equipo que ejecuta Sincronización de Azure AD Connect con una cuenta que sea miembro del grupo de seguridad ADSyncAdmins.
 2. Abra el **Editor de reglas de sincronización** del menú **Inicio**.
 3. Asegúrese de que **Entrante** esté seleccionado y haga clic en **Agregar nueva regla**.
-4. Asigne un nombre descriptivo a una regla, como "*In from AD – User DoNotSyncFilter*", seleccione el bosque correcto, **Usuario** como **Tipo de objeto CS**, y **Persona** como **Tipo de objeto MV**. Como **Tipo de vínculo**, seleccione **Unirse** y en el tipo de precedencia un valor que no haya utilizado actualmente otra regla de sincronización (por ejemplo: 50) y, a continuación, haga clic en **Siguiente**.
+4. Asigne a la regla un nombre descriptivo, como "*In from AD – User DoNotSyncFilter*", seleccione el bosque correcto, **Usuario** como el **Tipo de objeto CS** y **Persona** como el **Tipo de objeto MV**. Como **Tipo de vínculo**, seleccione **Unirse** y en el tipo de precedencia un valor que no haya utilizado actualmente otra regla de sincronización (por ejemplo: 50) y, luego, haga clic en **Siguiente**.
 5. En **Filtro de ámbito**, haga clic en **Agregar grupo**, luego en **Agregar cláusula** y en Atributo, seleccione **ExtensionAttribute15**. Asegúrese de que el operador esté configurado en **EQUAL** y **escriba** el valor NoSync en el cuadro Valor. Haga clic en **Next**.
-6. Deje las reglas de **unión** vacías y, a continuación, haga clic en **Siguiente**.
+6. Deje las reglas de **unión** vacías y, luego, haga clic en **Siguiente**.
 7. Haga clic en **Agregar transformación**, seleccione **FlowType** en **Constante**, seleccione el atributo de destino cloudFiltered y en el cuadro de texto de origen, escriba True. Haga clic en Agregar para guardar la regla.
-8. Realice una sincronización completa: en la pestaña **Conectores**, haga clic con el botón secundario en **SourceAD**, haga clic en **Ejecutar**, en **Sincronización completa** y en **Aceptar**. 
+8. Realice una sincronización completa: en la pestaña **Conectores**, haga clic con el botón derecho en **SourceAD**, haga clic en **Ejecutar**, en **Sincronización completa** y en **Aceptar**. 
 
 
-El atributo **sourceObjectType** realizará el aprovisionamiento de un **Usuario** o **Contacto** en Azure AD si este atributo tiene el valor **Usuario** o **Contacto** respectivamente. Al crear una regla de sincronización con una precedencia superior que las listas para su aplicación, puede sobrescribir el comportamiento predeterminado. Este método también le ofrece una oportunidad de expresar las reglas positivas y negativas.
+El atributo **sourceObjectType** realizará el aprovisionamiento de un **Usuario** o de un **Contacto** en Azure AD si este atributo tiene el valor **Usuario** o **Contacto** respectivamente. Al crear una regla de sincronización con una precedencia superior que las listas para su aplicación, puede sobrescribir el comportamiento predeterminado. Este método también le ofrece una oportunidad de expresar las reglas positivas y negativas.
 
 En el ejemplo siguiente solo se sincronizarán usuarios cuando el atributo del departamento sea “*Sales*” o esté vacío.
 
 1. Inicie sesión en el equipo que ejecuta Sincronización de Azure AD Connect con una cuenta que sea miembro del grupo de seguridad ADSyncAdmins.
 2. Abra el **Editor de reglas de sincronización** del menú **Inicio**.
-3. Asegúrese de que **Entrante** esté seleccionado y, a continuación, haga clic en **Agregar nueva regla**.
-4. Asigne un nombre descriptivo a una regla (por ejemplo: "*In from AD – User DoNotSyncFilter*"), seleccione el bosque correcto, **Usuario** como **Tipo de objeto CS**, y **Persona** como **Tipo de objeto MV**. Como **Tipo de vínculo**, seleccione **Unirse** y en el **tipo de precedencia** un valor que no haya utilizado actualmente otra regla de sincronización (por ejemplo: 60). Haga clic en **Siguiente**.
+3. Asegúrese de que **Entrante** esté seleccionado y, luego, haga clic en **Agregar nueva regla**.
+4. Asigne un nombre descriptivo a la regla (por ejemplo, "*In from AD – User DoNotSyncFilter*"), seleccione el bosque correcto, **Usuario** como el **Tipo de objeto CS** y **Persona** como el **Tipo de objeto MV**. Como **Tipo de vínculo**, seleccione **Unirse** y en **tipo de precedencia**, un valor que no haya usado actualmente otra regla de sincronización (por ejemplo, 60). Haga clic en **Next**.
 5. Deje el **filtro de ámbito** y las **reglas de unión** vacías y haga clic en **Siguiente** dos veces.
 6. Haga clic en **Agregar transformación**, establezca **FlowType** en **Expresión** y **Atributo de destino** en **sourceObjectType**. En **Origen**, escriba la siguiente expresión:<br>`IIF(IsNullOrEmpty([department]),NULL,IIF([department]<>”Sales”,”DoNotSync”,NULL))`
 7. Haga clic en Agregar para guardar la regla.
-8. Realice una sincronización completa: en la pestaña **Conectores**, haga clic con el botón secundario en **SourceAD**, haga clic en **Ejecutar**, en **Sincronización completa** y en **Aceptar**. A continuación se muestra la apariencia que debería tener:<br>
+8. Realice una sincronización completa: en la pestaña **Conectores**, haga clic con el botón derecho en **SourceAD**, haga clic en **Ejecutar**, en **Sincronización completa** y en **Aceptar**. A continuación se muestra la apariencia que debería tener:<br>
 
 > [AZURE.NOTE]Tenga en cuenta que estamos usando una mezcla de cloudFiltered y sourceObjectType para determinar qué objetos queremos sincronizar con AAD.
  
-Con el uso de expresiones dispone de opciones de filtrado muy eficaz. En la expresión anterior, tenga en cuenta que proporcionamos el valor NULL literal cuando el departamento no está presente y cuando el departamento era Sales. Esto indica que este atributo no colaboró con un valor y que se evaluarán las reglas listas para su aplicación. Es el procedimiento deseado para que puedan determinar si debemos crear un **Usuario** o **Contacto** en Azure AD.
+Con el uso de expresiones dispone de opciones de filtrado muy eficaz. En la expresión anterior, tenga en cuenta que proporcionamos el valor NULL literal cuando el departamento no está presente y cuando el departamento era Sales. Esto indica que este atributo no colaboró con un valor y que se evaluarán las reglas listas para su aplicación. Es el procedimiento deseado para que puedan determinar si debemos crear un **Usuario** o un **Contacto** en Azure AD.
 
 
 ## Filtrado saliente
@@ -213,4 +213,4 @@ En este ejemplo, cambiaremos el filtrado de manera que se sincronicen solo los u
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

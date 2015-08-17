@@ -377,4 +377,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

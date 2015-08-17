@@ -66,4 +66,4 @@ Ahora debe actualizarse la contraseña del administrador de dispositivos. Puede 
 
 [Obtenga más información acerca de la modificación de la configuración del dispositivo](storsimple-modify-device-config.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

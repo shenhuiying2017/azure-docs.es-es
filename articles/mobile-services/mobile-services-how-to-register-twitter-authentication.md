@@ -71,4 +71,4 @@ De este modo ya estará listo para usar un inicio de sesión de Twitter para aut
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="virtual-network"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/06/2015"
@@ -52,4 +52,4 @@ Una vez que crea la red virtual, puede agregarle nuevas máquinas virtuales e in
 
 -  [Agregue una máquina virtual](../virtual-machines/virtual-machines-create-custom.md) a una red virtual.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Creación o edición de usuarios en Azure AD" 
-	description="Un tema que explica cómo crear o editar cuentas de usuario en Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Creación o edición de usuarios en Azure AD"
+	description="Un tema que explica cómo crear o editar cuentas de usuario en Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
+	ms.author="curtand"/>
 
 # Creación o edición de usuarios en Azure AD
 
@@ -24,10 +24,10 @@ Hay que crear una cuenta para cada usuario que vaya a tener acceso a un servicio
 
 1. Haga clic en **Active Directory** y, a continuación, haga clic en el nombre del directorio de su organización.
 2. En la página **Usuarios**, haga clic en **Agregar usuario**.
-3. En la página **Proporcione información sobre este usuario**, elija una de estas opciones en **Tipo de usuario**: 
+3. En la página **Proporcione información sobre este usuario**, elija una de estas opciones en **Tipo de usuario**:
 	1. **Nuevo usuario de la organización**: indica que desea que se cree una nueva cuenta de usuario y se administre en el directorio.
-	2. **Usuario con una cuenta Microsoft existente**: indica que desea agregar una cuenta de Microsoft existente a su directorio para colaborar en los recursos de Azure con un coadministrador que acceda a Azure con una cuenta de Microsoft.	
-	3. **Usuario en otro directorio de Azure AD**: indica que desea agregar una cuenta de usuario a su directorio, cuyo origen es otro directorio de Azure AD. Deberá ser miembro del otro directorio para poder seleccionar un usuario en él. 
+	2. **Usuario con una cuenta Microsoft existente**: indica que desea agregar una cuenta de Microsoft existente a su directorio para colaborar en los recursos de Azure con un coadministrador que acceda a Azure con una cuenta de Microsoft.
+	3. **Usuario en otro directorio de Azure AD**: indica que desea agregar una cuenta de usuario a su directorio, cuyo origen es otro directorio de Azure AD. Deberá ser miembro del otro directorio para poder seleccionar un usuario en él.
 4. Según la opción seleccionada, escriba un nombre de usuario o el nombre de la cuenta de Microsoft con la que el usuario iniciará sesión.
 5. En la página **Perfiles** del usuario, especifique el nombre, los apellidos y un nombre descriptivo. Elija también un rol en el menú desplegable Roles. Para obtener más información acerca de los roles del usuario y el administrador, consulte [Asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md). Especifique si se debe **habilitar la autenticación multifactor**.
 6. En la página **Obtener contraseña temporal**, haga clic en **Crear**.
@@ -40,7 +40,7 @@ Si su organización usa más de un dominio, debe tener en cuenta los siguientes 
 ## Edición de un usuario
 
 Si el usuario que está intentando editar está sincronizado con el servicio de Active Directory local, aparece un mensaje de error y no será posible editar el usuario mediante este procedimiento. Para editar el usuario, utilice las herramientas de administración locales de Active Directory.
- 
+
 Para editar un usuario en el Portal de administración de Azure:
 
 1. Haga clic en **Active Directory** y, a continuación, haga clic en el nombre del directorio de su organización.
@@ -110,6 +110,5 @@ La capacidad de los invitados para ver información limitada de un usuario o gru
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

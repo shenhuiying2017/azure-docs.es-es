@@ -102,7 +102,7 @@ Puede usar el cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/lib
 ### Uso de Visual Studio para descargar el archivo RDP
 En Visual Studio, puede usar el Explorador de servidores para crear una conexión a Escritorio remoto.
 
-1.  En el Explorador de servidores, expanda el nodo **Azure\Servicios en la nube\[nombre del servicio en la nube]**.
+1.  En el Explorador de servidores, expanda el nodo **Azure\\Servicios en la nube\\[nombre del servicio en la nube]**.
 2.  Expanda **Ensayo** o **Producción**.
 3.  Expanda el rol individual.
 4.  Haga clic con el botón derecho en una de las instancias de rol, haga clic en **Conectar con Escritorio remoto...** y, luego, escriba el nombre de usuario y la contraseña.
@@ -113,4 +113,4 @@ Puede usar la operación de REST [Descargar archivo RDP](https://msdn.microsoft.
 ## Pasos siguientes
 Puede que tenga que [empaquetar](cloud-services-model-and-package.md) o [cargar (implementar)](cloud-services-how-to-create-deploy-portal.md) su aplicación.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

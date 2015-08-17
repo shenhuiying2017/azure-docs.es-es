@@ -35,7 +35,13 @@ En este artículo se supone que tiene lo siguiente:
 
 > [AZURE.NOTE]El formato VHDX no se admite en Microsoft Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Podrá encontrar un tutorial para ello [aquí](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
  
- Se admiten las siguientes versiones de Windows Server: <P> <TABLE BORDER="1" WIDTH="600"> <TR BGCOLOR="#E9E7E7"> <TH>SO</TH> <TH>SKU</TH> <TH>Service Pack</TH> <TH>Arquitectura</TH> </TR> <TR> <TD>Windows Server 2012 R2</TD> <TD>Todas las ediciones</TD> <TD>N/A</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2012</TD> <TD>Todas las ediciones</TD> <TD>N/A</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2008 R2</TD> <TD>Todas las ediciones</TD> <TD>SP1</TD> <TD>x64</TD> </TR> </TABLE> </P>
+ Se admiten las siguientes versiones de Windows Server:
+
+SO|SKU|Service Pack|Arquitectura
+---|---|---|---
+Windows Server 2012 R2|Todas las ediciones|N/D|x64
+Windows Server 2012|Todas las ediciones|N/D|x64
+Windows Server 2008 R2|Todas las ediciones|SP1|x64
 
 
 Esta tarea incluye los siguientes pasos:
@@ -53,7 +59,7 @@ Desde la máquina virtual en la que se instaló el sistema operativo, realice el
 
 1. Inicie sesión en el sistema operativo.
 
-2. Abra una ventana de símbolo del sistema como administrador. Cambie el directorio a **%windir%\system32\sysprep** y, a continuación, ejecute `sysprep.exe`.
+2. Abra una ventana de símbolo del sistema como administrador. Cambie el directorio a **%windir%\\system32\\sysprep** y, a continuación, ejecute `sysprep.exe`.
 
 	![Abrir una ventana de símbolo del sistema](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +217,4 @@ Después de crear una máquina virtual, intente crear una máquina virtual de SQ
 [Paso 4: Carga del archivo .vhd]: #upload
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

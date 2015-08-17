@@ -81,4 +81,4 @@ No se admiten los siguientes:
 
 >[AZURE.NOTE]A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

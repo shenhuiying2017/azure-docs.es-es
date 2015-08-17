@@ -114,4 +114,4 @@ Haga clic en **Vista previa** o en **Enviar una prueba** para ver el aspecto que
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

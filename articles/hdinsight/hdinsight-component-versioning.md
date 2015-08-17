@@ -43,7 +43,7 @@ HDInsight de Azure es compatible con varias versiones de clústeres de Hadoop qu
 
 **Obtención de información sobre las versiones actuales de componentes**
 
-Las versiones de los componentes asociados a las versiones de clúster de HDInsight pueden cambiar en futuras actualizaciones de HDInsight. Una forma de determinar los componentes disponibles y comprobar las versiones que se están usando para un clúster es usar la API REST de Ambari. El comando **GetComponentInformation** se puede usar para recuperar información acerca de un componente del servicio. Para obtener más información, consulte la [documentación de Ambari][ambari-docs]. Otra forma de obtener esta información es iniciar sesión en un clúster mediante el Escritorio remoto y examinar directamente el contenido del directorio "C:\apps\dist".
+Las versiones de los componentes asociados a las versiones de clúster de HDInsight pueden cambiar en futuras actualizaciones de HDInsight. Una forma de determinar los componentes disponibles y comprobar las versiones que se están usando para un clúster es usar la API REST de Ambari. El comando **GetComponentInformation** se puede usar para recuperar información acerca de un componente del servicio. Para obtener más información, consulte la [documentación de Ambari][ambari-docs]. Otra forma de obtener esta información es iniciar sesión en un clúster mediante el Escritorio remoto y examinar directamente el contenido del directorio "C:\\apps\\dist".
 
 
 **Notas de la versión**
@@ -80,7 +80,7 @@ Algunas de las características más destacadas de la plataforma de HDInsight in
 
 - **Apache Phoenix**: Apache Phoenix es una capa de consulta de Lenguaje de consulta estructurado (SQL) a través de HBase. Admite un subconjunto limitado de especificación de lenguaje de consulta SQL que incluye compatibilidad con índices secundarios. Se entrega como un controlador de Conectividad de base de datos Java (JDBC) incrustado en el cliente que dirige a consultas de latencia baja a sobre de datos de HBase. Apache Phoenix toma su consulta SQL, la compila en una serie de análisis de HBase y llamadas de coprocesadores y produce conjuntos de resultados JDBC regulares. Apache Phoenix es una capa de base de datos relacional sobre HBase. Se entrega como un controlador JDBC incrustado en el cliente que dirige a consultas de latencia baja sobre datos de HBase. Apache Phoenix toma su consulta SQL, la compila en una serie de análisis de HBase y orquesta la ejecución de esos análisis para producir conjuntos de resultados JDBC regulares.
 
-- **Panel de clúster**: una nueva aplicación web que se implementa en el clúster de HDInsight. Úsela para ejecutar consultas de Hive, comprobar registros de trabajos y examinar el almacenamiento de blobs de Azure. La dirección URL usada para obtener acceso a la aplicación web es <*NombreDeClúster*>.azurehdinsight.net.
+- **Panel de clúster**: una nueva aplicación web que se implementa en el clúster de HDInsight. Úsela para ejecutar consultas de Hive, comprobar registros de trabajos y examinar el almacenamiento de blobs de Azure. La dirección URL utilizada para obtener acceso a la aplicación web es <*NombreDeClúster*>.azurehdinsight.net.
 
 - **Microsoft Avro Library**: esta biblioteca implementa el sistema de serialización de datos de Apache Avro para el entorno de Microsoft.NET. Apache Avro proporciona un formato compacto de intercambio de datos binarios para la serialización. Usa la notación de objetos JavaScript (JSON) para definir un esquema independiente del lenguaje que garantiza la interoperabilidad de lenguajes. Los datos serializados en un lenguaje se pueden leer en otro. Actualmente, se admiten C, C++, C#, Java, PHP, Python y Ruby. El formato de serialización de Apache Avro se utiliza ampliamente en HDInsight de Azure para representar estructuras de datos complejas en un trabajo MapReduce de Hadoop.
 
@@ -161,4 +161,4 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

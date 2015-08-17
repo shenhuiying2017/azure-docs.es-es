@@ -78,7 +78,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 2. Presione el botón **Ejecutar** para crear el proyecto e iniciar la aplicación en el emulador de iPhone, que es el valor predeterminado para este proyecto.
 
-3. En la aplicación, escriba un texto significativo, como _Complete el tutorial_ y, a continuación, haga clic en el icono de signo de suma (**+**).
+3. En la aplicación, escriba un texto significativo, como _Realice el tutorial_. A continuación, haga clic en el icono de suma (**+**).
 
 	![][10]
 
@@ -134,4 +134,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

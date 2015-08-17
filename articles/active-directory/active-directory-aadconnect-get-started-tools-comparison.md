@@ -88,4 +88,4 @@ Permitir aplicar distintas plantillas de servicio para flujos de atributo |● |
 Permitir quitar atributos del flujo de AD a Azure AD | ● | ● | |  
 Permitir personalización avanzada para flujos de atributo | ● | ● | | ●  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

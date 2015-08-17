@@ -24,7 +24,7 @@ En este tema se explica cómo utilizar Visual Studio para implementar un proyect
 
 Cuando Visual Studio implementa un proyecto de aplicación de consola con funcionalidad WebJobs, realiza dos tareas:
 
-* Copia archivos de runtime a la carpeta apropiada de Sitios web Azure (*App\_Data/jobs/continuous* para WebJobs continuos, *App\_Data/jobs/triggered* para WebJobs programados y a petición).
+* Copia archivos de tiempo de ejecución a la carpeta apropiada en la aplicación web (*App\_Data/jobs/continuous* para WebJobs continuos, *App\_Data/jobs/triggered* para WebJobs programados y a petición).
 * Configura [trabajos del Programador de Azure](#scheduler) para WebJobs que se programan para ejecutarse en momentos concretos. (Esto no se necesita para WebJobs continuos.)
 
 Un proyecto con funcionalidad WebJobs tiene los siguientes elementos agregados:
@@ -200,4 +200,4 @@ Este artículo explica cómo implementar WebJobs con Visual Studio. Para obtener
 * Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

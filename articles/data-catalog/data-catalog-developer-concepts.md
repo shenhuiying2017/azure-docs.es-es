@@ -7,7 +7,7 @@
    manager="mblythe"
    editor=""
    tags=""/>
- <tags
+<tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -163,15 +163,15 @@ De forma predeterminada, cualquier usuario autenticado tiene derecho **Read** pa
 
 ## API de REST
 
-Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse para controlar roles y permisos: además de la carga de elementos, pueden especificarse dos propiedades del sistema: **__roles** y **__permissions**.
+Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse para controlar roles y permisos: además de la carga de elementos, pueden especificarse dos propiedades del sistema: **\_\_roles** y **\_\_permissions**.
 
 > [AZURE.NOTE]
 >
-> **__permissions** solo se aplica a un elemento de raíz.
+> **__**\_\_permissions** solo se aplica a un elemento de raíz.
 >
 > El rol **Propietario** solo es aplicable a un elemento de raíz.
 >
-> De forma predeterminada, cuando se crea un elemento en el catálogo, su **Colaborador** se establece en el usuario autenticado actualmente. Si el elemento debe ser actualizable por todo el mundo, el **Colaborador** debe establecerse en entidad de seguridad especial <Everyone> en la propiedad **__roles** cuando se publique la propiedad por primera vez (consulte el ejemplo siguiente). El **colaborador** no se puede cambiar y permanece igual durante el tiempo de vida de un elemento (es decir, incluso **Administrador** o **Propietario** no tienen derecho a cambiar el **Colaborador**). El único valor admitido para la configuración explícita del **Colaborador** es <Everyone>: es decir, **Colaborador** solo puede ser un usuario que haya creado un elemento o <Everyone>.
+> De forma predeterminada, cuando se crea un elemento en el catálogo, su **Colaborador** se establece en el usuario autenticado actualmente. Si el elemento debe ser actualizable por todo el mundo, el **Colaborador** debe establecerse en entidad de seguridad especial <Everyone> en la propiedad **\_\_roles** cuando se publique la propiedad por primera vez (consulte el ejemplo siguiente). El **Colaborador** no se puede cambiar y permanece igual durante el tiempo de vida de un elemento (es decir, incluso **Administrador** o **Propietario** no tienen derecho a cambiar el **Colaborador**). El único valor admitido para la configuración explícita del **Colaborador** es <Everyone>: es decir, **Colaborador** solo puede ser un usuario que haya creado un elemento o <Everyone>.
 
 ###Ejemplos
 **Establezca el colaborador en<Everyone> al publicar un elemento.** La entidad de seguridad especial <Everyone> tiene el objectId "00000000-0000-0000-0000-000000000201". **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview **Body**
@@ -239,4 +239,4 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

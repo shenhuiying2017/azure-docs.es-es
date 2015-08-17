@@ -137,4 +137,4 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

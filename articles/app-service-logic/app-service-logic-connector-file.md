@@ -33,7 +33,7 @@ Para usar el conector de archivos, deberá crear primero una instancia de la apl
 
 	- **Nombre**: asigne un nombre al conector de archivos.
 	- **Configuración del paquete**
-		- **Carpeta raíz**: especifique la ruta de acceso de la carpeta raíz en el equipo host. Ejemplo: D:\FileConnectorTest
+		- **Carpeta raíz**: especifique la ruta de acceso de la carpeta raíz en el equipo host. Ejemplo: D:\\FileConnectorTest
 		- **Cadena de conexión del Bus de servicio**: proporcione una cadena de conexión del Bus de servicio. Asegúrese de que el espacio de nombres del Bus de servicio es de tipo estándar y NO básico para poder usar las retransmisiones de bus de servicio. La Retransmisión de bus de servicio se utiliza para conectarse al Administrador de conexiones híbridas.
 	- **Plan de servicio de aplicaciones**: seleccione o cree un plan de Servicio de aplicaciones.
 	- **Nivel de precios**: elija un nivel de precios para el conector.
@@ -82,7 +82,7 @@ Los detalles de las API se pueden encontrar en [Definición de la API del conect
 
 <!-- Links -->
 [crear una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
-[Definición de la API del conector de archivos]: https://msdn.microsoft.com/es-es/library/dn936296.aspx
+[Definición de la API del conector de archivos]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 [Uso del Administrador de conexiones híbridas]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

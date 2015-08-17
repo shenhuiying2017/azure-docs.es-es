@@ -69,4 +69,4 @@ El vídeo del día 3 trata de:
 
 [Azure Premium Encoder Workflow Designer Training Videos](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/) (Vídeos de aprendizaje del Diseñador de flujo de trabajo del codificador de Azure Premium)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

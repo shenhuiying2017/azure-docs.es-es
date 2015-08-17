@@ -109,7 +109,7 @@ Encuentre todos los elementos con el mismo valor de propiedad:
 
 Obtenga todas las solicitudes con un tiempo de respuesta > 5 seg. Las horas se representan en tics: 10 000 tics = 1 ms.
 
-!["Tiempo de respuesta":(umbral TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
+!["Tiempo de respuesta":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
 
 
@@ -198,4 +198,4 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

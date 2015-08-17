@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Niveles de rendimiento en DocumentDB | Azure" 
+	pageTitle="Niveles de rendimiento en DocumentDB | Microsoft Azure" 
 	description="Obtenga información sobre cómo los niveles de rendimiento de DocumentDB le permiten reservar capacidad de proceso para cada colección." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
@@ -141,4 +141,4 @@ Para obtener más información acerca de DocumentDB, consulte la [documentación
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

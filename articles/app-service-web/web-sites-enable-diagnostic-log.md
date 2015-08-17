@@ -135,7 +135,7 @@ Al implementar una aplicación, suele resultar útil ver la información de regi
 
 > [AZURE.NOTE]Algunos tipos de búfer de registros se escriben en el archivo de registro, lo que puede ocasionar la transmisión de eventos desordenados. Por ejemplo, una entrada de registro de aplicaciones que se genera cuando un usuario visita una página se puede visualizar en la transmisión antes de la entrada de registro HTTP correspondiente para la solicitud de la página.
 
-> [AZURE.NOTE]La transmisión de registros también transmitirá información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles**.
+> [AZURE.NOTE]La transmisión de registros también transmitirá información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles\**.
 
 ### Transmisión con Azure PowerShell
 
@@ -197,107 +197,35 @@ __Almacenamiento de tablas__
 
 Al realizar registros en el almacenamiento de tabla, se usan propiedades adicionales para facilitar la búsqueda de los datos almacenados en la tabla, así como información más pormenorizada sobre el evento. Las siguientes propiedades (columnas) se usan para cada entidad (fila) almacenada en la tabla.
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Nombre de propiedad</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valor/formato</th>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">PartitionKey</td>
-<td style="border:1px solid black;vertical-align:top">Fecha/hora del evento con el formato aaaaMMddHH</td>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Un valor de GUID que identifica a esta entidad de forma exclusiva</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Timestamp</td>
-<td style="border:1px solid black;vertical-align:top">La fecha y la hora en que se ha producido el evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">La fecha y hora en que se ha producido el evento, con formato de marca de graduación (mayor precisión)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">El nombre de la aplicación web</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Nivel del evento (por ejemplo, error, advertencia o información)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">El identificador del evento de este evento<br>El valor predeterminado es 0 si no especifica ninguno.</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instancia de la aplicación web en que se ha producido el evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">Identificador del proceso</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">El identificador del subproceso que ha generado el evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">Mensaje detallado del evento</td>
-</tr>
-</table>
+Nombre de propiedad|Valor/formato
+---|---
+PartitionKey|Fecha/hora del evento con el formato aaaaMMddHH
+RowKey|Un valor de GUID que identifica a esta entidad de forma exclusiva
+Timestamp|La fecha y la hora en que se ha producido el evento
+EventTickCount|La fecha y hora en que se ha producido el evento, con formato de marca de graduación (mayor precisión)
+ApplicationName|El nombre de la aplicación web
+Level|Nivel del evento (por ejemplo, error, advertencia o información)
+EventId|El identificador de este evento<p><p>El valor predeterminado es 0 si no se ha especificado ninguno
+InstanceId|Instancia de la aplicación web en que se ha producido el evento
+Pid|Identificador del proceso
+Tid|El identificador del subproceso que ha generado el evento
+Message|Mensaje detallado del evento
 
 __Almacenamiento de blobs__
 
 Al realizar registros en el almacenamiento de blobs, los datos se almacenan con un formato de valores separados por comas (CSV). De manera similar al almacenamiento de tabla, se registran campos adicionales para ofrecer información más pormenorizada acerca del evento. Las siguientes propiedades se usan para cada fila con el formato CSV:
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">Nombre de propiedad</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">Valor/formato</th>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Date</td>
-<td style="border:1px solid black;vertical-align:top">La fecha y la hora en que se ha producido el evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Nivel del evento (por ejemplo, error, advertencia o información)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">El nombre de la aplicación web</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Instancia de la aplicación web en que se ha producido el evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">La fecha y hora en que se ha producido el evento, con formato de marca de graduación (mayor precisión)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">El identificador del evento de este evento<br>El valor predeterminado es 0 si no especifica ninguno.</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">Identificador del proceso</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">El identificador del subproceso que ha generado el evento</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">Mensaje detallado del evento</td>
-</tr>
-</table>
+Nombre de propiedad|Valor/formato
+---|---
+Date|La fecha y la hora en que se ha producido el evento
+Level|Nivel del evento (por ejemplo, error, advertencia o información)
+ApplicationName|El nombre de la aplicación web
+InstanceId|Instancia de la aplicación web en que se ha producido el evento
+EventTickCount|La fecha y hora en que se ha producido el evento, con formato de marca de graduación (mayor precisión)
+EventId|El identificador de este evento<p><p>El valor predeterminado es 0 si no se ha especificado ninguno
+Pid|Identificador del proceso
+Tid|El identificador del subproceso que ha generado el evento
+Message|Mensaje detallado del evento
 
 Los datos almacenados en un blob serían similares a los siguientes:
 
@@ -335,4 +263,4 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

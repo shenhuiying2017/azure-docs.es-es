@@ -7,7 +7,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 2. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el emulador de iPhone.
 
-3. En la aplicación, escriba un texto significativo, como _Complete el tutorial_ y, a continuación, haga clic en el icono de signo de suma (**+**).
+3. En la aplicación, escriba un texto significativo, como _Realice el tutorial_. A continuación, haga clic en el icono de suma (**+**).
 
    	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
@@ -15,4 +15,4 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
  	</div>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

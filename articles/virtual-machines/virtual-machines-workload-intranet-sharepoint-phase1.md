@@ -35,13 +35,13 @@ Para la configuración de la red virtual (VNet), rellene la tabla V.
 
 Elemento | Elemento configuración | Descripción | Valor
 --- | --- | --- | ---
-1. | Nombre de red virtual | Nombre que se va a asignar a la red virtual de Azure (por ejemplo, SPFarmNet). | __________________
-2. | Ubicación de la red virtual | Centro de datos Azure que contendrá la red virtual. | __________________
-3. | Nombre de la red local | Nombre que se va a asignar a la red de su organización. | __________________
-4. | Dirección IP del dispositivo VPN | Dirección IPv4 pública de la interfaz del dispositivo VPN en Internet. Trabaje con su departamento de TI para determinar esta dirección. | __________________
-5. | Espacio de direcciones de red virtual | Espacio de direcciones (definido en un prefijo de dirección privada único) para la red virtual. Trabaje con su departamento de TI para determinar este espacio de direcciones. | __________________
-6. | Primer servidor DNS final | Cuarta dirección IP posible para el espacio de direcciones de la subred de la red virtual (vea la tabla S). Trabaje con su departamento de TI para determinar estas direcciones. | __________________
-7. | Segundo servidor DNS final | Quinta dirección IP posible para el espacio de direcciones de la subred de la red virtual (vea la tabla S). Trabaje con su departamento de TI para determinar estas direcciones. | __________________
+1\. | Nombre de red virtual | Nombre que se va a asignar a la red virtual de Azure (por ejemplo, SPFarmNet). | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Ubicación de la red virtual | Centro de datos Azure que contendrá la red virtual. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Nombre de la red local | Nombre que se va a asignar a la red de su organización. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Dirección IP del dispositivo VPN | Dirección IPv4 pública de la interfaz del dispositivo VPN en Internet. Trabaje con su departamento de TI para determinar esta dirección. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+5\. | Espacio de direcciones de red virtual | Espacio de direcciones (definido en un prefijo de dirección privada único) para la red virtual. Trabaje con su departamento de TI para determinar este espacio de direcciones. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+6\. | Primer servidor DNS final | Cuarta dirección IP posible para el espacio de direcciones de la subred de la red virtual (vea la tabla S). Trabaje con su departamento de TI para determinar estas direcciones. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+7\. | Segundo servidor DNS final | Quinta dirección IP posible para el espacio de direcciones de la subred de la red virtual (vea la tabla S). Trabaje con su departamento de TI para determinar estas direcciones. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabla V: Configuración de red virtual entre locales**
 
@@ -49,7 +49,7 @@ Rellene la tabla S para la subred de esta solución. Asigne a la subred un nombr
 
 Elemento | Nombre de subred | Espacio de direcciones de subred | Propósito
 --- | --- | --- | ---
-1. | _______________ | _____________________________ | _________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabla S: Subredes de la red virtual**
 
@@ -59,8 +59,8 @@ Para los dos servidores DNS locales que desea usar al configurar inicialmente lo
 
 Elemento | Nombre descriptivo del servidor DNS | Dirección IP del servidor DNS
 --- | --- | ---
-1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabla D: Servidores DNS locales**
 
@@ -70,9 +70,9 @@ Para el conjunto de espacios de direcciones de la red local, rellene la tabla L.
 
 Elemento | Espacio de direcciones de la red local
 --- | ---
-1. | ___________________________________
-2. | ___________________________________
-3. | ___________________________________
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabla L: Prefijos de dirección de la red local**
 
@@ -106,9 +106,9 @@ A continuación, cree los tres servicios en la nube necesarios para esta granja 
 
 Elemento | Propósito | Nombre del servicio en la nube
 --- | --- | ---
-1. | Controladores de dominio | ___________________________
-2. | Servidores SQL Server | ___________________________
-3. | Servidores de SharePoint | ___________________________
+1\. | Controladores de dominio | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Servidores SQL Server | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Servidores de SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabla C: Nombres del servicio en la nube**
 
@@ -140,10 +140,10 @@ Posteriormente, defina los nombres de cuatro conjuntos de disponibilidad. Rellen
 
 Elemento | Propósito | Nombre del conjunto de disponibilidad
 --- | --- | ---
-1. | Controladores de dominio | ___________________________
-2. | Servidores SQL Server | ___________________________
-3. | Servidores de aplicaciones de SharePoint | ___________________________
-4. | Servidores front-end web de SharePoint | ___________________________
+1\. | Controladores de dominio | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | Servidores SQL Server | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Servidores de aplicaciones de SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Servidores front-end web de SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Tabla A: Nombre del conjunto de disponibilidad**
 
@@ -169,4 +169,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 2: C
 
 [Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

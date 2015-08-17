@@ -1,22 +1,22 @@
-## Column mapping with translator rules
-Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
+## Asignación de columnas con reglas de traductor
+La asignación de columnas puede usarse para especificar cómo se asignan las columnas especificadas en "structure" de la tabla de origen a las columnas especificadas en "structure" de la tabla receptora. La propiedad **columnMapping** está disponible en la sección **typeProperties** de la actividad de copia.
 
-Column mapping supports the following scenarios:
+La asignación de columnas admite los siguientes escenarios:
 
-1.	All columns in the source table “structure” are mapped to all columns in the sink table “structure”.
-2.	A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.
+1.	Todas las columnas de la tabla de origen "structure" están asignadas a todas las columnas en la tabla receptora "structure".
+2.	Un subconjunto de columnas de la tabla de origen "structure" están asignadas a todas las columnas en la tabla receptora "structure".
 
-The following are error conditions and will result in an exception:
+Las siguientes son las condiciones de error, estas condiciones producirán una excepción:
 
-1.	Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
-2.	Duplicate mapping.
-3.	SQL query result does not have a column name that is specified in the mapping.
+1.	O bien menos columnas o más columnas en "structure" de la tabla receptora de las que se especifican en la asignación.
+2.	Asignación duplicada.
+3.	El resultado de la consulta SQL no tiene un nombre de columna que esté especificado en la asignación.
 
-## Column mapping samples
-> [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable in the same way for any data store that supports rectangular tables. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.
+## Ejemplos de asignación de columnas
+> [AZURE.NOTE]Los ejemplos a continuación son para SQL Azure y Azure Blob pero son aplicables de la misma manera a cualquier almacén de datos que admita tablas rectangulares. Tendrá que ajustar el conjunto de datos y las definiciones de servicios vinculados en los ejemplos siguientes para que apunten a los datos en el origen de datos correspondiente.
 
-### Sample 1 – column mapping from Azure SQL to Azure blob
-In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
+### Ejemplo 1: asignación de columnas de SQL Server a un blob de Azure
+En este ejemplo la tabla de entrada tiene una estructura y apunta a una tabla SQL en una base de datos de SQL de Azure.
 
 	{
 	    "name": "AzureSQLInput",
@@ -47,7 +47,7 @@ In this sample, the input table has a structure and it points to a SQL table in 
 	    }
 	}
 
-In this sample, the output table has a structure and it points to a blob in an Azure blob storage.
+En este ejemplo, la tabla de salida tiene una estructura y apunta a un blob en un almacenamiento de blobs de Azure.
 
 	{
 	    "name": " AzureBlobOutput",
@@ -78,7 +78,7 @@ In this sample, the output table has a structure and it points to a blob in an A
 	    }
 	}
 
-The JSON for the activity is shown below. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
+A continuación se muestra el JSON para la actividad. Las columnas del origen se asignan a columnas del receptor (**columnMappings**) usando la propiedad **Translator**.
 
 	{
 	    "name": "CopyActivity",
@@ -107,12 +107,12 @@ The JSON for the activity is shown below. The columns from source mapped to colu
 	        }
 	}
 
-**Column mapping flow:**
+**Flujo de asignación de columnas:**
 
-![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
+![Flujo de asignación de columnas](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
-In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section. 
+### Ejemplo 2: asignación de columnas con una consulta SQL de SQL de Azure a un blob de Azure
+En este ejemplo, se usa una consulta SQL para extraer datos de SQL de Azure en lugar de especificar simplemente el nombre de tabla y los nombres de columna en la sección "structure".
 
 	{
 	    "name": "CopyActivity",
@@ -143,15 +143,10 @@ In this sample, a SQL query is used to extract data from Azure SQL instead of si
 	        }
 	}
 
-In this case, the query results are first mapped to columns specified in “structure” of source. Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.  Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.
+En este caso, los resultados de consulta se asignan primero a las columnas especificadas en "structure" del origen. A continuación, las columnas dev"structure" de origen se asignan a columnas "structure" de receptor con las reglas especificadas en columnMappings. Supongamos que la consulta devuelve 5 columnas, dos columnas adicionales y aquellas especificadas en "structure" de origen.
 
-**Column mapping flow**
+**Flujo de asignación de columnas**
 
-![Column mapping flow-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
+![Flujo de asignación de columnas 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-
-
-
-
-
-
+<!---HONumber=August15_HO6-->

@@ -22,7 +22,7 @@
 
 En Servicios multimedia de Azure, un **canal** representa una canalización para procesar contenido de streaming en vivo. Un **canal** recibe streaming en vivo de la siguiente manera:
 
-- Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. El codificador en directo puede enviar mediante lso una secuencia con una sola velocidad de bits, pero no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
+- Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canal** sin más procesamiento. El codificador en directo puede enviar mediante lso una secuencia con una sola velocidad de bits, pero no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
 
 El siguiente diagrama representa un flujo de trabajo de streaming en vivo que usa un codificador en directo local para generar secuencias RTMP o MP4 fragmentado de velocidad de bits múltiple (Smooth Streaming).
@@ -125,12 +125,12 @@ Cuando se usa un codificador en directo local para generar una secuencia de velo
 
 En la tabla siguiente se muestra cómo calcula la duración de los segmentos:
 
-<table border="1">
-<tr><th>Intervalo de fotogramas clave</th><th>Relación de empaquetado por segmento HLS (fragmento por segmento)</th><th>Ejemplo</th></tr>
-<tr><td>menor o igual a 3 segundos</td><td>3:1</td><td>Si KeyFrameInterval (o GOP) es 2 segundos de duración, la relación de empaquetado por segmento HLS predeterminada será 3 a 1, lo que creará un segmento HLS de 6 segundos.</td></tr>
-<tr><td>de 3 a 5 segundos</td><td>2:1</td><td>Si KeyFrameInterval (o GOP) es 4 segundos de duración, la relación de empaquetado por segmento HLS predeterminada será 2 a 1, lo que creará un segmento HLS de 8 segundos.</td></tr>
-<tr><td>mayor de 5 segundos</td><td>1:1</td><td>Si KeyFrameInterval (o GOP) es 6 segundos de duración, la relación de empaquetado por segmento HLS predeterminada será 1 a 1, lo que creará un segmento HLS de 6 segundos.</td></tr>
-</table>
+Intervalo de fotogramas clave|Relación de empaquetado por segmento HLS (fragmento por segmento)|Ejemplo
+---|---|---
+menor o igual a 3 segundos|3:1|Si KeyFrameInterval (o GOP) es 2 segundos de duración, la relación de empaquetado por segmento HLS predeterminada será 3 a 1, lo que creará un segmento HLS de 6 segundos.
+de 3 a 5 segundos|2:1|Si KeyFrameInterval (o GOP) es 4 segundos de duración, la relación de empaquetado por segmento HLS predeterminada será 2 a 1, lo que creará un segmento HLS de 8 segundos.
+mayor de 5 segundos|1:1|Si KeyFrameInterval (o GOP) es 6 segundos de duración, la relación de empaquetado por segmento HLS predeterminada será 1 a 1, lo que creará un segmento HLS de 6 segundos.
+
 
 Puede cambiar la relación de fragmentos por segmento configurando la salida del canal y estableciendo FragmentsPerSegment en ChannelOutputHls.
 
@@ -201,24 +201,23 @@ El estado actual de un canal. Los valores posibles son:
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación.
  
-<table border="1">
-<tr><th>Estado del canal</th><th>Indicadores IU del portal</th><th>¿Facturado?</th></tr>
-<tr><td>Iniciando</td><td>Iniciando</td><td>No (estado transitorio)</td></tr>
-<tr><td>En ejecución</td><td>Listo (no hay programas en ejecución)<br/>o<br/>Streaming (al menos un programa en ejecución)</td><td>Sí</td></tr>
-<tr><td>Deteniéndose</td><td>Deteniéndose</td><td>No (estado transitorio)</td></tr>
-<tr><td>Detenido</td><td>Detenido</td><td>No</td></tr>
-</table>
+Estado del canal|Indicadores IU del portal|¿Facturado?
+---|---|---|---
+Iniciando|Iniciando|No (estado transitorio)
+Ejecución|Listo (no hay programas en ejecución)<p>o<p>Streaming (al menos un programa en ejecución)|Sí
+Deteniéndose|Deteniéndose|No (estado transitorio)
+Detenido|Detenido|No
 
 ###Subtítulos e inserción de anuncios 
 
 En la siguiente tabla se muestran los estándares de subtítulos e inserción de anuncios.
 
-<table border="1">
-<tr><th>Standard</th><th>Notas</th></tr>
-<tr><td>CEA-708 y EIA-608 (708/608)</td><td>CEA-708 y EIA-608 son estándares de subtítulos para Estados Unidos y Canadá.<br/>Actualmente, solo se admiten subtítulos si se transmiten en la secuencia de entrada codificada. Debe usar un codificador multimedia en directo que pueda insertar 608 o 708 títulos en la secuencia codificada que se envía a Servicios multimedia. Servicios multimedia ofrecerá el contenido con subtítulos insertados para los usuarios.</td></tr>
-<tr><td>TTML dentro de ismt (pistas de texto Smooth Streaming)</td><td>El empaquetado dinámico de Servicios multimedia permite a los clientes transmitir contenido de cualquiera de los siguientes formatos: MPEG DASH, HLS o Smooth Streaming. Sin embargo, si usted utiliza MP4 fragmentado (Smooth Streaming) con subtítulos dentro de .ismt (pistas de texto Smooth Streaming), solo podrá entregar la secuencia a clientes de Smooth Streaming.</td></tr>
-<tr><td>SCTE-35</td><td>Sistema de señalización digital utilizado para poner en cola la inserción de publicidad. Los receptores descendentes usan la señal para unir la publicidad a la secuencia por el tiempo asignado. SCTE-35 se debe enviar como una pista dispersa en la secuencia de entrada.<br/>Tenga en cuenta que en la actualidad el único admite formato de secuencia de entrada admitido que transporta señales de publicidad es el formato MP4 fragmentado (Smooth Streaming). El único formato de salida admitido también es Smooth Streaming.</td></tr>
-</table>
+Standard|Notas
+---|---
+CEA-708 y EIA-608 (708/608)|CEA-708 y EIA-608 son estándares de subtítulos (CC) para Estados Unidos y Canadá.<p><p>Actualmente, solo se admiten subtítulos si se transmiten en la secuencia de entrada codificada. Debe usar un codificador multimedia en directo que pueda insertar 608 o 708 títulos en la secuencia codificada que se envía a Servicios multimedia. Servicios multimedia ofrecerá el contenido con subtítulos insertados para los usuarios.
+TTML dentro de ismt (pistas de texto Smooth Streaming)|El empaquetado dinámico de Servicios multimedia permite a los clientes transmitir contenido de cualquiera de los siguientes formatos: MPEG DASH, HLS o Smooth Streaming. Sin embargo, si usted utiliza MP4 fragmentado (Smooth Streaming) con subtítulos dentro de .ismt (pistas de texto Smooth Streaming), solo podrá entregar la secuencia a clientes de Smooth Streaming.
+SCTE-35|Sistema de señalización digital utilizado para poner en cola la inserción de publicidad. Los receptores descendentes usan la señal para unir la publicidad a la secuencia por el tiempo asignado. SCTE-35 se debe enviar como una pista dispersa en la secuencia de entrada.<p><p>Tenga en cuenta que en la actualidad el único formato de secuencia de entrada admitido que transporta señales de publicidad es el formato MP4 fragmentado (Smooth Streaming). El único formato de salida admitido también es Smooth Streaming.
+
 
 ##<a id="Considerations"></a>Consideraciones
 
@@ -331,4 +330,4 @@ Para obtener información sobre el escalado de unidades de streaming, consulte: 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -71,4 +71,4 @@ Puede modificar el nombre de host de cualquier máquina virtual o instancia de r
 
 [Configuración de una red virtual mediante archivos de configuración de red](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -73,4 +73,4 @@ Si está usando una cuenta de terceros con la aplicación móvil, escriba el nom
 >[AZURE.NOTE]Si ve "Agregar cuenta profesional", esto es para Unión al área de trabajo y no para la autenticación multifactor. Puede pasar esto por alto.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -5,7 +5,7 @@ En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP,
 
 Para usar una base de datos de SQL Server o SQL Server Express local con una conexión híbrida, es necesario habilitar TCP/IP en un puerto estático. Las instancias predeterminadas de SQL Server usan el puerto estático 1433, mientras que las instancias con nombre no. Por eso se instalará la instancia predeterminada. Si ya tiene la instancia predeterminada de SQL Server Express instalada, puede omitir esta sección.
 
-1. Para instalar SQL Server Express, ejecute el archivo **SQLEXPRWT_x64_ENU.exe** o **SQLEXPR_x86_ENU.exe** que descargó. Aparecerá el asistente Centro de instalación de SQL Server.
+1. Para instalar SQL Server Express, ejecute el archivo **SQLEXPRWT\_x64\_ENU.exe** o **SQLEXPR\_x86\_ENU.exe** que descargó. Aparecerá el asistente Centro de instalación de SQL Server.
 	
 2. Elija **Instalación independiente del nuevo servidor SQL Server o agregar funciones a una instalación existente**, siga las instrucciones y acepte las opciones y configuración predeterminadas hasta llegar a la página **Configuración de la instancia**.
 	
@@ -78,4 +78,4 @@ Por último, creará un nuevo inicio de sesión de SQL Server con permisos restr
 
 4. **Ejecute** la consulta para crear el nuevo inicio de sesión y conceder los permisos necesarios en la base de datos local.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -81,4 +81,4 @@ Un [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch
 
 > [AZURE.NOTE]Se recomienda que siempre utilice el filtro y seleccione cláusulas para las llamadas API de la lista para garantizar la máxima eficacia y el mejor rendimiento de su aplicación.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

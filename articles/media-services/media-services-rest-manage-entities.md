@@ -144,4 +144,4 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
 	Host: media.windows.net
 	Content-Length: 0
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

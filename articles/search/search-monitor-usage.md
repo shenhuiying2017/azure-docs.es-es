@@ -57,4 +57,4 @@ Visite [Administración del servicio de búsqueda en Microsoft Azure](search-man
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

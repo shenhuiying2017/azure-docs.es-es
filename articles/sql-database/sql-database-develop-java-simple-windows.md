@@ -128,10 +128,10 @@ A continuación se muestra la mayor parte del código Java de ejemplo. El ejempl
 Por supuesto, para ejecutar el ejemplo de código Java anterior, tendría que especificar los valores reales en la cadena de conexión para reemplazar los marcadores de posición siguientes:
 
 
-- your_server
-- your_database
-- your_user
-- your_password
+- your\_server
+- your\_database
+- your\_user
+- your\_password
 
 
 ## Instrucción INSERT para insertar dos filas en la tabla
@@ -144,7 +144,7 @@ Este segmento de Java emite una instrucción Transact-SQL INSERT para insertar d
  - El parámetro `Statement.RETURN_GENERATED_KEYS` se incluye para que más adelante podemos obtener el valor generado automáticamente para el valor de clave **id**.
 2. Llame al método `execute` del objeto `PreparedStatement`.
 3. Obtenga el valor numérico que se generó automáticamente para la clave principal usando el objeto `PreparedStatement`.
- - Esto está relacionado con la especificación AUTO_INCREMENT de la columna **id** de la tabla Person.
+ - Esto está relacionado con la especificación AUTO\_INCREMENT de la columna **id** de la tabla Person.
 
 
 Copie y pegue este segmento Java breve en el ejemplo de código principal donde verá el comentario `// INSERT two rows into the table.`.
@@ -225,4 +225,4 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

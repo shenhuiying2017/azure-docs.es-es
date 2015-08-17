@@ -32,4 +32,4 @@ Son compatibles las últimas versiones de los siguientes exploradores:
 
 *Safari 6 y versiones anteriores no son compatibles. Si usa OS X, puede usar Chrome, Firefox o actualizar a OS X Mavericks para obtener Safari 7.*
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

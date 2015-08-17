@@ -6,4 +6,4 @@ En el proyecto ASP.NET, deberá ver lo siguiente:
 
 * En WebApiConfig.cs, se llama al método `UseDefaultConfiguration()` en el objeto MobileAppConfiguration. Esto a su vez llama al método de extensión `AddTablesWithEntityFramework()` ofrecido por el paquete NuGet anterior.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

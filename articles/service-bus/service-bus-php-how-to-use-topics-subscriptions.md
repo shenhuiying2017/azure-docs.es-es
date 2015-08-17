@@ -39,7 +39,7 @@ En esta guía, utilizará funciones del servicio a las que se puede llamar desde
 
 Para usar las API del Bus de servicio:
 
-1. Hacer referencia al archivo autocargador mediante la instrucción [require_once][require-once].
+1. Hacer referencia al archivo autocargador mediante la instrucción [require\_once][require-once].
 2. Hacer referencia a todas las clases que utilice.
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServiceBusService**.
@@ -332,4 +332,4 @@ Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, cons
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

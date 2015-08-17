@@ -57,4 +57,4 @@ Los siguientes componentes funcionan conjuntamente para crear un servicio de nub
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

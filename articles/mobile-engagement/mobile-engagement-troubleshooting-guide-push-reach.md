@@ -30,7 +30,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 - Pruebe simplemente una inserción en la aplicación y una inserción fuera de la aplicación para determinar si algo es un problema dentro o fuera de la aplicación.
 - Realice pruebas desde dentro de la interfaz de usuario y la API como paso de solución de problemas para ver qué información de error adicional está disponible en ambos lugares.
 - Las inserciones fuera de la aplicación no funcionarán a menos que Azure Mobile Engagement y la cobertura están integrados en el SDK.
-- Las inserciones no funcionarán si los certificados no son válidos o usan PROD frente a DEV correctamente (únicamente en iOS). (**Nota:** es posible que las notificaciones de inserción "fuera de la aplicación" no se entreguen a iOS si tiene las versiones de desarrollo (DEV) y producción (PROD) de la aplicación instaladas en el mismo dispositivo, ya que Apple puede invalidar el token de seguridad asociado con el certificado. Para resolver este problema, desinstale las versiones DEV y PROD de la aplicación y vuelva a instalar solo una versión en el dispositivo.)
+- Las inserciones no funcionarán si los certificados no son válidos o usan PROD frente a DEV correctamente (únicamente iOS). (**Nota:** es posible que las notificaciones push "fuera de la aplicación" no se entreguen a iOS si tiene las versiones de desarrollo (DEV) y producción (PROD) de la aplicación instaladas en el mismo dispositivo, ya que Apple puede invalidar el token de seguridad asociado con el certificado. Para resolver este problema, desinstale las versiones DEV y PROD de la aplicación y vuelva a instalar solo una versión en el dispositivo.)
 - Los recuentos de inserción fuera de la aplicación se controlan de forma distinta en diferentes plataformas (iOS muestra menos información que Android si las inserciones nativas están deshabilitadas en un dispositivo, la API puede proporcionar más información que la interfaz de usuario en las estadísticas de inserción).
 - Las inserciones fuera de la aplicación pueden ser bloqueadas por los clientes a nivel de sistema operativo (iOS y Android).
 - Las inserciones fuera de la aplicación se mostrarán como deshabilitadas en la interfaz de usuario de Azure Mobile Engagement si no están integradas correctamente, pero pueden producir un error silenciosamente a través de la API.
@@ -67,7 +67,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 ### Causas
 
 - Para vincular a una ubicación específica de la aplicación se requieren "categorías" (solo Android).
-- Esquemas de vinculación profundos para redirigir a los usuarios a una ubicación alternativa después de hacer clic en una notificación de inserción que necesite crearse en y ser administrada por la aplicación y el sistema operativo del dispositivo, no por Mobile Engagement directamente. (**Nota:** las notificaciones "fuera de la aplicación" no se pueden vincular directamente a ubicaciones de la aplicación con iOS de la misma manera que con Android.)
+- Esquemas de vinculación profundos para redirigir a los usuarios a una ubicación alternativa después de hacer clic en una notificación push que necesite crearse en y ser administrada por la aplicación y el sistema operativo del dispositivo, no por Mobile Engagement directamente. (**Nota:** las notificaciones fuera de la aplicación no se pueden vincular directamente a ubicaciones de aplicación con iOS del mismo modo que lo hacen con Android.)
 - Los servidores de imágenes externas tienen que poder usar HTTP "GET" y "HEAD" para que funcionen inserciones generales (solo Android).
 - En el código, puede deshabilitar al agente de Azure Mobile Engagement cuando se abre el teclado y hacer que el código vuelva a activar al agente de Azure Mobile Engagement una vez cerrado el teclado para que el teclado no afecte al aspecto de su notificación (únicamente en iOS).
 - Algunos elementos no funcionan en las simulaciones de prueba, sino solo las campañas reales (distintivo, anillo, vibración, imagen, etc.).
@@ -110,4 +110,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

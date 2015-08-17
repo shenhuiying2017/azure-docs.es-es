@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cómo usan los actores de Fabric la plataforma Service Fabric"
-   description="En este artículo se describe cómo usan los actores de Fabric las características de la plataforma de Service Fabric. Abarca los conceptos de la plataforma de Service Fabric desde el punto de vista de los desarrolladores de actores."
+   pageTitle="Uso de la plataforma Service Fabric por parte de actores confiables"
+   description="En este artículo se describe la forma en que Actores confiables usa las características de la plataforma Service Fabric. Abarca los conceptos de la plataforma de Service Fabric desde el punto de vista de los desarrolladores de actores."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# Cómo usan los actores de Fabric la plataforma Service Fabric
+# Uso de la plataforma Service Fabric por parte de actores confiables
 
 ## Conceptos del modelo de aplicación de Service Fabric para los actores
 Los actores usan el modelo de aplicación de Service Fabric para administrar el ciclo de vida de la aplicación. Cada tipo actor se asigna a un [tipo de servicio](service-fabric-application-model.md#describe-a-service) de Service Fabric. El código de actor se [empaqueta](service-fabric-application-model.md#package-an-application) como una aplicación de Service Fabric y se [implementa](service-fabric-deploy-remove-applications.md#deploy-an-application) en el clúster.
@@ -242,4 +242,4 @@ Tenga en cuenta que al cambiar el proveedor de estado, es necesario que se vuelv
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -88,4 +88,4 @@ El resultado de la acción de HTTP son los encabezados y el cuerpo, que se puede
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

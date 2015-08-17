@@ -73,7 +73,6 @@ La aplicación de ejemplo de este tutorial, [WebApp-GroupClaims-DotNet](https://
 
 4.	Cuando se cargue la aplicación, haga clic en **Iniciar sesión**.
 
-
 5.	Si configuró la aplicación de Azure Active Directory correctamente y estableció los valores correspondientes en el archivo Web.config, se le debería redirigir al inicio de sesión. Solo tiene que iniciar sesión con la cuenta utilizada para crear la aplicación Azure Active Directory en el portal de Azure, puesto que es el propietario predeterminado de la aplicación Azure Active Directory.
 	
 	> [AZURE.NOTE]En Startup.Auth.cs del proyecto de muestra, observe que la aplicación tiene un método llamado <code>AddOwnerAdminClaim</code>, que se usa para agregar el propietario de la aplicación al rol Admin. Esto le permite empezar inmediatamente los roles de aplicación en el controlador de <code>Roles</code>.
@@ -378,4 +377,4 @@ Ahora que ha configurado las autorizaciones y la funcionalidad de línea de nego
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

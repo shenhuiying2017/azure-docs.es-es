@@ -71,4 +71,4 @@ En este tema se enumeran las ubicaciones del punto de presencia (POP) de CDN de 
 - Melbourne
 - Sidney 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

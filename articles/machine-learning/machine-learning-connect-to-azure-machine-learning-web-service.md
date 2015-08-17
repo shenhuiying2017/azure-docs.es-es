@@ -106,4 +106,4 @@ Para conectarse a un servicio web de Aprendizaje automático de Azure, use la bi
 	
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

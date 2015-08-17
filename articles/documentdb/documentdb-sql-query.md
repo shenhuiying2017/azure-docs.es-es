@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Consulta con SQL de Base de datos de documentos | Azure" 
+	pageTitle="Consulta con SQL de DocumentDB | Microsoft Azure" 
 	description="DocumentDB, un servicio de base de datos de documentos NoSQL, admite consultas con gramática de estilo SQL en documentos JSON jerárquicos, sin necesidad explícita de un esquema o de crear índices secundarios." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -296,7 +296,7 @@ Echemos un vistazo a algunas consultas usando operadores binarios.
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-También se admiten los operadores unarios +,-, ~ y NOT, y se pueden usar dentro de consultas como se muestra en el ejemplo siguiente:
+También se admiten los operadores unarios +,-, \~ y NOT, y se pueden usar dentro de consultas como se muestra en el ejemplo siguiente:
 
 	SELECT *
 	FROM Families.children[0] c
@@ -681,7 +681,7 @@ La proyección también admite experiencias JSON, como se muestra en el siguient
 	}]
 
 
-Analicemos el rol de `$1`. La cláusula `SELECT` debe crear un objeto JSON y, como no se proporciona ninguna clave, usamos nombres de las variables de argumentos implícitos que empiezan por `$1`. Por ejemplo, esta consulta devuelve dos variables de argumentos implícitos, etiquetadas como `$1` y `$2` .
+Analicemos el rol de `$1`. La cláusula `SELECT` debe crear un objeto JSON y, como no se proporciona ninguna clave, usamos nombres de las variables de argumentos implícitos que empiezan por `$1`. Por ejemplo, esta consulta devuelve dos variables de argumentos implícitos, etiquetadas como `$1` y `$2`.
 
 **Consultar**
 
@@ -1127,7 +1127,7 @@ Este ejemplo es una ampliación natural del anterior y realiza una combinación 
 		}
 	}
 
-`AndersenFamily` tienen un hijo que tiene una mascota. De esta manera, el producto cruzado produce una fila (1 * 1 * 1) a partir de esta familia. La familia Wakefield tiene, sin embargo, dos hijos, pero solo uno, "Jesse", tiene mascotas. Tiene dos mascotas, sin embargo. Así pues, el producto cruzado produce 1 * 1 * 2 = 2 filas a partir de esta familia.
+`AndersenFamily` tiene un hijo que tiene una mascota. De esta manera, el producto cruzado produce una fila (1 * 1 * 1) a partir de esta familia. La familia Wakefield tiene, sin embargo, dos hijos, pero solo uno, "Jesse", tiene mascotas. Tiene dos mascotas, sin embargo. Así pues, el producto cruzado produce 1 * 1 * 2 = 2 filas a partir de esta familia.
 
 En el ejemplo siguiente, hay un filtro adicional en `pet` Este excluye todas las tuplas donde el nombre de mascota no sea "Shadow". Tenga en cuenta que podemos crear tuplas a partir de matrices, filtrar por cualquiera de los elementos de la tupla y proyectar cualquier combinación de los elementos.
 
@@ -1185,7 +1185,7 @@ El ejemplo anterior crea una UDF cuyo nombre es `REGEX_MATCH`. Acepta dos valore
 
 Ahora podemos usar esta UDF en una consulta de una proyección. Las UDF deben estar calificadas con el prefijo, que distingue mayúsculas de minúsculas, "udf." cuando se las llama desde las consultas.
 
->[AZURE.NOTE]Antes del 17/03/2015, DocumentDB admitía las llamadas de UDF sin el prefijo "udf." como SELECT REGEX_MATCH(). Este patrón de llamada está desusado.
+>[AZURE.NOTE]Antes del 17/03/2015, DocumentDB admitía las llamadas de UDF sin el prefijo "udf." como SELECT REGEX\_MATCH(). Este patrón de llamada está desusado.
 
 **Consultar**
 
@@ -1651,7 +1651,7 @@ Las funciones de matriz pueden usarse para manipular matrices en JSON. Por ejemp
       "id": "WakefieldFamily"
     }]
 
-Este es otro ejemplo que usa ARRAY_LENGTH para obtener el número de hijos por familia.
+Este es otro ejemplo que usa ARRAY\_LENGTH para obtener el número de hijos por familia.
 
 **Consultar**
 
@@ -2056,9 +2056,9 @@ En los ejemplos siguientes se muestra POST para una consulta de DocumentDB reali
 	         },
 	         "_rid":"u1NXANcKogEcAAAAAAAAAA==",
 	         "_ts":1407691744,
-	         "_self":"dbs/u1NXAA==/colls/u1NXANcKogE=/docs/u1NXANcKogEcAAAAAAAAAA==/",
+	         "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
 	         "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-	         "_attachments":"_attachments/"
+	         "_attachments":"_attachments\/"
 	      }
 	   ],
 	   "count":1
@@ -2261,7 +2261,7 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 2.	[Especificación de SQL de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[Ejemplos de .NET de DocumentDB](https://github.com/Azure/azure-documentdb-net)
 4.	[Niveles de coherencia de Base de datos de documentos][consistency-levels]
-5.	SQL ANSI 2011: [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+5.	SQL ANSI 2011: [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Especificación de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
@@ -2277,4 +2277,4 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

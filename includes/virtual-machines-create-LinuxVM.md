@@ -38,4 +38,4 @@
 
 Para obtener más información acerca de estos comandos de la máquina virtual de la CLI de Azure, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

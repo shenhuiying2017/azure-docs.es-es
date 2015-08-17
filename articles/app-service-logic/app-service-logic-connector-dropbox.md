@@ -80,4 +80,4 @@ Configure las propiedades de entrada para la acción "Cargar archivo" de la sigu
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

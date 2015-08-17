@@ -67,4 +67,4 @@ Para obtener más información, consulte [Configuración de la autenticación ba
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

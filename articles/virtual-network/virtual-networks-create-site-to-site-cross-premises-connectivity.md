@@ -64,7 +64,8 @@ Si utiliza este tutorial para configurar una red virtual entre locales que funci
 
 -  Dispositivo VPN con una dirección IPv4 pública. Necesitará la dirección IP para completar el asistente. El dispositivo VPN no puede estar situado detrás de un traductor de direcciones de red (NAT) y debe cumplir los requisitos mínimos de los dispositivos. Consulte [Acerca de los dispositivos VPN de la red virtual](http://go.microsoft.com/fwlink/p/?LinkID=248098) para obtener más información.
 
-	Nota: puede utilizar el servicio de enrutamiento y acceso remoto (RRAS) en un Windows Server como parte de la solución de VPN. Sin embargo, en este tutorial no se incluyen los pasos de configuración de RRAS. Para obtener información acerca de la configuración de RRAS, consulte [Plantillas del Servicio de Enrutamiento y acceso remoto](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
+	Nota: puede utilizar el servicio de enrutamiento y acceso remoto (RRAS) en un Windows Server como parte de la solución de VPN. Sin embargo, en este tutorial no se incluyen los pasos de configuración de RRAS.
+	Para obtener información acerca de la configuración de RRAS, consulte [Plantillas del Servicio de Enrutamiento y acceso remoto](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
 
 -  Conocimientos para configurar un enrutador para una conexión en modo túnel de IPsec, o bien alguien que le pueda ayudar con este paso.
 
@@ -98,7 +99,7 @@ Para crear un ejemplo de red virtual que se conecte a la red de una empresa:
 	
 4.	En la página **Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha para avanzar situada en la esquina inferior derecha.
 
-> [AZURE.NOTE]Es posible seleccionar a la vez las configuraciones **De punto a sitio** y **De sitio a sitio** de esta página. En este tutorial, seleccionaremos únicamente la configuración **De sitio a sitio**. Para obtener más información acerca de la configuración de esta página, consulte la página **Servidores DNS y conectividad VPN** en [Acerca de la configuración de una red virtual en el Portal de administración](http://go.microsoft.com/fwlink/p/?LinkID=248092).
+> [AZURE.NOTE] Es posible seleccionar a la vez las configuraciones **De punto a sitio** y **De sitio a sitio** de esta página. En este tutorial, seleccionaremos únicamente la configuración **De sitio a sitio**. Para obtener más información acerca de la configuración de esta página, consulte la página **Servidores DNS y conectividad VPN** en [Acerca de la configuración de una red virtual en el Portal de administración](http://go.microsoft.com/fwlink/p/?LinkID=248092).
 
 	-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. For the example in this tutorial, type **YourDNS** for the name and **10.1.0.4** for the IP address.
 	-  **Configure Point-To-Site VPN:** Leave this field blank. 
@@ -215,30 +216,30 @@ En este procedimiento se asume lo siguiente:
 3.	Pruebe la conexión ejecutando uno de los comandos siguientes:
 
 	<table border="1">
-<tr>
-<th>-</th>
-<th>Cisco ASA</th>
-<th>Cisco ISR/ASR</th>
-<th>Juniper SSG/ISG</th>
-<th>Juniper SRX/J</th>
-</tr>
-
-<tr>
-<td><b>SA de comprobación de modo principal</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-</tr>
-
-<tr>
-<td><b>SA de comprobación de modo rápido</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-</tr>
-</table>
+	<tr>
+	<th>-</th>
+	<th>Cisco ASA</th>
+	<th>Cisco ISR/ASR</th>
+	<th>Juniper SSG/ISG</th>
+	<th>Juniper SRX/J</th>
+	</tr>
+	
+	<tr>
+	<td><b>SA de comprobación de modo principal</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+	</tr>
+	
+	<tr>
+	<td><b>SA de comprobación de modo rápido</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+	</tr>
+	</table>
 
 
 ##  Pasos siguientes
@@ -271,4 +272,4 @@ Si desea exportar la configuración de la red virtual a un archivo de configurac
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

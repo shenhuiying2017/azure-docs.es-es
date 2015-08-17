@@ -575,4 +575,4 @@ Ejecute `azure site browse` en el directorio del proyecto para abrir automática
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

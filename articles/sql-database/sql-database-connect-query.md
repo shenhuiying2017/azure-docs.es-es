@@ -127,7 +127,7 @@ En la hoja de cadenas de conexión de la base de datos, encontrará las cadenas 
 ## Paso 4: Sustitución de la información de conexión real
 
 
-- En el código fuente pegado, reemplace el marcador de posición *[Your_Connection_String]* por la cadena de conexión y asegúrese de reemplazar *your_password_here* en dicha cadena por su contraseña real.
+- En el código fuente pegado, reemplace el marcador de posición *[Your\_Connection\_String]* por la cadena de conexión y asegúrese de reemplazar *your\_password\_here* en dicha cadena por su contraseña real.
 
 
 ## Paso 5: Ejecución de la aplicación
@@ -137,4 +137,4 @@ En la hoja de cadenas de conexión de la base de datos, encontrará las cadenas 
 2. El programa imprimirá los resultados de la consulta en la ventana de la consola.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -117,7 +117,7 @@ Los valores y tipos permitidos son los siguientes:
 - string o secureString: cualquier cadena JSON válida
 - int: cualquier entero JSON válido
 - bool: cualquier booleano JSON válido
-- objet: cualquier objeto JSON válido
+- object o secureObject: cualquier objeto JSON válido
 - array: cualquier matriz JSON válida
 
 
@@ -405,4 +405,4 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

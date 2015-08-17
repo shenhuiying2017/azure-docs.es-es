@@ -63,15 +63,17 @@ Almacenamiento de datos SQL se implementa fácilmente en cuestión de segundos. 
 
 
 ## Pasos siguientes
-Obtenga información sobre [carga de trabajo del almacenamiento de datos].
+Obtenga información sobre [carga de trabajo del almacenamiento de datos]. [Aprovisionar]y cargar[datos de ejemplo] para comenzar.
 
 <!--Image references-->
 
 <!--Article references-->
 [carga de trabajo del almacenamiento de datos]: ./sql-data-warehouse-overview-workload.md
+[datos de ejemplo]: ./sql-data-warehouse-get-started-load-samples.md
+[Aprovisionar]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

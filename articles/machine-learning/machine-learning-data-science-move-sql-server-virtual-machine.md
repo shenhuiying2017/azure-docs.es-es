@@ -232,4 +232,4 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -52,44 +52,42 @@ Compruebe que el servidor SQL Server es accesible desde la máquina donde está 
 
 ## Problema: los segmentos de entrada están en el estado PendingExecution o PendingValidation de forma permanente.
 
-Los intervalos pueden estar en el estado **PendingExecution** o **PendingValidation** por varias razones. Una de las más comunes es que la propiedad **waitOnExternal** no se especifica en la sección de **disponibilidad** de la primera tabla/conjunto de datos en la canalización. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **waitOnExternal** en la sección de **disponibilidad**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
+Los intervalos pueden estar en el estado **PendingExecution** o **PendingValidation** por varias razones. Una de las más comunes es que la propiedad **external** no se establece en **true**. Cualquier conjunto de datos que se produce fuera del ámbito de Factoría de datos de Azure debe marcarse con la propiedad **external**. Esto indica que los datos son externos y no están respaldados por ninguna canalización dentro de la factoría de datos. Los segmentos de datos se marcan con el estado **Listo** una vez que están disponibles en el almacén correspondiente.
 
-Consulte el ejemplo siguiente para el uso de la propiedad **waitOnExternal**. Puede especificar **waitOnExternal{} ** sin establecer los valores de las propiedades de la sección para que se usen los valores predeterminados.
+Consulte el ejemplo siguiente para el uso de la propiedad **external**. Opcionalmente, puede especificar**externalData*** al establecer external en true.
 
 Consulte el tema Tablas en [Referencia de scripting JSON][json-scripting-reference] para obtener más información sobre esta propiedad.
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- Para resolver el error, agregue la sección **waitOnExternal** a la definición de JSON de la tabla de entrada y vuelva a crear la tabla.
+ Para resolver el error, agregue la propiedad **external** y la sección **externalData** opcional a la definición de JSON de la tabla de entrada y vuelva a crear la tabla.
 
 ## Problema: la operación de copia híbrida produce un error.
 Para obtener más información:
@@ -131,7 +129,7 @@ Para enumerar y leer los registros de una actividad personalizada concreta, siga
 
 Un **error común** de una actividad personalizada es el error de ejecución del paquete con código de salida ''1''. Consulte '' wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr'' para obtener más información.
 
-Para ver más detalles de este tipo de error, abra el archivo **stderr**. Un error común que es que hay una condición de tiempo de espera como esta: INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs.
+Para ver más detalles de este tipo de error, abra el archivo **stderr**. Un error común que es que hay una condición de tiempo de espera como esta: INFO mapreduce.Job: Task Id : attempt\_1424212573646\_0168\_m\_000000\_0, Status : FAILED AttemptID:attempt\_1424212573646\_0168\_m\_000000\_0 Timed out after 600 secs.
 
 Este mismo error puede aparecer varias veces si el trabajo se ha reintentado tres veces, por ejemplo, en el intervalo de 30 minutos o más.
 
@@ -386,4 +384,4 @@ En este escenario, el conjunto de datos está en estado de error debido a un err
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

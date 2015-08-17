@@ -80,7 +80,7 @@ Las métricas de caché se notifican mediante varios intervalos de informes, inc
 | Sets | El número de operaciones set a la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` y `cmdstat_setnx`. |
 | Total de operaciones | El número total de comandos procesados por el servidor de caché durante el intervalo de informes especificado. Este valor se asigna al comando INFO `total_commands_processed` de Redis. Tenga en cuenta que cuando se utiliza Caché en Redis de Azure simplemente para Pub/Sub, no habrá ninguna métrica para `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, pero habrá métricas `Total Operations` que reflejan el uso de la memoria caché para operaciones Pub/Sub. |
 | Memoria usada | La cantidad de memoria caché utilizada en MB durante el intervalo de informes especificado. Este valor se asigna al comando INFO `used_memory` de Redis. |
-| CPU | El uso de CPU del servidor de Caché en Redis de Azure como porcentaje durante el intervalo de informes especificado. Este valor se asigna al contador de rendimiento `\Processor(_Total)% Processor Time` del sistema operativo. |
+| CPU | El uso de CPU del servidor de Caché en Redis de Azure como porcentaje durante el intervalo de informes especificado. Este valor se asigna al contador de rendimiento `\Processor(_Total)\% Processor Time` del sistema operativo. |
 | Lectura de caché | La cantidad de datos que se leen de la memoria caché en KB/s durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. |
 | Escritura de caché | La cantidad de datos que se escriben en la memoria caché en KB/s durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. |
 
@@ -221,4 +221,4 @@ Para obtener más información acerca de las alertas en Azure, consulte [Recibir
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -19,4 +19,4 @@ De forma predeterminada, los extremos definidos en su aplicación móvil se expo
 
 4. Volver a publicar un proyecto de aplicación móvil.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -24,4 +24,4 @@ De manera predeterminada, todas las solicitudes a recursos de servicios móviles
  
 4. Vuelva a publicar el proyecto.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

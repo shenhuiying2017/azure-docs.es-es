@@ -51,4 +51,4 @@ Para mover una instancia de rol, edite el archivo CSCFG. En este ejemplo, movemo
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

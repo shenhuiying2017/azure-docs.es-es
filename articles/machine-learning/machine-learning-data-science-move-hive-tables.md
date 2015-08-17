@@ -153,4 +153,4 @@ Los usuarios no pueden cargar datos directamente desde el almacenamiento de blob
 
 Después de seguir este procedimiento, debe tener una tabla con datos en el formato ORC lista para su uso.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

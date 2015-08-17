@@ -454,4 +454,4 @@ Vio como se codifica y configura una aplicación de API que se conecta a una pla
 [Azure portal]: https://manage.windowsazure.com/
 [Portal de Azure]: https://manage.windowsazure.com/
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

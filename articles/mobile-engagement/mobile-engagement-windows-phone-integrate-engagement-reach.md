@@ -113,15 +113,15 @@ En el objeto EngagementReach se proporcionan dos métodos para administrar la pa
 
 También puede decidir desactivar MPNS a través de la configuración de Engagement<windows-phone-sdk-reach-configuration>.
 
-> 2.9.1) La aplicación primero debe describir las notificaciones que se proporcionarán y **obtener el permiso explícito del usuario (participar)**. Además, **debe proporcionar un mecanismo a través del cual el usuario puede optar por dejar de recibir las notificaciones de inserción**. Todas las notificaciones que se proporcionan mediante el Servicio de notificaciones de inserción de Microsoft deben ser coherentes con la descripción que se proporciona al usuario y deben cumplir con todas las [directivas de aplicación][Content Policies] y [requisitos adicionales para tipos específicos de aplicación vigentes].
+> 2\.9.1) La aplicación primero debe describir las notificaciones que se proporcionarán y **obtener el permiso explícito del usuario (participar)**. Además, **debe proporcionar un mecanismo a través del cual el usuario puede optar por dejar de recibir las notificaciones de inserción**. Todas las notificaciones que se proporcionan mediante el Servicio de notificaciones de inserción de Microsoft deben ser coherentes con la descripción que se proporciona al usuario y deben cumplir con todas las [directivas de aplicación][Content Policies] y [requisitos adicionales para tipos específicos de aplicación vigentes].
 
 2) No debería usar demasiadas notificaciones de inserción. Engagement controlará las notificaciones por usted.
 
-> 2.9.2) La aplicación y el uso que hace del Servicio de notificaciones de inserción de Microsoft no deben usar excesivamente la capacidad de la red o el ancho de banda del Servicio de notificaciones de inserción de Microsoft. Tampoco deben sobrecargar innecesariamente un dispositivo Windows Phone u otro dispositivo o servicio de Microsoft con notificaciones de inserción excesivas, según determine Microsoft bajo su razonable criterio, ni dañar las redes o los servidores de Microsoft, los servidores de terceros o las redes conectadas al Servicio de notificaciones de inserción de Microsoft, ni interferir con ellos.
+> 2\.9.2) La aplicación y el uso que hace del Servicio de notificaciones de inserción de Microsoft no deben usar excesivamente la capacidad de la red o el ancho de banda del Servicio de notificaciones de inserción de Microsoft. Tampoco deben sobrecargar innecesariamente un dispositivo Windows Phone u otro dispositivo o servicio de Microsoft con notificaciones de inserción excesivas, según determine Microsoft bajo su razonable criterio, ni dañar las redes o los servidores de Microsoft, los servidores de terceros o las redes conectadas al Servicio de notificaciones de inserción de Microsoft, ni interferir con ellos.
 
 3) No dependa de MPNS para enviar información crítica. Engagement usa MPNS, por lo que esta regla también se aplica a las campañas que se crean en el front-end de Engagement.
 
-> 2.9.3) El Servicio de notificaciones de inserción de Microsoft no se puede usar para enviar notificaciones de misión crítica o que de otro modo podrían afectar a asuntos de vida o muerte, incluidas, sin limitación, las notificaciones críticas relacionadas con un dispositivo o condición médicos. MICROSOFT RENUNCIA A TODA GARANTÍA QUE EL USO DEL SERVICIO DE NOTIFICACIONES PUSH DE MICROSOFT O LA ENTREGA DE NOTIFICACIONES DEL SERVICIO DE NOTIFICACIONES PUSH DE MICROSOFT SE HARÁN SIN INTERRUPCIONES, SEAN LIBRE DE ERRORES O DE OTRO MODO SE GARANTICE QUE SE PRODUCIRÁN EN TIEMPO REAL.
+> 2\.9.3) El Servicio de notificaciones de inserción de Microsoft no se puede usar para enviar notificaciones de misión crítica o que de otro modo podrían afectar a asuntos de vida o muerte, incluidas, sin limitación, las notificaciones críticas relacionadas con un dispositivo o condición médicos. MICROSOFT RENUNCIA A TODA GARANTÍA QUE EL USO DEL SERVICIO DE NOTIFICACIONES PUSH DE MICROSOFT O LA ENTREGA DE NOTIFICACIONES DEL SERVICIO DE NOTIFICACIONES PUSH DE MICROSOFT SE HARÁN SIN INTERRUPCIONES, SEAN LIBRE DE ERRORES O DE OTRO MODO SE GARANTICE QUE SE PRODUCIRÁN EN TIEMPO REAL.
 
 **No podemos garantizar que la aplicación aprobará el proceso de validación si no se respetan estas recomendaciones.**
 
@@ -266,4 +266,4 @@ Puede establecer la devolución de llamada en el método `Application_Launching`
 [requisitos adicionales para tipos específicos de aplicación vigentes]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

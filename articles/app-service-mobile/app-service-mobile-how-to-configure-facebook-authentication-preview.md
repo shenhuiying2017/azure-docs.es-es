@@ -79,4 +79,4 @@ De este modo ya estará listo para usar Facebook para realizar la autenticación
 [Portal de administración de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

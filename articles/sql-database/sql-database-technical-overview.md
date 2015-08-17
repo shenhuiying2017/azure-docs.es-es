@@ -29,4 +29,4 @@ Base de datos SQL está disponible en los [niveles de servicio](sql-database-ser
 Empiece a trabajar con una [versión de prueba gratuita](http://azure.microsoft.com/pricing/free-trial/) y, a continuación, [cree la primera Base de datos SQL](sql-database-get-started.md) en solo unos minutos.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

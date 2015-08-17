@@ -1,26 +1,37 @@
-<properties 
-	pageTitle="Procedimiento de actualización del SDK de iOs de Azure Mobile Engagement" 
+<properties
+	pageTitle="Procedimiento de actualización del SDK de iOs de Azure Mobile Engagement"
 	description="Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Procedimientos de actualización
 
 Si ya integró una versión anterior de Engagement en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
 
 Para cada nueva versión del SDK debe reemplazar primero (quitar y volver a importar en xcode) las carpetas EngagementSDK y EngagementReach.
+
+##De 2.0.0 a 3.0.0
+Si está usando Reach en la aplicación, debe agregar el valor `remote-notification` a la matriz `UIBackgroundModes` en el archivo Info.plist para recibir notificaciones remotas.
+
+El método `application:applicationDidReceiveRemoteNotification:` debe reemplazarse por `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` en el delegado de aplicación.
+
+Los siguientes métodos de delegado están obsoletos y debe quitarlos del delegado de aplicación:
+
+	-(void)willRetrieveLaunchMessage;
+	-(void)didFailToRetrieveLaunchMessage;
+	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
 ##De 1.16.0 a 2.0.0
 A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con la tecnología de Azure Mobile Engagement. Si va a migrar desde una versión anterior, consulte el sitio web de Capptain para migrar a 1.16 en primer lugar luego aplique el siguiente procedimiento.
@@ -58,6 +69,5 @@ Ejemplos:
 -   La clase `CapptainTableViewController` cambia su nombre a `EngagementTableViewController`.
 -   La clase `CapptainUtils` cambia su nombre a `EngagementUtils`.
 -   La clase `CapptainViewController` cambia su nombre a `EngagementViewController`.
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

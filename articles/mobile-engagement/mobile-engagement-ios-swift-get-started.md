@@ -3,7 +3,7 @@
 	description="Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones iOS."
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="piyushjo"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -12,9 +12,9 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="swift"
-	ms.topic="get-started-article" 
-	ms.date="04/30/2015"
-	ms.author="piyushjo" />
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones iOS en Swift
 
@@ -52,11 +52,11 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Mobi
 
 2. Haga clic en **Servicios de aplicaciones**, en **Mobile Engagement** y, luego, en **Crear**.
 
-   	![][7]
+	![][7]
 
 3. En el menú emergente que aparece, escriba la siguiente información:
 
-   	![][8]
+	![][8]
 
 	- **Nombre de la aplicación**: escriba el nombre de la aplicación. Puede usar cualquier carácter.
 	- **Plataforma**: seleccione la plataforma de destino (**iOS**) para la aplicación (si la aplicación tiene como destino varias plataformas, repita este tutorial para cada plataforma).
@@ -69,11 +69,11 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Mobi
 
 5. Haga clic en **Información de conexión** para mostrar la configuración de la conexión que se debe incluir en la integración de SDK en su aplicación móvil.
 
-   	![][10]
+	![][10]
 
 6. Copie la **Cadena de conexión**, la necesitará para identificar esta aplicación en el código de aplicación y conectar con Mobile Engagement desde la aplicación de teléfono.
 
-   	![][11]
+	![][11]
 
 ##<a id="connecting-app"></a>Conectar la aplicación al back-end de Mobile Engagement
 
@@ -87,15 +87,15 @@ Puede omitir este paso si ya tiene una aplicación y está familiarizado con el 
 
 1. Inicie Xcode y, en el menú emergente, seleccione **Crear un nuevo proyecto en Xcode**.
 
-   	![][12]
+	![][12]
 
 2. Seleccione **Aplicación de vista sencilla** y haga clic en Siguiente.
 
-   	![][14]
+	![][14]
 
 3. Rellene el **Nombre del producto**, **Nombre de la organización** y **Identificador de organización**. Asegúrese de que ha seleccionado **Swift** en el lenguaje.
 
-   	![][40]
+	![][40]
 
 Xcode creará la aplicación de demostración en la que se integrará Mobile Engagement.
 
@@ -184,6 +184,10 @@ En esta sección se muestra cómo asegurarse de que la aplicación se conecta al
 
 Mobile Engagement permite interactuar y llegar a los usuarios mediante notificaciones de inserción y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement. En las secciones siguientes se instalará la aplicación para recibirlos.
 
+### Habilitación de la aplicación para recibir notificaciones push silenciosas
+
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
+
 ### Adición de la biblioteca de cobertura al proyecto
 
 1. Haga clic con el botón derecho del mouse en el proyecto.
@@ -249,11 +253,11 @@ Mobile Engagement permite interactuar y llegar a los usuarios mediante notificac
 			EngagementAgent.shared().registerDeviceToken(deviceToken)
 		}
 
-3. Agregue el método `didReceiveRemoteNotification` de la siguiente forma:
+3. Agregue el método `didReceiveRemoteNotification:fetchCompletionHandler:` de la siguiente forma:
 
-		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+		func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
 		{
-			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo)
+			EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
 		}
 
 ###Conceda acceso al certificado push para Mobile Engagement.
@@ -318,10 +322,10 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 [11]: ./media/mobile-engagement-ios-swift-get-started/app-connection-info-page.png
 [12]: ./media/mobile-engagement-ios-swift-get-started/xcode-new-project.png
 [13]: ./media/mobile-engagement-ios-get-started/xcode-project-props.png
-[14]: ./media/mobile-engagement-ios-swift-get-started/xcode-simple-view.png
-[17]: ./media/mobile-engagement-ios-swift-get-started/xcode-add-files.png
-[18]: ./media/mobile-engagement-ios-swift-get-started/xcode-select-engagement-sdk.png
-[19]: ./media/mobile-engagement-ios-swift-get-started/xcode-build-phases.png
+[14]: ./media/mobile-engagement-ios-get-started/xcode-simple-view.png
+[17]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
+[18]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
+[19]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [22]: ./media/mobile-engagement-ios-get-started/xcode-view-controller.png
 [26]: ./media/mobile-engagement-ios-swift-get-started/engage-button.png
 [27]: ./media/mobile-engagement-ios-swift-get-started/engagement-portal.png
@@ -336,6 +340,5 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 [39]: ./media/mobile-engagement-ios-swift-get-started/campaign-activate.png
 [40]: ./media/mobile-engagement-ios-swift-get-started/SwiftSelection.png
 [41]: ./media/mobile-engagement-ios-swift-get-started/AddHeaderFile.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

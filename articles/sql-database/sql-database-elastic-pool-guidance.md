@@ -110,7 +110,7 @@ La siguiente heurística puede ayudar a estimar si un grupo elástico es más re
 
 1. Estime las DTU necesarias para el grupo de la siguiente forma:
     
-    MAX(*Número total de BD* * *utilización de DTU media por BD*, *número de BD de pico simultáneo* * *Utilización de DTU de pico por BD*)
+    MAX(*Número total de BD* * *uso medio de DTU por BD*, *número de BD con picos simultáneos* * *Uso de DTU de pico por BD*)
 
 2. Seleccione el valor de DTU disponible más pequeño para el grupo que sea superior al estimado del paso 1. Para ver las opciones de DTU disponibles, consulte los valores válidos para DTU que aparecen aquí [Límites de DTU y de almacenamiento de grupos y bases de datos elásticas](sql-database-elastic-pool-reference.md#dtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
@@ -119,9 +119,9 @@ La siguiente heurística puede ayudar a estimar si un grupo elástico es más re
 
 3. Cálculo del precio del grupo de la siguiente forma:
 
-    precio del grupo = (*DTU de grupo* * *precio unitario de DTU de grupo*) + (*BD de número total* * *precio unitario de BD de grupo*)
+    precio del grupo = (*DTU de grupo* * *precio unitario de DTU de grupo*) + (*número total de BD* * *precio unitario de BD de grupo*)
 
-    Consulte [Precios de base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/) para obtener información sobre precios.
+    Consulte [Precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/) para obtener información sobre precios.
 
 
 4. Compare el precio del grupo del paso 3 con el precio de uso de los niveles de rendimiento adecuados para bases de datos únicas.
@@ -141,7 +141,7 @@ Tenga en cuenta que para el nivel de servicio Standard, se permite 1 GB de almac
 
 STA y DMV proporcionan distintas opciones de herramientas distintas y capacidades para establecer el tamaño de un grupo elástico. Independientemente de la opción de herramienta usada, la estimación del tamaño solo debe usarse para la evaluación inicial y la creación de grupos elásticos. Una vez que se crea un grupo elástico, el uso de recursos debe supervisarse de forma apropiada y la configuración del rendimiento del grupo debe aumentarse o reducirse según sea necesario.
 
-**STA**<br>STA es una herramienta integrada en el Portal de Azure que evalúa automáticamente el historial de utilización de recursos de bases de datos en un servidor de Base de datos SQL existente y recomienda una configuración de grupo elástico apropiada.
+**STA**<br>STA es una herramienta integrada en el Portal de Azure que evalúa automáticamente el historial de uso de recursos de bases de datos en un servidor de Base de datos SQL existente y recomienda una configuración de grupo elástico apropiada.
 
 **Herramienta de tamaño de DMV**<br>La herramienta de tamaño de DMV se proporciona como script de PowerShell y habilita la personalización de las estimaciones del tamaño de un grupo elástico para bases de datos existentes en un servidor.
 
@@ -165,7 +165,7 @@ STA está disponible en el Portal de Azure cuando se agrega una herramienta elá
 
 ### Estimación del tamaño de grupos elásticos con vista de administración dinámica (DMV) 
 
-[sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV mide la utilización de recursos de una base de datos individual. Este DMV proporciona CPU, IO, registro y utilización de registros de una base de datos como un porcentaje del límite del nivel de rendimiento de la base de datos. Este dato puede usarse para calcular la utilización de DTU de una base de datos en un intervalo determinado de 15 segundos.
+[sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV mide el uso de recursos de una base de datos individual. Este DMV proporciona CPU, IO, registro y utilización de registros de una base de datos como un porcentaje del límite del nivel de rendimiento de la base de datos. Este dato puede usarse para calcular la utilización de DTU de una base de datos en un intervalo determinado de 15 segundos.
 
 La utilización de DTU agregada para un grupo elástico en un intervalo de 15 segundos puede estimarse mediante la adición de la utilización de DTU para todas las bases de datos de candidatos durante ese período. Según los objetivos de rendimiento específicos, puede tener sentido descartar un pequeño porcentaje de datos de muestra. Por ejemplo, puede aplicarse un valor con un percentil 99 de DTU agregada en todos los intervalos de tiempo para excluir los elementos atípicos y proporcionar una DTU de grupo elástico para que coincida con el 99 % de los intervalos de tiempo de la muestra.
 
@@ -188,7 +188,7 @@ Instale lo siguientes antes de ejecutar el script:
 ### Detalles del script
 
 
-Puede ejecutar el script desde la máquina local o una máquina virtual en la nube. Cuando lo ejecute desde la máquina local, es posible que se produzcan cargos de salida de datos porque el script tiene que descargar datos de las bases de datos de destino. A continuación se muestra la estimación de volumen de datos según el número de bases de datos de destino y la duración de la ejecución del script. Para consultar los costes de transferencia de datos de Azure, consulte [Detalles de precios de transferencia de datos](http://azure.microsoft.com/pricing/details/data-transfers/).
+Puede ejecutar el script desde la máquina local o una máquina virtual en la nube. Cuando lo ejecute desde la máquina local, es posible que se produzcan cargos de salida de datos porque el script tiene que descargar datos de las bases de datos de destino. A continuación se muestra la estimación de volumen de datos según el número de bases de datos de destino y la duración de la ejecución del script. Para consultar los costos de transferencia de datos de Azure, consulte [Detalles de precios de transferencia de datos](http://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     1 base de datos por hora = 38 KB
  -     1 base de datos por día = 900 KB
@@ -402,4 +402,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos de b
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

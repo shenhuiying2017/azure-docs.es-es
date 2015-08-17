@@ -18,4 +18,4 @@ Una vez que el tráfico llega al Administrador de tráfico, este enruta el tráf
 
 > [AZURE.NOTE]Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com**, no nombres de raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, <a href="http://en.wikipedia.org/wiki/CNAME_record">la entrada de Wikipedia sobre el registro CNAME</a> o el documento <a href="http://tools.ietf.org/html/rfc1035">Nombres de dominio IETF: implementación y especificación (en inglés)</a>.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

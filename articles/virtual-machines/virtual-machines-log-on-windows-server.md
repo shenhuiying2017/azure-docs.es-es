@@ -36,4 +36,4 @@ Si experimenta problemas con la contraseña, intente restablecerla desde el port
 
 Si esto no funciona, deberá buscar una solución de los problemas más amplia. Para ver más información, consulte [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

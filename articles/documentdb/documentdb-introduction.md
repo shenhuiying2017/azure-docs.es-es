@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a DocumentDB de Microsoft Azure | Azure" 
+	pageTitle="Introducción a Microsoft Azure DocumentDB | Microsoft Azure" 
 	description="Obtenga información acerca de Azure DocumentDB, una base de datos de documentos NoSQL y su valor para aplicaciones en la nube y móviles. Aprenda también cómo administra datos y cómo puede usarla en el desarrollo de aplicaciones." 
 	services="documentdb" 
 	authors="mimig1" 
@@ -104,4 +104,4 @@ Para comenzar con Azure DocumentDB, explore los siguientes recursos:
 [1]: ./media/documentdb-introduction/intro.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

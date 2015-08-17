@@ -204,8 +204,7 @@ En esta sección se comparan algunas de las características de administración 
 |Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
 |---|---|---|
 |Protocolo de administración|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**|
-|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>**AMQP 1.0 estándar (TCP con TLS)**|
-|API administrada de .NET|**Sí**<br/><br/>(API de cliente de almacenamiento administrado de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
+|Protocolo de tiempo de ejecución|**REST sobre HTTP/HTTPS**|**REST sobre HTTPS**<br/><br/>** AMQP 1.0 estándar (TCP con TLS)**| | API administrada de .NET|**Sí **<br/><br/>(API de cliente de almacenamiento administrada de .NET)|**Sí**<br/><br/>(API de mensajería asíncrona administrada de .NET)|
 |C++ nativo|**Sí**|**No**|
 |API de Java|**Sí**|**Sí**|
 |API de PHP|**Sí**|**Sí**|
@@ -225,7 +224,7 @@ En esta sección se comparan algunas de las características de administración 
 
 - Los nombres de cola de Azure pueden tener de 3 a 63 caracteres de longitud, pueden contener letras minúsculas, números y guiones. Para obtener más información, vea [Nomenclatura de colas y metadatos](https://msdn.microsoft.com/library/dd179349.aspx).
 
-- Los nombres de cola de Service Bus pueden tener hasta 260 caracteres y reglas de nomenclatura menos restrictivas. Los nombres de cola de Service Bus pueden contener letras, números, puntos (.), guiones (-) y caracteres de subrayado (_).
+- Los nombres de cola de Service Bus pueden tener hasta 260 caracteres y reglas de nomenclatura menos restrictivas. Los nombres de cola de Service Bus pueden contener letras, números, puntos (.), guiones (-) y caracteres de subrayado (\_).
 
 ## Rendimiento
 
@@ -318,4 +317,4 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 - [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

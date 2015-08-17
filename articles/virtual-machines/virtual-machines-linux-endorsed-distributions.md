@@ -31,61 +31,14 @@ Los controladores de los Servicios de integración de Linux (LIS) para Hyper-V y
 
 El Agente de Linux de Azure ya está preinstalado en las imágenes de la Galería de imágenes de Azure y generalmente está disponible en el repositorio de paquetes de distribución. El código fuente se puede encontrar en [GitHub](https://github.com/azure/walinuxagent).
 
-<table border="1" width="600">
-  <tr bgcolor="#E9E7E7">
-		<th>Distribución</th>		
-	    <th>Versión</th>
-	    <th>Controladores</th>
-		<th>Agente</th>
-			</tr>
-	<tr>
-		<th>  Ubuntu de Canonical </th>
-		<td> Ubuntu 12.04, 14.04, 14.10 y 15.04 </td>
-		<td>En kernel</td>
-		<td>Paquete: En el repositorio, en "walinuxagent" <br />
-			Origen: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-			</tr>
-	<tr>
-		<th> CentOS de OpenLogic </th>
-		<td> CentOS 6.3+, 7.0+</td>
-	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">Descarga de LIS</a><br/>
-	        CentOS 6.4 +: En kernel</td>
-		<td>Paquete: En el repositorio <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic</a>, en "WALinuxAgent"<br />
-			Origen: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
- 		
-	</tr>
-	<tr>
-		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
-		<td> 494.4.0+ </td>
-        <td> En kernel </td>
-		<td> Origen: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> Oracle Linux </th>
-		<td> 6.4+, 7.0+ </td>
-        <td>En kernel</td>
-		<td>Paquete: En el repositorio, en "WALinuxAgent"<br />
-			Origen: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+, SLES 12+ y <br /> SLES para SAP 11.3+ </td>
-        <td>En kernel</td>
-		<td>Paquete: En el repositorio <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a>, en "WALinuxAgent"<br />
-			Origen: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> openSUSE </th>
-		<td> openSUSE 13.1+</td>
-		<td>En kernel</td>
-		<td>Paquete: En el repositorio <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a>, en "WALinuxAgent"<br />
-			Código fuente: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-</table>
+Distribución|Versión|Controladores|Agente
+---|---|---|---
+Ubuntu de Canonical|Ubuntu 12.04, 14.04, 14.10 y 15.04|En kernel|Paquete: en el repositorio, en "walinuxagent" <p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+CentOS de OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [Descarga de LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4+: en kernel|Paquete: en el repositorio <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic, en "WALinuxAgent"<p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0+ |En kernel|Origen: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
+Oracle Linux| 6\.4+, 7.0+|En kernel|Paquete: en el repositorio, en "WALinuxAgent" <p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ y<p><p> SLES para SAP 11.3+ |En kernel|Paquete: en el repositorio [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), en "WALinuxAgent"<p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|En kernel|Paquete: en el repositorio [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools), en "WALinuxAgent" <p><p>Código fuente: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## Asociados
 
@@ -124,4 +77,4 @@ SUSE Linux Enterprise Server en Azure es una plataforma probada que brinda confi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

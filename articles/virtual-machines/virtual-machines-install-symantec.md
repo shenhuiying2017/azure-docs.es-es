@@ -95,4 +95,4 @@ Para comprobar que la extensi√≥n de seguridad de Symantec se ha instalado y est√
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

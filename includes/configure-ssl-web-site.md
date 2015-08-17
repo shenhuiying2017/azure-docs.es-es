@@ -5,7 +5,7 @@
 
 Puede proteger la comunicación entre la aplicación web y el explorador con HTTPS, que utiliza el cifrado de capa de sockets seguros (SSL). Este es el método más usado para proteger los datos que se envían por Internet y asegura a los visitantes la protección de las transacciones que realizan en su aplicación. En este artículo se describe cómo configurar HTTPS para una aplicación web en el Servicio de aplicaciones de Azure. En este artículo no se cubre la autenticación de certificado de cliente; para obtener información al respecto, consulte [Configuración de la autenticación mutua TLS para aplicaciones web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio \*.azurewebsites.net
+##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio \\*.azurewebsites.net
 
 Si en lugar de usar un nombre de dominio personalizado tiene previsto usar el dominio *.azurewebsites.net que Azure ha asignado a su aplicación web (por ejemplo, contoso.azurewebsites.net), HTTPS ya está habilitado en el sitio con un certificado de Microsoft. Puede usar **https://mywebsite.azurewebsites.net** para acceder a la aplicación. Sin embargo, *.azurewebsites.net es un dominio comodín. Al igual que [todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), no es tan seguro como utilizar un dominio personalizado con su propio certificado.
 
@@ -546,4 +546,4 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

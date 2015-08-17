@@ -81,4 +81,4 @@ Para obtener información sobre cómo desarrollar sus propios reproductores, con
  
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

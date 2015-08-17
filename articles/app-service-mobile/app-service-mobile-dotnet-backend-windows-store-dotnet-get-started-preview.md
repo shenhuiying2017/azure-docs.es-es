@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="06/16/2015"
 	ms.author="chrande"/>
 
@@ -88,4 +88,4 @@ Ahora que el back-end de aplicaciones m√≥viles se ha publicado y el cliente est√
 [Azure Portal]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

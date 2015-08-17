@@ -65,7 +65,7 @@ Este comando permite importar un archivo publishsettings o un certificado de man
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]Este archivo publishsettings puede contener información (es decir, el nombre de suscripción y el identificador) sobre más de una suscripción. Cuando importa el archivo publishsettings, la primera suscripción se usa como descripción predeterminada. Para usar una suscripción diferente, ejecute el siguiente comando <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> [AZURE.NOTE]Este archivo publishsettings puede contener información (es decir, el nombre de suscripción y el identificador) sobre más de una suscripción. Cuando importa el archivo publishsettings, la primera suscripción se usa como descripción predeterminada. Para usar una suscripción diferente, ejecute el siguiente comando <code>\~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
 
@@ -188,7 +188,7 @@ El siguiente diagrama muestra cómo se han hospedado las máquinas virtuales de 
 
 ![Diagrama técnico de Azure](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** permite crear la unidad en el almacenamiento de blobs (es decir, e:\ en el diagrama); **attach** permite conectar un disco ya creado pero sin conectar a una máquina virtual.
+**create-new** permite crear la unidad en el almacenamiento de blobs (es decir, e:\\ en el diagrama); **attach** permite conectar un disco ya creado pero sin conectar a una máquina virtual.
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
@@ -206,9 +206,9 @@ Las máquinas virtuales de Windows pueden habilitar RDP más tarde agregando el 
 
 Los siguientes parámetros opcionales son compatibles con este comando:
 
-**-c, --connect** permite crear la máquina virtual dentro de una implementación ya creada en un servicio de hospedaje. Si no se usa -vmname con esta opción, el nombre de la nueva máquina virtual se generará automáticamentey.<br /> **-n, --vm-name** Especifique el nombre de la máquina virtual. Este parámetro toma el servicio de hospedaje de forma predeterminada. Si no se especifica -vmname, el nombre de la nueva máquina virtual se genera como &lt;service-name>&lt;id>, where &lt;id>, donde &lt;id> es el número de máquinas virtuales existentes en el servicio más 1. Por ejemplo, si usa este comando para agregar una nueva máquina virtual a un servicio de hospedaje MyService que cuente con una máquina virtual existente, el nombre de la nueva máquina virtual será MyService2.<br /> **-u, --blob-url** Especifique la URL de almacenamiento de blobs desde la cual se creará el disco del sistema de la máquina virtual. <br /> **-z, --vm-size** Especifique el tamaño de la máquina virtual. Los valores válidos son: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic_A0", "Basic_A1", "Basic_A2", "Basic_A3", "Basic_A4", "Standard_D1", "Standard_D2", "Standard_D3", "Standard_D4", "Standard_D11", "Standard_D12", "Standard_D13", "Standard_D14", "Standard_DS1", "Standard_DS2", "Standard_DS3", "Standard_DS4", "Standard_DS11", "Standard_DS12", "Standard_DS13", "Standard_DS14", "Standard_G1", "Standard_G2", "Standard_G3", "Standard_G4", "Standard_G55". El valor predeterminado es "Small". <br /> **- r** permite agregar conectividad RDP a una máquina virtual Windows. <br /> **-e,--ssh** permite agregar conectividad SSH a una máquina virtual Windows. <br /> **-t,--ssh-cert**permite especificar el certificado SSH. La suscripción <br /> **-s** <br /> **-o,--community** la imagen especificada es una imagen de la comunidad <br /> **-w** el nombre de red virtual <br/> **-l,--location** especifica la ubicación (por ejemplo, "Centro y Norte de EE. UU."). <br /> **- a,--affinity-group** especifica el grupo de afinidad.<br /> **-w,--nombre de red virtual** especifica la red virtual a la que se agrega la nueva máquina virtual. Las redes virtuales pueden configurarse y administrarse desde el portal de Azure..<br /> **-b, --subnet-names** permite especificar los nombres de subred que asignar a la máquina virtual.
+**-c, --connect** permite crear la máquina virtual dentro de una implementación ya creada en un servicio de hospedaje. Si no se usa -vmname con esta opción, el nombre de la nueva máquina virtual se generará automáticamentey.<br /> **-n, --vm-name** Especifique el nombre de la máquina virtual. Este parámetro toma el servicio de hospedaje de forma predeterminada. Si no se especifica -vmname, el nombre de la nueva máquina virtual se genera como &lt;service-name>&lt;id>, where &lt;id>, donde &lt;id> es el número de máquinas virtuales existentes en el servicio más 1. Por ejemplo, si usa este comando para agregar una nueva máquina virtual a un servicio de hospedaje MyService que cuente con una máquina virtual existente, el nombre de la nueva máquina virtual será MyService2.<br /> **-u, --blob-url** Especifique la URL de almacenamiento de blobs desde la cual se creará el disco del sistema de la máquina virtual. <br /> **-z, --vm-size** Especifique el tamaño de la máquina virtual. Los valores válidos son: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". El valor predeterminado es "Small". <br /> **- r** permite agregar conectividad RDP a una máquina virtual Windows. <br /> **-e,--ssh** permite agregar conectividad SSH a una máquina virtual Windows. <br /> **-t,--ssh-cert**permite especificar el certificado SSH. La suscripción <br /> **-s** <br /> **-o,--community** la imagen especificada es una imagen de la comunidad <br /> **-w** el nombre de red virtual <br/> **-l,--location** especifica la ubicación (por ejemplo, "Centro y Norte de EE. UU."). <br /> **- a,--affinity-group** especifica el grupo de afinidad.<br /> **-w,--nombre de red virtual** especifica la red virtual a la que se agrega la nueva máquina virtual. Las redes virtuales pueden configurarse y administrarse desde el portal de Azure..<br /> **-b, --subnet-names** permite especificar los nombres de subred que asignar a la máquina virtual.
 
-En este ejemplo, MSFT__Win2K8R2SP1-120514-1520-141205-01-es-es-30GB es una imagen proporcionada por la plataforma. Para obtener más información sobre las imágenes del sistema operativo, consulte vm image list.
+En este ejemplo, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-es-es-30GB es una imagen proporcionada por la plataforma. Para obtener más información sobre las imágenes del sistema operativo, consulte vm image list.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -787,7 +787,7 @@ Este comando intercambia entre dos espacios de aplicaciones web.
 
 Este comando es compatible con la siguiente opción adicional:
 
-**-q o **--quiet**: No solicita confirmación. Use esta opción en los scripts automáticos.
+****-q o **--quiet**: No solicita confirmación. Use esta opción en los scripts automáticos.
 
 
 **site start [options] [name]**
@@ -810,7 +810,7 @@ Este comando permite detener una aplicación web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [name]
+****site restart [options] [name]
 
 Este comando detiene y después inicia una aplicación web especificada.
 
@@ -2346,4 +2346,4 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

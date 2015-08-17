@@ -20,7 +20,7 @@
 
 Aprendizaje automático de Azure es un servicio de análisis predictivo que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, lea [Introducción a Aprendizaje automático en Azure][]. Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][].
 
-En este artículo, aprenderá a realizar las siguientes acciones con [Estudio de aprendizaje automático de Azure][]: - Leer datos desde la base de datos para crear, entrenar y puntuar un modelo predictivo - Escribir datos en la base de datos
+En este artículo, aprenderá a realizar las siguientes acciones con [Estudio de aprendizaje automático de Azure][]\: - Leer datos desde la base de datos para crear, entrenar y puntuar un modelo predictivo - Escribir datos en la base de datos
 
 
 ## Lectura de datos desde Almacenamiento de datos SQL
@@ -103,4 +103,4 @@ Para obtener información general sobre la integración, consulte [Información 
 <!--Other Web references-->
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

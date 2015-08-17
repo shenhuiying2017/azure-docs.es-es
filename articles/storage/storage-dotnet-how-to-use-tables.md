@@ -12,8 +12,8 @@
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.topic="hero-article"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 
@@ -25,7 +25,7 @@
 
 Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en código C# y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen **crear y eliminar una tabla**, así como **trabajar con entidades de tabla**.
 
-> [AZURE.NOTE]Esta guía se destina a la biblioteca de cliente de almacenamiento .NET de Azure 2.x y posterior. La versión recomendada es la biblioteca de clientes de almacenamiento 4.x, que está disponible a través de [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) o como parte del [SDK de Azure para .NET](/downloads/). Consulte [Acceso al almacenamiento de tablas mediante programación](#programmatically-access-table-storage) más adelante para obtener más información acerca de la obtención de una biblioteca de clientes de almacenamiento.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -50,7 +50,7 @@ Asegúrese de hacer referencia al ensamblado `Microsoft.WindowsAzure.Storage.dll
 
 ## Creación de una tabla
 
-Los objetos **CloudTableClient** le permiten obtener objetos de referencia para tablas y entidades. El código siguiente crea un objeto **CloudTableClient** y lo usa para crear una nueva tabla. en todo el código de esta guía se asume que la aplicación que se está desarrollando es un proyecto del Servicio en la nube de Azure y se utiliza una cadena de conexión de almacenamiento guardada en la configuración del servicio de la aplicación de Azure.
+Los objetos **CloudTableClient** le permiten obtener objetos de referencia para tablas y entidades. El código siguiente crea un objeto **CloudTableClient** y lo usa para crear una nueva tabla. En todo el código de esta guía se asume que la aplicación que se está desarrollando es un proyecto del Servicio en la nube de Azure y se usa una cadena de conexión de almacenamiento guardada en la configuración del servicio de la aplicación de Azure.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -65,7 +65,7 @@ Los objetos **CloudTableClient** le permiten obtener objetos de referencia para 
 
 ## Adición de una entidad a una tabla
 
-Las entidades se asignan a objetos C# utilizando una clase personalizada derivada de **TableEntity**. Para agregar una entidad a una tabla, cree una clase que defina las propiedades de la entidad. El código siguiente define una clase de entidad que utiliza el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, la clave de partición y la clave de fila de una entidad la identifican inequívocamente en la tabla. Las entidades con la misma clave de partición pueden consultarse más rápidamente que aquellas con diferentes claves de partición, pero el uso de claves de partición diversas permite una mayor escalabilidad de las operaciones paralelas. Toda propiedad que deba almacenarse en el servicio de tablas debe ser una propiedad pública de un tipo compatible que exponga tanto `get` como `set`. Además, el tipo de entidad *must* expone un constructor sin parámetros.
+Las entidades se asignan a objetos C# utilizando una clase personalizada derivada de **TableEntity**. Para agregar una entidad a una tabla, cree una clase que defina las propiedades de la entidad. El código siguiente define una clase de entidad que utiliza el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, la clave de partición y la clave de fila de una entidad la identifican inequívocamente en la tabla. Las entidades con la misma clave de partición pueden consultarse más rápidamente que aquellas con diferentes claves de partición, pero el uso de claves de partición diversas permite una mayor escalabilidad de las operaciones paralelas. Toda propiedad que deba almacenarse en el servicio Tabla debe ser una propiedad pública de un tipo compatible que exponga tanto `get` como `set`. Además, el tipo de entidad *must* expone un constructor sin parámetros.
 
     public class CustomerEntity : TableEntity
     {
@@ -82,7 +82,7 @@ Las entidades se asignan a objetos C# utilizando una clase personalizada derivad
         public string PhoneNumber { get; set; }
     }
 
-Las operaciones de tablas que afectan a las entidades se realizan con el objeto **CloudTable** que se creó en el apartado "Creación de una tabla". La operación que va a realizarse se representa con un objeto **TableOperation**. El ejemplo de código siguiente muestra la creación del objeto **CloudTable** y, a continuación, un objeto **CustomerEntity**. Para preparar la operación, se crea un objeto **TableOperation** para insertar la entidad de cliente en la tabla. Por último, se ejecuta la operación llamando a **CloudTable.Execute**.
+Las operaciones de tablas que afectan a las entidades se realizan mediante el objeto **CloudTable** que se creó en el apartado "Creación de una tabla". La operación que va a realizarse se representa con un objeto **TableOperation**. El ejemplo de código siguiente muestra la creación del objeto **CloudTable** y, a continuación, un objeto **CustomerEntity**. Para preparar la operación, se crea un objeto **TableOperation** para insertar la entidad de cliente en la tabla. Por último, se ejecuta la operación llamando a **CloudTable.Execute**.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -99,7 +99,7 @@ Las operaciones de tablas que afectan a las entidades se realizan con el objeto 
     customer1.Email = "Walter@contoso.com";
     customer1.PhoneNumber = "425-555-0101";
 
-    // Create the TableOperation that inserts the customer entity.
+    // Create the TableOperation object that inserts the customer entity.
     TableOperation insertOperation = TableOperation.Insert(customer1);
 
     // Execute the insert operation.
@@ -109,13 +109,13 @@ Las operaciones de tablas que afectan a las entidades se realizan con el objeto 
 
 Puede insertar un lote de entidades en una tabla mediante una operación de escritura. Otras notas acerca de las operaciones por lotes:
 
-1.  Puede realizar actualizaciones, eliminaciones e inserciones en la misma operación por lotes.
-2.  Una única operación por lotes puede incluir hasta 100 entidades.
-3.  Todas las entidades de la misma operación por lotes deben compartir la misma clave de partición.
-4.  Aunque es posible realizar una consulta a modo de operación por lotes, debe tratarse de la única operación del lote.
+-  Puede realizar actualizaciones, eliminaciones e inserciones en la misma operación por lotes.
+-  Una única operación por lotes puede incluir hasta 100 entidades.
+-  Todas las entidades de la misma operación por lotes deben compartir la misma clave de partición.
+-  Aunque es posible realizar una consulta a modo de operación por lotes, debe tratarse de la única operación del lote.
 
 <!-- -->
-El siguiente ejemplo de código crea dos objetos de entidad y agrega cada uno a un **TableBatchOperation** con el método **Insert**. A continuación, se llama a **CloudTable.Execute** para ejecutar la operación.
+El siguiente ejemplo de código crea dos objetos de entidad y agrega cada uno a **TableBatchOperation** con el método **Insert**. A continuación, se llama a **CloudTable.Execute** para ejecutar la operación.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -201,7 +201,7 @@ Si no desea consultar todas las entidades de una partición, puede especificar u
 
 ## Recuperación de una sola entidad
 
-Puede enviar una consulta para recuperar una sola entidad concreta. El código siguiente utiliza un objeto **TableOperation** para especificar el cliente "Ben Smith". Con este método se obtiene solo una entidad, en lugar de una recopilación, y el valor que aparece en **TableResult.Result** es un objeto **CustomerEntity**. La forma más rápida de recuperar una sola entidad del servicio Tabla es especificar claves tanto de partición como de fila en las consultas.
+Puede enviar una consulta para recuperar una sola entidad concreta. El código siguiente utiliza**TableOperation** para especificar el cliente "Ben Smith". Este método devuelve solo una entidad, en lugar de una colección, y el valor devuelto en **TableResult.Result** es un objeto **CustomerEntity**. La forma más rápida de recuperar una sola entidad del servicio Tabla es especificar claves tanto de partición como de fila en las consultas.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -233,7 +233,7 @@ Para actualizar una entidad, recupérela del servicio Tabla, modifique su objeto
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client
+    // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
@@ -253,7 +253,7 @@ Para actualizar una entidad, recupérela del servicio Tabla, modifique su objeto
 	   // Change the phone number.
 	   updateEntity.PhoneNumber = "425-555-0105";
 
-	   // Create the InsertOrReplace TableOperation
+	   // Create the InsertOrReplace TableOperation.
 	   TableOperation updateOperation = TableOperation.Replace(updateEntity);
 
 	   // Execute the operation.
@@ -267,7 +267,7 @@ Para actualizar una entidad, recupérela del servicio Tabla, modifique su objeto
 
 ## Inserción o reemplazo de una entidad
 
-Las operaciones **Replace** darán error si la entidad se cambió desde su recuperación del servidor. Asimismo, primero debe recuperar la entidad del servidor para que la operación **Replace** se realice correctamente. Sin embargo, en ocasiones no sabe si la entidad existe en el servidor y los valores actuales almacenados en él son irrelevantes, ya que la actualización los debe sobrescribir todos. Para realizarlo, debe utilizar una operación **InsertOrReplace**. Esta operación inserta la entidad si no existe o la reemplaza si ya existe, con independencia del momento en que se realizó la última actualización. En el ejemplo de código siguiente, también se recupera la entidad de cliente Ben Smith pero, a continuación, se guarda de nuevo en el servidor mediante **InsertOrReplace**. Las actualizaciones realizadas en la entidad entre la operación de recuperación y actualización se sobrescribirán.
+Las operaciones **Replace** darán error si la entidad se cambió desde su recuperación del servidor. Asimismo, primero debe recuperar la entidad del servidor para que la operación **Replace** se realice correctamente. Sin embargo, en ocasiones no sabe si la entidad existe en el servidor y los valores actuales almacenados en él son irrelevantes. La actualización debe sobrescribir todos. Para realizarlo, debe utilizar una operación **InsertOrReplace**. Esta operación inserta la entidad si no existe o la reemplaza si ya existe, con independencia del momento en que se realizó la última actualización. En el ejemplo de código siguiente, también se recupera la entidad de cliente Ben Smith pero, a continuación, se guarda de nuevo en el servidor mediante **InsertOrReplace**. Las actualizaciones realizadas en la entidad entre las operaciones de recuperación y actualización se sobrescribirán.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -293,7 +293,7 @@ Las operaciones **Replace** darán error si la entidad se cambió desde su recup
 	   // Change the phone number.
 	   updateEntity.PhoneNumber = "425-555-1234";
 
-	   // Create the InsertOrReplace TableOperation
+	   // Create the InsertOrReplace TableOperation.
 	   TableOperation insertOrReplaceOperation = TableOperation.InsertOrReplace(updateEntity);
 
 	   // Execute the operation.
@@ -307,19 +307,19 @@ Las operaciones **Replace** darán error si la entidad se cambió desde su recup
 
 ## Consulta de un subconjunto de propiedades de las entidades
 
-Una consulta de tabla puede recuperar tan solo unas cuantas propiedades de una entidad en lugar de todas ellas. Esta técnica, denominada proyección, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. La consulta del código siguiente devuelve solo las direcciones de correo electrónico de las entidades de la tabla. Esto se consigue utilizando una consulta de **DynamicTableEntity** y también un **EntityResolver**. Puede obtener más información acerca de la proyección en esta [publicación de blog][]. Tenga en cuenta que la proyección no es compatible con el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando se utiliza una cuenta del servicio Tabla.
+Una consulta de tabla puede recuperar tan solo unas cuantas propiedades de una entidad en lugar de todas ellas. Esta técnica, denominada proyección, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. La consulta del código siguiente devuelve solo las direcciones de correo electrónico de las entidades de la tabla. Esto se consigue utilizando una consulta de **DynamicTableEntity** y también **EntityResolver**. Puede obtener más información sobre la proyección en la [entrada de blog Introducción de la proyección de upsert y consulta][]. Tenga en cuenta que no se admite la proyección en el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando está usando una cuenta en el servicio Tabla.
 
-    // Retrieve storage account from connection string
+    // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client
+    // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     //Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
-    // Define the query, and only select the Email property
+    // Define the query, and select only the Email property.
     TableQuery<DynamicTableEntity> projectionQuery = new TableQuery<DynamicTableEntity>().Select(new string[] { "Email" });
 
     // Define an entity resolver to work with the entity after retrieval.
@@ -334,11 +334,11 @@ Una consulta de tabla puede recuperar tan solo unas cuantas propiedades de una e
 
 Puede eliminar fácilmente una entidad una vez recuperada utilizando el mismo patrón mostrado para actualizar una entidad. El código siguiente recupera y elimina una entidad de cliente.
 
-    // Retrieve storage account from connection string
+    // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-    // Create the table client
+    // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     //Create the CloudTable that represents the "people" table.
@@ -369,7 +369,7 @@ Puede eliminar fácilmente una entidad una vez recuperada utilizando el mismo pa
 
 ## Eliminación de una tabla
 
-Finalmente, el ejemplo de código siguiente elimina una tabla de una cuenta de almacenamiento. Las tablas eliminadas no podrán volver a crearse durante un tiempo tras la eliminación.
+Finalmente, el ejemplo de código siguiente elimina una tabla de una cuenta de almacenamiento. Una tabla que se ha eliminada no podrá volver a crearse durante un tiempo tras la eliminación.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -386,33 +386,33 @@ Finalmente, el ejemplo de código siguiente elimina una tabla de una cuenta de a
 
 ## Recuperación de entidades en páginas de forma asincrónica
 
-Si está leyendo un gran número de entidades y desea procesar/mostrar entidades según se van recuperando en lugar de esperar a que se devuelvan todas, puede recuperarlas mediante una consulta segmentada. En este ejemplo se muestra cómo devolver resultados en páginas mediante el patrón Async-Await de forma que la ejecución no se bloquee mientras se espera a devolver un conjunto grande de resultados. Para obtener más información sobre el uso del patrón Async-Await en. NET, consulte [Async y Await (C# y Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Si está leyendo un gran número de entidades y desea procesar/mostrar entidades según se van recuperando en lugar de esperar a que se devuelvan todas, puede recuperarlas mediante una consulta segmentada. En este ejemplo se muestra cómo devolver resultados en páginas mediante el patrón Async-Await de forma que la ejecución no se bloquee mientras se espera que se devuelva un conjunto grande de resultados. Para obtener más información sobre el uso del patrón Async-Await en. NET, vea [Programación asincrónica con Async y Await (C# y Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
-    // Initialize a default TableQuery to retrieve all the entities in the table
+    // Initialize a default TableQuery to retrieve all the entities in the table.
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
 
-    // Initialize the continuation token to null to start from the beginning of the table
+    // Initialize the continuation token to null to start from the beginning of the table.
     TableContinuationToken continuationToken = null;
 
     do
     {
-        // Retrieve a segment (up to 1000 entities)
+        // Retrieve a segment (up to 1,000 entities).
         TableQuerySegment<CustomerEntity> tableQueryResult =
             await table.ExecuteQuerySegmentedAsync(tableQuery, continuationToken);
 
         // Assign the new continuation token to tell the service where to
-        // continue on the next iteration (or null if it has reached the end)
+        // continue on the next iteration (or null if it has reached the end).
         continuationToken = tableQueryResult.ContinuationToken;
 
-        // Print the number of rows retrieved
+        // Print the number of rows retrieved.
         Console.WriteLine("Rows retrieved {0}", tableQueryResult.Results.Count);
 
-    // Loop until a null continuation token is received indicating the end of the table
+    // Loop until a null continuation token is received, indicating the end of the table.
     } while(continuationToken != null);
 
 ## Pasos siguientes
 
-Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
+Ahora que está familiarizado con los aspectos básicos del almacenamiento de Tabla, siga estos vínculos para obtener más información sobre tareas de almacenamiento más complejas.
 
 <ul>
 <li>Consulte la documentación de referencia del servicio de tabla para obtener información detallada acerca de las API disponibles:
@@ -422,9 +422,9 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Referencia de API de REST</a></li>
   </ul>
 </li>
-<li>Obtenga información acerca de las tareas más avanzadas que se pueden realizar con Almacenamiento de Azure en <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Almacenamiento de datos y acceso a los mismos en Azure</a>.</li>
-<li>Aprenda a simplificar el código que escriba para trabajar con <a href="../websites-dotnet-webjobs-sdk/">Almacenamiento de Azure mediante la SDK de WebJobs de Azure.</li>
-<li>Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
+<li>Obtenga información acerca de las tareas más avanzadas que se pueden realizar con Almacenamiento de Azure revisando la <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">documentación de Almacenamiento de Azure</a>.</li>
+<li>Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante el <a href="../websites-dotnet-webjobs-sdk/">SDK de WebJobs de Azure</a>.</li>
+<li>Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure:
   <ul>
     <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Almacenamiento de blobs</a> para almacenar datos no estructurados.</li>
     <li>Utilice <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Almacenamiento de cola</a> para almacenar datos estructurados.</li>
@@ -442,15 +442,14 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
   [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-  [publicación de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+  [entrada de blog Introducción de la proyección de upsert y consulta]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+  [.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-  [How to: Programmatically access Table Storage]: #tablestorage
- 
+  [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

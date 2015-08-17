@@ -79,4 +79,4 @@ Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

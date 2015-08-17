@@ -3,6 +3,7 @@
     pageTitle="Configurar Active Directory para RemoteApp de Azure" 
     description="Aprenda a configurar Active Directory para trabajar con RemoteApp de Azure." 
     services="remoteapp" 
+    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/28/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
 
 
@@ -21,7 +22,7 @@
 # Configuración de Active Directory para RemoteApp de Azure
 
 
-Para una recopilación híbrida de RemoteApp, tendrá que configurar una infraestructura de dominio de Active Directory local y un inquilino de Azure Active Directory con integración de directorios (con inicio de sesión único opcional). Además, deberá crear algunos objetos de Active Directory en el directorio local. Utilice la información siguiente para configurar Active Directory local y Azure AD para, a continuación, integrar estos dos elementos.
+Para una colección híbrida de Azure RemoteApp, tendrá que configurar una infraestructura de dominio de Active Directory local y un inquilino de Azure Active Directory con integración de directorios (e inicio de sesión único opcional). Además, deberá crear algunos objetos de Active Directory en el directorio local. Utilice la información siguiente para configurar Active Directory local y Azure AD para, a continuación, integrar estos dos elementos.
 
 ## Configurar su Active Directory local
 Empiece por configurar Active Directory local. Deberá identificar el sufijo del dominio UPN que desea utilizar y, a continuación, crear objetos de Active Directory para RemoteApp.
@@ -105,7 +106,7 @@ Si tiene dificultades para configurar la sincronización de directorios, comprue
 -	En **Active Directory->Directorio predeterminado->Usuarios**, agregue un nuevo usuario en ese dominio (por ejemplo, myAzureSyncUser@mydomain.com).
 -	En su dominio de Active Directory, agregó un nuevo usuario de dominio y lo convirtió en miembro de Administradores de organización (por ejemplo, myDomainSyncUser@mydomain.com)).
 
-Inicie ahora la herramienta de sincronización de directorios de Azure y use credenciales **myAzureSyncUser@mydomain.com** para la primera petición de datos (credenciales de administrador de Microsoft Azure Active Directory Administrator) y **myDomainSyncUser@mydomain.com** para la segunda petición de datos.
+Inicie ahora la herramienta de sincronización de directorios de Azure y use las credenciales de ****myAzureSyncUser@mydomain.com** para la primera petición de datos (credenciales de administrador de Microsoft Azure Active Directory Administrator) y ****myDomainSyncUser@mydomain.com** para la segunda petición de datos.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

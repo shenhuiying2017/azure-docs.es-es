@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]El marco de trabajo de comunicación se encarga de propagar las excepciones producidas en el servicio al cliente. Por lo tanto, la lógica de control en el cliente mediante ServiceProxy puede controlar excepciones directamente que potencialmente puede iniciar el servicio.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

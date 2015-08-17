@@ -18,15 +18,15 @@
 
 #Inserción enriquecida de los Centros de notificaciones de Azure
 
-<div class="dev-center-tutorial-selector sublanding">
-        <a href="/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
-</div>
 
 ##Información general
 
 Para interactuar con los usuarios con contenido enriquecido instantánea, una aplicación que desee insertar más allá de texto sin formato. Estas notificaciones promueven las interacciones de usuario y presentan contenido como direcciones URL, sonidos, imágenes o cupones y más. En este tutorial se trata el tema [Notificación a los usuarios](notification-hubs-aspnet-backend-ios-notify-users.md) se muestra cómo enviar notificaciones push que incorporan cargas (por ejemplo, imágenes).
 
-Este tutorial es compatible con iOS 7 y 8. ![][IOS1]
+
+Este tutorial es compatible con iOS 7 y 8.
+
+    ![][IOS1]
 
 En un alto nivel:
 
@@ -382,4 +382,4 @@ Ahora que ha modificado el back-end de la aplicación para enviar solo el *id* d
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -81,4 +81,4 @@ Para poder utilizar una SAS para cargar imágenes de su aplicación en el almace
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -30,7 +30,7 @@ Se puede conectar una aplicación web de Servicio de aplicaciones de Azure a cua
 - El equipo en el que instala el agente local de Administrador de conexiones híbridas se describe más adelante en este artículo:
 
 	- Debe ser capaz de conectarse a Azure a través del puerto 5671
-	- Debe ser capaz de conectarse al *nombre de host*:*número de puerto* de su recurso local. 
+	- Debe poder establecer comunicación con el *nombre de host*:*número de puerto* de su recurso local. 
 
 > [AZURE.NOTE]En estos pasos de este artículo se supone que usa el explorador del equipo que hospeda el agente de conexiones híbridas local.
 
@@ -207,4 +207,4 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

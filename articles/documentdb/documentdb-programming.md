@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Programación de DocumentDB: procedimientos almacenados, desencadenadores y UDF | Azure" 
+	pageTitle="Programación de DocumentDB: procedimientos almacenados, desencadenadores y UDF | Microsoft Azure" 
 	description="Descubra cómo usar DocumentDB de Microsoft Azure para escribir procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) de forma nativa en JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -641,4 +641,4 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 -	[Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

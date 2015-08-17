@@ -72,7 +72,7 @@ Si solo ve uno o dos de ellos, pero no los tres, quítelo y espere entre cinco y
 ### Procedimiento 2: Validar que las soluciones correctas se descargaron en Direct Agent
 >[AZURE.NOTE]Si solo usa Operations Manager, puede omitir este procedimiento.
 
-En Direct Agent, debe ver la directiva de colección de soluciones que se almacenan en caché en **C:\Archivos de programa\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs**
+En Direct Agent, debe ver la directiva de colección de soluciones que se almacenan en caché en **C:\\Archivos de programa\\Microsoft Monitoring Agent\\Agent\\Health Service State\\Management Packs**
 
 
 ### Procedimiento 3: Validar que se enviaron datos al servicio Advisor (o que se intentó hacerlo)
@@ -145,4 +145,4 @@ Las exploraciones en profundidad le llevarán a la búsqueda de registros y le m
 
 Esta página también presenta información de medición (esta no usa el índice de búsqueda de registros, sino el sistema de facturación y se actualiza cada dos horas) sobre las cantidades de datos enviados al servicio desglosado por la solución.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

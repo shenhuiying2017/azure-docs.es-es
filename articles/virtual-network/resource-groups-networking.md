@@ -363,4 +363,4 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 [Implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

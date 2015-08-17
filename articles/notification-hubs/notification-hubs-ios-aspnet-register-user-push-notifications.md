@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 # Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="C# para Tienda Windows">C# para Tienda Windows</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+
+
 
 ##Información general
 
@@ -27,7 +29,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
 
 ##Actualización de la aplicación  
 
-1. En su MainStoryboard_iPhone.storyboard, agregue los siguientes componentes desde la biblioteca de objetos:
+1. En su MainStoryboard\_iPhone.storyboard, agregue los siguientes componentes desde la biblioteca de objetos:
 
 	+ **Etiqueta**: "Push to User with Notification Hubs"
 	+ **Etiqueta**: "InstallationId"
@@ -236,4 +238,4 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -218,17 +218,17 @@ Por supuesto, hay un tiempo y un lugar para el almacenamiento en caché. Por eje
 <a name="query"></a>
 ## Entrega inmediata de contenido nuevo mediante cadenas de consulta ##
 
-En la red CDN de Azure, puede habilitar cadenas de consulta de tal forma que el contenido de URL con cadenas de consulta específicas se almacenen en caché de forma independiente. Esto es una excelente característica que puede utilizar si desea insertar inmediatamente determinadas actualizaciones de contenido a los exploradores de cliente en lugar que el contenido de la red CDN en caché expire. Supongamos que publico mi página web con un número de versión en la URL. <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
+En la red CDN de Azure, puede habilitar cadenas de consulta de tal forma que el contenido de URL con cadenas de consulta específicas se almacenen en caché de forma independiente. Esto es una excelente característica que puede utilizar si desea insertar inmediatamente determinadas actualizaciones de contenido a los exploradores de cliente en lugar que el contenido de la red CDN en caché expire. Supongamos que publico mi página web con un número de versión en la dirección URL. <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0"; rel=";stylesheet";/&gt; </pre>
 
-Cuando publico una actualización de CSS y utilizo un número de versión diferente en mi dirección URL de CSS: <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
+Cuando publico una actualización de CSS y utilizo un número de versión diferente en mi dirección URL de CSS: <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1"; rel=";stylesheet";/&gt; </pre>
 
 Para un extremo de red de CDN con cadenas de consulta habilitadas, las dos URL son únicas y se realizará una nueva solicitud a mi servidor web para recuperar el nuevo *bootstrap.css*. Sin embargo, en un extremo de red de CDN que no tenga cadenas de consulta habilitadas, son las mismas URL y simplemente entregarán el *bootstrap.css* en caché.
 
-El truco aquí consiste en actualizar el número de versión de manera automática. En Visual Studio, esto es fácil de hacer. En un archivo .cshtml donde me gustaría usar el vínculo anterior, puedo especificar un número de versión en función del número de ensamblado. <pre class="prettyprint"> @{ <mark>var cdnVersion = System.Reflection.Assembly.GetAssembly( typeof(MyMvcApp.Controllers.HomeController)) .GetName().Version.ToString();</mark> }
+El truco aquí consiste en actualizar el número de versión de manera automática. En Visual Studio, esto es fácil de hacer. En un archivo .cshtml donde me gustaría usar el vínculo anterior, puedo especificar un número de versión en función del número de ensamblado. <pre class="prettyprint"> @{ var cdnVersion = System.Reflection.Assembly.GetAssembly( typeof(MyMvcApp.Controllers.HomeController)) .GetName().Version.ToString(); }
 
 ...
 
-&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
+&lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion"; rel=";stylesheet";/&gt; </pre>
 
 Si cambia el número de ensamblado como parte de cada ciclo de publicación, puede asegurarse igualmente de obtener un número de versión único cada vez que publique su aplicación web, que permanecerá igual hasta el siguiente ciclo de publicación. O bien, puede hacer que Visual Studio incremente automáticamente el número de versión de ensamblado cada vez que la aplicación web se crea abriendo *Properties\\AssemblyInfo.cs* en su proyecto de Visual Studio y utilizar `*` en `AssemblyVersion`. Por ejemplo:
 
@@ -261,4 +261,4 @@ Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o
 - [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

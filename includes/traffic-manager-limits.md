@@ -1,4 +1,6 @@
-Resource| Default limit
----|---
-Profiles per subscription | 100
-Endpoints per profile| 200
+| Recurso | Límite predeterminado
+--- | ---
+| Perfiles por suscripción | 100
+| Extremos por perfil| 200
+
+<!---HONumber=August15_HO6-->

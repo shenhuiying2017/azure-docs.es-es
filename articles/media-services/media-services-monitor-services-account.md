@@ -34,7 +34,7 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
 1. En el [Portal de administración](http://go.microsoft.com/fwlink/?LinkID=256666), haga clic en **Servicios multimedia** y, a continuación, haga clic en el nombre de la cuenta de Servicios multimedia para abrir el panel. 
 
-	![Panel_ServiciosMultimedia][dashboard]
+	![Panel\_ServiciosMultimedia][dashboard]
 
 2. Para supervisar los datos o trabajos de codificación, comience a enviar los trabajos de codificación a Servicios multimedia, o comience a realizar streaming de contenido a los clientes a través de streaming a petición de Servicios multimedia de Azure. Debería empezar a ver los datos de supervisión en el panel al cabo de una hora aproximadamente.
 
@@ -67,4 +67,4 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

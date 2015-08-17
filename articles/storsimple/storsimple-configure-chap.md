@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="07/27/2015"
+   ms.date="07/30/2015"
    ms.author="alkohli" />
 
 # Configurar CHAP para el dispositivo StorSimple
@@ -192,4 +192,4 @@ Puede verificar que CHAP esté en uso mediante los siguientes pasos.
 
 Obtenga más información sobre [seguridad de StorSimple](storsimple-security.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

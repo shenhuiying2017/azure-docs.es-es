@@ -41,7 +41,7 @@ Antes de comenzar la configuración, compruebe que dispone de los requisitos pre
 - Una suscripción de Azure
 - La versión más reciente de PowerShell de Azure
 
-###  1. Importar el módulo de PowerShell para ExpressRoute
+###  1\. Importar el módulo de PowerShell para ExpressRoute
 
 Windows PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Para obtener más información, consulte la documentación de PowerShell en [MSDN](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx).
 
@@ -52,7 +52,7 @@ Use los cmdlets siguientes para importar el módulo de PowerShell en ExpressRout
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 
-### 2. Configurar un circuito ExpressRoute con las características del complemento Premium habilitadas
+### 2\. Configurar un circuito ExpressRoute con las características del complemento Premium habilitadas
 
 Puede crear un nuevo circuito de ExpressRoute con el complemento Premium habilitado en el momento de la creación. Siga las instrucciones sobre cómo crear circuitos ExpressRoute con [NSP](expressroute-configuring-nsps.md) o [EXP](expressroute-configuring-exps.md). Tenemos un nuevo parámetro opcional en el cmdlet New-AzureDedicatedCircuit que le permite especificar la SKU. La SKU puede ser Standard o Premium. El valor predeterminado es standard. Si se pasa la SKU como Premium, se habilitará el circuito con las características del complemento Premium.
 
@@ -60,7 +60,7 @@ Puede crear un nuevo circuito de ExpressRoute con el complemento Premium habilit
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -Sku Premium
 
 
-### 3. Comprobar que el complemento ExpressRoute Premium está habilitado
+### 3\. Comprobar que el complemento ExpressRoute Premium está habilitado
 Puede comprobar si el complemento de ExpressRoute Premium está habilitado en el circuito. En el ejemplo siguiente, el circuito de ExpressRoute no tiene las características del complemento ExpressRoute Premium habilitadas. La SKU aparecerá como ***Premium*** si el complemento está habilitado.
 
 		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
@@ -177,4 +177,4 @@ Puede deshabilitar el complemento ExpressRoute Premium en un circuito de Express
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

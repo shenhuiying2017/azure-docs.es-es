@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
@@ -79,7 +79,8 @@ En el portal, agregue el secreto de cliente y el identificador de cliente a la p
 Agregue las bibliotecas de ADM al proyecto Eclipse.
 
 1. Para obtener la biblioteca de ADM, [descargue el SDK]. Extraiga el archivo ZIP del SDK.
-2. En Eclipse, haga clic con el botón derecho en el proyecto y, a continuación, haga clic en **Propiedades** (Propiedades). Seleccione **Java Build Path** (Ruta de compilación de Java) en la izquierda y, a continuación, seleccione la pestaña **Libraries** (Bibliotecas) en la parte superior. Haga clic en **Add External Jar** (Agregar Jar externo) y seleccione el archivo `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` en el directorio en que ha extraído el SDK de Amazon.3. Descargue el SDK de Android NotificationHubs (vínculo).
+2. En Eclipse, haga clic con el botón derecho en el proyecto y, a continuación, haga clic en **Propiedades** (Propiedades). Seleccione **Java Build Path** (Ruta de compilación de Java) en la izquierda y, a continuación, seleccione la pestaña **Libraries ** (Bibliotecas) en la parte superior. Haga clic en **Add External Jar** (Agregar Jar externo) y seleccione el archivo `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` en el directorio en que ha extraído el SDK de Amazon.
+3. Descargue el SDK de Android NotificationHubs (vínculo).
 4. Descomprima el paquete y arrastre el archivo `notification-hubs-sdk.jar` a la `libs `carpeta de Eclipse.
 
 Edite el manifiesto de la aplicación para admitir ADM:
@@ -89,7 +90,7 @@ Edite el manifiesto de la aplicación para admitir ADM:
 
 		xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-2. Agregue permisos como el primer elemento del manifiesto. Sustituya **[YOUR PACKAGE NAME]** por el paquete usado para crear su aplicación.
+2. Agregue permisos como el primer elemento del manifiesto. Sustituya **[NOMBRE DEL PAQUETE]** por el paquete usado para crear la aplicación.
 
 		<permission
 	     android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -241,7 +242,7 @@ Edite el manifiesto de la aplicación para admitir ADM:
 
 ## Incorporación de APIKey a la aplicación
 
-1. En Eclipse, cree un archivo nuevo con nombre **api_key.txt** en los recursos del directorio del proyecto.
+1. En Eclipse, cree un archivo nuevo con nombre **api\_key.txt** en los recursos del directorio del proyecto.
 2. Abra el archivo y copie la **clave de API** generada en el portal para desarrolladores de Amazon.
 
 ## Ejecución de la aplicación
@@ -281,4 +282,4 @@ Para enviar un mensaje con .NET:
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

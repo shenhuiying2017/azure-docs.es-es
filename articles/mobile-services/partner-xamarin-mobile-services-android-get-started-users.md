@@ -138,4 +138,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

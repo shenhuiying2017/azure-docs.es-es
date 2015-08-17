@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/18/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restaurar una base de datos SQL de Azure mediante la Restauración a un momento dado en el portal de Azure
@@ -74,4 +74,4 @@ Para obtener más información, consulte los temas siguientes:
 
 [Azure SQL Database Point in Time Restore](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/) (Restauración a un momento dado de Base de datos SQL de Azure, blog)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

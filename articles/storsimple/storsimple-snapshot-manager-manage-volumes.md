@@ -235,7 +235,7 @@ Administración de discos es una utilidad del sistema para administrar discos du
 
     ![Mensaje de conversión de disco dinámico](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. En Administración de discos, compruebe que Disco 1 y Disco 2 se muestran como volúmenes reflejados dinámicos. (**Dinámicos** debe aparecer en la columna de estado y el color de la barra de capacidad debe cambiar a rojo, lo que indica un volumen reflejado.)
+10. En Administración de discos, compruebe que los discos 1 y 2 se muestren como volúmenes reflejados dinámicos. (**Dinámicos** debe aparecer en la columna de estado y el color de la barra de capacidad debe cambiar a rojo, lo que indica un volumen reflejado).
 
     ![Discos dinámicos reflejados de Administración de discos](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
@@ -249,9 +249,9 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 
 2. En el panel **Ámbito**, haga clic con el botón derecho en el nodo **Volúmenes** y seleccione **Volver a examinar volúmenes**. Cuando termine el examen, debe aparecer una lista de volúmenes en el panel **Resultados**. El volumen reflejado dinámico se muestra como un único volumen.
 
-3. En el panel **Resultados**, haga clic con el botón derecho en el volumen reflejado dinámico y, a continuación, haga clic en **Crear grupo de volúmenes**.
+3. En el panel **Resultados**, haga clic con el botón derecho en el volumen reflejado dinámico y después haga clic en **Crear grupo de volúmenes**.
 
-4. En el cuadro de diálogo **Crear grupo de volúmenes**, escriba un nombre para el grupo de volúmenes, asígnele el volumen reflejado dinámico a este grupo y, a continuación, haga clic en**Aceptar**.
+4. En el cuadro de diálogo **Crear grupo de volúmenes**, escriba un nombre para el grupo de volúmenes, asigne el volumen reflejado dinámico a este grupo y después haga clic en**Aceptar**.
 
 5. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**. El nuevo grupo de volúmenes debe aparecer bajo el nodo **Grupos de volúmenes**.
 
@@ -261,7 +261,7 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 
     - Para programar una copia de seguridad automática, haga clic en **Crear directiva de copia de seguridad**. En la página **General**, seleccione el grupo de volúmenes de la lista. En la página **Programación**, escriba los detalles de la programación. Cuando haya terminado, haga clic en **Aceptar**.
 
-7. Puede supervisar el trabajo de copia de seguridad mientras se ejecuta. En el panel **Ámbito**, expanda el nodo **Trabajos** y, a continuación, haga clic en **En ejecución**. Aparecerán los detalles del trabajo en el panel **Resultados**. Cuando finaliza el trabajo de copia de seguridad, los detalles se transfieren a la lista de trabajos de **Últimas 24 horas**.
+7. Puede supervisar el trabajo de copia de seguridad mientras se ejecuta. En el panel **Ámbito**, expanda el nodo **Trabajos** y después haga clic en **En ejecución**. Aparecerán los detalles del trabajo en el panel **Resultados**. Cuando finaliza el trabajo de copia de seguridad, los detalles se transfieren a la lista de trabajos de **Últimas 24 horas**.
 
 ## Pasos siguientes
 
@@ -270,4 +270,4 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

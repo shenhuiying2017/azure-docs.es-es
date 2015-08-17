@@ -79,4 +79,4 @@ El mismo código de seguimiento que agregó a la aplicación anterior para diagn
 * [Supervisión de diagnósticos y rendimiento de actores de Service Fabric de Azure](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

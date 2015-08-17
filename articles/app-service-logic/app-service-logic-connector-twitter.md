@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="sameerch"/>
 
 
@@ -23,6 +23,7 @@ Conéctese a la fuente de Twitter para registrar tweets y recibir tweets de su e
 
 - Recibir nuevos tweets asociados con una palabra clave o un texto determinados. Cuando se recupera un nuevo tweet, se desencadena una nueva instancia del flujo de trabajo y se pasan los datos al siguiente conector del flujo. Por ejemplo, suponga que crea un conector de Twitter y que usa el desencadenador Nuevo tweet a partir de búsqueda para supervisar #peanutbutterandjelly. Siempre que hay un nuevo tweet para #peanutbutterandjelly, el flujo de trabajo (también conocido como aplicación lógica) se inicia automáticamente.
 - Con las distintas acciones, como "Buscar tweets", toma la respuesta y la usa en su flujo de trabajo. Por ejemplo, puede buscar tweets por el nombre de su compañía. Cuando los encuentra, puede usar una aplicación lógica para escribir estos datos en una base de datos SQL Server. Luego, puede usar esos datos de SQL Server para determinar los tweets que se están escribiendo sobre su compañía. 
+- Utilice todos los operadores en la [Búsqueda de Twitter](https://twitter.com/search). Seleccione el vínculo **Operadores**. El conector de Twitter admite todos los operadores que aparecen en la lista.
 
 
 ## Acciones y desencadenadores
@@ -82,7 +83,7 @@ Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia sobr
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
 [2]: ./media/app-service-logic-connector-twitter/img2.png
 [3]: ./media/app-service-logic-connector-twitter/img3.png
@@ -92,4 +93,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

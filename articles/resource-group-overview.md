@@ -22,6 +22,10 @@ Las aplicaciones normalmente se componen de muchos componentes: quizá una aplic
 
 Administrador de recursos de Azure integra de forma nativa el control de acceso en la plataforma de administración, para que pueda especificar las acciones que puede realizar un usuario de la organización en un grupo de recursos.
 
+La siguiente es una demostración de esta introducción.
+
+[AZURE.VIDEO azure-resource-manager-overview]
+
 > [AZURE.NOTE]En este tema se describen los recursos, grupos y plantillas y se utiliza el Portal de vista previa para mostrar los conceptos. Sin embargo, también se pueden crear, administrar y eliminar recursos de Azure con la [CLI de Azure para Mac, Linux y Windows](virtual-machines/xplat-cli-azure-resource-manager.md), así como con [PowerShell](powershell-azure-resource-manager.md).
 
 ## Grupos de recursos
@@ -125,4 +129,4 @@ Para obtener información sobre cómo usar el portal de vista previa, consulte [
 - Para comprender las funciones que puede utilizar en una plantilla, consulte [Funciones de plantillas](./resource-group-template-functions.md)
 - Para obtener instrucciones sobre cómo estructuras las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

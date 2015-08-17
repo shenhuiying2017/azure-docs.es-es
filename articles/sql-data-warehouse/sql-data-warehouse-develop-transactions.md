@@ -24,9 +24,9 @@ Como cabe esperar, el Almacenamiento de datos SQL ofrece soporte para todas las 
 El Almacenamiento de datos SQL implementa las transacciones ACID. Sin embargo, el aislamiento de la compatibilidad transaccional está limitado a `READ UNCOMMITTED` y no puede cambiarse. Puede implementar una serie de métodos para evitar lecturas de datos sucios si esto le plantea alguna preocupación. Los métodos más populares utilizan CTAS y la modificación de particiones de tabla (que suele conocerse como un patrón de ventana deslizante) para evitar que los usuarios consulten datos que aún se encuentran en fase de preparación. Las vistas que filtran los datos previamente también constituyen un enfoque popular.
 
 ## Estado de las transacciones
-El Almacenamiento de datos SQL usa la función XACT_STATE() para notificar una transacción errónea con el valor -2. Esto significa que se ha producido un error en la transacción y que está marcada para reversión únicamente.
+El Almacenamiento de datos SQL usa la función XACT\_STATE() para notificar una transacción errónea con el valor -2. Esto significa que se ha producido un error en la transacción y que está marcada para reversión únicamente.
 
-> [AZURE.NOTE]El uso de -2 por la función XACT_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar errores dentro de una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, SELECT 1/0 producirá un error pero no fuerza una transacción en un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, en SQLDW esto no es así. Si se produce un error dentro de una transacción SQLDW, introducirá automáticamente el estado -2: incluidos los errores SELECT 1/0. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT_STATE().
+> [AZURE.NOTE]El uso de -2 por la función XACT\_STATE para denotar una transacción errónea representa un comportamiento diferente para SQL Server. SQL Server utiliza el valor -1 para representar una transacción no confirmable. SQL Server puede tolerar errores dentro de una transacción sin necesidad de que se marque como no confirmable. Por ejemplo, SELECT 1/0 producirá un error pero no fuerza una transacción en un estado no confirmable. SQL Server también permite lecturas en la transacción no confirmable. Sin embargo, en SQLDW esto no es así. Si se produce un error dentro de una transacción SQLDW, introducirá automáticamente el estado -2: incluidos los errores SELECT 1/0. Por lo tanto, es importante comprobar el código de aplicación para ver si utiliza XACT\_STATE().
 
 En SQL Server, puede que vea un fragmento de código con el siguiente aspecto:
 
@@ -81,8 +81,8 @@ SELECT @xact;
 
 Observe que la reversión de la transacción debe ocurrir antes de la lectura de la información de error en el bloque `CATCH`.
 
-## Función Error_Line()
-También cabe destacar que el Almacenamiento de datos SQL no implementa o admite la función ERROR_LINE(). Si tiene esto en el código, tendrá que eliminarlo para que sea compatible con el Almacenamiento de datos SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Consulte el artículo [etiquetas de consulta] para obtener más detalles sobre esta característica.
+## Función Error\_Line()
+También cabe destacar que el Almacenamiento de datos SQL no implementa o admite la función ERROR\_LINE(). Si tiene esto en el código, tendrá que eliminarlo para que sea compatible con el Almacenamiento de datos SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Consulte el artículo [etiquetas de consulta] para obtener más detalles sobre esta característica.
 
 ## Uso de THROW y RAISERROR
 THROW es la implementación más moderna para producir excepciones en el Almacenamiento de datos SQL, pero también se admite RAISERROR. Sin embargo, hay algunas diferencias a las que se debe prestar atención.
@@ -112,4 +112,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

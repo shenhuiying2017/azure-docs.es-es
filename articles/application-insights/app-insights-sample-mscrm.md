@@ -3,8 +3,8 @@
 	description="Obtenga la telemetría de Microsoft CRM Online con Application Insights. Tutorial sobre configuración, obtención de datos, visualización y exportación." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+	authors="mazharmicrosoft" 
+	manager="klin"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Tutorial: Habilitar la telemetría para Microsoft CRM Online con Application Insights
 
 En este artículo se muestra cómo obtener los datos de telemetría de [Microsoft CRM Online](https://www.dynamics.com/) con [Application Insights para Visual Studio](https://azure.microsoft.com/services/application-insights/). Analizaremos el proceso completo para agregar scripts de Application Insights a la aplicación, capturar datos y visualizar datos.
+
+>[AZURE.NOTE] [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
 
 ## Incorporación de Application Insights a la instancia de CRM Online nueva o existente 
 
@@ -139,15 +141,24 @@ Haga clic en el gráfico para obtener más detalles.
 
 ![](./media/app-insights-sample-mscrm/30.png)
 
+## Código de ejemplo
+
+[Examine el código de ejemplo](https://dynamicsandappinsights.codeplex.com/).
+
 ## Power BI
 
 Puede realizar un análisis todavía más exhaustivo si [exporta los datos a Microsoft Power BI](app-insights-export-power-bi.md).
+
+## Solución CRM de ejemplo
+
+La siguiente es la solución de ejemplo implementada en CRM para comenzar a capturar la telemetría. https://dynamicsandappinsights.codeplex.com/
 
 ## Más información
 
 * [¿Qué es Application Insights?](app-insights-overview.md)
 * [Application Insights para páginas web](app-insights-javascript.md)
+* [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

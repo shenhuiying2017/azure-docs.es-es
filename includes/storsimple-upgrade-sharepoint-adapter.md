@@ -34,4 +34,4 @@
  
 2. Instale el nuevo adaptador de StorSimple para SharePoint. El nuevo adaptador reconocerá automáticamente las bases de datos de contenido que se hayan habilitado o deshabilitados para RBS y usará la configuración anterior.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

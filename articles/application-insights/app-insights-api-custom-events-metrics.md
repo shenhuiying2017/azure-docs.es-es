@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -402,9 +402,7 @@ El límite de tamaño en `message` es mucho mayor que el límite en propiedades.
 
 ## Seguimiento de dependencia
 
-El módulo de seguimiento de dependencias estándar usa esta API para registrar las llamadas a dependencias externas, como bases de datos o API de REST. El módulo descubre automáticamente algunas dependencias externas, pero puede que le interese tratar a algunos componentes adicionales de la misma manera.
-
-Por ejemplo, si compila el código con un ensamblado que no escribió usted mismo, podría cronometrar todas las llamadas a él para averiguar cómo contribuye a los tiempos de respuesta. Para que estos datos se muestren en los gráficos de dependencia en Application Insights, envíelos mediante `TrackDependency`.
+Utilice esta llamada para realizar un seguimiento de los tiempos de respuesta y las tasad de éxito de las llamadas a un fragmento de código externo. Los resultados se muestran en los gráficos de dependencia del portal.
 
 ```C#
 
@@ -422,7 +420,9 @@ Por ejemplo, si compila el código con un ensamblado que no escribió usted mism
             }
 ```
 
-Para desactivar el módulo de seguimiento de dependencias estándar, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)y elimine la referencia a `DependencyCollector.DependencyTrackingTelemetryModule`.
+Recuerde que los SDK del servidor incluyen un [módulo de dependencia](app-insights-dependencies.md) que detecta y realiza automáticamente el seguimiento de ciertas llamadas de dependencia, por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione. Utilizará esta llamada si desea hacer un seguimiento de las llamadas no captadas por el seguimiento automatizado, o bien si no desea instalar el agente.
+
+Para desactivar el módulo de seguimiento de dependencias estándar, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) y elimine la referencia a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## <a name="defaults"></a>Establecimiento de valores predeterminados para los datos de telemetría personalizados seleccionados
 
@@ -759,6 +759,8 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
 [Búsqueda de eventos y registros][diagnostic]
 
+[Ejemplos y tutoriales](app-insights-code-samples.md)
+
 [Solución de problemas][qna]
 
 
@@ -779,4 +781,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

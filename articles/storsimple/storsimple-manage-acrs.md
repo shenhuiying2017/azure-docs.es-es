@@ -84,7 +84,7 @@ Realice los pasos siguientes para eliminar un registro de control de acceso.
 
 2. En la lista tabular de los registros de control de acceso (ACR), pase el ratón sobre el ACR que desea eliminar.
 
-3. Aparecerá un icono de eliminación (**x**) en la columna de la derecha de todo para el ACR que seleccione. Haga clic en el icono **x** para eliminar el ACR.
+3. Aparecerá un icono de eliminación (**x**) en la columna en el extremo derecho para el ACR que seleccione. Haga clic en el icono **x** para eliminar el ACR.
 
 4. Cuando se le pida confirmación, haga clic en **SÍ** para continuar con la eliminación. La lista tabular se actualizará para reflejar la eliminación.
 
@@ -94,4 +94,4 @@ Más información sobre la [administración de volúmenes de StorSimple](storsim
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

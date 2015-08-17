@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # ¿Qué le ha ocurrido a mi proyecto?
 
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###¿Qué le ha ocurrido a mi proyecto?</span>
+###¿Qué le ha ocurrido a mi proyecto?
 
 ##### Se han agregado referencias.
 
@@ -42,7 +42,7 @@ El paquete NuGet de Almacenamiento de Azure se agregó al proyecto de Visual Stu
 - `System.Data`
 - `System.Spatial`
 
-Además, se agregó el paquete de NuGet **Microsoft.Framework.Configuration.Json**.
+Además, se agregó el paquete NuGet **Microsoft.Framework.Configuration.Json**.
 
 #####Se ha agregado la cadena de conexión para Almacenamiento de Azure. 
 En el archivo config.json de su proyecto, se ha creado un elemento con la cadena y la clave de conexión de la cuenta de almacenamiento seleccionada.
@@ -50,4 +50,4 @@ En el archivo config.json de su proyecto, se ha creado un elemento con la cadena
 Para obtener más información, consulte [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

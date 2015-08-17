@@ -83,4 +83,4 @@ Una vez que obtenga la hoja, para Application Insights, por ejemplo, puede reali
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

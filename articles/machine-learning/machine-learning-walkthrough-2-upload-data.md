@@ -80,4 +80,4 @@ Para obtener más información acerca de la importación de diversos tipos de da
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

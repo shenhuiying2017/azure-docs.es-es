@@ -58,4 +58,4 @@ Para obtener información general acerca del servicio de trabajo de base de dato
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -139,7 +139,7 @@ Edite la definición de `DATABASES` para usar los valores anteriores.
 
 1.  En el Explorador de soluciones, en **Entornos de Python**, haga clic con el botón derecho en el entorno virtual y seleccione **Instalar paquete de Python**.
 
-1.  Instale el paquete `pyodbc` con **easy_install**.
+1.  Instale el paquete `pyodbc` con **easy\_install**.
 
   	![Cuadro de diálogo Instalar paquete de Python](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
@@ -221,4 +221,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Base de datos SQL]: /documentation/services/sql-database/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

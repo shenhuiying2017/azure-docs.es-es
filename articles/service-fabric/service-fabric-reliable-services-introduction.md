@@ -121,7 +121,7 @@ Si cualquiera de las siguientes caracterizan sus necesidades de servicio de apli
 
 - Desea desarrollar o consumir proveedores de terceros desarrollados de estado personalizado*
 
-> [AZURE.NOTE]*Las funciones se encuentran disponibles para los SDK
+> [AZURE.NOTE]*Funciones disponibles en SDK general
 
 
 ## Pasos siguientes
@@ -130,4 +130,4 @@ Si cualquiera de las siguientes caracterizan sus necesidades de servicio de apli
 + [Lea el modelo de programación de actores fiables](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

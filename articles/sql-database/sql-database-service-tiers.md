@@ -89,4 +89,4 @@ Para obtener más información sobre los precios de estos niveles, consulte [Pre
 Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

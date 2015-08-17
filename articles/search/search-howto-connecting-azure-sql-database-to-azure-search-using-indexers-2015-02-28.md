@@ -277,4 +277,4 @@ R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

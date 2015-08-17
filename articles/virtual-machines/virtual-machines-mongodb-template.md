@@ -42,7 +42,7 @@ Siga estos pasos para crear un clúster de MongoDB mediante una plantilla del Ad
 
 ### Paso 1-a: Descargar los archivos de plantilla con PowerShell
 
-Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\Azure\Templates\MongoDB).
+Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\\Azure\\Templates\\MongoDB).
 
 Sustituya el nombre de carpeta de la carpeta local y ejecute estos comandos:
 
@@ -103,7 +103,7 @@ Clone todo el repositorio de plantillas mediante un cliente GIT de su elección,
 
     git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Cuando haya finalizado, busque la carpeta **mongodb-high-availability** en el directorio C:\Azure\Templates.
+Cuando haya finalizado, busque la carpeta **mongodb-high-availability** en el directorio C:\\Azure\\Templates.
 
 ### Paso 2 (opcional): Comprender los parámetros de plantilla
 
@@ -655,7 +655,7 @@ Se da formato a los discos conectados como parte de las actividades de preparaci
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh** forma parte de la carpeta **shared_scripts\ubuntu**, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y creación de bandas en discos que puede volver a usar cada vez que necesite ejecutar tareas similares como parte de la creación de plantillas.
+**vm-disk-utils-0.1.sh** forma parte de la carpeta **shared\_scripts\\ubuntu**, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y creación de bandas en discos que puede volver a usar cada vez que necesite ejecutar tareas similares como parte de la creación de plantillas.
 
 Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de CustomScriptForLinux. Se instalan como un tipo independiente del recurso, con una dependencia en cada plantilla de implementación del nodo del clúster. Vea este fragmento al final de cada archivo **member-resources-Dx.json**:
 
@@ -692,4 +692,4 @@ Básicamente, se sugiere este enfoque para:
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

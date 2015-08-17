@@ -10,4 +10,4 @@ Estas son las restricciones de uso y otros límites de servicio para el servicio
 | Panel de acceso | <ul><li>No hay ningún límite en el número de aplicaciones que se pueden ver en el Panel de acceso por usuario final, para usuarios con licencias para Azure AD Premium o Enterprise Mobility Suite asignadas.</li><li>En el panel de acceso puede verse un máximo de 10 iconos de aplicación (ejemplos: Box, Salesforce o Dropbox) para cada usuario final para usuarios con licencias asignadas para las ediciones gratuita o Azure AD Basic de Azure Active Directory. Este límite no se aplica a las cuentas de administrador.</li></ul> |
 | Informes | Se puede ver o descargar en cualquier informe un máximo de 1.000 filas. Los datos adicionales se truncan. |
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

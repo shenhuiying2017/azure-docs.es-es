@@ -150,4 +150,4 @@ Puede cambiar de la vista de detalles a la vista de estadísticas de una campañ
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

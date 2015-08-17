@@ -26,4 +26,4 @@ Las aplicaciones web de Azure admiten actualmente los siguientes escenarios de t
 	* Nota: El grupo de recursos de destino no puede contener ningún recurso Microsoft.Web en este escenario.
 * Trasladar aplicaciones web individuales a un grupo de recursos diferente, manteniéndolas hospedadas en el servicio de aplicaciones en que se encuentran actualmente (el servicio de aplicaciones se encuentra en el grupo de recursos anterior)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

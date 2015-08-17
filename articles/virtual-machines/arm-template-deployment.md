@@ -294,7 +294,7 @@ Para especificar los valores de los parámetros del recurso que se definieron en
           }
         }
 
-    >[AZURE.NOTE]Los nombres de imagen vhd cambian de manera constante en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, consulte [Administrar imágenes con Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx) y, a continuación, reemplace {source-image-name} por el nombre del archivo vhd que desea usar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Reemplace {subscription-id} por el identificador de la suscripción.
+    >[AZURE.NOTE]Los nombres de imagen vhd cambian de manera constante en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, consulte [Administrar imágenes con Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx) y, a continuación, reemplace {source-image-name} por el nombre del archivo vhd que desea usar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Reemplace {subscription-id} por el identificador de la suscripción.
 
 
 4.	Guarde el archivo de parámetros que creó.
@@ -443,4 +443,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

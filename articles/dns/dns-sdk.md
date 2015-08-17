@@ -107,4 +107,4 @@ En el ejemplo siguiente se ilustra cómo obtener una lista de zonas y conjuntos 
 
 [Proyecto de ejemplo del SDK de Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

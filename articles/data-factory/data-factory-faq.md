@@ -22,7 +22,11 @@
 
 ### P: ¿Qué es la factoría de datos de Azure?
 
-La factoría de datos es un servicio totalmente administrado destinado a los desarrolladores para la composición de servicios de almacenamiento, movimiento y procesamiento de los datos en canalizaciones de datos tolerantes a errores y de gran disponibilidad. La factoría de datos funciona tanto en el almacenamiento de datos en la nube como local. Una canalización es un conjunto de entradas de datos, actividades de procesamiento y salidas de datos y se define con un scripting sencillo JSON y activado mediante comandos de PowerShell. Una vez activada, la factoría de datos organiza y programa las canalizaciones para que se ejecuten en HDInsight (Hadoop) con opciones para la administración automática del clúster en nombre del usuario. La factoría de datos también proporciona una experiencia visual de administración y supervisión a través del Portal de vista previa de Azure para supervisar todas las canalizaciones con información detallada sobre el funcionamiento y el estado del servicio en un panel.
+Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Del mismo modo que una fábrica que pone equipo en funcionamiento para tomar materias primas y transformarlas en productos terminados, la Factoría de datos organiza los servicios existentes que recopilan datos sin procesar y los transforman en información lista para usar.
+
+La Factoría de datos funciona transversalmente en orígenes de datos locales y en la nube y SaaS para introducir, preparar, transformar, analizar y publicar los datos. Use Factoría de datos para componer servicios en canalizaciones de flujo de datos administrados para transformar los datos con servicios como [HDInsight de Azure (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) y [Lote de Azure](http://azure.microsoft.com/documentation/services/batch/) a fin de satisfacer sus necesidades de informática de Big Data, y con [Aprendizaje automático de Azure](http://azure.microsoft.com/documentation/services/machine-learning/) con objeto de poner operativas sus soluciones de análisis. No se conforme solo con una vista tabular de supervisión y use las visualizaciones ricas en contenido de la Factoría de datos para ver rápidamente el linaje y las dependencias entre las canalizaciones de datos. Supervise todas las canalizaciones de flujo de datos desde una única vista unificada para identificar fácilmente los problemas y configurar alertas de supervisión.
+
+Consulte [Introducción y conceptos clave](data-factory-introduction.md) para obtener más detalles.
  
 ### P: ¿Qué desafío del cliente resuelve la factoría de datos?
 
@@ -57,15 +61,12 @@ Los clientes pueden obtener acceso a la factoría de datos a través del [Portal
 
 ### P: ¿Cuál es la disponibilidad de regiones de la factoría de datos?
 
-En la versión de vista previa pública, la factoría de datos solo estará disponible en el oeste de EE. UU. Los servicios de proceso y almacenamiento utilizados por las factorías de datos pueden estar en otras regiones.
+La Factoría de datos está disponible en el Oeste de EE. UU. y en el Norte de Europa. Los servicios de proceso y almacenamiento utilizados por las factorías de datos pueden estar en otras regiones.
  
-### P: ¿Cuáles son los límites en el número de factorías, canalizaciones, actividades y conjuntos de datos? 
+### P: ¿Cuáles son los límites en el número de factorías, canalizaciones, actividades y conjuntos de datos?
+ 
+Consulte la sección **Límites de la Factoría de datos de Azure** del artículo [Límites, cuotas y restricciones de suscripción y servicios de Azure](azure-subscription-service-limits.md/#data-factory-limits).
 
-
-- Número de factorías de datos dentro de una suscripción: 50
-- Número de canalizaciones dentro de una factoría de datos: 100
-- Número de actividades dentro de una canalización: 10
-- Número de conjuntos de datos dentro de una factoría de datos: 100
 
 ### P: ¿Qué es la experiencia de desarrollador/creación con el servicio de Factoría de datos de Azure?
 
@@ -73,6 +74,7 @@ Puede crear factorías de datos mediante uno de los sistemas siguientes:
 
 - **Portal de vista previa de Azure**. Las hojas de Factoría de datos en el Portal de vista previa de Azure proporcionan una interfaz de usuario enriquecida para crear factorías de datos y servicios vinculados. El **Editor de Factoría de datos**, que también forma parte del portal, le permite crear fácilmente servicios vinculados, tablas, conjuntos de datos y canalizaciones mediante la especificación de definiciones de JSON para estos artefactos. Consulte [Editor de Factoría de datos][data-factory-editor] para obtener información general del editor e [Introducción a la Factoría de datos][datafactory-getstarted] para consultar un ejemplo del uso del portal o editor para crear e implementar una fábrica de datos.   
 - **Azure PowerShell**. Si es un usuario de PowerShell y prefiere usar PowerShell en lugar de la interfaz de usuario del Portal, puede usar los cmdlets de Factoría de datos de Azure que forman parte de Azure PowerShell para crear e implementar factorías de datos. Consulte [Crear y supervisar la Factoría de datos de Azure con Azure PowerShell][create-data-factory-using-powershell] para obtener un ejemplo sencillo y [Tutorial: desplazamiento y procesamiento de archivos de registro mediante la Factoría de datos][adf-tutorial] para un ejemplo avanzado de uso de cmdlets de PowerShell para crear e implementar una factoría de datos. Consulte el contenido de [Referencia de cmdlets de Factoría de datos][adf-powershell-reference] en MSDN Library para obtener documentación completa de los cmdlets de Factoría de datos.  
+- **Visual Studio**. También puede usar Visual Studio para crear, supervisar y administrar mediante programación las factorías de datos. Consulte el artículo [Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos](data-factory-create-data-factories-programmatically) para obtener detalles.  
 - **Biblioteca de clases .NET**. Se pueden crear factorías de datos mediante programación con el SDK de .NET de Factoría de datos. Consulte [Creación, supervisión y administración de las factorías de datos mediante el SDK de .NET][create-factory-using-dotnet-sdk] para un ver tutorial sobre la creación de una factoría de datos con el SDK de .NET. Consulte [Referencia de biblioteca de clases de Factoría de datos][msdn-class-library-reference] para una amplia documentación sobre el SDK de .NET de Factoría de datos.  
 - **API de REST**. También puede utilizar la API de REST expuesta por el servicio Factoría de datos de Azure para crear e implementar factorías de datos. Consulte [Referencia de la API de REST de la Factoría de datos][msdn-rest-api-reference] para ver una amplia documentación sobre la API de REST de la Factoría de datos. 
 
@@ -82,24 +84,7 @@ No. Al igual que otros recursos de Azure, el nombre de una Factorías de datos d
 ## Actividades: preguntas más frecuentes
 ### P: ¿Cuáles son los orígenes de datos y las actividades admitidos?
 
-- **Orígenes de datos que se admiten:** 
-	- Almacenamiento de Azure (blob y tablas)
-	- SQL de Azure
-	- DocumentDB de Azure
-	- SQL Server local
-	- Oracle local 
-	- Sistema de archivos local
-	- MySQL local
-	- DB2 local
-	- Teradata local
-	- Sybase local
-	- PostgreSQL local  
-- **Actividades compatibles:** 
-	- Copiar actividad (local a nube y nube a local)
-	- Actividad de HDInsight (Pig, Hive, MapReduce, transformaciones de streaming de Hadoop)
-	- Actividad de puntuación por lotes de Aprendizaje automático de Azure
-	- Actividad de procedimiento almacenado de SQL de Azure
-	- Actividades .NET personalizadas.
+Consulte los artículos [Actividades de movimiento de datos](data-factory-data-movement-activities.md) y [Actividades de transformación de datos](data-factory-data-transformation-activities.md) para ver las actividades y los orígenes de datos admitidos.
 
 ### ¿Cuándo se ejecuta una actividad?
 La configuración de **disponibilidad** en la tabla de datos de salida determina cuándo se ejecuta la actividad. La actividad comprueba si todas las dependencias de datos de entrada se han satisfecho (es decir, estado **Listo**) antes de ejecutarse.
@@ -115,14 +100,6 @@ Región de destino de copia | Región usada para el enrutamiento
 -------------------------- | -----------------------
 Asia oriental | Sudeste de Asia
 Oeste de Japón | Este de Japón
-
-### ¿Cómo puedo copiar en varias tablas de salida?
-Puede tener varias tablas de salida en una canalización como se muestra en el siguiente ejemplo:
-
-	"outputs":  [ 
-		{ "name": “outputtable1” }, 
-		{ "name": “outputtable2” }  
-	],
  
 ### ¿Es mejor tener una canalización con varias actividades o una canalización independiente para cada actividad? 
 Se supone que las canalizaciones incluyen actividades relacionadas. Lógicamente, puede mantener las actividades en una canalización si las tablas que las conectan no se consumen por otra actividad fuera de la canalización. De este modo, no necesitará períodos activos de canalizaciones de cadena puesto que se alinean con las demás. Además, la integridad de los datos de las tablas internas de la canalización se conservarán mejor cuando se actualice la canalización. La actualización de la canalización detiene fundamentalmente todas las actividades en la canalización, las elimina y las vuelve a crear. Desde la perspectiva de la creación, puede ser más fácil ver el flujo de datos dentro de las actividades relacionadas en un archivo JSON para la canalización.
@@ -215,4 +192,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

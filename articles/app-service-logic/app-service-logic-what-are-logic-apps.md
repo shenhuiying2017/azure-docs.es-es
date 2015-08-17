@@ -69,4 +69,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

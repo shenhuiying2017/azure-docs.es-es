@@ -122,4 +122,4 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 [Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

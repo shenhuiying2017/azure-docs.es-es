@@ -53,17 +53,27 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 |A9|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 1,77 TB<br/>Aplicaciones = aprox. 1.5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
 |A10|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 1,77 TB<br/>Aplicaciones = aprox. 1.5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
 |A11|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 1,77 TB<br/>Aplicaciones = aprox. 1.5 GB<blockquote> Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</blockquote>|
-|Standard_D1|1|3,5 GB|SO = tamaño del SO invitado<br/>Recurso local = 50 GB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard_D2|2|7 GB|SO = tamaño del SO invitado<br/>Recurso local = 100 GB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard_D3|4|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 200 GB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard_D4|8|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 400 GB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard_D11|2|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 100 GB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard_D12|4|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 200 GB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard_D13|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 400 GB<br/>Aplicaciones = aprox. 1,5 GB|
-|Standard_D14|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 800 GB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D1|1|3,5 GB|SO = tamaño del SO invitado<br/>Recurso local = 50 GB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D2|2|7 GB|SO = tamaño del SO invitado<br/>Recurso local = 100 GB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D3|4|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 200 GB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D4|8|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 400 GB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D11|2|14 GB|SO = tamaño del SO invitado<br/>Recurso local = 100 GB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D12|4|28 GB|SO = tamaño del SO invitado<br/>Recurso local = 200 GB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D13|8|56 GB|SO = tamaño del SO invitado<br/>Recurso local = 400 GB<br/>Aplicaciones = aprox. 1,5 GB|
+|Standard\_D14|16|112 GB|SO = tamaño del SO invitado<br/>Recurso local = 800 GB<br/>Aplicaciones = aprox. 1,5 GB|
 
+## Configuración de tamaños para los Servicios en la nube
+
+Puede especificar el tamaño de la máquina virtual de una instancia de rol como parte del modelo de servicio descrito por el archivo de definición de servicio. El tamaño del rol determina la cantidad de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a una instancia en ejecución. Elija el tamaño del rol en función del requisito de recursos de la aplicación.
+
+El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea pequeño para una instancia de rol web:
+
+
+    <WebRole name="WebRole1" vmsize="Small">
+    …
+    </WebRole>
 ## Pasos siguientes
 
-[Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/hh124108) [Configurar los tamaños de los servicios en la nube](https://msdn.microsoft.com/library/ee814754)
+[Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

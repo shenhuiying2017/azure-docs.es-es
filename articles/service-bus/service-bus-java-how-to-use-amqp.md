@@ -31,11 +31,11 @@ En esta guía se asume que ya dispone de un espacio de nombres del Bus de servic
 
 ### Descarga de la biblioteca de cliente AMQP 1.0 JMS
 
-Para obtener información acerca de dónde descargar la versión más reciente de la biblioteca de cliente Apache Qpid JMS AMQP 1.0, visite [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+Para obtener información acerca de dónde descargar la versión más reciente de la biblioteca de cliente Apache Qpid JMS AMQP 1.0, visite [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
 Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de Apache Qpid JMS AMQP 1.0 al CLASSPATH de Java cuando vaya a crear y ejecutar aplicaciones JMS con el Bus de servicio:
 
-*    geronimo-jms_1.1_spec-1.0.jar
+*    geronimo-jms\_1.1\_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -67,9 +67,9 @@ La entrada usada para definir **ConnectionFactory** en el proveedor JNDI de arch
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-Donde **[jndi_name]** y **[ConnectionURL]** tienen los significados siguientes:
+Donde **[jndi\_name]** y **[ConnectionURL]** tienen los significados siguientes:
 
-- **[jndi_name]**: el nombre lógico de ConnectionFactory. Este es el nombre que se resolverá en la aplicación Java usando el método JNDI IntialContext.lookup().
+- **[jndi\_name]**: el nombre lógico de ConnectionFactory. Este es el nombre que se resolverá en la aplicación Java usando el método JNDI IntialContext.lookup().
 - **[ConnectionURL]**: una URL que proporciona la biblioteca JMS con la información necesaria para el agente AMQP.
 
 El formato de **ConnectionURL** es el siguiente:
@@ -84,7 +84,7 @@ Donde **[namespace]**, **[username]** y **[password]** tienen los significados s
 - **[username]**: nombre del emisor del Bus de servicio.
 - **[password]**: formato de codificación de dirección URL de la clave de emisor del Bus de servicio.
 
-> [AZURE.NOTE]debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE]debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 #### Configuración de destinos
 
@@ -99,10 +99,10 @@ o
 topic.[jndi_name] = [physical_name]
 ```
 
-Donde **[jndi_name]** y **[physical_name]** tienen los significados siguientes:
+Donde **[jndi\_name]** y **[physical\_name]** tienen los significados siguientes:
 
-- **[jndi_name]**: el nombre lógico del destino. Este es el nombre que se resolverá en la aplicación Java usando el método JNDI IntialContext.lookup().
-- **[physical_name]**: el nombre de la entidad del Bus de servicio a la que la aplicación envía mensajes o de la que los recibe.
+- **[jndi\_name]**: el nombre lógico del destino. Este es el nombre que se resolverá en la aplicación Java usando el método JNDI IntialContext.lookup().
+- **[physical\_name]**: el nombre de la entidad del Bus de servicio a la que la aplicación envía mensajes o de la que los recibe.
 
 > [AZURE.NOTE]al recibir de una suscripción al tema del bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx) proporciona más información acerca de cómo trabajar con las suscripciones a temas del bus de servicio desde JMS.
 
@@ -333,4 +333,4 @@ También puede utilizar AMQP 1.0 del Bus de servicio desde otros lenguajes, como
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

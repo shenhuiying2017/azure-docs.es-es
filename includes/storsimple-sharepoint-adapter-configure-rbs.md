@@ -1,3 +1,19 @@
+<properties 
+   pageTitle="Configuración de RBS para el adaptador de StorSimple para SharePoint | Microsoft Azure"
+   description="Describe cómo instalar el adaptador de StorSimple para SharePoint en una granja de servidores de SharePoint."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="07/17/2015"
+   ms.author="v-sharos" />
 
 >[AZURE.NOTE]Al realizar cambios en la configuración de RBS del adaptador de StorSimple para SharePoint, es necesario haber iniciado sesión con una cuenta de usuario que pertenezca al grupo Admins. del dominio. Además, debe tener acceso a la página de configuración desde un explorador que se ejecuta en el mismo host que la Administración central.
 
@@ -27,7 +43,7 @@
 
           ![Configuración del adaptador de StorSimple: habilitar y deshabilitar](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-    4. Haga clic en el botón **Actualizar** para aplicar la configuración. Al hacer clic en el botón Actualizar, se actualiza el estado de configuración de RBS en todos los servidores WFE y toda la granja estará habilitada para RBS. Aparece el mensaje siguiente.
+    4. Haga clic en el botón **Actualizar** para aplicar la configuración. Al hacer clic en el botón **Actualizar**, se actualiza el estado de configuración de RBS en todos los servidores WFE y toda la granja de servidores estará habilitada para RBS. Aparece el mensaje siguiente.
 
            ![Mensaje de configuración del adaptador](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
 
@@ -45,7 +61,7 @@
 
     2. Vaya a la ruta de acceso UNC que configuró. Asegúrese de que se ha creado la estructura de directorios de RBS y que contiene el objeto cargado.
 
-6. (Opcional) Puede usar el cmdlet de PowerShell `Migrate()` de Microsoft RBS incluido con SharePoint para migrar el contenido de BLOB existente para el dispositivo de StorSimple. Para obtener más información, consulte [Migrar contenido a o desde EDR en SharePoint 2013][6] o [Migración de contenido dentro o fuera del almacenamiento remoto de blobs (RBS) (SharePoint Foundation 2010)][7].
+6. (Opcional) Puede usar el cmdlet de PowerShell `Migrate()` de Microsoft RBS incluido con SharePoint para migrar el contenido de BLOB existente para el dispositivo StorSimple. Para obtener más información, consulte [Migrar contenido a o desde EDR en SharePoint 2013][6] o [Migración de contenido dentro o fuera del almacenamiento remoto de blobs (RBS) (SharePoint Foundation 2010)][7].
 
 7. (Opcional) En instalaciones de prueba, puede comprobar que los blobs se han extraído de la base de datos de contenido como sigue:
 
@@ -96,11 +112,11 @@
  
      Si almacena los blobs y la base de datos de contenido en volúmenes independientes en el dispositivo de StorSimple, se recomienda configurarlos en el mismo contenedor de volumen. Esto garantiza que se hará la copia de seguridad de ellos juntos.
 
-     >[AZURE.WARNING]Si no tiene RBS habilitado, no es recomendable mover la base de datos de contenido al dispositivo de StorSimple. Se trata de una configuración no probada.
+       >[AZURE.WARNING]Si no tiene RBS habilitado, no es recomendable mover la base de datos de contenido al dispositivo de StorSimple. Se trata de una configuración no probada.
  
 9. Vaya al paso siguiente: [Configuración de la recolección de elementos no utilizados](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

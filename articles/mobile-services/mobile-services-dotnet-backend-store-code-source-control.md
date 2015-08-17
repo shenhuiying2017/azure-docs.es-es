@@ -104,4 +104,4 @@ Ahora, el proyecto de servicio móvil se mantiene en el control de código fuent
 [Modificación del modelo de datos de un servicio móvil back-end de .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

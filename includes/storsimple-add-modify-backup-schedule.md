@@ -28,4 +28,4 @@
 La página **Directivas de copia de seguridad** se actualizará para guardar los cambios en la directiva.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

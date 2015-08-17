@@ -45,4 +45,4 @@ Ejecutar un trabajo en el grupo de bases de datos elásticas. Vea [Creación y a
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -55,7 +55,7 @@ Las instantáneas con almacenamiento Premium, se atienen a las siguientes reglas
 
 - El número de instantáneas por blob en páginas está limitado a 100 en cuentas de almacenamiento Premium. Si se supera ese límite, la operación de instantánea de blob devuelve el código de error 409 (**SnapshotCountExceeded**).
 
-- Cada diez minutos, se podrá tomar una sola instantánea de un blob en páginas en una cuenta de almacenamiento Premium. Si se supera esa frecuencia, la operación de instantánea de blob devuelve el error 409 (**SnaphotOperationRateExceeded**).
+- Cada diez minutos, se podrá tomar una sola instantánea de un blob en páginas en una cuenta de almacenamiento Premium. Si se supera esa frecuencia, la operación de instantánea de blob devuelve el código de error 409 (**SnaphotOperationRateExceeded**).
 
 - No se puede leer la instantánea de un blob en páginas en una cuenta de almacenamiento Premium a través de Get Blob. Si llama a Get Blob en una instantánea de una cuenta de almacenamiento Premium, este devuelve un código de error 400 (**InvalidOperation**). Sin embargo, puede llamar a Get Blob Properties y Get Blob Metadata en una instantánea.
 
@@ -125,4 +125,4 @@ En la situación 4, el blob de base se ha actualizado totalmente y no contiene n
 
 ![Recursos de almacenamiento de Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

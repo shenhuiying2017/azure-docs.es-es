@@ -29,4 +29,4 @@ Todos los controladores de su proyecto cuentan ahora con el atributo **Authorize
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

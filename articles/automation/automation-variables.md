@@ -188,4 +188,4 @@ La imagen siguiente muestra cómo filtrar los objetos almacenados en una variabl
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

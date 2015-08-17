@@ -165,7 +165,7 @@ private static string createToken(string resourceUri, string keyName, string key
 }
 ```
 
-## Usar la firma de acceso compartido
+## Uso de la firma de acceso compartido (en el nivel HTTP)
  
 Ahora que sabe cómo crear firmas de acceso compartido para cualquier entidad del Bus de servicio, estará listo para llevar a cabo una solicitud HTTP POST:
 
@@ -180,10 +180,77 @@ Recuerde que esto funciona para todo. Puede crear SAS para una cola, un tema, un
 
 Si le da un token de SAS a un remitente o cliente, no tiene la clave directamente y no pueden invertir el hash para obtenerla. Como tal, tiene control sobre a lo que pueden tener acceso y durante cuánto tiempo. Algo importante de recordar es que si cambia la clave principal de la directiva, se invalidará cualquier firma de acceso compartido creada a partir de ella.
 
+## Uso de la firma de acceso compartido (en el nivel AMQP)
+
+En la sección anterior, vimos cómo usar el token SAS con una solicitud HTTP POST para enviar datos al Bus de servicio. Como sabe, puede obtener acceso al Bus de servicio mediante el protocolo AMQP (Protocolo de cola de mensajes avanzada) que es el protocolo principal y preferido que usar por motivos de rendimiento en muchos escenarios. El uso de tokens SAS con AMQP se describe en el siguiente documento [Seguridad basada en notificaciones de AMQP, versión 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está en fase de borrador desde 2013 pero que es compatible con Azure actualmente.
+
+Antes de comenzar a enviar datos al Bus de servicio, el publicador tiene que enviar el token de SAS dentro de un mensaje de AMQP a un nodo de AMQP bien definido con el nombre **"$cbs"** (puede verlo como una cola especial utilizada por el servicio para adquirir y validar todos los tokens de SAS). El publicador tiene que especificar el campo **"ReplyTo"** dentro del mensaje de AMQP; este es el nodo en el que el servicio contestará al publicador con el resultado de la validación del token (un patrón sencillo de solicitud/respuesta entre el publicador y el servicio). Este nodo de respuesta se crea "sobre la marcha" en lo que respecta a "creación dinámica de nodo remoto" como describe la especificación de AMQP 1.0. Después de comprobar que el token SAS es válido, el publicador puede avanzar y comenzar a enviar datos al servicio.
+
+Los siguientes pasos le mostrarán cómo enviar el token SAS con el protocolo AMQP mediante la biblioteca [AMQP.Net Lite](http://amqpnetlite.codeplex.com) útil si no puede utilizar el SDK de Bus de servicio oficial (por ejemplo, en WinRT, .Net Compact Framework, .Net Micro Framework y Mono) que se desarrolla en C&#35; Por supuesto, esta biblioteca es útil para comprender cómo funciona la seguridad basada en notificaciones en el nivel AMQP como pudo observar en el nivel HTTP (con una solicitud HTTP POST y el token SAS enviado dentro del encabezado "Autorización"). Sin embargo, no se preocupe. Si no necesita un conocimiento tan profundo sobre AMQP, puede usar el SDK del Bus de servicio con aplicaciones de .Net Framework que lo hará por usted o la biblioteca [Azure SB Lite](http://azuresblite.codeplex.com) para todas las demás plataformas (consulte a continuación).
+
+### C&#35;
+
+```
+/// <summary>
+/// Send Claim Based Security (CBS) token
+/// </summary>
+/// <param name="shareAccessSignature">Shared access signature (token) to send</param>
+private bool PutCbsToken(Connection connection, string sasToken)
+{
+    bool result = true;
+    Session session = new Session(connection);
+
+    string cbsClientAddress = "cbs-client-reply-to";
+    var cbsSender = new SenderLink(session, "cbs-sender", "$cbs");
+    var cbsReceiver = new ReceiverLink(session, cbsClientAddress, "$cbs");
+
+    // construct the put-token message
+    var request = new Message(sasToken);
+    request.Properties = new Properties();
+    request.Properties.MessageId = "1";
+    request.Properties.ReplyTo = cbsClientAddress;
+    request.ApplicationProperties = new ApplicationProperties();
+    request.ApplicationProperties["operation"] = "put-token";
+    request.ApplicationProperties["type"] = "servicebus.windows.net:sastoken";
+    request.ApplicationProperties["name"] = Fx.Format("amqp://{0}/{1}", sbNamespace, entity);
+    cbsSender.Send(request);
+
+    // receive the response
+    var response = cbsReceiver.Receive();
+    if (response == null || response.Properties == null || response.ApplicationProperties == null)
+    {
+        result = false;
+    }
+    else
+    {
+        int statusCode = (int)response.ApplicationProperties["status-code"];
+        if (statusCode != (int)HttpStatusCode.Accepted && statusCode != (int)HttpStatusCode.OK)
+        {
+            result = false;
+        }
+    }
+
+    // the sender/receiver may be kept open for refreshing tokens
+    cbsSender.Close();
+    cbsReceiver.Close();
+    session.Close();
+
+    return result;
+}
+```
+
+El método *PutCbsToken()* anterior recibe la *conexión* (instancia de clase de conexión de AMQP como proporciona la biblioteca .Net Lite de AMQP) que representa la conexión TCP al servicio y el parámetro *sasToken* que es el token de SAS que enviar. Nota: es importante que la conexión se cree con el **mecanismo de autenticación SASL establecido en EXTERNO** (y no el valor SIN FORMATO predeterminado con el nombre de usuario y la contraseña usados cuando no tiene que enviar el token de SAS).
+
+A continuación, el publicador crea dos vínculos de AMQP para el envío del token de SAS y la recepción de la respuesta (resultado de validación del token) del servicio.
+
+El mensaje de AMQP es un poco complejo porque dispone de una serie de propiedades y de más información que un mensaje simple. El token de SAS se coloca como el cuerpo del mensaje (mediante su constructor). La propiedad **"ReplyTo"** se establece en el nombre del nodo para recibir el resultado de la validación en el vínculo del receptor (puede cambiar su nombre como desee y el servicio lo creará dinámicamente). El servicio usa las últimas tres propiedades personalizadas/de aplicación para comprender qué variante de operación tiene que ejecutar. Como describe la especificación del borrador de CBS, deben ser el **nombre de operación** (es decir, "put-token"), el **tipo de token** que se coloca (es decir, "servicebus.windows.net:sastoken") y, finalmente, el **"nombre" de la audiencia** a la que se aplica el token (toda la entidad).
+
+Después de enviar el token de SAS en el vínculo del remitente, el publicador tiene que leer la respuesta en el vínculo del receptor. La respuesta es un mensaje de AMQP simple con propiedades de la aplicación denominadas**"código de estado"** que pueden contener los mismos valores que un código de estado HTTP.
+
 ## Pasos siguientes
 
 Vea la [referencia de la API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx) para obtener más información sobre lo que puede hacer con estos tokens de SAS.
 
 Para obtener más información sobre SAS, vea el nodo de [autenticación del Bus de servicio](https://msdn.microsoft.com/library/azure/dn155925.aspx) en MSDN.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -45,19 +45,17 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service-vs2013](../../includes/mobile-services-dotnet-backend-create-new-service-vs2013.md)]
 
-<ol start="7"><li><p>En el Explorador de soluciones, abra el archivo de código App.xaml.cs en la carpeta de proyecto GetStartedWithData.Shared y observe el nuevo campo estático que se agregó a la clase <strong>App</strong> en un bloque de compilación condicional de aplicación de la Tienda Windows, similar al ejemplo siguiente:</p> 
+&nbsp;&nbsp;7. En el Explorador de soluciones, abra el archivo de código App.xaml.cs en la carpeta de proyecto GetStartedWithData.Shared y observe el nuevo campo estático que se agregó a la clase **App** en un bloque de compilación condicional de aplicación de la Tienda Windows, similar al ejemplo siguiente:
 
-		<pre><code>public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
-		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-		        "https://todolist.azure-mobile.net/",
-		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		</code></pre>
+	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+	        "https://todolist.azure-mobile.net/",
+	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		
 
-	<p>Este código proporciona acceso al nuevo servicio móvil en su aplicación mediante el uso de una instancia de la <a href="http://go.microsoft.com/fwlink/p/?LinkId=302030">clase MobileServiceClient</a>. El cliente se crea al suministrar el URI y la clave de aplicación del nuevo servicio móvil. Este campo estático está disponible para todas las páginas en la aplicación.</p>
-</li>
-<li><p>Haga clic con el botón derecho en el proyecto de aplicación de Windows Phone, haga clic en <strong>Agregar</strong> y <strong>Servicio conectado...</strong>, seleccione el servicio móvil que acaba de crear y haga clic en <strong>Aceptar</strong>. </p>
-<p>Se agrega el mismo código al archivo compartido App.xaml.cs, aunque esta vez en un bloque de compilación condicional de aplicación de Windows Phone.</p></li>
-</ol>
+&nbsp;&nbsp;Este código proporciona acceso al nuevo servicio móvil en su aplicación mediante el uso de una instancia de la clase [MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030). El cliente se crea al suministrar el URI y la clave de aplicación del nuevo servicio móvil. Este campo estático está disponible para todas las páginas en la aplicación.
+
+&nbsp;&nbsp;8. Haga clic con el botón derecho en el proyecto de aplicación de Windows Phone, haga clic en **Agregar** y **Servicio conectado...**, seleccione el servicio móvil que acaba de crear y haga clic en **Aceptar**. Se agrega el mismo código al archivo compartido App.xaml.cs, aunque esta vez en un bloque de compilación condicional de aplicación de Windows Phone.
 
 En este punto, se conectan al nuevo servicio móvil las aplicaciones de la Tienda Windows y de la Tienda de Windows Phone. El paso siguiente consiste en probar el nuevo proyecto de servicio móvil.
 
@@ -123,4 +121,4 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!-------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

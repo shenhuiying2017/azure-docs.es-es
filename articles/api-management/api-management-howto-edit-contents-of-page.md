@@ -35,4 +35,4 @@ Haga clic en la página "Bienvenido" para editar lo que se muestra en la página
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

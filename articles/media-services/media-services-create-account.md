@@ -35,7 +35,7 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
 -   **Una cuenta de Servicios multimedia**. La cuenta le proporciona acceso a un conjunto de Servicios multimedia basados en la nube que están disponibles en Azure. Una cuenta de Servicios multimedia no almacena el contenido multimedia real, sino que almacena metadatos sobre el contenido multimedia y trabajos de procesamiento multimedia en su cuenta. En el momento en el que cree la cuenta, seleccione una región de Servicios multimedia disponible. La región que selecciona es un centro de datos que almacena los registros de metadatos para su cuenta.
 
-    > [AZURE.NOTE]**Europa del Norte****Europa occidental****Oeste de EE. UU.****Este de EE. UU.****Sudeste asiático****Asia oriental****Oeste de Japón****Este de Japón**
+    > [AZURE.NOTE]Entre las regiones de Servicios multimedia disponibles se incluyen las siguientes: **Europa del Norte**, **Europa occidental**, **Oeste de EE. UU.**, **Este de EE. UU.**, **Sudeste de Asia**, **Asia oriental**, **Oeste de Japón**, **Este de Japón**. Servicios multimedia no usa grupos de afinidad.
 -   **Una cuenta de almacenamiento asociada**. La cuenta de almacenamiento es una cuenta de almacenamiento de Azure asociada a una cuenta de Servicios multimedia. La cuenta de almacenamiento proporciona almacenamiento de blobs para archivos multimedia y debe ubicarse en la misma región geográfica que la cuenta de Servicios multimedia. Cuando cree una cuenta de Servicios multimedia, podrá elegir una cuenta de almacenamiento existente en la misma región o crear una nueva cuenta de almacenamiento en la misma región. Si elimina una cuenta de Servicios multimedia, no se eliminarán los blobs de la cuenta de almacenamiento relacionada.
 
 ##<a id="quick"></a>Procedimiento: creación de una cuenta de Servicios multimedia mediante Creación rápida
@@ -81,4 +81,4 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
   [Portal de administración]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

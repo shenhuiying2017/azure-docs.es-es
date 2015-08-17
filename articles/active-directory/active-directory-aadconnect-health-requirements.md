@@ -49,7 +49,8 @@ Para empezar a utilizar Azure AD Connect Health, puede descargar la versión má
 ### Conectividad saliente a los extremos del servicio de Azure
 Durante la instalación y el tiempo de ejecución, el agente requiere conectividad a los extremos del servicio de Azure AD Connect Health que se enumeran a continuación. Si bloquea la conectividad saliente, asegúrese de agregar lo siguiente a la lista de elementos permitidos:
 
-- *.servicebus.windows.net - Puerto: 5671 - https://*.adhybridhealth.azure.com/
+- **.servicebus.windows.net - Puerto: 5671
+- https://*.adhybridhealth.azure.com/
 - https://*.table.core.windows.net/
 - https://policykeyservice.dc.ad.msft.net/
 - https://login.windows.net
@@ -72,9 +73,9 @@ Para que la característica Análisis de uso pueda recopilar datos y analizarlos
 #### Para habilitar la auditoría de AD FS 2.0
 
 1. Haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en **Directiva de seguridad local**.
-1. Navegue hasta la carpeta **Configuración de seguridad\\Directivas locales\\Administración de derechos de usuario** y haga doble clic en Generar auditorías de seguridad.
-1. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS 2.0. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
-1. Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría. `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
+1. Navegue hasta la carpeta **Security Settings\\Local Policies\\User Rights Management** y haga doble clic en Generar auditorías de seguridad.
+1. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS 2.0. Si no aparece, haga clic en **Agregar usuario o grupo** agréguela a la lista y luego haga clic en **Aceptar**.
+1. Abra un símbolo del sistema con privilegios elevados y ejecute el comando siguiente para habilitar la auditoría. `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
 1. Cierre Directiva de seguridad local y luego abra el complemento de administración. Para abrir el complemento de administración, haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en Administración de AD FS 2.0.
 1. En el panel Acciones, haga clic en Editar propiedades del servicio de federación.
 1. En el cuadro de diálogo **Propiedades del servicio de federación**, haga clic en la pestaña **Eventos**.
@@ -84,13 +85,13 @@ Para que la característica Análisis de uso pueda recopilar datos y analizarlos
 #### Para habilitar la auditoría de AD FS en Windows Server 2012 R2
 
 1. Abra **Directiva de seguridad local**; para ello, abra **Administrador del servidor** en la pantalla Inicio o Administrador del servicio en la barra de tareas del escritorio y luego haga clic en **Herramientas/Directiva de seguridad local**.
-1. Navegue hasta la carpeta **Configuración de seguridad\\Directivas locales\\Asignación de derechos de usuario** y haga doble clic en **Generar auditorías de seguridad**.
-1. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
-1. Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría: `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
-1. Cierre **Directiva de seguridad local** y luego abra el complemento de **administración de AD FS** (en Administrador del servidor, haga clic en Herramientas y luego seleccione Administración de AD FS).
+1. Navegue hasta la carpeta **Security Settings\\Local Policies\\User Rights Assignment** y haga doble clic en **Generar auditorías de seguridad**.
+1. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS. Si no aparece, haga clic en **Agregar usuario o grupo** agréguela a la lista y luego haga clic en **Aceptar**.
+1. Abra un símbolo del sistema con privilegios elevados y ejecute el comando siguiente para habilitar la auditoría: `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
+1. Cierre **Directiva de seguridad local** y luego abra el complemento de **Administración de AD FS** (en Administrador del servidor, haga clic en Herramientas y luego seleccione Administración de AD FS).
 1. En el panel Acciones, haga clic en **Editar propiedades del servicio de federación**.
-1. En el cuadro de diálogo Propiedades del servicio de federación, haga clic en la pestaña **￼Eventos￼**.
-1. Active las casillas **Auditorías de aciertos y Auditorías de errores** y luego haga clic en **Aceptar**.
+1. En el cuadro de diálogo Propiedades del servicio de federación, haga clic en la pestaña **Eventos**.
+1. Active las casillas **Autorías de aciertos y Auditorías de errores** y luego haga clic en **Aceptar**.
 
 
 
@@ -103,7 +104,7 @@ Para que la característica Análisis de uso pueda recopilar datos y analizarlos
 1. Abra **Visor de eventos**.</li>
 1. Vaya a Registros de Windows y seleccione **Seguridad**.
 1. A la derecha, haga clic en **Filtrar registros actuales**.
-1. En Origen del evento, seleccione **Auditoría de AD FS**.
+1. En Origen de evento, seleccione **Auditoría de AD FS**.
 
 ![Registros de auditoría de AD FS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
@@ -117,7 +118,7 @@ En el caso de los servidores de Windows Server 2008 R2, haga lo siguiente:
 1. Asegúrese de que se esté ejecutando el Service Pack 1 o posterior del servidor.
 1. Desactive ESC de Internet Explorer para la instalación del agente:
 1. Instale Windows PowerShell 4.0 en cada uno de los servidores antes de instalar el agente de AD Health. Para instalar Windows PowerShell 4.0:
- - Instale [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) mediante el siguiente vínculo para descargar el instalador sin conexión.
+ - Instale [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) mediante el vínculo siguiente para descargar el instalador sin conexión.
  - Instale PowerShell ISE (desde Características de Windows)
  - Instale [Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
  - Instale Internet Explorer versión 10 o posterior en el servidor. Esto es necesario para que el servicio de mantenimiento autentique su identidad con las credenciales de administrador de Azure.
@@ -155,4 +156,4 @@ Para comprobar que se instaló el agente, abra los servicios y busque lo siguien
  
 ![Comprobación de Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

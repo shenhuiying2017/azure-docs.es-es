@@ -28,9 +28,9 @@ Tendrá que hacer lo siguiente para utilizar el código de este tema:
 2. Obtenga la biblioteca de Twilio para PHP. Puede descargarla desde Github ([https://github.com/twilio/twilio-php][twilio_php_github]) o instalarla como paquete PEAR. Para obtener más información, consulte [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme].
 3. Instale el SDK de Azure para PHP. Para obtener información general sobre el SDK e instrucciones sobre cómo instalarlo, consulte [Set up the Azure SDK for PHP][setup_php_sdk] (Configuración del SDK de Azure para PHP).
 
-## un formulario web para hacer una llamada
+## Creación de un formulario web para hacer una llamada
 
-El siguiente código HTML muestra cómo crear una página web (**callform.html**) que recupera datos de usuarios para realizar una llamada:
+El código HTML siguiente muestra cómo crear una página web (**callform.html**) que recupera datos de usuarios para realizar una llamada:
 
     <html>
 	<head>
@@ -62,7 +62,7 @@ El siguiente código HTML muestra cómo crear una página web (**callform.html**
 	</body>
 	</html>
 
-## código para realizar la llamada
+## Creación del código para realizar la llamada
 El código siguiente muestra cómo crear una página web (**makecall.php**) a la que se llama cuando el usuario envía el formulario mostrado por **callform.html**. El código que se muestra a continuación crea el mensaje de llamada y genera la llamada. (Use su cuenta Twilio y token de autenticación en lugar de los valores de marcador de posición asignados a **$sid** y **$token** en el código siguiente).
 
     <html>
@@ -143,4 +143,4 @@ Para obtener información adicional acerca de Twilio, consulte [https://www.twil
 [website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

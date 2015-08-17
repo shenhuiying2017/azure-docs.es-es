@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Actores de Service Fabric de Azure: Internet de las cosas"
-   description="Actores de tejido de Azure Service es el bloque de creación clave (como capa intermedia) en un sistema que combina un sistema front-end de mensajería que admite varios protocolos de transporte como HTTPS, MQTT o AMQP y, después, se comunica con los actores que representan dispositivos individuales."
+   pageTitle="Actores confiables para Internet de las cosas"
+   description="Actores confiables de Service Fabric es el bloque de creación clave (como nivel intermedio) en un sistema que combina un front-end del sistema de mensajería que admite varios transportes como HTTPS, MQTT o AMQP y, a continuación, se comunica con los actores que representan dispositivos individuales."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -14,15 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Patrón de diseño de los actores de Service Fabric: Internet de las cosas
-Dado que IoT se ha convertido en la tendencia nueva junto con los avances tecnológicos en dispositivos y servicios en la nube, los desarrolladores empezaron a considerar los bloques de creación clave en los que desarrollar sus sistemas. En el siguiente diagrama se ilustran los escenarios principales que se consiguen mediante actores de Service Fabric de Azure:
+# Patrón de diseño de Actores confiables: Internet de las cosas
+Dado que IoT se ha convertido en la tendencia nueva junto con los avances tecnológicos en dispositivos y servicios en la nube, los desarrolladores empezaron a considerar los bloques de creación clave en los que desarrollar sus sistemas. En el siguiente diagrama se ilustran los escenarios principales que se consiguen mediante Actores confiables de Service Fabric:
 
 ![][1]
 
-Actores de tejido de Azure Service es el bloque de creación clave (como capa intermedia) en un sistema que combina un sistema front-end de mensajería que admite varios protocolos de transporte como HTTPS, MQTT o AMQP y, después, se comunica con los actores que representan dispositivos individuales. Puesto que los actores pueden mantener el estado, el modelado de flujos (especialmente el procesamiento de flujos con estado) y la agregación por dispositivo son procesos sencillos. Si los datos deben conservarse, es posible realizar un vaciado fácilmente a petición o en un temporizador, mientras se mantienen los últimos N bits de datos en otra variable para consultarlos con rapidez. Tenga en cuenta que en nuestros ejemplos, omitimos deliberadamente los detalles de la capa de mensajería y eventos, que permitirá que los actores se comuniquen con los dispositivos, para mantener la atención en el modelo de actor. Existen básicamente dos escenarios que suelen ir de la mano:
+Actores confiables de Service Fabric es el bloque de creación clave (como nivel intermedio) en un sistema que combina un front-end del sistema de mensajería que admite varios transportes como HTTPS, MQTT o AMQP y, a continuación, se comunica con los actores que representan dispositivos individuales. Puesto que los actores pueden mantener el estado, el modelado de flujos (especialmente el procesamiento de flujos con estado) y la agregación por dispositivo son procesos sencillos. Si los datos deben conservarse, es posible realizar un vaciado fácilmente a petición o en un temporizador, mientras se mantienen los últimos N bits de datos en otra variable para consultarlos con rapidez. Tenga en cuenta que en nuestros ejemplos, omitimos deliberadamente los detalles de la capa de mensajería y eventos, que permitirá que los actores se comuniquen con los dispositivos, para mantener la atención en el modelo de actor. Existen básicamente dos escenarios que suelen ir de la mano:
 
 * *Recopilación los datos de telemetría y estado de un único dispositivo o un conjunto de ellos y mantenimiento de su estado*. Piense en decenas de miles de trampas para ratones (sí, este es un escenario de cliente real) enviando datos, tan básicos como si el dispositivo de captura ha atrapado un desagradable roedor o no. Los datos se agregan por región y, cuando hay suficientes ratones atrapados en una región, se envía a un técnico para limpiar los dispositivos. ¿Una trampa para ratones como un actor? Totalmente. ¿Un actor de grupo por región como el agregador? Por supuesto que sí.
 
@@ -216,6 +216,5 @@ La conclusión es que cada vez más clientes considerarán Actores de Service Fa
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

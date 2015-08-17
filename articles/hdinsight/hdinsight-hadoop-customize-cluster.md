@@ -172,4 +172,4 @@ Consulte [Desarrollo de la acción de script con HDInsight][hdinsight-write-scri
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fases durante el aprovisionamiento del clúster"
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

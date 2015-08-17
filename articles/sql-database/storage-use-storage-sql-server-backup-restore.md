@@ -53,8 +53,9 @@ Para ver un tutorial completo sobre cómo crear una cuenta de almacenamiento y r
 
 ## Componentes de SQL Server
 
-* URL: una URL especifica el Identificador uniforme de recursos (URI) para un único archivo de copia de seguridad. La URL se usa para proporcionar la ubicación y el nombre del archivo de la copia de seguridad de SQL Server. En esta implementación, la única URL válida es la que lleva a los blobs en páginas de una cuenta de almacenamiento de Azure. La URL debe llevar a un blob real, no a un contenedor. Si el blob no existe, se crea. Si se especifica un blob que ya existe, BACKUP provoca un error, a menos que se especifique la opción > WITH FORMAT. A continuación, encontrará un ejemplo de la URL que debería especificar en el comando BACKUP: **`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>` 
-<b>Nota:</b> no es necesario usar HTTPS, pero sí recomendable. <b>Importante</b> Si elige copiar y cargar un archivo de copia de seguridad en un servicio de almacenamiento de blobs de Azure, debe usar blob en páginas como opción de almacenamiento si tiene pensado usar este archivo para las operaciones de restauración. RESTORE desde un tipo de blob en bloques provocará un error.
+* URL: una URL especifica el Identificador uniforme de recursos (URI) para un único archivo de copia de seguridad. La URL se usa para proporcionar la ubicación y el nombre del archivo de la copia de seguridad de SQL Server. En esta implementación, la única URL válida es la que lleva a los blobs en páginas de una cuenta de almacenamiento de Azure. La URL debe llevar a un blob real, no a un contenedor. Si el blob no existe, se crea. Si se especifica un blob que ya existe, BACKUP provoca un error, a menos que se especifique la opción > WITH FORMAT. A continuación, encontrará un ejemplo de la URL que debería especificar en el comando BACKUP: ****`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
+
+<b>Nota:</b> no es necesario usar HTTPS, pero sí recomendable. <b>Importante</b> Si elige copiar y cargar un archivo de copia de seguridad en un servicio de almacenamiento de blobs de Azure, tiene que usar un tipo de blob en páginas como opción de almacenamiento si tiene pensado usar este archivo para las operaciones de restauración. RESTORE desde un tipo de blob en bloques provocará un error.
 
 * Credencial: la información necesaria para conectarse y autenticarse en un servicio de almacenamiento de blobs de Azure se almacena como credencial. Para que SQL Server escriba copias de seguridad en un blob de Azure o realice la restauración desde él es preciso crear una credencial de SQL Server. La credencial almacena el nombre de la cuenta de almacenamiento y la clave de acceso de la misma. Cuando se haya creado la credencial, hay que especificarla en la opción WITH CREDENTIAL al emitir las instrucciones BACKUP/RESTORE. Para obtener instrucciones detalladas acerca de cómo crear una credencial de SQL Server, consulte [Introducción al servicio de almacenamiento de Azure para copia de seguridad y restauración de SQL Server](http://go.microsoft.com/fwlink/?LinkId=271615).
 
@@ -72,4 +73,4 @@ Para ver un tutorial completo sobre cómo crear una cuenta de almacenamiento y r
 
 [Prácticas recomendadas de copia de seguridad y restauración (servicio de almacenamiento de blobs de Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

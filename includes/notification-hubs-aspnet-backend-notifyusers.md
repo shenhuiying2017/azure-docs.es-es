@@ -101,7 +101,7 @@ En esta sección creará una nueva clase de controlador de mensajes llamada **Au
 
 	> [AZURE.NOTE]**Nota de seguridad**: la clase `AuthenticationTestHandler` no proporciona una autenticación verdadera. Se utiliza únicamente para simular una autenticación básica y no es segura. Debe implementar un mecanismo de autenticación seguro en las aplicaciones y servicios de producción.
 
-4. Agregue el siguiente código al final del método `Register` en la clase **App_Start/WebApiConfig.cs** para registrar el controlador de mensajes:
+4. Agregue el siguiente código al final del método `Register` en la clase **App\_Start/WebApiConfig.cs** para registrar el controlador de mensajes:
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
@@ -359,4 +359,4 @@ En esta sección agregará un nuevo controlador que expone una forma para que lo
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

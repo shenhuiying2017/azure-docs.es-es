@@ -84,7 +84,7 @@ Puerto del sistema local | En el sistema local, abra el puerto usado por el sist
  - En el Administrador de IIS (inetmgr), debe aparecer el sitio web ***MicrosoftAzureBizTalkHybridListener*** y estar en ejecución. 
  - Este sitio web usa el ***HybridListenerAppPool*** que se ejecuta como cuenta de usuario local integrada de *NetworkService*. Este grupo de aplicaciones también debería iniciarse.
 3. En el servidor IIS, confirme que el conector está instalado y ejecutándose: 
- - Se crea un sitio web para el conector del Servicio de aplicaciones. Por ejemplo, si ha creado un conector SQL, hay un sitio web ***MicrosoftSqlConnector_nnn***. En el Administrador de IIS (inetmgr), confirme que este sitio web se muestra y se inicia. 
+ - Se crea un sitio web para el conector del Servicio de aplicaciones. Por ejemplo, si ha creado un conector SQL, hay un sitio web ***MicrosoftSqlConnector\_nnn***. En el Administrador de IIS (inetmgr), confirme que este sitio web se muestra y se inicia. 
  - Este sitio web usa su propio grupo de aplicaciones de IIS denominado ***HybridAppPoolnnn***. Este grupo de aplicaciones se ejecuta como la cuenta de usuario local integrada de *NetworkService*. Tanto este sitio web como el conjunto de aplicaciones se deben haber iniciado. 
  - Busque el conector local. Por ejemplo, si el sitio web de su conector usa el puerto 6569, vaya a http://localhost:6569. Un documento predeterminado no está configurado así que se espera un `HTTP Error 403.14 - Forbidden error`.
 4. En el firewall, confirme que los puertos TCP que se muestran en este tema están abiertos.
@@ -133,4 +133,4 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

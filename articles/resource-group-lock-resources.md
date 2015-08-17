@@ -94,4 +94,4 @@ PowerShell proporciona otros comandos para bloqueos de trabajo, como **AzureReso
 - [Uso de etiquetas para organizar los recursos de Azure](resource-group-using-tags.md)
 - [Traslado de los recursos a un nuevo grupo de recursos](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

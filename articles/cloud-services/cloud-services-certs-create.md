@@ -49,7 +49,7 @@ Puede utilizar cualquier herramienta disponible para crear un certificado autofi
 * Contiene una clave privada.
 * Creado para intercambio de claves (archivo .pfx).
 * El nombre de sujeto debe coincidir con el dominio usado para tener acceso al servicio en la nube.
-    > **contoso.net****contoso.cloudapp.net**
+    > No se puede adquirir un certificado SSL para el dominio cloudapp.net (ni para ningún dominio relacionado con Azure); el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usa para obtener acceso a la aplicación. Por ejemplo, **contoso.net**, no **contoso.cloudapp.net**.
 * Mínimo de cifrado de 2.048 bits.
 * **Solo certificados de servicio**: el certificado de cliente debe encontrarse en el almacén de certificados *Personal*.
 
@@ -77,4 +77,4 @@ Cargue un [certificado de API de administración](../azure-api-management-certs.
 
 >[AZURE.NOTE]El Portal de vista previa de Azure no utiliza certificados de administración para tener acceso a la API, si no que usa cuentas de usuario.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -24,7 +24,7 @@ Al igual que otras máquinas virtuales, una máquina virtual en Azure tiene un s
 
 Las máquinas virtuales utilizan discos duros virtuales (VHD) para almacenar el sistema operativo y datos. Estos discos también se usan para las imágenes entre las que se puede elegir para instalar un sistema operativo. Esto se puede ver en la figura siguiente, así como dos de las herramientas para crear y administrar las máquinas virtuales.
 
-<a name="fig_createvms"></a> ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+<a name="fig_createvms"></a> ![vm\_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
 **Figura: Máquinas virtuales de Azure proporciona la infraestructura como servicio.**
 
@@ -42,4 +42,4 @@ Entre otras ventajas que deben tenerse en cuenta con respecto a las máquinas vi
 
 **Resistencia**: Azure supervisa el hardware físico donde se hospeda cada máquina virtual en ejecución. Si se produce un error en un servidor físico que ejecuta una máquina virtual, Azure lo detecta, mueve la máquina virtual a un nuevo hardware y reinicia la máquina virtual. En ocasiones este proceso se denomina recuperación del servicio. Azure también protege los datos de una máquina virtual, ya que mantiene copias redundantes de los discos duros virtuales en el almacenamiento de blobs.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

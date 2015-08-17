@@ -562,7 +562,7 @@ El diseño lo definen varios fragmentos de código XML. Dado el diseño existent
     </ListView>
 	
 
-En el código anterior, el atributo *listitem* especifica el identificador del diseño para una fila concreta de la lista. Aquí está este código, que especifica una casilla y su texto asociado. Se crea una instancia de este por cada elemento de la lista. Un diseño más complejo especificaría campos adicionales en la pantalla. Este código está en el archivo *row_list_to_do.xml*.
+En el código anterior, el atributo *listitem* especifica el identificador del diseño para una fila concreta de la lista. Aquí está este código, que especifica una casilla y su texto asociado. Se crea una instancia de este por cada elemento de la lista. Un diseño más complejo especificaría campos adicionales en la pantalla. Este código está en el archivo *row\_list\_to\_do.xml*.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -579,7 +579,7 @@ En el código anterior, el atributo *listitem* especifica el identificador del d
 
 ### <a name="adapter"></a>Definición del adaptador
 	
-Como el origen de datos de nuestra vista es una matriz de *ToDoItem*, se realiza una subclase en nuestro adaptador desde una clase *ArrayAdapter&lt;ToDoItem&gt;*. Esta subclase producirá una vista para cada *ToDoItem* que use el diseño de *row_list_to_do*.
+Como el origen de datos de nuestra vista es una matriz de *ToDoItem*, se realiza una subclase en nuestro adaptador desde una clase *ArrayAdapter&lt;ToDoItem&gt;*. Esta subclase producirá una vista para cada *ToDoItem* que use el diseño de *row\_list\_to\_do*.
 
 En nuestro código definimos la clase siguiente, que es una extensión de la clase *ArrayAdapter&lt;E&gt;*:
 
@@ -928,4 +928,4 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 [Códigos de control ASCII C0 y C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

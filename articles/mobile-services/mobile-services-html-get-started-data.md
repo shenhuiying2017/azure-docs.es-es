@@ -90,7 +90,7 @@ Para poder almacenar datos de aplicaciones en el nuevo servicio móvil, primero 
 
 4. Haga clic en la nueva tabla **TodoItem** y verifique que no haya filas de datos.
 
-	>[AZURE.NOTE]Las tablas nuevas se crean con las columnas Id, __createdAt, __updatedAt y __version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
+	>[AZURE.NOTE]Las tablas nuevas se crean con las columnas Id, \_\_createdAt, \_\_updatedAt y \_\_version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 6. En la pestaña **Configurar**, compruebe que `localhost` ya aparezca en la lista **Permitir solicitudes de nombres de host** en **Compartir recursos entre orígenes (CORS)**. Si no es así, escriba `localhost` en el campo **Nombre de host** y luego haga clic en **Guardar**.
 
@@ -131,7 +131,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
         todoItemTable = client.getTable('todoitem');
 
-   	Este código crea un objeto proxy (todoItemTable) para la base de datos SQL **TodoItem**.
+   	Este código crea un objeto proxy (**todoItemTable**) para la base de datos SQL **TodoItem**.
 
 7. Reemplace el controlador de eventos **$('#add-item').submit** por el código siguiente:
 
@@ -257,4 +257,4 @@ Este tutorial muestra los aspectos básicos de la habilitación de una aplicaci�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

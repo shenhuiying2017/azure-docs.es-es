@@ -1,20 +1,12 @@
 <properties
-	pageTitle="Copia de seguridad de Azure: copia de seguridad sin conexión o propagación inicial mediante el servicio Importación/Exportación de Azure"
-	description="Descubra cómo la copia de seguridad de Azure permite enviar datos fuera de la red mediante el servicio de importación y exportación de Azure. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de importación y exportación de Azure."
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
-	editor=""/>
-
- <tags 
-	ms.service="backup" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="storage-backup-recovery" 
-	ms.date="07/14/2015" 
-	ms.author="aashishr"; "jimpark"/>
+   pageTitle="Copia de seguridad de Azure: copia de seguridad sin conexión o propagación inicial mediante el servicio Importación/Exportación de Azure"
+   description="Descubra cómo la copia de seguridad de Azure permite enviar datos fuera de la red mediante el servicio de importación y exportación de Azure. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de importación y exportación de Azure."
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="shreeshd"
+   editor=""/>
+<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
 
 # Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure
 
@@ -116,4 +108,4 @@ Una vez que los datos de copia de seguridad iniciales están disponibles en la c
 - Para las preguntas sobre el flujo de trabajo de importación y exportación de Azure, vea este [artículo](../storage-import-export-service.md).
 - Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure si tiene alguna pregunta sobre el flujo de trabajo.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

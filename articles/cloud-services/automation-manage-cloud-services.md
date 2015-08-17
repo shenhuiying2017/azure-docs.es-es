@@ -43,4 +43,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 Consulte el [Tutorial de introducción](../automation/automation-create-runbook-from-samples.md) de Automatización de Azure.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

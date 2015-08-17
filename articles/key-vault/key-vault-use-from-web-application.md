@@ -125,4 +125,4 @@ Para conocer las referencias de programación, consulte [Referencia de la API de
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

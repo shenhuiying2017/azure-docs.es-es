@@ -80,7 +80,7 @@ Para crear la replicación geográfica con una base de datos secundaria legible 
 
 		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
 		 
-Este comando es asincrónico. Cuando vuelva, use el cmdlet [AzureSqlDatabaseCopy Get](https://msdn.microsoft.com/library/dn720235.aspx) para comprobar el estado de esta operación. El campo ReplicationState del objeto devuelto tendrá el valor CATCH_UP cuando se complete la operación.
+Este comando es asincrónico. Cuando vuelva, use el cmdlet [AzureSqlDatabaseCopy Get](https://msdn.microsoft.com/library/dn720235.aspx) para comprobar el estado de esta operación. El campo ReplicationState del objeto devuelto tendrá el valor CATCH\_UP cuando se complete la operación.
 
 		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
 
@@ -89,7 +89,7 @@ Este comando es asincrónico. Cuando vuelva, use el cmdlet [AzureSqlDatabaseCopy
 
 Use la API [Iniciar copia de base de datos](https://msdn.microsoft.com/library/azure/dn509576.aspx) API para crear mediante programación una configuración de replicación geográfica.
 
-Esta API es asincrónica. Cuando vuelva, use la API[Obtener copia de la base de datos](https://msdn.microsoft.com/library/azure/dn509570.aspx) para comprobar el estado de esta operación. El campo ReplicationState del cuerpo de la respuesta tendrá el valor CATCH_UP cuando se complete la operación.
+Esta API es asincrónica. Cuando vuelva, use la API[Obtener copia de la base de datos](https://msdn.microsoft.com/library/azure/dn509570.aspx) para comprobar el estado de esta operación. El campo ReplicationState del cuerpo de la respuesta tendrá el valor CATCH\_UP cuando se complete la operación.
 
 
 ##Cómo elegir la configuración de conmutación por error 
@@ -99,4 +99,4 @@ Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

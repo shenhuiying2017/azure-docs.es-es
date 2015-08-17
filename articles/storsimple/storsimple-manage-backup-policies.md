@@ -28,7 +28,7 @@ La página **Directivas de copia de seguridad** también permite filtrar las dir
 - **Nombre de directiva**: el nombre asociado con la directiva. Los distintos tipos de directivas incluyen:
 
    - Directivas programadas, que las crea explícitamente el usuario.
-   - Directivas automáticas, que se crean al habilitar la copia de seguridad predeterminada de esta opción de volumen en el momento en que se creó dicho volumen. Estas directivas se denominan VolumeName_Default, donde el nombre del volumen hace referencia al nombre del volumen de StorSimple que ha configurado el usuario en el Portal de administración. Las directivas automáticas generan instantáneas diarias en la nube a partir de las 22:30, hora del dispositivo.
+   - Directivas automáticas, que se crean al habilitar la copia de seguridad predeterminada de esta opción de volumen en el momento en que se creó dicho volumen. Estas directivas se denominan VolumeName\_Default, donde el nombre del volumen hace referencia al nombre del volumen de StorSimple que ha configurado el usuario en el Portal de administración. Las directivas automáticas generan instantáneas diarias en la nube a partir de las 22:30, hora del dispositivo.
    - Directivas importadas, que se crearon originalmente en el Administrador de instantáneas de StorSimple. Dichas directivas tienen una etiqueta que describe el host de Administrador de instantáneas StorSimple del que se importaron las directivas.
 
 - **Volúmenes** : los volúmenes asociados a la directiva. Cuando se crean copias de seguridad se agrupan todos los volúmenes asociados a una directiva de copia de seguridad.
@@ -84,4 +84,4 @@ Realice los pasos siguientes en el Portal de administración para crear una dire
 
 Obtenga información sobre cómo administrar las copias de seguridad de StorSimple con el [Administrador de instantáneas StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

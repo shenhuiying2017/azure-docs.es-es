@@ -56,36 +56,14 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
 2.	En el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
 3.	En el diálogo Nuevo proyecto, escriba o seleccione los valores siguientes:
 
-	<table border="1">
-<tr>
-	<th>Nombre</th>
-	<th>Valor</th>
-</tr>
-<tr>
-	<td>Grupo de plantillas</td>
-	<td>Instalado/Plantillas/Visual C#/Tienda Windows</td>
-</tr>
-<tr>
-	<td>Plantilla</td>
-	<td>Aplicación vacía (XAML)</td>
-</tr>
-<tr>
-	<td>Nombre</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Ubicación</td>
-	<td>C:\SSTutorials</td>
-</tr>
-<tr>
-	<td>Nombre de la solución</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Crear directorio para la solución</td>
-	<td>(seleccionado)</td>
-</tr>
-</table>
+Nombre|Valor
+---|---
+Grupo de plantillas|Instalado/Plantillas/Visual C#/Tienda Windows
+Plantilla|Aplicación vacía (XAML)
+Nombre|SSPlayer
+Ubicación|C:\\SSTutorials
+Nombre de la solución|SSPlayer
+Crear directorio para la solución|(seleccionado)
 
 4.	Haga clic en **Aceptar**.
 
@@ -94,23 +72,12 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
 1.	En el Explorador de soluciones, haga clic con el botón derecho en **SSPlayer** y, a continuación, haga clic en **Agregar referencia**.
 2.	Escriba o seleccione los valores siguientes:
 
-	<table border="1">
-<tr>
-	<th>Nombre</th>
-	<th>Valor</th>
-</tr>
-<tr>
-	<td>Grupo de referencia</td>
-	<td>Windows/Extensiones</td>
-</tr>
-<tr>
-	<td>Referencia</td>
-	<td>Seleccione el SDK de cliente Smooth Streaming de Microsoft para Windows 8 y el paquete en tiempo de ejecución de Microsoft Visual C++ 
-	</td>
-</tr>
-</table>
+Nombre|Valor
+---|---
+Grupo de referencia|Windows/Extensiones
+Referencia|Seleccione el SDK de cliente Smooth Streaming de Microsoft para Windows 8 y el paquete en tiempo de ejecución de Microsoft Visual C++
 	
-3.	Haga clic en **Aceptar**.
+3.	Haga clic en **Aceptar**. 
 
 Después de agregar las referencias, debe seleccionar la plataforma de destino (x64 o x86), ya que en ninguna configuración de la plataforma de la CPU funciona la incorporación de las referencias. En el Explorador de soluciones, verá una marca de advertencia amarilla en estas referencias agregadas.
 
@@ -228,7 +195,7 @@ En este archivo XAML, algunos controladores de eventos están asociados a los co
 		}
 		#endregion
 
-	Aquí se define el controlador de eventos sliderProgress_PointerPressed. Hay algo más que hacer para que empiece a funcionar, pero ello se tratará en la lección siguiente del tutorial.
+	Aquí se define el controlador de eventos sliderProgress\_PointerPressed. Hay algo más que hacer para que empiece a funcionar, pero ello se tratará en la lección siguiente del tutorial.
 6.	Presione **CTRL+S** para guardar el archivo.
 
 El archivo de código subyacente finalizado tendrá un aspecto similar al siguiente:
@@ -320,7 +287,7 @@ Esta lección contiene los procedimientos siguientes:
 
 4.	Al final del constructor **MainPage**, agregue la línea siguiente para suscribirse al evento abierto de origen adaptativo:
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
 
 5.	Presione **CTRL+S** para guardar el archivo.
 
@@ -352,7 +319,7 @@ Esta lección contiene los procedimientos siguientes:
 		}
 		#endregion Adaptive Source Level Events
 
-4.	Al final del método <strong>mediaElement AdaptiveSourceOpened</strong>, agregue el código siguiente para suscribirse a los eventos:
+4.	Al final del método **mediaElement AdaptiveSourceOpened**, agregue el código siguiente para suscribirse a los eventos:
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -498,7 +465,7 @@ También están disponibles los mismos eventos en el nivel de administrador de o
 		  sliderProgress.Maximum = absvalue; }); 
 		
 
-6.	Al final del método **mediaElement_AdaptiveSourceStatusUpdated**, agregue el código siguiente:
+6.	Al final del método **mediaElement\_AdaptiveSourceStatusUpdated**, agregue el código siguiente:
 	
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
@@ -762,7 +729,7 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		}
 		#endregion stream selection
 
-5. Busque el método mediaElement_ManifestReady y anexe el código siguiente al final de la función:
+5. Busque el método mediaElement\_ManifestReady y anexe el código siguiente al final de la función:
 	
 		getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
@@ -788,7 +755,7 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 2.	Presione **F5** para ejecutar la aplicación.
 3.	En la parte superior de la aplicación, puede usar la URL de Smooth Streaming predeterminada o escribir una diferente. 
 4.	Haga clic en **Establecer origen**. 
-5.	El idioma predeterminado es audio_eng. Intente cambiar entre audio_eng y audio_es. Cada vez que seleccione una nueva secuencia, debe hacer clic en el botón Enviar.
+5.	El idioma predeterminado es audio\_eng. Intente cambiar entre audio\_eng y audio\_es. Cada vez que seleccione una nueva secuencia, debe hacer clic en el botón Enviar.
 
 Ha completado la lección 3. En esta lección ha agregado la funcionalidad para elegir secuencias.
 
@@ -967,7 +934,7 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
         }
         #endregion track selection
 
-5. Busque el método mediaElement_ManifestReady y anexe el código siguiente al final de la función:
+5. Busque el método mediaElement\_ManifestReady y anexe el código siguiente al final de la función:
 
 		getTracks(manifestObject);
 		refreshAvailableTracksListBoxItemSource();
@@ -1004,4 +971,4 @@ Ha completado la lección 4. En esta lección ha agregado la funcionalidad para 
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

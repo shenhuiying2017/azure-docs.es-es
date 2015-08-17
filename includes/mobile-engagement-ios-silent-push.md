@@ -1,20 +1,20 @@
-> [AZURE.IMPORTANT] To receive Push Notifications from Mobile Engagement, you need to enable `Silent Remote Notifications` in your application. You need to add the remote-notification value to the UIBackgroundModes array in your Info.plist file.
+> [AZURE.IMPORTANT]Para recibir notificaciones de inserción de Mobile Engagement, debe habilitar `Silent Remote Notifications` en su aplicación. Deberá agregar el valor remote-notification a la matriz UIBackgroundModes en el archivo Info.plist.
 
-1. Open `info.plist` file in the project
-2. Right click on the top item in the list (`Information Property List`) and add a new row
+1. Abra el archivo `info.plist` del proyecto
+2. Haga clic con el botón derecho en el elemento superior de la lista (`Information Property List`) y agregue una nueva fila
 
 	![][1]
 
-3. In the new row enter `Required background modes`
+3. En la nueva fila, escriba `Required background modes`
 
 	![][2]
 
-4. Click on the left arrow to expand the row
-5. Add the following value to the item 0 `App downloads content in response to push notifications`
+4. Haga clic en la flecha izquierda para expandir la fila
+5. Agregue el siguiente valor al elemento 0 `App downloads content in response to push notifications`
 
 	![][3]
 
-Once you make the change, the info.plist XML should contain the following key and value:
+Una vez realizado el cambio, info.plist XML debe contener la clave y el valor siguientes:
 
     <key>UIBackgroundModes</key>
         <array>
@@ -26,3 +26,5 @@ Once you make the change, the info.plist XML should contain the following key an
 [1]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png
 [2]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png
 [3]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png
+
+<!---HONumber=August15_HO6-->

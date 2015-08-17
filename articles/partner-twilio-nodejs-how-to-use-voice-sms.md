@@ -63,7 +63,7 @@ A continuación, comenzaremos a escribir una aplicación simple de Node.js que u
 
 A fin de realizar solicitudes autenticadas contra el back-end de Twilio, necesitamos el token de autenticación y el SID de nuestra cuenta, que funciona como nombre de usuario y contraseña definidos para la cuenta de Twilio. La forma más segura de configurarlos para su uso con el módulo de nodo en Azure es a través de variables de entorno del sistema, que puede definir directamente en la consola de administración de Azure.
 
-Seleccione el sitio web de Node.js y haga clic en el vínculo "CONFIGURAR". Si se desplaza un poco hacia abajo, verá un área en la que puede definir las propiedades de configuración para la aplicación. Escriba las credenciales de su cuenta de Twilio ([las encontrará en el panel de Twilio][twilio_dashboard]) tal y como se muestra; asegúrese de llamarlas "TWILIO_ACCOUNT_SID" y "TWILIO_AUTH_TOKEN", respectivamente:
+Seleccione el sitio web de Node.js y haga clic en el vínculo "CONFIGURAR". Si se desplaza un poco hacia abajo, verá un área en la que puede definir las propiedades de configuración para la aplicación. Escriba las credenciales de su cuenta de Twilio ([las encontrará en el panel de Twilio][twilio_dashboard]) tal y como se muestra; asegúrese de llamarlas "TWILIO\_ACCOUNT\_SID" y "TWILIO\_AUTH\_TOKEN", respectivamente:
 
 ![Consola de administración de Azure][azure-admin-console]
 
@@ -80,7 +80,7 @@ Haciendo esto, el módulo de Twilio se declara como una dependencia, al igual qu
 <a id="makecall"/>
 ## Realización de una llamada saliente
 
-Creemos un formulario simple que realizará una llamada a un número de nuestra elección. Abra server.js y escriba el siguiente código. Observe que donde dice "CHANGE_ME" debe poner el nombre del sitio web de Azure:
+Creemos un formulario simple que realizará una llamada a un número de nuestra elección. Abra server.js y escriba el siguiente código. Observe que donde dice "CHANGE\_ME" debe poner el nombre del sitio web de Azure:
 
     // Module dependencies
     var express = require('express'), 
@@ -233,4 +233,4 @@ Esperamos que disfrute del acceso a Node.js y Twilio en Azure.
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

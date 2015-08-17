@@ -108,4 +108,4 @@ Para actualizar la fecha de caducidad de un localizador, utilice las [API de RES
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

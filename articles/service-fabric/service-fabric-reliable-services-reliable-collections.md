@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/09/2015"
+   ms.date="08/05/2015"
    ms.author="mcoskun"/>
 
 # Colecciones fiables
@@ -60,16 +60,16 @@ Hay dos niveles de aislamiento que se admiten en Colecciones confiables:
 El diccionario fiable y la cola fiable admiten la lectura de las escrituras. En otras palabras, cualquier escritura dentro de una transacción será visible en una lectura posterior que pertenezca a la misma transacción.
 
 ### Diccionario fiable
-| Operación\rol | Principal | Secundario |
+| Operación\\rol | Principal | Secundario |
 | --------------------- | :--------------- | :--------------- |
 | Lectura de una sola entidad | Lectura repetible | Instantánea |
-| Enumeración\recuento | Instantánea | Instantánea |
+| Enumeración\\recuento | Instantánea | Instantánea |
 
 ### Cola fiable
-| Operación\rol | Principal | Secundario |
+| Operación\\rol | Principal | Secundario |
 | --------------------- | :--------------- | :--------------- |
 | Lectura de una sola entidad | Instantánea | Instantánea |
-| Enumeración\recuento | Instantánea | Instantánea |
+| Enumeración\\recuento | Instantánea | Instantánea |
 
 ## Modelo de persistencia
 Administrador de estado fiable y Colecciones fiables siguen un modelo de persistencia que se denomina Punto de comprobación y Registro. Se trata de un modelo en el que cada cambio de estado se registra en el disco y solo se aplica en la memoria. El estado completo en sí solo se guarda en ocasiones (también conocido como Punto de comprobación). La ventaja que proporciona es:
@@ -87,7 +87,7 @@ Colecciones fiables siempre tiene bloqueos exclusivos. Para las lecturas, el blo
 
 A continuación se puede encontrar la matriz de compatibilidad de bloqueo:
 
-| Solicitar \ concedido | None | Compartido | Actualizar | Exclusivo |
+| Solicitar \\ concedido | None | Compartido | Actualizar | Exclusivo |
 | ----------------- | :----------- | :----------- | :---------- | :----------- |
 | Compartido | Ningún conflicto | Ningún conflicto | Conflicto | Conflicto |
 | Actualizar | Ningún conflicto | Ningún conflicto | Conflicto | Conflicto |
@@ -117,6 +117,5 @@ Algunos aspectos que debe tener en cuenta:
 - [Introducción a los servicios de API web de Service Fabric](service-fabric-reliable-services-communication-webapi.md)
 - [Uso avanzado del modelo de programación de servicios fiables](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 - [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

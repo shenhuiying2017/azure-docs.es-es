@@ -184,4 +184,4 @@ o bien,
 Para obtener un ejemplo de tutorial de extremo a extremo sobre el uso de la Tecnología y procesos de análisis avanzado (ADAPT) con un conjunto de datos público, consulte [Tecnología y procesos de análisis avanzado en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

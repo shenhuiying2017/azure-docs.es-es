@@ -46,11 +46,11 @@ En un servicio implementado mediante la API Web de ASP.NET, cada solicitud se en
 	);
 	```
 
-	Las rutas pueden ser genéricas y se componen de los literales como _api_ y variables como _{controller}_ e _{id}_. El enrutamiento basado en convenciones permite que algunos elementos de la ruta sean opcionales. El marco API Web determina el método que se invoca en el controlador mediante la coincidencia del método HTTP de la solicitud con la parte inicial del nombre del método de la API y, después, mediante la coincidencia de los parámetros opcionales. Por ejemplo, si un controlador llamado _orders_ contiene los métodos _GetAllOrders()_ o _GetOrderByInt(int id)_, la solicitud GET _http://www.adventure-works.com/api/orders/_ se dirigirá al método _GetAllOrders()_ y la solicitud GET _http://www.adventure-works.com/api/orders/99_ se enrutará al método _GetOrderByInt(int id)_. Si no hay ningún método coincidente disponible que comience por el prefijo Get en el controlador, el marco API Web responde con un mensaje HTTP 405 (método no permitido). Además, el nombre del parámetro (id) especificado en la tabla de enrutamiento debe ser el mismo que el nombre del parámetro del método _GetOrderById_; en caso contrario, el marco API Web le responderá con una respuesta HTTP 404 (no encontrado).
+	Las rutas pueden ser genéricas y se componen de los literales como _api_ y variables como _{controller}_ e _{id}_. El enrutamiento basado en convenciones permite que algunos elementos de la ruta sean opcionales. El marco API Web determina el método que se invoca en el controlador mediante la coincidencia del método HTTP de la solicitud con la parte inicial del nombre del método de la API y, después, mediante la coincidencia de los parámetros opcionales. Por ejemplo, si un controlador llamado _orders_ contiene los métodos _GetAllOrders()_ o _GetOrderByInt(int id)_, la solicitud GET\__http://www.adventure-works.com/api/orders/_ se dirigirá al método _GetAllOrders()_ y la solicitud GET\__http://www.adventure-works.com/api/orders/99_ se enrutará al método _GetOrderByInt(int id)_. Si no hay ningún método coincidente disponible que comience por el prefijo Get en el controlador, el marco API Web responde con un mensaje HTTP 405 (método no permitido). Además, el nombre del parámetro (id) especificado en la tabla de enrutamiento debe ser el mismo que el nombre del parámetro del método _GetOrderById_; en caso contrario, el marco API Web le responderá con una respuesta HTTP 404 (no encontrado).
 
-	Las mismas reglas se aplican a las solicitudes HTTP POST, PUT y DELETE; una solicitud PUT que actualice los detalles del pedido 101 se dirigiría al URI _http://www.adventure-works.com/api/orders/101_, el cuerpo del mensaje contendrá los nuevos detalles del pedido y esta información se pasará como un parámetro a un método en el controlador de pedidos con un nombre que comience con el prefijo _Put_, como _PutOrder_.
+	Las mismas reglas se aplican a las solicitudes HTTP POST, PUT y DELETE; una solicitud PUT que actualice los detalles del pedido 101 se dirigiría al URI\__http://www.adventure-works.com/api/orders/101_, el cuerpo del mensaje contendrá los nuevos detalles del pedido y esta información se pasará como un parámetro a un método en el controlador de pedidos con un nombre que comience con el prefijo _Put_, como _PutOrder_.
 
-	La tabla de enrutamiento predeterminada no coincidirá con una solicitud que haga referencia a recursos secundarios en una API web de RESTful como _http://www.adventure-works.com/api/customers/1/orders_ (encontrar los detalles de todos los pedidos que realizó el cliente 1). Para controlar estos casos, puede agregar rutas personalizadas a la tabla de enrutamiento:
+	La tabla de enrutamiento predeterminada no coincidirá con una solicitud que haga referencia a recursos secundarios en una API web de RESTful como\__http://www.adventure-works.com/api/customers/1/orders_ (encontrar los detalles de todos los pedidos que realizó el cliente 1). Para controlar estos casos, puede agregar rutas personalizadas a la tabla de enrutamiento:
 
 	```C#
 	config.Routes.MapHttpRoute(
@@ -145,7 +145,7 @@ En un servicio implementado mediante la API Web de ASP.NET, cada solicitud se en
 
 - **Tenga en cuenta las ventajas e inconvenientes de colocar la API en un subdominio**.
 
-	De forma predeterminada, la API web de ASP.NET organiza las API en el directorio _/API_ de un dominio, como _http://www.adventure-works.com/api/orders_. Este directorio se encuentra en el mismo dominio que los demás servicios expuestos por el mismo host. Puede resultar útil dividir la API web en su propio subdominio que se ejecuta en un host independiente, con URI como _http://api.adventure-works.com/orders_. Esta separación le permite crear particiones y escalar la API web de forma más eficaz sin que afecte a otras aplicaciones web o servicios que se ejecuten en el dominio _www.adventure-works.com_.
+	De forma predeterminada, la API web de ASP.NET organiza las API en el directorio _/api_ de un dominio, como \__http://www.adventure-works.com/api/orders_. Este directorio se encuentra en el mismo dominio que los demás servicios expuestos por el mismo host. Puede resultar útil dividir la API web en su propio subdominio que se ejecuta en un host independiente, con URI como \__http://api.adventure-works.com/orders_. Esta separación le permite crear particiones y escalar la API web de forma más eficaz sin que afecte a otras aplicaciones web o servicios que se ejecuten en el dominio _www.adventure-works.com_.
 
 	Sin embargo, la colocación de una API web en un subdominio distinto puede provocar también problemas de seguridad. Los servicios o aplicaciones web hospedados en _www.adventure-works.com_ que invoquen una API web que se ejecuta en otro lugar pueden infringir la directiva de mismo origen de muchos exploradores web. En este caso, será necesario habilitar el Uso compartido de recursos entre orígenes (CORS) entre los hosts. Para obtener más información, consulte el documento Guía de seguridad de las API.
 
@@ -302,14 +302,15 @@ Cuando una solicitud de una aplicación cliente se ha enrutado correctamente a u
 
 	Los vínculos de HATEOAS que se muestran en la respuesta HTTP de ejemplo indican que una aplicación cliente puede realizar las siguientes operaciones:
 
-	- Una solicitud HTTP GET al URI _http://adventure-works.com/customers/2_ para capturar los detalles del cliente (de nuevo). Los datos se pueden devolver como XML o JSON. 
-	- Una solicitud HTTP PUT al URI _http://adventure-works.com/customers/2_ para modificar los detalles del cliente. Los nuevos datos se deben facilitar en el mensaje de solicitud en formato x-www-form-urlencoded.
+	- Una solicitud HTTP GET al URI \__http://adventure-works.com/customers/2_ para capturar los detalles del cliente (nuevamente). Los datos se pueden devolver como XML o JSON.
 
-	- Una solicitud HTTP DELETE al URI _http://adventure-works.com/customers/2_ para eliminar el cliente. La solicitud no espera ninguna información adicional ni datos devueltos en el cuerpo del mensaje de respuesta.
+	- Una solicitud HTTP PUT al URI \__http://adventure-works.com/customers/2_ para modificar los detalles del cliente. Los nuevos datos se deben facilitar en el mensaje de solicitud en formato x-www-form-urlencoded.
 
-	- Una solicitud HTTP GET al URI _http://adventure-works.com/customers/2/orders_ para encontrar todos los pedidos del cliente. Los datos se pueden devolver como XML o JSON.
+	- Una solicitud HTTP DELETE al URI \__http://adventure-works.com/customers/2_ para eliminar el cliente. La solicitud no espera ninguna información adicional ni datos devueltos en el cuerpo del mensaje de respuesta.
 
-	- Una solicitud HTTP PUT al URI _http://adventure-works.com/customers/2/orders_ para crear un nuevo pedido de este cliente. Los datos se deben facilitar en el mensaje de solicitud en formato x-www-form-urlencoded.
+	- Una solicitud HTTP GET al URI \__http://adventure-works.com/customers/2/orders_ para encontrar todos los pedidos del cliente. Los datos se pueden devolver como XML o JSON.
+
+	- Una solicitud HTTP PUT al URI \__http://adventure-works.com/customers/2/orders_ para crear un nuevo pedido de este cliente. Los datos se deben facilitar en el mensaje de solicitud en formato x-www-form-urlencoded.
 
 ## Consideraciones para el control de excepciones
 De forma predeterminada, en el marco de la API Web de ASP.NET, si una operación produce una excepción no detectada, el marco devuelve un mensaje de respuesta el con código de estado HTTP 500 (error interno del servidor). En muchos casos, este enfoque simplista no resulta útil por sí solo y resulta difícil determinar la causa de la excepción. Por lo tanto, debe adoptar un enfoque más completo para el control de excepciones y tener en cuenta los siguientes puntos:
@@ -923,7 +924,7 @@ Puede haber ocasiones en que una aplicación cliente necesite emitir solicitudes
 	}
 	```
 
-	Una aplicación cliente puede emitir una solicitud para recuperar 30 pedidos empezando con un desplazamiento de 50 mediante el URI _http://www.adventure-works.com/api/orders?limit=30&offset=50_.
+	Una aplicación cliente puede emitir una solicitud para recuperar 30 pedidos empezando con un desplazamiento de 50 mediante el URI \__http://www.adventure-works.com/api/orders?limit=30&offset=50_.
 
 	> [AZURE.TIP]Evite permitir que las aplicaciones de cliente especifiquen las cadenas de consulta que resultan en un URI que tenga más de 2000 caracteres. Muchos servidores y clientes web no pueden controlar los URI así de largos.
 
@@ -1151,4 +1152,4 @@ Puede usar esta información para determinar si una operación o API web determi
 - En la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft se ofrece información detallada sobre la creación y administración de las pruebas unitarias con Visual Studio.
 - En la página [Ejecutar pruebas de rendimiento en la aplicación](https://msdn.microsoft.com/library/dn250793.aspx) del sitio web de Microsoft se describe cómo usar Visual Studio Ultimate para crear un proyecto de pruebas de carga y rendimiento web.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

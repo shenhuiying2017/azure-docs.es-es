@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Obtención de información sobre el consumo de recursos de Microsoft Azure"
    description="Proporciona información general conceptual de las API de uso de facturación de Azure y de RateCard, que se utilizan para proporcionar información sobre el consumo de recursos y tendencias de Azure."
    services="billing"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/07/2015"
+   ms.date="07/7/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Obtención de información sobre el consumo de recursos de Microsoft Azure 
@@ -78,4 +78,4 @@ Los clientes y socios pueden utilizar la API de RateCard de recursos de Azure pa
 + Consulte el artículo [Información general de Administrador de recursos de Azure](resource-group-overview.md) para obtener más información sobre Administrador de recursos de Azure.
 + Para obtener información adicional acerca del conjunto de herramientas necesarias para ayudarle a comprender el gasto en nube, consulte el artículo de Gartner [Market Guide for IT Financial Management (ITFM) Tools](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb) (Guía de mercado para las herramientas de administración financiera de TI (ITFM)).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

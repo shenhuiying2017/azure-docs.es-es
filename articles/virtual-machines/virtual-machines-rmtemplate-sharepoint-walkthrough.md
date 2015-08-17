@@ -1,23 +1,22 @@
 <properties
-	pageTitle="Plantilla del Administrador de recursos de la granja de servidores SharePoint de tres servidores"
+	pageTitle="Plantilla del Administrador de recursos de la granja de SharePoint de tres servidores"
 	description="Siga los pasos de la estructura de la plantilla del Administrador de recursos de Azure para la granja de servidores SharePoint de tres servidores."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
-# Plantilla del Administrador de recursos de la granja de servidores SharePoint de tres servidores
+# Plantilla del Administrador de recursos de la granja de SharePoint de tres servidores
 
 Este tema le guiará por la estructura del archivo de plantilla azuredeploy.json para la granja de servidores SharePoint de tres servidores. Puede ver el contenido de esta plantilla en el explorador desde [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
@@ -33,7 +32,7 @@ Abra la plantilla azuredeploy.json en un editor de texto o una herramienta de su
 
 ## Sección “parameters”
 
-La sección "parameters" especifica los parámetros que se utilizan para introducir datos en esta plantilla. Se puede definir un máximo de 50 parámetros. Este es un ejemplo de un parámetro para la ubicación de Azure:
+La sección **"parameters"** especifica los parámetros que se usan para entrar datos en una plantilla. Debe suministrar los datos cuando se ejecute la plantilla. Se puede definir un máximo de 50 parámetros. Este es un ejemplo de un parámetro para la ubicación de Azure:
 
 	"deploymentLocation": {
 		"type": "string",
@@ -52,7 +51,7 @@ La sección "parameters" especifica los parámetros que se utilizan para introdu
 
 ## Sección "variables"
 
-La sección "variables" especifica las variables que se pueden utilizar en esta plantilla. Se puede definir un máximo de 100 variables. Estos son algunos ejemplos:
+La sección **"variables"** especifica las variables y los valores de estas que usa la plantilla. Los valores de las variables se pueden establecer explícitamente o se pueden derivar de los valores de parámetros. A diferencia de los parámetros, no los suministra al ejecutar la plantilla. Se puede definir un máximo de 100 variables. Estos son algunos ejemplos:
 
 	"LBFE": "LBFE",
 	"LBBE": "LBBE",
@@ -67,7 +66,7 @@ La sección "variables" especifica las variables que se pueden utilizar en esta 
 
 ## Sección "resources"
 
-La sección **"resources"** especifica la información necesaria para implementar los recursos de la granja de servidores de SharePoint en un grupo de recursos. Se pueden definir un máximo de 250 recursos y las dependencias de recursos pueden definirse con 5 niveles de profundidad.
+La sección **"resources"** especifica la información necesaria para implementar los recursos de la granja de servidores de SharePoint en un grupo de recursos. Se pueden definir un máximo de 250 recursos y las dependencias de recursos solo pueden definirse con 5 niveles de profundidad.
 
 Esta sección contiene las siguientes subsecciones:
 
@@ -121,7 +120,7 @@ Aquí tiene un ejemplo:
 
 ### Microsoft.Network/virtualNetworks
 
-En esta sección se crea una red virtual solo en la nube con tres subredes (una para cada capa de la implementación) en la que se colocan las máquinas virtuales. Este es el código JSON:
+En estas secciones se crea una red virtual solo en la nube con tres subredes (una para cada nivel de la implementación), en las que se colocan las máquinas virtuales. Este es el código JSON:
 
 	{
 		"name": "[parameters('virtualNetworkName')]",
@@ -141,7 +140,7 @@ En esta sección se crea una red virtual solo en la nube con tres subredes (una 
 
 ### Microsoft.Network/loadBalancers
 
-En estas secciones se crean instancias del equilibrador de carga para cada máquina virtual que proporcione NAT y filtrado de tráfico para el tráfico entrante desde Internet. Para cada equilibrador de carga, configure los ajustes de las reglas NAT de front-end, back-end y de entrada. Por ejemplo, hay reglas de tráfico de escritorio remoto para cada máquina virtual y, para el servidor SharePoint, una regla para permitir el tráfico de web entrante (puerto 80 de TCP) desde Internet. Este es el ejemplo para el servidor SharePoint:
+En estas secciones se crean instancias del equilibrador de carga para cada máquina virtual que proporcione Traducción de direcciones de red (NAT) y filtrado de tráfico para el tráfico entrante desde Internet. Para cada equilibrador de carga, configure los ajustes de las reglas NAT de front-end, back-end y de entrada. Por ejemplo, hay reglas de tráfico de Escritorio remoto para cada máquina virtual y, para SharePoint Server, una regla para permitir el tráfico web entrante (puerto TCP 80) desde Internet. Este es el ejemplo para SharePoint Server:
 
 
 	{
@@ -199,7 +198,7 @@ En estas secciones se crean instancias del equilibrador de carga para cada máqu
 
 ### Microsoft.Network/networkInterfaces
 
-En estas secciones se crea una interfaz de red para cada máquina virtual y se configuran una dirección IP estática para el controlador de dominio. Este es el ejemplo para la interfaz de red del controlador de dominio:
+En estas secciones se crea una interfaz de red para cada máquina virtual y se configura una dirección IP estática para el controlador de dominio. Este es el ejemplo para la interfaz de red del controlador de dominio:
 
 	{
 		"name": "[variables('adNicName')]",
@@ -243,9 +242,9 @@ En estas secciones se crean y configuran las tres máquinas virtuales en la impl
 
 En la primera sección se crea y configura el controlador de dominio que:
 
-- Especifica la cuenta de almacenamiento, el conjunto de disponibilidad, la interfaz de red y la instancia de equilibrador de carga
-- Agrega un disco adicional
-- Ejecuta un script de PowerShell para configurar el controlador de dominio
+- Especifica la cuenta de almacenamiento, el conjunto de disponibilidad, la interfaz de red y la instancia de equilibrador de carga.
+- Agrega un disco adicional.
+- Ejecuta un script de PowerShell para configurar el controlador de dominio.
 
 Este es el código JSON:
 
@@ -346,8 +345,8 @@ Una sección adicional para cada controlador de dominio que comienza por **"name
 
 En la sección siguiente **"type": "Microsoft.Compute/virtualMachines"** se crean las máquinas virtuales de SQL Server en la implementación y:
 
-- Especifica la cuenta de almacenamiento, el conjunto de disponibilidad, el equilibrador de carga, la red virtual y la interfaz de red
-- Agrega un disco adicional
+- Especifica la cuenta de almacenamiento, el conjunto de disponibilidad, el equilibrador de carga, la red virtual y la interfaz de red.
+- Agrega un disco adicional.
 
 Las secciones **"Microsoft.Compute/virtualMachines/extensions"** adicionales llaman al script de PowerShell para configurar SQL Server.
 
@@ -355,26 +354,24 @@ En la sección siguiente **"type": "Microsoft.Compute/virtualMachines"** se crea
 
 Tenga en cuenta la organización general de las subsecciones de la sección **"resources"** del archivo JSON:
 
-1.	Cree los elementos de infraestructura de Azure que son necesarios para admitir varias máquinas virtuales (una cuenta de almacenamiento, direcciones IP públicas, conjuntos de disponibilidad, una red virtual, interfaces de red, instancias de equilibrador de carga).
-2.	Cree la máquina virtual del controlador de dominio, que utiliza los elementos específicos y comunes de la infraestructura de Azure previamente creados, agrega un disco de datos y ejecuta un script de PowerShell. Además, actualice la red virtual para usar la dirección IP estática del controlador de dominio.
-3.	Cree la máquina virtual de SQL Server, que utiliza los elementos específicos y comunes de la infraestructura de Azure previamente creados para el controlador de dominio, agrega discos de datos y ejecuta un script de PowerShell para configurar SQL Server.
-4.	Cree la máquina virtual del servidor SharePoint, que utiliza los elementos específicos y comunes de la infraestructura de Azure previamente creados y ejecuta un script de PowerShell para configurar la granja de servidores SharePoint.
+1.	Cree los elementos de la infraestructura de Azure que son necesarios para admitir varias máquinas virtuales (una cuenta de almacenamiento, direcciones IP públicas, conjuntos de disponibilidad, una red virtual, interfaces de red e instancias de equilibrador de carga).
+2.	Cree la máquina virtual del controlador de dominio, que usa los elementos específicos y comunes de la infraestructura de Azure previamente creados, agrega un disco de datos y ejecuta un script de PowerShell. Además, actualice la red virtual para usar la dirección IP estática del controlador de dominio.
+3.	Cree la máquina virtual de SQL Server, que usa los elementos específicos y comunes de la infraestructura de Azure previamente creados para el controlador de dominio, agrega discos de datos y ejecuta un script de PowerShell para configurar SQL Server.
+4.	Cree la máquina virtual de SharePoint Server, que usa los elementos específicos y comunes de la infraestructura de Azure previamente creados y ejecuta un script de PowerShell para configurar la granja de SharePoint.
 
 Su propia plantilla JSON para construir una infraestructura de múltiples capas en Azure debe seguir los mismos pasos:
 
-1.	Cree los elementos comunes (cuenta de almacenamiento, red virtual), específicos de la capa (conjuntos de disponibilidad) y específicos de la máquina virtual (direcciones IP públicas, conjuntos de disponibilidad, interfaces de red e instancias de equilibrador de carga) de la infraestructura de Azure necesarios para su implementación.
+1.	Cree los elementos comunes (cuenta de almacenamiento, red virtual), específicos del nivel (conjuntos de disponibilidad) y específicos de la máquina virtual (direcciones IP públicas, conjuntos de disponibilidad, interfaces de red, instancias de equilibrador de carga) de la infraestructura de Azure necesarios para su implementación.
 2.	Para cada capa de la aplicación (por ejemplo, autenticación, base de datos, web), cree y configure los servidores de esa capa mediante los elementos comunes (cuenta de almacenamiento, red virtual), específicos de la capa (conjuntos de disponibilidad) y específicos de la máquina virtual (direcciones IP públicas, conjuntos de disponibilidad, interfaces de red e instancias de equilibrador de carga).
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 ## Recursos adicionales
 
-[Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md) [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
 
-[Información general del Administrador de recursos de Azure](resource-group-overview.md)
-
-[Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
+[Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

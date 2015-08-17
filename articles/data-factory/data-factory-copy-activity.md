@@ -162,7 +162,7 @@ El siguiente script JSON define una tabla de entrada que hace referencia a una t
  		}
 	}
 
-El siguiente comando de ejemplo de PowerShell de Azure usa el cmdlet **New-AzureDataFactoryTable** que usa un archivo JSON que contiene el script anterior para crear una tabla (**MyOnPremTable**) en una factoría de datos de Azure: **CopyFactory**.
+El siguiente comando de ejemplo de Azure PowerShell usa el cmdlet **New-AzureDataFactoryTable** que usa un archivo JSON que contiene el script anterior para crear una tabla (**MyOnPremTable**) en una factoría de datos de Azure: **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
@@ -198,7 +198,7 @@ El siguiente script JSON define una tabla de salida: **MyDemoBlob**, que hace re
    		}
 	}
 
-El siguiente comando de ejemplo de PowerShell de Azure utiliza el cmdlet **New-AzureDataFactoryTable** que usa un archivo JSON que contiene el script anterior para crear una tabla (**MyDemoBlob**) en una factoría de datos de Azure: **CopyFactory**.
+El siguiente comando de ejemplo de Azure PowerShell utiliza el cmdlet **New-AzureDataFactoryTable** que usa un archivo JSON que contiene el script anterior para crear una tabla (**MyDemoBlob**) en una factoría de datos de Azure: **CopyFactory**.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
@@ -243,7 +243,7 @@ En este ejemplo, se define una canalización **CopyActivityPipeline** con las pr
 		}
 
 
- El siguiente comando de ejemplo de PowerShell de Azure **utiliza el cmdlet New-AzureDataFactoryPipeline** que usa un archivo JSON que contiene el script anterior para crear una canalización (**CopyActivityPipeline**) en una factoría de datos de Azure: **CopyFactory**.
+ El siguiente comando de ejemplo de Azure PowerShell **utiliza el cmdlet New-AzureDataFactoryPipeline** que usa un archivo JSON que contiene el script anterior para crear una canalización (**CopyActivityPipeline**) en una factoría de datos de Azure: **CopyFactory**.
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
@@ -299,4 +299,4 @@ Vea [Habilitación de las canalizaciones para que funcionen con datos locales][u
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

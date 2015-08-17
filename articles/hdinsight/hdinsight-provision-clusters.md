@@ -306,38 +306,38 @@ HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas
 
 **Para conectarse a su cuenta de Azure**
 
-		Add-AzureAccount
+	Add-AzureAccount
 
 Se le pedirá que escriba las credenciales de la cuenta de Azure.
 
 **Para crear una cuenta de almacenamiento de Azure**
 
-		$storageAccountName = "<StorageAcccountName>"	# Provide a Storage account name
-		$location = "<MicrosoftDataCenter>"				# For example, "West US"
+	$storageAccountName = "<StorageAcccountName>"	# Provide a Storage account name
+	$location = "<MicrosoftDataCenter>"				# For example, "West US"
 
-		# Create an Azure Storage account
-		New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
+	# Create an Azure Storage account
+	New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
 Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los siguientes comandos de Windows PowerShell para recuperar dicha información:
 
-		# List Storage accounts for the current subscription
-		Get-AzureStorageAccount
+	# List Storage accounts for the current subscription
+	Get-AzureStorageAccount
 
-		# List the keys for a Storage account
-		Get-AzureStorageKey "<StorageAccountName>"
+	# List the keys for a Storage account
+	Get-AzureStorageKey "<StorageAccountName>"
 
 **Para crear un contenedor de almacenamiento de blobs de Azure**
 
-		$storageAccountName = "<StorageAccountName>"	# Provide the Storage account name
-		$containerName="<ContainerName>"				# Provide a container name
+	$storageAccountName = "<StorageAccountName>"	# Provide the Storage account name
+	$containerName="<ContainerName>"				# Provide a container name
 
-		# Create a storage context object
-		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName
-		                                       -StorageAccountKey $storageAccountKey  
+	# Create a storage context object
+	$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName
+	                                       -StorageAccountKey $storageAccountKey  
 
-		# Create a Blob storage container
-		New-AzureStorageContainer -Name $containerName -Context $destContext
+	# Create a Blob storage container
+	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 Cuando tenga preparados la cuenta de almacenamiento y el contenedor de blobs, podrá proceder con la creación de un clúster.
 
@@ -348,24 +348,24 @@ Cuando tenga preparados la cuenta de almacenamiento y el contenedor de blobs, po
 - Ejecute los comandos siguientes en la ventana de la consola de Azure PowerShell:
 
 		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
-
+	
 		$storageAccountName = "<AzureStorageAccountName>" # HDInsight cluster requires an existing Azure Storage account to be used as the default file system
-
+	
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
 		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
-        $hadoopUserName = "<HadoopUserName>"              # User name for the Hadoop user. You will use this account to connect to the cluster and run jobs.
-        $hadoopUserPassword = "<HadoopUserPassword>"
-
-        $secPassword = ConvertTo-SecureString $hadoopUserPassword -AsPlainText -Force
-        $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$secPassword)
-
+		$hadoopUserName = "<HadoopUserName>"              # User name for the Hadoop user. You will use this account to connect to the cluster and run jobs.
+		$hadoopUserPassword = "<HadoopUserPassword>"
+	
+		$secPassword = ConvertTo-SecureString $hadoopUserPassword -AsPlainText -Force
+		$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$secPassword)
+	
 		# Get the storage primary key based on the account name
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$containerName = $clusterName				# Azure Blob container that is used as the default file system for the HDInsight cluster
-
-        # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location}
+	
+		# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
+		$location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location}
 	
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
@@ -375,8 +375,6 @@ Cuando tenga preparados la cuenta de almacenamiento y el contenedor de blobs, po
 	El aprovisionamiento del clúster puede durar varios minutos en completarse.
 
 	![HDI.CLI.Provision][image-hdi-ps-provision]
-
-
 
 **Para aprovisionar un clúster de HDInsight usando opciones de configuración personalizada**
 
@@ -516,7 +514,7 @@ La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft re
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Si recibe un error que indica que no se encuentra el comando NPM, compruebe que las rutas siguientes estén en la variable de entorno PATH: <i>C:\Program Files (x86)\nodejs;C:\Users[username]\AppData\Roaming\npm</i> o <i>C:\Program Files\nodejs;C:\Users[username]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE]Si recibe un error que indica que no se encuentra el comando NPM, compruebe que las rutas siguientes estén en la variable de entorno PATH: <i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> o <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
 
 5.	Ejecute el siguiente comando para comprobar la instalación:
 
@@ -531,7 +529,8 @@ La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft re
 
 **Para instalar la CLI de Azure con Windows Installer**
 
-1.	Vaya a **http://azure.microsoft.com/downloads/**. 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
+1.	Vaya a ****http://azure.microsoft.com/downloads/**.
+2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
 
 **Para descargar e importar la configuración de publicación**
 
@@ -773,14 +772,14 @@ Mientras la aplicación está abierta en Visual Studio, presione **F5** para eje
 ##<a id="nextsteps"></a> Pasos siguientes
 En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varias formas. Para obtener más información, consulte los artículos siguientes:
 
-* [Introducción a HDInsight de Azure](../hdinsight-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
+* [Introducción a HDInsight de Azure](hdinsight-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
 * [Uso de Sqoop con HDInsight](hdinsight-use-sqoop.md): aprenda copiar datos entre HDInsight y Base de datos SQL o SQL Server
 * [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md): aprenda a trabajar con HDInsight mediante PowerShell
 * [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md): aprenda a enviar trabajos a HDInsight mediante programación
-* [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]: descubra el SDK de HDInsight
+* [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]\: descubra el SDK de HDInsight
 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

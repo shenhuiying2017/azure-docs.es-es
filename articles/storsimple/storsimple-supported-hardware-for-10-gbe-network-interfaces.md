@@ -112,4 +112,4 @@ En la tabla siguiente se enumeran los conmutadores y módulos compatibles con Me
 
 Obtenga más información sobre los [Componentes de hardware de StorSimple](https://msdn.microsoft.com/library/azure/dn757755.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

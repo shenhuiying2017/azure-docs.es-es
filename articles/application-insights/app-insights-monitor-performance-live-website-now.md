@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="04/27/2015" 
 	ms.author="awills"/>
  
@@ -170,4 +170,4 @@ La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

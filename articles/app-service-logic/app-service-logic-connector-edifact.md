@@ -65,68 +65,19 @@ El conector Edifact puede usarse como un desencadenador o como una acción.
 
 	![Codificar configurado][10]
 
-<table>
-	<tr>
-		<th>Parámetro</th>
-		<th>Tipo</th>
-		<th>Descripción del parámetro</th>
-	</tr>
-	<tr>
-		<td>Contenido</td>
-		<td>cadena</td>
-		<td>Mensaje XML</td>
-	</tr>
-	<tr>
-		<td>Id. de contrato</td>
-		<td>integer</td>
-		<td>Id. de contrato</td>
-	</tr>
-	<tr>
-		<td>Es mensaje por lotes</td>
-		<td>boolean</td>
-		<td>Es mensaje por lotes</td>
-	</tr>
-	<tr>
-		<td>Separador de elementos de datos</td>
-		<td>cadena</td>
-		<td>Separador de elementos de datos</td>
-	</tr>
-	<tr>
-		<td>Separador de componentes</td>
-		<td>cadena</td>
-		<td>Separador de componentes</td>
-	</tr>
-	<tr>
-		<td>Terminador de segmento</td>
-		<td>cadena</td>
-		<td>Terminador de segmento</td>
-	</tr>
-	<tr>
-		<td>Indicador de coma decimal</td>
-		<td>cadena</td>
-		<td>Indicador de coma decimal</td>
-	</tr>
-	<tr>
-		<td>Separador de repeticiones</td>
-		<td>cadena</td>
-		<td>Separador de repeticiones</td>
-	</tr>
-	<tr>
-		<td>Carácter de escape</td>
-		<td>cadena</td>
-		<td>Carácter de escape</td>
-	</tr>
-	<tr>
-		<td>Carácter de reemplazo</td>
-		<td>cadena</td>
-		<td>Carácter de reemplazo</td>
-	</tr>
-	<tr>
-		<td>Sufijo de terminador de segmento</td>
-		<td>cadena</td>
-		<td>Sufijo de terminador de segmento</td>
-	</tr>
-</table>
+Parámetro|Tipo|Descripción del parámetro
+---|---|---
+Contenido|cadena|Mensaje XML
+Id. de contrato|integer|Id. de contrato
+Es mensaje por lotes|boolean|Es mensaje por lotes
+Separador de elementos de datos|cadena|Separador de elementos de datos
+Separador de componentes|cadena|Separador de componentes
+Terminador de segmento|cadena|Terminador de segmento
+Indicador de coma decimal|cadena|Indicador de coma decimal
+Separador de repeticiones|cadena|Separador de repeticiones
+Carácter de escape|cadena|Carácter de escape
+Carácter de reemplazo|cadena|Carácter de reemplazo
+Sufijo de terminador de segmento|cadena|Sufijo de terminador de segmento
 
 La acción devuelve un objeto que contiene la carga EDIFACT para indicar que se ha realizado con éxito.
 
@@ -148,4 +99,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

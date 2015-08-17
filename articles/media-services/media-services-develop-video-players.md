@@ -76,4 +76,4 @@ Para obtener información acerca de la compatibilidad con anuncios y subtítulos
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

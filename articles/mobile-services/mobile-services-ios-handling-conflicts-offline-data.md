@@ -51,7 +51,7 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
 ### <a name="update-list-view"></a>Actualización del controlador de vista de lista Todo
 
-1. Seleccione **MainStoryboard_iPhone.storyboard** en Project Navigator en Xcode y luego seleccione el **Controlador de vista de lista de tareas**. Seleccione la celda de la vista de tabla y establezca su modo Accesorio en **Disclosure indicator** (Indicador de divulgación). El indicador de divulgación indica a los usuarios que si tocan en el controlador de vista de tabla asociada, se mostrará una nueva vista. El indicador de divulgación no produce ningún evento.
+1. Seleccione **MainStoryboard\_iPhone.storyboard** en Project Navigator en Xcode y luego seleccione el **Controlador de vista de lista de tareas**. Seleccione la celda de la vista de tabla y establezca su modo Accesorio en **Disclosure indicator** (Indicador de divulgación). El indicador de divulgación indica a los usuarios que si tocan en el controlador de vista de tabla asociada, se mostrará una nueva vista. El indicador de divulgación no produce ningún evento.
 
       ![][update-todo-list-view-controller-2]
 
@@ -145,7 +145,7 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
 ### <a name="add-segue"></a>Incorporación del controlador de vista de elementos Todo y de un objeto Segue al guion gráfico
 
-1. Vuelva al archivo **MainStoryboard_iPhone.storyboard** mediante Project Navigator.
+1. Vuelva al archivo **MainStoryboard\_iPhone.storyboard** mediante Project Navigator.
 
 2. Agregue un nuevo controlador de vista para el elemento de tareas al guión gráfico, a la derecha del **Controlador de vista de lista de tareas** existente. Establezca la clase personalizada de este nuevo controlador de vista en **QSItemViewController**. Para obtener más información, consulte [Incorporación de una escena a un guión gráfico].
 
@@ -171,8 +171,7 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
 7. Compruebe que la aplicación funciona con todos los cambios realizados hasta el momento. Ejecute ahora la aplicación en el simulador. Agregue elementos a la lista Todo y haga clic en ellos. Verá el controlador de vista de elementos (actualmente vacío).
 
-      ![][add-todo-item-view-controller-4] 
-      ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4] ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Incorporación de detalles de elementos al controlador de vista de elementos Todo
 
@@ -472,4 +471,4 @@ Por el camino, agregó una clase auxiliar **QSUIAlertViewWithBlock** para mostra
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

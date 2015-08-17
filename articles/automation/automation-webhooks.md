@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/05/2015"
+   ms.date="08/04/2015"
    ms.author="bwren" />
 
 # Webhooks de Automatización de Azure
@@ -37,8 +37,6 @@ En la tabla siguiente se describen las propiedades que debe configurar para un w
 
 ### Parámetros
 Un webhook puede definir valores para parámetros de runbook que se usan cuando se inicia dicho webhook inicia el runbook. El webhook debe incluir los valores de los parámetros obligatorios del runbook y puede incluir valores para los parámetros opcionales. Varios webhooks vinculados a un único runbook puede utilizar distintos valores de parámetros.
-
->[AZURE.NOTE]Los valores de parámetros establecidos por un webhook actualmente no se pueden cambiar una vez creado el webhook. Debe crear otro webhook que use distintos valores de parámetros.
 
 Cuando un cliente inicia un runbook mediante un webhook, no puede reemplazar los valores de parámetros definidos en el webhook. Para recibir datos del cliente, el runbook puede aceptar un único parámetro denominado **$WebhookData** del tipo [object] que contendrá los datos que el cliente incluye en la solicitud POST.
 
@@ -92,7 +90,7 @@ El cliente recibirá uno de los siguientes códigos de retorno de la solicitud P
 |:---|:----|:---|
 | 202 | Accepted | La solicitud se aceptó y el runbook se puso en cola correctamente. |
 | 400 | Bad Request | No se aceptó la solicitud por uno de los siguientes motivos. <ul> <li>El webhook ha caducado.</li> <li>El webhook está deshabilitado.</li> <li>El token en la dirección URL no es válido.</li> </ul>|
-| 404 | No encontrado | No se aceptó la solicitud por uno de los siguientes motivos. <ul><li>No se encontró el webhook.</li> <li>No se encontró el runbook.</li> <li>No se encontró la cuenta.</li></ul> |
+| 404 | No encontrado | No se aceptó la solicitud por uno de los siguientes motivos. <ul> <li>No se encontró el webhook.</li> <li>No se encontró el runbook.</li> <li>No se encontró la cuenta.</li> </ul> |
 | 500 | Internal Server Error | La dirección URL es válida, pero se produjo un error. Vuelva a enviar la solicitud. |
 
 Asumiendo que la solicitud sea correcta, la respuesta del webhook contendrá el Id. de trabajo en formato JSON como se muestra a continuación. Contendrá un solo Id. de trabajo, pero el formato JSON permite realizar potenciales mejoras en el futuro.
@@ -174,4 +172,4 @@ El siguiente runbook de muestra acepta la solicitud del ejemplo anterior e inici
 - [Inicio de un runbook](automation-starting-a-runbook.md)
 - [Visualización del estado de un trabajo de runbook](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

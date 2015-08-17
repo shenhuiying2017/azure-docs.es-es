@@ -392,4 +392,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

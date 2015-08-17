@@ -67,11 +67,11 @@ Microsoft Avro Library contiene una utilidad de generación de código que permi
 
 1. Descargue el archivo ZIP con la versión más reciente del código fuente del SDK de HDInsight desde <a href="http://hadoopsdk.codeplex.com/SourceControl/latest" target="_blank">Microsoft .NET SDK para Hadoop</a>. (Haga clic en el icono **Descargar**).
 
-2. Extraiga el SDK de HDInsight en un directorio que se encuentre en el equipo que tiene .NET Framework 4 instalado y conectado a Internet para descargar los paquetes de NuGet de dependencias necesarios. Supongamos que el código fuente se ha extraído en C:\SDK.
+2. Extraiga el SDK de HDInsight en un directorio que se encuentre en el equipo que tiene .NET Framework 4 instalado y conectado a Internet para descargar los paquetes de NuGet de dependencias necesarios. Supongamos que el código fuente se ha extraído en C:\\SDK.
 
-3. Vaya a la carpeta C:\SDK\src\Microsoft.Hadoop.Avro.Tools y ejecute build.bat. (El archivo llamará a MS Build desde la distribución de 32 bits de .NET Framework. Si desea utilizar una versión de 64 bits, edite build.bat siguiendo los comentarios que se encuentran dentro del archivo). Asegúrese de que la compilación se haya realizado correctamente. (En algunos sistemas, MSBuild puede producir advertencias. Estas advertencias no afectan a la utilidad siempre que no haya ningún error de compilación).
+3. Vaya a la carpeta C:\\SDK\\src\\Microsoft.Hadoop.Avro.Tools y ejecute build.bat. (El archivo llamará a MS Build desde la distribución de 32 bits de .NET Framework. Si desea utilizar una versión de 64 bits, edite build.bat siguiendo los comentarios que se encuentran dentro del archivo). Asegúrese de que la compilación se haya realizado correctamente. (En algunos sistemas, MSBuild puede producir advertencias. Estas advertencias no afectan a la utilidad siempre que no haya ningún error de compilación).
 
-4. La utilidad compilada se encuentra en C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
+4. La utilidad compilada se encuentra en C:\\SDK\\Bin\\Unsigned\\Release\\Microsoft.Hadoop.Avro.Tools.
 
 
 Para familiarizarse con la sintaxis de la línea de comandos, ejecute el comando siguiente desde la carpeta en donde se encuentra la utilidad de generación de código: `Microsoft.Hadoop.Avro.Tools help /c:codegen`
@@ -82,7 +82,7 @@ Para probar la utilidad, puede generar clases de C# a partir del archivo de esqu
 
 Se supone que va a producir dos archivos C# en el directorio actual: SensorData.cs y Location.cs.
 
-Para comprender la lógica que está utilizando la utilidad de generación de código mientras convierte el esquema JSON en tipos de C#, consulte el archivo GenerationVerification.feature que se encuentra en C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc.
+Para comprender la lógica que está utilizando la utilidad de generación de código mientras convierte el esquema JSON en tipos de C#, consulte el archivo GenerationVerification.feature que se encuentra en C:\\SDK\\src\\Microsoft.Hadoop.Avro.Tools\\Doc.
 
 Tenga en cuenta que los espacios de nombres se extraen del esquema JSON mediante la lógica descrita en el archivo mencionado en el párrafo anterior. Los espacios de nombres extraídos del esquema tienen prioridad sobre lo que se proporcione con el parámetro /n en la línea de comandos de la utilidad. Si desea reemplazar los espacios de nombres contenidos en el esquema, utilice el parámetro /nf. Por ejemplo, para cambiar todos los espacios de nombres de SampleJSONSchema.avsc a my.own.nspace, ejecute el comando siguiente:
 
@@ -1389,7 +1389,7 @@ Debe introducirse toda la información de los requisitos previos en el archivo d
 * Editar el archivo app.config en el directorio raíz de la muestra y después compilar la muestra. 
 * Compilar primero la muestra y después editar AvroHDISample.exe.config en el directorio de compilación. 
 
-En ambos casos, todas las modificaciones deben realizarse en la sección de configuración **<appSettings>**. Siga los comentarios del archivo. La muestra se ejecuta en la línea de comandos ejecutando el comando siguiente (donde se supone que el archivo .zip con la muestra se va a extraer en C:\AvroHDISample; en caso contrario, utilice la ruta de acceso al archivo pertinente):
+En ambos casos, todas las modificaciones deben realizarse en la sección de configuración **<appSettings>**. Siga los comentarios del archivo. La muestra se ejecuta en la línea de comandos ejecutando el comando siguiente (donde se supone que el archivo .zip con la muestra se va a extraer en C:\\AvroHDISample; en caso contrario, utilice la ruta de acceso al archivo pertinente):
 
     AvroHDISample run C:\AvroHDISample\Data
 
@@ -1406,4 +1406,4 @@ Para limpiar el clúster, ejecute el comando siguiente:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

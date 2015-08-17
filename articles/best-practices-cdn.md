@@ -49,7 +49,20 @@ Entre los usos típicos de la red CDN se incluyen:
 
 - En la tabla siguiente se muestran ejemplos de los tiempos medio hasta el primer byte desde distintas ubicaciones geográficas. El rol web de destino se implementa en Azure en la zona oeste de EE. UU. Hay una correlación estrecha entre el mayor aumento debido a la red CDN y su proximidad a un nodo de la red CDN. Encontrará una lista de ubicaciones de nodos de red CDN de Azure en [Ubicaciones POP de la Red de entrega de contenido de Azure (CDN)](http://msdn.microsoft.com/library/azure/gg680302.aspx).
 
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><a name="_MailEndCompose" href="#"><span /></a><br /></th><th><p>Time to Primer byte (origen)</p></th><th><p>Tiempo hasta el primer byte (red CDN)</p></th><th><p>% más rápido para red CDN</p></th></tr><tr><td><p>* San José, CA</p></td><td><p>47,5</p></td><td><p>46,5</p></td><td><p>2 %</p></td></tr><tr><td><p>** Dulles, VA</p></td><td><p>109</p></td><td><p>40,5</p></td><td><p>169 %</p></td></tr><tr><td><p>Buenos Aires, AR</p></td><td><p>210</p></td><td><p>151</p></td><td><p>39 %</p></td></tr><tr><td><p>* Londres, Reino Unido</p></td><td><p>195</p></td><td><p>44</p></td><td><p>343 %</p></td></tr><tr><td><p>Shanghai, CN</p></td><td><p>242</p></td><td><p>206</p></td><td><p>17 %</p></td></tr><tr><td><p>* Singapur</p></td><td><p>214</p></td><td><p>74</p></td><td><p>189 %</p></td></tr><tr><td><p>* Tokio, JP</p></td><td><p>163</p></td><td><p>48</p></td><td><p>240 %</p></td></tr><tr><td><p>Seúl, KR</p></td><td><p>190</p></td><td><p>190</p></td><td><p>0 %</p></td></tr></table>* Tiene un nodo de red CDN de Azure en la misma ciudad. * Tiene un nodo de red CDN de Azure en una ciudad vecina.
+
+
+|City |Tiempo hasta el primer byte (origen) |Tiempo hasta el primer byte (red CDN) | % más rápido para red CDN|
+|---|---|---|---|
+|San José, CA<sub>1</sub> |47,5 |46,5 |2 %|
+|Dulles, VA<sub>2</sub> |109 |40,5 |169 %|
+|Buenos Aires, Argentina |210 |151 |39 %|
+|Londres, Reino Unido<sub>1</sub> |195 |44 |343 %|
+|Shangai, China |242 |206 |17 %|
+|Singapur<sub>1</sub> |214 |74 |189 %|
+|Tokio, Japón<sub>1</sub> |163 |48 |240 %|
+|Seúl, Corea del Sur |190 |190 |0 %|
+
+Tiene un nodo de CDN de Azure en la misma ciudad.<sub>1</sub> Tiene un nodo de la red CDN de Azure en una ciudad vecina.<sub>2</sub>
 
 
 ## Desafíos  
@@ -85,7 +98,8 @@ Escenarios donde puede resultar útil incluir la red CDN:
 
 El uso de la red CDN es una buena manera de minimizar la carga en la aplicación y maximizar la disponibilidad y el rendimiento. Debería tener esto en cuenta para todo el contenido y recursos adecuados que usa la aplicación. Al diseñar la estrategia de uso de la red CDN, tenga en cuenta los siguientes puntos:
 
-- **Origen ** La implementación de contenido a través de la red CDN simplemente exige especificar un extremo HTTP (puerto 80) que el servicio de red CDN puede usar para acceder al contenido y almacenarlo en caché. + El extremo puede especificar un contenedor de almacenamiento de blobs de Azure con el contenido estático que quiera entregar a través de la red CDN. El contenedor debe marcarse como público. Solo los blobs de un contenedor público con acceso de lectura público estarán disponibles a través de la red CDN. 
+- **Origen** La implementación de contenido a través de la red CDN simplemente exige especificar un extremo HTTP (puerto 80) que el servicio de red CDN puede usar para acceder al contenido y almacenarlo en la memoria caché. + El extremo puede especificar un contenedor de almacenamiento de blobs de Azure con el contenido estático que quiera entregar a través de la red CDN. El contenedor debe marcarse como público. Solo los blobs de un contenedor público con acceso de lectura público estarán disponibles a través de la red CDN.
+
 - El extremo puede especificar una carpeta denominada **cdn** en la raíz de una de las capas de proceso de la aplicación (por ejemplo, un rol web o una máquina virtual). Los resultados de las solicitudes de recursos, incluidos los recursos dinámicos, tales como las páginas ASPX, se almacenarán en caché en la red CDN. El período de almacenamiento en caché mínimo es de 300 segundos. Un periodo más corto impedirá que el contenido que se implemente en la red CDN (consulte la sección "<a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">Control de caché</a>" para más información).
 
 - Si usa Sitios web de Azure, el extremo se establece en la carpeta raíz del sitio al seleccionar el sitio cuando se crea la instancia de red CDN. Todo el contenido del sitio estará disponible a través de la red CDN.
@@ -176,7 +190,7 @@ En el siguiente fragmento de un archivo Web.config de la raíz de una aplicació
   <rewrite>
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*).(.*)" ignoreCase="true" />
+        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
       </rule>
       <rule name="CdnImages" stopProcessing="true">
@@ -203,7 +217,8 @@ En el siguiente fragmento de un archivo Web.config de la raíz de una aplicació
 
 La adición de las reglas de reescritura realiza las siguientes redirecciones:
 
-- La primera regla permite integrar una versión en el nombre de archivo de un recurso, que luego se omite. Por ejemplo, **Filename_v123.jpg ** se reescribe como **Filename.jpg**. 
+- La primera regla permite integrar una versión en el nombre de archivo de un recurso, que luego se omite. Por ejemplo, **Filename\_v123.jpg** se reescribe como **Filename.jpg**.
+
 - Las siguientes cuatro reglas muestran cómo redirigir las solicitudes si no quiere almacenar los recursos en una carpeta denominada **cdn** en la raíz del rol web. Las reglas asignan las direcciones URL **cdn/Images**, **cdn/Content**, **cdn/Scripts** y **cdn/bundles** a sus respectivas carpetas raíz en el rol web. El uso de la reescritura de direcciones URL requiere realizar algunos cambios en la unión de recursos.
 
 
@@ -219,4 +234,4 @@ La unión y minificación los puede controlar ASP.NET. En un proyecto MVC, las u
 + [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
 + [Prácticas recomendadas para la Red de entrega de contenido de Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

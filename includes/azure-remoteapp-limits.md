@@ -16,8 +16,8 @@
 |Tiempo de espera inactividad| 4 horas|
 |Tiempo de espera de desconexión| 4 horas|
 
-*No se pueden aumentar los límites de usuario por encima del máximo indicado más arriba. El número de usuarios viene determinado por el número de máquinas virtuales que se usen para su colección. Para el nivel Básico, hay 16 usuarios por máquina virtual; para el nivel Estándar, 10 usuarios por máquina virtual.
+*Los límites de usuario no se pueden aumentar por encima del límite máximo indicado anteriormente. El número de usuarios viene determinado por el número de máquinas virtuales que se usen para su colección. En los niveles básicos, hay 16 usuarios por máquina virtual; en el estándar, 10 usuarios por máquina virtual.
 
-Para solicitar un aumento del número de colecciones de pagadas o conexiones simultáneas, envíe un correo electrónico a[remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) con detalles de lo que necesita, incluido el identificador de suscripción.
+Para solicitar un aumento del número de colecciones de pagadas o de conexiones simultáneas, envíe un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) e indique en él lo que necesita, incluido el Id. de suscripción.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

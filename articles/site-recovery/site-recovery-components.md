@@ -12,7 +12,7 @@
 	ms.workload="backup-recovery"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/09/2015"
 	ms.author="raynew"/>
 
@@ -111,9 +111,12 @@ El proveedor se ejecuta en los servidores VMM, en los servidores host de Hyper-V
 - Si desea que el servidor en el que se ejecuta el proveedor se conecte a Internet a través de un servidor proxy, puede usar la configuración de proxy existente o especificar un proxy personalizado.
 - El proxy debe permitir el paso a estas direcciones a través del firewall:
 
-	-  *.accesscontrol.windows.net -  .backup.windowsazure.com
-	-  *.blob.core.windows.net -  *.store.core.windows.net 	
-- Si tiene en el firewall reglas basadas en direcciones IP, asegúrese de permitir la comunicación desde el servidor de configuración a las direcciones IP indicadas en [Intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) y el protocolo HTTPS (443). Necesitará incluir en la lista blanca los intervalos de direcciones IP de la región de Azure que se va a utilizar y para el Oeste de EE.UU.
+	-  **.accesscontrol.windows.net
+-  .backup.windowsazure.com
+	-  **.blob.core.windows.net
+-  **.store.core.windows.net
+	
+- Si tiene en el firewall con reglas basadas en direcciones IP, asegúrese de que permiten la comunicación desde el servidor de configuración a las direcciones IP indicadas en [Intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) y el protocolo HTTPS (443). Necesitará incluir en la lista blanca los intervalos de direcciones IP de la región de Azure que se va a utilizar y para el Oeste de EE.UU.
 - Si está implementando Site Recovery con VMM y usa un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) automáticamente con las credenciales de proxy, especificadas en la configuración del proxy personalizada del portal de Site Recovery. Tendrá que configurar el servidor proxy para que esta cuenta pueda autenticarse correctamente.
 - Si utiliza tráfico de proxy enviado desde el proveedor instalado en un servidor host de Hyper-V al servidor proxy, debe enviarse mediante HTTP.
 
@@ -149,8 +152,8 @@ Instale en máquinas virtuales VMware o en servidores físicos. Las máquinas y 
 
 - **Servidores Windows**:
 	-  Sistema operativo de 64 bits: Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 como mínimo.
-	-  El nombre de host, los puntos de montaje, los nombres de dispositivos y la ruta de acceso de sistema de Windows (p. ej.: C:\Windows) solo deben tener caracteres de inglés.
-	-  El sistema operativo se encuentra en la unidad C:\.
+	-  El nombre de host, los puntos de montaje, los nombres de dispositivos y la ruta de acceso de sistema de Windows (p. ej.: C:\\Windows) solo deben tener caracteres de inglés.
+	-  El sistema operativo se encuentra en la unidad C:\\.
 	-  Solo se admiten discos básicos. No se admiten discos dinámicos.
 
 - **Servidores Linux**:
@@ -160,19 +163,19 @@ Instale en máquinas virtuales VMware o en servidores físicos. Las máquinas y 
 	-  Se admiten estos tipos de almacenamiento: sistema de archivos: EXT3, EXT4, ReiserFS, XFS/Software de múltiples rutas-Asignador de dispositivos (múltiples rutas)/Administrador de volúmenes: LVM2. No se admiten servidores físicos con almacenamiento con controlador HP CCISS.
 
 
-Para obtener información detallada de la planificación acerca de estos componentes, consulte la sección de planificación de capacidad en [este artículo](site-recovery-vmware-to-azure.md).
+Para obtener información detallada de la planeación acerca de estos componentes, consulte la sección de planeación de capacidad en [este artículo](site-recovery-vmware-to-azure.md).
 
 
 ## Mantenimiento de los componentes actualizados
 
 **Componente** | **Cómo actualizar** 
 --- | --- 
-<p>**Proveedor de Azure Site Recovery para VMM **</p><p>**Agente de los servicios de recuperación de Azure**</p> | <p></p>**Instalación por primera vez**: descargue la versión más reciente de la página de Inicio rápido<p></p>**Continua**: puede descargar las versiones más recientes (y anteriores) desde el Panel de recuperación del sitio. O bien, si activa Microsoft Updates, se instalará automáticamente en el servidor la versión más reciente del Proveedor.
+<p>**Proveedor de Azure Site Recovery para VMM **</p><p>**Agente de los servicios de recuperación de Azure**</p> | <p></p>**Instalación por primera vez**: descargue la versión más reciente de la página de Inicio rápido<p></p>**Continua**: puede descargar las versiones más recientes (y anteriores) desde el Panel de recuperación de sitio. O bien, si activa Microsoft Updates, se instalará automáticamente en el servidor la versión más reciente del Proveedor.
 <p>**Servidor de proceso**</p><p>**Servidor de configuración**</p><p>**Servidor de destino principal**</p> | Compruebe si hay actualizaciones en el Panel de recuperación del sitio. 
-**Servicio de movilidad** | <p>Asegúrese de que todos los equipos que desea proteger poseen las actualizaciones más recientes del servicio de movilidad:<p><p>Desde aquí puede descargar las actualizaciones más recientes:</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6 64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6 64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>O bien, después de asegurarse de que el servidor de proceso está actualizado, puede descargar la versión más reciente del servicio de movilidad desde la carpeta C:\pushinstallsvc\repository del servidor de proceso.</p>  
+**Servicio de movilidad** | <p>Asegúrese de que todos los equipos que desea proteger poseen las actualizaciones más recientes del servicio de movilidad:<p><p>Desde aquí puede descargar las actualizaciones más recientes:</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6 64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6 64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>O bien, después de asegurarse de que el servidor de proceso está actualizado, puede descargar la versión más reciente del servicio de movilidad desde la carpeta C:\\pushinstallsvc\\repository del servidor de proceso.</p>  
 
 ## Pasos siguientes
 
 Comience a configurar los componentes para el escenario de implementación. [Más información](site-recovery-overview.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

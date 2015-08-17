@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 # Uso del almacenamiento de colas de .NET
@@ -24,7 +24,7 @@
 
 Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en código C# y utilizan el cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**.
 
-> [AZURE.NOTE]Esta guía se destina a la biblioteca de cliente de almacenamiento .NET de Azure 2.x y posterior. La versión recomendada es la biblioteca de clientes de almacenamiento 4.x, que está disponible a través de [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) o como parte del [SDK de Azure para .NET](/downloads/). Consulte [Acceso al almacenamiento de colas mediante programación](#programmatically-access-queue-storage) más abajo para obtener más información acerca de la obtención de una biblioteca de clientes de almacenamiento.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -241,24 +241,15 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-<ul>
-<li>Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Referencia de la biblioteca de clientes de almacenamiento para .NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Referencia de API de REST</a></li>
-  </ul>
-</li>
-<li>Obtenga información acerca de las tareas más avanzadas que se pueden realizar con Almacenamiento de Azure en <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Almacenamiento de datos y acceso a los mismos en Azure</a>.</li>
-<li>Aprenda a simplificar el código que escriba para trabajar con <a href="../websites-dotnet-webjobs-sdk/">Almacenamiento de Azure mediante la SDK de WebJobs de Azure.</li>
-<li>Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-  <ul>
-    <li>Utilice <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Almacenamiento de tablas</a> para almacenar datos estructurados.</li>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Almacenamiento de blobs</a> para almacenar datos no estructurados.</li>
-    <li>Utilice <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Base de datos SQL</a> para almacenar datos relacionales.</li>
-  </ul>
-</li>
-</ul>
+- Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
+    - [Referencia de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [Referencia de API de REST](http://msdn.microsoft.com/library/azure/dd179355)
+- Obtenga información acerca de las tareas más avanzadas que se pueden realizar con Almacenamiento de Azure en [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+- Aprenda a simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante [SDK de WebJobs de Azure](../websites-dotnet-webjobs-sdk/).
+- Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
+    - Utilice [Almacenamiento de tablas](storage-dotnet-how-to-use-tables.md) para almacenar datos estructurados. 
+    - Use [Almacenamiento de blobs](storage-dotnet-how-to-use-blobs.md) para almacenar datos no estructurados.
+    - Utilice [Base de datos SQL](sql-database-dotnet-how-to-use.md) para almacenar datos relacionales.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
@@ -272,4 +263,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

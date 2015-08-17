@@ -69,11 +69,11 @@ En este ejercicio usará la herramienta de registro de Catálogo de datos de Azu
 
     ![register4][4]
 
-    c. Haga clic en Mover la flecha seleccionada (**>**). De este modo se moverán todos los objetos de producto a la lista **Pendiente de registrar**.
+    c. Haga clic en la flecha de selección de movimiento (**>**). De este modo se moverán todos los objetos de producto a la lista **Pendiente de registrar**.
 
     ![register5][5]
 
-    d. **Opcional**: puede **incluir una vista previa** y **Agregar un experto de origen de datos**.
+    d. **Opcional**: puede **Incluir una vista previa** y **Agregar un experto de origen de datos**.
 
     e. En **Agregar etiquetas**, introduzca una descripción, foto. De este modo se agregarán etiquetas de búsqueda para estos recursos de datos. Las etiquetas son una excelente manera de ayudar a los usuarios buscar un origen de datos registrados.
  
@@ -130,7 +130,7 @@ En este ejercicio usará el portal del **Catálogo de datos de Azure** para anot
 
 1.	Inicie sesión en el portal **Catálogo de datos de Azure**.
 2.	Haga clic en **Detectar**.
-3.	Elija uno o más **Activos de datos**. En este ejemplo, elija **ProductPhoto** y escriba "Fotos de productos para materiales de marketing".
+3.	Elija uno o varios **recursos de datos**. En este ejemplo, elija **ProductPhoto** y escriba "Fotos de productos para materiales de marketing".
 4.	Escriba una **descripción** que le ayude a otros usuarios a descubrir y entender por qué y cómo usar el recurso de datos seleccionado. Por ejemplo, escriba "Imágenes de producto". También puede agregar más etiquetas y ver columnas.
 5.	Ahora puede intentar buscar y filtrar para detectar recursos de datos mediante los metadatos descriptivos que haya agregado al catálogo.
 
@@ -146,7 +146,7 @@ En este ejercicio trabajará con otro usuario para agregar metadatos a los recur
 
 ### A continuación se indica cómo puede aplicar micromecenazgo a los metadatos sobre recursos de datos
 
-Solicite a un compañero que repeta el ejercicio **Anotación de los orígenes de datos registrados** anterior. Una vez que su colega agregue una descripción a un recurso de datos, como ProductPhoto, verá varias anotaciones.
+Solicite a un compañero que repita el ejercicio **Anotación de los orígenes de datos registrados** anterior. Una vez que su colega agregue una descripción a un recurso de datos, como ProductPhoto, verá varias anotaciones.
 
 En este ejercicio se han explorado las capacidades del Catálogo de datos de Azure para los metadatos de micromecenazgo, donde cualquier usuario del catálogo puede anotar los recursos de datos que detecta. Ejercicio: conexión a orígenes de datos En este ejercicio usará el portal **Catálogo de datos de Azure** para conectarse a orígenes de datos con Microsoft Excel.
 
@@ -172,7 +172,7 @@ En este ejercicio, se ha conectado a orígenes de datos detectados mediante el C
 
 En este ejercicio usará el portal del **Catálogo de datos de Azure** para quitar los datos de vista previa de los recursos de datos registrados y para eliminar los recursos de datos del catálogo.
 
-> [AZURE.NOTE]El comportamiento predeterminado del catálogo es permitir que cualquier usuario registre cualquier origen de datos y permitir que cualquier usuario elimine cualquier recurso de datos que se haya registrado. Las capacidades de administración incluidas en la **Standard Edition del Catálogo de datos de Azure** proporcionan opciones adicionales para la toma de posesión de los recursos, la restricción de quién puede detectar los recursos y eliminar los activos.
+> [AZURE.NOTE]El comportamiento predeterminado del catálogo es permitir que cualquier usuario registre cualquier origen de datos y permitir que cualquier usuario elimine cualquier recurso de datos que se haya registrado. Las capacidades de administración incluidas en la **edición Standard del Catálogo de datos de Azure** proporcionan opciones adicionales para la toma de posesión de los recursos, la restricción de quién puede detectar los recursos y eliminar los activos.
 
 En el **Catálogo de datos de Azure** puede quitar la vista previa de Eliminar recurso individual o Eliminar varios recursos.
 
@@ -222,4 +222,4 @@ En este tutorial exploró capacidades esenciales de la vista previa del **Catál
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

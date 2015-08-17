@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # Qué es el SDK de WebJobs de Azure
@@ -46,6 +46,8 @@ Estos son algunos de los escenarios típicos que puede controlar más fácilment
 
 * Otras tareas con una ejecución prolongada que desee ejecutar en un subproceso en segundo plano, como el [envío de correos electrónicos](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure).
 
+En muchos de estos escenarios, es posible que desee escalar una aplicación web para que ejecute varias máquinas virtuales, las que ejecutarán varios WebJobs de manera simultánea. En algunos escenarios, esto podría hacer que los mismos datos se procesen varias veces, pero esto no supone un problema cuando se usan los desencadenadores de colas, blobs y bus de servicio integrados del SDK de WebJobs. El SDK garantiza que las funciones se procesarán una sola vez para cada mensaje o blob.
+
 ## <a id="code"></a>Ejemplos de código
 
 El código para controlar las tareas comunes que se realizan con Almacenamiento de Azure es sencillo. En una aplicación de consola, escriba los métodos para las tareas en segundo plano que desee ejecutar y represéntelas con atributos del SDK de WebJobs. El método `Main` crea un objeto `JobHost` que coordina las llamadas a los métodos que escriba. El marco de trabajo del SDK de WebJobs sabrá cuándo llamar a los métodos en función de los atributos del SDK de WebJobs que use en ellos.
@@ -66,15 +68,12 @@ Este es un simple programa que sondea una cola y crea un blob para cada mensaje 
 
 El objeto `JobHost` es un contenedor para un conjunto de funciones en segundo plano. El objeto `JobHost` supervisa las funciones, inspecciona los eventos que las desencadenan y ejecuta las funciones cuando se producen los efectos desencadenantes. La llamada a un método `JobHost` permite indicar si desea ejecutar el proceso del contenedor en el subproceso actual o en un subproceso de segundo plano. En el ejemplo, el método `RunAndBlock` ejecuta el proceso de forma continua en el subproceso actual.
 
-Dado que el método `ProcessQueueMessage` de este ejemplo contiene un atributo `QueueTrigger`, el desencadenador de esa función es la recepción de un nuevo mensaje de cola. El objeto `JobHost` inspecciona los mensajes de cola nuevos de la cola especificada ("webjobsqueue" en este ejemplo) y cuando encuentra uno, llama a `ProcessQueueMessage`. El atributo `QueueTrigger` también notifica al marco para enlazar el parámetro `inputText` al valor del mensaje de cola:
+Dado que el método `ProcessQueueMessage` de este ejemplo contiene un atributo `QueueTrigger`, el desencadenador de esa función es la recepción de un nuevo mensaje de cola. El objeto `JobHost` inspecciona los mensajes de cola nuevos de la cola especificada ("webjobsqueue" en este ejemplo) y cuando encuentra uno, llama a `ProcessQueueMessage`.
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] <mark>string inputText</mark>, 
-    [Blob("containername/blobname")]TextWriter writer)</pre>
+El atributo `QueueTrigger` enlaza el parámetro `inputText` con el valor del mensaje en la cola. Además, el atributo `Blob` enlaza un objeto `TextWriter` con un blob llamado "blobname" en un contenedor llamado "containername".
 
-El marco también enlaza un objeto `TextWriter` a un blob llamado "blobname" en un contenedor llamado "containername":
-
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("colatrabajosweb")]] string inputText, 
-    <mark>[Blob("containername/blobname")]TextWriter writer</mark>)</pre>
+		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
+		    [Blob("containername/blobname")]TextWriter writer)
 
 A continuación, la función usa estos parámetros para escribir el valor del mensaje de cola en el blob:
 
@@ -105,4 +104,4 @@ El SDK de Trabajos web proporciona varias ventajas, incluso si no necesita traba
 Para obtener información acerca del SDK de WebJobs, consulte [Recursos recomendados de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

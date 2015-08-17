@@ -142,4 +142,4 @@ Este es un ejemplo de lo que puede ver:
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

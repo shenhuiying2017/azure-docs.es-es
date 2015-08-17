@@ -49,4 +49,4 @@ La sección Autenticación de Windows permite al administrador habilitar y confi
 10. Seleccione Subred si desea especificar un intervalo de direcciones IP mediante la notación de subred. Escriba la dirección IP inicial de la subred y seleccione la máscara de red adecuada de la lista desplegable. 
 11. Haga clic en el botón Aceptar.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

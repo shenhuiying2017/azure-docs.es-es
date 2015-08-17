@@ -32,6 +32,18 @@ Consulte [Introducción a Application Insights para .NET](app-insights-start-mon
 * Compare ApplicationInsights.config con la copia anterior. La mayoría de los cambios que verá se deben a que hemos quitado algunos módulos y hemos hecho que otros se puedan parametrizar. Restablezca las personalizaciones realizadas en el archivo anterior.
 * Vuelva a generar la solución.
 
+## Versión 1.2
+
+- Los inicializadores de telemetría que no tienen dependencias en las bibliotecas de ASP.NET se movieron desde `Microsoft.ApplicationInsights.Web` al nuevo NuGet de dependencia `Microsoft.ApplicationInsights.WindowsServer`
+- `Microsoft.ApplicationInsights.Web.dll` cambió de nombre en `Microsoft.AI.Web.dll`
+- El NuGet `Microsoft.Web.TelemetryChannel` cambió de nombre en `Microsoft.WindowsServer.TelemetryChannel`. El ensamblaje `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` cambió de nombre en `Microsoft.AI.ServerTelemetryChannel.dll`. La clase `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` cambió de nombre en `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- Todos los espacios de nombres que forman parte del SDK web se cambiaron para excluir la parte de `Extensibility`. Eso incluye todos los inicializadores de telemetría en ApplicationInsights.config y en el módulo `ApplicationInsightsWebTracking` en web.config.
+- Las dependencias recopiladas mediante el uso del agente de instrumentación de tiempo de ejecución (habilitado a través del Monitor de estado o de la extensión Sitio web de Azure) no se marcarán como asincrónicas si no existe HttpContext.Current en el subproceso.
+- La propiedad `SamplingRatio` de `DependencyTrackingTelemetryModule` no hace nada y se marcó como obsoleta.
+- El ensamblaje `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` cambió de nombre en `Microsoft.AI.PerfCounterCollector`
+- Varias correcciones de errores menores en SDK web y de dispositivos
+
+
 ## Versión 1.1
 
 - Se agregó un nuevo tipo de telemetría `DependencyTelemetry` que se puede usar para enviar información sobre las llamadas de dependencia desde una aplicación (como llamadas SQL, HTTP, etc.).
@@ -40,12 +52,12 @@ Consulte [Introducción a Application Insights para .NET](app-insights-start-mon
 
 ## Versión 1.0
 
-- Se movieron los inicializadores y módulos de telemetría y módulos de telemetría de subespacios de nombres independientes al espacio de nombres `Microsoft.ApplicationInsights.Extensibility.Web` raíz.
+- Se movieron los inicializadores y módulos de telemetría de subespacios de nombres independientes al espacio de nombres `Microsoft.ApplicationInsights.Extensibility.Web` raíz.
 - Se quitó el prefijo "Web" de los nombres de los inicializadores y módulos de telemetría porque ya está incluido en el espacio de nombres `Microsoft.ApplicationInsights.Extensibility.Web`.
 - Se movió `DeviceContextInitializer` desde el ensamblado `Microsoft.ApplicationInsights` al ensamblado `Microsoft.ApplicationInsights.Extensibility.Web` y se convirtió en un `ITelemetryInitializer`.
-- Cambie el espacio de nombres y los nombres de ensamblado de `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` a `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` para mantener la coherencia con el nombre del paquete de NuGet.
-- Cambie el nombre `RemoteDependencyModule` a `DependencyTrackingTelemetryModule`.
-- Cambie el nombre `CustomPerformanceCounterCollectionRequest` a `PerformanceCounterCollectionRequest`.
+- Cambie el espacio de nombres y los nombres de ensamblado de `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` a `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` para mantener la coherencia con el nombre del paquete NuGet.
+- Cambie el nombre de `RemoteDependencyModule` a `DependencyTrackingTelemetryModule`.
+- Cambie el nombre de `CustomPerformanceCounterCollectionRequest` a `PerformanceCounterCollectionRequest`.
 
 ## Versión 0.17
 - Quitada la dependencia a EventSource NuGet para las aplicaciones de Framework 4.5.
@@ -74,4 +86,4 @@ No existen notas de la versión para versiones anteriores.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/16/2015"
+	ms.date="08/03/2015"
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un **canal** recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en dircto local. Para obtener información detallada acerca de cómo trabajar con canales y componentes relacionados, consulte [Trabajo con canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales](../media-services-channels-overview.md).
+Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un **canal** recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en dircto local. Para obtener información detallada acerca de cómo trabajar con canales y componentes relacionados, consulte [Trabajo con canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
 
 En este tutorial, se utiliza el Portal de administración de Azure para realizar las tareas siguientes:
 
@@ -163,7 +163,7 @@ Si cambia a la página **CONTENIDO**, verá los recursos que se crearon para los
 
 Para proporcionar al usuario una dirección URL que pueda utilizar para transmitir por streaming el contenido, primero tendrá que "publicar" el recurso (tal como se describió en la sección anterior) mediante la creación de un localizador (cuando se publica un recurso mediante el Portal, los localizadores se crean automáticamente). Los localizadores proporcionan acceso a los archivos contenidos en el recurso.
 
-Dependiendo del protocolo de streaming que desee utilizar para reproducir el contenido, tendrá que modificar la dirección URL que obtiene del vínculo **URL DE PUBLICACIÓN** del canal\programa.
+Dependiendo del protocolo de streaming que desee utilizar para reproducir el contenido, tendrá que modificar la dirección URL que obtiene del vínculo **URL DE PUBLICACIÓN** del canal\\programa.
 
 El empaquetado dinámico se encargará de empaquetar la secuencia en vivo en el protocolo especificado.
 
@@ -210,4 +210,4 @@ Obtenga más información acerca de la creación de aplicaciones de streaming en
 
 <!-- Images -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

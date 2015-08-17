@@ -593,4 +593,4 @@ Para obtener un tutorial sobre cómo crear una nueva base de datos SQL de Azure,
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

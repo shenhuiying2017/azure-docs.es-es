@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
@@ -69,7 +69,7 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 
 #### Prueba de más URL
 
-Puede agregar pruebas para tantas direcciones URL como desee. Por ejemplo, además de probar la página principal, podría asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
+Agregue más pruebas. Por ejemplo, además de probar la página principal, podría asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
 
 
 ### <a name="monitor"></a>3. Ver informes de disponibilidad
@@ -207,6 +207,16 @@ Abra una prueba individual para editarla o deshabilitarla.
 
 Es posible que desee deshabilitar las pruebas web mientras está realizando un mantenimiento en el servicio.
 
+## ¿Tiene preguntas? ¿Tiene problemas?
+
+* Recibo un error sobre "caracteres no válidos" cuando 
+
+* **¿Hay diferencia entre las "pruebas web" y la "disponibilidad"?
+
+    Usamos ambos términos de manera intercambiable.
+
+
+
 ## <a name="video"></a>Vídeo
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -229,4 +239,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

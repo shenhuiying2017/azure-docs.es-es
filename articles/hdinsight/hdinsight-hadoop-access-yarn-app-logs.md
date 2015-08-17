@@ -115,7 +115,7 @@ Hacen referencia a las API recientemente definidas en el código siguiente. El s
 Ahora puede usar el cliente del historial de aplicaciones para elaborar una lista de las aplicaciones completadas, filtrar las aplicaciones según los criterios que desee y descargar los registros de las aplicaciones relevantes. El siguiente fragmento de código muestra la manera de realizar estas acciones mediante programación:
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\YarnApplicationLogs";
+	string downloadLocation = "E:\\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -137,7 +137,7 @@ Ahora puede usar el cliente del historial de aplicaciones para elaborar una list
 
 El código anterior muestra o busca aplicaciones de interés mediante el cliente de historial de aplicaciones y, a continuación, descarga los registros para esas aplicaciones en una carpeta local.
 
-Como alternativa, el fragmento de código siguiente descarga los registros para una aplicación cuyo identificador de aplicación sí se conoce. El Id. de aplicación es un identificador único global de una aplicación asignado por el RM. Se construye usando la hora de inicio del RM, junto con un contador de progreso monotono para las aplicaciones que se envían a él. El Id. de la aplicación tiene el formato "application_&lt;RM-start-time&gt;_&lt;Counter&gt;". Tenga en cuenta que el Id. de la aplicación y el Id. del trabajo son distintos. El Id. del trabajo es un concepto específico del marco de MapReduce, mientras que el Id. de la aplicación es un concepto de YARN independiente de marco. En YARN, un Id. de trabajo identifica un trabajo específico de MapReduce controlado por el AM de una aplicación de MapReduce enviada al RM.
+Como alternativa, el fragmento de código siguiente descarga los registros para una aplicación cuyo identificador de aplicación sí se conoce. El Id. de aplicación es un identificador único global de una aplicación asignado por el RM. Se construye usando la hora de inicio del RM, junto con un contador de progreso monotono para las aplicaciones que se envían a él. El Id. de la aplicación tiene el formato "application\_&lt;RM-start-time&gt;\_&lt;Counter&gt;". Tenga en cuenta que el Id. de la aplicación y el Id. del trabajo son distintos. El Id. del trabajo es un concepto específico del marco de MapReduce, mientras que el Id. de la aplicación es un concepto de YARN independiente de marco. En YARN, un Id. de trabajo identifica un trabajo específico de MapReduce controlado por el AM de una aplicación de MapReduce enviada al RM.
 
 	// Download application logs for an application whose application ID is known
 	string applicationId = "application_1416017767088_0028";
@@ -173,4 +173,4 @@ Si es necesario, también puede descargar los registros para cada contenedor (o 
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

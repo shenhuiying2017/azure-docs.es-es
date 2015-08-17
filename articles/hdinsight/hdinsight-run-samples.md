@@ -46,9 +46,9 @@ En la web se encuentra disponible mucha documentación adicional sobre las tecno
 
 HDInsight incluye las siguientes muestras:
 
-- [**La muestra de Hadoop del estimador de Pi**][hdinsight-sample-pi-estimator]: se muestra cómo ejecutar un programa de MapReduce con HDInsight que usa un método estadístico (quasi-Monte Carlo) para estimar el valor de pi.
-- [**Ejecución de un ejemplo de MapReduce que cuenta palabras en un clúster de Hadoop**][hdinsight-sample-wordcount]: se explica cómo usar un clúster de HDInsight para ejecutar un programa de MapReduce que cuenta las ocurrencias de palabras en un archivo de texto.
-- [**La muestra de Hadoop de Graysort de 10 GB**][hdinsight-sample-10gb-graysort]: se muestra cómo ejecutar una muestra de GraySort de uso general en un archivo de 10 GB mediante el uso de HDInsight. Hay tres trabajos que se deben ejecutar: Teragen para generar los datos, Terasort para ordenarlos y Teravalidate para confirmar que los datos se han ordenado correctamente.
+- [**La muestra de Hadoop del estimador de Pi**][hdinsight-sample-pi-estimator]\: se muestra cómo ejecutar un programa de MapReduce con HDInsight que usa un método estadístico (quasi-Monte Carlo) para estimar el valor de pi.
+- [**Ejecución de un ejemplo de MapReduce que cuenta palabras en un clúster de Hadoop**][hdinsight-sample-wordcount]\: se explica cómo usar un clúster de HDInsight para ejecutar un programa de MapReduce que cuenta las ocurrencias de palabras en un archivo de texto.
+- [**La muestra de Hadoop de Graysort de 10 GB**][hdinsight-sample-10gb-graysort]\: se muestra cómo ejecutar una muestra de GraySort de uso general en un archivo de 10 GB mediante el uso de HDInsight. Hay tres trabajos que se deben ejecutar: Teragen para generar los datos, Terasort para ordenarlos y Teravalidate para confirmar que los datos se han ordenado correctamente.
 - [**La muestra de MapReduce que cuenta palabras con transmisión de C# en Hadoop**][hdinsight-sample-csharp-streaming] se explica cómo usar C# para escribir un programa de MapReduce que usa la interfaz de transmisión de Hadoop.
 
 
@@ -89,4 +89,4 @@ En este artículo y en los artículos en cada una de las muestras, ha obtenido i
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

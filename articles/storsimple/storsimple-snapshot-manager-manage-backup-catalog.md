@@ -207,4 +207,4 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 
 Vea la información disponible [sobre tareas y flujos de trabajo de Administrador de instantáneas StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

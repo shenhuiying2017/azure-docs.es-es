@@ -57,7 +57,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
     * **-u**: el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
     * **-G**: indica que esta es una solicitud GET.
 
-    El comienzo del URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes.
+    El comienzo del URI, ****https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes.
 
 2. Para enviar un trabajo de MapReduce, utilice lo siguiente:
 
@@ -84,7 +84,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
     > [AZURE.NOTE]Esta solicitud de Curl devuelve un documento JSON con información acerca del trabajo; jq se usa para recuperar solo el valor de estado.
 
-4. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento de blobs de Azure. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida; en este caso, **wasb:///example/curl**. Esta dirección almacena la salida del trabajo en el directorio **example/curl** en el contenedor de almacenamiento predeterminado que su clúster de HDInsight usa.
+4. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento de blobs de Azure. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida; en este caso,****wasb:///example/curl**. Esta dirección almacena la salida del trabajo en el directorio **example/curl** en el contenedor de almacenamiento predeterminado que su clúster de HDInsight usa.
 
 Puede enumerar y descargar estos archivos mediante el [CLI de Azure para Mac, Linux y Windows](../xplat-cli.md). Por ejemplo, para enumerar los archivos existentes en **example/curl**, use el siguiente comando:
 
@@ -94,7 +94,7 @@ Para descargar un archivo, use lo siguiente:
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k` o bien, definir las variables de entorno **AZURE_STORAGE_ACCOUNT** y **AZURE_STORAGE_ACCESS_KEY**. Consulte la sección acerca de [cómo cargar datos en HDInsight](hdinsight-upload-data.md) para obtener más información.
+> [AZURE.NOTE]Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k` o bien, definir las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**. Consulte la sección acerca de [cómo cargar datos en HDInsight](hdinsight-upload-data.md) para obtener más información.
 
 ##<a id="summary"></a>Resumen
 
@@ -114,4 +114,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

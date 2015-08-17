@@ -56,4 +56,4 @@ Use las siguientes instrucciones para desarrollar aplicaciones para RemoteApp.
 - Para optimizar el rendimiento, resulta conveniente [detectar](https://msdn.microsoft.com/library/aa380798.aspx) si las aplicaciones se ejecutan en una sesión de cliente. 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

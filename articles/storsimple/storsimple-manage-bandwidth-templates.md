@@ -176,4 +176,4 @@ Siga estas prácticas recomendadas para el dispositivo StorSimple:
 
 Obtenga más información sobre los [Componentes de StorSimple](storsimple-components.md).
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

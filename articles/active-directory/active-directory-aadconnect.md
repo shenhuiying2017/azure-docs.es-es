@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/13/2015" 
 	ms.author="billmath"/>
 
@@ -149,7 +149,8 @@ Configuración rápida es la opción predeterminada que se selecciona y es uno d
 8. Una vez completada la instalación, haga clic en **Salir**.
 
 
-<br> <br>
+
+
 
 Para ver un vídeo sobre el uso de la instalación exprés, consulte lo siguiente:
 
@@ -184,7 +185,7 @@ Ahora que los usuarios se han sincronizado a la nube, debe asignarlos una licenc
 2. En la parte izquierda, seleccione **Active Directory**.
 3. En la página Active Directory, haga doble clic en el directorio que tiene los usuarios que desea habilitar.
 4. En la parte superior de la página de directorios, seleccione **Licencias**.
-5. En la página Licencias, seleccione Active Directory Premium o Enterprise Mobility Suite y, a continuación, haga clic en **Asignar**.
+5. En la página Licencias, seleccione Active Directory Premium o Enterprise Mobility Suite y luego haga clic en **Asignar**.
 6. En el cuadro de diálogo, seleccione los usuarios a los que desee asignar las licencias y, a continuación, haga clic en el icono de marca de verificación para guardar los cambios.
 
 
@@ -247,7 +248,7 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md): supervise el estado de su infraestructura de AD FS local.
 
-[P+F de Azure D Connect](active-directory-aadconnect-faq.md): preguntas más frecuentes sobre Azure AD Connect.
+[Preguntas más frecuentes sobre Azure AD Connect](active-directory-aadconnect-faq.md): preguntas más frecuentes relacionadas con Azure AD Connect.
 
 
 
@@ -256,4 +257,4 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -103,4 +103,4 @@ También se puede canalizar el objeto de la zona en lugar de pasarlo como parám
 
 [Automatización de operaciones de Azure con el SDK de .NET](../dns-sdk)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -47,10 +47,7 @@ var d = new DateTime.Now; return (d.Minute > 15) && (d.Minute < 30);
 
 Del mismo modo, puede proporcionar la acción que desea ejecutar.
 
-Las entradas para la acción son: 
-- **Expresión de C#**: una expresión que se evaluará. Debe incluir la instrucción de `return` para obtener cualquier contenido. 
-- **Objetos de contexto**: un objeto de contexto opcional que se puede pasar al desencadenador. Puede definir todas las propiedades que desee, pero la base debe ser un objeto JObject `{ ... }`, y puede hacerse referencia a los objetos en el script a través del nombre clave (el valor se pasa como a JToken correspondiente al nombre).
-- **Bibliotecas**: una matriz opcional de archivos .dll que incluir en la compilación del script. La matriz usa la siguiente estructura y funciona mejor junto a un conector de almacenamiento de blobs con el .dll como resultado:
+Las entradas para la acción son: - **Expresión de C#**: una expresión que se evaluará. Debe incluir la instrucción de `return` para obtener cualquier contenido. -**Objetos de contexto**: un objeto de contexto opcional que se puede pasar al desencadenador. Puede definir todas las propiedades que desee, pero la base debe ser un objeto JObject `{ ... }`, y puede hacerse referencia a los objetos en el script a través del nombre clave (el valor se pasa como a JToken correspondiente al nombre). - **Bibliotecas**: una matriz opcional de archivos .dll que incluir en la compilación del script. La matriz usa la siguiente estructura y funciona mejor junto a un conector de almacenamiento de blobs con el .dll como resultado:
 
 ```javascript
 [{"filename": "name.dll", "assembly": {Base64StringFromConnector}, "usingstatment": "using Library.Reference;"}]
@@ -108,4 +105,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

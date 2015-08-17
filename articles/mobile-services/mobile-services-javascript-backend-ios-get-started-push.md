@@ -119,4 +119,4 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

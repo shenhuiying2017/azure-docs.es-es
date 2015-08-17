@@ -111,4 +111,4 @@ El Portal de administración de Azure no admite actualmente la posibilidad de pu
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

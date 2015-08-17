@@ -64,9 +64,9 @@ En esta sección utilizará Git para implementar un archivo de script compartido
 Si no está familiarizado con la implementación de scripts en el servicio móvil con Git, revise el tutorial [Almacenamiento de scripts de servidor] antes de completar esta sección.
 
 1. Cree un nuevo archivo de script llamado *rbac.js* en el directorio *./service/shared/* del repositorio local para el servicio móvil.
-2. Agregue el siguiente script a la parte superior del archivo que define la función `getAADToken`. Dados los valores de *tenant_domain*, *client id* de la aplicación integrada y *key* de la aplicación, esta función proporciona un token de acceso a Graph que se usa para leer información de directorios.
+2. Agregue el siguiente script a la parte superior del archivo que define la función `getAADToken`. Dados los valores de *tenant\_domain*, *client id* de la aplicación integrada y *key* de la aplicación, esta función proporciona un token de acceso a Graph que se usa para leer información de directorios.
 
-    >[AZURE.NOTE]Debe almacenar en caché el token en lugar de crear uno nuevo con cada comprobación de acceso. A continuación, actualice la memoria caché cuando los intentos de uso del token arrojen una respuesta 401 Authentication_ExpiredToken como se indica en la [referencia de errores de la API Graph]. Esto no se muestra en el código siguiente por simplificar, pero paliará el tráfico extra de red para su instancia de Active Directory.
+    >[AZURE.NOTE]Debe almacenar en caché el token en lugar de crear uno nuevo con cada comprobación de acceso. A continuación, actualice la memoria caché cuando los intentos de uso del token arrojen una respuesta 401 Authentication\_ExpiredToken como se indica en la [referencia de errores de la API Graph]. Esto no se muestra en el código siguiente por simplificar, pero paliará el tráfico extra de red para su instancia de Active Directory.
 
         var appSettings = require('mobileservice-config').appSettings;
         var tenant_domain = appSettings.AAD_TENANT_DOMAIN;
@@ -285,4 +285,4 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Acceso a información de Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

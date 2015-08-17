@@ -1,8 +1,6 @@
 <properties 
 	pageTitle="Cálculo de las opciones de hospedaje proporcionadas por Azure" 
 	description="Obtenga información sobre la forma en que Azure hospeda las opciones y cómo funcionan: Máquinas virtuales, Sitios web y Servicios en la nube, entre otros" 
-	headerExpose="" 
-	footerExpose="" 
 	services="cloud-services,virtual-machines"
 	authors="Thraka" 
 	documentationCenter=""
@@ -78,4 +76,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * Más información sobre [Servicio en la nube](services/cloud-services/)
 * Más información sobre [Máquinas virtuales](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

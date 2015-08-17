@@ -128,7 +128,7 @@ Una vez instalado el proveedor, siga con la instalación para registrar el servi
 
 5. En **Conexión a Internet**, especifique cómo se conecta a Internet el proveedor que se ejecuta en el servidor VMM. Seleccione *Utilizar la configuración proxy del sistema predeterminado* para usar la configuración predeterminada de conexión a Internet establecida en el servidor.
 
-	![Configuración de Internet](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png): si desea utilizar un proxy personalizado, debe configurarlo antes de instalar el proveedor. Al configurar las opciones del proxy personalizado, se ejecuta una prueba para comprobar la conexión del proxy. - Si utiliza a un proxy personalizado o el proxy predeterminado requiere autenticación, tendrá que especificar los detalles del proxy, incluida la dirección y el puerto del proxy. - Debe poder obtener acceso a las siguientes direcciones URL desde los hosts de Hyper-v y del servidor VMM - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita las direcciones IP descritas en [Intervalos de direcciones IP del centro de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
+	![Configuración de Internet](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png): si desea utilizar un proxy personalizado, debe configurarlo antes de instalar el proveedor. Al configurar las opciones del proxy personalizado, se ejecuta una prueba para comprobar la conexión del proxy. (Si usa un proxy personalizado o el proxy predeterminado requiere autenticación, tendrá que especificar los detalles del proxy, incluida la dirección y el puerto del mismo). Debe poder obtener acceso a las siguientes direcciones URL desde los hosts de Hyper-v y del servidor VMM: *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita las direcciones IP descritas en [Intervalos de direcciones IP del centro de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
 	- Si utiliza un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) mediante el uso automático de las credenciales de proxy especificadas. Configure el servidor proxy para que esta cuenta pueda autenticarse correctamente. La configuración de la cuenta de ejecución de VMM puede modificarse en la consola VMM. Para ello, abra el área de trabajo Configuración, expanda Seguridad, haga clic en Cuentas de ejecución y, a continuación, modifique la contraseña de DRAProxyAccount. Deberá reiniciar el servicio VMM para que esta configuración surta efecto.
 
@@ -146,7 +146,7 @@ Una vez instalado el proveedor, siga con la instalación para registrar el servi
 
 	![Registro de servidor](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderSyncEncrypt.png)
 
-8. Haga clic en *Registrar* para finalizar el proceso. Después del registro, la Recuperación del sitio de Azure recupera los metadatos del servidor VMM. El servidor se mostrará en el extremo de la pestaña *Recursos* en la página **Servidores** del almacén.
+8. Haga clic en *Register* para finalizar el proceso. Después del registro, la Recuperación del sitio de Azure recupera los metadatos del servidor VMM. El servidor se mostrará en el extremo de la pestaña *Recursos* en la página **Servidores** del almacén.
 
 ## Paso 4: Creación de una cuenta de almacenamiento de Azure
 
@@ -168,7 +168,7 @@ Instale el agente de los Servicios de recuperación de Azure en cada servidor ho
 
 	![Prerequisites Recovery Services Agent](./media/site-recovery-vmm-to-azure/ASRE2AVMM_AgentPrereqs.png)
 
-4. En la página **Configuración de la instalación**, especifique dónde desea instalar el agente y seleccione la ubicación de la caché en la que se instalarán los metadatos de copia de seguridad. A continuación, haga clic en <b>Instalar</b>.
+4. En la página **Configuración de la instalación**, especifique dónde desea instalar el agente y seleccione la ubicación de la caché en la que se instalarán los metadatos de copia de seguridad. Luego haga clic en <b>Instalar</b>.
 
 ## Paso 6: Configuración de la protección de la nube
 
@@ -200,7 +200,7 @@ Antes de comenzar la asignación de red, compruebe que las máquinas virtuales e
 2. En la pestaña **Redes**, en **Ubicación de origen**, seleccione el servidor de VMM de origen. En **Ubicación de destino**, seleccione Azure.
 3. En **Red de origen** se muestra una lista de las redes de VMM asociadas al servidor de VMM. En **Red de destino** se muestran las redes de Azure asociadas a la suscripción.
 4. Seleccione la red de VM de origen y haga clic en **Asignar**.
-5. En la página **Seleccione una red de destino**, seleccione la red de Azure de destino que desea utilizar.
+5. En la página **Seleccione una red de destino**, seleccione la red de Azure de destino que desea usar.
 6. Haga clic en la marca de verificación para completar el proceso de asignación.
 
 	![Cloud replication settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_MapNetworks.png)
@@ -304,7 +304,7 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 	- Haga clic en **La conmutación por error de prueba se ha completado**. Limpie el entorno de prueba para apagar y eliminar automáticamente las máquinas virtuales de prueba.
 	- Haga clic en **Notas** para registrar y guardar las observaciones asociadas a la conmutación por error de prueba.
 
-## <a id="runtest" name="runtest" href="#runtest"></a>Supervisión de la actividad
+## <a id="runtest" name="runtest" href="#runtest"></a> Supervisión de la actividad
 <p>Puede usar la pestaña *Trabajos* y el *Panel* para ver y supervisar los principales trabajos que se realizan en el almacén de Azure Site Recovery, como la configuración de la protección para una nube, la habilitación y deshabilitación de la protección para una máquina virtual, la ejecución de una conmutación por error (planeada, no planeada o de prueba) y la realización de una conmutación por error no planeada.</p>
 
 <p>En la pestaña *Trabajos*, puede ver los trabajos, profundizar en los detalles y los errores del trabajo, ejecutar consultas del trabajos para recuperar aquellos que coincidan con criterios específicos, exportar trabajos a Excel y reiniciar los trabajos con errores.</p>
@@ -315,10 +315,10 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 
 ##<a id="next" name="next" href="#next"></a>Pasos siguientes
 <UL>
-<LI>Para planificar e implementar Azure Site Recovery en un entorno completo de producción, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guía de planeación de Azure Site Recovery</a> y la <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guía de implementación de Azure Site Recovery</a>.</LI>
+<LI>Para planear e implementar Azure Site Recovery en un entorno completo de producción, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guía de planeación de Azure Site Recovery</a> y la <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guía de implementación de Azure Site Recovery</a>.</LI>
 
 
 <LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

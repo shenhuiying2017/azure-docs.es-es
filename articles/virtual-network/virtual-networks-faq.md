@@ -23,4 +23,4 @@
 
 Para obtener las preguntas frecuentes más recientes sobre las VPN de redes virtuales, consulte las [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

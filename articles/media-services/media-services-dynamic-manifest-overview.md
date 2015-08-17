@@ -163,7 +163,7 @@ Además de la compatibilidad de anuncio, LiveBackoff se puede usar para ajustar 
 
 
 
-![livebackoff_filter][livebackoff_filter]
+![livebackoff\_filter][livebackoff_filter]
 
 
 ###Combinación de varias reglas en un filtro único
@@ -209,4 +209,4 @@ En el siguiente tema se describen las entidades de los Servicios multimedia que 
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -134,40 +134,12 @@ En el ejemplo siguiente se muestra un cuerpo de solicitud parcial correspondient
 
 A continuación, considere las solicitudes de CORS siguientes:
 
-<table>
-<tr>
-<td colspan=3><b>Solicitud</b></td>
-<td colspan=2><b>Respuesta</b></td>
-</tr>
-<tr>
-<td><b>Método</b></td>
-<td><b>Origen</b></td>
-<td><b>Encabezados de solicitud</b></td>
-<td><b>Coincidencia de regla</b></td>
-<td><b>Resultado</b></td>
-</tr>
-<tr>
-<td><b>PUT</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Primera regla</td>
-<td>Correcto</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Segunda regla</td>
-<td>Correcto</td>
-</tr>
-<tr>
-<td><b>GET</b></td>
-<td>http://www.contoso.com</td>
-<td>x-ms-blob-content-type</td>
-<td>Segunda regla</td>
-<td>Error</td>
-</tr>
-</table>
+Solicitud||| Response||
+---|---|---|---|---
+**Método** |**Origen** |**Encabezados de solicitud** |**Coincidencia de regla** |**Resultado**
+**PUT** | http://www.contoso.com |x-ms-blob-content-type | Primera regla |Correcto
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Segunda regla |Correcto
+**GET** | http://www.contoso.com| x-ms-blob-content-type | Segunda regla | Error
 
 La primera solicitud coincide con la primera regla: el dominio de origen coincide con los orígenes permitidos, el método coincide con los métodos permitidos y el encabezado coincide con los encabezados permitidos. Por tanto, es correcta.
 
@@ -179,7 +151,7 @@ La tercera solicitud coincide con la segunda regla en su dominio de origen y mé
 
 ## Descripción de cómo se establece el encabezado Vary
 
-El encabezado *Vary* es un encabezado HTTP/1.1 estándar que consta de un conjunto de campos de encabezado de solicitud que aconseja al explorador o al agente de usuario sobre los criterios seleccionados por el servidor para procesar la solicitud. El encabezado *Vary* se utiliza principalmente para el almacenamiento en memoria caché por parte de los servidores proxy, los exploradores y las redes CDN, que lo utilizan para determinar cómo se debe almacenar la respuesta en memoria caché. Para obtener información detallada, vea la especificación del [Encabezado Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+El encabezado *Vary* es un encabezado HTTP/1.1 estándar que consta de un conjunto de campos de encabezado de solicitud que aconseja al explorador o al agente de usuario sobre los criterios seleccionados por el servidor para procesar la solicitud. El encabezado *Vary* se usa principalmente para el almacenamiento en memoria caché por parte de los servidores proxy, los exploradores y las redes CDN, que lo usan para determinar cómo se debe almacenar la respuesta en memoria caché. Para obtener información detallada, vea la especificación del [Encabezado Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Cuando el explorador u otro agente de usuario almacena en memoria caché la respuesta de una solicitud de CORS, el dominio de origen se almacena en memoria caché como el origen permitido. Cuando un segundo dominio emite la misma solicitud para un recurso de almacenamiento mientras la memoria caché está activa, el agente de usuario recupera el dominio de origen de la memoria caché. El segundo dominio no coincide con el dominio almacenado en memoria caché, por lo que se produce un error en la solicitud cuando de lo contrario se realizaría correctamente. En algunos casos, Almacenamiento de Azure configura el encabezado Vary como **Origin** para indicar al agente de usuario que envíe la solicitud de CORS subsiguiente al servicio cuando el dominio de la solicitud sea distinto del origen almacenado en memoria caché.
 
@@ -195,85 +167,17 @@ Tenga en cuenta que para las solicitudes que utilizan otros métodos distintos d
 
 En la tabla siguiente se indica cómo responderá Almacenamiento de Azure a las solicitudes GET/HEAD según los casos mencionados anteriormente:
 
-<table>
-<tr>
-<td><b>Solicitud</b></td>
-<td colspan=3><b>Configuración de la cuenta y resultado de la evaluación de reglas</b></td>
-<td colspan=3><b>Respuesta</b></td>
-</tr>
-<tr>
-<td><b>Encabezado Origin presente en la solicitud</b></td>
-<td><b>Reglas de CORS especificadas para este servicio</b></td>
-<td><b>Existe una regla de coincidencia que permite todos los orígenes (*)</b></td>
-<td><b>Existe una regla de coincidencia para una coincidencia exacta del origen</b></td>
-<td><b>La respuesta incluye el encabezado Vary establecido en Origin</b></td>
-<td><b>La respuesta incluye Access-Control-Allowed-Origin: "*"</b></td>
-<td><b>La respuesta incluye Access-Control-Exposed-Headers</b></td>
-</tr>
-<tr>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>No</td>
-<td>Sí</td>
-<td>No</td>
-<td>No</td>
-<td>Sí</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>No</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>No</td>
-<td>No</td>
-<td>Sí</td>
-<td>Sí</td>
-</tr>
-<tr>
-<td>Sí</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Sí</td>
-<td>Sí</td>
-<td>No</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>No</td>
-<td>Sí</td>
-</tr>
-<tr>
-<td>Sí</td>
-<td>Sí</td>
-<td>No</td>
-<td>No</td>
-<td>Sí</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Sí</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>No</td>
-<td>No</td>
-<td>Sí</td>
-<td>Sí</td>
-</tr>
-</table>
+Solicitud|Configuración de la cuenta y resultado de la evaluación de reglas|||Response|||
+---|---|---|---|---|---|---|---|---
+**Encabezado Origin presente en la solicitud** | **Reglas de CORS especificadas para este servicio** | **Existe una regla de coincidencia que permite todos los orígenes (*)** | **Existe una regla de coincidencia para una coincidencia exacta del origen** | **La respuesta incluye el encabezado Vary establecido en Origin** | **La respuesta incluye Access-Control-Allowed-Origin: "*"** | **La respuesta incluye Access-Control-Exposed-Headers**
+No|No|No|No|No|No|No
+No|Sí|No|No|Sí|No|No
+No|Sí|Sí|No|No|Sí|Sí
+Sí|No|No|No|No|No|No
+Sí|Sí|No|Sí|Sí|No|Sí
+Sí|Sí|No|No|Sí|No|No
+Sí|Sí|Sí|No|No|Sí|Sí
+
 
 ## Facturación de las solicitudes de CORS
 
@@ -292,4 +196,4 @@ Las solicitudes preparatorias erróneas no se cargan en cuenta.
 [Especificación de uso compartido de recursos entre orígenes de W3C](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

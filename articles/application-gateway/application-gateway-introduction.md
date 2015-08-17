@@ -59,4 +59,4 @@ Creación de una puerta de enlace de aplicaciones. Consulte [Creación de una pu
 
 Configuración de la descarga SSL. Consulte [Configuración de la descarga SSL con Puerta de enlace de aplicaciones](application-gateway-ssl.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

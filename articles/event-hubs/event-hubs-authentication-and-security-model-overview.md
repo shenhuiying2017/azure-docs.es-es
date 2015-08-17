@@ -140,4 +140,4 @@ Para obtener más información sobre los Centros de eventos, visite los siguient
 [solución de mensajería en cola]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

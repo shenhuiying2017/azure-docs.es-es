@@ -80,9 +80,9 @@ Para obtener más información acerca de las suscripciones de Azure, consulte [A
 
     - **<container_name>**Use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
 
-    - **<image_to_upload>** Escriba una ruta de acceso a una imagen del equipo local, como: "~/images/HelloWorld.png".
+    - **<image_to_upload>** Escriba una ruta de acceso a una imagen del equipo local, como: "\~/images/HelloWorld.png".
 
-    - **<destination_folder>** Escriba una ruta de acceso a un directorio local para almacenar los archivos descargados de Almacenamiento de Azure, como por ejemplo: “~/downloadImages”.
+    - **<destination_folder>** Escriba una ruta de acceso a un directorio local para almacenar los archivos descargados de Almacenamiento de Azure, como por ejemplo: “\~/downloadImages”.
 
 7. Después de haber actualizado las variables necesarias en vim, presione las combinaciones de teclas "Esc,:, wq!" para guardar el script.
 
@@ -189,7 +189,7 @@ Tenga en cuenta que la ruta de acceso al directorio puede incluir varios niveles
 
 ### Carga de un archivo local a un directorio
 
-El siguiente ejemplo carga un archivo de **~/temp/samplefile.txt** en el directorio **myDir**. Edite la ruta de acceso al archivo de forma que apunte a un archivo válido situado en la máquina local:
+El siguiente ejemplo carga un archivo de **\~/temp/samplefile.txt** en el directorio **myDir**. Edite la ruta de acceso al archivo de forma que apunte a un archivo válido situado en la máquina local:
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -214,4 +214,4 @@ A continuación encontrará algunos artículos relacionados y recursos para obte
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

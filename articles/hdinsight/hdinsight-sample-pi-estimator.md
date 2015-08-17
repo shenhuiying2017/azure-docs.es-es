@@ -474,4 +474,4 @@ Para ver tutoriales que describen la ejecución de otras muestras y ofrecen inst
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

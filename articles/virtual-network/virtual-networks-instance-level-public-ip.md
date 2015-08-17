@@ -26,8 +26,8 @@ Como se muestra en la Ilustración 1, al servicio en la nube se accede mediante 
 
 Cuando se crea un servicio en la nube en Azure, los registros de DNS A correspondientes se crean automáticamente para permitir el acceso al servicio mediante un nombre de dominio completo (FQDN) en lugar de usar la VIP real. Se produce el mismo proceso para la ILPIP, lo que permite el acceso a la máquina virtual o instancia de rol mediante el FQDN en lugar de la ILPIP. Por ejemplo, si crea un servicio en la nube denominado *contosoadservice* y configura un rol web denominado *contosoweb* con dos instancias, Azure registrará los siguientes registros A para las instancias:
 
-- contosoweb_IN_0.contosoadservice.cloudapp.net
-- contosoweb_IN_1.contosoadservice.cloudapp.net 
+- contosoweb\_IN\_0.contosoadservice.cloudapp.net
+- contosoweb\_IN\_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE]Solo puede asignar una ILPIP para cada máquina virtual o instancia de rol. Puede usar hasta 5 ILPIP por suscripción. Por ahora, no se admiten ILPIP para máquinas virtuales con varias NIC.
 
@@ -125,4 +125,4 @@ También puede asociar una ILPIP a una máquina virtual mediante un archivo de c
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

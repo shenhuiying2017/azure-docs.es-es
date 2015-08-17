@@ -46,17 +46,17 @@ Compile y ejecute la aplicación. Arrancará el administrador de mapas de partic
 
 Tenga en cuenta que como todavía no se ha habilitado RLS en las bases de datos de la partición, cada una de estas pruebas revela un problema: los inquilinos pueden consultar los blogs que no pertenecen a ellos y la aplicación no impide insertar un blog del inquilino incorrecto. El resto de este artículo describe cómo resolver estos problemas mediante la imposición de aislamiento de inquilinos con RLS. Hay dos pasos:
 
-1. **Capa de aplicación**: modifique el código de aplicación para establecer siempre CONTEXT_INFO en el TenantId actual después de abrir una conexión. El proyecto de ejemplo ya lo ha hecho. 
-2. **Capa de datos**: cree una directiva de seguridad RLS en cada base de datos de partición para filtrar las filas en función del valor de CONTEXT_INFO. Deberá hacerlo para cada una de las bases de datos de la partición; en caso contrario, no se filtrarán las filas en las particiones de varios inquilinos. 
+1. **Capa de aplicación**: modifique el código de aplicación para establecer siempre CONTEXT\_INFO en el TenantId actual después de abrir una conexión. El proyecto de ejemplo ya lo ha hecho. 
+2. **Capa de datos**: cree una directiva de seguridad RLS en cada base de datos de partición para filtrar las filas en función del valor de CONTEXT\_INFO. Deberá hacerlo para cada una de las bases de datos de la partición; en caso contrario, no se filtrarán las filas en las particiones de varios inquilinos. 
 
 
-## Paso 1) Capa de la aplicación: establezca CONTEXT_INFO en TenantId
+## Paso 1) Capa de la aplicación: establezca CONTEXT\_INFO en TenantId
 
-Después de conectarse a una base de datos de partición mediante la API de enrutamiento dependiente de datos de la biblioteca cliente de la base de datos elástica, la aplicación todavía necesita indicar a la base de datos el TenantId que utiliza esa conexión para que una directiva de seguridad RLS puede filtrar las filas que pertenecen a otros inquilinos. El método recomendado para pasar esta información es establecer [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125) en el TenantId actual para esa conexión. Tenga en cuenta que en Base de datos SQL de Azure, CONTEXT_INFO se rellena previamente con un GUID específico para cada sesión, por lo que *debe* definir CONTEXT_INFO en el TenantId correcto antes de ejecutar cualquier consulta en una conexión nueva para asegurarse de que ninguna fila tenga pérdidas inadvertidas.
+Después de conectarse a una base de datos de partición mediante la API de enrutamiento dependiente de datos de la biblioteca cliente de la base de datos elástica, la aplicación todavía necesita indicar a la base de datos el TenantId que utiliza esa conexión para que una directiva de seguridad RLS puede filtrar las filas que pertenecen a otros inquilinos. El método recomendado para pasar esta información es establecer [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125) en el TenantId actual para esa conexión. Tenga en cuenta que en Base de datos SQL de Azure, CONTEXT\_INFO se rellena previamente con un GUID específico para cada sesión, por lo que *debe* definir CONTEXT\_INFO en el TenantId correcto antes de ejecutar cualquier consulta en una conexión nueva para asegurarse de que ninguna fila tenga pérdidas inadvertidas.
 
 ### Entity Framework
 
-Para las aplicaciones que utilizan Entity Framework, el enfoque más sencillo es establecer CONTEXT_INFO dentro de la invalidación de ElasticScaleContext descrita en [Enrutamiento dependiente de datos con EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Antes de devolver la conexión de intermediación a través de enrutamiento dependiente de datos, solo tiene que crear y ejecutar un SqlCommand que establece CONTEXT_INFO en shardingKey (TenantId) especificado para esa conexión. De este modo, solo deberá escribir el código una vez para establecer CONTEXT_INFO.
+Para las aplicaciones que utilizan Entity Framework, el enfoque más sencillo es establecer CONTEXT\_INFO dentro de la invalidación de ElasticScaleContext descrita en [Enrutamiento dependiente de datos con EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Antes de devolver la conexión de intermediación a través de enrutamiento dependiente de datos, solo tiene que crear y ejecutar un SqlCommand que establece CONTEXT\_INFO en shardingKey (TenantId) especificado para esa conexión. De este modo, solo deberá escribir el código una vez para establecer CONTEXT\_INFO.
 
 ```
 // ElasticScaleContext.cs 
@@ -102,7 +102,7 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-Ahora CONTEXT_INFO se establece automáticamente en el TenantId especificado cada vez que se invoca ElasticScaleContext:
+Ahora CONTEXT\_INFO se establece automáticamente en el TenantId especificado cada vez que se invoca ElasticScaleContext:
 
 ```
 // Program.cs 
@@ -125,7 +125,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### SqlClient de ADO.NET 
 
-Para aplicaciones que utilizan SqlClient de ADO.NET, el enfoque recomendado es crear una función de contenedor alrededor de ShardMap.OpenConnectionForKey() que defina automáticamente CONTEXT_INFO en el TenantId antes de devolver una conexión. Para asegurarse de que CONTEXT_INFO siempre está correctamente definido, debe abrir conexiones únicamente con esta función de contenedor.
+Para aplicaciones que utilizan SqlClient de ADO.NET, el enfoque recomendado es crear una función de contenedor alrededor de ShardMap.OpenConnectionForKey() que defina automáticamente CONTEXT\_INFO en el TenantId antes de devolver una conexión. Para asegurarse de que CONTEXT\_INFO siempre está correctamente definido, debe abrir conexiones únicamente con esta función de contenedor.
 
 ```
 // Program.cs
@@ -187,9 +187,9 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### Cree una directiva de seguridad para filtrar la selección, actualización y eliminación de consultas 
 
-Ahora que la aplicación está utilizando CONTEXT_INFO para el TenantId actual antes de consultar, una directiva de seguridad RLS puede filtrar las consultas y excluir las filas que tienen un TenantId diferente.
+Ahora que la aplicación está utilizando CONTEXT\_INFO para el TenantId actual antes de consultar, una directiva de seguridad RLS puede filtrar las consultas y excluir las filas que tienen un TenantId diferente.
 
-RLS se implementa en T-SQL: una función de predicado definido por el usuario define la lógica de filtrado y una directiva de seguridad enlaza esta función a cualquier número de tablas. Para este proyecto, la función de predicado simplemente comprueba que la aplicación (en lugar de otro usuario de SQL) está conectada a la base de datos y que el valor de CONTEXT_INFO coincide con el TenantId de una fila determinada. Las filas que cumplen estas condiciones se permiten a través del filtro para seleccionar o actualizar y eliminar consultas. Si no se ha establecido CONTEXT_INFO, no se devolverá ninguna fila.
+RLS se implementa en T-SQL: una función de predicado definido por el usuario define la lógica de filtrado y una directiva de seguridad enlaza esta función a cualquier número de tablas. Para este proyecto, la función de predicado simplemente comprueba que la aplicación (en lugar de otro usuario de SQL) está conectada a la base de datos y que el valor de CONTEXT\_INFO coincide con el TenantId de una fila determinada. Las filas que cumplen estas condiciones se permiten a través del filtro para seleccionar o actualizar y eliminar consultas. Si no se ha establecido CONTEXT\_INFO, no se devolverá ninguna fila.
 
 Para habilitar RLS, ejecute la siguiente instrucción T-SQL en todas las particiones con Visual Studio (SSDT), SSMS o el script de PowerShell incluido en el proyecto (o si está usando los [trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md), se pueden usar para automatizar la ejecución de este código T-SQL en todas las particiones):
 
@@ -261,7 +261,7 @@ Ahora que la aplicación no puede insertar las filas que pertenecen a los inquil
 
 ### Adición de restricciones DEFAULT para rellenar automáticamente el TenantId para las inserciones 
 
-Además de utilizar las restricciones CHECK para bloquear inserciones de inquilinos incorrectos, puede colocar una restricción DEFAULT en cada tabla para rellenar automáticamente el TenantId con el valor actual de CONTEXT_INFO al insertar filas. Por ejemplo:
+Además de utilizar las restricciones CHECK para bloquear inserciones de inquilinos incorrectos, puede colocar una restricción DEFAULT en cada tabla para rellenar automáticamente el TenantId con el valor actual de CONTEXT\_INFO al insertar filas. Por ejemplo:
 
 ```
 -- Create default constraints to auto-populate TenantId with the value of CONTEXT_INFO for inserts 
@@ -290,7 +290,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Si utiliza las restricciones DEFAULT para un proyecto de Entity Framework, se recomienda que NO incluyen la columna de TenantId en el modelo de datos EF. Esto es porque las consultas de Entity Framework proporcionan automáticamente los valores predeterminados que invalidarán las restricciones DEFAULT creadas en T-SQL que usan CONTEXT_INFO. Para utilizar las restricciones DEFAULT en el proyecto de ejemplo, por ejemplo, debe quitar el TenantId de DataClasses.cs (y ejecutar Add-Migration en la consola de administrador de paquetes) y usar T-SQL para asegurarse de que el campo solo existe en las tablas de base de datos. De este modo, EF no proporcionará automáticamente los valores predeterminados incorrectos al insertar datos.
+> [AZURE.NOTE]Si utiliza las restricciones DEFAULT para un proyecto de Entity Framework, se recomienda que NO incluyen la columna de TenantId en el modelo de datos EF. Esto es porque las consultas de Entity Framework proporcionan automáticamente los valores predeterminados que invalidarán las restricciones DEFAULT creadas en T-SQL que usan CONTEXT\_INFO. Para utilizar las restricciones DEFAULT en el proyecto de ejemplo, por ejemplo, debe quitar el TenantId de DataClasses.cs (y ejecutar Add-Migration en la consola de administrador de paquetes) y usar T-SQL para asegurarse de que el campo solo existe en las tablas de base de datos. De este modo, EF no proporcionará automáticamente los valores predeterminados incorrectos al insertar datos.
 
 ### (Opcional) Habilitar un "superusuario" para tener acceso a todas las filas
 Es posible que algunas aplicaciones deseen crear un "superusuario" que puede tener acceso a todas las filas; por ejemplo, para habilitar los informes en todos los inquilinos de todas las particiones, o bien para realizar operaciones de división y combinación en particiones que implican el desplazamiento de filas de inquilinos entre las bases de datos. Para habilitar esto, debe crear un nuevo usuario de SQL ("superusuario" en este ejemplo) en la base de datos de cada partición. Luego modifique la directiva de seguridad con una nueva función de predicado que permita al usuario tener acceso a todas las filas:
@@ -339,4 +339,4 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -49,4 +49,4 @@ La versión del servidor Redis de la nueva caché.
       "defaultValue": "2.8"
     }
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

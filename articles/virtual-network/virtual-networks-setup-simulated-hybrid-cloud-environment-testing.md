@@ -79,7 +79,7 @@ En primer lugar, cree una nueva red virtual denominada TestVNET.
 
 A continuación, siga las instrucciones en [Cómo instalar y configurar Azure PowerShell para instalar Azure PowerShell en el equipo local](../install-configure-powershell.md).
 
-A continuación, cree un nuevo servicio en la nube para la red virtual TestVNET. Debe elegir un nombre único. Por ejemplo, podría asignarle el nombre **TestVNET-***UniqueSequence*, en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría denominar al servicio en la nube **TestVNET-Tailspin**.
+A continuación, cree un nuevo servicio en la nube para la red virtual TestVNET. Debe elegir un nombre único. Por ejemplo, podría asignarle el nombre **TestVNET-***UniqueSequence*, en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría llamar al servicio en la nube **TestVNET-Tailspin**.
 
 Puede comprobar que el nombre sea único con este comando de Azure PowerShell en el equipo local.
 
@@ -98,12 +98,12 @@ Esta es su configuración actual.
 En primer lugar, cree redes locales que representan el espacio de direcciones de cada red virtual.
 
 1.	En el Portal de administración de Azure en el equipo local, haga clic en **Nuevo > Servicios de red > Red virtual > Agregar red local**.
-2.	En la página Especificación de detalles de la red local, introduzca **TestLabLNet** en **Nombre**, introduzca **131.107.0.1** en **Dirección IP del dispositivo VPN** y, a continuación, haga clic en la flecha derecha.
-3.	En la página Especificación del espacio de direcciones de la página, en **Dirección IP** inicial, introduzca **10.0.0.0**.
+2.	En la página Especificación de detalles de la red local, escriba **TestLabLNet** en **Nombre**, escriba **131.107.0.1** en **Dirección IP del dispositivo VPN** y, a continuación, haga clic en la flecha derecha.
+3.	En la página Especificación del espacio de direcciones de la página, en **Dirección IP** inicial, escriba **10.0.0.0**.
 4.	En **CIDR (recuento de direcciones)**, seleccione **/24 (256)** y haga clic en la marca de verificación.
 5.	Haga clic en **Nuevo > Servicios de red > Red virtual > Agregar red local**.
-6.	En la página Especificación de detalles de la red local, introduzca **TestVNETLNet** en **Nombre**, introduzca **131.107.0.2** en **Dirección IP del dispositivo VPN** y, a continuación, haga clic en la flecha derecha.
-7.	En la página Especificación del espacio de direcciones, en **IP de inicio**, escriba **192.168.0.0**.
+6.	En la página Especificación de detalles de la red local, escriba **TestVNETLNet** en **Nombre**, escriba **131.107.0.2** en **Dirección IP del dispositivo VPN** y, a continuación, haga clic en la flecha derecha.
+7.	En la página Especificación del espacio de direcciones de la página, en **Dirección IP** inicial, escriba **192.168.0.0**.
 8.	En **CIDR (recuento de direcciones)**, seleccione **/24 (256)** y haga clic en la marca de verificación.
 
 Tenga en cuenta que las direcciones IP del dispositivo VPN de 131.107.0.1 y 131.107.0.2 son valores de marcador de posición temporales hasta que configure las puertas de enlace de las dos redes virtuales.
@@ -133,10 +133,10 @@ A continuación, configure las redes locales TestLabLNet y TestVNETLNet con las 
 
 1.	Desde el Portal de administración de Azure, en la página Redes, haga clic en **Redes locales**. 
 2.	Haga clic en **TestLabLNet** y, a continuación, haga clic en **Editar** en la barra de tareas.
-3.	En la página Especificación de los detalles de la red local, introduzca la dirección IP de la puerta de enlace de red virtual de la red virtual de TestLab (del paso 3 del procedimiento anterior) en **Dirección IP del dispositivo VPN (opcional)** y, a continuación, haga clic en la flecha derecha.
+3.	En la página Especificación de los detalles de la red local, escriba la dirección IP de la puerta de enlace de red virtual de la red virtual de TestLab (del paso 3 del procedimiento anterior) en **Dirección IP del dispositivo VPN (opcional)** y, a continuación, haga clic en la flecha derecha.
 4.	En la página Especificación del espacio de direcciones, haga clic en la marca de verificación.
 5.	En la página Redes locales, haga clic en **TestVNETLNet** y, a continuación, haga clic en **Editar** en la barra de tareas.
-6.	En la página Especificación de los detalles de la red local, introduzca la dirección IP de la puerta de enlace de red virtual de la red virtual de TestVNET (del paso 7 del procedimiento anterior) en **Dirección IP del dispositivo VPN (opcional)** y, a continuación, haga clic en la flecha derecha.
+6.	En la página Especificación de los detalles de la red local, escriba la dirección IP de la puerta de enlace de red virtual de la red virtual de TestVNET (del paso 7 del procedimiento anterior) en **Dirección IP del dispositivo VPN (opcional)** y, a continuación, haga clic en la flecha derecha.
 7.	En la página Especificación del espacio de direcciones, haga clic en la marca de verificación.
 
 A continuación, configure la clave previamente compartida para que ambas puertas de enlace usen el mismo valor, que es el valor de clave que se determina mediante el Portal de administración de Azure de la red virtual de TestLab. Ejecute estos comandos desde un símbolo del sistema de Azure PowerShell en el equipo local e introduzca el valor de la clave previamente compartida de TestLab.
@@ -171,7 +171,7 @@ A continuación, inicie sesión en la nueva máquina virtual de DC2.
 3.	Cuando se le pida que abra DC2.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
-- Nombre: **DC2**[Nombre de la cuenta del administrador local]
+- Nombre: **DC2\**[Nombre de la cuenta del administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -259,10 +259,10 @@ A continuación, configure las redes locales TestLabLNet y TestVNETLNet con las 
 
 1.	Desde el Portal de administración de Azure, en la página Redes, haga clic en **Redes locales**. 
 2.	Haga clic en **TestLabLNet** y, a continuación, haga clic en **Editar** en la barra de tareas.
-3.	En la página Especificación de los detalles de la red local, introduzca la dirección IP de la puerta de enlace de red virtual de la red virtual de TestLab (del paso 3 del procedimiento anterior) en **Dirección IP del dispositivo VPN (opcional)** y, a continuación, haga clic en la flecha derecha.
+3.	En la página Especificación de los detalles de la red local, escriba la dirección IP de la puerta de enlace de red virtual de la red virtual de TestLab (del paso 3 del procedimiento anterior) en **Dirección IP del dispositivo VPN (opcional)** y, a continuación, haga clic en la flecha derecha.
 4.	En la página Especificación del espacio de direcciones, haga clic en la marca de verificación.
 5.	En la página Redes locales, haga clic en **TestVNETLNet** y, a continuación, haga clic en **Editar** en la barra de tareas.
-6.	En la página Especificación de los detalles de la red local, introduzca la dirección IP de la puerta de enlace de red virtual de la red virtual de TestVNET (del paso 7 del procedimiento anterior) en **Dirección IP del dispositivo VPN (opcional)** y, a continuación, haga clic en la flecha derecha.
+6.	En la página Especificación de los detalles de la red local, escriba la dirección IP de la puerta de enlace de red virtual de la red virtual de TestVNET (del paso 7 del procedimiento anterior) en **Dirección IP del dispositivo VPN (opcional)** y, a continuación, haga clic en la flecha derecha.
 7.	En la página Especificación del espacio de direcciones, haga clic en la marca de verificación.
 
 A continuación, configure la clave previamente compartida para que ambas puertas de enlace usen el mismo valor, que es el valor de clave que se determina mediante el Portal de administración de Azure de la red virtual de TestLab. Ejecute estos comandos desde un símbolo del sistema de Azure PowerShell en el equipo local e introduzca el valor de la clave previamente compartida de TestLab.
@@ -273,4 +273,4 @@ A continuación, configure la clave previamente compartida para que ambas puerta
 A continuación, en la página Red del Portal de administración de Azure, haga clic en la red virtual **TestLab** y, a continuación, haga clic en **Conectar** en la barra de tareas. Espere hasta que la red virtual TestLab muestre un estado conectado a la red local TestVNET.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

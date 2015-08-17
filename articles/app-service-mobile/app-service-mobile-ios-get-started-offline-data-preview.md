@@ -114,18 +114,18 @@ Esta sección le guía a través del código relacionado con la sincronización 
 Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y campos determinados en el modelo de datos. La aplicación de ejemplo ya incluye un modelo de datos con el formato correcto. En esta sección se le guiará a través de estas tablas y el modo de utilizarlas.
 
 - Abra **QSDataModel.xcdatamodeld**. Hay cuatro tablas definidas: tres que utiliza el SDK y una para los propios elementos de la lista de tareas:
-      * MS_TableOperations: para realizar el seguimiento de los elementos que deben sincronizarse con el servidor
-      * MS_TableOperationErrors: para realizar el seguimiento de los errores que se producen durante la sincronización sin conexión
-      * MS_TableConfig: para realizar el seguimiento de la hora de la última actualización de la última operación de sincronización para todas las operaciones de extracción
-      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema**ms_createdAt**, **ms_updatedAt** y **ms_version** son propiedades del sistema opcionales.
+      * MS\_TableOperations: para realizar el seguimiento de los elementos que deben sincronizarse con el servidor
+      * MS\_TableOperationErrors: para realizar el seguimiento de los errores que se producen durante la sincronización sin conexión
+      * MS\_TableConfig: para realizar el seguimiento de la hora de la última actualización de la última operación de sincronización para todas las operaciones de extracción
+      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema**ms\_createdAt**, **ms\_updatedAt** y **ms\_version** son propiedades del sistema opcionales.
 
->[AZURE.NOTE]El SDK de Aplicaciones móviles reserva los nombres de columna que contienen **`ms_`**". No debe utilizar este prefijo en otra cosa que no sean las columnas del sistema; en caso contrario, se modificarán los nombres de columna cuando se use el back-end remoto.
+>[AZURE.NOTE]El SDK de Aplicaciones móviles reserva los nombres de columna que comienzan con "**`ms_`**". No debe utilizar este prefijo en otra cosa que no sean las columnas del sistema; en caso contrario, se modificarán los nombres de columna cuando se use el back-end remoto.
 
 - Al utilizar la característica de sincronización sin conexión, debe definir las tablas del sistema, tal como se muestra a continuación.
 
     ### Tablas del sistema
 
-    **MS_TableOperations**
+    **MS\_TableOperations**
 
     ![][defining-core-data-tableoperations-entity]
 
@@ -137,7 +137,7 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | table | Cadena |
     | tableKind | Integer 16 |
 
-    <br>**MS_TableOperationErrors**
+    <br>**MS\_TableOperationErrors**
 
     ![][defining-core-data-tableoperationerrors-entity]
 
@@ -148,7 +148,7 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | propiedades | Binary Data |
     | tableKind | Integer 16 |
 
-    <br>**MS_TableConfig**
+    <br>**MS\_TableConfig**
 
     ![][defining-core-data-tableconfig-entity]
 
@@ -172,7 +172,7 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | id | Cadena | primary key in remote store |
     | complete | Booleano | todo item field |
     | text | Cadena | todo item field |
-    | ms_createdAt | Date | (opcional) maps to __createdAt system property | | ms_updatedAt | Date | (opcional) maps to __updatedAt system property | | ms_version | String | (opcional) used to detect conflicts, maps to __version |
+    | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | | ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
 
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
@@ -282,4 +282,4 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -28,4 +28,4 @@
 
 <sup>1</sup>Cada servicio en la nube con roles web y de trabajo puede tener dos implementaciones, una para producción y otra para ensayo. Tenga en cuenta también que este límite hace referencia al número de roles (configuración) y no al número de instancias por rol (escalado).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -270,7 +270,7 @@ Los niveles de rendimiento se calibran y rigen para proporcionar los recursos ne
 Después de la actualización de la base de datos Web o Business en el nuevo nivel, se recomienda supervisar activamente la base de datos para asegurar que las aplicaciones se ejecutan con el rendimiento deseado y optimizar el uso según sea necesario. Se recomiendan los siguientes pasos adicionales para supervisar la base de datos.
 
 
-**Datos de consumo de recursos**: para las bases de datos de niveles básico, estándar y premium, hay disponibles datos de consumo de recursos más detallados a través de una nueva vista de administración dinámica denominada [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
+**Datos de consumo de recursos**: para las bases de datos de niveles básico, estándar y premium, hay disponibles datos de consumo de recursos más detallados a través de una nueva vista de administración dinámica denominada [sys.dm\_ db\_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
 
     SELECT end_time
     	 , (SELECT Max(v)
@@ -310,4 +310,4 @@ El servicio de la Base de datos SQL de Azure proporciona datos de telemetría y 
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

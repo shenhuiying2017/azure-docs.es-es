@@ -3,7 +3,7 @@
 	description="Si no se puede conectar la máquina virtual de Azure basada en Windows, use estos diagnósticos y siga estos pasos para aislar la causa del problema."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows
 
@@ -72,7 +72,7 @@ Posibles soluciones a este problema:
 
 Causa: la máquina virtual a la que se está conectando no encuentra la entidad de seguridad que se indica en la parte del nombre de usuario de las credenciales.
 
-Cuando el nombre de usuario tiene la forma *SecurityAuthority*\*UserName* (ejemplo: CORP\User1), la parte *SecurityAuthority* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
+Cuando el nombre de usuario tiene la forma *autoridadDeSeguridad*\*nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
 
 Posibles soluciones a este problema:
 
@@ -86,10 +86,10 @@ Causa: la máquina virtual a la que se está conectando no puede validar el nomb
 
 Un equipo basado en Windows puede validar las credenciales de una cuenta local o de una cuenta basada en dominio.
 
-- Para las cuentas locales, use la sintaxis *Nombredelequipo*\*Nombredeusuario* (ejemplo: SQL1\Admin4798).
-- Para las cuentas de dominio, use la sintaxis *Nombrededominio*\*Nombredeusuario* (ejemplo: CONTOSO\johndoe).
+- Para las cuentas locales, use la sintaxis *nombreDeEquipo*\*nombreDeUsuario* (ejemplo: SQL1\\Admin4798).
+- Para las cuentas de dominio, use la sintaxis *nombreDeDominio*\*nombreDeUsuario* (ejemplo: CONTOSO\\johndoe).
 
-Para los equipos que promueve a controladores de dominio en un nuevo bosque de Active Directory, la cuenta de administrador local a la que está conectado al realizar la promoción se convierte en una cuenta equivalente con la misma contraseña en el nuevo bosque y dominio. La cuenta de administrador local anterior se elimina. Por ejemplo, si inició sesión con la cuenta de administrador local DC1\DCAdmin y promovió la máquina virtual como controlador de dominio en un bosque nuevo para el dominio corp.contoso.com, la cuenta local DC1\DCAdmin se elimina y se crea una nueva cuenta de dominio CORP\DCAdmin con la misma contraseña.
+Para los equipos que promueve a controladores de dominio en un nuevo bosque de Active Directory, la cuenta de administrador local a la que está conectado al realizar la promoción se convierte en una cuenta equivalente con la misma contraseña en el nuevo bosque y dominio. La cuenta de administrador local anterior se elimina. Por ejemplo, si inició sesión con la cuenta de administrador local DC1\\DCAdmin y promovió la máquina virtual como controlador de dominio en un bosque nuevo para el dominio corp.contoso.com, la cuenta local DC1\\DCAdmin se elimina y se crea una nueva cuenta de dominio CORP\\DCAdmin con la misma contraseña.
 
 Vuelva a comprobar el nombre de la cuenta para asegurarse de que es un nombre que la máquina virtual puede comprobar como una cuenta válida. Compruebe de nuevo la contraseña para asegurarse de que es correcta.
 
@@ -113,7 +113,7 @@ Presentamos a continuación los componentes implicados.
 
 Antes de iniciar un proceso paso a paso de solución de problemas, es útil repasar mentalmente qué cambió desde que creó las conexiones a Escritorio remoto y tomar ese cambio como base para intentar corregir el problema. Por ejemplo:
 
-- Si pudo crear conexiones a Escritorio remoto y cambió la dirección IP pública de la máquina virtual o del servicio en la nube que contiene la máquina virtual (también conocida como dirección IP virtual, [VIP]), la caché del cliente DNS podría tener una entrada para el nombre DNS y la *dirección IP antigua*. Vacíe la caché del cliente DNS y vuelva a intentarlo. También puede intentar establecer la conexión usando la VIP nueva.
+- Si pudo crear conexiones a Escritorio remoto y cambió la dirección IP pública de la máquina virtual o del servicio en la nube que contiene la máquina virtual (también conocida como dirección IP virtual o VIP), la memoria caché del cliente DNS podría tener una entrada para el nombre DNS y la *dirección IP antigua*. Vacíe la caché del cliente DNS y vuelva a intentarlo. También puede intentar establecer la conexión usando la VIP nueva.
 - Si pasó de usar el Portal de Azure o el Portal de vista previa de Azure a usar una aplicación para administrar las conexiones a Escritorio remoto, asegúrese de que la configuración de la aplicación incluye el puerto TCP determinado al azar para el tráfico de Escritorio remoto.
 
 Las secciones siguientes indican los pasos para aislar y determinar las distintas causas de este problema y proporcionan soluciones y alternativas.
@@ -175,7 +175,7 @@ Para descartar el extremo de servicio en la nube y la ACL como causa de los prob
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
 
-> [AZURE.NOTE]Para las máquinas virtuales creadas en el Administrador de recursos, vaya a [Origen 4: Grupos de seguridad de red](#nsgs).
+> [AZURE.NOTE]Para las máquinas virtuales creadas en el Administrador de recursos, vaya a [Causa 4: Grupos de seguridad de red](#nsgs).
 
 Si no tiene otra máquina virtual en el mismo servicio en la nube o red virtual, puede crear una fácilmente. Para obtener más información, vea [Crear una máquina virtual que ejecuta Windows en Azure](virtual-machines-windows-tutorial.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
 
@@ -190,7 +190,7 @@ Para descartar el extremo como causa del problema, quite el extremo actual y cre
 
 Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Examine las reglas del grupo de seguridad de red para asegurarse de que se permite el tráfico de Escritorio remoto desde Internet.
 
-Para obtener más información, consulte [¿Qué es un grupo de seguridad de red (NSG)?](../virtual-network/virtual-networks-nsg.md).
+Para obtener más información, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 
 ### Causa 5: máquina virtual de Azure basada en Windows
 
@@ -201,7 +201,7 @@ Por último, los problemas pueden residir en la propia máquina virtual de Azure
 En primer lugar, si no pudo ejecutar el [paquete de diagnóstico de Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) para solucionar el problema **Conectividad de RDP a una máquina virtual de Azure (se requiere reinicio)**, siga las instrucciones indicadas en [Cómo restablecer una contraseña o el servicio de Escritorio remoto para máquinas virtuales de Windows](virtual-machines-windows-reset-password.md) para restablecer el servicio Servicios de Escritorio remoto en la máquina virtual. De este modo:
 
 - Se habilitará la regla predeterminada «Escritorio remoto» del firewall de Windows (puerto TCP 3389).
-- Se habilitarán las conexiones a Escritorio remoto estableciendo en 0 el valor HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections del Registro.
+- Se habilitarán las conexiones a Escritorio remoto estableciendo en 0 el valor HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections del Registro.
 
 Pruebe de nuevo la conexión desde su equipo. Si no funciona correctamente, pueden darse algunos de estos problemas:
 
@@ -225,7 +225,7 @@ A continuación, rellene su nombre de suscripción a Azure, el nombre del servic
 
 Puede obtener el nombre de suscripción correcto en la propiedad SubscriptionName de la pantalla del comando **Get-AzureSubscription**. Puede obtener el nombre del servicio en la nube de la máquina virtual en la columna ServiceName en la pantalla del comando **Get-AzureVM**.
 
-Para demostrar que tiene este certificado nuevo, abra un complemento Certificados centrado en el usuario actual y vaya a la carpeta **Trusted Root Certification Authorities\Certificates**. Debería ver un certificado con el nombre DNS del servicio en la nube en la columna Emitido para (ejemplo: cloudservice4testing.cloudapp.net).
+Para demostrar que tiene este certificado nuevo, abra un complemento Certificados centrado en el usuario actual y vaya a la carpeta **Entidades de certificación raíz de confianza\\Certificados**. Debería ver un certificado con el nombre DNS del servicio en la nube en la columna Emitido para (ejemplo: cloudservice4testing.cloudapp.net).
 
 A continuación, inicie una sesión remota de Azure PowerShell mediante el uso de estos comandos.
 
@@ -287,4 +287,4 @@ Para obtener información sobre el uso del soporte técnico de Azure, consulte l
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

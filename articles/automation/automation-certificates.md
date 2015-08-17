@@ -98,7 +98,7 @@ Para agregar un cmdlet **Get-AutomationCertificate** a un runbook gráfico, haga
 
 La imagen siguiente muestra un ejemplo de cómo usar un certificado en un runbook gráfico. Este es el mismo ejemplo anteriormente mostrado para agregar un certificado a un servicio en la nube desde un runbook textual.
 
-Este ejemplo utiliza el conjunto de parámetros **UseConnectionObject** para la actividad Send-**TwilioSMS** que utiliza un objeto de conexión para autenticación con el servicio. Aquí se debe usar un [vínculo de canalización](automation-graphical-authoring-intro.md#links-and-workflow), debido a que un vínculo de secuencia devolvería una recopilación que contiene un objeto único que el parámetro Connection no espera.
+Este ejemplo utiliza el parámetro **UseConnectionObject** definido para la **actividad Send-TwilioSMS** que utiliza un objeto de conexión para autenticación con el servicio. Aquí se debe usar un [vínculo de canalización](automation-graphical-authoring-intro.md#links-and-workflow), debido a que un vínculo de secuencia devolvería una recopilación que contiene un objeto único que el parámetro Connection no espera.
 
 ![](media/automation-certificates/add-certificate.png)
 
@@ -107,4 +107,4 @@ Este ejemplo utiliza el conjunto de parámetros **UseConnectionObject** para la 
 
 - [Vínculos en creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

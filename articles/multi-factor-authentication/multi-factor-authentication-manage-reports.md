@@ -50,4 +50,4 @@ En cola|Enumera los informes en cola para su procesamiento y su estado. Cuando e
 * [Azure Multi-Factor Authenticaton en MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/23/2015"
+      ms.date="07/30/2015"
       ms.author="shoatman"/>
 
 # Cómo y por qué se agregan aplicaciones a Azure AD
@@ -36,7 +36,7 @@ Las aplicaciones se agregan a Azure AD para aprovechar uno o varios de los servi
 
 Las aplicaciones se representan en Azure AD con dos objetos: un objeto de aplicación y un objeto de entidad de seguridad de servicio. Hay un objeto de aplicación registrado en un directorio de hogar/propietario o publicación y uno o más objetos de entidad de seguridad de servicio que representa la aplicación en todos los directorios en los que actúa.
 
-El objeto de aplicación describe la aplicación en Azure AD (el servicio multiinquilino) y puede incluir cualquiera de las acciones siguientes: (*Nota*: esto no es una lista exhaustiva).
+El objeto de aplicación describe la aplicación en Azure AD (el servicio multiinquilino) y puede incluir cualquiera de las acciones siguientes: (*Nota*: esta no es una lista exhaustiva).
 
 * Nombre, logotipo y publicador
 * Secretos (claves simétricas o asimétricas utilizadas para autenticar la aplicación)
@@ -65,7 +65,7 @@ La entidad de seguridad de servicio es un registro de la aplicación en todos lo
 ![Un diagrama muestra cómo los objetos de aplicación y entidad de seguridad de servicio existente con las instancias de Azure AD.][apps_service_principals_directory]
 
 Como puede ver en el diagrama anterior. Microsoft mantiene dos directorios internamente (a la izquierda) que usa para publicar aplicaciones.
- 
+
 * Uno para Microsoft Apps (directorio de servicios de Microsoft)
 * Uno para aplicaciones preintegradas de terceros (directorio de Galería de aplicaciones)
 
@@ -145,6 +145,5 @@ Obtenga más información sobre cómo agregar aplicaciones a Azure AD y cómo co
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

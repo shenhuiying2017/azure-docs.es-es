@@ -53,4 +53,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
  * Lea la entrada de blog [Automatización de Azure: el agente SQL en la nube](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

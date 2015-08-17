@@ -4,6 +4,7 @@
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
+	writer="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="cephalin"/>
 
 # Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure
@@ -59,7 +60,7 @@ La aplicación web debe estar ejecutándose en el modo **Estándar** o **Premium
 
 	![Orígenes de configuración][MultipleConfigurationSources]
 
-5. En la hoja **Ranuras de implementación**, haga clic en la ranura de implementación para abrir una hoja para la ranura, con un conjunto de métricas y una configuración igual a la de cualquier otra aplicación web. <strong><i>nombre-aplicación-web</i>-<i>nombre-ranura-implementación</i></strong> aparecerá en la parte superior de la hoja para recordarle que está viendo la ranura de implementación.
+5. En la hoja **Ranuras de implementación**, haga clic en la ranura de implementación para abrir una hoja para la ranura, con un conjunto de métricas y una configuración igual a la de cualquier otra aplicación web. **nombre-aplicación-webnombre-ranura-implementación** aparecerá en la parte superior de la hoja para recordarle que está viendo la ranura de implementación.
 
 	![Título de la ranura de implementación][StagingTitle]
 
@@ -259,4 +260,4 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

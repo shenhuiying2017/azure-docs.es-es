@@ -9,7 +9,7 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/22/2015"
@@ -42,7 +42,7 @@ Antes de crear un equilibrador de carga interno hay que configurar los siguiente
 
 - Reglas NAT de entrada: configura las reglas de puerto para obtener acceso directamente a una de las instancias de máquina virtual.
 
-Para obtener más información acerca de los componentes del equilibrador de carga con el Administrador de recursos de Azure, consulte [Compatibilidad del Administrador de recursos de Azure con el equilibrador de carga](load-balancer-arm.md).
+Para obtener más información acerca de los componentes del equilibrador de carga con el Administrador de recursos de Azure en [Compatibilidad del Administrador de recursos de Azure con el equilibrador de carga](load-balancer-arm.md).
 
 Los pasos siguientes muestran cómo configurar un equilibrador de carga para equilibrar la carga entre dos máquinas virtuales.
 
@@ -54,17 +54,17 @@ Los pasos siguientes muestran cómo configurar un equilibrador de carga para equ
 
 
 ### Paso 1
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del ARM. Hay más información disponible en [Uso de Windows PowerShell con el Administrador de recursos](powershell-azure-resource-manager.md).
+Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del ARM. Hay más información disponible en Uso de [Windows Powershell con el Administrador de recursos](powershell-azure-resource-manager.md).
 
 
-    PS C:> Switch-AzureMode -Name AzureResourceManager
+    PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 ### Paso 2
 
 Inicio de sesión en la cuenta de Azure
 
 
-    PS C:> Add-AzureAccount
+    PS C:\> Add-AzureAccount
 
 Se le pedirá autenticarse con sus credenciales.
 
@@ -73,7 +73,7 @@ Se le pedirá autenticarse con sus credenciales.
 
 Elección de la suscripción de Azure que se va a usar.
 
-    PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Para ver una lista de suscripciones disponibles, use el cmdlet 'Get-AzureSubscription'.
 
@@ -82,7 +82,7 @@ Para ver una lista de suscripciones disponibles, use el cmdlet 'Get-AzureSubscri
 
 Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
-    PS C:> New-AzureResourceGroup -Name NRP-RG -location "West US"
+    PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
 El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear un equilibrador de carga usarán el mismo grupo de recursos.
 
@@ -184,7 +184,7 @@ En este paso, creamos una segunda interfaz de red, la asignamos al mismo grupo b
 A continuación se muestra el resultado final:
 
 
-PS C:> $backendnic1
+PS C:\> $backendnic1
 
 
 	Name                 : lb-nic1-be
@@ -245,4 +245,4 @@ Encontrará instrucciones paso a paso para crear una máquina virtual y asignarl
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

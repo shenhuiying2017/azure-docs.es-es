@@ -61,7 +61,7 @@ También puede utilizar el script para instalar Giraph en HDInsight con PowerShe
 
 Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación básica de <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> para encontrar la ruta más corta entre objetos en un gráfico. Use los siguientes pasos para cargar los datos de ejemplo y el jar de muestra, ejecutar un trabajo mediante el ejemplo SimpleShortestPathsComputation y luego ver los resultados.
 
-1. Cargue un archivo de datos de ejemplo en el almacenamiento de blobs de Azure. En la estación de trabajo local, cree un archivo nuevo denominado **tiny_graph.txt**. Debe contener las siguientes líneas:
+1. Cargue un archivo de datos de ejemplo en el almacenamiento de blobs de Azure. En la estación de trabajo local, cree un archivo nuevo denominado **tiny\_graph.txt**. Debe contener las siguientes líneas:
 
 		[0,0,[[1,1],[3,3]]]
 		[1,0,[[0,1],[2,2],[3,1]]]
@@ -69,17 +69,17 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 		[3,0,[[0,3],[1,1],[4,4]]]
 		[4,0,[[3,4],[2,4]]]
 
-	Cargue el archivo tiny_graph.txt en el almacenamiento principal del clúster de HDInsight. Para obtener instrucciones sobre cómo cargar datos, consulte [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md).
+	Cargue el archivo tiny\_graph.txt en el almacenamiento principal del clúster de HDInsight. Para obtener instrucciones sobre cómo cargar datos, consulte [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md).
 
-	Estos datos describen una relación entre los objetos de un gráfico dirigido, con el formato [source_id, source_value,[[dest_id], [edge_value],...]]. Cada línea representa una relación entre un objeto **source_id** y uno más objetos **dest_id**. El valor **edge_value** (o peso) se puede considerar como la fuerza o la distancia de la conexión entre **source_id** y **dest_id**.
+	Estos datos describen una relación entre los objetos de un gráfico dirigido, con el formato [source\_id, source\_value,[[dest\_id], [edge\_value],...]]. Cada línea representa una relación entre un objeto **source\_id** y uno más objetos **dest\_id**. El valor **edge\_value** (o peso) se puede considerar como la fuerza o la distancia de la conexión entre **source\_id** y **dest\_id**.
 
 	Extrapolados, y usando el valor (o peso) como la distancia entre los objetos, los datos anteriores podrían parecerse a estos:
 
-	![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+	![tiny\_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 	
 
-4. Ejecute el ejemplo SimpleShortestPathsComputation. Utilice los siguientes cmdlets de PowerShell de Azure para ejecutar el ejemplo mediante el archivo tiny_graph.txt como entrada. Para ello, será necesario que haya instalado y configurado [Azure PowerShell][powershell-install].
+4. Ejecute el ejemplo SimpleShortestPathsComputation. Utilice los siguientes cmdlets de PowerShell de Azure para ejecutar el ejemplo mediante el archivo tiny\_graph.txt como entrada. Para ello, será necesario que haya instalado y configurado [Azure PowerShell][powershell-install].
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -109,7 +109,7 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 
 	En el ejemplo anterior, reemplace **clustername** por el nombre del clúster de HDInsight donde está instalado Giraph.
 
-5. Vea los resultados. Una vez finalizado el trabajo, los resultados se almacenarán en dos archivos de salida en la carpeta __wasb:///example/out/shotestpaths__. Los archivos se denominan __part-m-00001__ y __part-m-00002__. Realice los pasos siguientes para descargar y ver el resultado:
+5. Vea los resultados. Una vez finalizado el trabajo, los resultados se almacenarán en dos archivos de salida en la carpeta \_\___wasb:///example/out/shotestpaths__. Los archivos se denominan __part-m-00001__ y __part-m-00002__. Realice los pasos siguientes para descargar y ver el resultado:
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -329,7 +329,7 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 
 **Para ejecutar la aplicación**
 
-Abra una consola de PowerShell de Azure, navegue hasta la ubicación donde ha guardado el proyecto de Visual Studio, luego hasta el directorio \bin\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
+Abra una consola de PowerShell de Azure, navegue hasta la ubicación donde ha guardado el proyecto de Visual Studio, luego hasta el directorio \\bin\\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -353,4 +353,4 @@ Proporcione un nombre de clúster y presione ENTRAR para aprovisionar un clúste
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -52,8 +52,8 @@ Nombre del ejemplo | description
 Generación de perfiles de clientes de juegos | Contoso es una empresa de juegos que crea juegos para varias plataformas: consolas de juegos, dispositivos portátiles y PC. Cada uno de estos juegos produce miles de registros. El objetivo de Contoso es recopilar y analizar los registros generados por estos juegos para obtener información de uso, identificar las oportunidades de venta mejorada y venta cruzada, desarrollar características nuevas y atractivas, etc. para mejorar el negocio y ofrecer una experiencia mejor a los clientes. En este ejemplo se recopilan registros de ejemplo que se procesan y se enriquecen con datos de referencia, y se transforman los datos para evaluar la eficacia de una campaña de marketing que Contoso ha lanzado recientemente.
  
 ## Ejemplos en GitHub
-El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Factoría de datos de Azure (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\JSON contiene fragmentos de JSON para escenarios comunes.
+El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Factoría de datos de Azure (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\\JSON contiene fragmentos de JSON para escenarios comunes.
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

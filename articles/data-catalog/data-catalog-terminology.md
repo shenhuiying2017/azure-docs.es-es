@@ -3,8 +3,8 @@
    description="Terminología del Catálogo de datos de Azure"
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
 
 # Terminología del Catálogo de datos de Azure
 
@@ -42,6 +42,15 @@ Los metadatos estructurales son los metadatos extraídos de un origen de datos q
 
 Metadatos descriptivos son los metadatos que describen el propósito o el objetivo de un recurso de datos. Normalmente, los metadatos descriptivos son agregados por los usuarios del catálogo mediante el portal del Catálogo de datos de Azure, pero también se pueden extraer del origen de datos durante el registro. La herramienta de registro de Catálogo de datos de Azure extraerá las descripciones de la propiedad Description en SQL Server Analysis Services y SQL Server Reporting Services y desde [la propiedad extendida ms\_description](https://technet.microsoft.com/library/ms190243.aspx)en bases de datos de SQL Server, si estas propiedades se han rellenado con valores.
 
+## Solicitar acceso
+
+Entre los metadatos descriptivos de un activo de datos se puede incluir información sobre cómo solicitar acceso al activo u origen de datos. Esta información se presenta con la ubicación del activo de datos y puede incluir una o más de las siguientes opciones:
+
+- La dirección de correo electrónico del usuario o equipo responsable de la concesión de acceso al origen de datos.
+- La URL del proceso documentado que los usuarios deben seguir para obtener acceso al origen de datos.
+- La URL de una herramienta de administración de identidades y de accesos (por ejemplo, Microsoft Identity Manager) que puede usarse para tener acceso al origen de datos.
+- Una entrada de texto sin formato que describe cómo los usuarios pueden tener acceso al origen de datos.
+
 ## Vistas previas
 
 Una vista previa en el Catálogo de datos de Azure es una instantánea de hasta 20 registros que se puede extraer del origen de datos durante el registro y almacenar en el catálogo con los metadatos de recursos de datos. La vista previa puede ayudar a los usuarios que descubren un activo de datos a comprender mejor su función y objetivo. En otras palabras, ver datos de ejemplo puede resultar más valioso que ver tan solo los nombres de columna y los tipos de datos. Las vistas previas solo se admiten para las tablas y vistas y deben seleccionarse explícitamente por el usuario durante el registro.
@@ -60,7 +69,7 @@ Un experto es un usuario que se ha identificado como poseedor de una perspectiva
 
 Un propietario es un usuario que tiene privilegios adicionales para administrar un recurso de datos en el Catálogo de datos de Azure. Los usuarios pueden tomar posesión de los recursos de datos registrados y los propietarios pueden agregar a otros usuarios como copropietarios.
 > [AZURE.NOTE]Propiedad y administración solo están disponibles en la Standard Edition del Catálogo de datos de Azure.
- 
+
 ## Registro
 
 El registro es el acto de extraer metadatos de recursos de datos de un origen de datos y copiarla en el servicio del Catálogo de datos de Azure. Es posible anotar y descubrir los recursos de datos que se han registrado.
@@ -68,7 +77,7 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 ## Consulte también
 
 - [¿Qué es el Catálogo de datos de Azure?](data-catalog-what-is-data-catalog.md): este artículo proporciona información general sobre el servicio del Catálogo de datos de Azure, el valor que proporciona y los escenarios que admite.
-
+  
 - [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md): este artículo ofrece un tutorial integral que muestra cómo usar el Catálogo de datos de Azure para la detección del orígenes de datos.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

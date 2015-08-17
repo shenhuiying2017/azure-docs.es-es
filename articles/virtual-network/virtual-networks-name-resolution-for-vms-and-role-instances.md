@@ -127,4 +127,4 @@ El archivo de configuración de servicio se crea por cada servicio en la nube qu
 
 [Esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/azure/ee758710) [Esquema de configuración de red virtual](https://msdn.microsoft.com/library/azure/jj157100) [Cómo configurar la red virtual en el Portal de administración](https://msdn.microsoft.com/library/azure/jj156074.aspx) [Configurar una red virtual mediante un archivo de configuración de red](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Tareas de configuración de la red virtual de Azure](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

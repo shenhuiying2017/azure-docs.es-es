@@ -118,4 +118,4 @@ Para obtener más información sobre cómo desarrollar, probar y administrar apl
 - [Ejemplo de ciclo de vida de aplicaciones basadas en REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

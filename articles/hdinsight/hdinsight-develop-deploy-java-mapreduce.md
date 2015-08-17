@@ -26,7 +26,7 @@ Este tutorial le guiará por un escenario integral para desarrollar un trabajo d
 
 Antes de empezar este tutorial, debe haber completado lo siguiente:
 
-- Instalación del emulador de HDInsight Para obtener más información, consulte [Introducción al emulador de HDInsight][hdinsight-emulator]. Asegúrese de que todos los servicios necesarios estén en ejecución. En el equipo que tiene instalado el emulador de HDInsight, inicie la línea de comandos de Hadoop desde el acceso directo del escritorio, vaya a **C:\hdp**, y ejecute el comando **start_local_hdp_services.cmd**.
+- Instalación del emulador de HDInsight Para obtener más información, consulte [Introducción al emulador de HDInsight][hdinsight-emulator]. Asegúrese de que todos los servicios necesarios estén en ejecución. En el equipo que tiene instalado el emulador de HDInsight, inicie la línea de comandos de Hadoop desde el acceso directo del escritorio, vaya a **C:\\hdp**, y ejecute el comando **start\_local\_hdp\_services.cmd**.
 - Instale Azure PowerShell en el equipo emulador. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
 - Instale Java platform JDK 7 o superior en el equipo emulador. Este está ya disponible en el equipo emulador.
 - Instale y configure [Apache Maven](http://maven.apache.org/).
@@ -44,7 +44,8 @@ Cree una aplicación de recuento de palabras de MapReduce. Se trata de una aplic
 
 **Para crear un proyecto con Maven**
 
-1. Cree un directorio **C:\Tutorials\WordCountJava**. 2. Desde la línea de comandos de su entorno de desarrollo, cambie los directorios a la ubicación que ha creado.
+1. Cree un directorio **C:\\Tutorials\\WordCountJava**.
+2. Desde la línea de comandos de su entorno de desarrollo, cambie los directorios a la ubicación que ha creado.
 3. Use el comando __mvn__, que se instala con Maven, para generar el scaffolding del proyecto.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -53,8 +54,8 @@ Cree una aplicación de recuento de palabras de MapReduce. Se trata de una aplic
 
 	* __pom.xml__: el [modelo de objetos de proyectos (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) contiene la información y los detalles de configuración para compilar el proyecto.
 
-	* __src__: directorio que contiene el directorio __main\java\org\apache\hadoop\examples__, donde creará la aplicación.
-3. Elimine el archivo __src\test\java\org\apache\hadoop\examples\apptest.java__, puesto que no se usará en este ejemplo.
+	* __src__: directorio que contiene el directorio __main\\java\\org\\apache\\hadoop\\examples__, donde creará la aplicación.
+3. Elimine el archivo __src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java__, puesto que no se usará en este ejemplo.
 
 **Para actualizar POM**
 
@@ -112,7 +113,7 @@ Cree una aplicación de recuento de palabras de MapReduce. Se trata de una aplic
 
 **Para crear la aplicación de recuento de palabras**
 
-1. Vaya al directorio __wordcountjava\src\main\java\org\apache\hadoop\examples__ y cambie el nombre del archivo __app.java__ por __WordCount.java__.
+1. Vaya al directorio __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ y cambie el nombre del archivo __app.java__ por __WordCount.java__.
 2. Abra el Bloc de notas.
 2. Copie y pegue el siguiente programa en el Bloc de notas:
 
@@ -199,7 +200,7 @@ Cree una aplicación de recuento de palabras de MapReduce. Se trata de una aplic
 
 	Esta acción eliminará los artefactos de compilación anteriores, descargará las dependencias que no se hayan instalado aún y, a continuación, compilará y empaquetará la aplicación.
 
-3. Cuando el comando termine de ejecutarse, el directorio __wordcountjava\target__ contendrá un archivo llamado __wordcountjava-1.0-SNAPSHOT.jar__.
+3. Cuando el comando termine de ejecutarse, el directorio __wordcountjava\\target__ contendrá un archivo llamado __wordcountjava-1.0-SNAPSHOT.jar__.
 
 	> [AZURE.NOTE]El archivo __wordcountjava-1.0-SNAPSHOT.jar__ es un uberjar.
 
@@ -228,7 +229,7 @@ Este tutorial utiliza la siguiente estructura de carpetas de HDFS:
 <tr><td>/WordCount/MRStatusOutput</td><td>La carpeta de resultados del trabajo.</td></tr>
 </table>
 
-Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop_home% como archivos de datos.
+Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop\_home% como archivos de datos.
 
 > [AZURE.NOTE]Los comandos HDFS de Hadoop distinguen mayúsculas de minúsculas.
 
@@ -305,7 +306,7 @@ Ha desarrollado un trabajo de MapReduce para el recuento de palabras y lo ha pro
 ##<a id="upload"></a>Carga de los datos y la aplicación en el almacenamiento de blobs de Azure
 HDInsight de Azure utiliza el almacenamiento de blobs de Azure para almacenar datos. Cuando se aprovisiona un clúster de HDInsight, se utiliza un contenedor de almacenamiento de blobs de Azure para almacenar archivos del sistema. Puede utilizar este contenedor predeterminado u otro diferente (ya sea en la misma cuenta de almacenamiento de Azure o en otra cuenta de almacenamiento ubicada en el mismo centro de datos que el clúster) para almacenar los archivos de datos.
 
-En este tutorial, creará un contenedor en una cuenta de almacenamiento independiente para los archivos de datos y la aplicación de MapReduce. Los archivos de datos son los archivos de texto del directorio **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** en su estación de trabajo del emulador.
+En este tutorial, creará un contenedor en una cuenta de almacenamiento independiente para los archivos de datos y la aplicación de MapReduce. Los archivos de datos son los archivos de texto del directorio **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** en su estación de trabajo del emulador.
 
 **Para crear una cuenta de almacenamiento de blobs y un contenedor**
 
@@ -317,7 +318,7 @@ En este tutorial, creará un contenedor en una cuenta de almacenamiento independ
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	La variable **$subscripionName** está asociada a la suscripción de Azure. Debe nombrar los valores **$storageAccountName\_Data** y **$containerName\_Data**. Para las restricciones de nomenclatura, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
+	La variable **$subscripionName** está asociada a la suscripción de Azure. Debe nombrar los valores **$storageAccountName\\\_Data** y **$containerName\\\_Data**. Para las restricciones de nomenclatura, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
 
 3. Ejecute los comandos siguientes para crear una cuenta de almacenamiento y un contenedor de almacenamiento de blobs en la cuenta:
 
@@ -349,9 +350,9 @@ En este tutorial, creará un contenedor en una cuenta de almacenamiento independ
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	Las variables **$storageAccountName\_Data** y **$containerName\_Data** son iguales a las definidas en el último procedimiento.
+	Las variables **$storageAccountName\\\_Data** y **$containerName\\\_Data** son iguales a las definidas en el último procedimiento.
 
-	Tenga en cuenta que la carpeta de los archivos de origen es **c:\Hadoop\hadoop-1.1.0-SNAPSHOT** y la carpeta de destino es **WordCount/Input**.
+	Tenga en cuenta que la carpeta de los archivos de origen es **c:\\Hadoop\\hadoop-1.1.0-SNAPSHOT** y la carpeta de destino es **WordCount/Input**.
 
 3. Ejecute los siguientes comandos para obtener una lista de los archivos .txt de la carpeta de archivos de origen:
 
@@ -399,7 +400,7 @@ En este tutorial, creará un contenedor en una cuenta de almacenamiento independ
 		$jarFile = "C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar"
 		$blobFolder = "WordCount/jars"
 
-	Las variables **$storageAccountName\_Data** y **$containerName\_Data** son las mismas que ha definido en el último procedimiento, lo que significa que cargará tanto el archivo de datos como la aplicación en el mismo contenedor y en la misma cuenta de almacenamiento.
+	Las variables **$storageAccountName\\\_Data** y **$containerName\\\_Data** son las mismas que ha definido en el último procedimiento, lo que significa que cargará tanto el archivo de datos como la aplicación en el mismo contenedor y en la misma cuenta de almacenamiento.
 
 	Tenga en cuenta que la carpeta de destino es **WordCount/jars**.
 
@@ -527,7 +528,7 @@ En esta sección, creará un script de Azure PowerShell que realiza las siguient
 
 3. Establezca las seis primeras variables en el script. La variable **$stringPrefix** se usa para agregar la cadena especificada como prefijo al nombre del clúster de HDInsight, el nombre de la cuenta de almacenamiento y el nombre del contenedor de almacenamiento de blobs. Puesto que estos nombres deben tener entre 3 y 24 caracteres, asegúrese de que la cadena que especifique y los nombres que use el script no superen, en conjunto, el límite de caracteres del nombre. Solo debe utilizar minúsculas en **$stringPrefix**.
 
-	Las variables **$storageAccountName\_Data** y **$containerName\_Data** constituyen la cuenta de almacenamiento y el contenedor que se utilizan para almacenar los archivos de datos y la aplicación. La variable **$location** debe coincidir con la ubicación de la cuenta de almacenamiento de datos.
+	Las variables **$storageAccountName\\\_Data** y **$containerName\\\_Data** constituyen la cuenta de almacenamiento y el contenedor que se utilizan para almacenar los archivos de datos y la aplicación. La variable **$location** debe coincidir con la ubicación de la cuenta de almacenamiento de datos.
 
 4. Revise el resto de las variables.
 5. Guarde el archivo de script.
@@ -546,7 +547,7 @@ En esta sección se muestra cómo descargar y mostrar los resultados. Para obten
 **Para recuperar los resultados**
 
 1. Abra la ventana de Azure PowerShell.
-2. Cambie el directorio a **C:\Tutorials\WordCountJava**. La carpeta predeterminada de Azure PowerShell es **C:\Windows\System32\WindowsPowerShell\v1.0**. Los cmdlets que ejecutará descargarán el archivo de resultados a la carpeta actual. No tiene permiso para descargar los archivos en las carpetas del sistema.
+2. Cambie el directorio a **C:\\Tutorials\\WordCountJava**. La carpeta predeterminada de Azure PowerShell es **C:\\Windows\\System32\\WindowsPowerShell\\v1.0**. Los cmdlets que ejecutará descargarán el archivo de resultados a la carpeta actual. No tiene permiso para descargar los archivos en las carpetas del sistema.
 2. Ejecute los siguientes comandos para establecer los valores:
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -609,4 +610,4 @@ En este tutorial, ha aprendido a desarrollar un trabajo de MapReduce de Java, a 
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

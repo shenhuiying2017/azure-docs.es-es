@@ -50,7 +50,7 @@ Para entender este tema, ya debe conocer parcialmente lo siguiente:
 5. Instrucción SELECT T-SQL para llamar y probar la función.
 
 
-La lista anterior no menciona...<br/> **execute sp_configure 'clr enabled', 1;**<br/>...porque esto no es necesario para Base de datos SQL de Azure, aunque sí lo es necesario para Microsoft SQL Server.
+La lista anterior no menciona...<br/> **execute sp\_configure 'clr enabled', 1;**<br/>...porque esto no es necesario para Base de datos SQL de Azure, aunque sí lo es necesario para Microsoft SQL Server.
 
 
 Si es necesario para nuevas ejecuciones, el código de T-SQL para quitar la función y el ensamblado es el siguiente:
@@ -328,4 +328,4 @@ El bloque de código de Transact-SQL anterior finaliza con una instrucción SELE
 
 <!-- EndOfFile -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

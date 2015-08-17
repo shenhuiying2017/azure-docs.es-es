@@ -96,4 +96,4 @@ La hoja de detalles mostrará la información disponible relacionada con la oper
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

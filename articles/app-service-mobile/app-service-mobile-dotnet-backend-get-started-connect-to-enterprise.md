@@ -47,11 +47,11 @@ Para realizar una llamada a SharePoint, tiene que especificar los extremos con l
 
 3. En la sección Código de aplicación móvil del Portal de administración, vaya a la pestaña Configurar y desplácese hacia abajo hasta Configuración de aplicaciones. Aquí puede suministrar un par clave-valor que le ayudará a hacer referencia a las credenciales necesarias.
 
-* Configure SP_Authority para que sea el extremo de autoridad de su inquilino de AAD. Debería ser igual que el valor de autoridad utilizado para su aplicación cliente. Tendrá el formato `https://login.windows.net/contoso.onmicrosoft.com`
+* Configure SP\_Authority para que sea el extremo de autoridad de su inquilino de AAD. Debería ser igual que el valor de autoridad utilizado para su aplicación cliente. Tendrá el formato `https://login.windows.net/contoso.onmicrosoft.com`
 
-* Configure SP_ClientSecret para que sea el valor del secreto de cliente que obtuvo anteriormente.
+* Configure SP\_ClientSecret para que sea el valor del secreto de cliente que obtuvo anteriormente.
 
-* Configure SP_SharePointURL para que sea la dirección URL de su sitio de SharePoint. Debe tener el formato `https://contoso-my.sharepoint.com`
+* Configure SP\_SharePointURL para que sea la dirección URL de su sitio de SharePoint. Debe tener el formato `https://contoso-my.sharepoint.com`
 
 Podrá obtener estos valores de nuevo en su código utilizando ApiServices.Settings.
 
@@ -187,4 +187,4 @@ Para crear un documento de Word, utilizará el paquete de NuGet OpenXML. Instale
 [Extensión de servicio de aplicación de back-end de .NET de Aplicaciones móviles]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

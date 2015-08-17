@@ -62,4 +62,4 @@
   
       >[AZURE.NOTE]Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

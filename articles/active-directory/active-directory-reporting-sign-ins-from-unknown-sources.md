@@ -24,4 +24,4 @@
 
 ![Inicios de sesión desde orígenes desconocidos](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

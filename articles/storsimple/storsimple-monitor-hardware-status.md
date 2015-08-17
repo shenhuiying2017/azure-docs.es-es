@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/28/2015"
+   ms.date="07/31/2015"
    ms.author="alkohli" />
 
 # Componentes y estado de hardware StorSimple
@@ -61,9 +61,9 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 
 ### Lista de componentes del revestimiento principal
 
-|Componente|Módulo|Tipo|Ubicación|¿Unidad reemplazable en campo (FRU)?|Descripción|
+|Componente|Módulo|Escriba|Ubicación|¿Unidad reemplazable en campo (FRU)?|Descripción|
 |---|---|---|---|---|---|
-|Unidad en la ranura *n*|Unidades de disco|Física|Compartido|Sí|Hay una línea preesnte para cada una de las unidades SSD o HDD en el revestimiento principal.|
+|Unidad en la ranura [0-11]|Unidades de disco|Física|Compartido|Sí|Hay una línea preesnte para cada una de las unidades SSD o HDD en el revestimiento principal.|
 |Sensor de temperatura ambiente|Revestimiento|Física|Compartido|No|Mide la temperatura del chasis.|
 |Sensor de temperatura de plano medio|Revestimiento|Física|Compartido|No|Mide la temperatura del plano medio.|
 |Alarma audible|Revestimiento|Física|Compartido|No|Indica si el subsistema de alarma audible del chasis es funcional.|
@@ -72,9 +72,9 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 |Sensores de voltaje de línea|PCM|Física|Compartido|No|En numerosos sensores de tensión de línea se muestra el estado, que indica si la tensión medida está dentro de la tolerancia.|
 |Sensores de corriente de línea|PCM|Física|Compartido|No|En numerosos sensores de corriente de línea se muestra el estado, que indica si la corriente medida está dentro de la tolerancia.|
 |Sensores de temperatura en el PCM|PCM|Física|Compartido|No|En numerosos sensores de temperatura como los sensores Inlet y Hotspot se muestra el estado, que indica si la temperatura medida está dentro de la tolerancia.|
-|Fuente de alimentación n|PCM|Física|Compartido|Sí|Hay una línea presente para cada fuente de alimentación en las dos PCM situadas en la parte posterior del dispositivo.|
-|Refrigeración *n*|PCM|Física|Compartido|Sí|Hay una línea presente para cada uno de los cuatro ventiladores de refrigeración que residen en los dos PCM.|
-|Batería *n*|PCM|Física|Compartido|Sí|Hay una línea presente para cada uno de los módulos de batería de reserva que están alojados en el PCM.|
+|Fuente de alimentación [0-1]|PCM|Física|Compartido|Sí|Hay una línea presente para cada fuente de alimentación en las dos PCM situadas en la parte posterior del dispositivo.|
+|Refrigeración [0-1]|PCM|Física|Compartido|Sí|Hay una línea presente para cada uno de los cuatro ventiladores de refrigeración que residen en los dos PCM.|
+|Batería [0-1]|PCM|Física|Compartido|Sí|Hay una línea presente para cada uno de los módulos de batería de reserva que están alojados en el PCM.|
 |Metis|N/D|Lógicos|Compartido|N/D|Muestra el estado de las baterías: si necesitan recargarse o se acercan al fin de ciclo de vida.|
 |Clúster|N/D|Lógicos|Compartido|N/D|Muestra el estado del clúster que se crea entre los dos módulos de controlador integrados.|
 |Nodo de clúster|N/D|Lógicos|Compartido|N/D|Indica el estado del controlador como parte del clúster.|
@@ -87,10 +87,10 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 |Espacio de NVRAM de la unidad de estado sólido|N/D|Lógicos|Compartido|N/D|El espacio de almacenamiento en el grupo de almacenamiento de la unidad de estado sólido dedicado para la lógica NVRAM.|
 |Grupo de almacenamiento de la unidad de disco duro|N/D|Lógicos|Compartido|N/D|Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de disco duro del dispositivo.|
 |Grupo de almacenamiento de la unidad de estado sólido|N/D|Lógicos|Compartido|N/D|Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de estado sólido del dispositivo.|
-|Controlador *n* [estado]|E/S|Física|Controller|Sí|Muestra el estado del controlador y si está en modo activo o en espera dentro del chasis.|
+|Controller [0-1] [estado]|E/S|Física|Controller|Sí|Muestra el estado del controlador y si está en modo activo o en espera dentro del chasis.|
 |Sensores de temperatura en el controlador|E/S|Física|Controller|No|En numerosos sensores de temperatura como los sensores del módulo de E/S, de temperatura de la CPU, de DIMM y de PCI se muestra el estado, que indica si la temperatura se encuentra dentro de la tolerancia.|
 |Ampliador SAS|E/S|Física|Controller|No|Indica el estado del ampliador del SCSI acoplado en serie (SAS), que se usa para conectar el almacenamiento integrado al controlador.|
-|Conector SAS*n*|E/S|Física|Controller|No|Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS.|
+|Conector SAS [0-1]|E/S|Física|Controller|No|Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS.|
 |Interconexión de plano medio de SBB|E/S|Física|Controller|No|Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio.|
 |Núcleo del procesador|E/S|Física|Controller|No|Indica el estado de los núcleos del procesador en cada controlador.|
 |Potencia de la electrónica del revestimiento|E/S|Física|Controller|No|Indica el estado del sistema de alimentación que usa el revestimiento.|
@@ -103,7 +103,7 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 
 |Componente|Módulo|Escriba|Ubicación|¿FRU?|Descripción|
 |---|---|---|---|---|---|
-|Unidad en la ranura *n*|Unidades de disco|Física|Compartido|Sí|Hay una línea presente para cada una de las unidades HDD en el revestimiento de EBOD.|
+|Unidad en la ranura [0-11]|Unidades de disco|Física|Compartido|Sí|Hay una línea presente para cada una de las unidades HDD en el revestimiento de EBOD.|
 |Sensor de temperatura ambiente|Revestimiento|Física|Compartido|No|Mide la temperatura del chasis.|
 |Sensor de temperatura de plano medio|Revestimiento|Física|Compartido|No|Mide la temperatura del plano medio.|
 |Alarma audible|Revestimiento|Física|Compartido|No|Indica si el subsistema de alarma audible del chasis es funcional.|
@@ -112,13 +112,13 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 |Sensores de voltaje de línea|PCM|Física|Compartido|No|En numerosos sensores de tensión de línea se muestra el estado, que indica si la tensión medida está dentro de la tolerancia.|
 |Sensores de corriente de línea|PCM|Física|Compartido|No|En numerosos sensores de corriente de línea se muestra el estado, que indica si la corriente medida está dentro de la tolerancia.|
 |Sensores de temperatura en el PCM|PCM|Física|Compartido|No|En numerosos sensores de temperatura como los sensores Inlet y Hotspot se muestra el estado, que indica si la temperatura medida está dentro de la tolerancia.|
-|Fuente de alimentación *n*|PCM|Física|Compartido|Sí|Hay una línea presente para cada fuente de alimentación en las dos PCM situadas en la parte posterior del dispositivo.|
-|Refrigeración *n*|PCM|Física|Compartido|Sí|Hay una línea presente para cada uno de los cuatro ventiladores de refrigeración que residen en los dos PCM.|
+|Fuente de alimentación [0-1]|PCM|Física|Compartido|Sí|Hay una línea presente para cada fuente de alimentación en las dos PCM situadas en la parte posterior del dispositivo.|
+|Refrigeración [0-1]|PCM|Física|Compartido|Sí|Hay una línea presente para cada uno de los cuatro ventiladores de refrigeración que residen en los dos PCM.|
 |Almacenamiento local [HDD]|N/D|Lógicos|Compartido|N/D|Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de disco duro del dispositivo.|
-|Controlador *n* [estado]|E/S|Física|Controller|Sí|Muestra el estado de los controladores en el módulo EBOD.|
+|Controller [0-1] [estado]|E/S|Física|Controller|Sí|Muestra el estado de los controladores en el módulo EBOD.|
 |Sensores de temperatura en el EBOD|E/S|Física|Controller|No|En numerosos sensores de temperatura de cada controlador se muestra el estado, que indica si la temperatura está dentro de la tolerancia.|
 |Ampliador SAS|E/S|Física|Controller|No|Indica el estado del ampliador SAS, que se usa para conectar el almacenamiento integrado al controlador.|
-|Conector SAS*n*|E/S|Física|Controller|No|Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS.|
+|Conector SAS [0-2]|E/S|Física|Controller|No|Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS.|
 |Interconexión de plano medio de SBB|E/S|Física|Controller|No|Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio.|
 |Potencia de la electrónica del revestimiento|E/S|Física|Controller|No|Indica el estado del sistema de alimentación que usa el revestimiento.|
 |Diagnóstico de la electrónica del revestimiento|E/S|Física|Controller|No|Indica el estado de los subsistemas de diagnóstico que proporciona el controlador.|
@@ -131,4 +131,4 @@ Si necesita reemplazar un componente de hardware con errores, consulte la [Guía
 
 Si sigue teniendo problemas con el dispositivo, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

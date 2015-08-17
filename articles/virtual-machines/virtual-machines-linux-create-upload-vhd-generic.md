@@ -91,7 +91,7 @@ Si no está ejecutando en un entorno de Windows, se recomienda usar qemu-img par
 		rounded_size=$((($size/$MB + 1)*$MB))
 		echo "Rounded Size = $rounded_size"
 
- 3. Cambie el tamaño del disco sin procesar con $rounded_size como se establece en la secuencia de comandos anterior:
+ 3. Cambie el tamaño del disco sin procesar con $rounded\_size como se establece en la secuencia de comandos anterior:
 
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
@@ -123,9 +123,9 @@ Si se requiere un kernel personalizado, es muy recomendable utilizar una versió
 
 Como mínimo, se sabe que la ausencia de los siguientes parches provocan problemas en Azure y, por tanto, deben incluirse en el kernel. Esta lista no es exhaustiva ni está completa para todas las distribuciones:
 
-- [ata_piix: Aplaza discos a los controladores de Hyper-V de manera predeterminada](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
+- [ata\_piix: Aplaza discos a los controladores de Hyper-V de manera predeterminada](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
 - [storvsc: Cuenta para paquetes en tránsito en la ruta de RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
-- [storvsc: Evita el uso de WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
+- [storvsc: Evita el uso de WRITE\_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
 - [storvsc: Deshabilita WRITE SAME para RAID y controladores del adaptador de host virtual](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
 - [storvsc: Corrección de desreferenciación del puntero NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 - [storvsc: Los errores de búfer de anillo pueden dar lugar a una inmovilización de E/S](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
@@ -189,4 +189,4 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) (waage
 
 - A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

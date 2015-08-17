@@ -58,64 +58,19 @@ El programa de instalación de vContinuum estará disponible en la [ubicación d
 
 Instale también la revisión de vContinuum que se proporciona aquí (disponible en la [ubicación de descarga](http://go.microsoft.com/fwlink/?LinkID=533813)).
 
-1.  Inicie el programa de instalación para comenzar la instalación de vContinuum. Después de la pantalla de inicio de sesión, haga clic en Siguiente para empezar a especificar la configuración
-
-![](./media/site-recovery-failback-azure-to-vmware/image2.png)
-
-2.  Especifique tanto la dirección IP como el puerto del servidor de CX. Asegúrese de seleccionar HTTPs en la casilla.
-
-![](./media/site-recovery-failback-azure-to-vmware/image3.png)
-
-    a.  To discover the CX IP go to the CS deployment on Azure and view
-        its dashboard. The public IP address will be displayed under
-        Public Virtual IP address.
-
-![](./media/site-recovery-failback-azure-to-vmware/image4.png)
-
-    b.  To discover the CX public port go to the endpoints tab in the VM
-        page and identify the HTTPs endpoints public port
-
-![](./media/site-recovery-failback-azure-to-vmware/image5.png)
-
-3.  Especifique la frase de contraseña del servidor de configuración. Deberá haber anotado la frase de contraseña durante el registro del servidor de configuración. La frase de contraseña también se usa en las implementaciones de un destino maestro y un servidor de proceso. Si no recuerda la frase de contraseña, puede entrar en el servidor de configuración en Azure y buscar la frase de contraseña almacenada en C:\Archivos de programa (x86)\InMage Systems\private\connection.passphrase
-
-    ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
-
-4.  Especifique la ubicación para instalar al servidor de vContinuum y comience la instalación
-
-    ![](./media/site-recovery-failback-azure-to-vmware/image7.png)
-
-5.  Una vez completada la instalación, puede iniciar vContinuum para ver su funcionamiento.
-
-    ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+1.  Inicie el programa de instalación para comenzar la instalación de vContinuum. Después de la pantalla de bienvenida, haga clic en Siguiente para empezar a especificar la configuración ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+2.  Especifique tanto la dirección IP como el puerto del servidor de CX. Asegúrese de seleccionar HTTPs en la casilla. ![](./media/site-recovery-failback-azure-to-vmware/image3.png) a. Para detectar la dirección IP de CX vaya a la implementación de CS en Azure y vea el panel. La dirección IP pública se mostrará en Dirección IP virtual pública. ![](./media/site-recovery-failback-azure-to-vmware/image4.png) b. Para detectar el puerto público de CX, vaya a la pestaña de extremos en la página de la máquina virtual e identifique el puerto público de extremos HTTP ![](./media/site-recovery-failback-azure-to-vmware/image5.png)
+3.  Especifique la frase de contraseña del servidor de configuración. Deberá haber anotado la frase de contraseña durante el registro del servidor de configuración. La frase de contraseña también se usa en las implementaciones de un destino maestro y un servidor de proceso. Si no recuerda la frase de contraseña, puede entrar en el servidor de configuración en Azure y buscar la frase de contraseña almacenada en C:\\Archivos de programa (x86)\\InMage Systems\\private\\connection.passphrase ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
+4.  Especifique la ubicación para instalar al servidor de vContinuum y comience la instalación ![](./media/site-recovery-failback-azure-to-vmware/image7.png)
+5.  Una vez completada la instalación, puede iniciar vContinuum para ver su funcionamiento. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
 ## Instalación de un servidor de proceso en Azure
 
 Para que las máquinas virtuales de Azure puedan devolver los datos a un destino maestro local, es preciso instalar un servidor de proceso en Azure. El servidor de proceso debe implementarse en Azure en la misma red que el servidor de configuración.
 
 1.  En la página Servidores de configuración de Azure, seleccione esta opción para agregar un nuevo servidor de proceso ![](./media/site-recovery-failback-azure-to-vmware/image9.png)
-
-2.  Para implementar un nuevo servidor, configure las opciones siguientes
-
-    a. Asigne un nombre al servidor de proceso.
-
-    b. Escriba un nombre de usuario para conectarse a la máquina virtual como administrador.
-
-    c. Escriba la contraseña con la que va a iniciar sesión.
-
-    d. Seleccione el servidor de configuración en el debe registrarse el servidor de proceso. Asegúrese de que selecciona el servidor de configuración correcto. Es el mismo servidor con el que ha protegido y conmutado por error las máquinas virtuales.
-
-    e. Especifique la red de Azure en que debe implementar el servidor de proceso. Asegúrese de que selecciona la misma red que la del servidor de configuración.
-
-    f. Especifique una dirección IP única de la subred seleccionada.
-
-    g. Comience la implementación del servidor de proceso.
-
-![](./media/site-recovery-failback-azure-to-vmware/image10.png)
-
-1.  Se desencadenará un trabajo para implementar el servidor de proceso.
-
-![](./media/site-recovery-failback-azure-to-vmware/image11.png)
+2.  Configure las opciones siguientes en un servidor de proceso para implementar un nuevo servidor a. Asigne al servidor de proceso un nombre b. Escriba un nombre de usuario para conectarse a la máquina virtual como administrador c. Escriba la contraseña con la que va a iniciar sesión con d. Seleccione el servidor de configuración en el debe registrarse el servidor de proceso. Asegúrese de que selecciona el servidor de configuración correcto. Este es el mismo servidor con el que ha protegido y conmutado por error las máquinas virtuales. e. Especifique la red de Azure en que debe implementar el servidor de proceso. Asegúrese de que selecciona la misma red que la del servidor de configuración. f. Especifique una dirección IP única de la subred seleccionada. g. Comience la implementación del servidor de proceso. ![](./media/site-recovery-failback-azure-to-vmware/image10.png)
+3.  Se desencadenará un trabajo para implementar el servidor de proceso ![](./media/site-recovery-failback-azure-to-vmware/image11.png)
 
 Una vez que el servidor de procesos se implementa en Azure puede iniciar sesión en el servidor con las credenciales especificadas. Utilice los mismos pasos que usó en el reenvío de la dirección de protección para registrar el servidor de proceso.
 
@@ -197,35 +152,35 @@ Nota: asegúrese de que el sistema tiene conectividad a Internet antes de descar
 
 El comando anterior descargará los quince paquetes siguientes del repositorio de CentOS 6.6 y los instalará.
 
-bc-1.06.95-1.el6.x86_64.rpm
+bc-1.06.95-1.el6.x86\_64.rpm
 
-busybox-1.15.1-20.el6.x86_64.rpm
+busybox-1.15.1-20.el6.x86\_64.rpm
 
-elfutils-libs-0.158-3.2.el6.x86_64.rpm
+elfutils-libs-0.158-3.2.el6.x86\_64.rpm
 
-kexec-tools-2.0.0-280.el6.x86_64.rpm
+kexec-tools-2.0.0-280.el6.x86\_64.rpm
 
-lsscsi-0.23-2.el6.x86_64.rpm
+lsscsi-0.23-2.el6.x86\_64.rpm
 
-lzo-2.03-3.1.el6_5.1.x86_64.rpm
+lzo-2.03-3.1.el6\_5.1.x86\_64.rpm
 
-perl-5.10.1-136.el6_6.1.x86_64.rpm
+perl-5.10.1-136.el6\_6.1.x86\_64.rpm
 
-perl-Module-Pluggable-3.90-136.el6_6.1.x86_64.rpm
+perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
 
-perl-Pod-Escapes-1.04-136.el6_6.1.x86_64.rpm
+perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
 
-perl-Pod-Simple-3.13-136.el6_6.1.x86_64.rpm
+perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
 
-perl-libs-5.10.1-136.el6_6.1.x86_64.rpm
+perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
 
-perl-version-0.77-136.el6_6.1.x86_64.rpm
+perl-version-0.77-136.el6\_6.1.x86\_64.rpm
 
-rsync-3.0.6-12.el6.x86_64.rpm
+rsync-3.0.6-12.el6.x86\_64.rpm
 
-snappy-1.1.0-1.el6.x86_64.rpm
+snappy-1.1.0-1.el6.x86\_64.rpm
 
-wget-1.12-5.el6_6.1.x86_64.rpm
+wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 Nota: si la máquina de origen utiliza los sistemas de archivos Reiser o XFS para el dispositivo raíz o de inicio, los siguientes paquetes deben descargarse e instalarse en el sistema de destino maestro Linux antes de la protección.
 
@@ -235,11 +190,11 @@ Nota: si la máquina de origen utiliza los sistemas de archivos Reiser o XFS par
 
 # wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
 # wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Aplicación de cambios en la configuración personalizada
 
@@ -277,7 +232,7 @@ Si se conecta al servidor de destino principal de Linux a través de una conexi�
 
 Extraiga los archivos del archivo tar del instalador del servidor de destino principal de Linux comprimido con gzip, para lo que debe ejecutar
 
-*"tar – xvzf Microsoft-ASR_UA_8.2.0.0_RHEL6-64 *"* desde el directorio en el que había copiado el instalador del servidor de destino principal de Linux.
+*"tar – xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64 *"* desde el directorio en el que había copiado el instalador del servidor de destino principal de Linux.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
@@ -349,11 +304,11 @@ Nota: durante la conmutación por error de Azure a local, la máquina virtual de
 
 ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
-1.  En la opción **Choose Application (Elegir aplicación)**, seleccione **P2V**.
+2.  En la opción **Choose Application (Elegir aplicación)**, seleccione **P2V**.
 
-2.  Haga clic en la opción **New Protection (Nueva protección)** para comenzar.
+3.  Haga clic en la opción **New Protection (Nueva protección)** para comenzar.
 
-3.  En la ventana nueva que se abre empezará a proteger las máquinas virtuales devueltas a local.
+4.  En la ventana nueva que se abre empezará a proteger las máquinas virtuales devueltas a local.
 
     a. En **OS type (Tipo de sistema operativo)**, seleccione el tipo de sistema operativo en función de las máquinas virtuales en que desea realizar la conmutación por recuperación y, a continuación, seleccione **Get Details (Obtener detalles)**.
 
@@ -365,7 +320,7 @@ Nota: durante la conmutación por error de Azure a local, la máquina virtual de
 
     e. Una vez que haya identificado las máquinas virtuales que desea proteger, selecciónelas una a una.
 
-4.  Cuando seleccione una de las máquinas virtuales que va proteger (y ya se ha conmutado por error a Azure), aparecerá una ventana emergente con dos entradas para la máquina virtual. Esto se debe a que el servidor de configuración ha detectado dos instancias de las máquinas virtuales registradas. Debe quitar la entrada de la VM local, con el fin de que pueda proteger la máquina virtual correcta. Tenga en cuenta que verá las entradas por su nombre de host de equipo. Para identificar la entrada de la máquina virtual de Azure correcta, puede iniciar sesión en la máquina virtual de Azure y e ir a C:\Archivos de programa (x86)\Microsoft Azure Site Recovery\Application Data\etc. En el archivo drscout.conf, identifique el Id. del host. En el cuadro de diálogo vContinuum, conserve la entrada en que se encuentra hostID en la máquina virtual. Elimine las restantes entradas.
+5.  Cuando seleccione una de las máquinas virtuales que va proteger (y ya se ha conmutado por error a Azure), aparecerá una ventana emergente con dos entradas para la máquina virtual. Esto se debe a que el servidor de configuración ha detectado dos instancias de las máquinas virtuales registradas. Debe quitar la entrada de la VM local, con el fin de que pueda proteger la máquina virtual correcta. Tenga en cuenta que verá las entradas por su nombre de host de equipo. Para identificar la entrada de la máquina virtual de Azure correcta, puede iniciar sesión en la máquina virtual de Azure y e ir a C:\\Archivos de programa (x86)\\Microsoft Azure Site Recovery\\Application Data\\etc. En el archivo drscout.conf, identifique el Id. del host. En el cuadro de diálogo vContinuum, conserve la entrada en que se encuentra hostID en la máquina virtual. Elimine las restantes entradas.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
@@ -380,7 +335,7 @@ Nota: durante la conmutación por error de Azure a local, la máquina virtual de
 
     d.  Next you can also delete the virtual machines on-premises
 
-5.  A continuación, especifique el servidor de destino maestro local en el que desea proteger las máquinas virtuales.
+6.  A continuación, especifique el servidor de destino maestro local en el que desea proteger las máquinas virtuales.
 
     a. Conéctese al vCenter en el que desea realizar la conmutación por recuperación.
 
@@ -390,7 +345,7 @@ a. Seleccione el servidor de destino maestro según el host en el que desee recu
 
 ![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-1.  A continuación, proporcione la opción de replicación de cada una de las máquinas virtuales.
+7.  A continuación, proporcione la opción de replicación de cada una de las máquinas virtuales.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
@@ -398,32 +353,28 @@ a. En **Datastore (Almacén de datos)**, debe seleccionar el lado de la recupera
 
 Las diferentes opciones que debe proporcionar por máquina virtual son
 
-<table>
-<tr><td>Opción</td><td>Valor recomendado de la opción</td></tr>
-<tr><td>Process Server IP (IP de servidor de proceso)</td><td>Seleccione el servidor de proceso que ha implementado en Azure</td></tr>
-<tr><td>Retention size in MB (Tamaño de retención en MB)</td><td></td></tr>
-<tr><td>Retention value (Valor de retención)</td><td>1</td></tr>
-<tr><td>Days/Hours (Días y horas)</td><td>Days (Días)</td></tr>
-<tr><td>Consistency Interval (Intervalo de consistencia)</td><td>1</td></tr>
-<tr><td>Select Target Datastore (Seleccionar almacén de datos de destino)</td><td>El almacén de datos disponible en el lado de la recuperación. Este almacén de datos debe tener espacio suficiente y estar disponible en el host ESX en el que desea que se encuentre la máquina virtual.</td></tr>
-</table>
+Opción|Valor recomendado de la opción
+---|---
+Process Server IP (IP de servidor de proceso)|Seleccione el servidor de proceso que ha implementado en Azure
+Retention size in MB (Tamaño de retención en MB)| 
+Retention value (Valor de retención)|1
+Days/Hours (Días y horas)|Days (Días)
+Consistency Interval (Intervalo de consistencia)|1
+Select Target Datastore (Seleccionar almacén de datos de destino)|El almacén de datos disponible en el lado de la recuperación. Este almacén de datos debe tener espacio suficiente y estar disponible en el host ESX en el que desea que se encuentre la máquina virtual.
 
 
-1.  A continuación, puede configurar las propiedades que va a adquirir la máquina virtual después de la conmutación por error en el sitio local. Estas son las distintas propiedades que puede configurar
+8.  A continuación, puede configurar las propiedades que va a adquirir la máquina virtual después de la conmutación por error en el sitio local. Estas son las distintas propiedades que puede configurar
 
 ![](./media/site-recovery-failback-azure-to-vmware/image26.png)
 
 
-  <table>
-<tr><td>Propiedad</td><td>Cómo configurarla</td></tr>
-<tr><td>Network Configuration (Configuración de red)</td><td>Para cada NIC detectado, configure la dirección IP de conmutación por recuperación de la máquina virtual. Seleccione la NIC y haga clic en **Change (Cambiar)** para especificar la dirección IP.
-
-</td></tr>
-<tr><td>Hardware Configuration (Configuración de hardware)</td><td>Puede especificar los valores de memoria y CPU de la máquina virtual. Esta configuración se puede aplicar a todas las máquinas virtuales que intenta proteger. Para identificar los valores correctos de la CPU y memoria, puede consultar el tamaño del rol de las máquinas virtuales de IAAS y ver el número de núcleos y la memoria asignados.
-</td></tr>
-<tr><td>Display Name (Nombre para mostrar)</td><td>Después de la conmutación por error a local, puede elegir cambiar el nombre de las máquinas virtuales que se verán en el inventario de vCenter. Tenga en cuenta que el valor predeterminado que se ve aquí es el nombre de host del equipo de la máquina virtual. Para identificar el nombre de la máquina virtual, puede hacer referencia a la lista de máquinas virtuales del grupo de protección.</td></tr>
-<tr><td>NAT Configuration (Configuración de NAT)</td><td>Se describe en detalle a continuación.</td></tr>
-</table>
+Propiedad|Cómo configurarla
+---|---
+Network Configuration (Configuración de red)|Para cada NIC detectado, configure la dirección IP de conmutación por recuperación de la máquina virtual. Seleccione la NIC y haga clic en **Change (Cambiar)** para especificar la dirección IP.
+Hardware Configuration (Configuración de hardware)|Puede especificar los valores de memoria y CPU de la máquina virtual. Esta configuración se puede aplicar a todas las máquinas virtuales que intenta proteger.
+Display Name (Nombre para mostrar)|Para identificar los valores correctos de la CPU y memoria, puede consultar el tamaño del rol de las máquinas virtuales de IAAS y ver el número de núcleos y la memoria asignados.
+Display Name (Nombre para mostrar)|Después de la conmutación por error a local, puede elegir cambiar el nombre de las máquinas virtuales que se verán en el inventario de vCenter. Tenga en cuenta que el valor predeterminado que se ve aquí es el nombre de host del equipo de la máquina virtual. Para identificar el nombre de la máquina virtual, puede hacer referencia a la lista de máquinas virtuales del grupo de protección.
+NAT Configuration (Configuración de NAT)|Se describe en detalle a continuación.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image27.png)
 
@@ -453,7 +404,7 @@ Las diferentes opciones que debe proporcionar por máquina virtual son
 
 Las restantes opciones de la Advanced Settings (Configuración avanzada) se pueden dejar con sus valores predeterminados. Asegúrese de aplicar la configuración de los nombres de las carpetas a todos los servidores.
 
-1.  A continuación, muévase a la fase final de la protección. Aquí tendrá que ejecutar una comprobación de idoneidad para asegurarse de que las máquinas virtuales están listas para protegerse en local.
+2.  A continuación, muévase a la fase final de la protección. Aquí tendrá que ejecutar una comprobación de idoneidad para asegurarse de que las máquinas virtuales están listas para protegerse en local.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image32.png)
 
@@ -471,7 +422,7 @@ Las restantes opciones de la Advanced Settings (Configuración avanzada) se pued
     below.
 
 
-1.  Ahora comenzará la protección.
+3.  Ahora comenzará la protección.
 
     a. El progreso de la protección se puede ver en vContinuum
 
@@ -498,15 +449,15 @@ Puede preparar un plan de conmutación por recuperación mediante vContinuum, co
 
 ![](./media/site-recovery-failback-azure-to-vmware/image37.png)
 
-1.  Puede ver la lista de todos los planes que se han utilizado para proteger las máquinas virtuales. Son los mismos planes que se puede utilizar para realizar la recuperación.
+3.  Puede ver la lista de todos los planes que se han utilizado para proteger las máquinas virtuales. Son los mismos planes que se puede utilizar para realizar la recuperación.
 
-2.  Seleccione el plan de protección y todas las máquinas virtuales que desea recuperar dentro de él.
+4.  Seleccione el plan de protección y todas las máquinas virtuales que desea recuperar dentro de él.
 
     a. Al seleccionar cada máquina virtual, puede ver más detalles sobre la máquina virtual de origen, el servidor ESX donde se recuperarán la máquina virtual y el disco de máquina virtual de origen.
 
-3.  Haga clic en Siguiente para comenzar el Asistente para **recuperación**.
+5.  Haga clic en Siguiente para comenzar el Asistente para **recuperación**.
 
-4.  Seleccione las máquinas virtuales que desea recuperar.
+6.  Seleccione las máquinas virtuales que desea recuperar.
 
     a. Vea la lista de las máquinas virtuales que puede recuperar.
 
@@ -520,15 +471,15 @@ Puede preparar un plan de conmutación por recuperación mediante vContinuum, co
     chosen for all the virtual machines.
 
 
-1.  Ejecute la **comprobación de idoneidad.** Esto le informará si están configurados los parámetros correctos para habilitar la recuperación de las etiquetas más recientes de la máquina virtual. Haga clic en Siguiente si el resultado de todas las comprobaciones es satisfactorio; de lo contrario, examine el registro y resuelva los errores.
+7.  Ejecute la **comprobación de idoneidad.** Esto le informará si están configurados los parámetros correctos para habilitar la recuperación de las etiquetas más recientes de la máquina virtual. Haga clic en Siguiente si el resultado de todas las comprobaciones es satisfactorio; de lo contrario, examine el registro y resuelva los errores.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image39.png)
 
-2.  En el paso de configuración de máquina virtual del asistente, asegúrese de que la configuración de recuperación está establecida correctamente. En caso de que la configuración de la máquina virtual no sea la que necesita, puede cambiarla. Dado que ya hemos completado esta acción durante la protección, puede omitirla.
+8.  En el paso de configuración de máquina virtual del asistente, asegúrese de que la configuración de recuperación está establecida correctamente. En caso de que la configuración de la máquina virtual no sea la que necesita, puede cambiarla. Dado que ya hemos completado esta acción durante la protección, puede omitirla.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image40.png)
 
-1.  Por último, revise la lista de máquinas virtuales que se van a recuperar.
+9.  Por último, revise la lista de máquinas virtuales que se van a recuperar.
 
     a. Especifique un orden de recuperación en las máquinas virtuales.
 
@@ -536,7 +487,7 @@ Nota: las máquinas virtuales se enumeran con el nombre de host del equipo. Pued
 
 ![](./media/site-recovery-failback-azure-to-vmware/image41.png)
 
-1.  Indique el **nombre del plan de recuperación** y seleccione **Recovery later (Recuperar más tarde)** en **Recovery options (Opciones de recuperación)**.
+10.  Indique el **nombre del plan de recuperación** y seleccione **Recovery later (Recuperar más tarde)** en **Recovery options (Opciones de recuperación)**.
 
     a. Si desea que la recuperación se realice de inmediato, puede elegir **Recovery now (Recuperar ahora)** en **Recovery options (Opciones de recuperación)**.
 
@@ -544,11 +495,11 @@ Nota: las máquinas virtuales se enumeran con el nombre de host del equipo. Pued
 
     c. Por último, haga clic en el botón **Recover (Recuperar)** para guardar el plan o para desencadenar la recuperación, según lo que haya elegido en **Recovery options (Opciones de recuperación)**.
 
-2.  Puede ver el estado de recuperación para saber si el plan se ha guardado correctamente.
+11.  Puede ver el estado de recuperación para saber si el plan se ha guardado correctamente.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image42.png)
 
-1.  Si ha elegido que la recuperación se realice más tarde, se le indicará que el plan se ha creado y que puede recuperarlo más tarde.
+12.  Si ha elegido que la recuperación se realice más tarde, se le indicará que el plan se ha creado y que puede recuperarlo más tarde.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image43.png)
 
@@ -570,18 +521,18 @@ Para comenzar la recuperación de las máquinas virtuales en local, es preciso i
 
 ![](./media/site-recovery-failback-azure-to-vmware/image45.png)
 
-1.  Seleccione el nodo **Recovery (Recuperación)** y seleccione el plan que desea recuperar.
+3.  Seleccione el nodo **Recovery (Recuperación)** y seleccione el plan que desea recuperar.
 
     a. Le informará de que el plan aún no se ha iniciado.
 
-2.  Haga clic en **Iniciar** para comenzar la recuperación.
+4.  Haga clic en **Iniciar** para comenzar la recuperación.
 
-3.  Puede supervisar la recuperación de las máquinas virtuales.
+5.  Puede supervisar la recuperación de las máquinas virtuales.
 
 
 ![](./media/site-recovery-failback-azure-to-vmware/image46.png)
 
-4. Una vez que las máquinas virtuales se han encendido, puede conectarlas a las máquinas virtuales del vCenter.
+6. Una vez que las máquinas virtuales se han encendido, puede conectarlas a las máquinas virtuales del vCenter.
 
 ## Reprotección en Azure después de la conmutación por recuperación
 
@@ -604,4 +555,4 @@ Una vez completada la conmutación por recuperación, es aconsejable volver a pr
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

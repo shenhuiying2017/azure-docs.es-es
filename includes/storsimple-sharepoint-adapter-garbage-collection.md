@@ -1,3 +1,19 @@
+<properties 
+   pageTitle="Adaptador de StorSimple para SharePoint - recolección de elementos no utilizados | Microsoft Azure"
+   description="Describe cómo eliminar blobs inmediatamente cuando se usa el adaptador de StorSimple para SharePoint."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="07/10/2015"
+   ms.author="v-sharos" />
 
 En este procedimiento, hará lo siguiente:
 
@@ -7,7 +23,7 @@ En este procedimiento, hará lo siguiente:
 
 3. [Ejecutar Maintainer.exe](#to-run-the-maintainer).
 
-4. [Revertir la base de datos de contenido y la configuración de la papelera de reciclaje](to-revert-the-content-database-and-recycle-bin-settings).
+4. [Revertir la base de datos de contenido y la configuración de la papelera de reciclaje](#to-revert-the-content-database-and-recycle-bin-settings).
 
 #### Para preparar la ejecución del mantenedor
 
@@ -21,7 +37,7 @@ En este procedimiento, hará lo siguiente:
 
 5. En el archivo web.config descifrado, en el nodo **<connectionStrings>**, agregue la cadena de conexión para la instancia de SQL Server y el nombre de la base de datos de contenido. Consulte el ejemplo siguiente.
 
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
+    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
 
 6. Use `aspnet_regiis –pef connectionStrings` para volver a cifrar el archivo web.config.
 
@@ -63,4 +79,4 @@ En este procedimiento, hará lo siguiente:
 
 2. En el servidor web front-end, en**Administración central**, edite la **Configuración general de la aplicación web**para la base de datos de contenido deseada para volver a habilitar la papelera de reciclaje. Para ello, haga clic en **Administración central** -> **Administración de aplicaciones** -> **Aplicaciones web (Administrar aplicaciones web)** -> **SharePoint - 80** -> **Configuración de aplicación general**. Establezca el estado de la Papelera de reciclaje en **Activado**.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

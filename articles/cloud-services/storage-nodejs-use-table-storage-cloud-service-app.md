@@ -50,7 +50,7 @@ Siga estos pasos para recuperar las credenciales de la cuenta de almacenamiento 
 
 1.  Si aún no está abierto, inicie Azure PowerShell desde el menú **Inicio**, expanda **Todos los programas, Azure**, haga clic con el botón derecho en **Azure PowerShell** y, a continuación, seleccione **Ejecutar como administrador**.
 
-2.  Cambie los directorios a la carpeta que contiene la aplicación. Por ejemplo, C:\node\tasklist\WebRole1.
+2.  Cambie los directorios a la carpeta que contiene la aplicación. Por ejemplo, C:\\node\\tasklist\\WebRole1.
 
 3.  Desde la ventana de Azure Powershell escriba el siguiente cmdlet para recuperar la información de la cuenta de almacenamiento:
 
@@ -321,7 +321,7 @@ En esta sección extenderá la aplicación básica creada por el comando **expre
 
 El archivo **layout.jade** del directorio **views** se utiliza como plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar [Twitter Bootstrap](https://github.com/twbs/bootstrap), un kit de herramientas que facilita el diseño de un sitio web atractivo.
 
-1. Descargue y extraiga los archivos para [Twitter Bootstrap](http://getbootstrap.com/). Copie el archivo **bootstrap.min.css** desde la carpeta **bootstrap\dist\css** al directorio **public\stylesheets** de su aplicación de lista de tareas.
+1. Descargue y extraiga los archivos para [Twitter Bootstrap](http://getbootstrap.com/). Copie el archivo **bootstrap.min.css** desde la carpeta **bootstrap\\dist\\css** al directorio **public\\stylesheets** de su aplicación de lista de tareas.
 
 2. En la carpeta **views**, abra **layout.jade** en el editor de texto y reemplace el contenido por lo siguiente:
 
@@ -408,4 +408,4 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

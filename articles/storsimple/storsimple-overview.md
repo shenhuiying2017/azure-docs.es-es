@@ -13,18 +13,34 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="05/27/2015"
+   ms.date="08/03/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # ¿Qué es StorSimple? 
 
-Microsoft Azure StorSimple es una solución eficaz, rentable y administrable que elimina muchos de los problemas y gastos asociados con el almacenamiento empresarial y la protección de datos. Utiliza un dispositivo de su propiedad (el dispositivo de Microsoft Azure StorSimple) y las herramientas de administración integradas para proporcionar una vista transparente de todo el almacenamiento empresarial, incluido el almacenamiento en la nube.
+## Información general
+
+Microsoft Azure StorSimple es una solución eficaz, rentable y administrable que elimina muchos de los problemas y gastos asociados con el almacenamiento empresarial y la protección de datos. Usa un dispositivo de su propiedad (el dispositivo Microsoft Azure StorSimple), la integración con servicios en la nube y un conjunto de herramientas de administración para proporcionar una vista transparente de todo el almacenamiento empresarial, incluido el almacenamiento en la nube.
+
+StorSimple usa niveles de almacenamiento para administrar los datos almacenados en diversos medios de almacenamiento. El espacio de trabajo actual está almacenado localmente en unidades de estado sólido (SSD), los datos que se usan con menos frecuencia se almacenan en unidades de disco duro (HDD) y los datos de archivo se insertan en la nube. Además, StorSimple usa la desduplicación y la compresión para reducir la cantidad de almacenamiento que los datos consumen. El proceso de organización en niveles del almacenamiento se produce como sigue:
+
+1. Un administrador del sistema configura una cuenta de almacenamiento en la nube de Microsoft Azure.
+2. El administrador usa la consola serie y el servicio StorSimple Manager (que se ejecuta en el Portal de administración de Azure) para configurar el servidor de dispositivo y archivos, y crear directivas de protección de datos y volúmenes. El servidor de archivos local usa Interfaz estándar de equipos pequeños de Internet (iSCSI) para acceder al dispositivo StorSimple.
+3. Inicialmente, StorSimple almacena los datos en el nivel de SSD rápido del dispositivo.
+4. A medida que el nivel de SSD empieza a carecer de capacidad, StorSimple desduplica y comprime los bloques de datos más antiguos y los mueve al nivel de unidades de disco duro.
+5. Si el nivel de unidades de disco duro comienza a carecer de capacidad, StorSimple cifra los bloques de datos más antiguos y los envía de forma segura a la cuenta de almacenamiento de Microsoft Azure a través de HTTPS.
+6. Microsoft Azure crea varias réplicas de los datos en su centro de datos y en un centro de datos remoto, lo que garantiza que los datos puedan recuperarse si se produce un desastre. 
+7. Cuando el servidor de archivos solicita datos almacenados en la nube, StorSimple los devuelve sin problemas y almacena una copia en el nivel de SSD del dispositivo StorSimple.
+
+Además de la administración de almacenamiento, las características de protección de datos de StorSimple le permiten crear copias de seguridad a petición y programadas, así como almacenarlas localmente o en la nube. Las copias de seguridad se realizan en forma de instantáneas incrementales, lo que significa que se pueden crear y restaurar rápidamente. Las instantáneas en la nube pueden resultar esenciales en escenarios de recuperación ante desastres, ya que reemplazan a los sistemas de almacenamiento secundario (por ejemplo, la copia de seguridad en cinta) y le permiten restaurar los datos a su centro de datos o a sitios alternativos si es necesario.
+
+>[AZURE.NOTE]La serie StorSimple 8000 con la actualización de software 1 o posterior admite Amazon S3 con servicios en la nube RRS, HP y OpenStack, así como Microsoft Azure. (Todavía necesitará una cuenta de almacenamiento de Microsoft Azure para administrar los dispositivos). Para obtener más información, consulte [Configurar una nueva cuenta de almacenamiento](storsimple-deployment-walkthrough.md#configure-a-new-storage-account) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough-u1.md).
 
 ## ¿Por qué usar StorSimple?
 
 Microsoft Azure StorSimple proporciona los siguientes beneficios:
 
-- **Integración transparente**: Microsoft Azure StorSimple usa el protocolo Interfaz estándar de equipos pequeños de Internet (iSCSI) para vincular de manera invisible instalaciones de almacenamiento de datos. Esto garantizar que los datos almacenados en la nube, en el centro de datos o en servidores remotos parezcan estar almacenados en una ubicación única.
+- **Integración transparente**: Microsoft Azure StorSimple usa el protocolo iSCSI para vincular de manera invisible instalaciones de almacenamiento de datos. Esto garantizar que los datos almacenados en la nube, en el centro de datos o en servidores remotos parezcan estar almacenados en una ubicación única.
 - **Menores costes de almacenamiento**: Microsoft Azure StorSimple asigna almacenamiento local o en la nube suficiente para cumplir las actuales exigencias y extiende el almacenamiento en la nube solo cuando es necesario. Disminuye aún más los requisitos de almacenamiento y los gastos al eliminar las versiones redundantes de los mismos datos (desduplicación) y mediante la compresión.
 - **Administración simplificada del almacenamiento**: Microsoft Azure StorSimple proporciona herramientas de administración del sistema que puede usar para configurar y administrar datos almacenados localmente, en un servidor remoto y en la nube. Además, puede administrar copias de seguridad y restaurar funciones desde un complemento de Microsoft Management Console (MMC). StorSimple proporciona una interfaz independiente opcional que puede usar para extender los servicios de administración y protección de datos de StorSimple al contenido almacenado en servidores de SharePoint. 
 - **Mejor recuperación ante desastres y cumplimiento normativo**: Microsoft Azure StorSimple no requiere largos tiempos de recuperación. En lugar de eso, restaura los datos según sea necesario. Esto significa que las operaciones normales pueden seguir con un mínimo de interrupción. Además, puede configurar directivas para especificar programaciones de copias de seguridad y retención de datos.
@@ -50,10 +66,11 @@ La solución de Microsoft Azure StorSimple incluye los siguientes componentes:
 
 ## Pasos siguientes
 
-Lea acerca de los [componentes de StorSimple](storsimple-components.md).
+Lea la [información general sobre soluciones de StorSimple](http://www.microsoft.com/es-es/server-cloud/products/storsimple/resources.aspx)y vea la [charla sobre StorSimple](http://www.microsoft.com/es-es/server-cloud/products/storsimple/Features.aspx).
 
+Obtenga más información sobre los [componentes y la terminología de StorSimple](storsimple-components.md).
 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

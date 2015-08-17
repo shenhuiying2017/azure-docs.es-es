@@ -129,8 +129,8 @@ Una vez completados estos pasos, solo tendrá que reemplazar las referencias de 
 
 En Package.appxmanifest `File Type Associations` se ha actualizado de:
 
- -   capptain_reach_content a engagement_reach_content
- -   capptain_log_file a engagement_log_file
+ -   capptain\_reach\_content a engagement\_reach\_content
+ -   capptain\_log\_file a engagement\_log\_file
 
 ### Identificador de aplicación o clave SDK
 
@@ -169,4 +169,4 @@ Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidad
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

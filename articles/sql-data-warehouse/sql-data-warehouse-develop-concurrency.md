@@ -39,13 +39,13 @@ Cada consulta que se ejecuta de forma simultánea consume una o varias ranuras d
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 32    | 32     |
 -->
 
 | Consumo de ranuras de simultaneidad | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | N.º máximo de consultas simultáneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
-| N.º máximo de ranuras de simultaneidad | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 | 
+| N.º máximo de ranuras de simultaneidad | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 32 | 32 | 32 | 
 
 Las clases de recursos son una parte esencial de la administración de cargas de trabajo de Almacenamiento de datos SQL dado que también determinan los recursos computacionales asignados a la consulta. Este tema se abordará en la sección de administración de cargas de trabajo más adelante.
 
@@ -223,7 +223,7 @@ Abra una conexión con la base de datos de Almacenamiento de datos SQL y ejecute
 CREATE USER newperson FOR LOGIN newperson
 ```
 
-Una vez finalizado, deberá conceder al usuario permisos completos. El ejemplo siguiente concede `CONTROL` sobre la base de datos de Almacenamiento de datos SQL. En el nivel de base de datos, `CONTROL` es el equivalente de db_owner en SQL Server.
+Una vez finalizado, deberá conceder al usuario permisos completos. El ejemplo siguiente concede `CONTROL` sobre la base de datos de Almacenamiento de datos SQL. En el nivel de base de datos, `CONTROL` es el equivalente de db\_owner en SQL Server.
 
 ```
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
@@ -377,4 +377,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -63,4 +63,4 @@ Visualización de una imagen de máquina virtual | `azure vm image show [options
 * Para obtener más información acerca del uso de la CLI de Azure para trabajar con recursos en modo arm, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Administración del control de acceso basado en rol con la interfaz de línea de comandos de Azure](../role-based-access-control-xplat-cli.md).
 * Para obtener ejemplos adicionales de los comandos CLI, consulte [Uso de la interfaz de la línea de comandos de Azure](../virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

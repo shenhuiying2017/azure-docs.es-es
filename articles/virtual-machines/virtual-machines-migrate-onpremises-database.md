@@ -161,4 +161,4 @@ Este método se usa para migrar todas las bases de datos de usuario y del sistem
 
 Use el [método del servicio de importación y exportación de Azure](../storage-import-export-service/) para transferir grandes cantidades de datos de archivo al almacenamiento en blobs de Azure en aquellas situaciones en que el proceso de carga a través de la red sea demasiado caro o no sea viable. Con este servicio, se envían una o varias unidades de discos duros que contengan esos datos a un centro de datos de Azure, donde los datos se cargarán a su cuenta de almacenamiento.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

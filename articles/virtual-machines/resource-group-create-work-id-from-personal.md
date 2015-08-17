@@ -140,4 +140,4 @@ Ahora puede usar su nueva identidad de Azure Active Directory para usar [plantil
     data:
     info:    group create command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

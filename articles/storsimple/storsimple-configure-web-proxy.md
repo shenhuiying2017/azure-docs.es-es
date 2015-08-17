@@ -147,4 +147,4 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 ## Pasos siguientes
 Si experimenta problemas durante la implementación del dispositivo o la configuración de los valores de proxy web, consulte [Solución de problemas del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -76,4 +76,4 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 
 [contenido por secuencias](media-services-deliver-streaming-content.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

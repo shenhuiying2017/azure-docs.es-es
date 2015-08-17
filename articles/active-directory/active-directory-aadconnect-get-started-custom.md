@@ -83,7 +83,11 @@ Mi propio atributo|Esta opción le permite seleccionar su propio atributo. **Lim
 
 - **Delimitador de origen**: el atributo sourceAnchor es un atributo que es inmutable durante la duración de un objeto de usuario. Es la clave principal que vincula el usuario local con el usuario de Azure AD. Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea adecuado usar. Un buen candidato es objectGUID. Este atributo no cambiará a menos que la cuenta de usuario se mueva entre bosques o dominios. En un entorno de varios bosque donde se muevan cuentas entre bosques, debe utilizarse otro atributo, como un atributo con el identificador de empleado. Atributos que hay que evitar son aquellos que podrían cambiar si combina una persona o cambian las asignaciones. No se pueden utilizar los atributos con un signo @, por lo que no se puede utilizar el correo electrónico y userPrincipalName. El atributo también distingue mayúsculas de minúsculas por lo que si mueve un objeto entre bosques, asegúrese de conservar las mayúsculas y minúsculas. Para los atributos binarios el valor está codificado en base 64, pero para otros tipos de atributo permanecerá en su estado sin codificar. En escenarios de federación y en algunas interfaces de Azure AD, este atributo se conoce también como immutableID.
 
-- **UserPrincipalName**: el atributo userPrincipalName es el atributo que los usuarios van a usar al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Se recomienda encarecidamente mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro atributo, por ejemplo, correo electrónico, como atributo que contiene el identificador de inicio de sesión. Advertencia: no es compatible el uso de un identificador alternativo con todas las cargas de trabajo de Office 365. Para obtener más información, consulte https://technet.microsoft.com/es-es/library/dn659436.aspx.
+- **UserPrincipalName**: el atributo userPrincipalName es el atributo que los usuarios van a usar al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Se recomienda encarecidamente mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro atributo, por ejemplo, correo electrónico, como atributo que contiene el identificador de inicio de sesión.
+
+>[AZURE.WARNING]El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Office 365. Para obtener más información, consulte [Configuración del identificador de inicio de sesión alternativo](https://technet.microsoft.com/library/dn659436.aspx.).
+
+
 
 
 
@@ -286,4 +290,4 @@ Puede personalizar la imagen de logotipo y la ilustración para las páginas de 
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

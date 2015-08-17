@@ -35,7 +35,7 @@ El paso siguiente es crear la aplicación Android.
 
 1. Siga el tutorial [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-get-started.md) para crear y configurar la aplicación para recibir notificaciones push desde GCM.
 
-2. Abra el archivo **res/layout/activity_main.xml** y reemplace el contenido por las siguientes definiciones de contenido.
+2. Abra el archivo **res/layout/activity\_main.xml** y reemplace el contenido por las siguientes definiciones de contenido.
  
     Esto agrega nuevos controles de EditText para iniciar sesión como usuario. Además se agrega un campo para una etiqueta de nombre de usuario que será parte de las notificaciones que envíe:
 			
@@ -133,7 +133,7 @@ El paso siguiente es crear la aplicación Android.
 			Recipient username tag
 		</string>
 
-	El diseño gráfico main_activity.xml ahora debe tener un aspecto como este:
+	El diseño gráfico main\_activity.xml ahora debe tener un aspecto como este:
 
 	![][A1]
 
@@ -434,4 +434,4 @@ El paso siguiente es crear la aplicación Android.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

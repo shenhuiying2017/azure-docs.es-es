@@ -107,4 +107,4 @@ El servicio de OMS procesa los datos sin procesar y los datos procesados agregad
 
 Puede iniciar sesión en OMS con la cuenta que configuró anteriormente. Todo el tráfico entre OMS y el servicio de OMS se envía por un canal HTTPS seguro.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

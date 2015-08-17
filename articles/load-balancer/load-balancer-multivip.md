@@ -155,4 +155,4 @@ También puede actualizar el equilibrador de carga para que use una dirección V
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

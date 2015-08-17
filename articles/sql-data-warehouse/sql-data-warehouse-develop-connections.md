@@ -83,12 +83,12 @@ Almacenamiento de datos SQL estandariza algunas opciones de configuración duran
 
 | Configuración de base de datos | Valor |
 | :----------------- | :--------------------------- |
-| ANSI_NULLS | ACTIVAR |
-| QUOTED_IDENTIFIERS | ACTIVAR |
-| NO_COUNT | DESACTIVAR |
+| ANSI\_NULLS | ACTIVAR |
+| QUOTED\_IDENTIFIERS | ACTIVAR |
+| NO\_COUNT | DESACTIVAR |
 | DATEFORMAT | mdy |
 | DATEFIRST | 7 |
-| Intercalación de base de datos | SQL_Latin1_General_CP1_CI_AS |
+| Intercalación de base de datos | SQL\_Latin1\_General\_CP1\_CI\_AS |
 
 ## Sesiones y solicitudes
 Una vez que se ha realizado una conexión y se ha establecido una sesión, está listo para escribir y enviar consultas a Almacenamiento de datos SQL.
@@ -158,4 +158,4 @@ Una vez conectado, puede empezar a diseñar las tablas. Consulte el artículo so
 
 <!--Other references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

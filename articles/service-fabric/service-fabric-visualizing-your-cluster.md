@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Visualización del clúster mediante el Explorador de Service Fabric
@@ -26,7 +26,7 @@ El Explorador de Service Fabric es una herramienta visual para inspeccionar y ad
 
 Asegúrese de que se configura el entorno de desarrollo local con las instrucciones siguientes en [Configuración del entorno de desarrollo de Service Fabric](service-fabric-get-started.md).
 
-Ejecute el Explorador de Service Fabric desde la ruta de acceso de instalación local (%Archivos de programa%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe). La herramienta se conectará automáticamente a un clúster de desarrollo local, si existe alguno. Muestra información sobre el clúster como:
+Ejecute el Explorador de Service Fabric desde la ruta de acceso de instalación local (%Archivos de programa%\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricExplorer\\ServiceFabricExplorer.exe). La herramienta se conectará automáticamente a un clúster de desarrollo local, si existe alguno. Muestra información sobre el clúster como:
 
 - Aplicaciones que se ejecutan en el clúster
 - Información acerca de los nodos del clúster
@@ -74,6 +74,5 @@ Para ver un clúster de Service Fabric remoto, haga clic en **Conectar** para qu
 [connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

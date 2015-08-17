@@ -11,7 +11,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="05/27/2015" 
 	ms.author="wesmc"/>
 
@@ -66,7 +66,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
 ###Incorporación de código
 
-1. Descargue el SDK para Android de Centros de notificaciones desde <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">aquí</a>. Extraiga el archivo .zip y copie **notificationhubs\notification-hubs-0.4.jar** y **notifications\notifications-1.0.1.jar** en el directorio **app\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta libs.
+1. Descargue el SDK para Android de Centros de notificaciones desde <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">aquí</a>. Extraiga el archivo .zip y copie **notificationhubs\\notification-hubs-0.4.jar** y **notifications\\notifications-1.0.1.jar** en el directorio **app\\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta libs.
 
 
 
@@ -106,7 +106,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 		private String HubListenConnectionString = "<Your default listen connection string>";
 
 
-	Asegúrese de actualizar los tres marcadores de posición: * **SENDER_ID**: defina `SENDER_ID` en el número de proyecto que obtuvo anteriormente desde el proyecto que creó en la [Consola de la nube de Google](http://cloud.google.com/console). * **HubListenConnectionString**: defina `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión con un clic en **Ver cadena de conexión** en la pestaña **Panel** del centro en el [Portal de administración de Azure]. * **HubName**: el nombre del centro de notificaciones que aparece en la parte superior de la página en Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, `"myhub"`.
+	Asegúrese de actualizar los tres marcadores de posición: * **SENDER\_ID**: defina `SENDER_ID` en el número de proyecto que obtuvo anteriormente desde el proyecto que creó en la [Consola de la nube de Google](http://cloud.google.com/console). * **HubListenConnectionString**: defina `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión con un clic en **Ver cadena de conexión** en la pestaña **Panel** del centro en el [Portal de administración de Azure]. * **HubName**: el nombre del centro de notificaciones que aparece en la parte superior de la página en Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo: `"myhub"`.
 
 
 
@@ -259,7 +259,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 
 ![][31]
 
-1. En la vista de proyecto de Android Studio, expanda **App**->**src**->**main**->**res**->**layout**. Abra el archivo de diseño **activity_main.xml** y haga clic en la pestaña **Texto** para actualizar los contenidos de texto del archivo. Actualícelo con el siguiente código, el que agrega un nuevo control `Button` y `EditText` para enviar mensajes de notificación al centro de notificaciones. Agregue este código en la parte inferior, justo antes de `</RelativeLayout>`.
+1. En la vista de proyecto de Android Studio, expanda **App**->**src**->**main**->**res**->**layout**. Abra el archivo de diseño **activity\_main.xml** y haga clic en la pestaña **Texto** para actualizar los contenidos de texto del archivo. Actualícelo con el siguiente código, el que agrega un nuevo control `Button` y `EditText` para enviar mensajes de notificación al centro de notificaciones. Agregue este código en la parte inferior, justo antes de `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -448,9 +448,9 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 ##Prueba de la aplicación
 
 ####Pruebas de emulador
-Si desea probar en un emulador, asegúrese de que la imagen del emular admita el nivel de API de Google que elija para la aplicación. Si la imagen no es compatible con las API de Google, recibirá la excepción **SERVICE_NOT_AVAILABLE**.
+Si desea probar en un emulador, asegúrese de que la imagen del emular admita el nivel de API de Google que elija para la aplicación. Si la imagen no es compatible con las API de Google, recibirá la excepción **SERVICE\_NOT\_AVAILABLE**.
 
-Asegúrese también de haber agregado su cuenta de Google al emulador en ejecución en **Configuración**->**Cuentas**. De lo contrario, sus intentos de registrarse con GCM podrían generar la excepción **AUTHENTICATION_FAILED**.
+Asegúrese también de haber agregado su cuenta de Google al emulador en ejecución en **Configuración**->**Cuentas**. De lo contrario, sus intentos de registrarse con GCM podrían generar la excepción **AUTHENTICATION\_FAILED**.
 
 ####Prueba de la aplicación     
 
@@ -511,4 +511,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -153,4 +153,4 @@ Una vez creada la cuenta, puede encontrarla en el portal para administrar claves
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

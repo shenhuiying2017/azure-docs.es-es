@@ -69,47 +69,9 @@ La siguiente lista explica en detalle cada una de las columnas del informe:
 ### Descripción de los valores del informe
 En la tabla siguiente se describen los distintos valores permitidos para cada columna:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Columna</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Valores permitidos y su significado</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Datos registrados</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Correo electrónico alternativo</strong>: el usuario utilizó un correo electrónico alternativo o un correo electrónico de autenticación para autenticarse.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Teléfono de la oficina</strong>: el usuario utilizó el teléfono de la oficina para autenticarse.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Teléfono móvil</strong>: el usuario utilizó un teléfono móvil o un teléfono de autenticación para autenticarse.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Preguntas de seguridad</strong>: el usuario utilizó preguntas de seguridad para autenticarse.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong> Cualquier combinación de los valores anteriores (por ejemplo, correo electrónico alternativo + teléfono móvil)</strong>: tiene lugar cuando se especifica una directiva de 2 puertas y muestra los dos métodos que el usuario utilizó para autenticar su solicitud de restablecimiento de contraseña.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody></table>
+Columna|Valores permitidos y su significado
+---|---
+Datos registrados| **Correo electrónico alternativo**: el usuario utilizó un correo electrónico alternativo o un correo electrónico de autenticación para autenticarse<p><p>**Teléfono del trabajo**: el usuario utilizó el teléfono de la oficina para autenticarse<p>**Teléfono móvil**: el usuario utilizó un teléfono móvil o un teléfono de autenticación para autenticarse<p>**Preguntas de seguridad**: el usuario utilizó preguntas de seguridad para autenticarse<p>**Cualquier combinación de los valores anteriores (por ejemplo, correo electrónico alternativo + teléfono móvil)**: tiene lugar cuando se especifica una directiva de 2 puertas y muestra los dos métodos que el usuario utilizó para autenticar su solicitud de restablecimiento de contraseña.
 
 ## Visualización de la actividad de restablecimiento de contraseña en su organización
 
@@ -134,394 +96,53 @@ La siguiente lista explica en detalle cada una de las columnas del informe:
 ### Descripción de los valores del informe
 En la tabla siguiente se describen los distintos valores permitidos para cada columna:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Columna</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Valores permitidos y su significado</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Métodos usados</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Correo electrónico alternativo</strong>: el usuario utilizó un correo electrónico alternativo o un correo electrónico de autenticación para autenticarse.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Teléfono de la oficina</strong>: el usuario utilizó el teléfono de la oficina para autenticarse.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Teléfono móvil</strong>: el usuario utilizó un teléfono móvil o un teléfono de autenticación para autenticarse.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Preguntas de seguridad</strong>: el usuario utilizó preguntas de seguridad para autenticarse.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong> Cualquier combinación de los valores anteriores (por ejemplo, correo electrónico alternativo + teléfono móvil)</strong>: tiene lugar cuando se especifica una directiva de 2 puertas y muestra los dos métodos que el usuario utilizó para autenticar su solicitud de restablecimiento de contraseña.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Resultado</p>
-              </td>
-              <td>
-                <ul>
-                  <li class="unordered">
-                    <strong>Abandonado</strong>: el usuario inició un restablecimiento de contraseña, pero lo interrumpió antes de que finalizara.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Bloqueado</strong>: se impidió que la cuenta de usuario usara el restablecimiento de contraseña debido a un intento de utilizar la página de restablecimiento de contraseña o una sola puerta de restablecimiento de contraseña demasiadas veces en un período de 24 horas<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Cancelado</strong>: el usuario inició un restablecimiento de contraseña, pero después hizo clic en el botón Cancelar para cancelar la sesión en mitad del proceso. <br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Administrador contactado</strong>: el usuario tuvo un problema durante su sesión que no pudo resolver, por lo que hizo clic en el vínculo "Póngase en contacto con el administrador" en lugar de finalizar el flujo de restablecimiento de contraseña.<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Con error</strong>: el usuario no pudo restablecer una contraseña, probablemente porque el usuario no estaba configurado para usar esta característica (por ejemplo, no tiene licencia, falta información de autenticación, la contraseña se administra en el entorno local pero la escritura diferida está desactivada).<br><br></li>
-                </ul>
-                <ul>
-                  <li class="unordered">
-                    <strong>Correcto</strong>: la contraseña se restableció correctamente.<br><br></li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Detalles</p>
-              </td>
-              <td>
-                <p>Consulte la tabla siguiente:</p>
-              </td>
-            </tr>
-          </tbody></table>
+
+Columna|Valores permitidos y su significado
+---|---
+Métodos usados|**Correo electrónico alternativo**: el usuario utilizó un correo electrónico alternativo o un correo electrónico de autenticación para autenticarse<p>**Teléfono del trabajo**: el usuario utilizó el teléfono de la oficina para autenticarse<p>**Teléfono móvil**: el usuario utilizó un teléfono móvil o un teléfono de autenticación para autenticarse<p>**Preguntas de seguridad**: el usuario utilizó preguntas de seguridad para autenticarse<p>**Cualquier combinación de los valores anteriores (por ejemplo, correo electrónico alternativo + teléfono móvil)**: tiene lugar cuando se especifica una directiva de 2 puertas y muestra los dos métodos que el usuario utilizó para autenticar su solicitud de restablecimiento de contraseña.
+Resultado|**Abandonado**: el usuario inició un restablecimiento de contraseña, pero lo interrumpió antes de que finalizara<p>**Bloqueado**: se impidió que la cuenta de usuario usara el restablecimiento de contraseña debido a un intento de utilizar la página de restablecimiento de contraseña o una sola puerta de restablecimiento de contraseña demasiadas veces en un período de 24 horas<p>**Cancelado**: el usuario inició un restablecimiento de contraseña, pero después hizo clic en el botón Cancelar para cancelar la sesión en mitad del proceso <p>**Administrador contactado**: el usuario tuvo un problema durante su sesión que no pudo resolver, por lo que hizo clic en el vínculo "Póngase en contacto con el administrador" en lugar de finalizar el flujo de restablecimiento de contraseña<p>**Con error**: el usuario no pudo restablecer una contraseña, probablemente porque el usuario no estaba configurado para usar esta característica (por ejemplo, no tiene licencia, falta información de autenticación, la contraseña se administra en el entorno local pero la escritura diferida está desactivada).<p>**Correcto**: la contraseña se restableció correctamente.
+Detalles|Consulte la tabla siguiente:
 
 ### Valores permitidos para la columna Detalles
 A continuación se muestra la lista de los tipos de resultados que puede esperar cuando usa el informe de actividad de restablecimiento de contraseña:
 
-<table>
-            <tbody><tr>
-              <td>
-                <p>
-                  <strong>Detalles</strong>
-                </p>
-              </td>
-              <td>
-                <p>
-                  <strong>Tipo de resultado</strong>
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras completar la opción de comprobación de correo electrónico.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras completar la opción de comprobación por SMS en el teléfono móvil.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras completar la opción de comprobación por llamada de voz al teléfono móvil.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras completar la opción de comprobación por llamada de voz a la oficina.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras completar la opción de preguntas de seguridad.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó después de escribir su identificador de usuario.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras iniciar la opción de comprobación de correo electrónico.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras iniciar la opción de comprobación por SMS en el teléfono móvil.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras iniciar la opción de comprobación por llamada de voz al teléfono móvil.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras iniciar la opción de comprobación por llamada de voz a la oficina.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó tras iniciar la opción de preguntas de seguridad.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó antes de seleccionar una nueva contraseña.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario abandonó mientras seleccionaba una nueva contraseña.</p>
-              </td>
-              <td>
-                <p>Abandonado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario escribió demasiados códigos de comprobación de correo electrónico no válidos y se ha bloqueado durante 24 horas.</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario escribió demasiados códigos de comprobación por SMS no válidos y se ha bloqueado durante 24 horas.</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario intentó la comprobación por llamada de voz al teléfono móvil demasiadas veces y se ha bloqueado durante 24 horas.</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario intentó la comprobación por llamada de voz al teléfono de la oficina demasiadas veces y se ha bloqueado durante 24 horas.</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario intentó responder las preguntas de seguridad demasiadas veces y se ha bloqueado durante 24 horas.</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario intentó comprobar un número de teléfono demasiadas veces y se ha bloqueado durante 24 horas.</p>
-              </td>
-              <td>
-                <p>Bloqueado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario lo canceló antes de pasar a los métodos de autenticación requeridos.</p>
-              </td>
-              <td>
-                <p>Cancelado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario lo canceló antes de enviar una contraseña nueva.</p>
-              </td>
-              <td>
-                <p>Cancelado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario se puso en contacto con un administrador después de intentar la opción de comprobación de correo electrónico.</p>
-              </td>
-              <td>
-                <p>Administrador contactado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario se puso en contacto con un administrador después de intentar la opción de comprobación por SMS en el teléfono móvil.</p>
-              </td>
-              <td>
-                <p>Administrador contactado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario se puso en contacto con un administrador después de intentar la opción de comprobación por llamada de voz al teléfono móvil.</p>
-              </td>
-              <td>
-                <p>Administrador contactado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario se puso en contacto con un administrador después de intentar la opción de comprobación por llamada de voz a la oficina.</p>
-              </td>
-              <td>
-                <p>Administrador contactado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario se puso en contacto con un administrador después de intentar la opción de comprobación con preguntas de seguridad.</p>
-              </td>
-              <td>
-                <p>Administrador contactado</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El restablecimiento de contraseña no está habilitado para este usuario. Habilite el restablecimiento de contraseña en la pestaña Configurar para resolver este problema.</p>
-              </td>
-              <td>
-                <p>Con error</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario no tiene una licencia. Puede agregar una licencia al usuario para resolver este problema.</p>
-              </td>
-              <td>
-                <p>Con error</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario intentó el restablecimiento desde un dispositivo sin las cookies habilitadas.</p>
-              </td>
-              <td>
-                <p>Con error</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>La cuenta del usuario no tiene definidos suficientes métodos de autenticación. Agregue información de autenticación para resolver este problema.</p>
-              </td>
-              <td>
-                <p>Con error</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>La contraseña del usuario se administra en el entorno local. Puede habilitar la escritura diferida de contraseña para resolver este problema.</p>
-              </td>
-              <td>
-                <p>Con error</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>No pudimos obtener acceso a su servicio de restablecimiento de contraseña local. Compruebe el registro de eventos de su máquina de sincronización.</p>
-              </td>
-              <td>
-                <p>Con error</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Se encontró un problema durante el restablecimiento de la contraseña local del usuario. Compruebe el registro de eventos de su máquina de sincronización.</p>
-              </td>
-              <td>
-                <p>Con error</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>Este usuario no es miembro del grupo de usuarios de restablecimiento de contraseña. Agregue este usuario a ese grupo para resolver este problema.</p>
-              </td>
-              <td>
-                <p>Con error</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El restablecimiento de contraseña se ha deshabilitado por completo para este inquilino. Consulte <a href="http://aka.ms/ssprtroubleshoot">http://aka.ms/ssprtroubleshoot</a> para resolver este problema.</p>
-              </td>
-              <td>
-                <p>Con error</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p>El usuario restableció la contraseña correctamente.</p>
-              </td>
-              <td>
-                <p>Correcto</p>
-              </td>
-            </tr>
-          </tbody></table>
-
-<br/> <br/> <br/>
+Detalles | Tipo de resultado 
+----|----
+El usuario abandonó tras completar la opción de comprobación de correo electrónico. | Abandonado
+El usuario abandonó tras completar la opción de comprobación por SMS en el teléfono móvil.|Abandonado 
+El usuario abandonó tras completar la opción de comprobación por llamada de voz al teléfono móvil. | Abandonado 
+El usuario abandonó tras completar la opción de comprobación por llamada de voz a la oficina. | Abandonado
+El usuario abandonó tras completar la opción de preguntas de seguridad.|Abandonado 
+El usuario abandonó después de escribir su identificador de usuario.| Abandonado 
+El usuario abandonó tras iniciar la opción de comprobación de correo electrónico.|Abandonado
+El usuario abandonó tras iniciar la opción de comprobación por SMS en el teléfono móvil.|Abandonado
+El usuario abandonó tras iniciar la opción de comprobación por llamada de voz al teléfono móvil.|Abandonado
+El usuario abandonó tras iniciar la opción de comprobación por llamada de voz a la oficina.|Abandonado
+El usuario abandonó tras iniciar la opción de preguntas de seguridad.| Abandonado
+El usuario abandonó antes de seleccionar una nueva contraseña.| Abandonado
+El usuario abandonó mientras seleccionaba una nueva contraseña.| Abandonado
+El usuario escribió demasiados códigos de comprobación por SMS no válidos y se ha bloqueado durante 24 horas.|Bloqueado
+El usuario intentó la comprobación por llamada de voz al teléfono móvil demasiadas veces y se ha bloqueado durante 24 horas.|Bloqueado
+El usuario intentó la comprobación por llamada de voz al teléfono de la oficina demasiadas veces y se ha bloqueado durante 24 horas. |Bloqueado
+El usuario intentó responder las preguntas de seguridad demasiadas veces y se ha bloqueado durante 24 horas.| Bloqueado
+El usuario intentó comprobar un número de teléfono demasiadas veces y se ha bloqueado durante 24 horas.|Bloqueado
+El usuario lo canceló antes de pasar a los métodos de autenticación requeridos.|Cancelado
+El usuario lo canceló antes de enviar una contraseña nueva.|Cancelado
+El usuario se puso en contacto con un administrador después de intentar la opción de comprobación de correo electrónico. |Administrador contactado
+El usuario se puso en contacto con un administrador después de intentar la opción de comprobación por SMS en el teléfono móvil.|Administrador contactado
+El usuario se puso en contacto con un administrador después de intentar la opción de comprobación por llamada de voz al teléfono móvil.|Administrador contactado
+El usuario se puso en contacto con un administrador después de intentar la opción de comprobación por llamada de voz a la oficina. |Administrador contactado
+El usuario se puso en contacto con un administrador después de intentar la opción de comprobación con preguntas de seguridad.|Administrador contactado
+El restablecimiento de contraseña no está habilitado para este usuario. Habilite el restablecimiento de contraseña en la pestaña Configurar para resolver este problema.| Con error
+El usuario no tiene una licencia. Puede agregar una licencia al usuario para resolver este problema.|Con error
+El usuario intentó el restablecimiento desde un dispositivo sin las cookies habilitadas.| Con error
+La cuenta del usuario no tiene definidos suficientes métodos de autenticación. Agregue información de autenticación para resolver este problema.|Con error
+La contraseña del usuario se administra en el entorno local. Puede habilitar la escritura diferida de contraseña para resolver este problema.|Con error
+No pudimos obtener acceso a su servicio de restablecimiento de contraseña local. Compruebe el registro de eventos de su máquina de sincronización.|Con error
+Se encontró un problema durante el restablecimiento de la contraseña local del usuario. Compruebe el registro de eventos de su máquina de sincronización. | Con error
+Este usuario no es miembro del grupo de usuarios de restablecimiento de contraseña. Agregue este usuario a ese grupo para resolver este problema.|Con error
+El restablecimiento de contraseña se ha deshabilitado por completo para este inquilino. Consulte [aquí](http://aka.ms/ssprtroubleshoot) para resolver este problema. | Con error 
+El usuario restableció la contraseña correctamente.|Succeeded
 
 **Recursos adicionales**
 
@@ -543,4 +164,4 @@ A continuación se muestra la lista de los tipos de resultados que puede esperar
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

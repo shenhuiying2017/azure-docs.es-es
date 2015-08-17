@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Conexión de millones de ";cosas"; en la nube" 
+	pageTitle="Conexión de millones de &quot;cosas&quot; en la nube" 
 	description="Aprenda a conectar millones de cosas a la nube con Microsoft Azure." 
 	services="service-bus,event-hubs" 
 	documentationCenter=".net" 
@@ -40,4 +40,4 @@ Las "cosas" inteligentes y conectadas cada vez proliferan más en los ecosistema
 - [Servicios en la nube](http://azure.microsoft.com/documentation/services/cloud-services/) 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -308,4 +308,4 @@ También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

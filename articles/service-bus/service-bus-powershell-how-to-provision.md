@@ -184,4 +184,4 @@ Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerSh
 [API .NET para el Bus de servicio]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

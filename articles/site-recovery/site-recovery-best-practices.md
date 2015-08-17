@@ -103,7 +103,12 @@ Los proveedores y los agentes se instalan en servidores locales para que puedan 
 
 	- Configurar el servidor proxy personalizado antes de instalar el proveedor.
 	- Permitir estas direcciones URL a través del firewall:
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- Si está implementando Site Recovery con VMM y usa un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) automáticamente con las credenciales de proxy, especificadas en la configuración del proxy personalizada del portal de Site Recovery. Tendrá que configurar el servidor proxy para que esta cuenta pueda autenticarse correctamente.
 
 
@@ -151,7 +156,7 @@ Los proveedores y los agentes se instalan en servidores locales para que puedan 
 
 ## Optimización del rendimiento
 
-- **Tamaño del volumen del sistema operativo**: al replicar una máquina virtual a Azure, el volumen del sistema operativo debe ser inferior a 1 TB. Si tiene más volúmenes, puede moverlos manualmente a otro disco antes de comenzar la implementación.
+- **Tamaño del volumen del sistema operativo**: al replicar una máquina virtual a Azure, el volumen del sistema operativo tiene que ser inferior a 1 TB. Si tiene más volúmenes, puede moverlos manualmente a otro disco antes de comenzar la implementación.
 - **Tamaño de disco de datos**: si se está replicando en Azure, podrá tener hasta 32 discos de datos en una máquina virtual, cada una con un máximo de 1 TB. Puede replicar y conmutar por error de manera eficaz una máquina virtual de \~32 TB.
 - **Límites del plan de recuperación**: Site Recovery puede escalar a miles de máquinas virtuales. Los planes de recuperación están diseñados como un modelo para las aplicaciones que deben conmutar por error entre sí por lo que se limita el número de máquinas en un plan de recuperación a 50.
 - **Límites del servicio Azure**: cada suscripción de Azure incluye un conjunto de límites predeterminados sobre núcleos, servicios en la nube, etc. Le recomendamos que ejecute una conmutación por error de prueba para validar la disponibilidad de los recursos de la suscripción. Puede modificar estos límites a través de soporte técnico de Azure.
@@ -189,4 +194,4 @@ Después de revisar estas prácticas recomendadas, puede iniciar la implementaci
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

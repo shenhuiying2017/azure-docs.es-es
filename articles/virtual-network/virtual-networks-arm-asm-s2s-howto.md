@@ -17,7 +17,7 @@
 
 # Conexión de redes virtuales clásicas a redes virtuales nuevas
 
-Actualmente Azure tiene dos modos de administración: Administrador de servicios de Azure (conocido como clásico) y Administrador de recursos de Azure (ARM). Si ha estado usando Azure durante algún tiempo, es probable que tenga máquinas virtuales de Azure y roles de instancia ejecutándose en una red virtual clásica. Y es posible que sus máquinas virtuales e instancias de roles más recientes se estén ejecutando en una red virtual creada en ARM.
+Actualmente, Azure tiene dos modos de administración: Administrador de servicios de Azure (conocido como clásico) y Administrador de recursos de Azure (ARM). Si ha estado usando Azure durante algún tiempo, es probable que tenga máquinas virtuales de Azure y roles de instancia ejecutándose en una red virtual clásica. Y es posible que sus máquinas virtuales e instancias de roles más recientes se estén ejecutando en una red virtual creada en ARM.
 
 En tales situaciones, deseará asegurarse de que la nueva infraestructura sea capaz de comunicarse con sus recursos clásicos. Puede hacerlo mediante la creación de una conexión VPN entre las dos redes virtuales.
 
@@ -130,4 +130,4 @@ Para crear una puerta de enlace de VPN para la red virtual ARM, siga las instruc
 - Obtener más información sobre [el proveedor de recursos de red (NRP) para ARM](../resource-groups-networking.md).
 - Cree una [solución integral mediante la conexión de una red virtual clásica a una ARM mediante una VPN S2S](../virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2015"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
 	
 # Implementación desde Visual Studio
@@ -23,7 +23,7 @@ Aunque el [Portal de Azure](https://portal.azure.com) le ofrece una excelente ma
 - Almacene la aplicación lógica junto con los demás recursos de la solución, de manea que pueda contener todos los aspectos de la aplicación.
 - Mantenga la definición de aplicación lógica protegida en el control de código fuente para poder usar TFS o Git para realizar revisiones en la aplicación 
 
-Debe tener el SDK de Azure 2.6 instalado para seguir los pasos que se describen a continuación. Busque [el último SDK para VS](http://azure.microsoft.com/downloads/) aquí.
+Debe tener el SDK de Azure 2.7 o posterior instalado para seguir los pasos que se describen a continuación. Busque [el último SDK para VS](http://azure.microsoft.com/downloads/) aquí.
 
 ## Creación de un proyecto
 
@@ -45,7 +45,7 @@ Se recomienda que use **parámetros** en la definición. Esto es útil si desea 
 
 En la actualidad, Visual Studio no tiene un diseñador integrado, por lo que si desea usar una interfaz gráfica (en lugar de escribir JSON), deberá usar el Portal de Azure.
 
-Si previamente ha creado una aplicación lógica en el Portal de Azure y ahora desea protegerla en el control de código fuente, puede: - Ir a **vista código** en el portal y copiar la definición. - Usar las [API de REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) de las aplicaciones lógicas para obtener la definición. - Usar [Powershell del Administrador de recursos de Azure](../powershell-azure-resource-manager.md), concretamente el [`Get-AzureResource` comando](https://msdn.microsoft.com/library/dn654579.aspx) para descargar la definición.
+Si previamente ha creado una aplicación lógica en el Portal de Azure y ahora desea protegerla en el control de código fuente, puede hacerlo de una de 3 maneras distintas: - Vaya a **vista Código** en el portal y copie la definición. - Use las [API de REST](https://msdn.microsoft.com/library/azure/dn948510.aspx) de las aplicaciones lógicas para obtener la definición. - Use [Administrador de recursos de Azure PowerShell](../powershell-azure-resource-manager.md), específicamente el comando [`Get-AzureResource` ](https://msdn.microsoft.com/library/dn654579.aspx)para descargar la definición.
 
 ## Implementación de la aplicación lógica
 
@@ -63,6 +63,6 @@ Finalmente, después de configurar la aplicación, puede realizar la implementac
 
 En el futuro puede revisar la aplicación lógica en el control de código fuente y usar Visual Studio para implementar versiones nuevas. Tenga en cuenta que si modifica directamente la definición en el Portal de Azure, la próxima vez que realice la implementación desde Visual Studio, estos cambios se invalidarán.
 
-Si no desea usar Visual Studio, pero desea tener herramientas para implementar la aplicación lógica del control de código fuente, siempre puede usar la [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [Powershell](../powershell-azure-resource-manager.md) para automatizar directamente las implementaciones.
+Si no desea usar Visual Studio, pero desea tener herramientas para implementar la aplicación lógica del control de código fuente, siempre puede usar la [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [Powershell](../powershell-azure-resource-manager.md) directamente para automatizar las implementaciones.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

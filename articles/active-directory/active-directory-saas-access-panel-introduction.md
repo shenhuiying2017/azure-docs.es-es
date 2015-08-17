@@ -38,7 +38,7 @@ El Panel de acceso permite a los usuarios editar parte de la configuración de s
 
 - Ver e iniciar aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso el administrador. Para obtener más información sobre el Panel de acceso desde la perspectiva del usuario final, vea [Utilización del Panel de acceso](https://msdn.microsoft.com/library/azure/dn756411.aspx).
 
-- Autoadministrar grupos. Más concretamente, puede crear y administrar grupos de seguridad y solicitar la pertenencia a grupos de seguridad en Azure AD. Para obtener más información, vea [Administración de grupos de autoservicio para usuarios en Azure AD](https://msdn.microsoft.com/library/azure/dn641267.aspx) y [Administración de sus grupos](https://msdn.microsoft.com/library/azure/dn641268.aspx).
+- Autoadministrar grupos. Más concretamente, puede crear y administrar grupos de seguridad y solicitar la pertenencia a grupos de seguridad en Azure AD. Para obtener más información, vea [Administración de grupos de autoservicio para usuarios en Azure AD](active-directory-accessmanagement-self-service-group-management.md) y [Administración de sus grupos](active-directory-manage-groups.md).
 
 
 
@@ -46,9 +46,9 @@ El Panel de acceso permite a los usuarios editar parte de la configuración de s
 ## Acceso al Panel de acceso
 
 
-Los usuarios pueden acceder al Panel de acceso visitando la siguiente dirección URL en un explorador web: <br> **http://myapps.microsoft.com**
+Los usuarios pueden acceder al Panel de acceso visitando la siguiente dirección URL en un explorador web: <br> ****http://myapps.microsoft.com**
 
-Si tiene la configuración de marca personalizada en su página de inicio de sesión, puede cargar esta personalización de marca de forma predeterminada anexando el dominio de su organización al final de la dirección URL: <br>**http://myapps.microsoft.com/contosobuild.com**
+Si tiene la configuración de marca personalizada en su página de inicio de sesión, puede cargar esta personalización de marca de forma predeterminada anexando el dominio de su organización al final de la dirección URL: <br> ****http://myapps.microsoft.com/contosobuild.com**
 
 En este caso, se puede utilizar cualquier nombre de dominio activo o comprobado que se haya configurado en la pestaña Dominios de su directorio en el portal de administración de Azure, tal y como se muestra en la siguiente captura de pantalla.
 
@@ -64,11 +64,11 @@ Esta dirección URL se debe distribuir a todos los usuarios que vayan a iniciar 
 
 ## Autenticación
 
-Para llegar al Panel de acceso, un usuario debe autenticarse utilizando una cuenta de organización en Azure AD. <br> Un usuario se puede autenticar en Azure AD directamente. <br> Además, si una organización ha configurado federación utilizando ADFS u otras tecnologías, Windows Server Active Directory puede autenticar los usuarios.
+Para llegar al Panel de acceso, un usuario debe autenticarse utilizando una cuenta de organización en Azure AD. <br> Un usuario se puede autenticar en Azure AD directamente. <br> Además, si una organización ha configurado la federación usando ADFS u otras tecnologías, Windows Server Active Directory puede autenticar a los usuarios.
 
 Si un usuario tiene una suscripción para Azure u Office 365 y ha estado utilizando el Portal de administración de Azure o una aplicación de Office 365, verá la lista de aplicaciones sin necesidad de volver a iniciar sesión. A los usuarios que no se han autenticado se les solicitará que inicien sesión utilizando el nombre de usuario y la contraseña de su cuenta en Azure AD. Si la organización ha configurado federación, bastará con escribir el nombre de usuario.
 
-Una vez autenticados, los usuarios podrán interactuar con las aplicaciones que el administrador haya integrado con el directorio. Para obtener información sobre cómo integrar aplicaciones con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+Una vez autenticados, los usuarios podrán interactuar con las aplicaciones que el administrador haya integrado con el directorio. Para obtener información sobre cómo integrar las aplicaciones con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
  
 
 
@@ -95,7 +95,7 @@ Para poder iniciar sesión en aplicaciones con SSO basado en contraseña utiliza
 ### Mis aplicaciones para Android
 
 
-Puede utilizar Mis aplicaciones para Android en cualquier dispositivo Android que tenga la versión 4.1 o superior; tiene esta aplicación disponible hoy mismo en [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
+Puede usar Mis aplicaciones para Android en cualquier dispositivo Android que tenga la versión 4.1 o superior; tiene esta aplicación disponible hoy mismo en [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
 
 
 ![Mis aplicaciones][3]
@@ -116,7 +116,7 @@ Puede utilizar Mis aplicaciones para iOS en cualquier iPhone o iPad que tenga la
 
 
 
-> [AZURE.NOTE]Aquellas aplicaciones que admitan federación con Azure AD (como Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 y otras 70 más) pueden iniciar sesión de forma virtual desde cualquier explorador de cualquier dispositivo sin necesidad de instalar complementos o aplicaciones móviles. Tampoco necesitará usar la aplicación móvil Mis aplicaciones en su dispositivo móvil para utilizar el resto del panel de acceso en[https://myapps.microsoft.com](https://myapps.microsoft.com/).
+> [AZURE.NOTE]Aquellas aplicaciones que admitan federación con Azure AD (como Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 y otras 70 más) pueden iniciar sesión de forma virtual desde cualquier explorador de cualquier dispositivo sin necesidad de instalar complementos o aplicaciones móviles. Tampoco necesitará usar la aplicación móvil Mis aplicaciones en su dispositivo móvil para utilizar el resto del panel de acceso en [https://myapps.microsoft.com](https://myapps.microsoft.com/).
  
 
 
@@ -130,32 +130,25 @@ Si es un administrador de Azure y ha iniciado sesión en el Portal de administra
 
 1. Haga clic en el menú de usuario en la esquina superior derecha del portal de Azure o del Panel de acceso y seleccione “**Cerrar sesión**”. Se cerrará su sesión de Azure AD.
 
-2. Vaya al Panel de acceso en **http://myapps.microsoft.com**.
+2. Vaya al Panel de acceso en ****http://myapps.microsoft.com**.
 
 3. En la página de inicio de sesión, escriba el nombre de usuario y la contraseña para la cuenta de su directorio que desea probar.
-
-
-
  
 ## Inicio de aplicaciones
 
 Pueden aparecer varios tipos de aplicaciones en el Panel de acceso.
  
-
 ### Aplicaciones de Office 365
 
 Si una organización utiliza aplicaciones de Office 365 y el usuario dispone de licencia para ellas, dichas aplicaciones aparecerán en el Panel de acceso.
 
 Cuando un usuario hace clic en un título de aplicación para una aplicación de Office 365, se redirige a esa aplicación e inicia sesión automáticamente.
- 
-
 
 ### Aplicaciones de Microsoft y de terceros configuradas con SSO basado en federación
 
 Estas son aplicaciones que el administrador ha agregado en la sección de Active Directory del Portal de administración de Azure con el modo de inicio de sesión único establecido en “*Inicio de sesión único de Azure AD*”. Un usuario solo verá estas aplicaciones si el administrador le ha concedido explícitamente acceso a ellas.
 
 Cuando un usuario hace clic en un título de aplicación para una de estas aplicaciones, se redirigirá a esa aplicación e iniciará sesión automáticamente.
- 
 
 ### SSO basado en contraseña sin aprovisionamiento de identidad
 
@@ -166,10 +159,6 @@ La primera vez que un usuario hace clic en un título de aplicación para una de
 La próxima vez que un usuario haga clic en el título de aplicación, iniciará sesión automáticamente en la aplicación sin necesidad de volver a introducir las credenciales y sin tener que instalar el complemento SSO de contraseña otra vez.
 
 Si las credenciales de un usuario han cambiado en la aplicación de terceros de destino, el usuario también debe actualizar sus credenciales almacenadas en Azure AD. Para actualizar las credenciales, el usuario debe seleccionar el icono en la parte inferior derecha del título de aplicación y seleccionar “actualizar credenciales” para volver a introducir el nombre de usuario y la contraseña para esa aplicación.
- 
-
-
-
 
 ### SSO basado en contraseña con aprovisionamiento de identidad
 
@@ -184,18 +173,12 @@ Algunas aplicaciones pueden requerir que los usuarios cambien su contraseña en 
 Al configurar un inicio de sesión único para una aplicación, el portal de administración de Azure proporciona una tercera opción, el "Inicio de sesión único existente". Esta opción permite al administrador crear un vínculo a una aplicación y colocarlo en el panel de acceso de los usuarios seleccionados. Por ejemplo, si hay una aplicación que está configurada para autenticar a los usuarios mediante Servicios de federación de Active Directory 2.0, el administrador puede utilizar la opción "Inicio de sesión único existente" para crear un vínculo a éste en el panel de acceso. Cuando los usuarios tienen acceso al vínculo, se autentican mediante Servicios de federación de Active Directory 2.0 o cualquier solución de inicio de sesión único existente que proporcione la aplicación.
 
 
-
-
-
-## Recursos adicionales
-
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/ic767166.png
 [2]: ./media/active-directory-saas-access-panel-introduction/ic767167.png
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

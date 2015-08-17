@@ -1,20 +1,6 @@
-<properties 
-	pageTitle="Copia de seguridad de Azure: copia de seguridad y restauración desde un cliente de Windows Server o Windows | Microsoft Azure" 
-	description="Aprenda a realizar copias de seguridad y restaurar a partir de un cliente de Windows Server o Windows. El artículo también describe la recuperación de servidor alternativo" 
-	services="backup" 
-	documentationCenter="" 
-	authors="Jim-Parker" 
-	manager="jwhit" 
-	editor=""/>
+<properties pageTitle="Copia de seguridad de Azure: copia de seguridad y restauración desde un cliente de Windows Server o Windows" | Microsoft Azure description="Aprenda a realizar copias de seguridad y restaurar a partir de un cliente de Windows Server o Windows. El artículo también describe la recuperación de servidor alternativo" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
 
-<tags 
-	ms.service="backup" 
-	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2015" 
-	ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Copia de seguridad y restauración de una máquina cliente de Windows o un servidor de Windows
 En este artículo se describen los pasos necesarios para realizar una copia de seguridad desde un servidor de Windows o de una máquina cliente de Windows. También describe los pasos necesarios para restaurar los archivos en el mismo equipo y para restaurar los archivos de copia de seguridad en cualquier otra máquina.
@@ -56,7 +42,7 @@ Si ha eliminado accidentalmente un archivo y desea restaurar el archivo/volumen 
 
     ![Recuperar datos](./media/backup-azure-backup-and-recover/recover.png)
 
-3. Seleccione la opción **Este servidor (*nombredesuequipo*)**, ya que desea restaurar en la misma máquina el archivo del que ha creado una copia de seguridad.
+3. Seleccione **Este servidor (*nombredesumáquina*)**, ya que desea restaurar en la misma máquina.el archivo del que ha creado una copia de seguridad.
 
     ![Misma máquina](./media/backup-azure-backup-and-recover/samemachine.png)
 
@@ -64,7 +50,7 @@ Si ha eliminado accidentalmente un archivo y desea restaurar el archivo/volumen 
 
     ![Examinar archivos](./media/backup-azure-backup-and-recover/browseandsearch.png)
 
-5. Seleccione el volumen desde el que desea restaurar el archivo. La pantalla le permite restaurar desde cualquier punto en el tiempo. Las fechas que aparecen en **negrita** en el control del calendario indican la disponibilidad de un punto de restauración. Una vez que se selecciona una fecha, según su programación de copia de seguridad (y el éxito de una operación de copia de seguridad), puede seleccionar un punto en el tiempo desde la lista desplegable **Tiempo**.
+5. Seleccione el volumen desde el que desea restaurar el archivo. La pantalla le permite restaurar desde cualquier punto en el tiempo. Las fechas que aparecen en **negrita** en el control del calendario indican la disponibilidad de un punto de restauración. Una vez que se selecciona una fecha, según su programación de copia de seguridad (y el éxito de una operación de copia de seguridad), puede seleccionar un momento dato en el menú desplegable **Tiempo**.
 
     ![Fecha y volumen](./media/backup-azure-backup-and-recover/volanddate.png)
 
@@ -85,7 +71,7 @@ Si ha eliminado accidentalmente un archivo y desea restaurar el archivo/volumen 
 ## Recuperar en una máquina alternativa
 Si ha perdido todo el servidor, todavía puede recuperar el volumen o el archivo o en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.
 
-La terminología usada en los pasos es la siguiente: -*Máquina de origen*: la máquina original desde la que se realizó la copia de seguridad y que está disponible actualmente. -*Equipo de destino*: el equipo en el que se recuperan los datos. -*Almacén de ejemplo*: almacén de copia de seguridad en el que se registran la *máquina de origen* y la *máquina de destino*. <br/>
+La nomenclatura usada en los pasos es la siguiente: - *Máquina de origen*: la máquina original desde la que se realizó la copia de seguridad y que actualmente no está disponible. - *Máquina de destino*: la máquina en la que se recuperan los datos. - *Almacén de ejemplo*: almacén de copia de seguridad en el que se registran la *máquina de origen* y la *máquina de destino*. <br/>
 
 > [AZURE.NOTE]No se pueden restaurar copias de seguridad realizadas desde una máquina en una máquina que está ejecutando una versión anterior del sistema operativo. Por ejemplo, si se realizan copias de seguridad de una máquina con Windows 7, esta puede restaurarse en un Windows 8 o una máquina con una versión superior. Sin embargo, la acción a la inversa no está asegurada.
 
@@ -97,7 +83,7 @@ La terminología usada en los pasos es la siguiente: -*Máquina de origen*: la m
 
     ![Recuperar datos](./media/backup-azure-backup-and-recover/recover.png)
 
-4. Seleccione **Otro servidor**.
+4. Seleccione **Otro servidor**
 
     ![Otro servidor](./media/backup-azure-backup-and-recover/anotherserver.png)
 
@@ -119,7 +105,7 @@ La terminología usada en los pasos es la siguiente: -*Máquina de origen*: la m
 
     ![Restaurar ubicación](./media/backup-azure-backup-and-recover/restorelocation.png)
 
-10. Proporcione la frase de contraseña de cifrado que se facilitó durante el registro de la *máquina de origen* en el *almacén de ejemplo*.
+10. Proporcione la frase de contraseña de cifrado que se proporcionó durante el registro de la *máquina de origen* en el *almacén de ejemplo*.
 
     ![Cifrado](./media/backup-azure-backup-and-recover/encryption.png)
 
@@ -128,4 +114,4 @@ La terminología usada en los pasos es la siguiente: -*Máquina de origen*: la m
 ## Pasos siguientes
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

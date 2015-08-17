@@ -65,8 +65,8 @@ Una vez que finalice la copia de seguridad, en la cuenta de almacenamiento se cr
 #### <a name="backupschedule"></a>Programación de una copia de seguridad
 
 1. En el Portal de administración de Azure, seleccione **Servicios de BizTalk**, seleccione el nombre del servicio de BizTalk del que quiere programar la copia de seguridad y, a continuación, seleccione la pestaña **Configurar**.
-2. Establezca **Estado de la copia de seguridad** en **Automático**. 
-3. Seleccione la **Cuenta de almacenamiento** en la que se almacenará la copia de seguridad, especifique la **Frecuencia** con la que desea crear las copias de seguridad y cuánto tiempo quiere conservar las copias de seguridad (**Días de retención**):
+2. Establezca el **Estado de copia de seguridad** en **Automático**. 
+3. Seleccione la **Cuenta de almacenamiento** para almacenar la copia de seguridad, especifique la **Frecuencia** con la que desea crear las copias de seguridad y cuánto tiempo quiere conservar las copias de seguridad (**Días de retención**):
 
 	![][AutomaticBU]
 
@@ -233,4 +233,4 @@ Para crear los Servicios de BizTalk de Azure en el Portal de administración de 
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

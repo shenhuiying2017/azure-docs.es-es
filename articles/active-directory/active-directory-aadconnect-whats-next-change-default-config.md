@@ -27,4 +27,4 @@ Si necesita cambiar la configuración predeterminada, haga lo siguiente:
 - Exporte las reglas de sincronización personalizadas mediante el editor de reglas de sincronización. De este modo, obtiene un script de PowerShell que puede utilizar fácilmente para volver a crearlas en un posible escenario de recuperación ante desastres.
 - Si necesita cambiar el ámbito o la configuración de unión de una regla de sincronización lista para su aplicación, documéntelo y vuelva a aplicar el cambio tras actualizar a una versión más reciente de Azure AD Connect. 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

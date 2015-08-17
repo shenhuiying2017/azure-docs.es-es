@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ejecución de un trabajo de Hadoop con DocumentDB y HDInsight | Azure" 
+	pageTitle="Ejecución de un trabajo de Hadoop con DocumentDB y HDInsight | Microsoft Azure" 
 	description="Obtenga información acerca de cómo ejecutar un trabajo de Hive, Pig y MapReduce simple con DocumentDB y Azure HDInsight."
 	services="documentdb" 
 	authors="AndrewHoh" 
@@ -19,7 +19,7 @@
 
 #<a name="DocumentDB-HDInsight"></a>Ejecución de un trabajo de Hadoop con DocumentDB y HDInsight
 
-Este tutorial muestra cómo ejecutar trabajos de [Apache Hive][apache-hive], [Apache Pig][apache-pig] y [Apache Hadoop][apache-hadoop] MapReduce en HDInsight de Azure con el conector Hadoop de DocumentDB. El conector de Hadoop de DocumentDB permite a DocumentDB actuar como punto de origen y recepción para trabajos de Hive, Pig y MapReduce. En este tutorial, se utilizará DocumentDB como el origen de datos y el destino para trabajos de Hadoop. 
+Este tutorial muestra cómo ejecutar trabajos de [Apache Hive][apache-hive], [Apache Pig][apache-pig] y [Apache Hadoop][apache-hadoop] MapReduce en HDInsight de Azure con el conector Hadoop de DocumentDB. El conector de Hadoop de DocumentDB permite a DocumentDB actuar como punto de origen y recepción para trabajos de Hive, Pig y MapReduce. En este tutorial, se utilizará DocumentDB como el origen de datos y el destino para trabajos de Hadoop.
 
 Después de completar este tutorial, podrá responder a las preguntas siguientes:
 
@@ -70,7 +70,7 @@ Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo 
 
 ## <a name="CreateStorage"></a>Paso 1: Creación de una cuenta de almacenamiento de Azure
 
-> [AZURE.IMPORTANT] Si **ya** tiene una cuenta de almacenamiento de Azure y desea crear un nuevo contenedor de blobs dentro de dicha cuenta, puede ir directamente al [paso 2: Creación de un clúster de HDInsight personalizado](#ProvisionHDInsight).
+> [AZURE.IMPORTANT]Si **ya** tiene una cuenta de almacenamiento de Azure y desea crear un nuevo contenedor de blobs dentro de dicha cuenta, puede ir directamente al [paso 2: Creación de un clúster de HDInsight personalizado](#ProvisionHDInsight).
 
 HDInsight usa el almacenamiento de blobs para almacenar datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
 
@@ -85,11 +85,11 @@ Cuando aprovisiona un clúster de HDInsight, especifica una cuenta de Almacenami
 2. Haga clic en **+ NUEVO** en la esquina inferior izquierda, seleccione **SERVICIOS DE DATOS**, seleccione **ALMACENAMIENTO** y después haga clic en **CREACIÓN RÁPIDA**.
 	![Portal de Azure donde puede utilizar la función de creación rápida para configurar una nueva cuenta de almacenamiento.][image-storageaccount-quickcreate]
 
-3. Escriba la **dirección URL**, elija los valores de **UBICACIÓN** y **REPLICACIÓN** y, a continuación, haga clic en **CREAR CUENTA DE ALMACENAMIENTO**. No se admiten grupos de afinidad. 
+3. Escriba la **dirección URL**, elija los valores de **UBICACIÓN** y **REPLICACIÓN** y, a continuación, haga clic en **CREAR CUENTA DE ALMACENAMIENTO**. No se admiten grupos de afinidad.
 	
 	La nueva cuenta de almacenamiento aparecerá en la lista de almacenamiento.
 
-	> [AZURE.IMPORTANT] Para conseguir un rendimiento óptimo, asegúrese de que su cuenta de almacenamiento, el clúster de HDInsight y la cuenta de DocumentDB se encuentren en la misma región de Azure. Las regiones de Azure que admiten los tres servicios son: **Asia Oriental**, **Sudeste de Asia**, **Europa del Norte**, **Europa Occidental**, **Este de EE. UU.** y **Oeste de EE. UU.**.
+	> [AZURE.IMPORTANT]Para conseguir un rendimiento óptimo, asegúrese de que su cuenta de almacenamiento, el clúster de HDInsight y la cuenta de DocumentDB se encuentren en la misma región de Azure. Las regiones de Azure que admiten los tres servicios son: **Asia Oriental**, **Sudeste de Asia**, **Europa del Norte**, **Europa Occidental**, **Este de EE. UU.** y **Oeste de EE. UU.**.
 
 4. Espere hasta que la característica **STATUS** de la nueva cuenta de almacenamiento cambie a **Online**.
 
@@ -192,7 +192,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 
 1. Instale Azure PowerShell. Puede encontrar instrucciones [aquí][powershell-install-configure].
 
-	> [AZURE.NOTE] En el caso de las consultas de Hive, use el Editor de Hive en línea de HDInsight. Para ello, inicie sesión en el [portal de administración de Azure][azure-classic-portal] y haga clic en **HDInsight** en el panel izquierdo para ver una lista de los clústeres de HDInsight. Haga clic en el clúster en el que desea ejecutar consultas de Hive y, a continuación, haga clic en **Consola de consultas**.
+	> [AZURE.NOTE]En el caso de las consultas de Hive, use el Editor de Hive en línea de HDInsight. Para ello, inicie sesión en el [portal de administración de Azure][azure-classic-portal] y haga clic en **HDInsight** en el panel izquierdo para ver una lista de los clústeres de HDInsight. Haga clic en el clúster en el que desea ejecutar consultas de Hive y, a continuación, haga clic en **Consola de consultas**.
 
 2. Abra el entorno de script integrado de Azure PowerShell:
 	- Si el equipo dispone de Windows 8 o Windows Server 2012, o una versión posterior, puede utilizar la búsqueda integrada. En la pantalla de inicio, escriba **powershell ise** y haga clic en **Entrar**. 
@@ -210,7 +210,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 
 ## <a name="RunHive"></a>Paso 4: Ejecución de un trabajo de Hive con DocumentDB y HDInsight
 
-> [AZURE.IMPORTANT] Todas las variables indicadas con < > deben rellenarse con los valores de configuración adecuados.
+> [AZURE.IMPORTANT]Todas las variables indicadas con < > deben rellenarse con los valores de configuración adecuados.
 
 1. Configure las siguientes variables en el panel de scripts de PowerShell.
 
@@ -296,11 +296,11 @@ En este tutorial, se usa la acción de script del portal de administración de A
 9. **Ejecute** el nuevo script. **Haga clic** en el botón verde para llevar a cabo la ejecución.
 
 10. Compruebe los resultados. Inicie sesión en el [Portal de vista previa de Azure][azure-portal].
-	1. Haga clic en <strong>Examinar</strong>, en el panel de la izquierda. </br>
+	1. Haga clic en <strong>Examinar</strong> en el panel de la izquierda. </br>
 	2. Haga clic en <strong>Todo</strong>, en la parte superior derecha del panel de exploración. </br>
 	3. Busque y haga clic en <strong>Cuentas de DocumentDB</strong>. </br>
-	4. A continuación, busque su <strong>cuenta de DocumentDB</strong>, a continuación, la <strong>base de datos de DocumentDB</strong> y su <strong>colección de DocumentDB</strong> asociadas a la colección de salida especificada en la consulta de Hive.</br>
-	5. Por último, haga clic en <strong>Explorador de documentos</strong>, debajo de <strong>Herramientas de desarrollo</strong>.</br></p>
+	4. A continuación, busque su <strong>cuenta de DocumentDB</strong>, luego, la <strong>Base de datos de DocumentDB</strong> y su <strong>colección de DocumentDB</strong> asociadas a la colección de salida especificada en la consulta de Hive.</br>
+	5. Por último, haga clic en <strong>Explorador de documentos</strong> debajo de <strong>Herramientas de desarrollo</strong>.</br></p>
 
 	Verá los resultados de la consulta de Hive.
 
@@ -308,7 +308,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 
 ## <a name="RunPig"></a>Paso 5: Ejecución de un trabajo de Pig con DocumentDB y HDInsight
 
-> [AZURE.IMPORTANT] Todas las variables indicadas con < > deben rellenarse con los valores de configuración adecuados.
+> [AZURE.IMPORTANT]Todas las variables indicadas con < > deben rellenarse con los valores de configuración adecuados.
 
 1. Configure las siguientes variables en el panel de scripts de PowerShell.
 
@@ -382,11 +382,11 @@ En este tutorial, se usa la acción de script del portal de administración de A
 9. **Ejecute** el nuevo script. **Haga clic** en el botón verde para llevar a cabo la ejecución.
 
 10. Compruebe los resultados. Inicie sesión en el [Portal de vista previa de Azure][azure-portal].
-	1. Haga clic en <strong>Examinar</strong>, en el panel de la izquierda. </br>
+	1. Haga clic en <strong>Examinar</strong> en el panel de la izquierda. </br>
 	2. Haga clic en <strong>Todo</strong>, en la parte superior derecha del panel de exploración. </br>
 	3. Busque y haga clic en <strong>Cuentas de DocumentDB</strong>. </br>
-	4. A continuación, busque su <strong>cuenta de DocumentDB</strong>, a continuación, la <strong>base de datos de DocumentDB</strong> y su <strong>colección de DocumentDB</strong> asociadas a la colección de salida especificada en la consulta de Pig.</br>
-	5. Por último, haga clic en <strong>Explorador de documentos</strong>, debajo de <strong>Herramientas de desarrollo</strong>.</br></p>
+	4. A continuación, busque su <strong>cuenta de DocumentDB</strong>, después, la <strong>base de datos de DocumentDB</strong> y su <strong>colección de DocumentDB</strong> asociadas a la colección de salida especificada en la consulta de Pig.</br>
+	5. Por último, haga clic en <strong>Explorador de documentos</strong> debajo de <strong>Herramientas de desarrollo</strong>.</br></p>
 
 	Verá los resultados de la consulta de Pig.
 
@@ -428,7 +428,7 @@ En este tutorial, se usa la acción de script del portal de administración de A
 	1. Haga clic en <strong>Examinar</strong> en el panel de la izquierda.
 	2. Haga clic en <strong>Todo</strong>, en la parte superior derecha del panel de exploración.
 	3. Busque y haga clic en <strong>Cuentas de DocumentDB</strong>.
-	4. A continuación, busque su <strong>cuenta de DocumentDB</strong>, a continuación, la <strong>base de datos de DocumentDB</strong> y su <strong>colección de DocumentDB</strong> asociadas a la colección de salida especificada en el trabajo de MapReduce.
+	4. A continuación, busque su <strong>Cuenta de DocumentDB</strong>, a continuación, la <strong>Base de datos de DocumentDB</strong> y su <strong>Colección de DocumentDB</strong> asociadas a la colección de salida especificada en el trabajo de MapReduce.
 	5. Por último, haga clic en <strong>Explorador de documentos</strong>, debajo de <strong>Herramientas de desarrollo</strong>.
 
 	Verá los resultados de su trabajo de MapReduce.
@@ -489,4 +489,4 @@ Para obtener más información, consulte los artículos siguientes:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -363,4 +363,4 @@ Ahora que dispone de las dos redes de virtuales conectadas, es momento de probar
 - Obtenga más información sobre [el proveedor de recursos de red (NRP) para ARM](../resource-groups-networking.md).
 - Consulte las instrucciones generales sobre cómo [crear una conexión VPN de S2S entre una red virtual clásica y una red virtual de ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

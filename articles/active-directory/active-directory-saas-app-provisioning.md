@@ -84,7 +84,7 @@ Azure AD aprovisiona a los usuarios para aplicaciones SaaS mediante la conexión
  - Si ha asignado un usuario a la aplicación recientemente y ya tenía una cuenta en la aplicación SaaS, esa cuenta se marcará como habilitada, y algunas propiedades de usuario pueden actualizarse si están obsoletas con respecto al directorio.
  - Si se ha cambiado la información del usuario (por ejemplo, el número de teléfono, el domicilio de la oficina, etc.) en el directorio, esta información también se actualizará en la aplicación SaaS.
 
-Para obtener más información sobre cómo se asignan los atributos entre Azure AD y la aplicación SaaS, consulte el artículo [Personalización de asignaciones de atributos](https://msdn.microsoft.com/library/azure/dn872469.aspx).
+Para obtener más información sobre cómo se asignan los atributos entre Azure AD y la aplicación SaaS, consulte el artículo [Personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md).
 
 ##Lista de aplicaciones que admiten el aprovisionamiento automático de usuarios
 
@@ -106,4 +106,6 @@ Para que una aplicación admita el aprovisionamiento automático de usuarios, pr
 
 Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solicitar soporte técnico para el aprovisionamiento de aplicaciones adicionales, envíe un mensaje a través del [foro de comentarios de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=July15_HO5-->
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+
+<!---HONumber=August15_HO6-->

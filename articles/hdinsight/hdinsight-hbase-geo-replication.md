@@ -38,7 +38,7 @@ Se trata de la tercera parte de la serie:
 - [Configuración de DNS para las redes virtuales][hdinsight-hbase-replication-dns]
 - Configuración de la replicación geográfica de HBase (este tutorial)
 
-El siguiente diagrama muestra las dos redes virtuales y la conectividad de red que creó en [Configuración de una conectividad VPN entre dos redes virtuales][hdinsight-hbase-geo-replication-vnet] y [Configuración de DNS para las redes virtuales][hdinsight-hbase-replication-dns]:
+El siguiente diagrama muestra las dos redes virtuales y la conectividad de red que creó en [Configuración de una conectividad VPN entre dos redes virtuales][hdinsight-hbase-geo-replication-vnet] y [Configuración de DNS para las redes virtuales][hdinsight-hbase-replication-dns]\:
 
 ![Diagrama de red virtual de replicación de HBase para HDInsight][img-vnet-diagram]
 
@@ -224,7 +224,7 @@ Cree tablas de HBase con los mismos nombres y familias de columna en los clúste
 
 **Para agregar Contoso-HBase-US como un punto de replicación**
 
-1. Cambie a la ventana de RPD de **Contso-HBase_EU**.
+1. Cambie a la ventana de RPD de **Contso-HBase\_EU**.
 2. En la ventana de shell de HBase, agregue el clúster de destino (Contoso-HBase-US) como un punto, por ejemplo:
 
 		add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
@@ -311,4 +311,4 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

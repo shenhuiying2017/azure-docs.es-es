@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="04/02/2015"
-   ms.author="nadavh; ronmat; v-romcal; sstein"/>
+   ms.date="07/30/2015"
+   ms.author="nadavh; ronmat; v-romcal; sstein; ronitr"/>
 
 # Introducción al enmascaramiento de datos dinámicos de bases de datos SQL (Portal de Azure)
 
@@ -31,9 +31,11 @@ Por ejemplo, una persona encargada del soporte técnico de un centro de llamadas
 
 ## Conceptos básicos del enmascaramiento de datos dinámicos en Base de datos SQL
 
-La directiva de enmascaramiento de datos dinámicos se establece en el Portal de Azure, y la instalación se completa mediante la cadena de conexión con seguridad habilitada utilizada por la aplicación u otros clientes que tienen acceso a la base de datos.
+Configuración de la directiva de enmascaramiento de datos dinámicos en el Portal de Azure en la pestaña Auditoría y seguridad para la base de datos. Antes de configurar el enmascaramiento de datos dinámico, compruebe si usa un ["Cliente de nivel inferior"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+
 
 > [AZURE.NOTE]Para configurar el enmascaramiento de datos dinámicos en el Portal de vista previa de Azure, consulte [Introducción al enmascaramiento de datos dinámicos de Base de datos SQL (Portal de vista previa de Azure)](sql-database-dynamic-data-masking-get-started.md).
+
 
 ### Permisos de enmascaramiento de datos dinámicos
 
@@ -41,39 +43,27 @@ El enmascaramiento de datos dinámicos puede configurarse mediante el administra
 
 ### Directiva de enmascaramiento de datos dinámicos
 
-* **Inicios de sesión privilegiados**: un conjunto de inicios de sesión que obtendrán los datos sin enmascarar en los resultados de las consultas SQL.
+* **Inicios de sesión privilegiados**: un conjunto de inicios de sesión que obtendrán datos sin enmascarar en los resultados de la consulta SQL.
   
-* **Reglas de enmascaramiento**: un conjunto de reglas que definen los campos designados para el enmascaramiento y la función de enmascaramiento que se va a utilizar. Los campos designados pueden definirse mediante un nombre de tabla de base de datos y un nombre de columna o mediante un nombre de alias.
-
-* **Enmascaramiento por**: puede hacerse en el origen o el destino. El enmascaramiento puede configurarse a nivel de origen mediante la identificación del nombre de **tabla** y el nombre de **columna**, o a nivel de resultados mediante la identificación del **alias** que se usa en la consulta. Si está familiarizado con la arquitectura de datos de la base de datos y desea limitar la exposición de todos los resultados de consulta, puede ser preferible una regla de máscara de origen. Puede agregar una regla de máscara de resultados cuando desee limitar la exposición a los resultados de la consulta sin analizar la arquitectura de datos de la base de datos o para un campo que es posible que llegue de orígenes diferentes.
-  
-* **Restricción ampliada**: limita la exposición de datos confidenciales, pero puede afectar a la funcionalidad de algunas aplicaciones.
-
->[AZURE.TIP]Use la opción **Restricción ampliada** para restringir el acceso a los desarrolladores que usan un acceso directo a la base de datos y ejecutan consultas SQL para solucionar problemas.
+* **Reglas de enmascaramiento**: un conjunto de reglas que definen los campos designados para el enmascaramiento y la función de enmascaramiento que se va a usar. Los campos designados pueden definirse mediante un nombre de tabla de base de datos y un nombre de columna.
 
 * **Funciones de enmascaramiento**: un conjunto de métodos que controlan la exposición de datos para diferentes escenarios.
 
 | Función de enmascaramiento | Lógica de enmascaramiento |
 |----------|---------------|
-| **Valor predeterminado** |**Enmascaramiento completo según los tipos de datos de los campos designados**<br/><br/>• Use XXXXXXXX o menos X si el tamaño del campo es menor que 8 caracteres para los tipos de datos de cadena (nchar, ntext, nvarchar).<br/>• Use un valor de cero para los tipos de datos numéricos (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Use la hora actual para los tipos de datos de fecha y hora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para variante SQL, se utiliza el valor predeterminado del tipo actual.<br/>• Para XML, se utiliza el documento <masked/>.<br/>• Use un valor vacío para los tipos de datos especiales (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial types).
+| **Valor predeterminado** |**Enmascaramiento completo según los tipos de datos de los campos designados**<br/><br/>• Use XXXXXXXX o menos X si el tamaño del campo es inferior a 8 caracteres para los tipos de datos de cadena (nchar, ntext, nvarchar).<br/>• Use un valor de cero para los tipos de datos numéricos (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/>• Use 01-01-1900 para los tipos de datos de fecha y hora (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/>• Para variante SQL, se usa el valor predeterminado del tipo actual.<br/>• Para XML, se usa el documento <masked/>.<br/>• Use un valor vacío para los tipos de datos especiales (timestamp table, hierarchyid, GUID, binary, image, varbinary spatial).
 | **Tarjeta de crédito** |**Método de enmascaramiento que expone los últimos cuatro dígitos de los campos designados** y agrega una cadena constante como prefijo en el formato de una tarjeta de crédito.<br/><br/>XXXX-XXXX-XXXX-1234|
 | **Número de seguridad social** |**Método de enmascaramiento que expone los dos últimos dígitos de los campos designados** y agrega una cadena constante como prefijo en el formato de un número de seguridad social estadounidense.<br/><br/>XXX-XX-XX12 |
-| **Correo electrónico** | **Método de enmascaramiento que expone la primera letra y el dominio** con una cadena constante como prefijo en el formato de una dirección de correo electrónico.<br/><br/>aXX@XXXX.com |
-| **Número aleatorio** | **Método de enmascaramiento que genera un número aleatorio** según los límites seleccionados y los tipos de datos reales. Si los límites designados son iguales, la función de enmascaramiento será un número constante.<br/><br/>![Panel de navegación][Image1] |
-| **Texto personalizado** | **Método de enmascaramiento que expone la primera y la última letra** y agrega una cadena de relleno personalizada en el medio.<br/>prefijo[relleno]sufijo<br/><br/>![Panel de navegación][Image2] |
+| **Correo electrónico** | **Método de enmascaramiento que expone la primera letra y reemplaza el dominio con XXX.com** con una cadena constante como prefijo en el formato de una dirección de correo electrónico.<br/><br/>aXX@XXXX.com |
+| **Número aleatorio** | **Método de enmascaramiento que genera un número aleatorio** según los límites seleccionados y los tipos de datos reales. Si los límites designados son iguales, la función de enmascaramiento será un número constante.<br/><br/>![Panel de navegación](./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png) |
+| **Texto personalizado** | **Método de enmascaramiento que expone el primero y el último caracter** y agrega una cadena de relleno personalizada en el medio.<br/>prefijo[relleno]sufijo<br/><br/>![Panel de navegación](./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png) |
 
   
 <a name="Anchor1"></a>
 ### Cadena de conexión con seguridad habilitada
 
-Cuando se configura el enmascaramiento de datos dinámicos, Azure proporciona una cadena de conexión con seguridad habilitada para la base de datos. Los clientes que utilizan esta cadena de conexión son los únicos que tienen sus datos confidenciales enmascarados según la directiva de enmascaramiento de datos dinámicos. También deberá actualizar los clientes existentes (ejemplo: aplicaciones) para utilizar el nuevo formato de cadena de conexión.
+Si está usando un ["Cliente de nivel inferior"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md), tiene que actualizar los clientes existentes (ejemplo: aplicaciones) para usar un formato de cadena de conexión modificada. Haga clic [aquí](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) para obtener información detallada.
 
-* Formato de cadena de conexión original: <*nombre del servidor*>.database.windows.net
-* Cadena de conexión con seguridad habilitada: <*nombre del servidor*>.database.**secure**.windows.net
-
-También puede cambiar el ajuste de configuración **ACCESO CON SEGURIDAD HABILITADA** de **OPCIONAL** a **REQUERIDO**, lo que garantiza que no hay ninguna opción de tener acceso a la base de datos con la cadena de conexión original y omitir los directiva de enmascaramiento de datos dinámicos. Mientras experimenta con el enmascaramiento de datos dinámicos mediante clientes específicos (ejemplo, una aplicación de la fase de desarrollo o SSMS), elija **OPCIONAL**. Para la producción, elija **REQUERIDO**.<br/><br/>
-
-![Panel de navegación][Image3]<br/><br/>
 
 ## Configurar el enmascaramiento de datos dinámicos para la base de datos mediante el Portal de Azure
 
@@ -85,35 +75,29 @@ También puede cambiar el ajuste de configuración **ACCESO CON SEGURIDAD HABILI
 
 4. Escriba los inicios de sesión con privilegios que podrán tener acceso a los datos confidenciales sin enmascarar.
 
-	>[AZURE.TIP]Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el inicio de sesión de la aplicación que se usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de inicios de sesión para minimizar la exposición de los datos confidenciales.
+	>[AZURE.TIP]Para hacer que el nivel de aplicación pueda mostrar datos confidenciales para los usuarios con privilegios de la aplicación, agregue el inicio de sesión de SQL que se usa para consultar la base de datos. Se recomienda que esta lista incluya un número mínimo de inicios de sesión para minimizar la exposición de los datos confidenciales.
 
-	![Panel de navegación][Image4]
+	![Panel de navegación](./media/sql-database-dynamic-data-masking-get-started-portal/4_ddm_policy_classic_portal.png)
 
 5. En la parte inferior de la página en la barra de menús, haga clic en **Agregar MÁSCARA** para abrir la ventana de configuración de la regla de enmascaramiento.
 
-6. Elija **Enmascarar por** para indicar si el enmascaramiento se realiza en el origen o el destino. El enmascaramiento puede configurarse a nivel de origen mediante la identificación del nombre de **tabla** y el nombre de **columna**, o a nivel de resultados mediante la identificación del **alias** que se usa en la consulta. Observe que el nombre de la **tabla** se refiere a todos los esquemas de la base de datos y no debe incluir un prefijo de esquema. Si está familiarizado con la arquitectura de datos de la base de datos y desea limitar la exposición de todos los resultados de consulta, puede ser preferible una regla de máscara de origen. Puede agregar una regla de máscara de resultados cuando desee limitar la exposición a los resultados de la consulta sin analizar la arquitectura de datos de la base de datos o para un campo que es posible que llegue de orígenes diferentes.
+6. Seleccione la **tabla** y la **columna** en las listas desplegables para definir los campos designados para enmascararse.
 
-7. Escriba el nombre de **tabla** y el nombre de **columna**, o el nombre de **alias**, para definir los campos designados para enmascararse.
+7. Elija una **FUNCIÓN DE ENMASCARAMIENTO** en la lista de categorías de enmascaramiento de datos confidenciales.
 
-8. Elija una **FUNCIÓN DE ENMASCARAMIENTO** en la lista de categorías de enmascaramiento de datos confidenciales.
-
-	![Panel de navegación][Image5]
+	![Panel de navegación](./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png)
  	
-9. Haga clic en **Actualizar** en la ventana de regla de enmascaramiento de datos para actualizar el conjunto de reglas de enmascaramiento en la directiva de enmascaramiento de datos dinámicos.
+8. Haga clic en **Aceptar** en la ventana de regla de enmascaramiento de datos para actualizar el conjunto de reglas de enmascaramiento en la directiva de enmascaramiento de datos dinámicos.
 
-10. Considere la posibilidad de seleccionar **UTILIZAR RESTRICCIONES AMPLIADAS** para limitar la exposición de datos confidenciales a través de las consultas ad hoc.
+9. Haga clic en **GUARDAR** para guardar la directiva de enmascaramiento nueva o actualizada.
 
-11. Haga clic en **GUARDAR** para guardar la regla de enmascaramiento nueva o actualizada.
+
+## Configuración del enmascaramiento de datos dinámicos para la base de datos mediante cmdlets de PowerShell
+
+Consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt163521.aspx).
 
 ## Configuración del enmascaramiento de datos dinámicos para la base de datos mediante la API de REST
 
 Consulte [Operaciones para Bases de datos SQL de Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-[Image1]: ./media/sql-database-dynamic-data-masking-get-started-portal/1_DDM_Random_number.png
-[Image2]: ./media/sql-database-dynamic-data-masking-get-started-portal/2_DDM_Custom_text.png
-[Image3]: ./media/sql-database-dynamic-data-masking-get-started-portal/3_DDM_Current_Preview.png
-[Image4]: ./media/sql-database-dynamic-data-masking-get-started-portal/4_DMM_Policy_Classic_Portal.png
-[Image5]: ./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

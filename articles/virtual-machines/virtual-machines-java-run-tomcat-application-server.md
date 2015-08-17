@@ -40,20 +40,20 @@ En este tutorial, se va a instalar un servidor de aplicaciones Apache Tomcat en 
 2. Haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, a continuación, en **Desde la galería**.
 3. En el cuadro de diálogo **Selección de imagen de máquina virtual**, seleccione **JDK 7 Windows Server 2012**. Tenga en cuenta que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
 4. Haga clic en **Siguiente**.
-5. En el cuadro de diálogo <strong>Configuración de la máquina virtual</strong>:
+5. En el cuadro de diálogo **Configuración de la máquina virtual**:
     1. Especifique un nombre para la máquina virtual.
     2. Especifique el tamaño que se va a utilizar para la máquina virtual.
     3. Escriba un nombre para el administrador en el campo **Nombre de usuario**. Recuerde este nombre y la contraseña que va a escribir a continuación ya que los usará cuando inicie sesión de forma remota en la máquina virtual.
     4. Escriba una contraseña en el campo **Contraseña nueva** y confírmela en el campo **Confirmar**. Esta es la contraseña de la cuenta de administrador.
     5. Haga clic en **Siguiente**.
-6. En el cuadro de diálogo siguiente <strong>Configuración de la máquina virtual</strong>:
+6. En el cuadro de diálogo siguiente **Configuración de la máquina virtual**:
     1. En **Servicio en la nube**, use el valor predeterminado: **Crear un nuevo servicio en la nube**.
     2. El valor de **Nombre DNS de servicio** en la nube debe ser exclusivo en cloudapp.net. Si es necesario, modifique este valor para que Azure indique que es exclusivo.
     2. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU**.
     2. En **Cuenta de almacenamiento**, seleccione **Usar una cuenta de almacenamiento generada automáticamente**.
     3. En **Conjunto de disponibilidad**, seleccione **(Ninguno)**.
     4. Haga clic en **Siguiente**.
-7. En el cuadro de diálogo final <strong>Configuración de la máquina virtual</strong>:
+7. En el cuadro de diálogo final **Configuración de la máquina virtual**:
     1. Acepte las entradas de extremo predeterminadas.
     2. Haga clic en **Completo**.
 
@@ -75,7 +75,7 @@ En este tutorial, se instalará Tomcat.
 1. Cuando haya iniciado sesión en la máquina virtual, abra una sesión del explorador en [Apache Tomcat](http://tomcat.apache.org/download-70.cgi).
 2. Haga doble clic en el vínculo del **instalador del servicio de Windows de 32 bits y 64 bits**. Mediante esta técnica, Tomcat se instalará como servicio de Windows.
 3. Cuando se le pida, elija ejecutar el instalador.
-4. En el asistente para la **instalación de Apache Tomcat**, siga las indicaciones para instalar Tomcat. En este tutorial, es adecuado aceptar los valores predeterminados. Cuando llegue al cuadro de diálogo **Completing the Apache Tomcat Setup Wizard (Finalización del asistente para la instalación de Apache Tomcat)**, si lo desea, puede marcar **Run Apache Tomcat (Ejecutar Apache Tomcat)** para iniciar Tomcat ahora. Haga clic en **Finalizar** para finalizar el proceso de instalación de Tomcat.
+4. En el asistente para la **instalación de Apache Tomcat**, siga las indicaciones para instalar Tomcat. En este tutorial, es adecuado aceptar los valores predeterminados. Cuando llegue al cuadro de diálogo **Completing the Apache Tomcat Setup Wizard (Finalización del asistente para la instalación de Apache Tomcat)**, si lo desea, puede activar **Run Apache Tomcat (Ejecutar Apache Tomcat)** para iniciar Tomcat ahora. Haga clic en **Finalizar** para finalizar el proceso de instalación de Tomcat.
 
 ## Para iniciar Tomcat
 Si no ha elegido ejecutar Tomcat en el cuadro de diálogo **Completing the Apache Tomcat Setup Wizard (Finalización del asistente para la instalación de Apache Tomcat)**, inícielo; para ello, abra un símbolo del sistema en la máquina virtual y ejecute **net start Tomcat7**.
@@ -90,8 +90,8 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 3. Haga clic en el nombre de la máquina virtual que ejecuta el servidor de aplicaciones Java.
 4. Haga clic en **Extremos**.
 5. Haga clic en **Agregar**.
-6. En el cuadro de diálogo **Agregar extremo**, asegúrese de que la casilla **Agregar extremo independiente** está seleccionada y, a continuación, haga clic en **Siguiente**.
-7. En el cuadro de diálogo <strong>Detalles del nuevo extremo</strong>:
+6. En el cuadro de diálogo **Agregar extremo**, asegúrese de que la casilla **Agregar extremo independiente** está seleccionada y después haga clic en **Siguiente**.
+7. En el cuadro de diálogo **Detalles del nuevo extremo**:
     1. Especifique un nombre para el extremo; por ejemplo, **HttpIn**.
     2. Especifique **TCP** para el protocolo.
     3. Especifique **80** para el puerto público.
@@ -123,7 +123,7 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 
  ![Perfil de nueva regla de entrada][NewRuleProfile]
 
-10. En la pantalla **Perfil**, especifique un nombre para la regla, por ejemplo **HttpIn** (sin embargo, no es necesario que el nombre de la regla coincida con el nombre del extremo) y haga clic en **Finalizar**.  
+10. En la pantalla **Nombre**, especifique un nombre para la regla, por ejemplo **HttpIn** (sin embargo, no es necesario que el nombre de la regla coincida con el nombre del extremo) y haga clic en **Finalizar**.  
 
  ![Nombre de la nueva regla de entrada][NewRuleName]
 
@@ -138,7 +138,7 @@ En este momento, el sitio web de Tomcat se debería ver desde un explorador exte
     La ventaja de que Tomcat se inicie automáticamente es que se iniciará si se inicia la máquina virtual (por ejemplo, después de instalar actualizaciones de software que requieren un reinicio).
 
 ## Pasos siguientes
-Para obtener más información acerca de otros servicios (como Almacenamiento de Azure, bus de servicio, Base de datos SQL) que desee incluir con sus aplicaciones Java, consulte la información disponible en [Centro para desarrolladores de Java](http://azure.microsoft.com/develop/java/).
+Para obtener más información acerca de otros servicios (como Almacenamiento de Azure, bus de servicio y Base de datos SQL) que desee incluir con sus aplicaciones Java, consulte la información disponible en el [Centro para desarrolladores de Java](http://azure.microsoft.com/develop/java/).
 
 [virtual_machine_tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
 
@@ -158,6 +158,5 @@ Para obtener más información acerca de otros servicios (como Almacenamiento de
 [NewRuleAction]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
- 
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

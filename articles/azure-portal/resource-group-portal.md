@@ -4,6 +4,7 @@
 	services="azure-portal" 
 	documentationCenter="" 
 	authors="" 
+	writer="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -66,32 +67,13 @@ Puesto que los grupos de recursos le permiten administrar el ciclo de vida de to
 ## Pasos siguientes
 Introducción
 
-- [Información general del Administrador de recursos de Azure](../resource-group-overview.md)  
-- [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
-- [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md)  
-  
-Creación e implementación de aplicaciones
-  
-- [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)  
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md)
-- [Implementación predecible de una aplicación compleja en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Solución de problemas de implementaciones de grupo de recursos en Azure](../resource-group-deploy-debug.md)  
-- [Funciones de la plantilla del Administrador de recursos de Azure](../resource-group-template-functions.md)  
-- [Operaciones avanzadas de plantilla](../resource-group-advanced-template.md)  
-- [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](../arm-template-deployment.md)
-  
-Organización de los recursos
-  
-- [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md)  
-  
-Administración y auditoría del acceso
-  
-- [Administración y auditoría del acceso a los recursos](resource-group-rbac.md)  
-- [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](../resource-group-authenticate-service-principal.md)  
-- [Creación de una nueva entidad de servicio de Azure mediante el portal clásico de Azure](../resource-group-create-service-principal-portal.md)  
+- Para ver una introducción a los conceptos del Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).  
+- Para obtener información sobre cómo usar Azure PowerShell cuando se implementan recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
+- Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure cuando se implementan recursos, consulte [Uso de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md). 
+- Para saber cómo organizar de manera lógica los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
   
 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

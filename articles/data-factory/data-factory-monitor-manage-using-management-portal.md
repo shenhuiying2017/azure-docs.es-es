@@ -221,4 +221,4 @@ Artículo | Descripción
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 [DataSlicesBySliceTime]: ./media/data-factory-monitor-manage-using-management-portal/DataSlicesBySliceTime.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

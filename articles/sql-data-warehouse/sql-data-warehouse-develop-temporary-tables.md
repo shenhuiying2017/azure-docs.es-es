@@ -124,7 +124,7 @@ DROP TABLE #stats_ddl;
 
 En algunos casos, las funciones en línea y de varias instrucciones también pueden reemplazarse con esta técnica.
 
-> [AZURE.NOTE]También puede extender esta solución. Si solo quería actualizar una única tabla, por ejemplo, lo único que tiene que hacer es filtrar la tabla #stats_ddl.
+> [AZURE.NOTE]También puede extender esta solución. Si solo quería actualizar una única tabla, por ejemplo, lo único que tiene que hacer es filtrar la tabla #stats\_ddl.
 
 ## Limitaciones de tablas temporales
 El Almacenamiento de datos SQL impone algunas limitaciones al implementar las tablas temporales.
@@ -147,4 +147,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

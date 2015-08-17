@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Identificación de las diferencias con el seguimiento de cambios
@@ -25,7 +25,7 @@ Instale la solución para actualizar el agente Operations Manager y el módulo d
 
 ## Uso de seguimiento de cambios
 
-Para poder utilizar el seguimiento de cambios en Visión operativa, debe tener instalada la solución de inteligencia. Para obtener más información sobre cómo instalar soluciones, vea [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-add-solution.md).
+Para poder utilizar el seguimiento de cambios en Visión operativa, debe tener instalada la solución de inteligencia. Para obtener más información sobre cómo instalar soluciones, consulte [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-setup-workspace.md).
 
 Una vez instalado, puede ver el resumen de cambios para los servidores supervisados mediante el icono **Seguimiento de cambios** en la página **Información general** de Visión operativa.
 
@@ -54,4 +54,4 @@ Puede ver los cambios en la infraestructura y, a continuación, profundizar en l
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Preparación de una máquina virtual Oracle Linux para Azure" 
-	description="Lleve a cabo la configuración de una máquina virtual de Oracle con Linux en Microsoft Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="Preparación de una máquina virtual Oracle Linux para Azure" description="Lleve a cabo la configuración de una máquina virtual de Oracle con Linux en Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Preparación de una máquina virtual Oracle Linux para Azure
 -   [Preparación de una máquina virtual Oracle Linux 6.4+ para Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
@@ -176,9 +162,9 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 		# sudo yum clean all
 		# sudo yum -y update
 
-9.  Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra "/etc/default/grub" en un editor de texto y edite el parámetro GRUB_CMDLINE_LINUX; por ejemplo:
+9.  Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra "/etc/default/grub" en un editor de texto y edite el parámetro GRUB\_CMDLINE\_LINUX; por ejemplo:
 
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+		GRUB\_CMDLINE\_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
 	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Además de lo anterior, se recomienda *quitar* los parámetros siguientes:
 
@@ -216,4 +202,4 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 15.  Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

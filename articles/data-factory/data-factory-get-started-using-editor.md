@@ -98,7 +98,7 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Azu
 
 	![Configuración de SQL de Azure del editor][image-editor-azure-sql-settings]
 
-2. Reemplace **servername**, **databasename**, **username@servername** y **password** por los nombres de servidor SQL de Azure, base de datos, cuenta de usuario y contraseña. 
+2. Reemplace **servername**, **databasename**, ****username@servername** y **password** por los nombres de servidor SQL de Azure, base de datos, cuenta de usuario y contraseña.
 3. Haga clic en **Implementar** en la barra de herramientas para crear e implementar AzureSqlLinkedService. 
    
 
@@ -145,15 +145,15 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 		
      Tenga en cuenta lo siguiente:
 	
-	- **type** de ubicación está establecido en **AzureBlob**.
+	- **type** de conjunto de datos está establecido en **AzureBlob**.
 	- **linkedServiceName** se establece en **StorageLinkedService**. Este servicio vinculado lo había creado en el paso 2.
 	- **folderPath** se establece en el contenedor **adftutorial**. También puede especificar el nombre de un blob en la carpeta. Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
 	- el **tipo** de formato se establece en **TextFormat**
 	- Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**)	
-	- La **disponibilidad** se establece en **cada hora** (**frecuencia** se establece en **hora** e **intervalo** se establece en **1** ), por lo que el servicio de la factoría de datos buscará los datos de entrada cada hora en la carpeta raíz del contenedor de blob (**adftutorial**) especificado. 
+	- La **disponibilidad** se establece en **cada hora** (**frecuencia** se establece en **hora** e **intervalo** se establece en **1**), por lo que el servicio de la factoría de datos buscará los datos de entrada cada hora en la carpeta raíz del contenedor de blob (**adftutorial**) especificado. 
 	
 
-	Si no especifica un **nombre de archivo** para una **tabla** de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Consulte los archivos de muestra del [tutorial][adf-tutorial] para ver algunos ejemplos.
+	Si no especifica **fileName** para una **tabla** de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Consulte los archivos de muestra del [tutorial][adf-tutorial] para ver algunos ejemplos.
  
 	Si no especifica un valor **fileName** para una **tabla de salida**, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.&lt;Guid&gt;.txt (ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -207,11 +207,11 @@ En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** q
 		
      Tenga en cuenta lo siguiente:
 	
-	* el **tipo** de ubicación está establecido en **AzureSQLTableLocation**.
+	* **type** de conjunto de datos está establecido en **AzureSQLTable**.
 	* **linkedServiceName** está establecido en **AzureSqlLinkedService** (creó este servicio vinculado en el paso 2).
 	* **tablename** está establecido en **emp**.
 	* Hay tres columnas: **ID**, **FirstName** y **LastName**: en la tabla emp de la base de datos, pero el id. es una columna de identidad, por lo que deberá especificar solo **FirstName** y **LastName** aquí.
-	* La **disponibilidad** está establecida en **cada hora** (**frecuencia** está establecida en **hora** e **intervalo** en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
+	* El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval**, en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
 
 
 3. Haga clic en **Implementar** en la barra de herramientas para crear e implementar la tabla **EmpSQLTable**.
@@ -258,7 +258,6 @@ En este paso, creará una canalización con una **actividad de copia** que usa *
 		        "Policy": {
 		          "concurrency": 1,
 		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
 		          "retry": 0,
 		          "timeout": "01:00:00"
 		        }
@@ -279,7 +278,7 @@ En este paso, creará una canalización con una **actividad de copia** que usa *
 	
 	Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
-	Si no especifica el valor para la propiedad **end**, se calcula como "**inicio + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
+	Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
 	
 	En el ejemplo anterior, habrá 24 segmentos de datos, porque cada segmento de datos se produce cada hora.
 	
@@ -513,4 +512,4 @@ Artículo | Descripción
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

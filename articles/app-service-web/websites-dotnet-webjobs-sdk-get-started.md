@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
@@ -301,7 +301,7 @@ Después de crear algunos anuncios mientras ejecuta la aplicación en la nube, c
 
 	Puede omitir la advertencia acerca de que no se van a publicar bases de datos. Entity Framework Code First creará la base de datos, no es necesario publicarla.
 
-	En la ventana de vista previa se muestran los archivos binarios y de configuración del proyecto WebJob que se copiarán en la carpeta *app_data\jobs\continuous* de la aplicación web.
+	En la ventana de vista previa se muestran los archivos binarios y de configuración del proyecto WebJob que se copiarán en la carpeta *app\_data\\jobs\\continuous* de la aplicación web.
 
 	![Archivos de WebJobs en la ventana de vista previa](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -800,10 +800,13 @@ Para obtener más información acerca de cómo escribir funciones que utilizan a
 * [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Uso del Bus de servicio de Azure con el SDK de trabajos web](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]
->* Si la aplicación web se ejecuta en varias máquinas virtuales, el programa se ejecutará en cada una de las máquinas y estas, a su vez, esperarán a los desencadenadores e intentarán ejecutar funciones. En algunas circunstancias, esto puede llevar a que algunas funciones procesen dos veces los mismos datos, por lo tanto, las funciones deben ser idempotentes (escritas para que así no se generen resultados duplicados si se las llama repetidamente con los mismos datos de entrada). 
->* Para obtener información acerca de cómo se implementa un cierre estable, consulte [Cierre estable](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
->* El código del método `ConvertImageToThumbnailJPG` (no aparece) usa clases en el espacio de nombres `System.Drawing` por motivos de simplicidad. Sin embargo, las clases de este espacio de nombres se diseñaron para usarse con Windows Forms. No se admiten para usarse en un servicio de Windows o ASP.NET. Para obtener más información acerca de las opciones de procesamiento de imagen, consulte [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) (Generación de imagen dinámica) y [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) (Cambio de tamaño de imagen profunda).
+> [AZURE.NOTE]
+>
+> * Si la aplicación web se ejecuta en varias máquinas virtuales, se ejecutarán varios WebJobs de manera simultánea y, en algunos escenarios, esto puede hacer que los mismos datos se procesen varias veces. Esto no supone un problema cuando se usan los desencadenadores de colas, blobs y bus de servicio integrados. El SDK garantiza que las funciones se procesarán una sola vez para cada mensaje o blob.
+>
+> * Para obtener información sobre cómo implementar el cierre estable, consulte [Cierre estable](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).
+>
+> * El código del método `ConvertImageToThumbnailJPG` (no se muestra) usa clases del espacio de nombres `System.Drawing` por simplicidad. Sin embargo, las clases de este espacio de nombres se diseñaron para usarse con Windows Forms. No se admiten para usarse en un servicio de Windows o ASP.NET. Para obtener más información acerca de las opciones de procesamiento de imagen, consulte [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) (Generación de imagen dinámica) y [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) (Cambio de tamaño de imagen profunda).
 
 ### SDK de WebJobs frente al rol de trabajo del servicio en la nube sin el SDK de WebJobs
 
@@ -829,4 +832,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

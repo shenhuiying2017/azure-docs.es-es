@@ -40,4 +40,4 @@ Este artículo puede serle útil si desea usar el teléfono de la oficina como m
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

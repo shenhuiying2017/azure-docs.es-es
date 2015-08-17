@@ -27,4 +27,4 @@
 
 Ahora, será necesario instalar el Administrador de conexiones híbridas en el equipo local.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

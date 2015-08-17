@@ -26,7 +26,7 @@ En este tutorial se muestra cómo agregar un servicio back-end basado en la nube
 
 La siguiente captura de pantalla muestra la aplicación final:
 
-![][88]
+![][0]
 
 Para completar este tutorial se requieren la [Herramientas para desarrolladores de Android][Android Studio], que incluyen el entorno de desarrollo integrado de Android Studio y la última plataforma de Android. Se requiere Android 4.2 o versiones posteriores.
 
@@ -100,7 +100,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[88]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
+[0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
 [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs-AS.png
 [2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android-AS.png
 
@@ -129,4 +129,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Portal de administración]: https://manage.windowsazure.com/
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

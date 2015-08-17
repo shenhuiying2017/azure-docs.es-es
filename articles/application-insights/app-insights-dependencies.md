@@ -27,7 +27,7 @@ La supervisión de dependencia lista para su uso sin configuraciones adicionales
 * Servicios y aplicaciones web ASP.NET que se ejecutan en un servidor IIS o en Azure.
 * [Aplicaciones web de Java](app-insights-java-agent.md)
 
-Para otros tipos, como aplicaciones de dispositivo, puede escribir su propio monitor mediante la API de TrackDependency.
+Para otros tipos, como aplicaciones de dispositivo, puede escribir su propio monitor mediante la [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 El monitor de dependencia listo para su uso sin configuraciones adicionales actualmente llama a estos tipos de dependencias:
 
@@ -105,7 +105,7 @@ Haga clic en un tipo de solicitud y una instancia de la solicitud para buscar un
 
 El módulo de seguimiento de dependencias estándar detecta automáticamente las dependencias externas, como bases de datos y API de REST. Pero tal vez quieras que se traten algunos componentes adicionales de la misma manera.
 
-Puede escribir código que envíe la información de dependencia usando la misma[API de TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) que usan los módulos estándar.
+Puede escribir código que envíe la información de dependencia usando la misma [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) que usan los módulos estándar.
 
 Por ejemplo, si compila el código con un ensamblado que no escribió usted mismo, podría cronometrar todas las llamadas al ensamblado para averiguar cómo contribuye a los tiempos de respuesta. Para que estos datos se muestren en los gráficos de dependencia en Application Insights, envíelos mediante `TrackDependency`.
 
@@ -129,4 +129,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

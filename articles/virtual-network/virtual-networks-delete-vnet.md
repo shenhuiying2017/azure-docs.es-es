@@ -32,4 +32,4 @@ Si desea eliminar una red virtual, no solo hay que hacer clic en **Eliminar**. H
 1. **Procedimiento adicional**: también puede eliminar cualquier configuración de la red local, los servidores DNS y el grupo de afinidad después de eliminar la red virtual.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

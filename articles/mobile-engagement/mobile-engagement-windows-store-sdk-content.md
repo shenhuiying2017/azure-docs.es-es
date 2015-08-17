@@ -55,4 +55,4 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 - `EngagementPageOverlay.cs`: el código de visualización de anuncios y notificaciones de `Overlay`.
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

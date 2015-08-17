@@ -19,7 +19,7 @@
 
 #Notas de la versión
 
-##4.0.0 (07/06/2015)
+##4\.0.0 (07/06/2015)
 
 -   Cambios en el protocolo interno para que la inserción y los análisis sean más confiables.
 -   La inserción nativa (GCM/ADM) ahora también se usa para notificaciones dentro de la aplicación, por lo que debe configurar las credenciales de inserción nativas para cualquier tipo de campaña de inserción.
@@ -29,7 +29,7 @@
 -   Corrección de la administración dinámica de cadenas de configuración.
 -   Actualización del CLUF.
 
-##3.0.0 (02/17/2015)
+##3\.0.0 (02/17/2015)
 
 -   Versión inicial de Azure Mobile Engagement
 -   La configuración de appID se reemplaza por una configuración de cadena de conexión.
@@ -40,4 +40,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

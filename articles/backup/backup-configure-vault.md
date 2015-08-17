@@ -12,7 +12,7 @@
 	ms.workload="storage-backup-recovery" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="06/03/2015" 
 	ms.author="markgal"/>
 
@@ -99,4 +99,4 @@ Después de que se instala el agente, puede usar la interfaz de administración 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

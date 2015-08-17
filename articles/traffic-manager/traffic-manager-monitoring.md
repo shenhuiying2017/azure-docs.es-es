@@ -75,7 +75,7 @@ A continuación se muestra una escala de tiempo de ejemplo que ilustra el proces
 1. **GET**: el sistema de supervisión del Administrador de tráfico realiza una operación GET en la ruta de acceso y en el archivo especificados en la configuración de supervisión.
 2. **200 OK**: el sistema de supervisión espera un mensaje de tipo HTTP 200 OK en 10 segundos. Cuando recibe esta respuesta, supone que el servicio en la nube está disponible. 
 
->[AZURE.NOTE]: el Administrador de tráfico solo considera que un extremo está En línea si el mensaje devuelto es 200 Correcto. Si se recibe una respuesta distinta a 200, supondrá que el extremo no está disponible y contará la comprobación como incorrecta. Para obtener más detalles acerca de por qué ha fallado la comprobación de la solución de problemas, consulte [Estado degradado de la solución de problemas en el Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md).
+>[AZURE.NOTE]\: el Administrador de tráfico solo considera que un extremo está En línea si el mensaje devuelto es 200 Correcto. Si se recibe una respuesta distinta a 200, supondrá que el extremo no está disponible y contará la comprobación como incorrecta. Para obtener más detalles acerca de por qué ha fallado la comprobación de la solución de problemas, consulte [Estado degradado de la solución de problemas en el Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md).
 
 3. **30 segundos entre comprobaciones**: esta comprobación se realizará cada 30 segundos.
 4. **Servicio en la nube no disponible**: el servicio en la nube deja de estar disponible. El Administrador de tráfico no lo sabrá hasta la siguiente comprobación de supervisión.
@@ -119,4 +119,4 @@ En la tabla siguiente se describe el comportamiento de la supervisión del Admin
 [Solución de problemas de estado degradado en Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

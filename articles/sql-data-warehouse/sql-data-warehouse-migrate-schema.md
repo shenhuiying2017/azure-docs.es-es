@@ -110,10 +110,10 @@ En lugar de:
 - **image**, **text**, **ntext**, use varchar/nvarchar (cuanto menor, mejor)
 - **nvarchar (max)**, use varchar(4000) o más pequeño para un mejor rendimiento
 - **numeric**, use decimal
-- **sql_variant**, divida la columna en varias columnas fuertemente tipadas
+- **sql\_variant**, divida la columna en varias columnas fuertemente tipadas
 - **sysname**, use nvarchar(128)
 - **table**, convierta en tablas temporales
-- **timestamp**, vuelva a procesar el código para que use datetime2 y la función `CURRENT_TIMESTAMP`. Tenga en cuenta que no puede tener current_timestamp como restricción DEFAULT y el valor no se actualizará automáticamente. Si tiene que migrar valores rowversion de una columna con tipo timestamp, use binary(8) o varbinary(8) para valores de versión de fila NOT NULL o NULL.
+- **timestamp**, vuelva a procesar el código para que use datetime2 y la función `CURRENT_TIMESTAMP`. Tenga en cuenta que no puede tener current\_timestamp como restricción DEFAULT y el valor no se actualizará automáticamente. Si tiene que migrar valores rowversion de una columna con tipo timestamp, use binary(8) o varbinary(8) para valores de versión de fila NOT NULL o NULL.
 - **varchar (max)**, use varchar(8000) o más pequeño para un mejor rendimiento
 - **uniqueidentifier**, use varbinary(8)
 - **tipos definidos por el usuario**, vuelva a convertirlos a sus tipos nativos siempre que sea posible
@@ -145,4 +145,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

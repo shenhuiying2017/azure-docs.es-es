@@ -33,7 +33,7 @@ Siga estos pasos para crear una máquina virtual mediante una plantilla del Admi
 
 ### Paso 1: Descarga del archivo JSON
 
-Designe una carpeta local como ubicación de los archivos de la plantilla JSON y créela (por ejemplo, C:\Azure\Templates\availability).
+Designe una carpeta local como ubicación de los archivos de la plantilla JSON y créela (por ejemplo, C:\\Azure\\Templates\\availability).
 
 Cambie el nombre de la carpeta y, a continuación, copie y ejecute estos comandos.
 
@@ -103,4 +103,4 @@ Siga estos pasos para crear el conjunto de disponibilidad mediante una plantilla
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

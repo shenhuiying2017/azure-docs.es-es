@@ -110,4 +110,4 @@ Cuando esté listo para eliminar la cuenta de Servicios multimedia de Azure, use
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

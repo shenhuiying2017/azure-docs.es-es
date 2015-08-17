@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.topic="hero-article"
+	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
 # Administración de su primera API en Administración de API de Azure
@@ -107,7 +107,8 @@ Para importar la API de la calculadora, haga clic en **API** en el menú **Admin
 
 Siga los pasos siguientes para configurar la API de la calculadora.
 
-1. Haga clic en **A partir de URL**, escriba **http://calcapi.cloudapp.net/calcapi.json** en el cuadro de texto **Dirección URL del documento de especificación** y haga clic en el botón de radio **Swagger**. 2. Escriba **calc** en el cuadro de texto **Sufijo de la dirección URL de la API web**.
+1. Haga clic en **Desde dirección URL**, escriba ****http://calcapi.cloudapp.net/calcapi.json** en el cuadro de texto the **Dirección URL del documento de especificación** y haga clic en el botón de radio **Swagger**.
+2. Escriba **calc** en el cuadro de texto **Sufijo de la dirección URL de la API web**.
 3. Haga clic en el cuadro **Productos (opcional)** y elija **Starter**.
 4. Haga clic en **Guardar** para importar la API.
 
@@ -243,4 +244,4 @@ La sección **Análisis** consta de las cuatro pestañas siguientes.
 [api-management-]: ./media/api-management-get-started/api-management-.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

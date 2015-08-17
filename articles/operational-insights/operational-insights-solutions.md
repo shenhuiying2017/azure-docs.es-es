@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/05/2015"
 	ms.author="alfran"/>
 
 # Soluciones en Visión operativa
@@ -24,7 +24,7 @@ Las soluciones son una colección de **lógica**, **visualización** y **reglas 
 
 Esta guía le orienta a través de las distintas soluciones disponibles y proporciona información sobre su uso.
 
->[AZURE.NOTE]Para obtener más información sobre cómo *agregar* soluciones, consulte [Incorporación de soluciones](operational-insights-add-solution.md)
+>[AZURE.NOTE]Para obtener más información sobre cómo *agregar* soluciones, consulte [Incorporación de soluciones](operational-insights-setup-workspace.md)
 
 ## Evaluación de SQL
 
@@ -129,4 +129,4 @@ Los resultados de la búsqueda de servidor incluyen:
 - Días desde la última actualización
 - Versión del agente de Windows Update
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

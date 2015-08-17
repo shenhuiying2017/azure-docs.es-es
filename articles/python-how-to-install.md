@@ -219,4 +219,4 @@ Para obtener más información acerca del desarrollo y la publicación de Sitios
 [almacenamiento de colas]: storage-python-how-to-use-queue-storage.md
 [almacenamiento de blobs]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

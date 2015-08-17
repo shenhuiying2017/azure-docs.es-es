@@ -18,4 +18,4 @@
 
 	![Generación completa](./media/app-service-api-dotnet-add-generated-client/06-code-gen-output-v3.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

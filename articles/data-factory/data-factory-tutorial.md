@@ -31,7 +31,7 @@ En este tutorial, creará canalizaciones de Factoría de datos para evaluar la e
 3.	Debe descargar e instalar [Azure PowerShell][download-azure-powershell] en el equipo. Deberá ejecutar cmdlets de Factoría de datos para cargar datos de ejemplo y scripts de Pig y Hive en el almacenamiento de blobs. 
 2.	**(recomendado)** Revise y practique el tutorial del artículo [Introducción a Factoría de datos de Azure][adfgetstarted] para obtener un tutorial sencillo para familiarizarse con el portal y los cmdlets.
 3.	**(recomendado)** Revise y practique el tutorial del artículo [Uso de Pig y Hive con Factoría de datos de Azure][usepigandhive] para obtener un tutorial sobre cómo crear una canalización para desplazar datos desde un origen de datos local a un almacenamiento de blobs de Azure.
-4.	Descargue los archivos [ ADFWalkthrough][adfwalkthrough-download] en la carpeta **C:\ADFWalkthrough** y **conserve la estructura de carpetas**:
+4.	Descargue los archivos [ ADFWalkthrough][adfwalkthrough-download] en la carpeta **C:\\ADFWalkthrough** y **conserve la estructura de carpetas**:
 	- **Pipelines:** incluye archivos JSON que contienen la definición de las canalizaciones.
 	- **Tables:** incluye archivos JSON que contienen la definición de las tablas.
 	- **LinkedServices:** incluye archivos JSON que contienen la definición de su clúster de almacenamiento y proceso (HDInsight). 
@@ -106,7 +106,7 @@ En este paso, cargará todos los datos de ejemplo (incluidos todos los registros
 
 Las tablas, los tipos definidos por el usuario y procedimientos almacenados se utilizan al mover los resultados de la eficacia de la campaña de marketing desde el almacenamiento de blobs de Azure para la base de datos SQL de Azure.
 
-1. Abra **uploadSampleDataAndScripts.ps1** desde la carpeta **C:\ADFWalkthrough** (o la carpeta que contenga los archivos extraídos) en su editor favorito, reemplace el texto resaltado por la información de su clúster y guarde el archivo.
+1. Abra **uploadSampleDataAndScripts.ps1** desde la carpeta **C:\\ADFWalkthrough** (o la carpeta que contenga los archivos extraídos) en su editor favorito, reemplace el texto resaltado por la información de su clúster y guarde el archivo.
 
 
 		$storageAccount = <storage account name>
@@ -118,10 +118,10 @@ Las tablas, los tipos definidos por el usuario y procedimientos almacenados se u
  
 	Este script requiere tener instalada en el equipo la utilidad sqlcmd. Si tiene SQL Server instalado, ya la tiene. De lo contrario, [descargue][sqlcmd-install] e instale la utilidad.
 	
-	Si lo prefiere, puede utilizar los archivos de la carpeta: C:\ADFWalkthrough\Scripts cargar los scripts pig y hive y los archivos de ejemplo en el contenedor adfwalkthrough, en el almacenamiento de blobs, y crear la tabla MarketingCampaignEffectiveness en la base de datos SQL de Azure MarketingCamapaigns.
+	Si lo prefiere, puede utilizar los archivos de la carpeta: C:\\ADFWalkthrough\\Scripts cargar los scripts pig y hive y los archivos de ejemplo en el contenedor adfwalkthrough, en el almacenamiento de blobs, y crear la tabla MarketingCampaignEffectiveness en la base de datos SQL de Azure MarketingCamapaigns.
    
-2. Confirme que el equipo local tiene acceso a la base de datos SQL de Azure. Para permitir el acceso, use el **Portal de administración de Azure** o **sp_set_firewall_rule** en la base de datos maestra para crear una regla de firewall para la dirección IP del equipo. Puede tardar hasta cinco minutos que este cambio surta efecto. Consulte [Definición de reglas de firewall para SQL Azure][azure-sql-firewall].
-4. En Azure PowerShell, vaya a la ubicación donde ha extraído los ejemplos (por ejemplo, **C:\ADFWalkthrough**).
+2. Confirme que el equipo local tiene acceso a la base de datos SQL de Azure. Para permitir el acceso, use el **Portal de administración de Azure** o **sp\_set\_firewall\_rule** en la base de datos maestra para crear una regla de firewall para la dirección IP del equipo. Puede tardar hasta cinco minutos que este cambio surta efecto. Consulte [Definición de reglas de firewall para SQL Azure][azure-sql-firewall].
+4. En Azure PowerShell, vaya a la ubicación donde ha extraído los ejemplos (por ejemplo, **C:\\ADFWalkthrough**).
 5. Ejecute **uploadSampleDataAndScripts.ps1** 
 6. Una vez que el script se ejecute correctamente, verá lo siguiente:
 
@@ -226,8 +226,9 @@ En este paso, creará los siguientes servicios vinculados:
 5. Repita los pasos para crear otro servicio vinculado de Almacenamiento de Azure denominado: **HDInsightStorageLinkedService** para el almacenamiento asociado a su clúster de HDInsight. En el script JSON del servicio vinculado, cambie el valor de la propiedad **name** a **HDInsightStorageLinkedService**.
 
 ### Creación de AzureSqlLinkedService
-1. En el **Editor de Factoría de datos**, haga clic en el botón **Nuevo almacén de datos** de la barra de herramientas y seleccione **Base de datos SQL de Azure** en el menú desplegable. Verá la plantilla JSON para crear un servicio vinculado de SQL Azure en el panel derecho.
-2. Reemplace **servername**, **username@servername** y **password** por los nombres de servidor SQL de Azure, cuenta de usuario y contraseña. 3. Reemplace **databasename** por **MarketingCampaigns**. Se trata de la base de datos SQL de Azure creada por los scripts que ejecutó en el paso 1. Debe confirmar que los scripts crearon realmente esta base de datos (si se producen errores). 
+1. En el **Editor de Factoría de datos**, haga clic en el botón **Nuevo almacén de datos** de la barra de herramientas y seleccione **Base de datos SQL de Azure** en el menú desplegable. Verá la plantilla JSON para crear un servicio vinculado SQL de Azure en el panel derecho.
+2. Reemplace **servername**, ****username@servername** y **password** por los nombres de su servidor SQL de Azure, cuenta de usuario y contraseña.
+3. Reemplace **databasename** por **MarketingCampaigns**. Se trata de la base de datos SQL de Azure creada por los scripts que ejecutó en el paso 1. Debe confirmar que los scripts crearon realmente esta base de datos (si se producen errores). 
 3. Haga clic en **Implementar** en la barra de herramientas para crear e implementar AzureSqlLinkedService.
 
 ### Creación de HDInsightLinkedService
@@ -292,7 +293,7 @@ La imagen anterior muestra los procesos en la fila central y las tablas de las f
 ### Para crear las tablas
 	
 1. En el **Editor** de Factoría de datos, haga clic en el botón **Nuevo conjunto de datos** en la barra de herramientas y haga clic en **Almacenamiento de blobs de Azure** en el menú desplegable. 
-2. Reemplace el script JSON del panel derecho por el script JSON del archivo **RawGameEventsTable.json** en la carpeta **C:\ADFWalkthrough\Tables**.
+2. Reemplace el script JSON del panel derecho por el script JSON del archivo **RawGameEventsTable.json** en la carpeta **C:\\ADFWalkthrough\\Tables**.
 3. Haga clic en **Implementar** en la barra de herramientas para crear e implementar la canalización. Confirme que aparece el mensaje **TABLA CREADA CORRECTAMENTE** en la barra de título del Editor.
 4. Repita los pasos del 1 al 3 con el contenido de los archivos siguientes: 
 	1. PartitionedGameEventsTable.json
@@ -314,7 +315,7 @@ En este paso, creará los siguientes procesos:
 ### Creación de canalizaciones
 
 1. En el **Editor de la Factoría de datos**, haga clic en **Nueva canalización** en la barra de herramientas. Haga clic en **... (puntos suspensivos)** en la barra de herramientas si no ve el botón. O bien, haga clic con el botón secundario **Canalizaciones** en la vista de árbol y elija **Nueva canalización**.
-2. Reemplace el script JSON del panel derecho por el script JSON del archivo **PartitionGameLogsPipeline.json** en la carpeta **C:\ADFWalkthrough\Pipelines**.
+2. Reemplace el script JSON del panel derecho por el script JSON del archivo **PartitionGameLogsPipeline.json** en la carpeta **C:\\ADFWalkthrough\\Pipelines**.
 3. Agregue una **coma (',')** al final del **corchete de cierre ('] ')** en el archivo JSON y, a continuación, agregue las tres líneas siguientes después del corchete de cierre. 
 
         "start": "2014-05-01T00:00:00Z",
@@ -327,7 +328,8 @@ En este paso, creará los siguientes procesos:
 4. Repita los pasos del 1 al 3 con el contenido de los archivos siguientes: 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. Cierre las hojas de Factoría de datos presionando **X** (esquina superior derecha) para ver la página principal (hoja **FACTORÍA DE DATOS**) para Factoría de datos. 
+4. Cierre las hojas de Factoría de datos presionando **X** (esquina superior derecha) para ver la página principal (hoja **FACTORÍA DE DATOS**) para Factoría de datos.
+
 ### Vista de diagrama
 
 1. En la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**, haga clic en **Diagrama**. 
@@ -525,4 +527,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

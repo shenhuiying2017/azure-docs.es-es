@@ -95,4 +95,4 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

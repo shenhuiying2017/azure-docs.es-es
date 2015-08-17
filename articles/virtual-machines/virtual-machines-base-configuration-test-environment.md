@@ -84,7 +84,7 @@ A continuación, cree un servicio en la nube de Azure. El servicio en la nube ac
 
 Debe elegir un nombre único para el servicio en la nube. *El nombre del servicio en la nube solo puede contener letras, números y guiones. El primer y el último carácter del campo deben ser una letra o un número.*
 
-Por ejemplo, podría asignar el nombre TestLab-*UniqueSequence* al servicio en la nube , en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio de nube TestLab-Tailspin.
+Por ejemplo, podría asignar el nombre TestLab-*UniqueSequence* al servicio en la nube, en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio de nube TestLab-Tailspin.
 
 Se puede comprobar la exclusividad del nombre con este comando de Azure PowerShell.
 
@@ -134,7 +134,7 @@ A continuación, conéctese a la máquina virtual DC1.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **DC1**[nombre de la cuenta de administrador local]
+- Nombre: **DC1\**[nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -163,7 +163,7 @@ Una vez reiniciado DC1, vuelva a conectar la máquina virtual de DC1.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **CORP**[nombre de la cuenta de administrador local]
+- Nombre: **CORP\**[Nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando se lo solicite un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
@@ -242,7 +242,8 @@ A continuación, compruebe que puede tener acceso a recursos compartidos de arch
 2.	En **Propiedades de CLIENT1**, haga clic en **Activo** al lado de **Configuración de seguridad mejorada de IE**.
 3.	En **Configuración de seguridad mejorada de IE**, haga clic en **Desactivar** para **Administradores** y **Usuarios** y, a continuación, haga clic en **Aceptar**.
 4.	En la pantalla Inicio, haga clic en **Internet Explorer** y, a continuación, en **Aceptar**.
-5.	En la barra de direcciones, escriba **http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1. 6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
+5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y después presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
+6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
 7.	En la barra de direcciones, escriba **\\\\app1\\Files** y, a continuación, presione ENTRAR.
 8.	Debería ver una ventana de carpeta con el contenido de la carpeta compartida Archivos.
 9.	En la ventana de carpeta compartida **Archivos** , haga doble clic en el archivo **Example.txt**. Debería ver el contenido del archivo Example.txt.
@@ -288,4 +289,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

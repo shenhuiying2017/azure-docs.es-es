@@ -171,14 +171,14 @@ Es muy recomendable almacenar los valores de conexión, especialmente aquellos v
 El siguiente archivo App.config contiene los valores de conexión necesarios. Los valores del elemento <appSettings> son los valores necesarios que obtuvo en el proceso de configuración de la cuenta de Servicios multimedia.
 
 
-<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+```
+&lt;configuration&gt;
+    &lt;appSettings&gt;
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
+    &lt;/appSettings&gt;
+&lt;/configuration&gt;
+```
 
 Para recuperar los valores de conexión de la configuración, use la clase **ConfigurationManager** y luego asigne los valores a los campos en el código:
 	
@@ -191,4 +191,4 @@ Para recuperar los valores de conexión de la configuración, use la clase **Con
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

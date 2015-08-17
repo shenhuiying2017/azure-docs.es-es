@@ -118,7 +118,7 @@ En el método `Configure`:
 
 ## Agregar la instrumentación de cliente de JavaScript
 
-Si tiene un _archivo Layout.cshtml, inserte ahí el código siguiente. De lo contrario, coloque el código en cualquier página de la que quiera realizar un seguimiento.
+Si tiene un archivo \_Layout.cshtml, inserte ahí el código siguiente. De lo contrario, coloque el código en cualquier página de la que quiera realizar un seguimiento.
 
 Defina la inserción en la parte superior del archivo:
 
@@ -171,4 +171,4 @@ Vuelva al [Portal de Azure][portal] y busque el recurso de Application Insights.
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

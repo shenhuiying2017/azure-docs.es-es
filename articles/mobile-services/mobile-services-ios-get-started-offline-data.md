@@ -30,7 +30,7 @@ La sincronización sin conexión tiene varias ventajas:
 * Sincroniza datos en varios dispositivos
 * Detecta los conflictos cuando dos dispositivos modifican el mismo registro
 
-> [AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y acceder a [servicios móviles gratuitos que puede seguir usando incluso después de que finalice dicha evaluación](http://azure.microsoft.com/pricing/details/mobile-services/). Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank").
+> [AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y acceder a [servicios móviles gratuitos que puede seguir usando incluso después de que finalice dicha evaluación](http://azure.microsoft.com/pricing/details/mobile-services/). Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank").
 
 Este tutorial está basado en el [Tutorial de inicio rápido de Servicios móviles], que debe completar primero. En primer lugar, revisemos el código relacionado con la sincronización sin conexión en el inicio rápido.
 
@@ -110,18 +110,18 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
 
 - Abra **QSDataModel.xcdatamodeld**. Hay cuatro tablas definidas: tres que utiliza el SDK y una para los propios elementos de la lista de tareas:
 
-      * MS_TableOperations: para el seguimiento de elementos que se sincronizarán con el servidor
-      * MS_TableOperationErrors: para realizar el seguimiento de los errores que se producen durante la sincronización sin conexión
-      * MS_TableConfig: para realizar el seguimiento de la hora de la última actualización de la última operación de sincronización para todas las operaciones de extracción
-      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema **ms_createdAt**, **ms_updatedAt** y **ms_version** son propiedades del sistema opcionales.
+      * MS\_TableOperations: para el seguimiento de elementos que se sincronizarán con el servidor
+      * MS\_TableOperationErrors: para realizar el seguimiento de los errores que se producen durante la sincronización sin conexión
+      * MS\_TableConfig: para realizar el seguimiento de la hora de la última actualización de la última operación de sincronización para todas las operaciones de extracción
+      * TodoItem: para almacenar elementos de lista de tareas. Las columnas de sistema **ms\_createdAt**, **ms\_updatedAt** y **ms\_version** son propiedades del sistema opcionales.
 
->[AZURE.NOTE]El SDK de Servicios móviles reserva los nombres de columna que contienen "**`ms_`**". No use este prefijo en elementos distintos de las columnas del sistema. De lo contrario, se modificarán los nombres de columna cuando se use el servicio remoto.
+>[AZURE.NOTE]El SDK de Servicios móviles reserva los nombres de columna que empiezan por "**`ms_`**". No use este prefijo en elementos distintos de las columnas del sistema. De lo contrario, se modificarán los nombres de columna cuando se use el servicio remoto.
 
 - Al utilizar la característica de sincronización sin conexión, debe definir las tablas del sistema, tal como se muestra a continuación.
 
     ### Tablas del sistema
 
-    #### MS_TableOperations
+    #### MS\_TableOperations
 
     | Atributo | Escriba |
     |-------------- |   ------    |
@@ -131,7 +131,7 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | table | Cadena |
     | tableKind | Integer 16 |
 
-    #### MS_TableOperationErrors
+    #### MS\_TableOperationErrors
 
     | Atributo | Escriba |
     |-------------- | ----------  |
@@ -140,7 +140,7 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | propiedades | Binary Data |
     | tableKind | Integer 16 |
 
-    #### MS_TableConfig
+    #### MS\_TableConfig
 
 
     | Atributo | Escriba |
@@ -160,7 +160,7 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | Id. (obligatorio) | String | clave principal en almacén remoto (requerido) |
     | complete | Booleano | todo item field |
     | text | Cadena | todo item field |
-    | ms_createdAt | Date | (opcional) maps to __createdAt system property | | ms_updatedAt | Date | (opcional) maps to __updatedAt system property | | ms_version | String | (opcional) used to detect conflicts, maps to __version |
+    | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | | ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
 
 
 
@@ -271,4 +271,4 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 [Tutorial de inicio rápido de Servicios móviles]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

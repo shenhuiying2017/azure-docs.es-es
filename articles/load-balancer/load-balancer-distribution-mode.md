@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma" />
 
 
-# Información general
+# Modo de distribución del equilibrador de carga (afinidad de IP de origen)
 
 Hemos introducido un nuevo modo de distribución llamado Afinidad de IP de origen (también conocido como afinidad de cliente o afinidad de IP de cliente). Para asignar el tráfico a los servidores disponibles, el Equilibrador de carga de Azure se puede configurar para usar una 2-tupla (IP de origen, IP de destino) o una 3-tupla (IP de origen, IP de destino, protocolo). Al usar la afinidad de IP de origen, las conexiones iniciadas desde el mismo equipo cliente van al mismo extremo DIP.
 
@@ -47,7 +47,7 @@ Agregar un extremo de Azure a una máquina virtual y establecer el modo de distr
 
 Recuperar una configuración de modo de distribución del equilibrador de carga de extremo
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -149,4 +149,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

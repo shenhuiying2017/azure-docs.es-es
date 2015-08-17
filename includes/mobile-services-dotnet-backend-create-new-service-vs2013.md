@@ -26,4 +26,4 @@ Los siguientes pasos permiten crear un servicio móvil en Azure y agregar al pro
  
    	Cuando el asistente finalice, el proyecto de servicio móvil se agrega a su solución, los paquetes NuGet necesarios se instalan, se agrega al proyecto una referencia a la biblioteca cliente de servicios móviles y el código fuente de su proyecto se actualiza.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

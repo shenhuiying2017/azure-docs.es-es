@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Notas de la versión de la factoría de datos Azure
@@ -115,7 +115,7 @@ Tenga en cuenta lo siguiente:
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1"
+	            "interval": 1
 	        }
 	    }
 	}
@@ -124,7 +124,7 @@ Tenga en cuenta lo siguiente:
 
 - La propiedad **type** se ha subido un nivel y el nombre de tipo **AzureTableLocation** se ha cambiado a **AzureTable**.
 - **linkedServiceName** se sube un nivel. 
-- El elemento **ubicación**se ha quitado y las propiedades específicas del tipo como **tableName**, que se especificaban en la sección **ubicación** se especifican en la nueva sección **typeProperties**.  
+- El elemento **ubicación** se ha quitado y las propiedades específicas del tipo como **tableName**, que se especificaban en la sección **ubicación** se especifican en la nueva sección **typeProperties**.  
 
 ### Actividad de JSON anterior
 
@@ -355,4 +355,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -10,4 +10,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   - Utilice [Almacenamiento de tablas](./storage-dotnet-how-to-use-tables.md) para almacenar datos estructurados.
   - Utilice [Base de datos SQL](../sql-database/sql-database-dotnet-how-to-use.md) para almacenar datos relacionales.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

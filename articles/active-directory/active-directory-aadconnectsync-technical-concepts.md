@@ -91,4 +91,4 @@ Siempre que una regla se determina que tiene que crearse un nuevo objeto de espa
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

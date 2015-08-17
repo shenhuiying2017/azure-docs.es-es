@@ -28,29 +28,7 @@ Los servicios de BizTalk de Azure implementan limitaciones del servicio según d
 
 La siguiente tabla muestra los orígenes y umbrales de limitación:
 
-<table border="1">
-
-<tr bgcolor="FAF9F9">
-        <th> </th>
-        <td><strong>Descripción</strong></td>
-        <td><strong>Umbral bajo</strong></td>
-        <td><strong>Umbral alto</strong></td>
-</tr>
-    <tr>
-        <td>Memoria</td>
-        <td>% de memoria total del sistema disponible/PageFileBytes. 
-<br/><br/>
-La cantidad total disponible de PageFileBytes es de aproximadamente 2 veces la memoria RAM del sistema.</td>
-        <td>60%</td>
-        <td>70%</td>
-    </tr>
-    <tr>
-        <td>Procesamiento de mensajes</td>
-        <td>Número de mensajes que se procesan simultáneamente</td>
-        <td>40 * número de núcleos</td>
-        <td>100 * número de núcleos</td>
-    </tr>
-</table>
+||Descripción|Umbral bajo|Umbral alto| |---|---|---|---| |Memoria|% de la memoria total disponible del sistema/PageFileBytes. <p><p>PageFileBytes disponible total es aproximadamente el doble de la memoria RAM del sistema.|60 %|70 %| |Procesamiento de mensajes|Número de mensajes que se procesan simultáneamente|40 * número de núcleos|100 * número de núcleos|
 
 Cuando se alcanza un umbral alto, Servicios de BizTalk de Azure empieza a limitarse. La limitación se detiene cuando se alcanza el umbral bajo. Por ejemplo, el servicio está utilizando un 65 % de la memoria del sistema. En esta situación, el servicio no se limita. El servicio empieza a usar un 70 % de la memoria del sistema. En esta situación, el servicio se limita y sigue limitándose hasta que el servicio utiliza un 60 % de la memoria del sistema (umbral bajo).
 
@@ -88,4 +66,4 @@ Cuando los servicios de BizTalk de Azure entran en un estado de limitación, ocu
 - [Servicios de BizTalk: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

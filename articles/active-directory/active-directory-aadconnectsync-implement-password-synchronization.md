@@ -67,7 +67,7 @@ Cuando se habilita la sincronización de contraseñas, las directivas de complej
  
 ### Directiva de expiración de contraseñas
 
-Si un usuario está en el ámbito de sincronización de contraseñas, la contraseña de cuenta en la nube se establece en "*Never Expire*". Esto significa que es posible que la contraseña de un usuario expire en el entorno local, pero los usuarios pueden seguir iniciando sesión en los servicios en la nube con la contraseña expirada.
+Si un usuario está en el ámbito de sincronización de contraseñas, la contraseña de cuenta en la nube se establece en "*No caduca nunca*". Esto significa que es posible que la contraseña de un usuario expire en el entorno local, pero los usuarios pueden seguir iniciando sesión en los servicios en la nube con la contraseña expirada.
 
 La contraseña de la nube se actualizará la próxima vez que el usuario cambie la contraseña en el entorno local.
 
@@ -156,4 +156,4 @@ Después de ejecutar el Asistente para configuración, el inquilino dejará de s
 [4]: ./media/active-directory-aadsync-implement-password-synchronization/IC662506.png
 [5]: ./media/active-directory-aadsync-implement-password-synchronization/IC662507.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

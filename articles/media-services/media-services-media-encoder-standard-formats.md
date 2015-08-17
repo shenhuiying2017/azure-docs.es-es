@@ -55,33 +55,32 @@ En la siguiente sección se enumeran los códecs y el formato de archivo que se 
  
 ###Formatos
 
-<table border="1">
-<tr><th>Formato de archivo</th><th>Extensiones de archivo</th></tr>
-<tr><td>FLV (con códecs H.264 y AAC) </td><td>.flv</td></tr>
-<tr><td>MP4/ISMV</td><td>*.ismv</td></tr>
-<tr><td>MPEG2-PS, MPEG2-TS, 3GP</td><td>.ts, .ps, .3gp</td></tr>
-<tr><td>MXF</td><td>.mxf</td></tr>
-<tr><td>WMV/ASF</td><td>.mwv, .asf</td></tr>
-<tr><td>DVR-MS</td><td>.dvr-ms </td></tr>
-<tr><td>AVI</td><td>.avi</td></tr>
-<tr><td>Matroska</td><td>.mkv</td></tr>
-<tr><td>GXF</td><td>.gxf</td></tr>
-<tr><td>WAVE/WAV </td><td>.wav</td></tr>
-</table>
+Formato de archivo|Extensiones de archivo
+---|---
+FLV (con códecs H.264 y AAC) |.flv
+MP4/ISMV|*.ismv
+MPEG2-PS, MPEG2-TS, 3GP|.ts, .ps, .3gp
+MXF|.mxf
+WMV/ASF|.mwv, .asf
+DVR-MS|.dvr-ms 
+AVI|.avi
+Matroska|.mkv
+GXF|.gxf
+WAVE/WAV |.wav
+
 
 ##<a id="export_formats"></a>Formatos de exportación de Media Encoder
 
 La siguiente tabla enumera los códecs y los formatos de archivo compatibles para exportación.
 
 
-<table border="1">
-<tr><th>Formato de archivo</th><th>Códec de vídeo</th><th>Códec de audio</th></tr>
-<tr><td>MP4 (*.mp4)<br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) </td><td>H.264 (perfil alto, perfil principal y perfil de base de línea)</td><td>AAC-LC, HE-AAC v1, HE-AAC v2 </td></tr>
-<tr><td>MPEG2-TS </td><td>H.264 (perfil alto, perfil principal y perfil de base de línea)</td><td>AAC-LC, HE-AAC v1, HE-AAC v2 </td></tr>
-</table>
+Formato de archivo|Códec de vídeo|Códec de audio
+---|---|---
+MP4 (*.mp4)<br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 ##Consulte también
 
 [Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

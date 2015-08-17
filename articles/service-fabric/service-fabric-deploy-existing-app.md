@@ -80,7 +80,7 @@ Este es un ejemplo de un manifiesto de servicio
 ## Estructura del archivo del paquete de aplicación
 Para implementar una aplicación mediante, por ejemplo, los cmdlets de Powershell, la aplicación debe seguir una estructura de directorios predefinida.
 
-\applicationmanifest.xml \MyServicePkg \servicemanifest.xml \code \config \data
+\\applicationmanifest.xml \\MyServicePkg \\servicemanifest.xml \\code \\config \\data
 
 La raíz contiene el archivo applicationmanifest.xml que define la aplicación. Se usa un subdirectorio para cada servicio incluido en la aplicación para contener todos los artefactos que requiere el servicio: el servicemanifest.xml y, por lo general, 3 directorios:
 
@@ -198,7 +198,7 @@ El elemento `Entrypoint` del archivo de manifiesto de servicio se usa para espec
 				  \ ...
 			\config
 			\data
-			...
+			\...
 
 ```
 
@@ -311,4 +311,4 @@ Estamos trabajando en una herramientas que sirva para empaquetar una aplicación
 
 	
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -78,4 +78,4 @@ Con las bases de datos locales, Azure puede actuar como un centro de datos secun
   [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
   [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

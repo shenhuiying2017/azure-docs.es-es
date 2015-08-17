@@ -170,4 +170,4 @@ El ejemplo de código que se muestra en esta sección aplica parámetros a una i
 		connection.execSql(request);
 	}
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

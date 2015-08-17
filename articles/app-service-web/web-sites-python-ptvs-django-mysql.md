@@ -99,7 +99,7 @@ Siga estos pasos para crear una base de datos con un plan gratuito.
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  Escriba "**mysql**" en el cuadro de búsqueda, haga clic en **Base de datos MySQL** y, a continuación, en **Crear**.
+1.  Escriba "**mysql**" en el cuadro de búsqueda, haga clic en **Base de datos MySQL** y luego en **Crear**.
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
@@ -134,7 +134,7 @@ En esta sección, vamos a configurar nuestra aplicación web para usar la base d
 
 1.  En el Explorador de soluciones, en **Entornos de Python**, haga clic con el botón derecho en el entorno virtual y seleccione **Instalar paquete de Python**.
 
-1. Instale el paquete `mysql-python` con **easy_install**.
+1. Instale el paquete `mysql-python` con **easy\_install**.
 
   	![Cuadro de diálogo Instalar paquete](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
@@ -211,4 +211,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

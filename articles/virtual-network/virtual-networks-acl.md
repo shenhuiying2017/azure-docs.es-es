@@ -47,7 +47,7 @@ Cuando se crea una máquina virtual, se coloca una ACL predeterminada para bloqu
 
 | **Nº de regla** | **Subred remota** | **Extremo** | **Permitir o denegar** |
 |--------|---------------|----------|-------------|
-| 100 | 0.0.0.0/0 | 3389 | Permitir |
+| 100 | 0\.0.0.0/0 | 3389 | Permitir |
 
 ## Permitir y denegar
 
@@ -75,8 +75,8 @@ En el ejemplo siguiente, si desea permitir el acceso al extremo RDP solo desde d
 
 | **Nº de regla** | **Subred remota** | **Extremo** | **Permitir o denegar** |
 |--------|---------------|----------|-------------|
-| 100 | 65.0.0.0/8 | 3389 | Permitir |
-| 200 | 159.0.0.0/8 | 3389 | Permitir |
+| 100 | 65\.0.0.0/8 | 3389 | Permitir |
+| 200 | 159\.0.0.0/8 | 3389 | Permitir |
 
 ### Orden de reglas
 
@@ -86,8 +86,8 @@ Dado que se pueden especificar varias reglas para un extremo, debe haber una man
 
 | **Nº de regla** | **Subred remota** | **Extremo** | **Permitir o denegar** |
 |--------|---------------|----------|-------------|
-| 100 | 175.1.0.1/24 | 80 | Denegar |
-| 200 | 175.0.0.0/8 | 80 | Permitir |
+| 100 | 175\.1.0.1/24 | 80 | Denegar |
+| 200 | 175\.0.0.0/8 | 80 | Permitir |
 
 ## ACL de red y conjuntos de carga equilibrada
 
@@ -99,4 +99,4 @@ Las ACL de red pueden especificarse en un extremo del conjunto con equilibrio de
 
 [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

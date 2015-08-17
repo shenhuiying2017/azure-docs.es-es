@@ -71,7 +71,7 @@ Sin embargo, la plantilla de proyecto nuevo de la aplicación de API de Azure de
 
 **Nota:** si implementa la aplicación de API como *public anonymous* y con Swagger UI activado, cualquier persona podrá usar dicha Swagger UI para detectar las API y hacer llamadas a ellas.
 
-1. Abra el archivo *App_Start/SwaggerConfig.cs* y busque **EnableSwaggerUI**:
+1. Abra el archivo *App\_Start/SwaggerConfig.cs* y busque **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
 
@@ -97,4 +97,4 @@ Para ver la página de prueba de la API, realice los pasos siguientes.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

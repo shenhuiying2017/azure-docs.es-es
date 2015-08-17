@@ -2,7 +2,7 @@
 	pageTitle="Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython | Microsoft Azure"
 	description="Configurar una máquina virtual de ciencia de datos con SQL Server y IPython Server."
 	services="machine-learning"
-	documentationCenter=""
+	solutions="" documentationCenter=""
 	authors="msolhab" 
 	manager="paulettm"
 	editor="cgronlun" />
@@ -81,7 +81,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   Ejecución (aprovisionamiento)
     -   Ejecución
 
-##<a name="RemoteDesktop"></a>Apertura la máquina virtual con Escritorio remoto y finalización de la configuración
+##<a name="RemoteDesktop">Apertura la máquina virtual con Escritorio remoto y finalización de la configuración</a>
 
 1.  Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 
@@ -298,4 +298,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

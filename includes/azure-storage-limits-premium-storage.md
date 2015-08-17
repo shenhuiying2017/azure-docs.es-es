@@ -19,4 +19,4 @@
 
 <sup>1</sup>*Entrada* se refiere a todos los datos (solicitudes) que se envían a una cuenta de almacenamiento. *Salida* se refiere a todos los datos (respuestas) recibidos desde una cuenta de almacenamiento.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

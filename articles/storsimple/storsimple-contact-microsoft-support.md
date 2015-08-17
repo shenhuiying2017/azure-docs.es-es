@@ -72,4 +72,4 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 
 > [AZURE.IMPORTANT]Puede deshabilitar el acceso al soporte técnico ejecutando`Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -97,7 +97,7 @@ En un token SAML, el nombre (o "nombre dado") aparece en una notificación en el
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>
     <AttributeValue>Frank<AttributeValue>
 
-En un token JWT, el nombre aparece en la notificación given_name.
+En un token JWT, el nombre aparece en la notificación given\_name.
 
     "given_name": "Frank"
 
@@ -156,7 +156,7 @@ La notificación de apellido proporciona el apellido del usuario según se defin
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>
     <AttributeValue>Miller<AttributeValue>
 
-En un token JWT, el apellido aparece en la notificación family_name.
+En un token JWT, el apellido aparece en la notificación family\_name.
 
     "family_name": "Miller"
 
@@ -167,7 +167,7 @@ La notificación de nombre proporciona un valor en lenguaje natural que identifi
     <Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>
     <AttributeValue>frankm@contoso.com<AttributeValue>
 
-En una notificación JWT, el nombre aparece en la notificación unique_name.
+En una notificación JWT, el nombre aparece en la notificación unique\_name.
 
     "unique_name": "frankm@contoso.com"
 
@@ -195,7 +195,7 @@ En un token JWT, la notificación de roles aparece en el atributo de roles.
 
 ### Scope
 
-El ámbito del token indica los permisos de suplantación concedidos a la aplicación cliente. El permiso predeterminado es user_impersonation. El propietario del recurso protegido puede registrar valores adicionales en Azure AD.
+El ámbito del token indica los permisos de suplantación concedidos a la aplicación cliente. El permiso predeterminado es user\_impersonation. El propietario del recurso protegido puede registrar valores adicionales en Azure AD.
 
 En un token JWT, el ámbito del token se especifica en una notificación scp.
 
@@ -413,4 +413,4 @@ Este es un ejemplo de token web JSON (JWT) típico que se usa en un flujo web de
 [Protocolos de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -45,7 +45,7 @@ Este artículo no ofrece información general conceptual sobre el servicio Facto
 
 	![Hoja Nueva Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] 
+	> [AZURE.IMPORTANT]Los nombres de la Factoría de datos de Azure son únicos globalmente. Deberá agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría. 
 3.	Si no creó ningún grupo de recursos, tendrá que crearlo. Para ello, siga estos pasos:
 	1.	Haga clic en **NOMBRE DEL GRUPO DE RECURSOS**.
 	2.	Seleccione **Crear un nuevo grupo de recursos** en la hoja **Grupo de recursos**.
@@ -178,6 +178,10 @@ En este paso, creará la primera canalización:
 		            "name": "AzureBlobOutput"
 		          }
 		        ],
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
 		        "policy": {
 		          "concurrency": 1,
 		          "retry": 3
@@ -193,7 +197,7 @@ En este paso, creará la primera canalización:
  
 	En el fragmento de código JSON, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
 	
-	El archivo de script de Hive, **partitionweblogs.hql** se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, denominada ** StorageLinkedService**) y en un contenedor denominado **script**.
+	El archivo de script de Hive, **partitionweblogs.hql** se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, denominada **StorageLinkedService**) y en un contenedor denominado **script**.
 
 	La sección **extendedProperties** se usa para especificar la configuración de tiempo de ejecución que se pasará al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:PartitionedData}).
 
@@ -223,7 +227,7 @@ En este paso, creará la primera canalización:
  
 
 ## Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un Blob de Azure en SQL Azure, vea [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un blob de Azure a SQL de Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

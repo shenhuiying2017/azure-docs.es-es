@@ -51,7 +51,7 @@ En este tema se muestra cómo realizar las siguientes operaciones de contenido d
 
 	![Estado del trabajo][status]
 
-Una vez que la carga se haya completado, verá el nuevo recurso en la lista de contenido. Se establecerá una convención en la que el nombre tendrá anexo "**Source**" en la parte inferior para ayudar a realizar un seguimiento del nuevo contenido como contenido de origen para las tareas de codificación.
+Una vez que la carga se haya completado, verá el nuevo recurso en la lista de contenido. Se establecerá una convención en la que el nombre tendrá anexo "**-Source**" en la parte inferior para ayudar a realizar un seguimiento del nuevo contenido como contenido de origen para las tareas de codificación.
 
 ![ContentPage][contentpage]
 
@@ -99,7 +99,8 @@ Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámi
 En esta sección se describen los pasos que puede seguir para codificar el contenido con Azure Media Encoder mediante el Portal de administración.
 
 1.  Seleccione el archivo que desea codificar. Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
-4. En el cuadro de diálogo **Proceso**, seleccione el **procesador de Azure Media Encoder.5. Elija una de las **configuraciones de codificación**.
+4. En el cuadro de diálogo **Proceso**, seleccione el procesador de **Codificador multimedia de Azure**.
+5. Elija una de las **configuraciones de codificación**.
 
 	![Process2][process2]
 
@@ -214,4 +215,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -105,9 +105,7 @@ Ahora puede ver el Explorador de objetos de SQL Server:
 
 3. En el Explorador de objetos de SQL Server, haga clic en el botón "Agregar servidor". Aparece resaltado en la imagen a continuación:
 
-4. Rellene el cuadro de diálogo Conectar con el servidor.
-
-Utilice los valores que eligió cuando creó el servidor lógico.
+4. Rellene el cuadro de diálogo Conectar a servidor con los valores que eligió al crear el servidor lógico. Además, haga clic en el botón Opciones y especifique la base de datos a la que se va a conectar (su instancia de Almacenamiento de datos SQL) antes de conectarse.
 
 Si lo desea, active la casilla "Recordar contraseña". Esto puede ayudarle a ahorrar tiempo, pero recuerde que, al activar la casilla, cualquier persona que tenga acceso físico a su perfil podría ejecutar consultas a través de esta cuenta.
 
@@ -185,6 +183,7 @@ Ahora que registramos el servidor, continuemos y escribamos una consulta.
 	Para ejecutar la consulta, haga clic en la flecha verde que se encuentra debajo o use combinación de teclas `CTRL`+`SHIFT`+`F5`:
 
 ## Pasos siguientes ##
+[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

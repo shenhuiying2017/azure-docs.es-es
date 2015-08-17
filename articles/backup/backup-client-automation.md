@@ -376,7 +376,7 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### Desencadenar el proceso de restauración
-Para desencadenar el proceso de restauración, primero es necesario especificar las opciones de recuperación. Esto puede hacerse mediante el uso del cmdlet [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx). En este ejemplo, supongamos que desea restaurar los archivos en *C:\temp*. Supongamos también que deseamos omitir archivos que ya existen en la carpeta de destino *C:\temp*. Para crear dicha opción de recuperación, use el siguiente comando:
+Para desencadenar el proceso de restauración, primero es necesario especificar las opciones de recuperación. Esto puede hacerse mediante el uso del cmdlet [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx). En este ejemplo, supongamos que desea restaurar los archivos en *C:\\temp*. Supongamos también que deseamos omitir archivos que ya existen en la carpeta de destino *C:\\temp*. Para crear dicha opción de recuperación, use el siguiente comando:
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -443,4 +443,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Pasos siguientes
 Para obtener más información sobre Copia de seguridad de Azure para Windows Server o cliente de Windows, consulte [Introducción a Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

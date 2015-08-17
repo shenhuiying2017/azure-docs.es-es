@@ -86,4 +86,4 @@ Asegúrese de que no tenga ningún proyecto de servicio establecido como proyect
 - [Comprensión y solución de problemas de clústeres con informes de mantenimiento del sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

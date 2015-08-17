@@ -165,4 +165,4 @@ Ahora puede continuar con los pasos descritos en [Configurar un nombre de domini
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -4,6 +4,7 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
+	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/04/2015" 
 	ms.author="apwestgarth"/>
 
 # Notas del producto sobre ofertas de Aplicaciones web del Servicio de aplicaciones de Azure para empresas #
@@ -32,7 +33,7 @@ Aplicaciones web del Servicio de aplicaciones es una plataforma ideal en la que 
 
 ## Definición del problema ##
 
-El entorno de TI está cambiando rápidamente, pasando del hospedaje en servidores tradicionales, con sus altos costos de capital en tiempos de espera muy largos, a otro que emplea el uso a petición de servicios que se escalan automáticamente para administrar la carga. Los departamentos de TI se enfrentan al reto de reducir el costo y el espacio de utilización en infraestructura y mantenimiento, centrándose en reducir las inversiones de capital, aumentando al mismo tiempo la agilidad. El innegable final del ciclo de vida de las plataformas con infraestructura más antigua, como por ejemplo Windows Server 2003, está conduciendo a los departamentos de TI a considerar la migración a la nube como una manera potencial de evitar nuevos costos de capital a largo plazo. En el pasado, los directores generales financieros tomaban decisiones de compra para otros departamentos; sin embargo, cada vez son más los directores generales de marketing y otros jefes de unidades de negocio que están asumiendo un rol más activo en cómo se gastan sus presupuestos y cuál es el retorno de sus inversiones. Cada vez son más las empresas que necesitan que sus recursos sean más móviles que nunca, con empleados que trabajen de forma remota, dedicando más tiempo a los clientes que necesitan acceso a sistemas sin problemas.
+El entorno de TI está cambiando rápidamente, pasando del hospedaje en servidores tradicionales, con sus altos costos de capital en tiempos de espera muy largos, a otro que emplea el uso a petición de servicios que se escalan automáticamente para administrar la carga. Los departamentos de TI se enfrentan al reto de reducir el costo y el espacio de utilización en infraestructura y mantenimiento, centrándose en reducir las inversiones de capital, aumentando al mismo tiempo la agilidad. El final del ciclo de vida de las plataformas con infraestructura más antigua, como por ejemplo Windows Server 2003, está conduciendo a los departamentos de TI a considerar la migración a nube como una manera potencial de evitar nuevos costos de capital a largo plazo. En el pasado, los directores generales financieros tomaban decisiones de compra para otros departamentos; sin embargo, cada vez son más los directores generales de marketing y otros jefes de unidades de negocio que están asumiendo un rol más activo en cómo se gastan sus presupuestos y cuál es el retorno de sus inversiones. Cada vez son más las empresas que necesitan que sus recursos sean más móviles que nunca, con empleados que trabajen de forma remota, dedicando más tiempo a los clientes que necesitan acceso a sistemas sin problemas.
 
 Las necesidades empresariales cambian mensualmente, todas las semanas, a diario; las empresas buscan una escala global instantánea con servicios actualizados con regularidad repletos de características nuevas, ya sea proporcionados por terceros o internamente. Los usuarios tienen expectativas mayores, muchos de los cuales usan servicios en sus vidas privadas, como Office365, y esperan tener acceso a servicios similares y actualizados repletos de funciones en su vida profesional. Para hacer frente a esta demanda, TI debe ayudar a las empresas a posibilitar todo esto a través de la selección de servicios de terceros y de la integración con estos, y de la selección cuidadosa de plataformas que puedan adaptarse a las necesidades empresariales, siendo al mismo tiempo confiables con un costo total de propiedad reducido.
 
@@ -153,4 +154,4 @@ Para obtener más información sobre el servicio Aplicaciones web del Servicio d
  
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

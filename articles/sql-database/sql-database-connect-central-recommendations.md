@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -46,7 +46,7 @@ Independientemente de la tecnología de conexión que se use, ciertas opciones d
 - [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-## Recomendación: autenticación
+## Recomendaciones para la autenticación
 
 
 - Use la autenticación de Base de datos SQL, no la autenticación de Windows.
@@ -58,7 +58,7 @@ Independientemente de la tecnología de conexión que se use, ciertas opciones d
  - No puede utilizar la instrucción **USE NombreDeMiBaseDeDatos;** de Transact-SQL en Base de datos SQL.
 
 
-## Recomendaciones: conexión
+## Recomendaciones para la conexión
 
 
 - En la lógica de conexión de cliente, reemplace el tiempo de espera predeterminado para que sea de 30 segundos.
@@ -71,6 +71,12 @@ Independientemente de la tecnología de conexión que se use, ciertas opciones d
  - Un motivo persistente de error podría ser que la cadena de conexión esté mal formada.
  - Un motivo transitorio de error podría ser que el sistema de Base de datos SQL de Azure necesite equilibrar la carga general. El motivo transitorio desaparece por sí mismo, lo que significa que el programa debería volverlo a intentar.
  - Al volver a intentar una consulta, cierre primero la conexión y, después, abra otra.
+
+
+### Puertos que no sea simplemente 1433 en V12
+
+
+En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Para obtener información detallada, consulte:<br/> [Puertos diferentes del 1433 para ADO.NET, 4.5, ODBC 11 y Base de datos de SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 La siguiente sección tiene más que decir sobre el control de errores transitorios y la lógica de reintento.
@@ -108,34 +114,22 @@ Para obtener vínculos a temas de ejemplo de código que muestran la lógica de 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
 
-<a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
+<a id="gatewaynoretry" name="gatewaynoretry"> &nbsp;</a>
 
 
-## Puerta de enlace ya no proporciona la lógica de reintento en V12
+## Proxy de software intermedio y lógica de reintento
 
 
-Antes de la versión V12, Base de datos SQL Azure tenía una puerta de enlace que actuaba como proxy para almacenar en búfer todas las interacciones entre la base de datos y su programa cliente. La puerta de enlace era un salto de red adicional que a veces aumentaba la latencia de los accesos a la base de datos.
+El proxy de software intermedio que media entre el cliente de ADO.NET 4.5 y V11 controla un pequeño subconjunto de los errores transitorios correctamente con la lógica de reintento. En los casos en que el proxy se conecta correctamente al segundo intento, su programa cliente no tiene constancia de que el primer intento fracasó.
 
 
-V12 eliminó la puerta de enlace. Así que ahora:
+El proxy V12 controla un subconjunto más pequeño de los errores transitorios. En otros casos V12 se omite el proxy para la velocidad superior de conexión directa a Base de datos SQL directamente. Para un programa de cliente ADO.NET 4.5, estos cambios hacen que base de datos de SQL Azure V12 se parezca más a Microsoft SQL Server.
 
 
-- El programa cliente interactúa *directamente* con la base de datos, que es más eficaz.
-- Se eliminan las distorsiones secundarias de la puerta de enlace de los mensajes de error y otras comunicaciones al programa.
- - La Base de datos SQL y SQL Server se parecen más a su programa.
+Para los ejemplos de código que muestran la lógica de reintento, vea:<br/>[Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md).
 
 
-#### Lógica de reintento perdida
-
-
-La puerta de enlace hacía que la lógica de reintento controlase algunos de los errores transitorios por usted. Ahora el programa debe controlar los errores transitorios de manera más integral. Para obtener ejemplos de código acerca de la lógica de reintento, consulte:
-
-
-- [Ejemplos de código de desarrollo de cliente y de inicio rápido para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
- - Contiene vínculos a ejemplos de código que contienen una lógica de reintento y ejemplos más sencillos a esa conexión y consulta.
-- [Conexión confiable a Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn864744.aspx)
-- [Conexión a Base de datos SQL de Azure mediante ADO.NET con Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [Ejemplo de código: lógica de reintento en C# para conectarse a la Base de datos SQL](sql-database-develop-csharp-retry-windows.md)
+> [AZURE.TIP]En un entorno de producción, se recomienda que los clientes que se conectan Base de datos de SQL Azure V11 o V12 implemente la lógica de reintento en su código. Esto puede ser código personalizado o puede ser código que aproveche una API como la biblioteca de información empresarial.
 
 
 ## Tecnologías
@@ -154,14 +148,14 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 - [Desarrollo de base de datos SQL de Azure: temas de procedimientos](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 
 
-**Escalado elástico:** para obtener información acerca de la conectividad a bases de datos de Escalado elástico, vea:
+**Escalado elástico:** para obtener información acerca de la conectividad a bases de datos de Escalado elástico, consulte:
 
 
 - [Introducción a la vista previa de Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md)
 - [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
 
 
-**Bibliotecas de controlador:** para obtener información acerca de las bibliotecas de controlador de conexión, incluidas las versiones recomendadas, vea:
+**Bibliotecas de controlador:** para obtener información acerca de las bibliotecas de controlador de conexión, incluidas las versiones recomendadas, consulte:
 
 
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
@@ -174,4 +168,4 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

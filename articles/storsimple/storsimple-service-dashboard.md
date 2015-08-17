@@ -76,4 +76,4 @@ Para ver los registros de operaciones, haga clic en el vínculo de registros de 
 
 Aprenda cómo [solucionar problemas de un dispositivo de StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

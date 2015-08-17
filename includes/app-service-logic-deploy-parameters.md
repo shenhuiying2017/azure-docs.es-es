@@ -53,4 +53,4 @@ El tamaño de instancia de la aplicación.
 
 La plantilla define los valores que se permiten para este parámetro (0, 1 o 2) y asigna un valor predeterminado (0) si no se especifica ningún valor. Los valores corresponden a pequeño, mediano y grande.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -274,4 +274,4 @@ Según los datos del estado, los escritores del servicio y los administradores d
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

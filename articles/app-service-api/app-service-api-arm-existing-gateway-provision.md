@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
 
 # Aprovisionamiento de una aplicación de API con una puerta de enlace existente
@@ -40,7 +40,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
 ### hostingPlanId
 
-Identificador del plan de hospedaje existente.
+El identificador del plan de hospedaje de Servicio de aplicaciones existente.
 
     "hostingPlanId": {
       "type": "string"
@@ -65,7 +65,7 @@ Esta plantilla define una variable que se usa para implementar los recursos.
       "packageId": "Microsoft.ApiApp"
     }
     
-El valor se usa a continuación como **variables('packageId')**.
+El valor se usa a continuación como **variables('packageId')**. Contiene el identificador del paquete NuGet para las aplicaciones de API.
 
 ## Recursos para implementar
 
@@ -73,7 +73,7 @@ El valor se usa a continuación como **variables('packageId')**.
 
 Crea una aplicación web que hospeda la aplicación de API.
 
-Observe que **kind** está establecido en **apiApp** lo que notifica al portal de Azure que esta aplicación web hospeda una puerta de enlace. El portal ocultará la aplicación web desde la hoja de la aplicación web del explorador. La aplicación incluye una extensión para instalar el paquete de la aplicación de API vacío predeterminado. Se establece un vínculo entre la aplicación de API y la aplicación web de hospedaje. La sección de configuración de la aplicación incluye los valores necesarios para hospedar la aplicación de API.
+Observe que **kind** se establece en **apiApp**, lo que notifica al Portal de Azure que esta aplicación web hospeda una aplicación de API. El portal ocultará la aplicación web en la hoja Aplicaciones web del explorador. La aplicación incluye una extensión para instalar el paquete de la aplicación de API vacío predeterminado. Se establece un vínculo entre la aplicación de API y la aplicación web de hospedaje. La sección de configuración de la aplicación incluye los valores necesarios para hospedar la aplicación de API. La propiedad **serverFarmId** se define en el valor que proporcionó en el parámetro **hostingPlanId**.
 
     {
       "type": "Microsoft.Web/sites",
@@ -191,4 +191,4 @@ Observe que los nombres de la aplicación web de hospedaje y la puerta de enlace
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

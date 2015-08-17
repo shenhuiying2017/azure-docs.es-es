@@ -153,7 +153,7 @@ El índice de subred es el número de la subred en la visualización de este com
 
 En este ejemplo:
 
-	PS C:> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
+	PS C:\> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
 
 	Subnets
 	-------
@@ -387,4 +387,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

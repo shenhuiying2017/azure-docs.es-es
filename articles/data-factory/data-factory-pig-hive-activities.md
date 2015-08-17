@@ -140,7 +140,7 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptPath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -159,7 +159,7 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
       		}
 		}
 
-	> [AZURE.NOTE]Reemplace el valor **StartDateTime** por los tres días anteriores al día actual y el valor **EndDateTime** por el día actual. Tanto StartDateTime como EndDateTime deben estar en [formato ISO](http://es.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La tabla de salida está programada para producirse cada día, por lo que habrá tres segmentos producidos.
+	> [AZURE.NOTE]Reemplace el valor **StartDateTime** por los tres días anteriores al día actual y el valor **EndDateTime** por el día actual. Tanto StartDateTime como EndDateTime deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La tabla de salida está programada para producirse cada día, por lo que habrá tres segmentos producidos.
 	> 
 	> Reemplace **la cuenta de almacenamiento** del JSON por el nombre de su cuenta de almacenamiento.
 	
@@ -258,7 +258,7 @@ El siguiente ejemplo de JSON para una canalización de ejemplo usa una actividad
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptPath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"defines":
 						{
@@ -353,4 +353,4 @@ Artículo | Descripción
 [Azure Portal]: http://portal.azure.com
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

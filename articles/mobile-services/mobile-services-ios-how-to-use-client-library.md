@@ -327,4 +327,4 @@ El archivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Controlador de conflictos]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

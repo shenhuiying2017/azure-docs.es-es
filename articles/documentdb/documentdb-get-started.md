@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción al SDK de .NET de DocumentDB | Azure"
+	pageTitle="Introducción al SDK de .NET de DocumentDB | Microsoft Azure"
 	description="Obtenga información acerca de cómo crear y configurar una cuenta de Azure DocumentDB, crear bases de datos, crear colecciones y almacenar documentos JSON en la cuenta de base de datos de documentos NoSQL."
 	services="documentdb"
 	documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="anhoh"/>
 
@@ -475,4 +475,4 @@ Para restaurar las referencias al SDK de .NET de DocumentDB de Visual Studio 201
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

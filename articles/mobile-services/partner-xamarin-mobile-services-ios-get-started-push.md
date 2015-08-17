@@ -399,4 +399,4 @@ Ha completado correctamente este tutorial.
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

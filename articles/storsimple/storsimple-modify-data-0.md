@@ -18,9 +18,9 @@
 # Modificación de las opciones de configuración de la interfaz de red DATA 0 en el dispositivo StorSimple
 
 ## Información general
-El dispositivo Microsoft Azure StorSimple tiene seis interfaces de red: de DATA de 0 a DATA 5. La interfaz DATA 0 siempre se configura a través de la interfaz de Windows PowerShell o la consola de serie, y se habilitada para la nube automáticamente. La interfaz DATA 0 se configura por primera vez a través del asistente para la instalación durante la implementación inicial del dispositivo StorSimple. Cuando el dispositivo está en un modo de funcionamiento, tal vez tenga que volver a establecer la configuración de DATA 0. En este tutorial se proporcionan dos métodos para modificar la configuración de red 0 de DATA 0, ambos a través de Windows PowerShell para StorSimple.
+El dispositivo Microsoft Azure StorSimple tiene seis interfaces de red: de DATA de 0 a DATA 5. La interfaz DATA 0 siempre se configura a través de la interfaz de Windows PowerShell o la consola de serie, y se habilitada para la nube automáticamente. La interfaz DATA 0 se configura por primera vez a través del asistente para la instalación durante la implementación inicial del dispositivo StorSimple. Cuando el dispositivo está en un modo de funcionamiento, tal vez tenga que volver a establecer la configuración de DATA 0. En este tutorial se proporcionan dos métodos para modificar la configuración de red de DATA 0, ambos a través de Windows PowerShell para StorSimple.
 
-Después de leer el tutorial, podrá:
+Después de leer este tutorial, podrá:
 
 - Modificar la configuración de DATA 0 mediante el asistente para la instalación
 - Modificar la configuración de red de DATA 0 mediante el cmdlet `Set-HcsNetInterface`
@@ -54,23 +54,20 @@ Una alternativa para volver a configurar la interfaz de red DATA 0 es a través 
 
 	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
 
-	Si está usando direcciones IPv6, use el comando siguiente:
-
-	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv6Address <> -IPv6Netmask <> -IPv6Gateway <> -Controller0IPv6Address <> -Controller1IPv6Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-
+	
 1. Escriba valores para DATA 0 en los corchetes angulares (<>) para los elementos siguientes:
 											
-	- Dirección IPv4/IPv6
+	- Dirección IPv4
 	
-	- Pasarela IPv4/IPv6
+	- Puerta de enlace IPv4
 	
-	- Máscara de subred IPv4/IPv6
+	- Máscara de subred IPv4
 	
-	- Dirección IPv4/IPv6 fija para el Controlador 0
+	- Dirección IPv4 fija para el controlador 0
 
-	- Dirección IPv4/IPv6 fija para el Controlador 1
+	- Dirección IPv4 fija para el controlador 1
 
 ## Pasos siguientes
-Si experimenta problemas al configurar las interfaces de red, consulte [Solucionar problemas de implementación](storsimple-troubleshoot-deployment.md).
+Para configurar las interfaces de red que no sean DATA 0, puede usar la página [Configurar del Portal de administración](storsimple-modify-device-config.md). Si experimenta problemas al configurar las interfaces de red, consulte [Solucionar problemas de implementación](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

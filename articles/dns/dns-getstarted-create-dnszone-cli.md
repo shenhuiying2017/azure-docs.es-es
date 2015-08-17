@@ -153,4 +153,4 @@ El ejemplo siguiente utiliza dig para consultar el dominio contoso.com con los s
 	
 ## Pasos siguientes
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

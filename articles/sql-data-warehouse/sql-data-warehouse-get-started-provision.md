@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -153,17 +153,17 @@ Ahora que configuró el firewall, podría establecer conexiones desde su escrito
 
 Ahora que se aprovisionó correctamente el servicio SQLDW, podemos aprender a usarlo.
 
-Por lo tanto, los pasos siguientes sirven para realizar la: 1. [Conexión y consulta][] del almacenamiento de datos. 2. Exportación de datos desde el almacenamiento de datos al almacenamiento de blobs de Azure. 3. Carga de más datos en el almacenamiento de datos.
-
+Por lo tanto, los pasos siguientes sirven para realizar la: 1. [Conexión y consulta][] del almacenamiento de datos. 2. Cargar [datos de ejemplo].
 
 <!--Image references-->
 
 
 <!-- Articles -->
 [Conexión y consulta]: sql-data-warehouse-get-started-connect-query.md
+[datos de ejemplo]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [evaluación gratuita]: https://azure.microsoft.com/es-es/pricing/free-trial/
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

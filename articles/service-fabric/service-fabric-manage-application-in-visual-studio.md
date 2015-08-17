@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Administración de aplicaciones de Service Fabric en Visual Studio
@@ -68,10 +68,10 @@ Puede quitar una aplicación del clúster local mediante el Explorador de servid
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 
-- [Modelo de aplicación de Service Fabric](../service-fabric-application-model)
-- [Implementación de la aplicación de Service Fabric](../service-fabric-deploy-remove-applications)
-- [Depuración de la aplicación de Service Fabric](../service-fabric-debugging-your-application)
-- [Visualización del clúster mediante el Explorador de Service Fabric](../service-fabric-visualizing-your-cluster)
+- [Modelo de aplicación de Service Fabric](service-fabric-application-model.md)
+- [Implementación de la aplicación de Service Fabric](service-fabric-deploy-remove-applications.md)
+- [Depuración de la aplicación de Service Fabric](service-fabric-debugging-your-application.md)
+- [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]: ./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
@@ -79,4 +79,4 @@ Puede quitar una aplicación del clúster local mediante el Explorador de servid
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

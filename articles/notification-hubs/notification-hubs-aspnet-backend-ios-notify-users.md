@@ -69,7 +69,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 
 		- (IBAction)LogInAction:(id)sender;		
 
-4. En ViewController.h, agregue el `#define` siguiente justo debajo de las instrucciones de importación. Sustituya el marcador de posición *<Escriba su extremo de back-end>* por la URL de destino utilizada para implementar el back-end de la aplicación en la sección anterior. Por ejemplo, *http://you_backend.azurewebsites.net*.
+4. En ViewController.h, agregue el `#define` siguiente justo debajo de las instrucciones de importación. Sustituya el marcador de posición *<Escriba su extremo de back-end>* por la URL de destino utilizada para implementar el back-end de la aplicación en la sección anterior. Por ejemplo, **http://you_backend.azurewebsites.net*.
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -454,7 +454,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 
 	![][3]
 
-4. En el **campo de texto etiqueta de nombre de usuario destinatario*, escriba la etiqueta de nombre de usuario utilizada con el registro desde otro dispositivo.
+4. En el campo de texto **Etiqueta de nombre de usuario destinatario**, escriba la etiqueta de nombre de usuario usada con el registro desde otro dispositivo.
 5. Escriba un mensaje de notificación y haga clic en **Enviar notificación**. Solo los dispositivos que tienen un registro con la etiqueta de nombre de usuario del destinatario reciben el mensaje de notificación. Solo se envía a los usuarios.
 
 	![][4]
@@ -466,4 +466,4 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

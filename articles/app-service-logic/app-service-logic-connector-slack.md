@@ -70,7 +70,8 @@ Propiedad | Descripción
 --- | ---
 Texto | Escriba el texto del mensaje que se va a publicar.
 Nombre del canal | Especifique el canal de Slack donde se publica este mensaje. Si no se especifica el canal, el mensaje se registra en #general.
-Propiedades avanzadas | <ul><li><strong>Nombre de usuario de bot</strong>: nombre de los bots que se usarán en este mensaje. Si no se especifica, los mensajes se publicarán como "Bot".</li><li><strong>URL de icono</strong>: la URL de la imagen que se usará como icono en este mensaje.</li><li><strong>Emoji de icono</strong>: el Emoji que se usará como icono en este mensaje. Esta propiedad reemplaza la propiedad URL de icono.</li></ul>
+Propiedades avanzadas | **Nombre de usuario de bot**: nombre del bot que se usará en este mensaje. Si no se especifica, los mensajes se publicarán como "Bot".<p><p>**Dirección URL de icono**: la dirección URL de la imagen que se usará como icono en este mensaje.<p><p>**Emoji de icono**: el Emoji que se usará como icono en este mensaje. Esta propiedad reemplaza la propiedad Dirección URL de icono.
+
 
 El conector de Slack dispone de API de REST para que pueda usar el conector fuera de la aplicación lógica. Abra el conector de Slack y seleccione **Definición de API**:
 
@@ -96,4 +97,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

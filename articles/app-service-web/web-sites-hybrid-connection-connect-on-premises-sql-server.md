@@ -49,26 +49,12 @@ El equipo en el que instala el administrador de conexiones híbridas local:
 
 - Debe tener conectividad de salida a Azure a través de:
 
-> <table border="1">
-    <tr>
-       <th><strong>Puerto</strong></th>
-        <th>Porqué</th>
-    </tr>
-    <tr>
-        <td>80</td>
-        <td><strong>Obligatorio</strong> para el puerto HTTP, para la validación de certificados y, de forma opcional, para la conectividad de datos.</td>
-    </tr>
-    <tr>
-        <td>443</td>
-        <td><strong>Opcional</strong> para la conectividad de datos. Si la conectividad de salida para 443 no está disponible, se usa el puerto TCP 80.</td>
-    </tr>
-	<tr>
-        <td>5671 y 9352</td>
-        <td><strong>Recomendado</strong>, pero opcional para la conectividad de datos. Tenga en cuenta que este modo obtiene mayor rendimiento. Si la conectividad de salida para estos puertos no está disponible, se usa el puerto TCP 443.</td>
-	</tr>
-</table>
-
-- Debe ser capaz de conectar con *nombredehost*:*númerodepuerto* del recurso local. 
+Port|Porqué
+---|---
+80|**Obligatorio** para el puerto HTTP, para la validación de certificados y, de forma opcional, para la conectividad de datos.
+443|**Opcional** para la conectividad de datos. Si la conectividad de salida para 443 no está disponible, se usa el puerto TCP 80.
+5671 y 9352|**Recomendado**, pero opcional para la conectividad de datos. Tenga en cuenta que este modo obtiene mayor rendimiento. Si la conectividad de salida para estos puertos no está disponible, se usa el puerto TCP 443.
+- Debe poder establecer comunicación con el *nombre de host*:*número de puerto* de su recurso local. 
 
 En estos pasos de este artículo se supone que usa el explorador del equipo que hospeda el agente de conexiones híbridas local.
 
@@ -81,7 +67,7 @@ En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP 
 
 ### Instalación de SQL Server Express ###
 
-1. Para instalar SQL Server Express, ejecute el archivo **SQLEXPRWT_x64_ENU.exe** o **SQLEXPR_x86_ENU.exe** que descargó. Aparecerá el asistente Centro de instalación de SQL Server.
+1. Para instalar SQL Server Express, ejecute el archivo **SQLEXPRWT\_x64\_ENU.exe** o **SQLEXPR\_x86\_ENU.exe** que descargó. Aparecerá el asistente Centro de instalación de SQL Server.
 	
 	![SQL Server Install][SQLServerInstall]
 	
@@ -218,7 +204,7 @@ En este paso editará la cadena de conexión que indica a la aplicación dónde 
 	
 	Cuando escriba la cadena de conexión, tenga en cuenta lo siguiente:
 	
-	- Si se está conectando a una instancia con nombre en lugar de a una instancia predeterminada (por ejemplo SuServidor\SQLEXPRESS), debe configurar su servidor SQL Server para usar puertos estáticos. Para obtener información sobre la configuración de puertos estáticos, consulte [Cómo configurar SQL Server para que escuche en un puerto específico](http://support.microsoft.com/kb/823938). De forma predeterminada, las instancias con nombre usan puertos dinámicos y UDP, que Conexiones híbridas no admite. 
+	- Si se está conectando a una instancia con nombre en lugar de a una instancia predeterminada (por ejemplo SuServidor\\SQLEXPRESS), debe configurar su servidor SQL Server para usar puertos estáticos. Para obtener información sobre la configuración de puertos estáticos, consulte [Cómo configurar SQL Server para que escuche en un puerto específico](http://support.microsoft.com/kb/823938). De forma predeterminada, las instancias con nombre usan puertos dinámicos y UDP, que Conexiones híbridas no admite. 
 	
 	- Es recomendable que especifique el puerto (1433 de forma predeterminada, como se muestra en el ejemplo) en la cadena de conexión de forma que pueda asegurarse de que su servidor SQL Server local tiene la funcionalidad TCP habilitada y usa el puerto correcto.
 	
@@ -378,4 +364,4 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

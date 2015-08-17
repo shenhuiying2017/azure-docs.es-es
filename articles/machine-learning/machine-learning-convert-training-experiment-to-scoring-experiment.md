@@ -78,7 +78,7 @@ Los datos de entrada que se proporciona a través del servicio web pasarán ahor
 
 De igual forma, de manera predeterminada **Crear experimento de puntuación** coloca el módulo de salida de servicio web en la parte inferior del flujo de datos. En este ejemplo, el servicio web devolverá al usuario la salida del módulo [Puntuar modelo][score-model], que incluye el vector de los datos de entrada completo, además de los resultados de las puntuaciones.
 
-Sin embargo, si prefiere que devuelva otra cosa (por ejemplo, solo los resultados de puntuación y no el vector completo de los datos de entrada) a continuación, puede insertar un módulo [Proyectar columnas][project-columns] para excluir todas las columnas, excepto los resultados de la puntuación. A continuación, mueva el módulo **Salida de servicio web** a la salida del módulo [Proyectar columnas][project-columns]:
+Sin embargo, si prefiere que devuelva otra cosa (por ejemplo, solo los resultados de puntuación y no el vector completo de los datos de entrada) a continuación, puede insertar un módulo [Proyectar columnas][project-columns] para excluir todas las columnas, excepto los resultados de la puntuación. A continuación, mueva el módulo **Salida de servicio web** a la salida del módulo [Proyectar columnas][project-columns]\:
 
 ![Mover la salida del servicio web][figure5]
 
@@ -132,4 +132,4 @@ Para obtener más información sobre el proceso de publicación completo, consul
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

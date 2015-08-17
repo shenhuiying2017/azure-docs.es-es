@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -26,7 +26,7 @@ Automatización de Microsoft Azure ofrece una forma de que los usuarios automati
 ## Tutorial
 En este tutorial se enseña a crear una cuenta de automatización, a importar un runbook "Hello World" de ejemplo en Automatización de Azure, a ejecutar dicho runbook y, a continuación, a ver el resultado.
 
-Para completar este tutorial, deberá tener una suscripción de Azure. Si aún no la tiene, puede <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">activar los beneficios de suscripción a MSDN</a> o bien <a href="/pricing/free-trial/" target="_blank">registrarse para obtener una evaluación gratuita</a>.
+Para completar este tutorial, deberá tener una suscripción de Azure. Si aún no la tiene, puede [activar los beneficios de la suscripción a MSDN](../pricing/member-offers/msdn-benefits-details/), o bien [registrarse para obtener una evaluación gratuita](../pricing/free-trial.md)</a>.
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
@@ -138,7 +138,7 @@ Microsoft y la comunidad de Automatización de Azure proporcionan runbooks de ej
 
 ## Comentarios
 
-<strong>¡Envíenos sus comentarios!</strong> Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias.
+**Envíenos sus comentarios.** Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -98,4 +98,4 @@ Puede descargar al Asistente para migración a SQL de Azure desde CodePlex:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

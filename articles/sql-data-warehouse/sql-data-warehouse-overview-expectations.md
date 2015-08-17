@@ -78,4 +78,4 @@ Es posible que Almacenamiento de datos SQL de Azure tenga hasta 4 eventos de man
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

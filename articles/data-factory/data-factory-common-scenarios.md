@@ -76,4 +76,4 @@ Vea los temas siguientes sobre el consumo de datos mediante Power Query:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

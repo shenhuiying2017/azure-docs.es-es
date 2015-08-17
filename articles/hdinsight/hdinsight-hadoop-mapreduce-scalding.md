@@ -138,7 +138,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
     * **repositories**: los repositorios que contienen los archivos de dependencia utilizados por este proyecto.
 
-    * **scalding-core_2.11** y **hadoop-core**: este proyecto depende de los paquetes principales de Scalding y Hadoop.
+    * **scalding-core\_2.11** y **hadoop-core**: este proyecto depende de los paquetes principales de Scalding y Hadoop.
 
     * **maven-scala-plugin**: complemento para compilar aplicaciones de Scala
 
@@ -168,7 +168,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
           }
         }
 
@@ -289,4 +289,4 @@ Ahora que sabe usar Scalding para crear trabajos de MapReduce para HDInsight, us
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

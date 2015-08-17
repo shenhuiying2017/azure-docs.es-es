@@ -47,8 +47,9 @@ Los atributos están fuertemente tipados. Una función que espera un atributo de
 Pueden utilizarse los siguientes operadores:
 
 - **Comparación**: <, <=, <>, =, >, >=
-- **Matemático**: +, -,*-- **Cadena**: & (concatenate)
-- **Lógico**: && (and), || (or)
+- **Matemáticos**: +, -, *, -
+- **Cadena**: & (concatenar)
+- **Lógicos**: && (and), || (or)
 - **Orden de evaluación**: ( )
 
 
@@ -134,4 +135,4 @@ Para obtener una lista completa de funciones, vea [Sincronización de Azure AD C
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

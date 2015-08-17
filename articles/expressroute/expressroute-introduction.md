@@ -110,4 +110,4 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 - Busque un proveedor de servicios. Consulte [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md).
 - Configure su conexión ExpressRoute. Consulte [Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red](expressroute-configuring-nsps.md) o [Configurar una conexión ExpressRoute a través de un proveedor de Exchange](expressroute-configuring-exps.md) para obtener instrucciones. 
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

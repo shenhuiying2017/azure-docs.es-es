@@ -19,7 +19,10 @@
 
 # Uso de un servicio móvil back-end de JavaScript
 
-<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title="Back-end de .NET">Back-end de .NET</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="Back-end de JavaScript" class="current">Back-end de JavaScript</a></div>
+> [AZURE.SELECTOR]
+[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
+[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
+ 
 Este artículo proporciona información detallada y ejemplos sobre cómo usar scripts del back-end de JavaScript en Servicios móviles de Azure.
 
 ##<a name="intro"></a>Introducción
@@ -37,7 +40,7 @@ Para obtener una descripción de funciones y objetos de script de servidor concr
 
 ##<a name="table-scripts"></a>Operaciones de tabla
 
-Un script de operación de tabla es un script del servidor que está registrado en una operación en una tabla: insertar, leer, actualizar o eliminar (del). En esta sección se describe cómo trabajar con operaciones de tabla en un servidor back-end de JavaScript que incluye las siguientes secciones:
+Un script de operación de tabla es un script del servidor que se registra para una operación en una tabla: insertar, leer, actualizar o eliminar (*del*). En esta sección se describe cómo trabajar con operaciones de tabla en un servidor back-end de JavaScript que incluye las siguientes secciones:
 
 + [Información general de las operaciones de tabla][Basic table operations]
 + [Registro de operaciones de tablas]
@@ -77,10 +80,10 @@ Una función de script de tabla siempre cuenta con tres argumentos.
 
 A continuación se muestran las firmas canónicas de funciones principales para las operaciones de tabla:
 
-+ [Insertar][insert function]: `function insert (item, user, request) { ... }`
-+ [Actualizar][update function]: `function update (item, user, request) { ... }`
-+ [Eliminar][delete function]: `function del (id, user, request) { ... }`
-+ [Leer][read function]: `function read (query, user, request) { ... }`
++ [Insertar][insert function]\: `function insert (item, user, request) { ... }`
++ [Actualizar][update function]\: `function update (item, user, request) { ... }`
++ [Eliminar][delete function]\: `function del (id, user, request) { ... }`
++ [Leer][read function]\: `function read (query, user, request) { ... }`
 
 >[AZURE.NOTE]Debe usarse el nombre del para la función registrada en la operación de eliminación porque _del_ es una palabra clave reservada en JavaScript.
 
@@ -96,7 +99,7 @@ Puede definir los scripts del servidor que están registrados en una operación 
 	
 	Para saber cómo realizar esto, vea [Validación y modificación de datos en los Servicios móviles mediante los scripts de servidor].
 
-+ Mediante el control de código fuente. Cuando tenga el control de código fuente habilitado, simplemente cree un archivo llamado <em>`<table>`</em>.<em>`<operation>`</em>.js en la subcarpeta .\service\table de su repositorio git, donde <em>`<table>`</em> es el nombre de la tabla y <em>`<operation>`</em> es la operación de tabla que se registra. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
++ Mediante el control de código fuente. Cuando tenga el control de código fuente habilitado, simplemente cree un archivo llamado <em>`<table>`</em>.<em>`<operation>`</em>.js en la subcarpeta .\\service\\table de su repositorio git, donde <em>`<table>`</em> es el nombre de la tabla y <em>`<operation>`</em> es la operación de tabla que se registra. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
 
 + Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, vea [Uso de la herramienta de línea de comandos].
 
@@ -343,7 +346,7 @@ Puede definir los scripts del servidor que están registrados en métodos HTTP e
 	
 	Los métodos de permisos de acceso a la API personalizada se encuentran asignados en la pestaña Permisos. Para ver cómo se creó esta API personalizada, vea [Llamada a una API personalizada desde el cliente].
 
-+ Mediante el control de código fuente. Una vez habilitado el control de código fuente, simplemente cree un archivo denominado <em>`<custom_api>`</em>.js en la subcarpeta .\service\api de su repositorio git, donde <em>`<custom_api>`</em> es el nombre de la API personalizada que se registra. El script contienen una función _exported_ para cada método HTTP que ofrece la API personalizada. Los permisos se definen en un archivo .json complementario. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
++ Mediante el control de código fuente. Una vez habilitado el control de código fuente, simplemente cree un archivo denominado <em>`<custom_api>`</em>.js en la subcarpeta .\\service\\api de su repositorio git, donde <em>`<custom_api>`</em> es el nombre de la API personalizada que se registra. El script contienen una función _exported_ para cada método HTTP que ofrece la API personalizada. Los permisos se definen en un archivo .json complementario. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
 
 + Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, vea [Uso de la herramienta de línea de comandos].
 
@@ -430,7 +433,7 @@ Se definen varias rutas exportando una función **register**, a la que se pasa u
 		    res.send(200, { result: result });
 		}
 
-El objeto **api** pasado a la función **register** expone una función para cada método HTTP (**get**, **post**, **put**, **patch**, **delete**). Estas funciones registran una ruta a una función definida para un método HTTP específico. Cada función usa dos parámetros, el primero es el nombre de ruta y el segundo es la función registrada en la ruta.
+El objeto **api** que pasó a la función **register** ofrece una función para cada método HTTP (**get**, **post**, **put**, **patch** y **delete**). Estas funciones registran una ruta a una función definida para un método HTTP específico. Cada función usa dos parámetros, el primero es el nombre de ruta y el segundo es la función registrada en la ruta.
 
 Las solicitudes HTTP GET pueden invocar las dos rutas del ejemplo anterior de la API personalizada de la siguiente forma (se muestra con la respuesta):
 
@@ -462,7 +465,7 @@ Puede definir trabajos programados de una de las siguientes formas:
 
 + Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, vea [Uso de la herramienta de línea de comandos].
 
->[AZURE.NOTE]Cuando tenga con un control de código fuente habilitado, podrá editar archivos de script de trabajos programados directamente en la subcarpeta .\service\scheduler del repositorio git. Para obtener más información, consulte [Compartir código mediante el uso del control de código fuente].
+>[AZURE.NOTE]Cuando tenga con un control de código fuente habilitado, podrá editar archivos de script de trabajos programados directamente en la subcarpeta .\\service\\scheduler del repositorio git. Para obtener más información, consulte [Compartir código mediante el uso del control de código fuente].
 
 ##<a name="shared-code"></a>Control de código fuente, código compartido y funciones auxiliares
 
@@ -772,38 +775,16 @@ Cuando escriba scripts del servidor que usen funciones [insert], [update], [read
 
 Cuando usa el [objeto de tablas] o el [objeto mssql], o simplemente deja que se ejecuten los scripts de tabla, los objetos JavaScript deserializados se insertan en la base de datos SQL. En ese proceso, las propiedades del objeto se asignan a tipos T-SQL:
 
-<table border="1">
-<tr>
-<td>Propiedad JavaScript</td>
-<td>Tipo T-SQL</td>
-</tr><tr>
-<td>Number</td>
-<td>Float(53)</td>
-</tr><tr>
-<td>Booleano</td>
-<td>Bit</td>
-</tr><tr>
-<td>Date</td>
-<td>DateTimeOffset(3)</td>
-</tr>
-<tr>
-<td>Cadena</td>
-<td>Nvarchar(max)</td>
-</tr>
-<tr>
-<td>Buffer</td>
-<td>No compatible</td>
-</tr><tr>
-<td>Objeto</td>
-<td>No compatible</td>
-</tr><tr>
-<td>Array</td>
-<td>No compatible</td>
-</tr><tr>
-<td>Stream</td>
-<td>No compatible</td>
-</tr>
-</table>
+Propiedad JavaScript|Tipo T-SQL
+---|---
+Number|Float(53)
+Booleano|Bit
+Date|DateTimeOffset(3)|
+Cadena|Nvarchar(max)
+Buffer|No compatible
+Objeto|No compatible
+Array|No compatible
+Stream|No compatible
 
 ###<a name="TSQL"></a>Uso de Transact-SQL para obtener acceso a las tablas
 
@@ -1079,4 +1060,4 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

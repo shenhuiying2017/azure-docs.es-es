@@ -59,7 +59,7 @@ En la tabla siguiente se enumeran todos los operadores de regla de expresión ad
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Error: no se admite el atributo. | (user.invalidProperty -eq "Value") | (user.department -eq "value") La propiedad debe coincidir con una de las propiedades admitidas enumeradas anteriormente. |
 | Error: no se admite el operador en el atributo. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true) La propiedad es de tipo booleano. Utilice los operadores admitidos (-eq o -ne) en un tipo booleano de la lista anterior. |
-| Error: error de compilación de consulta. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") El operador lógico debe coincidir con una de las propiedades admitidas enumeradas anteriormente.(user.userPrincipalName -match ".*@domain.ext") o (user.userPrincipalName -match "@domain.ext$") Error en la expresión regular. |
+| Error: error de compilación de consulta. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")El operador lógico debe coincidir con una de las propiedades admitidas enumeradas anteriormente.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error en la expresión regular. |
 | Error: la expresión binaria no está en un formato adecuado. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") La consulta tiene varios errores. El paréntesis no está en el lugar correcto. |
 | Error: se ha producido un error desconocido durante la configuración de pertenencias dinámicas. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") La consulta tiene varios errores. El paréntesis no está en el lugar correcto. |
 
@@ -124,7 +124,7 @@ Operadores permitidos
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Cualquier valor de cadena o $null. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | Cualquier valor de cadena o $null. | (user.postalCode -eq "value") |
-| preferredLanguage | Código ISO 639-1 | (user.preferredLanguage -eq "en-US") |
+| preferredLanguage | Código ISO 639-1 | (user.preferredLanguage -eq "es-es") |
 | sipProxyAddress | Cualquier valor de cadena o $null. | (user.sipProxyAddress -eq "value") |
 | state | Cualquier valor de cadena o $null. | (user.state -eq "value") |
 | streetAddress | Cualquier valor de cadena o $null. | (user.streetAddress -eq "value") |
@@ -168,4 +168,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

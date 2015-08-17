@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/24/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple
@@ -127,8 +127,8 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
 
 ## Pasos siguientes
 
-[Configurar MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md)
+[Configure MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
  
      
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

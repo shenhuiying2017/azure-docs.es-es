@@ -1,6 +1,6 @@
-1. En el [Portal de administración](http://manage.windowsazure.com) de Azure, haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que acaba de crear (**testlinuxvm**).
+1. En el [Portal de administración de Azure](http://manage.windowsazure.com), haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que acaba de crear (**testlinuxvm**).
 
-2. En la barra de comandos, haga clic en **Conectar** y, a continuación, en **Conectar disco vacío**.
+2. En la barra de comandos, haga clic en **Attach** y, a continuación, haga clic en **Attach Empty Disk**.
 
 	Aparece el cuadro de diálogo **Conectar disco vacío**.
 
@@ -114,4 +114,4 @@ Inicie sesión en la máquina virtual para completar la configuración del disco
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

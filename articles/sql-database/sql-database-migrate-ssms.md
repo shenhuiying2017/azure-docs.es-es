@@ -71,4 +71,4 @@ El proceso de implementación se puede dividir en dos pasos: exportar e importar
 ##Alternativas
 También puede usar la utilidad de línea de comandos sqlpackage.exe para implementar la base de datos o exportar e importar un archivo BACPAC. Sqlpackage.exe usa la misma tecnología DAC como SSMS, por lo que el resultado es el mismo. Para obtener más información, consulte [SqlPackage.exe en MSDN](https://msdn.microsoft.com/library/hh550080.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
 
 # Aprovisionamiento de una aplicación de API con una nueva puerta de enlace
@@ -41,6 +41,14 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 ## Parámetros
 
 [AZURE.INCLUDE [app-service-api-deploy-parameters](../../includes/app-service-api-deploy-parameters.md)]
+
+### hostingPlanName
+
+El nombre del plan de Servicio de aplicaciones.
+
+    "hostingPlanName": {
+      "type": "string"
+    }
 
 ### hostingPlanSettings
 
@@ -300,4 +308,4 @@ Observe que los nombres de la aplicación web de hospedaje y la puerta de enlace
 
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

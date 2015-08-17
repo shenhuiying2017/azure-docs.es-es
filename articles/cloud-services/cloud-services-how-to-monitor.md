@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2014" 
+	ms.date="08/04/2014" 
 	ms.author="robb"/>
 
 
@@ -111,7 +111,7 @@ Puede recibir alertas basadas en las métricas de supervisión de los servicios 
  
 4. Para eliminar una métrica de la tabla de métricas, haga clic en la métrica para seleccionarla y, a continuación, haga clic en **Eliminar métrica**. (**Eliminar métrica** solo se verá si se ha seleccionado una métrica).
 
-###Para agregar métricas a la tabla de métricas###
+###Para agregar métricas personalizadas a la tabla de métricas###
 El nivel de supervisión **Detallado** proporciona una lista de métricas predeterminadas que se pueden supervisar en el portal. Además de estas puede supervisar cualquier métrica personalizada o contador de rendimiento que haya definido la aplicación a través del portal.
 
 En los siguientes pasos se asume que ha activado el nivel de supervisión **Detallado** y que ha configurado la aplicación para que recopile y transfiera los contadores de rendimiento personalizados.
@@ -124,7 +124,7 @@ Para mostrar los contadores de rendimiento personalizados en el portal, es preci
 2. Navegue por la ruta de acceso del blob usando el patrón **RoleName/DeploymentId y RoleInstance** para encontrar la configuración de la instancia de rol. 
 
 	![Explorador de almacenamiento de Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Descargue el archivo de configuración de la instancia de rol y actualícelo para que incluya cualquier contador de rendimiento personalizado. Por ejemplo, para supervisar *Bytes de escritura en disco/s* en la *unidad C* agregue lo siguiente al nodo **PerformanceCounters\Subscriptions**
+3. Descargue el archivo de configuración de la instancia de rol y actualícelo para que incluya cualquier contador de rendimiento personalizado. Por ejemplo, para supervisar *Bytes de escritura en disco/s* en la *unidad C* agregue lo siguiente al nodo **PerformanceCounters\\Subscriptions**
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -179,7 +179,7 @@ donde:
 
 - *deploymentID* es el GUID asignado a la implementación del servicio en la nube
 
-- *aggregation_interval* = 5M, 1H o 12H
+- *aggregation\_interval* = 5M, 1H o 12H
 
 - agregados a nivel de rol = R
 
@@ -192,4 +192,4 @@ Por ejemplo, las tablas siguientes almacenarían datos de supervisión detallado
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

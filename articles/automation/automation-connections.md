@@ -120,4 +120,4 @@ La imagen que aparece a continuación muestra el mismo ejemplo anterior, pero us
 - [Vínculos en creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

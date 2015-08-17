@@ -148,4 +148,4 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

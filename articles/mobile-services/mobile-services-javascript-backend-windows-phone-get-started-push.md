@@ -66,7 +66,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 
 	>[AZURE.NOTE]En este tutorial, el servicio móvil envía una notificación del sistema al dispositivo. Cuando envía una notificación de icono, debe llamar al método **BindToShellTile** en el canal.
 
-4. En la parte superior del controlador de eventos **Application_Launching** en App.xaml.cs, agregue la siguiente llamada al nuevo método **AcquirePushChannel**:
+4. En la parte superior del controlador de eventos **Application\_Launching** en App.xaml.cs, agregue la siguiente llamada al nuevo método **AcquirePushChannel**:
 
         AcquirePushChannel();
 
@@ -74,7 +74,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 
 5. Presione la tecla **F5** para ejecutar la aplicación. Se muestra un cuadro de diálogo emergente con la clave de registro.
   
-6.	En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID___CAP___PUSH_NOTIFICATION** esté activada.
+6.	En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** esté activada.
 
    	![Habilitar las notificaciones en VS](./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -180,4 +180,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -34,4 +34,4 @@ Para crear una base de datos de MongoDB desde la [Tienda de Azure], haga lo sigu
 [Tienda de Azure]: ../articles/overview.md
 [portal]: http://windows.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

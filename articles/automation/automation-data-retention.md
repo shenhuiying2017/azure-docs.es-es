@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/22/2015"
    ms.author="bwren" />
 
 # Retención de datos de Automatización de Azure
@@ -36,4 +36,4 @@ La directiva de retención se aplica a todos los usuarios y, por el momento, no 
 ## Artículos relacionados
 - [Copia de seguridad de Automatización de Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

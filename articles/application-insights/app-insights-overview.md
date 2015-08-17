@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # ¿Qué es Application Insights?
@@ -103,12 +103,17 @@ El impacto sobre el rendimiento es muy pequeño. Seguimiento de llamadas que no 
 
 Para obtener más detalles, elija el tipo de aplicación en Introducción, en la barra de navegación situada la izquierda de esta página.
 
+## Muestras
+
+
+[Ejemplos y tutoriales](app-insights-code-samples.md)
+
 
 ## Soporte y comentarios
 
 * Preguntas y problemas:
  * [Solución de problemas][qna]
- * [Foro de MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Foro de MSDN](https://social.msdn.microsoft.com/Forums/vstudio/es-es/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Errores:
  * [Conectar](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -145,4 +150,4 @@ Para obtener más detalles, elija el tipo de aplicación en Introducción, en la
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -152,4 +152,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

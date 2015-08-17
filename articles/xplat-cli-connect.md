@@ -85,7 +85,7 @@ Esto abrirá su explorador predeterminado y le solicitará que inicie sesión en
 
 > [AZURE.NOTE]Si su cuenta está asociada a varios inquilinos de Azure Active Directory, puede que se le pida que seleccione para qué Active Directory desea descargar el archivo de configuración de publicación.
 >
-> Una vez seleccionado usando la página de descarga, o visitando el Portal de Azure, el Active Directory seleccionado se convierte en el predeterminado que usan tanto el portal como la página de descarga. Cuando se haya establecido el predeterminado, verá el texto '__click here to return to the selection page__ en la parte superior de la página de descarga. Utilice el vínculo proporcionado para volver a la página de selección.
+> Una vez seleccionado usando la página de descarga, o visitando el Portal de Azure, el Active Directory seleccionado se convierte en el predeterminado que usan tanto el portal como la página de descarga. Cuando se haya establecido el predeterminado, verá el texto "__click here to return to the selection page__" en la parte superior de la página de descarga. Utilice el vínculo proporcionado para volver a la página de selección.
 
 A continuación, importe el archivo `.publishsettings` ejecutando el siguiente comando:
 
@@ -145,4 +145,4 @@ Una vez que esté conectado a su suscripción de Azure, puede empezar a usar los
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

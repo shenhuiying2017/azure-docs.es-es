@@ -12,7 +12,7 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 
@@ -137,7 +137,7 @@ El último paso es agregar una acción que cargue unos tweets a un archivo de Dr
 
 	Esto introduce el valor `@first(body('twitterconnector')).TweetText` en el cuadro de texto. Este valor generado contiene las siguientes partes:
 
-Parte de contenido | Descripción
+	Parte de contenido | Descripción
 	------------------------------------------ | ------------
 	 `@` | Indica que ha introducido una función, en lugar de un valor real.
 	`actions('twitterconnector').outputs.body` | Obtiene los tweets devueltos por la consulta del conector Twitter.
@@ -172,4 +172,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

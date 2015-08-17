@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Antes de usar Administración de alertas en Visión operativa de Microsoft Azure, debe tener instalada la solución. Para obtener más información sobre la instalación de soluciones, vea [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-add-solution.md). La solución solo funciona cuando los agentes de Operations Manager supervisan los servidores. Consulte [Conexión a Visión operativa desde System Center Operations Manager](operational-insights-connect-scom.md) para obtener información sobre el uso de Operations Manager con Visión operativa.
+Antes de usar Administración de alertas en Visión operativa de Microsoft Azure, debe tener instalada la solución. Para obtener más información sobre cómo instalar soluciones, consulte [Configuración del área de trabajo](operational-insights-setup-workspace.md). La solución solo funciona cuando los agentes de Operations Manager supervisan los servidores. Consulte [Conexión a Visión operativa desde System Center Operations Manager](operational-insights-connect-scom.md) para obtener información sobre el uso de Operations Manager con Visión operativa.
 
 Una vez instalada la solución, puede ver las alertas de los servidores supervisados mediante el icono de **Administración de alertas** en el panel **Información general** de Visión operativa.
 
@@ -58,4 +58,4 @@ En el panel **Administración de alertas**, puede ver todas las alertas que ha e
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

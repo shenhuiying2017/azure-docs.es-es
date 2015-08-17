@@ -102,10 +102,10 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 
 2. En **Conceptos básicos**, haga clic en la **URL del sitio** para abrir su servicio en la nube en un explorador web.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

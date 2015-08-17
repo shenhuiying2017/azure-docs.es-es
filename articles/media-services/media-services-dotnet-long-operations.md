@@ -186,4 +186,4 @@ También se muestra cómo el cliente puede usar esta clase.
 	Console.WriteLine(channelId);
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

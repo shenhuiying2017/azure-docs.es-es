@@ -38,13 +38,13 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 Pueden establecer las siguientes variables de entorno al instalar Java y el JDK. Sin embargo, debe comprobar que existen y que contienen los valores correctos para su sistema.
 
-* **JAVA_HOME**: debe apuntar al directorio donde está instalado Java Runtime Environment (JRE). Por ejemplo, en un sistema OS X, Unix o Linux, debe tener un valor similar a `/usr/lib/jvm/java-7-oracle`. En Windows, tendría un valor similar a `c:\Program Files (x86)\Java\jre1.7`.
+* **JAVA\_HOME**: debe apuntar al directorio donde está instalado Java Runtime Environment (JRE). Por ejemplo, en un sistema OS X, Unix o Linux, debe tener un valor similar a `/usr/lib/jvm/java-7-oracle`. En Windows, tendría un valor similar a `c:\Program Files (x86)\Java\jre1.7`.
 
 * **PATH**: debe contener las rutas de acceso siguientes:
 
-	* **JAVA_HOME** (o la ruta de acceso equivalente).
+	* **JAVA\_HOME** (o la ruta de acceso equivalente).
 
-	* **JAVA_HOME\bin** (o la ruta de acceso equivalente).
+	* **JAVA\_HOME\\bin** (o la ruta de acceso equivalente).
 
 	* El directorio donde está instalado Maven
 
@@ -133,7 +133,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 
 ##Creación de la aplicación MapReduce
 
-1. Vaya al directorio __wordcountjava\src\main\java\org\apache\hadoop\examples__ y cambie el nombre del archivo __App.java__ por __WordCount.java__.
+1. Vaya al directorio __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ y cambie el nombre del archivo __App.java__ por __WordCount.java__.
 
 2. Abra el archivo __WordCount.java__ en un editor de texto y reemplace el contenido por lo siguiente:
 
@@ -220,7 +220,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 
 	Esta acción eliminará los artefactos de compilación anteriores, descargará las dependencias que no se hayan instalado aún y, a continuación, compilará y empaquetará la aplicación.
 
-3. Cuando el comando termine de ejecutarse, el directorio __wordcountjava\target__ contendrá un archivo llamado __wordcountjava-1.0-SNAPSHOT.jar__.
+3. Cuando el comando termine de ejecutarse, el directorio __wordcountjava\\target__ contendrá un archivo llamado __wordcountjava-1.0-SNAPSHOT.jar__.
 
 	> [AZURE.NOTE]El archivo __wordcountjava-1.0-SNAPSHOT.jar__ es un uberjar que contiene no sólo el trabajo WordCount, sino también las dependencias que el trabajo necesita en tiempo de ejecución.
 
@@ -249,7 +249,7 @@ De esta manera, se copiarán los archivos del sistema local al nodo principal.
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	Haciendo esto, usará la aplicación WordCount MapReduce para contar las palabras en el archivo davinci.txt y almacenar los resultados en __wasb:///example/data/wordcountout__. Tanto el archivo de entrada como el de salida se almacenan en el almacenamiento predeterminado del clúster.
+	Haciendo esto, usará la aplicación WordCount MapReduce para contar las palabras en el archivo davinci.txt y almacenar los resultados en \_\___wasb:///example/data/wordcountout__. Tanto el archivo de entrada como el de salida se almacenan en el almacenamiento predeterminado del clúster.
 
 3. Una vez completado el trabajo, use lo siguiente para ver los resultados:
 
@@ -297,4 +297,4 @@ Gracias a este documento, ha aprendido a desarrollar un trabajo MapReduce de Jav
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

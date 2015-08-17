@@ -172,4 +172,4 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

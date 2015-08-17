@@ -77,7 +77,7 @@ Las recomendaciones de niveles de precios proporcionan una experiencia automatiz
 
 ## Pasos siguientes
 
-Dependiendo de los detalles de la base de datos específica, la realización de una actualización a un nivel de servicio superior o inferior no se suele producir de manera instantánea. El Portal de administración proporcionará notificaciones cuando la base de datos realice la transición a su nuevo nivel, o puede supervisar el estado de actualización mediante la consulta de la vista [sys.dm_operation_status (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/dn270022.aspx) en la base de datos maestra de la base de datos de SQL Server.
+Dependiendo de los detalles de la base de datos específica, la realización de una actualización a un nivel de servicio superior o inferior no se suele producir de manera instantánea. El Portal de administración proporcionará notificaciones cuando la base de datos realice la transición a su nuevo nivel, o puede supervisar el estado de actualización mediante la consulta de la vista [sys.dm\_operation\_status (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/dn270022.aspx) en la base de datos maestra de la base de datos de SQL Server.
 
 
 <!--Image references-->
@@ -90,4 +90,4 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

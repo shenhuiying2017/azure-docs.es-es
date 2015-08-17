@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Integración de las identidades locales con Azure Active Directory." 
 	description="Aquí se describe qué es Azure AD Connect y por qué debería usarlo." 
-	services="active-directory" 
+	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
+	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -57,7 +57,7 @@ Hay dos maneras diferentes de descargar el SDK de Azure Multi-Factor Authenticat
 2. En la parte izquierda, seleccione Active Directory.
 3. Haga doble clic en la instancia de Azure AD.
 4. En la parte superior, haga clic en **Configurar**.
-5. En autenticación multifactor seleccione **Administrar configuración del servicio** ![Descargar](./media/multi-factor-authentication-sdk/download2.png)
+5. En Multi-Factor Authentication, seleccione **Administrar configuración del servicio** ![Descargar](./media/multi-factor-authentication-sdk/download2.png)
 6. En la página de configuración de servicios, en la parte inferior de la pantalla, haga clic en **Ir al portal**. ![Descargar](./media/multi-factor-authentication-sdk/download3.png)
 7. De este modo se abrirá una nueva página. A la izquierda, en la parte inferior, haga clic en SDK.
 8. Seleccione el idioma que desee y haga clic en uno de los vínculos de descarga asociados.
@@ -191,4 +191,4 @@ En el siguiente código de servidor, Multi-Factor Authentication se configura y 
 	    }
 	}
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

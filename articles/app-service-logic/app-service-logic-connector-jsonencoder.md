@@ -39,24 +39,10 @@ Para crear una aplicación lógica, siga los pasos que se indican en [Creación 
 
 	![Codificar y enviar configurados][6]
 
-<table>
-	<tr>
-		<th>Parámetro</th>
-		<th>Tipo</th>
-		<th>Descripción del parámetro</th>
-	</tr>
-	<tr>
-		<td>XML de entrada</td>
-		<td>objeto</td>
-		<td>Contenido de XML de entrada</td>
-	</tr>
-	<tr>
-		<td>Quitar sobre exterior</td>
-		<td>cadena</td>
-		<td>Marca establecida para quitar el nodo raíz del contenido XML</td>
-	</tr>
-</table>
-
+Parámetro|Tipo|Descripción del parámetro
+---|---|---
+XML de entrada|objeto|Contenido de XML de entrada
+Quitar sobre exterior|cadena|Marca establecida para quitar el nodo raíz del contenido XML
 
 La acción devuelve una representación json del contenido de entrada.
 
@@ -76,4 +62,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creación de una aplicación lógica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

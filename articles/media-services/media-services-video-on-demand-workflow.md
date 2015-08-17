@@ -220,4 +220,4 @@ Para obtener más información, consulte [Reproducción de contenido con reprodu
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

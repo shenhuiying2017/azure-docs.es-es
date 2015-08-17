@@ -3,18 +3,18 @@
    description="Revisar escenarios comunes en el catálogo de datos de Azure: registrar, enriquecer, explorar, comprender, consumiendo los orígenes de datos y eliminación de metadatos del origen de datos."
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
- <tags
+<tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
 
 
 # Escenarios comunes del Catálogo de datos de Azure
@@ -33,6 +33,8 @@ A menudo es difícil para los usuarios saber dónde buscar los datos en estos or
 - No sé si estos números son correctos. ¿A quién puedo preguntar para obtener información sobre cómo se deben usar estos datos antes de compartir este panel con mi equipo?
 
 En este escenario, el Catálogo de datos de Azure puede resultar de ayuda. Los orígenes de datos centrales, de alto valor administrados mediante TI que se usan en toda la organización suelen ser el punto de partida lógico para rellenar el catálogo. Aunque cualquier usuario puede registrar un origen de datos, hacer arrancar el catálogo con los orígenes de datos con más probabilidades de proporcionar valor al mayor número de usuarios ayudará a impulsar la adopción y el uso del sistema. Para los clientes que empiezan a usar el Catálogo de datos de Azure, identificar y registrar los orígenes de datos clave usados por equipos diferentes de consumidores de datos puede ser el primer paso para alcanzar el éxito.
+
+Este escenario también presenta una oportunidad para anotar los orígenes de datos de alto valor para que sea más fáciles comprenderlos y tener acceso a ellos. Un aspecto clave de este esfuerzo es incluir información sobre cómo los usuarios pueden solicitar acceso al origen de datos. Catálogo de datos de Azure permite que los usuarios proporcionen la dirección de correo electrónico del usuario o equipo responsable de controlar el acceso al origen de datos, los vínculos a documentación o herramientas existentes o texto libre que describe el proceso de solicitud de acceso. Con esta información en el catálogo, los usuarios que detectan los orígenes de datos registrados pero todavía no tienen permiso de acceso a ellos pueden solicitar fácilmente acceso a través de los procesos definidos y controlados por los propietarios de los orígenes de datos.
 
 ## Escenario número 2: inteligencia empresarial de autoservicio
 
@@ -64,4 +66,4 @@ A veces estos expertos en datos harán esfuerzos por documentar sus conocimiento
 
 Catálogo de datos de Azure proporciona una ubicación para compartir estos conocimiento tribales y para que sean fácilmente reconocibles. Los expertos en datos pueden anotar los activos de datos directamente y también pueden incluir vínculos a documentación existente. Esto no solo permite capturar el conocimiento en sí, sino que también coloca el conocimiento en la misma experiencia que se usa para la detección de orígenes de datos. Cuando alguien usa el catálogo para detectar un origen de datos, no solo encontrará el propio origen, sino que también encontrará los conocimientos que anteriormente solo existían en la mente del propio experto.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

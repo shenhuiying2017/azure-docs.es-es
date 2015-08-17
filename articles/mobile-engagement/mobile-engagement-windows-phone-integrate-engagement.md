@@ -247,4 +247,4 @@ El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta 
 > [AZURE.WARNING]El umbral de ráfaga no se puede configurar en un período inferior a un segundo. Si intenta hacerlo, el SDK mostrará un seguimiento con el error y se restablecerá automáticamente en el valor predeterminado; es decir, cero segundos. Esto hará que el SDK informe los registros en tiempo real.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

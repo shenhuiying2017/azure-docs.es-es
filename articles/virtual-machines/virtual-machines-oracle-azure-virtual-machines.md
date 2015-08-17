@@ -61,4 +61,4 @@ Consulte [Consideraciones variadas sobre las imágenes de máquina virtual de Or
 
 [Configurar Oracle GoldenGate para Azure](virtual-machines-configuring-oracle-goldengate.md) sirve de guía de configuración de bases de datos y replicación.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

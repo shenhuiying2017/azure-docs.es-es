@@ -97,4 +97,4 @@ En ciertas situaciones, puede que desee quitar un objeto de ACL de red de un ext
 
 [Configuración de la comunicación con la máquina virtual](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

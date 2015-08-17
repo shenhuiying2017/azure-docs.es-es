@@ -59,7 +59,7 @@ Después de iniciar sesión correctamente, se mostrará información en la panta
 
 ### Selección de su suscripción a Azure
 
-Para seleccionar la suscripción, necesitará el nombre o el identificador de suscripción (**-SubscriptionName **). Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción deseada del conjunto de resultados. Cuando tenga su suscripción, ejecute el siguiente cmdlet:
+Para seleccionar la suscripción, necesitará el nombre o el identificador de suscripción (**-SubscriptionName**). Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción deseada del conjunto de resultados. Cuando tenga su suscripción, ejecute el siguiente cmdlet:
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -89,7 +89,7 @@ Si el servidor necesita permitir el acceso a otros servicios de Azure, agregue e
 
 	New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
-Para obtener más información, vea [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 
 ## Creación de un grupo de bases de datos elásticas y de bases de datos elásticas
@@ -234,4 +234,4 @@ Para obtener más información, vea [Información general sobre los trabajos de 
 
 Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

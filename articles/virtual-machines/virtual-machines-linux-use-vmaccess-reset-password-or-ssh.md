@@ -111,9 +111,9 @@ También puede usar [Restablecer la contraseña y la clave SSH](#resetbothcli) p
 
 ### <a name="sshconfigresetcli"></a>Restablecimiento de la configuración de SSH
 
-Si la configuración de SSH se encuentra en un estado no deseado, podría perder el acceso a la máquina virtual. Puede usar la extensión VMAccess para restablecer la configuración a su estado predeterminado. Para ello, basta con establecer la clave "reset_ssh" en "True". La extensión reinicia el servidor SSH, abre el puerto SSH en su máquina virtual y restablece la configuración de SSH al valor predeterminado. No se cambiará la cuenta de usuario (nombre, contraseña o claves SSH).
+Si la configuración de SSH se encuentra en un estado no deseado, podría perder el acceso a la máquina virtual. Puede usar la extensión VMAccess para restablecer la configuración a su estado predeterminado. Para ello, basta con establecer la clave "reset\_ssh" en "True". La extensión reinicia el servidor SSH, abre el puerto SSH en su máquina virtual y restablece la configuración de SSH al valor predeterminado. No se cambiará la cuenta de usuario (nombre, contraseña o claves SSH).
 
-> [AZURE.NOTE]El archivo de configuración de SSH que obtiene el restablecimiento se encuentra en /etc/ssh/sshd_config.
+> [AZURE.NOTE]El archivo de configuración de SSH que obtiene el restablecimiento se encuentra en /etc/ssh/sshd\_config.
 
 Paso 1: Creación de un archivo llamado PrivateConf.json con este contenido.
 
@@ -228,7 +228,7 @@ Ejecute estos comandos.
 	$Version = "1.*"
 	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE]El archivo de configuración de SSH se encuentra en /etc/ssh/sshd_config.
+> [AZURE.NOTE]El archivo de configuración de SSH se encuentra en /etc/ssh/sshd\_config.
 
 ### <a name="delete"></a> Eliminación de un usuario
 
@@ -263,4 +263,4 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 [Conexión a una máquina virtual de Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

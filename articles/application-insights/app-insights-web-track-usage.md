@@ -40,7 +40,7 @@ En el recurso, en el [portal de Azure][portal], abra Inicio rápido para obtener
 
 ![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
 
-Coloque el código en una página maestra como (en. NET) _Layout.cshtml, o en un archivo de inclusión, para asegurarse de que se incluya en todas las páginas.
+Coloque el código en una página maestra como (en. NET) \_Layout.cshtml, o en un archivo de inclusión, para asegurarse de que se incluya en todas las páginas.
 
 El fragmento de código incluye la clave de instrumentación (iKey) que identifica el recurso. Para enviar datos a un recurso diferente, por ejemplo, durante las pruebas, basta con reemplazar el iKey.
 
@@ -371,4 +371,4 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

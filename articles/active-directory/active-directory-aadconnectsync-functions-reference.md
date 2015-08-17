@@ -335,7 +335,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 ----------
 ### DNComponentRev
 
-**Descripción:** <br> la función DNComponentRev devuelve el valor de un componente DN especificado a partir de la derecha (final).
+**Descripción:** <br> la función DNComponentRev devuelve el valor de un componente DN especificado a partir de la derecha (el final).
  
 **Sintaxis:** <br> `str DNComponentRev(ref dn, num ComponentNumber)` <br> `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
 
@@ -430,7 +430,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 
 - stringcheck: cadena que se va a buscar <br>
 - stringmatch: cadena que encontrar <br>
-- start: posición de inicio para buscar la subcadena <br>
+- start: posición de inicio para encontrar la subcadena <br>
 - compare: vbTextCompare o vbBinaryCompare
  
 **Comentarios:**<br> devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
@@ -451,12 +451,12 @@ Ambos ejemplos devuelven "*Hola a todos*"
 
 - stringcheck: cadena que se va a buscar <br>
 - stringmatch: cadena que encontrar <br>
-- start: posición de inicio para buscar la subcadena <br>
+- start: posición de inicio para encontrar la subcadena <br>
 - compare: vbTextCompare o vbBinaryCompare
 
 **Comentarios:**<br> devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
 
-**Ejemplo:** <br> `InStrRev("abbcdbbbef","bb")` <br> devuelve 7
+**Ejemplo:** <br> `InStrRev("abbcdbbbef","bb")` <br> devuelve 7.
  
  
 
@@ -478,7 +478,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 ----------
 ### IsDate
 
-**Descripción:** <br> la función IsDate se evalúa en True si la expresión se puede evaluar como tipo DateTime.
+**Descripción:** <br> la función IsDate se evalúa en True si la expresión se puede evaluar como un tipo DateTime.
  
 **Sintaxis:** <br> `bool IsDate(var Expression)`
  
@@ -624,7 +624,7 @@ Devuelve un valor Null si el índice está fuera de los límites.
  
 **Sintaxis:** <br> `str Join(mvstr attribute)` <br> `str Join(mvstr attribute, str Delimiter)`
 
-- attribute: atributo de varios valores que contiene cadenas que combinar.<br>
+- attribute: atributo de varios valores que contiene cadenas para combinar.<br>
 - delimiter: cualquier cadena utilizada para separar las subcadenas en la cadena devuelta. Si se omite, se usa el carácter de espacio (""). Si delimitador es una cadena de longitud cero ("") o nada, todos los elementos de la lista se concatenan sin delimitadores.
  
 **Comentarios**<br>: hay paridad entre las funciones Join y Split. La función Join toma una matriz de cadenas y las combina con una cadena de delimitación para devolver una sola cadena. La función Split toma una cadena y la separa en el delimitador para devolver una matriz de cadenas. Sin embargo, una diferencia clave es que Join puede concatenar cadenas con cualquier cadena de delimitación, mientras que attribute puede separar solo cadenas mediante un delimitador de carácter único.
@@ -649,7 +649,7 @@ Devuelve un valor Null si el índice está fuera de los límites.
 ----------
 ### Left
 
-**Descripción:**<br> función Left devuelve un número especificado de caracteres desde la izquierda de una cadena.
+**Descripción:**<br> la función Left devuelve un número especificado de caracteres desde la izquierda de una cadena.
  
 **Sintaxis:** <br> `str Left(str string, num NumChars)`
 
@@ -742,7 +742,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 **Sintaxis:** <br> `num NumFromDate(dt value)`
  
 
-**Ejemplo:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> devuelve 129699324000000000
+**Ejemplo:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> devuelve 129699324000000000.
  
  
 
@@ -750,7 +750,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### PadLeft
 
-**Descripción:**<br> la función PadLeft rellena en la parte izquierda de una cadena con una longitud especificada mediante un carácter controlador proporcionado.
+**Descripción:**<br> la función PadLeft rellena en la parte izquierda una cadena con una longitud especificada mediante un carácter controlador proporcionado.
  
 **Sintaxis:** <br> `str PadLeft(str string, num length, str padCharacter)`
 
@@ -778,7 +778,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### PadRight
 
-**Descripción:**<br> la función PadRight rellena en la parte derecha de una cadena con una longitud especificada mediante un carácter controlador proporcionado.
+**Descripción:**<br> la función PadRight rellena en la parte derecha una cadena con una longitud especificada mediante un carácter controlador proporcionado.
  
 **Sintaxis:** <br> `str PadRight(str string, num length, str padCharacter)`
 
@@ -903,7 +903,7 @@ El formato es {source1}:{target1},{source2}:{target2},{sourceN},{targetN} donde 
 ----------
 ### Right
 
-**Descripción:**<br> función Right devuelve un número especificado de caracteres desde la derecha (final) de una cadena.
+**Descripción:**<br> la función Right devuelve un número especificado de caracteres desde la derecha (final) de una cadena.
  
 **Sintaxis:** <br> `str Right(str string, num NumChars)`
 
@@ -920,7 +920,7 @@ Una cadena que contiene los últimos caracteres numChars de la cadena:
 
 Si la cadena contiene menos caracteres que el número especificado en NumChars, se devuelve una cadena idéntica a la cadena.
 
-**Ejemplo:** <br> `Right(“John Doe”, 3)` <br> Devuelve “Doe”.
+**Ejemplo:** <br> `Right(“John Doe”, 3)` <br> devuelve “Doe”.
  
 
 
@@ -932,7 +932,7 @@ Si la cadena contiene menos caracteres que el número especificado en NumChars, 
  
 **Sintaxis:** <br> `str RTrim(str value)`
 
-**Ejemplo:** <br> `RTrim(“ Test ”)` <br> Devuelve “ Test”.
+**Ejemplo:** <br> `RTrim(“ Test ”)` <br> devuelve “Test”.
 
 
 
@@ -977,7 +977,7 @@ Si la cadena contiene menos caracteres que el número especificado en NumChars, 
 ----------
 ### Switch
 
-**Descripción:** <br> La función Switch se utiliza para devolver un único valor según las condiciones evaluadas.
+**Descripción:** <br> la función Switch se utiliza para devolver un único valor según las condiciones evaluadas.
 
 **Sintaxis:** <br> `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
@@ -994,7 +994,7 @@ Switch evalúa todas las expresiones, aunque devuelva solo una de ellas. Por est
 
 El valor puede ser también la función Error que devolvería una cadena personalizada.
 
-**Ejemplo:**<br>`Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error(“Unknown city”))`<br> Devuelve el idioma hablado en las ciudades más importantes. De lo contrario, devuelve un error.
+**Ejemplo:**<br>`Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error(“Unknown city”))`<br> devuelve el idioma hablado en las ciudades más importantes. De lo contrario, devuelve un error.
 
 
 
@@ -1020,7 +1020,7 @@ El valor puede ser también la función Error que devolvería una cadena persona
 
 **Sintaxis:** <br> `str UCase(str string)`
  
-**Ejemplo:** <br> `UCase(“TeSt”)` <br> Devuelve “TEST”.
+**Ejemplo:** <br> `UCase(“TeSt”)` <br> devuelve “Test”.
  
  
 
@@ -1028,7 +1028,7 @@ El valor puede ser también la función Error que devolvería una cadena persona
 ----------
 ### Word
 
-**Descripción:** <br> la función Word devuelve una palabra incluida en una cadena, según los parámetros que describen los delimitadores que usar y el número de palabras que devolver.
+**Descripción:** <br> la función Word devuelve una palabra incluida en una cadena, según los parámetros que describen los delimitadores para usar y el número de palabras para devolver.
  
 **Sintaxis:** <br> `str Word(str string, num WordNumber, str delimiters)`
 
@@ -1044,9 +1044,9 @@ El valor puede ser también la función Error que devolvería una cadena persona
 Si la cadena contiene menos palabras o si la cadena no contiene palabras identificadas por los delimitadores, se devuelve una cadena vacía.
  
 
-**Ejemplo:** <br> `Word(“The quick brown fox”,3,” “)` <br> Devuelve “brown”
+**Ejemplo:** <br> `Word(“The quick brown fox”,3,” “)` <br> devuelve “brown”
 
-`Word(“This,string!has&many seperators”,3,”,!&#”)` <br> Devolvería “has”
+`Word(“This,string!has&many seperators”,3,”,!&#”)` <br> devolvería “has”
 
 
 ## Recursos adicionales
@@ -1058,4 +1058,4 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -297,4 +297,4 @@ Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la r
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

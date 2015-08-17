@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # Actualización del dispositivo de StorSimple
@@ -58,7 +58,7 @@ Puede usar el Portal de administración para aplicar actualizaciones en el dispo
 
 También puede usar Windows PowerShell para StorSimple para aplicar las actualizaciones normales (en modo normal).
 
-> [AZURE.IMPORTANT]Aunque puede instalar actualizaciones periódicas con Windows PowerShell para StorSimple, le recomendamos encarecidamente que las instale a través del Portal de administración. Al iniciar la actualización 1, se realizan comprobaciones previas antes de instalar las actualizaciones desde el Portal, para así evitar cualquier error y garantizar una experiencia más fluida.
+> [AZURE.IMPORTANT]Aunque puede instalar actualizaciones periódicas con Windows PowerShell para StorSimple, le recomendamos encarecidamente que las instale a través del Portal de administración. A partir de la actualización 1, se realizarán comprobaciones previas antes de instalar actualizaciones desde el Portal. Estas comprobaciones previas previenen los errores y garantizan una experiencia con menos complicaciones.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -119,4 +119,4 @@ Si se restablece la configuración de fábrica de un dispositivo, se pierden tod
 Obtenga más información sobre [Windows PowerShell para StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

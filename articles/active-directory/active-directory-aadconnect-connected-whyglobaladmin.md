@@ -34,4 +34,4 @@ Para la configuración personalizada | Habilitamos la sincronización en el dire
 * [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -78,7 +78,9 @@ En ambos casos, las credenciales se almacenan en estado cifrado en el directorio
 
 El SSO con contraseña depende de la extensión del navegador para recuperar información específica de la aplicación y el usuario desde Azure AD de manera segura y aplicarla al servicio. La mayoría de las aplicaciones de SaaS de terceros que son compatibles con Azure AD admite esta característica.
 
-Para el SSO con contraseña, los exploradores del usuario final pueden ser: * IE 8, IE9 e IE10 en Windows 7 o posterior * Chrome en Windows 7 o posterior, o MacOS X o posterior
+Para el SSO con contraseña, los exploradores del usuario final pueden ser: - IE 8, IE9 e IE10 en Windows 7 o posterior - Chrome en Windows 7 o posterior, o MacOS X o posterior
+
+**Nota:** la extensión del SSO con contraseña estará disponible para Edge en Windows 10 cuando Edge admita las extensiones del explorador.
 
 ###Inicio de sesión único existente
 
@@ -116,14 +118,14 @@ Una vez que haya encontrado la aplicación, puede comenzar por seguir las instru
 
 Si la aplicación no se encuentra en la Galería de aplicaciones de Azure AD, tienes estas opciones:
 
-*	**Agregar una aplicación que no aparezca en la lista**: Utilice la categoría Personalizada de la Galería de aplicaciones del portal de administración de Azure para conectar una aplicación que usa su organización pero no está incluida en la lista. Puede agregar cualquier aplicación que admita SAML 2.0 como aplicación federada o cualquier aplicación que tenga una página de inicio de sesión basada en HTML para usar SSO con contraseña. Para obtener más información, consulte este artículo sobre cómo [agregar su propia aplicación](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Agregar una aplicación que no aparezca en la lista**: utilice la categoría Personalizada de la Galería de aplicaciones del Portal de administración de Azure para conectar una aplicación que usa su organización pero no está incluida en la lista. Puede agregar cualquier aplicación que admita SAML 2.0 como aplicación federada o cualquier aplicación que tenga una página de inicio de sesión basada en HTML para usar SSO con contraseña. Para obtener más información, consulte este artículo en [Agregar su propia aplicación](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 
 *	**Agregar una aplicación propia que está desarrollando**: si ha desarrollado la aplicación usted mismo, siga las instrucciones de la documentación para desarrolladores de Azure AD para implementar un inicio de sesión único federado o el aprovisionamiento mediante la API Graph de Azure AD. Para obtener más información, vea estos recursos:
-  * https://msdn.microsoft.com/library/azure/dn499820.aspx
-  * https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore
+  * [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md)
+  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
 *	**Solicitar una integración de aplicaciones**: solicite soporte técnico que necesite para la aplicación en el [foro de comentarios de Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
 
@@ -162,17 +164,17 @@ Los métodos que elija implementar en su organización son criterio suyo.
 
 ###Panel de acceso de Azure AD
 
-El Panel de acceso de https://myapps.microsoft.com es un portal basado en web que permite que los usuarios finales que tengan cuenta organizativa en Azure Active Directory puedan ver e iniciar aplicaciones basadas en la nube a las que el administrador de Azure AD les haya concedido acceso. Si es usted un usuario final con [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx), también puede utilizar las capacidades de autoservicio de administración de grupos a través del Panel de acceso.
+El Panel de acceso de https://myapps.microsoft.com es un portal basado en web que permite que los usuarios finales que tengan una cuenta organizativa en Azure Active Directory puedan ver e iniciar aplicaciones basadas en la nube a las que el administrador de Azure AD les haya concedido acceso. Si usted es un usuario final con [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), también puede utilizar las capacidades de autoservicio de administración de grupos a través del Panel de acceso.
 
 ![][3]
 
 El Panel de acceso es independiente del Portal de administración de Azure y no requiere que los usuarios tengan una suscripción de Azure u Office 365.
 
-Para obtener más información sobre el panel de acceso de Azure AD, consulte la [introducción al panel de acceso](https://msdn.microsoft.com/library/azure/dn308586.aspx).
+Para obtener más información sobre el panel de acceso de Azure AD, consulte la [Introducción al panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 ###Iniciador de aplicaciones de Office 365
 
-Para las organizaciones que han implementado Office 365, también aparecerán las aplicaciones asignadas a los usuarios mediante Azure AD en el portal de Office 365 en https://portal.office.com/myapps. Esto hace que resulte fácil y cómodo para los usuarios de una organización iniciar sus aplicaciones sin tener que utilizar un segundo portal y es la solución de inicio de aplicaciones recomendada para las organizaciones que usan Office 365.
+Para las organizaciones que han implementado Office 365, también aparecerán las aplicaciones asignadas a los usuarios mediante Azure AD en el Portal de Office 365 en https://portal.office.com/myapps. Esto hace que resulte fácil y cómodo para los usuarios de una organización iniciar sus aplicaciones sin tener que utilizar un segundo portal y es la solución de inicio de aplicaciones recomendada para las organizaciones que usan Office 365.
 
 ![][4]
 
@@ -194,15 +196,17 @@ Estos vínculos son direcciones URL especialmente diseñadas que envían a los u
 
 Estos vínculos se pueden copiar y pegar en cualquier sitio donde que desee proporcionar un vínculo de inicio de sesión a la aplicación seleccionada. Podría ser en un mensaje de correo electrónico o en cualquier portal personalizado basado en web que haya configurado para el acceso de los usuarios a la aplicación. Este es un ejemplo de una AD de Azure único inicio de sesión URL directa de Twitter:
 
-https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 Similar a direcciones URL específicas de la organización para el panel de acceso, se puede personalizar aún más esta dirección URL mediante la adición de uno de los dominios de activos o comprobados para su directorio tras el dominio myapps.microsoft.com. Esto garantiza que cualquier personalización de marca corporativa se carga inmediatamente en la página de inicio de sesión sin que el usuario tenga que escribir primero su ID de usuario:
 
-https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 Cuando un usuario autorizado hace clic en uno de estos vínculos específicos de aplicaciones, primero ve su página de inicio de sesión organizativa (suponiendo que no ha iniciado todavía la sesión) y después de iniciarla se lo redirigen a su aplicación sin pararse primero en el panel de acceso. Si el usuario no cumple los requisitos previos para tener acceso a la aplicación, como la extensión de explorador para el inicio de sesión único con contraseña, el vínculo le pedirá al usuario que instale la extensión que le falta. La dirección URL del vínculo también permanece constante si cambia la configuración de inicio de sesión única para la aplicación.
 
 Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel de acceso y Office 365, y solo los usuarios o grupos que se han asignado a la aplicación en el portal de administración de Azure podrán autenticarse correctamente. Sin embargo, cualquier usuario que no tenga autorización, verá un mensaje que explica que no se le ha concedido acceso y se proporcionan un vínculo para cargar el panel de acceso y ver las aplicaciones disponibles a las que tienen acceso.
+
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -212,4 +216,4 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

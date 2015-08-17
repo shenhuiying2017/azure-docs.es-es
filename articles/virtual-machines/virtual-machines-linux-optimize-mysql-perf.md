@@ -210,13 +210,13 @@ Para optimizar la configuración del servidor MySQL, puede actualizar el archivo
 
 Los elementos de configuración siguientes son los principales factores que influyen en el rendimiento de MySQL:
 
--	**innodb_buffer_pool_size**: El grupo de búferes contiene los datos almacenados en el búfer, así como el índice. Normalmente se establece en el 70% de memoria física.
--	**innodb_log_file_size**: Este es el tamaño de registro de rehacer. Los registros de rehacer se usan para garantizar que las operaciones de escritura son rápidas, confiables y recuperables después de un bloqueo. Se establece en 512 MB, lo que proporcionará una cantidad de espacio suficiente para registrar las operaciones de escritura.
--	**max_connections**: A veces, las aplicaciones no cierran las conexiones correctamente. Un valor mayor proporciona al servidor más tiempo para reciclar las conexiones inactivas. El número máximo de conexiones es de 10000, pero el máximo recomendado es de 5000.
--	**Innodb_file_per_table**: Esta configuración habilita o deshabilita la posibilidad de InnoDB de almacenar tablas en archivos independientes. Al activar la opción se asegurará de que se pueden aplicar varias operaciones avanzadas de administración eficaces. Desde el punto de vista del rendimiento, puede acelerar la transmisión del espacio de tabla y optimizar el rendimiento de la administración de residuos. Por lo tanto, el valor recomendado para esto es ON.</br> Desde MySQL 5.6, el valor predeterminado es ON. Por lo tanto, no se requiere ninguna acción. Para otras versiones, anteriores a la 5.6, la configuración predeterminada es OFF. Es necesario establecer esta opción en ON. Debe establecerla antes de cargar los datos, ya que solo afecta a las tablas recién creadas.
--	**innodb_flush_log_at_trx_commit**: El valor predeterminado es 1, con el ámbito establecido en 0~2. El valor predeterminado es la opción más adecuada para la base de datos MySQL independiente. El valor 2 permite una mayor integridad de datos y es adecuado para Master en clúster de MySQL. El valor 0 permite la pérdida de datos, lo que puede afectar a la confiabilidad, en algunos casos con un mejor rendimiento, y es adecuado para la opción de esclavo en clúster de MySQL.
--	**Innodb_log_buffer_size**: El búfer de registro permite que las transacciones se ejecuten sin tener que vaciar el registro en el disco antes de confirmar las transacciones. Sin embargo, si hay un objeto binario de gran tamaño o un campo de texto, se consumirá la memoria caché muy rápidamente y se activará la E/S de discos frecuentes. Es mejor incrementar el tamaño del búfer si la variable de estado Innodb_log_waits no es 0.
--	**query_cache_size**: La mejor opción es deshabilitarla desde el principio. Establezca query_cache_size en 0 (ahora es el valor predeterminado en MySQL 5.6) y use otros métodos para agilizar las consultas.  
+-	**innodb\_buffer\_pool\_size**: El grupo de búferes contiene los datos almacenados en el búfer, así como el índice. Normalmente se establece en el 70% de memoria física.
+-	**innodb\_log\_file\_size**: Este es el tamaño de registro de rehacer. Los registros de rehacer se usan para garantizar que las operaciones de escritura son rápidas, confiables y recuperables después de un bloqueo. Se establece en 512 MB, lo que proporcionará una cantidad de espacio suficiente para registrar las operaciones de escritura.
+-	**max\_connections**: A veces, las aplicaciones no cierran las conexiones correctamente. Un valor mayor proporciona al servidor más tiempo para reciclar las conexiones inactivas. El número máximo de conexiones es de 10000, pero el máximo recomendado es de 5000.
+-	**Innodb\_file\_per\_table**: Esta configuración habilita o deshabilita la posibilidad de InnoDB de almacenar tablas en archivos independientes. Al activar la opción se asegurará de que se pueden aplicar varias operaciones avanzadas de administración eficaces. Desde el punto de vista del rendimiento, puede acelerar la transmisión del espacio de tabla y optimizar el rendimiento de la administración de residuos. Por lo tanto, el valor recomendado para esto es ON.</br> Desde MySQL 5.6, el valor predeterminado es ON. Por lo tanto, no se requiere ninguna acción. Para otras versiones, anteriores a la 5.6, la configuración predeterminada es OFF. Es necesario establecer esta opción en ON. Debe establecerla antes de cargar los datos, ya que solo afecta a las tablas recién creadas.
+-	**innodb\_flush\_log\_at\_trx\_commit**: El valor predeterminado es 1, con el ámbito establecido en 0\~2. El valor predeterminado es la opción más adecuada para la base de datos MySQL independiente. El valor 2 permite una mayor integridad de datos y es adecuado para Master en clúster de MySQL. El valor 0 permite la pérdida de datos, lo que puede afectar a la confiabilidad, en algunos casos con un mejor rendimiento, y es adecuado para la opción de esclavo en clúster de MySQL.
+-	**Innodb\_log\_buffer\_size**: El búfer de registro permite que las transacciones se ejecuten sin tener que vaciar el registro en el disco antes de confirmar las transacciones. Sin embargo, si hay un objeto binario de gran tamaño o un campo de texto, se consumirá la memoria caché muy rápidamente y se activará la E/S de discos frecuentes. Es mejor incrementar el tamaño del búfer si la variable de estado Innodb\_log\_waits no es 0.
+-	**query\_cache\_size**: La mejor opción es deshabilitarla desde el principio. Establezca query\_cache\_size en 0 (ahora es el valor predeterminado en MySQL 5.6) y use otros métodos para agilizar las consultas.  
   
 Consulte el [Apéndice D](#AppendixD) para comparar el rendimiento después de la optimización.
 
@@ -303,20 +303,20 @@ Tenga en cuenta que el tamaño de archivo utilizado para esta prueba es de 30 G
 
 |Parámetros |Valor predeterminado |optimización
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |None |7G
-|**innodb_log_file_size** |5M |512M
-|**max_connections** |100 |5.000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8M |128M
-|**query_cache_size** |16M |0
+|**innodb\_buffer\_pool\_size** |None |7G
+|**innodb\_log\_file\_size** |5M |512M
+|**max\_connections** |100 |5\.000
+|**innodb\_file\_per\_table** |0 |1
+|**innodb\_flush\_log\_at\_trx\_commit** |1 |2
+|**innodb\_log\_buffer\_size** |8M |128M
+|**query\_cache\_size** |16M |0
 
 
 Consulte las instrucciones oficiales de mysql para obtener parámetros de configuración de optimización más detallados.
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html)
 
-[http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
+[http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar\_innodb\_flush\_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
 
 **Entorno de prueba**
 
@@ -345,4 +345,4 @@ Consulte las instrucciones oficiales de mysql para obtener parámetros de config
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

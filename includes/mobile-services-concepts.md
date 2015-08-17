@@ -16,10 +16,10 @@ Con Servicios móviles puede:
 A continuación se presentan características y conceptos importantes en los Servicios móviles:
 
 + **Clave de aplicación:** un valor único que se usa para limitar el acceso de clientes aleatorios a su servicio móvil; esta "clave" no es un token de seguridad y no se usa para autenticar usuarios de la aplicación.    
-+ **Backend:** la instancia de servicio móvil que admite su aplicación. Un servicio móvil se implementa como un proyecto ASP.NET Web API (*back-end de .NET* ) o como un proyecto de Node.js (*back-end de JavaScript*).
++ **Backend:** la instancia de servicio móvil que admite su aplicación. Un servicio móvil se implementa como un proyecto ASP.NET Web API (*back-end de .NET*) o como un proyecto de Node.js (*back-end de JavaScript*).
 + **Proveedor de identidades:** un servicio externo, con la confianza de Servicios móviles, que autentica los usuarios de su aplicación. Los proveedores compatibles incluyen: Facebook, Twitter, Google, cuenta de Microsoft y Azure Active Directory. 
 + **Notificación de inserción:** mensaje iniciado por el servicio que se envía a un dispositivo o usuario registrados mediante los centros de notificación de Azure.
 + **Escala:** la capacidad de agregar, por un coste adicional, más potencia de procesamiento, rendimiento y almacenamiento a medida que su aplicación se hace más conocida.
 + **Trabajo programado:** código personalizado que se ejecuta en una programación predeterminada o a petición.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

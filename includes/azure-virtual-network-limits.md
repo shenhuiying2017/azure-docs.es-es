@@ -1,40 +1,30 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Límite predeterminado</th>
-   <th align="left" valign="middle">Límite máximo</th>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Redes virtuales</a><sup>1</sup> por suscripción</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Máquinas totales<sup>2</sup> por red virtual</p></td>
-   <td valign="middle"><p>2048</p></td>
-   <td valign="middle"><p>2048</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Conexiones TCP concurrentes para una máquina virtual o instancia de rol</p></td>
-   <td valign="middle"><p>500 KB</p></td>
-   <td valign="middle"><p>500 KB</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Listas de control de acceso (ACL) por extremo<sup>3</sup></p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Sitios de red local por red virtual</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>10</p></td>
-</tr>
-</table>
 
-<sup>1</sup>Cada red virtual admite una sola [puerta de enlace de red virtual](http://msdn.microsoft.com/library/azure/jj156210.aspx).
+| Recurso | Límite predeterminado
+--- | ---
+| Redes virtuales por suscripción | 10
+| Máquinas virtuales e instancias de rol por red virtual | 2048
+| Conexiones TCP concurrentes para una máquina virtual o instancia de rol | 500 KB
+| Listas de control de acceso (ACL) por extremo | 50
+| Sitios de red local por red virtual | 10
 
-<sup>2</sup>El número total de máquinas incluye las máquinas virtuales y las instancias de rol de trabajo y web.
+### Límites de redes - Administrador de recursos de Azure
 
-<sup>3</sup>ACL se admite en extremos de entrada para máquinas virtuales. Para roles de trabajo y web, se admite en extremos de entrada y de entrada de instancia.
+Los límites siguientes se aplican solo a los recursos de redes administrados a través del Administrador de recursos de Azure.
 
-<!---HONumber=July15_HO4-->
+| Recurso | Límite predeterminado
+--- | ---
+| Redes virtuales por suscripción | 50 por región
+| Servidores DNS por red virtual | 9
+| Equilibradores de carga internos por conjunto de disponibilidad | 1
+| Equilibradores de carga accesibles desde Internet por conjunto de disponibilidad | 1
+| Equilibradores de carga (interno y accesibles desde Internet) por suscripción | 100 por región
+| Reglas de equilibrador de carga por equilibrador de carga | 150
+| Direcciones IP públicas (dinámicas) por suscripción | 60 por región
+| Dirección IP públicas (estáticas) por suscripción | 20 por región
+| Grupos de seguridad (NSG) de red por suscripción | 100 por región
+| Reglas de NSG por NSG | 100
+| Interfaces de red (NIC) por suscripción | 300 por región
+
+Si necesita aumentar estos límites, póngase en contacto con soporte técnico.
+
+<!---HONumber=August15_HO6-->

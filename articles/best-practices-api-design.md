@@ -38,7 +38,7 @@ El propósito de esta guía es describir los problemas que debe tener en cuenta 
 
 En su disertación en 2000, Roy Fielding propuso un enfoque alternativo sobre la arquitectura con el fin de estructurar las operaciones expuestas por los servicios web; REST. REST es un estilo de arquitectura para la creación de sistemas distribuidos basados en hipermedia. Una de las principales ventajas del modelo REST es que se basa en estándares abiertos y no vincula la implementación del modelo o las aplicaciones cliente que tienen acceso a él con ninguna implementación específica. Por ejemplo, un servicio web REST podría implementarse mediante la API web de Microsoft ASP.NET y las aplicaciones cliente podrían desarrollarse usando cualquier lenguaje y conjunto de herramientas que pueda generar solicitudes HTTP y analizar las respuestas HTTP.
 
-> [AZURE.NOTE]: REST es realmente independiente de cualquier protocolo subyacente y no está necesariamente unido a HTTP. Sin embargo, las implementaciones más comunes de los sistemas basados en REST usan HTTP como protocolo de aplicación para enviar y recibir solicitudes. Este documento se centra en la asignación de principios REST a sistemas diseñados para funcionar mediante HTTP.
+> [AZURE.NOTE]\: REST es realmente independiente de cualquier protocolo subyacente y no está necesariamente unido a HTTP. Sin embargo, las implementaciones más comunes de los sistemas basados en REST usan HTTP como protocolo de aplicación para enviar y recibir solicitudes. Este documento se centra en la asignación de principios REST a sistemas diseñados para funcionar mediante HTTP.
 
 El modelo REST usa un esquema de navegación para representar objetos y servicios en una red (denominados _recursos_). Muchos sistemas que implementan REST normalmente usan el protocolo HTTP para transmitir solicitudes de acceso a estos recursos. En estos sistemas, una aplicación cliente envía una solicitud en forma de un URI que identifica un recurso y un método HTTP (el más común GET, POST, PUT o DELETE) que indica la operación que se realizará en ese recurso. El cuerpo de la solicitud HTTP contiene los datos necesarios para realizar la operación. Es importante que comprenda que REST define un modelo de solicitud sin estado. Las solicitudes HTTP deben ser independientes y pueden producirse en cualquier orden, por lo que no es factible intentar conservar la información de estado transitorio entre solicitudes. El único lugar donde se almacena la información es en los propios recursos y cada solicitud debe ser una operación atómica. De hecho, un modelo REST implementa una máquina de estado finito en la que una solicitud pasa a un recurso desde un estado no transitorios bien definido a otro.
 
@@ -272,7 +272,7 @@ Debe procurar que los URI sean sencillos e intuitivos. Exponer una colección de
 
 Por ejemplo, si los pedidos contienen el precio pagado por el pedido, una aplicación cliente que necesite recuperar todos los pedidos que tienen un coste sobre un valor concreto podría tener que recuperar todos los pedidos del URI _/orders_ y luego filtrar esos pedidos localmente. Obviamente, este proceso es muy ineficaz; desperdicia el ancho de banda de red y la potencia de procesamiento en el servidor que hospeda la API web.
 
-Una solución podría ser proporcionar un esquema de URI como _/orders/ordervalue_greater_than_n_ donde _n_ es el precio del pedido, pero para un número limitado de precios este enfoque no resulta práctico. Además, si necesita consultar órdenes basándose en otros criterios, al final puede tener que proporcionar una larga lista de URI con nombres que posiblemente no sean intuitivos.
+Una solución podría ser proporcionar un esquema de URI como _/orders/ordervalue\_greater\_than\_n_ donde _n_ es el precio del pedido, pero para un número limitado de precios este enfoque no resulta práctico. Además, si necesita consultar órdenes basándose en otros criterios, al final puede tener que proporcionar una larga lista de URI con nombres que posiblemente no sean intuitivos.
 
 Una estrategia mejor para filtrar los datos es proporcionar los criterios de filtro en la cadena de consulta que se pasa a la API web, como _/orders?ordervaluethreshold=n_. En este ejemplo, la operación correspondiente en la API web es responsable de analizar y controlar el parámetro `ordervaluethreshold` en la cadena de consulta y de devolver los resultados filtrados en la respuesta HTTP.
 
@@ -359,7 +359,7 @@ Accept: application/json
 ...
 ```
 
-El cuerpo del mensaje de respuesta contiene una matriz `Links` (resaltada en el código de ejemplo) que especifica la naturaleza de la relación (_Customer_), el URI del cliente (_http://adventure-works.com/customers/3_), cómo recuperar los detalles de este cliente (_GET_) y los tipos MIME que admite el servidor web para recuperar esta información (_text/xml_ y _application/json_). Esta es toda la información que una aplicación cliente necesita para capturar los detalles del cliente. Además, la matriz de vínculos también incluye vínculos para que las demás operaciones puedan realizarse, como PUT (para modificar al cliente, junto con el formato que el servidor web espera que proporcione el cliente) y DELETE.
+El cuerpo del mensaje de respuesta contiene una matriz `Links` (resaltada en el código de ejemplo) que especifica la naturaleza de la relación (_Customer_), el URI del cliente (_http://adventure-works.com/customers/3_)), cómo recuperar los detalles de este cliente (_GET_) y los tipos MIME que admite el servidor web para recuperar esta información (_text/xml_ y _application/json_). Esta es toda la información que una aplicación cliente necesita para capturar los detalles del cliente. Además, la matriz de vínculos también incluye vínculos para que las demás operaciones puedan realizarse, como PUT (para modificar al cliente, junto con el formato que el servidor web espera que proporcione el cliente) y DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -395,7 +395,7 @@ El control de versiones permite que una API web indique las características y r
 
 Este es el enfoque más sencillo y puede ser aceptable para algunas API internas. Los grandes cambios podrían representarse como nuevos recursos o nuevos vínculos. Agregar contenido a recursos existentes puede que no represente un cambio importante dado que las aplicaciones cliente que no esperan ver este contenido simplemente lo ignorarán.
 
-Por ejemplo, una solicitud al URI _http://adventure-works.com/customers/3_ debe devolver los detalles de un solo cliente que contiene los campos `Id`, `Name` y `Address` esperados por la aplicación cliente:
+Por ejemplo, una solicitud al URI \__http://adventure-works.com/customers/3_ debe devolver los detalles de un solo cliente que contiene los campos `Id`, `Name` y `Address` esperados por la aplicación cliente:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -440,7 +440,7 @@ Este mecanismo de control de versiones es muy sencillo, pero depende del servido
 
 ### Control de versiones de cadena de consulta
 
-En lugar de proporcionar varios URI, puede especificar la versión del recurso mediante un parámetro dentro de la cadena de consulta anexada a la solicitud HTTP, como _http://adventure-works.com/customers/3?version=2_. El parámetro de versión debe adoptar de forma predeterminada un valor significativo como 1 si se omite en las aplicaciones cliente más antiguas.
+En lugar de proporcionar varios URI, puede especificar la versión del recurso mediante un parámetro dentro de la cadena de consulta anexada a la solicitud HTTP, como \__http://adventure-works.com/customers/3?version=2_. El parámetro de versión debe adoptar de forma predeterminada un valor significativo como 1 si se omite en las aplicaciones cliente más antiguas.
 
 Este enfoque tiene la ventaja semántica de que el mismo recurso siempre se recupera del mismo URI, pero depende del código que controla la solicitud para analizar la cadena de consulta y enviar la respuesta HTTP adecuada. Este método también presenta tiene las mismas complicaciones para implementar HATEOAS que el mecanismo de control de versiones de URI.
 
@@ -523,4 +523,4 @@ Este enfoque es posiblemente el más puro de los mecanismos de control de versio
 - El [Libro de cocina de RESTful](http://restcookbook.com/) contiene una introducción a la creación de API RESTful.
 - La [lista de comprobación de API web](https://mathieu.fenniak.net/the-api-checklist/) contiene una lista útil de elementos que se deben tener en cuenta al diseñar e implementar una API web.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

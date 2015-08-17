@@ -60,9 +60,9 @@ En el ejemplo siguiente se muestra el encabezado y el cuerpo de solicitud HTTP q
 	
 **Cuerpo**:
 
-Debe probar los valores client_id y client_secret en el cuerpo de esta solicitud; client_id y client_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Servicios multimedia le proporciona estos valores al configurar su cuenta.
+Debe probar los valores client\_id y client\_secret en el cuerpo de esta solicitud; client\_id y client\_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Servicios multimedia le proporciona estos valores al configurar su cuenta.
 
-Tenga en cuenta que el valor AccountKey de su cuenta de Servicios multimedia debe tener codificación URL (consulte [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1) cuando se usa como el valor client_secret en la solicitud de token de acceso.
+Tenga en cuenta que el valor AccountKey de su cuenta de Servicios multimedia debe tener codificación URL (consulte [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1) cuando se usa como el valor client\_secret en la solicitud de token de acceso.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -93,9 +93,9 @@ En el ejemplo siguiente se muestra la respuesta HTTP que contiene el token de ac
 	}
 	
 
->[AZURE.NOTE]Se recomienda almacenar en memoria caché los valores "access_token" y "expires_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
+>[AZURE.NOTE]Se recomienda almacenar en memoria caché los valores "access\_token" y "expires\_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
 
-Asegúrese de supervisar el valor "expires_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
+Asegúrese de supervisar el valor "expires\_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
 
 ###Conexión al URI de Servicios multimedia
 
@@ -167,4 +167,4 @@ En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios m
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

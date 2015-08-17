@@ -4,6 +4,7 @@
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
+	writer="szark" 
 	manager="timlt" 
 	editor=""/>
 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
 
 
@@ -23,7 +24,7 @@ Es un escenario habitual usar el software RAID en máquinas virtuales con Linux 
 
 
 ## Conexión de discos de datos
-Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID. Este artículo no entrará en detalles acerca de cómo conectar discos de datos a una máquina virtual con Linux. Consulte el artículo de Azure sobre la [conexión de un disco](storage-windows-attach-disk.md#attachempty) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
+Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID. Este artículo no entrará en detalles acerca de cómo conectar discos de datos a una máquina virtual con Linux. Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](storage-windows-attach-disk.md#attachempty) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
 
 >[AZURE.NOTE]El tamaño ExtraSmall de la máquina virtual no admite más de un disco de datos conectado a la máquina virtual. Consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obtener información detallada acerca de los tamaños de máquinas virtuales y el número de discos de datos admitidos.
 
@@ -108,20 +109,20 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 2. Cree el sistema de archivos en el nuevo dispositivo RAID.
 
-	**CentOS, Oracle Linux, openSUSE y Ubuntu**
+	**CentOS, Oracle Linux, SLES 12, openSUSE y Ubuntu**
 
 		# sudo mkfs -t ext4 /dev/md127
 
-	**SLES**
+	**SLES 11**
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES y openSUSE**: habilite boot.md y cree mdadm.conf.
+3. **SLES 11 y openSUSE**: habilite boot.md y cree mdadm.conf.
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE.
+	>[AZURE.NOTE]Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE. Este paso *no* es necesario en SLES 12.
 
 
 ## Incorporación del nuevo sistema de archivos a /etc/fstab
@@ -142,7 +143,7 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	O en **SLES y openSUSE**:
+	O en **SLES 11 y openSUSE**:
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -178,4 +179,4 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

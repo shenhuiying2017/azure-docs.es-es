@@ -56,65 +56,60 @@ En la siguiente sección se enumeran los códecs y el formato de archivo que se 
 
 ###Formatos de archivo de vídeo
  
-<table border="1">
-<tr><th>Formato de archivo</th><th>Extensiones de archivo</th></tr>
-<tr><td>3GPP, 3GPP2</td><td>.3gp, .3g2 y .3gp2</td></tr>
-<tr><td>Formato Advanced Systems (ASF)</td><td>.asf</td></tr>
-<tr><td>Alta definición de codificación de vídeo avanzado (AVCHD) [Secuencia de transporte MPEG-2]</td><td>.mts y .m2ts</td></tr>
-<tr><td>Audio y vídeo intercalado (AVI)</td><td>.avi</td></tr>
-<tr><td>Videograbadora digital MPEG-2 (MOD)</td><td>.mod</td></tr>
-<tr><td>Archivo de secuencia de transporte de DVD (TS)</td><td>.ts</td></tr>
-<tr><td>Archivo de objeto de video de DVD (VOB)</td><td>.vob</td></tr>
-<tr><td>Archivo Expression Encoder Screen Capture Codec</td><td>.xesc</td></tr>
-<tr><td>MP4</td><td>.mp4</td></tr>
-<tr><td>Secuencia de sistema MPEG-1</td><td>.mpeg y .mpg</td></tr>
-<tr><td>Archivo de vídeo MPEG-2</td><td>.m2v</td></tr>
-<tr><td>Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3)</td><td>.ismv</td></tr>
-<tr><td>Windows Media Video (WMV)</td><td>.wmv</td></tr>
-</table>
+Formato de archivo|Extensiones de archivo
+---|---
+3GPP, 3GPP2|.3gp, .3g2 y .3gp2
+Formato Advanced Systems (ASF)|.asf
+Alta definición de codificación de vídeo avanzado (AVCHD) [Secuencia de transporte MPEG-2]|.mts y .m2ts
+Audio y vídeo intercalado (AVI)|.avi
+Videograbadora digital MPEG-2 (MOD)|.mod
+Archivo de secuencia de transporte de DVD (TS)|.ts
+Archivo de objeto de video de DVD (VOB)|.vob
+Archivo Expression Encoder Screen Capture Codec|.xesc
+MP4|.mp4
+Secuencia de sistema MPEG-1|.mpeg y .mpg
+Archivo de vídeo MPEG-2|.m2v
+Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3)|.ismv
+Windows Media Video (WMV)|.wmv
+
 
 Se admiten algunos formatos no comprimidos. Para obtener más información, consulte [Formatos de vídeo no comprimido admitidos](#uncompressed)
 
 ###Formatos de archivo de audio
 
-<table border="1">
-<tr><th>Formato de archivo</th><th>Extensiones de archivo</th></tr>
-<tr><td>Audio AC-3 (Dolby Digital)</td><td>.ac3</td></tr>
-<tr><td>Formato de archivo de intercambio de audio (AIFF)</td><td>.aiff</td></tr>
-<tr><td>Formato Broadcast Wave</td><td>.bwf</td></tr>
-<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>.mp3</td></tr>
-<tr><td>Audio MP4</td><td>.m4A</td></tr>
-<tr><td>Audiolibro MPEG-4</td><td>.m4b</td></tr>
-<tr><td>Archivo WAVE</td><td>.wav</td></tr>
-<tr><td>Windows Media Audio</td><td>.wma</td></tr>   
-</table>
+Formato de archivo|Extensiones de archivo
+---|---
+Audio AC-3 (Dolby Digital)|.ac3
+Formato de archivo de intercambio de audio (AIFF)|.aiff
+Formato Broadcast Wave|.bwf
+MP3 (MPEG-1 Audio Layer 3)|.mp3
+Audio MP4|.m4A
+Audiolibro MPEG-4|.m4b
+Archivo WAVE|.wav
+Windows Media Audio|.wma
 
 ###Formatos de archivo de imagen
 
-<table border="1">
-<tr><th>Formato de archivo</th><th>Extensiones de archivo</th></tr>
-<tr><td>Mapa de bits</td><td>.bmp</td></tr>
-<tr><td>GIF, GIF animado</td><td>.gif</td></tr>
-<tr><td>JPEG</td><td>.jpeg y .jpg</td></tr>
-<tr><td>PNG</td><td>.png</td></tr>
-<tr><td>TIFF</td><td>.tif</td></tr>
-<tr><td>WPF Canvas XAML</td><td>.xaml</td></tr>
-</table>
+Formato de archivo|Extensiones de archivo
+---|---
+Mapa de bits|.bmp
+GIF, GIF animado|.gif
+JPEG|.jpeg y .jpg
+PNG|.png
+TIFF|.tif
+WPF Canvas XAML|.xaml
 
 
-##<a id="export_formats"></a>Formatos de exportación de Azure Media Encoder
+##<a id="export_formats"></a>Formatos de exportación del Codificador multimedia de Azure
 
 La siguiente tabla enumera los códecs y los formatos de archivo compatibles para exportación.
 
 
-<table border="1">
-<tr><th>Formato de archivo</th><th>Códec de vídeo</th><th>Códec de audio</th></tr>
-<tr><td>Windows Media (*.wmv; *.wma)</td><td>VC-1 (perfil avanzado, perfil principal y perfil simple)</td><td>Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless</td></tr>
-<tr><td>MP4 (*.mp4)</td><td>H.264 (perfil alto, perfil principal y perfil de base de línea)</td><td>AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus</td></tr>
-<tr><td>Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.1) (*.ismv; *.isma)</td><td>VC-1 (perfil avanzado)<br/><br/>
-H.264 (perfil alto, perfil principal y perfil de base de línea)</td><td>Windows Media Audio Standard, Windows Media Audio Professional<br/><br/>
-AAC-LC, HE-AAC v1, HE-AAC v2</td></tr>
-</table>
+Formato de archivo|Códec de vídeo|Códec de audio
+---|---|---
+Windows Media (*.wmv; *.wma)|VC-1 (perfil avanzado, perfil principal y perfil simple)|Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless
+MP4 (*.mp4)|H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus
+Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.1) (*.ismv; *.isma)|VC-1 (perfil avanzado)<p>H.264 (perfil alto, perfil principal y perfil de base de línea) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
 
 Para conocer códecs y filtros adicionales admitidos en Servicios multimedia, consulte [Filtros de Windows DirectShow](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
@@ -124,17 +119,16 @@ Servicios multimedia de Azure proporciona compatibilidad para importar datos de 
 
 La siguiente es una lista parcial de los formatos no comprimidos admitidos.
 
-<table border="1">
-<tr><th>Formato de vídeo no comprimido</th><th>Descripción</th></tr>
-<tr><td>Datos no comprimidos en formato YVU9 estándar</td><td>Un formato YUV planar. Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea, una muestra Y en cada línea vertical, una muestra U y V en cada cuarta línea vertical. 9 bits por píxel.</td></tr>
-<tr><td>Datos en formato YUV 411</td><td>Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 12 bytes son 8 píxeles de imagen.</td></tr>
-<tr><td>Datos en formato Y41P</td><td>Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 12 bytes son 8 píxeles de imagen.</td></tr>
-<tr><td>Datos en formato YUY2</td><td>Igual que UYVY, pero con distinto orden de píxeles. El orden de los bytes (el más bajo primero) es Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen</td></tr>
-<tr><td>Datos en formato YVYU</td><td>Un formato YUV empaquetado. Igual que UYVY, pero con distinto orden de píxeles. El orden de los bytes (el más bajo primero) es Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen</td></tr>
-<tr><td>Datos en formato UYVY</td><td>Un formato YUV empaquetado. Una muestra Y en cada píxel, una muestra U y V en cada segundo píxel horizontalmente en cada línea; muestra de cada línea vertical. El más popular de los distintos formatos YUV 4:2:2. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, donde el sufijo 0 es el píxel más a la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen</td></tr>
-<tr><td>Datos en formato YUV 211</td><td>Un formato YUV empaquetado. Una muestra Y en cada segundo píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical. El orden de los bytes (el más bajo primero) es Y0, U0, Y2, V0, Y4, U4, Y6, V4, Y8, U8, Y10, V8, donde el sufijo 0 es el píxel más a la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 4 píxeles de imagen.</td></tr>
-<tr><td>Formato YUV 411 de Cirrus Logic Jr</td><td>Formato YUV 411 de Cirrus Logic Jr con menos de 8 bits por muestra Y, U y V. Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical.</td></tr>
-<tr><td>Formato YVU9 generado por Indeo</td><td>Formato YUV9 generado por Indeo con información adicional sobre las diferencias del último fotograma. 9,5 bits por píxel, pero informado como 9.</td></tr>
-</table>
+Formato de vídeo no comprimido|Descripción
+---|---
+Datos no comprimidos en formato YVU9 estándar|Un formato YUV planar. Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea, una muestra Y en cada línea vertical, una muestra U y V en cada cuarta línea vertical. 9 bits por píxel.
+Datos en formato YUV 411|Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 12 bytes son 8 píxeles de imagen.
+Datos en formato Y41P|Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 12 bytes son 8 píxeles de imagen.
+Datos en formato YUY2|Igual que UYVY, pero con distinto orden de píxeles. El orden de los bytes (el más bajo primero) es Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen
+Datos en formato YVYU|Un formato YUV empaquetado. Igual que UYVY, pero con distinto orden de píxeles. El orden de los bytes (el más bajo primero) es Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen
+Datos en formato UYVY|Un formato YUV empaquetado. Una muestra Y en cada píxel, una muestra U y V en cada segundo píxel horizontalmente en cada línea; muestra de cada línea vertical. El más popular de los distintos formatos YUV 4:2:2. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, donde el sufijo 0 es el píxel más a la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen
+Datos en formato YUV 211|Un formato YUV empaquetado. Una muestra Y en cada segundo píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical. El orden de los bytes (el más bajo primero) es Y0, U0, Y2, V0, Y4, U4, Y6, V4, Y8, U8, Y10, V8, donde el sufijo 0 es el píxel más a la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 4 píxeles de imagen.
+Formato YUV 411 de Cirrus Logic Jr|Formato YUV 411 de Cirrus Logic Jr con menos de 8 bits por muestra Y, U y V. Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical.
+Formato YVU9 generado por Indeo|Formato YUV9 generado por Indeo con información adicional sobre las diferencias del último fotograma. 9,5 bits por píxel, pero informado como 9.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

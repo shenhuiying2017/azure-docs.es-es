@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/06/2015"
 	ms.author="bwren"/>
 
@@ -65,4 +65,4 @@ Hay una amplia gama de recursos disponibles para obtener más información sobre
 
 **Envíenos sus comentarios** Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

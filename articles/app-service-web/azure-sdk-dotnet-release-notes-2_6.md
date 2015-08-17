@@ -103,4 +103,4 @@ La cuenta de almacenamiento de diagnósticos ahora se puede especificar en el ar
 	Si todavía sigue experimentando los problemas mencionados anteriormente, instale la versión más reciente del SDK 2.6 de Azure para [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

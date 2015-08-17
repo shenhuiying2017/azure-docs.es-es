@@ -45,4 +45,4 @@ Las aplicaciones en la nube o locales híbridas son una realidad de los entornos
 - [Servicios en la nube](http://azure.microsoft.com/services/cloud-services/) 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

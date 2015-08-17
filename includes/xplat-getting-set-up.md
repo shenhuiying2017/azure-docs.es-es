@@ -1,4 +1,3 @@
-
 ## Uso de la CLI de Azure
 
 Los pasos siguientes le ayudarán a usar la CLI de Azure fácilmente con la versión más reciente y la suscripción adecuada. Si necesita instalar la CLI de Azure y conectarla primero a su cuenta, consulte la [Interfaz de línea de comandos de Azure (CLI de Azure)](xplat-cli.md).
@@ -24,4 +23,4 @@ Una vez que haya conectado la CLI de Azure a la cuenta que desee utilizar, puede
 
 > [AZURE.NOTE]Si todavía no tiene una cuenta de Azure, pero dispone de una suscripción a MSDN, puede obtener créditos gratuitos de Azure mediante la activación de sus [ventajas de suscriptor de MSDN aquí](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o puede usar la cuenta gratuita. Con cualquiera de estas opciones podrá obtener acceso a Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

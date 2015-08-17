@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="05/15/2015" 
+ ms.date="08/04/2015" 
  ms.author="krisragh"/>
 
 # Creación de programaciones complejas y periodicidad avanzada con Programador de Azure  
@@ -132,7 +132,7 @@ En la siguiente tabla se describen los elementos de _schedule_ con detalle:
 |:---|:---|:---|
 |**minutes**|Minutos de la hora en la que se ejecuta el trabajo|<ul><li>Entero o</li><li>matriz de enteros</li></ul>|
 |**hours**|Horas del día en las que se ejecuta el trabajo|<ul><li>Entero o</li><li>matriz de enteros</li></ul>|
-|**weekDays**|Días de la semana en los que se ejecutará el trabajo Solo se puede especificar con una frecuencia semanal.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" o "Sunday"</li><li>Matriz con cualquiera de los valores anteriores (tamaño máx. de matriz 7)</li></ul>_No_ distingue mayúsculas de minúsculas|
+|**weekDays**|Días de la semana en los que se ejecutará el trabajo Solo se puede especificar con una frecuencia semanal.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" o "Sunday"</li><li>Matriz con cualquiera de los valores anteriores (tamaño máx. de matriz 7)</li></ul>\_No\_ distingue mayúsculas de minúsculas|
 |**monthlyOccurrences**|Determina los días del mes en los que se ejecutará el trabajo. Solo se puede especificar con una frecuencia mensual.|<ul><li>Matriz de objetos monthlyOccurence:</li></ul> <pre>{ "day": _day_,<br /> "occurrence": _occurence_<br />}</pre><p> _day_ es el día de la semana en el que se ejecutará el trabajo; por ejemplo, {Sunday} es cada domingo del mes. Necesario.</p><p>El valor de _occurrence_ es la repetición del día durante el mes, por ejemplo, {domingo, -1} es el último domingo del mes. Opcional.</p>|
 |**monthDays**|Día del mes en el que se ejecutará el trabajo. Solo se puede especificar con una frecuencia mensual.|<ul><li>Cualquier valor < = -1 y > = -31.</li><li>Cualquier valor > = 1 y < = 31.</li><li>Una matriz de los valores anteriores</li></ul>|
 
@@ -198,4 +198,4 @@ Todas las programaciones siguientes asumen que el _intervalo_ está establecido 
  
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

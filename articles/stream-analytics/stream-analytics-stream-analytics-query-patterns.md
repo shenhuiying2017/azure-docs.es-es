@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Patrones de consulta de Análisis de transmisiones de Azure | Microsoft Azure"
-	description="Guía del lenguaje de consulta de Análisis de transmisiones de Azure"
+	description="Patrones de consulta de Análisis de transmisiones de Azure comunes"
+	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,11 +14,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/30/2015"
+	ms.date="08/03/2015"
 	ms.author="jeffstok"/>
 
 
-# Guía del lenguaje de consulta de Análisis de transmisiones de Azure #
+# Patrones de consulta de Análisis de transmisiones de Azure comunes  #
 
 ## Introducción ##
 Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje de consulta similar a SQL que se documenta [aquí](https://msdn.microsoft.com/library/azure/dn834998.aspx). En este documento se describen las soluciones para varios patrones de consulta común basados en situaciones del mundo real. Es un trabajo en curso y continuará actualizándose con nuevos patrones de forma continuada.
@@ -443,7 +444,7 @@ Usando lo que aprendimos en "Combinación externa izquierda para incluir valores
 Al componer juntas estas funciones, obtenemos la secuencia correcto -> incorrecto -> correcto sin ningún evento correcto entre medio. Ahora podemos calcular la duración entre el principio y el final de los eventos correctos, lo que nos da la duración del error.
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -454,4 +455,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,11 +1,12 @@
 <properties      
-    pageTitle="Creación de particiones en DocumentDB | Azure"      
+    pageTitle="Datos de creación de particiones en DocumentDB | Microsoft Azure"      
     description="Obtenga información sobre crear particiones de datos en DocumentDB y cuándo utilizar las particiones por búsqueda, rangos y hash."          
     services="documentdb"      
     authors="arramac"      
-    manager="johnmac"      
+    manager="jhubbard"      
     editor="monicar"      
-    documentationCenter=""/> <tags      
+    documentationCenter=""/>
+<tags      
     ms.service="documentdb"      
     ms.workload="data-services"      
     ms.tgt_pltfrm="na"      
@@ -113,4 +114,4 @@ En este artículo, hemos presentado algunas técnicas habituales para efectuar p
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

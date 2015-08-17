@@ -20,7 +20,7 @@
 
 En este tema se muestra cómo utilizar Migraciones de Entity Framework Code First para realizar cambios en el modelo de datos de una base de datos SQL de Azure existente para evitar perder datos existentes. Se asume que ya publicó el proyecto de servicio móvil en Azure, que hay datos guardados en la base de datos y que los modelos de datos remoto y local están sincronizados. En este tema también se describen los inicializadores Code First predeterminados que implementan los Servicios móviles de Azure que se usan durante el desarrollo. Estos inicializadores le permiten realizar cambios de esquema fácilmente sin usar Migraciones de Code First cuando no sea necesario para conservar los datos existentes.
 
->[AZURE.NOTE]El nombre del esquema que se usa para prefijar las tablas en la base de datos de SQL está definido por la configuración de la aplicación MS_MobileServiceName en el archivo web.config. Al descargar el proyecto de inicio desde el portal, este valor ya está establecido en el nombre del servicio móvil. Cuando el nombre del esquema coincide con el servicio móvil, varios servicios móviles pueden compartir la misma instancia de base de datos con seguridad.
+>[AZURE.NOTE]El nombre del esquema que se usa para prefijar las tablas en la base de datos de SQL está definido por la configuración de la aplicación MS\_MobileServiceName en el archivo web.config. Al descargar el proyecto de inicio desde el portal, este valor ya está establecido en el nombre del servicio móvil. Cuando el nombre del esquema coincide con el servicio móvil, varios servicios móviles pueden compartir la misma instancia de base de datos con seguridad.
 
 ## Actualización del modelo de datos
 
@@ -74,7 +74,7 @@ Los siguientes pasos sirven para activar las Migraciones y aplicar los cambios e
 
 	De esta forma, se crea una nueva migración denominada *Initial*. El código de la migración se almacena en la carpeta de proyecto de Migraciones.
 
-5. Expanda la carpeta App_Start, abra el archivo de proyecto WebApiConfig.cs y agregue las siguientes instrucciones **using**:
+5. Expanda la carpeta App\_Start, abra el archivo de proyecto WebApiConfig.cs y agregue las siguientes instrucciones **using**:
 
 		using System.Data.Entity.Migrations;
 		using todolistService.Migrations;
@@ -169,4 +169,4 @@ Este código llama al método auxiliar de extensión [AddOrUpdate] para agregar 
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

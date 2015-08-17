@@ -154,7 +154,7 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 
 2. Haga clic en cualquier lugar de la entrada de la cuenta de almacenamiento excepto en el nombre y, a continuación, haga clic en **Eliminar**.
 
-	 -O bien-
+	 \-O bien-
 
 	Haga clic en el nombre de la cuenta de almacenamiento para abrir el panel y, a continuación, haga clic en **Eliminar**.
 
@@ -167,4 +167,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

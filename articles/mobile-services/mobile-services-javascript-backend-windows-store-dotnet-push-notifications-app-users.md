@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Envío de notificaciones push a usuarios de aplicaciones universales de Windows autenticados." 
-	description="Obtenga información sobre cómo enviar notificaciones de inserción desde Servicios móviles de Azure a usuarios específicos de su aplicación universal C# de Windows." 
+	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -45,14 +45,15 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
-<ol start="5"><li><p>Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en <strong>Guardar</strong>:</p>
-<pre><code>function insert(item, user, request) {
-    // Definir una carga para la notificación del sistema de la Tienda Windows.
-    var payload = '&lt;?xml version="1.0" encoding="utf-8"?>&lt;toast>&lt;visual>' +    
-    '&lt;binding template="ToastText01">&lt;text id="1">' +
-    item.text + '&lt;/text>&lt;/binding>&lt;/visual>&lt;/toast>';
+&nbsp;&nbsp;5. Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en **Guardar**:
 
-    // Obtener el ID del usuario que ha iniciado sesión.
+	function insert(item, user, request) {
+    // Definir una carga para la notificación del sistema de la Tienda Windows.
+    var payload = '<?xml version="1.0" encoding="utf-8"?><toast><visual>' +    
+    '<binding template="ToastText01"><text id="1">' +
+    item.text + '</text></binding></visual></toast>';
+
+    // Get the ID of the logged-in user.
     var userId = user.userId;		
 
     request.execute({
@@ -71,7 +72,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
                     });
                 }
             });
-}</code></pre>
+	}
 
 &nbsp;&nbsp;Este script de inserción usa la etiqueta del identificador de usuario para enviar una notificación push (con el texto del elemento insertado) a todos los registros de aplicaciones de la Tienda Windows creados por el usuario que ha iniciado sesión.
 
@@ -97,4 +98,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Portal de administración de Azure]: https://manage.windowsazure.com/
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

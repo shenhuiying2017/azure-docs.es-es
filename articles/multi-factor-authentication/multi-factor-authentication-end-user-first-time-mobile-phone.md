@@ -39,4 +39,4 @@ Este artículo puede serle útil si desea usar el teléfono móvil como método 
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/28/2015"
 	ms.author="krisragh"/>
 
@@ -46,7 +46,7 @@ Puede seguir un sencillo inicio rápido en el Portal de administración para cre
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> <li><p>De nuevo en el Portal de administración, haga clic en la pestaña <strong>￼DATOS</strong> y luego haga clic en la tabla <strong>TodoItem</strong>. Esto le permite examinar los datos que la aplicación inserta en la tabla.<p></li></ol></p>
+<ol start="4"> <li><p>De nuevo en el Portal de administración, haga clic en la pestaña **DATOS** y luego haga clic en la tabla **TodoItem**. Esto permite examinar los datos que la aplicación inserta en la tabla.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Pasos siguientes
 Aprenda a realizar tareas adicionales importantes en Servicios móviles:
@@ -88,4 +88,4 @@ Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versión back-end de .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

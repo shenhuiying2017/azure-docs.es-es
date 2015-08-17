@@ -124,4 +124,4 @@ En el nivel **Estándar**, supervise la capacidad de respuesta de la aplicación
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

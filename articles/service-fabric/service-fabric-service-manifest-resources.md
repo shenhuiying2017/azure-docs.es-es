@@ -69,4 +69,4 @@ Service Fabric hace ACL automáticamente en los extremos HTTP.
 ```
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

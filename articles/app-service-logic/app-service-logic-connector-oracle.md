@@ -57,10 +57,10 @@ Tablas | No | Especifique las tablas de la base de datos que pueden modificarse 
 Procedimientos almacenados | No | Especifique los procedimientos almacenados en la base de datos que se pueden llamar mediante el conector. Por ejemplo, escriba *IsEmployeeEligible,CalculateOrderDiscount*.
 Funciones | No | Especifique las funciones de la base de datos que se pueden llamar mediante el conector. Por ejemplo, escriba *IsEmployeeEligible,CalculateOrderDiscount*.
 Entidades de paquete | No | Especifique los paquetes de la base de datos que se pueden llamar mediante el conector. Por ejemplo, escriba *PackageOrderProcessing.CompleteOrder,PackageOrderProcessing.GenerateBill*.
-Instrucción de datos disponibles | No | Especifique la instrucción para determinar si los datos están disponibles para el sondeo. Por ejemplo, escriba *SELECT * from table_name*.
+Instrucción de datos disponibles | No | Especifique la instrucción para determinar si los datos están disponibles para el sondeo. Por ejemplo, escriba *SELECT * from table\_name*.
 Tipo de sondeo | No | Especifique el tipo de sondeo. Los valores permitidos son "Select", "Procedure", "Function" y "Package".
-Instrucción de sondeo | No | Especifique la instrucción para sondear la base de datos del servidor de Oracle. Por ejemplo, escriba *SELECT * from table_name*.
-Instrucción de sondeo de envío | No | Especifique la instrucción para ejecutarla después del sondeo. Por ejemplo, escriba *DELETE * from table_name*.
+Instrucción de sondeo | No | Especifique la instrucción para sondear la base de datos del servidor de Oracle. Por ejemplo, escriba *SELECT * from table\_name*.
+Instrucción de sondeo de envío | No | Especifique la instrucción para ejecutarla después del sondeo. Por ejemplo, escriba *DELETE * from table\_name*.
 
 5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente: <br/> ![][1]
 
@@ -115,4 +115,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

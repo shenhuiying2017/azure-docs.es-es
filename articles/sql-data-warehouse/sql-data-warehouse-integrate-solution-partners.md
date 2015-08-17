@@ -72,6 +72,7 @@ Para obtener más información acerca de la integración con Almacenamiento de d
 [20]: ./media/sql-data-warehouse-integrate-solution-partners/targit_logo.png
 [21]: ./media/sql-data-warehouse-integrate-solution-partners/yellowfin_logo.png
 
+
 <!--Article links-->
 [Creación de soluciones integradas con Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integrate.md
 
@@ -99,4 +100,4 @@ Para obtener más información acerca de la integración con Almacenamiento de d
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

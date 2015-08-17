@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="08/03/2015"
 	ms.author="mwasson"/>
 
 
@@ -126,4 +126,4 @@ Si tiene problemas con la aplicación después de la implementación en Azure, c
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

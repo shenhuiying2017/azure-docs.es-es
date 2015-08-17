@@ -18,10 +18,10 @@ El servicio Cola contiene los siguientes componentes:
       
 La siguiente dirección URL dirige una de las colas del diagrama: http://myaccount.queue.core.windows.net/imagesToDownload
 
--**Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../articles/storage/storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento.
+\-**Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza por medio de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../articles/storage/storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento.
 
 - **Cola:** una cola contiene un conjunto de mensajes. Todos los mensajes deben encontrarse en una cola.
 
 - **Mensaje:** un mensaje, en cualquier formato, de hasta 64 KB.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

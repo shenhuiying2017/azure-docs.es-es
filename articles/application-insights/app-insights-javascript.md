@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
@@ -182,4 +182,4 @@ Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

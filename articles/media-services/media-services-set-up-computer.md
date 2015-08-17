@@ -42,4 +42,4 @@ Elija **.NET** o **API de REST** para conectarse mediante programación a los Se
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

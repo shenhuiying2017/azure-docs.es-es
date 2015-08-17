@@ -107,4 +107,4 @@ Una vez agregado a un grupo, un desarrollador puede ver los productos asociados 
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

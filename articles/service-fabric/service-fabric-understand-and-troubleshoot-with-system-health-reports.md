@@ -74,7 +74,7 @@ HealthEvents          :
 
 
 ### Caducidad del certificado
-System.FabricNode notifica de una advertencia cuando los certificados usados por el nodo están a punto de caducar. Hay tres certificados por nodo: Certificate_cluster, Certificate_server y Certificate_default_client. Cuando la fecha de caducidad es de al menos dos semanas, el tipo de informe es correcto; si la fecha de caducidad es inferior a dos semanas, el tipo de informes es de advertencia. El TTL de estos eventos es infinito, se quitan cuando el nodo deja el clúster.
+System.FabricNode notifica de una advertencia cuando los certificados usados por el nodo están a punto de caducar. Hay tres certificados por nodo: Certificate\_cluster, Certificate\_server y Certificate\_default\_client. Cuando la fecha de caducidad es de al menos dos semanas, el tipo de informe es correcto; si la fecha de caducidad es inferior a dos semanas, el tipo de informes es de advertencia. El TTL de estos eventos es infinito, se quitan cuando el nodo deja el clúster.
 
 - SourceId: System.FabricNode
 - Propiedad: comienza por "Certificate" y contiene más información sobre el tipo de certificado.
@@ -530,4 +530,4 @@ System.Hosting notifica un error si se produce un error de validación durante l
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

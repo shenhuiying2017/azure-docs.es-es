@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/16/2015"
+	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
 # Personalización del portal de desarrolladores en Administración de API de Azure
@@ -99,4 +99,4 @@ Haga clic en la página "Bienvenido" para editar lo que se muestra en la página
 [bootstrap]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

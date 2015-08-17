@@ -61,13 +61,13 @@ Puede usar Almacenamiento premium para discos de una de las siguientes maneras:
 
 Azure usa la cuenta de almacenamiento como un contenedor para el sistema operativo (SO) y los discos de datos. En otras palabras, si crea una máquina virtual de Azure serie DS y selecciona una cuenta de Almacenamiento premium de Azure, el sistema operativo y los discos de datos se almacenan en dicha cuenta de almacenamiento.
 
-Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta de Almacenamiento premium mediante un tipo de cuenta *Premium_LRS*. Para ello, puede usar el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) o la [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obtener instrucciones detalladas, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta de Almacenamiento premium mediante un tipo de cuenta *Premium\_LRS*. Para ello, puede usar el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) o la [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx). Para obtener instrucciones detalladas, consulte [Creación y uso de una cuenta de Almacenamiento Premium para discos](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Notas importantes:
 
 - Para obtener información sobre los límites de capacidad y de ancho de banda de la vista previa de las cuentas de Almacenamiento premium, consulte la sección [Objetivos de escalabilidad y rendimiento al usar Almacenamiento premium](#scalability-and-performance-targets-whes-esing-premium-storage). Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Por ejemplo, si quiere conectar discos de 51 terabytes (TB) a diferentes máquinas virtuales, distribúyalos entre dos cuentas de almacenamiento ya que 35 TB es el límite de una sola cuenta de Almacenamiento premium. Asegúrese de que una sola cuenta de Almacenamiento premium no tenga nunca más de 35 TB de discos aprovisionados.
 - De forma predeterminada, la directiva de almacenamiento en caché de los discos es "Solo lectura" para todos los discos de datos Premium y "Lectura y Escritura" para el disco de sistema operativo Premium conectado a la máquina virtual. Se recomienda esta opción de configuración para lograr el rendimiento óptimo de E/S de la aplicación. Para discos de datos de solo escritura o de gran cantidad de escritura (por ejemplo, archivos de registro de SQL Server), deshabilite el almacenamiento en caché de disco para lograr un mejor rendimiento de la aplicación.
-- Asegúrese de que hay suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco. Por ejemplo, una máquina virtual STANDARD_DS1 tiene un ancho de banda dedicado de 32 MB por segundo disponible para el tráfico de disco de Almacenamiento premium. Esto significa que un disco de Almacenamiento premium P10 conectado a esta máquina virtual solo puede tener hasta 32 MB por segundo, pero no hasta los 100 MB por segundo que puede proporcionar el disco P10. De forma similar, una máquina virtual STANDARD_DS13 puede llegar hasta 256 MB por segundo en todos los discos. Actualmente, la máquina virtual más grande de la serie DS es STANDARD_DS14 y puede proporcionar hasta 512 MB por segundo en todos los discos.
+- Asegúrese de que hay suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco. Por ejemplo, una máquina virtual STANDARD\_DS1 tiene un ancho de banda dedicado de 32 MB por segundo disponible para el tráfico de disco de Almacenamiento premium. Esto significa que un disco de Almacenamiento premium P10 conectado a esta máquina virtual solo puede tener hasta 32 MB por segundo, pero no hasta los 100 MB por segundo que puede proporcionar el disco P10. De forma similar, una máquina virtual STANDARD\_DS13 puede llegar hasta 256 MB por segundo en todos los discos. Actualmente, la máquina virtual más grande de la serie DS es STANDARD\_DS14 y puede proporcionar hasta 512 MB por segundo en todos los discos.
 
 	Tenga en cuenta que estos límites son para el tráfico de disco por sí solo, sin incluir los aciertos de caché y el tráfico de red. Hay un ancho de banda independiente disponible para el tráfico de red de máquina virtual, que es diferente del ancho de banda dedicado para discos de Almacenamiento premium. En la tabla siguiente se enumeran los valores actuales de rendimiento (ancho de banda) y E/S máximos por máquina virtual de la serie DS en todos los discos conectados a la máquina virtual:
 
@@ -314,7 +314,7 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 </tr>
 
 <tr>
-	<td rowspan="2"><strong>Oracle</strong></td>
+	<td rowspan="2"><link id="138" refid="139" url="virtual-machines-oracle-azure-virtual-machines.md">Oracle</link></td>
 	<td>6.4.</td>
 	<td></td>
 	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 necesarios </a></td>
@@ -326,6 +326,15 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 </tr>
 </tbody>
 </table>
+
+### Controladores de LIS para CentOS Openlogic
+
+Los clientes que ejecutan las máquinas virtuales de OpenLogic CentOS tienen que ejecutar el comando siguiente para instalar a los controladores más recientes:
+
+	sudo yum install microsoft-hyper-v
+
+A continuación, se le pedirá un reinicio para activar los nuevos controladores.
+
 
 
 ## Precios y facturación al usar Almacenamiento Premium
@@ -358,7 +367,7 @@ En esta sección se muestra cómo crear una cuenta de Almacenamiento premium med
 
 3.	En **Nuevo**, haga clic en **Todo**. Seleccione **Almacenamiento, caché, + copia de seguridad**. Desde allí, haga clic en **Almacenamiento** y, luego, en **Crear**.
 
-4.	En el cuadro Cuenta de almacenamiento, escriba un nombre para la cuenta de almacenamiento. Haga clic en **Nivel de precios**. En la hoja **Niveles de precios recomendados**, haga clic en **Examinar todos los niveles de precios**. En la hoja **Elegir nivel de precios**, elija **Redundancia local premium**. Haga clic en **Seleccionar**. Tenga en cuenta que la hoja **Cuenta de almacenamiento** muestra **GRS estándar** como **Nivel de precios** predeterminado. Tras hacer clic en **Seleccionar**, el **Nivel de precios** se muestra como **Premium_LRS**.
+4.	En el cuadro Cuenta de almacenamiento, escriba un nombre para la cuenta de almacenamiento. Haga clic en **Nivel de precios**. En la hoja **Niveles de precios recomendados**, haga clic en **Examinar todos los niveles de precios**. En la hoja **Elegir nivel de precios**, elija **Redundancia local premium**. Haga clic en **Seleccionar**. Tenga en cuenta que la hoja **Cuenta de almacenamiento** muestra **GRS estándar** como **Nivel de precios** predeterminado. Tras hacer clic en **Seleccionar**, el **Nivel de precios** se muestra como **Premium\_LRS**.
 
 	![Nivel de precios][Image1]
 
@@ -371,7 +380,7 @@ Para obtener un tutorial completo del entorno de Azure, consulte [Creación de u
 Este ejemplo de PowerShell muestra cómo crear una nueva cuenta de Almacenamiento premium y conectar un disco de datos que use esa cuenta a una nueva máquina virtual de Azure.
 
 1. Configure el entorno de PowerShell siguiendo los pasos que se indican en [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).
-2. Inicie la consola de PowerShell, conéctese a su suscripción y ejecute el cmdlet siguiente de PowerShell en la ventana de la consola. Tal como se muestra en la instrucción de PowerShell, deberá especificar el parámetro **Type** como **Premium_LRS** al crear una cuenta de Almacenamiento premium.
+2. Inicie la consola de PowerShell, conéctese a su suscripción y ejecute el cmdlet siguiente de PowerShell en la ventana de la consola. Tal como se muestra en la instrucción de PowerShell, deberá especificar el parámetro **Type** como **Premium\_LRS** al crear una cuenta de Almacenamiento premium.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
@@ -441,4 +450,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

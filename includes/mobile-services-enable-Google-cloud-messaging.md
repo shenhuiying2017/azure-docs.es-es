@@ -11,7 +11,7 @@
 
 3. Tome nota del número del proyecto que aparece en la sección **Projects**.
 
-	Más adelante en este tutorial, configurará este valor como la variable PROJECT_ID en el cliente.
+	Más adelante en este tutorial, configurará este valor como la variable PROJECT\_ID en el cliente.
 
 4. En la columna izquierda, expanda **API y autenticación**, haga clic en **API** y luego desplácese hacia abajo y haga clic en **mensajería en la nube para Android**. A continuación, haga clic en la página siguiente en **Enable API** y acepte los términos del servicio.
 
@@ -31,4 +31,4 @@
 
 	Usará este valor de clave de API para permitir que Azure lleve a cabo la autenticación con GCM y envíe notificaciones de inserción en nombre de su aplicación.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

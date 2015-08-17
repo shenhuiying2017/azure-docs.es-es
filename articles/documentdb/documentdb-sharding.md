@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de particiones de datos en DocumentDB con el SDK de .NET" 
+	pageTitle="Creación de particiones de datos en DocumentDB con el SDK de .NET | Microsoft Azure" 
 	description="Aprenda a usar el SDK de .NET de Azure DocumentDB para la creación de particiones (o sharding) de datos y enrutar solicitudes entre varias colecciones" 
 	services="documentdb" 
 	authors="arramac" 
@@ -30,7 +30,7 @@ Antes de profundizar más en la creación de particiones, resumamos algunos conc
 - Las colecciones son el límite para transacciones ACID; por ejemplo, procedimientos almacenados y desencadenadores.
 - Las colecciones no aplican un esquema, por lo que se pueden utilizar para documentos JSON del mismo tipo o de tipos diferentes.
 
-A partir de la versión [1.1.0 del SDK de .NET de Azure DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), puede realizar operaciones de documento directamente en una base de datos. Internamente, [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) utiliza el valor de PartitionResolver que ha especificado para la base de datos para enrutar las solicitudes a la colección adecuada.
+A partir de la versión [1\.1.0 del SDK de .NET de Azure DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), puede realizar operaciones de documento directamente en una base de datos. Internamente, [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) utiliza el valor de PartitionResolver que ha especificado para la base de datos para enrutar las solicitudes a la colección adecuada.
 
 Cada clase PartitionResolver es una implementación concreta de una interfaz [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) que tiene tres métodos: [GetPartitionKey](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) y [ResolveForRead](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx). Las consultas LINQ y los iteradores ReadFeed utilizan internamente el método ResolveForRead para recorrer en iteración todas las colecciones que coincidan con la clave de partición para la solicitud. Del mismo modo, las operaciones de creación utilizan el método ResolveForCreate para enrutar las creaciones a la partición correcta. No se requieren cambios para las operaciones Replace, Delete y Read, porque utilizan documentos que ya contienen la referencia a la colección correspondiente.
 
@@ -167,4 +167,4 @@ Puede encadenar PartitionResolvers implementando su propio valor de IPartitionRe
 * [Blog de DocumentDB sobre sugerencias de rendimiento](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

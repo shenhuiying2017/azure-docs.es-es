@@ -46,28 +46,11 @@ Una vez configurado, los usuarios pueden hacer clic en *->* y elegir una acción
 
 ![Lista de acciones del Codificador de archivos sin formato de BizTalk][5]
 
-<table>
-	<tr>
-		<th>Parámetro</th>
-		<th>Tipo</th>
-		<th>Descripción del parámetro</th>
-	</tr>
-	<tr>
-		<td>Archivos planos</td>
-		<td>cadena</td>
-		<td>Contenido del archivo sin formato de entrada</td>
-	</tr>
-	<tr>
-		<td>Nombre del esquema</td>
-		<td>cadena</td>
-		<td>Nombre del esquema que representa el archivo sin formato de entrada</td>
-	</tr>
-	<tr>
-		<td>Nombre de raíz</td>
-		<td>cadena</td>
-		<td>Nombre del nodo raíz del esquema de archivo sin formato</td>
-	</tr>
-</table>
+Parámetro|Tipo|Descripción del parámetro
+---|---|---
+Archivos planos|cadena|Contenido del archivo sin formato de entrada
+Nombre del esquema|cadena|Nombre del esquema que representa el archivo sin formato de entrada
+Nombre de raíz|cadena|Nombre del nodo raíz del esquema de archivo sin formato
 
 
 La acción devuelve la salida como una cadena: XML de salida. El XML de salida contiene la representación XML del contenido del archivo sin formato de entrada.
@@ -76,18 +59,9 @@ La acción devuelve la salida como una cadena: XML de salida. El XML de salida c
 
 ![Lista de acciones del Codificador de archivos sin formato de BizTalk][6]
 
-<table>
-	<tr>
-		<th>Parámetro</th>
-		<th>Tipo</th>
-		<th>Descripción del parámetro</th>
-	</tr>
-	<tr>
-		<td>XML de entrada</td>
-		<td>cadena</td>
-		<td>Contenido de XML de entrada</td>
-	</tr>
-</table>
+Parámetro|Tipo|Descripción del parámetro
+---|---|---
+XML de entrada|cadena|Contenido de XML de entrada
 
 La acción devuelve la salida como una cadena: archivo sin formato. La salida contiene la representación del archivo sin formato del contenido XML de entrada.
 
@@ -100,4 +74,4 @@ La acción devuelve la salida como una cadena: archivo sin formato. La salida co
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

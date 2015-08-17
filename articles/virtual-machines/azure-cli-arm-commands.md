@@ -24,7 +24,7 @@ La administración de recursos de Azure le permite crear un grupo de recursos (m
 
 ## Enfoques imperativos y declarativos
 
-Al igual que con el [modo de administración de servicio (** asm **)](../virtual-machines-command-line-tools.md), el modo **arm** de la CLI de Azure ofrece comandos que crean recursos de forma imperativa en la línea de comandos. Por ejemplo, si escribe `azure group create <groupname> <location>`, pide a Azure que cree un grupo de recursos, y con `azure group deployment create <resourcegroup> <deploymentname>` indica a Azure que cree una implementación de cualquier número de elementos y los coloque en un grupo. Dado que cada tipo de recurso tiene comandos imperativos, se pueden encadenar para crear implementaciones bastante complejas.
+Al igual que con el [modo de administración de servicio (**asm**)](../virtual-machines-command-line-tools.md), el modo **arm** de la CLI de Azure ofrece comandos que crean recursos de forma imperativa en la línea de comandos. Por ejemplo, si escribe `azure group create <groupname> <location>`, pide a Azure que cree un grupo de recursos, y con `azure group deployment create <resourcegroup> <deploymentname>` indica a Azure que cree una implementación de cualquier número de elementos y los coloque en un grupo. Dado que cada tipo de recurso tiene comandos imperativos, se pueden encadenar para crear implementaciones bastante complejas.
 
 Sin embargo, el uso del grupo de recursos de _plantillas_ que describe un grupo de recursos es un enfoque declarativo mucho más eficaz, lo que permite automatizar implementaciones complejas de (casi) cualquier número de recursos para (casi) cualquier propósito. Cuando se usen plantillas, el único comando imperativo es implementar uno. Para obtener una descripción general de las plantillas, los recursos y grupos de recursos, vea [Información general del grupo de recursos de Azure](resource-groups-overview).
 
@@ -1737,4 +1737,4 @@ Opciones de parámetro:
 	vm image list [options] <location> <publisher> [offer] [sku]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

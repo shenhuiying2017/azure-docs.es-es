@@ -57,4 +57,4 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Este proyecto contiene plantillas para spouts, bolts y topologías para interactuar con distintos servicios de Azure como Centros de eventos, DocumentDB y Base de datos SQL."
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

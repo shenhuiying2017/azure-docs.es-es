@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones de Microsoft
@@ -29,23 +29,23 @@ Esta versión contiene las siguientes actualizaciones.
 </tr>
 <tr>
 <td>Identificador de organización de BI energía desacoplado del identificador de Azure</td>
-<td>Esta característica habilita la salida de Power BI para trabajos de ASA en cualquier tipo de cuenta de Azure (Live Id o Id. de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.</td>
+<td>Esta característica habilita la <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/">salida de Power BI</a> para trabajos de ASA en cualquier tipo de cuenta de Azure (Live ID o Id. de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.</td>
 </tr>
 <tr>
 <td>Compatibilidad con la salida de Colas del Bus de servicio</td>
-<td>Las salidas de Colas del Bus de servicio ahora están disponibles en los trabajos de Análisis de transmisiones.</td>
+<td>Las salidas de <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-queues">Colas de Bus de servicio</a> ahora están disponibles en los trabajos de Análisis de transmisiones.</td>
 </tr>
 <tr>
 <td>Compatibilidad con la salida de Temas del Bus de servicio</td>
-<td>Las salidas de Temas del Bus de servicio ahora están disponibles en trabajos de Análisis de transmisiones.</td>
+<td>Las salidas de <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-topics">Temas de Bus de servicio</a> ahora están disponibles en trabajos de Análisis de transmisiones.</td>
 </tr>
 <tr>
 <td>Nuevas funciones de matriz</td>
-<td>Se agregaron las funciones de matriz GetArrayElement, GetArrayElements y GetArrayLength</td>
+<td>Se agregaron las funciones de matriz <a href="https://msdn.microsoft.com/library/azure/mt270218.aspx">GetArrayElement</a>, <a href="https://msdn.microsoft.com/library/azure/mt298451.aspx">GetArrayElements</a> y <a href="https://msdn.microsoft.com/library/azure/mt270226.aspx">GetArrayLength</a></td>
 </tr>
 <tr>
 <td>Nuevas funciones de registro</td>
-<td>Se agregaron las funciones de registro GetRecordProperties y GetRecordPropertyValue</td>
+<td>Se agregaron las funciones de registro <a href="https://msdn.microsoft.com/library/azure/mt270221.aspx">GetRecordProperties</a> y <a href="https://msdn.microsoft.com/library/azure/mt270220.aspx">GetRecordPropertyValue</a></td>
 </tr>
 </table>
 
@@ -141,7 +141,7 @@ Esta versión contiene las siguientes actualizaciones.
 </table>
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -152,4 +152,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

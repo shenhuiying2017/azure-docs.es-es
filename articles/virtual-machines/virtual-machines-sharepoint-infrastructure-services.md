@@ -63,4 +63,4 @@ Consulte estos recursos para obtener información y configuraciones adicionales 
 
 - [Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

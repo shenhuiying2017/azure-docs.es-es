@@ -122,4 +122,4 @@ Para obtener más información sobre Azure AD Connect, consulte [Introducción a
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -36,7 +36,7 @@ Este tema se basa en la aplicación que creó en [Introducción a los Centros de
 
 El primer paso es agregar los elementos de la interfaz de usuario a la actividad principal existente que permiten al usuario seleccionar las categorías para registrar. Las categorías seleccionadas por un usuario se almacenan en el dispositivo. Cuando la aplicación se inicia, se crea un registro de dispositivos en el Centro de notificaciones con las categorías seleccionadas como etiquetas.
 
-1. Abra el archivo res/layout/activity_main.xml y sustituya el contenido por lo siguiente:
+1. Abra el archivo res/layout/activity\_main.xml y sustituya el contenido por lo siguiente:
 			
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
@@ -96,7 +96,7 @@ El primer paso es agregar los elementos de la interfaz de usuario a la actividad
 	    <string name="label_science">Science</string>
 	    <string name="label_sports">Sports</string>
 
-	El diseño gráfico main_activity.xml ahora debe tener un aspecto como este:
+	El diseño gráfico main\_activity.xml ahora debe tener un aspecto como este:
 
 	![][A1]
 
@@ -319,4 +319,4 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

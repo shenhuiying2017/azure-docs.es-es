@@ -38,7 +38,7 @@ Los son los valores de configuración predeterminados que pueden afectar al rend
 
 | Configuración | Qué hace | Valor predeterminado |
 | ------- | ------------ | ------------- |
-| [yarn.scheduler.capacity.maximum-applications][maximum-applications] | El número máximo de trabajos que pueden estar activos de manera simultánea (pendientes o en ejecución) | 10.000 |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] | El número máximo de trabajos que pueden estar activos de manera simultánea (pendientes o en ejecución) | 10\.000 |
 | [templeton.exec.max-procs][max-procs] | El número máximo de solicitudes que se pueden atender de manera simultánea | 20 | |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] | El número de días que se conservará el historial de trabajos | 7 días |
 
@@ -85,4 +85,4 @@ Los son los valores de configuración predeterminados que pueden afectar al rend
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

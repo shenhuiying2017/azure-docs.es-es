@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="Configurar y registrar el dispositivo"
+   description="Se explica cómo usar Windows PowerShell para StorSimple para configurar y registrar un dispositivo de StorSimple que ejecuta la Actualización 1."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/22/2015"
+   ms.author="alkohli" />
+
 
 ### Para configurar y registrar el dispositivo
 
@@ -90,7 +107,7 @@
 
      `Set-CloudPlatform -AzureGovt_US`
 
-    Aparecerá un mensaje de confirmación. Acepte el valor predeterminado (** Y **).
+    Aparecerá un mensaje de confirmación. Acepte el valor predeterminado (**Y**).
 
 11. Ejecute el siguiente cmdlet para reanudar la instalación:
 
@@ -133,4 +150,4 @@
      
         
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

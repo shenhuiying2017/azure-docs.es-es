@@ -168,4 +168,4 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

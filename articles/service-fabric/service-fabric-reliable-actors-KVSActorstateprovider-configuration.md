@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Descripción general de la configuración ";KVSActorStateProvider"; de los actores confiables de Service Fabric"
-   description="Obtenga información sobre cómo configurar los actores con estado de Service Fabric de tipo ";KVSActorStateProvider";"
+   pageTitle="Descripción general de la configuración &quot;KVSActorStateProvider&quot; de los actores confiables de Service Fabric"
+   description="Obtenga información sobre cómo configurar los actores con estado de Service Fabric de tipo &quot;KVSActorStateProvider&quot;"
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -84,4 +84,4 @@ Las configuraciones de almacén se usan para configurar el almacén local que se
 BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones). Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -127,4 +127,4 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

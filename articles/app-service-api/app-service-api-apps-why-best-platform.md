@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/30/2015" 
 	ms.author="tdykstra"/>
 
 # ¿Qué son las Aplicaciones de API?
@@ -76,4 +76,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Modelo de recursos y conceptos de DocumentDB | Azure" 
+	pageTitle="Modelo de recursos y conceptos de DocumentDB | Microsoft Azure" 
 	description="DocumentDB de Microsoft Azure es una base de datos de documentos NoSQL totalmente administrada que usa un modelo jerárquico de cuentas de base de datos, bases de datos, colecciones, procedimientos almacenados, desencadenadores, funciones definidas por el usuario, documentos, datos adjuntos, medios, usuarios y permisos para administrar los recursos."  
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
 #Modelo de recursos y conceptos de DocumentDB
@@ -434,7 +434,7 @@ Considere una aplicación de lectura social que utilice la Base de datos de docu
 
 Tenga en cuenta que los ejemplos usan identificadores sencillos para transmitir la jerarquía de recursos. Se obtiene acceso a los recursos mediante las API REST a través de los identificadores de recurso únicos.
 
-Para los archivos multimedia gestionados por DocumentDB, la propiedad _media del dato adjunto hará referencia al archivo multimedia por su URI. DocumentDB garantizará la recolección de archivos multimedia no utilizados cuando se anulen todas las referencias pendientes. DocumentDB genera automáticamente el dato adjunto cuando carga nuevos archivos multimedia y completa _media para señalar al nuevo archivo multimedia agregado. Si selecciona almacenar el archivo multimedia en un almacén blob remoto que lo gestiona usted (por ejemplo, OneDrive, Azure Storage, DropBox etc), puede seguir utilizando los datos adjuntos para hacer referencia a los archivos multimedia. En este caso, creará los datos adjuntos usted mismo y rellenará la propiedad _media. 
+Para los archivos multimedia gestionados por la Base de datos de documentos, la propiedad \_media del dato adjunto hará referencia al archivo multimedia por su URI. La Base de datos de documentos garantizará la recolección de archivos multimedia no utilizados cuando se anulen todas las referencias pendientes. La Base de datos de documentos genera automáticamente el dato adjunto cuando carga nuevos archivos multimedia y completa \_media para señalar al nuevo archivo multimedia agregado. Si selecciona almacenar el archivo multimedia en un almacén blob remoto que lo gestiona usted (por ejemplo, OneDrive, Azure Storage, DropBox etc), puede seguir utilizando los datos adjuntos para hacer referencia a los archivos multimedia. En este caso, creará los datos adjuntos usted mismo y rellenará la propiedad \_media.
 
 Como con el resto de recursos, se pueden crear, reemplazar, eliminar, leer o enumerar datos adjuntos fácilmente mediante las API REST o con cualquier SDK de cliente. Como con los documentos, el nivel de coherencia de lectura de datos adjuntos sigue la Directiva de coherencia en la cuenta de base de datos. Esta directiva se puede reemplazar en función de la solicitud dependiendo de los requisitos de coherencia de datos de su aplicación. Al consultar datos adjuntos, la coherencia de lectura sigue el modo de indexación establecido en la colección. Para ser "coherente", sigue la Directiva de coherencia de la cuenta. 
  
@@ -473,4 +473,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

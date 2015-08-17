@@ -2,6 +2,7 @@
 	pageTitle="Envío de consultas de Hive a clústeres de Hadoop en la tecnología y procesos de análisis avanzado | Microsoft Azure"
 	description="Procese datos de las tablas de subárbol con consultas de subárbol."
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -106,7 +107,7 @@ Los usuarios también pueden generar resultados de consulta de subárbol en un b
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un directorio de blob `queryoutputdir` dentro del contenedor predeterminado del clúster de Hadoop. Aquí solo debe proporcionar el nombre del directorio, sin el nombre del blob. Se producirá un error si indica a la vez los nombres de directorio y de blob, como *wasb:///queryoutputdir/queryoutput.txt*.
+En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un directorio de blob `queryoutputdir` dentro del contenedor predeterminado del clúster de Hadoop. Aquí solo debe proporcionar el nombre del directorio, sin el nombre del blob. Se producirá un error si indica a la vez los nombres de directorio y de blob, como **wasb:///queryoutputdir/queryoutput.txt*.
 
 ![Creación del espacio de trabajo][13]
 
@@ -219,7 +220,7 @@ En este ejemplo, las variables `smooth_param1` y `smooth_param2` se establecen p
 
 Después de calcularse la tabla de riesgos, los usuarios pueden asignar valores de riesgo a una tabla uniéndola a la tabla de riesgo. La consulta de combinación de subárbol se ha proporcionado en la sección anterior.
 
-###<a name="hive-datefeatures"></a>Extraer características de campos de fecha y hora
+###<a name="hive-datefeatures"></a>Extracción de características de campos de fecha y hora
 
 El subárbol se incluye con un conjunto de UDF para el procesamiento de campos de fecha y hora. En el subárbol, el formato de fecha y hora predeterminado es 'aaaa-MM-dd 00:00:00 ' ('1970-01-01 12:21:32' por ejemplo). En esta sección mostramos ejemplos que extraen el día de un mes, el mes de un campo de fecha y hora, y otros ejemplos que convierten una cadena de fecha y hora en un formato distinto del predeterminado en una cadena de fecha y hora en el formato predeterminado.
 
@@ -248,11 +249,11 @@ Cuando la tabla de subárbol tiene un campo de texto que contiene una cadena de 
     	select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
 		from <databasename>.<tablename>;
 
-###<a name="hive-gpsdistance"></a>Calcular distancias entre conjuntos de coordenadas GPS
+###<a name="hive-gpsdistance"></a>Cálculo de la distancia entre conjuntos de coordenadas de GPS
 
 La consulta proporcionada en esta sección puede aplicarse directamente a los datos de carreras de taxi de Nueva York. El propósito de esta consulta es mostrar cómo aplicar una función matemática incrustada en el subárbol para generar características.
 
-Los campos que se utilizan en esta consulta son las coordenadas GPS de ubicaciones de recogida y entrega, denominadas *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* y *dropoff\_latitude*. Las consultas que calculan la distancia directa entre las coordenadas de recogida y entrega son:
+Los campos que se usan en esta consulta son las coordenadas GPS de ubicaciones de recogida y entrega, denominadas *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* y *dropoff\_latitude*. Las consultas que calculan la distancia directa entre las coordenadas de recogida y entrega son:
 
 		set R=3959;
 		set pi=radians(180);
@@ -274,7 +275,7 @@ Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS 
 
 ![Creación del espacio de trabajo][1]
 
-Se puede encontrar una lista completa de los UDF incrustados en Hive en la sección **Built-in Functions** (Funciones integradas) de la <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki de Hive de Apache</a>.
+Se puede encontrar una lista completa de los UDF insertados en Hive en la sección **Built-in Functions** (Funciones integradas) de la <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki de Hive de Apache</a>.
 
 ## <a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
 
@@ -302,7 +303,7 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
 	Normalmente, el valor predeterminado de *mapred.min.split.size* es 0, el de *mapred.max.split.size* es **Long.MAX** y de *dfs.block.size* es 64 MB. Como podemos ver, dado el tamaño de los datos, el ajuste de estos parámetros mediante su "configuración" nos permite optimizar el número de asignadores que se usan.
 
-5. A continuación se mencionan algunas otras **opciones avanzadas** más para optimizar el rendimiento del subárbol. Estas permiten establecer la memoria asignada para asignar y reducir tareas, y pueden ser útiles para modificar el rendimiento. Tenga en cuenta que el valor de *mapreduce.reduce.memory.mb* no puede ser mayor que el tamaño de la memoria física de cada nodo de trabajo del clúster de Hadoop.
+5. A continuación se mencionan algunas otras **opciones avanzadas** más para optimizar el rendimiento de Hive. Estas permiten establecer la memoria asignada para asignar y reducir tareas, y pueden ser útiles para modificar el rendimiento. Tenga en cuenta que el valor de *mapreduce.reduce.memory.mb* no puede ser mayor que el tamaño de la memoria física de cada nodo de trabajo del clúster de Hadoop.
 
 		set mapreduce.map.memory.mb = 2048;
 		set mapreduce.reduce.memory.mb=6144;
@@ -319,4 +320,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

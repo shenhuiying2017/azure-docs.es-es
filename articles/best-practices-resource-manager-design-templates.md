@@ -245,7 +245,7 @@ La plantilla de recursos opcionales contiene los recursos que se implementan med
 
 **Plantilla de recursos opcionales**
 
-Por ejemplo, puede usar una plantilla de recursos opcionales para configurar un Jumpbox que permita el acceso indirecto a un entorno implementado desde la Internet pública. Usaría un parámetro o una variable para determinar si debe habilitarse el Jumpbox y la función *concat* para crear el nombre de destino de la plantilla, por ejemplo *jumpbox_enabled.json*. La vinculación de plantillas usaría la variable resultante para instalar el Jumpbox.
+Por ejemplo, puede usar una plantilla de recursos opcionales para configurar un Jumpbox que permita el acceso indirecto a un entorno implementado desde la Internet pública. Usaría un parámetro o una variable para determinar si debe habilitarse el Jumpbox y la función *concat* para crear el nombre de destino de la plantilla, por ejemplo *jumpbox\_enabled.json*. La vinculación de plantillas usaría la variable resultante para instalar el Jumpbox.
 
 Puede vincular la plantilla de recursos opcionales desde varios lugares:
 
@@ -309,7 +309,7 @@ Crea una plantilla principal denominada azuredeploy.json.
 
 Crea una plantilla de recursos compartidos denominada resources.json.
 
-Crea una plantilla de recursos opcionales para permitir la implementación de un Jumpbox, denominada jumpbox_enabled.json.
+Crea una plantilla de recursos opcionales para permitir la implementación de un Jumpbox, denominada jumpbox\_enabled.json.
 
 Redis usará un solo tipo de nodo, así que creará una sola plantilla de recursos de miembros denominada node-resources.json.
 
@@ -319,9 +319,9 @@ Con Redis, instalará cada nodo individual y, luego, una vez instalados todos lo
 
 Mediante la vinculación de plantillas, la plantilla principal se vincula con la plantilla de recursos compartidos, que establece la red virtual.
 
-La lógica se agrega en la plantilla principal para permitir que los consumidores de la plantilla especifiquen si se debe implementar un Jumpbox. Un valor *habilitado* para el parámetro *EnableJumpbox* indica que el cliente desea implementar un Jumpbox. Cuando se proporciona este valor, la plantilla concatena *_habilitado* como sufijo con un nombre de plantilla base para la funcionalidad de Jumpbox.
+La lógica se agrega en la plantilla principal para permitir que los consumidores de la plantilla especifiquen si se debe implementar un Jumpbox. Un valor *habilitado* para el parámetro *EnableJumpbox* indica que el cliente desea implementar un Jumpbox. Cuando se proporciona este valor, la plantilla concatena *\_habilitado* como sufijo con un nombre de plantilla base para la funcionalidad de Jumpbox.
 
-La plantilla principal aplica el valor del parámetro *large* como sufijo a un nombre de plantilla base de tamaños de camiseta y luego usa ese valor en un vínculo de plantilla a *technology_on_os_large.json*.
+La plantilla principal aplica el valor del parámetro *large* como sufijo a un nombre de plantilla base de tamaños de camiseta y luego usa ese valor en un vínculo de plantilla a *technology\_on\_os\_large.json*.
 
 La topología sería similar a esta ilustración.
 
@@ -378,7 +378,7 @@ Si desea publicar la plantilla en Marketplace, simplemente establezca distintas 
 ## Pasos siguientes
 
 - Para ver ejemplos contextuales de cómo implementar los principios de diseño presentados en este tema, consulte [Ejemplos contextuales de prácticas recomendadas para implementar plantillas](best-practices-resource-manager-examples.md).
-- Para obtener recomendaciones acerca de cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones sobre seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md)
-- Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Compartir el estado en plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
+- Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
+- Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

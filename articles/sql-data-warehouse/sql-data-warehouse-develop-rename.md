@@ -17,7 +17,7 @@
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Cambio de nombre en el Almacenamiento de datos SQL
-SQL Server admite cambiar el nombre de objetos y bases de datos mediante el procedimiento almacenado sp_rename y sp_renamedb, respectivamente.
+SQL Server admite cambiar el nombre de objetos y bases de datos mediante el procedimiento almacenado sp\_rename y sp\_renamedb, respectivamente.
 
 El Almacenamiento de datos SQL usa la sintaxis DDL para lograr el mismo objetivo. Los comandos DDL son RENAME OBJECT y RENAME DATABASE.
 
@@ -80,4 +80,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

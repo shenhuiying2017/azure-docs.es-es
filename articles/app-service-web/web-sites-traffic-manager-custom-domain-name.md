@@ -49,13 +49,13 @@ Para asociar su dominio personalizado con una aplicación web del Servicio de ap
 
 1. Inicie sesión en su cuenta en el registrador de dominios y busque la página de administración de los registros DNS. Busque los vínculos o áreas del sitio etiquetados como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**. A menudo se puede encontrar un vínculo a esta página al consultar la información de la cuenta y al buscar un vínculo como **Mis dominios**.
 
-4. Cuando haya encontrado la página de administración para su nombre de dominio, busque un vínculo que le permita modificar los registros DNS. Debe aparecer como **archivo Zona**, **Registros DNS** o un vínculo de configuración a **Opciones avanzadas**.
+4. Cuando haya encontrado la página de administración para su nombre de dominio, busque un vínculo que le permita modificar los registros DNS. Debe aparecer como **Zone file**, **DNS Records** o un vínculo de configuración a las opciones avanzadas (**Advanced**).
 
-	* Esta página seguramente mostrará algunos que ya se han creado, como una entrada en la que se asocia "**@**" o "*" a una página donde figuran los dominios. También es posible que contenga registros para los subdominios más comunes, como **www**.
+	* Esta página seguramente mostrará algunos que ya se han creado, como una entrada en la que se asocia "**@**" o "*" a una página donde figuran los dominios. Es posible también que contenga registros para los subdominios más comunes, como **www**.
 	* Esta página mencionará los **registros CNAME**, o bien facilitará una lista desplegable donde podrá seleccionar un tipo de registro. También es posible que mencione otros registros, como los **registros A** y los **registros MX**. En algunos casos, los registros CNAME tendrán otros nombres, como **Registro de Alias**.
 	* Esta página contendrá también campos que le permiten **asignar** desde un **nombre de host** o un **nombre de dominio** hasta otro nombre de dominio.
 
-5. Aunque los detalles varían en función del registrador que se esté utilizando, en general se asigna *desde* el nombre del dominio personalizado (como **contoso.com**) *hasta* el nombre de dominio del Administrador de tráfico (**contoso.azurewebsites.net**) usado para la aplicación web.
+5. Aunque los detalles varían en función del registrador que se esté utilizando, en general se asigna *desde* el nombre del dominio personalizado (como **contoso.com**,) *hasta* el nombre de dominio del Administrador de tráfico (**contoso.trafficmanager.net**) usado para la aplicación web.
 
 6. Una vez que haya terminado de agregar o modificar registros DNS en su registrador, guarde los cambios.
 
@@ -70,4 +70,4 @@ Para asociar su dominio personalizado con una aplicación web del Servicio de ap
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

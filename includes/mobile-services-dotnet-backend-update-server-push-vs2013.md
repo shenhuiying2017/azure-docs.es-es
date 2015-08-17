@@ -46,4 +46,4 @@ Con estos pasos se crea un nuevo [ApiController](http://go.microsoft.com/fwlink/
 
 	>[AZURE.NOTE]Se puede llamar a este método POST con cualquier cliente que tenga la clave de la aplicación, que no es segura. Si quiere proteger el extremo, aplique el atributo `[AuthorizeLevel(AuthorizationLevel.User)]` al método o la clase para requerir autenticación.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

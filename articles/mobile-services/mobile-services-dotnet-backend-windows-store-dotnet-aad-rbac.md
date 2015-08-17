@@ -392,4 +392,4 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 [Acceso a información de Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

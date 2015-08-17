@@ -88,7 +88,7 @@ Si nunca ha usado API personalizadas con Servicios móviles, debería revisar el
             });
         }
 
-    Dados los valores de *tenant_domain*, *client id* de la aplicación integrada y *key* de la aplicación, esta función proporciona un token de acceso a Graph que se usa para leer información de directorios.
+    Dados los valores de *tenant\_domain*, *client id* de la aplicación integrada y *key* de la aplicación, esta función proporciona un token de acceso a Graph que se usa para leer información de directorios.
 
 4. Agregue la siguiente función `getUser`, que usa la API Graph para devolver la información del usuario.
 
@@ -182,4 +182,4 @@ En el próximo tutorial, [Control de acceso basado en roles con Azure Active Dir
 [Control de acceso basado en roles con Azure Active Directory en Servicios móviles]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Blog del equipo de Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

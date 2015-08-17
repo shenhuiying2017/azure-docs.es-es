@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Compilación de una aplicación web con ASP.NET MVC usando DocumentDB | Azure" 
+	pageTitle="Compilación de una aplicación web con ASP.NET MVC usando DocumentDB | Microsoft Azure" 
 	description="Aprenda a usar DocumentDB con .NET para crear una aplicación web de lista de tareas pendientes. Podrá almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Sitios web Azure." 
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -630,7 +630,7 @@ Si desea para ahorrar tiempo y simplemente desea crear la solución de lista tod
 
 3. Para restaurar las referencias al SDK de .NET de DocumentDB de Visual Studio 2013, haga clic con el botón secundario en la solución todo en el **Explorador de soluciones** y, a continuación haga clic en **Habilitar la restauración del paquete NuGet**, que restaurará las referencias.
 
-4. Recupere los valores **URI** y **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja **Clave**s de su cuenta de DocumentDB en el [Portal de vista previa de Azure](https://portal.azure.com/).
+4. Recupere los valores **URI** y **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja **Claves** de su cuenta de DocumentDB en el [Portal de vista previa de Azure](https://portal.azure.com/).
 
 	
 	Si no dispone de una cuenta, consulte [Creación de una cuenta de base de datos](documentdb-create-account.md) para configurar una.
@@ -658,4 +658,4 @@ Si desea para ahorrar tiempo y simplemente desea crear la solución de lista tod
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

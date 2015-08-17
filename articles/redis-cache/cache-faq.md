@@ -38,56 +38,15 @@ Si la memoria caché tiene un alto rendimiento, elija el tamaño de 1 GB o mayor
 
 En la tabla siguiente se muestran los valores máximos del ancho de banda observados durante la comprobación de los diversos tamaños de Caché en Redis de Azure mediante `redis-benchmark.exe` desde una máquina virtual de Iaas en el extremo de Caché en Redis de Azure. Tenga en cuenta que estos valores no se garantizan y no hay ningún SLA para estos números, pero deben ser los habituales. Debe realizar la prueba de carga de su propia aplicación para determinar el tamaño adecuado de caché para la aplicación.
 
-<table>
-  <tr>
-    <th>Nombre de caché</th>
-    <th>Tamaño de caché</th>
-    <th>Get/s (llamadas GET simples de 1 kB valores)</th>
-    <th>Ancho de banda (MBits/s)</th>
-  </tr>
-  <tr>
-    <td>C0</td>
-    <td>250 MB</td>
-    <td>610</td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td>C1</td>
-    <td>1 GB</td>
-    <td>12.200</td>
-    <td>100</td>
-  </tr>
-  <tr>
-    <td>C2</td>
-    <td>2,5 GB</td>
-    <td>24.300</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>C3</td>
-    <td>6 GB</td>
-    <td>48.875</td>
-    <td>400</td>
-  </tr>
-  <tr>
-    <td>C4</td>
-    <td>13 GB</td>
-    <td>61.350</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>C5</td>
-    <td>26 GB</td>
-    <td>112.275</td>
-    <td>1000</td>
-  </tr>
-  <tr>
-    <td>C6</td>
-    <td>53 GB</td>
-    <td>153.219</td>
-    <td>Más de 1.000</td>
-  </tr>
-</table>
+Nombre de caché|Tamaño de caché|Get/s (llamadas GET simples de 1 kB valores)|Ancho de banda (MBits/s)
+---|---|---|---
+C0|250 MB|610|5
+C1|1 GB|12\.200|100
+C2|2,5 GB|24\.300|200
+C3|6 GB|48\.875|400
+C4|13 GB|61\.350|500
+C5|26 GB|112\.275|1000
+C6|53 GB|153\.219|Más de 1.000
 
 Para obtener instrucciones acerca de cómo descargar las herramientas de Redis como `redis-benchmark.exe`, consulte la sección [¿Cómo puedo ejecutar los comandos de Redis?](#cache-commands).
 
@@ -99,7 +58,7 @@ Para obtener el mejor rendimiento y la latencia más baja, busque Caché en Redi
 <a name="cache-billing"></a>
 ## ¿Cómo me facturan por la Caché en Redis de Azure?
 
-Los precios de la Caché en Redis de Azure están[aquí](http://azure.microsoft.com/pricing/details/cache/). La página de precios muestra los precios por hora. Las memorias caché se facturan por minuto desde el momento en que se crea la memoria caché hasta el momento en que se elimina una memoria caché. No hay ninguna opción de detener o pausar la facturación de una memoria caché.
+Los precios de la Caché en Redis de Azure están [aquí](http://azure.microsoft.com/pricing/details/cache/). La página de precios muestra los precios por hora. Las memorias caché se facturan por minuto desde el momento en que se crea la memoria caché hasta el momento en que se elimina una memoria caché. No hay ninguna opción de detener o pausar la facturación de una memoria caché.
 
 <a name="cache-timeouts"></a>
 ## ¿Por qué estoy viendo los tiempos de expiración?
@@ -134,28 +93,11 @@ A continuación se indican algunas razones habituales por las que se desconecta 
 
 StackExchange.Redis tiene muchas opciones. En esta sección se describen algunas de las configuraciones comunes. Para obtener más información acerca de las opciones de StackExchange.Redis, consulte [Configuración de StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md).
 
-<table>
-  <tr>
-    <th>ConfigurationOptions</th>
-    <th>Descripción</th>
-    <th>Recomendación</th>
-  </tr>
-  <tr>
-    <td>AbortOnConnectFail</td>
-    <td>Cuando se establece en true, la conexión no se volverá a conectar después de un error de red.</td>
-    <td>Establézcalo en false y deje que StackExchange.Redis se vuelva a conectar automáticamente.</td>
-  </tr>
-  <tr>
-    <td>ConnectRetry</td>
-    <td>El número de veces que se repiten los intentos de conexión durante la conexión inicial.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>ConnectTimeout</td>
-    <td>Tiempo de espera en milisegundos para operaciones de conexión.</td>
-    <td></td>
-  </tr>
-</table>
+ConfigurationOptions|Descripción|Recomendación
+---|---|---
+AbortOnConnectFail|Cuando se establece en true, la conexión no se volverá a conectar después de un error de red.|Establézcalo en false y deje que StackExchange.Redis se vuelva a conectar automáticamente.
+ConnectRetry|El número de veces que se repiten los intentos de conexión durante la conexión inicial.||
+ConnectTimeout|Tiempo de espera en milisegundos para operaciones de conexión.|
 
 En la mayoría de los casos los valores predeterminados del cliente son suficientes. Puede ajustar las opciones en función de la carga de trabajo.
 
@@ -209,7 +151,7 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 <a name="cache-commands"></a>
 ## ¿Cómo puedo ejecutar comandos de Redis?
 
-Puede usar cualquiera de los comandos enumerados en los [comandos de Redis](http://redis.io/commands#) salvo los comandos mostrados en [No se admiten comandos de Redis en Caché en Redis de Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Para ejecutar los comandos de Redis tiene varias opciones.
+Puede usar cualquiera de los comandos enumerados en [Comandos de Redis](http://redis.io/commands#), excepto los comandos mostrados en [No se admiten comandos de Redis en Caché en Redis de Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Para ejecutar los comandos de Redis tiene varias opciones.
 
 -	Si tiene una caché estándar, puede ejecutar comandos de Redis mediante la [consola de Redis](cache-configure.md#redis-console). Esto ofrece una manera segura de ejecutar comandos de Redis en el portal de Azure.
 -	Use las herramientas de línea de comandos de Redis. Para usarlas, realizará los siguientes pasos.
@@ -233,4 +175,4 @@ Caché en Redis de Microsoft Azure se basa en la popular Caché de Redis de cód
 
 Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; en cambio, cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales en Azure.com que muestra cómo empezar a trabajar con Caché en Redis de Azure con distintos idiomas y clientes de la caché en la página [Documentación de Caché de Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

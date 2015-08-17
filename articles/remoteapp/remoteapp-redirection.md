@@ -2,6 +2,7 @@
     pageTitle="Uso del redireccionamiento de RemoteApp de Azure" 
     description="Obtenga información acerca de cómo configurar y usar el redireccionamiento en RemoteApp" 
     services="remoteapp" 
+    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -83,7 +84,7 @@ Utilice el siguiente cmdlet para habilitar el redireccionamiento USB en el nivel
 Para configurar el redireccionamiento USB en su equipo:
 
 1. Abra el Editor de directivas de grupo local (GPEDIT. MSC). (Ejecute gpedit.msc desde un símbolo del sistema de comando).
-2. Abra **Configuración del equipo\Directivas\Plantillas administrativas\Componentes Windows\Servicios de escritorio remoto\Cliente de conexión de escritorio remoto\Redireccionamiento de dispositivo USB RemoteFX**.
+2. Abra **Configuración del equipo\\Directivas\\Plantillas administrativas\\Componentes Windows\\Servicios de escritorio remoto\\Cliente de conexión de escritorio remoto\\Redireccionamiento de dispositivo USB RemoteFX**.
 3. Haga doble clic en **Permitir el redireccionamiento RDP de otros dispositivos USB RemoteFX compatibles desde este equipo**.
 4. Seleccione **Habilitado**, y, a continuación, seleccione **Administradores y usuarios en los derechos de acceso de redireccionamiento de RemoteFX USB**.
 5. Abra un símbolo del sistema de comandos con permisos administrativos y ejecute el siguiente comando: 
@@ -97,9 +98,9 @@ También puede utilizar la herramienta de administración de directivas de grupo
 2. Abra la consola de administración de directivas de grupo. (Haga clic en **Inicio > Herramientas administrativas > Administración de directivas de grupo**).
 3. Navegue hasta el dominio o unidad organizativa para la que desea crear la directiva.
 4. Haga clic con el botón derecho en **Directiva de dominio predeterminada** y, a continuación, haga clic en **Editar**.
-5. Abra **Configuración del equipo\Directivas\Plantillas administrativas\Componentes Windows\Servicios de escritorio remoto\Cliente de conexión de escritorio remoto\Redireccionamiento de dispositivo USB RemoteFX**.
+5. Abra **Configuración del equipo\\Directivas\\Plantillas administrativas\\Componentes Windows\\Servicios de escritorio remoto\\Cliente de conexión de escritorio remoto\\Redireccionamiento de dispositivo USB RemoteFX**.
 6. Haga doble clic en **Permitir el redireccionamiento RDP de otros dispositivos USB RemoteFX compatibles desde este equipo**.
 7. Seleccione **Habilitado** y, a continuación, seleccione **Administradores y usuarios en los derechos de acceso de redireccionamiento USB RemoteFX**.
 8. Haga clic en **Aceptar**.  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

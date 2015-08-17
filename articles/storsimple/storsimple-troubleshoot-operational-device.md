@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # Solución de problemas de un dispositivo de StorSimple operativo
@@ -63,4 +63,4 @@ Los errores se muestran en orden numérico.
 
 Si no puede resolver el problema, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para obtener ayuda.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

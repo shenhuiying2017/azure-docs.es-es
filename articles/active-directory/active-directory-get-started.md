@@ -44,4 +44,4 @@ Azure AD proporciona una serie de informes para los administradores. Hay aún m�
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

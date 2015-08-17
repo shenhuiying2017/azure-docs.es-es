@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="07/31/2015" 
+	ms.author="bradyg"/>
 
 # Implementación de una aplicación de API en el Servicio de aplicaciones de Azure 
 
@@ -92,4 +92,4 @@ En esta sección, verá la configuración básica disponible para las aplicacion
 Ha visto cómo las capacidades de implementación directa en Visual Studio facilitan la iteración y la implementación rápida y prueban que la API funcione correctamente. En el [siguiente tutorial](../app-service-dotnet-remotely-debug-api-app.md), aprenderá a depurar la aplicación de API mientras se ejecuta en Azure.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

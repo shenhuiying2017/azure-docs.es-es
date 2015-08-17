@@ -77,4 +77,4 @@ Para obtener instrucciones acerca de cómo supervisar los niveles de rendimiento
 Para obtener más información sobre la elección de los niveles de rendimiento para las colecciones, consulte [Niveles de rendimiento en DocumentDB](documentdb-performance-levels).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

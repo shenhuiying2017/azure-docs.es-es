@@ -30,7 +30,7 @@ En todos estos escenarios, las aplicaciones que se ejecutan en un entorno del Se
 ## Requisitos de DNS y conectividad saliente ##
 Tenga en cuenta que, para que un entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida al Almacenamiento de Azure, así como a la base de datos SQL en la misma región de Azure. Si se bloquea el acceso de salida a Internet en la red virtual, los entornos del Servicio de aplicaciones no podrán tener acceso a estos extremos de Azure.
 
-El cliente también puede tener los servidores DNS personalizados configurados en la red virtual. Los entornos del Servicio de aplicaciones necesitan poder resolver los extremos de Azure en *.database.windows.net, *.file.core.windows.net y *.blob.core.windows.net. 
+El cliente también puede tener los servidores DNS personalizados configurados en la red virtual. Los entornos del Servicio de aplicaciones necesitan poder resolver los extremos de Azure en *.database.windows.net, *.file.core.windows.net y *.blob.core.windows.net.
 
 También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno del Servicio de aplicaciones. Si se cambia la configuración de DNS de una red virtual al crear un entorno del Servicio de aplicaciones, se generará un error en el proceso de creación de dicho entorno.
 
@@ -110,4 +110,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

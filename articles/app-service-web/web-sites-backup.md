@@ -220,4 +220,4 @@ Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

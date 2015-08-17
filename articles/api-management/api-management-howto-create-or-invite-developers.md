@@ -91,4 +91,4 @@ Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribir
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [Configuración de plantillas de correo electrónico]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

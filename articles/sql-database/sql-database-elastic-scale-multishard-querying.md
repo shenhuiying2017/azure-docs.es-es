@@ -24,12 +24,12 @@
 
 La biblioteca de cliente de bases de datos elásticas introduce un nuevo espacio de nombres llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Query** que proporciona la capacidad de consultar varias particiones usando una sola solicitud y resultado. Brinda una abstracción de consulta sobre una recopilación de particiones. También proporciona directivas de ejecución alternativas, en especial resultados parciales, para abordar errores cuando se consulte sobre muchas particiones.
 
-El punto de entrada principal a las consultas a través de particiones múltiples es la clase **MultiShardConnection**. Al igual que ocurre con el enrutamiento dependiente de los datos, la API sigue la experiencia conocida de las clases y los métodos **[System.Data.SqlClient.aspx]http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)**. Con la biblioteca **SqlClient**, el primer paso es crear una **SqlConnection**, luego un **SqlCommand** para la conexión y seguidamente ejecutar el comando a través de uno de los métodos **Execute**. Finalmente, **SqlDataReader** se itera a través de los conjuntos de resultados que devuelve la ejecución del comando. La experiencia con las API de consultas a través de particiones múltiples sigue estos pasos: 
+El punto de entrada principal a las consultas a través de particiones múltiples es la clase **MultiShardConnection**. Al igual que ocurre con el enrutamiento dependiente de los datos, la API sigue la experiencia conocida de las clases y los métodos http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)******[System.Data.SqlClient.aspx](. Con la biblioteca **SqlClient**, el primer paso es crear una **SqlConnection**, luego un **SqlCommand** para la conexión y seguidamente ejecutar el comando a través de uno de los métodos **Execute**. Finalmente, **SqlDataReader** se itera a través de los conjuntos de resultados que devuelve la ejecución del comando. La experiencia con las API de consultas a través de particiones múltiples sigue estos pasos:
 
-1. Cree una **MultiShardConnection**.
-2. Cree un **MultiShardCommand** para una **MultiShardConnection**.
+1. Creación de una **MultiShardConnection**.
+2. Creación de un **MultiShardCommand** para una **MultiShardConnection**.
 3. Ejecución del comando.
-4. Consuma los resultados a través del **MultiShardDataReader**. 
+4. Consumo de los resultados a través del **MultiShardDataReader**. 
 
 Una diferencia clave es la construcción de conexiones entre particiones múltiples. Donde **SqlConnection** opera en una base de datos única, **MultiShardConnection** toma una ***colección de particiones*** como entrada. Es posible rellenar la recopilación de particiones a partir de un mapa de particiones. Luego la consulta se ejecuta en la recopilación de particiones usando la semántica **UNION ALL** para ensamblar un solo resultado global. De manera opcional, el nombre de la partición donde se origina la fila se puede agregar a la salida usando la propiedad **ExecutionOptions** en el comando. El código siguiente ilustra el uso de consultas a través de particiones múltiples con un **ShardMap** llamado *myShardMap*.
 
@@ -67,4 +67,4 @@ Las consultas a través de particiones múltiples no comprueban si los shardlets
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

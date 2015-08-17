@@ -3,7 +3,7 @@
 	description="Restablezca rápidamente una contraseña de administrador local o el servicio de Escritorio remoto para máquinas virtuales de Windows con el Portal de vista previa de Azure o los comandos de PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Cómo restablecer una contraseña o el servicio de Escritorio remoto para máquinas virtuales de Windows
 
@@ -113,4 +113,4 @@ Si no fue posible ejecutar el paquete de diagnóstico de Azure IaaS (Windows) o 
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

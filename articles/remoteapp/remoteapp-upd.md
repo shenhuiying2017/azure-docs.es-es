@@ -2,7 +2,7 @@
 <properties 
     pageTitle="Datos de perfil de usuario en Azure RemoteApp"
 	description="Obtenga información acerca de cómo se almacenan y se accede a los datos de usuario en Azure RemoteApp"
-	services="remoteapp" 
+	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
 	manager="mbaldwin" />
@@ -39,11 +39,11 @@ Sí, se guarda una copia de seguridad de los datos del usuario por ubicación ge
 
 ## ¿Cómo ven los usuarios el UPD en el servidor?
 
-Cada usuario tendrá su propio directorio en el servidor que se asigna a su UPD: c:\Users\username.
+Cada usuario tendrá su propio directorio en el servidor que se asigna a su UPD: c:\\Users\\username.
 
 ## ¿Cuál es la mejor manera de usar Outlook y UPD?
 
-Azure RemoteApp guarda el estado de Outlook (buzones, PST) entre sesiones. Para ello, necesitamos que el PST se almacene en los datos del perfil de usuario (c:\users<username>). Se trata de la ubicación predeterminada de los datos, por lo que siempre y cuando no cambie la ubicación, se conservarán los datos entre sesiones.
+Azure RemoteApp guarda el estado de Outlook (buzones, PST) entre sesiones. Para ello, necesitamos que el PST se almacene en los datos del perfil de usuario (c:\\users<username>). Se trata de la ubicación predeterminada de los datos, por lo que siempre y cuando no cambie la ubicación, se conservarán los datos entre sesiones.
 
 También se recomienda usar el modo "en caché" en Outlook y usar el modo "servidor/online" para buscar.
 
@@ -115,7 +115,7 @@ También puede usar [Scripts de inicio basados en directivas de grupo](https://t
 
 ## ¿Qué sucede si se coloca un script de inicio en el menú Inicio? ¿Funcionaría?
 
-En otras palabras, ¿puedo crear un archivo .bat que ejecute un script de ventana de configuración y guardarlo en la carpeta c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp y, a continuación, que ese script se ejecute cuando un usuario inicie una sesión de RemoteApp?
+En otras palabras, ¿puedo crear un archivo .bat que ejecute un script de ventana de configuración y guardarlo en la carpeta c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp y, a continuación, que ese script se ejecute cuando un usuario inicie una sesión de RemoteApp?
 
 No, eso no es compatible con Azure RemoteApp, que usa RDSH, que a su vez tampoco admite scripts de inicio en el menú Inicio.
 
@@ -123,4 +123,4 @@ No, eso no es compatible con Azure RemoteApp, que usa RDSH, que a su vez tampoco
 
 No, no es compatible con Azure RemoteApp.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

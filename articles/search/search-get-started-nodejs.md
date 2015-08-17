@@ -148,4 +148,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

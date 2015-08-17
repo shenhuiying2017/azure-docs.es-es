@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Patrón de diseño de gobernanza de recursos de los actores de Service Fabric de Azure"
-   description="Patrón de diseño sobre cómo se pueden usar los actores de Service Fabric para modelar la aplicación que se necesita escalar, pero con el uso de recursos restringidos"
+   pageTitle="Patrón de diseño de gobernanza de recursos de Actores confiables"
+   description="Patrón de diseño sobre cómo se puede usar Actores confiables de Service Fabric para modelar la aplicación que se necesita escalar, pero con el uso de recursos restringidos"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Patrón de diseño de los actores de Service Fabric de Azure: gobernanza de recursos
+# Patrón de diseño de Actores confiables: gobernanza de recursos
 Este patrón y los escenarios relacionados son fácilmente reconocibles para los desarrolladores (empresariales o de otro tipo) que tienen limitaciones de recursos locales o en la nube, que no puede escalar inmediatamente o que quieren incorporar aplicaciones de gran escala y datos en la nube.
 
 En el ámbito empresarial, estos recursos limitados, como las bases de datos, se ejecutan en hardware con escalado vertical. Cualquier persona con una experiencia empresarial sabe que esta es una situación común en ámbitos locales. Incluso en la escala de nube, se produce esta situación cuando un servicio en la nube intenta exceder el límite de 64.000 conexiones TCP entre una tupla de dirección y puerto o al intentar conectarse a una base de datos basada en la nube que limita el número de conexiones simultáneas.
@@ -48,7 +48,7 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-Sencilla, pero no es muy flexible. Ahora, veamos un enfoque más avanzado y útil. En primer lugar, se modela la afinidad entre los recursos físicos y los actores. Esto se realiza a través de un actor denominado Resolver que entiende la asignación entre usuarios, particiones lógicas y recursos físicos. Resolver mantiene sus datos en estado persistente, aunque se almacenan en memoria caché para una búsqueda fácil. Como se vio en el ejemplo anterior de tipo de cambio en el modelo de memoria caché inteligente, Resolver puede capturar la información más reciente de forma proactiva mediante un temporizador. Cuando el actor user resuelve el recurso que debe usar, lo almacena en memoria caché en una variable local variable denominada _resolution y lo usa durante su duración. Se eligió una resolución basada en búsqueda (que se muestra a continuación) en lugar de un hash simple o un intervalo hash, por la flexibilidad que ofrece en operaciones como la reducción o el escalado horizontales, o el cambio de un usuario de un recurso a otro.
+Sencilla, pero no es muy flexible. Ahora, veamos un enfoque más avanzado y útil. En primer lugar, se modela la afinidad entre los recursos físicos y los actores. Esto se realiza a través de un actor denominado Resolver que entiende la asignación entre usuarios, particiones lógicas y recursos físicos. Resolver mantiene sus datos en estado persistente, aunque se almacenan en memoria caché para una búsqueda fácil. Como se vio en el ejemplo anterior de tipo de cambio en el modelo de memoria caché inteligente, Resolver puede capturar la información más reciente de forma proactiva mediante un temporizador. Cuando el actor user resuelve el recurso que necesita usar, lo almacena en la memoria caché en una variable local variable denominada \_resolution y lo usa durante su duración. Se eligió una resolución basada en búsqueda (que se muestra a continuación), en lugar de un hash simple o un hash de intervalo, por la flexibilidad que ofrece en operaciones como la reducción o el escalado horizontales, o el movimiento de un usuario de un recurso a otro.
 
 ![][2]
 
@@ -416,6 +416,5 @@ Este patrón es muy habitual en escenarios en los que los desarrolladores tienen
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

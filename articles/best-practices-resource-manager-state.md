@@ -381,4 +381,4 @@ Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguient
 - [Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
 - [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

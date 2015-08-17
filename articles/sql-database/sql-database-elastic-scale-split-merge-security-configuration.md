@@ -1,6 +1,8 @@
 <properties 
+    title="Elastic Scale Security Configurations" 
     pageTitle="Configuraciones de seguridad de Escalado elástico" 
     description="Configuración de certificados x409 para cifrado" 
+    metaKeywords="Elastic Database certificates security" 
     services="sql-database" documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
@@ -213,6 +215,7 @@ Escriba la contraseña y luego exporte el certificado con estas opciones: * Sí,
 * Exporte el certificado a un archivo .PFX con estas opciones:
     * Sí, exportar la clave privada
     * Incluir todos los certificados en la ruta de certificación si es posible *Exportar todas las propiedades extendidas
+
 ## Carga del certificado SSL en el servicio en la nube
 
 Cargue el certificado con el archivo .PFX existente o generado con el par de claves SSL:
@@ -471,4 +474,4 @@ Las credenciales almacenadas en esta base de datos están cifradas. Sin embargo,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

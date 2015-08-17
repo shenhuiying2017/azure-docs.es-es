@@ -39,7 +39,7 @@ En el caso de los **extremos específicos del inquilino**, el <TenantDomainName>
 
 En el caso de los **extremos independientes del inquilino **, el <TenantDomainName> es **común**. Este nombre indica que los elementos de metadatos de federación que son comunes a todos los inquilinos de Azure AD son los únicos que se hospedan en login.windows.net.
 
-Por ejemplo, un extremo específico del inquilino podría ser *https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. El extremo independiente del inquilino es *https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
+Por ejemplo, un extremo específico del inquilino podría ser **https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. El extremo independiente del inquilino es **https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
 
 ## Contenido de los metadatos de federación
 
@@ -149,4 +149,4 @@ Del mismo modo, los extremos comunes del protocolo SAML 2.0 se publican en los m
 
 [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

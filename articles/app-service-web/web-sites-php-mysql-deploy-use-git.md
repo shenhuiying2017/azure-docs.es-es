@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git
@@ -41,17 +41,11 @@ En este tutorial se supone que tiene instalados en el equipo [PHP][install-php],
 Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
 1. Inicie sesión en el [Portal de Azure][management-portal].
-2. Haga clic en el icono **Nuevo** situado en la parte inferior izquierda del portal.
-
-	![Creación de una aplicación web de Azure][new-website]
+2. Haga clic en el icono **Nuevo**.
 
 3. Elija **Web + móvil ** y, a continuación, **Azure Marketplace**.
 
-	![Creación de una nueva aplicación web personalizada][custom-create]
-
 4. Haga clic en **Aplicaciones web** y, a continuación, en **Aplicación web + MySQL**. A continuación, haga clic en **Crear**.
-
-	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
 4. Escriba un nombre válido para el grupo de recursos.
 
@@ -66,8 +60,6 @@ Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 	![Crear una base de datos MySQL][new-mysql-db]
 
 7. Una vez creada la aplicación web, verá el nuevo grupo de recursos. Haga clic en el nombre de la aplicación web para configurar las opciones.
-
-	![Apertura de una aplicación web][go-to-webapp]
 
 7. Haga clic en **Configurar la implementación continua**.
 
@@ -210,7 +202,7 @@ Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes
 		</body>
 		</html>
 
-Ahora puede dirigirse a **http://localhost/registration/index.php** para probar la aplicación.
+Ahora puede dirigirse a ****http://localhost/registration/index.php** para probar la aplicación.
 
 
 ##Publicación de la aplicación
@@ -296,4 +288,4 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

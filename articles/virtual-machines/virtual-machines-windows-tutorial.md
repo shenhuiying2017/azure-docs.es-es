@@ -30,7 +30,6 @@ También puede crear máquinas virtuales con sus propias imágenes, con plantill
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-
 ## Selección de la imagen
 
 Vaya a Azure Marketplace en el Portal de vista previa para buscar la imagen de la máquina virtual de Windows Server que desea.
@@ -102,4 +101,4 @@ Una vez creada la máquina virtual, podrá iniciar sesión en esta para poder ad
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
 * Automatice la implementación y administración de máquinas virtuales y carga de trabajo mediante [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y [Plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

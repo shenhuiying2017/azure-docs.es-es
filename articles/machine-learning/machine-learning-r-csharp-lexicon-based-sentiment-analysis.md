@@ -76,7 +76,7 @@ La entrada es "Hoy es un buen día". El resultado es "1", que indica la idea pos
 >Este servicio web se ha creado con el Aprendizaje automático de Azure. Para obtener acceso a una evaluación gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
 
 
-Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. En la siguiente ilustración se muestra el flujo de experimento del análisis de opiniones basado en léxico. El archivo "sent_dict.csv" es el léxico de subjetividad de MPQA y está establecido como una de las entradas de [Ejecutar scripts R][execute-r-script]. Otra entrada es una revisión muestreada del conjunto de datos de revisión de Amazon para pruebas, donde se realizan la selección, la modificación del nombre de columna y las operaciones de separación. Usamos un paquete de hash para almacenar el léxico de subjetividad en la memoria y acelerar el proceso de cálculo de la puntuación. Todo el texto se acortará con el paquete "tm" y se comparará con la palabra del diccionario de opiniones. Por último, se calculará una puntuación agregando la ponderación de cada palabra subjetiva del texto.
+Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. En la siguiente ilustración se muestra el flujo de experimento del análisis de opiniones basado en léxico. El archivo "sent\_dict.csv" es el léxico de subjetividad de MPQA y está establecido como una de las entradas de [Ejecutar scripts R][execute-r-script]. Otra entrada es una revisión muestreada del conjunto de datos de revisión de Amazon para pruebas, donde se realizan la selección, la modificación del nombre de columna y las operaciones de separación. Usamos un paquete de hash para almacenar el léxico de subjetividad en la memoria y acelerar el proceso de cálculo de la puntuación. Todo el texto se acortará con el paquete "tm" y se comparará con la palabra del diccionario de opiniones. Por último, se calculará una puntuación agregando la ponderación de cada palabra subjetiva del texto.
 
 ###Flujo de experimento:
 
@@ -89,7 +89,7 @@ Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blan
     sent_dict_data<- maml.mapInputPort(1) # class: data.frame
     dataset2 <- maml.mapInputPort(2) # class: data.frame
  
-   # Install hash package install.packages("src/hash_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
+   # Install hash package install.packages("src/hash\_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
 
     #create sentiment dictionary
     negation_word <- c("not","nor", "no")
@@ -153,4 +153,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

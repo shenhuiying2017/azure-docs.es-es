@@ -67,4 +67,4 @@ El procedimiento siguiente hace referencia a la información contenida en dichas
 
 [Configurar una conexión sitio a sitio entre entornos a una red virtual de Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

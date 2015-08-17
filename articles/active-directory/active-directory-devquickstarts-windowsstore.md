@@ -90,7 +90,7 @@ public MainPage()
 }
 ```
 
-- Ahora busque el método `Search(...)`, que se invoca cuando el usuario hace clic en el botón de búsqueda en la interfaz de usuario de la aplicación. Este método realiza una solicitud GET a la API Graph de Azure AD para realizar una consulta sobre los usuarios cuyo UPN comienza con el término de búsqueda especificado. Sin embargo, para realizar una consulta a la API Graph, tiene que incluir un access_token en el encabezado `Authorization` de la solicitud, que es donde entra ADAL.
+- Ahora busque el método `Search(...)`, que se invoca cuando el usuario hace clic en el botón de búsqueda en la interfaz de usuario de la aplicación. Este método realiza una solicitud GET a la API Graph de Azure AD para realizar una consulta sobre los usuarios cuyo UPN comienza con el término de búsqueda especificado. Sin embargo, para realizar una consulta a la API Graph, tiene que incluir un access\_token en el encabezado `Authorization` de la solicitud, que es donde entra ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -111,7 +111,7 @@ private async void Search(object sender, RoutedEventArgs e)
 ```
 - Cuando la aplicación solicita un token mediante una llamada a `AcquireTokenAsync(...)`, ADAL intentará devolver un token sin solicitar al usuario las credenciales. Si ADAL determina que el usuario debe iniciar sesión para obtener un token, mostrará un cuadro de diálogo de inicio de sesión, recopilará las credenciales del usuario y devolverá un token tras una autenticación correcta. Si ADAL no puede devolver un token por alguna razón, el estado `AuthenticationResult` será un error.
 
-- Ahora es el momento de usar el access_token que acaba de adquirir. También en el método `Search(...)`, adjunte el token a la solicitud GET de Graph API en el encabezado de autorización:
+- Ahora es el momento de usar el access\_token que acaba de adquirir. También en el método `Search(...)`, adjunte el token a la solicitud GET de Graph API en el encabezado de autorización:
 
 ```C#
 // Add the access token to the Authorization Header of the call to the Graph API
@@ -147,4 +147,4 @@ Como referencia, se proporciona el ejemplo finalizado (sin sus valores de config
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

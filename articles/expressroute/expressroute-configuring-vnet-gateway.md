@@ -61,7 +61,7 @@ Estos pasos le guiarán a través de la configuración de una red virtual y una 
 
 	Compruebe que tiene creada al menos una Red virtual de Azure con una puerta de enlace. La subred de puerta de enlace debe ser /28 o mayor para funcionar con una conexión de ExpressRoute y debe estar activa y en ejecución.
 
-			PS C:> $Vnet = "MyTestVNet"
+			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 			Provisioned
 
@@ -73,4 +73,4 @@ Si quiere obtener más información sobre ExpressRoute, consulte [Descripción g
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

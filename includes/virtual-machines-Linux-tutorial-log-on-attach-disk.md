@@ -155,4 +155,4 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 
 	>[AZURE.NOTE]Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de las distribuciones proporcionan las opciones de fstab `nofail` o `nobootwait` que permitirán que el sistema se inicie, incluso si el disco no está presente. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

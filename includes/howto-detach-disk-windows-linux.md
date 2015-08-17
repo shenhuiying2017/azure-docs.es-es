@@ -31,4 +31,4 @@ Cuando haya encontrado el nombre del disco, podrá desconectarlo:
 
 El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

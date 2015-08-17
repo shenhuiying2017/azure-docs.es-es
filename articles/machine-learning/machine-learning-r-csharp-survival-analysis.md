@@ -34,10 +34,10 @@ El esquema de datos de entrada del servicio web se muestra en la tabla siguiente
 
 - trainingdata: una cadena de caracteres Las filas están separadas por coma y las columnas están separadas por punto y coma. Cada fila incluye la dimensión de "tiempo", la dimensión de "evento" y las variables del previsor.
 - testingdata: una fila de datos que contiene variables del previsor para un objeto determinado.
-- time_of_interest: el tiempo transcurrido de interés n.
-- index_time: el índice de columna de la dimensión de "tiempo" (a partir de 1)
-- index_event: el índice de columna de la dimensión de "evento" (a partir de 1)
-- variable_types: una cadena de caracteres con punto y coma como separadores. 0 representa variables continuas y 1 representa variables factor.
+- time\_of\_interest: el tiempo transcurrido de interés n.
+- index\_time: el índice de columna de la dimensión de "tiempo" (a partir de 1)
+- index\_event: el índice de columna de la dimensión de "evento" (a partir de 1)
+- variable\_types: una cadena de caracteres con punto y coma como separadores. 0 representa variables continuas y 1 representa variables factor.
 
 
 El resultado es la probabilidad de que un evento se produzca en un momento determinado.
@@ -87,7 +87,7 @@ Esta prueba se interpreta de la siguiente forma. Supongamos que el objetivo de l
 
 >Este servicio web se ha creado con el Aprendizaje automático de Azure. Para obtener acceso a una evaluación gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
 
-En Aprendizaje automático de Azure se creó un nuevo experimento en blanco y se extrajeron dos módulos [Ejecutar scripts R][execute-r-script] en el área de trabajo. El esquema de datos se creó con un módulo [Ejecutar script R][execute-r-script] sencillo, que define el esquema de datos de entrada para el servicio web. Este módulo está vinculado al segundo módulo [Ejecutar script R][execute-r-script], que hace la mayor parte del trabajo. Este módulo realiza el preprocesamiento de datos, la creación de modelos y las previsiones. En el paso del preprocesamiento de los datos, los datos de entrada representados por una cadena larga se transforman y convierten en una trama de datos. En el paso de creación del modelo, un paquete R externo "survival_2.37 7.zip" se instala en primer lugar para llevar a cabo el análisis de supervivencia. A continuación, se ejecuta la función "coxph" después de una serie de tareas de procesamiento de datos. Se pueden leer los detalles de la función "coxph" para el análisis de supervivencia en la documentación de R. En el paso de previsión, se proporciona una instancia de prueba en el modelo de entrenado con la función "surfit", y la curva de supervivencia para esta instancia de prueba se genera como variable "curva". Por último, se obtiene la probabilidad del tiempo de interés.
+En Aprendizaje automático de Azure se creó un nuevo experimento en blanco y se extrajeron dos módulos [Ejecutar scripts R][execute-r-script] en el área de trabajo. El esquema de datos se creó con un módulo [Ejecutar script R][execute-r-script] sencillo, que define el esquema de datos de entrada para el servicio web. Este módulo está vinculado al segundo módulo [Ejecutar script R][execute-r-script], que hace la mayor parte del trabajo. Este módulo realiza el preprocesamiento de datos, la creación de modelos y las previsiones. En el paso del preprocesamiento de los datos, los datos de entrada representados por una cadena larga se transforman y convierten en una trama de datos. En el paso de creación del modelo, un paquete R externo "survival\_2.37 7.zip" se instala en primer lugar para llevar a cabo el análisis de supervivencia. A continuación, se ejecuta la función "coxph" después de una serie de tareas de procesamiento de datos. Se pueden leer los detalles de la función "coxph" para el análisis de supervivencia en la documentación de R. En el paso de previsión, se proporciona una instancia de prueba en el modelo de entrenado con la función "surfit", y la curva de supervivencia para esta instancia de prueba se genera como variable "curva". Por último, se obtiene la probabilidad del tiempo de interés.
 
 ###Flujo de experimento:
 
@@ -207,4 +207,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

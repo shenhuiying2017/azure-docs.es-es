@@ -1,5 +1,5 @@
 
-1. En el Explorador de soluciones de Visual Studio, expanda la carpeta App_Start y abra el archivo de proyecto WebApiConfig.cs.
+1. En el Explorador de soluciones de Visual Studio, expanda la carpeta App\_Start y abra el archivo de proyecto WebApiConfig.cs.
 
 2. Agregue el siguiente código al método Register después de la definición **ConfigOptions**:
 
@@ -92,4 +92,4 @@
 Ahora, el servicio usa la etiqueta de identificador de usuario para enviar una notificación de inserción (con el texto del elemento insertado) a todos los registros que ha creado el usuario que inició sesión.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

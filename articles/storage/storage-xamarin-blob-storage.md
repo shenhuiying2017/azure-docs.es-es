@@ -47,7 +47,7 @@ El URI de la firma de acceso compartido para el nuevo contenedor debe ser simila
 
 	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 
-La firma de acceso compartido que creó en el contenedor será válida durante el día siguiente. La firma concede permisos totales (*por ejemplo*, lectura, escritura, eliminación y enumeración) para blobs situados dentro del contenedor.
+La firma de acceso compartido que creó en el contenedor será válida durante el día siguiente. La firma concede permisos totales (*es decir*, lectura, escritura, eliminación y enumeración) para blobs situados dentro del contenedor.
 
 Para obtener más información acerca de las firmas de acceso compartido, consulte el [tutorial SAS para .NET](storage-dotnet-shared-access-signature-part-2.md).
 
@@ -179,4 +179,4 @@ Obtenga más información acerca de blobs, tablas y colas mediante la consulta d
 [Cómo utilizar el almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

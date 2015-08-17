@@ -95,4 +95,4 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 [Hospedaje de una aplicación multiempresa en Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

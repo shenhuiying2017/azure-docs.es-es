@@ -247,4 +247,4 @@ Ahora que ha aprendido los conceptos básicos de las colas de bus de servicio, c
   [Colas, temas y suscripciones del Service Bus]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

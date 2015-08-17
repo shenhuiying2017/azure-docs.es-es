@@ -66,4 +66,4 @@ Puede ahorrar tiempo y dinero implementando y depurando la aplicación de Servic
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

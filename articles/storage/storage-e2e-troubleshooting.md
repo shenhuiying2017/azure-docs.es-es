@@ -23,7 +23,7 @@ Poder diagnosticar y solucionar problemas es una habilidad clave a la hora de cr
 
 En este tutorial explicaremos cómo reconocer algunos errores que pueden afectar al rendimiento y cómo solucionarlos completamente usando herramientas proporcionadas por Microsoft y por el servicio Almacenamiento de Azure, todo ello para optimizar la aplicación cliente.
 
-Aquí encontrará un análisis práctico de un escenario de solución integral de problemas. Para obtener una guía conceptual exhaustiva con la que solucionar problemas de aplicaciones de almacenamiento de Azure, vea [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](../articles/storage-monitoring-diagnosing-troubleshooting/).
+Aquí encontrará un análisis práctico de un escenario de solución integral de problemas. Para obtener una guía conceptual exhaustiva con la que solucionar problemas de aplicaciones de almacenamiento de Azure, vea [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](../articles/storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Herramientas para solucionar problemas de aplicaciones de Almacenamiento de Azure
 
@@ -375,4 +375,4 @@ Para más información sobre los escenarios de solución integral de problemas e
  
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

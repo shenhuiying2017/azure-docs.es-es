@@ -56,7 +56,7 @@ Para usar Azure AD para autenticar las solicitudes con el Administrador de recur
 
 5. Reemplace {application-id} por el identificador que acaba de anotar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. Establezca el permiso para usar la aplicación:
 
@@ -335,7 +335,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
                   {
                     Name = "myosdisk1",
                     CreateOption = "FromImage",
-                    VirtualHardDisk = new VirtualHardDisk 
+                    VirtualHardDisk = new VirtualHardDisk
                     {
                       Uri = "http://mytestsa1.blob.core.windows.net/vhds/myosdisk1.vhd"
                     }
@@ -388,4 +388,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

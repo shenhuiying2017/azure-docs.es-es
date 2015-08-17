@@ -50,7 +50,7 @@ Para usar el almacenamiento de archivos, necesita conectarse con la cuenta de al
 	    "AccountName=your_storage_account_name;" + 
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]Reemplace your_storage_account_name y your_storage_account_key por los valores reales de la cuenta de almacenamiento.
+> [AZURE.NOTE]Reemplace your\_storage\_account\_name y your\_storage\_account\_key por los valores reales de la cuenta de almacenamiento.
 
 ## Conexión a una cuenta de almacenamiento de Azure
 
@@ -97,7 +97,7 @@ El primer paso para cargar un archivo es obtener una referencia al directorio do
 Ahora que tiene una referencia al directorio raíz del recurso compartido, puede cargar un archivo en él utilizando el código siguiente.
 
 	// Define the path to a local file.
-	final String filePath = "C:\temp\Readme.txt";
+	final String filePath = "C:\\temp\\Readme.txt";
 
 	CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
 	cloudFile.uploadFromFile(filePath);
@@ -222,4 +222,4 @@ Si desea obtener más información acerca de otras API de almacenamiento de Azur
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

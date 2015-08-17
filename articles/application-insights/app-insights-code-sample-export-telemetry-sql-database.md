@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Ejemplo de código: exportar a SQL desde Application Insights mediante un rol de trabajo
@@ -134,7 +134,7 @@ En el Explorador de soluciones, haga clic con el botón derecho en el proyecto R
  * Entity Framework 6.1.2 o posterior: lo utilizaremos para generar el esquema de la tabla de base de datos sobre la marcha, según el contenido de JSON en el blob.
  * JsonFx: lo utilizaremos para acoplar el JSON a las propiedades de clase de C#.
 
-Utilice esta herramienta para generar la clase de C# fuera de nuestro documento JSON sencillo. Esto requiere algunos cambios menores, como acoplar las matrices de JSON a la propiedad sencilla de C# en y a la vez en una columna sencilla de tabla de base de datos (p. ej. urlData_port).
+Utilice esta herramienta para generar la clase de C# fuera de nuestro documento JSON sencillo. Esto requiere algunos cambios menores, como acoplar las matrices de JSON a la propiedad sencilla de C# en y a la vez en una columna sencilla de tabla de base de datos (p. ej. urlData\_port).
 
  * [Generador de clases de C# de JSON](http://jsonclassgenerator.codeplex.com/)
 
@@ -519,6 +519,7 @@ Para ver este ejemplo en acción, [descargue](https://sesitai.codeplex.com/) el 
 * [Exportación a SQL con un rol de trabajo](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportación continua en Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
 <!--Link references-->
 
@@ -530,4 +531,4 @@ Para ver este ejemplo en acción, [descargue](https://sesitai.codeplex.com/) el 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

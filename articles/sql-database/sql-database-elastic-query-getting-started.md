@@ -143,4 +143,4 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

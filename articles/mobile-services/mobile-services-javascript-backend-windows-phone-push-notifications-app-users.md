@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Envío de notificaciones push a usuarios de la aplicación Windows Phone Silverlight autenticados | Servicios móviles de Azure" 
-	description="Obtenga información sobre cómo enviar notificaciones de inserción desde Servicios móviles de Azure a usuarios específicos de su aplicación Windows Phone Silverlight." 
+	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -49,12 +49,12 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 		'<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
 		'</wp:Text2></wp:Toast></wp:Notification>';
 
-	// Get the ID of the logged-in user.
+	// Obtener el ID del usuario que ha iniciado sesión.
 	var userId = user.userId;		
 
 	request.execute({
 		success: function() {
-			// If the insert succeeds, send a notification.
+			// Si la inserción se realiza correctamente, enviar una notificación.
 			push.mpns.send(userId, payload, 'toast', 22, {
 				success: function(pushResponse) {
 					console.log("Sent push:", pushResponse);
@@ -94,4 +94,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

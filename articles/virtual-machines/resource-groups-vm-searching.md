@@ -26,7 +26,7 @@
 | PublisherName | Oferta | SKU |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7.1 |
+| OpenLogic | CentOS | 7\.1 |
 | CoreOS | CoreOS | Versión beta |
 | CoreOS | CoreOS | Stable |
 | MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
@@ -35,8 +35,8 @@
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
 | MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-DW |
 | MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12.04.5-LTS |
-| Canonical | UbuntuServer | 14.04.2-LTS |
+| Canonical | UbuntuServer | 12\.04.5-LTS |
+| Canonical | UbuntuServer | 14\.04.2-LTS |
 | Microsoft Windows Server | Windows Server | Centro de datos de 2012 |
 | Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 |
 | Microsoft Windows Server | Windows Server | 2008-R2-SP1 |
@@ -227,4 +227,4 @@ En esta lista, copie el nombre de SKU elegido y tiene toda la información para 
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

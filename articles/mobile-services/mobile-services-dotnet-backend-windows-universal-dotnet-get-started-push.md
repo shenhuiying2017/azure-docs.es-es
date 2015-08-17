@@ -109,4 +109,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Uso de un cliente .NET para Servicios móviles de Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

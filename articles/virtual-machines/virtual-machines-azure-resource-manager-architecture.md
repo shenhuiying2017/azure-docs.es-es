@@ -79,4 +79,4 @@ También puede ver la creación de componentes y relaciones de dependencia entre
 
 [Información general del Administrador de recursos de Azure](resource-group-overview.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

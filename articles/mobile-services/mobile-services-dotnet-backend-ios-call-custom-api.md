@@ -51,4 +51,4 @@ En este tema se ha explicado cómo usar el método **invokeApi** para llamar a u
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

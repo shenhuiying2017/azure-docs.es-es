@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/03/2015" 
 	ms.author="chris@mongolab.com"/>
 
 
@@ -495,4 +495,4 @@ También puede configurar una aplicación web directamente desde Visual Studio. 
 
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

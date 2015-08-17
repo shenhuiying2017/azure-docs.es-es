@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/19/2015" 
 	ms.author="mazha"/>
 
@@ -45,7 +45,7 @@ Puede habilitar a una serie de características para el extremo de la red CDN, c
 
 ## Paso 4: Acceso a su contenido de la red CDN
 
-Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, use la URL de la red CDN que se le ha proporcionado en el portal. Por ejemplo, la dirección de un blob en caché será similar al siguiente: http://<*espacioDeNombresDeRedCDN*>.vo.msecnd.net/<*miContenedorPúblico*>/<*nombreDeBlob*>
+Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, use la URL de la red CDN que se le ha proporcionado en el portal. Por ejemplo, la dirección de un blob en caché será similar a la siguiente: http://<*EspacioDeNombresCDN*>.vo.msecnd.net/<*miContenedorPúblico*>/<*nombreBlob*>
 
 
 
@@ -54,4 +54,4 @@ Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, 
 [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

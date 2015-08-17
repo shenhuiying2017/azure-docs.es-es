@@ -152,4 +152,4 @@ Después de unos minutos, se debe establecer la conexión. En este momento, las 
 
 Agregue una máquina virtual a una red virtual. [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -64,7 +64,7 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
 
     ![Seleccionar una red virtual](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. Seleccione una subred: en caso de que la red virtual tenga subredes, de forma predeterminada se seleccionará la primera subred. Elija la subred que prefiera de las opciones de la lista desplegable. Para obtener detalles acerca de la subred, vaya a la extensión Redes en la [página principal del portal](https://manage.windowsazure.com/), acceda a Redes virtuales y elija la red virtual. Acceda a Configuración para ver los detalles de la subred.
+4. Seleccione una subred: en caso de que la red virtual tenga subredes, de forma predeterminada se seleccionará la primera subred. Elija la subred que prefiera de las opciones de la lista desplegable. Para obtener detalles acerca de la subred, vaya a la extensión Redes en la [página principal del portal](https://manage.windowsazure.com/), acceda a **Redes virtuales** y elija la red virtual. Acceda a Configuración para ver los detalles de la subred.
 
     ![Seleccionar una subred](./media/backup-azure-restore-vms/select-subnet.png)
 
@@ -83,7 +83,7 @@ Una vez finalizada la operación de restauración, se marcará como completada e
 
 ![Trabajo de restauración completado](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [modificar los extremos](virtual-machines-set-up-endpoints) de la máquina virtual en el portal de Azure.
+Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [modificar los extremos](virtual-machines-set-up-endpoints) de la máquina virtual en el Portal de Azure.
 
 ## Solución de errores
 Para la mayoría de los errores, puede seguir la acción recomendada sugerida en los detalles del error. Estos son algunos puntos adicionales para ayudar con la solución de problemas:
@@ -95,4 +95,4 @@ Para la mayoría de los errores, puede seguir la acción recomendada sugerida en
 ## Pasos siguientes
 - [Administración de máquinas virtuales](backup-azure-manage-vms)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -266,7 +266,7 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
 	
 	> [AZURE.NOTE]Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
-2. En la aplicación, escriba una tarea y, a continuación, haga clic en el icono de signo de suma (**+**).
+2. En la aplicación, escriba una tarea y luego haga clic en el icono de signo de suma (**+**).
 
 3. Compruebe que se ha recibido la notificación y, a continuación, haga clic en **Aceptar** para descartarla.
 
@@ -340,4 +340,4 @@ Ha completado correctamente este tutorial.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

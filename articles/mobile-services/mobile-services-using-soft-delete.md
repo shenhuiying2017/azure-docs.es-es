@@ -20,9 +20,9 @@
 
 ##Información general
 
-Las tablas creadas con el back-end de JavaScript o de .NET pueden tener habilitada opcionalmente la eliminación temporal. Al usar la eliminación temporal, una nueva columna llamada *__deleted* de [tipo de bit de SQL] se agrega a la base de datos. Con la eliminación temporal habilitada, una operación de eliminación no elimina físicamente filas de la base de datos, sino que establece el valor de la columna eliminada en TRUE.
+Las tablas creadas con el back-end de JavaScript o de .NET pueden tener habilitada opcionalmente la eliminación temporal. Al usar la eliminación temporal, una nueva columna llamada *\_\_deleted* de [tipo de bit de SQL] se agrega a la base de datos. Con la eliminación temporal habilitada, una operación de eliminación no elimina físicamente filas de la base de datos, sino que establece el valor de la columna eliminada en TRUE.
 
-Al consultar registros en una tabla con la eliminación temporal habilitada, las filas eliminadas no se devuelven de forma predeterminada en la consulta. Para solicitar estas filas, debe pasar un parámetro de consulta *__includeDeleted=true* en la [operación de consulta REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). En el SDK de cliente para .NET, también puede usar el método auxiliar `IMobileServiceTable.IncludeDeleted()`.
+Al consultar registros en una tabla con la eliminación temporal habilitada, las filas eliminadas no se devuelven de forma predeterminada en la consulta. Para solicitar estas filas, debe pasar un parámetro de consulta *\_\_includeDeleted=true* en la [operación de consulta REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). En el SDK de cliente para .NET, también puede usar el método auxiliar `IMobileServiceTable.IncludeDeleted()`.
 
 La compatibilidad con la eliminación temporal en el back-end de .NET se publicó por primera vez en la versión 1.0.402 del back-end de .NET de Servicios móviles de Microsoft Azure. Los últimos paquetes de NuGet están disponibles aquí, [Back-end de .NET de Servicios móviles de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -66,11 +66,11 @@ Si va a crear una nueva tabla para su servicio móvil, puede habilitar la elimin
 Para habilitar la eliminación temporal en una tabla existente en el back-end de JavaScript, siga estos pasos:
 
 1. En el [Portal de administración], haga clic en su servicio móvil. Luego, haga clic en la pestaña Datos.
-2. En la página de datos, haga clic para seleccionar la tabla deseada. Luego haga clic en el botón **Habilitar eliminación temporal** de la barra de comandos. Si la tabla ya se ha habilitado para la eliminación temporal, este botón no aparecerá pero podrá ver la columna *__deleted* al hacer clic en la pestaña **Examinar** o **Columnas** de la tabla.
+2. En la página de datos, haga clic para seleccionar la tabla deseada. Luego haga clic en el botón **Habilitar eliminación temporal** de la barra de comandos. Si la tabla ya se ha habilitado para la eliminación temporal, este botón no aparecerá pero podrá ver la columna *\_\_deleted* al hacer clic en la pestaña **Examinar** o **Columnas** de la tabla.
 
     ![][0]
 
-    Para deshabilitar la eliminación temporal en su tabla, haga clic en la pestaña **Columnas** y luego haga clic en la columna *__deleted* y en el botón **Eliminar**.
+    Para deshabilitar la eliminación temporal en su tabla, haga clic en la pestaña **Columnas** y luego haga clic en la columna *\_\_deleted* y en el botón **Eliminar**.
 
     ![][1]
 
@@ -126,7 +126,7 @@ Para incluir los registros eliminados en el resultado de consulta de un script, 
         }
     });
 
-Para recuperar los registros eliminados a través de una solicitud HTTP, agregue el parámetro de consulta "__includedeleted=true":
+Para recuperar los registros eliminados a través de una solicitud HTTP, agregue el parámetro de consulta "\_\_includedeleted=true":
 
     http://youservice.azure-mobile.net/tables/todoitem?__includedeleted=true
 
@@ -163,4 +163,4 @@ Para obtener información acerca de trabajos de programación con Servicios móv
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

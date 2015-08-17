@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Panel de Power BI en Análisis de transmisiones | Microsoft Azure" 
 	description="Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Análisis de transmisiones." 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="jeffstok"/>
 	
 # Análisis de transmisiones de Azure y Power BI: panel dinámico para análisis en tiempo real de los datos de streaming
@@ -30,7 +31,7 @@ En este artículo, aprenderá a crear sus propias herramientas de inteligencia e
 
 * Cuenta de Microsoft Azure
 * Una entrada de la que el trabajo de Análisis de transmisiones pueda consumir datos de streaming. Análisis de transmisiones acepta entradas de Centros de eventos de Azure o de Almacenamiento de blobs de Azure.  
-* Identificación de organización de Microsoft Power BI
+* Cuenta profesional o educativa para Power BI
 
 ## Creación de un trabajo de Análisis de transmisiones de Azure ##
 
@@ -77,20 +78,20 @@ Para este tutorial, se supone que está usando el centro de eventos como una ent
 
 1.  Haga clic en **Salida** en la parte superior de la página y luego haga clic en **Agregar salida**. Verá que Power BI aparece como opción de salida.
 
-![graphic2][graphic2]
+    ![graphic2][graphic2]
 
 2.  Seleccione **Power BI** y, a continuación, haga clic con el botón secundario.
 3.  Verá una pantalla similar a la siguiente:
 
-![graphic3][graphic3]
+    ![graphic3][graphic3]
 
-4.  En este paso, proporcione un identificador de organización para la salida del trabajo de Análisis de transmisiones. Si ya tiene una cuenta de Power BI, seleccione **Autorizar ahora**. Si no, elija **Registrarse ahora**. [Aquí hay un buen blog que recorre los detalles de registro de Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  En este paso, proporcione una cuenta profesional o educativa para la salida del trabajo de Análisis de transmisiones. Si ya tiene una cuenta de Power BI, seleccione **Autorizar ahora**. Si no, elija **Registrarse ahora**. [Aquí hay un buen blog que recorre los detalles de registro de Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
 
-![graphic11][graphic11]
+    ![graphic11][graphic11]
 
 5.  A continuación verá una pantalla similar a la siguiente:
 
-![graphic4][graphic4]
+    ![graphic4][graphic4]
 
 Proporcione valores como sigue:
 
@@ -128,7 +129,7 @@ Inicie su trabajo. Valide que el centro de eventos recibe eventos y la consulta 
 
 ## Creación del panel en Power BI ##
 
-Vaya a [Powerbi.com](https://powerbi.com) e inicie sesión con su Id. org Si la consulta del trabajo de Análisis de transmisiones genera resultados, verá que ya se ha creado el conjunto de datos:
+Vaya a [Powerbi.com](https://powerbi.com) e inicie sesión con su cuenta profesional o educativa. Si la consulta del trabajo de Análisis de transmisiones genera resultados, verá que ya se ha creado el conjunto de datos:
 
 ![graphic5][graphic5]
 
@@ -165,7 +166,7 @@ Otro recurso útil para obtener más información acerca de la creación de pane
 ## Limitaciones y prácticas recomendadas ##
 Power BI emplea restricciones tanto de simultaneidad como de rendimiento, tal como se describe aquí: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Precios de Power BI")
 
-Gracias a ello Power BI se hace de forma natural con los casos en los que Análisis de transmisiones de Azure realiza una reducción considerable de la carga de datos. Se recomienda usar TumblingWindow o HoppingWindow para asegurarse de que la inserción de datos sea como máximo de 1 inserción/segundo, y de que la consulta acaba dentro de los requisitos de rendimiento; puede usar la siguiente ecuación para calcular el valor que se debe asignar a la ventana en segundos:![ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+Gracias a ello Power BI se hace de forma natural con los casos en los que Análisis de transmisiones de Azure realiza una reducción considerable de la carga de datos. Se recomienda usar TumblingWindow o HoppingWindow para asegurarse de que la inserción de datos sea como máximo de 1 inserción/segundo, y de que la consulta entre dentro de los requisitos de rendimiento; puede usar la siguiente ecuación para calcular el valor que se debe asignar a la ventana en segundos: ![ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
 Por ejemplo: si tiene 1.000 dispositivos enviando datos cada segundo, está en Power BI Pro SKU que admite 1.000.000 de filas/hora, y desea obtener la media de datos por dispositivo en Power BI, puede usar como mucho una inserción cada 4 segundos por dispositivo (como se muestra a continuación):
 ![ecuación 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
@@ -211,4 +212,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -195,7 +195,7 @@ En esta sección, utilizará Visual Studio para probar la aplicación y el servi
 
 9. Escriba el texto de un nuevo TodoItem. A continuación, haga clic en **Guardar**. De este modo, se inserta un nuevo TodoItem en la base de datos creada por el servicio móvil hospedado de manera local en IIS Express. Haga clic en la casilla correspondiente a uno de los elementos para marcarlo como completado.
 
-10. En Visual Studio, detenga la depuración de la aplicación. Puede ver los cambios en la base de datos creada para el servicio back-end abriendo el Explorador de servidores y expandiendo las conexiones de datos. Haga clic con el botón derecho en la tabla de TodoItems situada debajo de **MS_TableConnectionString** y, a continuación, haga clic en **Mostrar datos de tabla**
+10. En Visual Studio, detenga la depuración de la aplicación. Puede ver los cambios en la base de datos creada para el servicio back-end abriendo el Explorador de servidores y expandiendo las conexiones de datos. Haga clic con el botón derecho en la tabla de TodoItems situada debajo de **MS\_TableConnectionString** y, a continuación, haga clic en **Mostrar datos de tabla**
 
     ![Show data in the table]([14]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-show-local-table-data.png)
 
@@ -272,4 +272,4 @@ En este tutorial se demostraron los aspectos básicos de la habilitación de una
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

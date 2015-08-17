@@ -20,7 +20,7 @@
  
         ![Visualización de cesta](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-    6. Haga clic en **Descargar**. Especifique o seleccione una ubicación local en la que desea que aparezca la descarga. Se descargará la actualización (all hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) en una carpeta StorSimple Update 1.0 Appliance Update bundle (KB3063418)” en la ubicación elegida. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
+    6. Haga clic en **Descargar**. Especifique o seleccione una ubicación local en la que desea que aparezca la descarga. Se descargará la actualización (all hcsmdssoftwareupdate\_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) en una carpeta StorSimple Update 1.0 Appliance Update bundle (KB3063418)” en la ubicación elegida. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
         
 2. Para instalar la actualización de software, acceda a la interfaz de Windows PowerShell en la consola serie del dispositivo StorSimple. Siga las instrucciones detalladas en [Uso de PuTTy para conectarse a la consola serie del dispositivo](#use-putty-to-connect-to-the-serial-console).
 
@@ -37,7 +37,7 @@
     A continuación se muestra la salida de ejemplo.
 
         ````
-        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -97,4 +97,4 @@
 
     El estado de firmware debe ser **UpToDate**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

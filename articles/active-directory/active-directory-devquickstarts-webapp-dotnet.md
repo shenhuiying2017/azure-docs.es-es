@@ -123,7 +123,7 @@ public void SignOut()
 }
 ```
 
--	Ahora, abra `Views\Shared_LoginPartial.cshtml`. Aquí mostrará al usuario los vínculos de inicio y cierre de sesión de su aplicación e imprimirá el nombre del usuario en una vista.
+-	Ahora, abra `Views\Shared\_LoginPartial.cshtml`. Aquí mostrará al usuario los vínculos de inicio y cierre de sesión de su aplicación e imprimirá el nombre del usuario en una vista.
 
 ```HTML
 @if (Request.IsAuthenticated)
@@ -148,7 +148,7 @@ else
 ```
 
 ## *4. Mostrar información de usuario*
-Al autenticar usuarios con OpenID Connect, Azure AD devuelve id_token a la aplicación que contiene "notificaciones" o aserciones sobre el usuario. Puede usar estas notificaciones para personalizar su aplicación:
+Al autenticar usuarios con OpenID Connect, Azure AD devuelve id\_token a la aplicación que contiene "notificaciones" o aserciones sobre el usuario. Puede usar estas notificaciones para personalizar su aplicación:
 
 - Abra el archivo `Controllers\HomeController.cs`. Puede tener acceso a las solicitudes del usuario en sus controladores a través del objeto principal de seguridad `ClaimsPrincipal.Current`.
 
@@ -176,4 +176,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

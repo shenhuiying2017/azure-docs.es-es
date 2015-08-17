@@ -365,7 +365,7 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 4. Instale los controladores de serie a USB (incluidos con el dispositivo) en el equipo.
 
 5. Configure la conexión serie del modo indicado a continuación:
-   - 115.200 baudios
+   - 115\.200 baudios
    - Bits de datos: 8
    - Bit de parada: 1
    - Sin paridad
@@ -382,4 +382,4 @@ Ha completado el cableado de alimentación, acceso a la red y conexión en serie
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

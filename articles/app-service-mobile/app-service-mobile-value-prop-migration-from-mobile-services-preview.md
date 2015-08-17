@@ -67,4 +67,4 @@ Con *Servicio de aplicaciones de Azure* ahora puede crear varios entornos de ens
 En el momento en el que la característica *Aplicación móvil del Servicio de aplicaciones de Azure * se encuentre disponible de forma general, proporcionaremos una experiencia de migración continua para los Servicios móviles existentes para el Servicio de aplicaciones que elija para la migración. Mientras tanto, puede empezar a explorar *Servicio de aplicaciones* y a aprovechar *Servicio de aplicaciones* para el servicio móvil existente siguiendo este [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Generación de una aplicación web con Python y Flask mediante la Base de datos de documentos | Azure"
+    pageTitle="Generación de una aplicación web con Python y Flask mediante DocumentDB | Microsoft Azure"
     description="Obtenga información acerca de cómo usar DocumentDB para almacenar y acceder a los datos de una aplicación web de Python y Flask (MVC) hospedada en Azure."
     services="documentdb"
     documentationCenter="python"
@@ -56,7 +56,7 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 ## Paso 2: Creación de una nueva aplicación web de Phyton Flask
 
-1. Abra Visual Studio y, a continuación, haga clic en **Archivo** -\> **Nuevo proyecto** -\> **Python** -\> **Proyecto web Flask** y cree un nuevo proyecto llamado **tutorial**.
+1. Abra Visual Studio y, a continuación, haga clic en **Archivo** -\\> **Nuevo proyecto** -\\> **Python** -\\> **Proyecto web Flask** y cree un nuevo proyecto llamado **tutorial**.
 
 	Para aquellos que desconozcan Flask: se trata de un marco web que nos ayuda a crear aplicaciones web en Python más rápido. [Haga clic aquí para tener acceso a tutoriales de Flask][].
 
@@ -350,4 +350,4 @@ Para agregar funcionalidad adicional a la aplicación, revise las API disponible
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

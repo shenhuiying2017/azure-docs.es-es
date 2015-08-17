@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Optimización del entorno con soluciones de evaluación
@@ -105,7 +105,7 @@ Cada recomendación efectuada incluye información acerca de por qué podría se
 
 ## Uso de las recomendaciones de área de enfoque de evaluación
 
-Para poder utilizar una solución de evaluación en Visión operativa de Microsoft Azure, debe tener la solución instalada. Para obtener más información sobre cómo instalar soluciones, vea [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-add-solution.md). Una vez instalados, puede ver el resumen de las recomendaciones mediante el icono Evaluación en el panel Información general de Visión operativa.
+Para poder utilizar una solución de evaluación en Visión operativa de Microsoft Azure, debe tener la solución instalada. Para obtener más información sobre cómo instalar soluciones, consulte [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-setup-workspace.md). Una vez instalados, puede ver el resumen de las recomendaciones mediante el icono Evaluación en el panel Información general de Visión operativa.
 
 Puede resumir las evaluaciones de cumplimiento para su infraestructura y, a continuación, profundizar en las recomendaciones.
 
@@ -125,4 +125,4 @@ Puede resumir las evaluaciones de cumplimiento para su infraestructura y, a cont
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

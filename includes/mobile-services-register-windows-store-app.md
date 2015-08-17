@@ -62,4 +62,4 @@ De este modo ya estará listo para usar una cuenta Microsoft para autenticarse e
 [Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

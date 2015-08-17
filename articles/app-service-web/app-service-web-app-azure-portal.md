@@ -68,7 +68,7 @@ Para establecer la configuración de una aplicación, haga clic en **Configuraci
 
 ![](./media/app-service-web-app-azure-portal/AppSettingsPreview.png)
 
-Aparte de la marca, algunos elementos más del portal se han cambiado de nombre o bien se han agrupado de forma distinta para encontrarlos más fácilmente. Por ejemplo, a continuación se incluye una captura de pantalla de la página correspondiente a la configuración de la aplicación (**Configurar**) en el portal antiguo.
+Aparte de la marca, algunos elementos más del portal se han cambiado de nombre o bien se han agrupado de forma distinta para encontrarlos más fácilmente. Por ejemplo, a continuación se incluye una captura de pantalla de la página correspondiente a la configuración de la aplicación (**Configurar**) en el portal anterior.
 
 ![](./media/app-service-web-app-azure-portal/AppSettings.png)
 
@@ -86,4 +86,4 @@ Aparte de la marca, algunos elementos más del portal se han cambiado de nombre 
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el nuevo portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

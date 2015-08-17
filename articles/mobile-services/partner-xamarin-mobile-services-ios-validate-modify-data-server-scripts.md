@@ -67,7 +67,7 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
 
 1. En Xamarin Studio, abra el proyecto que ha modificado al completar el tutorial [Introducción a los datos].
 
-2. Presione el botón **Ejecutar** para crear el proyecto e iniciar la aplicación y, a continuación, escriba texto con más de 10 caracteres en el cuadro de texto y haga clic en el icono más (**+**).
+2. Presione el botón **Run** para generar el proyecto e iniciar la aplicación y, a continuación, escriba el texto con más de 10 caracteres en el cuadro de texto y haga clic en el icono con el signo más (**+**).
 
 	Observe que la aplicación produce un error no controlado como resultado de la respuesta 400 (solicitud incorrecta) devuelta por el servicio móvil.
 
@@ -139,4 +139,4 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

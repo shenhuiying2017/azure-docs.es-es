@@ -2,7 +2,7 @@
     pageTitle="¿Cuáles son las imágenes de plantilla de RemoteApp?"
     description="Obtenga información sobre las imágenes de plantilla incluidas con RemoteApp."
     services="remoteapp"
-	documentationCenter=""
+    solutions="" documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/13/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
 
 # ¿Cuáles son las imágenes de plantilla de RemoteApp?
@@ -24,7 +24,9 @@ La suscripción de Azure RemoteApp incluye tres imágenes de plantilla:
 - Microsoft Office 365 ProPlus (se requiere suscripción a Office 365)
 - Microsoft Office Professional Plus 2013 (solo versión de prueba)
 
-> [AZURE.IMPORTANT]Independientemente de la imagen que use, hay consideraciones sobre la concesión de licencias en cualquier momento que comparta una aplicación con los usuarios. Consulte los [Detalles de concesión de licencias de RemoteApp](remoteapp-licensing.md) para obtener más información.
+> [AZURE.IMPORTANT]Su suscripción de Azure RemoteApp le otorga acceso al software en las imágenes, con la excepción de Office 365 ProPlus, que requiere una suscripción independiente y Office 2013, que no se puede usar en producción. Esto significa que puede compartir los programas o aplicaciones en las imágenes de plantilla con los usuarios. Por ejemplo, si crea una colección que usa la imagen de Windows Server 2012 R2, puede publicar System Center Endpoint Protection para que los usuarios tengan acceso a través de RemoteApp.
+> 
+> Consulte los [Detalles de concesión de licencias de RemoteApp](remoteapp-licensing.md) para obtener más información.
 
 Siga leyendo para obtener más información sobre lo que contiene cada imagen.
 
@@ -78,7 +80,7 @@ Además de las aplicaciones siguientes:
 - PowerMap
 
 
-La funcionalidad completa de las aplicaciones de Office 365 ProPlus está disponible solo para los usuarios que tienen un plan de Office 365 ProPlus. Para obtener más detalles sobre los planes de suscripción a Office 365, consulte [Planes de servicio de Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Para obtener más detalles acerca de la obtención de licencias de RemoteApp, consulte [¿Cómo funciona la concesión de licencias de RemoteApp de Azure?](remoteapp-licensing.md)
+La funcionalidad completa de las aplicaciones de Office 365 ProPlus está disponible solo para los usuarios que tienen un plan de Office 365 ProPlus. Para obtener más detalles sobre los planes de suscripción a Office 365, consulte [Planes de servicio de Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). ¿Todavía tiene preguntas? Consulte la información [Office 365 + RemoteApp](remoteapp-o365.md).
 
 ## Microsoft Office Professional Plus 2013 (solo versión de prueba)
 Durante el período de prueba gratuito, puede probar el servicio con la imagen de Office 2013.
@@ -98,7 +100,7 @@ Esta imagen es una extensión de la vanilla image y tiene los siguientes compone
 - Word
 - Herramientas de corrección de Microsoft Office
 
-> [AZURE.IMPORTANT]**Información legal:** esta imagen no incluye una licencia de Microsoft Office y *no se puede usar para producción*. La imagen de Office 2013 Professional Plus solo tiene fines de prueba. Si quiere usar aplicaciones de Office en RemoteApp de Azure para producción, deberá usar la imagen de Office 365 ProPlus. Para obtener más detalles acerca de la obtención de licencias de RemoteApp, consulte [¿Cómo funciona la concesión de licencias de RemoteApp de Azure?](remoteapp-licensing.md)
+> [AZURE.IMPORTANT]**Información legal:** esta imagen no incluye una licencia de Microsoft Office y *no se puede usar para producción*. La imagen de Office 2013 Professional Plus solo tiene fines de prueba. Si quiere usar aplicaciones de Office en RemoteApp de Azure para producción, deberá usar la imagen de Office 365 ProPlus. Para obtener más detalles sobre las licencias de Office, consulte [Uso de Office 365 con Azure RemoteApp](remoteapp-o365.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

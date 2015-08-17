@@ -50,10 +50,10 @@ Cuando crea un clúster de HDInsight basado en Linux, tiene la opción de usar u
 
 	Busque los siguientes archivos en la lista de directorios. Los siguientes son nombres comunes para claves SSH públicas.
 
-	* id_dsa.pub
-	* id_ecdsa.pub
-	* id_ed25519.pub
-	* id_rsa.pub
+	* id\_dsa.pub
+	* id\_ecdsa.pub
+	* id\_ed25519.pub
+	* id\_rsa.pub
 
 2. Si no desea usar un archivo existente o no tiene claves SSH existentes, use lo siguiente para generar un archivo nuevo:
 
@@ -61,12 +61,12 @@ Cuando crea un clúster de HDInsight basado en Linux, tiene la opción de usar u
 
 	Se le solicitará la información siguiente:
 
-	* La ubicación del archivo: se define de manera predeterminada en ~/.ssh/id_rsa.
+	* La ubicación del archivo: se define de manera predeterminada en \~/.ssh/id\_rsa.
 	* Una frase de contraseña: se le pedirá que vuelva a escribirla.
 
 		> [AZURE.NOTE]Recomendamos encarecidamente que use una frase de contraseña segura para la clave. Sin embargo, si se le olvida la frase de contraseña, no hay forma de recuperarla.
 
-	Una vez que finalice el comando, tendrá dos archivos nuevos: la clave privada (por ejemplo, **id_rsa**) y la clave pública (por ejemplo, **id_rsa.pub**).
+	Una vez que finalice el comando, tendrá dos archivos nuevos: la clave privada (por ejemplo, **id\_rsa**) y la clave pública (por ejemplo, **id\_rsa.pub**).
 
 ##Creación de un clúster de HDInsight basado en Linux
 
@@ -295,4 +295,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

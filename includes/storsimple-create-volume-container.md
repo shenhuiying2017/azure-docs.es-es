@@ -15,4 +15,4 @@
 
   El contenedor de volúmenes recién creado se mostrará en la página **Contenedores de volúmenes**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

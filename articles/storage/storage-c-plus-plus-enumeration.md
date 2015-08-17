@@ -54,8 +54,8 @@ Por lo tanto, no resulta práctico enumerar todos los objetos en una sola respue
 
 La respuesta para una operación de enumeración segmentada incluye:
 
--	<i>_segment</i>, que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración. 
--	*continuation_token*, que se pasa a la siguiente llamada con el fin de obtener la siguiente página de resultados. Cuando no hay más resultados para devolver, el token de continuación es nulo.
+-	<i>\_segment</i>, que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración. 
+-	*continuation\_token*, que se pasa a la siguiente llamada con el fin de obtener la siguiente página de resultados. Cuando no hay más resultados para devolver, el token de continuación es nulo.
 
 Por ejemplo, es posible que una llamada típica para enumerar todos los blobs de un contenedor tenga un aspecto similar al siguiente fragmento de código. El código está disponible en nuestros [ejemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
 
@@ -80,15 +80,15 @@ Por ejemplo, es posible que una llamada típica para enumerar todos los blobs de
 	}
 	while (!token.empty());
 
-Tenga en cuenta que el número de resultados devueltos en una página puede controlarse mediante el parámetro *max_results* en la sobrecarga de cada API, por ejemplo:
+Tenga en cuenta que el número de resultados devueltos en una página puede controlarse mediante el parámetro *max\_results* en la sobrecarga de cada API, por ejemplo:
 	
 	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
 		blob_listing_details::values includes, int max_results, const continuation_token& token, 
 		const blob_request_options& options, operation_context context)
 
-Si no se especifica el parámetro *max_results*, se devolverá el valor máximo predeterminado de hasta 5.000 resultados en una sola página.
+Si no se especifica el parámetro *max\_results*, se devolverá el valor máximo predeterminado de hasta 5.000 resultados en una sola página.
 
-Tenga en cuenta también que una consulta en el almacenamiento de tablas de Azure puede no devolver ningún registro o menos registros que el valor del parámetro *max_results* especificado por usted, incluso si el token de continuación no está vacío. Una razón podría ser que la consulta no se pudo completar en cinco segundos. Siempre y cuando el token de continuación no esté vacío, la consulta debe continuar y el código no debe suponer el tamaño del resultado del segmento.
+Tenga en cuenta también que una consulta en el almacenamiento de tablas de Azure puede no devolver ningún registro o menos registros que el valor del parámetro *max\_results* especificado por usted, incluso si el token de continuación no está vacío. Una razón podría ser que la consulta no se pudo completar en cinco segundos. Siempre y cuando el token de continuación no esté vacío, la consulta debe continuar y el código no debe suponer el tamaño del resultado del segmento.
 
 El patrón de codificación recomendado para la mayoría de los escenarios es la enumeración segmentada, que proporciona información de progreso explícita de la enumeración o la consulta y sobre cómo responde el servicio a cada solicitud. Especialmente para las aplicaciones o servicios de C++, es posible que el control de bajo nivel de la enumeración ayude a controlar la memoria y el rendimiento.
 
@@ -128,7 +128,7 @@ Deberá modificar el código para usar las API de enumeración segmentada:
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
-Mediante la especificación del parámetro *max_results* del segmento, puede obtener equilibrio entre los números de solicitudes y el uso de memoria para cumplir con las consideraciones de rendimiento de la aplicación.
+Mediante la especificación del parámetro *max\_results* del segmento, puede obtener equilibrio entre los números de solicitudes y el uso de memoria para cumplir con las consideraciones de rendimiento de la aplicación.
 
 Además, si usa API de enumeración segmentadas pero almacena los datos en una colección local de manera "expansiva", también es altamente recomendable refactorizar el código para controlar el almacenamiento de datos de una colección local cuidadosamente a escala.
 
@@ -138,7 +138,7 @@ Aunque la enumeración expansiva produjo posibles problemas, es recomendable si 
 
 Si también usa C# o SDK de Java de Oracle, debe estar familiarizado con el modelo de programación Enumerable, que ofrece una enumeración de estilo diferido, en la que los datos con un determinado desplazamiento solo se capturan si es necesario. En C++, la plantilla de iterador también proporciona un enfoque similar.
 
-Una API de enumeración diferida normal, con **list_blobs** como ejemplo, tiene el siguiente aspecto:
+Una API de enumeración diferida normal, con **list\_blobs** como ejemplo, tiene el siguiente aspecto:
 
 	list_blob_item_iterator list_blobs() const;
 
@@ -184,4 +184,4 @@ Para obtener más información sobre el almacenamiento de Azure y la biblioteca 
 -	[Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

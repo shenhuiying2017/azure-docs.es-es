@@ -21,11 +21,11 @@ La mejor forma de probar la configuración del Administrador de tráfico es conf
 
 ## Pasos de pruebas básicos
 
--**Establezca el TTL de DNS muy bajo** de forma que los cambios se propaguen rápidamente; por ejemplo, en 30 segundos.
+\-**Establezca el TTL de DNS muy bajo** de forma que los cambios se propaguen rápidamente; por ejemplo, en 30 segundos.
 
--**Familiarícese con las direcciones IP de los servicios en la nube de Azure y los sitios web** del perfil que esté probando.
+\-**Conozca las direcciones IP de los servicios en la nube de Azure y los sitios web** del perfil que prueba.
 
--**Use herramientas que le permitan resolver un nombre de DNS en una dirección IP** y mostrar dicha dirección. Compruebe que el nombre de dominio de la empresa se resuelve en las direcciones IP de los extremos del perfil. Deben resolverse de manera coherente con el método de equilibrio de carga del perfil del Administrador de tráfico. Si se encuentra en un equipo que ejecuta Windows, puede usar la herramienta Nslookup.exe desde un símbolo del sistema o de Windows PowerShell. También dispone en Internet de otras herramientas disponibles públicamente que le permiten "profundizar" en la dirección IP.
+\-**Use herramientas que permiten resolver un nombre de DNS en una dirección IP** y mostrar dicha dirección. Compruebe que el nombre de dominio de la empresa se resuelve en las direcciones IP de los extremos del perfil. Deben resolverse de manera coherente con el método de equilibrio de carga del perfil del Administrador de tráfico. Si se encuentra en un equipo que ejecuta Windows, puede usar la herramienta Nslookup.exe desde un símbolo del sistema o de Windows PowerShell. También dispone en Internet de otras herramientas disponibles públicamente que le permiten "profundizar" en la dirección IP.
 
 ### Para comprobar el perfil del Administrador de tráfico con nslookup
 
@@ -33,7 +33,7 @@ La mejor forma de probar la configuración del Administrador de tráfico es conf
 
 2-Escriba `ipconfig /flushdns` para vaciar la memoria caché de la resolución DNS.
 
-3-Escriba `nslookup <your Traffic Manager domain name>`. Por ejemplo, el siguiente comando comprueba el nombre de dominio con el prefijo *myapp.contoso* nslookup myapp.contoso.trafficmanager.net. Un resultado típico mostrará lo siguiente: - El nombre DNS y la dirección IP del servidor DNS al que se obtiene acceso, para resolver ese nombre de dominio del Administrador de tráfico. - El nombre de dominio del Administrador de tráfico que escribió en la línea de comandos después de "nslookup" y la dirección IP a la que se resuelve el dominio del Administrador de tráfico. La segunda dirección IP es la que es importante comprobar. Debe coincidir con una dirección IP virtual (VIP) pública de uno de los servicios en la nube o los sitios web del perfil del Administrador de tráfico que prueba.
+3-Escriba `nslookup <your Traffic Manager domain name>`. Por ejemplo, el siguiente comando comprueba el nombre de dominio con el prefijo *myapp.contoso* nslookup myapp.contoso.trafficmanager.net. Un resultado típico mostrará lo siguiente: - El nombre DNS y la dirección IP del servidor DNS al que se obtiene acceso para resolver ese nombre de dominio del Administrador de tráfico. - El nombre de dominio del Administrador de tráfico que escribió en la línea de comandos después de "nslookup" y la dirección IP a la que se resuelve el dominio del Administrador de tráfico. La segunda dirección IP es la que es importante comprobar. Debe coincidir con una dirección IP virtual (VIP) pública de uno de los servicios en la nube o los sitios web del perfil del Administrador de tráfico que prueba.
 
 ## Pruebas de métodos de equilibrio de carga
 
@@ -54,7 +54,7 @@ Hay servicios gratuitos de indagación y de búsqueda DNS basada en web disponib
 
 ## Otras referencias
 
-[Métodos de equilibrio de carga del Administrador de tráfico](../about-traffic-manager-balancing-methods.md) [Tareas de configuración del Administrador de tráfico](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Administrador de tráfico](../traffic-manager.md)
+[Acerca de los métodos de equilibrio de carga del Administrador de tráfico](../about-traffic-manager-balancing-methods.md) [Tareas de configuración del Administrador de tráfico](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Administrador de tráfico](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

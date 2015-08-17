@@ -549,7 +549,7 @@ Servicios multimedia proporciona paquetes dinámicos que permiten entregar conte
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-- obtener al menos una unidad de streaming a petición para el **extremo de streaming **desde el que planea entregar el contenido (como se describe en esta sección).
+- obtener al menos una unidad de streaming a petición para el **extremo de streaming** desde el que planea entregar el contenido (como se describe en esta sección).
 - codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación),  
 
 Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
@@ -1285,4 +1285,4 @@ Obtenga más información sobre la creación de aplicaciones de vídeo bajo dema
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

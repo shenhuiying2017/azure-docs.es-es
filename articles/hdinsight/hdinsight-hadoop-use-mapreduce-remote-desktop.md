@@ -38,15 +38,15 @@ Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él s
 
 Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos para ejecutar un trabajo de MapReduce mediante el comando de Hadoop:
 
-1. Desde el escritorio de HDInsight, inicie la **línea de comandos de Hadoop**. Se abrirá un nuevo símbolo del sistema en el directorio **c:\apps\dist\hadoop-número de versión>**.
+1. Desde el escritorio de HDInsight, inicie la **línea de comandos de Hadoop**. Se abrirá un nuevo símbolo del sistema en el directorio **c:\\apps\\dist\\hadoop-número de versión>**.
 
-	> [AZURE.NOTE]El número de versión cambia cuando se actualiza Hadoop. La variable de entorno **HADOOP_HOME** puede usarse para encontrar la ruta de acceso. Por ejemplo, `cd %HADOOP_HOME%` cambiará los directorios al directorio de Hadoop, sin que sea necesario conocer el número de versión.
+	> [AZURE.NOTE]El número de versión cambia cuando se actualiza Hadoop. La variable de entorno **HADOOP\_HOME** puede usarse para encontrar la ruta de acceso. Por ejemplo, `cd %HADOOP_HOME%` cambiará los directorios al directorio de Hadoop, sin que sea necesario conocer el número de versión.
 
 2. Para usar el comando de **Hadoop** para ejecutar un trabajo de MapReduce de ejemplo, utilice el siguiente comando:
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	Se inicia la clase **wordcount**, incluida en el archivo **hadoop-mapreduce-examples.jar** del directorio actual. Como entrada, utiliza el documento **wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en: **wasb:///example/data/WordCountOutput**.
+	Se inicia la clase **wordcount**, incluida en el archivo **hadoop-mapreduce-examples.jar** del directorio actual. Como entrada, utiliza el documento ****wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en: ****wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE]Para obtener más información acerca de este trabajo de MapReduce y los datos de ejemplo, consulte <a href="hdinsight-use-mapreduce.md">Uso de MapReduce en Hadoop de HDInsight</a>.
 
@@ -57,11 +57,11 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 		File Output Format Counters
         Bytes Written=337623
 
-3. Una vez que finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en **wasb://example/data/WordCountOutput**:
+3. Cuando finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en ****wasb://example/data/WordCountOutput**:
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	Se deben mostrar dos archivos, **_SUCCESS** y **part-r-00000**. El archivo **part-r-00000** contiene la salida de este trabajo.
+	Se deberían mostrar dos archivos, **\_SUCCESS** y **part-r-00000**. El archivo **part-r-00000** contiene la salida de este trabajo.
 
 	> [AZURE.NOTE]Algunos trabajos de MapReduce pueden dividir los resultados entre varios archivos **part-r-####**. Si es así, utilice el sufijo #### para indicar el orden de los archivos.
 
@@ -69,7 +69,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Esto muestra una lista de las palabras que se encuentran en el archivo **wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que se produjo cada palabra. El siguiente es un ejemplo de los datos que se incluirán en el archivo:
+	Esto muestra una lista de las palabras que se encuentran en el archivo ****wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que apareció cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
 
 		wreathed        3
 		wreathing       1
@@ -95,4 +95,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

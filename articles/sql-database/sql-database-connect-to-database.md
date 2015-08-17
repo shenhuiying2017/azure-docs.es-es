@@ -1,11 +1,13 @@
 <properties
-	pageTitle="Conexión a una base de datos SQL de Azure mediante SSMS"
+	urlDisplayName="How to connect to an Azure SQL database using SSMS"
+	pageTitle="Conexión a una base de datos SQL de Azure mediante SSMS" metaKeywords=""
 	description="Aprenda a establecer una conexión a una base de datos SQL de Azure mediante SSMS."
+	metaCanonical=""
 	services="sql-database"
 	documentationCenter=""
-	authors="sidneyh" 
-	manager="jhubbard" 
-	editor="" />
+	title="How to connect to an Azure SQL database using SSMS"
+	authors="sidneyh" solutions=""
+	manager="jhubbard" editor="" />
 
 <tags
 	ms.service="sql-database"
@@ -77,4 +79,4 @@ Puede usar instrucciones Transact-SQL para crear o administrar las bases de dato
 [5]: ./media/sql-database-connect-to-database/5-success.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

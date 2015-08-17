@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ordenación de datos de DocumentDB con Order By | Azure" 
+	pageTitle="Ordenación de datos de DocumentDB con Order By | Microsoft Azure" 
 	description="Obtenga información sobre cómo usar ORDER BY en consultas de DocumentDB en LINQ y SQL y cómo especificar una directiva de indexación para las consultas de ORDER BY." 
 	services="documentdb" 
 	authors="arramac" 
@@ -160,7 +160,8 @@ Order By solo se puede especificar para una propiedad, numérica o de cadena, cu
 
 No puede realizar las siguientes operaciones:
  
-- Order By con propiedades de cadena internas com id, _rid y _self (próximamente). - Order By con propiedades derivadas del resultado de una combinación de dentro de documentos (próximamente).
+- Order By con propiedades de cadena internas com id, \_rid y \_self (próximamente).
+- Order By con propiedades derivadas del resultado de una combinación de dentro de documentos (próximamente).
 - Order By con varias propiedades (próximamente).
 - Order By con consultas en bases de datos, colecciones, usuarios, permisos o datos adjuntos (próximamente).
 - Order By con las propiedades calculadas (por ejemplo, el resultado de una expresión o una función UDF o integrada).
@@ -176,4 +177,4 @@ Bifurque el [proyecto de ejemplos de Github](https://github.com/Azure/azure-docu
 * [Ejemplos de Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

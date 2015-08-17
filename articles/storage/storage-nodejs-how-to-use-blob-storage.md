@@ -54,7 +54,7 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node_modules**. Dentro de dicha carpeta, busque el paquete **azure-storage**, que contiene las bibliotecas necesarias para el acceso al almacenamiento.
+3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de dicha carpeta, busque el paquete **azure-storage**, que contiene las bibliotecas necesarias para el acceso al almacenamiento.
 
 ### Importación del paquete
 
@@ -376,4 +376,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

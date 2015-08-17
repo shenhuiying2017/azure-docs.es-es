@@ -198,7 +198,7 @@ La siguiente es una lista de sugerencias con información sobre problemas espec�
 
 **Agregar etiquetas para cada campo en la navegación por facetas**
 
-Las etiquetas suelen definirse en el código o formulario HTML (**index.cshtml** en la aplicación de ejemplo). No hay ninguna API en Búsqueda de Azure para las etiquetas de navegación por facetas u otros tipos de metadatos.
+Las etiquetas suelen definirse en el código o formulario HTML (**index.cshtml*** en la aplicación de ejemplo). No hay ninguna API en Búsqueda de Azure para las etiquetas de navegación por facetas u otros tipos de metadatos.
 
 **Definir qué campos se pueden usar como facetas**
 
@@ -372,4 +372,4 @@ Para obtener más información sobre los principios de diseño de la navegación
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -99,4 +99,4 @@ Puede tener más de una dirección IP pública con equilibrio de carga asignada 
 [Introducción al equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

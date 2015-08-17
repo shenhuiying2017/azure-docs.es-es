@@ -10,4 +10,4 @@ Puede crear las colas de Azure mediante el **Explorador de servidores** de Visua
 
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -67,7 +67,7 @@ El almacenamiento en caché para servicios en la nube tiene las siguientes restr
 
 - La red CDN solamente se debe usar para almacenar en caché contenido estático.
 
-	>[AZURE.WARNING]
+	>[AZURE.WARNING]El almacenamiento en caché de contenido totalmente dinámico o muy volátil puede afectar negativamente al rendimiento o provocar problemas de contenido, todo ello con mayor costo.
 - En el servicio la nube se debe implementar en una implementación de producción.
 - El servicio en la nube debe proporcionar el objeto en el puerto 80 mediante HTTP.
 - El servicio en la nube debe colocar el contenido que se va a almacenar en caché o que se va a proporcionar en la carpeta /cdn en dicho servicio.
@@ -114,4 +114,4 @@ Para obtener más información acerca de la asignación de un dominio personaliz
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

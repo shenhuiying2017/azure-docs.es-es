@@ -29,4 +29,4 @@
 
 [Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

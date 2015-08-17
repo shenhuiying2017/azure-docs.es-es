@@ -102,4 +102,4 @@ Para usar una imagen basada en una máquina virtual de Azure existente *capture*
 [Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
 [Crear una máquina virtual personalizada]: virtual-machines-create-custom.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

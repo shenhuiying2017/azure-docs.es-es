@@ -101,4 +101,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

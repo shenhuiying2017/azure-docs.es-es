@@ -272,6 +272,5 @@ Las características centrales de IPython también están disponibles en Visual 
 
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
- 
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

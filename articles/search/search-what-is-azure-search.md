@@ -12,7 +12,7 @@
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
@@ -131,4 +131,4 @@ También puede consultar estos tutoriales:
 
 [Uso de Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md) [Introducción a Búsqueda de Azure](search-get-started-dotnet.md) [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](https://msdn.microsoft.com/library/azure/dn818681.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

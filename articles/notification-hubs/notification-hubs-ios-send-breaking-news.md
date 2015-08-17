@@ -36,7 +36,7 @@ Este tema se basa en la aplicación que creó en [Introducción a los Centros de
 
 El primer paso es agregar los elementos de la interfaz de usuario al guión gráfico existente que permiten al usuario seleccionar las categorías que se van a registrar. Las categorías seleccionadas por un usuario se almacenan en el dispositivo. Cuando la aplicación se inicia, se crea un registro de dispositivos en el Centro de notificaciones con las categorías seleccionadas como etiquetas.
 
-1. En MainStoryboard_iPhone.storyboard, agregue los siguientes componentes desde la biblioteca de objetos:
+1. En MainStoryboard\_iPhone.storyboard, agregue los siguientes componentes desde la biblioteca de objetos:
 	+ Una etiqueta con el texto "Breaking News",
 	+ Etiquetas con los textos de categoría "World", "Politics", "Business", "Technology", "Science", "Sports",
 	+ Seis modificadores, uno por categoría, establecen que el **estado** de cada modificador sea **Desactivar** de forma predeterminada.
@@ -346,8 +346,7 @@ Normalmente se pueden enviar notificaciones por un servicio de back-end sin emba
 
 3. Cada dispositivo suscrito a las noticias de última hora recibirá las notificaciones de las noticias importantes que acaba de enviar.
 
-	![][4] 
-	![][5]
+	![][4] ![][5]
 
 
 ## Pasos siguientes
@@ -388,4 +387,4 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

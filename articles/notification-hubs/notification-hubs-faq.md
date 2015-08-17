@@ -135,4 +135,4 @@ Los Centros de notificaciones Azure permiten ver los datos de telemetría en el 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

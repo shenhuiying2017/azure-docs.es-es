@@ -30,7 +30,7 @@ Si instala estos elementos en el orden en que se muestran, su equipo con Ubuntu 
 
 ## Obtener (o crear) una máquina docker
 
-La forma más rápida para comenzar con **docker-machine** es descargar la versión adecuada directamente desde la opción para [compartir la versión](https://github.com/docker/machine/releases). El equipo cliente de este tutorial ejecutaba Ubuntu en un equipo x64, así que la imagen que se ha usado es **docker-machine_linux-amd64**.
+La forma más rápida para comenzar con **docker-machine** es descargar la versión adecuada directamente desde la opción para [compartir la versión](https://github.com/docker/machine/releases). El equipo cliente de este tutorial ejecutaba Ubuntu en un equipo x64, así que la imagen que se ha usado es **docker-machine\_linux-amd64**.
 
 También puede compilar su **docker-machine** mediante los pasos que se indican para [contribuir a la máquina](https://github.com/docker/machine#contributing). Tiene que poder descargar más de un 1 GB para realizar la compilación; gracias a ello podrá personalizar su experiencia de la forma que le sea más cómoda.
 
@@ -38,7 +38,7 @@ También puede compilar su **docker-machine** mediante los pasos que se indican 
 
 <br />
 
->  Sea cual sea el método que elija, debe llamar al binario directamente en la línea de comandos o colocarlo en una ruta de acceso como **/usr/local/bin**. Asegúrese de que está marcado como ejecutable escribiendo `chmod +x` &lt;*`binaryName`*&gt;, donde &lt;*`binaryName`*&gt; es el nombre del ejecutable de su máquina Docker. Este tutorial usa **docker-machine_linux-amd64**.
+>  Sea cual sea el método que elija, debe llamar al binario directamente en la línea de comandos o colocarlo en una ruta de acceso como **/usr/local/bin**. Asegúrese de que está marcado como ejecutable escribiendo `chmod +x` &lt;*`binaryName`*&gt;, donde &lt;*`binaryName`*&gt; es el nombre del ejecutable de su máquina Docker. Este tutorial usa **docker-machine\_linux-amd64**.
 
 ## Crear los archivos de certificado y clave para docker, la máquina y Azure
 
@@ -210,4 +210,4 @@ Vaya a la [guía de usuario de Docker](https://docs.docker.com/userguide/) y cre
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

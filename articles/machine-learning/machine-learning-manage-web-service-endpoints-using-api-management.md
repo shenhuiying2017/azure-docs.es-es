@@ -38,7 +38,7 @@ Para completar a esta guía, necesita:
 
 * Una cuenta de Azure. Si no tiene una cuenta de Azure, haga clic [aquí](http://azure.microsoft.com/pricing/free-trial/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
 * Una cuenta de AzureML. Si no dispone de una cuenta de AzureML, haga clic [aquí](https://studio.azureml.net/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
-* El área de trabajo, el servicio y api_key para un experimento de AzureML publicado como un servicio web. Haga clic [aquí](machine-learning/machine-learning-create-experiment.md) para obtener más información sobre cómo crear un experimento de AzureML. Haga clic [aquí](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obtener más información sobre cómo publicar un experimento como servicio web. Además, el apéndice A contiene instrucciones sobre cómo crear y probar un experimento de AzureML sencillo y publicarlo como servicio web.
+* El área de trabajo, el servicio y api\_key para un experimento de AzureML publicado como un servicio web. Haga clic [aquí](machine-learning/machine-learning-create-experiment.md) para obtener más información sobre cómo crear un experimento de AzureML. Haga clic [aquí](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obtener más información sobre cómo publicar un experimento como servicio web. Además, el apéndice A contiene instrucciones sobre cómo crear y probar un experimento de AzureML sencillo y publicarlo como servicio web.
 
 ##Creación de una instancia de Administración de API
 
@@ -72,7 +72,7 @@ Haga clic en **API** en el menú **Administración de API** de la izquierda y ha
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Escriba **API demo de AzureML** como el **nombre de API web**. Escriba **https://ussouthcentral.services.azureml.net** como la **URL del Servicio web**. Escriba **azureml-demo** como **sufijo de la URL de API web**. Seleccione **HTTPS** como el esquema de **URL de API web**. Seleccione **Starter** en **Productos**. Cuando haya finalizado, haga clic en **Guardar** para crear la API.
+Escriba **API demo de AzureML** como el **nombre de API web**. Escriba ****https://ussouthcentral.services.azureml.net** como la **URL del Servicio web**. Escriba **azureml-demo** como **sufijo de la URL de API web**. Seleccione **HTTPS** como el esquema de **URL de API web**. Seleccione **Starter** en **Productos**. Cuando haya finalizado, haga clic en **Guardar** para crear la API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -128,7 +128,7 @@ Seleccione **Ejecución de RRS** para la operación. Haga clic en **Pruébelo**.
 
 ![try-it](./media/machine-learning-manage-web-service-endpoints-using-api-management/try-it.png)
 
-Para los parámetros de solicitud, escriba su **área de trabajo**, **servicio**, **2.0** para **apiversion** y **true** para **detalles**. Puede encontrar el **área de trabajo** y el **servicio** en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el Apéndice A).
+Para los parámetros de solicitud, escriba su **área de trabajo**, **servicio**, **2.0** para **apiversion** y **true** para **detalles**. Puede encontrar el **área de trabajo** y el **servicio** en el panel del servicio web de AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
 Para los encabezados de solicitud, haga clic en **Agregar encabezado** y escriba **Content-Type** y **application/json**, después haga clic en **Agregar encabezado** y escriba **Autorización** y **Portador<YOUR AZUREML SERVICE API-KEY>**. Puede encontrar su **clave de API** en el panel del servicio web AzureML (consulte **Prueba del servicio web** en el apéndice A).
 
@@ -140,7 +140,7 @@ Haga clic en **Send** (Enviar).
 
 ![send](./media/machine-learning-manage-web-service-endpoints-using-api-management/send.png)
 
-Después de invocar una operación, el portal para desarrolladores mostrará el campo **Dirección URL solicitada** en el servicio de back-end, así como los campos **Estado de respuesta**, **Encabezados de respuesta** y **Contenido de respuesta**.
+Después de invocar una operación, el portal para desarrolladores mostrará el campo **Dirección URL solicitada** en el servicio, así como los campos **Estado de respuesta**, **Encabezados de respuesta** y los **contenidos de respuesta**.
 
 ![response-status](./media/machine-learning-manage-web-service-endpoints-using-api-management/response-status.png)
 
@@ -200,11 +200,11 @@ Haga clic en **Sí** para publicar el experimento.
 
 Un servicio web de AzureML consta de los extremos RRS (servicio de solicitud/respuesta) y BES (servicio de ejecución por lotes). RRS sirve para la ejecución sincrónica. BES sirve para la ejecución por lotes asincrónica. Para probar el servicio web con el origen de Python del ejemplo siguiente, puede que necesite descargar e instalar el SDK de Azure para Python (consulte: [Cómo instalar Python](python-how-to-install.md)).
 
-También necesitará el **área de trabajo**, el **servicio** y la **api_key** del experimento para el origen del ejemplo siguiente. Puede encontrar el área de trabajo y el servicio haciendo clic en **Solicitud/respuesta** o en **Ejecución por lotes** del experimento en el panel del servicio web.
+También necesitará el **área de trabajo**, el **servicio** y la **api\_key** del experimento para el origen del ejemplo siguiente. Puede encontrar el área de trabajo y el servicio haciendo clic en **Solicitud/respuesta** o en **Ejecución por lotes** del experimento en el panel del servicio web.
 
 ![find-workspace-and-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
-Puede encontrar la **api_key** haciendo clic en el experimento del panel del servicio web.
+Puede encontrar la **api\_key** haciendo clic en el experimento del panel del servicio web.
 
 ![find-api-key](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-api-key.png)
 
@@ -228,7 +228,7 @@ Verá algo parecido a lo siguiente:
 
 Otra forma de probar el RRS es desde el código de cliente. Si hace clic en **Solicitud/respuesta** en el panel y se desplaza hasta la parte inferior, verá el código de ejemplo de C#, Python y R. También verá la sintaxis de la solicitud de RRS, incluidos los URI de solicitud, los encabezados y el cuerpo.
 
-Esta guía muestra un ejemplo de Python en funcionamiento. Necesitará modificarlo con el **área de trabajo**, el **servicio** y la **api_key** del experimento.
+Esta guía muestra un ejemplo de Python en funcionamiento. Necesitará modificarlo con el **área de trabajo**, el **servicio** y la **api\_key** del experimento.
 
 	import urllib2
 	import json
@@ -260,7 +260,7 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Necesitará modificar
 ####Prueba de extremo BES
 Haga clic en **Ejecución por lotes** en el panel y desplácese hasta la parte inferior. Verá el código de ejemplo de C#, Python y R. También verá la sintaxis de las solicitudes BES para enviar un trabajo, iniciar un trabajo, obtener el estado o los resultados de un trabajo y eliminar un trabajo.
 
-Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con el **área de trabajo**, el **servicio** y la **api_key** del experimento. Además, deberá modificar el **nombre de la cuenta de almacenamiento**, la **clave de la cuenta de almacenamiento** y el **nombre de contenedor de almacenamiento**. Por último, deberá modificar la ubicación del **archivo de entrada** y la ubicación del **archivo de salida**.
+Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con el **área de trabajo**, el **servicio** y la **api\_key** del experimento. Además, deberá modificar el **nombre de la cuenta de almacenamiento**, la **clave de la cuenta de almacenamiento** y el **nombre de contenedor de almacenamiento**. Por último, deberá modificar la ubicación del **archivo de entrada** y la ubicación del **archivo de salida**.
 
 	import urllib2
 	import json
@@ -272,8 +272,8 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con 
 	storage_account_name = "<REPLACE WITH YOUR AZURE STORAGE ACCOUNT NAME>"
 	storage_account_key = "<REPLACE WITH YOUR AZURE STORAGE KEY>"
 	storage_container_name = "<REPLACE WITH YOUR AZURE STORAGE CONTAINER NAME>"
-	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\mydata.csv
-	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\myresults.csv
+	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\\mydata.csv
+	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\\myresults.csv
 	input_blob_name = "mydatablob.csv"
 	output_blob_name = "myresultsblob.csv"
 	def printHttpError(httpError):
@@ -384,4 +384,4 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

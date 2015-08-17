@@ -76,7 +76,7 @@ con el nombre de la suscripción o el identificador que tiene los recursos que d
 
 ### Cambio al modo de grupo de recursos de CLI de Azure
 
-De forma predeterminada, la CLI de Azure se inicia en el modo de administración de servicio (**modo asm**). Escriba
+De forma predeterminada, la CLI de Azure se inicia en el modo de administración de servicio (modo **asm**). Tipo
 
 	azure config mode arm
 
@@ -125,23 +125,23 @@ En segundo lugar, necesitará una imagen. Para buscar una imagen con la CLI de A
 
 | PublisherName | Oferta | SKU | Versión |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 | 7.0.201503 |
-| OpenLogic | CentOS | 7.1 | 7.1.201504 |
-| CoreOS | CoreOS | Versión beta | 647.0.0 |
-| CoreOS | CoreOS | Stable | 633.1.0 |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8.0.40459 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Estándar | 1.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
-| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-DW | 12.0.2430 |
-| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
-| Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201504230 |
-| Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
-| Microsoft Windows Server | Windows Server | Centro de datos de 2012 | 3.0.201503 |
-| Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 | 4.0.201503 |
-| Microsoft Windows Server | Windows Server | Windows-Server-Technical-Preview | 5.0.201504 |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
+| OpenLogic | CentOS | 7 | 7\.0.201503 |
+| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
+| CoreOS | CoreOS | Versión beta | 647\.0.0 |
+| CoreOS | CoreOS | Stable | 633\.1.0 |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Estándar | 1\.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1\.0.0 |
+| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-DW | 12\.0.2430 |
+| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-OLTP | 12\.0.2430 |
+| Canonical | UbuntuServer | 12\.04.5-LTS | 12\.04.201504230 |
+| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
+| Microsoft Windows Server | Windows Server | Centro de datos de 2012 | 3\.0.201503 |
+| Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 | 4\.0.201503 |
+| Microsoft Windows Server | Windows Server | Windows-Server-Technical-Preview | 5\.0.201504 |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
 
 Basta con crear la máquina virtual mediante `azure vm quick-create command` y estar preparado para las indicaciones. Debe tener un aspecto similar al siguiente.
 
@@ -1315,4 +1315,4 @@ Para obtener más plantillas que puede utilizar, consulte [Plantillas de inicio 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

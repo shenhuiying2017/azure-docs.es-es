@@ -69,11 +69,11 @@ A fin de realizar una llamada a SharePoint, tiene que especificar los extremos a
 
     ![][3]
 
-4. Configure SP_Authority para que sea el extremo de autoridad de su inquilino de AAD. Debería ser igual que el valor de autoridad utilizado para su aplicación cliente. Tendrá el formato https://login.windows.net/contoso.onmicrosoft.com
+4. Configure SP\_Authority para que sea el extremo de autoridad de su inquilino de AAD. Debería ser igual que el valor de autoridad utilizado para su aplicación cliente. Tendrá el formato https://login.windows.net/contoso.onmicrosoft.com
 
-5. Configure SP_ClientSecret para que sea el valor del secreto de cliente que obtuvo anteriormente.
+5. Configure SP\_ClientSecret para que sea el valor del secreto de cliente que obtuvo anteriormente.
 
-6. Configure SP_SharePointURL para que sea la dirección URL de su sitio de SharePoint. Debe tener el formato https://contoso-my.sharepoint.com
+6. Configure SP\_SharePointURL para que sea la dirección URL de su sitio de SharePoint. Debe tener el formato https://contoso-my.sharepoint.com
 
 Podrá obtener estos valores de nuevo en nuestro código utilizando ApiServices.Settings.
 
@@ -219,4 +219,4 @@ Para crear un documento de Word, utilizará el paquete de NuGet OpenXML. Instale
 [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

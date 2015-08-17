@@ -30,4 +30,4 @@ API de REST | Puede utilizar la API de REST de Factoría de datos para crear, su
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

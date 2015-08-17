@@ -94,10 +94,10 @@ En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear
 
 ## Paso de valores de nuevo desde una plantilla vinculada
 
-Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, puede crear un valor en la sección de **resultados** de la plantilla vinculada. Para obtener un ejemplo, vea [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
+Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, puede crear un valor en la sección de **resultados** de la plantilla vinculada. Para obtener un ejemplo, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
 ## Pasos siguientes
 - [Creación de plantillas](./resource-group-authoring-templates.md)
 - [Implementación de plantillas](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

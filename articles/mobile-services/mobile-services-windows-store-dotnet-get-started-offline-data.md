@@ -24,7 +24,7 @@ Este tutorial muestra cómo agregar compatibilidad sin conexión a una aplicaci�
 
 Si prefiere ver un vídeo, el clip que aparece a la derecha muestra los mismos pasos que este tutorial.
 
-> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
 En este tutorial, se actualiza el proyecto de aplicación universal del tutorial [Introducción a los servicios móviles] para ofrecer compatibilidad con las características sin conexión de los servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el Portal de administración de Azure para ver los cambios efectuados en los datos al ejecutar la aplicación.
 
@@ -283,4 +283,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/29/2015"
+   ms.date="08/04/2015"
    ms.author="rajram"/>
 
 # Conector AS2 de Microsoft
@@ -34,7 +34,7 @@ El usuario debe crear los siguientes elementos para que el conector AS2 pueda ut
 Requisito | Descripción
 --- | ---
 Aplicación de API TPM | Antes de crear un conector AS2, debe crear un [conector de administración de socios comerciales de BizTalk][1]. <br/><br/>**Nota** Conozca el nombre de la aplicación de API TPM. 
-Base de datos SQL de Azure | Almacena elementos B2B, lo que incluye socios, esquemas, certificados y acuerdos. Cada una de las aplicaciones de API de B2B requiere su propia base de datos de SQL Azure. <br/><br/>**Nota** Copie la cadena de conexión en esta base de datos.<br/><br/>[Creación de una base de datos SQL Azure](../sql-database-create-configure.md)
+Base de datos SQL de Azure | Almacena elementos B2B, lo que incluye socios, esquemas, certificados y acuerdos. Cada una de las aplicaciones de API de B2B requiere su propia base de datos de SQL Azure. <br/><br/>**Nota** Copie la cadena de conexión en esta base de datos.<br/><br/>[Creación de una base de datos SQL Azure](../sql-database-get-started.md)
 Contenedor de Almacenamiento de blobs de Azure | Almacena las propiedades de los mensajes cuando está habilitado el archivado AS2. Si no necesita el archivado de mensajes de AS2, no se necesita un contenedor de almacenamiento. <br/><br/>**Nota** Si va a habilitar el archivado, copie la cadena de conexión para el almacenamiento de blobs.<br/><br/>[Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md).
 
 ## Creación del conector AS2
@@ -113,4 +113,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

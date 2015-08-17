@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Patrón de cálculo distribuido de los actores de Service Fabric"
-   description="Service Fabric de Azure es un buena opción para la mensajería asincrónica paralela, el estado distribuido fácilmente administrable y el cálculo en paralelo."
+   pageTitle="Patrón de cálculo distribuido de Actores confiables"
+   description="Actores confiables de Service Fabric es un buena opción para la mensajería asincrónica paralela, el estado distribuido fácilmente administrable y el cálculo en paralelo."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Patrón de diseño de los actores de Service Fabric: cálculo distribuido
-Esto lo debemos en parte a un cliente de la vida real que realizó un cálculo financiero en actores de Service Fabric de Azure en un período de tiempo increíblemente pequeño: una simulación de Monte Carlo de cálculo de riesgo, para ser exactos.
+# Patrón de diseño de Actores confiables: cálculo distribuido
+Esto lo debemos en parte a un cliente de la vida real que realizó un cálculo financiero en Actores confiables de Service Fabric en un período increíblemente corto, una simulación de Monte Carlo que garantiza la exactitud de cálculos de riesgos.
 
 En un principio, especialmente para aquellos que no tienen un conocimiento específico del dominio, el tratamiento que Service Fabric de Azure hace de este tipo de carga de trabajo, en lugar de otros enfoques que pueden ser más tradicionales como asignación y reducción o MPI, puede no resultar obvio.
 
@@ -202,6 +202,5 @@ No estamos de ninguna manera afirmando que Service Fabric de Azure sea un sustit
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

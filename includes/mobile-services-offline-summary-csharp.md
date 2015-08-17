@@ -24,4 +24,4 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 
 * Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a `IMobileServiceSyncTable.PurgeAsync()` para purgar el almacén local.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

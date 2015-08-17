@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.topic="get-started-article" 
+	ms.date="07/30/2015" 
 	ms.author="glenga"/>
 
   
@@ -107,15 +107,9 @@ En este paso, defina una cadena de conexión para la base de datos local y modif
 
 	El servicio usará ahora la nueva conexión a la base de datos de SQL Server.
  
-##Prueba de la conexión de base de datos local
-
-Antes de publicar en Azure y usar la conexión híbrida, es una buena idea asegurarse de que la conexión de base de datos funciona cuando se ejecuta localmente. De esta forma, puede diagnosticar y corregir más fácilmente los problemas de conexión antes de volver a publicar y comenzar a usar la conexión híbrida.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-api-documentation](../../includes/app-service-mobile-dotnet-backend-test-local-service-api-documentation.md)]
-
 ## Actualización de Azure para usar la cadena de conexión local
 
-Ahora que ha comprobado la conexión de base de datos, deberá agregar una configuración de la aplicación para esta nueva cadena de conexión de modo que se pueda usar desde Azure.
+A continuación, deberá agregar una configuración de aplicación para esta cadena de conexión nueva para poder utilizarla desde Azure.
 
 1. En el [Portal Azure] en el código de back-end de aplicación web de la aplicación móvil, haga clic en **Toda la configuración de** y luego en **Configuración de la aplicación**. 
 
@@ -169,4 +163,4 @@ Por último, deberá publicar el back-end de aplicación móvil en Azure y compr
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

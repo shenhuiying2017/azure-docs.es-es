@@ -505,4 +505,4 @@ Mientras la aplicación está abierta en Visual Studio, presione **F5** para eje
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

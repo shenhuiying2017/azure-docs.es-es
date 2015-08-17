@@ -119,4 +119,4 @@ También puede visitar la [Lista de vídeos y tutoriales](https://msdn.microsoft
 [6]: ./media/search-chrome-postman/query.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -11,4 +11,4 @@ A continuación, debe cambiar la manera en que se registran las notificaciones d
 UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 ```
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

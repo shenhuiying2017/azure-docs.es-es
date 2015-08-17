@@ -58,4 +58,4 @@ Para aquellas organizaciones y usuarios sin acceso fácil a una conexión direct
 
 [Directrices de implementación de Servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

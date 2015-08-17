@@ -36,7 +36,7 @@ La hoja **Configuración de la aplicación** tiene configuraciones agrupadas en 
 **Versiones del marco**. Configure estas opciones si su aplicación utiliza cualquiera de estos marcos:
 
 - **.NET Framework**: configure la versión de .NET Framework. 
-- **PHP**: configure la versión de PHP o seleccione **DESACTIVADO ** para deshabilitar PHP.
+- **PHP**: defina la versión de PHP o seleccione **DESACTIVADO** para deshabilitar PHP.
 - **Java**: seleccione la versión de Java o **DESACTIVADO** para deshabilitar Java. Utilice la opción **Contenedor web** para elegir entre las versiones Tomcat y Jetty.
 - **Python**: seleccione la versión de Python o seleccione **DESACTIVADO** para deshabilitar Python.
 
@@ -91,7 +91,8 @@ Es posible que las aplicaciones utilicen módulos que enruten en base a la URL, 
 
 Utilice esta zona para agregar procesadores de script personalizados para controlar solicitudes de extensiones de archivo específicas.
 
-- **Extensión**. La extensión de archivo que se va a administrar, por ejemplo, *.php o handler.fcgi. - **Ruta de acceso del procesador de scripts** La ruta absoluta del procesador de script. El procesador de script procesará las solicitudes a archivos que coincidan con esta extensión de archivo. Utilice la ruta de acceso `D:\home\site\wwwroot` para hacer referencia al directorio raíz de la aplicación.
+- **Extensión**. La extensión de archivo que se va a gestionar, por ejemplo, *.php o handler.fcgi.
+- **Ruta de acceso del procesador de script**. La ruta absoluta del procesador de script. El procesador de script procesará las solicitudes a archivos que coincidan con esta extensión de archivo. Utilice la ruta de acceso `D:\home\site\wwwroot` para hacer referencia al directorio raíz de la aplicación.
 - **Argumentos adicionales**. Argumentos opcionales de la línea de comandos para el procesador de script 
 
 
@@ -175,4 +176,4 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

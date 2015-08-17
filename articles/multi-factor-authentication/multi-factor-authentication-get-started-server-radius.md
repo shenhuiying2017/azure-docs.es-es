@@ -56,4 +56,4 @@ Para configurar el cliente RADIUS, siga las siguientes instrucciones:
 - Use el mismo secreto compartido que se configuró anteriormente. 
 - Configure el tiempo de espera RADIUS en entre 30 y 60 segundos para que haya tiempo para validar las credenciales del usuario, realizar la autenticación multifactor, recibir su respuesta y, a continuación, responder a la solicitud de acceso RADIUS.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

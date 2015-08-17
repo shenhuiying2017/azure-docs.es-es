@@ -75,7 +75,7 @@ Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a
  
 ![Personalize1][11]
 
-La personalización funciona mediante la sustitución del marcador de una etiqueta de información de la aplicación, por lo que antes tendrá que asegúrese de que el usuario tiene definida la información de la aplicación adecuada. En este ejemplo, los usuarios de destino tienen una etiqueta definida de información de la aplicación que se denomina rebate_code. Como puede ver, el contenido de la notificación de inserción incluye el marcador ${rebate_code}, que indica que se tiene que reemplazar por el contenido real de la etiqueta de información de la aplicación.
+La personalización funciona mediante la sustitución del marcador de una etiqueta de información de la aplicación, por lo que antes tendrá que asegúrese de que el usuario tiene definida la información de la aplicación adecuada. En este ejemplo, los usuarios de destino tienen una etiqueta definida de información de la aplicación que se denomina rebate\_code. Como puede ver, el contenido de la notificación de inserción incluye el marcador ${rebate\_code}, que indica que se tiene que reemplazar por el contenido real de la etiqueta de información de la aplicación.
 
 > Advertencia: si el usuario no define la etiqueta de información de la aplicación, no recibirá la inserción.
 
@@ -293,4 +293,4 @@ Una vista web es un elemento emergente con contenido web. Este elemento emergent
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

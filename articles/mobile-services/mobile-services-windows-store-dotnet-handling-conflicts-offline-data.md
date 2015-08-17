@@ -164,4 +164,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [ejemplo de Todo sin conexión de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

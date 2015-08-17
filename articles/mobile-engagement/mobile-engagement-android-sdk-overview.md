@@ -35,7 +35,7 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-android-sdk-content.
 
 ##Notas de la versión
 
-###4.0.0 (07/06/2015)
+###4\.0.0 (07/06/2015)
 
 -   Cambios en el protocolo interno para que la inserción y los análisis sean más confiables.
 -   La inserción nativa (GCM/ADM) ahora también se usa para notificaciones dentro de la aplicación, por lo que debe configurar las credenciales de inserción nativas para cualquier tipo de campaña de inserción.
@@ -118,4 +118,4 @@ Posiblemente, ahora hay una pantalla de carga al hacer clic en un anuncio (con t
 
 Inserte el nuevo archivo `res/layout/engagement_loading.xml` en su proyecto.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

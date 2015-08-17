@@ -1,7 +1,9 @@
 <properties
 	pageTitle="Configuración de una máquina virtual como servidor del Bloc de notas de IPython | Microsoft Azure"
 	description="Configure una máquina virtual de Azure para su uso en un entorno de ciencia de datos con el servidor de IPython para realizar análisis avanzados."
+	metaKeywords=""
 	services="machine-learning"
+	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -72,28 +74,28 @@ Después de crear la máquina virtual, use el Protocolo de escritorio remoto (RD
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Cuando finalice la instalación, el servidor de Bloc de notas de IPython se inicia automáticamente en el directorio *C:\\Users\\<nombre de usuario>\\Documents\\IPython Notebooks*.
+Cuando finalice la instalación, el servidor de IPython Notebook se inicia automáticamente en el directorio *C:\\Users\\<nombreDeUsuario>\\Documents\\IPython Notebooks*.
 
 Cuando se le pida, escriba una contraseña para Bloc de notas de IPython y la contraseña del administrador de la máquina. Esto permite que Bloc de notas de IPython se ejecute como un servicio en la máquina.
 
-## <a name="access"></a>Paso 4: Acceso a Blocs de notas de IPython desde un explorador web
-Para acceder al servidor de Bloc de notas de IPython, abra un explorador web y escriba *https://&#60;virtual nombre de máquina DNS>:&#60;número de puerto público>* en el cuadro de texto de la dirección URL. En este caso, el *&#60;número de puerto público>* debería ser el número de puerto que especificó cuando agregó el extremo de Bloc de notas de IPython.
+## <a name="access"></a>Paso 4: Acceso a IPython Notebook desde un explorador web
+Para acceder al servidor de IPython Notebook, abra un explorador web y escriba *https://&#60;virtual nombre de equipo DNS>:&#60;número de puerto público>* en el cuadro de texto de la dirección URL. En este caso, el *&#60;número de puerto público>* debería ser el número de puerto que especificó cuando agregó el extremo de IPython Notebook.
 
-El *&#60;nombre DNS de la máquina virtual>* puede encontrarse en el Portal de administración de Azure. Después de iniciar sesión el portal de administración, haga clic en **MÁQUINAS VIRTUALES**, seleccione la que creó y, después, seleccione **PANEL**; se mostrará el nombre DNS como se indica a continuación:
+El *&#60;nombre DNS de la máquina virtual>* puede encontrarse en el Portal de administración de Azure. Después de iniciar sesión en el portal de administración, haga clic en **MÁQUINAS VIRTUALES**, seleccione la que creó y, después, seleccione **PANEL**; se mostrará el nombre DNS como se indica a continuación:
 
 ![Creación del espacio de trabajo][19]
 
-Aparecerá una advertencia que indica que _Existe un problema con el certificado de seguridad de este sitio web_ (Internet Explorer) o _Tu conexión no es privada_ (Chrome), tal y como se muestra en las figuras siguientes. Haga clic en **Vaya a este sitio web (no recomendado)** (Internet Explorer) o **Avanzadas** y, a continuación, **continuar a & 60;Nombre DNS> (no seguro)** (Chrome) para continuar. A continuación, escriba la contraseña que especificó anteriormente para tener acceso a Blocs de notas de IPython.
+Aparecerá una advertencia que indica que _Existe un problema con el certificado de seguridad de este sitio web_ (Internet Explorer) o _Tu conexión no es privada_ (Chrome), tal y como se muestra en las ilustraciones siguientes. Haga clic en **Vaya a este sitio web (no recomendado)** (Internet Explorer) o **Avanzadas** y, a continuación, **continuar a &#60;*Nombre DNS*> (no seguro)** (Chrome) para continuar. A continuación, escriba la contraseña que especificó anteriormente para tener acceso a Blocs de notas de IPython.
 
 Internet Explorer: ![Creación del espacio de trabajo][20]
 
 Chrome: ![Creación del espacio de trabajo][21]
 
-Después de iniciar sesión en Bloc de notas de IPython, se mostrará en el explorador el directorio *DataScienceSamples*. Este directorio contiene Blocs de notas de IPython de ejemplo que Microsoft comparte para ayudar a los usuarios a realizar tareas de ciencia de datos. Estos Blocs de notas de IPython de ejemplo se desprotegen desde el [**repositorio de Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) a las máquinas virtuales durante el proceso de configuración del servidor de Bloc de notas de IPython. Microsoft mantiene y actualiza con frecuencia este repositorio. Los usuarios pueden visitar el repositorio de Github para obtener los Blocs de notas de IPython de ejemplo más recientes.![Creación del espacio de trabajo][18]
+Después de iniciar sesión en IPython Notebook, se mostrará en el explorador el directorio *DataScienceSamples*. Este directorio contiene Blocs de notas de IPython de ejemplo que Microsoft comparte para ayudar a los usuarios a realizar tareas de ciencia de datos. Estos cuadernos de IPython de ejemplo se desprotegen desde el [**repositorio de Github**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) a las máquinas virtuales durante el proceso de configuración del servidor de IPython Notebook. Microsoft mantiene y actualiza con frecuencia este repositorio. Los usuarios pueden visitar el repositorio de Github para obtener ejemplos más recientes de cuadernos de IPython.![Creación del espacio de trabajo][18]
 
-## <a name="upload"></a>Paso 5: Carga de un Bloc de notas de IPython existente desde un equipo local en el servidor de Bloc de notas de IPython
+## <a name="upload"></a>Paso 5: Carga de un cuaderno de IPython existente desde un equipo local en el servidor de IPython Notebook
 
-Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios carguen un Bloc de notas de IPython existente de sus máquinas locales en el servidor de Bloc de notas de IPython de las máquinas virtuales. Después de que los usuarios inicien sesión en el Bloc de notas de IPython en un explorador web, haga clic en el **directorio** en el que se cargará el Bloc de notas de IPython. A continuación, seleccione un archivo .ipynb de Bloc de notas de IPython para cargarlo desde la máquina local en el **Explorador de archivos** y arrástrelo y colóquelo en el directorio del Bloc de notas de IPython, en el explorador web. Haga clic en el botón **Cargar** para cargar el archivo .ipynb en el servidor del Bloc de notas de IPython. Otros usuarios podrán entonces empezar a usarlo desde sus exploradores web.
+Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios carguen un Bloc de notas de IPython existente de sus máquinas locales en el servidor de Bloc de notas de IPython de las máquinas virtuales. Después de que los usuarios inicien sesión en IPython Notebook en un explorador web, haga clic en el **directorio** en el que se cargará IPython Notebook. A continuación, seleccione un archivo .ipynb de IPython Notebook para cargarlo desde la máquina local en el **Explorador de archivos** y arrástrelo y colóquelo en el directorio de IPython Notebook, en el explorador web. Haga clic en el botón **Cargar** para cargar el archivo .ipynb en el servidor de IPython Notebook. Otros usuarios podrán entonces empezar a usarlo desde sus exploradores web.
 
 ![Creación del espacio de trabajo][22]
 
@@ -143,4 +145,4 @@ Los pasos siguientes de Tecnología y procesos de análisis avanzado se asignan 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

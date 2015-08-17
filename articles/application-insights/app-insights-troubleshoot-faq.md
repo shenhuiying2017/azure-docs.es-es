@@ -213,7 +213,7 @@ Consulte [Privacidad y retención de los datos][data].
 <tr><th>Qué debería ver</th><th>Cómo conseguirlo</th><th>Razones para quererlo</th></tr>
 <tr><td>Gráficos de disponibilidad</td><td><a href="../app-insights-monitor-web-app-availability/">Pruebas web</a></td><td>Saber que la aplicación web funciona</td></tr>
 <tr><td>Rendimiento de la aplicación de servidor: tiempos de respuesta, etc.
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Agregar Application Insights a un proyecto</a><br/>o <br/><a href="../app-insights-monitor-performance-live-website-now/">Instalar el monitor de estado de Application Insights en el servidor</a></td><td>Detectar problemas de rendimiento</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Agregar Application Insights a un proyecto</a><br/>o <br/><a href="../app-insights-monitor-performance-live-website-now/">Instalar el monitor de estado de Application Insights en el servidor</a> (o escribir su código propio para <a href="../app-insights-api-custom-events-metrics/#track-dependency">hacer un seguimiento de las dependencias</a>)</td><td>Detectar problemas de rendimiento</td></tr>
 <tr><td>Telemetría de dependencia</td><td><a href="../app-insights-monitor-performance-live-website-now/">Instalar el monitor de estado de Application Insights en el servidor</a></td><td>Diagnosticar problemas con las bases de datos u otros componentes externos</td></tr>
 <tr><td>Obtener seguimientos de pila de las excepciones</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insertar llamadas TrackException en el código</a> (aunque algunas se notifican automáticamente)</td><td>Detectar y diagnosticar excepciones</td></tr>
 <tr><td>Buscar seguimientos del registro</td><td><a href="../app-insights-search-diagnostic-logs/">Agregar un adaptador de registro</a></td><td>Diagnosticar excepciones, problemas de rendimiento</td></tr>
@@ -239,4 +239,4 @@ Puede [escribir un script de PowerShell](app-insights-powershell-script-create-r
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

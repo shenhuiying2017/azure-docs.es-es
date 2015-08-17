@@ -615,4 +615,4 @@ Observe que ambas implementaciones de controlador hacen un uso exclusivo de los 
 
 Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio. Para obtener más información, consulte [Incorporación de Servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

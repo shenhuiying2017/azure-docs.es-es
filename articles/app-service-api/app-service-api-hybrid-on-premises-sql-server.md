@@ -3,7 +3,7 @@
 	description="Crear una aplicación de API en Microsoft Azure y conectarla a una base de datos de SQL Server local"
 	services="app-service\api" 
 	documentationCenter="" 
-	authors="tarcher" 
+	authors="TomArcher" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -22,7 +22,7 @@ Conexiones híbridas puede conectar Aplicaciones de API del [Servicio de aplicac
 
 En este tutorial, aprenderá a crear una aplicación de API del Servicio de aplicaciones en la [vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) que se conecta a una base de datos SQL Server local mediante la nueva característica de conexión híbrida. En el tutorial se asume que no tiene ninguna experiencia anterior con Azure o SQL Server.
 
-[AZURE.INCLUDE app-service-web-try-app-service.md]
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Requisitos previos
 
@@ -31,8 +31,6 @@ Para completar este tutorial, necesitará los siguientes productos. Todos están
 - **Suscripción de Azure**: para obtener una suscripción gratuita, consulte [Prueba gratuita de Azure](/pricing/free-trial/). 
 
 - **Visual Studio**: para descargar una versión de evaluación gratuita de Visual Studio 2013 o Visual Studio 2015, consulte [Descargas de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Instale una de ellas antes de continuar. (Las capturas de pantalla de este tutorial se han obtenido con Visual Studio 2013)
-
-- **Microsoft .NET Framework 3.5 Service Pack 1**: si su sistema operativo es Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 o Windows Server 2008 R2, puede habilitar este producto en Panel de control > Programas y características > Activar o desactivar las características de Windows. De lo contrario, puede descargarlo desde el [Centro de descargas de Microsoft](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
 
 - **SQL Server 2014 Express with Tools**: descargue Microsoft SQL Server Express de forma gratuita en la [página de bases de datos de Plataforma web de Microsoft](https://www.microsoft.com/es-es/download/details.aspx?id=42299). Más adelante en este tutorial, verá cómo [instalar SQL Server](#InstallSQLDB) para asegurarse de que está correctamente configurado.
 
@@ -66,7 +64,7 @@ El equipo en el que instala el administrador de conexiones híbridas local:
 	</tr>
 </table>
 
-- Debe ser capaz de conectar con *nombredehost*:*númerodepuerto* del recurso local. 
+- Debe poder establecer comunicación con el *nombre de host*:*número de puerto* de su recurso local. 
 
 En estos pasos de este artículo se supone que usa el explorador del equipo que hospeda el agente de conexiones híbridas local.
 
@@ -118,7 +116,7 @@ Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, 
 
 	![Conectar al servidor](./media/app-service-api-hybrid-on-premises-sql-server/connect-to-server.png)
 	
-	Si el cuadro de diálogo **Conectar al servidor** no se abre automáticamente, vaya al **Explorador de objetos** en el panel izquierdo, haga clic en **Conectar** y luego haga clic en **Motor de la base de datos**.
+	(Si el cuadro de diálogo **Conectar al servidor** no se abre automáticamente, vaya al **Explorador de objetos** en el panel izquierdo, haga clic en **Conectar** y, a continuación, haga clic en **Motor de la base de datos**.)
 	
 2. Para crear una nueva base de datos usando SQL Server Management Studio, haga clic con el botón derecho en **Base de datos** en el Explorador de objetos y, a continuación, haga clic en **Nueva base de datos**.
 	
@@ -142,7 +140,7 @@ Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, 
 
 	![Columnas de tabla nueva](./media/app-service-api-hybrid-on-premises-sql-server/table-def.png)
 
-4. Presione **&lt;Ctrl>S** para guardar la definición de la nueva tabla. Se le pedirá que escriba un nombre de tabla. Escriba `Speakers`y presione **Aceptar**.
+4. Presione **&lt;Ctrl>S** para guardar la definición de la nueva tabla. Se le pedirá que escriba un nombre de tabla. Escriba `Speakers` y presione **Aceptar**.
 
 	![Guardar nueva tabla](./media/app-service-api-hybrid-on-premises-sql-server/save-new-table.png)
 
@@ -399,7 +397,7 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, es el mo
 <a name="CreateASPNET"></a>
 ## Prueba de la aplicación de API finalizada en Azure
 
-1. En el portal de vista previa de Azure, vuelva a la hoja Host de aplicaciones API y haga clic en el valor de **URL**.
+1. En el portal de vista previa de Azure, vuelva a la hoja Host de aplicaciones de API y haga clic en el valor de **URL**.
 	
 2. Cuando se abre la página del host de aplicaciones de API en el explorador, anexe `/swagger` a la URL en la barra de direcciones del explorador y presione **&lt;Intro>**.
 	
@@ -432,4 +430,4 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, es el mo
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

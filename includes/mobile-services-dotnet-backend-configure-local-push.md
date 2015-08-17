@@ -15,10 +15,10 @@ Tiene la posibilidad de probar las notificaciones de inserción con su servicio 
 
 	![](./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-connection-string.png)
 
-4. En su proyecto de servicio móvil de Visual Studio, abra el archivo Web.config del servicio y, en **connectionStrings**, sustituya la cadena de conexión para **MS_NotificationHubConnectionString** por la cadena de conexión del paso anterior.
+4. En su proyecto de servicio móvil de Visual Studio, abra el archivo Web.config del servicio y, en **connectionStrings**, sustituya la cadena de conexión para **MS\_NotificationHubConnectionString** por la cadena de conexión del paso anterior.
 
-5. En **appSettings**, sustituya el valor de la configuración de aplicación **MS_NotificationHubName** por el nombre del centro de notificaciones.
+5. En **appSettings**, sustituya el valor de la configuración de aplicación **MS\_NotificationHubName** por el nombre del centro de notificaciones.
 
 Ahora, el proyecto de servicio móvil está configurado para conectarse al centro de notificaciones en Azure cuando se ejecuta localmente. Tenga en cuenta que es importante utilizar el mismo nombre de centro de notificaciones y la misma cadena de conexión que el portal porque esta configuración de proyecto de Web.config se sobrescribe con la configuración del portal cuando se ejecuta en Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

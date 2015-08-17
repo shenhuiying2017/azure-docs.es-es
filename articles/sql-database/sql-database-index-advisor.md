@@ -150,7 +150,7 @@ Puede quitar índices creados con el Asesor de índices.
 
 
 1. Seleccione un índice creado correctamente en la lista de **Operaciones de índice**.
-1. Haga clic en **Quitar índice** en la hoja **Detalles del índice**, o bien haga clic en **Ver script** en un script ELIMINAR ÍNDICE.
+1. Haga clic en **Quitar índice** en la hoja **Detalles del índice**, o bien haga clic en **Ver script** en un script DROP INDEX.
 
 
 
@@ -171,4 +171,4 @@ Supervise las recomendaciones de índices y continúe aplicándolas para refinar
 [3]: ./media/sql-database-index-advisor/recommended-indexes.png
 [4]: ./media/sql-database-index-advisor/index-operations.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

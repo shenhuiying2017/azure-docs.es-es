@@ -28,7 +28,7 @@ Un registro CNAME asigna un dominio *específico*, como **contoso.com** o **www.
 
 ###Registro D
 
-El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un nombre de dominio con comodín* como ***.contoso.com**, a una dirección IP. En el caso de un sitio web de Azure, la IP virtual del servicio o una dirección IP específica que haya adquirido para el sitio web. Por lo tanto, el principal beneficio de un registro D en relación con un registro CNAME es que puede disponer de una entrada que utilice un carácter comodín, como ***.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **login.contoso.com** o **www.contso.com**.
+El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un nombre de dominio con comodín* como ***.contoso.com**, a una dirección IP. En el caso de un sitio web de Azure, la IP virtual del servicio o una dirección IP específica que haya adquirido para el sitio web. Por lo tanto, el principal beneficio de un registro D en relación con un registro CNAME es que puede disponer de una entrada que use un carácter comodín, como ****.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **login.contoso.com** o **www.contso.com**.
 
 > [AZURE.NOTE]Puesto que un registro D se asigna a una dirección IP estática, no puede resolver automáticamente cambios en la dirección IP de su sitio web. Se proporciona una dirección IP para que se use con registros D cuando establezca la configuración del nombre de dominio personalizado para su sitio web; sin embargo, este valor podría cambiar si elimina y vuelve a crear su sitio web o cambia el modo del sitio web para que vuelva a ser gratuito.
 
@@ -92,7 +92,7 @@ Por ejemplo, el siguiente registro CNAME desvía todo el tráfico de **www.conto
 
 Los visitantes de **www.contoso.com** no verán nunca el verdadero host (contoso.azurewebsite.net), por lo que el usuario final no percibirá el proceso de desvío.
 
-> [AZURE.NOTE]Si está utilizando el Administrador de tráfico con un sitio web, no es necesario que siga los pasos de las secciones, "**Incorporación de un CNAME para el dominio personalizado**" e "**Incorporación de un registro D para el dominio personalizado**". El registro CNAME creado en los pasos anteriores dirigirá el tráfico entrante al Administrador de tráfico, quien entonces dirigirá el tráfico a los extremos del sitio web.
+> [AZURE.NOTE]Si usa el Administrador de tráfico con un sitio web, no es preciso que siga los pasos de las secciones siguientes, "**Adición de un CNAME a un dominio personalizado**" y "**Adición de un registro D a un dominio personalizado**". El registro CNAME creado en los pasos anteriores dirigirá el tráfico entrante al Administrador de tráfico, quien entonces dirigirá el tráfico a los extremos del sitio web.
 
 <a name="bkmk_configurecname"></a><h2>Incorporación de un CNAME para el dominio personalizado</h2>
 
@@ -116,7 +116,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
 
 4. Ahora busque el lugar en el que puede seleccionar o especificar los registros CNAME. Es posible que tenga que seleccionar el tipo de registro de un menú desplegable o ir a una página de configuración avanzada. Debe buscar las palabras **CNAME**, **Alias** o **Subdominios**.
 
-5. También debe proporcionar el alias del dominio o del subdominio para CNAME. Por ejemplo, **www** si desea crear un alias para **www.customdomain.com**. Si desea crear un alias para el dominio raíz, puede ponerse en una lista como el símbolo '**@** en las herramientas de DNS de su registrador.
+5. También debe proporcionar el alias del dominio o del subdominio para CNAME. Por ejemplo, **www** si desea crear un alias para **www.customdomain.com**. Si desea crear un alias para el dominio raíz, puede enumerarse como el símbolo "**@**" en las herramientas de DNS del registrador.
 
 5. Debe proporcionar un nombre de host que sea el nombre de dominio canónico para ese alias de CNAME. Este es el nombre **.azurewebsite.net** de su sitio web.
 
@@ -135,7 +135,7 @@ Por ejemplo, el siguiente registro CNAME desvía todo el tráfico de **www.conto
 
 Los visitantes de **www.contoso.com** no verán nunca el verdadero host (contoso.azurewebsite.net), por lo que el usuario final no percibirá el proceso de desvío.
 
-> [AZURE.NOTE]El ejemplo anterior solo se aplica al tráfico en el subdominio __www__. Puesto que no puede usar caracteres comodín con registros CNAME, debe crear un CNAME para cada dominio/subdominio. Si desea dirigir el tráfico desde subdominios, como *.contoso.com, a su dirección azurewebsite.net, puede configurar una entrada __Redireccionamiento de direcciones URL__ o __Desvío de direcciones URL__ en la configuración DNS o crear un registro D.
+> [AZURE.NOTE]El ejemplo anterior solo se aplica al tráfico en el subdominio __www__. Puesto que no puede usar caracteres comodín con registros CNAME, debe crear un CNAME para cada dominio/subdominio. Si desea dirigir el tráfico desde subdominios, como *.contoso.com, a su dirección azurewebsite.net, puede configurar una entrada __Redirección de URL__ o __Desvío de URL__ en la configuración de DNS o crear un registro D.
 
 > [AZURE.NOTE]El CNAME puede tardar un tiempo en propagarse por el sistema DNS. No puede establecer el CNAME para el sitio web hasta que el CNAME se haya propagado. Puede usar un servicio como <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> para comprobar que el CNAME está disponible.
 
@@ -197,7 +197,7 @@ Para crear un registro D, primero debe buscar la dirección IP de su sitio web. 
 
 	1. Seleccione o especifique el dominio o subdominio que usará el registro D. Por ejemplo, seleccione **www** si desea crear un alias para **www.customdomain.com**. Si desea crear una entrada de comodín para todos los subdominios, especifique '\_\_*\_\_'. De esta forma, se incluirán todos los subdominios como **mail.customdomain.com**, **login.customdomain.com** y **www.customdomain.com**.
 
-		Si desea crear un registro D para el dominio raíz, debe aparecer como símbolo '**@** en las herramientas DNS del registrador.
+		Si desea crear un registro D para el dominio raíz, puede enumerarse como el símbolo "**@**" en las herramientas DNS del registrador.
 
 	2. Especifique la dirección IP del servicio en la nube en el campo proporcionado. De esta forma, se asocia la entrada del dominio utilizada en el registro D a la dirección IP de la implementación del servicio en la nube.
 
@@ -311,4 +311,4 @@ Una vez completada la configuración, el nombre de dominio personalizado aparece
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

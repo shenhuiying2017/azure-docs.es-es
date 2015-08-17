@@ -46,4 +46,4 @@ Inicio de sesión único y AD FS| Permisos de administrador de dominio en el dom
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

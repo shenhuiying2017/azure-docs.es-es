@@ -86,7 +86,7 @@ Si el servidor necesita permitir el acceso a otros servicios de Azure, agregue e
 
 	New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
-Para obtener más información, vea [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 ## Creación de una Base de datos SQL
 
@@ -137,4 +137,4 @@ Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre
 - [Cmdlets de Administración de servicios de Base de datos SQL de Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

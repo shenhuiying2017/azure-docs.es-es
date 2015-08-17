@@ -205,4 +205,4 @@ Para obtener más ejemplos de código que llama a una aplicación de API de clie
 Para obtener información sobre cómo utilizar la autenticación en aplicaciones de API, consulte [Autenticación para aplicaciones de API y aplicaciones móviles en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

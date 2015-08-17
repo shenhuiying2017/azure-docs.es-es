@@ -264,7 +264,7 @@ Verá le mensaje **保存成功(Guardado correctamente!)**.
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Establezca el valor de *API_KEY* con el valor recuperado del proyecto de nube Baidu anterior. Establezca *NotificationHubName* con el nombre del Centro de notificaciones del Portal de Azure y *NotificationHubConnectionString* con el valor de DefaultListenSharedAccessSignature del Portal de Azure.
+	Establezca el valor de *API\_KEY* con el valor recuperado del proyecto de nube Baidu anterior. Establezca *NotificationHubName* con el nombre del Centro de notificaciones del Portal de Azure y *NotificationHubConnectionString* con el valor de DefaultListenSharedAccessSignature del Portal de Azure.
 
 11. Agregue una nueva clase denominada **DemoApplication.java** y agregue el código siguiente en dicha clase:
 
@@ -481,4 +481,4 @@ Para realizar una prueba de esta aplicación con el emulador:
 [portal de Baidu]: http://www.baidu.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

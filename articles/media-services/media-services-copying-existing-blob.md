@@ -73,7 +73,10 @@ En esta sección creará y configurará un proyecto de aplicación de consola de
 El ejemplo de código siguiente realiza las siguientes tareas:
 
 1. Crea la instancia de CloudMediaContext. 
-1. Crea instancias de CloudStorageAccount: _sourceStorageAccount y _destinationStorageAccount. 1. Carga archivos de Smooth Streaming desde un directorio local a un contenedor de blobs que se encuentra en _sourceStorageAccount. 1. Crea un nuevo activo. El contenedor de blobs que se crea para este activo se encuentra en _destinationStorageAccount. 1. Usa el SDK de almacenamiento de Azure para copiar los blobs especificados en el contenedor asociado al activo.
+1. Crea instancias de CloudStorageAccount: \_sourceStorageAccount y \_destinationStorageAccount.
+1. Carga archivos de Smooth Streaming desde un directorio local a un contenedor de blobs que se encuentra en \_sourceStorageAccount.
+1. Crea un nuevo activo. El contenedor de blobs que se crea para este activo se encuentra en \_destinationStorageAccount.
+1. Usa el SDK de almacenamiento de Azure para copiar los blobs especificados en el contenedor asociado al activo.
 
 >[AZURE.NOTE]La operación de copia no genera una excepción si el localizador ha caducado.
 
@@ -283,4 +286,4 @@ El ejemplo de código siguiente realiza las siguientes tareas:
 		}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

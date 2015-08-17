@@ -59,4 +59,4 @@ El servidor Azure Multi-Factor Authentication se configura como un proxy RADIUS 
 
 ![Autenticación Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

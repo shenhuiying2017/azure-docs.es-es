@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Creación de un clúster Oracle WebLogic Server 12c en Azure" 
-	description="Revise un ejemplo de creación de un clúster de Oracle WebLogic Server 12c en Microsoft Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Creating an Oracle WebLogic Server 12c cluster in Azure" pageTitle="Creación de un clúster Oracle WebLogic Server 12c en Azure" description="Revise un ejemplo de creación de un clúster de Oracle WebLogic Server 12c en Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Creación de un clúster Oracle WebLogic Server 12c en Azure
 En el ejemplo siguiente se muestra cómo puede crear un clúster Oracle WebLogic Server en Azure, basado en una imagen Oracle WebLogic Server 12c proporcionada por Microsoft que se ejecuta en Windows Server 2012.
 
@@ -191,7 +177,7 @@ Cree máquinas virtuales adicionales, que serán administradas por el servidor d
 
 	6. Cambie el directorio actual del símbolo del sistema a **C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain\\bin.**
 
-	7. Ejecute start<<*MACHINENAME*>>.cmd, donde <<*MACHINENAME*>> es el nombre del equipo administrado. Por ejemplo, **startMYVM2-MANAGED.**
+	7. Ejecute start<<*NOMBRE\_DE\_EQUIPO*>>.cmd, donde <<*NOMBRE\_DE\_EQUIPO*>> es el nombre del equipo administrado. Por ejemplo, **startMYVM2-MANAGED.**
 
 	8. Cuando se le solicite, proporcione su nombre de usuario y contraseña de WebLogic Server.
 
@@ -203,40 +189,41 @@ Cree máquinas virtuales adicionales, que serán administradas por el servidor d
 
 16. Cree un extremo con equilibrio de carga para las máquinas virtuales administradas:
 
-	1. Dentro del [Portal de Azure](https://ms.portal.azure.com/), en la sección **Máquinas virtuales**, seleccione la primera máquina virtual administrada (como **MYVM2-MANAGED)**. 
+	1. En el [Portal de Azure](https://ms.portal.azure.com/), en la sección **Máquinas virtuales**, seleccione la primera máquina virtual administrada (como **MYVM2-MANAGED)**.
+
 	2. Haga clic en **Configuración**, en **Extremos** y, por último, en **Agregar**.
 
 	3. Especifique un nombre para el extremo, **TCP** para el protocolo, especifique el puerto público **80** y el puerto privado **7008**. No cambie el resto de las opciones.
 
 	4. Marque **crear un conjunto con equilibrio de carga** y, a continuación, haga clic en **Completar**.
 
-	5. Especifique un nombre para el conjunto con equilibrio de carga, acepte los valores predeterminados para los demás parámetros y, a continuación, haga clic en **Completar. **
+	5. Especifique un nombre para el conjunto de carga equilibrada, acepte los valores predeterminados para los demás parámetros y después haga clic en **Completar. **
 
 17. Cree un extremo para la máquina virtual:
 
 	1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
 
-	2. Haga clic en **Examinar**
+	2. Haga clic en **Examinar**.
 
-	3. Haga clic en **Máquinas virtuales**
+	3. Haga clic en **Máquinas virtuales**.
 
 	4. Seleccione la máquina virtual
 
-	5. Haga clic en **Configuración**
+	5. Hacer clic en **Configuración**.
 
-	6. Haga clic en **Conjuntos con equilibrio de carga**.
+	6. Haga clic en **Conjuntos de carga equilibrada**.
 
 	7. Haga clic en **Unir**.
 
-	8. Establezca el tipo de conjunto con equilibrio de carga como **Interno**
+	8. Establezca el tipo de conjunto de carga equilibrada como **Interno**.
 
 	9. Escriba un nombre para el extremo
 
-		1. Use **TCP** para el protocolo
+		1. Use **TCP** para el protocolo.
 
-		2. Use **80** para el puerto público
+		2. Use **80** para el puerto público.
 
-		3. Utilice **7008** para el puerto de sondeo.
+		3. Use **7008** para el puerto de sondeo.
 
 	10. No cambie el resto de las opciones
 
@@ -244,19 +231,19 @@ Cree máquinas virtuales adicionales, que serán administradas por el servidor d
 
 	12. Espere a que esta máquina virtual se una al conjunto con equilibrio de carga antes de continuar al paso siguiente.
 
-18. Dentro del [Portal de Azure](https://ms.portal.azure.com/), en la sección **Máquinas virtuales**, seleccione la segunda máquina virtual administrada (como **MYVM3-MANAGED**). Siga los pasos anteriores para unirse al conjunto con equilibrio de carga que ha creado para la primera máquina virtual administrada.
+18. En el [Portal de Azure](https://ms.portal.azure.com/), en la sección **Máquinas virtuales**, seleccione la segunda máquina virtual administrada (como **MYVM3-MANAGED**). Siga los pasos anteriores para unirse al conjunto con equilibrio de carga que ha creado para la primera máquina virtual administrada.
 
 ##Implementación de una aplicación en el clúster
 
 En este punto, podría implementar su aplicación mediante los siguientes pasos. Supongamos que va a implementar la aplicación shoppingcart de Oracle, disponible para su descarga en <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>.
 
-1. Inicie sesión en la máquina virtual que actúe como el administrador del clúster WebLogic Server (por ejemplo, **MYVM1-ADMIN**). 
+1. Inicie sesión en la máquina virtual que actúe como administrador del clúster WebLogic Server (por ejemplo, **MYVM1-ADMIN**). 
 
 2. Copie el archivo shoppingcart.war localmente. Por ejemplo, cree una carpeta denominada **c:\\mywar** y guarde el archivo WAR de <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war> en **c:\\mywar**.
 
 3. Abra la **Consola de administración de WebLogic Server**, <http://localhost:7001/console>. Cuando se le solicite, proporcione su nombre de usuario y contraseña de WebLogic.
 
-4. Dentro de la **Consola de administración de WebLogic Server**, haga clic en **Bloquear y editar**, haga clic en **Implementaciones** y, a continuación, haga clic en **Instalar**.
+4. En la **Consola de administración de WebLogic Server**, haga clic en **Bloquear y editar**, haga clic en **Implementaciones** y después haga clic en **Instalar**.
 
 5. Para **Ruta de acceso**, escriba **c:\\myway\\shoppingcart.war**.
 
@@ -264,19 +251,19 @@ En este punto, podría implementar su aplicación mediante los siguientes pasos.
 
 	Haga clic en **Siguiente**.
 
-6. Seleccione **Instalar esta implementación como una aplicación** y, a continuación, haga clic en **Siguiente**.
+6. Seleccione **Instalar esta implementación como una aplicación** y después haga clic en **Siguiente**.
 
 7. Haga clic en **Finalizar**
 
-8. Para **Destinos disponibles**, seleccione el clúster creado previamente, asegúrese de haber seleccionado **Todos los servidores del clúster** y, a continuación, haga clic en **Siguiente**.
+8. Para **Destinos disponibles**, seleccione el clúster creado previamente, asegúrese de haber seleccionado **Todos los servidores del clúster** y después haga clic en **Siguiente**.
 
-9. En **Accesibilidad al origen**, seleccione **Copiar esta aplicación en cada destino para mí** y, a continuación, haga clic en **Finalizar**.
+9. En **Accesibilidad al origen**, seleccione **Copiar esta aplicación en cada destino para mí** y después haga clic en **Finalizar**.
 
-10.  Dentro de la **Consola de administración de WebLogic Server**, haga clic en **Guardar** y, a continuación, haga clic en **Activar cambios**.
+10.  En la **Consola de administración de WebLogic Server**, haga clic en **Guardar** y después en **Activar cambios**.
 
-11.  Haga clic en **Implementaciones**, seleccione **shoppingcart**, haga clic en **Inicio**, y, a continuación, haga clic en **Atender todas las solicitudes**. Cuando se le solicite confirmar, haga clic en **Sí**.
+11.  Haga clic en **Implementaciones**, seleccione **shoppingcart**, haga clic en **Inicio** y después haga clic en **Atender todas las solicitudes**. Cuando se le solicite confirmar, haga clic en **Sí**.
 
-12.  Para ver la aplicación de carro de la compra que se ejecuta en Internet, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>/shoppingcart`. (Puede determinar el valor de `<<unique_domain_name>>` dentro del [Portal de Azure](https://ms.portal.azure.com/) haciendo clic en Máquinas virtuales y, a continuación, seleccionando la máquina virtual que está usando para ejecutar Oracle WebLogic Server).
+12.  Para ver la aplicación de carro de la compra ejecutarse en Internet, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>/shoppingcart`. (Para determinar el valor de `<<unique_domain_name>>` en el [Portal de Azure](https://ms.portal.azure.com/), haga clic en Máquinas virtuales y después seleccione la máquina virtual que está usando para ejecutar Oracle WebLogic Server).
 
 ## Pasos siguientes
 
@@ -292,7 +279,7 @@ Por ejemplo:
 		
 		</table>             
 
-2. Modifique el archivo **weblogic.xm**l para que contenga el código siguiente después de la línea de comentario `Insert session descriptor element here`.
+2. Modifique el archivo **weblogic.xml** para que contenga el código siguiente después de la línea de comentario `Insert session descriptor element here`.
 
 		<session-descriptor>
 			<persistent-store-type>replicated_if_clustered</persistent-store-type>
@@ -303,7 +290,7 @@ Por ejemplo:
 
 4. Abra una sesión del explorador y ejecute la aplicación shoppingcart. Agregue algunos elementos al carro de la compra y observe qué equipo está atendiendo a la sesión del explorador.
 
-5. En el Portal de Azure, en la interfaz de usuario de las **máquinas virtuales**, seleccione la máquina virtual que atendió la sesión del explorador y haga clic en **Apagar**. Espere hasta que el estado de la máquina virtual sea **Detenido (desasignado)** antes de continuar.
+5. En el Portal de Azure, en la interfaz de usuario de **Máquinas virtuales**, seleccione la máquina virtual que atendió la sesión del explorador y haga clic en **Apagar**. Espere hasta que el estado de la máquina virtual sea **Detenido (desasignado)** antes de continuar.
 
 6. Actualice la sesión del explorador que está ejecutando la aplicación shoppingcart y compruebe que una máquina diferente esté atendiendo la sesión del explorador.
 
@@ -319,4 +306,4 @@ Ahora que ha configurado el clúster que se está ejecutando en el Oracle WebLog
 
 - [Oracle WebLogic Server 12c con Linux en Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

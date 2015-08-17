@@ -1,20 +1,13 @@
 <properties
-	pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
-	description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
+   description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags 
-	ms.service="backup" 
-	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/23/2015" 
-	ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/31/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Copia de seguridad de Azure - Preguntas más frecuentes
 A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre Copia de seguridad de Azure, vaya al [foro de discusión](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) y publique sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -54,7 +47,7 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P10. ¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?** <br/> R10. Las copias de seguridad configuradas actualmente se detendrán. Tendrá que volver a registrar el servidor con el almacén de copia de seguridad y Servicios de recuperación lo considerará un nuevo servidor, por lo que la primera operación de copia de seguridad que se produce después del registro será una copia de seguridad completa de todos los datos incluidos en la copia de seguridad, en lugar de solo los cambios desde la última copia de seguridad. Sin embargo, si necesita realizar una operación de recuperación, puede recuperar los datos de los que se ha hecho copia de seguridad mediante la recuperación desde otra opción de recuperación de servidores. Para más información, vea Cambiar nombre de un servidor.
 
-**P11. ¿Desde qué tipos de unidades puedo realizar copias de seguridad de archivos y carpetas?** <br/> R11. La copia de seguridad se puede realizar del siguiente conjunto de unidades/volúmenes de disco:
+**P11. ¿Desde qué tipos de unidades puedo realizar copias de seguridad de archivos y carpetas?** <br/> R11. La copia de seguridad no se puede realizar del siguiente conjunto de unidades/volúmenes de disco:
 
 - Medios extraíbles: la unidad debe ser fija para poder usarse como origen de copia de seguridad.
 - Volúmenes de solo lectura: el volumen debe ser grabable para que el servicio de copia de instantáneas de volumen (VSS) funcione.
@@ -148,4 +141,4 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P4. ¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos (o) puede Microsoft recuperar los datos?** <br/> R4. La clave utilizada para cifrar los datos de copia de seguridad está presente en las instalaciones del cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si el cliente pierde la clave, Microsoft no puede recuperar los datos de copia de seguridad.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

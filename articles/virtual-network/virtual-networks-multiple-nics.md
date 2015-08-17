@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/02/2015"
+   ms.date="08/02/2015"
    ms.author="telmos" />
 
 # Creación de una máquina virtual con varias NIC
@@ -83,7 +83,8 @@ Cualquier NIC de una máquina virtual puede asociarse a un grupo de seguridad de
 
 Si una subred está asociada a un NSG y una NIC dentro de esa subred está asociada individualmente a un NSG, las reglas asociadas de NSG se aplican en "** orden de flujo**" según la dirección del tráfico que se pasa dentro o fuera de la NIC:
 
-- El **tráfico entrante** cuyo destino es la NIC en cuestión fluye primero a través de la subred, desencadenando reglas de NSG de la subred, antes de pasar a la NIC y desencadenar reglas de NSG de la NIC. - El **tráfico de salida** cuyo origen es la NIC en cuestión fluye primero fuera de la NIC, desencadenando reglas de NSG de la NIC, antes de pasar a la subred y desencadenar reglas de NSG de la subred. 
+- **El **tráfico entrante** cuyo destino es la NIC en cuestión fluye primero a través de la subred, desencadenando reglas de NSG de la subred, antes de pasar a la NIC y desencadenar reglas de NSG de la NIC.
+- El **tráfico de salida** cuyo origen es la NIC en cuestión fluye primero fuera de la NIC, desencadenando reglas de NSG de la NIC, antes de pasar a la subred y desencadenar reglas de NSG de la subred. 
 
 La ilustración anterior representa cómo se realiza la aplicación de reglas de NSG basándose en el flujo de tráfico (de la máquina virtual a la subred o de la subred a la máquina virtual).
 
@@ -152,7 +153,7 @@ Para crear una máquina virtual con varias tarjetas NIC, siga estos pasos:
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]La red virtual que especifique aquí debe existir previamente (tal como se indicó en los requisitos previos). En el ejemplo siguiente se muestra una red virtual denominada **MultiNIC VNet**.
+>[AZURE.NOTE]La red virtual que especifique aquí debe existir previamente (tal como se indicó en los requisitos previos). En el ejemplo siguiente se especifica una red virtual denominada **MultiNIC VNet**.
 
 ## Acceso de la NIC secundaria a otras subredes
 
@@ -217,7 +218,7 @@ Para agregar una ruta predeterminada en la NIC secundaria, siga estos pasos:
 		===========================================================================
 
 2. Busque la segunda entrada en la tabla con un índice de 27 (en este ejemplo).
-3. Desde el símbolo del sistema, ejecute el comando **Agregar ruta** tal y como se muestra a continuación. En este ejemplo, está especificando 192.168.2.1 como puerta de enlace predeterminada para la NIC secundaria:
+3. Desde el símbolo del sistema, ejecute el comando **route add** tal y como se muestra a continuación. En este ejemplo, está especificando 192.168.2.1 como puerta de enlace predeterminada para la NIC secundaria:
 
 		route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
 
@@ -248,4 +249,4 @@ Para agregar una ruta predeterminada en la NIC secundaria, siga estos pasos:
 
 En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento predeterminado está usando el enrutamiento del host no seguro, le recomendamos restrinja el flujo de tráfico de las NIC secundarias para que permanezca dentro de la misma subred. Sin embargo, si ciertos escenarios exigen que tenga conectividad fuera de la subred, los usuarios deben habilitar el enrutamiento basado en las directivas para asegurarse de que el tráfico de entrada y salida utiliza la misma NIC.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

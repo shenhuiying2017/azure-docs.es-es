@@ -84,7 +84,7 @@ Una vez que haya habilitado el acceso de la red CDN a una cuenta de almacenamien
 
 Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, use la URL de la red CDN que se le ha proporcionado en el portal. La dirección del blob en caché será similar a la siguiente:
 
-http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
+http://<*espacioDeNombresCDN*>.vo.msecnd.net/<*miContenedorPúblico*>/<*NombreBlob*>
 
 
 ## Paso 4: Eliminación de su contenido de la red CDN
@@ -120,4 +120,4 @@ El Portal de administración de Azure no admite actualmente la posibilidad de pu
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

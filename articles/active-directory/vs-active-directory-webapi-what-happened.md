@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # ¿Qué le ha ocurrido a mi proyecto?
 
@@ -59,11 +59,13 @@ Si ya tenía una clase de inicio en su proyecto, el método **Configuration** se
 
 ###Su archivo app.config o web.config tiene nuevos valores de configuración.
 
-Se han agregado las siguientes entradas de configuración. <pre> `<appSettings>
+Se han agregado las siguientes entradas de configuración. ```
+	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Se ha creado una aplicación de Azure AD.
 
@@ -101,13 +103,17 @@ Se realizó una copia de seguridad de cada uno de los siguientes archivos antes 
 
 ###Se realizaron cambios adicionales en app.config o web.config
 
-Se han agregado las siguientes entradas de configuración adicionales. <pre> `<appSettings>
+Se han agregado las siguientes entradas de configuración adicionales.
+
+```
+	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Se ha actualizado la aplicación Azure Active Directory
 La aplicación Azure Active Directory se actualizó para incluir el permiso *Leer datos de directorio* y se creó una clave adicional que luego se usó como *ida:Password* en el archivo `web.config`.
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

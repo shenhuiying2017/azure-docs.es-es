@@ -417,13 +417,13 @@ Las herramientas de HDInsight para Visual Studio también pueden utilizarse para
 
 Para ver una topología híbrida de ejemplo, cree un nuevo proyecto y seleccione **Muestra híbrida de Storm**. Esto crea una muestra totalmente comentada que contiene varias topologías que muestran lo siguiente:
 
--	**Spout de Java** y **bolt de C#**: definidos en **HybridTopology_javaSpout_csharpBolt**
+-	**Spout de Java** y **bolt de C#**: definidos en **HybridTopology\_javaSpout\_csharpBolt**
 
-	-	Una versión transaccional se define en **HybridTopologyTx_javaSpout_csharpBolt**
+	-	Una versión transaccional se define en **HybridTopologyTx\_javaSpout\_csharpBolt**
 
--	**Spout de C#** y **bolt de Java**: definidos en **HybridTopology_csharpSpout_javaBolt**
+-	**Spout de C#** y **bolt de Java**: definidos en **HybridTopology\_csharpSpout\_javaBolt**
 
-	-	Una versión transaccional se define en **HybridTopologyTx_csharpSpout_javaBolt**
+	-	Una versión transaccional se define en **HybridTopologyTx\_csharpSpout\_javaBolt**
 
 		> [AZURE.NOTE]Esta versión también muestra cómo usar código de Clojure desde un archivo de texto como un componente de Java.
 
@@ -595,7 +595,7 @@ Aunque es fácil implementar una topología en un clúster, en algunos casos pue
 
 6.	Guarde los cambios y presione **F5** o seleccione **Depurar** > **Iniciar depuración** para iniciar el proyecto. Debe aparecer una ventana de consola y el estado del registro a medida que progresen las pruebas. Cuando se muestre **Pruebas finalizadas**, presione cualquier tecla para cerrar la ventana.
 
-7.	Use el **Explorador de Windows** para buscar el directorio que contiene el proyecto; por ejemplo, **C:\Usuarios<su_nombre_de_usuario>\Documentos\Visual Studio 2013\Projects\WordCount\WordCount**. En este directorio, abra **Bin** y haga clic en **Depurar**. Debería ver los archivos de texto que se generaron cuando se ejecutaron las pruebas: sentences.txt, counter.txt y splitter.txt. Abra cada archivo de texto e inspeccione los datos.
+7.	Use el **Explorador de Windows** para buscar el directorio que contiene el proyecto; por ejemplo, **C:\\Usuarios<su\_nombre\_de\_usuario>\\Documentos\\Visual Studio 2013\\Projects\\WordCount\\WordCount**. En este directorio, abra **Bin** y haga clic en **Depurar**. Debería ver los archivos de texto que se generaron cuando se ejecutaron las pruebas: sentences.txt, counter.txt y splitter.txt. Abra cada archivo de texto e inspeccione los datos.
 
 	> [AZURE.NOTE]Los datos de cadena se almacenan como una matriz de valores decimales en estos archivos. Por ejemplo, [[97,103,111]] en el archivo **splitter.txt** es la palabra 'and'.
 
@@ -655,4 +655,4 @@ Para conocer más formas de trabajar con HDInsight y obtener más ejemplos de St
 
 -	[Introducción a HBase en HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

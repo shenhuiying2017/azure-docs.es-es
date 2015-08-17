@@ -163,4 +163,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [SDK de Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

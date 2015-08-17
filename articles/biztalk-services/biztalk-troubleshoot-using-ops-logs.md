@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Operación para purgar copias de seguridad del Servi
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

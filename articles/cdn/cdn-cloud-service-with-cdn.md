@@ -91,7 +91,7 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE] El proceso de publicación de los servicios en la nube tarda mucho tiempo. La opción Habilitar la implementación web en todos los roles puede acelerar la depuración del servicio en la nube al proporcionar actualizaciones rápidas (pero temporales) para los roles web. Para obtener más información sobre esta opción, consulte [Publicar un servicio en la nube mediante Azure Tools](http://msdn.microsoft.com/library/ff683672.aspx).
+	>[AZURE.NOTE]El proceso de publicación de los servicios en la nube tarda mucho tiempo. La opción Habilitar la implementación web en todos los roles puede acelerar la depuración del servicio en la nube al proporcionar actualizaciones rápidas (pero temporales) para los roles web. Para obtener más información sobre esta opción, consulte [Publicar un servicio en la nube mediante Azure Tools](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Cuando el **Registro de actividad de Microsoft Azure** muestre que el estado de publicación es **Completado**, creará un extremo de red CDN que se integra con este servicio en la nube.
 
@@ -100,7 +100,7 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
 
-	>[AZURE.NOTE] Cuando haya creado el extremo de red CDN, el portal de Azure mostrará su URL y el dominio de origen con el que está integrado. Sin embargo, puede que pase un tiempo hasta que la configuración del extremo de red CDN se propague a las ubicaciones de todos los nodos de red CDN.
+	>[AZURE.NOTE]Cuando haya creado el extremo de red CDN, el portal de Azure mostrará su URL y el dominio de origen con el que está integrado. Sin embargo, puede que pase un tiempo hasta que la configuración del extremo de red CDN se propague a las ubicaciones de todos los nodos de red CDN.
 
 	Observe que el extremo de red CDN está enlazado a la ruta **cdn/** del servicio en la nube. Puede crear una carpeta **cdn** en el proyecto **WebRole1** o puede usar la reescritura de URL para seccionar todos los vínculos entrantes de esta ruta. En este tutorial, tomará la última opción.
 
@@ -112,7 +112,7 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
 
-	>[AZURE.NOTE] Aunque habilitar la cadena de consulta no es necesario en esta sección del tutorial, querrá hacer esto lo antes posible por comodidad dado que cualquier cambio aquí realizado va a tardar en propagarse a todos los nodos de red CDN, y no deseará que el contenido no habilitado para la cadena de consulta colapse la caché de red CDN (la actualización del contenido de red CDN se tratará más adelante).
+	>[AZURE.NOTE]Aunque habilitar la cadena de consulta no es necesario en esta sección del tutorial, querrá hacer esto lo antes posible por comodidad dado que cualquier cambio aquí realizado va a tardar en propagarse a todos los nodos de red CDN, y no deseará que el contenido no habilitado para la cadena de consulta colapse la caché de red CDN (la actualización del contenido de red CDN se tratará más adelante).
 
 3. Haga ping al extremo de red CDN para asegurarse de que se propaga a todos los nodos de red CDN. Puede que deba esperar una hora antes de que haya respuesta a los pings.
 
@@ -626,4 +626,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

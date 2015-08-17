@@ -40,4 +40,4 @@ Service Fabric presenta un modelo de estado que ofrece una funcionalidad de eval
 - [Adición de informes de mantenimiento de Service Fabric personalizados](service-fabric-report-health.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

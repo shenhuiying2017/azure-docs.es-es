@@ -486,4 +486,4 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

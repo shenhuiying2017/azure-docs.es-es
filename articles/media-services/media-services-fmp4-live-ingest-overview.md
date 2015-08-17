@@ -49,7 +49,7 @@ A continuación se muestra una lista de definiciones de formato especial que se 
 5. En la sección 3.3.6 en [1] se define el cuadro denominado MovieFragmentRandomAccessBox ('mfra') que se PUEDE enviar al final de la introducción en directo para indicar EOS (final de secuencia) al canal. Debido a la lógica de introducción de Servicios multimedia de Azure, el uso de EOS (final de la secuencia) están en desuso y el cuadro 'mfra' de la introducción en directo NO DEBERÍA enviarse. Si se envía, Servicios multimedia de Azure la omite en el modo silencioso. Se recomienda usar [Restablecer canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) para restablecer el estado del punto de introducción y también se recomienda usar [Detener el programa](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para finalizar una presentación y una secuencia.
 6. La duración del fragmento MP4 DEBERÍA ser constante, con el fin de reducir el tamaño de los manifiestos de cliente y de mejorar la heurística de descarga del cliente mediante el uso de etiquetas de repetición. La duración PUEDE fluctuar para compensar las velocidades de fotogramas de no enteros.
 7. La duración de fragmentos MP4 DEBERÍA estar comprendida aproximadamente entre 2 y 6 segundos.
-8. Las marcas de tiempo de fragmentos MP4 e índices (TrackFragmentExtendedHeaderBox fragment_absolute_time y fragment_index) DEBERÍAN llegar en orden ascendente. Aunque Servicios multimedia de Azure es resistente a fragmentos duplicados, tiene una capacidad limitada para reordenar fragmentos de acuerdo con la escala de tiempo multimedia.
+8. Las marcas de tiempo de fragmentos MP4 e índices (TrackFragmentExtendedHeaderBox fragment\_absolute\_time y fragment\_index) DEBERÍAN llegar en orden ascendente. Aunque Servicios multimedia de Azure es resistente a fragmentos duplicados, tiene una capacidad limitada para reordenar fragmentos de acuerdo con la escala de tiempo multimedia.
 
 ##Formato de protocolo: HTTP
 
@@ -139,7 +139,7 @@ A continuación, se muestran las expectativas del extremo de introducción en di
 3. La solicitud POST del nuevo codificador DEBE incluir los mismos cuadros de encabezado MP4 fragmentados que la instancia con errores.
 4. El codificador nuevo DEBE estar sincronizado correctamente con todos los demás codificadores en ejecución para la misma presentación en directo para generar los ejemplos de audio y vídeo sincronizados con los límites de fragmentos alineados.
 5. La nueva secuencia DEBE ser semánticamente equivalente a la secuencia anterior e intercambiable en el nivel de encabezado y fragmento.
-6. El nuevo codificador DEBERÍA intentar minimizar la pérdida de datos. fragment_absolute_time y fragment_index de los fragmentos multimedia DEBERÍAN aumentar desde el punto en que se detuvo el codificador. fragment_absolute_time and fragment_index DEBERÍAN aumentar de forma continua, pero se puede introducir una discontinuidad en caso necesario. Servicios multimedia de Azure omitirá fragmentos que ya ha recibido y procesado, por lo que es mejor equivocarse en el lado del envío de los fragmentos en lugar de introducir discontinuidades en la escala de tiempo mutimedia. 
+6. El nuevo codificador DEBERÍA intentar minimizar la pérdida de datos. fragment\_absolute\_time y fragment\_index de los fragmentos multimedia DEBERÍAN aumentar desde el punto en que se detuvo el codificador. fragment\_absolute\_time and fragment\_index DEBERÍAN aumentar de forma continua, pero se puede introducir una discontinuidad en caso necesario. Servicios multimedia de Azure omitirá fragmentos que ya ha recibido y procesado, por lo que es mejor equivocarse en el lado del envío de los fragmentos en lugar de introducir discontinuidades en la escala de tiempo mutimedia. 
 
 ##Redundancia del codificador 
 
@@ -206,4 +206,4 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

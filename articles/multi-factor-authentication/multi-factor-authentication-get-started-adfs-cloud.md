@@ -93,4 +93,4 @@ Ahora que las notificaciones están listas, podemos configurar IP de confianza.
 
 ¡Ya está! En este punto, los usuarios federados de Office 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

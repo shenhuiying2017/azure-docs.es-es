@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Inicio de sesión en Azure como una organización" 
-	description="Obtenga información acerca de cómo puede utilizar una cuenta profesional o educativa para aprovechar las cuentas de usuario, las directivas, las configuraciones o las implementaciones de servidor local que ya tiene y mejorar la eficacia entre la infraestructura de identidad local de su organización y Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
-	editor="Lisatoft"/>
+<properties
+	pageTitle="Inicio de sesión en Azure como una organización"
+	description="Obtenga información acerca de cómo puede utilizar una cuenta profesional o educativa para aprovechar las cuentas de usuario, las directivas, las configuraciones o las implementaciones de servidor local que ya tiene y mejorar la eficacia entre la infraestructura de identidad local de su organización y Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="markvi"
+	manager="stevenpo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="terrylan"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/30/2015"
+	ms.author="markvi"/>
 
 
 # Inicio de sesión en Azure como una organización
@@ -27,13 +27,12 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Mi
 
 	Después de crear este directorio, un administrador puede crear usuarios y asignarles licencias basándose en las suscripciones de servicio de nube a las que necesiten acceso, como Azure.
 
-¿Desea registrarse como organización en Azure? [**Regístrese ahora**](http://go.microsoft.com/fwlink/?LinkId=269967)
+¿Desea registrarse como organización en Azure? [**Regístrese ahora**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **Recursos adicionales**
 
-* [Blog de Microsoft Azure](http://azure.microsoft.com/blog/) 
+* [Blog de Microsoft Azure](http://azure.microsoft.com/blog/)
 * [¿Qué es Azure AD?](active-directory-whatis.md)
 * [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

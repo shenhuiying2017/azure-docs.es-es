@@ -205,52 +205,52 @@ En la tabla siguiente se describen las propiedades que están disponibles.
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-  ```
+```
 
-Supported methods: GET PUT DELETE
+Métodos admitidos: GET PUT DELETE
 
-Supported collection methods: GET
+Métodos de colección admitidos: GET
 
-The following table describes the properties that are available.
+En la tabla siguiente se describen las propiedades que están disponibles.
 
-|Property|Description|
+|Propiedad|Descripción|
 |---|---|
-|Id|The unique identifier.|
-|Etag|**Required for Patch**. Updated by server on each write. Value must be equal to the current stored value or ‘*’ to update. 409 returned for old/invalid values.|
-|properties.query|**Required**. The search query.|
-|properties.displayName|**Required**. The user defined display name of the query. If modeled as an Azure resource, this would be a Tag.|
-|properties.category|**Required**. The user defined category of the query. If modeled as an Azure resource this would be a Tag.|
+|Id|Identificador único.|
+|Etag|**Obligatoria para la revisión**. Actualizada por el servidor en cada escritura. El valor debe ser igual al valor actual almacenado o ' *' para actualizar. 409 devuelto para valores antiguos o no válidos.|
+|properties.query|**Obligatorio**. Consulta de la búsqueda.|
+|properties.displayName|**Obligatorio**. El nombre para mostrar definido por el usuario de la consulta. Si se modela como un recurso de Azure, esto sería una etiqueta.|
+|properties.category|**Obligatorio**. Categoría de la consulta definida por el usuario. Si se modela como un recurso de Azure sería una etiqueta.|
 
->[AZURE.NOTE]The Operational Insights Search API currently returns user-created saved searches when polled for saved searches in a workspace. The API will not return saved searches provided by solutions at this time. This functionality will be added at a later date.
+>[AZURE.NOTE]Actualmente, la API de búsqueda de Visión operativa devuelve las búsquedas guardadas creadas por el usuario cuando se realiza un sondeo de búsquedas guardadas en un área de trabajo. En este momento, la API no devolverá las búsquedas guardadas proporcionadas por soluciones. Esta funcionalidad se agregará en una fecha posterior.
 
-### Delete saved searches
+### Eliminación de búsquedas guardadas
 
-**Request:**
+**Solicitud:**
 
 ```
 	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
 ```
 
-### Update saved searches
+### Actualización de búsquedas guardadas
 
- **Request:**
+ **Solicitud:**
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
 	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
 ```
 
-### Metadata - JSON only
+### Metadatos: solo JSON
 
-Here’s a way to see the fields for all log types for the data collected in your workspace. For example, if you want you know if the Event type has a field named Computer, then this is one way to look up and confirm.
+Aquí se proporciona una manera de ver los campos de todos los tipos de registro para los datos recopilados en el área de trabajo. Por ejemplo, si desea saber si el tipo de evento tiene un campo denominado Computer, esta es una manera de buscar y confirmar.
 
-**Request for Fields:**
+**Solicitud de campos:**
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
 ```
 
-**Response:**
+**Respuesta:**
 
 ```
 	{
@@ -281,29 +281,28 @@ Here’s a way to see the fields for all log types for the data collected in you
 	}
 ```
 
-The following table describes the properties that are available.
+En la tabla siguiente se describen las propiedades que están disponibles.
 
-|**Property**|**Description**|
+|**Propiedad**|**Descripción**|
 |---|---|
-|name|Field name.|
-|displayName|The display name of the field.|
-|type|The Type of the field value.|
-|facetable|Combination of current ‘indexed’, ‘stored ‘and ‘facet’ properties.|
-|display|Current ‘display’ property. True if field is visible in search.|
-|ownerType|Reduced to only Types belonging to onboarded IP’s.|
+|name|Nombre del campo.|
+|DisplayName|Nombre para mostrar del campo.|
+|type|Tipo del valor del campo.|
+|facetable|Combinación de las propiedades actuales ‘indexed’, ‘stored ‘y ‘facet’.|
+|display|Propiedad 'display' actual. True si el campo está visible en la búsqueda.|
+|ownerType|Se reduce a solo los tipos que pertenecen a las IP incorporadas.|
 
 
-## Optional parameters
-The following information describes optional parameters available.
+## Parámetros opcionales
+La siguiente información describe los parámetros opcionales disponibles.
 
-### Highlighting
+### Resaltado
 
-The “Highlight” parameter is an optional parameter you may use to request the search subsystem include a set of markers in its response.
+El parámetro "Highlight" es un parámetro opcional que se puede usar para solicitar al subsistema de búsqueda que incluya un conjunto de marcadores en la respuesta.
 
-These markers indicate the start and end highlighted text that matches the terms provided in your search query.
-You may specify the start and end markers that will be used by search to wrap the highlighted term.
+Estos marcadores indican el inicio y fin del texto resaltado que coincide con los términos que se proporcionan en la consulta de búsqueda. Puede especificar los marcadores de inicio y final que se usarán en la búsqueda para envolver el término resaltado.
 
-**Example search query**
+**Ejemplo de consulta de la búsqueda**
 
 ```
 	$savedSearchParametersJson =
@@ -320,7 +319,7 @@ You may specify the start and end markers that will be used by search to wrap th
 	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
 ```
 
-**Sample result:**
+**Resultado de ejemplo:**
 
 ```
 	{
@@ -346,4 +345,4 @@ You may specify the start and end markers that will be used by search to wrap th
 
 Observe que el resultado anterior contiene un mensaje de error que se ha incluido como prefijo y se ha anexado.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="required"
-   ms.date="04/30/2015"
+   ms.date="08/04/2015"
    ms.author="mwasson"/>
 
 # Uso de Caché en Redis de Azure con Node.js
@@ -25,11 +25,11 @@ En este tema se explica cómo comenzar a usar Caché en Redis de Azure usando No
 
 ## Requisitos previos
 
-Instale [node_redis](https://github.com/mranney/node_redis):
+Instale [node\_redis](https://github.com/mranney/node_redis):
 
     npm install redis
 
-Este tutorial usa [node_redis](https://github.com/mranney/node_redis), pero puede usar cualquier cliente de Node.js enumerado en [http://redis.io/clients](http://redis.io/clients).
+Este tutorial usa [node\_redis](https://github.com/mranney/node_redis), pero puede usar cualquier cliente de Node.js enumerado en [http://redis.io/clients](http://redis.io/clients).
 
 ## Crear una caché de Redis en Azure
 
@@ -50,7 +50,7 @@ Una vez creada la memoria caché, haga clic en ella en el portal para ver su con
 ## Habilitar el extremo no SSL
 
 
-Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No** para "Permitir acceso solo a través de SSL". Esto habilitará el puerto no SSL para la memoria caché. El cliente node_redis actualmente no admite SSL.
+Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No** para "Permitir acceso solo a través de SSL". Esto habilitará el puerto no SSL para la memoria caché. El cliente node\_redis actualmente no admite SSL.
 
   ![][3]
 
@@ -91,4 +91,4 @@ Salida:
 
 [Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery"
-   ms.date="04/13/2015"
+   ms.date="07/30/2015"
    ms.author="elfish"/>
 
 # Finalización de una base de datos SQL de Azure recuperada
@@ -53,7 +53,7 @@ Para obtener más información sobre las reglas de alerta de bases de datos, con
 
 ## Habilitar auditoría
 
-Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Se requiere un buen indicador de auditoría, que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *. database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL](sql-database-auditing-get-started.md). 
+Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Un buen indicador de que es necesaria una auditoría es que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *.database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL](sql-database-auditing-get-started.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

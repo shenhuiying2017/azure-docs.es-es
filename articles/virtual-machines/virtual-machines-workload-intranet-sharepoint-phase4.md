@@ -5,15 +5,16 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Fase 4 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de servidores de SharePoint
@@ -95,7 +96,7 @@ Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en 
 
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-Use el procedimiento [Inicio de sesión en una máquina virtual con una conexión a Escritorio remoto](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) cuatro veces, una vez para cada servidor de SharePoint, para iniciar sesión con las credenciales de cuenta [Dominio]\sp_farm_db. Ha creado estas credenciales en [Fase 2: configuración de controladores de dominio](virtual-machines-workload-intranet-sharepoint-phase2.md).
+Use el procedimiento [Inicio de sesión en una máquina virtual con una conexión a Escritorio remoto](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) cuatro veces, una vez para cada servidor de SharePoint, para iniciar sesión con las credenciales de cuenta [Dominio]\\sp\_farm\_db. Ha creado estas credenciales en [Fase 2: configuración de controladores de dominio](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 Use el procedimiento [Para probar la conectividad](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) cuatro veces, uno para cada servidor de SharePoint, para probar la conectividad en las ubicaciones de la red de la organización.
 
@@ -109,8 +110,8 @@ Siga estos pasos para configurar el primer servidor de SharePoint en la granja d
 4.	En la página **Conectar a una granja de servidores**, seleccione **Crear una nueva granja de servidores** y, a continuación, haga clic en **Siguiente**.
 5.	En la página **Especificar configuración de base de datos**:
  - En **Servidor de base de datos**, escriba el nombre del servidor de la base de datos principal.
- - En **Nombre de usuario**, escriba [dominio]** \sp_farm_db** (creado en [Fase 2: Configuración de controladores de dominio](virtual-machines-workload-intranet-sharepoint-phase2.md)). Recuerde que la cuenta de sp_farm_db tiene privilegios de sysadmin en el servidor de la base de datos.
- - En **Contraseña**, escriba la contraseña de la cuenta de sp_farm_db.
+ - En **Nombre de usuario**, escriba [dominio]** \\sp\_farm\_db** (creado en [Fase 2: Configuración de controladores de dominio](virtual-machines-workload-intranet-sharepoint-phase2.md)). Recuerde que la cuenta de sp\_farm\_db tiene privilegios de sysadmin en el servidor de la base de datos.
+ - En **Contraseña**, escriba la contraseña de la cuenta de sp\_farm\_db.
 6.	Haga clic en **Siguiente**.
 7.	En la página **Especificación de la configuración de seguridad de la granja de servidores**, escriba una frase de contraseña dos veces. Registre la frase de contraseña y almacénela en una ubicación segura para futuras referencias. Haga clic en **Siguiente**.
 8.	En la página **Configuración de la aplicación web de administración central de SharePoint**, haga clic en **Siguiente**.
@@ -126,7 +127,7 @@ Realice el procedimiento siguiente en el segundo servidor de aplicaciones de Sha
 3.	Aparece un cuadro de diálogo **Asistente para configuración de productos de SharePoint** que le advierte que se reiniciarán o restablecerán los servicios (como IIS). Haga clic en **Sí**.
 4.	En la página **Conexión a una granja de servidores**, haga clic en **Conectar con un conjunto de servidores existente** y, a continuación, haga clic en **Siguiente**.
 5.	En la página **Especificación de la configuración de base de datos**, escriba el nombre del servidor de base de datos principal en **Servidor de base de datos** y, a continuación, haga clic en **Recuperar nombres de base de datos**.
-6.	Haga clic en **SharePoint_Config** en la lista de nombres de la base de datos y, a continuación, haga clic en **Siguiente**.
+6.	Haga clic en **SharePoint\_Config** en la lista de nombres de la base de datos y, a continuación, haga clic en **Siguiente**.
 7.	En la página **Especificación de la configuración de seguridad de granjas de servidores**, escriba la frase de contraseña del procedimiento anterior. Haga clic en **Siguiente**.
 8.	Aparecerá la página **Finalización del Asistente para configuración de productos de SharePoint**. Haga clic en **Siguiente**.
 9.	En la página **Configuración realizada correctamente**, haga clic en **Finalizar**.
@@ -190,4 +191,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: C
 
 [Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

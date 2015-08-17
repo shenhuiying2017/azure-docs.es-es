@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/23/2015"
+	ms.date="08/03/2015"
 	ms.author="mwasson"/>
 
 
@@ -113,13 +113,13 @@ En esta sección podrá crear una nueva aplicación Node en su entorno de desarr
 
 1. En la línea de comandos, cambie de directorio al directorio **tasklist**. Si el directorio **tasklist** no existe, créelo.
 
-> [AZURE.NOTE]Este tutorial hace referencia a la carpeta **tasklist**. La ruta completa a esta carpeta se omite, debido a que la semántica de la ruta es diferente entre los sistemas operativos. Debe crear esta carpeta en una ubicación a la que tenga fácil acceso en su sistema de archivos local, como **~/node/tasklist** o **c:\node\tasklist**.
+	> [AZURE.NOTE]Este tutorial hace referencia a la carpeta **tasklist**. La ruta completa a esta carpeta se omite, debido a que la semántica de la ruta es diferente entre los sistemas operativos. Debe crear esta carpeta en una ubicación a la que tenga fácil acceso en su sistema de archivos local, como **\~/node/tasklist** o **c:\\node\\tasklist**.
 
 2. Escriba el siguiente comando para instalar el comando Express.
 
 	npm install express-generator -g
 
-> [AZURE.NOTE]Cuando se usa el parámetro '-g' en algunos sistemas operativos, es posible recibir un error ___Error: EPERM, chmod '/ usr/local/bin/express'___ y que se solicite ejecutar la cuenta como administrador. Si ocurre, utilice el comando `sudo` para ejecutar npm en un nivel de privilegio más elevado.
+	> [AZURE.NOTE]Cuando se usa el parámetro '-g' en algunos sistemas operativos, es posible recibir un error ___Error: EPERM, chmod '/ usr/local/bin/express'___ y que se solicite ejecutar la cuenta como administrador. Si ocurre, utilice el comando `sudo` para ejecutar npm en un nivel de privilegio más elevado.
 
     El resultado de este comando debe ser similar al siguiente:
 
@@ -127,7 +127,7 @@ En esta sección podrá crear una nueva aplicación Node en su entorno de desarr
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-> [AZURE.NOTE]El parámetro "-g" que se utiliza cuando se instala el módulo Express lo instala de manera global. Esto se realiza para tener acceso al comando ___express___ para generar el scaffolding de la aplicación web sin tener que escribir información de ruta adicional.
+	> [AZURE.NOTE]El parámetro "-g" que se utiliza cuando se instala el módulo Express lo instala de manera global. Esto se realiza para tener acceso al comando ___express___ para generar el scaffolding de la aplicación web sin tener que escribir información de ruta adicional.
 
 4. Para crear el scaffolding que se usará para esta aplicación, use el comando **express**:
 
@@ -339,7 +339,7 @@ En esta sección extenderá la aplicación básica creada por el comando **expre
         var TaskList = require('./routes/tasklist');
 		var taskList = new TaskList(process.env.MONGODB_URI);
 
-	Observe la segunda línea; obtiene acceso a una variable de entorno que configurará más tarde, que contiene la información de conexión para su instancia de mongo. Si tiene una instancia de mongo local que se ejecuta para fines de desarrollo, es posible que desee establecer temporalmente este valor en "localhost" en vez de process.env.MONGODB_URI.
+	Observe la segunda línea; obtiene acceso a una variable de entorno que configurará más tarde, que contiene la información de conexión para su instancia de mongo. Si tiene una instancia de mongo local que se ejecuta para fines de desarrollo, es posible que desee establecer temporalmente este valor en "localhost" en vez de process.env.MONGODB\_URI.
 
 3. Encuentre las líneas siguientes:
 
@@ -571,4 +571,4 @@ Para obtener información sobre la protección de MongoDB, consulte [MongoDB Sec
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

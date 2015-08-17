@@ -245,7 +245,7 @@ Los metadatos agregados contienen:
 Los campos de la transición de estado se pueden usar para alertas más inteligentes o información de eventos de estado "histórica". Permiten escenarios como:
 
 - Alertar cuando una propiedad ha estado en el estado Advertencia/Error durante más de X minutos. Esto evita la generación de alertas sobre condiciones temporales. Por ejemplo, la alerta si el estado de mantenimiento ha sido Advertencia durante más de 5 minutos se puede traducir en (HealthState == Advertencia y ahora: LastWarningTransitionTime
-> 
+> 5 minutes).
 
 - Alertar solo sobre las condiciones que han cambiado en los últimos X minutos. Si el estado de un informe es Error desde antes de eso, se puede omitir (porque ya se había señalado anteriormente).
 
@@ -336,4 +336,4 @@ El modelo de estado se usa mucho para la supervisión y el diagnóstico, para ev
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

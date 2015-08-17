@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="04/26/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # Introducción a Application Insights para Visual Studio
@@ -41,7 +41,8 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
 <a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Agregar el SDK al proyecto de Java</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![Supervisión del rendimiento y el uso](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
 <a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">Insertar el script de Application Insights en las páginas web</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![rendimiento de vistas de página y explorador](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
 <a href="app-insights-monitor-web-app-availability.md">![Disponibilidad](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">Crear pruebas web</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Disponibilidad](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
-<a href="app-insights-windows-get-started.md">![Windows y Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Agregar Application Insights a un proyecto de aplicación de su dispositivo</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![Datos de uso y bloqueo](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-windows-get-started.md">![Windows y Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Agregar Application Insights a un proyecto de aplicación de Windows</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![Datos de uso y bloqueo](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-platforms.md">![iOS, Android, etc.](./media/app-insights-get-started/appinsights-gs-i-07-device.png)</a>|<a href="app-insights-platforms.md">Agregar Application Insights a la aplicación iOS o Android</a><br/>![obtiene](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-platforms.md">![Datos de uso y bloqueo](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
 ## Soporte y comentarios
 
@@ -73,4 +74,4 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

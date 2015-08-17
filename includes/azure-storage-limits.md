@@ -77,4 +77,4 @@ Puede calcular aproximadamente el número de discos muy usados admitidos por una
 
 <sup>3</sup>GRS hace referencia al almacenamiento con redundancia geográfica, mientras que LRS se refiere al almacenamiento con redundancia local.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

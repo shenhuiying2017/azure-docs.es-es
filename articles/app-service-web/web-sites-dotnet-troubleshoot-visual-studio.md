@@ -769,4 +769,4 @@ Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -60,15 +60,15 @@ Para completar este tutorial, debe haber creado un servicio móvil tras completa
 
 	En este caso, se crea un nuevo directorio con el nombre del servicio móvil, que es el repositorio local para el servicio de datos.
 
-7. Abra la subcarpeta .\service\table y observe que contiene un archivo TodoItem.json, que es una representación JSON de los permisos de funcionamiento de la tabla TodoItem.
+7. Abra la subcarpeta .\\service\\table y observe que contiene un archivo TodoItem.json, que es una representación JSON de los permisos de funcionamiento de la tabla TodoItem.
 
-	Cuando se hayan definido scripts de servidor en esta tabla, también aparecerán uno o varios archivos denominados <code>TodoItem._&lt;operation&gt;_.js</code> que contendrán los scripts para la operación de tabla determinada. Los scripts del programador y de la API personalizada se mantienen en carpetas independientes con esos nombres respectivos. Para obtener más información, consulte [Control de código fuente].
+	Cuando se hayan definido scripts de servidor en esta tabla, también aparecerán uno o varios archivos denominados <code>TodoItem._&lt;operation&gt;_.js</code> que contienen los scripts para la operación de tabla determinada. Los scripts del programador y de la API personalizada se mantienen en carpetas independientes con esos nombres respectivos. Para obtener más información, consulte [Control de código fuente].
 
 Ahora que ha creado su repositorio local, puede realizar cambios en los scripts del servidor e insertarlos en el servicio móvil.
 
 ##<a name="deploy-scripts"></a>Implementación de archivos de script actualizados en el servicio móvil
 
-1. Desplácese a la subcarpeta .\service\table y, si aún no existe un archivo todoitem.insert.js, créelo en este momento.
+1. Desplácese a la subcarpeta .\\service\\table y, si aún no existe un archivo todoitem.insert.js, créelo en este momento.
 
 2. Abra el nuevo archivo todoitem.insert.js en un editor de texto, pegue en él el código siguiente y guarde los cambios:
 
@@ -94,7 +94,7 @@ Ahora que ha creado su repositorio local, puede realizar cambios en los scripts 
 	
 	Aparecerá una serie de comandos que indica que la confirmación se ha implementado en el servicio móvil.
 
-6. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos**, haga clic en la tabla **TodoItem** y en **Script**; a continuación, seleccione la operación **Insertar**.
+6. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos**, haga clic en la tabla **TodoItem** y en **Script**; a continuación, seleccione la operación **Insert**.
 7. 
 	Observe que el script de operación de inserción que se muestra es el mismo que el del código de JavaScript que acaba de cargar en el repositorio.
 
@@ -104,13 +104,13 @@ Servicios móviles proporciona acceso a todo el conjunto de módulos Node.js bá
 
 La manera recomendada de agregar módulos Node.js al servicio móvil es agregando referencias al archivo package.json del servicio. A continuación, agregará el módulo Node.js [node-uuid] al servicio móvil a través de la actualización del archivo package.json. Cuando la actualización se inserte en Azure, el servicio móvil se reiniciará y se instalará el módulo. Este módulo se usará después para generar un nuevo valor de GUID para la propiedad **uuid** en los elementos insertados.
 
-2. Desplácese a la carpeta `.\service` del repositorio Git local y abra el archivo package.json en un editor de texto; añada el siguiente campo al objeto **dependencias**:
+2. Desplácese a la carpeta `.\service` del repositorio Git local y abra el archivo package.json en un editor de texto; agregue el siguiente campo al objeto **dependencies**:
 
 		"node-uuid": "~1.4.3"
 
 	>[AZURE.NOTE]Esta actualización para el archivo package.json producirá un reinicio del servicio móvil después de insertar la confirmación.
 
-4. Ahora, desplácese a la subcarpeta .\service\table, abra el archivo todoitem.insert.js y modifíquelo de la siguiente forma:
+4. Ahora, desplácese a la subcarpeta .\\service\\table, abra el archivo todoitem.insert.js y modifíquelo de la siguiente forma:
 
 		function insert(item, user, request) {
 		    var uuid = require('node-uuid');
@@ -158,10 +158,9 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Incorporación de servicios móviles a una aplicación existente]: mobile-services-ios-get-started-data.md
 [Uso de scripts del servidor en Servicios móviles]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Portal de administración de Azure]: https://manage.windowsazure.com/
 [Llamar a una API personalizada desde el cliente]: mobile-services-ios-call-custom-api.md
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

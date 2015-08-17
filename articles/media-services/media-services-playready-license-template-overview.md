@@ -301,4 +301,4 @@ Para ver un ejemplo de los niveles de protección que Silverlight admite, consul
 	  <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 	</xs:schema>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

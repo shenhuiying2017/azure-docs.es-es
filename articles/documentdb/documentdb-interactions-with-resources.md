@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Interacciones de RESTful con recursos de DocumentDB | Azure" 
+	pageTitle="Interacciones de RESTful con recursos de DocumentDB | Microsoft Azure" 
 	description="Obtenga información acerca de cómo realizar interacciones de RESTful con los recursos de DocumentDB de Microsoft Azure mediante verbos HTTP." 
 	services="documentdb" 
 	authors="h0n" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/03/2015" 
 	ms.author="h0n"/>
 
 # Interacciones RESTful con recursos de DocumentDB 
@@ -48,7 +48,7 @@ Como se ilustra en el siguiente diagrama, POST solo puede emitirse contra un rec
 ## Creación de un nuevo recurso mediante POST 
 A fin de obtener una mejor percepción para el modelo de interacción, consideremos el caso de crear un recurso nuevo (alias INSERT). Para crear un recurso nuevo, es necesario que emita una solicitud de HTTP POST con el cuerpo de la solicitud que contiene la representación del recurso contra la URI de la fuente del contenedor al que pertenece el recurso. La única propiedad requerida para la solicitud es el identificador del recurso.
 
-Por ejemplo, para crear una nueva base de datos, REGISTRA un recurso de base de datos (estableciendo la propiedad de id. con un nombre único) contra /dbs. De forma similar, para crear una nueva colección, debe REGISTRAR un recurso de colección contra /dbs/\_rid/colls/y así sucesivamente. La respuesta contiene el recurso completamente confirmado con las propiedades generadas por el sistema, incluido el vínculo_self link del recurso con el que puede navegar a otros recursos. Como un ejemplo del modelo de interacción sencillo basado en HTTP, un cliente puede emitir una solicitud HTTP para crear una base de datos nueva en una cuenta. 
+Por ejemplo, para crear una nueva base de datos, REGISTRA un recurso de base de datos (estableciendo la propiedad de id. con un nombre único) contra /dbs. De forma similar, para crear una nueva colección, debe REGISTRAR un recurso de colección contra /dbs/\_rid/colls/y así sucesivamente. La respuesta contiene el recurso completamente confirmado con las propiedades generadas por el sistema, incluido el vínculo \_self del recurso con el que puede navegar a otros recursos. Como un ejemplo del modelo de interacción sencillo basado en HTTP, un cliente puede emitir una solicitud HTTP para crear una base de datos nueva en una cuenta.
 
 	POST https://fabrikam.documents.azure.com/dbs
 	{
@@ -153,7 +153,7 @@ El servicio responde con los resultados de la consulta SQL.
 
 
 ## Uso de PUT, GET y DELETE
-El reemplazo o la lectura de un recurso equivale a emitir los verbos PUT (con un cuerpo de solicitud válido) y GET contra el vínculo _self del recurso, respectivamente. Similarmente, la eliminación de un recurso equivale a emitir un verbo DELETE contra el vínculo _self del recurso. Vale la pena señalar que la organización jerárquica de los recursos en el modelo de recursos de DocumentDB necesita la compatibilidad con las eliminaciones en cascada, donde la eliminación del recurso del propietario provoca la eliminación de los recursos dependientes. Los recursos dependientes se pueden distribuir a través de otros nodos aparte de los recursos del propietario, de modo que la eliminación puede producirse lentamente. Sin considerar la mecánica de la recopilación de elementos no usados, después de la eliminación de un recurso, la cuota se libera instantáneamente y está disponible para su uso. Tenga en cuenta que el sistema mantiene la integridad referencial. Por ejemplo, no se puede insertar una recopilación en una base de datos que se eliminó ni reemplazar o consultar un documento de una recopilación que ya no existe. 
+El reemplazo o la lectura de un recurso equivale a emitir los verbos PUT (con un cuerpo de solicitud válido) y GET contra el vínculo \_self del recurso, respectivamente. Similarmente, la eliminación de un recurso equivale a emitir un verbo DELETE contra el vínculo \_self del recurso. Vale la pena señalar que la organización jerárquica de los recursos en el modelo de recursos de la Base de datos de documentos necesita la compatibilidad con las eliminaciones en cascada, donde la eliminación del recurso del propietario provoca la eliminación de los recursos dependientes. Los recursos dependientes se pueden distribuir a través de otros nodos aparte de los recursos del propietario, de modo que la eliminación puede producirse lentamente. Sin considerar la mecánica de la recopilación de elementos no usados, después de la eliminación de un recurso, la cuota se libera instantáneamente y está disponible para su uso. Tenga en cuenta que el sistema mantiene la integridad referencial. Por ejemplo, no se puede insertar una recopilación en una base de datos que se eliminó ni reemplazar o consultar un documento de una recopilación que ya no existe.
  
 Emitir un GET contra una fuente de recursos o consultar una recopilación puede tener como resultado millones de elementos, lo que dificulta que ambos servidores los materialicen y que los clientes los consuman como parte de una sola solicitud roundtrip/ e intercambio de respuestas. Para abordar esto, DocumentDB permite que los clientes paginen en una fuente grande una página a la vez. Los clientes pueden usar el encabezado de respuesta [x-ms-continuation] como un cursor para navegar a la página siguiente.
 
@@ -164,7 +164,7 @@ La mayoría de las aplicaciones web dependen de una etiqueta de identidad basada
 2.	Si un cliente se presenta con una versión más antigua del recurso (especificado mediante el encabezado de solicitud [if-match]), la solicitud se rechaza.  
 
 ## Opciones de conectividad
-DocumentDB expone un modelo de direccionamiento lógico donde cada recurso tiene un URI lógico y estable identificado por su vínculo _self. Como un sistema de almacenamiento distribuido desplegado en regiones, los recursos de varias cuentas de bases de datos en DocumentDB se dividen en varias máquinas y cada partición se replica para una mayor disponibilidad. Las réplicas que administran los recursos de una partición dada registran las direcciones físicas. Aun cuando las direcciones físicas cambian en el tiempo debido a errores, sus direcciones lógicas se mantienen estables y constantes. El traslado de la dirección lógica a física se mantiene en una tabla de enrutamiento que también esta disponible de manera interna como un recurso. DocumentDB expone dos modos de conectividad: 
+La Base de datos de documentos expone un modelo de direccionamiento lógico donde cada recurso tiene una URI lógica y estable identificada por su vínculo \_self. Como un sistema de almacenamiento distribuido desplegado en regiones, los recursos de varias cuentas de bases de datos en la Base de datos de documentos se dividen en varias máquinas y cada partición se replica para una mayor disponibilidad. Las réplicas que administran los recursos de una partición dada registran las direcciones físicas. Aun cuando las direcciones físicas cambian en el tiempo debido a errores, sus direcciones lógicas se mantienen estables y constantes. El traslado de la dirección lógica a física se mantiene en una tabla de enrutamiento que también esta disponible de manera interna como un recurso. La Base de datos de documentos expone dos modos de conectividad:
 
 1.	**Modo de puerta de enlace:** los clientes están protegidos del traslado entre las direcciones lógicas a físicas o los detalles del enrutamiento; simplemente tratan las URI lógicas y navegan de modo RESTful en el modelo de recursos. Los clientes emiten las solicitudes usando una URI lógica y las máquinas perimetrales trasladan la URI a la dirección física de la réplica que administra el recurso y reenvía la solicitud. Con las máquinas perimetrales que ponen en la memoria caché (y periódicamente actualizan) la tabla de enrutamiento, el enrutamiento es sumamente eficaz. 
 2.	**Modo de conectividad directa:** los clientes administran directamente la tabla de enrutamiento en su espacio de proceso y la actualizan periódicamente. El cliente puede conectarse directamente con las réplicas y omitir las máquinas perimetrales.   
@@ -254,12 +254,12 @@ Consulte la [referencia de la API de REST de Azure DocumentDB](https://msdn.micr
 - [Programación de DocumentDB: procedimientos almacenados, desencadenadores y UDF](../documentdb-programming/)
 - [Documentación de referencia de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 - REST [http://en.wikipedia.org/wiki/Representational\_state\_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
-- Especificación [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
-- Especificación [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
+- Especificación JSON [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
+- Especificación HTTP [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
 - Etiquetas de entidad [http://en.wikipedia.org/wiki/HTTP\_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -32,7 +32,7 @@ Para utilizar el Bus de servicio de Azure, descargue y use el paquete azure para
 
 ### Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 
-1.  Use la venta de comandos de **Windows PowerShell para Node.js** para navegar a la carpeta **c:\node\sbqueues\WebRole1** en la que ha creado la aplicación de ejemplo.
+1.  Use la venta de comandos de **Windows PowerShell para Node.js** para navegar a la carpeta **c:\\node\\sbqueues\\WebRole1** en la que ha creado la aplicación de ejemplo.
 
 2.  Escriba **npm install azure** en la ventana de comandos, cuyo resultado debe ser similar al siguiente:
 
@@ -48,7 +48,7 @@ Para utilizar el Bus de servicio de Azure, descargue y use el paquete azure para
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node_modules**. Dentro de esa carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a las colas del Bus de servicio.
+3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de esa carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a las colas del Bus de servicio.
 
 ### Importación del módulo
 
@@ -58,7 +58,7 @@ Utilizando el Bloc de notas u otro editor de texto, agregue el código siguiente
 
 ### Configuración de una conexión del Bus de servicio de Azure
 
-El módulo Azure leerá las variables de entorno AZURE_SERVICEBUS_NAMESPACE y AZURE_SERVICEBUS_ACCESS_KEY para obtener la información necesaria para conectarse al Bus de servicio. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
+El módulo Azure leerá las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE y AZURE\_SERVICEBUS\_ACCESS\_KEY para obtener la información necesaria para conectarse al Bus de servicio. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
 
 Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio en la nube de Azure, consulte [Servicio en la nube de Node.js con almacenamiento].
 
@@ -190,4 +190,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   [Aplicación web de Node.js con almacenamiento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

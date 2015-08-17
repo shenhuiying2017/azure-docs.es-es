@@ -32,4 +32,4 @@ Si quiere un dominio, puede comprar dominios en el [Portal de administración de
 
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

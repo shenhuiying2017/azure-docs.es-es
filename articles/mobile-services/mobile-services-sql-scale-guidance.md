@@ -263,27 +263,27 @@ Para ejecutar cualquiera de las consultas siguientes, péguela en la ventana y s
 
 #### Métricas avanzadas
 
-El portal de administración crea determinadas métricas fácilmente disponibles si usa los niveles Básico, Estándar y Premium. Sin embargo, si usa los niveles Web y Business, solamente la métrica Almacenamiento estará disponible a través del portal. Afortunadamente, es sencillo obtener estas y otras métricas usando la vista de administración **[sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independientemente del nivel que esté usando. Considere la siguiente consulta:
+El portal de administración crea determinadas métricas fácilmente disponibles si usa los niveles Básico, Estándar y Premium. Sin embargo, si usa los niveles Web y Business, solamente la métrica Almacenamiento estará disponible a través del portal. Afortunadamente, es sencillo obtener estas y otras métricas usando la vista de administración **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independientemente del nivel que esté usando. Considere la siguiente consulta:
 
     SELECT TOP 10 * 
     FROM sys.resource_stats 
     WHERE database_name = 'todoitem_db' 
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]Ejecute esta consulta en la base de datos **master** del servidor; la vista **sys.resource_stats** solo está presente en esa base de datos.
+> [AZURE.NOTE]Ejecute esta consulta en la base de datos **master** del servidor; la vista **sys.resource\_stats** solo está presente en esa base de datos.
 
 El resultado contendrá las siguientes mediciones útiles: CPU (% del límite del nivel), Almacenamiento (megabytes), Lecturas de datos físicos (% del límite del nivel), Escrituras en registro (% del límite del nivel), Memoria (% del límite del nivel), Recuento de trabajadores, Recuento de sesiones, etc.
 
 #### Eventos de conectividad de SQL
 
-La vista **[sys.event_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** contiene detalles de eventos relacionados con la conectividad.
+La vista **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** contiene detalles de eventos relacionados con la conectividad.
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]Ejecute esta consulta en la base de datos **master** del servidor; la vista **sys.event_log** solo está presente en esa base de datos.
+> [AZURE.NOTE]Ejecute esta consulta en la base de datos **master** del servidor; la vista **sys.event\_log** solo está presente en esa base de datos.
 
 <a name="AdvancedIndexing" />
 ### Indización avanzada
@@ -296,7 +296,7 @@ Una tabla o vista puede contener los siguientes tipos de índices:
 
 Para proporcionar una analogía con el mundo real, piense en un libro o manual técnico. El contenido de cada página es un registro, el número de página es el índice en clúster y el índice de temas de la parte posterior del libro es un índice no clúster. Cada entrada del índice de temas apunta al índice en clúster, el número de página.
 
-> [AZURE.NOTE]De forma predeterminada, el back-end de JavaScript de Servicios móviles de Azure establece **_createdAt** como índice agrupado. Si quita esta columna o si desea un índice agrupado diferente, asegúrese de seguir las [instrucciones de diseño de índices agrupados](#ClusteredIndexes) que se indican a continuación. En el back-end de .NET, la clase `EntityData` define `CreatedAt` como un índice en clúster mediante la anotación `[Index(IsClustered = true)]`.
+> [AZURE.NOTE]De forma predeterminada, el back-end de JavaScript de Servicios móviles de Azure establece **\_createdAt** como índice agrupado. Si quita esta columna o si desea un índice agrupado diferente, asegúrese de seguir las [instrucciones de diseño de índices agrupados](#ClusteredIndexes) que se indican a continuación. En el back-end de .NET, la clase `EntityData` define `CreatedAt` como un índice en clúster mediante la anotación `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Directrices para el diseño de índices en clúster
@@ -476,4 +476,4 @@ Para analizar el plan de consulta en el **Portal de administración de Base de d
 [¿Cuánto cuesta esa clave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

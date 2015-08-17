@@ -79,4 +79,4 @@ O bien, si desea leer más acerca de los usuarios que emplean DocumentDB, tiene 
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). El almacén del futuro se ejecuta con la rapidez en la búsqueda y la sencillez en el flujo de datos.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

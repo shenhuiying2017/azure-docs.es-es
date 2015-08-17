@@ -44,7 +44,7 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
 3. Desde un anuncio de Cobertura, si la dirección URL de la acción asociada con el anuncio contiene el patrón {deviceid}, se reemplazará automáticamente por el identificador del dispositivo que desencadena la acción. http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata will be replaced by: http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
 4. Desde un anuncio de web de cobertura, si el código HTML del anuncio contiene el patrón {deviceid}, se reemplazará automáticamente por el identificador del dispositivo que muestre el anuncio web. Este es el identificador de mi dispositivo: {deviceid} será sustituido por: este es el identificador de mi dispositivo: XXXXXXXXXXXXXXXX
 5.  Abra la aplicación en el dispositivo y realice un evento en la aplicación que se ha etiquetado. Desde " IU - su aplicación - Supervisión - Detalles", busque el evento que haya realizado en la lista. Haga clic en este evento en Supervisión. Debe buscar el identificador de dispositivo en la lista de los dispositivos que han realizado este evento. A continuación, puede copiar este Id. de dispositivo y registrarlo en "IU - Mi cuenta - Nuevo dispositivo - Seleccione su plataforma de dispositivo".
->
+>(Tenga en cuenta que cuando IDFA está deshabilitado para iOS, es posible que el identificador de dispositivo cambie con el tiempo si desinstala y vuelve a instalar la aplicación).
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,4 +145,4 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

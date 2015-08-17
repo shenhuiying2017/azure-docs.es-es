@@ -93,7 +93,7 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 >[AZURE.NOTE]Al crear la zona, si aún no ha delegado el dominio en los servidores de nombres de DNS de Azure, será necesario especificar explícitamente la dirección del servidor de nombres de la zona.
 
 
-	C:> nslookup www.contoso.com ns1-01.azure-dns.com
+	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
 
 	Server: ns1-01.azure-dns.com
 	Address:  208.76.47.1
@@ -112,4 +112,4 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

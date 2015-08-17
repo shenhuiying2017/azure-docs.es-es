@@ -106,4 +106,4 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 [Portal de vista previa de Azure]: https://portal.azure.com
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -7,4 +7,4 @@
 
 3. Establezca **Actualizaciones automáticas** en **Sí**. Esta opción busca automáticamente actualizaciones a las 3:00 A.M. hora del dispositivo e instala cualquier actualización a las 4:00 A.M. todos los días.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -141,7 +141,8 @@ Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámi
 En esta sección se describen los pasos que puede seguir para codificar el contenido con Azure Media Encoder mediante el Portal de administración.
 
 1.  Seleccione el archivo que desea codificar. Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
-4. En el cuadro de diálogo **Proceso**, seleccione el **procesador de Azure Media Encoder.5. Elija una de las **configuraciones de codificación**.
+4. En el cuadro de diálogo **Proceso**, seleccione el procesador de **Codificador multimedia de Azure**.
+5. Elija una de las **configuraciones de codificación**.
 
 	![Process2][process2]
 
@@ -255,4 +256,4 @@ Obtenga más información sobre la creación de aplicaciones de vídeo bajo dema
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

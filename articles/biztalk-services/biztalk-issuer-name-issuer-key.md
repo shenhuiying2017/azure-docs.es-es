@@ -55,7 +55,7 @@ También puede seleccionar **Abrir Portal de administración de AC**S para obten
 
 En el panel de navegación izquierdo también puede seleccionar **Active Directory** para recuperar los valores de control de acceso.
 
-> [AZURE.IMPORTANT]Cuando se crea un espacio de nombres del servicio de control de acceso usando <strong>Active Directory</strong>, **no** se crea automáticamente una identidad de servicio. Cuando aprovisiona un servicio de BizTalk, se crean automáticamente un espacio de nombres del servicio de control de acceso, una identidad de servicio llamada "owner" (nombre de emisor), una contraseña (clave de emisor) y una clave simétrica.<br /> [Uso del servicio de administración de ACS para configurar identidades de servicio](http://go.microsoft.com/fwlink/p/?LinkID=303942) proporciona más información acerca de las identidades del Servicio de control de acceso.
+> [AZURE.IMPORTANT]Cuando se crea un espacio de nombres del servicio de control de acceso usando **Active Directory**, **no** se crea automáticamente una identidad de servicio. Cuando aprovisiona un servicio de BizTalk, se crean automáticamente un espacio de nombres del servicio de control de acceso, una identidad de servicio llamada "owner" (nombre de emisor), una contraseña (clave de emisor) y una clave simétrica.<br /> [Uso del servicio de administración de ACS para configurar identidades de servicio](http://go.microsoft.com/fwlink/p/?LinkID=303942) proporciona más información acerca de las identidades del Servicio de control de acceso.
 
 
 ## Nombre de emisor y clave de emisor del bus de servicio
@@ -89,4 +89,4 @@ Otros temas acerca de los servicios de BizTalk de Azure:
 - [Servicios de BizTalk: limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

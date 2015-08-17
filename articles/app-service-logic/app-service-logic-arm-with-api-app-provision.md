@@ -133,7 +133,7 @@ Crea la aplicación web para hospedar la puerta de enlace.
                     },
                     {
                         "name": "EmaStorage",
-                        "value": "D:\home\data\apiapps"
+                        "value": "D:\\home\\data\\apiapps"
                     },
                     {
                         "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -394,4 +394,4 @@ Observe que la aplicación lógica utiliza el token para llamar a la puerta de e
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

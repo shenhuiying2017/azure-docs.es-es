@@ -111,4 +111,4 @@ Ahora está preparado para escribir un pequeño programa cliente que puede conec
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

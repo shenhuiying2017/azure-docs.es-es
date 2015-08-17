@@ -12,7 +12,7 @@
                 ms.workload="identity" 
                 ms.tgt_pltfrm="na" 
                 ms.devlang="na" 
-                ms.topic="hero-article" 
+                ms.topic="article" 
                 ms.date="07/14/2015" 
                 ms.author="markusvi"/>
 
@@ -92,4 +92,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 - [Uso de la nube para mejorar y supervisar los sistemas de identidad locales](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [Plataforma enriquecida basada en el estándar para desarrolladores](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

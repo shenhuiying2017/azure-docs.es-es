@@ -34,7 +34,7 @@ Comencemos.
 
 ## Permitir multisitio
 
-Primero necesita habilitar el multisitio mediante el archivo `wp-config.php` con la constante **WP\_ALLOW\_MULTISITE**. Hay dos métodos para editar los archivos de aplicaciones web: el primero es a través de FTP y el segundo mediante Git. Si no está familiarizado con la configuración de alguno de estos métodos, consulte los siguientes tutoriales:
+Primero necesita habilitar el multisitio mediante el archivo `wp-config.php` con la constante **WP\\\_ALLOW\\\_MULTISITE**. Hay dos métodos para editar los archivos de aplicaciones web: el primero es a través de FTP y el segundo mediante Git. Si no está familiarizado con la configuración de alguno de estos métodos, consulte los siguientes tutoriales:
 
 * [Sitio web PHP con MySQL y FTP][website-w-mysql-and-ftp-ftp-setup]
 
@@ -93,7 +93,7 @@ Antes de que Aplicaciones web de Azure permita asignar un dominio al sitio, prim
 
 * Inicie sesión en el administrador de DNS de su dominio.
 * Cree un nuevo *awverify* de CNAME
-* Haga que *awverify* apunte a *awverify.YOUR_DOMAIN.azurewebsites.net*
+* Haga que *awverify* apunte a *awverify.YOUR\_DOMAIN.azurewebsites.net*
 
 Puede pasar algún tiempo antes de que los cambios de DNS surtan efecto, de modo que si los siguientes pasos no funcionan inmediatamente, prepárese una taza de café y vuelva después para volver a intentarlo.
 
@@ -113,7 +113,7 @@ Tome nota de la dirección IP que aparece en la parte inferior del cuadro de di�
 
 Si los demás pasos fueron correctos, ahora puede asignar el dominio a la aplicación web de Azure mediante un registro A de DNS.
 
-Es importante tener en cuenta aquí que las aplicaciones web de Azure aceptan tanto los registros CNAME como A; sin embargo, *debe* usar un registro A para permitir una asignación correcta del dominio. Un registro CNAME no se puede reenviar a otro CNAME, que es lo que Azure creó con YOUR_DOMAIN.azurewebsites.net.
+Es importante tener en cuenta aquí que las aplicaciones web de Azure aceptan tanto los registros CNAME como A; sin embargo, *debe* usar un registro A para permitir una asignación correcta del dominio. Un registro CNAME no se puede reenviar a otro CNAME, que es lo que Azure creó con YOUR\_DOMAIN.azurewebsites.net.
 
 Con la ayuda de la dirección IP del paso anterior, vuelva a su administrador de DNS y configure el registro A para que apunte a dicha dirección IP.
 
@@ -154,4 +154,4 @@ Aplicaciones web de Azure permite agregar un número ilimitado de dominios a un 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

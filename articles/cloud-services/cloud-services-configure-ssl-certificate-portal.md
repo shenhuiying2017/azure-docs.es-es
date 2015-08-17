@@ -43,7 +43,7 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL en Azu
 
 -   El certificado debe contener una clave privada.
 -   El certificado debe crearse para el intercambio de claves, que se puedan exportar a un archivo Personal Information Exchange (.pfx).
--   El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al servicio en la nube. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio cloudapp.net. Debe adquirir un nombre de dominio personalizado para usarlo cuando obtenga acceso a su servicio. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usó para tener acceso a su aplicación. Por ejemplo, si el nombre del dominio personalizado es **contoso.com** debe solicitar un certificado de la CA para ***. contoso.com** o **www.contoso.com**.
+-   El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al servicio en la nube. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio cloudapp.net. Debe adquirir un nombre de dominio personalizado para usarlo cuando obtenga acceso a su servicio. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usó para tener acceso a su aplicación. Por ejemplo, si su nombre de dominio personalizado es **contoso.com** debe solicitar un certificado de su CA para ****.contoso.com** o **www.contoso.com**.
 -   Este certificado debe usar un cifrado de 2048 bits como mínimo.
 
 Para propósitos de prueba, puede [crear](cloud-services-certs-create.md) y usar un certificado autofirmado. Un certificado autofirmado no está autenticado por una CA y puede usar el dominio cloudapp.net como la dirección URL del sitio web. Por ejemplo, la tarea siguiente usa un certificado autofirmado en el que el nombre común (CN) usado en el certificado es **sslexample.cloudapp.net**.
@@ -117,7 +117,7 @@ Ahora que se actualizaron los archivos de definición del servicio y configuraci
 Conéctese al portal y...
 
 1. Seleccione su servicio en la nube de los siguientes modos:
-    - En el Portal, seleccione su **servicio en la nube**. (Que se encontrará en **Examinar todo/área reciente**).
+    - En el Portal, seleccione su **Servicio en la nube**. (Que se encontrará en **Examinar todo/área reciente**).
     
         ![Publicación del servicio en la nube](media/cloud-services-configure-ssl-certificate-portal/browse.png)
     
@@ -133,7 +133,7 @@ Conéctese al portal y...
 
     ![Haga clic en el icono de certificados](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-4. Proporcione el **Archivo**, la **Contraseña** y, a continuación, haga clic en **Cargar**.
+4. Proporcione el **Archivo**, la **Contraseña** y luego haga clic en **Cargar**.
 
 ## Paso 4: Conectarse a la instancia de rol con HTTPS
 
@@ -155,4 +155,4 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 
 [Azure Portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

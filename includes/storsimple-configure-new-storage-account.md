@@ -17,4 +17,4 @@
 
 4. La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. Haga clic en **Guardar** para guardar la cuenta de almacenamiento recién creada. Haga clic en **Aceptar** cuando se le pida confirmación.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

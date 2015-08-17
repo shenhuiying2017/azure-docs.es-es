@@ -59,23 +59,23 @@ Puede acercar, alejar, ajustar al tamaño, ajustar al 100%, bloquear el diseño 
 ### Estado de vista de cada actividad dentro de una canalización
 Puede ver el estado actual de una actividad viendo el estado de cualquiera de los conjuntos de datos generados por la actividad.
 
-Por ejemplo: en el siguiente caso, **BlobPartitionHiveActivity** se ejecutó correctamente y generó un conjunto de datos denominado **PartitionedProductsUsageTable** que tiene el estado **Listo**.
+Por ejemplo, en el siguiente caso, **BlobPartitionHiveActivity** se ejecutó correctamente y generó un conjunto de datos denominado **PartitionedProductsUsageTable** que tiene el estado **Ready**.
 
 ![Estado de canalización](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-Al hacer doble clic en **PartitionedProductsUsageTable** en la vista de diagrama se presentan todos los segmentos generados por distintas ejecuciones de actividades dentro de una canalización. Puede ver que **BlobPartitionHiveActivity** se ejecutó correctamente cada mes durante los últimos ocho meses y generó los segmentos con el estado **Listo**.
+Al hacer doble clic en **PartitionedProductsUsageTable** en la vista de diagrama se presentan todos los segmentos generados por distintas ejecuciones de actividades dentro de una canalización. Puede ver que **BlobPartitionHiveActivity** se ejecutó correctamente cada mes durante los últimos ocho meses y generó los segmentos con el estado **Ready**.
 
 Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de los siguientes estados:
 
 Estado | Subestado | Descripción
 ------ | ---------- | -----------
 En espera | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | En espera de las condiciones previas que deben cumplirse antes de la ejecución. Consulte el subestado para averiguar lo que espera el segmento.
-En curso | Iniciando<br/>Configurando<br/>Asignando recursos<br/>En ejecución<br/>Validando | Actualmente, la actividad se ejecuta y genera/valida los datos de un segmento específico.
+En curso | Starting<br/>Configuring<br/>Allocating Resources<br/>Running<br/>Validating | Actualmente, la actividad se ejecuta y genera/valida los datos de un segmento específico.
 Con error | | Error de procesamiento del sector. Consulte los registros de errores para averiguar la causa del error.
 Ready | | El procesamiento del segmento se realizó correctamente. El segmento está listo para su uso.
 Skip | | No se debe procesar este segmento.
 
-Puede ver los detalles sobre un segmento haciendo clic en la hoja **Segmentos actualizados recientemente**.
+Para ver los detalles de un segmento, haga clic en la hoja **Segmentos actualizados recientemente**.
 
 ![Detalles de segmento](./media/data-factory-monitor-manage-pipelines/slice-details.png)
  
@@ -83,11 +83,11 @@ Si el segmento se ejecutó varias veces, verá varias filas en la lista **Ejecuc
 
 ![Ejecuciones de actividad en un segmento](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
 
-Puede ver detalles sobre una ejecución de actividad haciendo clic en la entrada de la ejecución en la lista **Ejecuciones de actividades**. Se presentarán todos los archivos de registro junto con un mensaje de error si existe alguno. Esto resulta muy útil para ver y depurar registros sin tener que salir de la factoría de datos.
+Para ver detalles sobre una ejecución de actividad, haga clic en la entrada de la ejecución en la lista **Ejecuciones de actividades**. Se presentarán todos los archivos de registro junto con un mensaje de error si existe alguno. Esto resulta muy útil para ver y depurar registros sin tener que salir de la factoría de datos.
 
 ![Detalles de ejecución de actividad](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Si el segmento no tiene el estado **Listo**, puede ver los segmentos ascendentes que no tienen el estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**. Esto resulta muy útil cuando el segmento tiene el estado **En espera** y se quiere saber cuáles son las dependencias ascendentes en las que el segmento está en espera.
+Si el segmento no está en el estado **Ready**, puede ver los segmentos ascendentes que no están en estado Ready y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**. Esto resulta muy útil cuando el segmento tiene el estado **Waiting** y se quiere saber cuáles son las dependencias ascendentes en las que el segmento está en espera.
 
 ![Segmentos ascendentes no listos](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -98,9 +98,9 @@ Cuando se implementa una factoría de datos y las canalizaciones tienen un perí
 
 El flujo de transición de estado del conjunto de datos de la factoría de datos implica los siguientes estados: En espera -> En curso /En curso (Validando) -> Listo/En error.
 
-Los sectores se inician con el estado **En espera** de las condiciones previas que deben cumplirse antes de la ejecución. Seguidamente, la actividad comienza a ejecutarse y el segmento pasa al estado **En curso**. La ejecución de actividades puede ser correcta o producirse un error y, en función de esto, el segmento pasará al estado **Listo** o **En error**.
+Los segmentos se inician con el estado **Waiting** de las condiciones previas que deben cumplirse antes de la ejecución. Seguidamente, la actividad comienza a ejecutarse y el segmento pasa al estado **In-Progress**. La ejecución de actividades puede ser correcta o producirse un error y, en función de esto, el segmento pasará al estado **Ready** o **Failed**.
 
-El usuario puede restablecer el segmento para que vuelva del estado **Listo** o **En error** al estado **En espera**. El usuario también puede marcar el estado del segmento como **Omitir**, lo que impide que la actividad se ejecute y no se procese el segmento.
+El usuario puede restablecer el segmento para que vuelva del estado **Ready** o **Failed** al estado **Waiting**. El usuario también puede marcar el estado del segmento como **Skip**, lo que impide que la actividad se ejecute y no se procese el segmento.
 
 
 ## Administración de canalizaciones
@@ -121,7 +121,7 @@ Por ejemplo:
 
 	Suspend-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
-Tras solucionar el problema con **PartitionProductsUsagePipeline**, se puede reanudar la canalización suspendida ejecutando el siguiente comando de PowerShell.
+Tras solucionar el problema con **PartitionProductsUsagePipeline**, se puede reanudar la canalización suspendida mediante el siguiente comando de PowerShell.
 
 	Resume-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -138,13 +138,13 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 
 #### Uso del Portal de Azure para depurar un error:
 
-1.	Haga clic en **Con errores** en el icono **Conjuntos de datos** en la página principal Factoría de datos.
+1.	Haga clic en **Con errores** en el icono **Conjuntos de datos** en la página principal de la factoría de datos.
 	
 	![Icono Conjuntos de datos con errores](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	En la hoja **Conjuntos de datos con errores**, haga clic en la tabla en la que está interesado.
 
 	![Hoja Conjuntos de datos con errores](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	En la hoja **TABLA**, haga clic en el segmento problemático con el **ESTADO** establecido en **En error**.
+3.	En la hoja **TABLA**, haga clic en el segmento problemático con el **ESTADO** establecido en **Failed**.
 
 	![Hoja Tabla con segmentos con problemas](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	En la hoja **SEGMENTO DE DATOS**, haga clic en la ejecución de actividad que produjo el error.
@@ -159,7 +159,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 2.	Cambie al modo **AzureResourceManager**, ya que los cmdlets de Factoría de datos solo están disponibles en este modo.
 
 		switch-azuremode AzureResourceManager
-3.	Ejecute el comando **Get-AzureDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **En error**.
+3.	Ejecute el comando **Get-AzureDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado **Failed**.
 
 		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
@@ -205,7 +205,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 		Type                	:
 	
 	
-6. 	Puede ejecutar el cmdlet **Save-AzureDataFactoryLog** con el valor de Id que ve en la salida anterior y descargar los archivos de registro mediante la opción **-DownloadLogs** del cmdlet.
+6. 	Puede ejecutar el cmdlet **Save-AzureDataFactoryLog** con el valor de Id. que ve en la salida anterior y descargar los archivos de registro mediante la opción **-DownloadLogsoption** del cmdlet.
 
 	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
@@ -214,7 +214,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
 
 ### Uso del Portal de Azure
 
-Tras solucionar los problemas y depurar los errores de una canalización, puede volver a ejecutar los errores navegando hasta el segmento de error y haciendo clic en el botón **Ejecutar** de la barra de comandos.
+Tras solucionar los problemas y depurar los errores de una canalización, para volver a ejecutar los errores vaya al segmento de error y haga clic en el botón **Ejecutar** de la barra de comandos.
 
 ![Repetición de ejecución de un segmento con errores](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
@@ -226,9 +226,9 @@ Puede volver a ejecutar errores mediante el cmdlet ‘Set-AzureDataFactorySliceS
 
 	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
-**Ejemplo:** en el caso siguiente se establece el estado de todos los segmentos de la tabla 'DAWikiAggregatedData' en 'PendingExecution' en la factoría de datos 'WikiADF' de Azure.
+**Ejemplo:** En el caso siguiente se establece el estado de todos los segmentos de la tabla 'DAWikiAggregatedData' en 'PendingExecution' en la factoría de datos de Azure 'WikiADF'.
 
-**Nota:** UpdateType se establece en UpstreamInPipeline, lo que significa que el estado de cada segmento de la tabla y todas las dependientes tablas (ascendentes) que se utilizan como tablas de entrada para las actividades de la canalización se establece en "PendingExecution". Otro valor posible para este parámetro es "Individual".
+**Nota:** UpdateType se establece en UpstreamInPipeline, lo que significa que el estado de cada segmento de la tabla y todas las tablas dependientes (ascendentes) que se usan como tablas de entrada para las actividades de la canalización se establecen en "PendingExecution". Otro valor posible para este parámetro es "Individual".
 
 	Set-AzureDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
@@ -371,7 +371,7 @@ Para habilitar las métricas, haga clic en la secuencia siguiente desde la hoja 
 
 **Supervisión** -> **Métrica** -> **Configuración de diagnóstico** -> **Diagnóstico**
 
-En la hoja **Diagnóstico**, haga clic en **Activada** y seleccione la cuenta de almacenamiento y guarde.
+En la hoja **Diagnóstico**, haga clic en **Activada**, seleccione la cuenta de almacenamiento y guarde.
 
 ![Habilitación de métricas](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -380,7 +380,7 @@ Una vez guardadas, las métricas pueden tardar hasta una hora en estar visibles 
 
 ### Configuración de alerta en métricas:
 
-Para configurar alertas en métricas, haga clic en la secuencia siguiente desde la hoja Factoría de datos: **Supervisión** -> **Métrica** -> **Agregar alerta** -> **Agregar una regla de alerta**.
+Para configurar alertas en métricas, haga clic en la secuencia siguiente de la hoja Factoría de datos: **Supervisión** -> **Métrica** -> **Agregar alerta** -> **Agregar una regla de alerta**.
 
 Rellene los detalles de la regla de alerta, especifique los correos electrónicos y haga clic en**Aceptar**.
 
@@ -467,4 +467,4 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 	Parameters        :
 	Outputs           
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

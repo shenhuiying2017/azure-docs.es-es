@@ -48,4 +48,4 @@ Puede incluir emoticonos Emoji en las notificaciones push. Actualmente, Azure Mo
 [4]: ./media/mobile-engagement-use-emoji-with-push/notification_ios.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -40,18 +40,9 @@ El conector de espera se puede usar como una acción. No tiene ningún desencade
 
 	![Acción configurada][3]
 
-<table>
-	<tr>
-		<th>Parámetro</th>
-		<th>Tipo</th>
-		<th>Descripción del parámetro</th>
-	</tr>
-	<tr>
-		<td>Duración en minutos</td>
-		<td>integer</td>
-		<td>Duración del retraso en minutos</td>
-	</tr>
-</table>
+Parámetro|Tipo|Descripción del parámetro
+---|---|---
+Duración en minutos|integer|Duración del retraso en minutos
 
 
 ## Aplicaciones adicionales del conector
@@ -64,4 +55,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

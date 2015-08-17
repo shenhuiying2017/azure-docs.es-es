@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Ejecución de scripts de aprendizaje automático de Python | Microsoft Azure" 
 	description="Describe los principios de diseño subyacentes a la compatibilidad con scripts de Python en Aprendizaje automático de Azure y los escenarios de uso básico, las funcionalidades y las limitaciones." 
-	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -119,7 +118,7 @@ Con la finalidad de generar imágenes desde MatplotLib, debe completar el siguie
 * obtenga el eje y genere todos los gráficos en él, 
 * guarde la figura en un archivo PNG. 
 
-Este proceso se muestra en la figura 8 que aparece a continuación, donde se crea una matriz de gráfico de dispersión con la función scatter_matrix de Pandas.
+Este proceso se muestra en la figura 8 que aparece a continuación, donde se crea una matriz de gráfico de dispersión con la función scatter\_matrix de Pandas.
  
 ![imagen1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
@@ -171,4 +170,4 @@ Durante los próximos meses, esperamos proporcionar una funcionalidad adicional 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

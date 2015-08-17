@@ -53,7 +53,7 @@ Estas tecnologías se pueden usar por separado o combinarlas como sea necesario 
 
 ### Máquinas virtuales de Azure
 
-![Máquinas virtuales de Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Ilustración: Máquinas virtuales de Azure ofrece un control total sobre las instancias de máquina virtual en la nube.*
+![Máquinas virtuales de Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Ilustración: Máquinas virtuales de Azure ofrece un control total sobre las instancias de máquina virtual en la nube.*
 
 La posibilidad de crear una máquina virtual a petición, ya sea a partir de una imagen estándar o de una que suministre el usuario, puede resultar muy útil. Este enfoque, conocido comúnmente como Infraestructura como servicio (IaaS), es lo que proporciona Máquinas virtuales de Azure. La ilustración 2 muestra una combinación de cómo se ejecuta una máquina virtual y cómo crear una desde un disco duro virtual (VHD).
 
@@ -75,7 +75,7 @@ Este enfoque bastante general de la informática en nube se puede utilizar para 
 
 ### Aplicaciones web
 
-![Aplicaciones web de Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Ilustración: Aplicaciones web de Azure ejecuta una aplicación de sitios web en la nube sin tener que administrar el servidor web subyacente.*
+![Aplicaciones web de Azure ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Ilustración: Aplicaciones web de Azure ejecuta una aplicación de sitios web en la nube sin tener que administrar el servidor web subyacente.*
 
 Una de las cosas más importantes que se hacen en la nube es ejecutar sitios y aplicaciones web. Máquinas virtuales de Azure le permite hacer esto, pero le deja la responsabilidad de administrar una o varias VM y los sistemas operativos subyacentes. Los roles web de servicios en la nube pueden hacerlo, pero su implementación y mantenimiento conlleva también trabajo administrativo. ¿Y si lo que desea es un sitio web donde sea otro quien se encargue del trabajo administrativo?
 
@@ -179,9 +179,9 @@ Es posible que alguna vez desee trasladar una gran cantidad de datos a Azure. Es
 
 
 ### Servicio de archivos
-![Servicio de archivos de Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Ilustración: los Servicios de archivo de Azure ofrecen rutas de acceso \\servidor\recurso compartido de SMB para aplicaciones que se ejecutan en la nube.*
+![Servicio de archivos de Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Ilustración: los Servicios de archivo de Azure ofrecen rutas de acceso \\\\servidor\\recurso compartido de SMB para aplicaciones que se ejecutan en la nube.*
 
-En un entorno local, es habitual usar grandes cantidades de almacenamiento de archivos al que se puede obtener acceso a través del protocolo Bloque de mensajes del servidor (SMB) utilizando un formato \\Servidor\recurso compartido. Azure cuenta ahora con un servicio que le permite utilizar este protocolo en la nube. Las aplicaciones que se ejecutan en Azure pueden usarlo para compartir archivos entre máquinas virtuales utilizando las API de sistemas de archivos familiares como ReadFile y WriteFile. Además, es posible obtener acceso a los archivos al mismo tiempo a través de una interfaz REST, lo que hace posible obtener acceso a los recursos compartidos desde instalaciones locales, donde puede configurar además una red virtual. Archivos de Azure se crea sobre un servicio de blobs; por tanto, hereda la misma disponibilidad, durabilidad, escalabilidad y redundancia geográfica del Almacenamiento de Azure.
+En un entorno local, es habitual usar grandes cantidades de almacenamiento de archivos al que se puede obtener acceso a través del protocolo Bloque de mensajes del servidor (SMB) utilizando un formato \\\\Servidor\\recurso compartido. Azure cuenta ahora con un servicio que le permite utilizar este protocolo en la nube. Las aplicaciones que se ejecutan en Azure pueden usarlo para compartir archivos entre máquinas virtuales utilizando las API de sistemas de archivos familiares como ReadFile y WriteFile. Además, es posible obtener acceso a los archivos al mismo tiempo a través de una interfaz REST, lo que hace posible obtener acceso a los recursos compartidos desde instalaciones locales, donde puede configurar además una red virtual. Archivos de Azure se crea sobre un servicio de blobs; por tanto, hereda la misma disponibilidad, durabilidad, escalabilidad y redundancia geográfica del Almacenamiento de Azure.
 
 **Escenarios para Archivos de Azure**
 
@@ -592,4 +592,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -92,4 +92,4 @@ Para obtener más información acerca de Service Fabric, consulte:
 [Configuración de un servicio fiable](../Service-Fabric/service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

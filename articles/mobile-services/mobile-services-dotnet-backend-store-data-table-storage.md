@@ -93,7 +93,7 @@ Como el proyecto de inicio rápido TodoList está diseñado para trabajar con un
 
 	Esto crea un nuevo administrador de dominio de almacenamiento para el controlador solicitado usando la cadena de conexión de la cuenta de almacenamiento.
 
-3. Reemplace el método **RefreshTodoItems** existente por el siguiente código.
+3. Reemplace el método **GetAllTodoItems** existente por el siguiente código.
 
 		public Task<IEnumerable<TodoItem>> GetAllTodoItems(ODataQueryOptions options)
         {
@@ -101,7 +101,7 @@ Como el proyecto de inicio rápido TodoList está diseñado para trabajar con un
             return DomainManager.QueryAsync(options);
         } 
 
-	A diferencia de una base de datos de SQL, esta versión no devuelve IQueryable<TEntity>, por lo que se puede enlazar al resultado pero no utilizarse más componer una consulta.
+	A diferencia de una base de datos de SQL, esta versión no devuelve IQueryable<TEntity>, por lo que se puede enlazar al resultado pero no componerse una consulta.
 
 ## Actualización de la aplicación de cliente
 
@@ -139,7 +139,7 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
  
 + [Conexión a un servidor SQL Server local mediante conexiones híbridas](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>Las conexiones híbridas permiten que su servicio móvil se conecte de forma segura a los recursos locales. De este modo, puede hacer que los datos locales sean accesibles para los clientes móviles mediante el uso de Azure. Entre los activos admitidos se incluye cualquier recurso que se ejecute en un puerto TCP estático, como Microsoft SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados.
 
-+ [Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Muestra cómo ampliar el proyecto de ejemplo TodoList para poder cargar imágenes desde su aplicación al almacenamiento de blobs de Azure.
++ [Carga de imágenes en Almacenamiento de Azure mediante Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Muestra cómo ampliar el proyecto de ejemplo TodoList para poder cargar imágenes desde su aplicación al almacenamiento de blobs de Azure.
 
 <!-- Anchors. -->
 [Create a non-relational store]: #create-store
@@ -158,4 +158,4 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

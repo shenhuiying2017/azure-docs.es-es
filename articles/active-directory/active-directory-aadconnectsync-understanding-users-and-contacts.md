@@ -75,4 +75,4 @@ Si se ha exportado un objeto a Azure AD, ya no se permite cambiar el valor de so
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

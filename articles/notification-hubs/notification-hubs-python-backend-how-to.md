@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # Uso de los centros de notificaciones desde Python
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 Puede tener acceso a todas las características de los Centros de notificaciones desde un back-end Java/PHP/Python/Ruby mediante la interfaz REST del Centro de notificaciones, tal como se describe en el tema de MSDN [API de REST de los Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE]Esta es una implementación de referencia de ejemplo que permite implementar los envíos de notificaciones en Python, por lo que no es el SDK de Python oficialmente compatible del centro de notificaciones.
@@ -222,7 +224,7 @@ Inicialice el cliente de Centros de notificaciones (reemplace la cadena de conex
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Después, agregue el código de envío dependiendo de la plataforma móvil de destino. Este ejemplo también agrega métodos de nivel superior para habilitar el envío de notificaciones basado en la plataforma como, por ejemplo, send_windows_notification para Windows; send_apple_notification (para Apple), etc.
+Después, agregue el código de envío dependiendo de la plataforma móvil de destino. Este ejemplo también agrega métodos de nivel superior para habilitar el envío de notificaciones basado en la plataforma como, por ejemplo, send\_windows\_notification para Windows; send\_apple\_notification (para Apple), etc.
 
 ### Tienda Windows y Windows Phone 8.1 (no Silverlight)
 
@@ -352,4 +354,4 @@ En este tema hemos visto cómo crear a un cliente REST de Python sencillo para c
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

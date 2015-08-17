@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/29/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (C#)
@@ -532,17 +532,17 @@ El elemento EventHubSpout envía periódicamente puntos de control de su estado 
 
 * Se elimina y reinicia la topología **con el mismo nombre**.
 
-También puede exportar e importar los puntos de control persistentes a WASB (el almacenamiento de Azure que usa su clúster de HDInsight). Los scripts para hacerlo se encuentran en el clúster de HDInsight en Storm, en **c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**.
+También puede exportar e importar los puntos de control persistentes a WASB (el almacenamiento de Azure que usa su clúster de HDInsight). Los scripts para hacerlo se encuentran en el clúster de HDInsight en Storm, en **c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**.
 
 >[AZURE.NOTE]El número de versión en la ruta de acceso puede ser diferente, ya que la versión de Storm instalada en el clúster puede cambiar en el futuro.
 
 Los scripts en este directorio son:
 
-* **stormmeta_import.cmd**: importar todos los metadatos de Storm desde el contenedor de almacenamiento del clúster predeterminado a Zookeeper.
+* **stormmeta\_import.cmd**: importar todos los metadatos de Storm desde el contenedor de almacenamiento del clúster predeterminado a Zookeeper.
 
-* **stormmeta_export.cmd**: exportar todos los metadatos de Storm de Zookeeper en el contenedor de almacenamiento del clúster predeterminado.
+* **stormmeta\_export.cmd**: exportar todos los metadatos de Storm de Zookeeper en el contenedor de almacenamiento del clúster predeterminado.
 
-* **stormmeta_delete.cmd**: eliminar todos los metadatos de Storm de Zookeeper.
+* **stormmeta\_delete.cmd**: eliminar todos los metadatos de Storm de Zookeeper.
 
 La exportación de una importación permite conservar los datos de puntos de control cuando deba eliminar el clúster, pero quiera reanudar el procesamiento desde el desplazamiento actual en el centro cuando vuelva a poner en línea un nuevo clúster.
 
@@ -557,4 +557,4 @@ En este documento, ha aprendido a usar el spout y bolt de los Centros de eventos
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

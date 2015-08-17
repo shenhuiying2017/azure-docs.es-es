@@ -86,4 +86,4 @@ Los comandos de ejemplo siguientes recuperan el último trabajo para un runbook 
 
 - [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

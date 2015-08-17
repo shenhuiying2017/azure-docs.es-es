@@ -1,24 +1,29 @@
-<properties 
-	pageTitle="Integración de la cobertura del SDK de iOS de Azure Mobile Engagement" 
+<properties
+	pageTitle="Integración de la cobertura del SDK de iOS de Azure Mobile Engagement"
 	description="Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Cómo integrar la cobertura de Engagement en iOS
 
 > [AZURE.IMPORTANT]Debe seguir el procedimiento de integración que se describe en el documento Cómo integrar Engagement en iOS antes de seguir esta guía.
+
+
+### Habilitación de la aplicación para recibir notificaciones push silenciosas
+
+[AZURE.INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
 ##Pasos de integración
 
@@ -30,42 +35,42 @@
 
 -   En la parte superior del archivo de implementación, importe el módulo de cobertura de Engagement:
 
-			[...]
-			#import "AEReachModule.h"
+		[...]
+		#import "AEReachModule.h"
 
 -   Dentro del método `applicationDidFinishLaunching:` o `application:didFinishLaunchingWithOptions:`, cree un módulo de cobertura y páselo a la línea existente de inicialización de Engagement:
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-			  AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
-			  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
-			  [...]
-			
-			  return YES;
-			}
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+		  AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
+		  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
+		  [...]
+
+		  return YES;
+		}
 
 -   Modifique la cadena **'icon.png'** con el nombre de la imagen que desee como icono de la notificación.
 -   Si desea utilizar la opción *Actualizar valor de distintivo* en las campañas de cobertura o si desea usar campañas de inserción nativa </SaaS/Reach API/Campaign format/Native Push>, deberá permitir que el módulo de cobertura administre el propio icono del distintivo (borrará automáticamente el distintivo de la aplicación y también restablecerá el valor almacenado por Engagement cada vez que se inicie o establezca la aplicación en primer plano). Para ello, agregue la línea siguiente después de la inicialización del módulo de cobertura:
 
-			[reach setAutoBadgeEnabled:YES];
+		[reach setAutoBadgeEnabled:YES];
 
 -   Si desea controlar la inserción de datos de cobertura, debe permitir que el delegado de la aplicación se ajuste al protocolo `AEReachDataPushDelegate`. Agregue la siguiente línea después de la inicialización del módulo de alcance:
 
-			[reach setDataPushDelegate:self];
+		[reach setDataPushDelegate:self];
 
 -   A continuación, puede implementar los métodos `onDataPushStringReceived:` y `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` en el delegado de la aplicación:
 
-			-(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
-			{
-			   NSLog(@"String data push message with category <%@> received: %@", category, body);
-			   return YES;
-			}
-			
-			-(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
-			{
-			   NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
-			   // Do something useful with decodedBody like updating an image view
-			   return YES;
-			}
+		-(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
+		{
+		   NSLog(@"String data push message with category <%@> received: %@", category, body);
+		   return YES;
+		}
+
+		-(BOOL)didReceiveBase64DataPushWithCategory:(NSString*)category decodedBody:(NSData *)decodedBody encodedBody:(NSString *)encodedBody
+		{
+		   NSLog(@"Base64 data push message with category <%@> received: %@", category, encodedBody);
+		   // Do something useful with decodedBody like updating an image view
+		   return YES;
+		}
 
 ### Categoría
 
@@ -89,119 +94,69 @@ Siga la guía indicada a continuación: Cómo preparar la aplicación para las n
 
 Si no lo ha hecho ya, deberá registrar su aplicación para recibir notificaciones de inserción. Agregue la siguiente línea al iniciarse la aplicación (normalmente, en `application:didFinishLaunchingWithOptions:`):
 
-			if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-			  [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
-			  [application registerForRemoteNotifications];
-			}
-			else {
-			
-			  [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-			}
+	if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+	  	[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+	  	[application registerForRemoteNotifications];
+	}
+	else {
+	  	[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+	}
 
 A continuación, deberá proporcionar a Engagement el token de dispositivo devuelto por servidores de Apple. Esto se hace en el método llamado `application:didRegisterForRemoteNotificationsWithDeviceToken:` del delegado de aplicación:
 
-			- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-			{
-			    [[EngagementAgent shared] registerDeviceToken:deviceToken];
-			}
+	- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+	{
+	    [[EngagementAgent shared] registerDeviceToken:deviceToken];
+	}
 
-Por último, debe informar al SDK de Engagement cuando la aplicación reciba una notificación remota. Para ello, simplemente llame al método `applicationDidReceiveRemoteNotification:` en el delegado de aplicación:
+Por último, debe informar al SDK de Engagement cuando la aplicación reciba una notificación remota. Para ello, simplemente llame al método `applicationDidReceiveRemoteNotification:fetchCompletionHandler:` en el delegado de aplicación:
 
-			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-			{
-			    [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo];
-			}
+	- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+	{
+		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
+	}
 
-### Paso final
+> [AZURE.NOTE]El método anterior se incorpora en iOS 7. Si desea usar iOS < 7, asegúrese de implementar el método `application:applicationDidReceiveRemoteNotification:` en el delegado de aplicación y llamar a `applicationDidReceiveRemoteNotification` en EngagementAgent mediante nil en lugar del argumento `handler`:
 
-Una vez que se han completado todos estos pasos, la aplicación estará lista para recibir mensajes de inserción de Engagement en cualquier momento.
+	[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
 
-Pero puede mostrar algo al usuario final cuando se inicie la aplicación en respuesta a la llegada de un mensaje de inserción de Engagement. Se ofrecen tres métodos de delegado más en el protocolo `AEPushDelegate` para esto:
+> [AZURE.IMPORTANT]De forma predeterminada, Engagement Reach controla completionHandler. Si desea responder manualmente al bloque `handler` del código, se puede pasar nil para el argumento `handler` y controlar el bloque de finalización personalmente. Consulte el tipo `UIBackgroundFetchResult` para obtener una lista de valores posibles.
 
-			-(void)willRetrieveLaunchMessage;
-			-(void)didFailToRetrieveLaunchMessage;
-			-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
-
-`willRetrieveLaunchMessage`
-
-> Cuando el usuario inicia la aplicación en respuesta a la llegada de un mensaje de inserción, se llama a este método justo después del inicio de la aplicación para indicar que se está recuperando el mensaje completo. Esta es una buena oportunidad para mostrar un mensaje de carga para el usuario final.
-
-`didFailToRetrieveLaunchMessage`
-
-> Este método se llama cuando se ha producido un error de recuperación del mensaje. En este momento probablemente debería mostrar un mensaje al usuario final indicándole que se ha producido algún fallo.
-
-`didReceiveLaunchMessage:`
-
-> Este método se llama cuando se ha recibido el mensaje de inserción que inició la aplicación. Aproveche esta oportunidad para ocultar cualquier mensaje de carga y mostrar contenido adecuado para el usuario final.
-
-Deberá establecer un delegado de inserción una vez que se ha inicializado Engagement:
-
-			[[EngagementAgent shared] setPushDelegate:self];
 
 ### Ejemplo completo
 
 Este es un ejemplo completo de integración:
 
-			#pragma mark -
-			#pragma mark Application lifecycle
-			
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  /* Reach module */
-			  AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
-			  [reach setAutoBadgeEnabled:YES];
-			
-			  /* Engagement initialization */
-			  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
-			  [[EngagementAgent shared] setPushDelegate:self];
-			
-			  /* Views */
-			  [window addSubview:[tabBarController view]];
-			  [window makeKeyAndVisible];
-			
-			  [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
-			  return YES;
-			}
-			
-			- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-			{
-			  [[EngagementAgent shared] registerDeviceToken:deviceToken];
-			}
-			
-			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-			{
-			  [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo];
-			}
-			
-			
-			#pragma mark -
-			#pragma mark Engagement push delegate
-			
-			-(void)willRetrieveLaunchMessage
-			{
-			  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-			}
-			
-			-(void)didReceiveLaunchMessage:(AEPushMessage *)launchMessage
-			{
-			  /* Hide network activity indicator */
-			  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-			}
-			
-			-(void)didFailToRetrieveLaunchMessage
-			{
-			  /* Hide network activity indicator */
-			  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-			
-			  /* Display an error alert */
-			  UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil)
-			                         message:NSLocalizedString(@"Could not retrieve message.", nil)
-			                         delegate:nil
-			                         cancelButtonTitle:NSLocalizedString(@"Close", nil)
-			                         otherButtonTitles:nil];
-			  [alert show];
-			  [alert release];
-			}
+	#pragma mark -
+	#pragma mark Application lifecycle
+
+	- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
+	{
+	  /* Reach module */
+	  AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
+	  [reach setAutoBadgeEnabled:YES];
+
+	  /* Engagement initialization */
+	  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
+	  [[EngagementAgent shared] setPushDelegate:self];
+
+	  /* Views */
+	  [window addSubview:[tabBarController view]];
+	  [window makeKeyAndVisible];
+
+	  [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound];
+	  return YES;
+	}
+
+	- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+	{
+	  [[EngagementAgent shared] registerDeviceToken:deviceToken];
+	}
+
+	- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+	{
+		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
+	}
 
 ##Personalización de las campañas
 
@@ -225,9 +180,9 @@ Cuando se modifica el diseño proporcionado, se modifica el aspecto de todas las
 
 Para registrar un controlador de categoría para las notificaciones, deberá agregar una llamada una vez inicializado el módulo de cobertura.
 
-			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
-			[reach registerNotifier:myNotifier forCategory:@"my_category"];
-			...
+	AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
+	[reach registerNotifier:myNotifier forCategory:@"my_category"];
+	...
 
 `myNotifier` debe ser una instancia de un objeto que se ajusta al protocolo `AENotifier`.
 
@@ -235,19 +190,19 @@ Puede implementar los métodos de protocolo por sí mismo o puede volver a imple
 
 Por ejemplo, si desea volver a definir la vista de notificación para una categoría específica, puede seguir este ejemplo:
 
-			#import "AEDefaultNotifier.h"
-			#import "AENotificationView.h"
-			@interface MyNotifier : AEDefaultNotifier
-			@end
-			
-			@implementation MyNotifier
-			
-			-(NSString*)nibNameForCategory:(NSString*)category
-			{
-			  return "MyNotificationView";
-			}
-			
-			@end
+	#import "AEDefaultNotifier.h"
+	#import "AENotificationView.h"
+	@interface MyNotifier : AEDefaultNotifier
+	@end
+
+	@implementation MyNotifier
+
+	-(NSString*)nibNameForCategory:(NSString*)category
+	{
+	  return "MyNotificationView";
+	}
+
+	@end
 
 En este ejemplo simple de categoría, se supone que tiene un archivo denominado `MyNotificationView.xib` en el paquete de aplicación principal. Si el método no es capaz de encontrar un `.xib` correspondiente, no se mostrará la notificación y Engagement mostrará un mensaje en la consola.
 
@@ -265,8 +220,8 @@ Tenga en cuenta que puede usar el mismo notificador para varias categorías.
 
 También puede volver a definir el notificador predeterminado de este modo:
 
-			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
-			[reach registerNotifier:myNotifier forCategory:kAEReachDefaultCategory];
+	AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
+	[reach registerNotifier:myNotifier forCategory:kAEReachDefaultCategory];
 
 ##### Manejo de notificaciones
 
@@ -299,9 +254,9 @@ Puede decidir incluir nuestro diseño de notificación en las vistas existentes.
 
 2.  Agregue la vista de notificación mediante programación. Simplemente agregue el siguiente código cuando se haya inicializado la vista:
 
-			UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
-			notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
-			[self.view addSubview:notificationView];
+		UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
+		notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
+		[self.view addSubview:notificationView];
 
 La macro `NOTIFICATION_AREA_VIEW_TAG` puede encontrarse en `AEDefaultNotifier.h`.
 
@@ -321,39 +276,39 @@ Como con las notificaciones, la categoría de la campaña puede utilizarse para 
 
 Para crear una categoría para un anuncio, debe extender **AEAnnouncementViewController** y registrarlo una vez que se ha inicializado el módulo de cobertura:
 
-			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
-			[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
+	AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
+	[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE]Cada vez que un usuario haga clic en una notificación para un anuncio con la categoría "my_category", el controlador de vista registrado (en ese caso `MyCustomAnnouncementViewController`) se inicializará llamando al método `initWithAnnouncement:` vy la vista se agregará a la ventana de la aplicación actual.
+> [AZURE.NOTE]Cada vez que un usuario haga clic en una notificación para un anuncio con la categoría "my\_category", el controlador de vista registrado (en ese caso `MyCustomAnnouncementViewController`) se inicializará llamando al método `initWithAnnouncement:` vy la vista se agregará a la ventana de la aplicación actual.
 
 En la implementación de la clase `AEAnnouncementViewController` tendrá que leer la propiedad `announcement` para inicializar sus subvistas. Considere el ejemplo siguiente, donde dos etiquetas se inicializan mediante las propiedades `title` y `body` de la clase `AEReachAnnouncement`:
 
-			-(void)loadView
-			{
-			    [super loadView];
-			
-			    UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 60)];
-			    titleLabel.font = [UIFont systemFontOfSize:32.0];
-			    titleLabel.text = self.announcement.title;
-			
-			    UILabel* bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 60)];
-			    bodyLabel.font = [UIFont systemFontOfSize:24.0];
-			    bodyLabel.text = self.announcement.body;
-			
-			    [self.view addSubview:titleLabel];
-			    [self.view addSubview:bodyLabel];
-			}
+	-(void)loadView
+	{
+	    [super loadView];
+
+	    UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 60)];
+	    titleLabel.font = [UIFont systemFontOfSize:32.0];
+	    titleLabel.text = self.announcement.title;
+
+	    UILabel* bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 20, 300, 60)];
+	    bodyLabel.font = [UIFont systemFontOfSize:24.0];
+	    bodyLabel.text = self.announcement.body;
+
+	    [self.view addSubview:titleLabel];
+	    [self.view addSubview:bodyLabel];
+	}
 
 Si no desea cargar las vistas usted mismo pero simplemente desea reutilizar el diseño predeterminado de la vista del anuncio, puede provocar que el controlador de vista personalizada amplíe la clase `AEDefaultAnnouncementViewController` suministrada. En tal caso, duplique el archivo nib `AEDefaultAnnouncementView.xib` y cámbiele el nombre para que pueda ser cargado por el controlador de vista personalizado (para un controlador denominado `CustomAnnouncementViewController`, deberá llamar a su archivo nib `CustomAnnouncementView.xib`).
 
 Para reemplazar la categoría predeterminada de anuncios, simplemente hay que registrar el controlador de vista personalizada para la categoría definida en `kAEReachDefaultCategory`:
 
-			[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:kAEReachDefaultCategory];
+	[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:kAEReachDefaultCategory];
 
 Los sondeos pueden personalizarse de la misma manera:
 
-			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
-			[reach registerPollController:[MyCustomPollViewController class] forCategory:@"my_category"];
+	AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
+	[reach registerPollController:[MyCustomPollViewController class] forCategory:@"my_category"];
 
 Esta vez, el `MyCustomPollViewController` proporcionado debe extender `AEPollViewController`. O bien puede ampliar desde el controlador predeterminado: `AEDefaultPollViewController`.
 
@@ -367,95 +322,94 @@ Al igual que para la personalización de notificación avanzada, se recomienda m
 
 `CustomAnnouncementViewController.h`
 
-			//Interface
-			@interface CustomAnnouncementViewController : AEAnnouncementViewController {
-			  UILabel* titleLabel;
-			  UITextView* descTextView;
-			  UIWebView* htmlWebView;
-			  UIButton* okButton;
-			  UIButton* cancelButton;
-			}
-			
-			@property (nonatomic, retain) IBOutlet UILabel* titleLabel;
-			@property (nonatomic, retain) IBOutlet UITextView* descTextView;
-			@property (nonatomic, retain) IBOutlet UIWebView* htmlWebView;
-			@property (nonatomic, retain) IBOutlet UIButton* okButton;
-			@property (nonatomic, retain) IBOutlet UIButton* cancelButton;
-			
-			-(IBAction)okButtonClicked:(id)sender;
-			-(IBAction)cancelButtonClicked:(id)sender;
+	//Interface
+	@interface CustomAnnouncementViewController : AEAnnouncementViewController {
+	  UILabel* titleLabel;
+	  UITextView* descTextView;
+	  UIWebView* htmlWebView;
+	  UIButton* okButton;
+	  UIButton* cancelButton;
+	}
+
+	@property (nonatomic, retain) IBOutlet UILabel* titleLabel;
+	@property (nonatomic, retain) IBOutlet UITextView* descTextView;
+	@property (nonatomic, retain) IBOutlet UIWebView* htmlWebView;
+	@property (nonatomic, retain) IBOutlet UIButton* okButton;
+	@property (nonatomic, retain) IBOutlet UIButton* cancelButton;
+
+	-(IBAction)okButtonClicked:(id)sender;
+	-(IBAction)cancelButtonClicked:(id)sender;
 
 `CustomAnnouncementViewController.m`
 
-			//Implementation
-			@implementation CustomAnnouncementViewController
-			@synthesize titleLabel;
-			@synthesize descTextView;
-			@synthesize htmlWebView;
-			@synthesize okButton;
-			@synthesize cancelButton;
-			
-			-(id)initWithAnnouncement:(AEReachAnnouncement*)anAnnouncement
-			{
-			  self = [super initWithNibName:@"CustomAnnouncementViewController" bundle:nil];
-			  if (self != nil) {
-			    self.announcement = anAnnouncement;
-			  }
-			  return self;
-			}
-			
-			- (void) dealloc
-			{
-			  [titleLabel release];
-			  [descTextView release];
-			  [htmlWebView release];
-			  [okButton release];
-			  [cancelButton release];
-			  [super dealloc];
-			}
-			
-			- (void)viewDidLoad {
-			  [super viewDidLoad];
-			
-			  /* Init announcement title */
-			  titleLabel.text = self.announcement.title;
-			
-			  /* Init announcement body */
-			  if(self.announcement.type == AEAnnouncementTypeHtml)
-			  {
-			    titleLabel.hidden = YES;
-			    htmlWebView.hidden = NO;
-			    [htmlWebView loadHTMLString:self.announcement.body baseURL:[NSURL URLWithString:@"http://localhost/"]];
-			  }
-			  else
-			  {
-			    titleLabel.hidden = NO;
-			    htmlWebView.hidden = YES;
-			    descTextView.text = self.announcement.body;
-			  }
-			
-			  /* Set action button label */
-			  if([self.announcement.actionLabel length] > 0)
-			    [okButton setTitle:self.announcement.actionLabel forState:UIControlStateNormal];
-			
-			  /* Set exit button label */
-			  if([self.announcement.exitLabel length] > 0)
-			    [cancelButton setTitle:self.announcement.exitLabel forState:UIControlStateNormal];
-			}
-			
-			#pragma mark Actions
-			
-			-(IBAction)okButtonClicked:(id)sender
-			{
-			    [self action];
-			}
-			
-			-(IBAction)cancelButtonClicked:(id)sender
-			{
-			    [self exit];
-			}
-			
-			@end
- 
+	//Implementation
+	@implementation CustomAnnouncementViewController
+	@synthesize titleLabel;
+	@synthesize descTextView;
+	@synthesize htmlWebView;
+	@synthesize okButton;
+	@synthesize cancelButton;
 
-<!---HONumber=July15_HO4-->
+	-(id)initWithAnnouncement:(AEReachAnnouncement*)anAnnouncement
+	{
+	  self = [super initWithNibName:@"CustomAnnouncementViewController" bundle:nil];
+	  if (self != nil) {
+	    self.announcement = anAnnouncement;
+	  }
+	  return self;
+	}
+
+	- (void) dealloc
+	{
+	  [titleLabel release];
+	  [descTextView release];
+	  [htmlWebView release];
+	  [okButton release];
+	  [cancelButton release];
+	  [super dealloc];
+	}
+
+	- (void)viewDidLoad {
+	  [super viewDidLoad];
+
+	  /* Init announcement title */
+	  titleLabel.text = self.announcement.title;
+
+	  /* Init announcement body */
+	  if(self.announcement.type == AEAnnouncementTypeHtml)
+	  {
+	    titleLabel.hidden = YES;
+	    htmlWebView.hidden = NO;
+	    [htmlWebView loadHTMLString:self.announcement.body baseURL:[NSURL URLWithString:@"http://localhost/"]];
+	  }
+	  else
+	  {
+	    titleLabel.hidden = NO;
+	    htmlWebView.hidden = YES;
+	    descTextView.text = self.announcement.body;
+	  }
+
+	  /* Set action button label */
+	  if([self.announcement.actionLabel length] > 0)
+	    [okButton setTitle:self.announcement.actionLabel forState:UIControlStateNormal];
+
+	  /* Set exit button label */
+	  if([self.announcement.exitLabel length] > 0)
+	    [cancelButton setTitle:self.announcement.exitLabel forState:UIControlStateNormal];
+	}
+
+	#pragma mark Actions
+
+	-(IBAction)okButtonClicked:(id)sender
+	{
+	    [self action];
+	}
+
+	-(IBAction)cancelButtonClicked:(id)sender
+	{
+	    [self exit];
+	}
+
+	@end
+
+<!---HONumber=August15_HO6-->

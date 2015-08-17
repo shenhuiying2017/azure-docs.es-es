@@ -213,7 +213,7 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		    }
 		}
 
-	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio *mobile&#95;service&#95;name*Service y el *mobile&#95;service&#95;name*Context, respectivamente. 
+	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio *mobile&#95;service&#95;name*Service y *mobile&#95;service&#95;name*Context, respectivamente.
    	
 	En el código anterior, el método de invalidación **ExecuteAsync** llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
@@ -300,4 +300,4 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

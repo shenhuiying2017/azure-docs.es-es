@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="08/05/2015"
    ms.author="banders"/>
 # Análisis de datos de servidores en Microsoft Azure
 
@@ -21,9 +21,9 @@
 
 Visión operativa usa datos de los servidores de la infraestructura local o en la nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
 
-Con los datos recopilados del almacenamiento de Azure, puede buscar rápidamente en los registros de eventos y de IIS de servicios en la nube y máquinas virtuales mediante la habilitación de [Diagnósticos de Azure](operational-insights-log-collection.md). También puede obtener información adicional de las máquinas virtuales instalando el agente de supervisión de Microsoft.
+Con los datos recopilados del almacenamiento de Azure, puede buscar rápidamente en los registros de eventos y de IIS de servicios en la nube y máquinas virtuales. También puede obtener información adicional de las máquinas virtuales instalando el agente de supervisión de Microsoft.
 
-Las soluciones de evaluación de actualizaciones, seguimiento de cambios y evaluación de SQL trabajan todas con Microsoft Monitoring Agent para proporcionar información más detallada sobre las máquinas virtuales. Si no lo ha hecho ya, puede [agregar soluciones](operational-insights-add-solution.md) cuando inicie sesión en el [portal de Visión operativa](https://preview.opinsights.azure.com/).
+Las soluciones de evaluación de actualizaciones, seguimiento de cambios y evaluación de SQL trabajan todas con Microsoft Monitoring Agent para proporcionar información más detallada sobre las máquinas virtuales. Si aún no lo ha hecho, puede [agregar soluciones](operational-insights-setup-workspace.md) cuando inicie sesión en el [portal de Visión operativa](https://www.microsoft.com/oms/).
 
 Para las máquinas virtuales de Azure, existen dos formas sencillas de habilitar la recopilación de datos basada en agente:
 
@@ -31,7 +31,7 @@ Para las máquinas virtuales de Azure, existen dos formas sencillas de habilitar
 
 - Uso de PowerShell
 
-Cuando se usa una colección basada en agente para los datos de registro, debe configurar qué registros se van recopilar en la página de configuración de administración de registros del [portal de Visión operativa](https://preview.opinsights.azure.com/).
+Cuando se usa una colección basada en agente para los datos de registro, debe configurar qué registros se van recopilar en la página de configuración de administración de registros del [portal de Visión operativa](https://www.microsoft.com/oms/).
 
  >[AZURE.NOTE]Si ha configurado Visión operativa para indexar los datos de registro mediante Diagnósticos de Azure y configura el agente para recopilar registros, los mismos registros se indexarán dos veces. Ambos orígenes de datos se le cobrarán a la tarifa normal. Si tiene instalado el agente, debe recopilar datos de registro mediante el agente y no indexar los registros recopilados por Diagnósticos de Azure.
 
@@ -41,7 +41,7 @@ Puede instalar el agente de Visión operativa desde el [Portal de Azure](https:/
 
 ### Para instalar al agente de Visión operativa
 1. En el Portal de Azure, vaya al área de trabajo de Visión operativa y seleccione la pestaña **Servidores**.
-2. En la pestaña, verá una lista de máquinas virtuales. Seleccione la máquina virtual en la que quiere instalar el agente y luego haga clic en **Habilitar visión operativa**.
+2. En la pestaña, verá una lista de máquinas virtuales. Seleccione la máquina virtual en la que quiere instalar el agente y haga clic en **Habilitar visión operativa**.
 
 El agente se instala y se configura automáticamente para el área de trabajo de Visión operativa.
 
@@ -88,7 +88,7 @@ Diagnósticos de Azure es una extensión de Azure que le permiten recopilar dato
 Diagnósticos de Azure puede recopilar los tipos de telemetría siguientes:
 
 Origen de datos|Descripción
- ---|--- 
+ ---|---
 Registros IIS|Información sobre los sitios web de IIS.
 Registros de infraestructura de diagnóstico de Azure|Información sobre los propios Diagnósticos.
 Registros de solicitudes con error de IIS |Información sobre las solicitudes erróneas a un sitio o aplicación de IIS.
@@ -96,7 +96,7 @@ Registros de eventos de Windows|Información enviada al sistema de registro de e
 Contadores de rendimiento|Sistema operativo y contadores de rendimiento personalizados.
 Volcados de memoria|Información sobre el estado del proceso en caso de bloqueo de una aplicación.
 Registros de errores personalizados|Archivos creados por su aplicación o servicio.
-NET EventSource|Eventos generados por su código mediante la [clase EventSource] de .NET (https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
+NET EventSource|Eventos generados por su código mediante [clase EventSource] de .NET (https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
 ETW basado en manifiesto|Eventos de ETW generados por cualquier proceso
 Syslog|Eventos enviados a los demonios Syslog o Rsyslog
 
@@ -131,7 +131,7 @@ Con el diagnóstico de Azure habilitado:
 
 ### Para habilitar diagnósticos
 
-Para habilitar los registros de eventos de Windows, o para cambiar el valor de scheduledTransferPeriod, configure Diagnósticos de Azure mediante el archivo de configuración XML (diagnostics.wadcfg), como se muestra en [Paso 2: Agregar el archivo diagnostics.wadcfg a la solución de Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) y [Paso 3: Configurar diagnósticos para la aplicación](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) en el tema Habilitar diagnósticos en un servicio en la nube. En el ejemplo siguiente, el archivo de configuración recopila registros de IIS y todos los eventos de los registros de la aplicación y del sistema:
+Para habilitar los registros de eventos de Windows, o para cambiar el valor de scheduledTransferPeriod, configure Diagnósticos de Azure mediante el archivo de configuración XML (diagnostics.wadcfg), como se muestra en [Paso 2: Adición de un archivo diagnostics.wadcfg a la solución de Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) y [Paso 3: Configuración de diagnóstico para la aplicación](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) en el tema Cómo habilitar diagnósticos en un Servicio en la nube. En el ejemplo siguiente, el archivo de configuración recopila registros de IIS y todos los eventos de los registros de la aplicación y del sistema:
 
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
@@ -154,7 +154,7 @@ Para habilitar los registros de eventos de Windows, o para cambiar el valor de s
     </DiagnosticMonitorConfiguration>
 
 
-En [Paso 4: Configurar el almacenamiento de los datos de diagnóstico](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) del tema Habilitar diagnósticos en un servicio en la nube, asegúrese de que ConfigurationSettings especifica una cuenta de almacenamiento, como en el ejemplo siguiente:
+En [Paso 4: Configuración del almacenamiento de los datos de diagnóstico](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) del tema Cómo habilitar diagnósticos en un Servicio en la nube, asegúrese de que ConfigurationSettings especifica una cuenta de almacenamiento, como en el ejemplo siguiente:
 
 
     <ConfigurationSettings>
@@ -162,7 +162,7 @@ En [Paso 4: Configurar el almacenamiento de los datos de diagnóstico](https://m
     </ConfigurationSettings>
 
 
-Los valores de **AccountName** y **AccountKey** se encuentran en el Portal de administración de Microsoft Azure en el panel de cuentas de almacenamiento, debajo de Administrar claves de acceso. El protocolo de la cadena de conexión debe ser **https**.
+Los valores de **AccountName** y **AccountKey** se encuentran en el panel de cuentas de almacenamiento del Portal de administración de Microsoft Azure, debajo de Administrar claves de acceso. El protocolo de la cadena de conexión debe ser **https**.
 
 Una vez que se aplica la configuración de diagnóstico actualizada al servicio en la nube y se escribe el diagnóstico en Almacenamiento de Azure, podrá configurar Vista operativa.
 
@@ -231,7 +231,7 @@ Use el siguiente procedimiento para permitir el análisis del almacenamiento y c
 
 ### Para habilitar el análisis de Vista operativa
 
-1. En el Portal de Azure predeterminado, vaya al área de trabajo de Visión operativa y seleccione la pestaña **Almacenamiento**. ![workspace storage tab](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
+1. En el Portal de Azure predeterminado, vaya al área de trabajo Visión operativa y seleccione la pestaña **Almacenamiento**. ![workspace storage tab](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
 2. Haga clic en **Agregar un cuenta de almacenamiento** para abrir el cuadro **Agregar cuenta de almacenamiento**.
 3. Seleccione la cuenta de almacenamiento que quiera usar.
 4. En la lista **Tipo de datos**, seleccione un tipo de datos: **Eventos**, **Registros de IIS** o **Syslog (Linux)**.
@@ -249,4 +249,4 @@ En aproximadamente 1 hora comenzará a ver los datos de la cuenta de almacenamie
 
 [Configuración de los ajustes del proxy y del firewall (opcional)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

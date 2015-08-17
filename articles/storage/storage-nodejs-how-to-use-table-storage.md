@@ -58,7 +58,7 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node_modules**. Dentro de dicha carpeta, encontrará el paquete **azure-storage**, que contiene las bibliotecas necesarias para el acceso al almacenamiento.
+3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de dicha carpeta, encontrará el paquete **azure-storage**, que contiene las bibliotecas necesarias para el acceso al almacenamiento.
 
 ### Importación del paquete
 
@@ -68,7 +68,7 @@ Agregue el código siguiente a la parte superior del archivo **server.js** de la
 
 ## Configuración de una conexión de almacenamiento de Azure
 
-El módulo azure leerá las variables de entorno AZURE_STORAGE_ACCOUNT, AZURE_STORAGE_ACCESS_KEY o AZURE_STORAGE_CONNECTION_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **TableService**.
+El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT, AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **TableService**.
 
 Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento].
 
@@ -148,7 +148,7 @@ Si la operación se realiza correctamente, `result` contendrá la etiqueta [ETag
 
 Respuesta de ejemplo:
 
-	{ '.metadata': { etag: 'W/"datetime'2015-02-25T01%3A22%3A22.5Z'"' } }
+	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
 > [AZURE.NOTE]De forma predeterminada, **insertEntity** no devuelve la entidad insertada como parte de la información de `response`. Si tiene pensado realizar otras operaciones en esta entidad o desea almacenar en caché la información, puede ser útil que la devuelvan como parte de `result`. Para ello, puede habilitar **echoContent** de la manera siguiente:
 >
@@ -319,7 +319,7 @@ Si no está seguro de si existe la tabla, use **deleteTableIfExists**.
 
 Cuando consulta tablas para grandes cantidades de resultados, debería buscar tokens de continuación. Puede haber grandes cantidades de datos disponibles para su consulta de los que podría no darse cuenta si no crear para reconocer cuando hay un token de continuación presente.
 
-El objeto de resultados devueltos al consultar los conjuntos de entidades establece una propiedad `continuationToken` cuando hay un token de este tipo presente. Entonces, podrá usarlo al realizar una consulta para continuar moviéndose por las entidades de tabla y partición.
+El objeto de resultados devuelto al consultar los conjuntos de entidades establece una propiedad `continuationToken` cuando hay un token de este tipo presente. Entonces, podrá usarlo al realizar una consulta para continuar moviéndose por las entidades de tabla y partición.
 
 Al consultar, se puede proporcionar un parámetro continuationToken entre la instancia de objeto de consulta y la función de devolución de llamada:
 
@@ -342,7 +342,7 @@ dc.table.queryEntities(tableName,
 
 Si inspecciona el objeto `continuationToken`, encontrará propiedades como `nextPartitionKey`, `nextRowKey` y `targetLocation` que pueden usarse para recorrer en iteración todos los resultados.
 
-También hay un ejemplo de continuación en el repositorio de Node.js de almacenamiento de Azure en GitHub, busque `examples/samples/continuationsample.js`.
+También hay un ejemplo de continuación en el repositorio de Node.js de Almacenamiento de Azure en GitHub, busque `examples/samples/continuationsample.js`.
 
 ## Trabajo con firmas de acceso compartido
 
@@ -370,7 +370,7 @@ En el siguiente ejemplo se genera una nueva directiva de acceso compartido que p
 
 Tenga en cuenta que también se debe proporcionar la información del host, puesto que es necesaria cuando el titular de la SAS intenta acceder a la tabla.
 
-La aplicación cliente usa entonces la SAS con **TableServiceWithSAS** para realizar operaciones en la tabla. En el siguiente ejemplo se realiza la conexión a la tabla y se realiza una consulta.
+La aplicación cliente usa entonces la SAS con **TableServiceWithSAS** para realizar operaciones contra la tabla. En el siguiente ejemplo se realiza la conexión a la tabla y se realiza una consulta.
 
 	var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 	var query = azure.TableQuery()
@@ -409,7 +409,7 @@ Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, co
 	  }
 	];
 
-En el siguiente ejemplo se obtiene la ACL actual para la tabla **hometasks** y luego se agregan las nuevas directivas mediante **setTableAcl**. Este enfoque permite lo siguiente:
+En el siguiente ejemplo se obtiene la ACL actual para **hometasks** y luego se agregan las nuevas directivas mediante **setTableAcl**. Este enfoque permite lo siguiente:
 
 	tableSvc.getTableAcl('hometasks', function(error, result, response) {
       if(!error){
@@ -431,22 +431,22 @@ Después de establecer una ACL, puede crear luego una SAS basada en el Id. de un
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, siga estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][].
--   [Visite el blog del equipo de almacenamiento de Azure][].
--   Visite el repositorio del [SDK de almacenamiento de Azure para Node][] en GitHub.
+-   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
+-   Visite el [Blog del equipo de almacenamiento de Azure][] (en inglés).
+-   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
 
-  [SDK de almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
+  [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-  [Visite el blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+  [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicación web de Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

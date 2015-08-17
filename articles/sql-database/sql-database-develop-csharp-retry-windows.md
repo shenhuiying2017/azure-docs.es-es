@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -395,8 +395,7 @@ El método `Main` está en `Program.cs`. La pila de llamadas se ejecuta de la si
 	        static Custom_SqlDatabaseTransientErrorDetectionStrategy()
 	        {
 	            int[] arrayOfTransientErrorNumbers =
-	                {4060, 10928, 10929, 40197, 40501, 40613
-	};
+	                {4060, 10928, 10929, 40197, 40501, 40613 };
 	
 	            M_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
 	        }
@@ -413,10 +412,10 @@ El método `Main` está en `Program.cs`. La pila de llamadas se ejecuta de la si
 ## Versión abreviada de Program.cs
 
 
-El código fuente de esta sección es la repetición abreviada del archivo `Program.cs` más largo presentado anteriormente. Se ha quitado toda la lógica de reintento y todo el control de `Exception`.
+El código fuente de esta sección es la repetición abreviada del archivo `Program.cs` más largo presentado anteriormente. Se ha quitado toda la lógica de reintento y todo el control de excepciones.
 
 
-La versión corta facilita la visualización de las llamadas de ADO.NET, sabiendo que estas suelen funcionar. Normalmente no se producen errores transitorios y no se genera `Exception`. Y normalmente un paracaidista no necesita un paracaídas de seguridad.
+La versión corta facilita la visualización de las llamadas de ADO.NET, sabiendo que estas suelen funcionar. Normalmente no se producen errores transitorios y no se generan excepciones. Y normalmente un paracaidista no necesita un paracaídas de seguridad.
 
 
 	using     System;  // C#, pure ADO.NET, no retry logic, no Exception handling.
@@ -497,4 +496,4 @@ La versión corta facilita la visualización de las llamadas de ADO.NET, sabiend
 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

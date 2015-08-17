@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
@@ -177,7 +177,7 @@ En esta sección, creará las distintas páginas que mostrará la aplicación.
             }
         }
 
-2.  En el **Explorador de soluciones**, haga doble clic en **Controllers\HomeController.cs**. Agregue las siguientes instrucciones **using** en la parte superior del archivo para incluir los espacios de nombres en el modelo que acaba de crear, así como el bus de servicio:
+2.  En el **Explorador de soluciones**, haga doble clic en **Controllers\\HomeController.cs**. Agregue las siguientes instrucciones **using** en la parte superior del archivo para incluir los espacios de nombres en el modelo que acaba de crear, así como el bus de servicio:
 
         using FrontendWebRole.Models;
         using Microsoft.ServiceBus.Messaging;
@@ -234,7 +234,7 @@ En esta sección, creará las distintas páginas que mostrará la aplicación.
             }
         }
 
-4.  en el menú **Compilar**, haga clic en **Compilar solución** para probar la precisión del trabajo hasta ahora.
+4.  En el menú **Compilar**, haga clic en **Compilar solución** para probar la precisión del trabajo hasta ahora.
 
 5.  Ahora, creará la vista para el método **Submit()** que ha creado más arriba. Haga clic con el botón secundario en el método Submit() y elija **Agregar vista**.
 
@@ -246,7 +246,7 @@ En esta sección, creará las distintas páginas que mostrará la aplicación.
 
 7.  Haga clic en **Agregar**.
 
-8.  Ahora, cambie el nombre mostrado de la aplicación. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\Shared\\_Layout.cshtml** para abrirlo en el editor de Visual Studio.
+8.  Ahora, cambie el nombre mostrado de la aplicación. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\\Shared\\\\\_Layout.cshtml** para abrirlo en el editor de Visual Studio.
 
 9.  Reemplace todas las apariciones de **My ASP.NET Application** por **Productos de LITWARE**.
 
@@ -254,7 +254,7 @@ En esta sección, creará las distintas páginas que mostrará la aplicación.
 
 	![][28]
 
-11. Finalmente, modifique la página de envío para incluir información sobre la cola. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\Home\Submit.cshtml** para abrirlo en el editor de Visual Studio. Agregue la siguiente línea después de **&lt;h2>Submit&lt;/h2>**. Por el momento, **ViewBag.MessageCount** está vacío. Lo rellenará más adelante.
+11. Finalmente, modifique la página de envío para incluir información sobre la cola. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\\Home\\Submit.cshtml** para abrirlo en el editor de Visual Studio. Agregue la siguiente línea después de **&lt;h2>Submit&lt;/h2>**. Por el momento, **ViewBag.MessageCount** está vacío. Lo rellenará más adelante.
 
         <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
@@ -333,13 +333,13 @@ Ahora, agregará código para enviar elementos a una cola. En primer lugar, crea
 
     Tenga en cuenta que más adelante en este tutorial aprenderá a almacenar el nombre del **espacio de nombres** y el valor de la clave SAS en un archivo de configuración.
 
-4.  Ahora, asegúrese de que se llama al método **Initialize**. En el **Explorador de soluciones**, haga doble clic en **Global.asax\Global.asax.cs**.
+4.  Ahora, asegúrese de que se llama al método **Initialize**. En el **Explorador de soluciones**, haga doble clic en **Global.asax\\Global.asax.cs**.
 
-5.  Agregue la siguiente línea en la parte inferior del método **Application_Start**:
+5.  Agregue la siguiente línea en la parte inferior del método **Application\_Start**:
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  Por último, actualice el código web que creó anteriormente para enviar elementos a la cola. En el **Explorador de soluciones**, haga doble clic en **Controllers\HomeController.cs**.
+6.  Por último, actualice el código web que creó anteriormente para enviar elementos a la cola. En el **Explorador de soluciones**, haga doble clic en **Controllers\\HomeController.cs**.
 
 7.  Actualice el método **Submit()** de la forma siguiente para obtener el recuento de mensajes correspondiente a la cola:
 
@@ -444,7 +444,7 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
 
 9.  Cree una clase **OnlineOrder** para representar los pedidos cuando los procese desde la cola. Puede reutilizar una clase que ya ha creado. En el Explorador de soluciones, haga clic con el botón secundario en el proyecto **OrderProcessingRole** (haga clic con el botón secundario en el proyecto, no en el rol). Haga clic en **Agregar** y, a continuación, en **Elemento existente**.
 
-10. Busque **FrontendWebRole\Models** en la subcarpeta y haga doble clic en **OnlineOrder.cs** para agregarla a este proyecto.
+10. Busque **FrontendWebRole\\Models** en la subcarpeta y haga doble clic en **OnlineOrder.cs** para agregarla a este proyecto.
 
 11. En WorkerRole.cs, reemplace el valor de la variable **QueueName** en **WorkerRole.cs** de `"ProcessingQueue"` a `"OrdersQueue"` como en el código siguiente:
 
@@ -539,4 +539,4 @@ Para obtener información sobre cómo implementar el front-end en un Sitio web d
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

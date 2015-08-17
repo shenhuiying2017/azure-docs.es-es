@@ -236,7 +236,7 @@ El siguiente código de ejemplo muestra un conjunto de reglas de ejemplo en un a
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)% Processor Time"
+          performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -246,7 +246,7 @@ En este ejemplo hay tres reglas de autoescala (una **regla de restricción** y d
 
 -   La regla de restricción siempre está activa y establece la cantidad mínima de instancias de rol en dos y la cantidad máxima en seis.
 
--   Ambas reglas reactivas usan un **operando** llamado **WebRoleA_CPU_Avg_5m** que calcula el uso promedio de la CPU en los últimos cinco minutos para un rol de Azure llamado **AutoscalingApplicationRole.** Este rol se define en el **modelo de servicio**.
+-   Ambas reglas reactivas usan un **operando** llamado **WebRoleA\_CPU\_Avg\_5m** que calcula el uso promedio de la CPU en los últimos cinco minutos para un rol de Azure llamado **AutoscalingApplicationRole.** Este rol se define en el **modelo de servicio**.
 
 -   La regla reactiva llamada **ScaleUpOnHighUtilization** aumenta el recuento de instancias del rol de destino en uno si el uso promedio de CPU en los últimos cinco minutos ha sido superior o igual al 60 %.
 
@@ -381,4 +381,4 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
   [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

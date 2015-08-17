@@ -152,7 +152,7 @@ Es posible configurar el número máximo de reintentos. Se usa la misma configur
 
 El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las siguientes propiedades:
 
-* FunctionId (in the format *{WebJob name}*.Functions.*{Function name}*, for example: WebJob1.Functions.CopyBlob)
+* FunctionId (con el formato *{nombre de WebJob}*.Functions.*{nombre de función}*, por ejemplo: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
@@ -203,7 +203,7 @@ El SDK de WebJobs se asegura de que ninguna función `BlobTrigger` se llame más
 
 Las recepciones de blobs se almacenan en un contenedor llamado *azure-webjobs-hosts* en la cuenta de almacenamiento de Azure que especifica la cadena de conexión AzureWebJobsStorage. Una recepción de blobs tiene la información siguiente:
 
-* La función que se llamó para el blob ("*{Nombre de trabajo web}*.Functions.*{Nombre de función}*", por ejemplo: "WebJob1.Functions.CopyBlob")
+* La función que se llamó para el blob ("*{nombre de WebJob}*.Functions.*{nombre de función}*", por ejemplo: "WebJob1.Functions.CopyBlob")
 * El nombre del contenedor
 * El tipo de blob ("BlockBlob" o "PageBlob")
 * El nombre del blob
@@ -232,4 +232,4 @@ Los temas relacionados tratados en ese artículo incluyen:
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con blobs de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

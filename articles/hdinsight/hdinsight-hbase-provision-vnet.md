@@ -437,4 +437,4 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Uso de la acción de script para personalizar un clúster de HBase"
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

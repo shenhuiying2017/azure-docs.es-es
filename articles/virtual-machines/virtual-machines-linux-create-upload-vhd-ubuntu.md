@@ -91,9 +91,9 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 5.	(opcional) Si el sistema Ubuntu encuentra un error y se reinicia, a menudo esperará la solicitud de información del usuario del arranque de grub, impidiendo así que el sistema se inicie correctamente. Para impedir que esto ocurra, realice los pasos siguientes:
 
-	a) Abra el archivo /etc/grub.d/00_header.
+	a) Abra el archivo /etc/grub.d/00\_header.
 
-	b) En la función **make_timeout()**, busque **if ["\${recordfail}" = 1 ]; then**
+	b) En la función **make\_timeout()**, busque **if ["\\${recordfail}" = 1 ]; then**
 
 	c) Cambie la instrucción que se encuentra debajo de esta línea a **set timeout=5**.
 
@@ -125,4 +125,4 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

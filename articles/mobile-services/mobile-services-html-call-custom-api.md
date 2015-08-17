@@ -92,4 +92,4 @@ También, considere la posibilidad de profundizar más en los siguientes temas d
 [Incorporación de Servicios móviles a una aplicación existente]: mobile-services-html-get-started-data.md
 [Almacenamiento de scripts de servidor en control de código fuente]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

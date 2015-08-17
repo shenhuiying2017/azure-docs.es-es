@@ -118,14 +118,14 @@ A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas b
 3.	En el panel de árbol del Explorador de objetos, haga clic en **SQL1** y, a continuación, en **Propiedades**.
 4.	En la ventana **Propiedades del servidor**, haga clic en **Configuración de base de datos**.
 5.	Busque las **Ubicaciones predeterminadas de la base de datos** y establezca estos valores: 
-	- Para **Datos**, escriba la ruta de acceso **f:\Data**.
-	- Para **Registro**, escriba la ruta de acceso **f:\Log**.
-	- Para **Copia de seguridad**, escriba la ruta de acceso **f:\Backup**.
+	- Para **Datos**, escriba la ruta de acceso **f:\\Data**.
+	- Para **Registro**, escriba la ruta de acceso **f:\\Log**.
+	- Para **Copia de seguridad**, escriba la ruta de acceso **f:\\Backup**.
 	- Nota: Solo las bases de datos nuevas utilizan estas ubicaciones.
 6.	Haga clic en **Aceptar** para cerrar la ventana.
 7.	En el panel de árbol del **Explorador de objetos**, abra **Seguridad**.
 8.	Haga clic con el botón derecho en **Inicios de sesión** y, a continuación, haga clic en **Nuevo inicio de sesión**.
-9.	En **Nombre de inicio de sesión**, escriba **CORP\User1**.
+9.	En **Nombre de inicio de sesión**, escriba **CORP\\User1**.
 10.	En la página **Roles de servidor**, haga clic en **sysadmin** y, a continuación, haga clic en **Aceptar**.
 11.	Cierre Microsoft SQL Server Management Studio.
 
@@ -146,7 +146,7 @@ En primer lugar, cree una máquina virtual de Azure de LOB1 con estos comandos e
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-A continuación, conéctese a la máquina virtual de LOB1 con las credenciales de la cuenta CORP\User1.
+A continuación, conéctese a la máquina virtual de LOB1 con las credenciales de la cuenta CORP\\User1.
 
 A continuación, configure una regla del Firewall de Windows para permitir el tráfico para probar la conectividad básica. Desde un símbolo del sistema de Windows PowerShell con nivel de administrador en LOB1, ejecute estos comandos.
 
@@ -168,9 +168,10 @@ A continuación, configure LOB1 para IIS y pruebe el acceso desde CLIENT1.
 9.	En la página Selección de los servicios de rol, seleccione o desactive las casillas de verificación de los servicios que necesita para probar la aplicación del servidor de línea de negocio y, a continuación, haga clic en **Siguiente**.
 10.	En la página Confirmación de las selecciones de instalación, haga clic en **Instalar**.
 11.	Espere hasta que se haya completado la instalación de los componentes y haga clic en **Cerrar**.
-12.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\User1 y, a continuación, inicie Internet Explorer.
-13.	En la barra de direcciones, escriba **http://lob1/** y, a continuación, presione ENTRAR. Debería ver la página web predeterminada de IIS 8. 
-Esta es su configuración actual.
+12.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, a continuación, inicie Internet Explorer.
+13.	En la barra de direcciones, escriba ****http://lob1/** y, a continuación, presione ENTRAR. Debería ver la página web predeterminada de IIS 8.
+
+Se trata de la configuración actual.
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_3.png)
  
@@ -195,4 +196,4 @@ Este entorno ya está preparado para implementar su aplicación basada en web en
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

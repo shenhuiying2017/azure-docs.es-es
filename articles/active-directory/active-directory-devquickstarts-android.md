@@ -114,18 +114,18 @@ Ahora tiene varias opciones para usar esta biblioteca en el proyecto Android:
 * Puede usar el código fuente para importar esta biblioteca en Eclipse y vincularla a la aplicación.
 * Si utiliza Studio Android, puede usar el formato de paquete *aar* y hacer referencia a los archivos binarios.
 
-#### Opción 1: origen a través de ZIP
+####Opción 1: origen a través de ZIP
 
 Para descargar una copia del código fuente, haga clic en "Descargar ZIP" en el lado derecho de la página o haga clic [aquí](https://github.com/AzureAD/azure-activedirectory-library-for-android/archive/v1.0.9.tar.gz).
 
-#### Opción 2: origen a través de Git
+####Opción 2: origen a través de Git
 
 Para obtener el código fuente del SDK a través de Git, simplemente escriba:
 
     git clone git@github.com:AzureAD/azure-activedirectory-library-for-android.git
     cd ./azure-activedirectory-library-for-android/src
 
-#### Opción 3: binarios a través de Gradle
+####Opción 3: binarios a través de Gradle
 
 Puede obtener los archivos binarios desde el repositorio central de Maven. El paquete AAR puede incluirse de la siguiente forma en el proyecto en AndroidStudio:
 
@@ -147,7 +147,7 @@ dependencies {
 }
 ```
 
-#### Opción 4: aar a través de Maven
+####Opción 4: aar a través de Maven
 
 Si utiliza el complemento m2e en Eclipse, puede especificar la dependencia en el archivo pom.xml:
 
@@ -161,7 +161,7 @@ Si utiliza el complemento m2e en Eclipse, puede especificar la dependencia en el
 ```
 
 
-#### Opción 5: paquete jar dentro de la carpeta libs
+####Opción 5: paquete jar dentro de la carpeta libs
 Puede obtener el archivo jar desde el repositorio de Maven y colocarlo en la carpeta *libs* del proyecto. También deberá copiar los recursos necesarios en el proyecto, ya que los paquetes jar no los incluyen.
 
 
@@ -455,4 +455,4 @@ La versión 1.1.0 de ADAL admite el cuadro de diálogo NTLM que se procesa a tra
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

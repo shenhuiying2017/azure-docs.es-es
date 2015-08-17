@@ -139,7 +139,7 @@ Este paso agrega un archivo denominado PlayerController.cs al proyecto.
 
 El controlador se deriva de **TableController<T>**. Esta clase hereda **ApiController**, pero es específica para los Servicios móviles de Azure.
  
-- Enrutamiento: la ruta predeterminada para una clase **TableController** es `/tables/{table_name}/{id}`, donde *table_name* coincide con el nombre de entidad. Por tanto, la ruta para el controlador Player es */tables/player/{id}*. Esta convención de enrutamiento hace que **TableController** sea coherente con la [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) de Servicios móviles.
+- Enrutamiento: la ruta predeterminada para una clase **TableController** es `/tables/{table_name}/{id}`, donde *table\_name* coincide con el nombre de entidad. Por tanto, la ruta para el controlador Player es */tables/player/{id}*. Esta convención de enrutamiento hace que **TableController** sea coherente con la [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) de Servicios móviles.
 - Acceso a datos: para las operaciones de base de datos, la clase **TableController** usa la interfaz **IDomainManager**, que define una abstracción para el acceso a los datos. La técnica de scaffolding utiliza **EntityDomainManager**, que es una implementación concreta de **IDomainManager** que contiene un contexto de EF. 
 
 Ahora agregue un segundo controlador para entidades PlayerRank. Siga los mismos pasos, pero elija PlayerRank para la clase de modelo. Utilice la misma clase de contexto de datos; no cree una nueva. Dele el nombre “PlayerRankController” al controlador.
@@ -589,7 +589,7 @@ Finalmente, agregue métodos que llamen a la capa de servicio.
 
 ## Incorporación de una instancia de MobileServiceClient
 
-Abra el *archivo App.xaml.cs y agregue una instancia de **MobileServiceClient** a la clase `App`.
+Abra el archivo *App.xaml.cs* y agregue una instancia de **MobileServiceClient** a la clase `App`.
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
@@ -763,4 +763,4 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

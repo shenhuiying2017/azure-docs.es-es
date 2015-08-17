@@ -1,4 +1,3 @@
-
 #### Para instalar revisiones regulares a través de Windows PowerShell para StorSimple
 
 1. Conéctese a la consola serie del dispositivo. Para obtener más información, vea [Conexión con la consola serie](#connect-to-the-serial-console).
@@ -15,4 +14,4 @@
 
 5. Se le pedirá confirmación. Escriba **Y** para continuar con la instalación de la revisión.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

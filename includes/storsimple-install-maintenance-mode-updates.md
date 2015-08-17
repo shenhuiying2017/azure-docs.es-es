@@ -25,4 +25,4 @@
 
 8. Una vez actualizados ambos controladores, salga del modo de mantenimiento. Consulte [Salir del modo de mantenimiento](#exit-maintenance-mode) para obtener instrucciones.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -103,4 +103,4 @@ Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

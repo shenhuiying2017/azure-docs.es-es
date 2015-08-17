@@ -12,7 +12,7 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/03/2015"
 	ms.author="mandia"/>
 
@@ -238,4 +238,4 @@ Ahora que se crea un servicio de BizTalk, familiarícese con [Servicios de BizTa
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,7 @@
 
 ##<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
 
-1. Agregaremos un botón llamado "Complete All" al lado del botón existente y moveremos ambos botones una línea hacia abajo. En Eclipse, abra el archivo *res\layout\activity_to_do.xml* en su proyecto de inicio rápido, busque el elemento **LinearLayout** que contiene el elemento **Button** llamado `buttonAddToDo`. Copie **LinearLayout** y péguelo inmediatamente después del original. Elimine el elemento **Button** del primer **LinearLayout**.
+1. Agregaremos un botón llamado "Complete All" al lado del botón existente y moveremos ambos botones una línea hacia abajo. En Eclipse, abra el archivo *res\\layout\\activity\_to\_do.xml* en su proyecto de inicio rápido, busque el elemento **LinearLayout** que contiene el elemento **Button** llamado `buttonAddToDo`. Copie **LinearLayout** y péguelo inmediatamente después del original. Elimine el elemento **Button** del primer **LinearLayout**.
 
 2. En el segundo **LinearLayout**, elimine el elemento **EditText** y agregue el siguiente código inmediatamente después del elemento **Button** existente:
 
@@ -36,7 +36,7 @@
 	    </LinearLayout>
 	
 
-4. Abra el archivo res\values\string.xml y agregue la siguiente línea de código:
+4. Abra el archivo res\\values\\string.xml y agregue la siguiente línea de código:
 
     	<string name="complete_button_text">Complete All</string>
 
@@ -112,4 +112,4 @@
 
 	Aparece un cuadro de diálogo de mensaje que indica el número de elementos marcados como completos y la consulta filtrada se vuelve a ejecutar, con lo que se borran todos los elementos de la lista.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

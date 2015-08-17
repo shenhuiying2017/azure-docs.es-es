@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/04/2015" 
 	ms.author="micurd;tamram"/>
 
 # Administración del acceso a los recursos de almacenamiento de Azure
@@ -22,11 +22,11 @@
 
 De forma predeterminada, solamente el propietario de la cuenta de almacenamiento puede acceder a los recursos de almacenamiento en esa cuenta. Si su servicio o aplicación debe hacer que estos recursos estén disponibles para otros clientes sin compartir la clave de acceso, tiene las opciones siguientes para permitir el acceso:
 
-- Puede establecer los permisos de un contenedor para permitir el acceso de lectura anónimo al contenedor y a sus blobs. Esto no se permite para tablas o colas.
+- Puede establecer los permisos de un contenedor para permitir el acceso de lectura anónimo al contenedor y a sus blobs. El acceso de lectura anónimo solo está disponible para los contenedores y blobs. 
 
-- Puede exponer un recurso a través de una firma de acceso compartido, que permite delegar acceso restringido a un recurso del contenedor, blob, tabla o cola especificando el intervalo para el que los recursos estarán disponibles y los permisos que un cliente tendrá en él.
+- Puede exponer un recurso a través de una firma de acceso compartido, que permite delegar acceso restringido a un contenedor, blob, tabla, cola, recurso compartido de archivos o archivo, especificando el intervalo para el que los recursos estarán disponibles y los permisos que un cliente tendrá en él.
 
-- Puede utilizar una directiva de acceso almacenada para administrar firmas de acceso compartido para un contenedor o sus blobs, para una cola o para una tabla. La directiva de acceso ofrece una medida adicional de control sobre las firmas de acceso compartido y también proporciona medios directos para revocarlas.
+- Puede usar una directiva de acceso almacenada para administrar firmas de acceso compartido para un contenedor o sus blobs, para una cola, para una tabla, para un recurso compartido de archivo o sus archivos. La directiva de acceso ofrece una medida adicional de control sobre las firmas de acceso compartido y también proporciona medios directos para revocarlas.
 
 ## Restringir acceso a contenedores y blobs
 
@@ -74,25 +74,18 @@ En la siguiente tabla, se indican las operaciones a las que pueden llamar los us
 | Get Page Ranges | Todo | Todo |
 
 ## Crear y usar una firma de acceso compartido
-Una firma de acceso compartido es un URI que concede derechos de acceso restringidos a los contenedores, los blobs, las colas y las tablas durante un intervalo de tiempo concreto. Cuando se facilita a un cliente una firma de acceso compartido, este podrá obtener acceso a los recursos de la cuenta de almacenamiento sin necesidad compartir la clave de cuenta con él.
+Una firma de acceso compartido (SAS) es un URI que concede derechos de acceso restringidos a un recurso de almacenamiento durante un intervalo de tiempo especificado. Puede crear una SAP en estos recursos de almacenamiento:
+
+- Contenedores y blobs
+- Colas
+- Tablas
+- Archivos y recursos compartidos de archivo 
+
+Cuando se facilita a un cliente una firma de acceso compartido, este podrá obtener acceso a los recursos de la cuenta de almacenamiento sin necesidad compartir la clave de cuenta con él.
 
 >[AZURE.NOTE]Para obtener información general conceptual detallada, así como un tutorial acerca de las firmas de acceso compartido, consulte [Firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
 
-Entre las operaciones admitidas con firmas de acceso compartido, se incluyen:
-
-- Leer y escribir contenido de blobs en bloques o en páginas, listas de bloques, propiedades y metadatos
-
-- Eliminar, conceder y crear una instantánea de un blob
-
-- Enumerar los blobs de un contenedor
-
-- Agregar, quitar, actualizar y eliminar mensajes de la cola (en la biblioteca cliente de almacenamiento 2.0 o versiones posteriores)
-
-- Obtener metadatos de la cola, lo cual incluye el conteo de mensajes (en la biblioteca cliente de almacenamiento 2.0 y versiones posteriores)
-
-- Realizar solicitudes, agregar, actualizar, eliminar y operaciones UPSERT en entidades de tabla (en la biblioteca cliente de almacenamiento 2.0 o versiones posteriores)
-
-Los parámetros de consulta del URI de firma de acceso compartido incorporan toda la información necesaria para conceder acceso controlado un recurso de almacenamiento. Los parámetros de consulta del URI especifican el intervalo de tiempo durante el que es válida la firma de acceso compartido, los permisos que concede, el recurso que debe estar disponible y la firma que los servicios de almacenamiento deben utilizar para autenticar la solicitud.
+Los parámetros de consulta del URI de firma de acceso compartido incorporan toda la información necesaria para conceder acceso controlado un recurso de almacenamiento. Los parámetros de consulta de una SAS incluyen el intervalo de tiempo durante el que es válida la firma de acceso compartido, los permisos que concede, el recurso que debe estar disponible, la versión que se usa para ejecutar la solicitud y la firma que los servicios de almacenamiento deben usar para autenticar la solicitud.
 
 Además, el URI de firma de acceso compartido puede hacer referencia a una directiva de acceso almacenada que proporciona un nivel de control adicional sobre un conjunto de firmas, incluida la capacidad de modificar o revocar el acceso al recurso en caso necesario.
 
@@ -178,18 +171,18 @@ Un cliente que recibe una firma de acceso compartido puede usarla desde su códi
 ## Usar una directiva de acceso almacenada
 Una directiva de acceso almacenada ofrece un nivel adicional de control sobre las firmas de acceso compartidas en el servidor. Establecer una directiva de acceso almacenada para agrupar firmas de acceso compartido y proporcionar restricciones adicionales para firmas sujetas a la directiva. Puede utilizar una directiva de acceso almacenada para cambiar la hora de inicio, la hora de expiración o los permisos para una firma o bien para revocarla después de haberse emitido.
 
-Una directiva de acceso almacenada ofrece un control mayor sobre las firmas de acceso compartido que se han emitido. En lugar de especificar la duración y los permisos de la firma en la dirección URL, puede especificar estos parámetros en la directiva de acceso almacenada que se ha almacenado en el blob, contenedor, cola o tabla que se están compartiendo. Para cambiar estos parámetros para una o varias firmas, puede modificar la directiva de acceso almacenada, en lugar de volver a emitir las firmas. También puede revocar rápidamente la firma, para lo cual, debe modificar la directiva de acceso almacenada.
+Una directiva de acceso almacenada ofrece un control mayor sobre las firmas de acceso compartido que se han emitido. En lugar de especificar la duración y los permisos de la firma en la dirección URL, puede especificar estos parámetros en una directiva de acceso almacenada que se guarda en el contenedor, recurso compartido de archivo, cola o tabla que contiene el recurso que se está compartiendo. Para cambiar estos parámetros para una o varias firmas, puede modificar la directiva de acceso almacenada, en lugar de volver a emitir las firmas. También puede revocar rápidamente la firma, para lo cual, debe modificar la directiva de acceso almacenada.
 
 Por ejemplo, supongamos que ha emitido una firma de acceso compartido asociada a una directiva de acceso almacenada. Si ha especificado la hora de expiración de la directiva de acceso almacenada, puede modificar la directiva de acceso para ampliar la duración de la firma, sin tener que volver a emitir una firma nueva.
 
 Según los procedimientos recomendados, es mejor especificar una directiva de acceso almacenada para cualquier recurso con signo para el que esté emitiendo una firma de acceso compartido, ya que la directiva almacenada se puede utilizar para modificar o revocar la firma una vez se ha emitido. Si no especifica una directiva almacenada, se recomienda que limite la duración de la firma para minimizar los riegos para los recursos de la cuenta de almacenamiento.
 
 ### Asociar una firma de acceso compartido a una directiva de acceso almacenada
-Una directiva de acceso almacenada incluye un nombre de hasta 64 caracteres que es único en el contenedor, cola o tabla. Para asociar una firma de acceso compartido a la directiva de acceso almacenada, se especifica este identificador al crear la firma de acceso compartida. En el URI de la firma de acceso compartido, el campo *signedidentifier* especifica el identificador de la directiva de acceso almacenada.
+Una directiva de acceso almacenada incluye un nombre de hasta 64 caracteres que es único en el contenedor, recurso compartido de archivo, cola o tabla. Para asociar una firma de acceso compartido a la directiva de acceso almacenada, se especifica este identificador al crear la firma de acceso compartida. En el URI de la firma de acceso compartido, el campo *signedidentifier* especifica el identificador de la directiva de acceso almacenada.
 
-Un contenedor, una cola o una tabla pueden incluir hasta 5 directivas de acceso almacenadas. Cada directiva puede usar cualquier número de firmas de acceso compartido.
+Un contenedor, un recurso compartido de archivo, una cola o una tabla pueden incluir hasta 5 directivas de acceso almacenadas. Cada directiva puede usar cualquier número de firmas de acceso compartido.
 
->[AZURE.NOTE]Establecer una directiva de acceso almacenada en un contenedor, cola o tabla puede tardar hasta 30 segundos en aplicarse. Durante este intervalo, una firma de acceso compartido que se asocia a la directiva de acceso almacenada producirá un error con el código de estado 403 (Prohibido), hasta que la directiva de acceso se active.
+>[AZURE.NOTE]Establecer una directiva de acceso almacenada en un contenedor, recurso compartido de archivo, cola o tabla puede tardar hasta 30 segundos en aplicarse. Durante este intervalo, una firma de acceso compartido que se asocia a la directiva de acceso almacenada producirá un error con el código de estado 403 (Prohibido), hasta que la directiva de acceso se active.
 
 ### Especificar los parámetros de la directiva de acceso para una firma de acceso compartido
 La directiva de acceso almacenada puede especificar los siguientes parámetros de la directiva de acceso para las firmas a las que está asociada:
@@ -214,4 +207,4 @@ Para revocar el acceso a las firmas de acceso compartido que utilizan la misma d
 - [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegación de acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

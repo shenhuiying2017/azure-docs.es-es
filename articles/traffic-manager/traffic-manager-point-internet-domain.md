@@ -36,4 +36,4 @@ Todas las solicitudes de tráfico de *www.contoso.com* se redirigirán ahora a *
 [Información general sobre el Administrador de tráfico](traffic-manager-overview.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

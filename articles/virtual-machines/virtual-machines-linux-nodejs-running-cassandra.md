@@ -700,4 +700,4 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

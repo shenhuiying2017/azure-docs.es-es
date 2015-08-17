@@ -24,19 +24,19 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| MS15-065 | [3076321] | Actualización de seguridad acumulativa para Internet Explorer | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-066 | [3072604] | Una vulnerabilidad en HTTP.sys podría permitir la ejecución remota de código | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-067 | [3073094] | Una vulnerabilidad en RDP podría permitir la ejecución remota de código | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-068 | [3072000] | Una vulnerabilidad en Windows Hyper-V podría permitir la ejecución remota de código | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-069 | [3072631] | Vulnerabilidades de Windows podrían permitir la ejecución remota de código | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-071 | [3068457] | Una vulnerabilidad de NETLOGON podría permitir la suplantación de identidad | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-072 | [3069392] | Una vulnerabilidad en el controlador de gráficos podría permitir la elevación de privilegios | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-073 | [3070102] | Vulnerabilidades del controlador modo kernel podrían permitir la elevación de privilegios | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-074 | [3072630] | Una vulnerabilidad en el servicio Windows Installer podría permitir la elevación de privilegios | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-075 | [3072633] | Una vulnerabilidad en OLE podría permitir la elevación de privilegios | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-076 | [3067505] | Una vulnerabilidad en llamada a procedimiento remoto de Windows podría permitir la elevación de privilegios | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-077 | [3077657] | Una vulnerabilidad en el controlador de fuentes ATM podría permitir la elevación de privilegios | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
-| N/D | [3057154] | Actualización para restringir el uso del cifrado DES | 4.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-065 | [3076321] | Actualización de seguridad acumulativa para Internet Explorer | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-066 | [3072604] | Una vulnerabilidad en HTTP.sys podría permitir la ejecución remota de código | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-067 | [3073094] | Una vulnerabilidad en RDP podría permitir la ejecución remota de código | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-068 | [3072000] | Una vulnerabilidad en Windows Hyper-V podría permitir la ejecución remota de código | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-069 | [3072631] | Vulnerabilidades de Windows podrían permitir la ejecución remota de código | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-071 | [3068457] | Una vulnerabilidad de NETLOGON podría permitir la suplantación de identidad | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-072 | [3069392] | Una vulnerabilidad en el controlador de gráficos podría permitir la elevación de privilegios | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-073 | [3070102] | Vulnerabilidades del controlador modo kernel podrían permitir la elevación de privilegios | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-074 | [3072630] | Una vulnerabilidad en el servicio Windows Installer podría permitir la elevación de privilegios | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-075 | [3072633] | Una vulnerabilidad en OLE podría permitir la elevación de privilegios | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-076 | [3067505] | Una vulnerabilidad en llamada a procedimiento remoto de Windows podría permitir la elevación de privilegios | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-077 | [3077657] | Una vulnerabilidad en el controlador de fuentes ATM podría permitir la elevación de privilegios | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| N/D | [3057154] | Actualización para restringir el uso del cifrado DES | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
 
 ## SO invitado de junio
 
@@ -77,7 +77,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| [MS15-034] | [3042553][3042553] | Una vulnerabilidad en HTTP.sys podría permitir la ejecución remota de código | 4.19, 3.26, 2.38 | 17 de abril de 2015 |
+| [MS15-034] | [3042553][3042553] | Una vulnerabilidad en HTTP.sys podría permitir la ejecución remota de código | 4\.19, 3.26, 2.38 | 17 de abril de 2015 |
 
 
 ## SO invitado de marzo
@@ -239,4 +239,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

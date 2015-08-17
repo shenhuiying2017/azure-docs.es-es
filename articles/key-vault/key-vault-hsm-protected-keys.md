@@ -116,7 +116,7 @@ El conjunto de herramientas incluye:
 - Un paquete de espacio de seguridad cuyo nombre comienza por **BYOK-SecurityWorld-pkg-.**
 - Un script Python denominado v**erifykeypackage.py.**
 - Un archivo ejecutable de línea de comandos denominado **KeyTransferRemote.exe** y asociado a las DLL.
-- Un paquete redistribuible de Visual C++ denominado **vcredist_x64.exe.**
+- Un paquete redistribuible de Visual C++ denominado **vcredist\_x64.exe.**
 
 Copie el paquete en una unidad USB u otro dispositivo de almacenamiento portátil.
 
@@ -129,7 +129,7 @@ En este segundo paso, realice los siguientes procedimientos en la estación de t
 
 Instale el software nCipher (Thales) en un equipo de Windows y, a continuación, adjunte un HSM de Thales a dicho equipo.
 
-Asegúrese de que las herramientas de Thales están en su ruta de acceso (**%nfast_home%\bin** y **%nfast_home%\python\bin**). Por ejemplo, escriba lo siguiente:
+Asegúrese de que las herramientas de Thales están en su ruta de acceso (**%nfast\_home%\\bin** y **%nfast\_home%\\python\\bin**). Por ejemplo, escriba lo siguiente:
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
@@ -140,7 +140,7 @@ Para obtener más información, consulte el Manual del usuario que se incluye en
 Copie el paquete del conjunto de herramientas BYOK de la unidad USB, u otro dispositivo de almacenamiento portátil, y, a continuación, haga lo siguiente:
 
 1. Extraiga los archivos del paquete descargado en cualquier carpeta.
-2. En esa carpeta, ejecute vcredist_x64.exe.
+2. En esa carpeta, ejecute vcredist\_x64.exe.
 3. Siga las instrucciones para instalar los componentes de tiempo de ejecución de Visual C++ para Visual Studio 2012.
 
 ##Paso 3: generación de la clave
@@ -153,7 +153,7 @@ Inicie un símbolo del sistema y ejecute el programa new-world de Thales.
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-Este programa crea un archivo de **espacio de seguridad** en %NFAST_KMDATA%\local\world, que corresponde a la carpeta C:\ProgramData\nCipher\Key Management Data\local. Puede usar valores diferentes para el quórum, pero en nuestro ejemplo, se le pedirá que escriba tres tarjetas en blanco y PIN para cada una de ellos. A continuación, dos tarjetas cualquiera le proporcionarán acceso completo al espacio de seguridad. Estas tarjetas pasan a ser el **Conjunto de tarjetas de administrador** del nuevo espacio de seguridad.
+Este programa crea un archivo de **espacio de seguridad** en %NFAST\_KMDATA%\\local\\world, que corresponde a la carpeta C:\\ProgramData\\nCipher\\Key Management Data\\local. Puede usar valores diferentes para el quórum, pero en nuestro ejemplo, se le pedirá que escriba tres tarjetas en blanco y PIN para cada una de ellos. A continuación, dos tarjetas cualquiera le proporcionarán acceso completo al espacio de seguridad. Estas tarjetas pasan a ser el **Conjunto de tarjetas de administrador** del nuevo espacio de seguridad.
 
 A continuación, haga lo siguiente:
 
@@ -188,11 +188,11 @@ Para validar el paquete descargado:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
 
-	>[AZURE.TIP]El software de Thales incluye Python en %NFAST_HOME%\python\bin
+	>[AZURE.TIP]El software de Thales incluye Python en %NFAST\_HOME%\\python\\bin
 	
 2.	Confirme que ve lo siguiente, que indica que el resultado de la validación ha sido satisfactorio: **Result: SUCCESS**
 
-Este script valida la cadena del firmante hasta la clave raíz de Thales. El hash de esta clave raíz está insertado en el script y su valor debe ser**59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Este valor también se puede confirmar por separado. Para ello, es preciso visitar el [sitio web de Thales](http://www.thalesesec.com/).
+Este script valida la cadena del firmante hasta la clave raíz de Thales. El hash de esta clave raíz está insertado en el script y su valor debe ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Este valor también se puede confirmar por separado. Para ello, es preciso visitar el [sitio web de Thales](http://www.thalesesec.com/).
 
 Ya está listo para crear una nueva clave.
 
@@ -210,7 +210,7 @@ Cuando ejecute este comando, siga estas instrucciones:
 
 - En este ejemplo, pubexp se deja en blanco (valor predeterminado), pero puede especificar valores concretos. Para obtener más información, consulte la documentación de Thales.
 
-Este comando crea un archivo de clave tokenizada en la carpeta %NFAST_KMDATA%\local cuyo nombre comienza por **key_simple_**, seguido del valor ident que se especificó en el comando. Por ejemplo: **key_simple_contosokey**. Este archivo contiene una clave cifrada.
+Este comando crea un archivo de clave tokenizada en la carpeta %NFAST\_KMDATA%\\local cuyo nombre comienza por **key\_simple\_**, seguido del valor ident que se especificó en el comando. Por ejemplo: **key\_simple\_contosokey**. Este archivo contiene una clave cifrada.
 
 Realice una copia del archivo tokenizado en una ubicación segura.
 
@@ -246,7 +246,7 @@ Cuando ejecute este comando, reemplace *contosokey* por el valor que especificó
 
 Se le pedirá que conectar sus tarjetas de administrador del espacio de seguridad.
 
-Cuando se complete el comando, verá **Result: SUCCESS** y la copia de la clave con menores permisos estará en el archivo denominado key_xferacId_<contosokey>.
+Cuando se complete el comando, verá **Result: SUCCESS** y la copia de la clave con menores permisos estará en el archivo denominado key\_xferacId\_<contosokey>.
 
 ###Paso 4.2: inspección de la nueva copia de la clave
 
@@ -282,13 +282,13 @@ Ejecute uno de los comandos siguientes, en función de su región:
 
 Cuando ejecute este comando, siga estas instrucciones:
 
-- Reemplace *contosokey* por el identificador que utilizó para generar la clave en el **Paso 3.3: creación de una nueva clave** en el paso [Generación de la clave](#step-3-generate-your-key).
+- Reemplace *contosokey* por el identificador que usó para generar la clave en el **Paso 3.3: creación de una nueva clave** en el paso [Generación de la clave](#step-3-generate-your-key).
 
-- Reemplace *SubscriptionID*por el Id. de la suscripción de Azure que contiene el almacén de claves. Este valor lo recuperó anteriormente, en el **Paso 1.2: obtención del Id. de suscripción de Azure** en el paso [Preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation).
+- Reemplace *SubscriptionID* por el Id. de la suscripción de Azure que contiene el almacén de claves. Este valor lo recuperó anteriormente, en el **Paso 1.2: obtención del Id. de suscripción de Azure** en el paso [Preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation).
 
-- Reemplace *ContosoFirstHSMKey* por una etiqueta que se utilizará para el nombre del archivo de salida.
+- Reemplace *ContosoFirstHSMKey* por una etiqueta que se usará para el nombre del archivo de salida.
 
-Cuando la operación se complete correctamente, mostrará **Result: SUCCESS** y habrá un nuevo archivo en la carpeta actual que tendrá el siguiente nombre: TransferPackage-* ContosoFirstHSMkey * .byok
+Cuando la operación se complete correctamente, mostrará **Result: SUCCESS** y habrá un nuevo archivo en la carpeta actual que tendrá el siguiente nombre: TransferPackage-*ContosoFirstHSMkey*.byok
 
 ###Paso 4.4: copiar del paquete de transferencia de claves a la estación de trabajo conectada a Internet 
 
@@ -296,7 +296,7 @@ Utilice una unidad USB u otro dispositivo de almacenamiento portátil para copia
 
 ##Paso 5: transferencia de la clave al Almacén de claves de Azure
 
-En este paso final, en la estación de trabajo conectada a Internet, utilice el cmdlet [AzureKeyVaultKey agregar](https://msdn.microsoft.com/library/azure/dn868048.aspx) para cargar el paquete de transferencia de claves que copió de la estación de trabajo desconectada en el HSM del Almacén de claves de Azure:
+En este paso final, en la estación de trabajo conectada a Internet, use el cmdlet [AzureKeyVaultKey agregar](https://msdn.microsoft.com/library/azure/dn868048.aspx) para cargar el paquete de transferencia de claves que copió de la estación de trabajo desconectada en el HSM del Almacén de claves de Azure:
 
 	Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -304,6 +304,6 @@ Si la carga se realiza correctamente, verá que se muestran las propiedades de l
 
 ##Pasos siguientes
 
-Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea utilizar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
+Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

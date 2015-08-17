@@ -102,7 +102,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 ## Creación de una aplicación Java que realiza una tarea de proceso intensivo
 
 1. En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](http://azure.microsoft.com/develop/java/).
-2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your_service_bus_namespace**, **your_service_bus_owner** y **your_service_bus_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
+2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
 3. Después de la codificación, exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. Para este tutorial, utilizaremos **TSPSolver.jar** como el nombre JAR generado.
 
 <p/>
@@ -265,7 +265,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 	                restCities.add(i);
 	            distances = new double[numCities][numCities];
 	            cityNames = new String[numCities];
-	            buildDistances("c:\TSP\cities.txt", numCities);
+	            buildDistances("c:\\TSP\\cities.txt", numCities);
 	            minDistance = -1;
 	            bestOrder = new int[numCities];
 	            permutation(startCities, 0, restCities);
@@ -292,7 +292,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 ## Creación de una aplicación Java que supervisa el progreso de la tarea de proceso intensivo
 
-1. En el equipo de desarrollo, cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPClient.java** como nombre de archivo de Java. Como en el caso anterior. modifique los marcadores de posición **your_service_bus_namespace**, **your_service_bus_owner** y **your_service_bus_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
+1. En el equipo de desarrollo, cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPClient.java** como nombre de archivo de Java. Como en el caso anterior. modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
 2. Exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. Para este tutorial, utilizaremos **TSPClient.jar** como el nombre JAR generado.
 
 <p/>
@@ -413,9 +413,9 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 ### Ejecución de la aplicación de proceso intensivo
 
 1. Inicie sesión en la máquina virtual.
-2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\TSP**.
-3. Copie **TSPSolver.jar** en **c:\TSP**,
-4. Cree un archivo con el nombre **c:\TSP\cities.txt** con el siguiente contenido:
+2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\\TSP**.
+3. Copie **TSPSolver.jar** en **c:\\TSP**,
+4. Cree un archivo con el nombre **c:\\TSP\\cities.txt** con el siguiente contenido:
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -468,7 +468,7 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 	
-5. En el símbolo del sistema, cambie los directorios a c:\TSP.
+5. En el símbolo del sistema, cambie los directorios a c:\\TSP.
 6. Asegúrese de que la carpeta bin de JRE se encuentra en la variable de entorno PATH.
 7. Tendrá que crear la cola del bus de servicio antes de ejecutar las permutaciones del solucionador del TSP. Ejecute el comando siguiente para crear la cola del bus de servicio:
 
@@ -484,10 +484,10 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
  
 ### Ejecución de la supervisión de la aplicación cliente
 1. Inicie sesión en el equipo donde se va a ejecutar la aplicación cliente. No tiene que ser el mismo que ejecuta la aplicación **TSPSolver**, aunque podría serlo.
-2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\TSP**.
-3. Copie **TSPClient.jar** en **c:\TSP**,
+2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\\TSP**.
+3. Copie **TSPClient.jar** en **c:\\TSP**,
 4. Asegúrese de que la carpeta bin de JRE se encuentra en la variable de entorno PATH.
-5. En el símbolo del sistema, cambie los directorios a c:\TSP.
+5. En el símbolo del sistema, cambie los directorios a c:\\TSP.
 6. Ejecute el siguiente comando:
 
         java -jar TSPClient.jar
@@ -519,4 +519,4 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

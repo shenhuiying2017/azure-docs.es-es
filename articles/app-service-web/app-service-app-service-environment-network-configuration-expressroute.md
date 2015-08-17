@@ -28,7 +28,8 @@ Los entornos del Servicio de aplicaciones requieren todas las opciones siguiente
 
 
 -  Conectividad de red saliente a los recursos de Almacenamiento de Azure y Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Esta ruta de acceso de red no puede atravesar servidores proxy corporativos internos porque, al hacerlo, probablemente cambiará la dirección NAT efectiva del tráfico de red de salida. Al cambiar la dirección NAT del tráfico de red de salida de un entorno del Servicio de aplicaciones dirigido a los extremos de Almacenamiento de Azure y Base de datos SQL, se producirán errores de conectividad.
--  La configuración DNS para la red virtual debe ser capaz de resolver extremos en los siguientes dominios controlados de Azure: **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*. -  La configuración DNS para la red virtual debe permanecer estable siempre que se creen entornos del Servicio de aplicaciones, así como durante la reconfiguración y los cambios de escala de los entornos del Servicio de aplicaciones.   
+-  La configuración DNS para la red virtual debe ser capaz de resolver extremos en los siguientes dominios controlados de Azure: **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*.
+-  La configuración DNS para la red virtual debe permanecer estable siempre que se creen entornos del Servicio de aplicaciones, así como durante la reconfiguración y los cambios de escala de los entornos del Servicio de aplicaciones.   
 -  El acceso de red entrante a los puertos necesarios para los entornos del Servicio de aplicaciones debe permitirse, tal como se describe en este [artículo][requiredports].
 
 El requisito de DNS puede cumplirse al garantizar una configuración DNS válida para la red virtual.
@@ -50,7 +51,7 @@ Los detalles sobre cómo crear y configurar las rutas definidas por el usuario e
 
 **Requisitos previos**
 
-1. Instale la última versión de Azure PowerShell desde la página [Descargas de Azure][AzureDownloads] (fecha: junio de 2015 o posterior). En "Herramientas de línea de comandos" hay un vínculo "Instalar" en "Windows Powershell" que instalará los cmdlets más recientes de PowerShell.
+1. Instale la versión más reciente de Azure PowerShell desde la página [Descargas de Azure][AzureDownloads] (fecha: junio de 2015 o posterior). En "Herramientas de línea de comandos" hay un vínculo "Instalar" en "Windows Powershell" que instalará los cmdlets más recientes de PowerShell.
 
 2. Se recomienda crear una única subred para que el entorno del Servicio de aplicaciones lo utilice de manera exclusiva. Esto garantiza que las rutas definidas por el usuario aplicadas a la subred solo abrirán el tráfico saliente para el entorno del Servicio de aplicaciones.
 3. **Importante**: no implemente el entorno del Servicio de aplicaciones hasta **después** de haber completado los siguientes pasos de configuración. Esto garantiza que la conectividad de red saliente esté disponible antes de intentar implementar un entorno del Servicio de aplicaciones.
@@ -76,7 +77,7 @@ Necesitará agregar una o varias rutas a la tabla de ruta para habilitar el acce
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
 
 
-Para obtener una lista completa y actualizada de los intervalos CIDR que Azure utiliza, puede descargar un archivo XML que contiene todos los intervalos en el [Centro de descarga de Microsoft ][DownloadCenterAddressRanges]
+Para obtener una lista completa y actualizada de los intervalos CIDR que Azure utiliza, puede descargar un archivo XML que contiene todos los intervalos en el [Centro de descarga de Microsoft][DownloadCenterAddressRanges]
 
 **Nota:** en algún momento, un intervalo CIDR abreviado de 0.0.0.0/0 estará disponible para utilizarse en el parámetro *AddressPrefix*. Esta forma abreviada equivale a "todas las direcciones de Internet". Por ahora, los desarrolladores necesitarán usar un amplio conjunto de intervalos CIDR suficientes para cubrir todos los intervalos de direcciones de Azure posibles utilizados en la región en que se ha implementado el entorno del Servicio de aplicaciones.
 
@@ -99,7 +100,7 @@ Tras haber confirmado los pasos anteriores, puede continuar con la creación de 
 
 ## Introducción
 
-Para empezar a trabajar con los entornos del Servicio de aplicaciones, vea [Introducción al entorno del Servicio de aplicaciones][IntroToAppServiceEnvironment].
+Para empezar a trabajar con los entornos del Servicio de aplicaciones, consulte [Introducción al entorno del Servicio de aplicaciones][IntroToAppServiceEnvironment]
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure][AzureAppService].
 
@@ -120,4 +121,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

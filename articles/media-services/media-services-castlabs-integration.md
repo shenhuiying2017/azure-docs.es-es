@@ -44,25 +44,24 @@ Tanto castLabs como AMS admiten el formato de token JWT (token web JSON) usado p
 
 En la tabla siguiente se describen los tokens JWT en AMS.
 
-<table border="1">
-<tr><td>Emisor</td><td>Cadena de emisor desde el servicio de tokens seguro (STS) elegido</td></tr>
-<tr><td>Público</td><td>Cadena de audiencia del STS usado</td></tr>
-<tr><td>Notificaciones</td><td>Un conjunto de notificaciones</td></tr>
-<tr><td>NotBefore</td><td>Iniciar la validez del token</td></tr>
-<tr><td>Expira</td><td>Finalizar la validez del token</td></tr>
-<tr><td>SigningCredentials</td><td>La clave que se comparte entre el servidor de licencias de PlayReady, el servidor de licencias de castLabs y STS; podría ser una clave simétrica o asimétrica.</td></tr>
-</table>
+Emisor|Cadena de emisor desde el servicio de tokens seguro (STS) elegido
+---|---
+Público|Cadena de audiencia del STS usado
+Notificaciones|Un conjunto de notificaciones
+NotBefore|Iniciar la validez del token
+Expira|Finalizar la validez del token
+SigningCredentials|La clave que se comparte entre el servidor de licencias de PlayReady, el servidor de licencias de castLabs y STS; podría ser una clave simétrica o asimétrica.
 
 ###Token JWT en castLabs
 
 En la tabla siguiente se describen los tokens JWT en castLabs.
 
-<table border="1">
-<tr><td>optData</td><td>Cadena JSON que contiene información sobre el usuario. </td></tr>
-<tr><td>crt</td><td>Cadena JSON que contiene información sobre el activo, su información de licencia y derechos de reproducción.</td></tr>
-<tr><td>iat</td><td>La fecha y hora actual en la época.</td></tr>
-<tr><td>jti</td><td>Identificador único sobre este token (cada token solo puede usarse una vez en el sistema castLabs).</td></tr>
-</table>
+Nombre|Descripción
+---|---
+optData|Cadena JSON que contiene información sobre el usuario. 
+crt|Cadena JSON que contiene información sobre el activo, su información de licencia y derechos de reproducción.
+iat|La fecha y hora actual en la época.
+jti|Identificador único sobre este token (cada token solo puede usarse una vez en el sistema castLabs).
 
 ##Configuración de soluciones de ejemplo 
 
@@ -114,4 +113,4 @@ Para reproducir el vídeo protegido en HTML5 con Chrome con el reproductor de ca
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

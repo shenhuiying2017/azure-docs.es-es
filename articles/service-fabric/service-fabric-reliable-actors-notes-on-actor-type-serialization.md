@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Notas de los actores de Service Fabric de Azure sobre la serialización del tipo Actor"
-   description="requisitos básicos para la definición de clases serializables que pueden usarse para definir interfaces y estados de actores confiable de Fabric de Azure"
+   pageTitle="Notas de Actores confiables de Service Fabric sobre la serialización del tipo de actor"
+   description="Examina los requisitos básicos para la definición de clases serializables que se pueden usar para definir interfaces y estados de Actores confiable de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="clca"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 
-# Notas sobre la serialización del tipo de actores de Service Fabric de Azure
+# Notas sobre la serialización del tipo de Actores confiables de Service Fabric
 
 Hay algunos aspectos importantes que deben tenerse en cuenta al definir las interfaces y los estados del actor: los tipos deben ser serializable de contratos de datos. Puede encontrar más información sobre los contratos de datos en [MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
@@ -82,6 +82,5 @@ public class VoicemailBox
 }
 
 ```
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

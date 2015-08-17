@@ -78,114 +78,108 @@ Codifique con el **Flujo de trabajo de Media Encoder Premium** con **.NET**. Par
 
 ###<a id="billing"></a>Medidor de facturación usado por cada codificador
 
-<table border="1">
-<tr><th>Nombre de procesador multimedia</th><th>Precios aplicables</th><th>Notas</th></tr>
-<tr><td><b>Windows Azure Media Encoder</b></td><td>CODIFICADOR HEREDADO</td><td>Las tareas de codificación se cargarán según la suma de los tamaños de los recursos de entrada y de salida, en GB, a la velocidad especificada <a href="http://azure.microsoft.com/pricing/details/media-services/">aquí</a>, bajo la columna CODIFICADOR HEREDADO.</td></tr>
-<tr><td><b>Codificador multimedia de Azure</b></td><td>ENCODER</td><td>Las tareas de codificación se cargarán según el tamaño de los recursos de salida, en GB, a la velocidad especificada <a href="http://azure.microsoft.com/pricing/details/media-services/">aquí</a>, bajo la columna CODIFICADOR.</td></tr>
-<tr><td><b>Media Encoder Estándar</b></td><td>ENCODER</td><td>Las tareas de codificación se cargarán según el tamaño de los recursos de salida, en GB, a la velocidad especificada <a href="http://azure.microsoft.com/pricing/details/media-services/">aquí</a>, bajo la columna CODIFICADOR.</td></tr>
-<tr><td><b>Flujo de trabajo del Codificador multimedia</b></td><td>CODIFICADOR PREMIUM</td><td>Las tareas de codificación se cargarán según el tamaño de los recursos de salida, en GB, a la velocidad especificada <a href="http://azure.microsoft.com/pricing/details/media-services/">aquí</a>, bajo la columna CODIFICADOR PREMIUM.</td></tr>
-</table>
+Nombre de procesador multimedia|Precios aplicables|Notas
+---|---|---
+**Windows Azure Media Encoder** |CODIFICADOR HEREDADO|Las tareas de codificación se cargarán según la suma de los tamaños de los recursos de entrada y de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR HEREDADO.
+**Codificador multimedia de Azure** |ENCODER|Las tareas de codificación se cargarán según el tamaño de los recursos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR.
+**Media Encoder Estándar** |ENCODER|Las tareas de codificación se cargarán según el tamaño de los recursos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR.
+**Flujo de trabajo del Codificador multimedia** |CODIFICADOR PREMIUM|Las tareas de codificación se cargarán según el tamaño de los recursos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR PREMIUM.
 
 
-En esta sección se comparan las capacidades de codificación de **Azure Media Encoder**, **flujo de trabajo de Codificador multimedia Premium** y **Media Encoder Estándar**.
+
+En esta sección se comparan las capacidades de codificación de **Codificador multimedia de Azure**, **Flujo de trabajo premium de codificación de medios** y **Media Encoder Estándar**.
 
 
 ###Formatos de entrada
 
 Formatos de archivo/contenedor de entrada
 
-<table border="1">
-<tr><th>Formatos de archivo/contenedor de entrada</th><th>Flujo de trabajo del Codificador multimedia</th><th>Codificador multimedia de Azure
-</th><th>Media Encoder Estándar</th></tr>
-<tr><td>Adobe® Flash® F4V</td><td>Sí</td><td>No</td><td>Sí</td></tr>
-<tr><td>MXF/SMPTE 377M</td><td>Sí</td><td>Limitado</td><td>Sí</td></tr>
-<tr><td>GXF</td><td>Sí</td><td>No</td><td>Sí</td></tr>
-<tr><td>Secuencias de transporte MPEG-2</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>Secuencias de programa MPEG-2</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>MPEG-4/MP4</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>Windows Media/ASF</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>AVI (sin comprimir de 8 bits/10 bits)</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>3GPP/3GPP2</td><td>No</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3)</td><td>No</td><td>Sí</td><td>Sí</td></tr>
-<tr><td><a href="https://msdn.microsoft.com/es-es/library/windows/desktop/dd692984(v=vs.85).aspx">Microsoft Digital Video Recording(DVR-MS)</a></td><td>No</td><td>No</td><td>Sí</td></tr>
-<tr><td>Matroska/WebM</td><td>No</td><td>No</td><td>Sí</td></tr></table>
+Formatos de archivo/contenedor de entrada|Flujo de trabajo del Codificador multimedia|Codificador multimedia de Azure|Media Encoder Estándar
+---|---|---|---
+Adobe® Flash® F4V|Sí|No|Sí
+MXF/SMPTE 377M|Sí|Limitado|Sí
+GXF|Sí|No|Sí
+Secuencias de transporte MPEG-2|Sí|Sí|Sí
+Secuencias de programa MPEG-2|Sí|Sí|Sí
+MPEG-4/MP4|Sí|Sí|Sí
+Windows Media/ASF|Sí|Sí|Sí
+AVI (sin comprimir de 8 bits/10 bits)|Sí|Sí|Sí
+3GPP/3GPP2|No|Sí|Sí
+Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3)|No|Sí|Sí
+[Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|No|No|Sí
+Matroska/WebM|No|No|Sí
 
 Códecs de vídeo de entrada
 
-<table border="1">
-<tr><th>Códecs de vídeo de entrada</th><th>Flujo de trabajo del Codificador multimedia</th><th>Codificador multimedia de Azure</th><th>Media Encoder Estándar</th></tr>
-<tr><td>AVC 8 bits/10 bits, hasta 4:2:2, incluido AVCIntra</td><td>Sí</td><td>Solo 8 bits 4:2:0</td><td>8 bits: 4:2:0 y 4:2:2</td></tr>
-<tr><td>Avid DNxHD (en MXF)</td><td>Sí</td><td>No</td><td>Sí</td></tr>
-<tr><td>DVCPro/DVCProHD (en MXF)</td><td>Sí</td><td>No</td><td>Sí</td></tr>
-<tr><td>JPEG2000</td><td>Sí</td><td>No</td><td>Sí</td></tr>
-<tr><td>MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10)</td><td>Sí</td><td>Hasta 422 Perfil</td><td>Hasta 422 Perfil</td></tr>
-<tr><td>MPEG-1</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>Windows Media Video/VC-1</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>Canopus HQ/HQX</td><td>No</td><td>Sí</td><td>No</td></tr>
-<tr><td>MPEG-4, parte 2</td><td>No</td><td>No</td><td>Sí</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Theora">Theora</a></td><td>No</td><td>No</td><td>Sí</td></tr>
-</table>
+Códecs de vídeo de entrada|Flujo de trabajo del Codificador multimedia|Codificador multimedia de Azure|Media Encoder Estándar
+---|---|---|---
+AVC 8 bits/10 bits, hasta 4:2:2, incluido AVCIntra|Sí|Solo 8 bits 4:2:0|8 bits: 4:2:0 y 4:2:2
+Avid DNxHD (en MXF)|Sí|No|Sí
+DVCPro/DVCProHD (en MXF)|Sí|No|Sí
+JPEG2000|Sí|No|Sí
+MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10)|Sí|Hasta 422 Perfil|Hasta 422 Perfil
+MPEG-1|Sí|Sí|Sí
+Windows Media Video/VC-1|Sí|Sí|Sí
+Canopus HQ/HQX|No|Sí|No
+MPEG-4, parte 2|No|No|Sí
+|No|No|Sí
 
 Códecs de audio de entrada
 
-<table border="1">
-<tr><th>Códecs de audio de entrada</th><th>Flujo de trabajo del Codificador multimedia</th><th>Codificador multimedia de Azure</th><th>Media Encoder Estándar</th></tr>
-<tr><td>AES (SMPTE 331M y 302M, AES3-2003)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>Dolby® E</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>Dolby® Digital (AC3)</td><td>Sí</td><td>Sí</td><td>No</td></tr>
-<tr><td>Dolby® Digital Plus (E-AC3)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>AAC (AAC-LC, AAC-HE y AAC-HEv2; hasta 5.1)</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>MPEG Layer 2</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>Windows Media Audio</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>WAV/PCM</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/FLAC">FLAC</a></td><td>No</td><td>No</td><td>Sí</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Opus_(audio_format)">Opus</a></td><td>No</td><td>No</td><td>Sí</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a></td><td>No</td><td>No</td><td>Sí</td></tr>
-</table>
+Códecs de audio de entrada|Flujo de trabajo del Codificador multimedia|Codificador multimedia de Azure|Media Encoder Estándar
+---|---|---|---
+AES (SMPTE 331M y 302M, AES3-2003)|Sí|No|No
+Dolby® E|Sí|No|No
+Dolby® Digital (AC3)|Sí|Sí|No
+Dolby® Digital Plus (E-AC3)|Sí|No|No
+AAC (AAC-LC, AAC-HE y AAC-HEv2; hasta 5.1)|Sí|Sí|Sí
+MPEG Layer 2|Sí|Sí|Sí
+MP3 (MPEG-1 Audio Layer 3)|Sí|Sí|Sí
+Windows Media Audio|Sí|Sí|Sí
+WAV/PCM|Sí|Sí|Sí
+[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|No|No|Sí
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |No|No|Sí
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|No|No|Sí
 
 ###Formatos de salida
 
 Formatos de archivo/contenedor de salida
 
-<table border="1">
-<tr><th>Formatos de archivo/contenedor de salida</th><th>Flujo de trabajo del Codificador multimedia</th><th>Codificador multimedia de Azure</th><th>Media Encoder Estándar</th></tr>
-<tr><td>Adobe® Flash® F4V</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>MXF (OP1a, XDCAM y AS02)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>DPP (incluido AS11)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>GXF</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>MPEG-4/MP4</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>MPEG-TS</td><td>Sí</td><td>No</td><td>Sí</td></tr>
-<tr><td>Windows Media/ASF</td><td>Sí</td><td>Sí</td><td>No</td></tr>
-<tr><td>AVI (sin comprimir de 8 bits/10 bits)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3)</td><td>Sí</td><td>Sí</td><td>No</td></tr>
-</table>
+Formatos de archivo/contenedor de salida|Flujo de trabajo del Codificador multimedia|Codificador multimedia de Azure|Media Encoder Estándar
+---|---|---|---
+Adobe® Flash® F4V|Sí|No|No
+MXF (OP1a, XDCAM y AS02)|Sí|No|No
+DPP (incluido AS11)|Sí|No|No
+GXF|Sí|No|No
+MPEG-4/MP4|Sí|Sí|Sí
+MPEG-TS|Sí|No|Sí
+Windows Media/ASF|Sí|Sí|No
+AVI (sin comprimir de 8 bits/10 bits)|Sí|No|No
+Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3)|Sí|Sí|No
 
 Códecs de vídeo de salida
 
-<table border="1">
-<tr><th>Códecs de vídeo de salida</th><th>Flujo de trabajo del Codificador multimedia</th><th>Codificador multimedia de Azure</th><th>Media Encoder Estándar</th></tr>
-<tr><td>AVC (H.264; 8 bits; hasta Perfil alto, Nivel 5.2; 4K Ultra HD; AVC Intra)</td><td>Sí</td><td>Solo 8 bits 4:2:0 hasta 1080p</td><td>Solo 8 bits 4:2:0</td></tr>
-<tr><td>Avid DNxHD (en MXF)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>DVCPro/DVCProHD (en MXF)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>MPEG-1</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>Windows Media Video/VC-1</td><td>Sí</td><td>Sí</td><td>No</td></tr>
-<tr><td>Creación de miniaturas JPEG</td><td>Sí</td><td>Sí</td><td>No</td></tr>
-</table>
+Códecs de vídeo de salida|Flujo de trabajo del Codificador multimedia|Codificador multimedia de Azure|Media Encoder Estándar
+---|---|---|---
+AVC (H.264; 8 bits; hasta Perfil alto, Nivel 5.2; 4K Ultra HD; AVC Intra)|Sí|Solo 8 bits 4:2:0 hasta 1080p|Solo 8 bits 4:2:0
+Avid DNxHD (en MXF)|Sí|No|No
+DVCPro/DVCProHD (en MXF)|Sí|No|No
+MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10)|Sí|No|No
+MPEG-1|Sí|No|No
+Windows Media Video/VC-1|Sí|Sí|No
+Creación de miniaturas JPEG|Sí|Sí|No
 
 Códecs de audio de salida
 
-<table border="1">
-<tr><th>Códecs de audio de salida</th><th>Flujo de trabajo del Codificador multimedia</th><th>Codificador multimedia de Azure</th><th>Media Encoder Estándar</th></tr>
-<tr><td>AES (SMPTE 331M y 302M, AES3-2003)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>Dolby® Digital (AC3)</td><td>Sí</td><td>Sí</td><td>No</td></tr>
-<tr><td>Dolby® Digital Plus (E-AC3) hasta 7.1</td><td>Sí</td><td>Hasta 5.1</td><td>No</td></tr>
-<tr><td>AAC (AAC-LC, AAC-HE y AAC-HEv2; hasta 5.1)</td><td>Sí</td><td>Sí</td><td>Sí</td></tr>
-<tr><td>MPEG Layer 2</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>Sí</td><td>No</td><td>No</td></tr>
-<tr><td>Windows Media Audio</td><td>Sí</td><td>Sí&lt;/td<td>No</td></tr>
-</table>
+Códecs de audio de salida|Flujo de trabajo del Codificador multimedia|Codificador multimedia de Azure|Media Encoder Estándar
+---|---|---|---
+AES (SMPTE 331M y 302M, AES3-2003)|Sí|No|No
+Dolby® Digital (AC3)|Sí|Sí|No
+Dolby® Digital Plus (E-AC3) hasta 7.1|Sí|Hasta 5.1|No
+AAC (AAC-LC, AAC-HE y AAC-HEv2; hasta 5.1)|Sí|Sí|Sí
+MPEG Layer 2|Sí|No|No
+MP3 (MPEG-1 Audio Layer 3)|Sí|No|No
+Windows Media Audio|Sí|Sí|No
 
 ##Artículos relacionados
 
@@ -194,5 +188,7 @@ Códecs de audio de salida
 - [Cuotas y limitaciones](media-services-quotas-and-limitations.md)
 
  
+<!--Reference links in article-->
+[1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

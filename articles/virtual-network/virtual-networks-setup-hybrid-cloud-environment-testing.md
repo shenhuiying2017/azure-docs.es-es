@@ -53,7 +53,7 @@ Esta configuración requiere una subred de prueba de hasta cuatro equipos conect
 
 Siga las instrucciones de la sección "Pasos para configurar la subred Corpnet" de la [Test Lab Guide: Configuración base para Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) para configurar los equipos DC1, APP1 y CLIENT1 en una subred denominada Corpnet. **Esta subred debe estar aislada de la red de su organización, ya que se conectará directamente a Internet a través del equipo RRAS1.**
 
-A continuación, inicie sesión en DC1 con las credenciales de CORP\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con nivel de administrador.
+A continuación, inicie sesión en DC1 con las credenciales de CORP\\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con nivel de administrador.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -268,7 +268,7 @@ A continuación, configure DC2 como un controlador de dominio de réplica para e
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Tenga en cuenta que se le pedirá que proporcione la contraseña de CORP\User1 y una contraseña de Modo de restauración de servicios de directorio (DSRM), y que reinicie DC2.
+Tenga en cuenta que se le pedirá que proporcione la contraseña de CORP\\User1 y una contraseña de Modo de restauración de servicios de directorio (DSRM), y que reinicie DC2.
 
 Ahora que la red virtual TestVNET tiene su propio servidor DNS (DC2), debe configurar la red virtual de TestVNET para utilizar este servidor DNS.
 
@@ -304,7 +304,7 @@ Su entorno de nube híbrida ya está listo para las pruebas.
 
 ## Minimización del coste de este entorno
 
-Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en la red virtual Test_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](../automation-create-runbook-from-samples.md).
+Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en la red virtual Test\_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](../automation-create-runbook-from-samples.md).
 
 La puerta de enlace VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure que incurren en un coste económico continuo. Para obtener más información, consulte [Precios: red virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar el coste de la puerta de enlace VPN, cree el entorno de prueba y realice las pruebas y demostraciones necesarias tan pronto como sea posible, o elimine la puerta de enlace con estos pasos.
 
@@ -326,4 +326,4 @@ A continuación, inicie sesión en RRAS1 como administrador local y ejecute esto
 A continuación, vaya al Portal de administración de Azure en el equipo local y espere hasta que se muestre un estado de la red virtual TestVNET de conectado.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->
