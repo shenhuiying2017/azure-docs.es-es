@@ -6,7 +6,14 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+	ms.service="backup" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="storage-backup-recovery" 
+	ms.date="07/01/2015" 
+	ms.author="jimpark"; "aashishr"/>
 
 # Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas
 Los clientes de Copia de seguridad de Azure y System Center Data Protection Manager pueden: - realizar una copia de seguridad de los datos en las programaciones que se adaptan mejor a las necesidades de su organización; - retener los datos de copia de seguridad durante períodos más largos; - implicar a Azure como parte de sus necesidades de retención a largo plazo (en lugar de usar cintas).
