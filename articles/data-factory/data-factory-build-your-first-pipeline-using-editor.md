@@ -45,7 +45,7 @@ Este artículo no ofrece información general conceptual sobre el servicio Facto
 
 	![Hoja Nueva Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]Los nombres de la Factoría de datos de Azure son únicos globalmente. Deberá agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría. 
+	> [AZURE.IMPORTANT] Los nombres de la Factoría de datos de Azure son únicos globalmente. Deberá agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría.
 3.	Si no creó ningún grupo de recursos, tendrá que crearlo. Para ello, siga estos pasos:
 	1.	Haga clic en **NOMBRE DEL GRUPO DE RECURSOS**.
 	2.	Seleccione **Crear un nuevo grupo de recursos** en la hoja **Grupo de recursos**.
@@ -157,7 +157,7 @@ En este paso, creará la primera canalización:
 	![Botón Nueva canalización](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copie y pegue el fragmento de código siguiente en la ventana Borrador 1.
 
-	> [AZURE.IMPORTANT]Reemplace **storageaccountname** por el nombre de la cuenta de almacenamiento en el código JSON.
+	> [AZURE.IMPORTANT] Reemplace **storageaccountname** por el nombre de la cuenta de almacenamiento en el código JSON.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -230,4 +230,4 @@ En este paso, creará la primera canalización:
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un blob de Azure a SQL de Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
   
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

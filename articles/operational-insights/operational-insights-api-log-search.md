@@ -197,7 +197,7 @@ En la tabla siguiente se describen las propiedades que están disponibles.
 	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
 ```
 
->[AZURE.NOTE]Si la búsqueda se devuelve con el estado 'Pendiente', el sondeo de los resultados actualizados puede realizarse a través de esta API. Después de seis minutos, el resultado de la búsqueda se eliminará de la caché y se devolverá Http Ya no existe. Si la solicitud de búsqueda inicial devuelve inmediatamente un estado 'Correcto', no se agregará a la caché, lo que provocará que esta API devuelva Http Ya no existe si se consulta. El contenido de un resultado Http 200 estará en el mismo formato que la solicitud de búsqueda inicial, solo que con valores actualizados.
+>[AZURE.NOTE] Si la búsqueda se devuelve con el estado 'Pendiente', el sondeo de los resultados actualizados puede realizarse a través de esta API. Después de seis minutos, el resultado de la búsqueda se eliminará de la caché y se devolverá Http Ya no existe. Si la solicitud de búsqueda inicial devuelve inmediatamente un estado 'Correcto', no se agregará a la caché, lo que provocará que esta API devuelva Http Ya no existe si se consulta. El contenido de un resultado Http 200 estará en el mismo formato que la solicitud de búsqueda inicial, solo que con valores actualizados.
 
 ### Búsquedas guardadas: solo REST
 
@@ -205,7 +205,7 @@ En la tabla siguiente se describen las propiedades que están disponibles.
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-```
+  ```
 
 Métodos admitidos: GET PUT DELETE
 
@@ -221,7 +221,7 @@ En la tabla siguiente se describen las propiedades que están disponibles.
 |properties.displayName|**Obligatorio**. El nombre para mostrar definido por el usuario de la consulta. Si se modela como un recurso de Azure, esto sería una etiqueta.|
 |properties.category|**Obligatorio**. Categoría de la consulta definida por el usuario. Si se modela como un recurso de Azure sería una etiqueta.|
 
->[AZURE.NOTE]Actualmente, la API de búsqueda de Visión operativa devuelve las búsquedas guardadas creadas por el usuario cuando se realiza un sondeo de búsquedas guardadas en un área de trabajo. En este momento, la API no devolverá las búsquedas guardadas proporcionadas por soluciones. Esta funcionalidad se agregará en una fecha posterior.
+>[AZURE.NOTE] Actualmente, la API de búsqueda de Visión operativa devuelve las búsquedas guardadas creadas por el usuario cuando se realiza un sondeo de búsquedas guardadas en un área de trabajo.En este momento, la API no devolverá las búsquedas guardadas proporcionadas por soluciones. Esta funcionalidad se agregará en una fecha posterior.
 
 ### Eliminación de búsquedas guardadas
 
@@ -300,7 +300,8 @@ La siguiente información describe los parámetros opcionales disponibles.
 
 El parámetro "Highlight" es un parámetro opcional que se puede usar para solicitar al subsistema de búsqueda que incluya un conjunto de marcadores en la respuesta.
 
-Estos marcadores indican el inicio y fin del texto resaltado que coincide con los términos que se proporcionan en la consulta de búsqueda. Puede especificar los marcadores de inicio y final que se usarán en la búsqueda para envolver el término resaltado.
+Estos marcadores indican el inicio y fin del texto resaltado que coincide con los términos que se proporcionan en la consulta de búsqueda.
+Puede especificar los marcadores de inicio y final que se usarán en la búsqueda para envolver el término resaltado.
 
 **Ejemplo de consulta de la búsqueda**
 
@@ -345,4 +346,4 @@ Estos marcadores indican el inicio y fin del texto resaltado que coincide con lo
 
 Observe que el resultado anterior contiene un mensaje de error que se ha incluido como prefijo y se ha anexado.
 
-<!---HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->
