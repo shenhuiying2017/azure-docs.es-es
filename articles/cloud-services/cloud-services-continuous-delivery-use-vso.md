@@ -23,7 +23,8 @@
 
 En este tutorial se supone que tiene instalados Visual Studio 2013 y el SDK de Azure. Si aún no tiene Visual Studio 2013, descárguelo; para ello, haga clic en el vínculo **Empezar de forma gratuita** en [www.visualstudio.com](http://www.visualstudio.com). Instale el SDK de Azure desde [aquí](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-> [AZURE.NOTE]Necesita una cuenta en línea de Visual Studio para completar este tutorial: puede [abrir una cuenta de Visual Studio Online de forma gratuita](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Necesita una cuenta en línea de Visual Studio para completar este tutorial:
+> Puede [abrir una cuenta de Visual Studio Online de forma gratuita](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar un servicio en la nube que se compile e implemente automáticamente en Azure con Visual Studio Online, siga los pasos que aparecen a continuación:
 
@@ -47,7 +48,11 @@ Siga las instrucciones que se describen [aquí](http://go.microsoft.com/fwlink/?
 
 ## <a name="step2"> </a>Paso 2: proteger un proyecto para el control de código fuente
 
-1. En Visual Studio, abra la solución que desee implementar o cree una nueva. Puede implementar una aplicación web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial. Si desea crear una nueva solución, cree un proyecto de Servicio de nube de Azure o un proyecto de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo y seleccione una aplicación de Internet para el rol web. Cuando se le solicite, elija **Aplicación de Internet**. Si desea crear una aplicación web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Crear una aplicación web de ASP.NET en el servicio de aplicaciones de Azure](../web-sites-dotnet-get-started.md)
+1. En Visual Studio, abra la solución que desee implementar o cree una nueva.
+Puede implementar una aplicación web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial.
+Si desea crear una nueva solución, cree un proyecto de Servicio de nube de Azure o un proyecto de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5.
+Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo y seleccione una aplicación de Internet para el rol web. Cuando se le solicite, elija **Aplicación de Internet**.
+Si desea crear una aplicación web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Crear una aplicación web de ASP.NET en el servicio de aplicaciones de Azure](../web-sites-dotnet-get-started.md)
 
 > [AZURE.NOTE]Actualmente, Visual Studio Online solo admite las implementaciones de integración continua de las aplicaciones web de Visual Studio. Los proyectos de sitio web están fuera del alcance.
 
@@ -64,7 +69,8 @@ Siga las instrucciones que se describen [aquí](http://go.microsoft.com/fwlink/?
 5. En el área Cambios pendientes de Team Explorer, escriba un comentario para la protección y elija el botón **Proteger**.<br/>
 ![][8]
 
-<br/> Tenga en cuenta las opciones para incluir o excluir cambios concretos al realizar la protección. Si los cambios deseados se excluyen, elija el vínculo **Incluir todo**.<br/>
+<br/>
+Tenga en cuenta las opciones para incluir o excluir cambios concretos al realizar la protección. Si los cambios deseados se excluyen, elija el vínculo **Incluir todo**.<br/>
 ![][9]
 
 ## <a name="step3"> </a>Paso 3: conectar el proyecto a Azure
@@ -125,12 +131,14 @@ En la pestaña **Desencadenador**, verá que la definición de compilación se h
 En la pestaña **Proceso**, puede ver que el entorno de implementación se ha configurado con el nombre del servicio en la nube o aplicación web. Si trabaja con aplicaciones web, verá propiedades diferentes a las que se muestran aquí.<br/>
 ![][27]
 <br/>
-Especifique los valores para las propiedades si desea que sean diferentes de los predeterminados. Las propiedades para la publicación de Azure se encuentran en la sección Implementación. En la tabla siguiente se muestran las propiedades disponibles en la sección Implementación:
+Especifique los valores para las propiedades si desea que sean diferentes de los predeterminados. Las propiedades para la publicación de Azure se encuentran en la sección Implementación.
+En la tabla siguiente se muestran las propiedades disponibles en la sección Implementación:
 	<table>
 <tr><td><b>Propiedad</b></td><td><b>Valor predeterminado</b></td></tr>
 ><tr><td>Permitir certificados que no son de confianza</td><td>Si el valor es false, los certificados SSL deben estar firmados por una entidad de certificación raíz.</td></tr>
-<tr><td>Permitir actualización</td><td>Permite actualizar una implementación existente en lugar de crear una nueva. Conserva la dirección IP.</td></tr><tr><td>No eliminar</td><td>Si el valor es true, no sobrescriba una implementación no relacionada existente (la actualización está permitida).</td></tr>
-<tr><td>Ruta de acceso a la configuración de implementación</td><td>La ruta de acceso al archivo .pubxml de una aplicación web, en relación con la carpeta raíz del repositorio. Se ignora para los servicios en la nube.</td></tr>
+<tr><td>Permitir actualización</td><td>Permite actualizar una implementación existente en lugar de crear una nueva. Conserva la dirección IP.</td></tr>
+<tr><td>No eliminar</td><td>Si el valor es true, no sobrescriba una implementación no relacionada existente (la actualización está permitida).</td></tr>
+><tr><td>Ruta de acceso a la configuración de implementación</td><td>La ruta de acceso al archivo .pubxml de una aplicación web, en relación con la carpeta raíz del repositorio. Se ignora para los servicios en la nube.</td></tr>
 <tr><td>Entorno de implementación de SharePoint</td><td>La misma que el nombre de servicio</td></tr>
 <tr><td>Entorno de implementación de Azure</td><td>Nombre de la aplicación web del servicio en la nube</td></tr>
 </table>
@@ -298,4 +306,4 @@ Para obtener más información, consulte [Visual Studio Online](http://go.micros
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
