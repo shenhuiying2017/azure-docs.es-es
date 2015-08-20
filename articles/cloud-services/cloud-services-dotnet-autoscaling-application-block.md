@@ -28,7 +28,15 @@ En esta guía se demuestra cómo llevar a cabo supuestos comunes usando el bloqu
 
 ## Tabla de contenido
 
-[¿Qué es el bloque de autoescala de la aplicación?][] [Conceptos][] [Recopilación de datos del contador de rendimiento de la aplicación de Azure de destino][] [Configuración de una aplicación host para el bloque de autoescala de la aplicación][] [Creación de instantáneas y ejecución de la autoescala][] [Definición de un modelo de servicio][] [Definición de las reglas de autoescala][] [Configuración del bloque de autoescala de la aplicación][] [Pasos siguientes][]
+[¿Qué es el bloque de autoescala de la aplicación?][]   
+[Conceptos][]   
+[Recopilación de datos del contador de rendimiento de la aplicación de Azure de destino][]   
+[Configuración de una aplicación host para el bloque de autoescala de la aplicación][]   
+[Creación de instantáneas y ejecución de la autoescala][]   
+[Definición de un modelo de servicio][]   
+[Definición de las reglas de autoescala][]   
+[Configuración del bloque de autoescala de la aplicación][]   
+[Pasos siguientes][]   
 
 ## <a id="WhatIs"> </a>¿Qué es el bloque de autoescala de la aplicación?
 
@@ -126,14 +134,31 @@ En Visual Studio, debe asegurarse de copiar el archivo del modelo de servicio en
 
 	El ejemplo de código siguiente muestra un modelo de servicio de ejemplo en un archivo **services.xml**:
 
-    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?>
+    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      <subscriptions>
+        <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My">
+          <services>
+            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              <roles>
+                <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/> </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
+                      wadStorageAccountName="targetstorage"/>
+              </roles>
+            </service>
+          </services>
+          <storageAccounts>
+            <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            </storageAccount>
+          </storageAccounts>
+        </subscription>
+      </subscriptions>
+    </serviceModel>
 
 Debe reemplazar los valores de los corchetes por valores específicos para su entorno y aplicación de destino. Para encontrar muchos de estos valores,necesitará iniciar sesión en el [Portal de administración de Azure][].
 
@@ -262,23 +287,27 @@ De manera predeterminada, el bloque de autoescala de la aplicación espera que l
 
 1.  Haga clic con el botón secundario en el archivo **App.config** en el Explorador de soluciones y, a continuación, haga clic en **Editar archivo de configuración**.
 
-2.  En el menú **Bloques**, haga clic en **Agregar configuración de autoescala**: ![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
+2.  En el menú **Bloques**, haga clic en **Agregar configuración de autoescala**:  
+	![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
 3.  Expanda **Configuración de autoescala** y, a continuación, haga clic en los puntos suspensivos (...) junto a **Cuenta de almacenamiento del almacén de puntos de datos**, agregue el **nombre de cuenta** y la **clave de cuenta** de la cuenta de almacenamiento de Azure donde el bloque va a almacenar los puntos de datos que recopila (vea [Definición del modelo de servicio][] si no está seguro de dónde encontrar estos valores) y haga clic en **Aceptar**:
 
 	![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
-4.  Expanda la sección **Configuración de autoescala** para mostrar las secciones **Almacén de reglas** y **Almacén de información de servicio**. De manera predeterminada, están configuradas para usar el almacenamiento de blobs de Azure: ![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
+4.  Expanda la sección **Configuración de autoescala** para mostrar las secciones **Almacén de reglas** y **Almacén de información de servicio**. De manera predeterminada, están configuradas para usar el almacenamiento de blobs de Azure:  
+	![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
 5.  Haga clic en el signo más (+) junto a **Almacén de reglas**, seleccione **Establecer almacén de reglas**, haga clic en **Usar almacén de reglas de archivo local** y, a continuación, haga clic en **Sí**.
 
-6.  En el cuadro **Nombre de archivo**, escriba **rules.xml**. Este es el nombre del archivo que contiene sus reglas de autoescala: ![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
+6.  En el cuadro **Nombre de archivo**, escriba **rules.xml**. Este es el nombre del archivo que contiene sus reglas de autoescala:  
+	![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
 
 
 7.  Haga clic en el signo más (+) junto a **Almacén de información de servicio**, seleccione **Establecer almacén de información de servicio**, haga clic en **Usar información de servicio del archivo local** y, a continuación, haga clic en **Sí**.
 
-8.  En el cuadro **Nombre de archivo**, escriba **services.xml**. Este es el nombre del archivo que contiene sus reglas de autoescala: ![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
+8.  En el cuadro **Nombre de archivo**, escriba **services.xml**. Este es el nombre del archivo que contiene sus reglas de autoescala:  
+	![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
 9.  En la ventana de configuración de las bibliotecas empresariales, en el menú **Archivo**, haga clic en **Guardar** para guardar los cambios realizados en la configuración. Posteriormente, en la ventana de configuración de las bibliotecas empresariales, en el menú **Archivo**, haga clic en **Salir**.
@@ -381,4 +410,4 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
   [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

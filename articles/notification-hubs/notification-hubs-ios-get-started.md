@@ -505,11 +505,11 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Uso de Centros de notificaciones para insertar notificaciones en los usuarios]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Introducción a las notificaciones push en Servicios móviles]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Uso de los Centros de notificaciones para insertar notificaciones a los usuarios]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
 
 [guía de programación de notificaciones push y locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

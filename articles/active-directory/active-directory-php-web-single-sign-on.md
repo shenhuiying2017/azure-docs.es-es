@@ -125,7 +125,7 @@ Este paso le mostrará cómo agregar compatibilidad para el inicio de sesión fe
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE]Los valores **audienceuris** y **realm** deben ir precedidos por "spn:".
+> [AZURE.NOTE]Los valores **audienceuris** y **realm** deben ir precedidos por "spn:".
 
 4. En Eclipse, haga clic con el botón derecho en el proyecto **phpSample** y luego haga clic en **New** (Nuevo) y, a continuación, en **PHP File** (Archivo PHP).
 
@@ -203,4 +203,4 @@ Puede encontrar un ejemplo que muestra cómo usar Azure Active Directory y el in
 [Código de ejemplo PHP para Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
