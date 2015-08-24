@@ -56,8 +56,6 @@ Los diagramas muestran lo que hace en los pasos de creación e implementación.
 
 ![Crear](./media/web-sites-dotnet-get-started/Create_App.png)
 
-![Implementación](./media/web-sites-dotnet-get-started/Deploy_App.png)
-
 1. Abra Visual Studio 2015 o Visual Studio 2013. 
 
 	Si usa Visual Studio 2013, las pantallas pueden variar ligeramente con respecto a las capturas de pantalla, pero los procedimientos son básicamente los mismos.

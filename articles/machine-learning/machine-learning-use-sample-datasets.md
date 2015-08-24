@@ -173,7 +173,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <tr ID=german-credit-card-uci-dataset>
   <td valign=top>Conjunto de datos UCI de tarjeta de crédito alemana</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
   </td>
 </tr>
 
