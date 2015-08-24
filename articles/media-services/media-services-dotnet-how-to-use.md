@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Desarrollo de Servicios multimedia con .NET 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 En este tema se explica cómo empezar a desarrollar aplicaciones de Servicios multimedia con .NET.
 
@@ -98,4 +100,4 @@ También puede obtener los bits más recientes del SDK de Servicios multimedia p
 En este punto, está listo para iniciar el desarrollo de una aplicación de Servicios multimedia.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

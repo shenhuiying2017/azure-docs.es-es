@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de Spark Apache para crear aplicaciones de Aprendizaje automático en HDInsight | Azure" 
+	pageTitle="Uso de Apache Spark para crear aplicaciones de Aprendizaje automático en HDInsight | Microsoft Azure" 
 	description="Instrucciones paso a paso para usar cuadernos con Apache Spark para crear aplicaciones de aprendizaje automático" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -240,4 +240,4 @@ Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

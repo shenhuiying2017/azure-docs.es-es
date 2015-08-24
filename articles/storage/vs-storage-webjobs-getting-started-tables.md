@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Introducción a Almacenamiento de Azure" 
-	description="Introducción al uso del almacenamiento de tablas de Azure en un proyecto de WebJobs 5 de Azure en Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Introducción al Almacenamiento de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)" 
+	description="Introducción al uso del almacenamiento de tablas de Azure en un proyecto de WebJobs 5 de Azure en Visual Studio"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos de WebJobs de Azure)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-tables.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-tables.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
@@ -31,9 +31,9 @@
 
 ## Información general
 
-El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales. Para obtener más información, consulte [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Uso del almacenamiento de tablas en .NET").
+En este artículo se proporcionan ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de tablas de Azure. Los ejemplos de código usan el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md) versión 1.x.
 
-En este artículo se proporcionan ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de tablas de Azure. Los ejemplos de código usan la versión 1.x del [SDK de WebJobs](websites-dotnet-webjobs-sdk.md).
+El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales. Para obtener más información, consulte [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Uso del almacenamiento de tablas en .NET").
 
 		
 Algunos de los fragmentos de código muestran el atributo `Table` usado en funciones que se [llaman manualmente](vs-storage-webjobs-getting-started-blobs.md#manual), es decir, sin usar ninguno de los atributos de desencadenador.
@@ -166,4 +166,4 @@ Para obtener información sobre cómo controlar el procesamiento de tablas desen
 En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

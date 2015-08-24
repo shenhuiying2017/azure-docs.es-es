@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registro para autenticación de Facebook - Servicios móviles" 
+	pageTitle="Registro para la autenticación de Facebook | Microsoft Azure" 
 	description="Aprenda a usar la autenticación de Facebook en la aplicación de Servicios móviles de Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -73,4 +73,4 @@ Ahora ya puede habilitar el uso del inicio de sesión de Facebook para autentica
 [Servicios móviles de Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

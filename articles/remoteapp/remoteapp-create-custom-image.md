@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Creación de una imagen de plantilla personalizada para Azure RemoteApp"
-	description="Obtenga información acerca de cómo crear una imagen de plantilla personalizada para RemoteApp. Puede usar esta plantilla con una implementación híbrida o en la nube."
+	description="Aprenda a crear una imagen de plantilla personalizada para Azure RemoteApp. Puede usar esta plantilla con una colección híbrida o en la nube."
 	services="remoteapp"
 	documentationCenter=""
 	authors="lizap"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Creación de una imagen de plantilla personalizada para Azure RemoteApp
@@ -22,7 +22,7 @@ RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para ho
 
 - El tamaño de la imagen debe ser un múltiplo de MB. Si se intenta cargar una imagen que no es un múltiplo exacto, la carga no se realizará.
 - El tamaño de imagen debe ser de 127 GB o menos.
-- Debe estar en un archivo VHD (los archivos VHDX no se admiten actualmente).
+- Debe estar en un archivo VHD (los archivos VHDX [unidades de disco duro virtuales de Hyper-V] no se admiten actualmente).
 - El disco duro virtual no debe ser una máquina virtual de generación 2.
 - El archivo VHD puede ser de tamaño fijo o expandirse dinámicamente. Se recomienda un archivo VHD que se expanda dinámicamente porque tarda menos tiempo en cargarse en Azure que un archivo VHD de tamaño fijo.
 - El disco se debe inicializar usando el estilo de particiones Registro de arranque maestro (MBR, Master Boot Record). El estilo de particiones de tabla de particiones GUID (GPT) no se admite.
@@ -49,7 +49,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 
 ## Creación de una imagen de plantilla ##
 
-Para crear una nueva imagen de plantilla desde cero:
+Estos son los pasos de alto nivel para crear una nueva imagen de plantilla desde el principio:
 
 1.	Busque un DVD o una imagen ISO de actualización de Windows Server 2012 R2.
 2.	Cree un archivo VHD.
@@ -109,8 +109,8 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
  	**Importante:**
 
 
-	- Microsoft recomienda instalar el rol RDSH antes de instalar aplicaciones para garantizar que se detecta cualquier problema con la compatibilidad de aplicaciones antes de que la imagen se cargue en RemoteApp.
-	- Asegúrese de que la aplicación aparece en el menú Inicio. Asegúrese también de que el icono que ve en el menú Inicio es lo que quiere que vean los usuarios. Si no es así, cámbielo. (No *tiene* que agregar la aplicación al menú Inicio, pero resulta mucho más fácil publicar la aplicación en RemoteApp. De lo contrario, debe proporcionar la ruta de instalación de la aplicación cuando publique la aplicación.)
+	- Instale el rol RDSH antes de instalar las aplicaciones para garantizar que se detecta cualquier problema con la compatibilidad de aplicaciones antes de que la imagen se cargue en RemoteApp.
+	- Asegúrese de que la aplicación aparece en el menú **Inicio**. Asegúrese también de que el icono que ve en el menú **Inicio** es lo que quiere que vean los usuarios. Si no es así, cámbielo. (No *tiene* que agregar la aplicación al menú Inicio, pero resulta mucho más fácil publicar la aplicación en RemoteApp. De lo contrario, debe proporcionar la ruta de instalación de la aplicación cuando publique la aplicación.)
 
 8.	Realice cualquier configuración adicional de Windows que requieran sus aplicaciones.
 9.	Deshabilite el Sistema de cifrado de archivos (EFS). Ejecute el comando siguiente en una ventana de comandos con privilegios elevados:
@@ -137,4 +137,4 @@ Ahora que ya tiene su imagen de plantilla personalizada, es necesario que la car
 - [Creación de una colección en la nube de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

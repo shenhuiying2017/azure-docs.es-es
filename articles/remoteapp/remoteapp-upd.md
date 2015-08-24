@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/16/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -123,4 +123,4 @@ No, eso no es compatible con Azure RemoteApp, que usa RDSH, que a su vez tampoco
 
 No, no es compatible con Azure RemoteApp.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

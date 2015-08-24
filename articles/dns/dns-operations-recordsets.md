@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma"/>
 
 # Administración de registros DNS
+
 
 En esta guía se explica cómo administrar conjuntos de registros y registros de zonas DNS.
 
@@ -265,4 +266,4 @@ El objeto del conjunto de registros también puede canalizarse en lugar de pasar
 [Introducción sobre la creación de registros y conjuntos de registros](../dns-getstarted-create-recordset)<BR> [Realización de operaciones en zonas DNS](../dns-operations-dnszones)<BR> [Automatización de operaciones con el SDK de .NET](../dns-sdk)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

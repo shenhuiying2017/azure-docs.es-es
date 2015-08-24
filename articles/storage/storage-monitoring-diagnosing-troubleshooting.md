@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Supervisión, diagnóstico y solución de problemas de Almacenamiento | Azure" 
+	pageTitle="Supervisión, diagnóstico y solución de problemas de Almacenamiento | Microsoft Azure" 
 	description="Use características como análisis de almacenamiento, registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Almacenamiento de Azure." 
 	services="storage" 
 	documentationCenter="" 
@@ -912,4 +912,4 @@ Cuando se escribió este documento, Application Insights se encontraba en una ve
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

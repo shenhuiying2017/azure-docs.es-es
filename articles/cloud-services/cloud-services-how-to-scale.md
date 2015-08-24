@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Escalado de un servicio en la nube | Azure" 
+	pageTitle="Escalado de un servicio en la nube | Microsoft Azure" 
 	description="Vea cómo escalar un servicio en la nube y recursos vinculados en Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -227,4 +227,4 @@ Puede programar el escalado automático de su aplicación al configurar programa
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

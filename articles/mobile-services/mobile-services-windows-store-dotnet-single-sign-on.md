@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Autenticación de una aplicación de la Tienda Windows con la autenticación del cliente administrada mediante la cuenta de Microsoft
@@ -163,4 +163,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [SDK de Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

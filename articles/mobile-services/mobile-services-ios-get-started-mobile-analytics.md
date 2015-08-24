@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción al análisis móvil | Centro de desarrollo móvil" 
+	pageTitle="Introducción al análisis móvil | Microsoft Azure" 
 	description="Introducción al análisis móvil" 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -98,4 +98,4 @@ Puede obtener más información sobre lo que Capptain puede hacer por su aplicac
 [nivel estándar de Servicios móviles]: /pricing/details/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

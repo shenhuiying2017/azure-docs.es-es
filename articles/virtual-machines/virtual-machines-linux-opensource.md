@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/08/2015"
+	ms.date="08/07/2015"
 	ms.author="rasquill"/>
 
 
@@ -22,7 +22,7 @@
 
 El objeto de este documento es reunir en un solo lugar todos los temas que Microsoft y sus partners han escrito sobre la ejecución de máquinas virtuales basadas en Linux, así como otros entornos y aplicaciones informáticas de código abierto en Microsoft Azure. Dado que Azure y el mundo de la informática de código abierto son destinos muy cambiantes, es prácticamente seguro que este documento no esté actualizado, *a pesar de* que hacemos todo lo posible para seguir agregando nuevos temas y eliminar los desactualizados. Si hemos omitido alguno, comuníquenoslo en los comentarios o envíe una solicitud de extracción a nuestro [Repositorio de Github](https://github.com/Azure/azure-content/).
 
-## Notas generales:
+## Notas generales
 Las secciones se desglosan a la derecha de esta página. (Los vínculos pueden aparecer en más de una sección, dado que los temas pueden tratar sobre más de un concepto, distribución o tecnología). Además, hay varios temas que describen diversas opciones de Linux, repositorios de imágenes, casos prácticos y temas de procedimientos para cargar sus propias imágenes personalizadas:
 
 - [Azure Marketplace](http://azure.microsoft.com/marketplace/virtual-machines/)
@@ -122,7 +122,7 @@ CoreOS es una distro pequeña y optimizada para el escalado de cálculo puro con
 8. [Conceptos básicos: Restablecimiento de una contraseña o de las propiedades SSH de Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [Conceptos básicos: Uso de la raíz](virtual-machines-linux-use-root-privileges.md)
 10. [Conceptos básicos: Asociación de un disco de datos a una máquina virtual Linux](virtual-machines-linux-how-to-attach-disk.md)
-11. [Conceptos básicos: Desasociación de un disco de datos a una máquina virtual Linux](virtual-machines-linux-how-to-detach-disk.md)
+11. [Conceptos básicos: Desasociación de un disco de datos de una máquina virtual Linux](virtual-machines-linux-how-to-detach-disk.md)
 12. [Blogs con los conceptos básicos: Optimización del almacenamiento, los discos y el rendimiento con Linux y Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 13. [Conceptos básicos: RAID](virtual-machines-linux-configure-raid.md)
 14. [Conceptos básicos: Captura de una máquina virtual de Linux para usar como plantilla](virtual-machines-linux-capture-image.md)
@@ -240,7 +240,16 @@ La autenticación y el cifrado son aspectos cruciales del desarrollo de software
 8. [Conceptos básicos: Restablecimiento de una contraseña o de las propiedades SSH de Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [Conceptos básicos: Uso de la raíz](virtual-machines-linux-use-root-privileges.md)
 
-## Devops, administración y optimización
+## Informática de alto rendimiento de Linux (HPC)
+
+Ejecute cargas de trabajo de HPC en clústeres de VM de Linux creados con herramientas de código abierto o con Microsoft HPC Pack.
+
+1.	[Plantilla de inicio rápido: Establecimiento de un clúster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) (y [una entrada de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
+2.	[Plantilla de inicio rápido: Establecimiento de un clúster Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+3.	[Tutorial: Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md)
+4.	[Tutorial: Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md)
+
+## DevOps, administración y optimización
 
 Esta sección comienza con una entrada de blog que contiene una serie de vídeos sobre [Vídeo: Máquinas virtuales de Azure: Uso de Chef, Puppet y Docker para administrar máquinas virtuales Linux](http://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/). Sin embargo, el mundo de devops, administración y optimización es bastante extenso y cambia muy rápidamente, por lo que debe tener en cuenta la lista situada más adelante, como punto de partida.
 
@@ -294,6 +303,5 @@ Esta sección comienza con una entrada de blog que contiene una serie de vídeos
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

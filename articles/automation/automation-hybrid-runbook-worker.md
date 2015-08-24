@@ -42,10 +42,10 @@ Cuando se inicia un runbook en un Trabajo híbrido de runbook, se especifica el 
 Complete los pasos siguientes para preparar su entorno de Automatización de Azure para Trabajos híbridos de runbook.
 
 #### 1\. Creación de un área de trabajo de Visión operativa de Azure
-Si todavía no tiene un área de trabajo de Visión operativa de Azure en su cuenta de Azure, puede crear una siguiendo las instrucciones que aparecen en [Configurar el área de trabajo de Visión operativa](../operational-insights-setup-workspace). Si cuenta con un área de trabajo existente, puede usarla.
+Si todavía no tiene un área de trabajo de Visión operativa de Azure en su cuenta de Azure, puede crear una siguiendo las instrucciones que aparecen en [Configurar el área de trabajo de Visión operativa](../operational-insights/operational-insights-setup-workspace.md). Si cuenta con un área de trabajo existente, puede usarla.
 
 #### 2\. Implementación de la solución de Automatización
-La solución de Automatización en Visión operativa inserta componentes requeridos para configurar y admitir el entorno de runbook. Siga las instrucciones que se encuentran en [Soluciones de Visión operativa](../operational-insights-add-solution) para instalar el paquete de **Automatización de Azure**.
+La solución de Automatización en Visión operativa inserta componentes requeridos para configurar y admitir el entorno de runbook. Siga las instrucciones que se encuentran en [Soluciones de Visión operativa](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) para instalar el paquete de **Automatización de Azure**.
 
 ### Configuración de máquinas locales
 Complete los pasos siguientes para cada una de las máquinas locales que actuarán como un Trabajo híbrido de runbook.
@@ -136,4 +136,4 @@ Puede usar los criterios siguientes para determinar si Automatización de Azure 
 - [Edición de un runbook en Automatización de Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

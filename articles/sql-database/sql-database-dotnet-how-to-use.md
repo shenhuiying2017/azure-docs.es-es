@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cómo usar la Base de datos SQL (.NET) - Guía de características de Azure" 
+	pageTitle="Uso de Base de datos SQL (.NET) | Microsoft Azure" 
 	description="Introducción a la base de datos SQL. Obtenga información acerca de cómo crear una instancia de base de datos SQL y conectarse a ella mediante el proveedor de ADO.NET, ODBC y EntityClient." 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -211,4 +211,4 @@ Para obtener más información, consulte [Proveedor de EntityClient para Entity 
 Ahora que ha aprendido los conceptos básicos de la conexión a Base de datos SQL, consulte los [temas de procedimientos sobre desarrollo (Base de datos SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

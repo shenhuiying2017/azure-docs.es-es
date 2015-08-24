@@ -59,46 +59,9 @@ Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, la
 >[AZURE.NOTE]Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (_) en su representación de JSON.
 
 
-<table width="500"> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Propiedad</b></p></td>
-<td valign="top" ><p><b>¿Lo puede configurar el usuario o lo genera el sistema?</b></p></td>
-<td valign="top" ><p><b>Propósito</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_rid</p></td>
-<td valign="top" ><p>Generado por el sistema</p></td>
-<td valign="top" ><p>Identificador del recurso generado por el sistema único y jerárquico</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_etag</p></td>
-<td valign="top" ><p>Generado por el sistema</p></td>
-<td valign="top" ><p>etag del recurso necesario para un control optimista de concurrencia</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_ts</p></td>
-<td valign="top" ><p>Generado por el sistema</p></td>
-<td valign="top" ><p>Última actualización de la marca de tiempo del recurso</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_self</p></td>
-<td valign="top" ><p>Generado por el sistema</p></td>
-<td valign="top" ><p>URI del recurso único y direccionable</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>id</p></td>
-<td valign="top" ><p>Configurable por el usuario</p></td>
-<td valign="top" ><p>Nombre del recurso único definido por el usuario</p></td>
-</tr>
-
-</tbody>
-</table>
+Propiedad |¿Configurable por el usuario o generado por el sistema?|Propósito
+---|---|---
+_\_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso. \_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista. \_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso. \_self|Generado por el sistema|URI direccionable único del recurso. id|Configurable por el usuario|Nombre único del recurso definido por el usuario.
 
 ###Representación de conexión de los recursos
 DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaciones especiales; funciona con documentos JSON según la norma.
@@ -131,37 +94,12 @@ Puede [crear y administrar cuentas de base de datos de DocumentDB](documentdb-cr
 ###Propiedades de la cuenta de base de datos
 Como parte del aprovisionamiento y control de una cuenta de base de datos, puede configurar y leer las siguientes propiedades:
 
-<table border="1" cellspacing="0" cellpadding="0" > 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Nombre de propiedad</b></p></td>
-<td valign="top" ><p><b>Descripción</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Directiva de coherencia</p></td>
-<td valign="top" ><p>Establezca esta propiedad para configurar el nivel de coherencia predeterminado para todas las colecciones con su cuenta de base de datos. Puede reemplazar el nivel de coherencia en función de la solicitud mediante el encabezado de solicitud [x-ms-consistency-level]. En el futuro, es posible que pueda reemplazar el nivel de coherencia en función de la colección. </p>
-
-<p>Tenga en cuenta que esta propiedad solo se aplica a los <i>recursos definidos por el usuario</i>. Todos los recursos definidos por el sistema se configuran para que sean compatibles con lecturas/consultas con alta coherencia.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>Clave principal y clave secundaria</p></td>
-<td valign="top" ><p>Las claves principales y secundarias proporcionan acceso administrativo a todos los recursos de la cuenta de base de datos.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MaxMediaStorageUsageInMB (LECTURA)</p></td>
-<td valign="top" ><p>Cantidad máxima de almacenamiento multimedia disponible para la cuenta de base de datos</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MediaStorageUsageInMB (LECTURA)</p></td>
-<td valign="top" ><p>Uso actual de almacenamiento multimedia para la cuenta de base de datos</p></td>
-</tr>
-
-</tbody>
-</table>
+Nombre de propiedad|Descripción
+---|---
+Directiva de coherencia|Establezca esta propiedad para configurar el nivel de coherencia predeterminado para todas las colecciones con su cuenta de base de datos. Puede reemplazar el nivel de coherencia en función de la solicitud mediante el encabezado de solicitud [x-ms-consistency-level]. En el futuro, es posible que pueda reemplazar el nivel de coherencia en función de la colección. <p><p>Tenga en cuenta que esta propiedad solo se aplica a los <i>recursos definidos por el usuario</i>. Todos los recursos definidos por el sistema se configuran para que sean compatibles con lecturas/consultas con alta coherencia.
+Clave principal y clave secundaria|Las claves principales y secundarias proporcionan acceso administrativo a todos los recursos de la cuenta de base de datos.
+MaxMediaStorageUsageInMB (LECTURA)|Cantidad máxima de almacenamiento multimedia disponible para la cuenta de base de datos
+MediaStorageUsageInMB (LECTURA)|Uso actual de almacenamiento multimedia para la cuenta de base de datos
 
 Tenga en cuenta que, además del aprovisionamiento, la configuración y la administración de su cuenta de base de datos desde el Portal de Azure, también puede crear y administrar mediante programación cuentas de base de datos de DocumentDB mediante las [API REST de Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx), así como los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
@@ -282,7 +220,6 @@ Tenga en cuenta que debido a que la base de datos comprende JSON y JavaScript de
 Los procedimientos almacenados y desencadenadores interactúan con una colección y los documentos de la misma a través de un modelo de objetos bien definido que se expone al contexto de colección actual.
 
 Las colecciones de DocumentDB se pueden crear, eliminar, leer o enumerar fácilmente con las [API REST de Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) o con cualquier [SDK de cliente.](https://msdn.microsoft.com/library/azure/dn781482.aspx) DocumentDB siempre proporciona una alta coherencia para leer o consultar los metadatos de una colección. Eliminar una colección automáticamente garantiza que no puede obtener acceso a ningún documento, dato adjunto, procedimiento almacenado, desencadenador o UDF contenido en la misma.   
- 
 ##Procedimientos almacenados, desencadenadores y UDF
 Como se describe en la sección anterior, puede escribir lógica de aplicación para ejecutarla directamente en una transacción dentro del motor de base de datos. La lógica de la aplicación se puede escribir totalmente en JavaScript y se puede modelar como un procedimiento almacenado, desencadenador o UDF. El código de JavaScript de un procedimiento almacenado o desencadenador puede insertar, reemplazar, eliminar, leer o consultar documentos de una colección. Por otro lado, el JavaScript dentro de una UDF solo puede realizar computación sin efectos secundarios enumerando los documentos del conjunto de resultados de la consulta y producir otro conjunto de resultados. Para los servicios multiinquilino, DocumentDB impone una estricta reserva basada en la gobernanza de los recursos. Cada procedimiento almacenado, desencadenador o UDF obtiene un cuanto de recursos del sistema operativo para realizar su trabajo. Además, los procedimientos almacenados, desencadenadores o UDF no se pueden vincular con bibliotecas externas de JavaScript y están en la lista negra si superan el presupuesto de recursos que se les ha asignado. Puede registrar y anular el registro de los procedimientos almacenados, los desencadenadores o las UDF de una colección mediante las API REST. Tras el registro de un procedimiento almacenado, desencadenador o UDF, se compila de forma previa y almacena como código byte que se ejecutará más tarde. La siguiente sección ilustra cómo puede utilizar el SDK de JavaScript de DocumentDB para registrar, ejecutar o anular el registro de un procedimiento almacenado, un desencadenador o una UDF. El SDK de JavaScript es un contenedor sencillo de las [API REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
@@ -437,7 +374,6 @@ Tenga en cuenta que los ejemplos usan identificadores sencillos para transmitir 
 Para los archivos multimedia gestionados por la Base de datos de documentos, la propiedad \_media del dato adjunto hará referencia al archivo multimedia por su URI. La Base de datos de documentos garantizará la recolección de archivos multimedia no utilizados cuando se anulen todas las referencias pendientes. La Base de datos de documentos genera automáticamente el dato adjunto cuando carga nuevos archivos multimedia y completa \_media para señalar al nuevo archivo multimedia agregado. Si selecciona almacenar el archivo multimedia en un almacén blob remoto que lo gestiona usted (por ejemplo, OneDrive, Azure Storage, DropBox etc), puede seguir utilizando los datos adjuntos para hacer referencia a los archivos multimedia. En este caso, creará los datos adjuntos usted mismo y rellenará la propiedad \_media.
 
 Como con el resto de recursos, se pueden crear, reemplazar, eliminar, leer o enumerar datos adjuntos fácilmente mediante las API REST o con cualquier SDK de cliente. Como con los documentos, el nivel de coherencia de lectura de datos adjuntos sigue la Directiva de coherencia en la cuenta de base de datos. Esta directiva se puede reemplazar en función de la solicitud dependiendo de los requisitos de coherencia de datos de su aplicación. Al consultar datos adjuntos, la coherencia de lectura sigue el modo de indexación establecido en la colección. Para ser "coherente", sigue la Directiva de coherencia de la cuenta. 
- 
 ##Usuarios
 Un usuario de DocumentDB representa un espacio de nombres lógico para agrupar permisos. Un usuario de DocumentDB puede corresponder a un usuario en un sistema administración de identidades o a un rol de aplicaciones predefinido. Para DocumentDB, un usuario simplemente representa una abstracción para agrupar un conjunto de permisos de una base de datos.
 
@@ -473,4 +409,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

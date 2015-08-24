@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -230,4 +230,4 @@ En este paso, creará la primera canalización:
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un blob de Azure a SQL de Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
   
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

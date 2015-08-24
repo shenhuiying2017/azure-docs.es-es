@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administración de datos y análisis de negocios - Azure" 
+	pageTitle="Administración de datos y análisis de negocios | Microsoft Azure" 
 	description="Introducción a la administración y el análisis de datos en Azure. Se proporciona una amplia gama de opciones para trabajar con datos relacionales y no relacionales." 
 	services="sql-database, storage" 
 	documentationCenter=".net" 
@@ -25,4 +25,4 @@
 [AZURE.INCLUDE [cloud-storage](../../includes/cloud-storage.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

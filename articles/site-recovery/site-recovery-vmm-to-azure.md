@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/07/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 #  Configuración de la protección entre un sitio de VMM local y Azure
@@ -321,4 +321,4 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 <LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -22,21 +22,21 @@ Factoría de datos tiene un [servicio disponible globalmente](#global) para admi
 ## Almacenes de datos admitidos para la actividad de copia
 La actividad de copia copia los datos de un almacén de datos de **origen** a un almacén de datos **receptor**. Factoría de datos admite las siguientes combinaciones de almacenes de datos, origen y receptor. Haga clic en un almacén de datos para obtener información sobre cómo copiar datos desde/a ese almacén.
 
-|  | **Sink** |
+| **Origen** | **Sink** |
 | ------ | ---- |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS, DocumentDB de Azure |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS, DocumentDB de Azure |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS, DocumentDB de Azure |
-|  | Blob de Azure, tabla de Azure, Base de datos SQL de Azure |
+| [Blob de Azure](data-factory-azure-blob-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS, DocumentDB de Azure, sistema de archivos local |
+| [Tabla de Azure](data-factory-azure-table-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS, DocumentDB de Azure |
+| [Base de datos SQL de Azure](data-factory-azure-sql-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS, DocumentDB de Azure |
+| [DocumentDB de Azure](data-factory-azure-documentdb-connector.md) | Blob de Azure, tabla de Azure, Base de datos SQL de Azure |
 | [SQL Server en IaaS](data-factory-sqlserver-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
-|  | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
+| [Sistema de archivos local](data-factory-onprem-file-system-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS, sistema de archivos local |
+| [SQL Server local](data-factory-sqlserver-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
+| [Base de datos de Oracle local](data-factory-onprem-oracle-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
+| [Base de datos MySQL local](data-factory-onprem-mysql-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
+| [Base de datos DB2 local](data-factory-onprem-db2-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
+| [Base de datos Teradata local](data-factory-onprem-teradata-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
+| [Base de datos Sybase local](data-factory-onprem-sybase-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
+| [Base de datos PostgreSQL local](data-factory-onprem-postgresql-connector.md) | Blob de Azure, Tabla de Azure, Base de datos SQL de Azure, SQL Server local, SQL Server en IaaS |
 
 ## <a name="copyactivity"></a>Actividad de copia
 La actividad de copia toma un conjunto de datos de entrada (**origen**) y copia los datos de acuerdo con la configuración de la actividad en un conjunto de datos de salida (**receptor**). La copia de datos se realiza por lotes según la programación especificada en la actividad.
@@ -93,4 +93,4 @@ Propiedades como nombre, descripción, tablas de entrada y salida, varias direct
 
 En el caso de la actividad de copia, la sección **typeProperties** varía en función de los tipos de origen y receptor. En cada la página específica del almacén de datos en los documentos enumerados anteriormente se encuentran las propiedades específicas del tipo de almacén de datos.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

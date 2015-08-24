@@ -2,7 +2,7 @@
     pageTitle="Prácticas recomendadas de RemoteApp de Azure"
     description="Prácticas recomendadas para configurar y usar RemoteApp de Azure"
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 # Prácticas recomendadas para configurar y usar RemoteApp de Azure
@@ -44,4 +44,4 @@ La siguiente información puede ayudarle a configurar y usar RemoteApp de Azure 
 	- Deshabilite las actualizaciones de software automáticas para las aplicaciones publicadas: en su lugar, aplíquelas manualmente a la imagen de plantilla y pruébelas antes de implementar desde la plantilla.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

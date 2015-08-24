@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de AMQP 1.0 con la API del Bus de servicio de Java - Azure" 
+	pageTitle="Uso de AMQP 1.0 con la API del Bus de servicio de Java | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Java Message Service (JMS) con Service Bus de Azure y Advanced Message Queuing Protodol (AMQP) 1.0." 
 	authors="sethmanheim" 
 	documentationCenter="java" 
@@ -333,4 +333,4 @@ También puede utilizar AMQP 1.0 del Bus de servicio desde otros lenguajes, como
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -2510,7 +2510,7 @@ Obtenga recomendaciones de la compilación activa de tipo o "Fbt" basadas en las
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id1` id. de elemento recomendado. - `Feed\entry\content\properties\Name1` nombre del elemento. - `Feed\entry\content\properties\Id2` id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1` – Id. de elemento recomendado. - `Feed\entry\content\properties\Name1` – Nombre del elemento. - `Feed\entry\content\properties\Id2` – Id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – Nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – Clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – Razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
 
 En la respuesta de ejemplo siguiente se incluyen 3 elementos recomendados.
 
@@ -2596,7 +2596,7 @@ Obtenga recomendaciones de una compilación concreta de tipo "Fbt".
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id1` id. de elemento recomendado. - `Feed\entry\content\properties\Name1` nombre del elemento. - `Feed\entry\content\properties\Id2` id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1` – Id. de elemento recomendado. - `Feed\entry\content\properties\Name1` – Nombre del elemento. - `Feed\entry\content\properties\Id2` – Id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – Nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – Clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – Razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
 
 Vea un ejemplo de respuesta en 12.3
 
@@ -2735,7 +2735,7 @@ Recupere la lista de elementos usados en la compilación activa o en la compilac
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET | Obtenga el historial del usuario para la compilación activa.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Obtenga el historial del usuario para la compilación dada `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>ejemplo:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
+|GET | Obtenga el historial del usuario para la compilación activa.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Obtenga el historial del usuario para la compilación indicada `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Ejemplo:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
 
 
 |	Nombre de parámetro |	Valores válidos |
@@ -2879,4 +2879,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

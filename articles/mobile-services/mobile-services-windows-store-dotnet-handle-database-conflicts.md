@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Control de conflictos de escritura de base de datos con la simultaneidad optimista (Tienda Windows) | Centro de desarrollo móvil" 
+	pageTitle="Control de conflictos de escritura de base de datos con la simultaneidad optimista (Tienda Windows) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo controlar conflictos de escritura de base de datos tanto en el servidor como en su aplicación de la Tienda Windows." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -366,4 +366,4 @@ Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows pa
 [propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso del almacenamiento de Azure para copias de seguridad y restauración de SQL Server | Azure"
+	pageTitle="Uso del almacenamiento de Azure para copias de seguridad y restauración de SQL Server | Microsoft Azure"
 	description="Realizar una copia de seguridad de SQL Server y de la Base de datos SQL en el almacenamiento de Azure. Explica las ventajas de la copia de seguridad de las Bases de datos SQL en el almacenamiento de Azure y los componentes de SQL Server y almacenamiento de Azure que se necesitan"
 	services="sql-database, virtual-machines"
 	documentationCenter=""
@@ -22,7 +22,7 @@
 
 ## Información general
 
-La característica que ofrece la posibilidad de escribir copias de seguridad de SQL Server en el servicio de almacenamiento de bobs de Azure se lanzó en SQL Server 2012 SP1 CU2. Puede usar esta funcionalidad para realizar la copia de seguridad en el servicio BLOB de Azure y restaurar desde él a partir de una base de datos SQL Server local o una base de datos SQL Server de una máquina virtual de Azure. Las copias de seguridad en la nube ofrecen ventajas de disponibilidad, almacenamiento externo ilimitado replicado geográficamente y facilidad de migración de datos en la nube y desde ella. En esta versión puede emitir instrucciones BACKUP o RESTORE usando T-SQL o SMO.
+La característica que ofrece la posibilidad de escribir copias de seguridad de SQL Server en el servicio de almacenamiento de bobs de Azure se lanzó en SQL Server 2012 SP1 CU2. Puede usar esta funcionalidad para realizar la copia de seguridad en el servicio BLOB de Azure y restaurar desde él a partir de una base de datos SQL Server local o una base de datos SQL Server de una máquina virtual de Azure. Las copias de seguridad en la nube ofrecen ventajas de disponibilidad, almacenamiento externo ilimitado replicado geográficamente y facilidad de migración de datos en la nube y desde ella. En esta versión puede emitir instrucciones BACKUP o RESTORE mediante T-SQL o SMO.
 
 ## Ventajas del uso del servicio BLOB de Azure para las copias de seguridad de SQL Server
 
@@ -73,4 +73,4 @@ Para ver un tutorial completo sobre cómo crear una cuenta de almacenamiento y r
 
 [Prácticas recomendadas de copia de seguridad y restauración (servicio de almacenamiento de blobs de Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

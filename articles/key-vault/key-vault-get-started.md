@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción al almacén de claves de Azure | Descripción general"
+	pageTitle="Introducción a Almacén de claves de Azure | Microsoft Azure"
 	description="Use este tutorial para empezar a trabajar con el Almacén de claves de Azure para crear un contenedor reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure."
 	services="key-vault"
 	documentationCenter=""
@@ -248,4 +248,4 @@ Para obtener una lista de los cmdlets de Windows PowerShell para el Almacén de 
 Para obtener referencias de programación, consulte [Almacén de claves](https://msdn.microsoft.com/library/azure/dn903625.aspx) en la biblioteca de documentación de Microsoft Azure en MSDN.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

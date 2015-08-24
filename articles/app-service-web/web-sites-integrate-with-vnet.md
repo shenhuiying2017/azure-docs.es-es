@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 # Integración de su aplicación web con una red virtual de Azure #
@@ -26,13 +26,13 @@ Si quiere más detalles sobre las redes virtuales de Azure, vea la información 
 ## Introducción ##
 Le recordamos algunas cosas que debe tener en cuenta antes de conectar su aplicación a una red virtual.
 
-1.	Las aplicaciones solo se pueden conectar a una red virtual si se están ejecutando en un plan de Servicio de aplicaciones que esté en el nivel de precios "Estándar". Los sitios gratuitos, compartidos y básicos de las aplicaciones web no se pueden conectar a una red virtual.
+1.	Aplicaciones web solo se puede conectar a una red virtual si se ejecuta en un plan de Servicio de aplicaciones que esté en el nivel **Estándar**. Los sitios gratuitos, compartidos y básicos de las aplicaciones web no se pueden conectar a una red virtual.
 2.	Si su red virtual de destino ya existe, debe tener habilitada la característica punto a sitio con una puerta de enlace de enrutamiento dinámica para que se pueda conectar a una aplicación web. No puede habilitar una red privada virtual (VPN) de punto a sitio si la puerta de enlace está configurada con enrutamiento estático.
-3.	Solo puede tener 5 redes configuradas como mucho en su plan de servicio de la aplicación. Una aplicación web solo se puede conectar a una red cada vez. Esas 5 redes las pueden usar todas las aplicaciones web que desee dentro del mismo plan de servicio de la aplicación.  
+3.	Como máximo, solo puede tener cinco redes configuradas en su plan de Servicio de aplicaciones. Una aplicación web solo se puede conectar a una red cada vez. Esas cinco redes las pueden usar todas las aplicaciones web que se encuentren en el mismo plan de Servicio de aplicaciones.  
 
 Puede conectarse a una red virtual nueva o existente. Si crea una red nueva, se le preconfigura una puerta de enlace. Crear y configurar una red virtual lleva unos minutos.
 
-Si la aplicación web no está en un plan de servicio de aplicación estándar, la interfaz de usuario le informa y le da acceso a los niveles de precios que desea actualizar.
+Si la aplicación web no está en un plan de Servicio de aplicaciones de nivel Estándar, la interfaz de usuario se lo indica y le da acceso a los niveles de precios por si desea actualizar.
 
 ![](./media/web-sites-integrate-with-vnet/upgrade-to-standard.png)
 
@@ -50,7 +50,7 @@ Si desea conectar una aplicación web a una red virtual para ir a la hoja de su 
 
 ![](./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png)
  
-El sistema creará un certificado para autenticarse con su red virtual si este es la primera aplicación web de su suscripción que establece una conexión con esa red. Para ver el certificado, vaya al [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), navegue a Redes virtuales, seleccione la red y elija la pestaña Certificados.
+El sistema creará un certificado para autenticarse con su red virtual si este es la primera aplicación web de su suscripción que establece una conexión con esa red. Para ver el certificado, vaya al [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), navegue a Redes virtuales, seleccione la red y la pestaña Certificados.
 
 En la imagen superior se ve una red llamada cantConnectVnet que está atenuada en gris y no se puede seleccionar. Esto solo puede pasar por dos motivos. Significa que no ha habilitado una VPN punto a sitio en su red o que no ha aprovisionado una puerta de enlace de enrutamiento dinámica en su red virtual. Cuando ambas condiciones se cumplan, podrá seleccionar la red virtual para la integración con su aplicación web.
 
@@ -63,20 +63,20 @@ La creación de una nueva red virtual con puertas de enlace configuradas puede t
 
 ![](./media/web-sites-integrate-with-vnet/new-vnet-progress.png)
 
-Cuando la red se haya unido a la aplicación web, esta tendrá acceso a los recursos que haya en esa red virtual sobre TCP o UDP. Si desea obtener acceso a los recursos de su sistema local que están disponibles a través de la VPN de sitio a sitio en su red virtual, tendrá que agregar rutas en su propia red corporativa para permitir que el tráfico vaya desde la red hasta las direcciones punto a sitio configuradas en su red virtual.
+Cuando la red se haya unido a la aplicación web, esta tendrá acceso a los recursos que haya en esa red virtual sobre TCP o UDP. Si desea obtener acceso a los recursos de su sistema local que están disponibles a través de la VPN de sitio a sitio en su red virtual, tendrá que agregar rutas en su propia red corporativa para permitir que el tráfico vaya desde la red hasta las direcciones de punto a sitio configuradas en su red virtual.
 
 Cuando complete correctamente la integración, el Portal de Azure mostrará información básica sobre la conexión y le ofrecerá una forma de desconectar la aplicación web de la red y una forma de sincronizar los certificados usados para autenticar la conexión. La sincronización puede ser necesaria si un certificado ha expirado o se ha revocado.
 
 ![](./media/web-sites-integrate-with-vnet/vnet-status-portal.png)
 
 ##Administración de la conexión de red virtual##
-Puede ver la lista de todas las redes virtuales actualmente asociadas a aplicaciones web dentro de un plan de servicio de aplicaciones visitando la hoja del plan de Servicio de aplicaciones. Puede haber, como mucho, cinco redes asociadas a un plan del Servicio de aplicaciones "estándar".
+Puede ver la lista de todas las redes virtuales actualmente asociadas a aplicaciones web dentro de un plan de Servicio de aplicaciones visitando la hoja del plan de Servicio de aplicaciones. Puede haber, como mucho, cinco redes asociadas a un plan de Servicio de aplicaciones Estándar.
 
 Si el plan de Servicio de aplicaciones se escala a un plan inferior, como son el gratuito, el compartido o el básico, las conexiones de red virtual que usan las aplicaciones web del plan se deshabilitarán. Si el plan se vuelve a escalar a un plan estándar, esas conexiones de red se restablecen.
 
 En este momento, no se puede mover una máquina virtual a una red virtual en Azure. La máquina virtual necesita aprovisionarse en esa red virtual durante la creación.
 
-## Obtener acceso a recursos locales ##
+## Obtención de acceso a recursos locales ##
 Al trabajar con una red virtual que se ha configurado con VPN sitio a sitio, hay que realizar un paso más para ofrecer acceso a sus recursos locales desde su aplicación web. Hay que agregar rutas a su red local para permitir que el tráfico vaya desde su red hasta las direcciones punto a punto configuradas en su red virtual. Para ver el intervalo IP de su conectividad de punto a sitio, vaya al área Red en el Portal de Azure, tal como se muestra aquí.
 
 ![](./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png)
@@ -106,4 +106,4 @@ Actualmente, también hay diferencias en los niveles de precios entre las dos fu
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

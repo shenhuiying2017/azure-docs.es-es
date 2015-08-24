@@ -51,13 +51,13 @@ La solución para el recuento de palabras contiene dos proyectos de aplicaciones
 2. Haga clic en **ARCHIVO**, **Nuevo** y, finalmente, en **Proyecto**.
 3. Escriba o seleccione los valores siguientes:
 
-	<table border="1">
-<tr><td>Campo</td><td>Valor</td></tr>
-<tr><td>Plantilla</td><td>Visual C#/Windows/Aplicación de consola</td></tr>
-<tr><td>Nombre</td><td>WordCountMapper</td></tr>
-<tr><td>Ubicación</td><td>C:\Tutorials</td></tr>
-<tr><td>Nombre de la solución</td><td>WordCount</td></tr>
-</table>
+Campo|Valor
+---|---
+Plantilla|Visual C#/Windows/Aplicación de consola
+Nombre|WordCountMapper
+Ubicación|C:\\Tutorials
+Nombre de la solución|WordCount
+
 	
 4. Haga clic en **Aceptar** para crear el proyecto.
 
@@ -100,12 +100,12 @@ La solución para el recuento de palabras contiene dos proyectos de aplicaciones
 1. En Visual Studio 2013, haga clic en **ARCHIVO**, **Agregar** y, a continuación, en **Nuevo proyecto**.
 2. Escriba o seleccione los valores siguientes:
 
-	<table border="1">
-<tr><td>Campo</td><td>Valor</td></tr>
-<tr><td>Plantilla</td><td>Visual C#/Windows/Aplicación de consola</td></tr>
-<tr><td>Nombre</td><td>WordCountReducer</td></tr>
-<tr><td>Ubicación</td><td>C:\Tutorials\WordCount</td></tr>
-</table>
+Campo|Valor
+---|---
+Plantilla|Visual C#/Windows/Aplicación de consola
+Nombre|WordCountReducer
+Ubicación|C:\\Tutorials\\WordCount
+	
 3. Desactive la casilla para **Crear directorio para la solución** y, a continuación, haga clic en **Aceptar** para crear el proyecto.
 4. En el Explorador de soluciones, haga clic con el botón secundario en **Program.cs** y, a continuación, haga clic en **Cambiar nombre**.
 5. Cambie el nombre del archivo a **WordCountReducer.cs** y, a continuación, presione **ENTRAR**.
@@ -167,7 +167,14 @@ De manera predeterminada, el emulador de HDInsight usa el Sistema de archivos di
 
 Este tutorial utiliza la siguiente estructura de carpetas:
 
-<table border="1"> <tr><td>Carpeta</td><td>Nota</td></tr> <tr><td>\\WordCount</td><td>La carpeta raíz del proyecto de recuento de palabras. </td></tr> <tr><td>\\WordCount\\Apps</td><td>La carpeta de los ejecutables de asignador y reductor.</td></tr> <tr><td>\\WordCount\\Input</td><td>La carpeta de archivos de origen de MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>La carpeta de archivos de salida de MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>La carpeta de salida del trabajo.</td></tr> </table></br>
+Carpeta|Nota:
+---|---
+\\WordCount|La carpeta raíz para el proyecto de recuento de palabras. 
+\\WordCount\\Apps|La carpeta para los ejecutables de los programas asignador y reductor.
+\\WordCount\\Input|La carpeta de los archivos de origen de MapReduce.
+\\WordCount\\Output|La carpeta de los archivos de resultados de MapReduce.
+\\WordCount\\MRStatusOutput|La carpeta de resultados del trabajo.
+
 
 Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop\_home%.
 
@@ -552,4 +559,4 @@ En este tutorial aprendió a desarrollar un trabajo de MapReduce de streaming de
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

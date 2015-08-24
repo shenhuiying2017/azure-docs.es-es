@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/06/2015"
 	ms.author="sdanie"/>
 
 # Cómo proteger un back-end de API web con Azure Active Directory y la administración de API
 
 En el vídeo siguiente se muestra cómo crear un back-end de API web cómo protegerlo mediante el protocolo OAuth 2.0 con Azure Active Directory y la administración de API. En este artículo se ofrece una introducción e información adicional de los pasos del vídeo. Este vídeo de 24 minutos le muestra cómo:
 
--	Crear un back-end de API web y protegerlo con AAD
--	Importar la API en la administración de API
--	Configurar el portal para desarrolladores para llamar a la API
--	Configurar una aplicación de escritorio para llamar a la API
--	Configurar una directiva de validación de JWT para autorizar previamente las solicitudes
+-	Crear un back-end de API web y protegerlo con AAD, a partir de la 1:30
+-	Importar la API en la administración de API, a partir de las 7:10
+-	Configurar el portal para desarrolladores para llamar a la API, a partir de las 9:09
+-	Configurar una aplicación de escritorio para llamar a la API, a partir de las 18:08
+-	Configurar una directiva de validación de JWT para autorizar previamente las solicitudes, a partir de las 20:47
 
 >[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -547,4 +547,4 @@ Para ver otra demostración de cómo configurar y usar esta directiva, vea [Clou
 [Creación de una instancia del servicio de administración de API]: api-management-get-started.md#create-service-instance
 [Administrar tu primera API]: api-management-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

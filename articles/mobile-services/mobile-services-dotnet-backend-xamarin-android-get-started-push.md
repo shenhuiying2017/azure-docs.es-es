@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a Servicios móviles para aplicaciones de Android de Xamarin - Servicios móviles de Azure" 
+	pageTitle="Introducción a Servicios móviles para aplicaciones de Android de Xamarin | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación Xamarin Android" 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -76,4 +76,4 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

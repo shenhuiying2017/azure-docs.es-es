@@ -133,7 +133,7 @@ Consulte las [notas de la versión](app-insights-release-notes.md) del SDK adecu
 #### <a name="q03"></a>He agregado Application Insights correctamente y he ejecutado mi aplicación, pero no aparecen datos en el portal
 
 + En la página de información general, haga clic en el icono de búsqueda para abrir Búsqueda de diagnóstico. Los datos aparecen aquí en primer lugar.
-+ Haga clic en el botón Actualizar. En la versión actual, el contenido de un cuadro no se actualiza automáticamente.
++ Haga clic en el botón Actualizar. La hoja se actualiza periódicamente, pero también puede hacerlo manualmente. El intervalo de actualización es mayor para intervalos de tiempo mayores.
 + En el panel de inicio de Microsoft Azure, observe el mapa de estado del servicio. Si hay algunas indicaciones de alerta, espere hasta que hayan vuelto a su estado correcto y después cierre y vuelva a abrir el cuadro de la aplicación de Application Insights.
 + Compruebe también [nuestro blog de estado](http://blogs.msdn.com/b/applicationinsights-status/).
 + En el firewall, tendrá que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com y f5.services.visualstudio.com.
@@ -239,4 +239,4 @@ Puede [escribir un script de PowerShell](app-insights-powershell-script-create-r
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

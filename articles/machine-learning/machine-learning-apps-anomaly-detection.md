@@ -76,48 +76,12 @@ Ejemplo de salida para la entrada de ejemplo anterior:
 
 que es una representación de la tabla siguiente:
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Hora</th>
-   <th align="left" valign="middle">Datos</th>
-   <th align="left" valign="middle">Tspike</th>
-   <th align="left" valign="middle">Zspike</th>
-   <th align="left" valign="middle">Valores de martingala</th>
-   <th align="left" valign="middle">Indicador de alerta</th>
-   <th align="left" valign="middle">Valores de martingala (2)</th>
-   <th align="left" valign="middle">Indicador de alerta (2)</th>
-   </tr>
-<tr>
-   <td valign="middle">21/9/2014 11:05</td>
-   <td valign="middle">3</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-0.687952591</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-0.687952591</td>
-   <td valign="middle">0</td>
-   </tr>
-<tr>
-<td valign="middle">9/21/2014 11:10</td>
-   <td valign="middle">9.09</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-1.070304977</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-0.884548154</td>
-   <td valign="middle">0</td>
-    </tr>
-<tr>
-<td valign="middle">9/21/2014 11:15</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-1.051862374</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-1.1738002814</td>
-   <td valign="middle">0</td>
-   </tr>
-   </table>
+Hora|Datos|Tspike|Zspike|Valores de martingala|Indicador de alerta|Valores de martingala (2)|Indicador de alerta (2)
+---|---|---|---|---|---|---|---
+21/9/2014 11:05|3|0|0|-0.687952591|0|-0.687952591|0|   
+9/21/2014 11:10|9\.09|0|0|-1.070304977|0|-0.884548154|0|    
+9/21/2014 11:15|0|0|0|-1.051862374|0|-1.1738002814|0|   
+   
 
 [1]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection.jpg
 
@@ -125,4 +89,4 @@ que es una representación de la tabla siguiente:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

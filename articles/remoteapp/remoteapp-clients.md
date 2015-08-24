@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/23/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
 # Acceso a las aplicaciones de Azure RemoteApp
 
-Una de las ventajas de Azure RemoteApp es que puede tener acceso a las aplicaciones publicadas para usted desde cualquiera de los dispositivos. Aún mejor, puede comenzar a trabajar en un dispositivo y, a continuación, realizar una transición a un segundo dispositivo y continuar el trabajo desde donde lo dejó. Para empezar, deberá descargar el cliente apropiado para el dispositivo e iniciar sesión en el servicio.
+Una de las ventajas de Azure RemoteApp es que puede tener acceso a las aplicaciones desde cualquiera de los dispositivos. Aún mejor, puede comenzar a trabajar en un dispositivo y, a continuación, realizar una transición a un segundo dispositivo y continuar el trabajo desde donde lo dejó. Para empezar, deberá descargar el cliente apropiado para el dispositivo e iniciar sesión en el servicio.
 
 En este tema, revisaremos los clientes admitidos actualmente y cómo descargarlos antes de mostrar cómo iniciar sesión en RemoteApp desde cada uno de los clientes.
 
@@ -207,4 +207,4 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -19,7 +19,7 @@
 
 Aplicación de revisión automatizada establece una ventana de mantenimiento para Máquinas virtuales de Azure con SQL Server 2012 o 2014. Actualizaciones automatizadas solo puede instalarse durante esta ventana de mantenimiento. Para SQL Server, esto garantiza que se actualiza el sistema y que cualquier reinicio asociado se producto en el mejor momento posible para la base de datos. Depende del agente de Iaas de SQL Server.
 
->[AZURE.IMPORTANT]Aplicación de revisión automatizada se basa en el agente de Iaas de SQL Server. Para instalar y configurar el agente, debe disponer del agente de máquina virtual de Azure en la máquina virtual de destino. Las imágenes de la galería de la máquina virtual más recientes tienen esta opción habilitada de forma predeterminada, pero el agente de máquina virtual de Azure puede faltar en las máquinas virtuales existentes. Si usa su propia imagen de máquina virtual, también tendrá que instalar el agente de IaaS de SQL Server. Para obtener más información, vea [Agente de máquina virtual y extensiones](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+>[AZURE.NOTE]Aplicación de revisión automatizada se basa en el agente de Iaas de SQL Server. Para instalar y configurar el agente, debe disponer del agente de máquina virtual de Azure en la máquina virtual de destino. Las imágenes de la galería de la máquina virtual más recientes tienen esta opción habilitada de forma predeterminada, pero el agente de máquina virtual de Azure puede faltar en las máquinas virtuales existentes. Si usa su propia imagen de máquina virtual, también tendrá que instalar el agente de IaaS de SQL Server. Para obtener más información, vea [Agente de máquina virtual y extensiones](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ## Configuración de Aplicación de revisión automatizada en el Portal
 
@@ -88,4 +88,4 @@ Una característica relacionada para máquinas virtuales de SQL Server es [Copia
 
 Revise otros [recursos para ejecutar SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

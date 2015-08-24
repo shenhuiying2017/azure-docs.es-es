@@ -64,8 +64,7 @@ Para configurar la integración de SciQuest Spend Director en Azure AD, deberá 
 4. Haga clic en **Agregar** en la parte inferior de la página.<br><br>![Aplicaciones][3]
 5. En el cuadro de diálogo **Qué desea hacer**, haga clic en **Agregar una aplicación de la galería**.<br><br> ![Aplicaciones][4]
 6. En el cuadro de búsqueda, escriba **SciQuest Spend Director**.<br>![Aplicaciones][5]
-7. En el panel de resultados, seleccione **SciQuest Spend Director** y, luego, haga clic en **Completa** para agregar la aplicación.<br>
-
+7. En el panel de resultados, seleccione **SciQuest Spend Director** y, luego, haga clic en **Completa** para agregar la aplicación.<br> ![Aplicaciones][6]
 
 
 ##  Configuración y comprobación del inicio de sesión único de Azure AD
@@ -103,7 +102,7 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 5. Póngase en contacto con el soporte técnico de SciQuest para habilitar este método de autenticación mediante los datos descargados anteriores.
 
-6. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.<br><br>![Qué es Azure AD Connect][15]
+6. En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.<br><br>![Qué es Azure AD Connect][15]
 10. En la página **Confirmación del inicio de sesión único**, haga clic en **Completa**.<br><br>[¿Qué es Azure AD Connect?][16]
 
 
@@ -116,8 +115,8 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en **Active Directory**. <br><br>![Qué es Azure AD Connect][100] 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.<br><br>![Qué es Azure AD Connect][101] 
-4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.<br><br>![Qué es Azure AD Connect][102] 
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**. <br><br>![Qué es Azure AD Connect][101] 
+4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**. <br><br>![Qué es Azure AD Connect][102] 
 5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br>![Qué es Azure AD Connect][103] 
   1. Como **Tipo de usuario**, seleccione **Nuevo usuario de la organización**.
   2. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
@@ -147,15 +146,15 @@ Para habilitar el aprovisionamiento Just-In-Timed, deberá ponerse en contacto c
 
 ### Asignación del usuario de prueba de Azure AD
 
-El objetivo de esta sección es permitir que Britta Simon utilice el inicio de sesión único de Azure concediéndole acceso a SciQuest Spend Director.<br><br>![Qué es Azure AD Connect][200]
+El objetivo de esta sección es permitir que Britta Simon utilice el inicio de sesión único de Azure concediéndole acceso a SciQuest Spend Director. <br><br>![Qué es Azure AD Connect][200]
 
 **Para asignar a Britta Simon a SciQuest Spend Director, realice los pasos siguientes:**
 
-1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú de la parte superior.<br><br><br>![Qué es Azure AD Connect][201]
-2. En la lista de aplicaciones, seleccione **SciQuest gastar Director**.<br><br>
-1. En el menú de la parte superior, haga clic en **Usuarios**. <br><br><br>![Qué es Azure AD Connect][202]
-1. En la lista Usuarios, seleccione **Britta Simon**. <br><br>![Qué es Azure AD Connect][203]
-2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**. <br><br>![Qué es Azure AD Connect][204]
+1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú de la parte superior.<br> <br><br>![Qué es Azure AD Connect][201]
+2. En la lista de aplicaciones, seleccione **SciQuest gastar Director**. <br><br>![Qué es Azure AD Connect][202]
+1. En el menú de la parte superior, haga clic en **Usuarios**.<br> <br><br>![Qué es Azure AD Connect][203]
+1. En la lista Usuarios, seleccione **Britta Simon**. <br><br>![Qué es Azure AD Connect][204]
+2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**. <br><br>![Qué es Azure AD Connect][205]
 
 
 
@@ -175,6 +174,7 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [3]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_04.png
 [5]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_01.png
+[6]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_05.png
 [8]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_06.png
 [9]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_07.png
 [10]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_08.png
@@ -190,8 +190,9 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 [106]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_15.png
 [200]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_16.png
 [201]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_17.png
-[202]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png
-[203]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
-[204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
+[202]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_06.png
+[203]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png
+[204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
+[205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

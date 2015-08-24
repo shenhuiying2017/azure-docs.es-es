@@ -36,7 +36,7 @@ Creará una aplicación con el marco web de Django (consulte las versiones alter
 - Python 2.7 o 3.4
 - setuptools, pip, virtualenv (solo en Python 2.7)
 - Git
-- [Python Tools 2.1 para Visual Studio](optional)
+- [Python Tools 2.1 para Visual Studio] (opcional)
 
 **Nota:** la publicación TFS no se admite actualmente para los proyectos de Python.
 
@@ -515,4 +515,4 @@ Para obtener información sobre el uso de Base de datos SQL y MySQL:
 [Documentación de Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

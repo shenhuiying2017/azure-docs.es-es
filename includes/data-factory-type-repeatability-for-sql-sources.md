@@ -2,7 +2,7 @@
 
 Cuando se copian datos en Azure SQL o SQL Server desde otros almacenes de datos, es necesario tener en mente la repetibilidad para evitar resultados imprevistos.
 
-Al copiar datos en Base de datos SQL de Azure, la actividad de copia anexará el conjunto de datos a la tabla del receptor de forma predeterminada. Por ejemplo, cuando se copian datos desde un origen de archivo CSV (datos de valores separados por comas) que contiene dos registros a la Base de datos SQL de Azure y SQL Server, la tabla es como sigue:
+Al copiar datos en la Base de datos SQL de Azure, la actividad de copia anexará el conjunto de datos a la tabla del receptor de forma predeterminada. Por ejemplo, cuando se copian datos desde un origen de archivo CSV (datos de valores separados por comas) que contiene dos registros a la Base de datos SQL de Azure y SQL Server, la tabla es como sigue:
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
@@ -20,7 +20,7 @@ Supongamos que encontró errores en el archivo de origen y actualizó la cantida
 
 Para evitar esto, tendrá que especificar la semántica UPSERT aprovechando uno de los dos mecanismos siguientes indicados a continuación.
 
-> [AZURE.NOTE]Un segmento se puede volver a ejecutar automáticamente también en Factoría de datos de Azure según la directiva de reintento especificada.
+> [AZURE.NOTE]Un segmento se puede volver a ejecutar automáticamente en Azure Data Factory según la directiva de reintento especificada.
 
 ### Mecanismo 1
 
@@ -29,7 +29,7 @@ Puede aprovechar la propiedad **sqlWriterCleanupScript** para realizar primero l
 	"sink":  
 	{ 
 	  "type": "SqlSink", 
-	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate = \\'{0:yyyy-MM-dd HH:mm}\\'', SliceStart)"
+	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate >= \\'{0:yyyy-MM-dd HH:mm}\\' AND ModifiedDate < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	}
 
 El script de limpieza debe ejecutarse primero durante la copia de un segmento dado que eliminará los datos de la tabla SQL correspondiente a dicho segmento. La actividad de copia insertará posteriormente los datos en la tabla de SQL.
@@ -45,9 +45,9 @@ Supongamos que se quita el registro Flat Washer desde el archivo csv original. D
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
-	8 	Down Tube	4			2015-05-01 00:00:00
+	7 	Down Tube	4			2015-05-01 00:00:00
 
-No hay que hacer nada nuevo. La actividad de copia ejecutó el script de limpieza para eliminar los datos correspondientes para ese segmento. Después lea la entrada en el archivo csv (que ahora contiene solo un registro) e insértelo en la tabla.
+No hay que hacer nada nuevo. La actividad de copia ejecutó el script de limpieza para eliminar los datos correspondientes para ese segmento. Después leyó la entrada en el archivo csv (que entonces contenía solo un registro) y lo insertó en la tabla.
 
 ### Mecanismo 2
 
@@ -68,4 +68,4 @@ Factoría de datos de Azure rellenará esta columna según sus necesidades para 
 
 De manera similar al mecanismo 1, la actividad de copia limpiará primero automáticamente los datos para el segmento especificado del tabla SQL de destino y después ejecutará la actividad de copia normalmente para insertar los datos del origen al destino para dicho segmento.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

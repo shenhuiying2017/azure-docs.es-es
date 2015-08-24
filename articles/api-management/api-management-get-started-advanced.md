@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 # Introducción a la configuración avanzada de la Administración de API de Azure
@@ -36,4 +36,4 @@ Los tutoriales de esta sección ofrecen orientación sobre tareas de configuraci
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

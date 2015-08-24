@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de Servicios móviles a una aplicación existente (WP8) - Servicios móviles de Azure" 
+	pageTitle="Incorporación de Servicios móviles a una aplicación existente (WP8) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo empezar a usar los datos de la aplicación de Windows Phone 8 de Servicios móviles de Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -193,4 +193,4 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 [sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

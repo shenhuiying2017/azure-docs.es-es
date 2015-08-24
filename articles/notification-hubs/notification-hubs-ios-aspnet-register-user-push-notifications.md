@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil - Centros de notificaciones" 
+	pageTitle="Registro del usuario actual para notificaciones de inserción mediante una API web | Microsoft Azure" 
 	description="Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con los Centros de notificaciones de Azure al realizar el registro por la API web de ASP.NET." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
@@ -238,4 +238,4 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

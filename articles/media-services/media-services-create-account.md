@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de una cuenta de Servicios multimedia - Azure"
+	pageTitle="Creación de una cuenta de Servicios multimedia | Microsoft Azure"
 	description="Describe cómo crear una cuenta de Servicios multimedia en Azure."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/20/2015"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -23,8 +23,6 @@
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
-
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
 
 El Portal de administración de Azure proporciona una forma rápida de crear una cuenta de Servicios multimedia de Azure. Puede usar la cuenta para obtener acceso a Servicios multimedia que le permiten almacenar, cifrar, codificar, administrar y transmitir contenido multimedia en Azure. En el momento en el que crea una cuenta de Servicios multimedia, también crea una cuenta de almacenamiento asociada (o usa una ya existente) en la misma región geográfica que la cuenta de Servicios multimedia.
 
@@ -81,4 +79,4 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
   [Portal de administración]: http://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

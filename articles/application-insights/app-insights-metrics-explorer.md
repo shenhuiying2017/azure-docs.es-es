@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -33,12 +33,12 @@ Las líneas de puntos muestran el valor de la métrica de una semana anterior.
 
 ## Intervalo de tiempo
 
-En todas las hojas puede cambiar el intervalo de tiempo cubierto por la mayoría de los gráficos o cuadrículas.
+En todas las hojas puede cambiar el intervalo de tiempo cubierto por los gráficos o cuadrículas.
 
 ![Abrir la hoja de información general de la aplicación en el portal de Azure](./media/app-insights-metrics-explorer/03-range.png)
 
 
-Si espera algunos datos que no ha aparecido todavía, haga clic en Actualizar. Los gráficos no se actualizan automáticamente. En modo de lanzamiento, puede tardar un tiempo que lleguen a través de la canalización de análisis en un gráfico de datos.
+Si espera algunos datos que no ha aparecido todavía, haga clic en Actualizar. Los gráficos se actualizan a intervalos, pero los intervalos son más largos para intervalos de tiempo mayores. En modo de lanzamiento, puede tardar un tiempo que lleguen a través de la canalización de análisis en un gráfico de datos.
 
 En la hoja de información general, arrastre una parte del gráfico para ampliarla en un gráfico nuevo.
 
@@ -201,4 +201,4 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

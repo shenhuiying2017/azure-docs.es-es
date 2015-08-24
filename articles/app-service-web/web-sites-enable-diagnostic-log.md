@@ -22,7 +22,7 @@
 
 Azure integra diagnósticos para ayudar a depurar [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnósticos, agregar instrumentación a la aplicación y obtener acceso a la información registrada por Azure.
 
-> [AZURE.NOTE]En este artículo se usa el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
+> [AZURE.NOTE]En este artículo se usa el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Diagnóstico del servidor web y diagnóstico de aplicaciones
 
@@ -38,11 +38,11 @@ Puede habilitar o deshabilitar los siguientes tipos de registros:
 
 ### Diagnósticos de aplicaciones
 
-El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
+El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/es-es/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-En tiempo de ejecución puede recuperar estos registros para ayudar a solucionar problemas. Para obtener más información, consulte [Solución de problemas de aplicaciones web de Azure en Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
+En tiempo de ejecución puede recuperar estos registros para ayudar a solucionar problemas. Para obtener más información, consulte [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 Las aplicaciones web del Servicio de aplicaciones también registran información de implementación al publicar contenido en una aplicación web. Esta acción se lleva a cabo automáticamente, por lo que no es necesario realizar ninguna configuración para el registro de implementaciones. El registro de implementaciones le permite determinar por qué se ha producido un error con la implementación. Por ejemplo, si usa un script de implementación personalizado, puede usar el registro de implementaciones para determinar por qué se ha producido un error con el script.
 
@@ -263,4 +263,4 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

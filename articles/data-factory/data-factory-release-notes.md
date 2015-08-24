@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Factoría de datos - Notas de la versión | Azure" 
+	pageTitle="Factoría de datos - Notas de la versión | Microsoft Azure" 
 	description="Notas de la versión de la Factoría de datos" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -284,7 +284,7 @@ Pero, si un segmento anterior se vuelve a ejecutar, no aparecería en la parte s
 	-  [Propiedades OnPremisesOracleTableLocation en una tabla de JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
 	-  [Orígenes y receptores compatibles](https://msdn.microsoft.com/library/dn894007.aspx). Consulte la matriz de la copia actualizada y las propiedades **OracleSource**.
 -  Puede especificar la codificación para los archivos de texto en un Blob de Azure. Vea la nueva propiedad [encodingName property](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
-- Puede invocar un procedimiento almacenado con parámetros adicionales al copiar en un receptor de SQL. Vea [Invocación del procedimiento almacenado para el receptor de SQL][adf-copy-advanced].   
+- Puede invocar un procedimiento almacenado con parámetros adicionales al copiar en un receptor de SQL.    
 
 Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevos almacenes de datos](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) para obtener información adicional y ejemplos.
 
@@ -299,7 +299,7 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
 ### Cambios
 - El paquete de instalación actualizado de **Data Management Gateway** se ha publicado en el [Centro de descarga de Microsoft][adf-gateway-download]. A partir de esta versión, puede encontrar en esta ubicación de descarga la versión más reciente de Data Management Gateway para usarla con la Factoría de datos. Este paquete de instalación sirve para la Factoría de datos de Azure y Power BI para servicios de Office 365. Si usa los dos servicios, tenga en cuenta que las puertas de enlace para la Factoría de datos y Power BI se deben instalar en distintos equipos y configurar de manera diferente según las instrucciones de la documentación de la Factoría de datos y de Power BI.
-- La **actividad de copia** ahora admite la copia de datos entre una base de datos de SQL Server local y una base de datos SQL de Azure. Consulte [Actividad de copia][adf-copy-activity] para obtener información detallada y [GitHub][adf-github-samples] para obtener ejemplos de JSON.
+- La **actividad de copia** ahora admite la copia de datos entre una base de datos de SQL Server local y una base de datos SQL de Azure. 
 - **SqlSink** admite una nueva propiedad: **WriteBatchTimeout**. Esta propiedad ofrece flexibilidad para configurar el tiempo que tarda en completarse la operación de inserción por lotes antes de que se agote el tiempo de espera de la operación. Para obtener una copia híbrida (operación de copia que implica un origen de datos local y un origen de datos en la nube), debe tener la puerta de enlace de la versión 1.4 o superior para usar esta propiedad. 
 - El **servicio vinculado de SQL Server** ahora admite **Autenticación de Windows**. 
 	- Al crear un servicio vinculado de SQL Server con el portal, puede optar por usar Autenticación de Windows y establecer las credenciales adecuadas. Para ello, hay que tener la puerta de enlace de la versión 1.4 o superior. 
@@ -339,9 +339,7 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
 [adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-copy-activity]: data-factory-copy-activity.md
 [adf-editor]: data-factory-editor.md
-[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -355,4 +353,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

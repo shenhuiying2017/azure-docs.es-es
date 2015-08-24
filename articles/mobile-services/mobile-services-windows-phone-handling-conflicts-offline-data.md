@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Control de conflictos con datos sin conexión en Servicios móviles (Windows Phone) | Centro de desarrollo móvil" 
+	pageTitle="Control de conflictos con datos sin conexión en Servicios móviles (Windows Phone) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación de Windows Phone" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -240,4 +240,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

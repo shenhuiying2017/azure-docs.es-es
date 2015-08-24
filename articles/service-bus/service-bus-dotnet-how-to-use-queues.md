@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Utilización de las colas del Bus de servicio (.NET) - Azure"
+    pageTitle="Uso de colas de Bus de servicio (.NET) | Microsoft Azure"
     description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en C# con la API de .NET."
     services="service-bus"
     documentationCenter=".net"
@@ -245,4 +245,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

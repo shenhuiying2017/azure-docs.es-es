@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2015"
+	ms.date="08/05/2015"
 	ms.author="davidmu"/>
 
 # Escalación automática de los nodos de ejecución en un grupo de Lote de Azure
@@ -23,7 +23,7 @@ La escalación automática de nodos de ejecución en un grupo de Lote de Azure e
 
 La escalación automática se produce cuando se habilita en un grupo y una fórmula está asociada al grupo. La fórmula se utiliza para determinar el número de nodos de ejecución necesario para procesar la aplicación. Puede establecer la escalación automática cuando se crea un grupo, o puede hacerlo más adelante en un grupo existente. La fórmula también se puede actualizar en un grupo donde se habilitó el escalado automático.
 
-Cuando se habilita el escalado automático, el número de nodos de ejecución disponibles se ajusta cada 15 minutos, según la fórmula. La fórmula actúa en los ejemplos que se recopilan cada 5 segundos, pero hay un retraso de 75 segundos entre cuando se recopila un ejemplo y cuando está disponible para la fórmula. Deben considerarse estos factores de tiempo cuando se usa el método GetSample que se describe a continuación.
+Cuando se habilita el escalado automático, el número de nodos de ejecución disponibles se ajusta cada 15 minutos, según la fórmula. La fórmula actúa en los ejemplos que se recopilan periódicamente pero hay un retraso entre cuando se recopila un ejemplo y cuando está disponible para la fórmula. Esto debe tenerse en cuenta cuando se usa el método GetSample que se describe a continuación.
 
 Siempre es una buena práctica evaluar la fórmula antes de asignarla a un grupo, y es importante supervisar el estado de las ejecuciones de escalación automáticas.
 
@@ -56,7 +56,7 @@ Las variables definidas por el sistema y variables definidas por el usuario pued
     <td>El número de destino de nodos de ejecución dedicados para el grupo. El valor se puede cambiar según el uso real de las tareas.</td>
   </tr>
   <tr>
-    <td>$TVMDeallocationOption</td>
+    <td>$NodeDeallocationOption</td>
     <td>La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:
       <br/>
       <ul>
@@ -115,7 +115,7 @@ Solo pueden leer los valores de estas variables definidas por el sistema para re
     <td>El número de bytes salientes</td>
   </tr>
   <tr>
-    <td>$SampleTVMCount</td>
+    <td>$SampleNodeCount</td>
     <td>El número de nodos de ejecución</td>
   </tr>
   <tr>
@@ -323,10 +323,6 @@ Estas funciones predefinidas están disponibles para definir una fórmula de esc
     <td>double val(doubleVec v, double i)</td>
     <td>El valor del elemento en la ubicación i en el vector v con el índice inicial de cero.</td>
   </tr>
-  <tr>
-    <td>doubleVec vec(doubleVecList)</td>
-    <td>Cree explícitamente un solo doubleVec de doubleVecList.</td>
-  </tr>
 </table>
 
 Algunas de las funciones descritas en la tabla pueden aceptar una lista como argumento. La lista separada por comas es cualquier combinación de double y doubleVec. Por ejemplo:
@@ -392,7 +388,7 @@ Las métricas que pueden definirse en una fórmula.
     <td><p>En función del uso de CPU, el uso de ancho de banda, el uso de memoria y número de nodos de ejecución. Estas variables del sistema descritas anteriormente se utilizan en las fórmulas para administrar los nodos de ejecución en un grupo:</p>
     <p><ul>
       <li>$TargetDedicated</li>
-      <li>$TVMDeallocationOption</li>
+      <li>$NodeDeallocationOption</li>
     </ul></p>
     <p>Estas variables del sistema se utilizan para realizar ajustes según las métricas de nodos:</p>
     <p><ul>
@@ -424,7 +420,7 @@ Las métricas que pueden definirse en una fórmula.
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>Este ejemplo muestra una fórmula que detecta si el 70&#160;% de las muestras se han registrado en los últimos 15 minutos. Si no es así, utiliza el último ejemplo. Intenta aumentar el número de nodos de ejecución para que coincida con el número de tareas activas, con un máximo de 3. Establece el número de nodos a un cuarto del número de tareas activas porque la propiedad MaxTasksPerVM del grupo se establece en 4. También establece la opción de cancelación de asignación en "taskcompletion" para mantener el equipo hasta que finalicen las tareas.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $NodeDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +472,4 @@ Debe comprobar periódicamente los resultados de las ejecuciones de escalado aut
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): este cmdlet obtiene el archivo RDP del nodo de ejecución especificado y lo guarda en la ubicación del archivo especificada o en una transmisión.
 2.	Algunas aplicaciones generan grandes cantidades de datos que pueden ser difíciles de procesar. Una manera de resolver esto es a través de una [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

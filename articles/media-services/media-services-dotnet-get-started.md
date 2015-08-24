@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="04/16/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -462,4 +462,4 @@ Obtenga más información sobre la creación de aplicaciones de vídeo bajo dema
   [Portal de administración]: http://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

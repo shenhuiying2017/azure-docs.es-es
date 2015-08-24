@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Bloc de notas de IPython - Tutorial de Azure"
+	pageTitle="Bloc de notas de IPython | Microsoft Azure"
 	description="Un tutorial que muestra cómo implementar el bloc de notas de IPython en Azure, utilizando máquinas virtuales de Linux o Windows."
 	services="virtual-machines"
 	documentationCenter="python"
@@ -273,4 +273,4 @@ Las características centrales de IPython también están disponibles en Visual 
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

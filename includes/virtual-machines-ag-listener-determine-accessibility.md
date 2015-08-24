@@ -1,10 +1,12 @@
-It is important to realize that there are two ways to configure an Availability Group listener in Azure. These methods differ in the type of Azure load balancer you use when you create the listener. The following table describes the differences:
+Es importante saber que hay dos formas de configurar un agente de escucha del grupo de disponibilidad en Azure. Estos métodos se diferencian en el tipo de equilibrador de carga de Azure que utilizas al crear el agente de escucha. La siguiente tabla muestra las diferencias:
 
-| Load Balancer | Implementation | Use When: |
+| Equilibrador de carga | Implementación | Cuándo utilizarlo |
 | ------------- | -------------- | ----------- |
-| **External** | Uses the **public Virtual IP address** of the cloud service that hosts the Virtual Machines. | You need to access the listener from outside the virtual network, including from the internet. |
-| **Internal** | Uses **Internal Load Balancing (ILB)** with a private address for the listener. | You only access the listener from within the same virtual network. This includes site-to-site VPN in hybrid scenarios. |
+| **Externo** | Usa la **dirección IP Virtual pública** del servicio en la nube que hospeda las máquinas virtuales. | Cuando necesites tener acceso al agente de escucha del exterior de la red virtual, incluso desde Internet. |
+| **Interno** | Usa el **Equilibrio de carga interno (ILB)** con una dirección privada del agente de escucha. | Cuando solo accedes al agente de escucha desde la misma red virtual. Esto incluye la VPN de sitio a sitio en escenarios híbridos. |
 
->[AZURE.IMPORTANT] For a listener using the cloud service's public VIP (external load balancer), any data returned through the listener is considered egress and charged at normal data transfer rates in Azure. This is true even if the client is located in the same virtual network and datacenter as the listener and databases. This is not the case with a listener using ILB.
+>[AZURE.IMPORTANT]Para el caso de un agente de escucha que utilice el VIP público (equilibrador de carga externo) del servicio en la nube, cualquier dato devuelto por el agente de escucha se considera de salida y se cobra según las tarifas normales de transferencia de datos de Azure. Esto ocurre incluso si el cliente se encuentra en la misma red virtual y centro de datos que el agente de escucha y las bases de datos. Pero no es así para un agente de escucha que esté utilizando el ILB.
 
-ILB can only be configured on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use ILB. For more information, see [Internal Load Balancer](../articles/load-balancer/load-balancer-internal-overview.md).
+El ILB solo se puede configurar en redes virtuales con un ámbito regional. Las redes virtuales existentes que se han configurado para un grupo de afinidad no pueden usar ILB. Para obtener más información, consulta el tema [Equilibrador de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
+
+<!---HONumber=August15_HO7-->

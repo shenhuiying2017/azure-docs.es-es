@@ -290,7 +290,7 @@ Una canalización solo está activa entre su hora de inicio y de finalización. 
 De hecho, no se ejecuta la canalización. Se ejecutan las actividades de la canalización. No obstante, lo hacen en el contexto general de la canalización. Consulte [Programación y ejecución](data-factory-scheduling-and-execution.md) para comprender cómo funciona la programación y la ejecución en Factoría de datos de Azure.
 
 ## Administración y supervisión  
-Una vez implementada una canalización, puede administrar y supervisar la canalizaciones, segmentos y ejecuciones. Obtenga más información sobre este tema aquí: [Supervisión y administración de canalizaciones](data-factory-monior-manage-pipelines.md).
+Una vez implementada una canalización, puede administrar y supervisar la canalizaciones, segmentos y ejecuciones. Obtenga más información sobre este tema aquí: [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md).
 
 ## Pasos siguientes
 
@@ -324,4 +324,4 @@ Una vez implementada una canalización, puede administrar y supervisar la canali
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

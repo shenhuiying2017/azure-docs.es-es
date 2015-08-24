@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de varios clientes con un back-end de servicios móviles | Servicios móviles de Azure" 
+	pageTitle="Uso de varios clientes con un back-end de Servicios móviles | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar un solo back-end de servicio móvil de varias aplicaciones de cliente destinadas a distintas plataformas móviles, incluida la Tienda Windows y Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -208,4 +208,4 @@ La biblioteca de clientes de .NET de Servicios móviles admite aplicaciones de l
 [Proyecto de aplicación universal de Windows para Servicios móviles de Azure mediante MVVMM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

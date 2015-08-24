@@ -382,7 +382,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 - value: un valor con el formato DateTime<br>
 - format: una cadena que representa el formato de conversión.
  
-**Comentarios:**<br> puede encontrar aquí los valores posibles para el formato: [User-Defined Date/Time Formats (Format Function)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx)
+**Comentarios:** <br> puede encontrar aquí los valores posibles para el formato: [Formatos de fecha y hora definidos por el usuario (función Format)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx)
  
 **Ejemplo:** <br>
  
@@ -429,11 +429,11 @@ Ambos ejemplos devuelven "*Hola a todos*"
 `num InStr(str stringcheck, str stringmatch)` <br> `num InStr(str stringcheck, str stringmatch, num start)` <br> `num InStr(str stringcheck, str stringmatch, num start , enum compare)`
 
 - stringcheck: cadena que se va a buscar <br>
-- stringmatch: cadena que encontrar <br>
+- stringmatch: cadena que se tiene que encontrar <br>
 - start: posición de inicio para encontrar la subcadena <br>
 - compare: vbTextCompare o vbBinaryCompare
  
-**Comentarios:**<br> devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
+**Comentarios:** <br> devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
 
 **Ejemplo:** <br> `InStr("The quick brown fox","quick")` <br> se evalúa en 5
 
@@ -450,11 +450,11 @@ Ambos ejemplos devuelven "*Hola a todos*"
 **Sintaxis:** <br> `num InstrRev(str stringcheck, str stringmatch)` <br> `num InstrRev(str stringcheck, str stringmatch, num start)` <br> `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
 - stringcheck: cadena que se va a buscar <br>
-- stringmatch: cadena que encontrar <br>
+- stringmatch: cadena que se tiene que encontrar <br>
 - start: posición de inicio para encontrar la subcadena <br>
 - compare: vbTextCompare o vbBinaryCompare
 
-**Comentarios:**<br> devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
+**Comentarios:** <br> devuelve la posición en la que se encontró la subcadena o 0 si no se encuentra.
 
 **Ejemplo:** <br> `InStrRev("abbcdbbbef","bb")` <br> devuelve 7.
  
@@ -478,7 +478,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 ----------
 ### IsDate
 
-**Descripción:** <br> la función IsDate se evalúa en True si la expresión se puede evaluar como un tipo DateTime.
+**Descripción:** <br> la función IsDate se evalúa en True si la expresión se puede evaluar como tipo DateTime.
  
 **Sintaxis:** <br> `bool IsDate(var Expression)`
  
@@ -500,15 +500,15 @@ Ambos ejemplos devuelven "*Hola a todos*"
 ----------
 ###IsGuid
 
-**Descripción:** <br> la función IsGuid se evaluó en True si la cadena se pudo convertir en un GUID.
+**Descripción:** <br> la función IsGuid evaluada en True si la cadena se pudo convertir en un GUID.
  
 **Sintaxis:** <br> `bool IsGuid(str GUID)`
  
-**Comentarios:**<br> un GUID se define como una cadena que sigue uno de estos patrones: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx o {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
+**Comentarios:**<br> un GUID se define como una cadena que sigue uno de estos patrones: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx or {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 Se usa para determinar si CGuid() es correcto.
  
-**Ejemplo:**<br>`IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`<br> si StrAttribute tiene un formato GUID, devuelve una representación binaria. De lo contrario, devuelve un valor Null.
+**Ejemplo:** <br> `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)` <br> si StrAttribute tiene un formato GUID, devuelve una representación binaria. De lo contrario, devuelve un valor Null.
  
  
 
@@ -516,13 +516,13 @@ Se usa para determinar si CGuid() es correcto.
 ----------
 ###IsNull
 
-**Descripción:**<br> la función IsNull devuelve True si la expresión se evalúa como Null.
+**Descripción:** <br> la función IsNull devuelve True si la expresión se evalúa como Null.
  
 **Sintaxis:** <br> `bool IsNull(var Expression)`
  
-**Comentarios:**<br> para un atributo, un valor Null se expresa mediante la ausencia del atributo.
+**Comentarios:** <br> para un atributo, un valor Null se expresa mediante la ausencia del atributo.
  
-**Ejemplo:**<br>`IsNull([displayName])`<br> devuelve True si el atributo no está presente en CS o MV.
+**Ejemplo:** <br> `IsNull([displayName])` <br> devuelve True si el atributo no está presente en CS o MV.
  
  
 
@@ -530,13 +530,13 @@ Se usa para determinar si CGuid() es correcto.
 ----------
 ###IsNullOrEmpty
 
-**Descripción:**<br> la función IsNullOrEmpty devuelve True si la expresión es Null o una cadena vacía.
+**Descripción:** <br> la función IsNullOrEmpty devuelve True si la expresión es Null o una cadena vacía.
  
 **Sintaxis:** <br> `bool IsNullOrEmpty(var Expression)`
  
 **Comentarios:** <br> para un atributo, esto se evaluaría como True si el atributo no está presente o está presente pero es una cadena vacía.<br> La función contraria a esta es IsPresent.
  
-**Ejemplo:**<br>`IsNull([displayName])`<br> devuelve True si el atributo no está presente o si es una cadena vacía en CS o MV.
+**Ejemplo:** <br> `IsNull([displayName])` <br> devuelve True si el atributo no está presente o si es una cadena vacía en CS o MV.
  
  
 
@@ -568,7 +568,7 @@ Se usa para determinar si CGuid() es correcto.
 ----------
 ### IsPresent
 
-**Descripción:**<br> la función IsPresent devuelve True si la expresión se evalúa como una cadena que no es Null y no está vacía.
+**Descripción:** <br> la función IsPresent devuelve True si la expresión se evalúa como una cadena que no es Null y no está vacía.
  
 **Sintaxis:** <br> `bool IsPresent(var expression)`
  
@@ -584,7 +584,7 @@ Se usa para determinar si CGuid() es correcto.
 ----------
 ### Elemento
 
-**Descripción:**<br> la función Item devuelve un elemento de un atributo o una cadena de varios valores.
+**Descripción:** <br> la función Item devuelve un elemento de un atributo o una cadena de varios valores.
  
 **Sintaxis:** <br> `var Item(mvstr attribute, num index)`
 
@@ -595,7 +595,7 @@ Se usa para determinar si CGuid() es correcto.
 
 Se produce un error si el índice está fuera de los límites.
  
-**Ejemplo:**<br>`Mid(Item([proxyAddress],Contains([proxyAddress], ”SMTP:”)),6)`<br> devuelve la dirección de correo electrónico principal.
+**Ejemplo:** <br> `Mid(Item([proxyAddress],Contains([proxyAddress], ”SMTP:”)),6)` <br> devuelve la dirección de correo electrónico principal.
  
  
 
@@ -603,7 +603,7 @@ Se produce un error si el índice está fuera de los límites.
 ----------
 ### ItemOrNull
 
-**Descripción:**<br> la función ItemOrNul devuelve un elemento de un atributo o una cadena de varios valores.
+**Descripción:** <br> la función ItemOrNull devuelve un elemento de un atributo o una cadena de varios valores.
  
 **Sintaxis:** <br> `var ItemOrNull(mvstr attribute, num index)`
 
@@ -624,10 +624,10 @@ Devuelve un valor Null si el índice está fuera de los límites.
  
 **Sintaxis:** <br> `str Join(mvstr attribute)` <br> `str Join(mvstr attribute, str Delimiter)`
 
-- attribute: atributo de varios valores que contiene cadenas para combinar.<br>
+- attribute: atributo de varios valores que contiene cadenas para combinar. <br>
 - delimiter: cualquier cadena utilizada para separar las subcadenas en la cadena devuelta. Si se omite, se usa el carácter de espacio (""). Si delimitador es una cadena de longitud cero ("") o nada, todos los elementos de la lista se concatenan sin delimitadores.
  
-**Comentarios**<br>: hay paridad entre las funciones Join y Split. La función Join toma una matriz de cadenas y las combina con una cadena de delimitación para devolver una sola cadena. La función Split toma una cadena y la separa en el delimitador para devolver una matriz de cadenas. Sin embargo, una diferencia clave es que Join puede concatenar cadenas con cualquier cadena de delimitación, mientras que attribute puede separar solo cadenas mediante un delimitador de carácter único.
+**Comentarios:** <br> hay paridad entre las funciones Join y Split. La función Join toma una matriz de cadenas y las combina con una cadena de delimitación para devolver una sola cadena. La función Split toma una cadena y la separa en el delimitador para devolver una matriz de cadenas. Sin embargo, una diferencia clave es que Join puede concatenar cadenas con cualquier cadena de delimitación, mientras que attribute puede separar solo cadenas mediante un delimitador de carácter único.
  
 **Ejemplo:** <br> `Join([proxyAddresses],”,”)` <br> podría devolver: “SMTP:john.doe@contoso.com,smtp:jd@contoso.com”
  
@@ -637,7 +637,7 @@ Devuelve un valor Null si el índice está fuera de los límites.
 ----------
 ### LCase
 
-**Descripción:**<br> la función LCase convierte todos los caracteres de una cadena a minúsculas.
+**Descripción:** <br> la función LCase convierte todos los caracteres de una cadena a minúsculas.
  
 **Sintaxis:** <br> `str LCase(str value)`
  
@@ -649,14 +649,14 @@ Devuelve un valor Null si el índice está fuera de los límites.
 ----------
 ### Left
 
-**Descripción:**<br> la función Left devuelve un número especificado de caracteres desde la izquierda de una cadena.
+**Descripción:** <br> la función Left devuelve un número especificado de caracteres desde la izquierda de una cadena.
  
 **Sintaxis:** <br> `str Left(str string, num NumChars)`
 
-- string: la cadena desde la que devolver los caracteres<br>
+- string: la cadena desde la que devolver los caracteres <br>
 - NumChars: un número que identifica el número de caracteres que devolver desde el principio (izquierdo) de la cadena
  
-**Comentarios:**<br> una cadena que contiene los primeros caracteres numChars de la cadena:
+**Comentarios:** <br> una cadena que contiene los primeros caracteres numChars de la cadena:
 
 - Con numChars = 0, se devuelve una cadena vacía.
 - Con numChars < 0, se devuelve una cadena de entrada.
@@ -672,11 +672,11 @@ Si la cadena contiene menos caracteres que el número especificado en numChars, 
 ----------
 ### Len
 
-**Descripción:**<br> la función Len devuelve el número de caracteres en una cadena.
+**Descripción:** <br> la función Len devuelve el número de caracteres en una cadena.
  
 **Sintaxis:** <br> `num Len(str value)`
  
-**Ejemplo:** <br> `Len(“John Doe”)` <br> devuelve 8
+**Ejemplo:** <br> `Len(“John Doe”)` <br> devuelve 8.
  
 
 
@@ -688,7 +688,7 @@ Si la cadena contiene menos caracteres que el número especificado en numChars, 
  
 **Sintaxis:** <br> `str LTrim(str value)`
  
-**Ejemplo:** <br> `LTrim(“ Test ”)` <br> devuelve “Test ”
+**Ejemplo:** <br> `LTrim(“ Test ”)` <br> devuelve “Test”.
  
  
 
@@ -696,11 +696,11 @@ Si la cadena contiene menos caracteres que el número especificado en numChars, 
 ----------
 ### Mid
 
-**Descripción:**<br> la función Mid devuelve un número especificado de caracteres desde una posición especificada en una cadena.
+**Descripción:** <br> la función Mid devuelve un número especificado de caracteres desde una posición especificada en una cadena.
  
 **Sintaxis:** <br> `str Mid(str string, num start, num NumChars)`
 
-- string: la cadena desde la que devolver los caracteres<br>
+- string: la cadena desde la que devolver los caracteres <br>
 - start: un número que identifica la posición de inicio en una cadena desde la que devolver los caracteres
 - NumChars: un número que identifica el número de caracteres que devolver desde la posición en una cadena
  
@@ -727,7 +727,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### Now
 
-**Descripción:**<br> la función Now devuelve DateTime que especifica la fecha y hora actuales, según la fecha y hora del sistema del equipo.
+**Descripción:** <br> la función Now devuelve DateTime que especifica la fecha y hora actuales, según la fecha y hora del sistema del equipo.
  
 **Sintaxis:** <br> `dt Now()`
  
@@ -737,7 +737,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### NumFromDate
 
-**Descripción:**<br> la función NumFromDate devuelve una fecha en formato de fecha de AD.
+**Descripción:** <br> la función NumFromDate devuelve una fecha en formato de fecha de AD.
  
 **Sintaxis:** <br> `num NumFromDate(dt value)`
  
@@ -750,7 +750,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### PadLeft
 
-**Descripción:**<br> la función PadLeft rellena en la parte izquierda una cadena con una longitud especificada mediante un carácter controlador proporcionado.
+**Descripción:** <br> la función PadLeft rellena en la parte izquierda una cadena con una longitud especificada mediante un carácter controlador proporcionado.
  
 **Sintaxis:** <br> `str PadLeft(str string, num length, str padCharacter)`
 
@@ -778,7 +778,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### PadRight
 
-**Descripción:**<br> la función PadRight rellena en la parte derecha una cadena con una longitud especificada mediante un carácter controlador proporcionado.
+**Descripción:** <br> la función PadRight rellena en la parte derecha una cadena con una longitud especificada mediante un carácter controlador proporcionado.
  
 **Sintaxis:** <br> `str PadRight(str string, num length, str padCharacter)`
 
@@ -804,7 +804,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### PCase
 
-**Descripción:**<br> la función PCase convierte el primer carácter de cada palabra delimitada por espacios de una cadena a mayúsculas, y todos los demás caracteres se convierten a minúsculas.
+**Descripción:** <br> la función PCase convierte el primer carácter de cada palabra delimitada por espacios de una cadena a mayúsculas, y todos los demás caracteres se convierten a minúsculas.
  
 **Sintaxis:** <br> `String PCase(string)`
  
@@ -816,11 +816,11 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### RandomNum
 
-**Descripción:**<br> la función RandomNum devuelve un número aleatorio entre un intervalo especificado.
+**Descripción:** <br> la función RandomNum devuelve un número aleatorio entre un intervalo especificado.
  
 **Sintaxis:** <br> `num RandomNum(num start, num end)`
 
-- start: un número que identifica el límite inferior del valor aleatorio que generar <br>
+- start: un número que identifica el límite inferior del valor aleatorio que se va a generar <br>
 - end: un número que identifica el límite superior del valor aleatorio que generar
  
 **Ejemplo:** <br> `Random(100,999)` <br> devuelve 734.
@@ -831,11 +831,11 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### RemoveDuplicates
 
-**Descripción:**<br> la función RemoveDuplicates toma una cadena de varios valores y garantiza que cada valor es único.
+**Descripción:** <br> la función RemoveDuplicates toma una cadena de varios valores y garantiza que cada valor es único.
  
 **Sintaxis:** <br> `mvstr RemoveDuplicates(mvstr attribute)`
  
-**Ejemplo:**<br>`RemoveDuplicates([proxyAddresses])`<br> devuelve un atributo proxyAddress saneado donde se han quitado todos los valores duplicados.
+**Ejemplo:** <br> `RemoveDuplicates([proxyAddresses])` <br> devuelve un atributo proxyAddress saneado donde se han quitado todos los valores duplicados.
  
  
 
@@ -843,12 +843,12 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### Sustituya
 
-**Descripción:**<br> la función Replace reemplaza todas las apariciones de una cadena en otra cadena.
+**Descripción:** <br> la función Replace reemplaza todas las apariciones de una cadena en otra cadena.
  
 **Sintaxis:** <br> `str Replace(str string, str OldValue, str NewValue)`
 
-- string: una cadena en la que reemplazar los valores. <br>
-- OldValue: la cadena que buscar y reemplazar. <br>
+- string: una cadena en la que reemplazar valores. <br>
+- OldValue: la cadena que se va a buscar y reemplazar. <br>
 - NewValue: la cadena que reemplazar.
  
 
@@ -869,7 +869,7 @@ Si no hay caracteres numChar restantes en la cadena de la posición de inicio, s
 ----------
 ### ReplaceChars
 
-**Descripción:**<br> la función ReplaceChars reemplaza todas las apariciones de caracteres encontrados en la cadena ReplacePattern.
+**Descripción:** <br> la función ReplaceChars reemplaza todas las apariciones de caracteres encontrados en la cadena ReplacePattern.
 
 **Sintaxis:** <br> `str ReplaceChars(str string, str ReplacePattern)`
 
@@ -903,7 +903,7 @@ El formato es {source1}:{target1},{source2}:{target2},{sourceN},{targetN} donde 
 ----------
 ### Right
 
-**Descripción:**<br> la función Right devuelve un número especificado de caracteres desde la derecha (final) de una cadena.
+**Descripción:** <br> la función Right devuelve un número especificado de caracteres desde la derecha (final) de una cadena.
  
 **Sintaxis:** <br> `str Right(str string, num NumChars)`
 
@@ -977,7 +977,7 @@ Si la cadena contiene menos caracteres que el número especificado en NumChars, 
 ----------
 ### Switch
 
-**Descripción:** <br> la función Switch se utiliza para devolver un único valor según las condiciones evaluadas.
+**Descripción:** <br> la función Switch se usa para devolver un único valor según las condiciones evaluadas.
 
 **Sintaxis:** <br> `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
@@ -994,7 +994,7 @@ Switch evalúa todas las expresiones, aunque devuelva solo una de ellas. Por est
 
 El valor puede ser también la función Error que devolvería una cadena personalizada.
 
-**Ejemplo:**<br>`Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error(“Unknown city”))`<br> devuelve el idioma hablado en las ciudades más importantes. De lo contrario, devuelve un error.
+**Ejemplo:** <br> `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error(“Unknown city”))` <br> devuelve el idioma hablado en las ciudades más importantes. De lo contrario, devuelve un error.
 
 
 
@@ -1016,11 +1016,11 @@ El valor puede ser también la función Error que devolvería una cadena persona
 ----------
 ### UCase
 
-**Descripción:**<br> la función UCase convierte todos los caracteres de una cadena a mayúsculas.
+**Descripción:** <br> la función UCase convierte todos los caracteres de una cadena a mayúsculas.
 
 **Sintaxis:** <br> `str UCase(str string)`
  
-**Ejemplo:** <br> `UCase(“TeSt”)` <br> devuelve “Test”.
+**Ejemplo:** <br> `UCase(“TeSt”)` <br> devuelve “TEST”.
  
  
 
@@ -1058,4 +1058,4 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

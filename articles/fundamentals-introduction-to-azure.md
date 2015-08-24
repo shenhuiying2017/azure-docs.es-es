@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a Azure: aspectos básicos de Azure" 
+	pageTitle="Introducción a Azure | Microsoft Azure" 
 	description="¿Es un usuario nuevo de Microsoft Azure? Obtenga una visión general básica de los servicios que ofrece con ejemplos de cómo son útiles." 
 	services=" " 
 	documentationCenter=".net" 
@@ -112,7 +112,7 @@ La página de [comparación entre Aplicaciones web de Azure, servicios en la nub
 
 ## Administración de datos
 
-Las aplicaciones necesitan datos, y diferentes tipos de aplicaciones necesitan diferentes tipos de datos. Como consecuencia, Azure ofrece varias formas de almacenar y administrar los datos. Azure proporciona muchas opciones de almacenamiento, todas ellas diseñadas para ofrecer un rendimiento muy duradero. Con cualquiera de estas opciones, hay siempre 3 copias de sus datos sincronizados entre los centros de datos de Azure (6 si permite que Azure utilice la redundancia geográfica para hacer una copia de seguridad en otro centro de datos que esté al menos a 450 kilómetros de distancia).
+Las aplicaciones necesitan datos, y diferentes tipos de aplicaciones necesitan diferentes tipos de datos. Como consecuencia, Azure ofrece varias formas de almacenar y administrar los datos. Azure proporciona muchas opciones de almacenamiento, todas ellas diseñadas para ofrecer un rendimiento muy duradero. Con cualquiera de estas opciones, hay siempre tres copias de sus datos sincronizados entre los centros de datos de Azure (seis si permite que Azure utilice la redundancia geográfica para hacer una copia de seguridad en otro centro de datos que esté al menos a 450 kilómetros de distancia).
 
 
 ### En Máquinas virtuales
@@ -261,8 +261,8 @@ Sí incluye un sistema de control de código fuente denominado Team Foundation S
 
 Visual Studio Online ofrece un servicio para prueba de carga. Puede ejecutar pruebas de carga creadas en Visual Studio en máquinas virtuales en la nube. Especifique el número total de usuarios con los que quiere llevar a cabo la prueba de carga y Visual Studio Online determinará automáticamente cuántos agentes se necesitan, pondrá a punto las máquinas virtuales requeridas y ejecutará las pruebas de carga. Si está suscrito a MSDN, podrá disfrutar de miles de minutos de usuario gratuitos para prueba de carga al mes.
 
-Visual Studio Online ofrece también un servicio denominado Application Insights, que le ofrece un análisis de toda la aplicación. Proporciona estadísticas sobre el rendimiento y el uso que se está haciendo de la aplicación. Si ya está utilizando System Center Operations Manager, también puede enlazarse a él y emitir alertas cuando ocurra algún problema.
-
+Visual Studio Online ofrece también un servicio denominado Application Insights, que le ofrece un análisis de toda la aplicación. Proporciona estadísticas sobre el rendimiento y el uso que se está haciendo de la aplicación. Si ya utiliza System Center Operations Manager, también puede conectarse a él y generar alertas cuando surgen problemas. +Visual Studio Online también ofrece compatibilidad con el desarrollo ágil con características como compilaciones de integración continua, paneles Kanban y salas de equipos virtuales.
+	
 Además, ofrece soporte para el desarrollo ágil con características como compilaciones de integración continua, tableros kanban y salas para equipos virtules.
 
 **Escenarios de Visual Studio Online**
@@ -592,4 +592,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

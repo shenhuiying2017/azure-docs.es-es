@@ -378,4 +378,4 @@ En este tema se enumeran los atributos sincronizados mediante Sincronización de
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

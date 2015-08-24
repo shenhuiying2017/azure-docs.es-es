@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+	ms.date="08/10/2015" 
 	ms.author="genemi"/>
 
 
 # Novedades de la Base de datos de SQL V12
 
 
-Este tema describe las numerosas ventajas de la nueva versión V12 de Base de datos SQL de Azure con respecto a la versión V11.
+En este tema se describen las numerosas ventajas de la nueva versión V12 de Base de datos SQL de Azure con respecto a la versión V11.
 
 
 Seguimos agregando características a la V12. Por lo tanto, le recomendamos que visite nuestra página web Actualizaciones del servicio para Azure y que use los filtros:
@@ -29,6 +29,9 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 
 - Filtrado a [Servicio de Base de datos SQL](http://azure.microsoft.com/updates/?service=sql-database).
 - Filtrado a Disponibilidad general [Anuncios (GA)](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) para características de Base de datos SQL.
+
+
+La información más reciente sobre los límites de recursos de Base de datos SQL de Azure se documenta en:<br/>[Límites de recursos de Base de datos SQL de Azure](sql-database-resource-limits.md).
 
 
 ## Compatibilidad de aplicaciones aumentada con SQL Server
@@ -109,17 +112,6 @@ Hay muchas buenas razones por las que los clientes deberían actualizar ahora Ba
 - La mayoría de las características nuevas se lanzan en la V12 de Base de datos SQL antes que en Microsoft SQL Server.
 
 
-## Puerta de enlace ya no proporciona la lógica de reintento en V12
-
-
-Antes de la versión V12, Base de datos SQL Azure tenía una puerta de enlace que actuaba como proxy para almacenar en búfer todas las interacciones entre la base de datos y su programa cliente. La puerta de enlace proporcionaba una *lógica de reintento* automatizada para algunos *errores transitorios*.
-
- V12 eliminó la puerta de enlace. Ahora el programa debe controlar los errores transitorios de manera más integral. Para obtener información, vea:
-
-
-- [Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md#gatewaynoretry)
-
-
 ## ¿Ya utiliza V12?
 
 
@@ -147,17 +139,12 @@ Una base de datos V12 solo puede hospedarse en un servidor lógico V12. Y un ser
 Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguiendo los pasos descritos en [Actualización a Base de datos SQL de Azure V12 in situ](sql-database-v12-upgrade.md).
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a>Regiones de vista previa
+## <a name="V12AzureSqlDbPreviewGaTable"></a> Regiones de disponibilidad general
 
 
-V12 se lanzó en diciembre de 2014 pero solo en el estado de Vista previa.
+- Para el 31 de julio de 2015, había ascendido ya a Disponibilidad general (GA) en todas las regiones.
+- V12 se lanzó en diciembre de 2014 pero solo en el estado de Vista previa.
 
+[Términos de uso complementarios para versiones de vista previa de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-- [Términos de Uso Complementarios para Vistas Previas de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-Para el 31 de julio de 2015, había ascendido ya a Disponibilidad general (GA) en todas las regiones.
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

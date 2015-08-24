@@ -4,15 +4,15 @@
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/06/2015"
 	ms.author="awills"/>
 
 # Análisis de uso con Application Insights
@@ -21,13 +21,41 @@ Saber cómo se usa la aplicación permite centrarse en el trabajo de desarrollo 
 
 Application Insights puede proporcionar una visión clara del uso de la aplicación, lo que ayuda a mejorar la experiencia del usuario y a cumplir sus objetivos empresariales.
 
+Application Insights funciona para aplicaciones independientes (en iOS, Android y Windows) y para aplicaciones web (hospedadas en .NET o J2EE).
+
+## Agregar Application Insights a un proyecto
+
+Para empezar, obtenga una suscripción a [Microsoft Azure](https://azure.com). (Hay una prueba gratuita y, después del período de prueba, puede continuar con el nivel gratuito del servicio).
+
+En el [Portal de Azure](https://portal.azure.com), cree un nuevo recurso de Application Insights. Aquí es donde podrá ver datos de uso y rendimiento sobre la aplicación.
+
+![En Azure, haga clic en Nuevo, Servicios para desarrolladores, Application Insights](./media/app-insights-overview-usage/01-create.png)
+
+**Si su aplicación es una aplicación de dispositivo**, agregue el SDK de Application Insights al proyecto. El procedimiento exacto varía en función de su [IDE y plataforma](app-insights-platforms.md). Para las aplicaciones de Windows, haga clic con el botón derecho en el proyecto en Visual Studio y elija "Agregar Application Insights".
+
+**Si se trata de una aplicación web**, abra la hoja Inicio rápido y obtenga el fragmento de código para agregar a sus páginas web. Vuelva a publicarlas con este fragmento de código.
+
+![Abra Inicio rápido y haga clic en Obtener código para supervisar mis páginas web. Copie el script en el encabezado de la página web maestra.](./media/app-insights-overview-usage/02-monitor-web-page.png)
+
+También puede agregar Application Insights a su código de servidor [ASP.NET](app-insights-start-monitoring-app-health-usage.md) o [J2EE](app-insights-java-get-started.md) con el fin de combinar la telemetría de cliente y servidor.
+
+
+### Ejecución del proyecto y visualización de los primeros resultados
+
+Ejecute el proyecto en modo de depuración durante unos minutos, a continuación, vaya al [Portal de Azure](http://portal.azure.com) y vaya a los recursos del proyecto en Application Insights.
+
+![En Azure, elija Examinar, Application Insights y, después, seleccione su proyecto](./media/app-insights-overview-usage/00-start.png)
+
+Publique la aplicación para obtener más telemetría y averiguar qué hacen los usuarios con su aplicación.
+
+
 ## Análisis de fábrica
 
-Agregue [Application Insights][start] al proyecto y sin mayor esfuerzo obtendrá gráficos que muestran cuántos usuarios tiene y mucho más.
+Haga clic en el icono de vistas de página para ver los detalles de uso.
 
-![En Azure, seleccione Examinar > Application Insights > su proyecto y desplácese hacia abajo.](./media/app-insights-overview-usage/01-overview.png)
+![En Azure, seleccione Examinar > Application Insights > su proyecto y desplácese hacia abajo al icono de vistas de página.](./media/app-insights-overview-usage/01-overview.png)
 
-Pase el puntero por la parte en blanco sobre un gráfico para ver los recuentos en un momento determinado. De lo contrario, los números muestran el valor agregado en el período, como un promedio, un total o un recuento de usuarios diferentes durante el período.
+Pase el puntero por la parte en blanco sobre un gráfico para ver los recuentos en un momento determinado. Si no, los números muestran el valor agregado a lo largo del período, como un promedio, un total o un recuento de usuarios diferentes durante el período.
 
 En aplicaciones web, se cuentan los usuarios mediante el uso de cookies. Una persona que utiliza varios exploradores, que borra las cookies o que utiliza la característica de privacidad se contará varias veces.
 
@@ -54,7 +82,7 @@ Agrupe (segmente) los datos por una propiedad, como Explorador, Sistema operativ
 
 ## Uso de las páginas
 
-Haga clic en el gráfico de las vistas de páginas para obtener una versión más ampliada junto con un desglose de las páginas más populares:
+Haga clic en el icono de vistas de página para obtener un desglose de las páginas más populares:
 
 
 ![En la hoja de información general, haga clic en el gráfico de vistas de páginas.](./media/app-insights-overview-usage/05-games.png)
@@ -248,6 +276,11 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 * Pruebas de valor controlado. Configure un modificador de característica que permite que una nueva característica sea visible solo para algunos usuarios. Use Application Insights para ver si se utiliza la nueva característica de la manera que había previsto. Realice ajustes y publíquelos para una audiencia más amplia.
 * Hable con los usuarios. El análisis no es suficiente por sí solo, pero es una herramienta complementaria para mantener una excelente relación con el cliente.
 
+## Más información
+
+* [Detección, clasificación y diagnóstico de errores y problemas de rendimiento en su aplicación](app-insights-detect-triage-diagnose.md)
+* [Introducción a Application Insights en muchas plataformas](app-insights-detect-triage-diagnose.md).
+
 
 ## Vídeo
 
@@ -259,4 +292,4 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 [start]: app-insights-get-started.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

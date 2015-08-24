@@ -67,7 +67,14 @@ Este ejemplo recupera una base de datos denominada "Database02" desde un servido
 
 ## Get-AzureSqlDatabaseRestorePoints
 
-Este cmdlet enumera los puntos de restauración de copia de seguridad de una base de datos SQL de Azure. Los puntos de restauración se utilizan para restaurar la base de datos. Las propiedades del objeto devuelto son las siguientes. <table> <tr> <td>Propiedad</td> <td>Descripción</td> </tr> <tr> <td>RestorePointType</td> <td>DISCRETO/CONTINUO. Los puntos de restauración de tipo DISCRETE (discreto) indican las posibles fechas a las que se puede restaurar una base de datos SQL de Azure. Los puntos de restauración de tipo CONTINUOUS (continuo) indican las fechas más tempranas a las que se puede restaurar una base de datos SQL de Azure. La base de datos se puede restaurar a cualquier fecha posterior a la fecha más temprana.</td> </tr> <tr> <td>EarliestRestoreDate</td> <td>Earliest Restore Time (Muestra un valor cuando restorePointType = CONTINUOUS)</td> </tr> <tr> <td>RestorePointCreationDate </td> <td>Backup Snapshot Time (Muestra un valor cuando restorePointType = DISCRETE)</td> </tr> </table>
+Este cmdlet enumera los puntos de restauración de copia de seguridad de una base de datos SQL de Azure. Los puntos de restauración se utilizan para restaurar la base de datos. Las propiedades del objeto devuelto son las siguientes.
+
+Propiedad|Descripción
+---|---
+RestorePointType|DISCRETO Y CONTINUO. Los puntos de restauración de tipo DISCRETE (discreto) indican las posibles fechas a las que se puede restaurar una base de datos SQL de Azure. Los puntos de restauración de tipo CONTINUOUS (continuo) indican las fechas más tempranas a las que se puede restaurar una base de datos SQL de Azure. La base de datos se puede restaurar a cualquier fecha posterior a la fecha más temprana.
+EarliestRestoreDate|Primera hora de restauración (se rellena cuando restorePointType = CONTINUO)
+RestorePointCreationDate |Hora de la instantánea de copia de seguridad (se rellena cuando restorePointType = DISCRETO)
+
 ### Ejemplo 1: Recuperar los puntos de restauración de una base de datos con nombre en un servidor
 Este ejemplo recupera los puntos de restauración de una base de datos denominada "Database02" desde un servidor llamado "Server01" incluido en un grupo de recursos denominado "ResourceGroup1."
 
@@ -99,4 +106,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

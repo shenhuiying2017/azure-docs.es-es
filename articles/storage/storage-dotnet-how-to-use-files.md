@@ -225,11 +225,11 @@ Ejecute la aplicación de consola para ver la salida.
 
 ## Establecer el tamaño máximo para un recurso compartido de archivos
 
-A partir de la versión 5.x de la biblioteca de cliente de almacenamiento de Azure, puede establecer la cuota (o el tamaño máximo) para un recurso compartido, en gigabytes. Al establecer la cuota para un recurso compartido, puede limitar el tamaño total de los archivos almacenados en el recurso compartido.
+A partir de la versión 5.x de la Biblioteca de cliente de almacenamiento de Azure, puede establecer la cuota (o el tamaño máximo) para un recurso compartido, en gigabytes. También puede comprobar cuántos datos se almacenan actualmente en el recurso compartido.
 
-Si el tamaño total de archivos del recurso compartido supera la cuota establecida en el recurso compartido, los clientes podrán aumentar el tamaño de los archivos existentes o crear nuevos archivos, a menos que estén vacíos.
+Al establecer la cuota para un recurso compartido, puede limitar el tamaño total de los archivos almacenados en el recurso compartido. Si el tamaño total de archivos del recurso compartido supera la cuota establecida en el recurso compartido, los clientes no podrán aumentar el tamaño de los archivos existentes ni crear nuevos archivos, a menos que estén vacíos.
 
-En el ejemplo siguiente se muestra cómo establecer la cuota para un recurso compartido de archivos existente.
+En el ejemplo siguiente se muestra cómo comprobar el uso actual de un recurso compartido y cómo establecer la cuota para el recurso compartido.
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -244,12 +244,20 @@ En el ejemplo siguiente se muestra cómo establecer la cuota para un recurso com
     //Ensure that the share exists.
     if (share.Exists())
     {
-		//Specify the maximum size of the share, in GB.
-	    share.Properties.Quota = 100;
-	    share.SetProperties();
-	}
+        //Check current usage stats for the share.
+		//Note that the ShareStats object is part of the protocol layer for the File service.
+        Microsoft.WindowsAzure.Storage.File.Protocol.ShareStats stats = share.GetStats();
+        Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
 
-Para obtener el valor de cualquier cuota existente para el recurso compartido, llame al método **FetchAttributes()** para recuperar las propiedades del recurso compartido.
+        //Specify the maximum size of the share, in GB.
+        //This line sets the quota to be 10 GB greater than the current usage of the share.
+        share.Properties.Quota = 10 + stats.Usage;
+        share.SetProperties();
+
+        //Now check the quota for the share. Call FetchAttributes() to populate the share's properties. 
+        share.FetchAttributes();
+        Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    }
 
 ## Generar una firma de acceso compartido para un archivo o recurso compartido de archivos
 
@@ -299,7 +307,7 @@ En el ejemplo siguiente se crea una directiva de acceso compartido en un recurso
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Para obtener más información sobre la creación y el uso de firmas de acceso compartido, vea [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Crear y usar una SAS con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
+Para obtener más información sobre la creación y el uso de firmas de acceso compartido, vea [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) y [Creación y uso de una SAS con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md).
 
 ## Copiar archivos
 
@@ -428,4 +436,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

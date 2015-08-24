@@ -55,11 +55,9 @@ Realice los pasos siguientes para ver el estado de hardware de un componente del
 3. Si se encuentra un componente que no está en estado **Correcto**, póngase en contacto con el soporte técnico de Microsoft. Si las alertas están habilitadas en el dispositivo, recibirá una alerta por correo electrónico. Si necesita reemplazar un componente de hardware con errores, consulte la [Guía de reemplazo de componentes de hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
 
 
-## Lista de componentes del dispositivo StorSimple
+## Lista de componentes de la caja principal del dispositivo StorSimple
 
-En la tabla siguiente se describen los componentes físicos y lógicos que contiene el dispositivo StorSimple local. El dispositivo tiene dos revestimientos, el principal y el de EBOD. Las listas de los dos revestimientos están tabuladas por separado.
-
-### Lista de componentes del revestimiento principal
+En la tabla siguiente se describen los componentes físicos y lógicos que contiene la caja principal del dispositivo StorSimple local.
 
 |Componente|Módulo|Escriba|Ubicación|¿Unidad reemplazable en campo (FRU)?|Descripción|
 |---|---|---|---|---|---|
@@ -99,7 +97,9 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 |Ethernet|E/S|Física|Controller|No|Indica el estado de cada una de las interfaces de red, es decir, la administración y los puertos de datos proporcionados en el controlador.|
 |NVRAM|E/S|Física|Controller|No|Indica el estado de la NVRAM, una memoria de acceso aleatorio no volátil respaldada por la batería que sirve para conservar la información crítica para la aplicación en caso de error de alimentación.|
 
-### Lista de componentes del revestimiento de EBOD
+## Lista de componentes de la caja EBOD del dispositivo StorSimple
+
+En la tabla siguiente se describen los componentes físicos y lógicos que contiene la caja EBOD del dispositivo StorSimple local.
 
 |Componente|Módulo|Escriba|Ubicación|¿FRU?|Descripción|
 |---|---|---|---|---|---|
@@ -124,11 +124,11 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 |Diagnóstico de la electrónica del revestimiento|E/S|Física|Controller|No|Indica el estado de los subsistemas de diagnóstico que proporciona el controlador.|
 |Conexión al controlador del dispositivo|E/S|Física|Controller|No|Indica el estado de la conexión entre el módulo de E/S de EBOD y el controlador del dispositivo.|
 
-## Paso siguiente
+## Pasos siguientes
 Si necesita solucionar problemas de un componente del dispositivo que tiene un estado degradado o con error, consulte [Solución de problemas con indicadores de supervisión](storsimple-monitoring-indicators).
 
 Si necesita reemplazar un componente de hardware con errores, consulte la [Guía de reemplazo de componentes de hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
 
 Si sigue teniendo problemas con el dispositivo, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

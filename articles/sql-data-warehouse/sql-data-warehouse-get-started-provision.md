@@ -153,17 +153,20 @@ Ahora que configuró el firewall, podría establecer conexiones desde su escrito
 
 Ahora que se aprovisionó correctamente el servicio SQLDW, podemos aprender a usarlo.
 
-Por lo tanto, los pasos siguientes sirven para realizar la: 1. [Conexión y consulta][] del almacenamiento de datos. 2. Cargar [datos de ejemplo].
+Por lo tanto, los pasos siguientes sirven para aprender a:
+
+1. [Conectar y consultar][] el almacenamiento de datos.
+2. Cargar [datos de ejemplo].
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[Conexión y consulta]: sql-data-warehouse-get-started-connect-query.md
+[Conectar y consultar]: sql-data-warehouse-get-started-connect-query.md
 [datos de ejemplo]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [evaluación gratuita]: https://azure.microsoft.com/es-es/pricing/free-trial/
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

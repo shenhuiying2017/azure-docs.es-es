@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a la mensajería de Service Bus - Azure"
+	pageTitle="Información general sobre la mensajería del Bus de servicio | Microsoft Azure"
 	description="Mensajería de Bus de servicio: entrega flexible de datos en la nube"
 	services="service-bus"
 	documentationCenter=".net"
@@ -38,4 +38,4 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Cómo usar temas de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

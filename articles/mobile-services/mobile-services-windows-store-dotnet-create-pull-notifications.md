@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Definición de una API personalizada que admita notificaciones periódicas: Servicios móviles de Azure" 
+	pageTitle="Definición de una API personalizada que admita notificaciones periódicas | Microsoft Azure" 
 	description="Obtenga información acerca de cómo definir una API personalizada que admita notificaciones periódicas en las aplicaciones de la Tienda Windows que usan Servicios móviles de Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Definición de una API personalizada que admita notificaciones periódicas
-
-<div class="dev-center-tutorial-selector"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="C# para Tienda Windows" class="current">C# para Tienda Windows</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a>
-</div>
 
 En este tema se muestra cómo utilizar una API personalizada para admitir notificaciones periódicas en una aplicación de la Tienda Windows. Con las notificaciones periódicas habilitadas, Windows tendrá acceso de manera periódica a su extremo de API personalizada y usará el XML devuelto, en un formato específico de icono, para actualizar el icono de la aplicación en el menú Inicio. Para obtener más información, consulte [Notificaciones periódicas].
 
@@ -167,4 +163,4 @@ Ahora que ha creado una notificación periódica, podría averiguar más informa
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

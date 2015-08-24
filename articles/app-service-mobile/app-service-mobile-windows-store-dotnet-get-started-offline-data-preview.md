@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso de datos sin conexión con Aplicaciones móviles de Azure (Tienda Windows) | Centro de desarrollo móvil"
+	pageTitle="Uso de datos sin conexión con Aplicaciones móviles de Azure (Tienda Windows) | Microsoft Azure"
 	description="Obtenga información acerca de cómo usar Aplicaciones móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación de la Tienda Windows"
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -278,4 +278,4 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

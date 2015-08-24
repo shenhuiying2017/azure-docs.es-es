@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de las colas del Bus de servicio (PHP) - Azure" 
+	pageTitle="Uso de colas del Bus de servicio (PHP) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -213,4 +213,4 @@ Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, cons
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

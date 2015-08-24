@@ -10,7 +10,7 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
@@ -329,19 +329,6 @@ Si tiene varias fichas dentro de páginas HTML diferentes, puede especificar tam
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### Vistas de página cronometradas
-
-Mediante el uso de estas dos llamadas a método de trackPageView, puede analizar cuánto tiempo permanecen los usuarios en sus páginas.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-Use la misma cadena como primer parámetro en las llamadas inicial y final.
-
-Examine la métrica de Duración de la página en el [Explorador de métricas][metrics].
 
 
 ## Seguimiento de solicitudes
@@ -420,7 +407,7 @@ Utilice esta llamada para realizar un seguimiento de los tiempos de respuesta y 
             }
 ```
 
-Recuerde que los SDK del servidor incluyen un [módulo de dependencia](app-insights-dependencies.md) que detecta y realiza automáticamente el seguimiento de ciertas llamadas de dependencia, por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione. Utilizará esta llamada si desea hacer un seguimiento de las llamadas no captadas por el seguimiento automatizado, o bien si no desea instalar el agente.
+Recuerde que los SDK del servidor incluyen un [módulo de dependencia](app-insights-dependencies.md) que detecta y realiza automáticamente el seguimiento de ciertas llamadas de dependencia; por ejemplo, a bases de datos y API de REST. Debe instalar un agente en el servidor para que el módulo funcione. Utilizará esta llamada si desea hacer un seguimiento de las llamadas no captadas por el seguimiento automatizado, o bien si no desea instalar el agente.
 
 Para desactivar el módulo de seguimiento de dependencias estándar, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) y elimine la referencia a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
@@ -781,4 +768,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

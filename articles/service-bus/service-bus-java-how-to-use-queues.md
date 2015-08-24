@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilización de las colas del Bus de servicio (Java) - Azure"
+	pageTitle="Uso de colas del Bus de servicio (Java) | Microsoft Azure"
 	description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -189,4 +189,4 @@ Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, cons
   [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

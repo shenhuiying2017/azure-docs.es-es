@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Creación de una imagen de Azure RemoteApp basada en una máquina virtual de Azure"
-    description="Obtenga información sobre cómo crear una imagen para RemoteApp comenzando con una máquina virtual de Azure." 
+    description="Obtenga información sobre cómo crear una imagen para Azure RemoteApp comenzando con una máquina virtual de Azure." 
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
@@ -12,16 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
 
 # Creación de una imagen de Azure RemoteApp basada en una máquina virtual de Azure
 
-Puede crear imágenes de RemoteApp (que incluya las aplicaciones que comparte en la colección) en una máquina virtual de Azure. También agregamos una imagen de máquina virtual a la galería de imágenes de la máquina virtual de Azure que cumple con todos los requisitos de imagen de RemoteApp. Puede usar esa imagen de máquina virtual como punto de partida para su propia máquina virtual, si así lo desea. Solo busque la imagen "Host de sesión de Escritorio remoto de Windows Server" en la biblioteca.
+Puede crear imágenes de Azure RemoteApp (que incluyan las aplicaciones que comparte en la colección) desde una máquina virtual de Azure. También puede elegir usar una imagen de máquina virtual que agregamos a la galería de imágenes de máquina virtual de Azure que cumple todos los requisitos de imagen de Azure RemoteApp, y usarla como punto de partida para su propia máquina virtual, si lo desea. Solo busque la imagen "Host de sesión de Escritorio remoto de Windows Server" en la biblioteca.
 
-Existen dos pasos: la creación de la imagen y su posterior carga desde la biblioteca de la máquina virtual de Azure a Azure RemoteApp.
+Existen dos pasos para crear su propia imagen basada en una máquina virtual de Azure: crear la imagen y luego cargarla desde la biblioteca de máquinas virtuales de Azure en Azure RemoteApp.
 
 ## Creación de una imagen personalizada basada en una máquina virtual de Azure
 
@@ -41,9 +41,9 @@ Utilice estos pasos para crear una imagen basada en una máquina virtual de Azur
 
  
 
-## Importación de la imagen a la biblioteca de imágenes de RemoteApp
+## Importación de la imagen en la biblioteca de imágenes de Azure RemoteApp
 
-Utilice estos pasos para importar la imagen nueva a RemoteApp:
+Use estos pasos para importar la imagen nueva en Azure RemoteApp:
 
 1. En la pestaña **Imágenes de plantilla**:
 	- Si no dispone de imágenes existentes, haga clic en **Carga o importación de una imagen de plantilla**. 
@@ -59,4 +59,4 @@ Utilice estos pasos para importar la imagen nueva a RemoteApp:
 Ahora está listo para crear su colección, ya sea una colección [en la nube](remoteapp-create-cloud-deployment.md) o una colección [híbrida](remoteapp-create-hybrid-deployment.md), según sus necesidades.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

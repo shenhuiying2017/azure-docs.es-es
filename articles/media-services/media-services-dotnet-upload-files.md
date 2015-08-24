@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -305,4 +305,4 @@ Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obten
 [Obtención de un procesador multimedia]: media-services-get-media-processor.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

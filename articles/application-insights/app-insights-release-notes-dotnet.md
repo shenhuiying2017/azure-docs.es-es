@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/06/2015" 
 	ms.author="sergkanz"/>
  
 # Notas de la versión del SDK de Application Insights para .NET
@@ -36,7 +36,7 @@ Consulte [Introducción a Application Insights para .NET](app-insights-start-mon
 
 - Los inicializadores de telemetría que no tienen dependencias en las bibliotecas de ASP.NET se movieron desde `Microsoft.ApplicationInsights.Web` al nuevo NuGet de dependencia `Microsoft.ApplicationInsights.WindowsServer`
 - `Microsoft.ApplicationInsights.Web.dll` cambió de nombre en `Microsoft.AI.Web.dll`
-- El NuGet `Microsoft.Web.TelemetryChannel` cambió de nombre en `Microsoft.WindowsServer.TelemetryChannel`. El ensamblaje `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` cambió de nombre en `Microsoft.AI.ServerTelemetryChannel.dll`. La clase `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` cambió de nombre en `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- El NuGet `Microsoft.ApplicationInsights.Web.TelemetryChannel` cambió de nombre a `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. El ensamblaje `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` cambió de nombre a `Microsoft.AI.ServerTelemetryChannel.dll`. La clase `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` cambió de nombre a `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - Todos los espacios de nombres que forman parte del SDK web se cambiaron para excluir la parte de `Extensibility`. Eso incluye todos los inicializadores de telemetría en ApplicationInsights.config y en el módulo `ApplicationInsightsWebTracking` en web.config.
 - Las dependencias recopiladas mediante el uso del agente de instrumentación de tiempo de ejecución (habilitado a través del Monitor de estado o de la extensión Sitio web de Azure) no se marcarán como asincrónicas si no existe HttpContext.Current en el subproceso.
 - La propiedad `SamplingRatio` de `DependencyTrackingTelemetryModule` no hace nada y se marcó como obsoleta.
@@ -86,4 +86,4 @@ No existen notas de la versión para versiones anteriores.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

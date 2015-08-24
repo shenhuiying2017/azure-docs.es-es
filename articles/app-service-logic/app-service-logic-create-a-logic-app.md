@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2015"
+	ms.date="08/10/2015"
 	ms.author="stepsic"/>
 
-#Creación de una nueva aplicación lógica
+# Creación de una nueva aplicación lógica
 En este tema se muestra cómo, en solo unos minutos, puede comenzar a trabajar con las [aplicaciones lógicas de Servicios de aplicaciones](app-service-logic-what-are-logic-apps.md). Recorreremos un flujo de trabajo que permite entregar un conjunto de tweets en el que está interesado a una carpeta de Dropbox.
 
 Para usar este escenario necesitará:
@@ -27,7 +27,7 @@ Para usar este escenario necesitará:
 
 <!--- TODO: Add try it now information here -->
 
-##Obtención de conectores
+## Obtención de conectores
 
 En primer lugar, deberá crear los dos conectores que se van a usar: el [**conector de Dropbox**](app-service-logic-connector-dropbox.md) y el [**conector de Twitter**](app-service-logic-connector-twitter.md). Para crearlos:
 
@@ -59,7 +59,7 @@ En primer lugar, deberá crear los dos conectores que se van a usar: el [**conec
 
 9. Ahora repita el proceso con [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
 
-##Inicio de la aplicación lógica
+## Inicio de la aplicación lógica
 
 Ahora debe crear una nueva aplicación lógica:
 
@@ -106,6 +106,8 @@ Las acciones son lo que hace el flujo de trabajo. Puede tener cualquier número 
 	Esto concede acceso al conector a su cuenta de Twitter. Se muestra una lista de las posibles operaciones proporcionadas por el conector Twitter.
 
 	![Acciones](./media/app-service-logic-create-a-logic-app/actions.png)
+
+	> [AZURE.NOTE]El botón **Autorizar** utiliza seguridad OAUTH para conectarse a servicios de SaaS, como Twitter. Más información sobre OAUTH en [Seguridad OAUTH](app-service-logic-oauth-security.md).
 
 3. Haga clic en **Buscar tweets**, a continuación en **Especificar una consulta**, escriba algo como `#MicrosoftAzure` y haga clic en la marca de verificación verde.
 
@@ -172,4 +174,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

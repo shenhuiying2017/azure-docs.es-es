@@ -4,7 +4,7 @@
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="TomArcher"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="mwasson"/>
+	ms.date="08/11/2015"
+	ms.author="tarcher"/>
 
 # Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure
 
@@ -125,4 +125,4 @@ Para obtener información sobre la especificación de una versión de Node.js pa
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

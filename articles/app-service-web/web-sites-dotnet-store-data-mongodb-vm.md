@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 
@@ -92,7 +92,7 @@ Para instalar el controlador C# de MongoDB:
 
 	![Administración de paquetes de NuGet][VS2013ManageNuGetPackages]
 
-2. En la ventana **Administrar paquetes de NuGet**, en el panel izquierdo, haga clic en **En línea**. En el cuadro **Buscar en línea** de la derecha, escriba "mongocsharpdriver". Haga clic en **Instalar** para instalar el controlador.
+2. En la ventana **Administrar paquetes de NuGet**, en el panel izquierdo, haga clic en **En línea**. En el cuadro **Buscar en línea** de la derecha, escriba "mongodb.driver". Haga clic en **Instalar** para instalar el controlador.
 
 	![Búsqueda del controlador C# de MongoDB][SearchforMongoDBCSharpDriver]
 
@@ -101,7 +101,7 @@ Para instalar el controlador C# de MongoDB:
 4. Haga clic en **Cerrar** una vez que se haya instalado el controlador. ![Se ha instalado el controlador C# de MongoDB][MongoDBCsharpDriverInstalled]
 
 
-El controlador C# de MongoDB está ahora instalado. Las referencias a las bibliotecas **MongoDB.Driver.dll** y **MongoDB.Bson.dll** se han agregado al proyecto.
+El controlador C# de MongoDB está ahora instalado. Se han agregado al proyecto referencias a las bibliotecas **MongoDB.Bson**, **MongoDB.Driver** y **MongoDB.Driver.Core**.
 
 ![Referencias del controlador C# de MongoDB][MongoDBCSharpDriverReferences]
 
@@ -499,4 +499,4 @@ Para obtener más información sobre el desarrollo de aplicaciones C# en relaci�
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

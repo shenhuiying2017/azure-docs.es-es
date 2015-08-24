@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="06/09/2015"
+   ms.date="08/12/2015"
    ms.author="elizapo"/>
 
 # Actualización de una colección en Azure RemoteApp
@@ -36,4 +36,4 @@ Por lo tanto, ¿cómo tiene que proceder para actualizar la colección? Es basta
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

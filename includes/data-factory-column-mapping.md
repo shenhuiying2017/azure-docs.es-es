@@ -34,14 +34,14 @@ En este ejemplo la tabla de entrada tiene una estructura y apunta a una tabla SQ
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1",
+	            "interval": 1
 	        },
 			"external": true,
 			"policy": {
 	            "externalData": {
 	                "retryInterval": "00:01:00",
 	                "retryTimeout": "00:10:00",
-	                "maximumRetry": "3"
+	                "maximumRetry": 3
 	            }
 			}
 	    }
@@ -50,7 +50,7 @@ En este ejemplo la tabla de entrada tiene una estructura y apunta a una tabla SQ
 En este ejemplo, la tabla de salida tiene una estructura y apunta a un blob en un almacenamiento de blobs de Azure.
 
 	{
-	    "name": " AzureBlobOutput",
+	    "name": "AzureBlobOutput",
 	    "properties":
 	    {
 	         "structure": 
@@ -83,9 +83,9 @@ A continuación se muestra el JSON para la actividad. Las columnas del origen se
 	{
 	    "name": "CopyActivity",
 	    "description": "description", 
-	    "type": "CopyActivity",
-	    "inputs":  [ { "name": " AzureSQLInput"  } ],
-	    "outputs":  [ { "name": " AzureBlobOutput" } ],
+	    "type": "Copy",
+	    "inputs":  [ { "name": "AzureSQLInput"  } ],
+	    "outputs":  [ { "name": "AzureBlobOutput" } ],
 	    "typeProperties":    {
 	        "source":
 	        {
@@ -95,7 +95,7 @@ A continuación se muestra el JSON para la actividad. Las columnas del origen se
 	        {
 	            "type": "BlobSink"
 	        },
-	        "Translator": 
+	        "translator": 
 	        {
 	            "type": "TabularTranslator",
 	            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
@@ -149,4 +149,4 @@ En este caso, los resultados de consulta se asignan primero a las columnas espec
 
 ![Flujo de asignación de columnas 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

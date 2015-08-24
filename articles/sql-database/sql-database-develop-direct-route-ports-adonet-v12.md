@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="08/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,27 +22,6 @@
 
 
 En este tema se describen los cambios que la Base de datos SQL V12 de Azure aporta el comportamiento de conexión de los clientes que usan ADO.NET 4.5 o una versión posterior.
-
-
-## Aclaraciones de versiones
-
-
-#### ADO.NET
-
-
-- ADO.NET 4.0 admite el protocolo TDS 7.3, pero no 7.4.
-- ADO.NET 4.5 y versiones posteriores admite el protocolo TDS 7.4.
-- ADO.NET 4.5 usa internamente ODBC 11.
- - La información aquí que se aplica a ADO.NET 4.5 también se aplica a ODBC 11.
-
-
-#### Base de datos SQL V11 y V12
-
-
-En este tema se resaltan las diferencias de conexión de cliente entre la Base de datos SQL V11 y V12.
-
-
-*Nota:* la instrucción de Transact-SQL `SELECT @@version;` devuelve un valor que comienza por un número como '11.' o '12'. y esos coinciden con nuestros nombres de versión de V11 y V12 para la Base de datos SQL.
 
 
 ## V11 de la Base de datos SQL: puerto 1433
@@ -58,7 +37,7 @@ Cuando su programa de cliente usa ADO.NET 4.5 para conectarse y consultar con la
 3. La Base de datos SQL devuelve su respuesta al middleware, que la reenvía a ADO.NET para el puerto 1433.
 
 
-**Terminología:** describimos la secuencia anterior diciendo que ADO.NET interactúa con la Base de datos SQL mediante la *ruta de proxy*. Si no hay ningún middleware implicado diríamos que se usó la *ruta directa*.
+**Terminología:** describimos la secuencia anterior indicando que ADO.NET interactúa con Base de datos SQL mediante la *ruta de proxy*. Si no hay ningún middleware implicado diríamos que se usó la *ruta directa*.
 
 
 ## V12 de Base de datos SQL: fuera frente a dentro
@@ -67,16 +46,16 @@ Cuando su programa de cliente usa ADO.NET 4.5 para conectarse y consultar con la
 Para las conexiones a V12 debemos preguntar si el programa cliente se ejecuta *fuera* o *dentro* del límite de la nube de Azure. En las subsecciones se describen dos escenarios comunes.
 
 
-#### *Fuera:* el cliente se ejecuta en su equipo de escritorio
+#### *Fuera:* el cliente se ejecuta en el equipo de escritorio
 
 
 El puerto 1433 es el único puerto que debe estar abierto en su equipo de escritorio que hospeda su aplicación de cliente de la Base de datos SQL.
 
 
-#### *Dentro:* el cliente se ejecuta en una VM de Azure
+#### *Dentro:* el cliente se ejecuta en Azure
 
 
-Cuando su cliente se ejecuta dentro del límite de la nube de Azure, usa lo que podemos llamar una *ruta directa* para interactuar con el servidor de la Base de datos SQL. Cuando se ha establecido una conexión, las interacciones posteriores entre el cliente y la base de datos no implican ningún proxy de middleware.
+Cuando el cliente se ejecuta dentro del límite de la nube de Azure, usa lo que podemos llamar una *ruta directa* para interactuar con el servidor de Base de datos SQL. Cuando se ha establecido una conexión, las interacciones posteriores entre el cliente y la base de datos no implican ningún proxy de middleware.
 
 
 La secuencia es la siguiente:
@@ -116,12 +95,34 @@ En ambos escenarios se recomienda que los clientes implementen la lógica de rei
 Para los ejemplos de código que muestran lógica de reintento, vea: [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md).
 
 
+## Aclaraciones de versiones
+
+
+En esta sección se explican los monikers que hacen referencia a las versiones de producto. También se muestran algunos emparejamientos de versiones entre productos.
+
+
+#### ADO.NET
+
+
+- ADO.NET 4.0 admite el protocolo TDS 7.3, pero no 7.4.
+- ADO.NET 4.5 y versiones posteriores admite el protocolo TDS 7.4.
+
+
+#### Base de datos SQL V11 y V12
+
+
+En este tema se resaltan las diferencias de conexión de cliente entre la Base de datos SQL V11 y V12.
+
+
+*Nota:* la instrucción de Transact-SQL `SELECT @@version;` devuelve un valor que comienza por un número como '11.' o '12.', que coinciden con nuestros nombres de versión de V11 y V12 para Base de datos SQL.
+
+
 ## Vínculos relacionados
 
 
 - [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md)
 
-- Consideraciones sobre la lógica de reintento:[ sección "Puerta de enlace ya no proporciona la lógica de reintento en V12" del tema "Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño"](sql-database-connect-central-recommendations.md#gatewaynoretry)
+- Consideraciones sobre la lógica de reintento: la sección ["Puerta de enlace ya no proporciona la lógica de reintento en V12" del tema "Conexión a Base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño"](sql-database-connect-central-recommendations.md#gatewaynoretry)
 
 - ADO.NET 4.6 se publicó el 20 de julio de 2015. Hay un anuncio de blog del equipo de .NET disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
@@ -130,4 +131,4 @@ Para los ejemplos de código que muestran lógica de reintento, vea: [Ejemplos d
 
 - [Lista de versiones del protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

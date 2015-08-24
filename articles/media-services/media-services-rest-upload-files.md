@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
-
 
 
 #Carga de archivos en una cuenta de Servicios multimedia mediante API de REST
@@ -367,4 +366,4 @@ Si se realiza correctamente, se devuelve lo siguiente:
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

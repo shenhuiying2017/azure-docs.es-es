@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de las colas del Bus de servicio (Python) - Azure" 
+	pageTitle="Uso de colas del Bus de servicio (Python) | Microsoft Azure" 
 	description="Aprenda a usar las colas de del Bus de servicio de Azure desde Python." 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -98,4 +98,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vÃ
 [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/04/2015"
+	ms.date="08/13/2015"
 	ms.author="jeffstok"/>
 
 # Comparación de Apache Storm y el Análisis de transmisiones de Azure #
@@ -123,7 +123,7 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
                     El precio de Análisis de transmisiones varía según el volumen de datos procesados y el número de unidades de streaming necesarias (por cada hora en la que se está ejecutando el trabajo).
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Puede encontrar más información sobre los precios aquí.</a>
+                    <a href="http://azure.microsoft.com/es-es/pricing/details/stream-analytics/">Puede encontrar más información sobre los precios aquí.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -131,7 +131,7 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
                     Para Apache Storm en HDInsight, la unidad de compra está basada en el clúster y se cobra según la hora en la que el clúster se ejecuta, independientemente de los trabajos implementados.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Puede encontrar más información sobre los precios aquí.</a>
+                    <a href="http://azure.microsoft.com/es-es/pricing/details/hdinsight/">Puede encontrar más información sobre los precios aquí.</a>
                 </p>
             </td>
         </tr>
@@ -589,4 +589,4 @@ Aunque ambos proporcionan las ventajas de una solución PaaS, hay algunas capaci
     </tbody>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

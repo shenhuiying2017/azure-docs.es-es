@@ -19,7 +19,7 @@
 
 Copia de seguridad automatizada configura automáticamente [Copia de seguridad administrada para Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) para todas las bases de datos existentes y nuevas en una máquina virtual de Azure que ejecuta SQL Server 2014 Standard y Enterprise. Esto le permite configurar copias de seguridad de datos normales que utilizan el almacenamiento de blobs de Azure.
 
->[AZURE.IMPORTANT]Copia de seguridad automatizada se basa en el agente de IaaS de SQL Server. Para instalar y configurar el agente, debe disponer del agente de máquina virtual de Azure en la máquina virtual de destino. Las imágenes de la galería de la máquina virtual más recientes tienen esta opción habilitada de forma predeterminada, pero el agente de máquina virtual de Azure puede faltar en las máquinas virtuales existentes. Si usa su propia imagen de máquina virtual, también tendrá que instalar el agente de IaaS de SQL Server. Para obtener más información, vea [Agente de máquina virtual y extensiones](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+>[AZURE.NOTE]Copia de seguridad automatizada se basa en el agente de IaaS de SQL Server. Para instalar y configurar el agente, debe disponer del agente de máquina virtual de Azure en la máquina virtual de destino. Las imágenes de la galería de la máquina virtual más recientes tienen esta opción habilitada de forma predeterminada, pero el agente de máquina virtual de Azure puede faltar en las máquinas virtuales existentes. Si usa su propia imagen de máquina virtual, también tendrá que instalar el agente de IaaS de SQL Server. Para obtener más información, vea [Agente de máquina virtual y extensiones](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ## Configuración de Copia de seguridad automatizada
 
@@ -109,4 +109,4 @@ Una característica relacionada para máquinas virtuales de SQL Server es [Aplic
 
 Revise otros [recursos para ejecutar SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

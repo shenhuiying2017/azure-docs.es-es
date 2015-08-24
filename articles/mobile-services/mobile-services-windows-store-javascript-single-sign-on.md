@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Autenticación de una aplicación de la Tienda Windows con la autenticación del cliente administrada mediante la cuenta de Microsoft
@@ -145,4 +145,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

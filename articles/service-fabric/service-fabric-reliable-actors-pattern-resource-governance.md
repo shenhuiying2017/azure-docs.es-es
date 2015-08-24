@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Patrón de diseño de gobernanza de recursos de Actores confiables"
-   description="Patrón de diseño sobre cómo se puede usar Actores confiables de Service Fabric para modelar la aplicación que se necesita escalar, pero con el uso de recursos restringidos"
+   pageTitle="Patrón de diseño de gobernanza de recursos de los actores de Service Fabric de Azure"
+   description="Patrón de diseño sobre cómo se pueden usar los actores de Service Fabric para modelar la aplicación que se necesita escalar, pero con el uso de recursos restringidos"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Patrón de diseño de Actores confiables: gobernanza de recursos
@@ -417,4 +417,4 @@ Este patrón es muy habitual en escenarios en los que los desarrolladores tienen
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

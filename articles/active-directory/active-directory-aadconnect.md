@@ -229,6 +229,7 @@ Habilitar el modo provisional | Esto permite almacenar información que se sincr
 ### Documentación adicional
 Para ver documentación adicional acerca de cómo trabajar con Azure AD Connect, consulte lo siguiente:
 
+- [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md) 
 - [Cambio de la configuración predeterminada de Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Uso del editor de reglas de sincronización de Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Uso del aprovisionamiento declarativo](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -257,4 +258,4 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

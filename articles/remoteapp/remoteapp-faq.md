@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/06/2015" 
 	ms.author="elizapo"/>
 
 # Preguntas más frecuentes sobre Azure RemoteApp
@@ -22,17 +22,17 @@ Hemos recibido las siguientes preguntas acerca de Azure RemoteApp. ¿Tiene algun
 ## ¿Qué es Azure RemoteApp? ##
 
 
-- **¿Qué es RemoteApp de Azure?** RemoteApp es un servicio de Azure que ofrece las funciones de RemoteApp de Microsoft local, que cuenta con el respaldo de Servicios de Escritorio remoto Azure. RemoteApp ayuda a proporcionar acceso remoto y seguro a aplicaciones desde diferentes dispositivos de usuario. Obtenga más información sobre [RemoteApp de Azure](remoteapp-whatis.md).
+- **¿Qué es RemoteApp de Azure?** RemoteApp es un servicio de Azure que ayuda a proporcionar acceso remoto seguro a las aplicaciones desde muchos dispositivos de usuario diferentes. Obtenga más información sobre [RemoteApp de Azure](remoteapp-whatis.md).
 - **¿Cuáles son los dos tipos de opciones de implementación?** Hay dos tipos de implementaciones de RemoteApp (o colecciones): híbridas y nube. Averigüe qué [opción de implementación](remoteapp-whatis.md) funciona mejor en su organización.
 
 ## Configuraciones admitidas ##
 
-- **¿Cuáles son los límites de servicio?** Acabamos de agregar un nuevo tema donde se tratan todos [los límites de servicio y los valores predeterminados](remoteapp-servicelimits.md). Indíquenos si tiene otras preguntas.
-- **¿Cuántos usuarios es necesario tener?** Hay un mínimo de 20 usuarios. Permítame que me repita para que quede más claro: el valor mínimo es 20. Se le facturarán 20. Consulte otros [límites y valores predeterminados de usuario](remoteapp-servicelimits.md) aquí.
+- **¿Cuáles son los límites de servicio?** Puede aprender sobre la configuración predeterminada y los límites del servicio de Azure RemoteApp en [Suscripción de Azure y límites de servicio, cuotas y restricciones](.\azure-subscription-service-limits.md). Indíquenos si tiene otras preguntas.
+- **¿Cuántos usuarios es necesario tener?** Hay un mínimo de 20 usuarios. Permítame que me repita para que quede más claro: el valor mínimo es 20. Se le facturarán 20. 
 - **¿Son compatibles las aplicaciones personalizadas de línea de negocio (LOB)?** Sí. Para usar una aplicación personalizada de RemoteApp de Azure, cree una [imagen de plantilla personalizada](remoteapp-create-custom-image.md), y cárguela en la colección de RemoteApp.
 - **¿Funcionará mi aplicación personalizada de LOB en RemoteApp de Azure?** La mejor manera de averiguarlo es probándola. Revise los [requisitos de compatibilidad de aplicaciones](http://www.microsoft.com/download/details.aspx?id=18704) y consulte el [Centro de compatibilidad de Escritorio remoto](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **¿Qué método de implementación (nube o híbrida) es mejor para mi organización?** Las colecciones híbridas ofrecen una mejor experiencia si desea una integración completa y segura con el inicio de sesión único (SSO) en entornos locales de conectividad de red. Las colecciones de nube ofrecen una manera fácil y ágil para aislar la implementación usando varios métodos de autenticación. Obtenga más información sobre las [Opciones de implementación](remoteapp-whatis.md).
-- **La colección híbrida requiere una red virtual. ¿Podemos usar nuestra red virtual existente?** Puede hacerlo si la red virtual existente es una red virtual de Azure. Vea "Paso 1: Configuración de la red virtual" en las [instrucciones de colección híbrida](remoteapp-create-hybrid-deployment.md) para obtener más información.
+- **La colección híbrida requiere una red virtual. ¿Podemos usar nuestra red virtual existente?** Puede hacerlo si la red virtual existente es una red virtual de Azure. Para obtener más información, vea el "Paso 1: Configuración de la red virtual" en las [instrucciones de colección híbrida](remoteapp-create-hybrid-deployment.md).
 - **¿Puedo usar una nube o una máquina virtual existente como plantilla para mi colección de RemoteApp?** Sí. Puede crear una imagen basada en una máquina virtual de Azure, usar una de las imágenes que se incluyen con su suscripción o crear una imagen personalizada. Consulte las [Opciones de imagen de RemoteApp](remoteapp-imageoptions.md).
 - **Tenemos SQL u otra base de datos en implementación local o en Azure. ¿Qué tipo de implementación debemos usar?** Depende de dónde esté la base de datos SQL o back-end. Si la base de datos está en una red privada, use la colección híbrida. Si la base de datos está expuesta en Internet y permite conexiones cliente para conectarse a ella, puede usar la colección en la nube.
 - **¿Qué sucede con las características de asignación de unidad, puerto serie y USB, uso compartido del Portapapeles y redirección de impresora?** Todas estas características se admiten en RemoteApp de Azure. El uso compartido del Portapapeles y la redirección de impresora se habilitan de forma predeterminada. Puede obtener más información sobre la redirección [aquí](remoteapp-redirection.md). 
@@ -82,4 +82,4 @@ Hemos recibido las siguientes preguntas acerca de Azure RemoteApp. ¿Tiene algun
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

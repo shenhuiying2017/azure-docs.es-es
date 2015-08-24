@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -186,4 +186,4 @@ También se muestra cómo el cliente puede usar esta clase.
 	Console.WriteLine(channelId);
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

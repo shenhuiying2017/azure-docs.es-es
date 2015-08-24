@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a la sincronización de datos sin conexión en Servicios móviles (iOS) | Centro de desarrollo móvil"
+	pageTitle="Introducción a la sincronización de datos sin conexión en Servicios móviles (iOS) | Microsoft Azure"
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación iOS"
 	documentationCenter="ios"
 	authors="krisragh"
@@ -271,4 +271,4 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 [Tutorial de inicio rápido de Servicios móviles]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -5,7 +5,8 @@
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -93,4 +94,4 @@ Para crear una nueva máquina virtual Windows en Azure, siga las instrucciones d
 - Como miembro de un conjunto de carga equilibrada;
 - Con una dirección IP estática.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

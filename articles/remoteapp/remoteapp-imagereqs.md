@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -42,5 +42,6 @@ Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de 
 - La imagen debe estar preparada con sysprep con los parámetros **/oobe /generalize /shutdown** (No USE el parámetro **/mode:vm**).
 - No se admite la carga de su VHD desde una cadena de instantáneas.
  
+Consulte [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md) para obtener más información sobre la creación de imágenes para Azure RemoteApp.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

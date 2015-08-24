@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registro para autenticación de Google - Servicios móviles" 
+	pageTitle="Registro para la autenticación de Google | Microsoft Azure" 
 	description="Obtenga información acerca de cómo registrar las aplicaciones para usar Google para autenticarse con los Servicios móviles de Azure." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -62,4 +62,4 @@ Ahora está listo para configurar el servicio móvil para utilizar inicio de ses
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

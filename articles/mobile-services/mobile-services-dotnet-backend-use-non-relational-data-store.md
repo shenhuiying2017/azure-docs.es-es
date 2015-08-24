@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de un servicio mediante un almacén de datos no relacionales - Servicios móviles de Azure" 
+	pageTitle="Creación de un servicio mediante un almacén de datos no relacionales | Microsoft Azure" 
 	description="Obtener información acerca de cómo usar un almacén de datos no relacionales como MongoDB o almacenamiento de tablas de Azure con su servicio móvil basado en .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # Creación de servicio móvil de back-end de .NET que usa MongoDB en lugar de una base de datos SQL para el almacenamiento
@@ -121,4 +121,4 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 [Página del complemento MongoLab]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

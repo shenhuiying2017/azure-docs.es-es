@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -25,22 +25,21 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
 #### Para crear una solicitud de soporte
 
-1. Las solicitudes de soporte pueden crearse a través del [Portal de administración](http://manage.windowsazure.com/). En el [Portal de administración](http://manage.windowsazure.com/), haga clic en su **Nombre de cuenta** y, a continuación, haga clic en **Contactar al soporte técnico de Microsoft**.
+1. Las solicitudes de soporte técnico pueden crearse a través del [Portal de administración](http://manage.windowsazure.com/). En el [Portal de administración](http://manage.windowsazure.com/), haga clic en su **Nombre de cuenta** y, a continuación, haga clic en **Contactar al soporte técnico de Microsoft**.
 
 	![Contactar al soporte técnico de MS a través del Portal de administración](./media/storsimple-contact-microsoft-support/IC777286.png)
 
-1. En el cuadro de diálogo **Contactar al soporte técnico de Microsoft**:
+2. En el cuadro de diálogo **Contactar al soporte técnico de Microsoft**:
 
+	1. En la lista desplegable, seleccione la **Suscripción** de destino asociada con su servicio StorSimple Manager. En **Tipo de soporte** especifique **Técnico**. Para habilitar el soporte técnico, debe contar con un plan de soporte técnico de pago.
 
-	- En la lista desplegable, seleccione la **Suscripción** de destino asociada con su servicio de Administrador de StorSimple. En **Tipo de soporte** especifique **Técnico**. Para habilitar el soporte técnico, debe contar con un plan de soporte pago.
+	2. Haga clic en el icono ![Icono de marca de verificación](./media/storsimple-contact-microsoft-support/IC740895.png) para ejecutar la opción **Crear incidencia**.
 
-	1. Haga clic en el icono ![Icono de marca de verificación](./media/storsimple-contact-microsoft-support/IC740895.png) para ejecutar la opción **Crear incidencia**.
-
-1. En la ventana **Soporte técnico de Microsoft**, de la lista desplegable **Producto**, elija **StorSimple**.
+3. En la ventana **Soporte técnico de Microsoft**, en la lista desplegable **Producto**, elija **StorSimple**.
 
 	![Contactar al soporte técnico de Microsoft - Producto](./media/storsimple-contact-microsoft-support/IC777288.png)
 
-1. Siga las instrucciones en pantalla para clasificar la solicitud correctamente y proporcionar una descripción clara y específica de su problema.
+4. Siga las instrucciones en pantalla para clasificar la solicitud correctamente y proporcionar una descripción clara y específica de su problema.
 
 Una vez que ha enviado la solicitud, un ingeniero de soporte se pondrá en contacto con usted tan pronto como sea posible para procesar su solicitud.
 
@@ -52,24 +51,24 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 
 #### Para iniciar una sesión de soporte
 
-1. Acceda al dispositivo directamente desde la consola serie o a través de una sesión de telnet desde un equipo remoto. Para ello, siga los pasos descritos en [Uso de PuTTy para conectarse a la consola serie del dispositivo](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Acceda al dispositivo directamente desde la consola serie o a través de una sesión de telnet desde un equipo remoto. Para ello, siga los pasos descritos en [Uso de PuTTy para conectarse a la consola serie del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-1. En la sesión que se abre, presione **Entrar** para obtener un símbolo del sistema.
+2. En la sesión que se abre, presione la tecla **Entrar** para obtener un símbolo del sistema.
 
-1. En el menú de la consola serie, seleccione la opción 1, **iniciar sesión con acceso completo**.
+3. En el menú de la consola serie, seleccione la opción 1, **iniciar sesión con acceso completo**.
 
-1. En el símbolo del sistema, escriba la siguiente contraseña:
+4. En el símbolo del sistema, escriba la siguiente contraseña:
 
 	`Password1`
 
-1. En el símbolo del sistema, escriba el siguiente comando:
+5. En el símbolo del sistema, escriba el siguiente comando:
 
 	`Enable-HcsSupportAccess`
 
-1. Aparecerá una cadena cifrada. Copie esta cadena en un editor de texto como el Bloc de notas.
+6. Aparecerá una cadena cifrada. Copie esta cadena en un editor de texto como el Bloc de notas.
 
-1. Guarde esta cadena y enviéla por correo electrónico al soporte técnico de Microsoft.
+7. Guarde esta cadena y enviéla por correo electrónico al soporte técnico de Microsoft.
 
-> [AZURE.IMPORTANT]Puede deshabilitar el acceso al soporte técnico ejecutando`Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
+> [AZURE.IMPORTANT]Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

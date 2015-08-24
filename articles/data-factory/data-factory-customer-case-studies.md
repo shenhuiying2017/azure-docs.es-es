@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Casos prácticos de clientes | Generador de datos de Azure" 
+	pageTitle="Casos prácticos de clientes | Microsoft Azure" 
 	description="Obtenga información sobre la manera en que algunos de nuestros clientes han venido utilizando la Factoría de datos de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -48,4 +48,4 @@ Factoría de datos es un servicio de administración de información basado en l
 
 [Búsqueda de una mejor conexión con los clientes a través del aprendizaje automático en la nube](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

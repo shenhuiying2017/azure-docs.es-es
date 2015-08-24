@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Cómo usar temas de Service Bus (.NET) - Azure"
+    pageTitle="Uso de temas del Bus de servicio (.NET) | Microsoft Azure"
     description="Aprenda a usar los temas y las suscripciones del Bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones .NET."
     services="service-bus"
     documentationCenter=".net"
@@ -302,4 +302,4 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

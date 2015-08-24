@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="08/09/2015"
    ms.author="stepsic"/>
 
-#Conector de recursos de Azure
+# Conector de recursos de Azure
 El Conector de recursos de Azure ofrece una manera fácil de administrar los recursos de Azure dentro de la aplicación lógica.
 
-##Creación de la aplicación de API
+## Creación del Conector de recursos de Azure
 Para usar la aplicación de API del Conector de recursos de Azure, deberá crear primero una instancia de ella. Esta tarea puede realizarse en línea mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API del Conector del Administrador de recursos de Azure en Azure Marketplace.
 
 Para configurarlo, tendrá que establecer una entidad de servicio con permisos para realizar lo que desee hacer en Azure. Todas las llamadas se realizan en nombre de esta entidad de servicio que configura. Esto le permitirá definir el ámbito del conector para utilizar solo exactamente lo que desea hacer y nada más.
 
 David Ebbo ha escrito [una gran cantidad de entradas de blog ](http://blog.davidebbo.com/2014/12/azure-service-principal.html) sobre su configuración. Siga todas las instrucciones y obtenga el **Id. de inquilino**, el **Id. de cliente** y el **Secreto**. Estos tres campos, más el de **Id. de suscripción** son los necesarios para configurar el Conector.
 
-##Uso del Conector de recursos de Azure en la superficie del diseñador de aplicaciones lógicas
-###Desencadenador
+## Uso del Conector de recursos de Azure en el diseñador de Aplicaciones lógicas
+### Desencadenador
 Hay dos desencadenadores admitidos en el Conector:
 
 Nombre | Descripción 
@@ -35,7 +35,7 @@ Nombre | Descripción
 Se produce el evento | Se activa cuando se produce un evento en un recurso en la suscripción. 
 Métrica supera el umbral | Se activa cuando una métrica alcanza un umbral determinado.
 
-###Acción
+### Acción
 
 Del mismo modo, puede proporcionar un gran número de acciones dentro de la suscripción de Azure:
  
@@ -94,4 +94,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

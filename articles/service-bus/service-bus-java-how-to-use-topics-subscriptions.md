@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso de los temas del Bus de servicio (Java) - Azure"
+	pageTitle="Uso de temas del Bus de servicio (Java) | Microsoft Azure"
 	description="Aprenda a usar los temas y las suscripciones del Bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -247,4 +247,4 @@ Ahora que ha aprendido los conceptos básicos de las colas de bus de servicio, c
   [Colas, temas y suscripciones del Service Bus]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

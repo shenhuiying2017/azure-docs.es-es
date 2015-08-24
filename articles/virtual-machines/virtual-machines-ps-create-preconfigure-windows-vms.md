@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 En estos pasos se muestra cómo personalizar un conjunto de comandos de Azure PowerShell que creen y preconfiguren una máquina virtual de Azure basada en Windows mediante el uso de un enfoque de bloque de creación. Puede utilizar este proceso para crear un conjunto de comandos para una nueva máquina virtual basada en Windows rápidamente y expandir una implementación existente, o para crear varios conjuntos de comandos que creen rápidamente un entorno de profesionales de TI, o de desarrollo o pruebas.
@@ -46,7 +47,7 @@ Establezca su cuenta de suscripción y almacenamiento de Azure mediante la ejecu
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-Puede obtener el nombre de suscripción correcto con la propiedad SubscriptionName de la salida del comando **Get-AzureSubscription**. Puede obtener el nombre de cuenta de almacenamiento correcto desde la propiedad Label de la salida del comando **Get-AzureStorageAccount** cuando se emite el comando **Select-AzureSubscription**.
+Puede obtener el nombre de suscripción correcto con la propiedad SubscriptionName de la salida del comando **Get-AzureSubscription**. Puede obtener el nombre de cuenta de almacenamiento correcto desde la propiedad Label de la salida del comando **Get-AzureStorageAccount** después de emitirse el comando **Select-AzureSubscription**.
 
 ## Paso 3: Determinación de ImageFamily
 
@@ -141,7 +142,7 @@ Para un controlador de dominio de Active Directory, establezca $hcaching en "Non
 
 Si lo desea, puede agregar la máquina virtual a un conjunto de equilibrio de carga existente para el tráfico externo.
 
-	$prot="<Specify one: tcp, udp>"
+	$port="<Specify one: tcp, udp>"
 	$localport=<port number of the internal port>
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
@@ -151,7 +152,7 @@ Si lo desea, puede agregar la máquina virtual a un conjunto de equilibrio de ca
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-Por último, inicie el proceso de creación de la máquina virtual mediante la elección de uno de estos bloques de comandos (obligatorio).
+Por último, elija uno de estos bloques de comandos necesarios para crear la máquina virtual.
 
 Opción 1: Creación de la máquina virtual en un servicio en la nube existente.
 
@@ -256,7 +257,7 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 
 ## Recursos adicionales
-<!-- For section headings, use sentence-case caps -->
+
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Preguntas más frecuentes sobre las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
@@ -269,4 +270,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Creación de una máquina virtual de Windows con el Administrador de recursos de Azure y PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

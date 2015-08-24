@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -31,109 +31,35 @@ Muchas cargas de trabajo utilizan SQL Server como base. Las aplicaciones como Sh
 
 Site Recovery puede proteger SQL Server que se ejecuta como una máquina virtual de Hyper-V, una máquina virtual de VMware o un servidor físico.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td colspan = "2"><b>Hyper-V</b></td>
-		<td colspan = "2"><b>VMware</b></td>
-		<td colspan = "2"><b>Servidor físico</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>De local a local</td>
-		<td>De local a Azure</td>
-		<td>De local a local</td>
-		<td>De local a Azure</td>
-		<td>De local a local</td>
-		<td>De local a Azure</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Sí</td>
-		<td>Sí</td>
-		<td>Sí</td>
-		<td>Próximamente</td>
-		<td>Sí</td>
-		<td>Próximamente</td>
-    </tr>
-    </tbody>
-    </table>
+ |**De local a local** | **De local a Azure** 
+---|---|---
+**Hyper-V** | Sí | Sí
+**VMware** | Sí | Sí 
+**Servidor físico** | Sí | Sí
+
 
 ## Compatibilidad e integración
 
 Site Recovery se puede integrar con las tecnologías nativas de SQL Server BCDR resumidas en la tabla para proporcionar una solución de recuperación ante desastres.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Característica</b></td>
-		<td><b>Detalles</b></td>
-		<td><b>Versión de SQL Server</b></td>
-    </tr>
-    </tr><tr align="left" valign="top">
-		<td><b>Grupos de disponibilidad AlwaysOn</b></td>
-		<td><p>Múltiples instancias independientes de SQL Server se ejecutan en un clúster de conmutación por error que tienen varios nodos.</p> <p>Las bases de datos se pueden agrupar en grupos de conmutación por error que se puede copiar (reflejar) en instancias de SQL Server para que no se necesite ningún almacenamiento compartido.</p> <p>Proporciona recuperación ante desastres entre un sitio principal y uno o más sitios secundarios. Dos nodos pueden configurarse en un clúster no compartido con Bases de datos de SQL Server configurado en un grupo de disponibilidad con replicación sincrónica y conmutación por error automática.</p></td>
-		<td>SQL Server 2014/2012 Enterprise Edition</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>Clústeres de conmutación por error (FCI AlwaysOn)</b></td>
-		<td><p>SQL Server aprovecha los clústeres de conmutación por error de Windows para una alta disponibilidad de las cargas de trabajo de SQL Server local.</p><p>Los nodos que ejecutan instancias de SQL Server con discos compartidos se configuran en un clúster de conmutación por error. Si una instancia está inactiva, el clúster conmuta por error a otro.</p> <p>El clúster no protege ante errores o interrupciones en el almacenamiento compartido. El disco compartido se puede implementar con iSCSI, canal de fibra o VHDX compartido.</p></td>
-		<td><p>Ediciones de SQL Server Enterprise</p> <p>SQL Server Standard Edition (limitado solo a dos nodos)</p></td>
-	<tr align="left" valign="top">
-		<td><b>Creación de un reflejo de la base de datos en modo de alta seguridad</b></td>
-		<td>Protege una sola base de datos en una única copia secundaria. Disponible en modos de replicación de seguridad alta (sincrónica) y de alto rendimiento (asincrónica). No requiere un clúster de conmutación por error.</td>
-		<td><p>SQL Server 2008 R2</p><p>Todas las ediciones de SQL Server Enterprise</p></td>
-    </tr>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>SQL Server independiente</b></td>
-		<td>SQL Server y la base de datos se hospedan en un único servidor (físico o virtual). Los clústeres de host se utilizan para lograr alta disponibilidad, si el servidor virtual. Sin alta disponibilidad de nivel de invitado.</td>
-		<td>Edición Enterprise o Standard</td>
- 
-    </tbody>
-    </table>
+**Característica** |**Detalles** | **Versión de SQL Server** 
+---|---|---
+**Grupo de disponibilidad AlwaysOn** | <p>Se ejecutan varias instancias independientes de SQL Server en un clúster de conmutación por error que tiene varios nodos.</p> <p>Las bases de datos se pueden repartir en grupos de conmutación por error que pueden copiarse (reflejarse) en instancias de SQL Server para que no se necesite ningún almacenamiento compartido.</p> <p>Proporciona recuperación ante desastres entre un sitio principal y uno o varios sitios secundarios. Se pueden configurar dos nodos en un clúster no compartido con bases de datos de SQL Server configuradas en un grupo de disponibilidad con replicación sincrónica y conmutación por error automática.</p> | SQL Server 2014/2012 Enterprise Edition
+**Clústeres de conmutación por error (FCI AlwaysOn)** | <p>SQL Server aprovecha los clústeres de la conmutación por error de Windows para la alta disponibilidad de las cargas de trabajo locales de SQL Server.</p><p>Los nodos que ejecutan instancias de SQL Server con discos compartidos se configuran en un clúster de conmutación por error. Si una instancia está inactiva, el clúster conmuta por error en otro.</p> <p>El clúster no protege ante errores o interrupciones en el almacenamiento compartido. El disco compartido se puede implementar con iSCSI, canal de fibra o VHDX compartidos.</p> | Ediciones de SQL Server Enterprise</p> <p>SQL Server Standard Edition (limitado solo a dos nodos)
+**Creación de un reflejo de la base de datos (modo de alta seguridad)** | Protege una sola base de datos en una única copia secundaria. Disponible en modos de replicación de seguridad alta (sincrónica) y de alto rendimiento (asincrónica). No requiere un clúster de conmutación por error. | <p>SQL Server 2008 R2</p><p>Todas las ediciones de SQL Server Enterprise</p>
+**SQL Server independiente** | SQL Server y la base de datos se hospedan en un único servidor (físico o virtual). Los clústeres de host se utilizan para lograr alta disponibilidad, si el servidor virtual. Sin alta disponibilidad de nivel de invitado. | Edición Enterprise o Standard
+
+
 
 La siguiente tabla resume nuestras recomendaciones para integrar las tecnologías de SQL Server BCDR en la implementación de Site Recovery.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Versión</b></td>
-		<td><b>Edición</b></td>
-		<td><b>Implementación</b></td>
-		<td><b>De local a local</b></td>
-		<td><b>De local a Azure</b>&lt;/td
-    </tr>
-    <tr align="left" valign="top">
-		<td rowspan = "3">SQL Server 2014 o 2012</td>
-		<td rowspan = "2">Enterprise</td>
-		<td>Instancia de clúster de conmutación por error</td>
-		<td>Grupos de disponibilidad AlwaysOn</td>
-		<td>Grupos de disponibilidad AlwaysOn</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Grupos de disponibilidad AlwaysOn para alta disponibilidad</td>
-		<td>Grupo de disponibilidad AlwaysOn</td>
-		<td>Grupo de disponibilidad AlwaysOn</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Standard</td>
-		<td>Instancia de clúster de conmutación por error</td>
-		<td>Replicación de Site Recovery con un reflejo local</td>
-		<td>Replicación de Site Recovery con un reflejo local</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Enterprise o Standard</td>
-		<td>Independiente</td>
-		<td>Replicación de Site Recovery con un reflejo local</td>
-		<td>Replicación de Site Recovery con un reflejo local</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>SQL Server 2008 R2</td><td>Enterprise o Standard</td>
-		<td>Independiente</td>
-		<td>Replicación de Site Recovery con un reflejo local</td>
-		<td>Replicación de Site Recovery con un reflejo local</td>
-    </tr>
-    </tbody>
-    </table>
+**Versión** |**Edición** | **Implementación** | **De local a local** | **De local a Azure** 
+---|---|---|---|
+SQL Server 2014 o 2012 | Enterprise | Instancia de clúster de conmutación por error | Grupos de disponibilidad AlwaysOn | Grupos de disponibilidad AlwaysOn
+ | Enterprise | Grupos de disponibilidad AlwaysOn para alta disponibilidad | Grupo de disponibilidad AlwaysOn | Grupo de disponibilidad AlwaysOn
+ | Standard | Instancia de clúster de conmutación por error | Replicación de Site Recovery con un reflejo local | Replicación de Site Recovery con un reflejo local
+ | Enterprise o Standard | Independiente | Replicación de Site Recovery con un reflejo local | Replicación de Site Recovery con un reflejo local
+SQL Server 2008 R2 | Enterprise o Standard | Independiente | Replicación de Site Recovery con un reflejo local | Replicación de Site Recovery con un reflejo local
 
 
 ## Requisitos previos de implementación
@@ -436,4 +362,4 @@ Para los clústeres SQL estándar, la conmutación por recuperación después de
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

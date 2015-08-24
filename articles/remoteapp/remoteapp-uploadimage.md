@@ -3,7 +3,7 @@
     pageTitle="Carga de una imagen personalizada para RemoteApp de Azure"
     description="Obtenga información sobre cómo cargar una imagen personalizada para RemoteApp de Azure" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="ericor" />
 
 
@@ -35,7 +35,7 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 4.      Escriba un nombre descriptivo para la imagen y especifique la ubicación de la cuenta de almacenamiento. Asegúrese de que la ubicación es la misma que para la colección de RemoteApp o una ubicación donde desea crear una. 
 5.      Cuando se le solicite, descargue el script a su equipo local.
 6.      Copie los parámetros de comando del cuadro de texto en el portapapeles.
-7.      Abra una ventana de Windows PowerShell con privilegios elevados.  
+7.      Abra una ventana de Windows PowerShell con privilegios elevados.
 8.      Desde la ventana de Windows PowerShell con privilegios elevados, navegue al mismo directorio al que descargó el script.
 9.      Pegue el comando copiado y presione **Entrar**.
 
@@ -52,4 +52,4 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 - Si el archivo vhd se bloquea durante la carga, cópielo o muévalo a una nueva ubicación e intente volver a cargarlo. Es posible que algunos procesos de Windows impidan la carga.  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

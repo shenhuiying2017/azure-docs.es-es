@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/09/2015"
+    ms.date="08/06/2015"
     ms.author="banders"/>
 
 # Incorporación a Visión operativa en minutos
@@ -97,4 +97,4 @@ Con Operations Management Suite puede buscar rápidamente registros de IIS y eve
 - Familiarizarse con la [búsqueda](operational-insights-search.md)
 - Usar [paneles](operational-insights-use-dashboards.md) para guardar y mostrar búsquedas personalizadas
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

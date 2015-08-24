@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 #Administración de recursos en el almacenamiento
-
-Este artículo forma parte de la serie [Flujo de trabajo del vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
 
 
 Después de crear recursos multimedia, puede obtener acceso a ellos y administrarlos en el servidor. También puede administrar otros objetos en el servidor que forman parte de Servicios multimedia, como trabajos, tareas, directivas de acceso, localizadores y otros objetos.
@@ -86,4 +84,4 @@ El siguiente fragmento de código elimina todos los recursos de la cuenta de Ser
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

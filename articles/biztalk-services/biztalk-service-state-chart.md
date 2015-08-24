@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tareas permitidas en diferentes condiciones o estados de Servicios de BizTalk | Azure" 
+	pageTitle="Tareas permitidas en diferentes condiciones o estados de Servicios de BizTalk | Microsoft Azure" 
 	description="Las acciones o las operaciones admitidas en distintos estados de MABS: detener, iniciar, reiniciar, suspender, reanudar, eliminar, escalar, actualizar configuración y realizar copias de seguridad." 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -267,4 +267,4 @@ RestoreFailed<br/></b></td>
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

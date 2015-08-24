@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Configuración de directivas de entrega de recursos
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
-
-Uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar directivas de entrega para los recursos que desea transmitir. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
+Si tiene pensado entregar activos cifrados, uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar directivas de entrega para los activos. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
 
 En este tema se explica por qué y cómo crear y configurar directivas de entrega de recursos.
 
@@ -57,7 +55,7 @@ Para obtener instrucciones sobre cómo publicar un recurso y generar una direcci
 
 ##Directiva de entrega de recursos sin cifrar 
 
-El método **ConfigureClearAssetDeliveryPolicy** siguiente especifica que no se aplique el cifrado dinámico y se entregue la secuencia en cualquiera de los siguientes protocolos: MPEG DASH, HLS y Smooth Streaming.
+El método **ConfigureClearAssetDeliveryPolicy** siguiente especifica que no se aplique el cifrado dinámico y se entregue la secuencia en cualquiera de los siguientes protocolos: MPEG DASH, HLS y Smooth Streaming. Querrá aplicar esta directiva a los activos cifrados de almacenamiento.
   
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
 
@@ -74,7 +72,7 @@ Para obtener información sobre los valores que puede especificar al crear una e
 ##Directiva de entrega de recursos DynamicCommonEncryption 
 
 
-El método siguiente **CreateAssetDeliveryPolicy** crea el **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) a un protocolo de Smooth Streaming (no se aplicará el streaming en otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) y **IContentKey** (la clave de contenido de tipo **CommonEncryption**. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#common_contentkey)).
+El método siguiente **CreateAssetDeliveryPolicy** crea la directiva **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) a un protocolo de Smooth Streaming (no se aplicará el streaming en otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) y **IContentKey** (la clave de contenido de tipo **CommonEncryption**. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
 
@@ -107,7 +105,7 @@ Para obtener información sobre los valores que puede especificar al crear una e
 
 ##Directiva de entrega de recursos DynamicEnvelopeEncryption 
 
-El método siguiente **CreateAssetDeliveryPolicy** crea el **AssetDeliveryPolicy** que se configura para aplicar el cifrado de sobre dinámico (**DynamicEnvelopeEncryption**) para protocolos HLS y DASH (no se aplicará el streaming en otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) y **IContentKey** (la clave de contenido de tipo **EnvelopeEncryption**. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+El método siguiente **CreateAssetDeliveryPolicy** crea la directiva **AssetDeliveryPolicy** que se configura para aplicar el cifrado de sobre dinámico (**DynamicEnvelopeEncryption**) a protocolos HLS y DASH (no se aplicará el streaming en otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) y **IContentKey** (la clave de contenido de tipo **EnvelopeEncryption**. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
@@ -291,4 +289,4 @@ Para obtener información sobre los valores que puede especificar al crear una e
         EnvelopeEncryptionIV,
     } 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

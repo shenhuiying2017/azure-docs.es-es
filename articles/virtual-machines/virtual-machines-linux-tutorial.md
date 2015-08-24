@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="rasquill"/>
 
@@ -26,6 +26,12 @@
 Crear una máquina virtual de Azure (VM) que ejecuta Linux es fácil de hacer desde la línea de comandos o desde el portal. Este tutorial muestra cómo utilizar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure) a fin de crear rápidamente una máquina virtual de servidor Ubuntu que se ejecuta en Azure, conectarse a ella mediante **ssh**, y crear y montar un disco nuevo. (Este tema utiliza una máquina virtual de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](virtual-machines-linux-create-upload-vhd.md).)
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+
+## Tutorial en vídeo
+
+Se trata del tutorial en formato de vídeo.
+
+[AZURE.VIDEO building-a-linux-virtual-machine-tutorial]
 
 ## Instalación de la CLI de Azure
 
@@ -302,4 +308,4 @@ Para obtener más información sobre Linux en Azure, consulte:
 - [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

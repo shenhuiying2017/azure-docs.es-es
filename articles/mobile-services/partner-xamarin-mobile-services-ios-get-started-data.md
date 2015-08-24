@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Incorporación de Servicios móviles a una aplicación existente (Xamarin.iOS) - Servicios móviles de Azure"
+	pageTitle="Incorporación de Servicios móviles a una aplicación existente (Xamarin.iOS) | Microsoft Azure"
 	description="Obtenga información acerca de cómo almacenar y acceder a datos desde su aplicación de Xamarin.iOS para Servicios móviles de Azure."
 	documentationCenter="xamarin"
 	authors="ggailey777"
@@ -242,4 +242,4 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

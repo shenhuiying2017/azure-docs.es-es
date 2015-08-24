@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tomcat en una máquina virtual - Tutorial de Azure"
+	pageTitle="Tomcat en una máquina virtual | Microsoft Azure"
 	description="Aprenda a crear una máquina virtual de Windows y configurarla para ejecutar un servidor de aplicaciones Apache Tomcat."
 	services="virtual-machines"
 	documentationCenter="java"
@@ -103,7 +103,7 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 2. Haga clic en **Inicio de Windows**.
 3. Haga clic en **Panel de control**.
 4. Haga clic en **Sistema y seguridad**, **Firewall de Windows** y, a continuación, en **Configuración avanzada**.
-5. Haga clic en **Reglas de entrada** y, a continuación, en **Nueva regla**.
+5. Haga clic en **Reglas de entrada** y después en **Nueva regla**.
 
  ![Nueva regla de entrada][NewIBRule]
 
@@ -125,9 +125,7 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 
 10. En la pantalla **Nombre**, especifique un nombre para la regla, por ejemplo **HttpIn** (sin embargo, no es necesario que el nombre de la regla coincida con el nombre del extremo) y haga clic en **Finalizar**.  
 
- ![Nombre de la nueva regla de entrada][NewRuleName]
-
-En este momento, el sitio web de Tomcat se debería ver desde un explorador externo, usando una URL con el formato **http://*your_DNS_name*.cloudapp.net**, donde ***your_DNS_name*** es el nombre DNS que especificó cuando creó la máquina virtual.
+En este momento, el sitio web de Tomcat se debería ver desde un explorador externo, usando una URL con el formato **http://*your_DNS_name*.cloudapp.net**, donde ***su\_nombre\_DNS*** es el nombre DNS que especificó cuando creó la máquina virtual.
 
 ## Consideraciones acerca del ciclo de vida de las aplicaciones
 * Puede crear su propio archivo de aplicación web (WAR) y agregarlo a la carpeta **webapps**. Por ejemplo, cree un proyecto web dinámico JSP (Java Service Page) básico y expórtelo como un archivo WAR; copie el archivo WAR en la carpeta **webapps** de Apache Tomcat en la máquina virtual y, a continuación, ejecútelo en un explorador.
@@ -159,4 +157,4 @@ Para obtener más información acerca de otros servicios (como Almacenamiento de
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

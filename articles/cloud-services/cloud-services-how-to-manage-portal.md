@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administración de un servicio en la nube - Azure" 
+	pageTitle="Administración de un servicio en la nube | Microsoft Azure" 
 	description="Vea cómo administrar servicios en la nube en el Portal de vista previa de Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -106,4 +106,4 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 [Portal de vista previa de Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

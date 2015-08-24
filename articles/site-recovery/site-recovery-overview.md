@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/10/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 #  Información general sobre Site Recovery
@@ -77,4 +77,4 @@ Asignación de almacenamiento|No aplicable|Asigna las clasificaciones de almacen
 Una vez finalizada la esta información general, [lea las prácticas recomendadas](site-recovery-best-practices.md) que le ayudarán a empezar a trabajar con la planeación de la implementación.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

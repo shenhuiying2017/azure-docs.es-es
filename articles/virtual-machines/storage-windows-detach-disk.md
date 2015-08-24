@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Desconexión de un disco de una máquina virtual de Windows | Azure"
+	pageTitle="Acoplamiento de un disco desde una máquina virtual de Windows | Microsoft Azure"
 	description="Aprenda a desacoplar un disco de una máquina virtual en Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -29,4 +29,4 @@
 
 [Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

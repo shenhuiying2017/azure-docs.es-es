@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
 #Escalación de codificación
 
-Este artículo forma parte de la serie [Flujo de trabajo del vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encoding-units.md)
+- [Portal](media-services-portal-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 
 ##Información general
 
@@ -58,4 +61,4 @@ Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir un
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

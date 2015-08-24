@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducción a los patrones y antipatrones de Actores confiables de Service Fabric"
-   description="Obtenga información acerca del modelo de programación Actores confiables de Service Fabric y de los patrones de diseño que funcionan bien con Actores."
+   pageTitle="Introducción a los patrones y antipatrones de los actores de Service Fabric de Azure"
+   description="patrones de diseño que funcionan bien con los actores de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Introducción a los patrones de diseño de Actores confiables
@@ -70,4 +70,4 @@ Las principales ventajas de los actores de Fabric de Azure son: 1) **la producti
 
 * *Asincronía explícita.* El modelo de programación de los actores de Fabric de Azure hace que la naturaleza asincrónica de una aplicación distribuida sea explícita y ayuda a los programadores a escribir código asincrónico sin bloqueo. Esto permite un alto grado de paralelismo distribuido y de rendimiento general sin el uso explícito de subprocesamiento múltiple.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

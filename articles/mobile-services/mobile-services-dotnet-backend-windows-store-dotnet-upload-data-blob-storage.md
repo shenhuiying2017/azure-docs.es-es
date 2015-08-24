@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de servicios móviles para cargar imágenes en el almacenamiento de blobs (Tienda Windows) | Servicios móviles" 
+	pageTitle="Uso de Servicios móviles para cargar imágenes en el almacenamiento de blobs (Tienda Windows) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en el almacenamiento de blobs de Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -81,4 +81,4 @@ A continuación, actualizará la aplicación de inicio rápido para capturar y c
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

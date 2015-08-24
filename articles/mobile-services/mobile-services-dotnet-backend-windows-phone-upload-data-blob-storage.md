@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de Servicios móviles para cargar imágenes en el almacenamiento de blobs (Windows Phone) | Servicios móviles" 
+	pageTitle="Uso de Servicios móviles para cargar imágenes en el almacenamiento de blobs (Windows Phone) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en el almacenamiento de blobs de Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -81,4 +81,4 @@ Para poder utilizar una SAS para cargar imágenes de su aplicación en el almace
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

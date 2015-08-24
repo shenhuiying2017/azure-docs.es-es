@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Reemplazar un disco duro en el dispositivo StorSimple
@@ -124,4 +124,4 @@ Después de que se ha producido un error en la unidad de su dispositivo StorSimp
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

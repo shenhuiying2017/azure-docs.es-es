@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/14/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
 
 # Pruebas de rendimiento y escalado: de local a local
@@ -208,4 +208,4 @@ Para empezar a implementar ASR:
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # Creación de una máquina virtual con varias NIC
 
-La característica de varias NIC le permite crear y administrar varias tarjetas de interfaz de red virtual (NIC) en las máquinas virtuales (VM) de Azure. Tener varias NIC es un requisito para muchos dispositivos virtuales de red, por ejemplo, entrega de aplicaciones y soluciones de optimización de la WAN. Tener varias NIC también proporciona más funcionalidad de administración de tráfico de red, incluido el aislamiento del tráfico entre una NIC de front-end y varias NIC de back-end o la separación entre el tráfico del plano de datos y el tráfico del plano de administración.
+La característica de varias NIC permite crear y administrar varias tarjetas de interfaz de red virtual (NIC) en las máquinas virtuales (VM) de Azure. Tener varias NIC es un requisito para muchos dispositivos virtuales de red, por ejemplo, en el caso de la entrega de aplicaciones y las soluciones de optimización de la WAN. Tener varias NIC también proporciona más funcionalidad de administración de tráfico de red, incluido el aislamiento del tráfico entre una NIC de front-end y varias NIC de back-end o la separación entre el tráfico del plano de datos y el tráfico del plano de administración.
 
 ![Varias NIC para máquina virtual](./media/virtual-networks-multiple-nics/IC757773.png)
 
@@ -32,10 +32,10 @@ Actualmente, tener varias NIC tiene los siguientes límites y restricciones:
 	- Todas las máquinas virtuales de ese servicio en la nube deben tener varias NIC habilitadas o 
 	- Todas las máquinas virtuales de ese servicio en la nube deben tener cada una sola NIC 
 
->[AZURE.IMPORTANT]Si intenta agregar una máquina virtual con varias NIC a una implementación (servicio en la nube) que ya contiene una máquina virtual de NIC única (o viceversa), recibirá el siguiente error: No se admiten máquinas virtuales con interfaces de red secundaria y máquinas virtuales sin interfaces de red secundaria en la misma implementación, además, no se puede actualizar una máquina virtual sin interfaces de red secundaria para que tenga interfaces de red secundaria y viceversa.
+>[AZURE.IMPORTANT]Si intenta agregar una máquina virtual con varias NIC a una implementación (servicio en la nube) que ya contiene una máquina virtual de NIC única (o viceversa), recibirá el siguiente error: no se admiten máquinas virtuales con interfaces de red secundaria y máquinas virtuales sin interfaces de red secundaria en la misma implementación, además, no se puede actualizar una máquina virtual sin interfaces de red secundaria para que tenga interfaces de red secundaria y viceversa.
  
 - VIP accesible desde Internet solo se admite en la NIC "predeterminada". Solo hay una VIP a la IP de la NIC predeterminada. 
-- Actualmente, no se admiten direcciones IP públicas del nivel de instancia para máquinas virtuales con varias NIC. 
+- Actualmente, no se admiten direcciones IP públicas del nivel de instancia (LPIP) para máquinas virtuales con varias NIC. 
 - El orden de las NIC desde la máquina virtual será aleatorio y también podría cambiar en todas las actualizaciones de infraestructura de Azure. Sin embargo, las direcciones IP y las direcciones MAC Ethernet correspondientes seguirán siendo las mismas. Por ejemplo, suponga que **Eth1** tiene la dirección IP 10.1.0.100 y la dirección MAC 00-0D-3A-B0-39-0D; después de una actualización de la infraestructura de Azure y de reiniciar el equipo, se podría cambiar a Eth2, pero el emparejamiento de la IP y la MAC seguirá siendo el mismo. Cuando es un cliente quien ejecuta un reinicio, el orden de NIC seguirá siendo el mismo. 
 - La dirección de cada NIC en cada máquina virtual debe estar ubicada en una subred; las direcciones que se encuentran en la misma subred se pueden asignar a cada una de las varias NIC de una sola máquina virtual. 
 - El tamaño de la máquina virtual determina el número de las NIC que se puede crear para una máquina virtual. La tabla siguiente enumera los números de NIC correspondientes al tamaño de las máquinas virtuales: 
@@ -78,7 +78,7 @@ Actualmente, tener varias NIC tiene los siguientes límites y restricciones:
 |G5|16|
 |Todos los tamaños|1|
 
-## Grupos de seguridad de red
+## Grupos de seguridad de red (NSG)
 Cualquier NIC de una máquina virtual puede asociarse a un grupo de seguridad de red (NSG), incluida cualquier NIC de una máquina virtual que tenga varias NIC habilitadas. Si a una NIC se le asigna una dirección dentro de una subred que está asociada a un NSG, las reglas de NSG de la subred también se aplican a esa NIC. Además de asociar subredes a NSG, también puede asociar una NIC a un NSG.
 
 Si una subred está asociada a un NSG y una NIC dentro de esa subred está asociada individualmente a un NSG, las reglas asociadas de NSG se aplican en "** orden de flujo**" según la dirección del tráfico que se pasa dentro o fuera de la NIC:
@@ -249,4 +249,4 @@ Para agregar una ruta predeterminada en la NIC secundaria, siga estos pasos:
 
 En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento predeterminado está usando el enrutamiento del host no seguro, le recomendamos restrinja el flujo de tráfico de las NIC secundarias para que permanezca dentro de la misma subred. Sin embargo, si ciertos escenarios exigen que tenga conectividad fuera de la subred, los usuarios deben habilitar el enrutamiento basado en las directivas para asegurarse de que el tráfico de entrada y salida utiliza la misma NIC.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

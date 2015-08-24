@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a la auditoría de bases de datos SQL | Azure" 
+	pageTitle="Introducción a la auditoría de bases de datos SQL | Microsoft Azure" 
 	description="Introducción a la auditoría de bases de datos SQL" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -182,4 +182,4 @@ Cuando esté en el modo Administrador de recursos de Azure, ejecute `Get-Command
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

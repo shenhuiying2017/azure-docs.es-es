@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de la base de datos SQL (PHP) - Guías de Azure" 
+	pageTitle="Uso de Base de datos SQL (PHP) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo crear y conectarse a una base de datos SQL de Azure desde PHP." 
 	services="sql-database" 
 	documentationCenter="php" 
@@ -130,4 +130,4 @@ En <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/taskli
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

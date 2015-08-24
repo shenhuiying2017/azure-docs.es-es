@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-- 
+
 ##Información general
 
 Este tutorial le guía por los pasos para crear un **canal** que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits.
@@ -79,6 +79,8 @@ En el tema se muestra cómo:
 1. Mostrar y ocultar pizarras. Iniciar y detener anuncios. Se usan las API de ejecución prolongada.
 1. Limpiar el canal y todos los recursos asociados.
 
+>[AZURE.NOTE]Aunque esta característica está en versión de vista previa, la duración máxima recomendada de un evento en directo es de ocho horas.
+>
 ##Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
 
@@ -501,4 +503,4 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
 [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

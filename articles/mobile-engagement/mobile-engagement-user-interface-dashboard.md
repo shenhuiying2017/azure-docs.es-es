@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Cómo ver y administrar los gráficos de datos de la aplicación
@@ -129,4 +129,4 @@ La sección del panel de la interfaz de usuario permite a los clientes crear gr�
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

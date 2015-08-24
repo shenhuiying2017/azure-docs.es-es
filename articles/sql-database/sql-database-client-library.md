@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Crear y administrar la Base de datos SQL con la biblioteca de bases de datos SQL de Azure para .NET" 
-   description="En este artículo se muestra cómo crear y administrar una base de datos SQL de Azure usando la biblioteca de bases de datos SQL de Azure para. NET." 
+   pageTitle="Creación y administración Base de datos SQL de Azure con C#" 
+   description="En este artículo se muestra cómo crear y administrar una base de datos SQL de Azure con C# usando la biblioteca de bases de datos SQL de Azure para. NET." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,25 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/04/2015"
+   ms.date="08/07/2015"
    ms.author="sstein"/>
 
-# Crear y administrar la Base de datos SQL con la biblioteca de bases de datos SQL de Azure para .NET
+# Creación y administración de bases de datos SQL con C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 ## Información general
 
-En este artículo se ofrecen comandos para realizar muchas tareas de administración de Base de datos SQL de Azure mediante C#. Los fragmentos de código individuales se dividen por motivos de claridad y una aplicación de consola de ejemplo reúne todos los comandos en la sección de la parte inferior de este artículo.
+En este artículo se proporcionan comandos para realizar muchas tareas de administración de Base de datos SQL de Azure mediante la [biblioteca de Base de datos SQL de Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 
-La biblioteca de bases de datos SQL de Azure para .NET ofrece una API basada en el [Administrador de recursos de Azure](resource-group-overview.md) que ajusta la [API de REST de la Base de datos SQL basada en el Administrador de recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Esta biblioteca cliente sigue el patrón común para las bibliotecas de cliente basada en el Administrador de recursos.
+Los fragmentos de código individuales se dividen por motivos de claridad y una aplicación de consola de ejemplo reúne todos los comandos en la sección de la parte inferior de este artículo.
 
-
-El Administrador de recursos requiere grupos de recursos y la autenticación con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx)(AAD).
+La biblioteca de Base de datos SQL de Azure para .NET ofrece una API basada en el [Administrador de recursos de Azure](resource-group-overview.md) que encapsula la [API de REST de Base de datos SQL basada en el Administrador de recursos](https://msdn.microsoft.com/library/azure/mt163571.aspx). Esta biblioteca cliente sigue el patrón común para las bibliotecas de cliente basada en el Administrador de recursos. El Administrador de recursos requiere grupos de recursos y la autenticación con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -39,7 +38,7 @@ El Administrador de recursos requiere grupos de recursos y la autenticación con
 
 <br>
 
-Si no tiene una suscripción a Azure, simplemente haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, a continuación, vuelva a este artículo. Y para obtener una copia gratuita de Visual Studio, vea la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Si no tiene una suscripción a Azure, simplemente haga clic en la opción **PRUEBA GRATUITA** situada en la parte superior de esta página y, luego, vuelva a este artículo. Y para obtener una copia gratuita de Visual Studio, vea la página [Descargas de Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Instalación de las bibliotecas necesarias
 
@@ -54,13 +53,13 @@ Obtenga las bibliotecas de administración necesarias instalando los siguientes 
 
 Debe habilitar primero su aplicación para que tenga acceso a la API de REST configurando la autenticación necesaria.
 
-Las [API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) usan Azure Active Directory para la autenticación en lugar de los certificados usados por las API de REST de la administración de servicios de Azure anteriores.
+Las [API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) usan Azure Active Directory para la autenticación en lugar de los certificados usados por las API de REST de administración de servicios de Azure anteriores.
 
-Para autenticar la aplicación de cliente basada en el usuario actual, primero debe registrar su aplicación en el dominio de AAD asociado a la suscripción en la que se han creado los recursos de Azure. Si se creó su suscripción de Azure con una cuenta de Microsoft en lugar de una cuenta profesional o educativa, ya tendrá un dominio de AAD predeterminado. El registro de la aplicación se puede realizar en el [portal de administración](https://manage.windowsazure.com/).
+Para autenticar la aplicación de cliente basada en el usuario actual, primero debe registrar su aplicación en el dominio de AAD asociado a la suscripción en la que se han creado los recursos de Azure. Si se creó su suscripción de Azure con una cuenta de Microsoft en lugar de una cuenta profesional o educativa, ya tendrá un dominio de AAD predeterminado. El registro de la aplicación se puede realizar en el [Portal de administración](https://manage.windowsazure.com/).
 
 Para crear una nueva aplicación y registrarla en el directorio activo correcto, haga lo siguiente:
 
-1. Desplace el menú al lado izquierda para buscar el servicio de **Active Directory** y ábralo.
+1. Desplace el menú del lado izquierdo para buscar el servicio de **Active Directory** y ábralo.
 
     ![AAD][1]
 
@@ -68,7 +67,7 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
     ![Directorios][4]
 
-3. En la página del directorio, haga clic en**APLICACIONES**.
+3. En la página del directorio, haga clic en **APLICACIONES**.
 
     ![Aplicaciones][5]
 
@@ -86,12 +85,12 @@ Para crear una nueva aplicación y registrarla en el directorio activo correcto,
 
     ![Agregar aplicación][8]
 
-7. Finalice la creación de la aplicación, haga clic en **CONFIGURAR** y copie el **ID. DE CLIENTE** (necesitará el id. del cliente en su código).
+7. Finalice la creación de la aplicación, haga clic en **CONFIGURAR** y copie el **ID. DE CLIENTE** (lo necesitará en su código).
 
     ![obtener id. de cliente][9]
 
 
-1. En la parte inferior de la página haga clic en **Agregar aplicación**.
+1. En la parte inferior de la página, haga clic en **Agregar aplicación**.
 1. Seleccione **Aplicaciones de Microsoft**.
 1. Seleccione **API de administración de servicios de Azure** y luego complete el asistente.
 2. Con la API seleccionada ahora debe conceder los permisos específicos necesarios para tener acceso a esta API seleccionando **Acceder a la administración del servicio de Azure (vista previa)**.
@@ -219,7 +218,7 @@ En el ejemplo siguiente se crea una regla que abre el acceso al servidor desde c
 
 
 
-Para permitir que otros servicios de Azure tengan acceso a un servidor, agregue una regla de firewall y establezca tanto StartIpAddress como EndIpAddress en 0.0.0.0. Tenga en cuenta que esto permite al tráfico de Azure desde *cualquier*suscripción de Azure tener acceso al servidor.
+Para permitir que otros servicios de Azure tengan acceso a un servidor, agregue una regla de firewall y establezca tanto StartIpAddress como EndIpAddress en 0.0.0.0. Tenga en cuenta que esto permite que el tráfico de Azure de *cualquier* suscripción de Azure tenga acceso al servidor.
 
 
 ## Creación de una base de datos
@@ -250,7 +249,7 @@ El siguiente comando creará una nueva base de datos básica si no hay una base 
 
 ## Actualizar una base de datos 
 
-Para actualizar una base de datos (por ejemplo, cambiando el nivel de rendimiento y el nivel de servicio) llame al método **Databases.CreateOrUpdate** creando o actualizando una base de datos anterior. Establezca las propiedades **Edition** y **RequestedServiceObjectiveName** al nivel de rendimiento y al nivel de servicio que desee. Tenga en cuenta que al cambiar la edición a o desde **Premium**, la actualización puede tardar algún tiempo dependiendo del tamaño de la base de datos.
+Para actualizar una base de datos (por ejemplo, cambiar el nivel de rendimiento y el nivel de servicio), llame al método **Databases.CreateOrUpdate** creando o actualizando una base de datos anterior. Establezca las propiedades **Edition** y **RequestedServiceObjectiveName** en el nivel de rendimiento y el nivel de servicio que desee. Tenga en cuenta que al cambiar el valor de Edition a o desde **Premium**, la actualización puede tardar algún tiempo dependiendo del tamaño de la base de datos.
 
 De la manera siguiente se actualiza una base de datos SQL al nivel estándar (S0):
 
@@ -795,4 +794,4 @@ Para eliminar un grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

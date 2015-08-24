@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registro para autenticación de Twitter - Servicios móviles" 
+	pageTitle="Registro para la autenticación de Twitter | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar la autenticación de Twitter con su aplicación de Servicios móviles de Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 #Registro de aplicaciones para el inicio de sesión en Twitter con Servicios móviles
@@ -32,25 +32,19 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 2. Escriba los valores de **Name**, **Description** y **Website** de su aplicación y especifique la dirección URL del servicio móvil anexada a la ruta de acceso _/login/twitter_ en **Callback URL**.
 
-	>[AZURE.NOTE]Para un servicio móvil de back-end de .NET publicado en Azure con Visual Studio, la dirección URL de redireccionamiento es la dirección URL del servicio móvil con la ruta de acceso _signin-twitter_ anexada como servicio .NET, por ejemplo <code>https://todolist.azure-mobile.net/signin-twitter</code>.
+	>[AZURE.NOTE]Para un servicio móvil de back-end .NET publicado en Azure con Visual Studio, la URL de redireccionamiento es la URL del servicio móvil que lleva anexada la ruta de acceso _signin-twitter_. En este ejemplo, nuestro servicio móvil tendría la URL de devolución de llamada ```https://todolist.azure-mobile.net/signin-twitter```.
 
    	![][2]
 
-3.  En la parte inferior de la página, lea y acepte los términos, escriba las palabras correctas del código CAPTCHA y, a continuación, haga clic en **Create your Twitter application** (Crear su aplicación de Twitter).
-
-   	![][3]
+3.  En la parte inferior de la página, lea y acepte los términos y, luego, haga clic en **Create your Twitter application** (Crear su aplicación de Twitter).
 
    	De esta forma, la aplicación se registra y se muestran los detalles correspondientes.
 
-6. Tome nota de los valores indicados en **Consumer key** (Clave de consumidor) y **Consumer secret** (Secreto de consumidor).
-
-   	![][4]
+6. Haga clic en la pestaña **Keys and Access Tokens** (Claves y tokens de acceso) en el panel de la aplicación y anote los valores de **Consumer key** (Clave de consumidor) y **Consumer secret** (Secreto de consumidor).
 
     > [AZURE.NOTE]El secreto de consumidor es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación.
 
-7. Haga clic en la pestaña **Settings** (Configuración), desplácese hacia abajo y marque **Allow this application to be used to sign in with Twitter** (Permitir que esta aplicación se use para iniciar sesión en Twitter) y luego haga clic en **Update this Twitter application's settings** (Actualizar la configuración de esta aplicación de Twitter).
-
-	![][5]
+7. Haga clic en la pestaña **Settings** (Configuración), desplácese hacia abajo y asegúrese de que la casilla **Allow this application to be used to sign in with Twitter** (Permitir que esta aplicación se use para iniciar sesión en Twitter) esté activada y, luego, haga clic en **Update Settings** (Actualizar configuración).
 
 De este modo ya estará listo para usar un inicio de sesión de Twitter para autenticarse en su aplicación proporcionando los valores de clave de usuario y secreto de usuario a Servicios móviles.
 
@@ -59,9 +53,6 @@ De este modo ya estará listo para usar un inicio de sesión de Twitter para aut
 <!-- Images. -->
 [1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
 [2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
-[3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
-[4]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png
-[5]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-settings.png
 
 <!-- URLs. -->
 
@@ -71,4 +62,4 @@ De este modo ya estará listo para usar un inicio de sesión de Twitter para aut
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
@@ -99,6 +99,6 @@ Una vez creada la máquina virtual, podrá iniciar sesión en esta para poder ad
 ## Pasos siguientes
 
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
-* Automatice la implementación y administración de máquinas virtuales y carga de trabajo mediante [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y [Plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
+* Automatice la implementación y administración de máquinas virtuales y carga de trabajo mediante [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y [Plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/es-es/documentation/templates/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

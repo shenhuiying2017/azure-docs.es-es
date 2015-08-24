@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Implementación y administración de Máquinas virtuales de Azure mediante el Administrador de recursos de plantillas y PowerShell"
-	description="Implemente el conjunto más común de configuraciones para Máquinas virtuales de Azure y adminístrelo fácilmente mediante el Administrador de recursos de plantillas y PowerShell."
+	pageTitle="Implementación y administración de máquinas virtuales de Azure mediante plantillas del Administrador de recursos y PowerShell"
+	description="Implemente el conjunto más común de configuraciones para Máquinas virtuales de Azure y adminístrelo fácilmente mediante plantillas del Administrador de recursos y PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -18,13 +18,13 @@
 
 # Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell
 
-En este artículo se muestra cómo utilizar las plantillas del Administrador de recursos de Azure y PowerShell para automatizar tareas comunes de implementación y administración de Máquinas virtuales de Azure. Para obtener más plantillas que puede utilizar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de la aplicación](virtual-machines-app-frameworks.md).
+En este artículo se muestra cómo utilizar las plantillas del Administrador de recursos de Azure y PowerShell para automatizar tareas comunes de implementación y administración de máquinas virtuales de Azure. Para obtener más plantillas que puede utilizar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de la aplicación](virtual-machines-app-frameworks.md).
 
-- [Implementación de una máquina virtual Windows](#windowsvm)
+- [Implementación de una máquina virtual de Windows](#windowsvm)
 - [Creación de una imagen de máquina virtual personalizada](#customvm)
 - [Implementación de una aplicación de varias máquinas virtuales que usa una red virtual y un equilibrador de carga externo](#multivm)
 - [Eliminación de un grupo de recursos](#removerg)
-- [Inicio de sesión en la nueva máquina virtual](#logon)
+- [Inicio de sesión en una máquina virtual](#logon)
 - [Visualización de información acerca de una máquina virtual](#displayvm)
 - [Inicio de una máquina virtual](#start)
 - [Detención de una máquina virtual](#stop)
@@ -37,9 +37,9 @@ Antes de comenzar, asegúrese de que tiene Azure PowerShell listo para usar.
 
 ## Descripción de las plantillas de recursos y grupos de recursos de Azure
 
-La mayoría de las aplicaciones que se implementan y ejecutan en Microsoft Azure constan de una combinación de diferentes tipos de recursos en la nube (por ejemplo, una o varias máquinas virtuales y cuentas de almacenamiento, una Base de datos SQL o una red virtual). Las plantillas del Administrador de recursos de Azure permiten implementar y administrar los distintos recursos conjuntamente mediante una descripción de JSON de los recursos y los parámetros de configuración e implementación asociados.
+La mayoría de las aplicaciones que se implementan y ejecutan en Microsoft Azure están creadas a partir de una combinación de diferentes tipos de recursos en la nube (por ejemplo, una o más máquinas virtuales y cuentas de almacenamiento, una base de datos SQL o una red virtual). Las plantillas del Administrador de recursos de Azure permiten implementar y administrar los distintos recursos conjuntamente mediante una descripción de JSON de los recursos y los parámetros de configuración e implementación asociados.
 
-Una vez definida una plantilla de recursos basada en JSON, puede ejecutarla y definir los recursos dentro de ella implementada en Azure mediante un comando PowerShell. Puede ejecutar estos comandos de forma independiente dentro del shell de comandos de PowerShell o integrarlos dentro de un script que contenga una lógica de automatización adicional.
+Una vez que haya definido una plantilla de recursos basada en JSON, podrá ejecutarla y usar un comando de PowerShell para implementar los recursos definidos en Azure. Puede ejecutar estos comandos de forma independiente en el shell de comandos de PowerShell, o bien puede integrarlos con un script que contenga una lógica de automatización adicional.
 
 Los recursos que se crean con plantillas del Administrador de recursos de Azure se implementarán en un grupo de recursos de Azure nuevo o existente. Un *grupo de recursos de Azure* le permite administrar varios recursos implementados conjuntamente como un grupo lógico, para que pueda administrar el ciclo de vida general de la aplicación o del grupo y ofrecer API de administración que le permiten:
 
@@ -50,15 +50,15 @@ Los recursos que se crean con plantillas del Administrador de recursos de Azure 
 
 Obtenga más información sobre el Administrador de recursos de Azure [aquí](virtual-machines-azurerm-versus-azuresm.md). Si está interesado en la creación de plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
-## <a id="windowsvm"></a>TAREA: Implementación de una máquina virtual Windows
+## <a id="windowsvm"></a>TAREA: Implementación de una máquina virtual de Windows
 
 Siga las instrucciones de esta sección para implementar una nueva máquina virtual de Azure mediante una plantilla del Administrador de recursos y Azure PowerShell. Esta plantilla crea una única máquina virtual en una nueva red virtual con una sola subred.
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
-Siga estos pasos para crear una máquina virtual Windows mediante una plantilla del Administrador de recursos en el repositorio de plantillas de Github con Azure PowerShell.
+Siga estos pasos para crear una máquina virtual Windows mediante una plantilla del Administrador de recursos en el repositorio de plantillas de GitHub con Azure PowerShell.
 
-### Paso 1: Examen del archivo JSON para la plantilla.
+### Paso 1: Examen en el archivo JSON de la plantilla
 
 Este es el contenido del archivo JSON de la plantilla.
 
@@ -69,25 +69,25 @@ Este es el contenido del archivo JSON de la plantilla.
         "newStorageAccountName": {
             "type": "string",
             "metadata": {
-                "Description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
+                "Description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
             }
         },
         "adminUsername": {
             "type": "string",
             "metadata": {
-               "Description": "Username for the Virtual Machine."
+               "Description": "User name for the virtual machine."
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "Description": "Password for the Virtual Machine."
+                "Description": "Password for the virtual machine."
             }
         },
         "dnsNameForPublicIP": {
             "type": "string",
             "metadata": {
-                  "Description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+                  "Description": "Unique DNS name for the public IP used to access the virtual machine."
             }
         },
         "windowsOSVersion": {
@@ -100,7 +100,7 @@ Este es el contenido del archivo JSON de la plantilla.
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
-                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+                "Description": "The Windows version for the virtual machine. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
             }
         }
     },
@@ -239,9 +239,9 @@ Este es el contenido del archivo JSON de la plantilla.
 	}
 
 
-### Paso 2: Creación de la máquina virtual con la plantilla.
+### Paso 2: Creación de la máquina virtual con la plantilla
 
-Rellene un nombre de implementación de Azure, un nombre de grupo de recursos de Azure y una ubicación de centro de datos de Azure y, a continuación, ejecute estos comandos.
+Rellene un nombre de implementación de Azure, un nombre de grupo de recursos de Azure y una ubicación de centro de datos de Azure y luego ejecute estos comandos.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -305,7 +305,7 @@ Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el
 
 Siga las instrucciones de esta sección para crear una imagen personalizada de la máquina virtual en Azure con una plantilla del Administrador de recursos mediante Azure PowerShell. Esta plantilla crea una sola máquina virtual desde un disco duro virtual (VHD) especificado.
 
-### Paso 1: Examen del archivo JSON para la plantilla.
+### Paso 1: Examen en el archivo JSON de la plantilla
 
 Este es el contenido del archivo JSON de la plantilla.
 
@@ -386,13 +386,13 @@ Este es el contenido del archivo JSON de la plantilla.
 	    }]
 	}
 
-### Paso 2: Obtención del disco duro virtual.
+### Paso 2: Obtención del disco duro virtual
 
 Para una máquina virtual Windows, consulte [Creación y carga de un disco duro virtual de Windows Server en Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
 Para una máquina virtual Linux, consulte [Creación y carga de un disco duro virtual de Linux en Azure](virtual-machines-linux-create-upload-vhd.md).
 
-### Paso 3: Creación de la máquina virtual con la plantilla.
+### Paso 3: Creación de la máquina virtual con la plantilla
 
 Para crear una nueva máquina virtual basada en el disco duro virtual, reemplace los elementos dentro de "< >" por su información específica y ejecute estos comandos:
 
@@ -432,9 +432,9 @@ Siga las instrucciones de estas secciones para implementar una aplicación de va
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
-Siga estos pasos para implementar una aplicación de varias máquinas virtuales que usa una red virtual y un equilibrador de carga mediante una plantilla del Administrador de recursos en el repositorio de plantillas de Github con comandos de Azure PowerShell.
+Siga estos pasos para implementar una aplicación de varias máquinas virtuales que usa una red virtual y un equilibrador de carga mediante una plantilla del Administrador de recursos en el repositorio de plantillas de GitHub con comandos de Azure PowerShell.
 
-### Paso 1: Examen del archivo JSON para la plantilla.
+### Paso 1: Examen en el archivo JSON de la plantilla
 
 Este es el contenido del archivo JSON de la plantilla.
 
@@ -749,9 +749,9 @@ Este es el contenido del archivo JSON de la plantilla.
 	}
 
 
-### Paso 2: Creación de la implementación con la plantilla.
+### Paso 2: Creación de la implementación con la plantilla
 
-Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de Azure y, a continuación, ejecute estos comandos.
+Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y una ubicación de Azure y luego ejecute estos comandos.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -760,7 +760,7 @@ Rellene un nombre de implementación de Azure, un nombre de grupo de recursos y 
 	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-Al ejecutar el comando New-AzureResourceGroupDeployment, se le solicitará que proporcione los valores de parámetros del archivo JSON. Cuando haya especificado todos los valores de parámetros, el comando crea el grupo de recursos y la implementación.
+Al ejecutar el comando **New-AzureResourceGroupDeployment**, se le solicitará que proporcione los valores de parámetros del archivo JSON. Cuando haya especificado todos los valores de parámetros, el comando crea el grupo de recursos y la implementación.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
@@ -794,7 +794,7 @@ Verá información similar a la siguiente:
 	Are you sure you want to remove resource group 'BuildRG'
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-## <a id="logon"></a>TAREA: Inicio de una sesión en una máquina virtual Windows
+## <a id="logon"></a>TAREA: Inicio de sesión en una máquina virtual de Windows
 
 Para obtener información detallada, consulte [Inicio de sesión en una máquina virtual con Windows Server](virtual-machines-log-on-windows-server.md).
 
@@ -905,7 +905,7 @@ Verá información similar a la siguiente:
 	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
 
-## <a id=restart"></a>TAREA: Reinicio de una máquina virtual
+## <a id="restart"></a>TAREA: Reinicio de una máquina virtual
 
 Puede reiniciar una máquina virtual con el comando **Restart-AzureVM**. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por el nombre correcto.
 
@@ -922,7 +922,7 @@ Verá información similar a la siguiente:
 	RequestId           : 7dac33e3-0164-4a08-be33-96205284cb0b
 	StatusCode          : OK
 
-## <a id=delete"></a>TAREA: Eliminación de una máquina virtual
+## <a id="delete"></a>TAREA: Eliminación de una máquina virtual
 
 Puede eliminar una máquina virtual con el comando **Remove-AzureVM**. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por el nombre correcto. Puede usar el parámetro **–Force** para omitir la solicitud de confirmación.
 
@@ -956,4 +956,4 @@ Verá información similar a la siguiente:
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/09/2015"
+   ms.date="08/12/2015"
    ms.author="v-sharos" />
 
 # Desactivación y eliminación de un dispositivo de StorSimple
@@ -47,7 +47,7 @@ Si está interesado en eliminar el dispositivo pero desea conservar los datos de
 
 1. Desactive el dispositivo. Todos los contenedores de volúmenes y las instantáneas del dispositivo se conservarán. Vaya a [Pasos para la desactivación](#steps-to-deactivate) para obtener instrucciones.
 
-2. Ahora puede conmutar los contenedores de volúmenes y las instantáneas asociadas. Para ver los procedimientos, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo de StorSimple](storsimple-device-failover-disaster-recovery.md)
+2. Ahora puede conmutar los contenedores de volúmenes y las instantáneas asociadas. Para ver los procedimientos, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md)
 
 3. Después de la desactivación y la conmutación por error, puede eliminar completamente el dispositivo. Vaya a [Eliminación de un dispositivo](#delete-a-device) para obtener instrucciones.
 
@@ -87,8 +87,8 @@ Solo puede eliminar los dispositivos que se han desactivado. Al eliminar un disp
 Es posible que el servicio tarde unos minutos en eliminarse.
 
 ## Pasos siguientes
-Para restaurar los valores de fábrica del dispositivo desactivado, vaya a [Restablecer el dispositivo a los valores de fábrica](https://msdn.microsoft.com/library/dn772373.aspx).
+Para restaurar los valores predeterminados de fábrica del dispositivo desactivado, vaya a [Restablecimiento del dispositivo a la configuración predeterminada de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-Para obtener asistencia técnica, [póngase en contacto con el soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+Para obtener asistencia técnica, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

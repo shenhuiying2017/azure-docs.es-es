@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil - Centros de notificaciones" 
+	pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil | Microsoft Azure" 
 	description="Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con los centros de notificaciones de Azure cuando Servicios móviles de Azure realiza el registro." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 [Windows Store C#](notification-hubs-windows-store-mobile-services-register-user-push-notifications.md)
-[Windows Store C#](notification-hubs-ios-mobile-services-register-user-push-notifications.md)
+[iOS](notification-hubs-ios-mobile-services-register-user-push-notifications.md)
 
 Este tema muestra cómo solicitar un registro de notificación de inserción con Centros de notificaciones de Azure al realizar el registro mediante Servicios móviles de Azure. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones]. Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones].
 
@@ -122,4 +122,4 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

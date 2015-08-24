@@ -33,34 +33,15 @@ Cada colección de DocumentDB creada con una cuenta estándar se aprovisiona con
 
 Cada nivel de rendimiento tiene asociado un límite de velocidad de la unidad de solicitud (RU). Esta es la capacidad de proceso que se reservará para una colección en función de su nivel de rendimiento, el cual estará disponible para uso exclusivo de esa colección. Se pueden crear colecciones a través del [portal de Azure](http://portal.azure.com) o de cualquiera de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Las API de DocumentDB permiten especificar el nivel de rendimiento de una colección.
 
-<table> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>Nivel de rendimiento de una colección</b></p></td>
-<td valign="top" ><p><b>Capacidad de proceso reservada</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S1</p></td>
-<td valign="top" ><p>250&#160;RU/s</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S2</p></td>
-<td valign="top" ><p>1000 RU/s</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>S3</p></td>
-<td valign="top" ><p>2500 RU/s</p></td>
-</tr>
-
-</tbody>
-</table>
+Nivel de rendimiento de colección|Capacidad de proceso reservada
+---|---
+S1|250 RU/s
+S2|1000 RU/s
+S3|2500 RU/s
 
 DocumentDB permite efectuar una amplia gama de operaciones de base de datos, por ejemplo, consultas, consultas con funciones definidas por el usuario (UDF), procedimientos almacenados y desencadenadores. El coste de procesamiento asociado a cada una de estas operaciones variará en función de la CPU, las E/S y la memoria que se necesite para completar la operación. En lugar de pensar en los recursos de hardware y administrarlos, puede considerar que una unidad de solicitud (RU) es como una medida única para los recursos necesarios para realizar varias operaciones de base de datos y dar servicio a una solicitud de la aplicación.
 
-> [AZURE.NOTE]Los niveles de rendimiento se miden en unidades de solicitud. Cada nivel de rendimiento tiene asociada una tasa máxima de unidades de solicitud por segundo. El nivel de rendimiento de una colección se puede ajustar a través de las API o del [portal de Azure](https://portal.azure.com/).
+> [AZURE.NOTE]Los niveles de rendimiento se miden en unidades de solicitud. Cada nivel de rendimiento tiene asociada una tasa máxima de unidades de solicitud por segundo. El nivel de rendimiento de una colección se puede ajustar a través de las API o del [Portal de Azure](https://portal.azure.com/).
 
 ##Definición de los niveles de rendimiento para las colecciones
 Una vez que se crea una colección, la asignación completa de RU según el nivel de rendimiento designado se reserva para la colección. Por ejemplo, si una colección se establece como S3, la colección será capaz de procesar 2.500 RU por segundo. Cada colección reserva su capacidad de proceso designada y 10 GB de almacenamiento de base de datos. El precio de la colección varía según el nivel elegido rendimiento (S1, S2 o S3). Tenga en cuenta que DocumentDB funciona según la reserva de capacidad: al crear una colección, se reserva una aplicación y se factura según el almacenamiento de base de datos y el rendimiento reservados, con independencia de la cantidad de almacenamiento y del rendimiento que se use activamente.
@@ -76,7 +57,7 @@ Las unidades de solicitud se reservan para cada colección en función del nivel
 > [AZURE.NOTE]Cuando la aplicación supera los niveles de rendimiento de una o varias colecciones, se limitarán las solicitudes para cada colección. Esto significa que algunas solicitudes de aplicación pueden tener éxito mientras que otras quedarán limitadas.
 
 ##Trabajo con niveles de rendimiento
-Las colecciones de DocumentDB permiten particionar los datos según los patrones de consulta y los requisitos de rendimiento de la aplicación. Consulte la [documentación sobre las particiones de datos](documentdb-partition-data.md) para obtener más información sobre cómo efectuar particiones de datos con DocumentDB. Con la función de indexación automática y de consultas de DocumentDB, es bastante habitual ubicar documentos heterogéneos en la misma colección. Estas son algunas de las consideraciones clave que se deben tener en cuenta a la hora de decidir si hay que utilizar colecciones independientes:
+Las colecciones de DocumentDB permiten particionar los datos según los patrones de consulta y los requisitos de rendimiento de la aplicación. Consulte la [documentación sobre particiones de datos](documentdb-partition-data.md) para obtener más información sobre cómo efectuar particiones de datos con DocumentDB. Con la función de indexación automática y de consultas de DocumentDB, es bastante habitual ubicar documentos heterogéneos en la misma colección. Estas son algunas de las consideraciones clave que se deben tener en cuenta a la hora de decidir si hay que utilizar colecciones independientes:
 
 - Consultas: una colección es el ámbito para la ejecución de la consulta. Si necesita efectuar consultas en un conjunto de documentos, los patrones de lectura más eficaces se consiguen al colocar los documentos en una sola colección.
 - Transacciones: una colección es el dominio de transacción para los procedimientos almacenados y los desencadenadores. Todas las transacciones tienen como ámbito una sola colección. 
@@ -91,12 +72,12 @@ Es recomendable que la aplicación haga uso de un pequeño número de coleccione
 El Portal de vista previa de Azure es una opción disponible al administrar los niveles de rendimiento de las colecciones. Siga estos pasos para cambiar el nivel de rendimiento de una colección desde el Portal de Azure.
 
 1. Navegue hasta el [**Portal de vista previa de Azure**](https://portal.azure.com) desde el explorador.
-2. Haga clic en **Examinar** desde la barra de acceso rápido del lado izquierdo.
-3. En el concentrador **Examinar**, haga clic en **Cuentas de DocumentDB**en la etiqueta **Filtrar por**.
+2. Haga clic en **Examinar** en la barra de accesos directos del lado izquierdo.
+3. En el concentrador **Examinar**, haga clic en **Cuentas de DocumentDB** en la etiqueta **Filtrar por**.
 4. En la hoja **Cuentas de DocumentDB**, haga clic en la cuenta de DocumentDB que contiene la colección deseada.
 5. En la hoja **Cuenta de DocumentDB**, desplácese hacia abajo hasta el modo **Bases de datos** y haga clic en la base de datos que contiene la colección deseada. 
 6. En la hoja **Base de datos** recién abierta, desplácese hacia abajo hasta el modo **Colecciones** y seleccione la colección deseada.
-7. Por último, en la hoja **Colección**, busque y haga clic en el icono **Nivel de precios** del modo **Uso**.
+7. Por último, en la hoja **Colección**, busque el icono **Nivel de precios** del modo **Uso** y haga clic en él.
 8. En la hoja **Elija su nivel de precios**, haga clic en el nivel de rendimiento deseado y, a continuación, en **Seleccionar** en la parte inferior de la hoja. 
 
 >[AZURE.NOTE]Cambiar los niveles de rendimiento de una colección puede llevar hasta 2 minutos.
@@ -105,7 +86,7 @@ El Portal de vista previa de Azure es una opción disponible al administrar los 
 
 ##Cambio de los niveles de rendimiento mediante el SDK de .NET
 
-Otra opción para cambiar los niveles de rendimiento de las colecciones es a través de nuestros SDK. Esta sección solo cubre el cambio del nivel de rendimiento de una colección mediante nuestro [SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), pero el proceso es similar para nuestros otros [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si está familiarizado con nuestro SDK. de NET, visite nuestro [tutorial de introducción](documentdb-get-started.md).
+Otra opción para cambiar los niveles de rendimiento de las colecciones es a través de nuestros SDK. Esta sección solo cubre el cambio del nivel de rendimiento de una colección mediante el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), pero el proceso es similar para otros [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si no está familiarizado con SDK. de NET, visite nuestro [tutorial de inicio](documentdb-get-started.md).
 
 A continuación se facilita un fragmento de código para cambiar el tipo de oferta:
 
@@ -121,7 +102,7 @@ A continuación se facilita un fragmento de código para cambiar el tipo de ofer
 	//Now persist these changes to the database by replacing the original resource
 	Offer updated = await client.ReplaceOfferAsync(offer);
 
-Visite [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) para ver ejemplos adicionales y obtener más información sobre nuestros métodos de oferta:
+Visite [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) para ver más ejemplos y obtener más información sobre nuestros métodos de oferta:
 
 - [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
 - [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
@@ -141,4 +122,4 @@ Para obtener más información acerca de DocumentDB, consulte la [documentación
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

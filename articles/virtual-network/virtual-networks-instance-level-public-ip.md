@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Dirección IP pública de nivel de instancia (ILIP)"
+   pageTitle="Dirección IP pública de nivel de instancia (ILPIP)"
    description="Descripción de ILPIP (PIP) y su administración"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # Dirección IP pública de nivel de instancia
@@ -125,4 +125,4 @@ También puede asociar una ILPIP a una máquina virtual mediante un archivo de c
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

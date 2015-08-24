@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Proceso analítico avanzado y tecnología en acción: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Azure" 
+	pageTitle="Proceso analítico avanzado y tecnología en acción: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Microsoft Azure" 
 	description="Uso del proceso analítico avanzado y tecnología (ADAPT) para un escenario integral con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)" 
 	services="machine-learning,hdinsight" 
 	documentationCenter="" 
@@ -656,4 +656,4 @@ Podemos ver que para los dos ejemplos de prueba por los que hemos preguntado (en
 
 Esto concluye nuestro tutorial completo que muestra cómo controlar un conjunto de datos grande mediante Aprendizaje automático de Azure. Hemos empezado con un terabyte de datos, hemos creado un modelo de predicción y lo hemos implementado como un servicio web en la nube.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

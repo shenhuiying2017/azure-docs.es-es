@@ -13,12 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
-	ms.author="sidneyh"/>
+	ms.date="07/21/2015"
+	ms.author="ddove; sidneyh"/>
 
-# Creación y administración de trabajos de bases de datos elásticas
+# Creación y administración de trabajos elásticos de Base de datos SQL (vista previa)
 
-Los **grupos de bases de datos elásticas** proporcionan un modelo predecible para la implementación de un gran número de bases de datos. Puede establecer el número mínimo de unidades de rendimiento de datos (DTU) para cada base de datos a un coste establecido. La administración de objetos comunes en estas bases de datos puede realizarse más fácilmente usando **trabajos de bases de datos elásticas**. El servicio permite ejecutar secuencias de comandos de T-SQL en todas las bases de datos del grupo en una sola operación. Por ejemplo, puede establecer la directiva en cada base de datos para permitir que solo una persona pueda ver los datos confidenciales con las credenciales correctas.
+> [AZURE.SELECTOR]
+- [Azure portal](sql-database-elastic-jobs-create-and-manage.md)
+- [PowerShell](sql-database-elastic-jobs-powershell.md)
+
+
+**Trabajos de base de datos elástica** permite la administración fácil y confiable de un grupo de bases de datos, simplificando la ejecución de operaciones administrativas como, por ejemplo, cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o recopilación de telemetría de inquilinos (cliente). Trabajos de base de datos elástica está actualmente disponible a través del portal de Azure y los cmdlets de PowerShell. Sin embargo, la funcionalidad reducida del Portal de Azure se limita la ejecución transversal en todas las bases de datos de un [grupo de bases de datos elásticas (vista previa)](sql-database-elastic-pool.md). Para tener acceso a otras características y a la ejecución transversal de scripts en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario o un conjunto de particiones (creado con la [biblioteca cliente de base de datos elástica](sql-database-elastic-scale-introduction.md)), vea [Creación y administración de trabajos mediante PowerShell](sql-database-elastic-jobs-powershell.md). Para obtener más información, vea [Información general sobre Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md).
 
 ## Requisitos previos
 
@@ -28,7 +33,7 @@ Los **grupos de bases de datos elásticas** proporcionan un modelo predecible pa
 
 ## Creación de trabajos
 
-1. En la hoja del grupo de trabajos de bases de datos elásticas, haga clic en **Crear trabajo**.
+1. Mediante el [Portal de Azure](https://portal.azure.com), en un grupo de trabajos de base de datos elástica existente, haga clic en**Crear trabajo**.
 2. Escriba el nombre de usuario y la contraseña del administrador de base de datos (creados al instalar los trabajos) para la base de datos de control de trabajos (almacenamiento de metadatos de los trabajos).
 
 	![Asigne un nombre al trabajo, escríbalo o péguelo en el código y haga clic en Ejecutar.][1]
@@ -110,4 +115,4 @@ Si se produce un error en un trabajo, puede encontrar un registro de su ejecuci�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos" />
 
 # Adaptador de StorSimple para SharePoint
@@ -240,4 +240,4 @@ Utilice el siguiente procedimiento para actualizar el servidor de SharePoint y l
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/es-es/library/ff943565.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

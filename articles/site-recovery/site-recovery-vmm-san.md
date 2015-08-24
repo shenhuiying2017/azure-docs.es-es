@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 # Configuración de la protección entre sitios de VMM locales con SAN
@@ -361,4 +361,4 @@ Para obtener más información sobre la interacción con los trabajos y el panel
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

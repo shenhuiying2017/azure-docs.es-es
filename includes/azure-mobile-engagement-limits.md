@@ -1,40 +1,12 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Recurso</th>
-   <th align="left" valign="middle">Límite máximo</th>
-</tr>
-<tr>
-   <td valign="middle"><p>Usuarios de colección de aplicaciones</p></td>
-   <td valign="middle"><p>5 por colección de aplicaciones</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Puntos de datos por término medio</p></td>
-   <td valign="middle"><p>200 por usuario activo por día</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Conjunto de información de la aplicación por término medio</p></td>
-   <td valign="middle"><p>50 por usuario activo por día</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Mensajes insertados por término medio</p></td>
-   <td valign="middle"><p>20 por usuario activo por día</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Segmentos</p></td>
-   <td valign="middle"><p>100 por aplicación</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Criterios por segmento</p></td>
-   <td valign="middle"><p>10</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Campañas de inserción activas</p></td>
-   <td valign="middle"><p>50 por aplicación</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Número total de campañas de inserción (activas y completadas)</p></td>
-   <td valign="middle"><p>1000 por aplicación</p></td>
-</tr>
-</table>
+Recurso|Límite máximo
+---|---
+Usuarios de colección de aplicaciones|5 por colección de aplicaciones
+Puntos de datos por término medio|200 por usuario activo por día
+Conjunto de información de la aplicación por término medio|50 por usuario activo por día
+Mensajes insertados por término medio|20 por usuario activo por día
+Segmentos|100 por aplicación
+Criterios por segmento|10
+Campañas de inserción activas|50 por aplicación
+Número total de campañas de inserción (activas y completadas)|1000 por aplicación
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

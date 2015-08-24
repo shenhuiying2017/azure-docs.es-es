@@ -20,9 +20,9 @@
 
 # Introducción al uso de Análisis de transmisiones de Azure: detección de fraudes en tiempo real
 
-Aprenda a crear una solución de extremo a extremo para la detección de fraudes en tiempo real con Análisis de transmisiones. Lleve eventos al centro de eventos de Azure, escriba consultas de Análisis de transmisiones para agregación o alertas y envíe los resultados a un receptor de salida para obtener información detallada sobre los datos con procesamiento en tiempo real.
+Aprenda a crear una solución de extremo a extremo para la detección de fraudes en tiempo real con Análisis de transmisiones de Azure. Lleve eventos al centro de eventos de Azure, escriba consultas de Análisis de transmisiones para agregación o alertas y envíe los resultados a un receptor de salida para obtener información detallada sobre los datos con procesamiento en tiempo real.
 
-Análisis de transmisiones de Azure es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través el streaming de datos en la nube. Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream-analytics-introduction.md).
+Análisis de transmisiones es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través de la transmisión de datos en la nube. Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream-analytics-introduction.md).
 
 
 ## Escenario: telecomunicaciones y detección de fraudes de SIM en tiempo real
@@ -35,11 +35,11 @@ En escenarios convencionales de Internet de las cosas (IoT) se genera gran canti
 
 Este tutorial aprovecha un generador de eventos situado en GitHub. Descárguelo [aquí](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) y siga los pasos de este tutorial para configurar la solución.
 
-## Creación de una entrada de Centro de eventos y un grupo de consumidores
+## Creación de un Grupo de consumidores y una entrada de Centros de eventos de Azure
 
 La aplicación de ejemplo generará eventos y los insertará en una instancia de Centros de eventos para el procesamiento en tiempo real. Los Centros de eventos de Bus de servicio son el método preferido de introducción de eventos en Análisis de transmisiones; puede obtener más información sobre Centros de eventos en [Documentación sobre Bus de servicio de Azure](/documentation/services/service-bus/).
 
-Siga estos pasos para crear un Centro de eventos.
+Para crear un Centro de eventos:
 
 1.	En el [Portal de Azure](https://manage.windowsazure.com/) haga clic en **Nuevo** > **Servicios de aplicaciones** > **Bus de servicio** > **Centro de eventos** > **Creación rápida**. Indique un nombre, una región y un espacio de nombres nuevo o existente para crear un Centro de eventos.  
 2.	Como práctica recomendada, cada trabajo de Análisis de transmisiones debe leer en un solo grupo de consumidores de Centro de eventos. A continuación, le guiaremos a través del proceso de creación de un grupo de consumidores y podrá [obtener más información sobre grupos de consumidores](https://msdn.microsoft.com/library/azure/dn836025.aspx). Para crear un grupo de consumidores, vaya al Centro de eventos recién creado y haga clic en la pestaña **Grupos de consumidores**. Después, haga clic en **Crear** en la parte inferior de la página e indique un nombre para el grupo de consumidores.
@@ -49,7 +49,7 @@ Siga estos pasos para crear un Centro de eventos.
 	![Directivas de acceso compartido en las que puede crear una nueva directiva con permisos para Administrar.](./media/stream-analytics-get-started/stream-ananlytics-shared-access-policies.png)
 
 5.	Haga clic en **Guardar** en la parte inferior de la página.
-6.	Vaya a **Panel** y haga clic en **Información de conexión** en la parte inferior de la página y copie y guarde la información de conexión.
+6.	Vaya al **Panel** y haga clic en **Información de conexión** en la parte inferior de la página y luego copie y guarde la información de conexión.
 
 ## Configuración e inicio de la aplicación del generador de eventos
 
@@ -62,7 +62,7 @@ Proporcionamos una aplicación cliente que generará los metadatos de llamada en
 
     	telcodatagen [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]
 
-En el ejemplo siguiente se generarán 1.000 eventos con una probabilidad de fraude del 20 % en el transcurso de dos horas:
+En el ejemplo siguiente, se generarán 1000 eventos con una probabilidad de fraude del 20 % en el transcurso de 2 horas.
 
     TelcoDataGen.exe 1000 .2 2
 
@@ -70,12 +70,12 @@ Podrá ver los registros que se envían al Centro de eventos. Aquí se definen a
 
 | Registro | Definición |
 | ------------- | ------------- |
-| CallrecTime | Marca de tiempo para la hora de inicio de la llamada |
-| SwitchNum | Conmutador de teléfono que se usa para conectar la llamada |
-| CallingNum | Número de teléfono del autor de la llamada |
-| CallingIMSI | Identidad del suscriptor móvil internacional (IMSI). Identificador único del autor de la llamada |
-| CalledNum | Número de teléfono del destinatario de la llamada |
-| CalledIMSI | Identidad del suscriptor móvil internacional (IMSI). Identificador único del destinatario de la llamada |
+| CallrecTime | Marca de tiempo para la hora de inicio de la llamada. |
+| SwitchNum | Conmutador de teléfono que se usa para conectar la llamada. |
+| CallingNum | Número de teléfono del autor de la llamada. |
+| CallingIMSI | Identidad del suscriptor móvil internacional (IMSI). Identificador único del autor de la llamada. |
+| CalledNum | Número de teléfono del destinatario de la llamada. |
+| CalledIMSI | Identidad del suscriptor móvil internacional (IMSI). Identificador único del destinatario de la llamada. |
 
 
 ## Creación de un Análisis de transmisiones
@@ -83,7 +83,7 @@ Ahora que tenemos un flujo de eventos de telecomunicaciones, podemos configurar 
 
 ### Aprovisionamiento de un trabajo de Stream Analytics
 
-1.	En el Portal de Azure, haga clic en **Nuevo** > **Servicios de datos** > **Análisis de transmisiones** > **Creación rápida**.
+1.	En el Portal de Azure, haga clic en **Nuevo > Servicios de datos > Análisis de transmisiones > Creación rápida**.
 2.	Especifique los valores siguientes y haga clic en **Crear trabajo de Análisis de transmisiones**:
 
 	* **Nombre del trabajo**: escriba un nombre del trabajo.
@@ -109,7 +109,7 @@ Ahora que tenemos un flujo de eventos de telecomunicaciones, podemos configurar 
 
 	Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **Espacio de nombres de servicio de Bus**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
 
-	* **Nombre de Centro de eventos**: seleccione el nombre del Centro de eventos
+	* **Nombre de Centro de eventos**: seleccione el nombre del Centro de eventos.
 
 	* **Nombre de directiva de Centro de eventos**: seleccione la directiva del Centro de eventos que creó anteriormente en este tutorial.
 
@@ -130,7 +130,7 @@ Para validar la consulta con datos de trabajo reales, puede usar la característ
 
 1.	Seleccione la entrada del Centro de eventos y haga clic en **Datos de ejemplo** en la parte inferior de la página.
 2.	En el cuadro de diálogo que aparece, especifique una **Hora de inicio** para empezar a recopilar datos y una **Duración** para indicar la cantidad de datos adicionales que se consumirá.
-3.	Haga clic en el botón de comprobación para empezar muestrear datos de la entrada. El archivo de datos puede tardar un minuto o dos en crearse. Una vez finalizado el proceso, haga clic en **Detalles** y descargue el archivo .JSON que se genera, y guárdelo.
+3.	Haga clic en el botón de comprobación para empezar muestrear datos de la entrada. El archivo de datos puede tardar un minuto o dos en crearse. Una vez finalizado el proceso, haga clic en **Detalles**, descargue el archivo .JSON que se genera y guárdelo.
 
 	![Descargar y guardar datos procesados en un archivo JSON](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
@@ -145,8 +145,8 @@ Si desea archivar todos los eventos, puede usar una consulta de paso a través p
 
 	> Asegúrese de que el nombre del origen de entrada coincida con el nombre de la entrada que especificó anteriormente.
 
-3.	Haga clic en **Prueba** en el editor de consultas
-4.	Proporcione un archivo de prueba, bien uno creado siguiendo los pasos anteriores o [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)
+3.	Haga clic en **Prueba** en el editor de consultas.
+4.	Proporcione un archivo de prueba, bien uno creado siguiendo los pasos anteriores o use [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)
 5.	Haga clic en el botón de comprobación y vea los resultados que aparecen debajo de la definición de consulta.
 
 	![Resultados de la definición de consulta](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -177,7 +177,7 @@ Para comparar la cantidad de llamadas entrantes por región se aprovechará una 
 
 	Esta consulta usa la palabra clave **Timestamp By** para especificar un campo de marca de tiempo en la carga que se usará en el cálculo temporal. Si no se ha especificado este campo, la operación de ventana se realizará usando el tiempo de cada evento llegado al centro de eventos. Obtenga más información en "Tiempo de llegada frente a tiempo de aplicación" en la [Referencia de consulta de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-	Tenga en cuenta que puede acceder a una marca de tiempo para el final de cada ventana con la propiedad System.Timestamp.
+	Tenga en cuenta que puede tener acceso a una marca de tiempo para el final de cada ventana con la propiedad **System.Timestamp**.
 
 2.	Haga clic en **Volver a ejecutar** en el editor de consultas para ver los resultados de la consulta.
 
@@ -185,7 +185,7 @@ Para comparar la cantidad de llamadas entrantes por región se aprovechará una 
 
 ### Detección de fraudes de SIM con una autocombinación
 
-Para identificar un uso posiblemente fraudulento buscaremos las llamadas que se originan en el mismo usuario pero en diferentes ubicaciones en menos de cinco segundos. Vamos a [combinar](https://msdn.microsoft.com/library/azure/dn835026.aspx) el streaming de eventos de llamada consigo mismo para buscar estos casos.
+Para identificar un uso posiblemente fraudulento buscaremos las llamadas que se originan en el mismo usuario pero en diferentes ubicaciones en menos de 5 segundos. Vamos a [combinar](https://msdn.microsoft.com/library/azure/dn835026.aspx) el streaming de eventos de llamada consigo mismo para buscar estos casos.
 
 1.	Cambie la consulta en el editor de código a:
 
@@ -203,12 +203,12 @@ Para identificar un uso posiblemente fraudulento buscaremos las llamadas que se 
 
 ### Creación de receptores de salida
 
-Ahora que hemos definido una secuencia de eventos, una entrada de centro de eventos para introducir eventos y una consulta para realizar una transformación en la secuencia, el último paso es definir un receptor de salida para el trabajo. Escribiremos los eventos de comportamiento fraudulento en el almacenamiento de blobs.
+Ahora que hemos definido una secuencia de eventos, una entrada de centro de eventos para introducir eventos y una consulta para realizar una transformación en la secuencia, el último paso es definir un receptor de salida para el trabajo. Escribiremos los eventos de comportamiento fraudulento en el Almacenamiento de blobs.
 
 Si todavía no tiene un contenedor para el almacenamiento de blobs, siga estos pasos para crear uno:
 
-1.	Use una cuenta de almacenamiento existente o cree una nueva; para ello, haga clic en **Nuevo** > **Servicios de datos** > **Almacenamiento** > **Creación rápida** > y siga las instrucciones que aparecen en pantalla.
-2.	Seleccione la cuenta de almacenamiento, haga clic en **Contenedores** en la parte superior de la página y luego en **Agregar**.
+1.	Use una cuenta de almacenamiento existente o cree una nueva; para ello, haga clic en **NUEVO > SERVICIOS DE DATOS > ALMACENAMIENTO > CREACIÓN RÁPIDA** y siga las instrucciones.
+2.	Seleccione la cuenta de almacenamiento, haga clic en **CONTENEDORES** en la parte superior de la página y luego haga clic en **AGREGAR**.
 3.	Especifique un **NOMBRE** para el contenedor y establezca su **ACCESO** al blob público.
 
 ## Especificación de la salida del trabajo
@@ -218,7 +218,7 @@ Si todavía no tiene un contenedor para el almacenamiento de blobs, siga estos p
 3.	Escriba o seleccione los valores siguientes en la tercera página:
 
 	* **Alias de salida**: escriba un nombre descriptivo para esta salida de trabajo.
-	* **SUSCRIPCIÓN**: si el almacenamiento de blobs que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione **Usar cuenta de almacenamiento de la suscripción actual**. Si el almacenamiento está en otra suscripción, seleccione **Utilizar almacenamiento de otra suscripción** y especifique manualmente la información de **CUENTA DE ALMACENAMIENTO**, **CLAVE DE LA CUENTA DE ALMACENAMIENTO**, **CONTENEDOR**.
+	* **SUSCRIPCIÓN**: si el Almacenamiento de blobs que creó está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione **Usar cuenta de almacenamiento de la suscripción actual**. Si el almacenamiento está en otra suscripción, seleccione **Utilizar almacenamiento de otra suscripción** y especifique manualmente la información de **CUENTA DE ALMACENAMIENTO**, **CLAVE DE LA CUENTA DE ALMACENAMIENTO**, **CONTENEDOR**.
 	* **Cuenta de almacenamiento**: seleccione el nombre de la cuenta de almacenamiento
 	* **Contenedor**: seleccione el nombre del contenedor
 	* **Prefijo de nombre de archivo**: escriba un prefijo de archivo que se usará al escribir la salida del blob
@@ -236,7 +236,7 @@ Si todavía no tiene un contenedor para el almacenamiento de blobs, siga estos p
 Puesto que ya se han especificado la entrada, la consulta y la salida del trabajo, estamos preparados para iniciar el trabajo de Análisis de transmisiones para la detección de fraudes en tiempo real.
 
 1.	Desde **PANEL** del trabajo, haga clic en **INICIAR** en la parte inferior de la página.
-2.	En el cuadro de diálogo que aparece, seleccione **Hora de inicio del trabajo** y haga clic en el botón de marca de verificación en la parte inferior del cuadro de diálogo. El estado del trabajo cambiará a **Iniciando** y en breve pasará a **En ejecución**.
+2.	En el cuadro de diálogo que aparece, seleccione **HORA DE INICIO DEL TRABAJO** y luego haga clic en el botón de comprobación en la parte inferior del cuadro de diálogo. El estado del trabajo cambiará a **Iniciando** y en breve pasará a **En ejecución**.
 
 ## Consulta de la salida de la detección de fraudes
 
@@ -245,7 +245,7 @@ Use una herramienta como [Explorador de almacenamiento de Azure](https://azurest
 ![Detección de fraudes: eventos fraudulentos vistos en tiempo real](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -255,6 +255,5 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

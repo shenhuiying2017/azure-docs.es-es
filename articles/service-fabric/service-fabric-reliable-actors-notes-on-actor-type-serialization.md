@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
-
 
 # Notas sobre la serialización del tipo de Actores confiables de Service Fabric
 
@@ -83,4 +82,4 @@ public class VoicemailBox
 
 ```
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

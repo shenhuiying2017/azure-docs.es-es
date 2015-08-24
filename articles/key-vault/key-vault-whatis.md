@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="¿Qué es el Almacén de claves de Azure? | Información general" 
+	pageTitle="¿Qué es el Almacén de claves de Azure? | Microsoft Azure" 
 	description="El Almacén de claves de Azure ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Mediante el uso de Almacén de claves de Azure, los clientes pueden cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través de claves que están protegidas por módulos de seguridad de hardware (HSM)." 
 	services="key-vault" 
 	documentationCenter="" 
@@ -68,4 +68,4 @@ Para obtener más información acerca del uso de claves y secretos con el Almac�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

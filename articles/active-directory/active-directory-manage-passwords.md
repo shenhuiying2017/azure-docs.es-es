@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Administración de contraseñas en Azure AD | Microsoft Azure"
-	description="Un tema que explica cómo administrar contraseñas en Azure AD."
+	description="Cómo administrar contraseñas en Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="swadwha"
-	editor=""
-	tags="azure-classic-portal"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/10/2015"
 	ms.author="curtand"/>
 
 # Administración de contraseñas en Azure AD
@@ -33,13 +32,15 @@ El resto de este tema abarca el conjunto completo de capacidades de administraci
 
 Utilice los siguientes vínculos para ir a la documentación en la que esté más interesado:
 
-- [Información general: administración de contraseñas en Azure AD](https://msdn.microsoft.com/library/azure/dn683880.aspx)
-- [Restablecimiento de la contraseña de autoservicio: habilitación, configuración y prueba de restablecimiento de la contraseña de autoservicio](https://msdn.microsoft.com/library/azure/dn683881.aspx)
-- [Restablecimiento de la contraseña de autoservicio: personalización del restablecimiento de la contraseña para satisfacer sus necesidades](https://msdn.microsoft.com/library/azure/dn688249.aspx)
-- [Restablecimiento de la contraseña de autoservicio: prácticas recomendadas de implementación y administración](https://msdn.microsoft.com/library/azure/dn903643.aspx)
-- [Informes de administración de contraseñas de Azure AD: visualización de la actividad de administración de contraseñas en el inquilino](https://msdn.microsoft.com/library/azure/dn903641.aspx)
-- [Escritura diferida de contraseñas: configuración de Azure AD para administrar las contraseñas locales](https://msdn.microsoft.com/library/azure/dn903642.aspx)
-- [Preguntas más frecuentes y solución de problemas para la administración de contraseñas de Azure AD](https://msdn.microsoft.com/library/azure/dn683878.aspx)
+- [Información general: administración de contraseñas en Azure AD](active-directory-passwords-how-it-works.md)
+- [Restablecimiento de la contraseña de autoservicio: habilitación, configuración y prueba de restablecimiento de la contraseña de autoservicio](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords)
+- [Restablecimiento de la contraseña de autoservicio: personalización del restablecimiento de la contraseña para satisfacer sus necesidades](active-directory-passwords-customize.md)
+- [Restablecimiento de la contraseña de autoservicio: prácticas recomendadas de implementación y administración](active-directory-passwords-best-practices.md)
+- [Informes de administración de contraseñas de Azure AD: visualización de la actividad de administración de contraseñas en el inquilino](active-directory-passwords-get-insights.md)
+- [Escritura diferida de contraseñas: configuración de Azure AD para administrar las contraseñas locales](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+- [Solución de problemas de la administración de contraseñas de Azure AD](active-directory-passwords-troubleshoot.md)
+- [Preguntas más frecuentes para la administración de contraseñas de Azure AD](active-directory-passwords-faq.md)
+
 
 ## Pasos siguientes
 
@@ -47,4 +48,4 @@ Utilice los siguientes vínculos para ir a la documentación en la que esté má
 - [Creación o edición de usuarios en Azure AD](active-directory-create-users.md)
 - [Administración de grupos en Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

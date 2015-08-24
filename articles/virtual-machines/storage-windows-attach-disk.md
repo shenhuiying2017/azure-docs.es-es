@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Acoplamiento de un disco a una máquina virtual | Azure"
+	pageTitle="Acoplamiento de un disco a una máquina virtual | Microsoft Azure"
 	description="Aprenda como acoplar un disco de datos a una máquina virtual de Azure y a inicializarla para que esté lista para utilizarse."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -53,4 +53,4 @@ Puede acoplar discos vacíos como discos que contienen datos. En ambos casos, se
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

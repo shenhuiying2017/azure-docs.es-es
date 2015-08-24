@@ -1,4 +1,3 @@
-
 #### Para configurar y registrar el dispositivo
 
 1. Acceder a la interfaz de Windows PowerShell en la consola serie del dispositivo StorSimple. Consulte [Uso de PuTTY para conectarse a la consola serie del dispositivo](#use-putty-to-connect-to-the-device-serial-console) para obtener instrucciones. **Siga el procedimiento exactamente como se indica o no podrá acceder a la consola.**
@@ -30,7 +29,7 @@
    
       >[AZURE.NOTE]Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «El dispositivo no está listo», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
 
-8. (Opcional) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Opcional) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx). Si surge algún problema durante este paso, consulta la guía de solución de problemas de [Errores durante la configuración del proxy web](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
  
 
       >[AZURE.NOTE]También puede presionar Ctrl+C en cualquier momento para salir del Asistente para instalación. Se conservarán todos los valores de configuración que aplicó antes de emitir este comando.
@@ -41,11 +40,17 @@
 
     ![Registrar el dispositivo 4 de StorSimple](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice4-include.png)
 
-    Puede restablecer la contraseña de StorSimple Snapshot Manager desde la interfaz de servicio de Administrador de StorSimple.
+    Puede restablecer la contraseña de StorSimple Snapshot Manager desde la interfaz de servicio de Administrador de StorSimple. Para conocer pasos detallados, ve al tema [Cambiar las contraseñas de StorSimple utilizando el servicio de administrador de StorSimple](storsimple-change-passwords.md).
+
+	Para solucionar los problemas durante este paso, consulta la guía para solucionar problemas de [Errores relacionados con las contraseñas](storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords).
 
 11. El último paso del Asistente para instalación registra el dispositivo con el servicio de Administrador de StorSimple. Para ello, necesitará la clave de registro del servicio que obtuvo en el paso 2. Después de proporcionar la clave de registro, puede que tenga que esperar entre 2 y 3 minutos hasta que el dispositivo se registre.
 
-12. Una vez registrado el dispositivo, aparecerá una clave de cifrado de datos de servicio. Copie esta clave y guárdela en un lugar seguro. **Esta clave se solicitará junto con la clave de registro de servicio para registrar dispositivos adicionales con el servicio de Administrador de StorSimple.** Consulte [Seguridad de StorSimple](../articles/storsimple/storsimple-security.md) para obtener más información sobre esta clave.
+	Para solucionar los posibles errores de registro del dispositivo, consulta el tema [Errores durante el registro de dispositivos](storsimple-troubleshoot-deployment.md#errors-during-device-registration). Para conocer la solución de problemas con detalle, también puedes consultar el [Ejemplo paso a paso de solución de problemas](storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example).
+
+12. Una vez registrado el dispositivo, aparecerá una clave de cifrado de datos de servicio. Copie esta clave y guárdela en un lugar seguro.
+	
+	> [AZURE.WARNING]Esta clave se solicitará junto con la clave de registro de servicio para registrar dispositivos adicionales con el servicio de Administrador de StorSimple. Consulte [Seguridad de StorSimple](../articles/storsimple/storsimple-security.md) para obtener más información sobre esta clave.
 
      ![Registrar el dispositivo 6 de StorSimple](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
@@ -56,10 +61,12 @@
 14. Vuelva al Portal de administración y siga estos pasos:
   1. Haga doble clic en el servicio de Administrador de StorSimple para acceder a la página **Inicio rápido**.
   2. Haga clic en **Ver los dispositivos conectados**.
-  3. En la página **Dispositivos**, compruebe que el dispositivo se conectó correctamente al servicio consultando el estado. El estado del dispositivo debe ser **Conectado**.
+  3. En la página **Dispositivos**, compruebe que el dispositivo se conectó correctamente al servicio consultando el estado. El estado del dispositivo debe ser **Conectado**. Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte.
    
     ![Página de dispositivos de StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-      >[AZURE.NOTE]Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte.
+      >[AZURE.IMPORTANT]Después de que el dispositivo esté en línea, conecta los cables de red que desconectaste al principio de este paso.
 
-<!---HONumber=August15_HO6-->
+Después de que el dispositivo se haya registrado correctamente y no esté en línea, puedes ejecutar el `Test-HcsmConnection -Verbose` para asegurarte de que la conectividad de red es correcta. Para conocer el uso detallado de este cmdlet, ve a [Referencia del cmdlet para Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx).
+
+<!---HONumber=August15_HO7-->

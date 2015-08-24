@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="04/21/2015"
+	ms.date="08/11/2015"
 	ms.author="pakefali"/>
 
 # Compilación e implementación de una aplicación de API de Node.js en el Servicio de aplicaciones de Azure
@@ -245,4 +245,4 @@ Ha implementado una aplicación web de Node.js que usa el back-end de una aplica
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 # Ejemplos de Caché en Redis de Azure 
@@ -37,10 +37,6 @@ Este ejemplo lo siguiente:
 -	Uso de conjuntos de Redis para implementar el etiquetado
 
 Para obtener más información, consulte la documentación de [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) en github y para ver más escenarios de uso, consulte las pruebas unitarias [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
-
-[Uso de Caché en Redis de Azure con Node.js](cache-nodejs-get-started.md) muestra cómo comenzar a usar Caché en Redis de Azure con Node.js y el cliente [node\_redis](https://github.com/mranney/node_redis).
-
-[Uso de Caché en Redis de Azure con Java](cache-java-get-started.md) muestra cómo comenzar a usar Caché en Redis de Azure con Java y el cliente [Jedis](https://github.com/xetorthio/jedis).
 
 [Uso de Caché en Redis de Azure con Python](cache-python-get-started.md) muestra cómo comenzar a usar Caché en Redis de Azure con Python y el cliente r[edis-py](https://github.com/andymccurdy/redis-py).
 
@@ -79,4 +75,4 @@ El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World d
 
 El ejemplo [Supervisión del ancho de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite supervisar el ancho de banda utilizado en el cliente. Para medir el ancho de banda, ejecute el ejemplo en el equipo cliente de la caché, realice llamadas a la memoria caché y observe el ancho de banda notificado por el ejemplo de supervisión de ancho de banda.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

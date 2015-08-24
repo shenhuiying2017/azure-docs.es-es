@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Creación de una colección híbrida de Azure RemoteApp
@@ -78,7 +78,7 @@ Antes de crear la colección de RemoteApp, nos aseguraremos de que la nueva red 
 4. Seleccione el plan que quiere usar: Standard o Basic.
 5. Haga clic en **Crear colección de RemoteApp**.
 
-Después de crear la colección de RemoteApp, vaya a la página **Inicio rápido** de RemoteApp para continuar con los pasos de configuración.
+Una vez creada la colección de RemoteApp, haga doble clic en el nombre de la colección. Se abrirá la página **Inicio rápido**, donde terminará de configurar la colección.
 
 ## Paso 3: Vinculación de la colección a la red virtual ##
 
@@ -136,4 +136,4 @@ Esto es todo: ha creado e implementado correctamente su colección híbrida de R
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

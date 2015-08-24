@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Aprovisionamiento de clústeres Apache Spark en HDInsight | Azure" 
+   pageTitle="Aprovisionamiento de clústeres de Apache Spark en HDInsight | Microsoft Azure" 
    description="Obtenga información sobre cómo aprovisionar clústeres Spark para HDInsight de Azure mediante el Portal de Azure, Azure PowerShell, una línea de comandos o el SDK de .NET de HDInsight" 
    services="hdinsight" 
    documentationCenter="" 
@@ -505,4 +505,4 @@ Mientras la aplicación está abierta en Visual Studio, presione **F5** para eje
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

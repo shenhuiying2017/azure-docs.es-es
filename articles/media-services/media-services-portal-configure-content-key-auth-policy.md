@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -21,12 +21,10 @@
 #Configuración de la directiva de autorización de claves de contenido 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
-
 
 ##Información general
 
-Los Servicios multimedia de Microsoft Azure le permiten entregar el contenido cifrado (de forma dinámica) con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y PlayReady DRM. Servicios multimedia también proporcionan un **servicio de entrega de claves/licencias** desde el que los clientes pueden obtener una clave o una licencia para reproducir el contenido cifrado.
+Los Servicios multimedia de Microsoft Azure le permiten entregar el contenido cifrado (de forma dinámica) con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y PlayReady DRM. Servicios multimedia también proporciona un **servicio de entrega de claves/licencias** desde el que los clientes pueden obtener una clave o una licencia para reproducir el contenido cifrado.
 
 Este tema muestra cómo usar el **Portal de administración de Azure** para configurar la directiva de autorización de claves de contenido. La clave se puede usar posteriormente para cifrar el contenido de forma dinámica. Tenga en cuenta que actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No puede cifrar el formato de streaming HDS ni descargas progresivas.
  
@@ -62,9 +60,9 @@ La restricción **open** significa que el sistema entregará la clave a cualquie
 
 Para elegir la directiva de token restringida, presione el botón **TOKEN**.
 
-La directiva con restricción **token** debe ir acompañada de un token emitido por un **Servicio de tokens seguros** (STS). Servicios multimedia admite tokens en formato **Token de web simple** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y en formato **Token de web JSON** (JWT). Para obtener información, consulte [Autenticación de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+La directiva con restricción de **token** debe ir acompañada de un token emitido por un **Servicio de tokens seguros** (STS). Servicios multimedia admite tokens en formato **tokens web simples** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y en formato **tokens web JSON** (JWT). Para obtener información, consulte [Autenticación de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Servicios multimedia no proporciona **Servicios de tokens seguros**. Puede crear un STS personalizado o aprovechar el Servicio de control de acceso (ACS) de Microsoft Azure para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves de los Servicios multimedia devolverá la clave de cifrado al cliente si el token es válido y las notificaciones del token coinciden con las configuradas para la clave de contenido. Para obtener más información, consulte [Uso de Azure ACS para emitir tokens](http://mingfeiy.com/acs-with-key-services).
+Los Servicios multimedia no proporcionan **Servicios de tokens seguros**. Puede crear un STS personalizado o aprovechar el Servicio de control de acceso (ACS) de Microsoft Azure para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. El servicio de entrega de claves de los Servicios multimedia devolverá la clave de cifrado al cliente si el token es válido y las notificaciones del token coinciden con las configuradas para la clave de contenido. Para obtener más información, consulte [Uso de Azure ACS para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
 Al configurar la directiva con restricción **TOKEN**, debe establecer los valores de **clave de verificación**, **emisor** y **público**. La clave de comprobación principal contiene la clave con la que se firmó el token y el emisor es el servicio de tokens seguros que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla.
 
@@ -95,4 +93,4 @@ Ahora que ha configurado la directiva de autorización de la clave de contenido,
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

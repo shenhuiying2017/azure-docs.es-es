@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Códecs y formatos de Media Encoder Standard
@@ -83,4 +83,4 @@ MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-L
 
 [Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

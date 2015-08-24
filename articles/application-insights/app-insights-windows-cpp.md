@@ -19,6 +19,7 @@ Necesitará:
 
 * Una suscripción a [Microsoft Azure](http://azure.com). Inicie sesión con una cuenta Microsoft, que podría tener para Windows, XBox Live u otros servicios en la nube de Microsoft.
 * Visual Studio 2015 o posterior.
+* Aplicación universal de Windows 10
 
 ## Creación de recursos en Application Insights
 
@@ -139,4 +140,4 @@ Haga clic en cualquier gráfico para obtener más detalles. Por ejemplo, bloqueo
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

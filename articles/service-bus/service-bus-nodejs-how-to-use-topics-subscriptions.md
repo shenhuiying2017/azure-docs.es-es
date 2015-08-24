@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de temas del Bus de servicio (Node.js) - Azure" 
+	pageTitle="Uso de temas del Bus de servicio (Node.js) | Microsoft Azure" 
 	description="Obtenga información sobre cómo usar las suscripciones y los temas del Bus de servicio en Azure desde una aplicación Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -305,4 +305,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
   [Aplicación web de Node.js con almacenamiento]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

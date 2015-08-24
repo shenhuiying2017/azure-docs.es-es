@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aplicación .NET de niveles múltiples - Tutorial de Azure"
+	pageTitle="Aplicación .NET de niveles múltiples | Microsoft Azure"
 	description="Un tutorial que le ayuda a desarrollar una aplicación de varios niveles en Azure que utiliza colas del bus de servicio para comunicarse entre niveles. Ejemplos en .NET."
 	services="service-bus"
 	documentationCenter=".net"
@@ -539,4 +539,4 @@ Para obtener información sobre cómo implementar el front-end en un Sitio web d
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

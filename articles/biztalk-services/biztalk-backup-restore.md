@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación y restauración de una copia de seguridad en Servicios de BizTalk | Azure" 
+	pageTitle="Creación y restauración de una copia de seguridad en Servicios de BizTalk | Microsoft Azure" 
 	description="Entre los Servicios de BizTalk se incluye Copias de seguridad y restauración. Obtenga información acerca de cómo crear y restaurar una copia de seguridad y aprenda a determinar el contenido del que se realizan dichas copias. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -233,4 +233,4 @@ Para crear los Servicios de BizTalk de Azure en el Portal de administración de 
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

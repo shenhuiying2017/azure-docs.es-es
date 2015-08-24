@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación, administración o eliminación de una cuenta de almacenamiento | Azure"
+	pageTitle="Creación, administración o eliminación de una cuenta de almacenamiento | Microsoft Azure"
 	description="Obtenga información acerca de cómo crear, administrar o eliminar una cuenta de almacenamiento en el Portal de administración de Azure."
 	services="storage"
 	documentationCenter=""
@@ -167,4 +167,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

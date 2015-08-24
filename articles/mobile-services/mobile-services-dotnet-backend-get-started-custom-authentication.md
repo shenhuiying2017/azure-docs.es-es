@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a la autenticación personalizada | Centro de desarrollo móvil" 
+	pageTitle="Introducción a la autenticación personalizada | Microsoft Azure" 
 	description="Obtenga información acerca de cómo autenticar usuarios con un nombre de usuario y una contraseña." 
 	documentationCenter="Mobile" 
 	authors="mattchenderson" 
@@ -420,4 +420,4 @@ De este modo finaliza este tutorial.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -257,7 +257,6 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 	. . . 
 
 
-
 ##Pasos siguientes
 Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con los Servicios multimedia](media-services-rest-check-job-progress.md).
 
@@ -266,4 +265,4 @@ Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [C
 
 [Obtención de una instancia de procesador multimedia](media-services-rest-get-media-processor.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

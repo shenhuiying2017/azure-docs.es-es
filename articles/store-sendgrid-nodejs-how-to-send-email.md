@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso del servicio de correo electrónico SendGrid (Java) - Azure" 
+	pageTitle="Uso del servicio de correo electrónico SendGrid (Node.js) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos con la API de Node.js." 
 	services="" 
 	documentationCenter="nodejs" 
@@ -224,4 +224,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
   [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

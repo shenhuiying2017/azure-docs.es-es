@@ -112,4 +112,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

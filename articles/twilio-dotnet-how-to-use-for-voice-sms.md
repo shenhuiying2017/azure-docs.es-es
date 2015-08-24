@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de Twilio para voz y SMS (.NET) - Azure" 
+	pageTitle="Uso de Twilio para voz y SMS (.NET) | Microsoft Azure" 
 	description="Aprenda a realizar llamadas telefónicas y a enviar mensajes SMS con el servicio de la API de Twilio en Azure. Los ejemplos de código están escritos en .NET." 
 	services="" 
 	documentationCenter=".net" 
@@ -80,7 +80,7 @@ Una aplicación de Azure que hospeda una aplicación habilitada para Twilio no e
 ## <a id="configure_app"></a>Configuración de su aplicación para utilizar bibliotecas de Twilio
 Twilio proporciona un conjunto de bibliotecas auxiliares .NET que encapsulan varios aspectos de Twilio a fin de proporcionar maneras sencillas y fáciles de interactuar con la API de Twilio REST y el Cliente de Twilio para producir respuestas TwiML.
 
-Twilio proporciona cinco bibliotecas para desarrolladores. NET: <table border="1"> <tr> <th>Biblioteca</th> <th>Descripción</th> </tr> <tr> <td>Twilio.API</td> <td>La biblioteca principal de Twilio que encapsula la API de Twilio REST en una biblioteca .NET fácil de usar. Esta biblioteca está disponible para .NET, Silverlight y Windows Phone 7.</td> </tr> <tr> <td>Twilio.TwiML</td> <td>Proporciona un método .NET fácil de usar para generar una marca TwiML.</td> </tr> <tr> <td>Twilio.MVC</td> <td>Para los desarrolladores que usan ASP.NET MVC, esta biblioteca incluye un atributo TwilioController, TwiML ActionResult y de validación de solicitudes.</td> </tr> <tr> <td>Twilio.WebMatrix</td> <td>Para los desarrolladores que usan la herramienta de desarrollo WebMatrix gratuita de Microsoft, esta biblioteca contiene aplicaciones auxiliares de sintaxis Razor para diversas acciones de Twilio.</td> </tr> <tr> <td>Twilio.Client.Capability</td> <td>Contiene el generador de token de capacidad para usarlo con el SDK de JavaScript del Cliente de Twilio.</td> </tr> </table>
+Twilio proporciona cinco bibliotecas para desarrolladores .NET: Biblioteca|Descripción ---|--- Twilio.API|La biblioteca principal de Twilio que encapsula la API de REST de Twilio en una biblioteca .NET fácil de usar. Esta biblioteca está disponible para .NET, Silverlight y Windows Phone 7. Twilio.TwiML|Proporciona un método .NET fácil de usar para generar un marcado de TwiML. Twilio.MVC|Para los desarrolladores que usan ASP.NET MVC, esta biblioteca incluye un atributo TwilioController, TwiML ActionResult y de validación de solicitudes. Twilio.WebMatrix|Para los desarrolladores que usan la herramienta de desarrollo WebMatrix gratuita de Microsoft, esta biblioteca contiene aplicaciones auxiliares de sintaxis Razor para diversas acciones de Twilio. Twilio.Client.Capability|Contiene el generador de token de capacidad para usarlo con el SDK de JavaScript del Cliente de Twilio.
 
 Tenga en cuenta que todas las bibliotecas requieren .NET 3.5, Silverlight 4 o Windows Phone 7 o posterior.
 
@@ -279,4 +279,4 @@ Para obtener información adicional sobre el uso de Twilio en Azure con ASP.NET,
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

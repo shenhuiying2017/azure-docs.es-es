@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/06/2015" 
 	ms.author="tdykstra"/>
 
 # Implementación y configuración de una aplicación de API de conector SaaS en el Servicio de aplicaciones de Azure
@@ -24,7 +24,7 @@ En este tutorial se muestra cómo instalar, configurar y probar un [conector de 
 
 Por ejemplo, si desea codificar solicitudes HTTP para leer y escribir archivos en la cuenta de Dropbox, el proceso de autenticación para trabajar directamente con Dropbox es complicado. Un conector de Dropbox se encarga del complejo proceso de autenticación para que el usuario pueda centrarse en escribir el código específico para la tarea en cuestión.
 
-> [AZURE.NOTE]Las instrucciones aquí descritas no serán necesarias si desea usar un conector SaaS desde una aplicación lógica. Para obtener información sobre cómo usar conectores de SaaS dentro de las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+> [AZURE.NOTE]Las instrucciones aquí descritas no serán necesarias si desea usar un conector SaaS desde una aplicación lógica. Para obtener información sobre cómo usar conectores de SaaS dentro de las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) y [Uso de la aplicación OAUTH personalizada en conectores](https://social.msdn.microsoft.com/Forums/es-es/home?forum=azurelogicapps&announcementId=4af1e4c5-d220-4457-97d8-d08e427ae6c1).
  
 Este tutorial usa un conector de DropBox como ejemplo y le guía a través de los pasos siguientes:
 
@@ -237,4 +237,4 @@ Hemos visto cómo instalar, configurar y probar un conector SaaS. Para obtener m
 [portal de Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

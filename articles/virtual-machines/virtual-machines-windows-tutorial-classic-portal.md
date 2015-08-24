@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Creación de una máquina virtual que ejecuta Windows en Azure"
-	description="Cree una máquina virtual Windows (VM) en el Portal de Azure."
+	description="Cree una máquina virtual de Windows en el Portal de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2015"
+	ms.date="08/11/2015"
 	ms.author="kathydav"/>
 
 # Creación de una máquina virtual que ejecuta Windows en el Portal de Azure
@@ -41,7 +42,7 @@ Se trata del tutorial en formato de vídeo.
 
 En esta sección se muestra cómo usar la opción **De la galería** del Portal de Azure para crear la máquina virtual. Esta opción proporciona más opciones de configuración que la opción **Creación rápida**. Por ejemplo, si desea conectar una máquina virtual a una red virtual, necesitará usar la opción **De la galería**.
 
-> [AZURE.NOTE]También puede probar el [Portal de vista previa de Azure](https://portal.azure.com), más completo y personalizable, para crear una máquina virtual, automatizar la implementación de plantillas de aplicación para varias máquinas virtuales, usar características mejoradas de supervisión y diagnóstico de máquinas virtuales y mucho más. Las opciones de configuración de máquinas virtuales disponibles en los dos portales son muy similares pero no idénticas.
+> [AZURE.NOTE]También puede probar el [Portal de vista previa de Azure](https://portal.azure.com), más completo y personalizable, para crear una máquina virtual, usar características mejoradas de supervisión y diagnóstico, usar almacenamiento Premium y mucho más. Las opciones disponibles para configurar máquinas virtuales en los dos portales se solapan considerablemente, pero no son idénticas. Por ejemplo, use el portal de vista previa para configurar una máquina virtual con almacenamiento Premium.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -53,6 +54,6 @@ En esta sección se muestra cómo usar la opción **De la galería** del Portal 
 
 ## Recursos adicionales
 
-Para obtener más información acerca de lo que se puede configurar para una máquina virtual y cuando se puede hacer, consulte [Acerca de los valores de configuración de la VM de Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
+Para obtener más información sobre lo que se puede configurar para una máquina virtual y cuándo se puede hacer, vea [Ajustes de configuración de máquinas virtuales en Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,4 +1,3 @@
-
 | Identificador de límites | Límite | Comentarios |
 |----------------- | ------|--------- |
 | Número máximo de credenciales de la cuenta de almacenamiento | 64 | |
@@ -24,4 +23,4 @@
 
 &#42; Se midió el rendimiento máximo por tipo de E/S con escenarios de escritura y de lectura del 100%. Es posible que el rendimiento real sea inferior y dependa de las condiciones de la red y de la mezcla de E/S.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

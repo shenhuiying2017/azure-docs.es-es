@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación e implementación de un servicio en la nube - Azure"
+	pageTitle="Creación e implementación de un servicio en la nube | Microsoft Azure"
 	description="Aprenda a crear e implementar un servicio en la nube con el método Creación rápida en Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -108,4 +108,4 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

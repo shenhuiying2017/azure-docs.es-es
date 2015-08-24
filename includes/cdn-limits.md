@@ -1,7 +1,9 @@
 
-| Resource	| Soft limit 
+| Recurso | Límite flexible 
 --- | ---
-| CDN endpoints | 50
-| Custom domains per one customer| 16
+| Extremos de la red CDN | 50
+| Dominios personalizados por cada cliente| 16
 
-You can request to update soft limits by opening a support ticket.
+Puedes solicitar la actualización de los límites flexibles abriendo una incidencia de soporte técnico.
+
+<!---HONumber=August15_HO7-->

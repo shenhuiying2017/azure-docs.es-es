@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de un certificado al almacén de CA de Azure" 
+	pageTitle="Agregar un certificado al almacén de CA de Java | Microsoft Azure" 
 	description="Obtenga información acerca de cómo agregar un certificado de entidad de certificación (CA) al almacén de certificados CA de Java (cacerts) para el servicio de Twilio o el Bus de servicio de Azure." 
 	services="" 
 	documentationCenter="java" 
@@ -52,4 +52,4 @@ Si necesita agregar Baltimore CyberTrust Root, tiene el número de serie 02:00:0
 
 Para obtener más información sobre los certificados raíz que usa Azure, consulte [Azure Root Certificate Migration (Migración de certificados raíz de Azure)](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -3,7 +3,7 @@
     pageTitle="Validación de la red virtual de Azure para su uso con Azure RemoteApp"
     description="Obtenga información sobre cómo asegurarse de que la red virtual de Azure está lista para usarse con Azure RemoteApp"
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/02/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
 # Validación de la red virtual de Azure para su uso con Azure RemoteApp
 
-Antes de usar una red virtual de Azure con Azure RemoteApp, debe validar la red virtual. Esto ayuda a evitar problemas con la conectividad de Azure RemoteApp.
+Antes de usar una red virtual de Azure con Azure RemoteApp, debe validar la red virtual. Esto ayuda a evitar problemas con la conectividad.
 
 Para validar la red virtual de Azure, haga lo siguiente:
 
@@ -37,4 +37,4 @@ Para obtener más información sobre el flujo de trabajo completo de la colecci�
 - [Implementación de la colección Azure RemoteApp en la Red virtual de Azure (con compatibilidad para ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

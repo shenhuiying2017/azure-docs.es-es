@@ -3,7 +3,7 @@
     pageTitle="Solución de problemas con las colecciones en la nube de RemoteApp: creación"
     description="Obtenga información sobre cómo solucionar problemas con la creación de las colecciones en la nube de RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="vikbucha" />
 
 
@@ -38,4 +38,4 @@ Si usa una de las imágenes de Microsoft incluidas en su suscripción, intente c
 Si recibe este error, normalmente significa que ha actualizado a una cuenta de pago pero intenta usar una imagen proporcionada por Microsoft que solo es válida durante el modo de prueba del servicio. En este caso, intente crear nuevamente la colección en la nube, pero asegúrese de especificar la imagen correcta.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

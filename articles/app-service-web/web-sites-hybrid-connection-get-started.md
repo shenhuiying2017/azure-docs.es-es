@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 #Acceso a recursos locales mediante conexiones híbridas en el Servicio de aplicaciones de Azure
@@ -207,4 +207,4 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

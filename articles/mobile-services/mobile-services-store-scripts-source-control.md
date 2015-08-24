@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Almacenamiento del código del proyecto en control de código fuente - Servicios móviles de Azure" 
+	pageTitle="Almacenamiento del código del proyecto en control de código fuente | Microsoft Azure" 
 	description="Obtenga información acerca de cómo almacenar los módulos y los archivos de script de servidor en un repositorio Git local del equipo." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -163,4 +163,4 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

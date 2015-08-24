@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -25,6 +25,8 @@
 ## Obtención de los cmdlets 
 -------------
 En primer lugar, tenemos que descargar [aquí](http://go.microsoft.com/?linkid=9811175) los commandlets de Azure PowerShell, que incluyen los de RemoteApp.
+
+Consulte la ayuda de cmdlets de Azure RemoteApp [aquí](https://msdn.microsoft.com/library/mt428031.aspx).
 
 ## Configuración de los cmdlets de Azure para usar su suscripción
 ------------------
@@ -99,4 +101,4 @@ Otros cmdlets de RemoteApp:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de Servicios móviles a una aplicación existente (Xamarin.Android) - Servicios móviles de Azure" 
+	pageTitle="Incorporación de Servicios móviles a una aplicación existente (Xamarin.Android) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo almacenar y acceder a datos desde su aplicación de Xamarin.Android para Servicios móviles de Azure." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -283,4 +283,4 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Xamar
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

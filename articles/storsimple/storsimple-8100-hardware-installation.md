@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Instalar el dispositivo StorSimple 8100"
+   pageTitle="Instalación del dispositivo StorSimple 8100 | Microsoft Azure"
    description="Aquí se describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # Instalar el dispositivo StorSimple 8100
@@ -47,7 +47,7 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
 
      ![Desempaquetar el dispositivo de almacenamiento](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
 
-    **Figura 1: Vista del dispositivo de almacenamiento desempaquetado**
+    **Vista del dispositivo de almacenamiento desempaquetado**
 
      Etiqueta | Descripción 
      ----- | -------------
@@ -115,7 +115,7 @@ Se proporciona un conjunto de guías de montaje para utilizar con el armario de 
 
     ![Fijación de las guías al chasis del receptáculo](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-   **Figura 2: Fijación de guías a los laterales del receptáculo**
+   **Fijación de guías a los laterales de la caja**
 
     Label | Description
     ----- | -----------
@@ -132,7 +132,7 @@ Se proporciona un conjunto de guías de montaje para utilizar con el armario de 
 
      ![Fijación de las guías al armario del chasis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **Figura 3: Fijación de soportes de guía en el bastidor**
+    **Fijación de soportes de guía en el bastidor**
 
      Etiqueta | Descripción
      ----- | -----------
@@ -154,7 +154,7 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
 
     ![Inserción del dispositivo en el bastidor](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **Figura 4: Montaje del dispositivo en el bastidor**
+    **Montaje del dispositivo en el bastidor**
 
 3. Fije el receptáculo en el bastidor mediante la instalación de un tornillo de cabeza compatible con un tornillo de cabeza Phillips proporcionado a través de cada brida, izquierda y derecha.
 
@@ -162,7 +162,7 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
 
      ![Instalación de los topes de las bridas](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-    **Figura 5: Instalación de los topes de las bridas**
+    **Instalación de los topes de las bridas**
 
      Etiqueta | Descripción
      ----- | -----------
@@ -192,7 +192,7 @@ Antes de comenzar a pasar los cables del dispositivo, necesitará:
 
 - Los adaptadores QSFP a SFP + para su uso con interfaces de red de 10 GbE
 
-- [Transceptores, cables y conmutadores de interfaces de red 10 GbE compatibles](https://msdn.microsoft.com/library/azure/dn891474.aspx)
+- [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 
 ### Cables de alimentación
@@ -201,29 +201,7 @@ El dispositivo incluye módulos de alimentación y de refrigeración (PCM) redun
 
 Realice los pasos siguientes para pasar los cables de alimentación del dispositivo.
 
-#### Instalación de los cables de alimentación
-
-1. Asegúrese de que el interruptor de alimentación de cada uno de los PCM se encuentran en la posición OFF.
-
-2. Conecte los cables de alimentación en ambos PCM en el receptáculo principal.
-
-3. Conecte los cables de alimentación a las unidades de distribución de energía (PDU) del bastidor tal y como se muestra en la siguiente ilustración. Asegúrese de que los dos PCM utilicen fuentes de alimentación independientes.
-
-4. Gire el interruptor de alimentación de ambos PCM a la posición ON para encender el sistema.
-
-    >[AZURE.NOTE]Para garantizar una alta disponibilidad del sistema, debe cumplir estrictamente el esquema de cableado de potencia que se muestra en el siguiente diagrama de cableado.
-
-    ![Colocación del cable de alimentación del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
-
-    **Figura 6: Cables de alimentación del dispositivo**
-
-     Etiqueta | Descripción
-     ----- | -----------
-     1 | PCM 0
-     2 | Controlador 1
-     3 | Controlador 0
-     4 | PCM 1
-     5 | PDU
+[AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### Cables de red
 
@@ -237,7 +215,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
     ![Panel posterior del dispositivo 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **Figura 7: Parte posterior de dispositivo en la que se muestran los puertos de datos**
+    **Parte posterior del dispositivo en la que se muestran los puertos de datos**
  
      Etiqueta | Descripción
      ------- | -----------
@@ -258,7 +236,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
     ![Colocación del cable de red del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **Figura 8: Cables de red del dispositivo**
+    **Cables de red del dispositivo**
 
     Etiqueta | Descripción
     ----- | -----------
@@ -276,7 +254,7 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 
 #### Colocación de los cables de conexión en serie
 
-1. El dispositivo tiene un puerto serie en cada controlador que se identifica mediante un icono de una llave inglesa. Consulte la figura 7 para buscar los puertos serie en la placa posterior del dispositivo. 
+1. El dispositivo tiene un puerto serie en cada controlador que se identifica mediante un icono de una llave inglesa. Consulte la ilustración de la sección [Cables de red](#network-cabling) para buscar los puertos serie en el plano anterior del dispositivo. 
 
 2. Identifique el controlador activo en la placa posterior del dispositivo. Un LED que parpadeará en azul indica que el controlador está activo.
 
@@ -297,4 +275,4 @@ Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la r
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

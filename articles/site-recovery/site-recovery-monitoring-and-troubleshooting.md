@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/20/2015" 
+	ms.date="08/13/2015" 
 	ms.author="anbacker"/>
 	
 # Protección de supervisión y solución de problemas para los VMware, VMM, Hyper-V y sitios físicos
@@ -169,6 +169,7 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 -   [No se puede establecer una conexión en el almacén de Administrador de recuperación de Hyper-V. Compruebe la configuración de proxy o inténtelo de nuevo más tarde.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### Configuración
+-   [No se puede crear el grupo de protección: hubo un error al recuperar la lista de servidores](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx).
 
 -   [El clúster de hosts de Hyper-V contiene al menos un adaptador de red estático o no hay adaptadores conectados configurados para usar DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
@@ -190,7 +191,7 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 
     -   [Conmutación por error en el punto de recuperación seleccionado para la máquina virtual: error de acceso general denegado.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
 
-    -   [No se ha podido conmutar por error Hyper-V a un punto de recuperación seleccionado para la máquina virtual: operación anulada, pruebe un punto de recuperación más reciente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [No se pudo conmutar por error Hyper-V a un punto de recuperación seleccionado para la máquina virtual: operación anulada, pruebe un punto de recuperación más reciente. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
 
     -   No se pudo establecer una conexión con el servidor (0x00002EFD)
 
@@ -206,7 +207,7 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 
 -   [La máquina virtual no se está ejecutando y no está apagada](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
 
--   [Se produjo una operación de fuera de banda en una máquina virtual y ](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)se produjo un error de conmutación por error
+-   [Se ejecutó una operación de fuera de banda en una máquina virtual y ](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)hubo un error de conmutación por error.
 
 -   Test Failover
 
@@ -222,4 +223,4 @@ Servidor de configuración (CS), Servidor de proceso (PS) y Destino principal (M
 ### Solución de problemas del escritorio remoto después de la conmutación por error
 Muchos clientes tienen que afrontar problemas para conectarse a máquina virtual con conmutación por error en Azure. Use el documento de solución de problemas para RDP en la máquina virtual. [Vínculo de documento](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

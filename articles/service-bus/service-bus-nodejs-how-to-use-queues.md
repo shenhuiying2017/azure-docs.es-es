@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilizaci처n de las colas del Bus de servicio (Node.js) - Azure" 
+	pageTitle="Uso de colas del Bus de servicio (Node.js) | Microsoft Azure" 
 	description="Obtenga informaci처n sobre c처mo usar las colas del Bus de servicio en Azure desde una aplicaci처n Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -190,4 +190,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   [Aplicaci처n web de Node.js con almacenamiento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

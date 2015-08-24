@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Administración de la disponibilidad de las máquinas virtuales - Azure"
+	pageTitle="Administración de la disponibilidad de las máquinas virtuales | Microsoft Azure"
 	description="Aprenda cómo utilizar varias máquinas virtuales para garantizar una alta disponibilidad para su aplicación de Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -69,4 +69,4 @@ Evite dejar una máquina virtual de instancia única sola en un conjunto de disp
 [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuración de un conjunto de disponibilidad para máquinas virtuales]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

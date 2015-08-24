@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
@@ -127,4 +127,4 @@ Nota: no todos los formatos de salida anteriores se admiten para la entrega medi
 
 Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure | Azure"
+   pageTitle="Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure | Microsoft Azure"
    description="Obtenga información acerca de cómo crear una implementación de varias máquinas virtuales con la CLI de Azure"
    services="virtual-machines"
    documentationCenter="nodejs"
@@ -67,4 +67,4 @@ Aunque puede encontrar más información sobre cualquiera de los comandos CLI de
 * [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/30/2015"
+   ms.date="08/09/2015"
    ms.author="sameerch"/>
 
 
@@ -41,7 +41,7 @@ Datos de sondeo | <ul><li>Insertar en tabla</li><li>Actualizar tabla</li><li>Sel
 Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
-2. Seleccione **Aplicaciones de API** y busque "Conector de SQL".
+2. Busque "Conector de SQL", selecciónelo y seleccione **Crear**.
 3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades.
 4. Escriba la siguiente configuración del paquete:
 
@@ -59,7 +59,10 @@ Tablas | No | Enumere las tablas de base de datos que se pueden actualizar media
 Procedimientos almacenados | No | Escriba un procedimiento almacenado que se pueda llamar mediante el conector. Por ejemplo, escriba *sp\_IsEmployeeEligible* o *sp\_CalculateOrderDiscount*. Las tablas válidas o los procedimientos almacenados son necesarios para usar este conector como una acción.
 Consulta de datos disponibles | Para la compatibilidad del desencadenador | Instrucción SQL para determinar si los datos están disponibles para el sondeo de una tabla de la base de datos de SQL Server. Esto debería devolver un valor numérico que representa el número de filas de datos disponibles. Ejemplo: SELECT COUNT(*) from table\_name. Consulta de sondeo de datos | Para la compatibilidad del desencadenador | La instrucción SQL para sondear la tabla de base de datos de SQL Server. Puede especificar cualquier número de instrucciones SQL separadas por un signo de punto y coma. Esta instrucción se ejecuta transaccionalmente y se confirma solo cuando los datos estén almacenados de forma segura en la aplicación lógica. Ejemplo: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>***Nota**<br/>Debe proporcionar una instrucción de sondeo que evite un bucle infinito mediante la eliminación, la transferencia o la actualización de los datos seleccionados para garantizar que no se vuelven a sondear los mismos datos.
 
-5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente: <br/> ![][1]
+5. Cuando haya terminado, la configuración del paquete tendrá un aspecto similar al siguiente: ![][1]
+
+6. Seleccione **Crear**.
+
 
 ## Uso del conector como desencadenador
 Veamos una aplicación lógica sencilla que sondea datos en una tabla de SQL, agrega los datos en otra tabla y actualiza los datos.
@@ -84,24 +87,24 @@ Para usar el conector de SQL como un desencadenador, especifique los valores **C
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Incorporación del desencadenador
-1. Al crear o editar una aplicación lógica, seleccione el conector de SQL que ha creado como desencadenador. Se mostrarán los desencadenadores disponibles: **Datos de sondeo (JSON)** y **Datos de sondeo (XML)**: <br/> ![][5]
+1. Al crear o editar una aplicación lógica, seleccione el conector de SQL que ha creado como desencadenador. Se mostrarán los desencadenadores disponibles: **Datos de sondeo (JSON)** y **Datos de sondeo (XML)**: ![][5]
 
-2. Seleccione el desencadenador **Datos de sondeo (JSON)**, especifique la frecuencia y haga clic en el signo ✓: <br/> ![][6]
+2. Seleccione el desencadenador **Datos de sondeo (JSON)**, especifique la frecuencia y haga clic en el signo ✓: ![][6]
 
-3. El desencadenador aparece ahora como configurado en la aplicación lógica. Se mostrarán las salidas del desencadenador y se podrán utilizar como entradas en un paso posterior: <br/> ![][7]
+3. El desencadenador aparece ahora como configurado en la aplicación lógica. Se mostrarán las salidas del desencadenador y se podrán utilizar como entradas en acciones posteriores: ![][7]
 
 ## Uso del conector como acción
 Veamos el escenario de una aplicación lógica sencilla que sondea datos en una tabla de SQL, agrega los datos en otra tabla y actualiza los datos.
 
 Para usar el conector de SQL como una acción, escriba el nombre de las tablas o procedimientos almacenados que especificó al crear el conector de SQL:
 
-1. Después del desencadenador (o seleccione “Ejecutar esta lógica manualmente”), agregue el conector de SQL que ha creado desde la Galería. Seleccione una de las acciones de inserción, como *insertar en TempEmployeeDetails (JSON)*: <br/> ![][8]
+1. Después del desencadenador (o seleccione “Ejecutar esta lógica manualmente”), agregue el conector de SQL que ha creado desde la Galería. Seleccione una de las acciones de inserción, como *Insertar en TempEmployeeDetails (JSON)*: ![][8]
 
-2. Escriba los valores de entrada del registro que se va a insertar y haga clic en el signo ✓: <br/> ![][9]
+2. Escriba los valores de entrada del registro que se va a insertar y haga clic en el signo ✓: ![][9]
 
-3. En la Galería, seleccione el mismo conector de SQL que ha creado. Como una acción, seleccione la acción de actualización en la misma tabla, como *actualizar EmployeeDetails*: <br/> ![][11]
+3. En la Galería, seleccione el mismo conector de SQL que ha creado. Como una acción, seleccione la Actualizar en la misma tabla, como *Actualizar EmployeeDetails*: ![][11]
 
-4. Escriba los valores de entrada para la acción de actualización y haga clic en el signo ✓: <br/> ![][12]
+4. Escriba los valores de entrada para la acción de actualización y haga clic en el signo ✓: ![][12]
 
 Puede probar la aplicación lógica mediante la adición de un nuevo registro en la tabla que se sondea.
 
@@ -109,7 +112,7 @@ Puede probar la aplicación lógica mediante la adición de un nuevo registro en
 
 Consulta SQL | Compatible | No compatible
 --- | --- | ---
-Cláusula WHERE | <ul><li>Operadores: AND, OR, =, <>, <, <=, >, >= y LIKE</li><li>Se pueden combinar varias subcondiciones mediante ‘(‘ y ‘)’</li><li>Literales de cadena, fecha/hora (entre comillas simples), números (solo deben contener caracteres numéricos)</li><li>Debe estar de forma estricta en un formato de expresión binaria como ((operando operador operando) AND/OR (operando operador operando))**</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas las funciones integradas como ADD(), MAX() NOW(), POWER(), etc.</li><li>Operadores matemáticos como *, -, +, etc.</li><li>Concatenaciones de cadenas con +.</li><li>Todas las combinaciones</li><li>IS NULL y IS NOT Null</li><li>Cualquier número con caracteres no numéricos, como números hexadecimales</li></ul> Campos (en consulta Select) | <ul><li>Nombres de columna válidos separados por coma. No se permiten prefijos de nombre de tabla (el conector funciona en una tabla cada vez).</li><li>Los nombres se pueden escapar con ‘[‘ y ‘]’</li></ul> | <ul><li>Palabras clave como TOP, DISTINCT, etc. en</li><li>Alias como calle + ciudad + código postal como dirección</li><li>Todas las funciones integradas, como ADD(), MAX() NOW(), POWER(), etc.</li><li>Operadores matemáticos, como *, -, +, etc.</li><li>Concatenaciones de cadenas mediante +</li></ul>
+Cláusula WHERE | <ul><li>Operadores: AND, OR, =, <>, <, <=, >, >= y LIKE</li><li>Se pueden combinar varias subcondiciones mediante ‘(‘ y ‘)’</li><li>Literales de cadena, fecha/hora (entre comillas simples), números (solo deben contener caracteres numéricos)</li><li>Debe estar de forma estricta en un formato de expresión binaria, como ((operando operador operando) AND/OR (operando operador operando))**</li></ul> | <ul><li>Operadores: Between, IN</li><li>Todas las funciones integradas como ADD(), MAX(), NOW(), POWER(), etc.</li><li>Operadores matemáticos como *, -, +, etc.</li><li>Concatenaciones de cadenas con +.</li><li>Todas las combinaciones</li><li>IS NULL e IS NOT Null</li><li>Cualquier número con caracteres no numéricos, como números hexadecimales</li></ul> Campos (en consulta Select) | <ul><li>Nombres de columna válidos separados por coma. No se permiten prefijos de nombre de tabla (el conector funciona en una tabla cada vez).</li><li>Los nombres se pueden escapar con ‘[‘ y ‘]’</li></ul> | <ul><li>Palabras clave como TOP, DISTINCT, etc. en</li><li>Alias como calle + ciudad + código postal COMO dirección</li><li>Todas las funciones integradas, como ADD(), MAX(), NOW(), POWER(), etc.</li><li>Operadores matemáticos, como *, -, +, etc.</li><li>Concatenaciones de cadenas mediante +</li></ul>
 
 #### Sugerencias
 
@@ -145,4 +148,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -162,7 +162,7 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 <!-- Images -->
 
 <!-- URLs. -->
-[Creación de una aplicación Xamarin iOS]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started.md
+[Creación de una aplicación Xamarin iOS]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
@@ -170,4 +170,4 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 [extensión Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

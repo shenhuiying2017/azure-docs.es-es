@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Incorporación de Servicios móviles a una aplicación existente (iOS) | Centro de desarrollo móvil"
+	pageTitle="Incorporación de Servicios móviles a una aplicación existente (iOS) | Microsoft Azure"
 	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación iOS."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -81,4 +81,4 @@ Descargue la [aplicación GetStartedWithData de iOS]. En Xcode, abra el proyecto
 [aplicación GetStartedWithData de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 [aplicación de iOS GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

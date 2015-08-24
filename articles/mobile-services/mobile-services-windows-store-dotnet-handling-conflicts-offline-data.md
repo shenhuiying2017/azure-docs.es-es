@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Control de conflictos con datos sin conexión en aplicaciones universales de Windows | Servicios móviles de Azure" 
+	pageTitle="Control de conflictos con datos sin conexión en aplicaciones universales de Windows | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación universal de Windows" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -164,4 +164,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [ejemplo de Todo sin conexión de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

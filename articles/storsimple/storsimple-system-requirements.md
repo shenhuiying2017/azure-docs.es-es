@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Requisitos del sistema StorSimple" 
+   pageTitle="Requisitos del sistema StorSimple | Microsoft Azure" 
    description="Describe los requisitos del sistema y procedimientos recomendados para software, alta disponibilidad y conexión a la de red de una solución Azure StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="06/03/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli"/>
 
 # Requisitos del sistema StorSimple
@@ -96,7 +96,7 @@ Los módulos del controlador del dispositivo StorSimple tienen cada uno cuatro i
 
 - Cuando sea posible, use MPIO en servidores para asegurarse de que los servidores pueden tolerar un vínculo, red o errores de interfaz.
 
-Para obtener más información acerca de la conexión a red del dispositivo para obtener una alta disponibilidad y rendimiento, vaya a [Conexión de los cables del dispositivo 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) o [Conexión de los cables del dispositivo 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
+Para obtener más información sobre cómo conectar en red su dispositivo para obtener alta disponibilidad y rendimiento, vaya a [Instalar el dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) o [Instalar el dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### SSD y unidades de disco duro
 
@@ -138,7 +138,7 @@ El modelo 8600 del dispositivo StorSimple incluye un receptáculo Extended Bunch
 
 Revise cuidadosamente estos requisitos y procedimientos recomendados para garantizar la alta disponibilidad de los hosts conectados al dispositivo StorSimple.
 
-- Configure StorSimple con [configuraciones de clúster de servidor de archivos de 2 nodos] (https://technet.microsoft.com/library/cc731844(v=WS.10).aspx). Mediante la eliminación de puntos individuales de error y el aumento de la redundancia en el lado del host, la solución completa pasará a presentar una alta disponibilidad.
+- Configure StorSimple con [configuraciones de clúster de servidor de archivos de 2 nodos][1]. Mediante la eliminación de puntos individuales de error y el aumento de la redundancia en el lado del host, la solución completa pasará a presentar una alta disponibilidad.
 
 - Use recursos compatibles de disponibilidad continua (CA) disponibles con Windows Server 2012 (SMB 3.0) para lograr una alta disponibilidad durante la conmutación por error de los controladores de almacenamiento. Para obtener información adicional para configurar los clústeres de servidores de archivos y de recursos compartidos disponibles continuamente con Windows Server 2012, consulte este [vídeo de demostración](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
@@ -184,12 +184,14 @@ Además de los requisitos de redes anteriores, para obtener un rendimiento ópti
 
 - Asegúrese de que la conectividad de red a Internet está disponible en todo momento. Las conexiones a Internet esporádicas o poco confiables de los dispositivos, incluida la falta total de conectividad a Internet, dará como resultado una configuración no admitida.
 
-- Aísle el tráfico iSCSI y de la nube mediante interfaces de red específicas en el dispositivo para el acceso a iSCSI y a la nube. Para obtener más información, consulte cómo [Configurar interfaces de red](https://msdn.microsoft.com/library/dn772371.aspx) en su dispositivo de StorSimple.
+- Aísle el tráfico iSCSI y de la nube mediante interfaces de red específicas en el dispositivo para el acceso a iSCSI y a la nube. Para obtener más información, consulte cómo [modificar interfaces de red](storsimple-modify-device-config.md#modify-network-interfaces) en el dispositivo de StorSimple.
 
 ## Pasos siguientes
 
-- [Límites de StorSimple](storsimple-limits.md)
-- [Implementar la solución StorSimple](storsimple-deployment-walkthrough.md)
+- Obtenga más información acerca de los [límites de StorSimple](storsimple-limits.md).
+- [Implementar la solución StorSimple](storsimple-deployment-walkthrough.md).
  
+<!--Reference links-->
+[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

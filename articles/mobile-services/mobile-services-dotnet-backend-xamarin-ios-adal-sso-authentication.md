@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (Xamarin.iOS) | Centro de desarrollo móvil" 
+	pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (Xamarin.iOS) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo autenticar usuarios para inicio de sesión único con ADAL en su aplicación de Xamarin.iOS." 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
@@ -141,4 +141,4 @@ Este tutorial requiere lo siguiente:
 [extensión Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

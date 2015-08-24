@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Marco de integración de plataformas en la nube - Patrones de arquitectura de Azure" 
+   pageTitle="Marco de integración de plataformas en la nube | Microsoft Azure" 
    description="El Marco de integración de plataformas en la nube proporciona instrucciones de integración de carga de trabajo para incorporar aplicaciones en una solución en la nube de Microsoft que consta de patrones de arquitectura para Microsoft Azure" 
    services="" 
    documentationCenter="" 
@@ -59,4 +59,4 @@ Para admitir el desarrollo de arquitecturas de soluciones dentro de Azure, se pr
 
 [Búsqueda de Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

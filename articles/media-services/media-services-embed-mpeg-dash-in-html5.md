@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -106,4 +106,4 @@ Para reproducir un vídeo, dirija el explorador al archivo basicPlayback.html y 
 
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

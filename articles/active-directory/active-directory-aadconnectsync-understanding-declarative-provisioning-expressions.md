@@ -135,4 +135,4 @@ Para obtener una lista completa de funciones, vea [Sincronización de Azure AD C
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

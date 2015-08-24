@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="08/06/2015" 
 	ms.author="spelluru"/>
 
 # Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos
@@ -42,7 +42,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 2. Haga clic en <b>Herramientas</b>, seleccione <b>Administrador de paquetes de NuGet</b> y haga clic en <b>Consola del Administrador de paquetes</b>.
 3.	En la ventana <b>Consola del administrador de paquetes</b>, ejecute los siguientes comandos uno a uno.</b>. 
 
-		Install-Package Microsoft.Azure.Management.DataFactories –Pre
+		Install-Package Microsoft.Azure.Management.DataFactories
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. Agregue la siguiente sección **appSetttings** al archivo **App.config**. Estos se usan por el método auxiliar: **GetAuthorizationHeader**. 
 
@@ -393,4 +393,4 @@ Artículo | Descripción
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

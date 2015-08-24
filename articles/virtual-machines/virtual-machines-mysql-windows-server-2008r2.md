@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -37,7 +38,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 ## Acoplamiento de un disco de datos
 
-Después de crear la máquina virtual, puede adjuntar un disco de datos adicional de forma opcional. Esto se recomienda para las cargas de trabajo de producción y para evitar quedarse sin espacio en la unidad de sistema operativo (C:), que actualmente está limitada a 127 GB e incluye el sistema operativo.
+Después de crear la máquina virtual, puede adjuntar un disco de datos adicional de forma opcional. Esto se recomienda para las cargas de trabajo de producción y para evitar quedarse sin espacio en la unidad de sistema operativo (C:), que incluye el sistema operativo.
 
 Consulte [Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md) y siga las instrucciones para conectar un disco vacío. Establezca la configuración de la caché de host en **Ninguna** o **Solo lectura**.
 
@@ -127,4 +128,4 @@ Para probar la conexión remota con el servicio de MySQL Server que se ejecuta e
 
 Para obtener más información sobre MySQL, consulte la [Documentación de MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

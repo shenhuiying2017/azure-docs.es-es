@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure
@@ -206,4 +206,4 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

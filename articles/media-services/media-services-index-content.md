@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,7 @@
 
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote.
 
->[AZURE.NOTE]Al indizar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
+>[AZURE.IMPORTANT]Al indizar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
 
 
 Un trabajo de indización genera cuatro salidas en cada archivo de indización:
@@ -346,4 +346,4 @@ Actualmente, se admiten los idiomas inglés y español. Para obtener más inform
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

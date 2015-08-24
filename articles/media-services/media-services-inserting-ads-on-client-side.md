@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -804,4 +804,4 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md) [Introducción a Azure Media Player Framework para iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

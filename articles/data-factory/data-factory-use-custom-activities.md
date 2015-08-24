@@ -90,7 +90,10 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 
             Table inputTable = tables.Single(table => table.Name == activity.Inputs.Single().Name);
             inputLocation = inputTable.Properties.TypeProperties as CustomDataset;
-            inputLinkedService = linkedServices.Single(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+
+			// using First method instead of Single since we are using the same 
+			// Azure Storage linked service for input and output. 
+            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
 
             string output = string.Empty;
@@ -158,7 +161,7 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 
             Table outputTable = tables.Single(table => table.Name == activity.Outputs.Single().Name);
             outputLocation = outputTable.Properties.TypeProperties as AzureBlobDataset;
-            outputLinkedService = linkedServices.Single(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             connectionString = GetConnectionString(outputLinkedService);
             folderPath = GetFolderPath(outputTable);
@@ -209,7 +212,7 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 
 10. Compile el proyecto. Haga clic en **Compilar** en el menú y haga clic en **Compilar solución**.
 11. Inicie el **Explorador de Windows** y vaya a la carpeta **bin\\debug** o **bin\\release** según el tipo de compilación.
-12. Cree un archivo comprimido **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta <project folder>\\bin\\Debug.
+12. Cree un archivo comprimido **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta <project folder>\\bin\\Debug. Puede que desee incluir el archivo MyDotNetActivity.pdb para obtener detalles adicionales, como el número de línea en el código fuente que produjo el problema en caso de error. 
 13. Cargue **MyDotNetActivity.zip** como un blob en el contenedor de blobs: **customactvitycontainer** en el almacenamiento de blobs de Azure que usa el servicio vinculado **StorageLinkedService** en **ADFTutorialDataFactory** Cree el contenedor de blobs **customactivitycontainer** si aún no existe. 
 
 
@@ -361,11 +364,12 @@ Si ya ha ampliado el tutorial [Introducción a Factoría de datos de Azure][adfg
 
 	(ubicación del blob), (nombre el blob), (número de líneas en el blob), (nodo en el que se ejecutó la actividad), (marca de fecha y hora)
 
-10.	Use el [Portal de Azure][azure-preview-portal] o los cmdlets de Azure PowerShell para supervisar su factoría de datos, canalizaciones y conjuntos de datos. Puede ver mensajes desde **ActivityLogger** en el código de la actividad personalizada en los registros que puede descargar desde el portal o mediante cmdlets.
+10.	Use el [Portal de Azure][azure-preview-portal] o los cmdlets de Azure PowerShell para supervisar su factoría de datos, canalizaciones y conjuntos de datos. Puede ver mensajes desde **ActivityLogger** en el código de la actividad personalizada en los registros (de forma específica user-0.log) que puede descargar desde el portal o mediante cmdlets.
 
 	![registros de descarga de la actividad personalizada][image-data-factory-download-logs-from-custom-activity]
+	
    
-Consulte [Introducción a Factoría de datos de Azure][adfgetstarted] para obtener pasos detallados para supervisar conjuntos de datos y canalizaciones.
+Consulte [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md)para obtener pasos detallados para realizar la supervisión de conjuntos de datos y las canalizaciones.
 
 ## Actualización de una actividad personalizada
 Si actualiza el código de la actividad personalizada, compílelo y cargue el archivo comprimido que contiene los nuevos binarios en el almacenamiento de blobs.
@@ -463,4 +467,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a la autenticación (JavaScript) | Centro de desarrollo móvil" 
+	pageTitle="Introducción a la autenticación (JavaScript) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación de JavaScript de la Tienda Windows a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -94,4 +94,4 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

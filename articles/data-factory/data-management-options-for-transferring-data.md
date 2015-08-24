@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Opciones para transferir datos almacenados a la nube | Azure" 
+	pageTitle="Opciones para transferir datos almacenados a la nube | Microsoft Azure" 
 	description="Instrucciones sobre cómo elegir la mejor opción para transferir datos locales o de otros orígenes de nube a Microsoft Azure a fin de someterlos a un análisis avanzado." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
 	documentationCenter="" 
@@ -65,7 +65,6 @@ La Factoría de datos de Azure es un servicio totalmente administrado para la co
 
 Los desarrolladores pueden crear flujos de trabajo orientados a datos que combinan, agregan y transforman datos semiestructurados, desestructurados y estructurados procedentes de sus servicios locales, (mediante Data Management Gateway) basados en la nube y de Internet, además de configurar procesamientos de datos complejos a través de scripting de JSON simple. Los datos resultantes pueden guardarse en el almacenamiento de Azure o en Base de datos SQL de Azure para someterlos a análisis avanzados.
 
-En concreto, un desarrollador puede organizar las actividades de copia regulares entre varios orígenes y destinos que se muestran en la sección "[Orígenes y receptores compatibles](data-factory-copy-activity.md#SupportedSourcesAndSinks)" de [Copia de datos con la Factoría de datos de Azure (actividad de copia)](data-factory-copy-activity.md), que también incluye propiedades para diferentes tipos de almacenes de datos, asignación de columnas, formatos de serialización y tratamiento de tipos.
 
 El servicio puede controlar los errores con reinicio automático y permitir la conversión de formato al mover datos de un formato a otro. Para definir una actividad de copia, consulte [Introducción a la Factoría de datos de Azure][start]. Los procedimientos de instalación de una puerta de enlace y de registro del almacén de datos se describen en [Habilitación de canalizaciones para trabajar con datos locales][pipelines].
 
@@ -254,7 +253,6 @@ Notas sobre el árbol de decisión:
 [install]: ../install-configure-powershell.md
 [start]: data-factory-get-started.md
 [pipelines]: data-factory-use-onpremises-datasources.md
-[copy]: data-factory-copy-activity.md
 [intro]: data-factory-introduction.md
 [sql-import]: http://msdn.microsoft.com/library/azure/hh335292.aspx
 [sql-copy]: http://msdn.microsoft.com/library/azure/ff951624.aspx
@@ -270,4 +268,4 @@ Notas sobre el árbol de decisión:
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

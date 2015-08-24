@@ -468,33 +468,25 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
 
 Ahora que hemos echado un vistazo a cómo especificar las rutas de acceso, echemos un vistazo a las opciones que podemos usar para configurar la directiva de indexación en una ruta de acceso. Puede especificar una o más definiciones de indexación para cada ruta de acceso:
 
-- Tipo de datos: **Cadena** o **Número** (solo puede contener una entrada por tipo de datos y ruta de acceso)
-- Variante de índice: **Hash** (consultas de igualdad) o **Intervalo** (consultas de igualdad, de intervalo o por Order By)
+- Tipo de datos: **Cadena**, **Número** o **Punto** (solo puede contener una entrada por tipo de datos y ruta de acceso)
+- Variante de índice: **Hash** (consultas de igualdad), **Intervalo** (consultas de igualdad, de intervalo o por Order By), o **Espacial** (consultas espaciales) 
 - Precisión: 1-8 o -1 (precisión máxima) para números, 1-100 (precisión máxima) para cadenas
 
 #### Tipo de índice
 
-DocumentDB admite dos variantes de índice por cada par de tipo de datos y ruta de acceso.
+DocumentDB admite los tipos de índice Hash e Intervalo para cada ruta de acceso (que puede configurar para las cadenas, números o ambos).
 
 - **Hash** admite consultas de igualdad y JOIN eficientes. Para la mayoría de los casos de uso, los índices hash no requieren una precisión mayor que el valor predeterminado de 3 bytes.
 - **Intervalo** admite consultas de igualdad, consultas de intervalo (con >, <, >=, <=, !=) y consultas por Order By eficientes. De forma predeterminada, las consultas Order By también requieren una precisión índice máximo (-1).
+
+DocumentDB también admite el tipo de índice Espacial para cada ruta de acceso que se pueden especificar para el tipo de datos Punto. El valor en la ruta especificada debe ser un punto de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+
+- **Espacial** admite consultas espaciales eficaces (internas y a distancia).
 
 Estos son las variantes de índice admitidas, con ejemplos de consultas que se pueden usar para atenderlas:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Tipo de índice</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Descripción/caso de uso</strong>
-                </p>
-            </td>
-        </tr>
         <tr>
             <td valign="top">
                 <p>
@@ -531,16 +523,32 @@ Estos son las variantes de índice admitidas, con ejemplos de consultas que se p
                 </p>
             </td>
         </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    Spatial
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Se puede usar un intervalo /prop/? (or /*) para atender las siguientes consultas con eficacia: SELECT * FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) &lt; 40 SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... })
+                </p>
+            </td>
+        </tr>        
     </tbody>
 </table>
 
 De forma predeterminada, se devuelve un error para las consultas con operadores de intervalo como > = si no hay ningún índice de intervalo (de ninguna precisión) para indicar que podría ser necesario realizar un examen para atender la consulta. Las consultas de intervalo se pueden realizar sin un índice de intervalo mediante el uso del encabezado x-ms-documentdb-allow-scans en la API de REST o con la opción de solicitud EnableScanInQuery mediante el SDK de .NET. Si hay otros filtros en la consulta en los que DocumentDB pueda usar el índice para realizar el filtrado, no se devolverá ningún error.
+
+Se aplican las mismas reglas para las consultas espaciales. De forma predeterminada, si no hay ningún índice espacial se devuelve un error para las consultas espaciales. Se pueden realizar como un análisis mediante x-ms-documentdb-enable-examen/EnableScanInQuery.
 
 #### Índice de precisión
 
 La precisión de índice permite lograr un equilibrio entre la sobrecarga de almacenamiento de índices y el rendimiento de las consultas. Para los números, se recomienda usar la configuración de precisión predeterminada de -1 (“máxima”). Puesto que los números son 8 bytes en JSON, esto es equivalente a una configuración de 8 bytes. La selección de un valor inferior para la precisión, como 1-7, significa que los valores de algunos intervalos se asignan a la misma entrada de índice. Por lo tanto, se reducirá el espacio de almacenamiento del índice, pero la ejecución de la consulta podría tener que procesar más documentos y, por tanto, consumir más rendimiento, es decir, solicitar unidades.
 
 La configuración de la precisión del índice resulta más útil con intervalos de cadena. Dado que las cadenas pueden ser de cualquier longitud arbitraria, la elección de la precisión del índice puede afectar al rendimiento de las consultas de intervalo de cadena, así como a la cantidad de espacio de almacenamiento del índice requerido. Los índices de intervalo de cadena pueden configurarse con 1-100 o -1 (“máxima”). Si desea realizar consultas por Order By en las propiedades de cadena, debe especificar una precisión de -1 para las rutas de acceso correspondientes.
+
+Los índices espaciales siempre usan la precisión de índice predeterminada para los puntos y no puede invalidarse.
 
 En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices de intervalo en una recopilación mediante el SDK de .NET. Tenga en cuenta que esto usa la ruta predeterminada "/*".
 
@@ -650,7 +658,7 @@ Puede quitar el índice de una colección moviendo al modo de indexación Ningun
 ¿Cuando realizaría cambios de directiva de indexación en las colecciones de DocumentDB? Los siguientes son los casos de uso más comunes:
 
 - Servicio de resultados coherentes durante el funcionamiento normal, pero reversión a la indexación diferida durante importaciones de conjuntos masivos de datos
-- Inicio con nuevas características de indexación en las colecciones de DocumentDB actuales, por ejemplo, consultas con Order By y por rango de cadenas que requieren la variante de índice de intervalo de cadena recién presentada
+- Inicio con nuevas características de indexación en las colecciones de DocumentDB actuales, por ejemplo, consultas geoespaciales que requieren el tipo de índice espacial, o Order By y por rango de cadenas que requieren la variante de índice de intervalo de cadena recién presentada
 - Selección manual de las propiedades que se van a indexar y cambiarlas con el tiempo
 - Optimización de la precisión de indexación para mejorar el rendimiento de las consultas o reducir el almacenamiento usado
 
@@ -758,4 +766,4 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso del diagnóstico (.NET) - Guía de características de Azure" 
+	pageTitle="Uso del diagnóstico (.NET) | Microsoft Azure" 
 	description="Aprenda a utilizar datos de diagnóstico en Azure para realizar tareas de depuración, medición de rendimiento, supervisión, análisis de tráfico y más." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -512,4 +512,4 @@ ETW basado en manifiesto|No|Tabla|Eventos de ETW generados por cualquier proceso
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

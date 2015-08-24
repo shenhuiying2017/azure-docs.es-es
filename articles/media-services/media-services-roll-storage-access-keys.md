@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Actualización de Servicios multimedia después de rotar las claves de acceso de almacenamiento
@@ -43,7 +43,7 @@ Actualice Servicios multimedia para usar la clave de acceso de almacenamiento se
 
 - Use la API de REST de Servicios multimedia.
 
-	En el siguiente código de ejemplo se muestra cómo construir la solicitud https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key con el fin de sincronizar la clave de almacenamiento especificada con Servicios multimedia. En este caso, se usa el valor de la clave de almacenamiento secundaria. Para obtener más información, consulte [Uso de la API de REST de administración de Servicios multimedia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+	En el siguiente código de ejemplo se muestra cómo construir la solicitud https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key con el fin de sincronizar la clave de almacenamiento especificada con Servicios multimedia. En este caso, se usa el valor de la clave de almacenamiento secundaria. Para obtener más información, consulte [Uso de la API de REST de administración de Servicios multimedia](http://msdn.microsoft.com/es-es/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -108,4 +108,4 @@ Para actualizar la fecha de caducidad de un localizador, utilice las [API de RES
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

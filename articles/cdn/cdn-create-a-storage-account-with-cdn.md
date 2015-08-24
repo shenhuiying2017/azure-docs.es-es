@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de la red CDN - Guía de características de Azure" 
+	pageTitle="Uso de la red CDN | Microsoft Azure" 
 	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -120,4 +120,4 @@ El Portal de administración de Azure no admite actualmente la posibilidad de pu
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

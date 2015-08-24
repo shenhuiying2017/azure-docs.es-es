@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.topic="get-started-article"
+	ms.date="08/06/2015"
 	ms.author="banders"/>
 
 # Guía de características de Visión operativa
@@ -33,7 +33,7 @@ Con Visión operativa, puede transformar datos de máquina en inteligencia opera
 |---|---|---|
 |![](./media/operational-insights-feature-guide/cap-plan.png) | [Planificación de capacidad](operational-insights-capacity.md) | Puede utilizar la solución Planificación de capacidad en Visión operativa de Microsoft Azure para ayudarle a entender la capacidad de su infraestructura de servidor. |
 | ![](./media/operational-insights-feature-guide/update.png) | [Evaluación de la actualización del sistema](operational-insights-updates.md) | Puede usar la solución de actualizaciones del sistema de Microsoft Azure Operational Insights para ayudarle a aplicar las actualizaciones que faltan a los servidores de su infraestructura. |
-| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Administración de registros](operational-insights-search.md) | Puede usar la solución de administración de registros para recopilar eventos y registros de IIS para las búsquedas de registro en Visión operativa. |
+| ![](./media/operational-insights-feature-guide/log-search.png) | [Búsqueda de registros](operational-insights-search.md) | La característica Búsqueda de registros se usa para crear consultas para transformar y filtrar sus resultados, y crear informes sobre ellos. La búsqueda usa datos de eventos y registros IIS para buscar registros en toda la Visión operativa. |
 | ![](./media/operational-insights-feature-guide/malware.png) | [Evaluación de malware](operational-insights-antimalware.md) | Puede usar la solución Antimalware incluida en Visión operativa de Microsoft Azure para proteger los servidores de su infraestructura frente al malware. |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [Seguridad y auditoría](operational-insights-security-audit.md) | Puede usar la solución Seguridad y auditoría para conseguir una vista completa de la postura de seguridad de TI de su organización con consultas de búsqueda integradas para problemas importantes que requieren su atención |
 | ![](./media/operational-insights-feature-guide/assessment.png) | [Evaluación de SQL y Active Directory](operational-insights-assessment.md) | Puede usar periódicamente soluciones de evaluación para evaluar el riesgo y el estado de los entornos de servidor. |
@@ -47,7 +47,7 @@ También puede:
 	- [Conexión de equipos directamente en Visión operativa](operational-insights-direct-agent.md)
 	- [Análisis de datos de servidores en Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Hacer todo lo anterior sobre la marcha con la aplicación móvil**
-	- Para obtener más información acerca de la aplicación de Windows Phone, consulte [Aplicación móvil de Visión operativa](http://www.windowsphone.com/es-es/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+	- Para obtener más información acerca de la aplicación de Windows Phone, vea [Aplicación móvil de Visión operativa](http://www.windowsphone.com/es-es/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 
 ## Entorno de Visión operativa
 
@@ -72,4 +72,4 @@ Los datos de cada solución se analizan y se presentan en el portal de Visión o
 ### ¿Dónde está disponible Visión operativa?
 Visión operativa de Microsoft Azure se hospeda en Estados Unidos. Aunque el idioma de Visión operativa es el inglés, el servicio está disponible en otros mercados. Para obtener información, consulte [Disponibilidad internacional](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

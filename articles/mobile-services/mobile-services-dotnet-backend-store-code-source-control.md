@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Almacenamiento del código del proyecto en control de código fuente - Servicios móviles de Azure" 
+	pageTitle="Almacenamiento del código del proyecto en control de código fuente | Microsoft Azure" 
 	description="Aprenda a almacenar el proyecto de back-end de .NET en el equipo y a publicar desde un repositorio Git local en el equipo." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -104,4 +104,4 @@ Ahora, el proyecto de servicio móvil se mantiene en el control de código fuent
 [Modificación del modelo de datos de un servicio móvil back-end de .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

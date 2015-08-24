@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de datos sin conexión en servicios móviles (Xamarin iOS) | Centro de desarrollo móvil" 
+	pageTitle="Uso de datos sin conexión en Servicios móviles (Xamarin iOS) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin iOS" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -183,4 +183,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [extensión Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

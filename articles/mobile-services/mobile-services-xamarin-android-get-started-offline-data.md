@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso de datos sin conexión en servicios móviles (Xamarin Android) | Centro de desarrollo móvil"
+	pageTitle="Uso de datos sin conexión en Servicios móviles (Xamarin Android) | Microsoft Azure"
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin Android"
 	documentationCenter="xamarin"
 	authors="lindydonna"
@@ -172,4 +172,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

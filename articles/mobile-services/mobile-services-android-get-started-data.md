@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a los datos (Android) | Centro de desarrollo móvil" 
+	pageTitle="Introducción a los datos (Android) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -156,4 +156,4 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Andro
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 #Administración de activos y entidades relacionadas con el SDK de Servicios multimedia para .NET
+
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md)
+- [REST](media-services-rest-manage-entities.md)
+
 
 Este tema muestra cómo llevar a cabo las siguientes tareas de administración de Servicios multimedia:
 
@@ -324,4 +330,4 @@ En el ejemplo de código siguiente se muestra cómo obtener una referencia a una
 	}
 	
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

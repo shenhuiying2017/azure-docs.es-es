@@ -1,21 +1,20 @@
 
-<properties 
-	pageTitle="Uso de un grupo para administrar el acceso a aplicaciones SaaS| Microsoft Azure" 
-	description="Un tema que explica cómo utilizar grupos en Azure AD Premium para asignar el acceso a aplicaciones SaaS integradas con Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
-	editor=""
-	tags="azure-classic-portal"/>
+<properties
+	pageTitle="Uso de un grupo para administrar el acceso a aplicaciones SaaS| Microsoft Azure"
+	description="Cómo usar grupos en Azure AD Premium o Basic para asignar el acceso a aplicaciones SaaS integradas con Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" identity
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="femila"/>
 
 
@@ -39,7 +38,7 @@ Esta función se puede utilizar con cientos de aplicaciones que puede agregar de
 4. También puede ver qué usuarios están asignados a la aplicación, directamente o mediante la pertenencia a un grupo. Para ello, cambie la opción **Mostrar lista desplegable de "Grupos"** a **"Todos los usuarios"**. La lista muestra los usuarios en el directorio y si cada uno de ellos está asignado o no a la aplicación. La lista también muestra si los usuarios asignados están asignados a la aplicación directamente (el tipo de asignación aparece como "Directo"), o en virtud de la pertenencia a un grupo (el tipo de asignación aparece como "Heredado").
 
 
-> [AZURE.NOTE]Después de habilitar Azure AD Premium, solo verá la pestaña Usuarios y grupos.
+> [AZURE.NOTE]Solo después de habilitar Azure AD Premium o Azure AD Basic, verá la pestaña Usuarios y grupos.
 
 A continuación presentamos algunos temas que proporcionarán información adicional acerca de Azure Active Directory.
 
@@ -49,4 +48,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

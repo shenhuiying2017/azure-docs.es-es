@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/31/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Copia de seguridad de Azure - Preguntas más frecuentes
 A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre Copia de seguridad de Azure, vaya al [foro de discusión](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) y publique sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -141,4 +141,29 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P4. ¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos (o) puede Microsoft recuperar los datos?** <br/> R4. La clave utilizada para cifrar los datos de copia de seguridad está presente en las instalaciones del cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si el cliente pierde la clave, Microsoft no puede recuperar los datos de copia de seguridad.
 
-<!---HONumber=August15_HO6-->
+## Memoria caché de copia de seguridad
+
+**P1. ¿Cómo puedo cambiar la ubicación de la memoria caché especificada para el agente de Copia de seguridad de Azure?**
+
++ Para detener OBEngine, ejecute el siguiente comando en un símbolo del sistema con privilegios elevados:
+
+  ```PS C:\> Net stop obengine```
+
++ Copie la carpeta de que el espacio de la memoria caché a otra unidad con espacio suficiente. Se recomienda copiar los archivos de la carpeta de espacio de memoria caché, en lugar de moverlos; después de confirmar que las copias de seguridad funcionan con el nuevo espacio de memoria caché se puede quitar el espacio de memoria caché original.
+
++ Actualice las siguientes entradas del Registro con la ruta de acceso a la nueva carpeta del espacio de memoria caché:
+
+
+	| Ruta de acceso del Registro | Clave del Registro | Valor |
+	| ------ | ------- | ------ |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
+
+
++ Para iniciar OBEngine, ejecute el siguiente comando en un símbolo del sistema con privilegios elevados:
+
+  ```PS C:\> Net start obengine```
+
+Una vez que las copias de seguridad se realizan correctamente con la nueva ubicación de caché, puede quitar la carpeta de la memoria caché original.
+
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de la eliminación temporal en Servicios móviles (Tienda Windows) | Centro de desarrollo móvil" 
+	pageTitle="Uso de la eliminación temporal en Servicios móviles (Tienda Windows) | Microsoft Azure" 
 	description="Aprenda a usar la característica de eliminación temporal de Servicios móviles de Azure en su aplicación." 
 	documentationCenter="" 
 	authors="wesmc7777" 
@@ -163,4 +163,4 @@ Para obtener información acerca de trabajos de programación con Servicios móv
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

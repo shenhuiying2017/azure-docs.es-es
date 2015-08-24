@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de datos sin conexión en Servicios móviles (Windows Phone) | Centro de desarrollo móvil" 
+	pageTitle="Uso de datos sin conexión en Servicios móviles (Windows Phone) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure con datos sin conexión sincronizados en su aplicación de Windows Phone" 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="08/08/2015" 
 	ms.author="wesmc;donnam"/>
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
@@ -245,8 +245,6 @@ En esta sección probará las operaciones de inserción y extracción para sincr
 
 ##Resumen
 
-##Resumen
-
 [AZURE.INCLUDE [mobile-services-offline-summary-csharp](../../includes/mobile-services-offline-summary-csharp.md)]
 
 ## Pasos siguientes
@@ -292,4 +290,4 @@ En esta sección probará las operaciones de inserción y extracción para sincr
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso de las colas del Bus de servicio (Ruby) - Azure"
+	pageTitle="Uso de colas del Bus de servicio (Ruby) | Microsoft Azure"
 	description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
@@ -152,4 +152,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Colas de Azure y Colas del Bus de servicio de Azure: comparación y diferencias](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

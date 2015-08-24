@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Incorporación de sincronización de datos sin conexión a la aplicación de Servicios móviles de Android | Centro de desarrollo móvil"
+	pageTitle="Agregar sincronización de datos sin conexión a la aplicación de Servicios móviles de Android |Microsoft Azure"
 	description="Obtenga información sobre cómo usar Servicios móviles de Azure para almacenar datos en caché y sincronizarlos sin conexión en su aplicación Android."
 	documentationCenter="android"
 	authors="RickSaling"
@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial del Inicio rápido de Servicios móviles]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

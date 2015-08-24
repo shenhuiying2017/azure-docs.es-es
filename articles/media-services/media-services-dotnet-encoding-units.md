@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,8 +21,12 @@
 
 #Escalado de codificación con el SDK de .NET
 
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
-  
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-encoding-units.md)
+- [.NET](media-services-dotnet-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+
 ##Información general
 
 Una cuenta de Servicios multimedia está asociada con un tipo de unidad reservada que determina la rapidez con la que se procesan los trabajos de codificación. Puede elegir uno de los siguientes tipos de unidad reservada: Basic, Standard o Premium. Por ejemplo, el mismo trabajo de codificación se ejecuta más rápido cuando se usa el tipo de unidad reservada Standard en comparación con el tipo Basic. Para obtener más información, consulte el blog acerca de los tipos de unidades reservadas de codificación escrito por [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
@@ -70,4 +74,4 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

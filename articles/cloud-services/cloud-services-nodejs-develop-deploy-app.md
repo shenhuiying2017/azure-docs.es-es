@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Guía de introducción a Node.js - Tutorial de Azure"
+	pageTitle="Guía de introducción a Node.js | Microsoft Azure"
 	description="Aprenda a crear una sencilla aplicación web de Node.js e impleméntela en un servicio en la nube de Azure."
 	services="cloud-services"
 	documentationCenter="nodejs"
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
@@ -192,4 +192,4 @@ Después de implementar su aplicación, es posible que desee deshabilitarla para
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

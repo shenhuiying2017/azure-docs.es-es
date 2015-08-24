@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Factoría de datos - Crear canalizaciones predictivas con la factoría de datos y el aprendizaje automático | Azure" 
+	pageTitle="Factoría de datos - Crear canalizaciones predictivas con la factoría de datos y el aprendizaje automático | Microsoft Azure" 
 	description="Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Aprendizaje automático de Azure" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -327,4 +327,4 @@ Artículo | Descripción
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

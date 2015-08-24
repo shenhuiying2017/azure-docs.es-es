@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Servicios móviles para aplicaciones de la Tienda Windows | Centro de desarrollo móvil"
+	pageTitle="Introducción a Servicios móviles para aplicaciones de la Tienda Windows | Microsoft Azure"
 	description="Siga este tutorial para aprender a usar Servicios móviles de Azure para el desarrollo de la Tienda Windows C# o JavaScript."
 	services="mobile-services"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
@@ -104,4 +104,4 @@ Para obtener más información acerca de las aplicaciones universales de Windows
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

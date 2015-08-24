@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mapa de aprendizaje para la Factoría de datos | Azure"
+	pageTitle="Mapa de aprendizaje para la Factoría de datos | Microsoft Azure"
 	description="Obtenga un mapa visual de los recursos disponibles para ir de 0 a 60 en la Factoría de datos de Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -24,4 +24,4 @@ Factoría de datos es un servicio de integración de datos basado en la nube que
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/adf-learning-map.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

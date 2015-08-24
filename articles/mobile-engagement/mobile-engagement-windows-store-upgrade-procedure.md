@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Procedimientos de actualización del SDK de aplicaciones Windows Universal
@@ -169,4 +169,4 @@ Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidad
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

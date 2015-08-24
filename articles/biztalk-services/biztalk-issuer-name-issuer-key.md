@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Nombre del emisor y clave del emisor en Servicios de BizTalk | Azure" 
+	pageTitle="Nombre del emisor y clave del emisor en Servicios de BizTalk | Microsoft Azure" 
 	description="Obtenga información acerca de cómo recuperar el Nombre del emisor y la Clave de emisor para el Bus de servicio o Control de acceso (ACS) en Servicios de BizTalk. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -89,4 +89,4 @@ Otros temas acerca de los servicios de BizTalk de Azure:
 - [Servicios de BizTalk: limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

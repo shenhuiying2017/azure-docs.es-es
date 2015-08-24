@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="06/30/2015"
+   ms.date="08/07/2015"
    ms.author="tamram" />
 
 # Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
@@ -27,7 +27,7 @@ Este tema trata cuestiones de rendimiento y escalabilidad de Almacenamiento de M
 
 >Cuando la aplicación alcanza el límite de lo que puede administrar una partición para la carga de trabajo, Almacenamiento de Azure comenzará a responder con el código de error 503 (servidor ocupado) o el código de error 500 (tiempo de espera de operación). Cuando esto ocurre, la aplicación debe utilizar una directiva de retroceso exponencial para los reintentos. El retroceso exponencial permite que disminuya la carga de la partición y evita los picos de tráfico en esa partición.
 
-Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Una sola suscripción de Azure permite 100 cuentas de almacenamiento. Consulte [Detalles de precios de almacenamiento](http://azure.microsoft.com/pricing/details/storage/) para obtener información sobre los precios por volumen.
+Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Consulte [Detalles de precios de almacenamiento](http://azure.microsoft.com/pricing/details/storage/) para obtener información sobre los precios por volumen.
 
 ## Objetivos de escalabilidad para las cuentas de almacenamiento estándar
 
@@ -50,6 +50,8 @@ La tabla anterior que aparece en [Objetivos de escalabilidad para las cuentas de
 Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de los servicios de almacenamiento de las maneras siguientes:
 
 - **Blobs**: la clave de partición de un blob es el nombre del contenedor + el nombre del blob. Esto significa que cada blob tiene su propia partición. Los blobs, por tanto, se pueden distribuir en varios servidores para escalar horizontalmente el acceso a ellos. Aunque los blobs pueden agruparse lógicamente en contenedores de blob, esta agrupación no afecta a las particiones.
+
+- **Archivos**: la clave de partición para un archivo es nombre de cuenta + nombre de recurso compartido de archivos. Esto significa que todos los archivos de un recurso compartido de archivos también están en una sola partición.
 
 - **Mensajes**: la clave de partición de un mensaje es el nombre de la cola, por lo que todos los mensajes de una cola se agrupan en una sola partición y se sirven mediante un solo servidor. Las distintas colas pueden ser procesadas por distintos servidores para equilibrar la carga de todas las colas que tenga una cuenta de almacenamiento.
 
@@ -74,4 +76,4 @@ Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

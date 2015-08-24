@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso de temas del Bus de servicio (Ruby): Azure"
+	pageTitle="Uso de temas del Bus de servicio (Ruby) | Microsoft Azure"
 	description="Aprenda a usar los temas y las suscripciones del Bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
@@ -218,4 +218,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 -	Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

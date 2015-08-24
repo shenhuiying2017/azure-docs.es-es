@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cómo usar el relé del bus de servicio (.NET) - Azure" 
+	pageTitle="Uso de la retransmisión de Bus de servicio (.NET) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar el servicio de retransmisión del Bus de servicio de Azure para conectar dos aplicaciones hospedadas en diferentes ubicaciones." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -268,4 +268,4 @@ Ahora que conoce los fundamentos del servicio de **retransmisión** del Bus de s
   [MSDN]: https://msdn.microsoft.com/es-es/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

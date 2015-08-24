@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Consola y registros de streaming" 
-	description="Información general de la consola y los registros de transmisión"
-	authors="adamabdelhamed" 
+	description="Información general de la consola y los registros de transmisión" 
+	authors="btardif" 
 	manager="wpickett" 
 	editor="" 
 	services="app-service\web" 
@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
-	ms.author="adamab"/>
+	ms.date="08/10/2015" 
+	ms.author="byvinyal"/>
 
 #Registros de transmisión y la consola
 
 ### Registros de transmisión ###
 
-El [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) ofrece un visor de registros de streaming integrado que le permite ver los eventos de seguimiento desde Aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) en tiempo real.
+El Portal de Microsoft Azure ofrece un visor de registros de streaming integrado que le permite ver los eventos de seguimiento desde las aplicaciones web del Servicio de aplicaciones de Azure en tiempo real.
 
 La configuración requiere algunos pasos sencillos:
 
 - Escritura de seguimientos en el código.
-- Habilitación de diagnóstico de aplicaciones desde el Portal de vista previa de Azure.
-- Haga clic en los registros de streaming en el icono de la aplicación web
+- Habilitación de Diagnóstico de aplicaciones desde el Portal de Azure.
+- Clic en los registros de streaming en la hoja de la aplicación web
 
 ### Cómo escribir los seguimientos en el código ###
 
@@ -54,42 +54,42 @@ console.log("My trace statement").
 
 ### Habilitación y visualización de registros de transmisión ###
 
-El diagnóstico se habilita según la aplicación web.
+![][BrowseSitesScreenshot] El diagnóstico se habilita por aplicación web. En el [Portal](https://portal.azure.com), haga clic en el botón **Examinar (1)** situado en la barra de menús de la izquierda y luego en **Aplicaciones web (2)** para obtener la **lista (3)** de todas las aplicaciones web.
 
-1. En el [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Examinar** > **Aplicaciones Web** para obtener la lista de todas las aplicaciones web.  
+Haga clic en el nombre de la aplicación web que quiere configurar para navegar hasta ella.
+  
+![][DiagnosticsLogs] Luego haga clic en **Configuración (1)** > **Registros de diagnóstico (2)** y **Active** **Registro de la aplicación (Sistema de archivos)(3)**. La opción **Nivel** le permite cambiar el nivel de gravedad de las trazas que se capturan. Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
 
-2. Haga clic en el nombre de la aplicación web que desea configurar.
+Haga clic en **SAVE** en la parte superior del cuadro y estará listo para ver los registros.
 
-3. Haga clic en **Toda la configuración** > **Registros de diagnóstico** y cambie **Registro de aplicaciones (Sistema de archivos)** a la configuración **ACTIVAR**.
+**Nota:** cuanto mayor sea el **nivel de gravedad**, más recursos del registro se consumen y más trazas se obtendrán. Asegúrese de que se establece en el nivel adecuado al usar esta característica para sitio de producción o de tráfico alto.
 
-4. Aparecerá la opción **Nivel**, que le permitirá cambiar el nivel de gravedad de los seguimientos que desea capturar. Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
+![][StreamingLogsScreenshot] Para ver los registros de streaming desde el portal, haga clic en **Herramientas (1)** > **Secuencia de registro (2)**. Si la aplicación escribe instrucciones de seguimiento activamente, debe verlas en la ventana resultante prácticamente en tiempo real.
 
-5. Haga clic en **Guardar** en la parte superior del cuadro y estará listo para ver los registros.
+## Consola ##
 
-6. Para ver los registros de streaming desde dentro del portal, haga clic en el icono **Registros de streaming** de la hoja de la aplicación web. Si la aplicación escribe instrucciones de seguimiento activamente, debe verlas en la ventana resultante prácticamente en tiempo real.
+El Portal de Azure proporciona acceso a la consola para el entorno de la aplicación web. Puede explorar el sistema de archivos de la aplicación web y ejecutar los scripts de cmd/powershell. Se realizará la vinculación mediante los mismos permisos establecidos en el código de la aplicación web en ejecución cuando se ejecuten los comandos de consola. No podrá obtener acceso a los directorios protegidos o ejecutar scripts que requieran permisos elevados.
 
-![][StreamingLogsScreenshot]
-
-## Acceso a la consola ##
-
-El Portal de vista previa de Azure ofrece acceso a la consola de la aplicación web. Puede explorar el sistema de archivos de la aplicación web y ejecutar los scripts de cmd/powershell. Se realizará la vinculación mediante los mismos permisos establecidos en el código de la aplicación web en ejecución cuando se ejecuten los comandos de consola. No podrá obtener acceso a los directorios protegidos o ejecutar scripts que requieran permisos elevados.
-
-1. Desplácese a la hoja de una aplicación web, como se describe en la sección anterior.
-
-2. Haga clic en el icono **Consola** y se abrirá la consola.
-
-![][ConsoleScreenshot]
+![][ConsoleScreenshot] Para ir a la consola, desplácese a una aplicación web tal como se describe en la sección anterior. Haga clic en **Herramientas** > **Consola** y la consola se abrirá.
 
 Para familiarizarse con la consola, pruebe estos comandos básicos:
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+
+`````````````````````````
+dir
+`````````````````````````
+
+`````````````````````````
+cd
+`````````````````````````
+
+
 
 <!-- Images. -->
+[DiagnosticsLogs]: ./media/web-sites-streaming-logs-and-console/diagnostic-logs.png
 [BrowseSitesScreenshot]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

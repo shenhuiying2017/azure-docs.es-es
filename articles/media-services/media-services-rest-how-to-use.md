@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Información general de la API de REST de Servicios multimedia: Azure" 
+	pageTitle="Información general de la API de REST de Servicios multimedia | Microsoft Azure" 
 	description="Información general de la API de REST de Servicios multimedia" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 # Información general de la API de REST de Servicios multimedia 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Servicios multimedia de Microsoft Azure es un servicio que acepta solicitudes HTTP basadas en OData y puede responder en JSON detallado o atom+pub. Como los Servicios multimedia cumplen las directrices de diseño de Azure, hay un conjunto de encabezados HTTP obligatorios que cada cliente debe usar al conectarse a los Servicios multimedia, así como un conjunto de encabezados opcionales que se pueden usar. En las secciones siguientes se describen los encabezados y los verbos HTTP que puede usar al crear solicitudes y recibir respuestas de los Servicios multimedia.
 
@@ -97,4 +99,4 @@ Anexe "?api-version=2.x" al final del URI si desea ver los metadatos en un explo
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

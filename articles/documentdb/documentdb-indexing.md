@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="08/11/2015" 
 	ms.author="arramac"/>
 	
 # Indexación automática en Azure DocumentDB
 
-Este artículo es una introducción sobre el funcionamiento de la indexación automática en DocumentDB y es un extracto del documento "Indexación independiente del esquema con Azure DocumentDB" que se presentará en la [Conferencia VLDB de 2015](http://www.vldb.org/2015/). Después de leerlo, podrá responder a las siguientes preguntas:
+Este artículo es un extracto del documento ["Indexación independiente del esquema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) que se presentará en la [Edición nº 41 de la conferencia interna sobre bases de datos de gran tamaño](http://www.vldb.org/2015/) a celebrar entre el 31 de agosto y el 4 de septiembre de 2015 y es una introducción a la forma en la que funciona la indexación en Azure DocumentDB.
+
+Después de leerlo, podrá responder a las siguientes preguntas:
 
 - ¿Cómo deduce DocumentDB el esquema a partir de un documento JSON?
 - ¿Cómo genera DocumentDB un índice en documentos dispares?
@@ -60,8 +62,9 @@ La directiva de predeterminada de indexación indexa automáticamente todas las 
 La indexación de DocumentDB está diseñada en función de la eficacia de almacenamiento y el control multiempresa. Para obtener rentabilidad, la sobrecarga de almacenamiento en el disco del índice es baja y predecible. Las actualizaciones del índice también se realizan dentro del presupuesto de recursos de sistema asignado por colección de DocumentDB.
 
 ##<a name="NextSteps"></a> Pasos siguientes
-- Ahora que ya vio cómo funciona la indexación, obtenga información sobre cómo realizar una [Consulta con SQL de DocumentDB](documentdb-sql-query.md)
+- Descargar ["Indexación independiente del esquema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) que se presentará en la Edición nº 41 de la conferencia interna sobre bases de datos de gran tamaño, a celebrar entre el 31 de agosto y el 4 de septiembre de 2015.
+- [Consulta con SQL de Base de datos de documentos](documentdb-sql-query.md)
 - Más información sobre cómo personalizar el índice de DocumentDB [aquí](documentdb-indexing-policies.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

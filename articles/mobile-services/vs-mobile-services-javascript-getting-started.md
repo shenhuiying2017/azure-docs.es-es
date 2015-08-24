@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
-	ms.author="patshea123"/>
+	ms.date="08/12/2015" 
+	ms.author="patshea"/>
 
 # Introducción a Servicios móviles
 
@@ -28,13 +28,13 @@ Para usar un servicio móvil del backend de JavaScript, cree una tabla con el no
 
 Si, por el contrario, utiliza un servicio móvil del backend .NET, hay ya una tabla TodoItem en la plantilla de proyecto predeterminada que Visual Studio ha creado para usted, pero tiene que publicarla en Azure. Para publicarla, abra el menú contextual del proyecto de servicio móvil en el Explorador de soluciones y elija **Publicación web**. Acepte los valores predeterminados y elija el botón **Publicar**.
 
-#####Obtención de referencia a una tabla
+##Obtención de referencia a una tabla
 
 Ya se ha agregado el objeto de cliente a su proyecto. Su nombre es el nombre del servicio móvil con la palabra "Client" agregada. El código siguiente obtiene una referencia a una tabla que contiene datos para TodoItem, que puede utilizar en operaciones posteriores para leer y actualizar la tabla de datos.
 
 	var todoTable = yourMobileServiceClient.getTable('TodoItem');
 
-#####Incorporación de entrada 
+##Adición de una entrada 
 
 Inserte un nuevo elemento en una tabla de datos. Se crea automáticamente un identificador (un GUID de tipo cadena) como clave principal para la nueva fila. No cambie el tipo de la columna del identificador, ya que la infraestructura de Servicios móviles lo utiliza.
 
@@ -46,7 +46,7 @@ Inserte un nuevo elemento en una tabla de datos. Se crea automáticamente un ide
         });
     };
 
-#####Lectura/consulta de tabla
+##Lectura/consulta de una tabla
 
 El código siguiente consulta una tabla para todos los elementos, actualiza una colección local y enlaza el resultado al listItems de elementos de IU.
 
@@ -72,17 +72,17 @@ Puede usar el método where para modificar la consulta. Aquí mostramos un ejemp
 
 Para obtener más ejemplos de las consultas que puede utilizar, consulte el objeto [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
-#####Actualización de entrada
+##Actualización de una entrada
 
-Actualice una fila en la tabla de datos. En este ejemplo, todoItem es el elemento actualizado, e item es el mismo elemento que devuelve el servicio móvil. Cuando el servicio móvil responde, el elemento se actualiza en la lista todoItems local utilizando el método [splice](http://msdn.microsoft.com/library/windows/apps/Hh700810.aspx). Llame al método [done]() en el objeto [Promise]() devuelto para obtener una copia del objeto insertado y abordar los errores.
+Actualice una fila en la tabla de datos. En este ejemplo, *todoItem* es el elemento actualizado e *item* es el mismo elemento que devuelve el servicio móvil. Cuando el servicio móvil responde, el elemento se actualiza en la lista todoItems local utilizando el método [splice](http://msdn.microsoft.com/library/windows/apps/Hh700810.aspx). Llame al método **done** en el objeto [Promise](https://msdn.microsoft.com/library/dn802826.aspx) devuelto para obtener una copia del objeto insertado y abordar los errores.
 
         todoTable.update(todoItem).done(function (item) {
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-#####Eliminación de entrada
+#####Eliminación de una entrada
 
-Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [Promise]() devuelto para obtener una copia del objeto insertado y abordar los errores.
+Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [Promise](https://msdn.microsoft.com/library/dn802826.aspx) devuelto para obtener una copia del objeto insertado y abordar los errores.
 
 	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);
@@ -92,4 +92,4 @@ Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [P
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

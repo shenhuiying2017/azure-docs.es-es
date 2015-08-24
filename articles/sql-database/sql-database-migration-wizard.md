@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Uso del Asistente para migración a SQL de Azure | Microsoft" 
+   pageTitle="Uso del Asistente para migración a SQL de Azure | Microsoft Azure" 
    description="Base de datos SQL de Microsoft Azure, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración" 
    services="sql-database" 
    documentationCenter="" 
@@ -98,4 +98,4 @@ Puede descargar al Asistente para migración a SQL de Azure desde CodePlex:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

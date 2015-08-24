@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="06/08/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -67,7 +67,7 @@ Como parte de la implementación de Azure Site Recovery, instalará el proveedor
 - **.blob.core.windows.net
 - **.store.core.windows.net
 
-- Para usar un proxy personalizado, configúrelo antes de instalar el proveedor. Durante la configuración del proveedor, deberá especificar la dirección y el puerto del servidor proxy, y las credenciales que pueden utilizarse para el acceso.
+- Para usar un proxy personalizado, configúrelo antes de instalar el proveedor. Durante la configuración del proveedor, deberá especificar la dirección y el puerto del servidor proxy, y las credenciales que pueden utilizarse para el acceso. Tenga en cuenta que no se admite el proxy basado en HTTPS.
 
 La siguiente imagen muestra los distintos canales y puertos de comunicación utilizados por Azure Site Recovery para la orquestación y la replicación
 
@@ -306,4 +306,4 @@ Para ejecutar una conmutación por error de prueba, realice lo siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

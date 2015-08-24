@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de Servicios móviles a una aplicación universal Windows existente | Servicios móviles de Azure" 
+	pageTitle="Incorporación de Servicios móviles a una aplicación universal de Windows existente | Microsoft Azure" 
 	description="Aprenda cómo conectar su aplicación universal Windows existente a Servicios móviles de Azure" 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -114,4 +114,4 @@ En este tutorial se demostraron los aspectos básicos de la habilitación de una
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

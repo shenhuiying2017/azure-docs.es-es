@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a la autenticación (Android) | Centro de desarrollo móvil" 
+	pageTitle="Introducción a la autenticación (Android) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación Android a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -117,4 +117,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -19,11 +19,14 @@
 
 # Comprar y configurar un nombre de dominio personalizado en el Servicio de aplicaciones de Azure
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Aplicaciones web" class="current">Comprar dominio para aplicaciones web</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Aplicaciones web">Aplicaciones web con dominios externos</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Aplicaciones web con el Administrador de tráfico">Aplicaciones web con el Administrador de tráfico</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
+> [AZURE.SELECTOR]
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 
-</div>
+
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -95,4 +98,4 @@ Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su apl
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

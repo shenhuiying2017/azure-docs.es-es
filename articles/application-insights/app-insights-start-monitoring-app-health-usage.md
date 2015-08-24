@@ -118,7 +118,7 @@ Si se trabaja en modo de depuración, la telemetría se agiliza a través de la 
 
 * Abra el icono [Buscar][diagnostic] para ver los eventos individuales.
 * Use la aplicación y abra varias páginas para generar telemetría.
-* Espere unos segundos y haga clic en Actualizar.
+* Espere unos segundos y haga clic en Actualizar. Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente si espera que aparezcan algunos datos.
 * Vea [Solución de problemas][qna].
 
 #### ¿Tiene problemas el servidor de compilación?
@@ -243,4 +243,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

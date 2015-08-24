@@ -163,29 +163,12 @@ Azure proporciona un modelo de autorización global basado en roles para todos l
 
 En términos de Búsqueda de Azure, los controles de acceso basados en roles determinan las siguientes tareas administrativas:
 
-<table>
-<tr>
-<td>Propietario</td>
-<td>
-Iniciar, detener o eliminar el servicio.</br>
-Generar y ver claves de administración y consulta.</br>
-Ver el estado del servicio, incluido el número de índice, los nombres de índice, el recuento de documentos y el tamaño de almacenamiento.</br>
-Agregar o eliminar miembros del rol (solo un propietario puede administrar la pertenencia a roles).</br>
-</br>
-Los administradores de servicio y suscripción tienen pertenencia automática en el rol de propietarios.
-</td>
-</tr>
-<tr>
-<td>Colaborador</td>	
-<td>Tiene el mismo nivel de acceso que el propietario, excepto para la administración de roles. Por ejemplo, un colaborador puede ver y regenerar "clave de API", pero no puede modificar pertenencias a roles.
-</td>
-</tr>
-<tr>
-<td>Lector</td>
-<td>Ver las claves de estado y consulta de servicio. Los miembros de este rol no pueden iniciar o detener un servicio, ni pueden ver claves de administrador.
-</td>
-</tr>
-</table>
+
+Rol|Tarea
+---|---
+Propietario|Iniciar, detener o eliminar el servicio.<p>Generar y ver claves de administración y consulta.<p>Ver el estado del servicio, incluido el número de índice, los nombres de índice, el recuento de documentos y el tamaño de almacenamiento.<p>Agregar o eliminar miembros del rol (solo un propietario puede administrar la pertenencia a roles).<p>Los administradores de servicio y suscripción tienen pertenencia automática en el rol de propietarios.
+Colaborador|Tiene el mismo nivel de acceso que el propietario, excepto para la administración de roles. Por ejemplo, un colaborador puede ver y regenerar `api-key`, pero no puede modificar pertenencias a roles.
+Lector|Ver las claves de estado y consulta de servicio. Los miembros de este rol no pueden iniciar o detener un servicio, ni pueden ver claves de administrador.
 
 Tenga en cuenta que los roles no otorgan derechos de acceso al extremo de servicio. Las operaciones del servicio de búsqueda, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Consulte "Autorización para administración frente a operaciones de datos" en [Control de acceso basado en roles en el Portal de Azure](../role-based-access-control-configure.md) para obtener más información.
 
@@ -210,4 +193,4 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

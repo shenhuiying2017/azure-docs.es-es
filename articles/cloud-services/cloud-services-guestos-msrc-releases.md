@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Lista de actualizaciones aplicadas al SO invitado de Azure | Azure" 
+   pageTitle="Lista de actualizaciones aplicadas al SO invitado de Azure | Microsoft Azure" 
    description="Lista de las actualizaciones aplicadas a las versiones del SO invitado." 
    services="cloud-services" 
    documentationCenter="na" 
@@ -239,4 +239,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

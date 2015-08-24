@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usar datos sin conexión en la aplicación universal de Windows | Servicios móviles de Azure" 
+	pageTitle="Uso de datos sin conexión en la aplicación universal de Windows | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación universal de Windows" 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -283,4 +283,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

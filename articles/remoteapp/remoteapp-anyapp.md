@@ -13,10 +13,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/03/2015"
+   ms.date="08/10/2015"
    ms.author="elizapo"/>
 
-# Ejecución de cualquier aplicación en cualquier dispositivo con RemoteApp
+# Ejecución de cualquier aplicación de Windows en cualquier dispositivo con Azure RemoteApp
 
 Este tutorial le enseñará a ejecutar una aplicación de Windows en cualquier lugar, en cualquier dispositivo y ahora mismo, en serio. Ya se trate de Internet Explorer 6, una aplicación personalizada desarrollada hace 10 años o una aplicación de Office, los usuarios ya no estarán atados a un sistema operativo específico (como Windows XP) para esas pocas aplicaciones.
 
@@ -113,4 +113,4 @@ Ahora que ha aprendido a crear una colección, intente crear una [colección que
 
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

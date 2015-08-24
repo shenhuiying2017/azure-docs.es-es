@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Cómo administrar el perfil de su cuenta y probar los dispositivos 
@@ -145,4 +145,4 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

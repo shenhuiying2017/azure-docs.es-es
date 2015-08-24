@@ -381,17 +381,6 @@ Para obtener una lista de actividades admitidas, vea el tema [Canalizaciones y a
  
 Para realizar este tutorial con PowerShell de Azure, consulte [Creación y supervisión de una factoría de datos con PowerShell de Azure][monitor-manage-using-powershell].
 
-## Pasos siguientes
-
-Artículo | Descripción
------- | ---------------
-[Copia de datos con la Factoría de datos de Azure (actividad de copia)][copy-activity] | Este artículo proporciona una descripción detallada de la **actividad de copia** que ha usado en este tutorial. 
-[Habilitación de canalizaciones para trabajar con datos locales][use-onpremises-datasources] | Este artículo tiene un tutorial que muestra cómo copiar datos desde una **base de datos de SQL Server local** a un blob de Azure. 
-[Tutorial: desplazamiento y procesamiento de archivos de registro mediante la Factoría de datos][adf-tutorial] | En este artículo se proporciona un **tutorial completo** en el que se muestra cómo implementar un **escenario real** mediante la factoría de datos de Azure para transformar los datos de archivos de registro en información.
-[Solución de problemas de la factoría de datos][troubleshoot] | En este artículo se describe cómo **solucionar problemas** de la factoría de datos de Azure. Puede probar el tutorial de este artículo en ADFTutorialDataFactory introduciendo un error (eliminando la tabla de la Base de datos SQL de Azure). 
-[Referencia para desarrolladores de la Factoría de datos de Azure][developer-reference] | La Referencia para desarrolladores incluye contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
-
-
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -408,11 +397,9 @@ Artículo | Descripción
 
 [data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[copy-activity]: data-factory-copy-activity.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
@@ -512,4 +499,4 @@ Artículo | Descripción
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

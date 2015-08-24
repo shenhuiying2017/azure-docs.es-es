@@ -29,8 +29,8 @@ Puede usar la actividad de procedimiento almacenado de SQL Server en una [canali
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": “”,
-        	"storedProcedureParameters": “” 
+        	"storedProcedureName": "<name of the stored procedure>",
+        	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
 				…
@@ -72,6 +72,8 @@ Datetime | La fecha y la hora cuando se generó el identificador correspondiente
 	    VALUES (newid(), @DateTime)
 	END
 
+> [AZURE.NOTE]El **Nombre** y **el uso de mayúsculas y minúsculas** del parámetro (DateTime en este ejemplo) tiene que coincidir con el de los parámetros especificados en la actividad JSON a continuación. En la definición del procedimiento almacenado, asegúrese de que se usa **@** como prefijo para el parámetro.
+
 Para ejecutar este procedimiento almacenado en una canalización de Factoría de datos, necesita hacer lo siguiente:
 
 1.	Cree un [servicio vinculado](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties) para registrar la cadena de conexión de la Base de datos SQL de Azure donde debe ejecutarse el procedimiento almacenado.
@@ -86,19 +88,19 @@ Para ejecutar este procedimiento almacenado en una canalización de Factoría de
 		        "activities":
 		        [
 		            {
-		             "name": "SprocActivitySample",
-		             "type": " SqlServerStoredProcedure ",
-		             "outputs": [ {"name": "sprocsampleout"} ],
-		             "typeproperties":
-		              {
-		                "storedProcedureName": "sp_sample",
-		        		"storedProcedureParameters": 
-		        		{
-		            	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        		}
-				}
-		            }
-		          ]
+		            	"name": "SprocActivitySample",
+		             	"type": " SqlServerStoredProcedure",
+		             	"outputs": [ {"name": "sprocsampleout"} ],
+		             	"typeProperties":
+		              	{
+		                	"storedProcedureName": "sp_sample",
+			        		"storedProcedureParameters": 
+		        			{
+		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		        			}
+						}
+	            	}
+		        ]
 		     }
 		}
 5.	Implemente la [canalización](data-factory-create-pipelines.md).
@@ -121,9 +123,9 @@ Ahora, pensemos en agregar otra columna denominada 'Escenario' en la tabla que c
 	    VALUES (newid(), @DateTime, @Scenario)
 	END
 
-Para ello, pase el parámetro Escenario y el valor de la actividad de procedimiento almacenado. La sección typeproperties del ejemplo anterior es como sigue:
+Para ello, pase el parámetro Escenario y el valor de la actividad de procedimiento almacenado. La sección typeProperties del ejemplo anterior es como sigue:
 
-	"typeproperties":
+	"typeProperties":
 	{
 		"storedProcedureName": "sp_sample",
 	    "storedProcedureParameters": 
@@ -133,4 +135,4 @@ Para ello, pase el parámetro Escenario y el valor de la actividad de procedimie
 		}
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

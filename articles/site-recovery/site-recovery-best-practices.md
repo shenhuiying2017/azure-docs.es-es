@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/08/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 # Prácticas recomendadas para la implementación de Site Recovery
@@ -194,4 +194,4 @@ Después de revisar estas prácticas recomendadas, puede iniciar la implementaci
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

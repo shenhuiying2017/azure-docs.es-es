@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Uso de Búsqueda de diagnóstico en Application Insights
@@ -34,6 +34,8 @@ Por ejemplo, si la aplicación es un servicio web, la hoja de información gener
 
 
 El cuerpo principal de Búsqueda de diagnóstico es una lista de elementos de telemetría: solicitudes de servidor, vistas de página, eventos personalizados que haya codificado, etc. En la parte superior de la lista hay un gráfico de resumen que muestra los recuentos de eventos con el paso del tiempo.
+
+Los eventos normalmente aparecen en la búsqueda de diagnóstico antes de que aparezcan en el explorador de métrica. Aunque la hoja se actualiza a intervalos, puede hacer clic en Actualizar si espera un evento determinado.
 
 
 ## Inspección de elementos individuales
@@ -198,4 +200,4 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administrar una base de datos SQL con SSMS: Azure" 
+	pageTitle="Administración de una Base de datos SQL con SSMS | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar SQL Server Management Studio para administrar bases de datos y servidores de bases de datos SQL." 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -186,4 +186,4 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,4 +1,3 @@
-
 #### Para instalar la Actualización 1 desde el Portal de administración
 
 1. En la página de servicio de StorSimple, seleccione el dispositivo. Vaya a **Dispositivos** > **Mantenimiento**.
@@ -45,4 +44,4 @@
 
     ![Página de mantenimiento](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

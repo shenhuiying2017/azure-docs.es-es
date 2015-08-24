@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Ejemplos para el uso de la actividad de copia en Factoría de datos de Azure
-Puede usar la **actividad de copia** en una canalización para copiar datos de un origen a un receptor (destino) en un lote. Este tema proporciona algunos ejemplos de uso de la actividad de copia en una canalización de Factoría de datos. Para obtener información general detallada de la actividad de copia y los escenarios principales que admite, consulte [Copia de datos con la Factoría de datos de Azure][adf-copyactivity].
+Puede usar la **actividad de copia** en una canalización para copiar datos de un origen a un receptor (destino) en un lote. Este tema proporciona algunos ejemplos de uso de la actividad de copia en una canalización de Factoría de datos.
 
 ## Copia de datos de una base de datos SQL Server local en un blob de Azure
 En este ejemplo, se definen una tabla de entrada y una tabla de salida, y se utilizan en una actividad de copia dentro de una canalización que copia datos de una base de datos de SQL Server local a un blob de Azure.
@@ -480,12 +480,9 @@ Consulte [Referencia JSON de canalizaciones](https://msdn.microsoft.com/library/
 
 ## Otras referencias
 
-- [Copia de datos con la Factoría de datos de Azure][adf-copyactivity]
 - [Actividad de copia: referencia de scripting](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Vídeo: Presentación de la actividad de copia de la Factoría de datos de Azure][copy-activity-video]
 
-
-[adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

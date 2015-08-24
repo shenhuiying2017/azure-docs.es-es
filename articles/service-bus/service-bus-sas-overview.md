@@ -251,6 +251,6 @@ Después de enviar el token de SAS en el vínculo del remitente, el publicador t
 
 Vea la [referencia de la API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx) para obtener más información sobre lo que puede hacer con estos tokens de SAS.
 
-Para obtener más información sobre SAS, vea el nodo de [autenticación del Bus de servicio](https://msdn.microsoft.com/library/azure/dn155925.aspx) en MSDN.
+Para obtener más información sobre SAS, vea el nodo de [autenticación del Bus de servicio](https://msdn.microsoft.com/library/azure/dn155925.aspx) en MSDN. Para obtener más ejemplos acerca de SAS en C# y Java Script, vea el [blog de Damir](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

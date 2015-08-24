@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Contenido del SDK de Windows Universal Apps
@@ -55,4 +55,4 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 - `EngagementPageOverlay.cs`: el código de visualización de anuncios y notificaciones de `Overlay`.
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/06/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -39,7 +39,7 @@ La siguiente es una lista de las cosas importantes que deben tenerse en cuenta a
 
 - Almacenamiento premium está disponible actualmente en el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), y accesible a través de las siguientes bibliotecas de SDK: [API de REST de almacenamiento](http://msdn.microsoft.com//library/azure/dd179355.aspx) versión 2014-02-14 o posterior; [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/ee460799.aspx) versión 2014-10-01 o posterior; y [Azure PowerShell](../install-configure-powershell.md) versión 0.8.10 o posterior.
 
-- Almacenamiento premium está disponible actualmente en las siguientes regiones: Oeste de EE. UU., Este de EE. UU. - 2, Europa occidental, Este de China, Sudeste asiático, Oeste de Japón y Este de Australia.
+- Para obtener una lista de regiones que admiten actualmente almacenamiento Premium, consulte [Servicios de Azure por región](http://azure.microsoft.com/regions/#services).
 
 - Almacenamiento premium admite solo blobs en páginas de Azure, que se usan para contener discos persistentes para máquinas virtuales de Azure (VM). Para obtener información acerca de los blobs en páginas de Azure, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx). Almacenamiento premium no admite Blobs en bloque de Azure, archivos de Azure, tablas de Azure ni colas de Azure.
 
@@ -272,49 +272,7 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 	<td><strong>Imagen admitida</strong></td>
 </tr>
 <tr>
-	<td rowspan="4"><strong>Ubuntu</strong></td>
-	<td>12.04</td> <td>3.2.0-75.110</td>
-	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-es-es-30GB</td>
-</tr>
-<tr>
-	<td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14_04_1-LTS-amd64-server-20150123-es-es-30GB</td>
-</tr>
-<tr>
-	<td>14.10</td>
-	<td>3.16.0-29.39</td>
-	<td>Ubuntu-14_10-amd64-server-20150202-es-es-30GB</td>
-</tr>
-<tr>
-	<td>15.04</td>
-	<td>3.19.0-15</td>
-	<td>Ubuntu-15_04-amd64-server-20150422-es-es-30GB</td>
-</tr>
-<tr>
-	<td><strong>SUSE</strong></td>
-	<td>SLES 12</td>
-	<td>3.12.36-38.1</td>
-	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
-</tr>
-<tr>
-	<td><strong>CoreOS</strong></td>
-	<td>584.0.0</td>
-	<td>3.18.4</td>
-	<td>CoreOS 584.0.0</td>
-</tr>
-<tr>
-	<td rowspan="2"><strong>CentOS</strong></td>
-	<td>6.5, 6.6, 7.0</td>
-	<td></td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requerido</a></td>
-</tr>
-<tr>
-	<td>7.1</td>
-	<td>3.10.0-229.1.2.el7</td>
-	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 recomendado</a></td>
-</tr>
-
-<tr>
-	<td rowspan="2"><link id="138" refid="139" url="virtual-machines-oracle-azure-virtual-machines.md">Oracle</link></td>
+	<td rowspan="2"><strong>Oracle</strong></td>
 	<td>6.4.</td>
 	<td></td>
 	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 necesarios </a></td>
@@ -450,4 +408,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

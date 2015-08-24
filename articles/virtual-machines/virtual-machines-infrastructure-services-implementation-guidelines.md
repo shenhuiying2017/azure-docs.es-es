@@ -1,31 +1,31 @@
-<properties 
-	pageTitle="Instrucciones de implementación de los servicios de infraestructura de Azure" 
-	description="Obtenga información sobre las directrices clave de diseño e implementación para implementar una carga de trabajo de TI en los servicios de infraestructura de Azure." 
+<properties
+	pageTitle="Instrucciones de implementación de los servicios de infraestructura de Azure"
+	description="Obtenga información sobre las directrices clave de diseño e implementación para implementar una carga de trabajo de TI en los servicios de infraestructura de Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="squillace" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="squillace"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="rasquill"/>
 
 # Instrucciones de implementación de los servicios de infraestructura de Azure
- 
+
 Azure es una excelente plataforma para implementar configuraciones de desarrollo o pruebas o de prueba de concepto, ya que requiere muy poca inversión para probar un determinado enfoque para la implementación de las soluciones. Sin embargo, debe ser capaz de distinguir las prácticas fáciles para un entorno de desarrollo y pruebas de las prácticas más difíciles y detalladas para una implementación completamente funcional y lista para la producción de una carga de trabajo de TI.
 
-Esta guía identifica muchas áreas en las que la planificación es la clave del éxito de una carga de trabajo de TI en Azure. Además, proporciona un orden para la creación de los recursos necesarios. Aunque hay cierta flexibilidad, Microsoft recomienda que se aplique este orden para la planificación y la toma de decisiones.
+En esta guía se identifican muchas áreas en las que la planificación es la clave del éxito de una carga de trabajo de TI en Azure. Además, la planificación proporciona un orden para la creación de los recursos necesarios. Aunque hay cierta flexibilidad, se recomienda aplicar el orden indicado en este artículo para la planificación y la toma de decisiones.
 
 Este artículo está adaptado del contenido de la entrada de blog [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) (Directrices de implementación de Azure). Gracias a Santiago Cánepa (Director de desarrollo de aplicaciones de Microsoft) y Hugo Salcedo (Director de desarrollo de aplicaciones de Microsoft) por su material original.
 
-> [AZURE.NOTE]Los grupos de afinidad han quedado en desuso y su uso no se describe aquí. Para obtener más información, consulte [Redes virtuales regionales y grupos de afinidad](https://msdn.microsoft.com/library/azure/jj156085.aspx).
+> [AZURE.NOTE]Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, vea [Redes virtuales regionales y grupos de afinidad](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
 ## 1\. Convenciones de nomenclatura
 
@@ -37,7 +37,7 @@ Debe acordar por adelantado el conjunto de convenciones de nomenclatura. Existen
 
 ### Afijos
 
-Al crear ciertos recursos, Azure usará algunos valores predeterminados para simplificar la administración de los recursos asociados a dichos recursos. Por ejemplo, al crear la primera máquina virtual para un nuevo servicio en la nube, el Portal de administración de Azure intentará usar el nombre de la máquina virtual como nombre de un nuevo servicio en la nube para la máquina virtual.
+Al crear ciertos recursos, Azure usará algunos valores predeterminados para simplificar la administración de los recursos asociados a dichos recursos. Por ejemplo, al crear la primera máquina virtual para un nuevo servicio en la nube, el Portal de Azure intentará usar el nombre de la máquina virtual como nombre de un nuevo servicio en la nube para la máquina virtual.
 
 Por lo tanto, conviene identificar los tipos de recursos que necesitan un afijo para identificar dicho tipo. Además, especifique claramente si el afijo se pondrá:
 
@@ -58,16 +58,16 @@ Ubicación | usw (Oeste de EE. UU.), use (Este de EE. UU. 2) | Según la región
 Componente, servicio o producto de Azure | Rg para grupo de recursos, Svc para servicio en la nube, VNet para red virtual | Según el producto para el que proporciona compatibilidad el recurso.
 Rol | sql, ora, sp, iis | Según el rol de la máquina virtual.
 Instance | 01, 02, 03, etc. | Para los recursos que pueden tener más de una instancia. Por ejemplo, servidores web de carga equilibrada en un servicio en la nube.
-		
+
 Al establecer las convenciones de nomenclatura, asegúrese de que indiquen claramente qué afijos se deben usar para cada tipo de recurso y en qué posición (prefijo o sufijo).
 
 ### Fechas
 
-A menudo es importante determinar la fecha de creación a partir del nombre de un recurso. Microsoft recomienda el formato de fecha AAAAMMDD. Este formato garantiza no solo que se registre la fecha completa, sino que dos recursos cuyos nombres difieren solo en la fecha se ordenen alfabética y cronológicamente al mismo tiempo.
+A menudo es importante determinar la fecha de creación a partir del nombre de un recurso. Se recomienda el formato de fecha AAAAMMDD. Este formato garantiza no solo que se registre la fecha completa, sino que dos recursos cuyos nombres difieren solo en la fecha se ordenen alfabética y cronológicamente al mismo tiempo.
 
 ### Asignación de nombres a recursos
 
-Debe definir cada tipo de recurso en la convención de nomenclatura, que debería tener reglas que definen cómo asignar nombres a cada recurso creado. Estas reglas se deben aplicar a todos los tipos de recursos, por ejemplo:
+Debe definir cada tipo de recurso en la convención de nomenclatura, que debería tener reglas que definan cómo asignar nombres a cada recurso que se cree. Estas reglas se deben aplicar a todos los tipos de recursos, por ejemplo:
 
 - Suscripciones
 - Cuentas
@@ -82,15 +82,15 @@ Debe definir cada tipo de recurso en la convención de nomenclatura, que deberí
 - Grupos de seguridad de red
 - Roles
 
-Para asegurarse de que el nombre proporciona información suficiente para determinar a qué recurso hace referencia, es preciso usar nombres descriptivos.
+Para asegurarse de que el nombre proporciona información suficiente para determinar el recurso al que hace referencia, es preciso usar nombres descriptivos.
 
 ### Nombres de equipo
 
-Cuando los administradores crean una máquina virtual, Microsoft Azure les pedirá que proporcionen un nombre de máquina virtual de hasta 15 caracteres. Microsoft Azure usará el nombre de la máquina virtual como nombre del recurso de la máquina virtual de Azure. Azure usará el mismo nombre como nombre de equipo para el sistema operativo instalado en la máquina virtual. Sin embargo, estos nombres podrían no ser siempre iguales.
+Cuando los administradores crean una máquina virtual, Microsoft Azure les pedirá que proporcionen un nombre de máquina virtual de hasta 15 caracteres. Azure usará el nombre de la máquina virtual como nombre del recurso de la máquina virtual de Azure. Azure usará el mismo nombre como nombre de equipo para el sistema operativo instalado en la máquina virtual. Sin embargo, estos nombres podrían no ser siempre iguales.
 
-En los casos en que se crea una máquina virtual a partir de un archivo de imagen .VHD que ya contiene un sistema operativo, el nombre de la máquina virtual en Microsoft Azure puede diferir del nombre de equipo del sistema operativo de la máquina virtual. Esta situación se desaconseja, ya que puede agregar cierta dificultad a la administración de máquinas virtuales. Asigne al recurso de la máquina virtual de Azure el mismo nombre que el del equipo que asigne al sistema operativo de dicha máquina virtual.
+En los casos en que una máquina virtual se crea a partir de un archivo de imagen .VHD que ya contiene un sistema operativo, el nombre de la máquina virtual en Azure puede diferir del nombre de equipo del sistema operativo de la máquina virtual. Esta situación se desaconseja, ya que puede agregar cierta dificultad a la administración de máquinas virtuales. Asigne al recurso de la máquina virtual de Azure el mismo nombre que el del equipo que asigne al sistema operativo de dicha máquina virtual.
 
-Se recomienda que el nombre de la máquina Virtual de Azure sea el mismo que el nombre de equipo del sistema operativo subyacente. Por esta razón, debe seguir las reglas de nomenclatura de NetBIOS que se describen en [Convenciones de nomenclatura NetBIOS de equipos de Microsoft](https://support.microsoft.com/kb/188997/).
+Se recomienda que el nombre de la máquina virtual de Azure sea el mismo que el del equipo del sistema operativo subyacente. Por esta razón, debe seguir las reglas de nomenclatura de NetBIOS que se describen en [Convenciones de nomenclatura NetBIOS de equipos de Microsoft](https://support.microsoft.com/kb/188997/).
 
 ### Nombres de cuentas de almacenamiento
 
@@ -103,7 +103,7 @@ Las cuentas de almacenamiento tienen reglas especiales que regulan sus nombres. 
 
 ### Nombres de bloques de creación de Azure
 
-Los bloques de creación de Azure son servicios de nivel de aplicación que ofrece Azure, normalmente para las aplicaciones que aprovechan las características de PaaS, aunque los recursos de IaaS también pueden aprovechar algunas, como SQL Azure, el Administrador de tráfico y otros.
+Los bloques de creación de Azure son servicios de nivel de aplicación que ofrece Azure, normalmente para las aplicaciones que aprovechan las características de PaaS, aunque los recursos de IaaS también pueden aprovechar algunas, como Base de datos SQL de Azure, el Administrador de tráfico y otros.
 
 Estos servicios se basan en una matriz de artefactos que se crean y registran en Azure. También deben tenerlos en cuenta en las convenciones de nomenclatura.
 
@@ -111,7 +111,7 @@ Estos servicios se basan en una matriz de artefactos que se crean y registran en
 
 Decisión:
 
-- ¿Cuáles son sus convenciones de nomenclatura para los recursos de Azure? 
+- ¿Cuáles son sus convenciones de nomenclatura para los recursos de Azure?
 
 Tarea:
 
@@ -121,18 +121,18 @@ Tarea:
 
 Para trabajar con Azure, necesita una o más suscripciones a Azure. Los recursos, como servicios en la nube o máquinas virtuales, existen en el contexto de las suscripciones.
 
-- Los clientes empresariales suelen tener una inscripción Enterprise, que es el recurso de nivel superior en la jerarquía y está asociado a una o varias cuentas. 
-- Para los consumidores y los clientes que no tienen una inscripción Enterprise, el recurso de nivel superior es la cuenta.
+- Los clientes empresariales suelen tener una inscripción Enterprise, que es el recurso de nivel superior en la jerarquía y está asociado a una o varias cuentas.
+- Para los consumidores y clientes que no tienen una inscripción Enterprise, el recurso de nivel superior es la cuenta.
 - Las suscripciones están asociadas a las cuentas y puede haber una o más suscripciones por cuenta. Azure registra la información de facturación por suscripción.
 
 Debido al límite de dos niveles de jerarquía en la relación de cuenta/suscripción, es importante adaptar la convención de nomenclatura de las cuentas y las suscripciones a las necesidades de facturación. Por ejemplo, si una empresa internacional usa Azure, puede optar por tener una cuenta por región y administrar las suscripciones a nivel regional.
 
 ![](./media/virtual-machines-infrastructure-services-implementation-guidelines/sub01.png)
-  
+
 Por ejemplo, podría usar esta estructura.
 
 ![](./media/virtual-machines-infrastructure-services-implementation-guidelines/sub02.png)
-  
+
 Siguiendo con el mismo ejemplo, si una región decide tener más de una suscripción asociada a un grupo determinado, la convención de nomenclatura debe incorporar un método para codificar la parte adicional del nombre de cuenta o de suscripción. Esta organización permite manipular los datos de facturación para generar los nuevos niveles de jerarquía durante los informes de facturación.
 
 ![](./media/virtual-machines-infrastructure-services-implementation-guidelines/sub03.png)
@@ -140,8 +140,8 @@ Siguiendo con el mismo ejemplo, si una región decide tener más de una suscripc
 La organización podría tener este aspecto.
 
 ![](./media/virtual-machines-infrastructure-services-implementation-guidelines/sub04.png)
- 
-Microsoft proporciona una facturación detallada a través de un archivo descargable para una sola cuenta o para todas las cuentas de un contrato Enterprise. Puede procesar este archivo, por ejemplo, con Excel. Este proceso introduce los datos, particiona los recursos que codifican más de un nivel de la jerarquía en columnas independientes y usa una tabla dinámica o PowerPivot para proporcionar la funcionalidad de informes dinámicos.
+
+Microsoft proporciona una facturación detallada a través de un archivo descargable para una sola cuenta o para todas las cuentas de un contrato Enterprise. Puede procesar este archivo, por ejemplo, con Microsoft Excel. Este proceso introduce los datos, particiona los recursos que codifican más de un nivel de la jerarquía en columnas independientes y usa una tabla dinámica o PowerPivot para proporcionar la funcionalidad de informes dinámicos.
 
 ### Resumen de las directrices de implementación para suscripciones y cuentas
 
@@ -157,18 +157,18 @@ Tarea:
 
 Almacenamiento de Azure es una parte integral de muchas soluciones de Azure. Almacenamiento de Azure proporciona servicios para almacenar datos de archivos, datos sin estructura y mensajes, y también forma parte de la infraestructura que da soporte a las máquinas virtuales.
 
-Existen dos tipos de cuentas de almacenamiento disponibles en Azure. Una cuenta de almacenamiento estándar proporciona acceso al almacenamiento de blobs (que se usa para almacenar discos de máquinas virtuales de Azure), de tablas, de colas y de archivos. El almacenamiento Premium está diseñado para aplicaciones de alto rendimiento, como servidores SQL Server en un clúster de AlwaysOn, y actualmente solo admite discos de máquina virtual de Azure.
+Existen dos tipos de cuentas de almacenamiento disponibles en Azure. Una cuenta de almacenamiento estándar proporciona acceso al almacenamiento de blobs (que se usa para almacenar discos de máquinas virtuales de Azure), al almacenamiento de tablas, de colas y de archivos. El almacenamiento Premium está diseñado para aplicaciones de alto rendimiento, como servidores SQL Server en un clúster de AlwaysOn, y actualmente solo admite discos de máquina virtual de Azure.
 
-Las cuentas de almacenamiento están vinculadas a objetivos de escalabilidad. Consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#storage-limits) para familiarizarse con los límites actuales de almacenamiento de Azure. Consulte también [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](../storage-scalability-targets.md).
+Las cuentas de almacenamiento están vinculadas a objetivos de escalabilidad. Vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#storage-limits) para familiarizarse con los límites actuales de almacenamiento de Azure. Vea también [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](../storage-scalability-targets.md).
 
 Azure crea máquinas virtuales con un disco del sistema operativo, un disco temporal y ninguno o varios discos de datos opcionales. Tanto el disco del sistema operativo como los discos de datos son blobs en páginas de Azure, mientras que el disco temporal se almacena localmente en el nodo en que reside el equipo. Esto hace que el disco temporal no sea apto para datos que deben mantenerse durante un reciclaje del sistema, ya que el equipo podría migrarse en modo silencioso de un nodo a otro, con lo que se perderían los datos de dicho disco. No almacene nada en la unidad temporal.
 
-Los discos del sistema operativo y los discos de datos tienen un tamaño máximo de 1023 GB, ya que el tamaño máximo de un blob es de 1024 GB y debe contener los metadatos (pie de página) del archivo VHD (un GB son 1024<sup>3</sup> bytes). Puede implementar la creación de bandas en el disco en Windows para superar este límite.
+Los discos del sistema operativo y los discos de datos tienen un tamaño máximo de 1023 GB, ya que el tamaño máximo de un blob es de 1024 gigabytes (GB) y debe contener los metadatos (pie de página) del archivo VHD (un GB son 1024<sup>3</sup> bytes). Puede implementar la creación de bandas en el disco en Windows para superar este límite.
 
 ### Discos con bandas
-Además de proporcionar la capacidad de crear discos de más de 1.023 GB, en muchos casos la creación de bandas en los discos de datos mejorará el rendimiento, ya que permite que varios blobs respalden el almacenamiento de un solo volumen. Esto paraleliza las operaciones de E/S necesarias para escribir y leer datos de un único disco.
+Además de ofrecer la posibilidad de crear discos de más de 1023 GB, en muchos casos la creación de bandas en los discos de datos mejorará el rendimiento, ya que permite que varios blobs respalden el almacenamiento de un solo volumen. Con la creación de bandas, las operaciones de E/S necesarias para escribir y leer datos de un único disco lógico se realizan en paralelo.
 
-Azure impone límites en la cantidad de discos de datos y el ancho de banda disponible, en función del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
+Azure impone límites en la cantidad de discos de datos y el ancho de banda disponible, en función del tamaño de la máquina virtual. Para obtener más información, vea [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 
 Si usa la creación de bandas en discos de datos de Azure, tenga en cuenta las siguientes directrices:
 
@@ -178,17 +178,17 @@ Si usa la creación de bandas en discos de datos de Azure, tenga en cuenta las s
 - Use la configuración de creación de bandas de almacenamiento
 - Evite el uso de opciones de almacenamiento en caché del disco de datos de Azure (directiva de almacenamiento en caché = ninguna)
 
-Para obtener más información, consulte [Espacios de almacenamiento - Diseño para el rendimiento](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Para obtener más información, vea [Espacios de almacenamiento - Diseño para el rendimiento](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 ### Cuentas de almacenamiento múltiples
 
 El uso de varias cuentas de almacenamiento para respaldar los discos asociados a varias máquinas virtuales garantiza que la E/S agregada de esos discos esté por debajo de los objetivos de escalabilidad para cada una de las cuentas de almacenamiento.
 
-Microsoft recomienda comenzar con la implementación de una máquina virtual por cada cuenta de almacenamiento.
+Se recomienda comenzar con la implementación de una máquina virtual por cada cuenta de almacenamiento.
 
 ### Diseño del almacenamiento
 
-Para aplicar estas estrategias a fin de implementar el subsistema de disco de las máquinas virtuales con un buen rendimiento, una carga de trabajo o infraestructura de TI normalmente aprovechará la existencia de muchas cuentas de almacenamiento. Estas hospedarán muchos blobs de VHD. En algunos casos, hay más de un blob asociado a un solo volumen de una máquina virtual.
+Para aplicar estas estrategias con el fin de implementar el subsistema de disco de las máquinas virtuales con un buen rendimiento, una carga de trabajo o infraestructura de TI normalmente aprovecha la existencia de muchas cuentas de almacenamiento. Estas hospedan muchos blobs de VHD. En algunos casos, hay más de un blob asociado a un solo volumen de una máquina virtual.
 
 Esta situación puede agregar cierta complejidad a las tareas de administración. La clave consiste en diseñar una sólida estrategia de almacenamiento, que incluya una nomenclatura adecuada para los discos subyacentes y los blobs de VHD asociados.
 
@@ -196,17 +196,17 @@ Esta situación puede agregar cierta complejidad a las tareas de administración
 
 Decisiones:
 
-- ¿Necesita la creación de bandas en los discos para crear discos de más de 500 TB?
+- ¿Necesita la creación de bandas en los discos para crear discos de más de 500 terabytes(TB)?
 - ¿Necesita la creación de bandas en los discos para lograr un rendimiento óptimo para la carga de trabajo?
 - ¿Qué conjunto de cuentas de almacenamiento necesita para hospedar su infraestructura o carga de trabajo de TI?
 
 Tarea:
 
-- Cree el conjunto de cuentas de almacenamiento usando su convención de nomenclatura. Puede usar el Portal de vista previa de Azure, el Portal de administración de Azure, o el cmdlet **New-AzureStorageAccount** de PowerShell.
+- Cree el conjunto de cuentas de almacenamiento usando su convención de nomenclatura. Puede usar el Portal de vista previa de Azure, el Portal de Azure o el cmdlet **New-AzureStorageAccount** de PowerShell.
 
 ## 4\. Servicios en la nube
 
-Los servicios en la nube son un pilar fundamental en Administración de servicios de Azure, tanto para los servicios de PaaS como de IaaS. Para PaaS, los servicios en la nube representan una asociación de roles cuyas instancias pueden comunicarse entre sí. Los servicios en la nube están asociados a una dirección IP virtual pública (VIP) y un equilibrador de carga, que toma el tráfico entrante de Internet y equilibra la carga en los roles configurados para recibir ese tráfico.
+Los servicios en la nube son un pilar fundamental en la administración de servicios de Azure, tanto para los servicios de PaaS como de IaaS. Para PaaS, los servicios en la nube representan una asociación de roles cuyas instancias pueden comunicarse entre sí. Los servicios en la nube están asociados a una dirección IP virtual pública (VIP) y un equilibrador de carga, que toma el tráfico entrante de Internet y equilibra la carga en los roles configurados para recibir ese tráfico.
 
 En el caso de IaaS, los servicios en la nube ofrecen una funcionalidad similar, aunque en la mayoría de los casos la funcionalidad de equilibrador de carga se usa para reenviar el tráfico de los puertos TCP o UDP específicos desde Internet a las diversas máquinas virtuales dentro de ese servicio en la nube.
 
@@ -214,7 +214,7 @@ En el caso de IaaS, los servicios en la nube ofrecen una funcionalidad similar, 
 
 Los nombres del servicio en la nube son especialmente importantes en IaaS, ya que Azure los usa como parte de la convención predeterminada de nomenclatura de los discos. El nombre del servicio en la nube solo puede contener letras, números y guiones. El primer y el último carácter del campo deben ser una letra o un número.
 
-Microsoft Azure expone los nombres de los servicios en la nube, ya que están asociados a la VIP, en el dominio “cloudapp.net”. Para una mejor experiencia de usuario de la aplicación, debe configurarse un nombre personalizado según sea necesario para reemplazar el nombre completo del servicio en la nube. Esto suele hacerse con un registro CNAME en el DNS público que asigna el nombre DNS público del recurso (por ejemplo, www.contoso.com) al nombre DNS del servicio en la nube que hospeda el recurso (por ejemplo, el servicio en la nube que hospeda los servidores web de www.contoso.com).
+Azure expone los nombres de los servicios en la nube, ya que están asociados a la VIP, en el dominio “cloudapp.net”. Para una mejor experiencia de usuario de la aplicación, debe configurarse un nombre personalizado según sea necesario para reemplazar el nombre completo del servicio en la nube. Esto suele hacerse con un registro CNAME en el DNS público que asigna el nombre DNS público del recurso (por ejemplo, www.contoso.com) al nombre DNS del servicio en la nube que hospeda el recurso (por ejemplo, el servicio en la nube que hospeda los servidores web de www.contoso.com).
 
 Además, es posible que la convención de nomenclatura usada para los servicios en la nube deba tolerar las excepciones, ya que los nombres de los servicios en la nube deben ser únicos entre todos los demás servicios en la nube de Microsoft Azure, independientemente del inquilino de Microsoft Azure.
 
@@ -226,11 +226,11 @@ Las suscripciones a Azure pueden admitir un máximo de 200 servicios en la nube.
 
 Decisión:
 
-- ¿Qué conjunto de servicios en la nube necesita para hospedar su infraestructura o carga de trabajo de TI? 
+- ¿Qué conjunto de servicios en la nube necesita para hospedar su infraestructura o carga de trabajo de TI?
 
 Tarea:
 
-- Cree el conjunto de servicios en la nube usando su convención de nomenclatura. Puede usar el Portal de administración de Azure o cmdlet **New-AzureService** de PowerShell.
+- Cree el conjunto de servicios en la nube usando su convención de nomenclatura. Puede usar el Portal de Azure o el cmdlet **New-AzureService** de PowerShell.
 
 ## 5\. Redes virtuales
 
@@ -242,7 +242,7 @@ Las redes virtuales son un contenedor de máquinas virtuales para las que tambi�
 Si los equipos y usuarios locales no requieren conectividad continua a máquinas virtuales de una red virtual de Azure, cree una red virtual solo en la nube.
 
 ![](./media/virtual-machines-infrastructure-services-implementation-guidelines/vnet01.png)
- 
+
 Normalmente está destinada a cargas de trabajo con conexión a Internet, como un servidor web basado en Internet. Puede administrar estas máquinas virtuales usando conexiones de Escritorio remoto, sesiones remotas de PowerShell, conexiones de Shell seguro (SSH) y conexiones VPN de punto a sitio.
 
 Dado que no se conectan a la red local, las redes virtuales solo en la nube pueden usar cualquier parte del espacio de direcciones IP privado.
@@ -250,22 +250,22 @@ Dado que no se conectan a la red local, las redes virtuales solo en la nube pued
 Si los equipos y usuarios locales necesitan conectividad continua a máquinas virtuales en una red virtual de Azure, cree una red virtual entre locales y conéctela a la red local con ExpressRoute o con una conexión VPN de sitio a sitio.
 
 ![](./media/virtual-machines-infrastructure-services-implementation-guidelines/vnet02.png)
- 
+
 En esta configuración, la red virtual de Azure es esencialmente una extensión basada en la nube de su red local.
 
-Dado que se conectan a la red local, las redes virtuales entre locales deben usar solo una parte del espacio de direcciones usado por la organización que sea única y la infraestructura de enrutamiento debe admitir el enrutamiento del tráfico a dicha parte reenviándolo al dispositivo VPN local.
+Dado que se conectan a la red local, las redes virtuales entre locales deben utilizar solo una parte del espacio de direcciones usado por la organización que sea única y la infraestructura de enrutamiento debe admitir el enrutamiento del tráfico a dicha parte reenviándolo al dispositivo VPN local.
 
 Para permitir que los paquetes viajen de la red virtual entre locales a la red local, debe configurar el conjunto de prefijos pertinentes de direcciones locales como parte de la definición de la red local para la red virtual. En función del espacio de direcciones de la red virtual y del conjunto de ubicaciones locales pertinentes, puede haber varios prefijos de direcciones en la red local.
 
 Puede convertir una red virtual solo en la nube a una red virtual entre locales, pero probablemente tendrá que volver a numerar el espacio de direcciones de la red virtual, las subredes y las máquinas virtuales que usan direcciones IP estáticas asignadas por Azure, conocidas como direcciones IP dinámicas (DIP). Por lo tanto, considere cuidadosamente el tipo de redes virtuales que necesita (solo en la nube o entre locales) antes de crearlas.
 
 ### Subredes
-Las subredes permiten organizar los recursos que están relacionados, ya sea lógicamente (por ejemplo, una subred para máquinas virtuales asociadas a la misma aplicación) o físicamente (por ejemplo, una subred por cada servicio en la nube), o bien emplear técnicas de aislamiento de subred para una mayor seguridad.
+Las subredes permiten organizar los recursos que están relacionados, ya sea lógicamente (por ejemplo, una subred para máquinas virtuales asociadas a la misma aplicación) o físicamente (por ejemplo, una subred por cada servicio en la nube), o bien emplear técnicas de aislamiento de subred para mayor seguridad.
 
 Para las redes virtuales entre locales, debe diseñar subredes con las mismas convenciones que usa para los recursos locales, teniendo en cuenta que **Azure siempre usa las tres primeras direcciones IP del espacio de direcciones de cada subred**. Para determinar el número de direcciones necesarias para la subred, cuente el número de máquinas virtuales que necesita en este momento, calcule el crecimiento futuro y use la tabla siguiente para determinar el tamaño de la subred.
- 
-Número de máquinas virtuales necesarias | Número de bits de host necesarios | Tamaño de la subred 
---- | --- | --- 
+
+Número de máquinas virtuales necesarias | Número de bits de host necesarios | Tamaño de la subred
+--- | --- | ---
 1-3 | 3 | /29
 4-11 | 4 | /28
 12-27 | 5 | /27
@@ -327,7 +327,7 @@ Decisión:
 Tareas:
 
 - Defina el nombre de cada máquina virtual usando su convención de nomenclatura.
-- Cree las máquinas virtuales con el Portal de vista previa de Azure, el Portal de administración de Azure, el cmdlet **New-AzureVM** de PowerShell, la CLI de Azure o las plantillas del Administrador de recursos.
+- Cree las máquinas virtuales con el Portal de vista previa de Azure, el Portal de Azure, el cmdlet **New-AzureVM** de PowerShell, la CLI de Azure o las plantillas del Administrador de recursos.
 
 ## Ejemplo de carga de trabajo de TI: el motor de análisis financiero de Contoso
 
@@ -340,7 +340,7 @@ Contoso Corporation ha desarrollado un motor de análisis financiero de última 
 - Todos los servidores se encuentran en dos subredes; una subred de front-end para los servidores web y una subred de back-end para los servidores de aplicaciones, un clúster de SQL Server 2014 y controladores de dominio.
 
 ![](./media/virtual-machines-infrastructure-services-implementation-guidelines/example-tiers.png)
- 
+
 El tráfico web seguro entrante de los clientes de Contoso en Internet debe ser de carga equilibrada entre los servidores web. El tráfico de solicitud de cálculo en forma de solicitudes HTTP procedente de los servidores web debe equilibrarse entre los servidores de aplicaciones. Además, el motor debe diseñarse para alta disponibilidad.
 
 El diseño resultante incluirá:
@@ -415,7 +415,7 @@ Contoso decidió los siguientes nombres para sus máquinas virtuales de Azure:
 Aquí está la configuración resultante.
 
 ![](./media/virtual-machines-infrastructure-services-implementation-guidelines/example-config.png)
- 
+
 Esta configuración incluye:
 
 - Una red virtual solo en la nube con dos subredes (FrontEnd y BackEnd)
@@ -438,7 +438,6 @@ Esta configuración incluye:
 
 [Diagrama de arquitectura de referencia de extensión del centro de datos](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
-[Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
- 
+[Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

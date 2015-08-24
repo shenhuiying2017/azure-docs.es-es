@@ -12,7 +12,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/01/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa" />
 
 # Planificación de la capacidad de la replicación de Hyper-V
@@ -239,4 +239,4 @@ Para empezar a implementar ASR:
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

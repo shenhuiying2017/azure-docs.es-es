@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Carga de imágenes al almacenamiento de blobs de Azure desde una aplicación universal de Windows | Servicios móviles de Azure" 
+	pageTitle="Carga de imágenes en el almacenamiento de blobs de Azure desde una aplicación universal de Windows | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar un servicio móvil de back-end de JavaScript para cargar imágenes al almacenamiento de blobs de Azure y acceder a ellas desde la aplicación universal de Windows." 
 	services="mobile-services,storage" 
 	documentationCenter="windows" 
@@ -87,4 +87,4 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

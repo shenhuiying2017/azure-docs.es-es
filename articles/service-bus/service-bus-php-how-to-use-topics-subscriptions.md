@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de los temas del Bus de servicio (PHP) - Azure" 
+	pageTitle="Uso de temas del Bus de servicio (PHP) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar los temas del Bus de servicio con PHP en Azure." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -332,4 +332,4 @@ Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, cons
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

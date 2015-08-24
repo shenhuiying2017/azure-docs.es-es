@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -173,4 +173,4 @@ Haga lo siguiente:
 - Haga clic en el vínculo [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) en la parte superior para realizar el tutorial con PowerShell de Azure.
 - Haga clic en el vínculo [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) de la parte superior para realizar el tutorial con Visual Studio. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

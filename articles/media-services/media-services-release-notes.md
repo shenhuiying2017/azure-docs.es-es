@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -562,4 +562,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

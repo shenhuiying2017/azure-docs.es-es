@@ -9,7 +9,7 @@
 <tags 
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="hero-article" 
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="06/30/2015"
@@ -229,4 +229,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

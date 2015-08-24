@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Servicios vinculados de procesos | Factoría de datos de Azure" 
+	pageTitle="Servicios vinculados de procesos | Microsoft Azure" 
 	description="Obtenga información sobre los entornos de procesos que puede usar en las canalizaciones de la Factoría de datos de Azure para transformar y procesar datos." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -208,7 +208,7 @@ poolName | Nombre del grupo de máquinas virtuales. | Sí
 linkedServiceName | Nombre del servicio vinculado de Almacenamiento de Azure asociado a este servicio vinculado de Lote de Azure. Este servicio vinculado se usa para los archivos de almacenamiento provisional necesarios para ejecutar la actividad y almacenar los registros de ejecución de la actividad. | Sí
 
 
-## Servicio vinculado de Lote de Azure
+## Servicio vinculado de aprendizaje automático de Azure
 
 Un servicio vinculado de aprendizaje automático de Azure se crea para registrar un extremo de puntuación por lotes de aprendizaje automático en una factoría de datos.
 
@@ -234,7 +234,9 @@ mlEndpoint | La dirección URL de puntuación por lotes. | Sí
 apiKey | La API del modelo de área de trabajo publicado. | Sí
 
 
+## Servicio vinculado SQL de Azure
 
+Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Consulte el artículo [Conector SQL de Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) para obtener más información acerca de este servicio vinculado.
 
 
   
@@ -245,4 +247,4 @@ apiKey | La API del modelo de área de trabajo publicado. | Sí
  
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

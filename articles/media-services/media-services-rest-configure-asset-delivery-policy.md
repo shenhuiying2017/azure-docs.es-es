@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Configuración de directivas de entrega de recursos
+
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
-
-Uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar directivas de entrega para los recursos que desea transmitir. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
+Si tiene pensado entregar recursos cifrados dinámicamente, uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar las directivas de entrega de los recursos. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
 
 En este tema se explica por qué y cómo crear y configurar directivas de entrega de recursos.
 
@@ -186,7 +185,7 @@ Respuesta:
 
 ###Creación de directiva de entrega de recursos
 
-La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado de sobre dinámico (**DynamicEnvelopeEncryption**) en el protocolo **HLS** (en este ejemplo, se bloquearán los protocolos para streaming).
+La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado Envelope dinámico (**DynamicEnvelopeEncryption**) en el protocolo **HLS** (en este ejemplo, se bloquearán los protocolos para streaming).
 
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
@@ -413,4 +412,4 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

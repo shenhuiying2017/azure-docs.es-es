@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/03/2015"
+   ms.date="08/05/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
@@ -134,9 +134,19 @@ A continuación se muestra un ejemplo del aspecto de la variable de contexto.
         }
 
 
-La tabla siguiente contiene el nombre y la descripción de cada variable del contexto.
-  
-<table border="1"> <tr><th>Nombre de la variable</th><th>Descripción de la variable</th></tr> <tr><td>RecoveryPlanName</td><td>Nombre del plan de recuperación que se está ejecutando. <p>Esta variable puede ayudarle a realizar acciones diferentes según el nombre del plan de recuperación con el mismo script.</td></tr> <tr><td>FailoverType</td><td>Especifica si la ejecución es **prueba**, **Planeada** o **No planeado**. <p> Esta variable le ayudará a realizar diferentes acciones según el tipo de conmutación por error. </td></tr> <tr><td>FailoverDirection</td><td>Especifica si la recuperación es desde el lado principal a recuperación o viceversa. <p>Los dos valores que toma son **PrimaryToSecondary** y **SecondaryToPrimary** </td></tr> <tr><td>GroupId</td><td> identifica el número de grupo dentro del plan de recuperación donde se ejecuta el runbook. <p> Por ejemplo, si el runbook se publica en el grupo 2, el elemento GroupId será 2. </td></tr> <tr><td>VmMap</td><td> es una matriz de todas las máquinas virtuales en el grupo. </td></tr> <tr><td>Clave de VmMap</td><td>cada máquina virtual tiene una clave única que se identifica mediante un GUID. Este GUID es el mismo que el identificador de VMM de la máquina virtual. <p> Puede utilizar este GUID para especificar de forma determinista en qué máquina virtual desea trabajar. </td></tr> <tr><td>RoleName</td><td>especifica el nombre de la máquina virtual de Azure que se está recuperando.</td></tr> <tr><td>CloudServiceName</td><td> especifica el nombre del servicio en la nube de Azure en el que se crea la máquina virtual. </td></tr> </table><br />
+La tabla siguiente contiene el nombre y la descripción de cada variable en el contexto.
+
+**Nombre de la variable** | **Descripción**
+---|---
+RecoveryPlanName | Nombre del plan que se va a ejecutar. Permite realizar acciones según el nombre mediante el mismo script.
+FailoverType | Especifica si la conmutación por error se probó y si se planeó o no. 
+FailoverDirection | Especifica si la recuperación es al principal o secundario.
+GroupID | Identifica el número de grupo dentro del plan de recuperación cuando se ejecuta el plan.
+VmMap | Tabla con todas las máquinas virtuales del grupo.
+Clave de VMMap | Clave única (GUID) para cada máquina virtual. Es el mismo que el identificador de VMM de la máquina virtual, si procede. 
+RoleName | Nombre de la máquina virtual de Azure que se está recuperando.
+CloudServiceName | Nombre del servicio en la nube de Azure con el que se crea la máquina virtual.
+
 
 Para identificar la clave de VmMap en el contexto también puede ir a la página de propiedades de la máquina virtual en ASR y ver la propiedad VM GUID.
 
@@ -303,4 +313,4 @@ Mientras describimos la automatización de la tarea habitual de agregar un extre
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

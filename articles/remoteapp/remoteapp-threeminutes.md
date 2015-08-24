@@ -3,7 +3,7 @@
     pageTitle="Pruebe RemoteApp en su dispositivo en tres minutos o menos"
     description="Pruebe la funcionalidad de Azure RemoteApp sin instalar el servicio." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="mbaldwin" />
 
 
 
 # Pruebe RemoteApp en su dispositivo en tres minutos o menos
 
-¿Desea ver RemoteApp en su dispositivo? Puede tener acceso a una demostración de nuestra implementación durante 10 minutos, siempre que tenga una cuenta Microsoft. Tenemos disponible Office y algunas otras aplicaciones. Se trata de una excelente manera de probar la experiencia del usuario con Azure RemoteApp en menos de tres minutos.
+¿Desea ver Azure RemoteApp en su dispositivo? Puede tener acceso a una demostración de nuestra implementación durante 10 minutos, siempre que tenga una cuenta Microsoft. Tenemos disponible Office y algunas otras aplicaciones. Se trata de una excelente manera de probar la experiencia del usuario con Azure RemoteApp en menos de tres minutos.
 
 ¿Le interesa?
 
@@ -29,7 +29,7 @@
 3. El sistema detecta automáticamente el dispositivo y lo dirigirá al cliente correspondiente. Instale el cliente.
 4. Vuelva a [http://remoteapp.azure.com](http://remoteapp.azure.com) e inicie sesión con su cuenta Microsoft.
  
-Ahora puede tener acceso a aplicaciones que se ejecutan en tiempo real en RemoteApp.
+Ahora puede tener acceso a aplicaciones que se ejecutan en tiempo real en Azure RemoteApp.
 
 Su opinión es importante. Al final de cada sesión, verá un cuadro de diálogo para ingresar sus comentarios. Si tiene un momento, indíquenos sus opiniones y permítanos saber si quisiera que Microsoft se pusiera en contacto con usted para obtener información adicional.
 
@@ -37,4 +37,4 @@ Su opinión es importante. Al final de cada sesión, verá un cuadro de diálogo
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

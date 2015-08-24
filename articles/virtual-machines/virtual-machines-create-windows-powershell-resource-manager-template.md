@@ -29,11 +29,11 @@ Antes de profundizar, asegúrese de tener Azure, PowerShell y CLI de Azure confi
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Creación de una máquina virtual Windows con una plantilla del Administrador de recursos con Azure PowerShell
+## Creación de una máquina virtual de Windows con una plantilla del Administrador de recursos y Azure PowerShell
 
-Siga estos pasos para crear una máquina virtual Windows mediante una plantilla del Administrador de recursos en el repositorio de plantillas de Github con Azure PowerShell.
+Siga estos pasos para crear una máquina virtual Windows mediante una plantilla del Administrador de recursos en el repositorio de plantillas de GitHub con Azure PowerShell.
 
-### Paso 1: Examen del archivo JSON para la plantilla.
+### Paso 1: Examen en el archivo JSON de la plantilla
 
 Este es el contenido del archivo JSON de la plantilla.
 
@@ -75,7 +75,7 @@ Este es el contenido del archivo JSON de la plantilla.
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
-                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+                "Description": "The Windows version for the virtual machine. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
             }
         }
     },
@@ -214,9 +214,9 @@ Este es el contenido del archivo JSON de la plantilla.
 	}
 
 
-### Paso 2: Creación de la máquina virtual con la plantilla.
+### Paso 2: Creación de la máquina virtual con la plantilla
 
-Rellene un nombre de implementación de Azure, un nombre de grupo de recursos de Azure y una ubicación de centro de datos de Azure y, a continuación, ejecute estos comandos.
+Rellene un nombre de implementación de Azure, un nombre de grupo de recursos de Azure y una ubicación de centro de datos de Azure y luego ejecute estos comandos.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -276,9 +276,9 @@ Verá algo parecido a lo siguiente:
 
 Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el nuevo grupo de recursos.
 
-## Creación de una máquina virtual Windows con una plantilla del Administrador de recursos con CLI de Azure
+## Creación de una máquina virtual de Windows con una plantilla del Administrador de recursos mediante CLI de Azure
 
-Siga estos pasos para crear una máquina virtual Windows mediante una plantilla del Administrador de recursos en el repositorio de Github de plantillas con los comandos CLI de Azure.
+Siga estos pasos para crear una máquina virtual de Windows mediante una plantilla del Administrador de recursos en el repositorio de plantillas de GitHub con comandos de la CLI de Azure.
 
 Rellene el nombre de un grupo de recursos y la ubicación de Azure (por ejemplo, westus para West US), quite los corchetes y, a continuación, ejecute estos comandos.
 
@@ -321,7 +321,7 @@ Verá algo parecido a lo siguiente:
 
 ## Recursos adicionales
 
-[Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
 [Información general del Administrador de recursos de Azure](resource-group-overview.md)
 
@@ -333,4 +333,4 @@ Verá algo parecido a lo siguiente:
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

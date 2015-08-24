@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (Tienda Windows) | Centro de desarrollo móvil" 
+	pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (Tienda Windows) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo autenticar usuarios para inicio de sesión único con ADAL en su aplicación de la Tienda Windows." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -216,4 +216,4 @@ El servicio móvil está ahora configurado en AAD para recibir inicios de sesió
 [Introducción a los Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [panel del Centro de desarrollo de Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

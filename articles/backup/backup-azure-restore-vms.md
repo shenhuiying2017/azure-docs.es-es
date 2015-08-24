@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Copia de seguridad de Azure: restauración de una máquina virtual"
+	pageTitle="Copia de seguridad de Azure: restauración de una máquina virtual | Microsoft Azure"
 	description="Información sobre cómo restaurar una máquina virtual de Azure"
 	services="backup"
 	documentationCenter=""
@@ -8,7 +8,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Restauración de una máquina virtual
 Puede restaurar una máquina virtual en una nueva máquina virtual desde las copias de seguridad almacenadas en el almacén de copia de seguridad de Azure mediante la acción de restauración.
@@ -93,6 +93,6 @@ Para la mayoría de los errores, puede seguir la acción recomendada sugerida en
 | Restauración | Error en la restauración con error interno de nube | <ol><li>El servicio de nube que está intentando restaurar está configurado con la configuración de DNS. Puede consultar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si hay una dirección configurada, significa que los ajustes de DNS están configurados.<br> <li>El servicio de nube que está intentando restaurar está configurado con ReservedIP, y las VM existentes en el servicio de nube están detenidas.<br>Puede comprobar que un servicio de nube tiene IP reservada usando los siguientes cmdlets de Powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Pasos siguientes
-- [Administración de máquinas virtuales](backup-azure-manage-vms)
+- [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/22/2015" 
+	ms.date="08/05/2015" 
 	ms.author="awills"/>
  
 # Application Insights: plataformas
@@ -25,8 +25,9 @@
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
 + [C#|VB (Tienda Windows)](app-insights-windows-get-started.md)
 + [C++ (Tienda Windows)](app-insights-windows-cpp.md)
-+ [Java](../app-insights-java-get-started.md)
++ [Java](app-insights-java-get-started.md)
 + [Páginas web de JavaScript](app-insights-web-track-usage.md)
++ [Objective-C](app-insights-ios.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 + [Ruby](https://rubygems.org/gems/application_insights) 
@@ -34,22 +35,25 @@
 
 ## Plataformas
 
++ [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [ASP.NET, ya activo](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Aplicaciones y máquinas virtuales web de Azure](../insights-perf-analytics.md)
 + [Servicios en la nube de Azure](app-insights-cloudservices.md), incluidos los roles web y de trabajo
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
-+ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
-+ [Angular](https://www.npmjs.com/package/angular-applicationinsights)
++ [J2EE](app-insights-java-get-started.md)
++ [J2EE, ya activo](app-insights-java-live.md)
++ [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
-+ [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
++ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
-+ [WordPress](https://wordpress.org/plugins/application-insights/)
 + [C# para Tienda Windows |VB](app-insights-windows-get-started.md)
 + [C++ para Tienda Windows](app-insights-windows-cpp.md)
 + [Servicios y aplicaciones de escritorio de Windows](app-insights-windows-desktop.md)
++ [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Nada más](#projects)
 
 
@@ -73,4 +77,4 @@ Si no hay todavía un SDK para el lenguaje o plataforma, quizás desee crear uno
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

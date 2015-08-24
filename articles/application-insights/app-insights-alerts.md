@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Definición de alertas en Application Insights
@@ -44,9 +44,11 @@ Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el 
 
 ## Visualización de alertas
 
-Las alertas se le envían por correo electrónico.
+Recibirá un correo electrónico cuando un alerta cambia el estado entre inactivo y activo.
 
-También aparecen en el registro de eventos de operaciones:
+En la hoja de reglas Alerta se muestra el estado actual de cada alerta.
+
+El historial de cambios de estado está en el registro Eventos de operaciones:
 
 ![En la hoja Información general, cerca de la parte inferior, haga clic en 'Eventos de la semana pasada'.](./media/app-insights-alerts/09-alerts.png)
 
@@ -80,4 +82,4 @@ Las alertas más populares son:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

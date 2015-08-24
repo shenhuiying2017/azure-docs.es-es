@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
 
 #  Implementación de Azure Site Recovery con PowerShell
@@ -104,7 +104,7 @@ En PowerShell, reemplace los elementos dentro de "< >" por su información espec
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<C:\>"
+	$OutputPathForSettingsFile = "<c:>"
 
 ```
 
@@ -125,7 +125,7 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 	
 		$VaultName = "<testvault123>"
 		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<C:\>"
+		$OutputPathForSettingsFile = "<c:>"
 	
 		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

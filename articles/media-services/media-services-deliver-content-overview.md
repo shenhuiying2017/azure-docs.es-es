@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -72,7 +72,7 @@ Las tecnologías de velocidad de bits adaptable permiten a las aplicaciones para
 
 Para proporcionar direcciones URL de streaming a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador le brinda la ruta de acceso de base al recurso que contiene el contenido que desea transmitir. Sin embargo, para poder transmitir este contenido, es necesario modificar aún más esta ruta de acceso. Para construir una dirección URL completa al archivo de manifiesto del streaming, debe concatenar el valor de la ruta de acceso del localizador y el nombre de archivo del manifiesto (filename.ism). Luego, anexe /Manifiesto y un formato adecuado (si corresponde) a la ruta de acceso del localizador.
 
-También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS.
+>[AZURE.NOTE]También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS.
 
 Tenga en cuenta que solo puede transmitir por SSL si se creó el extremo de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los extremos de streaming creados después del 10 de septiembre, la dirección URL contendrá "streaming.mediaservices.windows.net" (el formato nuevo). Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo extremo de streaming para transmitir el contenido a través de SSL.
 
@@ -166,9 +166,9 @@ Se aplican las siguientes consideraciones:
 
 ###Extremos de streaming
 
-Un **extremo de streaming** representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red de entrega de contenido (CDN) para la distribución posterior. La secuencia de salida del servicio de extremo de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Servicios multimedia. Además, puede controlar la capacidad del servicio de extremo de streaming para administrar las necesidades crecientes de ancho de banda mediante el ajuste de unidades reservadas de streaming. Debe asignar al menos una unidad reservada para las aplicaciones en un entorno de producción. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+Un **extremo de streaming** representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red de entrega de contenido (CDN) para su posterior distribución. La secuencia de salida del servicio de extremo de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Servicios multimedia. Además, puede controlar la capacidad del servicio de extremo de streaming para administrar las necesidades crecientes de ancho de banda mediante el ajuste de unidades reservadas de streaming. Debe asignar al menos una unidad reservada para las aplicaciones en un entorno de producción. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
 
-##<a id="tasks"></a>Tareas relacionadas con la entrega de recursos
+##<a id="tasks"></a>Tareas relacionadas con la entrega de activos
 
 
 ###Configuración de extremos de streaming
@@ -195,7 +195,7 @@ Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
 
 ###Publicación de recursos
 
-Publique recursos (creando localizadores) mediante el **Portal de administración de Azure** o **.NET**.
+Publique activos (creando localizadores) mediante el **Portal de administración de Azure** o **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -205,4 +205,4 @@ Publique recursos (creando localizadores) mediante el **Portal de administració
 [Actualización de los localizadores de Servicios multimedia después de revertir las claves de almacenamiento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

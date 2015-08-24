@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
 
 # Introducción a Docker y Compose en una máquina virtual de Azure
@@ -112,4 +112,4 @@ Ahora debería ver la pantalla de inicio de WordPress, donde se puede completar 
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

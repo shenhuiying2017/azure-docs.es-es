@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
@@ -77,7 +77,7 @@ Siga estos pasos si solo dispone de un dispositivo y necesita realizar una conmu
 
 1. Tome instantáneas en la nube de todos los volúmenes del dispositivo.
 
-1. Restablezca el dispositivo a los valores predeterminados de fábrica. Siga las instrucciones detalladas de [Cómo restablecer un dispositivo StorSimple a los valores predeterminados de fábrica](https://msdn.microsoft.com/library/dn772373.aspx).
+1. Restablezca el dispositivo a los valores predeterminados de fábrica. Siga las instrucciones detalladas de [Cómo restablecer un dispositivo StorSimple a los valores predeterminados de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 1. Configure el dispositivo y vuelva a registrarlo con el servicio de Administrador de StorSimple.
 
@@ -142,10 +142,7 @@ Después de realizar la conmutación por error, puede que deba:
 - [Desactivar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Eliminar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Para obtener información sobre cómo administrar el dispositivo mediante el servicio de Administrador de StorSimple, consulte:
-
-- [Guía del administrador](https://msdn.microsoft.com/library/dn772401.aspx)
-
+Para obtener información sobre cómo administrar el dispositivo mediante el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

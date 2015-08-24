@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="08/10/2015"
    ms.author="joaoma" />
 
 # Resolución de nombres para las máquinas virtuales e instancias de rol
@@ -21,9 +21,9 @@ Dependiendo de cómo utilice Azure para hospedar la IaaS, la PaaS y las solucion
 
 Cuando las instancias de rol y las máquinas virtuales hospedadas en Azure necesitan resolver nombres de host y los nombres de dominio en direcciones IP internas, pueden usar uno de dos métodos:
 
-- [Resolución de nombres de Azure](azure-provided-name-resolution)
+- [Resolución de nombres de Azure](#azure-provided-name-resolution)
 
-- [Resolución de nombres mediante su propio servidor DNS](name-resolution-using-your-own-DNS-server)
+- [Resolución de nombres mediante su propio servidor DNS](#name-resolution-using-your-own-dns-server)
 
 El tipo de resolución de nombres que tenga que usar dependerá de cómo se comuniquen las máquinas virtuales y las instancias de rol dentro del servicio en la nube y con otros servicios en la nube.
 
@@ -108,7 +108,7 @@ Puede especificar varios servidores DNS para que los usen las máquinas virtuale
 
 ### Especificar un servidor DNS mediante el Portal de administración
 
-Al crear la red virtual mediante el Portal de administración, puede especificar la dirección IP y el nombre del servidor DNS (o servidores) que desea utilizar. Una vez creada la red virtual, las máquinas virtuales y las instancias de rol que implemente en la red virtual se configurarán automáticamente mediante la configuración DNS especificada, a menos que especifique qué servidores DNS se usarán para la implementación. Para obtener más información acerca de cómo configurar las opciones de la red virtual de Azure, consulte [Cómo configurar una red virtual del Portal de administración](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+Al crear la red virtual mediante el Portal de administración, puede especificar la dirección IP y el nombre del servidor DNS (o servidores) que desea utilizar. Una vez creada la red virtual, las máquinas virtuales y las instancias de rol que implemente en la red virtual se configurarán automáticamente mediante la configuración DNS especificada, a menos que especifique qué servidores DNS se usarán para la implementación. Para obtener más información acerca de cómo configurar las opciones de la Red virtual de Azure, consulte [Configuración de una red virtual en el Portal de administración](virtual-networks-settings.md).
 
 > [AZURE.NOTE]Sólo puede utilizar hasta 9 servidores DNS.
 
@@ -123,8 +123,14 @@ El archivo de configuración de servicio se crea por cada servicio en la nube qu
 > [AZURE.NOTE]La configuración en el archivo de configuración de servicio sobrescribirá el archivo de configuración de red. Por ejemplo, si se agrega una máquina virtual a un servicio en la nube que forma parte de una red virtual y el archivo de configuración de red y el archivo de configuración de servicio tienen una configuración DNS, la configuración DNS en el archivo de configuración de servicio es la que se aplica a la máquina virtual.
 
 
-## Otras referencias
+## Pasos siguientes
 
-[Esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/azure/ee758710) [Esquema de configuración de red virtual](https://msdn.microsoft.com/library/azure/jj157100) [Cómo configurar la red virtual en el Portal de administración](https://msdn.microsoft.com/library/azure/jj156074.aspx) [Configurar una red virtual mediante un archivo de configuración de red](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Tareas de configuración de la red virtual de Azure](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+[Esquema de configuración del servicio de Azure](https://msdn.microsoft.com/library/azure/ee758710)
 
-<!---HONumber=August15_HO6-->
+[Esquema de configuración de Red virtual](https://msdn.microsoft.com/library/azure/jj157100)
+
+[Configuración de una red virtual en el Portal de administración](virtual-networks-settings.md)
+
+[Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md)
+
+<!---HONumber=August15_HO7-->

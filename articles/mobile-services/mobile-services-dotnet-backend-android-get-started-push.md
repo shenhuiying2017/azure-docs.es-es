@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a la inserción (Android) | Centro de desarrollo móvil" 
+	pageTitle="Introducción a la inserción (Android) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación .Net Android." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -123,4 +123,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

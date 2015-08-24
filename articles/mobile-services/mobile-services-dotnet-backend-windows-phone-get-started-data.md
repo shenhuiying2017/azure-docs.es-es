@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de Servicios móviles a una aplicación existente (Windows Phone) | Centro de desarrollo móvil" 
+	pageTitle="Incorporación de Servicios móviles a una aplicación existente (Windows Phone) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación de Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -272,4 +272,4 @@ En este tutorial se demostraron los aspectos básicos de la habilitación de una
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

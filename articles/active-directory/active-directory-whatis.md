@@ -13,7 +13,7 @@
                 ms.tgt_pltfrm="na" 
                 ms.devlang="na" 
                 ms.topic="article" 
-                ms.date="07/14/2015" 
+                ms.date="08/10/2015" 
                 ms.author="markusvi"/>
 
 
@@ -46,6 +46,8 @@ Si es un cliente de Office365, Azure o Dynamics CRM Online, es posible que no se
 
 El diseño multiempresa, distribuido geográficamente y de alta disponibilidad de Azure AD significa que puede confiar en él para sus necesidades empresariales más críticas. Ejecutándose en 28 centros de datos en todo el mundo con conmutación por error automatizada, tendrá la tranquilidad de saber que Azure AD es muy confiable y que incluso si un centro de datos deja de funcionar, hay copias de su directorio de datos activas en al menos dos centros de datos más dispersos por regiones y disponibles para acceso instantáneo.
 
+Para más información, consulta los [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
+
 
 
 ## ¿Cuáles son las ventajas de Azure AD?
@@ -67,11 +69,11 @@ Su organización puede usar Azure AD para mejorar la productividad de los emplea
 
 ## ¿Cómo puedo comenzar?
 -	Si es un administrador de TI:
- - [¡Pruébelo!](https://azure.microsoft.com/es-es/pricing/free-trial/)- Puede suscribirse a una evaluación gratuita de 30 días hoy e implementar su primera solución en la nube en menos de 5 minutos con este vínculo.
+ - [¡Pruébalo!](https://azure.microsoft.com/trial/get-started-active-directory/) Puedes suscribirte a una evaluación gratuita de 30 días hoy e implementar la primera solución en la nube en menos de 5 minutos desde este vínculo
  - Lea nuestra "Introducción a Azure AD" para obtener sugerencias y trucos sobre cómo preparar un inquilino de Azure AD y tenerlo en funcionamiento rápidamente.
 -	Si es un desarrollador:
- - Consulte nuestras [Instrucciones para desarrolladores](https://msdn.microsoft.com/library/azure/ff800682.aspx) para Azure Active Directory<need link>.
- - [Inicie una evaluación](https://azure.microsoft.com/es-es/pricing/free-trial/) - Suscríbase a una prueba evaluación gratuita de 30 días hoy mismo y comience a integrar su aplicación con Azure AD. 
+ - Consulta las [Instrucciones para desarrolladores](https://msdn.microsoft.com/library/azure/ff800682.aspx) de Azure Active Directory <need link>
+ - [Haz una prueba](https://azure.microsoft.com/trial/get-started-active-directory/): Suscríbete a una prueba de evaluación gratuita de 30 días hoy mismo y comienza a integrar tu aplicación con Azure AD 
 
 
 
@@ -81,15 +83,25 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 
 - [Habilitación del directorio para la administración híbrida con Azure AD Connect](active-directory-aadconnect.md)
-- [Seguridad adicional en un mundo conectado permanentemente](multi-factor-authentication.md)
-- [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
-- [Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen](active-directory-passwords-best-practices.md)
-- [Inicio de sesión único y administración de acceso a miles de aplicaciones SaaS en cualquier nube](https://msdn.microsoft.com/library/azure/dn308590.aspx) 
-- [Acceso remoto seguro a aplicaciones locales](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-- [Administración de acceso de autoservicio](https://msdn.microsoft.com/library/azure/dn641267.aspx) 
-- [Detección de aplicaciones de nube](https://msdn.microsoft.com/library/azure/mt143581.aspx)
-- [Control de acceso basado en el estado del dispositivo, la ubicación del usuario y la identidad](https://msdn.microsoft.com/library/azure/dn906873.aspx)
-- [Uso de la nube para mejorar y supervisar los sistemas de identidad locales](https://msdn.microsoft.com/library/azure/dn906722.aspx)
-- [Plataforma enriquecida basada en el estándar para desarrolladores](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=August15_HO6-->
+- [Seguridad adicional en un mundo conectado permanentemente](multi-factor-authentication.md)
+
+- [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
+
+- [Introducción a los informes de Azure AD](active-directory-reporting-getting-started.md)
+
+- [Administración de contraseñas desde cualquier lugar](articles/active-directory-passwords.md)
+
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+- [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
+
+- [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
+
+- [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
+
+- [¿Qué es la licencia de Microsoft Azure Active Directory?](active-directory-licensing-what-is.md)
+
+- [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
+
+<!---HONumber=August15_HO7-->

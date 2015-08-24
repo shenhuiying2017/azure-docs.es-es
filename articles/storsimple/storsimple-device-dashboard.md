@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Uso del panel del dispositivo StorSimple Manager"
-   description="Describe el panel de dispositivo de StorSimple Manager y cómo usarlo para ver iniciadores conectados y buscar el número de serie del dispositivo y el IQN."
+   pageTitle="Uso del panel de dispositivos del servicio StorSimple Manager | Microsoft Azure"
+   description="Describe el panel de dispositivos de StorSimple Manager y cómo usarlo para ver las métricas de almacenamiento y los iniciadores conectados y buscar el número de serie del dispositivo y el IQN."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/21/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Uso del panel del dispositivo StorSimple Manager
@@ -27,18 +27,21 @@ El panel contiene la información siguiente:
 
 - **Área de gráfico**: puede ver las métricas de almacenamiento relevantes en el área del gráfico de la parte superior del panel. En este gráfico, puede ver las métricas del almacenamiento principal total (la cantidad de datos escritos por hosts en su dispositivo) y el almacenamiento en nube total consumido por su dispositivo durante un período de tiempo.
 
-     En este contexto, *almacenamiento principal* hace referencia a la cantidad total de los datos escritos por el host. Puede incluir tanto los datos almacenados localmente y los datos en la nube. Por otro lado, *almacenamiento en la nube* es una medición de la cantidad total de datos almacenados en la nube. Esto incluye las copias de seguridad y los datos en niveles. Para el almacenamiento principal y en la nube, las cantidades mostradas se basarán en la frecuencia de seguimiento que configure. Por ejemplo, si elige una frecuencia de una semana, el gráfico mostrará datos para cada día de la semana anterior.
+     En este contexto, *almacenamiento principal* hace referencia a la cantidad total de los datos escritos por el host. Puede incluir tanto los datos almacenados localmente y los datos en la nube. Por otro lado, *almacenamiento en la nube* es una medición de la cantidad total de datos almacenados en la nube. Esto incluye las copias de seguridad y los datos en niveles. Tenga en cuenta que los datos almacenados en la nube está desduplicados y comprimidos, mientras que el almacenamiento principal indica la cantidad de almacenamiento usado antes de que los datos estén desduplicados y comprimidos. (Puede comparar estos dos números para hacerse una idea de la tasa de compresión). Para el almacenamiento principal y en la nube, las cantidades mostradas se basarán en la frecuencia de seguimiento que configure. Por ejemplo, si elige una frecuencia de una semana, el gráfico mostrará datos para cada día de la semana anterior.
  
 	 Puede configurar el gráfico de la manera siguiente:
 
 	 - Para ver la cantidad de almacenamiento en la nube consumido en el tiempo, seleccione la opción **ALMACENAMIENTO EN LA NUBE USADO**. Para ver el almacenamiento total escrito por el host, seleccione la opción **ALMACENAMIENTO PRINCIPAL USADO**. En la ilustración, ambas opciones están seleccionadas; por lo tanto, el gráfico muestra las cantidades de almacenamiento en la nube y principal. 
 	 - Use el menú desplegable de la esquina superior derecha del gráfico para especificar un período de tiempo de 1 semana, 1 mes, 3 meses o 1 año. Tenga en cuenta que el gráfico de nivel superior solo se actualiza una vez al día y, por lo tanto, reflejarán los totales del día anterior.
 
-- **Información general del uso**: en el área de información general de uso, puede ver la cantidad de almacenamiento principal usado, la cantidad de almacenamiento aprovisionado y la capacidad de almacenamiento máximo del dispositivo. Al comparar estos números de uso con la cantidad máxima de almacenamiento disponible, podrá ver a simple vista si necesita obtener almacenamiento adicional. Tenga en cuenta que esta información general se actualiza cada 15 minutos y, debido a la diferencia en la frecuencia de actualización, es posible que muestre números diferentes a los que se muestran en el área de gráfico anterior, que se actualiza diariamente. Para obtener más información, consulte la sección [Monitor](https://msdn.microsoft.com/library/dn757759.aspx).
+     Para obtener más información, consulte [Uso del servicio StorSimple Manager para supervisar su dispositivo StorSimple](storsimple-monitor-device.md).
 
-- **Alertas**: el área de alertas contiene información general acerca de las alertas del dispositivo. Estas se agrupan por nivel de gravedad, y se proporciona un recuento del número de alertas de cada nivel de gravedad. Al hacer clic en la gravedad de la alerta se abre una vista concreta de la pestaña Alertas para mostrar solo las alertas de ese nivel de gravedad para este dispositivo.
+- **Información general del uso**: en el área de **información general de uso**, puede ver la cantidad de almacenamiento principal usado, la cantidad de almacenamiento aprovisionado y la capacidad de almacenamiento máximo del dispositivo. Al comparar estos números de uso con la cantidad máxima de almacenamiento disponible, podrá ver a simple vista si necesita obtener almacenamiento adicional. Tenga en cuenta que esta información general se actualiza cada 15 minutos y, debido a la diferencia en la frecuencia de actualización, es posible que muestre números diferentes a los que se muestran en el área de gráfico anterior, que se actualiza diariamente. Para obtener más información, consulte [Uso del servicio StorSimple Manager para supervisar su dispositivo StorSimple](storsimple-monitor-device.md).
 
-- **Trabajos**: el área de trabajos muestra el resultado de la actividad reciente del trabajo. Esto puede garantizarle que el sistema funciona según lo esperado, o puede informarle de que debe tomar medidas correctivas. Para obtener más información acerca de los trabajos completados recientemente, haga clic en **Trabajos correctos en las últimas 24 horas**.
+
+- **Alertas**: el área de **alertas** contiene información general acerca de las alertas del dispositivo. Estas se agrupan por nivel de gravedad, y se proporciona un recuento del número de alertas de cada nivel de gravedad. Al hacer clic en la gravedad de la alerta se abre una vista concreta de la pestaña Alertas para mostrar solo las alertas de ese nivel de gravedad para este dispositivo.
+
+- **Trabajos**: el área de **trabajos** muestra el resultado de la actividad reciente del trabajo. Esto puede garantizarle que el sistema funciona según lo esperado, o puede informarle de que debe tomar medidas correctivas. Para obtener más información acerca de los trabajos completados recientemente, haga clic en **Trabajos correctos en las últimas 24 horas**.
 
 - El área de **vista rápida** situada a la derecha del panel proporciona información útil, como el modelo del dispositivo, el número de serie, el estado, la descripción y el número de volúmenes.
 
@@ -96,4 +99,4 @@ Es posible que necesite el IQN de destino del dispositivo para configurar el Pro
 
 [Obtenga más información sobre el panel del servicio StorSimple Manager](storsimple-service-dashboard.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

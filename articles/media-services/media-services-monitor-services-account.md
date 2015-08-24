@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 
-
-
 #<a id="monitormediaservicesaccount"></a>Supervisión de una cuenta de Servicios multimedia
-
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
 
 El panel Servicios multimedia de Azure presenta las métricas de uso y la información de la cuenta que se pueden utilizar para administrar la cuenta de Servicios multimedia.
 
@@ -67,4 +63,4 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

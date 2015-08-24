@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -48,7 +48,7 @@ Las cuentas de DocumentDB se pueden escalar en términos de almacenamiento y ren
 Consulte la página [Detalles de precios de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317) para obtener detalles. Los cargos por uso de DocumentDB están determinados por la cantidad de colecciones en uso, el número de horas en que las colecciones estuvieron en línea y el [nivel de rendimiento](documentdb-performance-levels.md) de cada colección.
 
 ### ¿Existe una prueba gratuita disponible?
-Si es la primera vez que utiliza Azure, regístrese para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/es-es/pricing/free-trial/), que le brinda 30 días y USD 200 para que pruebe todos los servicios de Azure. Si tiene una suscripción a MSDN, puede recibir [USD 150 en créditos gratis de Azure al mes](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?WT.mc_id=azurebg_US_sem_bing_BR_BRMSDN_Nontest_MSDN_msdnazure&WT.srch=1) para utilizarlos en cualquier servicio de Azure. Si desea probar DocumentDB gratis durante 30 días, sin que sea necesaria una tarjeta de crédito, envíe un correo electrónico a askdocdb@microsoft.com con la línea de asunto Preguntas más frecuentes sobre documentación: prueba de Azure, y le responderemos con un código promocional mientras dure la oferta.
+Si es la primera vez que usa Azure, regístrese para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le brinda 30 días y USD 200 para que pruebe todos los servicios de Azure. Si tiene una suscripción a MSDN, puede recibir [USD 150 en créditos gratis de Azure al mes](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. Si desea probar DocumentDB gratis durante 30 días, sin que sea necesaria una tarjeta de crédito, envíe un correo electrónico a askdocdb@microsoft.com con la línea de asunto "Preguntas más frecuentes sobre documentación: prueba de Azure" y le responderemos con un código promocional mientras dure la oferta.
 
 ### ¿Cómo puedo obtener ayuda adicional con DocumentDB?
 En caso de que necesite ayuda, póngase rápidamente en contacto con nosotros en [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), los [foros para desarrolladores de MSDN de Azure DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) o programe un [chat 1:1 con el equipo de ingeniería de DocumentDB](http://www.askdocdb.com/). Para mantenerse al día en las novedades y características más recientes de DocumentDB, síganos en [Twitter](https://twitter.com/DocumentDB).
@@ -67,7 +67,7 @@ Puede crear bases de datos mediante el [Portal de vista previa de Azure]() como 
 ### ¿Qué es una colección?
 Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript. Las consultas y transacciones se limitan a colecciones. Puede almacenar un conjunto de documentos JSON heterogéneos en una sola colección, todos los cuales se indexan automáticamente.
 
-Las colecciones también son las entidades de facturación de DocumentDB. Los cargos mensuales por uso de DocumentDB están determinados por la cantidad de colecciones en uso, el número de horas en que las colecciones estuvieron en línea y el [nivel de rendimiento](documentdb-performance-levels.md) de cada colección. Para obtener más información, consulte [Precios de DocumentDB](https://azure.microsoft.com/es-es/pricing/details/documentdb/).
+Las colecciones también son las entidades de facturación de DocumentDB. Los cargos mensuales por uso de DocumentDB están determinados por la cantidad de colecciones en uso, el número de horas en que las colecciones estuvieron en línea y el [nivel de rendimiento](documentdb-performance-levels.md) de cada colección. Para obtener más información, consulte [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/).
 
 ### ¿Hay límites en las bases de datos y colecciones?
 Cada colección viene con una asignación de almacenamiento de base de datos y rendimiento aprovisionado en uno de los [niveles de rendimiento](documentdb-performance-levels.md) admitidos. También existen cuotas para cada recurso administrado por el servicio. Para obtener una lista de todos los límites, consulte [Límites de DocumentDB](documentdb-limits.md). Para solicitar un cambio en los límites de la cuenta, consulte [Solicitud de aumento de los límites de la cuenta de DocumentDB](documentdb-increase-limits.md).
@@ -111,4 +111,4 @@ Sí. Como Base de datos de documentos es un servicio RESTful, los vínculos de r
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

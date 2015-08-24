@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Base de datos SQL: compatibilidad con clientes de nivel inferior de enmascaramiento de datos dinámicos y auditoría | Azure" 
+	pageTitle="Base de datos SQL: compatibilidad con clientes de nivel inferior de enmascaramiento de datos dinámicos y auditoría | Microsoft Azure" 
 	description="Base de datos SQL: compatibilidad con clientes de nivel inferior de enmascaramiento de datos dinámicos y auditoría" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -40,4 +40,4 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

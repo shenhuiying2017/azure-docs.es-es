@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Administración del Almacén de claves mediante CLI | Información general"
+	pageTitle="Administración del Almacén de claves mediante CLI | Microsoft Azure"
 	description="Use este tutorial para automatizar las tareas comunes en el Almacén de clave mediante el uso de la CLI."
 	services="key-vault"
 	documentationCenter=""
@@ -252,4 +252,4 @@ Ejemplo de cómo quitar un secreto específico:
 
 Para conocer las referencias de programación, consulte [API de REST del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx) y [Referencia de API de cliente de C# del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

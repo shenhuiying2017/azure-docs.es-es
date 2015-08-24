@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" 
+	pageTitle="Programación de tareas de back-end con el programador | Microsoft Azure" 
 	description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -167,4 +167,4 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

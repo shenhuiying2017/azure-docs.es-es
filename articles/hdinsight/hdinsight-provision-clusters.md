@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/22/2015"
+   ms.date="08/10/2015"
    ms.author="jgao"/>
 
 #Aprovisionamiento de clústeres de Hadoop en HDInsight
@@ -782,4 +782,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de autenticación a su aplicación HTML/JavaScript | Servicios móviles de Azure" 
+	pageTitle="Incorporación de autenticación a la aplicación HTML/JavaScript | Microsoft Azure" 
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación HTML a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y cuenta de Microsoft." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -138,4 +138,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Servicios móviles con HTML/JavaScript en Referencia conceptual de Servicios móviles HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

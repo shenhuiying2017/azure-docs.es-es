@@ -1,41 +1,51 @@
 <properties
-	pageTitle="Copia de seguridad de Azure: implemente y administre la copia de seguridad para DPM mediante PowerShell de Azure | Microsoft Azure"
-	description="Aprenda a implementar y administrar la copia de seguridad de Azure para Data Protection Manager (DPM) mediante PowerShell de Azure"
+	pageTitle="Copia de seguridad de Azure: implementación y administración de la copia de seguridad para DPM mediante PowerShell | Microsoft Azure"
+	description="Obtenga información acerca de cómo implementar y administrar Copia de seguridad de Azure para Data Protection Manager (DPM) mediante PowerShell"
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 
-# Implementar y administrar copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con Azure PowerShell
-En este artículo se muestra cómo usar PowerShell de Azure para configurar la copia de seguridad de Azure en un servidor DPM y para administrar copias de seguridad y recuperaciones.
+# Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
+En este artículo se muestra cómo usar PowerShell para configurar la copia de seguridad de Azure en un servidor DPM y para administrar copias de seguridad y recuperaciones.
 
-## Configuración del entorno de PowerShell de Azure
-Para poder usar PowerShell de Azure para administrar las copias de seguridad de Data Protection Manager en Azure, deberá tener un entorno adecuado en PowerShell de Azure. Al principio de la sesión de PowerShell de Azure, asegúrese de ejecutar el siguiente comando para importar los módulos correctos y permitirle hacer referencia correctamente a los cmdlet DPM:
+## Configuración del entorno de PowerShell
+Para poder usar PowerShell para administrar las copias de seguridad de Data Protection Manager en Azure, deberá tener el entorno adecuado en PowerShell. Al principio de la sesión de PowerShell, asegúrese de ejecutar el siguiente comando para importar los módulos correctos y poder hacer referencia correctamente a los cmdlet de DPM:
 
 ```
 PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
 
 Welcome to the DPM Management Shell!
 
-Full list of cmdlets: Get-Command Only DPM cmdlets: Get-DPMCommand Get general help: help Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax Sample DPM scripts: Get-DPMSampleScript
+Full list of cmdlets: Get-Command 
+Only DPM cmdlets: Get-DPMCommand 
+Get general help: help 
+Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? 
+Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax 
+Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## Instalación y registro
-### Instalación del agente de copia de seguridad de Azure en un servidor DPM
-Antes de instalar el agente de copia de seguridad de Azure, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft ](http://aka.ms/azurebackup_agent). Guarde el instalador en una ubicación de fácil acceso como *C:\Downloads*.
 
-Para instalar el agente, ejecute el siguiente comando en una consola PowerShell de Azure con privilegios elevados **en el servidor DPM**:
+### Creación de un almacén de copia de seguridad
+Puede crear un nuevo almacén de copia de seguridad mediante el cmdlet **New-AzureBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+```
+
+Puede obtener una lista de todos los almacenes de copia de seguridad en una determinada suscripción mediante el cmdlet **Get-AzureBackupVault**.
+
+
+### Instalación del agente de copia de seguridad de Azure en un servidor DPM
+Antes de instalar el agente de copia de seguridad de Azure, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft ](http://aka.ms/azurebackup_agent) o en la página Panel del almacén de copia de seguridad. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\\Downloads*.
+
+Para instalar el agente, ejecute el comando siguiente en una consola de PowerShell con privilegios elevados **en el servidor DPM**:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -73,12 +83,22 @@ Las opciones disponibles incluyen:
 Para poder registrarse con el servicio de copia de seguridad de Azure, debe asegurarse de que se cumplen los [requisitos previos](backup-azure-dpm-introduction.md). Debe:
 
 - Disponer de una suscripción válida a Azure
-- Creación de un almacén de copia de seguridad
-- Descargar las credenciales de almacén y almacenarlas en una ubicación adecuada (como *C:\Downloads*). También se puede cambiar el nombre de las credenciales de almacén para su comodidad. 
+- Disponer de un almacén de copia de seguridad
+
+Para descargar las credenciales de almacén, ejecute el cmdlet **Get-AzureBackupVaultCredentials** en una consola de Azure PowerShell y almacénelas en una ubicación adecuada como *C:\\Downloads*.
+
+```
+PS C:\> $credspath = "C:"
+PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename
+f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
+```
+
 El registro de la máquina con el almacén de claves se realiza mediante el cmdlet [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787):
 
 ```
-PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath "C:\Downloads\REGISTER.VaultCredentials"
+PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath $cred
 ```
 
 Esto registrará el servidor DPM denominado "TestingServer" con Microsoft Azure Vault usando las credenciales del almacén especificadas.
@@ -92,7 +112,7 @@ Una vez que el servidor DPM se registra con el almacén de copia de seguridad de
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Todas las modificaciones se realizan en este objeto de PowerShell de Azure local ```$setting``` y, a continuación, el objeto completo se compromete a DPM y Copia de seguridad de Azure para guardarlos con el cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Deberá usar la marca ```–Commit``` para asegurarse de que los cambios se conservan. Copia de seguridad de Azure no aplicará ni usará la configuración a menos que se confirme.
+Todas las modificaciones se realizan en este objeto de PowerShell local ```$setting``` y, a continuación, el objeto completo se confirma en DPM y Copia de seguridad de Azure para guardarlos con el cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Deberá usar la marca ```–Commit``` para asegurarse de que los cambios se conservan. Copia de seguridad de Azure no aplicará ni usará la configuración a menos que se confirme.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -118,7 +138,7 @@ El agente de Copia de seguridad de Azure que se ejecuta en el servidor DPM neces
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-En el ejemplo anterior, el área de ensayo se establecerá en *C:\StagingArea* en el objeto de PowerShell de Azure ```$setting```. Asegúrese de que la carpeta especificada ya existe, o bien se producirá un error en la confirmación final de la configuración de la suscripción.
+En el ejemplo anterior, el área de ensayo se establecerá en *C:\\StagingArea* en el objeto de PowerShell ```$setting```. Asegúrese de que la carpeta especificada ya existe, o bien se producirá un error en la confirmación final de la configuración de la suscripción.
 
 
 ### Configuración de cifrado
@@ -162,7 +182,7 @@ PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
 ### Agregar miembros de grupo al grupo de protección
-Cada agente de DPM conoce la lista de orígenes de datos del servidor en el que está instalado. Para agregar un origen de datos al grupo de protección, el agente de DPM debe enviar primero una lista de los orígenes de datos al servidor DPM. A continuación, se agregan y seleccionan uno o más orígenes de datos al grupo de protección. Pasos de PowerShell de Azure necesarios para lograr esto:
+Cada agente de DPM conoce la lista de orígenes de datos del servidor en el que está instalado. Para agregar un origen de datos al grupo de protección, el agente de DPM debe enviar primero una lista de los orígenes de datos al servidor DPM. A continuación, se agregan y seleccionan uno o más orígenes de datos al grupo de protección. Los pasos de PowerShell necesarios para lograrlo son:
 
 1. Recuperar una lista de todos los servidores administrados por DPM a través del agente de DPM.
 2. Elija un servidor específico.
@@ -175,7 +195,7 @@ La lista de servidores en los que está instalado el agente de DPM y está siend
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
 ```
 
-Ahora, capture la lista de orígenes de datos en ```$server``` con el cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). En este ejemplo estamos filtrando para el volumen *D:* que queremos configurar para la copia de seguridad. A continuación, este origen de datos se agrega al grupo de protección mediante el cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Recuerde que debe usar el objeto de protección *modifable* ```$MPG``` para realizar las incorporaciones.
+Ahora, capture la lista de orígenes de datos en ```$server``` con el cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). En este ejemplo estamos filtrando para el volumen *D:* que queremos configurar para la copia de seguridad. A continuación, este origen de datos se agrega al grupo de protección mediante el cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Recuerde que debe usar el objeto de grupo de protecciones *modifable* ```$MPG``` para realizar las incorporaciones.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
@@ -280,4 +300,4 @@ Los comandos se pueden ampliar fácilmente para cualquier tipo de origen de dato
 ## Pasos siguientes
 Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM en Azure](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Análisis de transmisiones: Giro de las credenciales de inicio de sesión para entradas y salidas | Azure" 
+	pageTitle="Análisis de transmisiones: Giro de las credenciales de inicio de sesión para entradas y salidas | Microsoft Azure" 
 	description="Obtenga información acerca de cómo actualizar las credenciales para las entradas y salidas de Análisis de transmisiones." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -137,7 +137,7 @@ Obtendrá la siguiente confirmación:
 	Command(s) completed successfully.
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -193,4 +193,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

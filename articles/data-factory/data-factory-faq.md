@@ -20,7 +20,7 @@
 
 ## Preguntas generales
 
-### P: ¿Qué es la factoría de datos de Azure?
+### ¿Qué es la factoría de datos de Azure?
 
 Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Del mismo modo que una fábrica que pone equipo en funcionamiento para tomar materias primas y transformarlas en productos terminados, la Factoría de datos organiza los servicios existentes que recopilan datos sin procesar y los transforman en información lista para usar.
 
@@ -28,11 +28,11 @@ La Factoría de datos funciona transversalmente en orígenes de datos locales y 
 
 Consulte [Introducción y conceptos clave](data-factory-introduction.md) para obtener más detalles.
  
-### P: ¿Qué desafío del cliente resuelve la factoría de datos?
+### ¿Qué desafío del cliente resuelve la Factoría de datos?
 
 La Factoría de datos de Azure equilibra la agilidad de aprovechar diversos servicios de almacenamiento, procesamiento y movimiento de los datos en el almacenamiento relacional tradicional junto con los datos no estructurados, con las capacidades de control y supervisión de un servicio totalmente administrado.
 
-### P: ¿A quién va destinada la factoría de datos?
+### ¿A quién va destinada la factoría de datos?
 
 
 - Desarrolladores de datos: que son responsables de la creación de servicios de integración entre Hadoop y otros sistemas:
@@ -44,31 +44,31 @@ La Factoría de datos de Azure equilibra la agilidad de aprovechar diversos serv
 	- Debe administrar los recursos de proceso y almacenamiento para equilibrar el coste y la escala de manera local y en la nube
 	- Debe agregar rápidamente diversos orígenes y procesamiento para abordar las nuevas necesidades del negocio, y mantener al mismo tiempo la visibilidad en todos los recursos de proceso y almacenamiento
 
-###  P: ¿Dónde puedo encontrar detalles de precios de la factoría de datos de Azure?
+### ¿Dónde puedo encontrar detalles de precios de la factoría de datos de Azure?
 
 Vea la [página de detalles de precios de Factoría de datos][adf-pricing-details] para obtener información al respecto.
 
-### P: ¿Cómo puedo comenzar con la factoría de datos de Azure?
+### ¿Cómo puedo comenzar con la factoría de datos de Azure?
 
 - Para obtener información general sobre la factoría de datos de Azure, vea [Introducción a la Factoría de datos de Azure][adf-introduction].
 - Para ver un tutorial rápido, vea [Introducción a la Factoría de datos de Azure][adfgetstarted].
 - Para obtener la documentación completa, vea [Documentación de la Factoría de datos de Azure][adf-documentation-landingpage].
 
   
-### P: ¿Cómo acceden los clientes a la factoría de datos?
+### ¿Cómo acceden los clientes a la factoría de datos?
 
 Los clientes pueden obtener acceso a la factoría de datos a través del [Portal de vista previa de Azure][azure-preview-portal].
 
-### P: ¿Cuál es la disponibilidad de regiones de la factoría de datos?
+### ¿Cuál es la disponibilidad de regiones de la factoría de datos?
 
 La Factoría de datos está disponible en el Oeste de EE. UU. y en el Norte de Europa. Los servicios de proceso y almacenamiento utilizados por las factorías de datos pueden estar en otras regiones.
  
-### P: ¿Cuáles son los límites en el número de factorías, canalizaciones, actividades y conjuntos de datos?
+### ¿Cuáles son los límites en el número de factorías, canalizaciones, actividades y conjuntos de datos?
  
-Consulte la sección **Límites de la Factoría de datos de Azure** del artículo [Límites, cuotas y restricciones de suscripción y servicios de Azure](azure-subscription-service-limits.md/#data-factory-limits).
+Consulte la sección **Límites de la Factoría de datos de Azure** del artículo [Límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md#data-factory-limits).
 
 
-### P: ¿Qué es la experiencia de desarrollador/creación con el servicio de Factoría de datos de Azure?
+### ¿Cuál es la experiencia de desarrollador/creación con el servicio de Factoría de datos de Azure?
 
 Puede crear factorías de datos mediante uno de los sistemas siguientes:
 
@@ -78,11 +78,11 @@ Puede crear factorías de datos mediante uno de los sistemas siguientes:
 - **Biblioteca de clases .NET**. Se pueden crear factorías de datos mediante programación con el SDK de .NET de Factoría de datos. Consulte [Creación, supervisión y administración de las factorías de datos mediante el SDK de .NET][create-factory-using-dotnet-sdk] para un ver tutorial sobre la creación de una factoría de datos con el SDK de .NET. Consulte [Referencia de biblioteca de clases de Factoría de datos][msdn-class-library-reference] para una amplia documentación sobre el SDK de .NET de Factoría de datos.  
 - **API de REST**. También puede utilizar la API de REST expuesta por el servicio Factoría de datos de Azure para crear e implementar factorías de datos. Consulte [Referencia de la API de REST de la Factoría de datos][msdn-rest-api-reference] para ver una amplia documentación sobre la API de REST de la Factoría de datos. 
 
-### P: ¿Se puede cambiar el nombre de una Factorías de datos?
+### ¿Se puede cambiar el nombre de una Factoría de datos?
 No. Al igual que otros recursos de Azure, el nombre de una Factorías de datos de Azure no se puede cambiar.
 
 ## Actividades: preguntas más frecuentes
-### P: ¿Cuáles son los orígenes de datos y las actividades admitidos?
+### ¿Cuáles son los orígenes de datos y las actividades admitidos?
 
 Consulte los artículos [Actividades de movimiento de datos](data-factory-data-movement-activities.md) y [Actividades de transformación de datos](data-factory-data-transformation-activities.md) para ver las actividades y los orígenes de datos admitidos.
 
@@ -90,7 +90,7 @@ Consulte los artículos [Actividades de movimiento de datos](data-factory-data-m
 La configuración de **disponibilidad** en la tabla de datos de salida determina cuándo se ejecuta la actividad. La actividad comprueba si todas las dependencias de datos de entrada se han satisfecho (es decir, estado **Listo**) antes de ejecutarse.
 
 ## Actividad de copia: preguntas más frecuentes
-### P: ¿Qué regiones admite la actividad de copia?
+### ¿Qué regiones admite la actividad de copia?
 
 La actividad de copia es compatible con la copia de datos en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., EE. UU. central, Centro-Norte de EE. UU., Sur-Centro de EE. UU., Europa del Norte, Europa occidental, Sudeste Asiático, Este de Japón y Sur de Brasil.
 
@@ -106,15 +106,15 @@ Se supone que las canalizaciones incluyen actividades relacionadas. Lógicamente
 
 ## Actividad de HDInsight: preguntas más frecuentes
 
-### P: ¿Qué regiones admiten HDInsight?
+### ¿Qué regiones admiten HDInsight?
 
 Vea la sección Disponibilidad geográfica en el siguiente artículo: o [Detalles de precios de HDInsight][hdinsight-supported-regions].
 
-### P: ¿Qué región se usa con un clúster de HDInsight a petición?
+### ¿Qué región se usa con un clúster de HDInsight a petición?
 
 El clúster de HDInsight a petición se crea en la misma región que existe para el almacenamiento que se va a usar con el clúster.
 
-### P: ¿Cómo asociar cuentas de almacenamiento adicionales al clúster de HDInsight?
+### ¿Cómo se asocian cuentas de almacenamiento adicionales al clúster de HDInsight?
 
 Si está usando su propio clúster de HDInsight (BYOC, Bring Your Own Cluster, traiga su propio clúster), vea los temas siguientes:
 
@@ -192,4 +192,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

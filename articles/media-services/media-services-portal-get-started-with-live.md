@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="08/03/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -193,21 +193,9 @@ Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados 
 
 
 
-##Paso siguiente
-
-Obtenga más información acerca de la creación de aplicaciones de streaming en vivo [Creación de aplicaciones de streaming en vivo](media-services-live-streaming-workflow.md)
-
-###Recursos adicionales
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servicios multimedia de Azure 101 - ¡Obtenga el vídeo en línea ahora!</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Servicios multimedia de Azure 102 - Empaquetado dinámico y dispositivos móviles</a>
-
-
-<!-- Anchors. -->
-
-
 <!-- URLs. -->
 [Management Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

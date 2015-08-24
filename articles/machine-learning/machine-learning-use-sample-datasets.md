@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso de los conjuntos de datos de muestra en Estudio de aprendizaje automático | Microsoft Azure" 
-	description="Descripciones de los conjuntos de datos que se usan en los modelos de muestras incluidos en Estudio de aprendizaje automático. Puede usar estos conjuntos de datos de ejemplo para los experimentos." 
+<properties
+	pageTitle="Uso de los conjuntos de datos de muestra en Estudio de aprendizaje automático | Microsoft Azure"
+	description="Descripciones de los conjuntos de datos que se usan en los modelos de muestras incluidos en Estudio de aprendizaje automático. Puede usar estos conjuntos de datos de ejemplo para los experimentos."
 	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/10/2015"
 	ms.author="garye"/>
 
 
@@ -173,7 +173,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <tr ID=german-credit-card-uci-dataset>
   <td valign=top>Conjunto de datos UCI de tarjeta de crédito alemana</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
   </td>
 </tr>
 
@@ -315,6 +315,5 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use los centros de eventos de Azure con Apache Spark en HDInsight para procesar los datos de transmisión por secuencias | Azure" 
+	pageTitle="Use los centros de eventos de Azure con Apache Spark en HDInsight para procesar los datos de transmisión por secuencias | Microsoft Azure" 
 	description="Instrucciones detalladas sobre cómo enviar un flujo de datos al centro de eventos de Azure y, a continuación, recibir estos eventos en Spark usando un notebook Zeppelin" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -164,4 +164,4 @@ Puede descargar instrucciones sobre cómo realizar estos pasos y un ejemplo de a
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

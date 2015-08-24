@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/29/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 # Conmutación por error en Site Recovery
@@ -282,4 +282,4 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

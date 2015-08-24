@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a autenticación en Servicios móviles para aplicaciones de Android de Xamarin - Servicios móviles de Azure" 
+	pageTitle="Introducción a la autenticación en Servicios móviles para aplicaciones de Android de Xamarin | Microsoft Azure" 
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación Xamarin Android a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -112,4 +112,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

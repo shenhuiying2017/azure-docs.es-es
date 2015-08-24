@@ -14,10 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Administración de entidades de Servicios multimedia con la API de REST
+
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-manage-entities.md)
+- [.NET](media-services-dotnet-manage-entities.md)
 
 Servicios multimedia de Microsoft Azure es un servicio REST basado en OData v3. Por este motivo, puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo como haría con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](http://www.odata.org/documentation/).
 
@@ -44,7 +48,7 @@ En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy.
 	Accept: application/json;odata=verbose
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.9
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
 	Host: media.windows.net
 	Content-Length: 74
@@ -62,7 +66,7 @@ La consulta y enumeración de entidades es sencilla y solo implica una solicitud
 	Accept: application/json;odata=verbose
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.9
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 	Host: media.windows.net
 
@@ -73,7 +77,7 @@ También puede recuperar una entidad específica o todos los conjuntos de entida
 	Accept: application/json;odata=verbose
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.5
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336907474&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=OpuY0CeTylqFFcFaP4pKUVGesT4PGx4CP55zDf2zXnc%3d
 	Host: media.windows.net
 
@@ -82,7 +86,7 @@ También puede recuperar una entidad específica o todos los conjuntos de entida
 	Accept: application/json;odata=verbose
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.9
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1336907474&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=OpuY0CeTylqFFcFaP4pKUVGesT4PGx4CP55zDf2zXnc%3d
 	Host: media.windows.net
 
@@ -93,7 +97,7 @@ El ejemplo siguiente devuelve la propiedad State de todos los trabajos.
 	Accept: application/json;odata=verbose
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.9
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 	Host: media.windows.net
 	The following example returns all JobTemplates with the name "SampleTemplate."
@@ -102,7 +106,7 @@ El ejemplo siguiente devuelve la propiedad State de todos los trabajos.
 	Accept: application/json;odata=verbose
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.9
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
 	Host: media.windows.net
 
@@ -111,7 +115,7 @@ El ejemplo siguiente devuelve la propiedad State de todos los trabajos.
 
 ##Actualización de entidades
 
-Según el tipo de entidad y el estado en el que se encuentre, puede actualizar las propiedades de entidad mediante solicitudes HTTP PATCH, PUT o MERGE. Para obtener más información acerca de estas operaciones, consulte [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
+Según el tipo de entidad y el estado en el que se encuentre, puede actualizar las propiedades de entidad mediante solicitudes HTTP PATCH, PUT o MERGE. Para obtener más información acerca de estas operaciones, vea [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
 En el ejemplo de código siguiente se muestra cómo actualizar la propiedad Name en una entidad Asset.
 
@@ -120,7 +124,7 @@ En el ejemplo de código siguiente se muestra cómo actualizar la propiedad Name
 	Accept: application/json;odata=verbose
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.9
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337083279&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=DMLQXWah4jO0icpfwyws5k%2b1aCDfz9KDGIGao20xk6g%3d
 	Host: media.windows.net
 	Content-Length: 21
@@ -139,9 +143,9 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
 	Accept: application/json;odata=verbose
 	DataServiceVersion: 3.0
 	MaxDataServiceVersion: 3.0
-	x-ms-version: 2.9s
+	x-ms-version: 2.11
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
 	Host: media.windows.net
 	Content-Length: 0
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -85,8 +85,8 @@ Para cada interfaz de red, se muestran los parámetros siguientes:
 
      >[AZURE.NOTE]
      >
-     >- Velocidad y dúplex se negocian siempre automáticamente.
-     >- Las Tramas gigantes no son compatibles.
+     >- La velocidad y el dúplex siempre se negocian automáticamente.
+     >- Las tramas gigantes no son compatibles.
  
 - **Estado de interfaz**: una interfaz se puede habilitar o deshabilitar. Si está habilitada, el dispositivo intentará usar la interfaz. Es recomendable habilitar tan solo las interfaces que están conectadas a la red y que se usan. Deshabilite las interfaces que no esté usando.
 
@@ -131,4 +131,4 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
  
      
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -45,4 +45,4 @@ P: ¿Cómo puedo copiar recursos de una cuenta de Servicios multimedia a otra?
 
 R: para copiar los recursos de una cuenta de Servicios multimedia a otro, use el método de extensión [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponible en el repositorio [Extensiones del SDK de Servicios multimedia de Azure para .NET](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Para obtener más información, consulte [esta](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) conversación del foro.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

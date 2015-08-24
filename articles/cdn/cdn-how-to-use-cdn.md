@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de la red CDN - Guía de características de Azure" 
+	pageTitle="Uso de la red CDN | Microsoft Azure" 
 	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -54,4 +54,4 @@ Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, 
 [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,38 +1,40 @@
 <properties 
-	pageTitle="Introducción a Almacenamiento de Azure" 
-	description="Introducción al uso del almacenamiento de colas de Azure en un proyecto de WebJobs de Azure en Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)" 
+	description="Cómo empezar a usar el almacenamiento de colas en una cuenta de almacenamiento de Azure que se creó mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio en un proyecto de WebJobs."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
 
-# Introducción a Almacenamiento de Azure (proyectos de WebJobs de Azure)
+# Introducción al Almacenamiento de colas de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-queues.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-queues.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
 > - [Queues](vs-storage-webjobs-getting-started-queues.md)
 > - [Tables](vs-storage-webjobs-getting-started-tables.md)
 
+## Información general
 
-El almacenamiento de cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Para obtener más información, consulte [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md). Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
+En este artículo se describe cómo empezar a usar el Almacenamiento de colas de Azure en un proyecto de WebJobs de Azure de Visual Studio después de crear una cuenta de almacenamiento de Azure o hacer referencia a ella con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, se instalan los paquetes de NuGet de Almacenamiento de Azure adecuados, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
 
-Al agregar una cuenta de almacenamiento a un proyecto de WebJobs con el cuadro de diálogo **Agregar servicios conectados** en Visual Studio, se instala el paquete de NuGet de Almacenamiento de Azure adecuado, se agregan las referencias de .NET adecuadas al proyecto y se actualizan las cadenas de conexión para la cuenta de almacenamiento en el archivo App.config.
+En este artículo se ofrecen ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de colas de Azure.
 
-En este artículo se proporcionan ejemplos de código C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio Almacenamiento de colas de Azure. El artículo incluye los siguientes temas:
+El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Para obtener más información, consulte [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md). Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
+
 
 
 ## Desencadenar una función cuando se recibe un mensaje de cola
@@ -551,4 +553,4 @@ Y en una tabla de Azure, los registros de `Console.Out` y `Console.Error` tienen
 En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

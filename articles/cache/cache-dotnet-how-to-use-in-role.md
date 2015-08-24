@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilización de la característica de caché en rol (.NET) - Guía de características de Azure" 
+	pageTitle="Uso de Caché en rol (.NET) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar la caché en rol de Azure. Los ejemplos se escriben en código C# y usan la API .NET." 
 	services="cache" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 
@@ -411,4 +411,4 @@ Ahora que está familiarizado con los aspectos básicos de la caché en rol, uti
 [¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

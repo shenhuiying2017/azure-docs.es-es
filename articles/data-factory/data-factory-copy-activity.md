@@ -247,7 +247,6 @@ En este ejemplo, se define una canalización **CopyActivityPipeline** con las pr
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-> [AZURE.NOTE]Consulte [Ejemplos de uso de la actividad de copia en la Factoría de datos de Azure][copy-activity-examples] para obtener más ejemplos de uso de la actividad de copia.
 
 ## Seguridad
 Esta sección incluye instrucciones generales de seguridad y prácticas recomendadas para establecer el acceso seguro a almacenes de datos para la actividad de copia.
@@ -264,7 +263,6 @@ Para bases de datos tradicionales como **SQL Server**, especialmente cuando las 
 - **Control del tipo de datos con la actividad de copia**. Explica en qué caso los tipos de datos especificados en la sección Estructura de la definición de la tabla se admiten/ignoran.
 - **Invocar el procedimiento almacenado para el receptor de SQL**. Al copiar datos en SQL Server o en Base de datos SQL de Azure, se puede configurar e invocar un procedimiento almacenado especificado por el usuario.
 
-Para obtener más información sobre estos escenarios, consulte el artículo [Escenarios avanzados para usar la actividad de copia con la Factoría de datos de Azure][copy-activity-advanced].
 
 ## Tutoriales
 Vea [Introducción a la Factoría de datos de Azure][adfgetstarted] para consultar un tutorial en el que se muestra cómo copiar datos de un almacenamiento de blobs de Azure a una base de datos SQL de Azure mediante la actividad de copia.
@@ -272,10 +270,8 @@ Vea [Introducción a la Factoría de datos de Azure][adfgetstarted] para consult
 Vea [Habilitación de las canalizaciones para que funcionen con datos locales][use-onpremises-datasources] para consultar un tutorial en el que se muestra cómo copiar datos de una base de datos local de SQL Server a un almacenamiento de blobs de Azure mediante la actividad de copia.
 
 ## Otras referencias
-- [Ejemplo de actividad de copia][copy-activity-examples]
 - [Vídeo: Presentación de la actividad de copia de la Factoría de datos de Azure][copy-activity-video]
 - [Tema Actividad de copia en la Biblioteca de MSDN][msdn-copy-activity]
-- [Escenarios avanzados para usar la actividad de copia con la Factoría de datos de Azure][copy-activity-advanced]
 
 [msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
@@ -288,9 +284,7 @@ Vea [Habilitación de las canalizaciones para que funcionen con datos locales][u
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
-[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -299,4 +293,4 @@ Vea [Habilitación de las canalizaciones para que funcionen con datos locales][u
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

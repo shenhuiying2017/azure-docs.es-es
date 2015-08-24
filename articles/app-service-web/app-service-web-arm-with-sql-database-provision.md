@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="tomfitz"/>
 
 # Aprovisionamiento de una aplicación web con una base de datos SQL
@@ -100,7 +100,10 @@ El tipo de base de datos que se va a crear.
 
     "edition": {
       "type": "string",
-      "defaultValue": "Web"
+      "defaultValue": "Standard",
+      "metadata": {
+        "description": "The type of database to create. The available options are: Web, Business, Basic, Standard, and Premium."
+      }
     }
 
 ### maxSizeBytes
@@ -112,13 +115,16 @@ El tamaño máximo, en bytes, de la base de datos.
       "defaultValue": "1073741824"
     }
 
-### requestedServiceObjectiveId
+### requestedServiceObjectiveName
 
-El GUID correspondiente al nivel de rendimiento para la edición. Para obtener una lista de valores disponibles, consulte [Creación de una base de datos](https://msdn.microsoft.com/library/azure/dn505701.aspx). El valor predeterminado corresponde al nivel de rendimiento web.
+El nombre correspondiente al nivel de rendimiento para la edición.
 
-    "requestedServiceObjectiveId": {
-        "type": "string",
-        "defaultValue": "910b4fcb-8a29-4c3e-958f-f7ba794388b2"
+    "requestedServiceObjectiveName": {
+      "type": "string",
+      "defaultValue": "S0",
+      "metadata": {
+        "description": "The name corresponding to the performance level for edition. The available options are: Shared, Basic, S0, S1, S2, S3, P1, P2, and P3."
+      }
     }
 
 
@@ -132,17 +138,18 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
       "name": "[parameters('serverName')]",
       "type": "Microsoft.Sql/servers",
       "location": "[parameters('serverLocation')]",
-      "apiVersion": "2.0",
+      "apiVersion": "2014-04-01-preview",
       "properties": {
         "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+        "version": "12.0"
       },
       "resources": [
         {
           "name": "[parameters('databaseName')]",
           "type": "databases",
           "location": "[parameters('serverLocation')]",
-          "apiVersion": "2.0",
+          "apiVersion": "2014-08-01",
           "dependsOn": [
             "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
           ],
@@ -150,7 +157,7 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
             "edition": "[parameters('edition')]",
             "collation": "[parameters('collation')]",
             "maxSizeBytes": "[parameters('maxSizeBytes')]",
-            "requestedServiceObjectiveId": "[parameters('requestedServiceObjectiveId')]"
+            "requestedServiceObjectiveName": "[parameters('requestedServiceObjectiveName')]"
           }
         },
         {
@@ -443,4 +450,4 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

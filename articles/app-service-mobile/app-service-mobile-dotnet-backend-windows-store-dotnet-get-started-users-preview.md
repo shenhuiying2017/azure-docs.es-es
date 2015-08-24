@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a la autenticación de aplicaciones móviles en Windows | Servicio de aplicaciones de Azure"
+	pageTitle="Introducción a la autenticación de aplicaciones móviles en Windows | Microsoft Azure"
 	description="Aprenda a usar las aplicaciones móviles para autenticar a los usuarios de su aplicación de Windows en una variedad de proveedores de identidades, como Google, Facebook, Twitter y Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -75,4 +75,4 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 [Introducción a su aplicación móvil]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

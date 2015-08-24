@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aplicación web Python con Django - Tutorial de Azure"
+	pageTitle="Aplicación web Python con Django | Microsoft Azure"
 	description="Un tutorial que le enseña cómo hospedar un sitio web basado en Django en Azure con una máquina virtual de Windows Server 2012 R2 Datacenter."
 	services="virtual-machines"
 	documentationCenter="python"
@@ -8,13 +8,13 @@
 	editor=""/>
 
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="web"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="05/20/2015"
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="huvalo"/>
 
 
@@ -41,7 +41,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ## Creación y configuración de una máquina virtual de Azure para hospedar Django
 
-1. Siga las instrucciones que se proporcionan [aquí][portal-vm] para crear una máquina virtual de Azure de la distribución Windows Server 2012 R2 Datacenter.
+1. Siga las instrucciones que se proporcionan [aquí](virtual-machines-windows-tutorial-classic-portal.md) para crear una máquina virtual de Azure de la distribución Windows Server 2012 R2 Datacenter.
 
 1. Indique a Azure que dirija el tráfico del puerto 80 de la Web al puerto 80 de la máquina virtual:
  - Diríjase hasta la máquina virtual recién creada en el Portal de Azure y haga clic en la pestaña **ENDPOINTS**.
@@ -52,101 +52,30 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 **Nota importante:** en todas las instrucciones que aparecen a continuación se considera que no tuvo problemas para iniciar sesión en la máquina virtual y que está generando comandos desde allí y no desde la máquina local.
 
-## <a id="setup"> </a>Configuración de Python y Django
+## <a id="setup"> </a>Instalación de Python, Django, WFastCGI
 
 **Nota:** si desea realizar la descarga mediante Internet Explorer, es posible que deba ajustar la configuración de ESC de Internet Explorer (Inicio/Herramientas administrativas/Administrador de servidores/Servidor local, a continuación haga clic en **Configuración de seguridad mejorada de IE** y desactive esta opción).
 
-1. Instale el [Instalador de la plataforma web][].
-1. Instale Python y WFastCGI utilizando el instalador de la plataforma web. Esto instalará wfastcgi.py en su carpeta de scripts de Python.
-	1. Inicie el Instalador de la plataforma web.
-	1. Escriba WFastCGI en la barra de búsqueda.
-	1. Seleccione la entrada WFactCGI para la versión de Python que desea utilizar (2.7 o 3.4). Tenga en cuenta que de este modo se instalará Python como una dependencia de WFastCGI.
-1. Instale Django mediante pip.
+1. Instale la Python 2.7 o 3.4 más reciente de [python.org][].
+1. Instale los paquetes wfastcgi y django con pip.
 
     Para Python 2.7, use el siguiente comando.
 
+        c:\python27\scripts\pip install wfastcgi
         c:\python27\scripts\pip install django
 
     Para Python 3.4, use el siguiente comando.
 
+        c:\python34\scripts\pip install wfastcgi
         c:\python34\scripts\pip install django
 
-
-## Configuración de IIS con FastCGI
+## Instalación de IIS con FastCGI
 
 1. Instale ISS habilitado para FastCGI. Esto puede tardar varios minutos en ejecutarse.
 
-		start /wait %windir%\System32\\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
-
-
-### Python 2.7
-
-Ejecute estos comandos solo si está utilizando Python 2.7.
-
-1. Configure el controlador de FastCGI de Python.
-
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/fastCGI "/+[fullPath='c:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py']"
-
-
-1. Registre el controlador para el sitio.
-
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/handlers "/+[name='Python_via_FastCGI',path='*',verb='*',modules='FastCgiModule',scriptProcessor='c:\Python27\python.exe|C:\Python27\Scripts\wfastcgi.py',resourceType='Unspecified']"
-
-
-1. Configure el controlador para ejecutar la aplicación Django.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='DJANGO_SETTINGS_MODULE',value='helloworld.settings']" /commit:apphost
-
-
-1. Configure PYTHONPATH para que el intérprete de Python pueda encontrar la aplicación Django.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='PYTHONPATH',value='C:\inetpub\wwwroot\helloworld']" /commit:apphost
-
-
-1. Indique a la puerta de enlace entre FastCGI y WSGI qué controlador de WSGI utilizar.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
-
-
-1. Debería ver la siguiente captura de pantalla.
-
-	![Configuración 1 de IIS](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis-27.png)
-
-### Python 3.4
-
-Ejecute estos comandos solo si está utilizando Python 3.4.
-
-1. Configure el controlador de FastCGI de Python.
-
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/fastCGI "/+[fullPath='c:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py']"
-
-
-1. Registre el controlador para el sitio.
-
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/handlers "/+[name='Python_via_FastCGI',path='*',verb='*',modules='FastCgiModule',scriptProcessor='c:\Python34\python.exe|C:\Python34\Scripts\wfastcgi.py',resourceType='Unspecified']"
-
-
-1. Configure el controlador para ejecutar la aplicación Django.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py'].environmentVariables.[name='DJANGO_SETTINGS_MODULE',value='helloworld.settings']" /commit:apphost
-
-
-1. Configure PYTHONPATH para que el intérprete de Python pueda encontrar la aplicación Django.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py'].environmentVariables.[name='PYTHONPATH',value='C:\inetpub\wwwroot\helloworld']" /commit:apphost
-
-
-1. Indique a la puerta de enlace entre FastCGI y WSGI qué controlador de WSGI utilizar.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
-
-1. Debería ver la siguiente captura de pantalla.
-
-	![Configuración 1 de IIS](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis-34.png)
-
+		start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 ## Creación de una nueva aplicación Django
-
 
 1.  En *C:\\inetpub\\wwwroot*, escriba el siguiente comando para crear un nuevo proyecto Django:
 
@@ -166,8 +95,6 @@ Ejecute estos comandos solo si está utilizando Python 3.4.
   -   **helloworld\\helloworld\\settings.py** contiene ajustes de Django para la aplicación.
   -   **helloworld\\helloworld\\urls.py** contiene el código de asignación entre cada dirección URL y su vista.
 
-
-
 1.  Cree un nuevo archivo denominado**views.py** en el directorio *C:\\inetpub\\wwwroot\\helloworld\\helloworld*. Este contendrá la vista que representa la página "hello world". Inicie el editor y escriba lo siguiente:
 
 		from django.http import HttpResponse
@@ -182,9 +109,62 @@ Ejecute estos comandos solo si está utilizando Python 3.4.
 			url(r'^$', 'helloworld.views.home', name='home'),
 		)
 
+## Configuración de IIS
+
+1. Desbloquee la sección de controladores del archivo applicationhost.config global. Esto le permitirá el uso del controlador de python en el archivo web.config.
+
+        %windir%\system32\inetsrv\appcmd unlock config -section:system.webServer/handlers
+
+1. Habilite WFastCGI. Así agregará una aplicación al archivo applicationhost.config global que hace referencia al ejecutable del intérprete de Python y al script wfastcgi.py.
+
+    Python 2.7:
+
+        c:\python27\scripts\wfastcgi-enable
+
+    Python 3.4:
+
+        c:\python34\scripts\wfastcgi-enable
+
+1. Cree un archivo web.config en *C:\\inetpub\\wwwroot\\helloworld*. El valor del atributo `scriptProcessor` debe coincidir con la salida del paso anterior. Vea la página de [wfastcgi][] en pypi para más información sobre la configuración de wfastcgi.
+
+    Python 2.7:
+
+        <configuration>
+          <appSettings>
+            <add key="WSGI_HANDLER" value="django.core.handlers.wsgi.WSGIHandler()" />
+            <add key="PYTHONPATH" value="C:\inetpub\wwwroot\helloworld" />
+            <add key="DJANGO_SETTINGS_MODULE" value="helloworld.settings" />
+          </appSettings>
+          <system.webServer>
+            <handlers>
+                <add name="Python FastCGI" path="*" verb="*" modules="FastCgiModule" scriptProcessor="C:\Python27\python.exe|C:\Python27\Lib\site-packages\wfastcgi.pyc" resourceType="Unspecified" />
+            </handlers>
+          </system.webServer>
+        </configuration>
+
+    Python 3.4:
+
+        <configuration>
+          <appSettings>
+            <add key="WSGI_HANDLER" value="django.core.handlers.wsgi.WSGIHandler()" />
+            <add key="PYTHONPATH" value="C:\inetpub\wwwroot\helloworld" />
+            <add key="DJANGO_SETTINGS_MODULE" value="helloworld.settings" />
+          </appSettings>
+          <system.webServer>
+            <handlers>
+                <add name="Python FastCGI" path="*" verb="*" modules="FastCgiModule" scriptProcessor="C:\Python34\python.exe|C:\Python34\Lib\site-packages\wfastcgi.py" resourceType="Unspecified" />
+            </handlers>
+          </system.webServer>
+        </configuration>
+
+1. Actualice la ubicación del sitio web predeterminado de IIS para que señale a la carpeta de proyecto de django.
+
+        %windir%\system32\inetsrv\appcmd set vdir "Default Web Site/" -physicalPath:"C:\inetpub\wwwroot\helloworld"
+
 1. Por último, cargue la página web en el explorador.
 
 ![Ventana del explorador que muestra la página Hello World en Azure][1]
+
 
 ## Apagado de la máquina virtual de Azure
 
@@ -194,8 +174,8 @@ Cuando finalice este tutorial, apague o quite la máquina virtual de Azure reci�
 
 [port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
 
-[portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
+[Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[python.org]: https://www.python.org/downloads/
+[wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-[Instalador de la plataforma web]: http://www.microsoft.com/web/downloads/platform.aspx
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

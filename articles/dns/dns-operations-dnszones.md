@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="07/30/2015"
    ms.author="joaoma"/>
 
 # Administración de zonas DNS
+
 
 En esta guía se explica cómo administrar zonas DNS. En ella se detallará la secuencia de operaciones que hay que realizar para administrar la zona DNS.
 
@@ -103,4 +104,4 @@ También se puede canalizar el objeto de la zona en lugar de pasarlo como parám
 
 [Automatización de operaciones de Azure con el SDK de .NET](../dns-sdk)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

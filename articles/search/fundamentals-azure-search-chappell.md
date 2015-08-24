@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a Búsqueda de Azure | Azure" 
+	pageTitle="Introducción a Búsqueda de Azure | Microsoft Azure" 
 	description="Obtenga información acerca de cómo Búsqueda de Azure puede ayudarle a crear aplicaciones enriquecidas de búsqueda." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@ Este artículo es una información general de la tecnología y de los escenarios
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Introducción a Búsqueda de Azure" (en PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Introducción a Búsqueda de Azure" (en Microsoft Word)</a> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

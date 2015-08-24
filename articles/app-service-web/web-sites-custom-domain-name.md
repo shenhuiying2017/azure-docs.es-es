@@ -18,10 +18,11 @@
 
 # Configurar un nombre de dominio personalizado en el servicio de aplicaciones de Azure
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Aplicaciones web">Comprar dominio para aplicaciones web</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Aplicaciones web" class="current">Aplicaciones web con dominios externos</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Aplicaciones web con el Administrador de tráfico">Aplicaciones web con el Administrador de tráfico</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
-
-</div>
+> [AZURE.SELECTOR]
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -71,7 +72,7 @@ Si está creando un registro CNAME, omita este paso. Para crear un registro A, n
 4.	Haga clic en el nombre de la aplicación web.
 5.	En la página **Essentials**, haga clic en **Toda la configuración**.
 6.	Haga clic en **Dominios personalizados y SSL**. 
-7.	En la hoja **Dominios personalizados y SSL**, haga clic en **Traer dominios externos**. La dirección IP se encuentra en la parte inferior de esta parte.
+7.	En la hoja **Dominios personalizados y SSL**, haga clic en **"Traer dominios externos"**. La dirección IP se encuentra en la parte inferior de esta parte.
 
 ## Creación de registros DNS
 
@@ -147,4 +148,4 @@ Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

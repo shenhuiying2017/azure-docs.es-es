@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Reemplazar un controlador EBOD en el dispositivo StorSimple
@@ -50,7 +50,7 @@ Antes de reemplazar el módulo de controladores EBOD defectuoso en el dispositiv
 
     >[AZURE.NOTE]Normalmente, se tratará del Puerto A, que está etiquetada como **Alojar en** en el diagrama siguiente.
 
-    ![Backplane de controlador EBOD](./media/storsimple-ebod-controller-replacement/IC741049.png)
+    ![Plano anterior del controlador EBOD](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
      **Figura 1** Parte posterior del módulo EBOD
 
@@ -107,4 +107,4 @@ El procedimiento y la tabla siguientes explican cómo instalar el módulo de con
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

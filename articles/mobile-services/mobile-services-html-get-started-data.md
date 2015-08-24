@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de Servicios móviles a una aplicación existente (HTML 5) | Centro de desarrollo móvil" 
+	pageTitle="Incorporación de Servicios móviles a una aplicación existente (HTML 5) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo empezar a usar Servicios móviles en una aplicación HTML existente." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -257,4 +257,4 @@ Este tutorial muestra los aspectos básicos de la habilitación de una aplicaci�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Escalado de Servicios móviles respaldados por Base de datos SQL de Azure - Servicios móviles de Azure" 
+	pageTitle="Escalamiento de servicios móviles respaldados por Base de datos SQL | Microsoft Azure" 
 	description="Obtenga información acerca de cómo diagnosticar y corregir problemas de escalabilidad en los servicios móviles con copia de seguridad por la base de datos SQL" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/08/2015" 
 	ms.author="donnam;ricksal"/>
 
 # Escalamiento de servicios móviles respaldados por Base de datos SQL de Azure
@@ -41,18 +41,18 @@ Si cualquiera de los supuestos anteriores no se cumple, es recomendable ajustar 
 
 ### Elección del nivel de base de datos SQL correcto 
 
-Es importante comprender los diferentes niveles de base de datos que tiene a su disposición para garantizar que ha elegido el nivel correcto dadas las necesidades de su aplicación. Base de datos SQL de Azure ofrece dos ediciones de base de datos diferentes con distintos niveles:
+Es importante comprender los diferentes niveles de base de datos que tiene a su disposición para garantizar que ha elegido el nivel correcto dadas las necesidades de su aplicación. Base de datos SQL de Azure ofrece dos ediciones de base de datos diferentes con tres niveles de servicio distintos:
 
-- Edición Web y Business (retirado)
-- Edición Basic, Standard y Premium 
+- Edición Web y Business (retirada)
+- Niveles de servicio Basic, Standard y Premium.
 
-Aunque la edición Web y Business es totalmente compatible, va a dejar de prestar servicio el 24 de abril de 2015 tal y como se describe en [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](http://msdn.microsoft.com/library/azure/dn741330.aspx). Se recomienda a los clientes nuevos que comiencen a usar la edición Básico, Estándar y Premium en preparación para este cambio. Esta nueva edición proporciona varios niveles y funcionalidades de supervisión nuevos que ayudan a entender el rendimiento de las bases de datos y a solucionar problemas en las mismas. Todos los servicios móviles nuevos se crean con la nueva edición.
+Aunque las ediciones Web y Business son totalmente compatibles, se retirarán el 12 de septiembre de 2015, tal y como se describe en [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](http://msdn.microsoft.com/library/azure/dn741330.aspx). Se recomienda a los clientes nuevos que comiencen a usar los niveles de servicio Basic, Standard y Premium a la hora de prepararse para este cambio. Éstos proporcionan diversas funcionalidades de supervisión que ayudan a entender el rendimiento de las bases de datos y a solucionar los problemas relacionados. Todos los servicios móviles nuevos se crean con uno de los nuevos niveles de servicio.
 
-Para convertir un servicio móvil que usa la edición Web y Business a la edición Básico, Estándar y Premium, siga estos pasos.
+Para convertir un servicio móvil que usa las ediciones Web y Business a los niveles de servicio Basic, Standard y Premium, siga estos pasos.
 
 1. Inicie el [Portal de administración de Azure][].
 2. Seleccione **+NUEVO** en la barra de herramientas y elija **Servicios de datos**, **Base de datos SQL** y **Creación rápida**.
-3. Escriba un nombre de base de datos y seleccione **Nuevo servidor de base de datos SQL** en el campo **Servidor**. Estas acciones crearán un nuevo servidor que utilizará la edición Basic, Standard y Premium. 
+3. Escriba un nombre de base de datos y seleccione **Nuevo servidor de base de datos SQL** en el campo **Servidor**. Se creará un nuevo servidor que usará los nuevos niveles Basic, Standard o Premium. 
 4. Rellene el resto de campos y seleccione **Crear base de datos SQL**. Esta acción creará una base de datos de 100 MB usando el nivel básico.
 5. Configure el servicio móvil para usar la base de datos que acaba de crear. Navegue a la pestaña **Configurar** de ese servicio y seleccione **Cambiar base de datos** en la barra de herramientas. En la pantalla siguiente, seleccione **Usar una base de datos SQL existente** en el campo **Base de datos SQL** y después seleccione **Siguiente**. En la pantalla siguiente, asegúrese de seleccionar la base de datos creada en el paso 5 y después seleccione **Aceptar**.
 
@@ -476,4 +476,4 @@ Para analizar el plan de consulta en el **Portal de administración de Base de d
 [¿Cuánto cuesta esa clave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

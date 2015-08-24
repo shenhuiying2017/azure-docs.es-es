@@ -28,7 +28,6 @@ En la lista siguiente se resumen las principales características que no se admi
 - ANSI JOINS en DELETE
 - instrucción MERGE
 - combinaciones entre bases de datos
-- [instrucciones de dinamización y anulación de dinamización][]
 - [cursores][]
 - [SELECT..INTO][]
 - INSERT..EXEC
@@ -86,7 +85,7 @@ Para obtener consejos sobre el desarrollo del código, consulte la [información
 <!--Image references-->
 
 <!--Article references-->
-[instrucciones de dinamización y anulación de dinamización]: sql-data-warehouse-develop-pivot-unpivot.md
+[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
 [cursores]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS]: sql-data-warehouse-develop-group-by-options.md
@@ -100,4 +99,4 @@ Para obtener consejos sobre el desarrollo del código, consulte la [información
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

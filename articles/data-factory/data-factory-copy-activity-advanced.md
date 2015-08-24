@@ -18,7 +18,7 @@
 
 # Escenarios avanzados para usar la actividad de copia en la Factoría de datos de Azure 
 ## Información general
-Puede usar la **actividad de copia** en una canalización para copiar datos de un origen a un receptor (destino) en un lote. En este tema se describe los escenarios avanzados que admite la actividad de copia. Para obtener información general detallada de la actividad de copia y los escenarios principales que admite, consulte [Copia de datos con la Factoría de datos de Azure][adf-copyactivity].
+Puede usar la **actividad de copia** en una canalización para copiar datos de un origen a un receptor (destino) en un lote. En este tema se describe los escenarios avanzados que admite la actividad de copia.
 
 
 ## Filtrado de columnas mediante la definición de estructuras
@@ -265,8 +265,6 @@ Aunque la codificación UTF-8 es bastante popular, con frecuencia los archivos d
 
 ## Otras referencias
 
-- [Ejemplos de uso de la actividad de copia][copy-activity-examples]
-- [Copia de datos con la Factoría de datos de Azure][adf-copyactivity]
 - [Actividad de copia: referencia de scripting](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Vídeo: Presentación de la actividad de copia de la Factoría de datos de Azure][copy-activity-video]
 
@@ -276,9 +274,7 @@ Aunque la codificación UTF-8 es bastante popular, con frecuencia los archivos d
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-copyactivity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -289,4 +285,4 @@ Aunque la codificación UTF-8 es bastante popular, con frecuencia los archivos d
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

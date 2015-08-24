@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Novedades de RemoteApp"
-    description="Obtenga información acerca de las nuevas características de RemoteApp"
+    pageTitle="Novedades de Azure RemoteApp"
+    description="Obtenga información sobre cuándo estarán disponibles las nuevas características de Azure RemoteApp."
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="06/10/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
-# Novedades de RemoteApp
+# Novedades de Azure RemoteApp
 
-Siempre estamos trabajando para mejorar RemoteApp con base en sus comentarios. A continuación presentamos los momentos en que se prevé la disponibilidad de diferentes características.
+Siempre estamos trabajando para mejorar Azure RemoteApp basándonos en sus comentarios. A continuación presentamos los momentos en que se prevé la disponibilidad de futuras características.
 
 |Característica|Entre enero y marzo de 2015|Entre abril y junio de 2015|Entre julio y septiembre de 2015|Entre octubre y diciembre de 2015|
 |-----------|-------|-------|-------|-------|
@@ -39,4 +39,4 @@ Otras mejoras agregadas anteriormente este año:
 - Disponibilidad en centros de datos australianos
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

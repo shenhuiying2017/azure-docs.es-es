@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación y administración de conexiones híbridas | Azure" 
+	pageTitle="Creación y administración de conexiones híbridas| Microsoft Azure" 
 	description="Obtenga información acerca de cómo crear una conexión híbrida, administrar la conexión e instalar el administrador de conexiones híbridas. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -146,4 +146,4 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

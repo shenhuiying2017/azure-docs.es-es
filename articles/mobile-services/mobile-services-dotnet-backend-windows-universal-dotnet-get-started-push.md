@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de notificación push a la aplicación Universal Windows 8.1 | Servicios móviles de Azure" 
+	pageTitle="Incorporación de notificaciones push a la aplicación de Windows 8.1 universal | Microsoft Azure" 
 	description="Obtenga información acerca de cómo enviar notificaciones push a la aplicación Universal Windows 8.1 desde el servicio móvil de back-end de .NET a través de Centros de notificaciones de Azure" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -109,4 +109,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Uso de un cliente .NET para Servicios móviles de Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

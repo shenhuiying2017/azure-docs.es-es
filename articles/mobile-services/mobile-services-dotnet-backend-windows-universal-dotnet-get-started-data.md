@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de Servicios móviles a una aplicación universal de la Tienda Windows existente | Servicios móviles de Azure" 
+	pageTitle="Incorporación de Servicios móviles a una aplicación universal de la Tienda Windows existente | Microsoft Azure" 
 	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación de la Tienda Windows." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -121,4 +121,4 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

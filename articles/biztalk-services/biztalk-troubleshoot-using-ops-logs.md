@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Solución de problemas de Servicios de BizTalk mediante registros de operaciones | Azure" 
+	pageTitle="Solución de problemas de Servicios de BizTalk mediante registros de operaciones | Microsoft Azure" 
 	description="Solucione los problemas de los Servicios de BizTalk con el uso de registros de operaciones. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Operación para purgar copias de seguridad del Servi
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

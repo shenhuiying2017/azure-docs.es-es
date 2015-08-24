@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="04/21/2015"
+	ms.date="08/11/2015"
 	ms.author="pakefali"/>
 
 # Compilación e implementación de una aplicación de API de Java en el Servicio de aplicaciones de Azure
@@ -270,4 +270,4 @@ Puede probar esta aplicación de API de ejemplo en [Servicio de TryApp](http://t
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

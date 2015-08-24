@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/04/2015"
+   ms.date="08/09/2015"
    ms.author="rajram"/>
 
 # Conector AS2 de Microsoft
@@ -42,7 +42,7 @@ Contenedor de Almacenamiento de blobs de Azure | Almacena las propiedades de los
 Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
-2. Seleccione **Aplicaciones de API** y busque "Conector AS2".
+2. Busque "Conector AS2", selecciónelo y seleccione **Crear**.
 3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades.
 4. Escriba la siguiente configuración del paquete:
 
@@ -61,30 +61,30 @@ Los pasos necesarios para crear un contrato de socio comercial se documentan [aq
 
 ## Uso del conector como desencadenador
 
-1. Al crear o editar una aplicación lógica, seleccione el conector AS2 que creó en el panel derecho: <br/> ![Configuración del desencadenador][3]
+1. Al crear o editar una aplicación lógica, seleccione el conector AS2 que creó en el panel derecho: ![Configuración del desencadenador][3]
 
-2. Haga clic en la flecha derecha →: <br/> ![Opciones del desencadenador][4]
+2. Haga clic en la flecha derecha →: ![Opciones del desencadenador][4]
 
-3. El conector AS2 expone un solo desencadenador. Seleccione *Recibir y descodificar*: <br/> ![Entrada de Recibir y descodificar][5]
+3. El conector AS2 expone un solo desencadenador. Seleccione *Recibir y descodificar*: ![Entrada de Recibir y descodificar][5]
 
-4. Este desencadenador no tiene ninguna entrada. Haga clic en la flecha derecha →: <br/> ![Configuración de Recibir y descodificar][6]
+4. Este desencadenador no tiene ninguna entrada. Haga clic en la flecha derecha →: ![Configuración de Recibir y descodificar][6]
 
 Como parte del resultado, el conector devuelve la carga de AS2, así como los metadatos específicos de AS2.
 
-El desencadenador se activa cuando una carga de AS2 es como una entrada ahttps://{HostURL} / descodificar. Puede encontrar la dirección URL de Host en la configuración de la aplicación de API. También deberá cambiar el nivel de acceso de la aplicación de API en Configuración de la aplicación a Público (autenticado o anónimo).
+El desencadenador se activa cuando una carga de AS2 es como una COMENTARIO a https://{Host URL}/descodificar. Puede encontrar la dirección URL de Host en la configuración de la aplicación de API. También deberá cambiar el nivel de acceso de la aplicación de API en Configuración de la aplicación a Público (autenticado o anónimo).
 
 ## Uso del conector como acción
-1. Después del desencadenador (o seleccione "Ejecutar esta lógica manualmente"), agregue el conector AS2 que ha creado en el panel derecho: <br/> ![Configuración de la acción][7]
+1. Después del desencadenador (o de elegir "Ejecutar esta lógica manualmente"), agregue el conector AS2 que ha creado en el panel derecho: ![Configuración de la acción][7]
 
-2. Haga clic en la flecha derecha →: <br/> ![Lista de acciones][8]
+2. Haga clic en la flecha derecha →: ![Lista de acciones][8]
 
-3. El conector AS2 solo admite una acción. Seleccione *Codificar y enviar*: <br/> ![Entrada de Codificar y enviar][9]
+3. El conector AS2 solo admite una acción. Seleccione *Codificar y enviar*: ![Entrada de Codificar y enviar][9]
 
-4. Proporcione las entradas para la acción y configúrela: <br/> ![Codificar y enviar configurados][10]
+4. Proporcione las entradas para la acción y configúrela: ![Codificar y enviar configurados][10]
 
-Los parámetros son:
+	Los parámetros son:
 
-Parámetro | Tipo | Descripción
+	Parámetro | Tipo | Descripción
 --- | --- | ---
 Carga | objeto| El contenido de la carga para codificar y registrar en el extremo configurado. La carga debe suministrarse como un objeto JSON.
 AS2 desde | cadena | La identidad de AS2 del remitente del mensaje AS2. Este parámetro se utiliza para buscar el acuerdo para enviar el mensaje.
@@ -113,4 +113,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

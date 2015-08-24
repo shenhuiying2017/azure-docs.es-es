@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Incorporación de notificaciones de inserción a la aplicación de Servicios móviles (Windows Store) | Centro de desarrollo móvil" 
+	pageTitle="Incorporación de notificaciones push a la aplicación de Servicios móviles (Tienda Windows) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación de la Tienda Windows." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -128,4 +128,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

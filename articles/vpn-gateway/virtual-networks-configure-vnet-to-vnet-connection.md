@@ -13,11 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2015"
+   ms.date="08/11/2015"
    ms.author="cherylmc"/>
 
 
 # Configuración de una conexión de red virtual a red virtual
+
+En este artículo se le guiará a través de los pasos necesarios para conectar entre sí redes virtuales creadas en el modo de implementación clásica. Actualmente, Azure tiene dos modelos de implementación: el modelo de implementación clásica y el modelo de implementación del Administrador de recursos de Azure. Los pasos de configuración difieren en función del modo que se usó para implementar la red virtual. Si desea conectar una red virtual creada en el modo clásico a una red virtual creada en el Administrador de recursos, consulte [Conexión de redes virtuales clásicas a redes virtuales nuevas](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
 
 Conectar una red virtual (VNet) de Azure a otra es muy parecido a conectar una red virtual a la de ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de red virtual para proporcionar un túnel seguro con IPsec/IKE. Las redes virtuales que se conecten pueden estar pueden estar en suscripciones y regiones distintas. Incluso es posible combinar la comunicación de red virtual a red virtual con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales, como se muestra en el diagrama siguiente:
 
@@ -102,7 +105,7 @@ VNet2: Espacio de direcciones = 10.2.0.0/16; Región=Este de Japón
 
 2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
 
-**En la página Detalles de la red virtual** escriba la información que se muestra a continuación.
+En la página **Detalles de la red virtual** escriba la siguiente información.
 
   ![Detalles de red virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -120,7 +123,7 @@ En la página **Servidores DNS y conectividad VPN**, escriba la información sig
 
   - No seleccione ninguna casilla. Tan solo haga clic en la flecha de la parte inferior derecha para pasar a la pantalla siguiente.
 
-**En la página Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
+En la página **Espacios de direcciones de la red virtual**, especifique el rango de direcciones que desee usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
 
 
   ![Página Espacios de direcciones de la red virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
@@ -137,7 +140,7 @@ En la página **Servidores DNS y conectividad VPN**, escriba la información sig
 A continuación, repita los pasos anteriores para crear otra red virtual. Más adelante en este ejercicio, deberá conectar esas dos redes virtuales. Tenga en cuenta que es muy importante no tener espacios de direcciones duplicados o superpuestos. Para realizar este tutorial, use estos valores:
 
 - **VNet2**: espacio de direcciones = 10.2.0.0/16
-- **Región**= este de Japón
+- **Región** = este de Japón
 
 ## Agregar redes locales
 
@@ -210,17 +213,17 @@ Espere a que se inicialicen las conexiones. Una vez inicializada la puerta de en
 Puede obtener más información acerca de la conectividad de red virtual entre entornos en este artículo: [Sobre la conectividad segura entre entornos de redes virtuales](https://msdn.microsoft.com/library/azure/dn133798.aspx)
 
 
-Si desea configurar una conexión VPN de sitio a sitio, consulte [Configuración de una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md)
+Si desea configurar una conexión VPN de sitio a sitio, consulte [Configuración de una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md).
 
 Si quiere agregar máquinas virtuales a la red virtual, consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Si desea configurar una conexión VNet mediante RRAS, consulte [Configurar una conexión VPN sitio a sitio mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
+Si desea configurar una conexión VNet mediante RRAS, consulte [Conexión VPN sitio a sitio en la Red virtual de Azure mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
 
-Para obtener más información acerca del esquema de configuración, consulte [Esquema de configuración de la Red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+Para obtener más información acerca del esquema de configuración, consulte [Esquema de configuración de Red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

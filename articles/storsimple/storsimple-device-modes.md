@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Cambiar los modos del dispositivo StorSimple"
+   pageTitle="Cambio de los modos de dispositivo en el dispositivo StorSimple | Microsoft Azure"
    description="Obtenga información sobre los distintos modos del dispositivo StorSimple y cómo cambiarlos."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/30/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Modos del dispositivo StorSimple
@@ -21,9 +21,9 @@ En este artículo se proporciona una breve descripción de los distintos modos e
 
 Después de leer este artículo, sabrá acerca de:
 
-- los modos del dispositivo StorSimple.
-- cómo determinar el modo en que está establecido el dispositivo StorSimple.
-- cómo cambiar del modo normal al modo de mantenimiento y *viceversa*.
+- Los modos del dispositivo StorSimple.
+- Cómo determinar el modo en que está establecido el dispositivo StorSimple.
+- Cómo cambiar del modo normal al modo de mantenimiento y *viceversa*.
 
 
 Las tareas de administración mencionadas solo pueden realizarse a través de la interfaz de Windows PowerShell del dispositivo StorSimple.
@@ -56,7 +56,7 @@ Si el sistema entra en modo de recuperación, debe ponerse en contacto con el so
 
 Para determinar el modo del dispositivo, lleve a cabo los siguientes pasos:
 
-1. Inicie sesión en la consola serie del dispositivo siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola de serie del dispositivo](https://msdn.microsoft.com/library/azure/dn757808.aspx).
+1. Inicie sesión en la consola serie del dispositivo siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 2. Mire el mensaje de pancarta del menú de la consola serie del dispositivo. Este mensaje indica de forma explícita si el dispositivo está en modo de mantenimiento o de recuperación. Si el mensaje no contiene información específica relativa al modo del sistema, el dispositivo está en modo normal.
 
 ## Cambiar el modo del dispositivo StorSimple 
@@ -67,17 +67,17 @@ Puede colocar el dispositivo StorSimple en modo de mantenimiento (desde el modo 
 
 #### Para acceder al modo de mantenimiento
 
-1. Inicie sesión en la consola serie del dispositivo siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola de serie del dispositivo](https://msdn.microsoft.com/library/azure/dn757808.aspx).
+1. Inicie sesión en la consola serie del dispositivo siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la **contraseña de administrador de dispositivo**. La contraseña predeterminada es: `Password1`.
+2. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la **contraseña de administrador de dispositivo**. La contraseña predeterminada es: `Password1`.
 
-1. En el símbolo del sistema, escriba
+3. En el símbolo del sistema, escriba
 
 	`Enter-HcsMaintenanceMode`
 
-1. Verá un mensaje de advertencia que indica que el modo de mantenimiento interrumpe todas las solicitudes de E/S y detiene la conexión al Portal de administración. También se le solicitará la confirmación. Escriba **Y** para acceder al modo de mantenimiento.
+4. Verá un mensaje de advertencia que indica que el modo de mantenimiento interrumpe todas las solicitudes de E/S y detiene la conexión al Portal de administración. También se le solicitará la confirmación. Escriba **Y** para acceder al modo de mantenimiento.
 
-1. Ambos controladores se reiniciarán. Una vez completado el reinicio, aparecerá otro mensaje que indica que el dispositivo está en modo de mantenimiento.
+5. Ambos controladores se reiniciarán. Una vez completado el reinicio, aparecerá otro mensaje que indica que el dispositivo está en modo de mantenimiento.
 
 
 #### Para salir del modo de mantenimiento
@@ -88,13 +88,13 @@ Puede colocar el dispositivo StorSimple en modo de mantenimiento (desde el modo 
 
 	`Exit-HcsMaintenanceMode`
 
-1. Aparecerán un mensaje de advertencia y un mensaje de confirmación. Escriba **Y** para salir del modo de mantenimiento.
+3. Aparecerán un mensaje de advertencia y un mensaje de confirmación. Escriba **Y** para salir del modo de mantenimiento.
 
-1. Ambos controladores se reiniciarán. Una vez completado el reinicio, aparecerá otro mensaje que indica que el dispositivo está en modo normal.
+4. Ambos controladores se reiniciarán. Una vez completado el reinicio, aparecerá otro mensaje que indica que el dispositivo está en modo normal.
 
 
 ## Pasos siguientes
 
 Aprenda a [aplicar las actualizaciones del modo normal y del de mantenimiento](storsimple-update-device.md) en el dispositivo StorSimple.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

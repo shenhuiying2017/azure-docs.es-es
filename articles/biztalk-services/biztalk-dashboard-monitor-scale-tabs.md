@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Panel, Monitor, Escala, Configurar y Conexiones híbridas en Servicios de BizTalk | Azure" 
+	pageTitle="Panel, Monitor, Escala, Configurar y Conexiones híbridas en Servicios de BizTalk | Microsoft Azure" 
 	description="Obtenga información acerca de los controles y la supervisión del rendimiento en las pestañas del Portal de administración de Servicios de BizTalk: Panel, Monitor, Escala, Configurar y Conexiones híbridas. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -368,4 +368,4 @@ Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener má
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Reemplazar un módulos de controladores en el dispositivo StorSimple
@@ -232,7 +232,7 @@ A continuación se describe cada uno de estos procedimientos.
 
 En el Portal de administración, vaya a **Dispositivos** > **Mantenimiento** y desplácese hasta la sección **Controladores**. Aquí puede comprobar qué controlador está activo.
 
-![Identificar el controlador activo en el Portal de administración](./media/storsimple-controller-replacement/IC752072.png)
+![Identificación del controlador activo en el Portal de administración](./media/storsimple-controller-replacement/IC752072.png)
 
 **Figura 6** Portal de administración que muestra el controlador activo
 
@@ -252,7 +252,7 @@ Para identificar el controlador activo en el dispositivo, busque el LED azul sob
 
 Si este LED parpadea, el controlador está activo y el otro controlador está en modo de espera. Use el diagrama y la tabla siguiente como ayuda.
 
-![Backplane del gabinete principal del dispositivo con puertos de datos](./media/storsimple-controller-replacement/IC741055.png)
+![Plano anterior de la caja principal del dispositivo con los puertos de datos](./media/storsimple-controller-replacement/IC741055.png)
 
 **Figura 8** Parte posterior del gabinete principal con los puertos de datos y LED de supervisión
 
@@ -266,4 +266,4 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

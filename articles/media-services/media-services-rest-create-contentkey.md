@@ -13,19 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 #Creación de claves de contenido con .NET
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
+
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-create-contentkey.md)
+- [.NET](media-services-dotnet-create-contentkey.md)
+
 
 Los Servicios multimedia permiten crear nuevos recursos y entregar recursos cifrados. Una **ContentKey** proporciona acceso seguro a los **recursos**.
 
 Al crear un nuevo recurso (por ejemplo, antes de [cargar archivos](media-services-rest-upload-files.md)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**.
 
-Al enviar recursos a los clientes, puede [configurar que los recursos se cifren de forma dinámica](media-services-rest-configure-asset-delivery-policy.md) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
+Al entregar recursos a los clientes, puede [configurar que los recursos se cifren de forma dinámica](media-services-rest-configure-asset-delivery-policy.md) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
 Los recursos cifrados tienen que estar asociados con **ContentKey**. En este artículo se describe cómo crear una clave de contenido.
 
@@ -146,7 +150,7 @@ Respuesta:
 
 ##Creación de ContentKey 
 
-Después de recuperar el certificado X.509 y usar su clave pública para cifrar la clave de contenido, cree una entidad **ContentKey** y establezca su propiedad valores según corresponda.
+Después de recuperar el certificado X.509 y usar su clave pública para cifrar la clave de contenido, cree una entidad **ContentKey** y establezca sus valores de propiedad según corresponda.
 
 Uno de los valores que debe establecer al crear la clave de contenido es el tipo. Elija uno de los valores siguientes.
 
@@ -247,4 +251,4 @@ Respuesta:
 
 	HTTP/1.1 204 No Content 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

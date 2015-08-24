@@ -1,21 +1,25 @@
-<properties 
-   pageTitle="Límites de recursos de Base de datos SQL"
-   description="Esta página describe algunos límites de recursos comunes para Base de datos SQL de Azure."
-   services="sql-database"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
-<tags 
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="07/24/2015"
-   ms.author="jroth" />
+<properties
+	pageTitle="Límites de recursos de Base de datos SQL"
+	description="En esta página se describen algunos límites de recursos comunes para Base de datos SQL de Azure."
+	services="sql-database"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" />
+
+
+<tags
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="08/10/2015"
+	ms.author="jroth" />
+
 
 # Límites de recursos de Base de datos SQL
+
 
 Base de datos SQL de Azure supervisa el uso de los recursos compartidos, como el registro de transacciones, E/S y muchos otros recursos. Esto permite a Base de datos SQL de Azure mantener las bases de datos dentro de los límites de los recursos establecidos. Este límite de recursos o umbral se denomina límite de recursos. Cuando el uso de recursos por parte de los clientes supera estos límites, ya sea un inquilino o un nodo físico, Base de datos SQL de Azure responde administrando el uso de los recursos, lo que produce pérdida de conexiones o denegaciones de solicitudes.
 
@@ -23,7 +27,7 @@ Base de datos SQL de Azure supervisa el uso de los recursos compartidos, como el
 
 ## Tabla de resumen de los límites de recursos
 
-La tabla siguiente proporciona un resumen de los límites para cada recurso más allá del cual Base de datos SQL de Azure deniega solicitudes o termina las conexiones a los recursos afectados, y se devuelve un código de error. En algunos casos, el nivel de servicio (Basic, Standard, Premium) y el nivel de rendimiento determinan el límite exacto. En esos casos, consulte [Niveles de servicio y niveles de rendimiento de Base de datos SQL](https://msdn.microsoft.com/library/azure/dn741336.aspx).
+La tabla siguiente proporciona un resumen de los límites para cada recurso más allá del cual Base de datos SQL de Azure deniega solicitudes o termina las conexiones a los recursos afectados, y se devuelve un código de error. En algunos casos, el [nivel de servicio (Basic, Standard, Premium)](sql-database-service-tiers.md) y el nivel de rendimiento determinan el límite exacto. En esos casos, vea [Niveles de servicio y niveles de rendimiento de Base de datos SQL](https://msdn.microsoft.com/library/azure/dn741336.aspx).
 
 [AZURE.INCLUDE [azure-sql-database-limits](../../includes/azure-sql-database-limits.md)]
 
@@ -53,7 +57,7 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 | :--- | :--- |
 | **Condición** | Cuando se llena el espacio de base de datos asignado a una base de datos de usuario, el usuario obtiene un error de base de datos llena. |
 | **Código de error** | **40544**: La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles. |
-| **Límite** | Depende del [Nivel de servicio y de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
+| **Límite** | Depende de [nivel de servicio y nivel de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
 | **Tipo de solicitudes denegadas** | DML que no sea de selección (inserción, actualización, combinación de inserción o actualización). |
 | **Recomendación** | Use las instrucciones DELETE/DROP para quitar datos de la base de datos hasta que el tamaño de la base de datos esté por debajo del límite. |
 
@@ -62,8 +66,8 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 | &nbsp; | Más información |
 | :--- | :--- |
 | **Condición** | Base de datos SQL regula el límite en el número de conexiones simultáneas que pueden establecerse con una base de datos. Cuando se alcanza el límite de inicios de sesión simultáneos para una base de datos, se deniegan las nuevas solicitudes de inicio de sesión en la base de datos y se devuelve el código de error 10928. |
-| **Código de error** | **10928**: Id. de recurso: 3. El límite %s para la base de datos es %d y se ha alcanzado. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda. |
-| **Límite** | Depende del [Nivel de servicio y de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
+| **Código de error** | **10928**: Id. de recurso: 3. El límite %s para la base de datos es %d y se ha alcanzado. Vea http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda. |
+| **Límite** | Depende de [nivel de servicio y nivel de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
 | **Recomendación** | Consulte dm\_exec\_connections para ver qué conexiones de usuario están activas en ese momento. <br><br>Retroceda y vuelva a intentar iniciar sesión después de 10 segundos. |
 
 > [AZURE.NOTE]El valor de identificador de recurso en el mensaje de error indica el recurso para el que se ha alcanzado el límite. Para los inicios de sesión, id. de recurso = 3.
@@ -83,8 +87,8 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 | &nbsp; | Más información |
 | :--- | :--- |
 | **Condición** | Base de datos SQL regula el límite en el número de sesiones simultáneas que pueden establecerse en una base de datos. Cuando se alcanza el límite de sesiones simultáneas para una base de datos, se deniegan las nuevas conexiones a la base de datos y el usuario recibirá el código de error 10928. Sin embargo, no se finalizan las sesiones existentes en la base de datos. |
-| **Código de error** | **10928**: Id. de recurso: 2. El límite %s para la base de datos es %d y se ha alcanzado. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda. |
-| **Límite** | Depende del [Nivel de servicio y de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
+| **Código de error** | **10928**: Id. de recurso: 2. El límite %s para la base de datos es %d y se ha alcanzado. Vea http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda. |
+| **Límite** | Depende de [nivel de servicio y nivel de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
 | **Recomendación** | Compruebe dm\_exec\_requests para ver qué solicitudes de usuario se están ejecutando actualmente. |
 
 > [AZURE.NOTE]El valor de identificador de recurso en el mensaje de error indica el recurso para el que se ha alcanzado el límite. Para las sesiones, id. de recurso = 2.
@@ -93,7 +97,7 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 
 | &nbsp; | Más información |
 | :--- | :--- |
-| **Condición** | Sus solicitudes en tempdb pueden denegarse debido a alguna de las tres condiciones siguientes:<br><br>**Estado 1:** cuando una sesión usa más de 5 GB de espacio de tempdb, la sesión se termina.<br><br>**Estado 2:** las transacciones en tempdb con registros de más de 2 GB de tamaño se truncan. Ejemplos de operaciones que pueden consumir el espacio de registro en tempdb: insertar, actualizar, eliminar, combinar y crear índice.<br><br>** Estado 3:** las transacciones no confirmadas en tempdb pueden bloquear el truncamiento de archivos de registro. Para evitar esto, la distancia desde el número de secuencia de registro (LSN) de transacción activa más antiguo hasta el final del registro (LSN actual) en tempdb no puede exceder el 20% del tamaño del archivo de registro. Cuando infringe esta condición, la transacción responsable se termina en tempdb y se revierte para poder truncar el registro. |
+| **Condición** | Sus solicitudes en tempdb pueden denegarse debido a alguna de las condiciones siguientes:<br><br>**Estado 1:** cuando una sesión usa más de 5 GB de espacio de tempdb, la sesión se termina.<br><br>**Estado 2:** las transacciones en tempdb con registros de más de 2 GB de tamaño se truncan. Ejemplos de operaciones que pueden consumir el espacio de registro en tempdb: insertar, actualizar, eliminar, combinar y crear índice.<br><br>** Estado 3:** las transacciones no confirmadas en tempdb pueden bloquear el truncamiento de archivos de registro. Para evitar esto, la distancia desde el número de secuencia de registro (LSN) de transacción activa más antiguo hasta el final del registro (LSN actual) en tempdb no puede exceder el 20% del tamaño del archivo de registro. Cuando infringe esta condición, la transacción responsable se termina en tempdb y se revierte para poder truncar el registro. |
 | **Código de error** | **40551**: La sesión ha terminado debido al uso excesivo de tempdb. Intente modificar la consulta para reducir el uso del espacio de la tabla temporal. |
 | **Límite** | **Estado 1:** 5 GB de espacio de tempdb<br><br>**Estado 2:** 2 GB por transacción en tempdb<br><br>**Estado 3:** 20% del espacio total de registro en tempdb |
 | **Tipo de solicitudes denegadas** | Cualquier instrucción DDL o DML en tempdb. |
@@ -117,15 +121,22 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 | **Código de error** | **40550**: La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción. |
 | **Límite** | 1 millón de bloqueos por transacción |
 | **Tipo de solicitudes denegadas** | Cualquier instrucción DDL o DML. |
-| **Recomendación** | Las siguientes DMV se pueden usar para supervisar transacciones: **sys.dm\_tran\_active\_transactions**, **sys.dm\_tran\_database\_transactions**, **sys.dm\_tran\_locks** y **sys.dm\_tran\_session\_transactions**. Según el tipo de aplicación, se puede usar sugerencias más generales para los bloqueos, como **PAGLOCK** o **TABLOCK**, para reducir el número de bloqueos realizados en una determinada instrucción o transacción. Tenga en cuenta que esto puede afectar negativamente a la simultaneidad de aplicaciones. |
+| **Recomendación** | Se pueden usar las siguientes DMV para supervisar transacciones: **sys.dm\_tran\_active\_transactions**, **sys.dm\_tran\_database\_transactions**, **sys.dm\_tran\_locks** y **sys.dm\_tran\_session\_transactions**. Según el tipo de aplicación, se puede usar sugerencias más generales para los bloqueos, como **PAGLOCK** o **TABLOCK**, para reducir el número de bloqueos realizados en una determinada instrucción o transacción. Tenga en cuenta que esto puede afectar negativamente a la simultaneidad de aplicaciones. |
+
 
 ## Longitud del registro de transacciones
 
+
+Para la versión V12 de Base de datos SQL de Azure en los niveles de precios Standard o Premium, la longitud máxima del registro de transacciones ya no está limitada 2 GB.
+
+En la siguiente tabla se describe el límite del registro de transacciones de la versión V11.
+
+
 | &nbsp; | Más información |
 | :--- | :--- |
-| **Condición** | Las solicitudes podrían denegarse debido a alguna de las dos condiciones siguientes:<br><br>**Estado 1:** Base de datos SQL admite transacciones que generan un registro de hasta 2 GB de tamaño. Las transacciones con registros que superan este límite se truncan. Ejemplos de operaciones que pueden consumir el espacio de registro en este volumen: insertar, actualizar, eliminar, combinar y crear índice.<br><br>** Estado 2:** las transacciones no confirmadas pueden bloquear el truncamiento de archivos de registro. Para evitar esto, la distancia desde el número de secuencia de registro (LSN) de transacción activa más antiguo hasta el final del registro (LSN actual) no puede exceder el 20% del tamaño del archivo de registro. Cuando infringe esta condición, la transacción responsable se termina y se revierte para poder truncar el registro. |
+| **Condición** | Las solicitudes podrían denegarse debido a alguna de las condiciones siguientes:<br><br>**Estado 1:** Base de datos SQL admite transacciones que generan un registro de hasta 2 GB de tamaño. Las transacciones con registros que superan este límite se truncan. Ejemplos de operaciones que pueden consumir el espacio de registro en este volumen: insertar, actualizar, eliminar, combinar y crear índice.<br><br>** Estado 2:** las transacciones no confirmadas pueden bloquear el truncamiento de archivos de registro. Para evitar esto, la distancia desde el número de secuencia de registro (LSN) de transacción activa más antiguo hasta el final del registro (LSN actual) no puede exceder el 20% del tamaño del archivo de registro. Cuando infringe esta condición, la transacción responsable se termina y se revierte para poder truncar el registro. |
 | **Código de error** | **40552**: La sesión ha terminado debido al excesivo uso de espacio del registro de transacciones. Intente modificar menos filas en una sola transacción. |
-| **Límite** | **Estado 1:** 2 GB por transacción<br><br>**Estado 2:** 20% del espacio total de registro |
+| **Límite** | **Estado 1:** 2 GB por transacción<br><br>**Estado 2:** 20 % del espacio total de registro |
 | **Tipo de solicitudes denegadas** | Cualquier instrucción DDL o DML. |
 | **Recomendación** | Para las operaciones de fila, reduzca el tamaño de los datos de la transacción, por ejemplo reduciendo el número de filas o dividiendo la operación en varias transacciones. Para las operaciones de índice o tabla que requieren una sola transacción, asegúrese de que se cumple la siguiente fórmula: número de filas afectadas en la tabla * (tamaño promedio del campo que se va a actualizar en bytes + 80) < 2 GB (en el caso de la reconstrucción de índices, el tamaño promedio del campo que se está actualizando debe sustituirse por el tamaño promedio del índice). |
 
@@ -134,7 +145,7 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 | &nbsp; | Más información |
 | :--- | :--- |
 | **Condición** | Base de datos SQL regula el límite en el número de subprocesos de trabajo (solicitudes simultáneas) a una base de datos. Cualquier base de datos más del límite permitido de solicitudes simultáneas recibirá el error 10928 y las solicitudes posteriores a esta base de datos se podrán denegar. |
-| **Códigos de error** | **10928**: Id. de recurso: 1. El límite %s para la base de datos es %d y se ha alcanzado. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda.<br><br>** 10929**: Id. de recurso: 1. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda. De lo contrario, Inténtelo de nuevo más tarde. |
+| **Códigos de error** | **10928**: Id. de recurso: 1. El límite %s para la base de datos es %d y se ha alcanzado. Vea http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda.<br><br>** 10929**: Id. de recurso: 1. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Vea http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda. De lo contrario, Inténtelo de nuevo más tarde. |
 | **Límite** | Para los niveles Basic, Standard y Premium, depende del [nivel de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). Para las bases de datos de ediciones Web o Business anteriores, el límite máximo de solicitudes simultáneas es de 180 y podría ser inferior en función de la actividad del sistema. |
 | **Recomendación** | Compruebe dm\_exec\_requests para ver qué solicitudes de usuario se están ejecutando actualmente.<br><br>Retroceda y vuelva a intentar la solicitud después de 10 segundos. |
 
@@ -152,4 +163,4 @@ En ciertos escenarios, como el uso de características de bases de datos federad
 
 [Prácticas recomendadas de Base de datos SQL de Azure para impedir denegaciones de solicitudes o la terminación de conexiones](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

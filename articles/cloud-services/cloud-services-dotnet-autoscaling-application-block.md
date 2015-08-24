@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso del bloque de autoescala de la aplicación (.NET) - Azure" 
+	pageTitle="Uso del bloque de autoescala de la aplicación (.NET) - Azure | Microsoft Azure" 
 	description="Aprenda a utilizar la autoescala de la aplicación en Azure. Los ejemplos de código están escritos en C# y utilizan la API .NET." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -410,4 +410,4 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
   [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Envío de correo electrónico mediante SendGrid - Servicios móviles de Azure" 
+	pageTitle="Envío de correo electrónico con SendGrid | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar el servicio de SendGrid para enviar correo electrónico desde su aplicación de Servicios móviles de Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -136,4 +136,4 @@ Ahora que ya sabe lo fácil que resulta usar el servicio de correo electrónico 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Desarrollo de trabajos de MapReduce para Python con HDInsight | Microsoft Azure"
+   pageTitle="Desarrollo de trabajos de Python MapReduce con HDInsight | Microsoft Azure"
    description="Aprenda a crear y ejecutar trabajos de MapReduce para Python en clústeres de HDInsight basado en Linux."
    services="hdinsight"
    documentationCenter=""
@@ -202,4 +202,4 @@ Ahora que aprendió a usar los trabajos de transmisión de MapReduce con HDInsig
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

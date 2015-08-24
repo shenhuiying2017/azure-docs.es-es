@@ -10,14 +10,14 @@
 <tags
    ms.service="remoteapp"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;elizapo"/>
 
 
-# Obtención de la misma experiencia de Office 365 en cualquier dispositivo
+# Obtención de la misma experiencia de Office 365 en cualquier dispositivo con Azure RemoteApp
 
 Este artículo tratará cómo implementar Office 365 en cualquier dispositivo de su empresa. Los usuarios pueden obtener las mismas capacidades y experiencia de interfaz de usuario en Android, Apple y Windows.
 
@@ -64,4 +64,4 @@ Al hacer clic en cualquiera de las aplicaciones, esta debe iniciarse en la máqu
 ![powerpoint](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/11-pp.PNG)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

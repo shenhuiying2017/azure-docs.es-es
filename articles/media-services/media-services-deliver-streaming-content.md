@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,9 @@
 
 ##Información general
 
-Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema [Codificación de un recurso](media-services-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Si el contenido está cifrado, configure la directiva de entrega de activos (como se describe en [este](media-services-dotnet-configure-asset-delivery-policy.md)tema) antes de crear un localizador.
+Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema [Codificación de un recurso](media-services-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable.
+
+>[AZURE.NOTE]Si el contenido está cifrado, configure la directiva de entrega de activos (como se describe en [este](media-services-dotnet-configure-asset-delivery-policy.md) tema) antes de crear un localizador.
 
 También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.
 
@@ -94,6 +96,8 @@ El código produce la salida siguiente:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
+>[AZURE.NOTE]También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS.
+
 Creación de direcciones URL de descarga progresiva
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
@@ -157,4 +161,4 @@ El código siguiente llama a los métodos de extensiones del SDK de .NET que cre
 
 [Descargar recursos](media-services-deliver-asset-download.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

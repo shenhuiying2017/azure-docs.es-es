@@ -1,5 +1,5 @@
 Recurso|Límite predeterminado|Límite máximo
---|--|--
+---|---|---
 [Máquinas virtuales](../documentation/services/virtual-machines/) por servicio en la nube<sup>1</sup>|50|50
 Extremos de entrada por servicio en la nube<sup>2</sup>|150|150
 
@@ -7,4 +7,4 @@ Extremos de entrada por servicio en la nube<sup>2</sup>|150|150
 
 <sup>2</sup>Los extremos de entrada permiten las comunicaciones con una máquina virtual desde fuera del servicio en la nube de la máquina virtual. Las máquinas virtuales en el mismo servicio en la nube o red virtual pueden comunicarse automáticamente entre sí. Consulte: [Configuración de extremos en una máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

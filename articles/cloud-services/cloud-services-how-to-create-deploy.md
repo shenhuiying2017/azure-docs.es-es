@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación e implementación de un servicio en la nube - Azure"
+	pageTitle="Creación e implementación de un servicio en la nube | Microsoft Azure"
 	description="Aprenda a crear e implementar un servicio en la nube con el método Creación rápida en Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -147,4 +147,4 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

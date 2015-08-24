@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # Creación de rutas y habilitación del reenvío de IP en Azure
 Puede utilizar aplicaciones virtuales de Azure para controlar el tráfico de la red virtual de Azure. Sin embargo, es preciso crear rutas que permitan que las máquinas virtuales y servicios en la nube de la red virtual envíen paquetes a una aplicación virtual, en lugar de al destino deseado para el paquete. También es preciso habilitar el reenvío IP en la máquina virtual del dispositivo virtual para que pueda recibir y reenviar los paquetes que no vayan dirigidos a la máquina virtual de la aplicación virtual real.
 
-##Administración de rutas
+## Administración de rutas
 En Azure puede agregar, quitar y cambiar las rutas mediante PowerShell. Para poder crear una ruta, antes es preciso crear una tabla de rutas que hospede la ruta.
 
 ### Creación de una tabla de rutas
@@ -144,10 +144,6 @@ Para ver el estado del reenvío IP en una máquina virtual denominada *FWApplian
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
-```
+``` 
 
-## Otras referencias
-
-[Información del reenvío IP y de las rutas definidas por el usuario](../virtual-networks-udr-overview)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -15,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
-	ms.author="apwestgarth"/>
+	ms.author="anwestg"/>
 
 # Notas del producto sobre ofertas de Aplicaciones web del Servicio de aplicaciones de Azure para empresas #
 
@@ -154,4 +153,4 @@ Para obtener más información sobre el servicio Aplicaciones web del Servicio d
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

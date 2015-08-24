@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
@@ -32,9 +32,12 @@ Los siguientes temas describen los detalles relacionados con el **flujo de traba
 
 En este tema se muestra cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** usando .NET.
 
+Las tareas de codificación del **flujo de trabajo del Codificador multimedia Premium** requieren un archivo de configuración independiente, denominado archivo de flujo de trabajo. Estos archivos tienen una extensión .workflow y se crean con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md).
+
 ##Codificación
 
 Las tareas de codificación del **flujo de trabajo del Codificador multimedia Premium** requieren un archivo de configuración independiente, denominado archivo de flujo de trabajo. Estos archivos tienen una extensión .workflow y se crean con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md).
+
 
 Los archivos de flujo de trabajo predeterminados también se pueden obtener [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). La carpeta también contiene la descripción de estos archivos.
 
@@ -265,4 +268,4 @@ El siguiente ejemplo es un ejemplo completo. Para obtener información sobre có
 
 Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -25,7 +25,7 @@ Las colecciones de trabajos son la entidad facturable en Programador de Azure. L
 |:---|:---|:---|:---|:---|
 |**Gratis**|5 trabajos por colección de trabajos|Una vez por hora. No se pueden ejecutar trabajos con una frecuencia superior a una vez por hora|Se permite una suscripción de 1 colección de trabajos gratuita como máximo|No se puede usar un [objeto de autorización saliente HTTP](scheduler-outbound-authentication.md)
 |**Standard**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 100 colecciones de trabajos estándar como máximo|Acceso al conjunto completo de características de Programador|
-|**Premium**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Sin límite en el número de colecciones de trabajos premium en una suscripción|Acceso al conjunto completo de características de Programador|
+|**Premium**|50 trabajos por colección de trabajos|Una vez por minuto. No se pueden ejecutar trabajos con una frecuencia superior a una vez por minuto|Se permite una suscripción de 10 000 colecciones de trabajos premium como máximo. <a href="mailto:wapteams@microsoft.com">Póngase en contacto con nosotros</a> para obtener más información.|Acceso al conjunto completo de características de Programador|
 
 ## Actualizaciones y degradaciones de planes de colección de trabajos
 
@@ -60,7 +60,7 @@ Por lo tanto, las colecciones de trabajos premium tienen la misma funcionalidad 
 
 Las colecciones de trabajos están siempre activas, salvo que la suscripción completa pase a un estado deshabilitado temporal debido a problemas de facturación. La única manera de garantizar que una colección de trabajos no se facture consiste en establecerla en el plan _Gratis_ o en eliminar la colección de trabajos.
 
-Aunque puede deshabilitar todos los trabajos de una colección de trabajos en una sola operación, no cambia el estado de facturación de la colección de trabajos: la colección de trabajos se _seguirá_ facturando. De forma similar, las colecciones de trabajos vacías se consideran activas y se facturarán.
+Aunque puede deshabilitar todos los trabajos de una colección de trabajos en una sola operación, esto no cambia el estado de facturación de la colección de trabajos: la colección de trabajos se _seguirá_ facturando. De forma similar, las colecciones de trabajos vacías se consideran activas y se facturarán.
 
 ## Precios
 
@@ -87,4 +87,4 @@ Para obtener información detallada sobre los precios, vea [Precios de Programad
  [Autenticación de salida de Programador](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

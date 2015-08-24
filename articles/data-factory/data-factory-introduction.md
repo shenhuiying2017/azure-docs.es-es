@@ -33,11 +33,13 @@ Puede usar la Factoría de datos cada vez que tenga que recopilar datos de difer
 
 Factoría de datos de Azure tiene algunas entidades clave que funcionan conjuntamente para definir la entrada y salida de datos, los eventos de procesamiento, así como la programación y los recursos necesarios para ejecutar el flujo de datos que quiera.
 
-![Conceptos clave](./media/data-factory-introduction/key-concepts.png) **Ilustración 2.** Relaciones entre conjuntos de datos, actividades, canalizaciones y servicios vinculados
+![Conceptos clave](./media/data-factory-introduction/key-concepts.png)
+
+**Ilustración 2.** Relaciones entre conjuntos de datos, actividades, canalizaciones y servicios vinculados
 
 
 ### Actividades
-Las actividades definen las acciones que se van a realizar en los datos. Cada actividad tiene cero o más [conjuntos de datos](data-factory-create-datasets.md) como entradas y genera uno o varios conjuntos de datos como salidas. Una actividad es una unidad de orquestación en Factoría de datos de Azure. Por ejemplo, puede utilizar una [actividad de copia](data-factory-data-movement-activities.md) para organizar la copia de datos de un conjunto de datos a otro. De manera similar, puede usar una [actividad de Hive](data-factory-data-transformation-activities.md) que ejecute una consulta de Hive en un clúster de HDInsight de Azure para transformar o analizar los datos. Factoría de datos de Azure ofrece una amplia gama de actividades de movimiento de datos, análisis y transformación de datos.
+Las actividades definen las acciones que se van a realizar en los datos. Cada actividad tiene cero o más [conjuntos de datos](data-factory-create-datasets.md) como entradas y genera uno o varios conjuntos de datos como salidas. Una actividad es una unidad de orquestación en Factoría de datos de Azure. Por ejemplo, puede usar una [actividad de copia](data-factory-data-movement-activities.md) para organizar la copia de datos de un conjunto de datos a otro. De manera similar, puede usar una [actividad de Hive](data-factory-data-transformation-activities.md) que ejecute una consulta de Hive en un clúster de HDInsight de Azure para transformar o analizar los datos. Factoría de datos de Azure ofrece una amplia gama de actividades de movimiento de datos, análisis y transformación de datos.
 
 ### Procesos
 Las [canalizaciones](data-factory-create-pipelines.md) son una agrupación lógica de actividades. Se utilizan para agrupar actividades en una unidad que realizan conjuntamente una tarea. Por ejemplo, puede ser necesaria una secuencia de varias actividades de transformación para limpiar datos de archivos de registro. Esta secuencia podría tener una programación compleja y dependencias que hay que organizar y automatizar. Todas estas actividades se podrían agrupar en una sola canalización denominada "CleanLogFiles". Después se podría implementar, programar o eliminar "CleanLogFiles" como una sola unidad en lugar de administrar independientemente cada actividad.
@@ -53,4 +55,4 @@ Los servicios vinculados definen la información necesaria para que Factoría de
 
 Con los cuatro conceptos sencillos de conjuntos de datos, actividades, canalizaciones y servicios vinculados, está listo para comenzar. Puede [compilar su primera canalización](data-factory-build-your-first-pipeline.md) desde el principio o implementar una muestra lista para usar siguiendo las instrucciones que se ofrecen en nuestro artículo [Ejemplos de la Factoría de datos](data-factory-samples.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

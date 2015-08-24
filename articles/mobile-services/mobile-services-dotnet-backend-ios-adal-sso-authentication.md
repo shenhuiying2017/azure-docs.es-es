@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (iOS) | Centro de desarrollo móvil" 
+	pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (iOS) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo autenticar usuarios para inicio de sesión único con ADAL en su aplicación de iOS." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -121,4 +121,4 @@ Este tutorial requiere lo siguiente:
 [biblioteca de autenticación de Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

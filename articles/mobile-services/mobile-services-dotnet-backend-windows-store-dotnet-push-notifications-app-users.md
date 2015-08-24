@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Envío de notificaciones push a usuarios autenticados (Universal Windows 8.1) | Servicios móviles de Azure" 
+	pageTitle="Envío de notificaciones push a usuarios autenticados (Windows universal 8.1) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones push a un usuario autenticado específico que esté ejecutando su aplicación de Universal Windows 8.1." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -66,4 +66,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

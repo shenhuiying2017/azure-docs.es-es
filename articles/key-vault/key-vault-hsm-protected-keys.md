@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Cómo generar y transferir claves protegidas con HSM para el Almacén de clave de Azure | Microsoft Aure"
+	pageTitle="Cómo generar y transferir claves protegidas con HSM para el Almacén de claves de Azure | Microsoft Azure"
 	description="Use este artículo para ayudarle a planear, generar y, a continuación, transfiera sus propias claves protegidas con HSM para utilizar con el Almacén de clave de Azure."
 	services="key-vault"
 	documentationCenter=""
@@ -306,4 +306,4 @@ Si la carga se realiza correctamente, verá que se muestran las propiedades de l
 
 Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

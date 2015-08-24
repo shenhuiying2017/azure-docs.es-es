@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso del Administrador de recursos para asignar recursos al clúster Apache Spark en HDInsight | Azure" 
+	pageTitle="Uso del Administrador de recursos para asignar recursos al clúster de Apache Spark en HDInsight | Microsoft Azure" 
 	description="Aprenda a usar el Administrador de recursos para clústeres Spark en HDInsight con el fin de mejorar el rendimiento." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -65,7 +65,7 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 * [Aprovisionamiento de un clúster Spark de HDInsight](hdinsight-apache-spark-provision-clusters.md)
 * [Uso de herramientas de BI con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-use-bi-tools.md)
 * [Uso de Spark en HDInsight para crear aplicaciones de aprendizaje automático](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Streaming con Spark: procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [Streaming con Spark: Procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -79,4 +79,4 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

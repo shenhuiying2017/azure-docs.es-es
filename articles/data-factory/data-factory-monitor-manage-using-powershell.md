@@ -409,22 +409,7 @@ En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo
 
 Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
 
-## Pasos siguientes
 
-Artículo | Descripción
------- | ---------------
-[Copia de datos con la Factoría de datos de Azure (actividad de copia)][copy-activity] | Este artículo proporciona una descripción detallada de la **actividad de copia** que ha usado en este tutorial. 
-[Habilitación de canalizaciones para trabajar con datos locales][use-onpremises-datasources] | Este artículo tiene un tutorial que muestra cómo copiar datos desde una **base de datos de SQL Server local** a un blob de Azure. 
-[Uso de Pig y Hive con la Factoría de datos][use-pig-and-hive-with-data-factory] | Este artículo tiene un tutorial que muestra cómo utilizar **HDInsight Activity** para ejecutar un script de **hive/pig** para procesar los datos de entrada para generar datos de salida.
-[Tutorial: desplazamiento y procesamiento de archivos de registro mediante la Factoría de datos][adf-tutorial] | En este artículo se proporciona un **tutorial completo** en el que se muestra cómo implementar un **escenario real** mediante la factoría de datos de Azure para transformar los datos de archivos de registro en información.
-[Uso de actividades personalizadas en una Factoría de datos][use-custom-activities] | Este artículo ofrece un tutorial con instrucciones paso a paso para crear una **actividad personalizada** y utilizarla en un proceso. 
-[Solución de problemas de la factoría de datos][troubleshoot] | En este artículo se describe cómo **solucionar problemas** de la factoría de datos de Azure. Puede probar el tutorial de este artículo en ADFTutorialDataFactory introduciendo un error (eliminando la tabla de la Base de datos SQL de Azure). 
-[Referencia de cmdlets de Factoría de datos de Azure][cmdlet-reference] | Esta referencia tiene información detallada acerca de todos los **cmdlets de Factoría de datos**.
-[Referencia para desarrolladores de la Factoría de datos de Azure][developer-reference] | La Referencia para desarrolladores incluye contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
-
-[copy-activity]: data-factory-copy-activity.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -444,4 +429,4 @@ Artículo | Descripción
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

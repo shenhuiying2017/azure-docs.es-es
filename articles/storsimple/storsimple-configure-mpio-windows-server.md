@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Configurar MPIO para el dispositivo StorSimple"
+   pageTitle="Configuración de MPIO para su dispositivo StorSimple | Microsoft Azure"
    description="Configurar MPIO para el dispositivo StorSimple conectado a un host que ejecuta Windows Server 2012 R2"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/07/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # Configurar MPIO para el dispositivo StorSimple
@@ -36,11 +36,12 @@ Realice estos pasos para configurar MPIO en su dispositivo StorSimple:
 - Paso 4: configurar MPIO para alta disponibilidad y equilibrio de carga
 
 En las siguientes secciones se detallan cada uno de estos pasos.
+
 ## Paso 1: instalar MPIO en el host de Windows Server
 
 Haga lo siguiente para instalar esta característica en el host de Windows Server.
 
-### Para instalar MPIO en el host
+#### Para instalar MPIO en el host
 
 1. Abra el Administrador del servidor en el host de Windows Server. El Administrador del servidor se inicia de forma predeterminada cuando un miembro del grupo Administradores inicia sesión en un equipo que ejecuta Windows Server 2012 R2 o Windows Server 2012. Si el Administrador del servidor no está abierto aún, haga clic en **Inicio > Administrador del servidor**. ![Administrador del servidor](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 2. Haga clic en **Administrador del servidor > Panel > Agregar roles y características**. De esta forma, se abre el **Asistente para agregar roles y características**. ![Asistente para agregar roles y características 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
@@ -58,7 +59,7 @@ Haga lo siguiente para instalar esta característica en el host de Windows Serve
 
 MPIO tiene que configurarse de forma que identifique los volúmenes de StorSimple. Haga lo siguiente para configurar MPIO para reconocer volúmenes de StorSimple.
 
-### Para configurar MPIO para volúmenes de StorSimple
+#### Para configurar MPIO para volúmenes de StorSimple
 
 1. Abra la **configuración de MPIO**. Haga clic en **Administrador del servidor > Panel > Herramientas > MPIO**.
 
@@ -75,7 +76,7 @@ MPIO tiene que configurarse de forma que identifique los volúmenes de StorSimpl
 
 Después de configurar MPIO en Windows Server, los volúmenes creados en el dispositivo StorSimple se pueden montar para que puedan usar MPIO para la redundancia. Haga lo siguiente para montar un volumen.
 
-### Para montar volúmenes en el host
+#### Para montar volúmenes en el host
 
 1. Abra la ventana **Propiedades del iniciador iSCSI** en el host de Windows Server. Haga clic en **Administrador del servidor > Panel > Herramientas > Iniciador iSCSI**.
 2. En el cuadro de diálogo **Propiedades del iniciador iSCSI**, haga clic en la pestaña Detección y, después, en **Detectar portal de destino**.
@@ -83,9 +84,10 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 	
 	- Escriba la dirección IP del puerto DATA del dispositivo StorSimple (por ejemplo, escriba DATA 0).
 	- Haga clic en **Aceptar** para volver al cuadro de diálogo **Propiedades del iniciador iSCSI**.
+
 	>[AZURE.IMPORTANT]**Si está usando una red privada para las conexiones iSCSI, escriba la dirección IP del puerto DATA que esté conectado a la red privada.**
 
-4. Repita los pasos 2 y 3 para una segunda interfaz de red (por ejemplo, DATA 1) en el dispositivo. No olvide que estas interfaces deben estar habilitadas para iSCSI. Para más información al respecto, vaya a [Configurar las interfaces de red](https://msdn.microsoft.com/library/02f1412f-e196-4a88-8eda-2113247ea47c#sec05).
+4. Repita los pasos 2 y 3 para una segunda interfaz de red (por ejemplo, DATA 1) en el dispositivo. No olvide que estas interfaces deben estar habilitadas para iSCSI. Para obtener más información al respecto, consulte [Modificación de interfaces de red](storsimple-modify-device-config.md#modify-network-interfaces).
 5. Seleccione la pestaña **Destinos** del cuadro de diálogo **Propiedades del iniciador iSCSI**. Debería ver el destino de dispositivo StorSimple IQN en **Destinos detectados**. ![Propiedades del iniciador iSCSI > pestaña Destinos](./media/storsimple-configure-mpio-windows-server/IC741007.png)
 6. Haga clic en **Conectar** para establecer una sesión iSCSI con el dispositivo StorSimple. Aparecerá el cuadro de diálogo **Conectarse al destino**.
 
@@ -166,6 +168,9 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 
 12. Para ver los dispositivos presentados en las sesiones, seleccione la pestaña **Dispositivos**. Para configurar la directiva MPIO de un dispositivo seleccionado, haga clic en **MPIO**. Aparecerá el cuadro de diálogo **Detalles del dispositivo**. En la pestaña **MPIO**, puede seleccionar la configuración de **Directiva de equilibrio de carga** apropiada. También puede ver el tipo de ruta de acceso **Activo** o **En espera**.
 
+## Pasos siguientes
+
+Obtenga más información sobre el [uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

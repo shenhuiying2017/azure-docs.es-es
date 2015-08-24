@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Casos de uso comunes de DocumentDB | Azure" 
+    pageTitle="Casos de uso comunes de DocumentDB | Microsoft Azure" 
     description="Obtenga información acerca de los cinco principales casos de uso para DocumentDB: contenido generado por usuarios, registro de eventos, datos del catálogo, datos de las preferencias del usuario e Internet de las cosas (IoT)." 
     services="documentdb" 
     authors="h0n" 
@@ -79,4 +79,4 @@ O bien, si desea leer más acerca de los usuarios que emplean DocumentDB, tiene 
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). El almacén del futuro se ejecuta con la rapidez en la búsqueda y la sencillez en el flujo de datos.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

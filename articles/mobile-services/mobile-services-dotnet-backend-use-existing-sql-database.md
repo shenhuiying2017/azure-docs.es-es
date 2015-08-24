@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles - Servicios móviles de Azure" 
+	pageTitle="Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles | Microsoft Azure" 
 	description="Obtener información acerca de cómo usar una base de datos SQL local o en la nube existente con su servicio móvil basado en .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -615,4 +615,4 @@ Observe que ambas implementaciones de controlador hacen un uso exclusivo de los 
 
 Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio. Para obtener más información, consulte [Incorporación de Servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

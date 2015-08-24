@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Conceptos de Servicios multimedia de Azure 
 
 Este tema proporciona información general sobre los conceptos más importantes de Servicios multimedia.
 
-##<a id="assets"></a>Recursos/almacenamiento
+##<a id="assets"></a>Activos y almacenamiento
 
 ###Recursos
 
@@ -79,7 +79,7 @@ Observe que el permiso de lista (AccessPermissions.List) no se debe usar al crea
 
 Todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Una cuenta de Servicios multimedia se puede asociar con una o más cuentas de almacenamiento. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 500 TB por cuenta de almacenamiento. Servicios multimedia proporciona herramientas del nivel de SDK que le permiten administrar varias cuentas de almacenamiento y equilibrar la carga de la distribución de sus recursos durante la carga a estas cuentas según métricas o una distribución aleatoria. Para obtener más información, consulte Uso de [Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx).
 
-##Trabajos/tareas
+##Trabajos y tareas
 
 Un [trabajo](https://msdn.microsoft.com/library/azure/hh974289.aspx) se usa normalmente para procesar (por ejemplo, indexar o codificar) una presentación de audio/vídeo. Si procesa varios vídeos, cree un trabajo para cada vídeo que se va a codificar.
 
@@ -242,4 +242,4 @@ En la siguiente lista se describen distintos formatos de streaming y aparecen ej
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

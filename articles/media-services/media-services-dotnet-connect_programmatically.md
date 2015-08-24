@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
 # Conexión con la cuenta de Servicios multimedia con el SDK de Servicios multimedia para .NET.
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-connect_programmatically.md)
+- [.NET](media-services-dotnet-connect_programmatically.md)
+
 
 En este tema se describe cómo obtener una conexión mediante programación con los Servicios multimedia de Microsoft Azure al programar con el SDK de Servicios multimedia para. NET.
 
@@ -171,14 +174,14 @@ Es muy recomendable almacenar los valores de conexión, especialmente aquellos v
 El siguiente archivo App.config contiene los valores de conexión necesarios. Los valores del elemento <appSettings> son los valores necesarios que obtuvo en el proceso de configuración de la cuenta de Servicios multimedia.
 
 
-```
-&lt;configuration&gt;
-    &lt;appSettings&gt;
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-    &lt;/appSettings&gt;
-&lt;/configuration&gt;
-```
+<pre>
+&lt;configuration>
+    &lt;appSettings>
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+    &lt;/appSettings>
+&lt;/configuration>
+</pre>
 
 Para recuperar los valores de conexión de la configuración, use la clase **ConfigurationManager** y luego asigne los valores a los campos en el código:
 	
@@ -191,4 +194,4 @@ Para recuperar los valores de conexión de la configuración, use la clase **Con
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

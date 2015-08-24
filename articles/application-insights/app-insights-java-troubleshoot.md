@@ -30,7 +30,7 @@ Si tiene dudas o problemas relacionados con [Application Insights para Visual St
 
 *He agregado Application Insights correctamente y he ejecutado mi aplicación, pero no aparecen datos en el portal.*
 
-* Espere un minuto y haga clic en Actualizar, ya que la actualización no se realiza de forma automática.
+* Espere un minuto y haga clic en Actualizar, Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente. El intervalo de actualización depende del intervalo de tiempo del gráfico.
 * Compruebe que tiene una clave de instrumentación definida en el archivo ApplicationInsights.xml (en la carpeta de recursos del proyecto).
 * Compruebe que no haya ningún nodo `<DisableTelemetry>true</DisableTelemetry>` en el archivo xml.
 * En el firewall, tendrá que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com y f5.services.visualstudio.com.
@@ -138,4 +138,4 @@ Consulte [Privacidad y retención de los datos][data].
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

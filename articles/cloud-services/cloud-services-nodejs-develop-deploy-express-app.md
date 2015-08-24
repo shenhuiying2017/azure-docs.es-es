@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Aplicaciones web con Express (Node.js) - Tutorial de Azure" 
+	pageTitle="Aplicaciones web con Express (Node.js) | Microsoft Azure" 
 	description="Este tutorial se basa en el tutorial sobre servicios en la nube y muestra cómo usar el módulo Express." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -135,4 +135,4 @@ Una vez finalizada la operación de implementación, el explorador abrirá y mos
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

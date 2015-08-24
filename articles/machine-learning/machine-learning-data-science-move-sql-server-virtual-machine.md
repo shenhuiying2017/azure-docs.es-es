@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Mover datos a SQL Server en Azure| Microsoft Azure" 
-	description="Mover datos a SQL Server en Azure" 
-	services="machine-learning" 
+	pageTitle="Mover datos a un servidor SQL Server en una máquina virtual de Azure| Azure" 
+	description="Mover datos desde archivos planos o desde un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure" 
+	services="machine-learning"  
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -13,24 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
-	ms.author="fashah;garye;mohabib;bradsev" />
+	ms.date="08/10/2015" 
+	ms.author="fashah;mohabib;bradsev" />
 
-#Mover datos a SQL Server en Azure
+# Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
-En este documento, se aborda el movimiento de datos de archivos planos (csv/tsv) o un servidor SQL Server local a un servidor SQL Server en Azure. Esta tarea forma parte de la Tecnología y procesos de análisis avanzado (ADAPT) proporcionada por Aprendizaje automático de Azure.
+En este documento se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure. Estas tareas de movimiento de datos a la nube forman parte de la Tecnología y procesos de análisis avanzado (ADAPT) proporcionada por Aprendizaje automático de Azure.
 
+Para ver un tema que describa las opciones para mover datos a una base de datos de SQL de Azure para Aprendizaje automático, vea [Mover datos a una base de datos de SQL de Azure para Aprendizaje automático de Azure](machine-learning-data-science-move-sql-azure.md).
 
-<table>
+En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL Server en una máquina virtual de Azure. <table>
 
 <tr>
 <td><b>ORIGEN</b></td>
-<td colspan="2" align="center"><b>DESTINO</b></td>
-</tr>
-
-<tr>
-  <td></td>
-  <td><b>Máquina virtual de SQL Server en Azure</b></td>
+<td colspan="2" align="center"><b>DESTINO: servidor SQL Server en una máquina virtual de Azure</b></td>
 </tr>
 
 <tr>
@@ -56,17 +52,16 @@ Tenga en cuenta que en este documento se da por supuesto que los comandos SQL se
 > [AZURE.TIP]Como alternativa, puede usar [factoría de datos de Azure](https://azure.microsoft.com/es-es/services/data-factory/) para crear y programar una canalización de datos se moverá a una máquina virtual de SQL Server en Azure. Para obtener más información, consulte [Copia de datos con Factoría de datos de Azure (actividad de copia)](../data-factory/data-factory-copy-activity.md)
 
 
-## <a name="sqlonazurevm"></a>Mover los datos a una máquina virtual de SQL Server en Azure
+## <a name="prereqs"></a>Requisitos previos
+En este tutorial se asume que dispone de:
 
-Esta sección describe el proceso de mover los datos a una máquina virtual de servidor en Azure. Si no ha configurado la máquina virtual de SQL Server, aprovisione una nueva máquina virtual de SQL Server para análisis avanzado como se describe en [Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-
-Este documento describe el movimiento de datos desde los siguientes orígenes de datos:
-  
-1. [Desde archivos planos](#filesource_to_sqlonazurevm) 
-2. [Desde un SQL Server local](#sqlonprem_to_sqlonazurevm)
+* Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* Una **cuenta de almacenamiento de Azure**. En este tutorial, usará una cuenta de almacenamiento de Azure para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account). Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* **Servidor SQL Server aprovisionado en una máquina virtual de Azure**. Para obtener instrucciones, vea [Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython para realizar análisis avanzados](machine-learning-data-science-setup-sql-server-virtual-machine.md).
+* **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 
 
-### <a name="filesource_to_sqlonazurevm"></a>Origen de archivo
+## <a name="filesource_to_sqlonazurevm"></a> Mover datos desde un origen de archivo plano a un servidor SQL Server en una máquina virtual de Azure
 
 Si los datos se encuentran en un archivo plano (organizado en un formato de fila y columna), se pueden mover a la VM de SQL Server en Azure mediante los métodos siguientes:
 
@@ -102,7 +97,7 @@ BCP es una utilidad de línea de comandos instalada con SQL Server y es una de l
 
 > **Optimización de inserciones de BCP** Consulte el siguiente artículo ['Directrices para optimizar la importación masiva'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) para optimizar este tipo de inserciones.
 
-#### <a name="insert-tables-bulkquery-parallel"></a>Poner en paralelo inserciones para el movimiento de datos más rápido
+### <a name="insert-tables-bulkquery-parallel"></a>Poner en paralelo inserciones para el movimiento de datos más rápido
 
 Si los datos que está moviendo son grandes, puede acelerar las cosas ejecutando simultáneamente varios comandos BCP en paralelo en un script de PowerShell.
 
@@ -176,7 +171,7 @@ Puede utilizar los servicios de integraciones de SQL Server (SSIS) para importar
 - Para obtener más información acerca de las herramientas de datos de SQL Server, consulte [Herramientas de datos de Microsoft SQL Server](https://msdn.microsoft.com/data/tools.aspx).  
 - Para obtener más información acerca del Asistente para importación y exportación, consulte [Asistente para importación y exportación de SQL Server](https://msdn.microsoft.com/library/ms141209.aspx).
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>Movimiento de datos desde un SQL Server local
+## <a name="sqlonprem_to_sqlonazurevm"></a> Mover datos desde un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure
 
 Los datos se pueden mover desde un SQL Server local de la siguiente manera:
 
@@ -186,9 +181,9 @@ Los datos se pueden mover desde un SQL Server local de la siguiente manera:
 
 Describimos cada una de estas opciones:
 
-#### <a name="export-flat-file"></a>Exportación a un archivo plano
+### <a name="export-flat-file"></a>Exportación a un archivo plano
 
-Se pueden usar diversos métodos para exportar datos en bloque desde un SQL Server local, como se documenta [aquí](https://msdn.microsoft.com/library/ms175937.aspx). Este documento tratará el programa de copia masiva (BCP) como ejemplo. Una vez que los datos se exportan a un archivo plano, se puede importar a otro servidor SQL Server mediante la importación masiva.
+Se pueden usar diversos métodos para exportar datos en bloque desde un servidor SQL Server local, como se documenta [aquí](https://msdn.microsoft.com/library/ms175937.aspx). Este documento tratará el programa de copia masiva (BCP) como ejemplo. Una vez que los datos se exportan a un archivo plano, se puede importar a otro servidor SQL Server mediante la importación masiva.
 
 1. Exporte los datos del SQL Server local a un archivo mediante la utilidad bcp como se indica a continuación.
 
@@ -209,13 +204,13 @@ Se pueden usar diversos métodos para exportar datos en bloque desde un SQL Serv
 	
 4. Utilice cualquiera de los métodos descritos en la sección [Mover datos desde el origen de archivo](#filesource_to_sqlonazurevm) para mover los datos de los archivos planos a un servidor SQL Server.
 
-#### <a name="sql-migration"></a>Asistente para migración de Base de datos SQL
+### <a name="sql-migration"></a>Asistente para migración de Base de datos SQL
 
 El [Asistente para migración de Base de datos SQL](http://sqlazuremw.codeplex.com/) proporciona una manera fácil de mover datos entre dos instancias de SQL server. Permite al usuario asignar el esquema de datos entre orígenes y tablas de destino, elegir los tipos de columna y otra funcionalidad. Utiliza la copia masiva (BCP) en segundo plano. A continuación se muestra una captura de la pantalla de bienvenida del Asistente para migración de base de datos de SQL.
 
 ![Asistente para migración de SQL Server][2]
 
-#### <a name="sql-backup"></a>Copia de seguridad y restauración de la base de datos
+### <a name="sql-backup"></a>Copia de seguridad y restauración de la base de datos
 
 SQL Server es compatible con:
 
@@ -232,4 +227,4 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

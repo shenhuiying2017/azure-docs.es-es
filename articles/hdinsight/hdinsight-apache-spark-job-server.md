@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Servidor de trabajo Apache en HDInsight | Azure" 
+	pageTitle="Servidor de trabajo de Apache Spark en HDInsight | Microsoft Azure" 
 	description="Aprenda a usar el servidor de trabajo Spark para enviar y administrar trabajos de forma remota en un clúster Spark." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -81,4 +81,4 @@ Ejemplo:
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Cómo navegar por la interfaz de usuario
@@ -142,4 +142,4 @@ El portal del frontend de la interfaz de usuario de: https://YourApp.portal.mobi
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

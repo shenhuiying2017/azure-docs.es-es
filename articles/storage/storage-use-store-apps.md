@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows | Azure" 
+	pageTitle="Uso de Almacenamiento de Azure en las aplicaciones de la Tienda Windows | Microsoft Azure" 
 	description="Aprenda a utilizar blobs, colas y tablas de Azure para almacenar datos para una aplicación de la Tienda Windows." 
 	services="storage" 
 	documentationCenter="" 
@@ -94,4 +94,4 @@ También puede agregar una referencia a Microsoft.WindowsAzure.Storage.Table.dll
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

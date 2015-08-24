@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de herramientas de BI con Apache Spark en HDInsight | Azure" 
+	pageTitle="Uso de herramientas de BI con Apache Spark en HDInsight | Microsoft Azure" 
 	description="Instrucciones paso a paso para usar cuadernos con Apache Spark y crear esquemas de datos sin procesar, guardarlos como tablas de Hive y después usar herramientas de BI en la tabla de Hive para el análisis de datos" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -205,4 +205,4 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

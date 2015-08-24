@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Aplicación híbrida en la nube/local (.NET) - Azure"
+	pageTitle="Aplicación híbrida en la nube/local (.NET) | Microsoft Azure"
 	description="Obtenga información acerca de cómo crear una aplicación híbrida en la nube o local de .NET con la retransmisión del Bus de servicio de Azure."
 	services="service-bus"
 	documentationCenter=".net"
@@ -620,4 +620,4 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

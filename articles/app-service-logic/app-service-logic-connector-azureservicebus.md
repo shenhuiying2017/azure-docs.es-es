@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/29/2015"
+   ms.date="08/09/2015"
    ms.author="andalmia"/>
 
 
@@ -36,7 +36,7 @@ Mensaje disponible | Enviar mensaje
 Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
-2. Seleccione **Aplicaciones de API** y busque "Conector de Bus de servicio de Azure".
+2. Busque "Conector del Bus de servicio de Azure", selecciónelo y seleccione **Crear**.
 3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades: 
 <br/> 
 ![][1]
@@ -45,41 +45,37 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 	Nombre | Descripción
 --- | ---
-Cadena de conexión | La cadena de conexión para Bus de servicio de Azure. Por ejemplo, escriba: *Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=[name];SharedAccessKey=[key]*.
+Cadena de conexión | La cadena de conexión para Bus de servicio de Azure. Por ejemplo, escriba: *Endpoint=sb://[espaciodenombres].servicebus.windows.net;SharedAccessKeyName=[nombre];SharedAccessKey=[key]*.
 Nombre de entidad | Escriba el nombre de la cola o del tema.
 Subscription Name | Escriba el nombre de la suscripción desde la que se van a recibir los mensajes.
 
 5. Haga clic en **Crear**.
 
-Una vez creado el conector, puede agregarlo a una aplicación lógica en el mismo grupo de recursos.
-
 ## Uso del conector de Bus de servicio en la aplicación lógica
 Una vez creado el conector, ya puede usar el conector de Bus de servicio de Azure como desencadenador o acción para la aplicación lógica. Para ello, siga estos pasos:
 
-1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de Bus de servicio de Azure: 
-<br/> 
-![][2]
+1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de Bus de servicio de Azure:  
+	![][2]
 
-2.	Abra “Desencadenadores y acciones” para abrir el diseñador de aplicaciones lógicas y configurar el flujo de trabajo: 
-<br/> 
-![][3]
 
-3. El conector de Bus de servicio de Azure aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho: 
-<br/> 
-![][4]
+2.	Abra “Desencadenadores y acciones” para abrir el diseñador de Aplicaciones lógicas y configurar el flujo de trabajo:  
+	![][3]
+
+
+3. El conector de Bus de servicio de Azure aparecerá en la sección “Aplicaciones de API en este grupo de recursos” en la galería, en el lado derecho:  
+	![][4]
+
 
 4. Puede quitar el conector de Bus de servicio de Azure en el editor haciendo clic en "Conector de Bus de servicio de Azure".
 
-5.	Ahora puede usar el conector de Bus de servicio de Azure en el flujo de trabajo. Puede utilizar el mensaje recuperado desde el desencadenador de Bus de servicio de Azure ("Mensaje disponible") en otras acciones del flujo: 
-<br/> 
-![][5] 
-<br/> 
-![][6]
+5.	Ahora puede usar el conector de Bus de servicio de Azure en el flujo de trabajo. Puede utilizar el mensaje recuperado desde el desencadenador de Bus de servicio de Azure ("Mensaje disponible") en otras acciones del flujo:  
+	![][5]  
 
-También puede usar la acción “Enviar mensaje” del Bus de servicio de Azure: 
-<br/> 
-![][7] 
-<br/> 
+	![][6]
+
+También puede usar la acción "Enviar mensaje" del Bus de servicio de Azure:  
+![][7]  
+
 ![][8]
 
 ## Aplicaciones adicionales del conector
@@ -100,4 +96,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

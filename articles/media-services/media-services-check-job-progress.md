@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Comprobación del progreso del trabajo
 
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede comprobar el progreso [definiendo un controlador de eventos StateChanged](#statechange_event_handler) o [utilizando el almacenamiento de la cola de Azure para supervisar las notificaciones sobre trabajos de servicios multimedia](#check_progress_with_queues). Ambos métodos se describen en este tema.
 
@@ -427,4 +430,4 @@ El ejemplo anterior genera el siguiente resultado. Los valores variarán.
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

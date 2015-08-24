@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Guía de la directiva de compatibilidad y retirada del SO invitado de Azure | Azure" 
+   pageTitle="Guía de la directiva de compatibilidad y retirada del SO invitado de Azure | Microsoft Azure" 
    description="Proporciona información acerca del soporte ofrecido por Microsoft respecto al SO invitado de Azure usado por los servicios en la nube." 
    services="cloud-services" 
    documentationCenter="na" 
@@ -88,4 +88,4 @@ Debe utilizar la última familia del SO invitado para diseñar los servicios en 
 Si la arquitectura de la aplicación web requiere una dependencia más profunda del sistema operativo subyacente, utilice capacidades admitidas por la plataforma, como las "[tareas de inicio](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" u otros mecanismos de extensibilidad que puedan existir en el futuro. Como alternativa, también puede usar [máquinas virtuales de Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infraestructura como servicio), donde usted es responsable de mantener el sistema operativo subyacente.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

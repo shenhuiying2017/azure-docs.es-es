@@ -57,7 +57,7 @@ La red virtual se puede dividir en varias subredes para cuestiones de organizaci
 
 ## Direcciones IP
 
-Existen dos tipos de direcciones IP asignadas a componentes en Azure: públicas y privadas. Las instancias de rol de Paas y máquinas virtuales de Iaas en una subred de Azure asignan automáticamente una dirección IP privada a cada una de las NIC según los bloques de direcciones de CIDR tecnológicos asignados a las subredes. También puede asignar una dirección IP pública a las instancias de roles de PaaS y máquinas virtuales de IaaS.
+Existen dos tipos de direcciones IP asignadas a componentes en Azure: públicas y privadas. Las instancias de rol de PaaS y máquinas virtuales de IaaS implementadas en una subred de Azure asignan automáticamente una dirección IP privada a cada una de las NIC según los bloques de direcciones de CIDR tecnológicos asignados a las subredes. También puede asignar una dirección IP pública a las instancias de roles de PaaS y máquinas virtuales de IaaS.
 
 Estas direcciones IP son dinámicas, lo que significa que pueden cambiar en cualquier momento. Es posible que desee asegurarse de que la dirección IP de determinados servicios siga siendo la misma en todo momento. Para ello, puede reservar una dirección IP haciendo que sea estática.
 
@@ -93,4 +93,4 @@ Los dispositivos virtuales dependen de las [rutas definidas por el usuario y ree
 - [Reserva de una dirección IP pública](../virtual-networks-reserved-public-ip.md).
 - Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

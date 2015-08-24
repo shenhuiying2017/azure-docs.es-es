@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/29/2015"
+	ms.date="08/10/2015"
 	ms.author="tdykstra"/>
 
 # Comparación entre el Servicio de aplicaciones de Azure, Servicios en la nube y Máquinas virtuales
@@ -50,7 +50,7 @@ Aquí se presentan algunas situaciones habituales de aplicaciones con recomendac
 
 ### <a id="onprem"></a> Necesito un front-end web con procesamiento en segundo plano y back-end de base de datos para ejecutar aplicaciones empresariales integradas con recursos locales.
 
-El Servicio de aplicaciones de Azure es una solución excelente para aplicaciones empresariales complejas. Le permite desarrollar aplicaciones que se escalan automáticamente en una plataforma con equilibrio de carga, se protegen con Active Directory y se conectan con sus recursos locales. Esta opción consigue que la administración de estas aplicaciones resulte sencilla gracias a un portal y unas API de categoría superior, y le permite obtener información acerca del uso que los clientes están haciendo de ellas con herramientas específicamente diseñadas. La nueva característica [Trabajos web][] le permite ejecutar tareas y procesos en segundo plano en el marco de su nivel web, mientras que la conectividad híbrida y las [características de VNET](../fundamentals-introduction-to-azure.md#networking/)T facilitan la reconexión con los recursos locales. El Servicio de aplicaciones de Azure proporciona SLA con un tiempo activo garantizado del 99,9% para las aplicaciones web y le permite:
+El Servicio de aplicaciones de Azure es una solución excelente para aplicaciones empresariales complejas. Le permite desarrollar aplicaciones que se escalan automáticamente en una plataforma con equilibrio de carga, se protegen con Active Directory y se conectan con sus recursos locales. Esta opción consigue que la administración de estas aplicaciones resulte sencilla gracias a un portal y unas API de categoría superior, y le permite obtener información acerca del uso que los clientes están haciendo de ellas con herramientas específicamente diseñadas. La característica [Trabajos web][] le permite ejecutar tareas y procesos en segundo plano en el marco de su nivel web, mientras que la conectividad híbrida y las [características de VNET](../fundamentals-introduction-to-azure.md#networking/)T facilitan la reconexión con los recursos locales. El Servicio de aplicaciones de Azure proporciona SLA con un tiempo activo garantizado del 99,9% para las aplicaciones web y le permite:
 
 * Ejecutar sus aplicaciones de manera confiable en una plataforma en la nube que se mantiene por sí misma y aplica revisiones automáticamente.
 * Escalar automáticamente entre una red global de centros de datos.
@@ -182,7 +182,7 @@ Para obtener más información acerca de las tres opciones de hospedaje web, con
 
 Para conocer con mayor profundidad las opciones que ha elegido para su aplicación, consulte los recursos siguientes:
 
-* [Sitios web de Azure](/documentation/services/app-service/)
+* [Servicio de aplicaciones de Azure](/documentation/services/app-service/)
 * [Servicios en la nube de Azure](/documentation/services/cloud-services/)
 * [Máquinas virtuales de Azure](/documentation/services/virtual-machines/)
 
@@ -204,4 +204,4 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci�
   [Almacenamiento]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

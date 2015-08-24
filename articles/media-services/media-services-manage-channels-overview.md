@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/23/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
@@ -330,4 +330,4 @@ Para obtener información sobre el escalado de unidades de streaming, consulte: 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,40 +1,25 @@
-<properties 
-   pageTitle="Cable your StorSimple 8100 for power | Microsoft Azure"
-   description="Explains how to attach the power cables and then turn on a StorSimple 8100 device for the first time."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
+#### Instalación de los cables de alimentación
 
-#### To cable for power
+1. Asegúrate de que el interruptor de alimentación de todos los módulos de alimentación y refrigeración (PCM) se encuentra en la posición de apagado.
 
-1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.
+2. Conecta los cables de alimentación a todos los PCM en el alojamiento principal.
 
-2. Connect the power cords to each of the PCMs in the primary enclosure.
+3. Adjunta los cables de alimentación a las unidades de distribución de energía (PDU) del bastidor tal y como se muestra en la siguiente imagen. Asegúrate de que los dos PCM utilicen fuentes de alimentación independientes.
 
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
+    >[AZURE.IMPORTANT]Para garantizar una alta disponibilidad del sistema, se recomienda cumplir estrictamente el esquema de cableado de potencia que se muestra en el siguiente diagrama de cableado.
 
-    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. 
+    ![Colocación del cable de alimentación del dispositivo 2U](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
 
-    ![Cable your 2U device for power](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    **Cables de alimentación de un dispositivo 8100**
 
-    **Power cabling on an 8100 device**
-
-    |Label|Description|
+    |Etiqueta|Descripción|
     |:----|:----------|
     |1|PCM 0|
-    |2|Controller 1|
-    |3|Controller 0|
+    |2|Controlador 1|
+    |3|Controlador 0|
     |4|PCM 1|
-    |5|PDUs|
+    |5|PDU|
 
-4. To turn on the system, flip the power switches on both PCMs to the ON position.
+4. Para encender el sistema gira el interruptor de alimentación de ambos PCM a la posición de encendido.
+
+<!---HONumber=August15_HO7-->

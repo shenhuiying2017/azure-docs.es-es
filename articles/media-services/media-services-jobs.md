@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Uso de trabajos de Servicios multimedia de Azure
@@ -60,4 +60,4 @@ Supervise el progreso del trabajo mediante el **Portal de administración de Azu
 [Cuotas y limitaciones](media-services-quotas-and-limitations.md): explica las cuotas usadas y las limitaciones del codificador de Servicios multimedia
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

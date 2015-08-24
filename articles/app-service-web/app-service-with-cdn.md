@@ -17,7 +17,6 @@
 	ms.author="cephalin"/>
 
 # Integración de una aplicación web de Azure con CDN de Azure #
-<a name="intro"></a>
 
 El Servicio de aplicaciones de Azure se puede integrar con [CDN de Azure](http://azure.microsoft.com/services/cdn/), que viene a sumarse a las capacidades globales de escalado inherentes a la aplicación web del Servicio de aplicaciones al servir el contenido de esta de forma global desde los nodos de servidor próximos a sus clientes (se puede encontrar una lista de todas las ubicaciones de nodos actuales [aquí](http://msdn.microsoft.com/library/azure/gg680302.aspx). Esta integración aumenta considerablemente el rendimiento de la aplicación web del Servicio de aplicaciones de Azure y mejora de forma significativa la experiencia del usuario de dicha aplicación en todo el mundo.
 
@@ -39,11 +38,8 @@ Este tutorial cuenta con los siguientes requisitos previos:
 -	Una [cuenta de Microsoft Azure activa](http://azure.microsoft.com/account/)
 -	Visual Studio 2013 con el [SDK de Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial:
-> + Puede [abrir una cuenta de Azure gratis](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web.
-> + Puede [activar los beneficios de suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+> [AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial: + Puede [abrir una cuenta de Azure gratis](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F): obtenga créditos que puede usar para probar los servicios de pago de Azure, e incluso cuando los haya agotado, podrá conservar la cuenta y usar los servicios de Azure gratis, como Aplicaciones web. + Puede [activar los beneficios de suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 
-<a name="deploy"></a>
 ## Implementación de una aplicación web de Azure con un extremo de red CDN integrado ##
 
 En esta sección, implementará la plantilla de aplicación predeterminada ASP.NET MVC de Visual Studio 2013 en una aplicación web de Azure y luego la integrará con un nuevo extremo de CDN. Siga las instrucciones que se describen a continuación:
@@ -120,22 +116,20 @@ Tenga en cuenta que puede que no siempre sea una buena idea (o por lo general un
 
 -	Este enfoque requiere que el sitio entero sea público, dado que CDN de Azure no puede servir contenido privado.
 -	Si por algún motivo el extremo de red CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, la aplicación web entera se desconecta, a menos que los clientes se puedan redirigir a la dirección URL de origen **http://*&lt;sitename>*.azurewebsites.net/**.. 
--	Incluso con la configuración personalizada del control de la memoria caché (consulte [Configuración de las opciones de almacenamiento en caché para los archivos estáticos en la aplicación web de Azure](#caching)), un extremo de red CDN no mejora el rendimiento del contenido extremadamente dinámico. Si ha intentado cargar la página principal desde el extremo de red CDN como se ha mostrado anteriormente, tenga en cuenta que al menos tardará cinco segundos en cargarse la página principal predeterminada la primera vez, pese a ser una página bastante simple. Imagine entonces cómo sería la experiencia del cliente si esta página incluyera contenido dinámico que se debe actualizar cada minuto. Servir contenido dinámico desde un extremo de red CDN requiere una corta caducidad de la caché, lo que se traduce en errores frecuentes de la caché en el extremo de red CDN. Esto afecta al rendimiento de la aplicación web de Azure y frustra el propósito de una red CDN.
+-	Incluso con la configuración personalizada del control de la memoria caché (consulte [Configuración de las opciones de almacenamiento en caché para los archivos estáticos en la aplicación web de Azure](#configure-caching-options-for-static-files-in-your-azure-web-app)), un extremo de red CDN no mejora el rendimiento del contenido extremadamente dinámico. Si ha intentado cargar la página principal desde el extremo de red CDN como se ha mostrado anteriormente, tenga en cuenta que al menos tardará cinco segundos en cargarse la página principal predeterminada la primera vez, pese a ser una página bastante simple. Imagine entonces cómo sería la experiencia del cliente si esta página incluyera contenido dinámico que se debe actualizar cada minuto. Servir contenido dinámico desde un extremo de red CDN requiere una corta caducidad de la caché, lo que se traduce en errores frecuentes de la caché en el extremo de red CDN. Esto afecta al rendimiento de la aplicación web de Azure y frustra el propósito de una red CDN.
 
-La alternativa es determinar caso por caso qué contenido se va a servir desde CDN de Azure en la aplicación web de Azure. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de red CDN. Le mostraremos cómo servir una acción de controlador específica a través del extremo de red CDN en [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#controller).
+La alternativa es determinar caso por caso qué contenido se va a servir desde CDN de Azure en la aplicación web de Azure. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de red CDN. Le mostraremos cómo servir una acción de controlador específica a través del extremo de red CDN en [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#serve-content-from-controller-actions-through-azure-cdn).
 
-<a name="caching"></a>
 ## Configuración de las opciones de almacenamiento en caché para los archivos estáticos de la aplicación web de Azure ##
 
-Con la integración de la red CDN de Azure en la aplicación web de Azure, puede especificar cómo quiere que el contenido estático se almacene en la caché en el extremo de red CDN. Para ello, abra el archivo *Web.config* desde su proyecto ASP.NET (por ejemplo, **cdnwebapp**) y agregue un elemento `<staticContent>` a `<system.webServer>`. El código XML siguiente configura la memoria caché para que expire en 3 días.
-<pre class="prettyprint">
-&lt;system.webServer&gt;
-  <mark>&lt;staticContent&gt;
-    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
-  &lt;/staticContent&gt;</mark>
-  ...
-&lt;/system.webServer&gt;
-</pre>
+Con la integración de la red CDN de Azure en la aplicación web de Azure, puede especificar cómo quiere que el contenido estático se almacene en la caché en el extremo de red CDN. Para ello, abra el archivo *Web.config* desde su proyecto ASP.NET (por ejemplo, **cdnwebapp**) y agregue un elemento `<staticContent>` a `<system.webServer>`. El XML siguiente configura la caché para que caduque en tres días.
+
+    <system.webServer>
+      <staticContent>
+        <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="3.00:00:00"/>
+      </staticContent>
+      ...
+    </system.webServer>
 
 Una vez realizado esto, todos los archivos estáticos de la aplicación web de Azure cumplirán la misma regla en la memoria caché de red CDN. Para un control más granular de la configuración de la caché, agregue un archivo *Web.config* a una carpeta y agregue ahí su configuración. Por ejemplo, agregue un archivo *Web.config* a la carpeta *\Content* y sustituya el contenido por el siguiente XML:
 
@@ -152,12 +146,11 @@ Esta configuración hace que todos los archivos estáticos de la carpeta *\Conte
 
 Para obtener más información sobre cómo configurar el elemento `<clientCache>`, vea [Caché de cliente clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
-En [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#controller) también le mostraremos cómo configurar los valores de caché para los resultados de las acciones de controlador en la memoria caché de CDN.
+En [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#serve-content-from-controller-actions-through-azure-cdn) también le mostraremos cómo configurar los valores de caché para los resultados de las acciones de controlador en la memoria caché de CDN.
 
-<a name="controller"></a>
 ## Suministro de contenido de acciones de controlador a través de la red CDN de Azure ##
 
-Al integrar una aplicación web con la red CDN de Azure, es relativamente fácil servir el contenido de acciones de controlador a través de la red CDN de Azure. Sin embargo, si decide suministrar la aplicación web de Azure completa a través de la red CDN, no será necesario hacerlo, puesto que todas las acciones de controlador están accesibles a través de dicha red. No obstante, debido a los motivos indicados en [Implementación de una aplicación web de Azure con un extremo de red CDN integrado](#deploy), puede que decida no adoptar esta opción y optar por seleccionar la acción de controlador que desea servir desde la red CDN de Azure. [Maarten Balliauw](https://twitter.com/maartenballiauw) muestra cómo hacerlo con un divertido controlador MemeGenerator en [Reducción de la latencia en Web con la red CDN de Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Aquí simplemente lo vamos a reproducir.
+Al integrar una aplicación web con la red CDN de Azure, es relativamente fácil servir el contenido de acciones de controlador a través de la red CDN de Azure. Sin embargo, si decide suministrar la aplicación web de Azure completa a través de la red CDN, no será necesario hacerlo, puesto que todas las acciones de controlador están accesibles a través de dicha red. No obstante, debido a los motivos indicados en [Implementación de una aplicación web de Azure con un extremo de red CDN integrado](#deploy-an-azure-web-app-with-an-integrated-cdn-endpoint), puede que decida no adoptar esta opción y optar por seleccionar la acción de controlador que desea servir desde la red CDN de Azure. [Maarten Balliauw](https://twitter.com/maartenballiauw) muestra cómo hacerlo con un divertido controlador MemeGenerator en [Reducción de la latencia en Web con la red CDN de Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Aquí simplemente lo vamos a reproducir.
 
 Suponga que desea generar en la aplicación web memes basados en una imagen de Chuck Norris de joven (foto de [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) como esta:
 
@@ -167,105 +160,104 @@ Tiene una acción `Index` sencilla que permite a los clientes especificar los su
 
 Siga los pasos anteriores para configurar esta acción de controlador:
 
-1. En la carpeta *\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Asegúrese de sustituir la parte resaltada por su ruta de acceso de archivo y nombre de red CDN.
-	<pre class="prettyprint">
-	using System;
-	using System.Collections.Generic;
-	using System.Diagnostics;
-	using System.Drawing;
-	using System.IO;
-	using System.Net;
-	using System.Web.Hosting;
-	using System.Web.Mvc;
-	using System.Web.UI;
-	
-	namespace cdnwebapp.Controllers
-	{
-	    public class MemeGeneratorController : Controller
-	    {
-	        static readonly Dictionary&lt;string, Tuple&lt;string ,string&gt;&gt; Memes = new Dictionary&lt;string, Tuple&lt;string, string&gt;&gt;();
-
-	        public ActionResult Index()
-	        {
-	            return View();
-	        }
-	
-	        [HttpPost, ActionName(&quot;Index&quot;)]
-        	public ActionResult Index_Post(string top, string bottom)
-	        {
-	            var identifier = Guid.NewGuid().ToString();
-	            if (!Memes.ContainsKey(identifier))
-	            {
-	                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
-	            }
-	
-	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
-	        }
+1. En la carpeta *\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Sustituya la ruta de acceso al archivo por `~/Content/chuck.bmp` y el nombre de la red CDN por `yourCDNName`.
 
 
-	        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
-	        public ActionResult Show(string id)
-	        {
-	            Tuple&lt;string, string&gt; data = null;
-	            if (!Memes.TryGetValue(id, out data))
-	            {
-	                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-	            }
-	
-	            if (Debugger.IsAttached) // Preserve the debug experience
-	            {
-	                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
-	            }
-	            else // Get content from Azure CDN
-	            {
-	                return Redirect(string.Format(&quot;http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
-	            }
-	        }
+        using System;
+        using System.Collections.Generic;
+        using System.Diagnostics;
+        using System.Drawing;
+        using System.IO;
+        using System.Net;
+        using System.Web.Hosting;
+        using System.Web.Mvc;
+        using System.Web.UI;
 
-	        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
-	        public ActionResult Generate(string top, string bottom)
-	        {
-	            string imageFilePath = HostingEnvironment.MapPath(&quot;<mark>~/Content/chuck.bmp</mark>&quot;);
-	            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
-	
-	            using (Graphics graphics = Graphics.FromImage(bitmap))
-	            {
-	                SizeF size = new SizeF();
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
-	                {
-	                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
-	                }
-	                using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
-	                {
-	                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
-	                }
-	            }
-	
-	            MemoryStream ms = new MemoryStream();
-	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	            return File(ms.ToArray(), &quot;image/png&quot;);
-	        }
-	
-	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
-	        {
-	            // Compute actual size, shrink if needed
-	            while (true)
-	            {
-	                size = g.MeasureString(text, font);
-	
-	                // It fits, back out
-	                if (size.Height &lt; i.Height &amp;&amp;
-	                     size.Width &lt; i.Width) { return font; }
-	
-	                // Try a smaller font (90% of old size)
-	                Font oldFont = font;
-	                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
-	                oldFont.Dispose();
-	            }
-	        }
-	    }
-	}
-	</pre>
+        namespace cdnwebapp.Controllers
+        {
+            public class MemeGeneratorController : Controller
+            {
+              static readonly Dictionary<string, Tuple<string ,string>> Memes = new Dictionary<string, Tuple<string, string>>();
+
+              public ActionResult Index()
+              {
+                return View();
+              }
+
+              [HttpPost, ActionName("Index")]
+              public ActionResult Index_Post(string top, string bottom)
+              {
+                var identifier = Guid.NewGuid().ToString();
+                if (!Memes.ContainsKey(identifier))
+                {
+                  Memes.Add(identifier, new Tuple<string, string>(top, bottom));
+                }
+
+                return Content("<a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme</a>");
+              }
+
+              [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+              public ActionResult Show(string id)
+              {
+                Tuple<string, string> data = null;
+                if (!Memes.TryGetValue(id, out data))
+                {
+                  return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+                }
+
+                if (Debugger.IsAttached) // Preserve the debug experience
+                {
+                  return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+                }
+                else // Get content from Azure CDN
+                {
+                  return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+                }
+              }
+
+              [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
+              public ActionResult Generate(string top, string bottom)
+              {
+                string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
+                Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
+
+                using (Graphics graphics = Graphics.FromImage(bitmap))
+                {
+                  SizeF size = new SizeF();
+                  using (Font arialFont = FindBestFitFont(bitmap, graphics, top.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                  {
+                    graphics.DrawString(top.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), 10f));
+                  }
+                  using (Font arialFont = FindBestFitFont(bitmap, graphics, bottom.ToUpperInvariant(), new Font("Arial Narrow", 100), out size))
+                  {
+                    graphics.DrawString(bottom.ToUpperInvariant(), arialFont, Brushes.White, new PointF(((bitmap.Width - size.Width) / 2), bitmap.Height - 10f - arialFont.Height));
+                  }
+                }
+
+                MemoryStream ms = new MemoryStream();
+                bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                return File(ms.ToArray(), "image/png");
+              }
+
+              private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
+              {
+                // Compute actual size, shrink if needed
+                while (true)
+                {
+                  size = g.MeasureString(text, font);
+
+                  // It fits, back out
+                  if (size.Height < i.Height &&
+                     size.Width < i.Width) { return font; }
+
+                  // Try a smaller font (90% of old size)
+                  Font oldFont = font;
+                  font = new Font(font.Name, (float)(font.Size * .9), font.Style);
+                  oldFont.Dispose();
+                }
+              }
+           }
+        }
 
 2. Haga clic con el botón derecho en la acción `Index()` predeterminada y seleccione **Agregar vista**.
 
@@ -289,27 +281,27 @@ Siga los pasos anteriores para configurar esta acción de controlador:
 
 5. Publique de nuevo en la aplicación web de Azure y navegue a **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** en el explorador.
 
-Cuando envía los valores de formulario a `/MemeGenerator/Index`, el método de acción `Index_Post` devuelve un vínculo al método de acción `Show` con el identificador de entrada respectivo. Cuando hace clic en el vínculo, llega al siguiente código:
-<pre class="prettyprint">
-[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
-public ActionResult Show(string id)
-{
-    Tuple&lt;string, string&gt; data = null;
-    if (!Memes.TryGetValue(id, out data))
-    {
-        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-    }
+  Cuando envía los valores de formulario a `/MemeGenerator/Index`, el método de acción `Index_Post` devuelve un vínculo al método de acción `Show` con el identificador de entrada respectivo. Cuando hace clic en el vínculo, llega al siguiente código:
 
-    if (Debugger.IsAttached) // Preserve the debug experience
-    {
-        return Redirect(string.Format(";/MemeGenerator/Generate?top={0}&bottom={1}";, data.Item1, data.Item2));
-    }
-    else // Get content from Azure CDN
-    {
-        return Redirect(string.Format(";http://&lt;yourCDNName&gt;.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
-    }
-}
-</pre>
+        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+	public ActionResult Show(string id)
+	{
+          Tuple<string, string> data = null;
+          if (!Memes.TryGetValue(id, out data))
+          {
+            return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+          }
+
+          if (Debugger.IsAttached) // Preserve the debug experience
+          {
+            return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+          }
+          else // Get content from Azure CDN
+          {
+            return Redirect(string.Format("http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+          }
+        }
+
 
 Si su depurador local está conectado, obtendrá la experiencia de depuración normal con una redirección local. Si se está ejecutando en la aplicación web de Azure, redirigirá a:
 
@@ -331,10 +323,9 @@ Igualmente, puede servir contenido de cualquier acción de controlador de la apl
 
 En la siguiente sección, le mostraremos cómo servir los scripts y CSS unidos y minificados a través de la red CDN de Azure.
 
-<a name="bundling"></a>
 ## Integración de unión y minificación de ASP.NET con CDN de Azure ##
 
-Los scripts y las hojas de estilo CSS cambian con poca frecuencia y son los principales candidatos para la caché de red CDN de Azure. Prestar servicio a toda la aplicación web a través de la red CDN de Azure es la manera más fácil de integrar unión y minificación con CDN de Azure. Sin embargo, como puede que elija en contra de este enfoque debido a las razones descritas en [Integración de un extremo de la red CDN de Azure con la aplicación web de Azure y suministro de contenido estático en las páginas web desde la red CDN de Azure](#deploy), mostraremos cómo hacerlo conservando la experiencia de desarrollador deseada de unión y minificación de ASP.NET, como:
+Los scripts y las hojas de estilo CSS cambian con poca frecuencia y son los principales candidatos para la caché de red CDN de Azure. Prestar servicio a toda la aplicación web a través de la red CDN de Azure es la manera más fácil de integrar unión y minificación con CDN de Azure. Sin embargo, como puede que elija en contra de este enfoque debido a las razones descritas en [Integración de un extremo de la red CDN de Azure con la aplicación web de Azure y suministro de contenido estático en las páginas web desde la red CDN de Azure](#deploy-an-azure-web-app-with-an-integrated-cdn-endpoint), mostraremos cómo hacerlo conservando la experiencia de desarrollador deseada de unión y minificación de ASP.NET, como:
 
 -	Gran experiencia en el modo de depuración
 -	Implementación optimizada
@@ -342,7 +333,7 @@ Los scripts y las hojas de estilo CSS cambian con poca frecuencia y son los prin
 -	Mecanismo de reserva cuando el extremo de red CDN falla
 -	Menor modificación del código
 
-En el proyecto ASP.NET que creó en [Integración de un extremo de la red CDN de Azure con el sitio web de Azure y suministro de contenido estático en las páginas web desde la red CDN de Azure](#deploy), abra *App_Start\BundleConfig.cs* y examine las llamadas de método `bundles.Add()`.
+En el proyecto ASP.NET que creó en [Integración de un extremo de la red CDN de Azure con el sitio web de Azure y suministro de contenido estático en las páginas web desde la red CDN de Azure](#deploy-an-azure-web-app-with-an-integrated-cdn-endpoint), abra *App_Start\BundleConfig.cs* y examine las llamadas de método `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -368,34 +359,34 @@ Esto permite depurar el código JavaScript de su entorno de desarrollo y, al mis
 Siga estos pasos para la integración de la unión y minificación de ASP.NET con el extremo de red CDN.
 
 1. De vuelta en *App_Start\BundleConfig.cs*, modifique los métodos `bundles.Add()` para usar un [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) diferente, uno que especifique una dirección de CDN. Para ello, reemplace la definición del método `RegisterBundles` por el código siguiente:  
-	<pre class="prettyprint">
-public static void RegisterBundles(BundleCollection bundles)
-{
-    bundles.UseCdn = true;
-    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
-        .GetName().Version.ToString();
-    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+	
+        public static void RegisterBundles(BundleCollection bundles)
+        {
+          bundles.UseCdn = true;
+          var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
+            .GetName().Version.ToString();
+          var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
 
-    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
 
-    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
                 "~/Scripts/jquery.validate*"));
 
-    // Use la versión de desarrollo de Modernizr para desarrollar y aprender con ella. A continuación, cuando esté
-    // listo para producción, use la herramienta de compilación de http://modernizr.com para seleccionar solo las pruebas que necesite.
-    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          // Use la versión de desarrollo de Modernizr para desarrollar y aprender con ella. A continuación, cuando esté
+          // listo para producción, use la herramienta de compilación de http://modernizr.com para seleccionar solo las pruebas que necesite.
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
                 "~/Scripts/modernizr-*"));
 
-    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js"));
 
-    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+          bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}
-	</pre>
+        }
+
 	Asegúrese de sustituir `<yourCDNName>` por el nombre de su CDN de Azure.
 
 	En otras palabras, ha configurado `bundles.UseCdn = true` y agregado una dirección URL de red CDN diseñada especialmente para cada paquete. Por ejemplo, el primer constructor del código:
@@ -419,82 +410,72 @@ public static void RegisterBundles(BundleCollection bundles)
 3. Vuelva a publicar la aplicación ASP.NET y obtenga acceso a la página principal.
  
 4. Vea el código HTML de la página. Debería poder ver la dirección URL de red CDN procesada, con una cadena de versión única cada vez que vuelve a publicar los cambios en la aplicación web de Azure. Por ejemplo:
-	<pre class="prettyprint">
-	...
+	
 
-    &lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449&quot; rel=&quot;stylesheet&quot;/&gt;
-
-    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
-
-	...
-
-    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
-
-    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
-
-	...</pre>
+        ...
+        <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+        <script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+        ...
+        <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
+        <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+        ...
 
 5. En Visual Studio, depure la aplicación de ASP.NET en Visual Studio escribiendo `F5`.,
 
 6. Vea el código HTML de la página. Aún verá cada archivo de script procesado de forma individual para que pueda tener una experiencia de depuración coherente en Visual Studio.
-	<pre class="prettyprint">
-	...
 	
-	    &lt;link href=&quot;/Content/bootstrap.css&quot; rel=&quot;stylesheet&quot;/&gt;
-	&lt;link href=&quot;/Content/site.css&quot; rel=&quot;stylesheet&quot;/&gt;
-	
-	    &lt;script src=&quot;/Scripts/modernizr-2.6.2.js&quot;&gt;&lt;/script&gt;
-	
-	...
-	
-	    &lt;script src=&quot;/Scripts/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
-	
-	    &lt;script src=&quot;/Scripts/bootstrap.js&quot;&gt;&lt;/script&gt;
-	&lt;script src=&quot;/Scripts/respond.js&quot;&gt;&lt;/script&gt;
-	
-	...    
-	</pre>
 
-<a name="fallback"></a>
+        ...
+        <link href="/Content/bootstrap.css" rel="stylesheet"/>
+        <link href="/Content/site.css" rel="stylesheet"/>
+        <script src="/Scripts/modernizr-2.6.2.js"></script>
+        ...
+        <script src="/Scripts/jquery-1.10.2.js"></script>
+        <script src="/Scripts/bootstrap.js"></script>
+        <script src="/Scripts/respond.js"></script>
+        ...    
+
+
 ## Mecanismo de reserva para URL de red CDN ##
 
 Cuando el extremo de red CDN de Azure no funcione por cualquier motivo, querrá que su página web sea lo bastante inteligente como para acceder al servidor web de origen como opción de reserva para cargar JavaScript o Bootstrap. Es grave perder imágenes en la aplicación web debido a la falta de disponibilidad de la red CDN, pero es aún más grave perder la funcionalidad de página esencial que proporcionan los scripts y hojas de estilos.
 
 La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una propiedad llamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que le permite configurar el mecanismo de reserva en caso de error de red CDN. Para usar esta propiedad, siga estos pasos:
 
-1. En el proyecto ASP.NET, abra *App_Start\BundleConfig.cs*, donde agregó una URL de CDN a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx), y realice los cambios resaltados siguientes para agregar el mecanismo de reserva a los paquetes predeterminados:  
-	<pre class="prettyprint">
-public static void RegisterBundles(BundleCollection bundles)
-{
-    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
-        .GetName().Version.ToString();
-    var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
-    bundles.UseCdn = true;
+1. En el proyecto ASP.NET, abra *App_Start\BundleConfig.cs*, donde agregó una dirección URL de la red CDN a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) y agregue el código `CdnFallbackExpression` como se muestra para agregar la funcionalidad de reserva a los paquetes predeterminados:  
+	
+        public static void RegisterBundles(BundleCollection bundles)
+        {
+          var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
+            .GetName().Version.ToString();
+    	  var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
+          bundles.UseCdn = true;
 
-    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
-				{ CdnFallbackExpression = "window.jquery" }
+    	  bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
+                { CdnFallbackExpression = "window.jquery" }
                 .Include("~/Scripts/jquery-{version}.js"));
 
-    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
-				{ CdnFallbackExpression = "$.validator" }
-            	.Include("~/Scripts/jquery.validate*"));
+    	  bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
+                { CdnFallbackExpression = "$.validator" }
+                .Include("~/Scripts/jquery.validate*"));
 
-    // Use la versión de desarrollo de Modernizr para desarrollar y aprender con ella. A continuación, cuando esté
-    // listo para producción, use la herramienta de compilación de http://modernizr.com para seleccionar solo las pruebas que necesite.
-    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
-				{ CdnFallbackExpression = "window.Modernizr" }
-				.Include("~/Scripts/modernizr-*"));
+    	  // Use la versión de desarrollo de Modernizr para desarrollar y aprender con ella. A continuación, cuando esté
+    	  // listo para producción, use la herramienta de compilación de http://modernizr.com para seleccionar solo las pruebas que necesite.
+    	  bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+                { CdnFallbackExpression = "window.Modernizr" }
+                .Include("~/Scripts/modernizr-*"));
 
-    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
-				{ CdnFallbackExpression = "$.fn.modal" }
-        		.Include(
-	              		"~/Scripts/bootstrap.js",
-	              		"~/Scripts/respond.js"));
+    	  bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap"))     
+                { CdnFallbackExpression = "$.fn.modal" }
+                .Include(
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/respond.js"));
 
-    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+    	  bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-	}</pre>
+        }
+
 	Cuando `CdnFallbackExpression` no tiene un valor null, el script se inserta en el código HTML para probar si el paquete está cargado correctamente y, en caso contrario, obtener acceso al paquete directamente desde el servidor web de origen. Esta propiedad se debe configurar como una expresión de JavaScript que prueba si el paquete de red CDN respectivo se ha cargado correctamente. La expresión necesaria para probar cada paquete es diferente según el contenido. En el caso de los paquetes predeterminados anteriores:
 	
 	-	`window.jquery` se define en jquery-{version}.js
@@ -511,55 +492,53 @@ public static void RegisterBundles(BundleCollection bundles)
 4. En *App_Start\StyleFundleExtensions.cs*, cambie el nombre del espacio de nombres al espacio de nombres de la aplicación ASP.NET (por ejemplo **cdnwebapp**).
 
 3. Vuelva a `App_Start\BundleConfig.cs` y modifique la última instrucción `bundles.Add` como se muestra a continuación.
-	<pre class="prettyprint">
-bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
-    .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
-    .Include(
-          "~/Content/bootstrap.css",
-          "~/Content/site.css"));
-	</pre>
+	
+        bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
+          .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
+          .Include(
+            "~/Content/bootstrap.css",
+            "~/Content/site.css"));
+
 	Este nuevo método de extensión usa la misma idea para inyectar el script en el código HTML a fin de comprobar si hay una coincidencia en el DOM para un nombre de clase, nombre de regla o valor de regla definidos en el paquete de CSS y, en caso de no encontrarla, recurre al servidor web de origen.
 
 4. Vuelva a publicar en la aplicación web de Azure y obtenga acceso a la página principal.
 5. Vea el código HTML de la página. Debería encontrar scripts inyectados simulares a los siguientes:    
-	<pre class="prettyprint">...
+	
+    ```
+        ...
+    	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+        <script>(function() {
+           var loadFallback,
+           len = document.styleSheets.length;
+           for (var i = 0; i < len; i++) {
+                    var sheet = document.styleSheets[i];
+                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+                        var meta = document.createElement('meta');
+                        meta.className = 'sr-only';
+                        document.head.appendChild(meta);
+                        var value = window.getComputedStyle(meta).getPropertyValue('width');
+                        document.head.removeChild(meta);
+                        if (value !== '1px') {
+                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
+                        }
+                    }
+                }
+                return true;
+            }())||document.write('<script src="/Content/css"><\/script>');</script>
 
-		&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-	&lt;script>(function() {
-	                var loadFallback,
-	                    len = document.styleSheets.length;
-	                for (var i = 0; i &lt; len; i++) {
-	                    var sheet = document.styleSheets[i];
-	                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-	                        var meta = document.createElement('meta');
-	                        meta.className = 'sr-only';
-	                        document.head.appendChild(meta);
-	                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-	                        document.head.removeChild(meta);
-	                        if (value !== '1px') {
-	                            document.write('&lt;link href="/Content/css" rel="stylesheet" type="text/css" />');
-	                        }
-	                    }
-	                }
-	                return true;
-	            }())||document.write('&lt;script src="/Content/css">&lt;\/script>');&lt;/script>
+    	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
+        <script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
+        ... 
+        <script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+        <script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
+        <script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+        <script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
+        ...
+    ```
 
-	    &lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474">&lt;/script>
-	&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;\/script>');&lt;/script>
-	
-	...	
-	
-	    &lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474">&lt;/script>
-	&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;\/script>');&lt;/script>
-	
-	    &lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474">&lt;/script>
-	&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;\/script>');&lt;/script>
-	
-	...
-	</pre>
 	Observe que el script inyectado para el paquete de CSS contiene aún el residuo errante de la propiedad `CdnFallbackExpression` en la línea:
 
-        }())||document.write('<script src="/Content/css"></script>');</script>
+        }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	Pero como la primera parte de la expresión || siempre devolverá true (en la línea directamente encima de esa), la función document.write() nunca se ejecutará.
 
@@ -577,4 +556,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Uso de la red CDN en Azure](../cdn-how-to-use.md)
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

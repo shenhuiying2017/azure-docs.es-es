@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de servicio móvil de back-end de .NET que usa almacenamiento de tabla en lugar de una base de datos SQL | Servicios móviles de Azure" 
+	pageTitle="Creación de un servicio móvil que usa almacenamiento de tabla en lugar de una base de datos SQL | Microsoft Azure" 
 	description="Obtenga información sobre cómo usar el almacenamiento de tabla de Azure con su servicio móvil de back-end de .NET." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -158,4 +158,4 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

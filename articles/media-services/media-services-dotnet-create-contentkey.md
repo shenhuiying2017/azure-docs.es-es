@@ -13,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 #Creación de claves de contenido con .NET
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-create-contentkey.md)
+- [.NET](media-services-dotnet-create-contentkey.md)
 
 Servicios multimedia permite crear nuevos recursos y entregar recursos cifrados. Una **ContentKey** proporciona acceso seguro a los **recursos**.
 
 Al crear un nuevo recurso (por ejemplo, antes de [cargar archivos](media-services-dotnet-upload-files.md)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**.
 
-Al enviar recursos a los clientes, puede [configurar que los recursos se cifren de forma dinámica](media-services-dotnet-configure-asset-delivery-policy.md) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
+Al entregar recursos a los clientes, puede [configurar que los recursos se cifren de forma dinámica](media-services-dotnet-configure-asset-delivery-policy.md) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
 Los recursos cifrados tienen que estar asociados con **ContentKey**. En este artículo se describe cómo crear una clave de contenido.
 
->[AZURE.NOTE]Al crear un nuevo recurso **StorageEncrypted** con el SDK de Servicios multimedia para .NET, la **ContentKey** se crea automáticamente y se vincula al recurso.
+>[AZURE.NOTE]Al crear un nuevo recurso **StorageEncrypted** con el SDK de Servicios multimedia para .NET, se crea automáticamente el valor de **ContentKey** y se vincula al recurso.
 
 ##ContentKeyType
 
@@ -133,4 +135,4 @@ llamada
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

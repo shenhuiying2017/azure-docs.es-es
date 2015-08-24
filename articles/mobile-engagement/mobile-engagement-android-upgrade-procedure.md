@@ -3,7 +3,7 @@
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #Procedimientos de actualización
@@ -363,4 +363,4 @@ La configuración de Proguard se puede ver afectada por la renovación de la mar
 			}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

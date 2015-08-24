@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Habilitación de canalizaciones para trabajar con datos locales | Factoría de datos de Azure" 
+	pageTitle="Habilitación de canalizaciones para trabajar con datos locales | Microsoft Azure" 
 	description="Obtenga información acerca de cómo registrar un origen de datos local con una factoría de datos de Azure y copiar datos en el origen de datos o desde él." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -319,7 +319,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 	- **folderPath** está establecido en **adftutorial/outfromonpremdf**, donde outfromonpremdf es la carpeta del contenedor adftutorial. Solo tiene que crear el contenedor **adftutorial**.
 	- El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval**, en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure. 
 
-	Si no especifica **fileName** para una **tabla de entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Consulte los archivos de ejemplo del [tutorial][adf-tutorial] para ver algunos ejemplos.
+	Si no especifica **fileName** para una **tabla de entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Consulte los archivos de muestra del [tutorial][adf-tutorial] para ver algunos ejemplos.
  
 	Si no especifica un valor **fileName** para una tabla de salida, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -395,8 +395,8 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
  
 	- En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
-	- En la sección **transformation** , **SqlSource** está especificado como el **tipo de origen** y **BlobSink **está especificado como el **tipo de receptor**.
-	- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
+	- En la sección **transformation** , **SqlSource** está especificado como el **tipo de origen** y **BlobSink ** está especificado como el **tipo de receptor**.
+- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
 	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://es.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
@@ -464,7 +464,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 	![Hoja Detalles de ejecución de actividad][image-data-factory-activity-run-details]
 
 11. Haga clic en **X** para cerrar todas las hojas hasta volver a la hoja principal de **ADFTutorialOnPremDF**.
-14. (Opcional) Haga clic en **Canalizaciones**, elija **ADFTutorialOnPremDF** y explore en profundidad las tablas de entrada (**Consumido**) o las tablas de salida (**Producido**).
+14. (Opcional) Haga clic en **Canalizaciones**, elija **ADFTutorialOnPremDF** y obtenga detalles de las tablas de entrada (**Consumido**) o las tablas de salida (**Producido**).
 15. Use herramientas como el **Explorador de almacenamiento de Azure** para comprobar la salida.
 
 	![Explorador de almacenamiento de Azure][image-data-factory-stroage-explorer]
@@ -486,7 +486,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 	**Ejemplo de comando y salida**:
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -508,12 +508,12 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 	**Ejemplo de comando y salida:**
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. En Azure PowerSell, cambie a la carpeta **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -626,4 +626,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureDataFactoryGateway
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

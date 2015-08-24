@@ -1,81 +1,76 @@
-<properties 
-	pageTitle="Hoja de referencia rápida de algoritmos de aprendizaje automático | Microsoft Azure" 
+<properties
+	pageTitle="Hoja de referencia rápida de algoritmos de aprendizaje automático | Microsoft Azure"
 	description="Una hoja de referencia rápida de algoritmos de aprendizaje automático que puede imprimirse le ayudará a elegir el algoritmo correcto para el modelo de predicción en Estudio de aprendizaje automático de Azure."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="brohrer" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="brohrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="brohrer;garye" />
 
 
 # Hoja de referencia rápida de algoritmos de aprendizaje automático de Estudio de aprendizaje automático de Microsoft Azure
 
-La **Hoja de referencia rápida de algoritmos de aprendizaje automático de Microsoft Azure** ayuda a elegir el algoritmo de aprendizaje automático adecuado para sus soluciones de análisis predictivos de la biblioteca de algoritmos de aprendizaje automático de Microsoft Azure. La hoja de referencia rápida le hace preguntas sobre la naturaleza de sus datos y el problema que está intentando solucionar, y luego le sugiere que pruebe un algoritmo.
+La **Hoja de referencia rápida de algoritmos de aprendizaje automático de Microsoft Azure** ayuda a elegir el algoritmo de aprendizaje automático adecuado para sus soluciones de análisis predictivos de la biblioteca de algoritmos de aprendizaje automático de Microsoft Azure.
 
 [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) incluye un gran número de algoritmos de aprendizaje automático para sus soluciones de análisis predictivo. Estos algoritmos se incluyen en las categorías generales de aprendizaje automático de ***regresión***, ***clasificación***, ***agrupación en clústeres*** y ***detección de anomalías***. Cada una de ellas está diseñada para resolver un tipo de problema de aprendizaje automático diferente.
 
-
+> [AZURE.NOTE]Para obtener una guía detallada del uso de esta hoja de referencia rápida, consulte el artículo [Elección de algoritmos de Aprendizaje automático de Azure para la agrupación en clústeres, clasificación o regresión](machine-learning-algorithm-choice.md).
 
 ## Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático
 
 Descargue la hoja de referencia rápida de algoritmos de aprendizaje automático para obtener ayuda para comprender cómo elegir un algoritmo de aprendizaje automático para su solución. Para mantenerla cerca, puede imprimir la hoja de referencia en tamaño tabloide (11 x 17 pulg.).
 
-**Descargue aquí la hoja de referencia rápida: [Hoja de referencia rápida de algoritmos de Aprendizaje automático de Microsoft Azure](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v2.pdf)**
+**Descargue aquí la hoja de referencia rápida: [Hoja de referencia rápida de algoritmos de Aprendizaje automático de Microsoft Azure](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Hoja de referencia rápida de algoritmos de aprendizaje automático: elección de un algoritmo de aprendizaje automático.][cheat-sheet]
 
-[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-microsoft-azure.png
+[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/cheat-sheet-small_v_0_6-01.png
 
 
+## Más ayuda con los algoritmos
 
-<!-- This is now covered in the first footnote below
-[Azure Machine Learning Studio](https://studio.azureml.net/) gives you the flexibility to experiment - 
-try one algorithm, and if you're not satisfied with the results, try another.
-Here's an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net) of an experiment that tries several algorithms against the same data and compares the results:
-[Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
--->
-
-## Más ayuda con los algoritmos 
-
-* Para obtener un examen más profundo de los distintos tipos de algoritmos de aprendizaje automático y cómo se usan, consulte [Selección de un algoritmo de Aprendizaje automático de Azure](machine-learning-algorithm-choice.md).
+* Para obtener más información sobre los distintos tipos de algoritmos de aprendizaje automático, cómo se usan y cómo usar esta hoja de referencia rápida para elegir el algoritmo correcto, consulte [Elección de algoritmos de Aprendizaje automático de Azure para la agrupación en clústeres, clasificación o regresión](machine-learning-algorithm-choice.md).
 * Para ver una lista por categoría de todos los algoritmos disponibles de aprendizaje automático en Estudio de aprendizaje automático, consulte [Inicializar modelo][initialize-model] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
-* Para ver una lista completa de todos los algoritmos de Estudio de aprendizaje automático, consulte [Lista de la A a la Z de módulos de Estudio de aprendizaje automático](https://msdn.microsoft.com/library/azure/dn906033.aspx) en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
+* Para ver una lista completa de todos los algoritmos de Estudio de aprendizaje automático, consulte [Lista de la A a la Z de módulos de Estudio de aprendizaje automático][a-z-list] en la Ayuda de módulos y algoritmos de Estudio de aprendizaje automático.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Notas y definiciones de terminología de la hoja de referencia rápida de algoritmos de aprendizaje automático
+<!-- This needs to be updated based on the new Choosing and Algorithm article
 
-* Las sugerencias ofrecidas en esta hoja de referencia rápida de algoritmos son reglas generales aproximadas. Algunas se pueden ignorar y otras se pueden infringir de forma fragante. Su finalidad es sugerir un punto de partida. No tema ejecutar una competición directa entre varios algoritmos en sus datos. Realmente no hay sustituto para comprender los principios de cada algoritmo y el sistema que generó los datos. 
+## Notes and terminology definitions for the machine learning algorithm cheat sheet
 
-* Cada algoritmo de aprendizaje automático tiene su propio estilo o *sesgo inductivo*. Para un problema específico, varios algoritmos pueden ser apropiados y un algoritmo puede servir mejor que otros. Pero saber cuál funcionará mejor de antemano no siempre es posible. En estos casos, varios algoritmos se muestran juntos en la hoja de referencia rápida. Una estrategia adecuada sería probar un algoritmo y, si los resultados no resultan satisfactorios, probar los demás. Este es un ejemplo de la [Galería de aprendizaje automático de Azure](http://gallery.azureml.net/) de un experimento que prueba varios algoritmos con los mismos datos y compara los resultados: [Comparación de clasificadores multiclase: reconocimiento de letra](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+* The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data.
 
-* Existen tres categorías principales de aprendizaje automático: **aprendizaje supervisado**, **aprendizaje sin supervisar** y **aprendizaje de refuerzo**.
+* Every machine learning algorithm has its own style or *inductive bias*. For a specific problem, several algorithms may be appropriate and one algorithm may be a better fit than others. But knowing which will be the best fit beforehand is not always possible. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. Here’s an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net/) of an experiment that tries several algorithms against the same data and compares the results: [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
-  * En el **aprendizaje supervisado**, cada punto de datos está etiquetado o asociado con una categoría o valor de interés. Un ejemplo de una etiqueta de categoría es asignar una imagen como un 'gato' o 'perro'. Un ejemplo de una etiqueta de valor es el precio de venta asociado a un coche usado. El objetivo del aprendizaje supervisado es estudiar muchos ejemplos etiquetados como estos y luego poder realizar predicciones sobre puntos de datos futuros, por ejemplo, para identificar nuevas fotos con el animal correcto o asignar precios de venta precisos a otros coches usados. Este es un tipo conocido y útil del aprendizaje automático. Todos los módulos de Aprendizaje automático de Azure son algoritmos de aprendizaje supervisado, excepto [agrupación en clústeres k-means][k-means-clustering].
+* There are three main categories of machine learning: **supervised learning**, **unsupervised learning**, and **reinforcement learning**.
 
-  * En el **aprendizaje sin supervisar**, los puntos de datos no tienen etiquetas asociadas a ellos. En su lugar, el objetivo de un algoritmo de aprendizaje sin supervisar es organizar los datos de alguna manera o describir su estructura. Esto puede significar agruparlos en clústeres, como hace K-means, o buscar diferentes maneras de examinar datos complejos para que parezcan más simples.
+  * In **supervised learning**, each data point is labeled or associated with a category or value of interest.  An example of a categorical label is assigning an image as either a ‘cat’ or a ‘dog’.  An example of a value label is the sale price associated with a used car. The goal of supervised learning is to study many labeled examples like these, and then to be able to make predictions about future data points - for example, to identify new photos with the correct animal or to assign accurate sale prices to other used cars. This is a popular and useful type of machine learning. All of the modules in Azure Machine Learning are supervised learning algorithms except for [K-Means Clustering][k-means-clustering].
 
-  * En el **aprendizaje de refuerzo**, el algoritmo elige una acción en respuesta a cada punto de datos. Se trata de un enfoque común en robótica, donde el conjunto de lecturas del sensor en un punto en el tiempo es un punto de datos, y el algoritmo debe elegir la siguiente acción del robot. También resulta perfecto para las aplicaciones de Internet de las cosas. El algoritmo de aprendizaje también recibe una señal de recompensa un poco más adelante, que indica cómo de buena fue la decisión. Según esto, el algoritmo modifica su estrategia para lograr la mayor recompensa. Actualmente no hay ningún módulo de algoritmo de aprendizaje de refuerzo en Aprendizaje automático de Azure.
+  * In **unsupervised learning**, data points have no labels associated with them. Instead, the goal of an unsupervised learning algorithm is to organize the data in some way or to describe its structure. This can mean grouping it into clusters, as K-means does, or finding different ways of looking at complex data so that it appears simpler.
 
-* Los **métodos bayesianos** se basan en el supuesto de puntos de datos estadísticamente independientes. Esto significa que la variabilidad sin modelar en un punto de datos no se correlaciona con otras, es decir, no se puede predecir. Por ejemplo, si los datos que se registran son el número de minutos hasta que llega el próximo tren, dos mediciones tomadas con una diferencia de un día son estadísticamente independientes. Sin embargo, dos mediciones tomadas con una diferencia de un minuto no son estadísticamente independientes: el valor de una es altamente predictivo del valor de la otra.
+  * In **reinforcement learning**, the algorithm gets to choose an action in response to each data point. It is a common approach in robotics, where the set of sensor readings at one point in time is a data point, and the algorithm must choose the robot’s next action. It's also a natural fit for Internet of Things applications. The learning algorithm also receives a reward signal a short time later, indicating how good the decision was. Based on this, the algorithm modifies its strategy in order to achieve the highest reward. Currently there are no reinforcement learning algorithm modules in Azure ML.
 
-* La **regresión del árbol de decisión incrementado** aprovecha la superposición de características o la interacción entre ellas. Esto significa que, en cualquier punto de datos dado, el valor de una característica es en cierto modo predictiva del valor de otra. Por ejemplo, en datos de temperatura diaria alta o baja, saber la temperatura baja del día permite realizar una estimación razonable de la alta. La información contenida en las dos características es en cierto modo redundante.
+* **Bayesian methods** make the assumption of statistically independent data points. This means that the unmodeled variability in one data point is uncorrelated with others, that is, it can’t be predicted. For example, if the data being recorded is the number of minutes until the next subway train arrives, two measurements taken a day apart are statistically independent. However, two measurements taken a minute apart are not statistically independent - the value of one is highly predictive of the value of the other.
 
-* Se pueden clasificar los datos en más de una categoría, bien mediante un clasificador multiclase por naturaleza, o combinando un conjunto de clasificadores de dos clases en un **conjunto**. En el enfoque de conjunto, hay un clasificador de dos clases distinto para cada clase y cada uno separa los datos en dos categorías: “esta clase” y “esta clase no”. Luego, estos clasificadores votan la asignación correcta del punto de datos. Este es el principio operativo que subyace a [Multiclase uno contra todos][one-vs-all-multiclass].
+* **Boosted decision tree regression** takes advantage of feature overlap or interaction among features. That means that, in any given data point, the value of one feature is somewhat predictive of the value of another. For example, in daily high/low temperature data, knowing the low temperature for the day allows you to make a reasonable guess at the high. The information contained in the two features is somewhat redundant.
 
-* Varios métodos, incluida la regresión logística y la máquina del punto de Bayes, se basan en el supuesto de **límites de clase lineal**, es decir, que los límites entre las clases son aproximadamente líneas rectas (o hiperplanos en la mayoría de los casos). Con frecuencia es una característica de los datos que no conoce hasta que intenta separarlos, pero es algo que normalmente se puede aprender visualizándolos de antemano. Si los límites de clase son muy irregulares, quédese con árboles de decisión, selvas de decisión, máquinas de vectores de soporte o redes neurales.
+* Classifying data into more than two categories can be done by either using an inherently multi-class classifier, or by combining a set of two-class classifiers into an **ensemble**. In the ensemble approach, there is a separate two-class classifier for each class - each one separates the data into two categories:  “this class” and “not this class.” Then these classifiers vote on the correct assignment of the data point. This is the operational principle behind [One-vs-All Multiclass][one-vs-all-multiclass].
 
-* Las redes neurales pueden usarse con variables de categorías creando una **variable ficticia** para cada categoría y estableciéndola en 1 en aquellos casos en los que se aplique la categoría, o en 0 cuando no sea así.
+* Several methods, including logistic regression and the Bayes point machine, assume **linear class boundaries**, that is, that the boundaries between classes are approximately straight lines (or hyperplanes in the more general case). Often this is a characteristic of the data that you don’t know until after you’ve tried to separate it, but it’s something that typically can be learned by visualizing beforehand. If the class boundaries look very irregular, stick with decision trees, decision jungles, support vector machines, or neural networks.
 
+* Neural networks can be used with categorical variables by creating a **dummy variable** for each category and setting it to 1 in cases where the category applies, 0 where it doesn’t.
+
+-->
 
 <!-- This is how you can add a link to the image in HTML. Don't know how to do this in markdown.
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
@@ -84,9 +79,9 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 -->
 
 <!-- Module References -->
+[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
 [initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="¿Cuáles son los componentes de StorSimple?" 
+   pageTitle="¿Cuáles son los componentes de StorSimple? | Microsoft Azure" 
    description="Describe el dispositivo, los servicios y las tecnologías de administración de StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos"/>
 
 
@@ -110,7 +110,11 @@ Windows PowerShell para StorSimple proporciona una interfaz de línea de comando
 
 Puede tener acceso a Windows PowerShell para StorSimple desde una consola serial (en un equipo host conectado directamente al dispositivo) o de manera remota mediante el uso de la comunicación remota de Windows PowerShell. Observe que algunas tareas de Windows PowerShell para StorSimple, como el registro inicial del dispositivo, solo se pueden realizar en la consola serial.
 
-Para obtener más información, consulte [Windows PowerShell para StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
+Para obtener más información, consulte [Uso de Windows PowerShell para StorSimple para administrar su dispositivo](storsimple-windows-powershell-administration.md).
+
+## Cmdlets de StorSimple de Azure PowerShell
+
+Los cmdlets de StorSimple de Azure PowerShell son un conjunto de cmdlets de Windows PowerShell que permiten automatizar las tareas migración y de nivel de servicio desde la línea de comandos. Para obtener más información sobre los cmdlets de Azure PowerShell, consulte la [referencia de los cmdlets](https://msdn.microsoft.com/library/dn920427.aspx).
 
 ## Servicio StorSimple Manager
 
@@ -127,7 +131,7 @@ Microsoft Azure StorSimple proporciona una interfaz de usuario basada en Web (el
 
 Puede utilizar el servicio StorSimple Manager para realizar todas las tareas de administración, excepto las que requieren tiempo de inactividad del sistema, como la configuración inicial y la instalación de actualizaciones.
 
-Para obtener más información, consulte [Utilizar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
+Para obtener más información, consulte [Uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
 ## StorSimple Snapshot Manager
 
@@ -163,7 +167,7 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 | ------------------------------ | ---------------- |
 | registros de control de acceso (ACR) | Un registro asociado a un volumen en el dispositivo de Microsoft Azure StorSimple que determina qué hosts pueden conectarse a él. La determinación está basada en el Nombre calificado iSCSI (IQN) de los hosts (contenidos en el ACR) que se conectan al dispositivo StorSimple.|
 | AES-256 | Un algoritmo Estándar de cifrado avanzado (AES) de 256 bits para cifrar los datos cuando se desplaza hacia y desde la nube. |
-| tamaño de unidad de asignación (AUS) | La menor cantidad de espacio en disco que se puede asignar para contener un archivo en los sistemas de archivos de Windows. Si un tamaño de archivo no es un múltiplo par del tamaño del clúster, debe utilizarse el espacio adicional para almacenar el archivo (hasta el siguiente múltiplo del tamaño del clúster), lo que genera una pérdida de espacio y la fragmentación del disco duro. <br>El AUS recomendado para volúmenes StorSimple de Azure es de 64 KB porque funciona bien con los algoritmos de deduplicación.|
+| tamaño de unidad de asignación (AUS) | La menor cantidad de espacio en disco que se puede asignar para contener un archivo en los sistemas de archivos de Windows. Si un tamaño de archivo no es un múltiplo par del tamaño del clúster, debe utilizarse el espacio adicional para almacenar el archivo (hasta el siguiente múltiplo del tamaño del clúster), lo que genera una pérdida de espacio y la fragmentación del disco duro. <br>El AUS recomendado para volúmenes StorSimple de Azure es de 64 KB porque funciona bien con los algoritmos de desduplicación.|
 | organización automática del almacenamiento en niveles | Mover automáticamente los datos menos activos a un nivel en la nube y, a continuación, habilitar la administración de todo el almacenamiento de una interfaz de usuario central.|
 | catálogo de copias de seguridad | Un conjunto de copias de seguridad, normalmente relacionadas con el tipo de aplicación que se utilizó. Esta colección se muestra en la página Catálogo de copias de seguridad de la interfaz de usuario del servicio StorSimple Manager.|
 | archivo del catálogo de copias de seguridad | Un archivo que contiene una lista de instantáneas disponibles almacenadas actualmente en la base de datos de copias de seguridad de StorSimple Snapshot Manager. |
@@ -215,11 +219,11 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 
 ## Pasos siguientes
 
-Revise las [notas de la versión de StorSimple](https://msdn.microsoft.com/library/azure/dn772367.aspx)
+Obtenga más información acerca de la [seguridad de StorSimple](storsimple-security.md)
 
 
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

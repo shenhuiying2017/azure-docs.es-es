@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 # Conexión con la cuenta de Servicios multimedia mediante la API de REST
 
-Este artículo forma parte de la serie [Flujo de trabajo del vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-connect_programmatically.md)
+- [REST](media-services-rest-connect_programmatically.md)
 
 En este tema se describe cómo obtener una conexión mediante programación a los Servicios multimedia de Microsoft Azure al programar con la API de REST de Servicios multimedia.
 
@@ -167,4 +169,4 @@ En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios m
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

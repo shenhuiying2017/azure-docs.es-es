@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a las notificaciones de inserción (JavaScript para Android) | Centro de desarrollo móvil" 
+	pageTitle="Introducción a las notificaciones push (JavaScript para Android) | Microsoft Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a la aplicación JavaScript de Android." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -212,4 +212,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

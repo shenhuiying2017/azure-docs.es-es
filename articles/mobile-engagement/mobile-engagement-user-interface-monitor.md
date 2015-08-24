@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # Cómo supervisar datos en tiempo real acerca de la aplicación
@@ -144,4 +144,4 @@ También puede especificar condiciones para las alertas que se le enviarán auto
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

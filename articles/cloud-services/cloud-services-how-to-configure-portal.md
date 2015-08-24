@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuración de un servicio en la nube - Azure" 
+	pageTitle="Configuración de un servicio en la nube | Microsoft Azure" 
 	description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -89,4 +89,4 @@ El acceso remoto no se puede configurar mediante el **Portal de vista previa de 
 			
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

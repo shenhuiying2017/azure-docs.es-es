@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Implementación de ensayo de un servicio en la nube (Node.js) - Azure" 
+	pageTitle="Ensayo de implementación de un servicio en la nube (Node.js) | Microsoft Azure" 
 	description="Vea cómo implementar su aplicación de Azure en un entorno de ensayo y después en un entorno de producción mediante el intercambio de IP virtuales (VIP)." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -18,10 +18,6 @@
 
 
 
-
-
-
-
 # Ensayo de una aplicación en Azure
 
 Se puede implementar una aplicación en paquete en el entorno de ensayo de Azure para probarla antes de que pase al entorno de producción, lugar desde el que se podrá obtener acceso a la aplicación por Internet. El entorno de ensayo es exactamente igual al entorno de producción, salvo que solo puede tener acceso a la aplicación de ensayo con una URL confusa que se genera mediante Azure. Una vez que haya comprobado que la aplicación funciona correctamente, se puede implementar en el entorno de producción mediante un intercambio de IP virtual (VIP).
@@ -33,7 +29,7 @@ Esta tarea incluye los siguientes pasos:
 -   [Paso 1: realizar el ensayo de una aplicación]
 -   [Paso 2: implementar una aplicación en producción mediante el intercambio de VIP]
 
-<h2><a id="step1"></a>Paso 1: ensayo de una aplicación</h2>
+## Paso 1: realizar el ensayo de una aplicación
 
 Esta tarea trata cómo realizar el ensayo de una aplicación con **PowerShell de Microsoft Azure**.
 
@@ -57,7 +53,7 @@ Ahora puede comprobar que la aplicación funciona correctamente en el entorno de
 
 Para un escenario de actualización en el que la aplicación de ensayo es una versión de actualización de una que ya se ha implementado en producción, puede [actualizar la aplicación en el entorno de producción con el intercambio de VIP][Step 2: Deploy an Application to Production by Swapping VIPs].
 
-<h2><a id="step2"></a>Paso 2: actualizar una aplicación en producción mediante el intercambio de VIP</h2>
+## Paso 2: Actualizar una aplicación en producción mediante el intercambio de VIP
 
 Una vez que haya comprobado la versión de actualización de una aplicación en el entorno de ensayo, puede hacer que esté disponible rápidamente en producción mediante el intercambio de las IP virtuales (VIP) de los entornos de ensayo y producción.
 
@@ -90,4 +86,4 @@ Ha realizado correctamente el ensayo de la implementación y la actualización d
   [Información general de administración de implementaciones en Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

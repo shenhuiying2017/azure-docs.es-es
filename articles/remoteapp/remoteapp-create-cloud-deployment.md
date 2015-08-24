@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Cómo crear una colección en la nube de RemoteApp" 
-	description="Aprenda a crear una implementación de RemoteApp que guarda datos en la nube de Azure." 
+	pageTitle="Creación de una colección en la nube de Azure RemoteApp" 
+	description="Aprenda a crear una implementación de Azure RemoteApp que guarda datos en la nube de Azure." 
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Creación de una colección en la nube de Azure RemoteApp
@@ -34,12 +34,12 @@ Este tutorial le guía en el proceso de creación de una colección en la nube. 
 
 Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 
-- [Suscríbase](http://azure.microsoft.com/services/remoteapp/) a RemoteApp. 
+- [Suscribirse](http://azure.microsoft.com/services/remoteapp/) a Azure RemoteApp. 
 - Recopile información sobre los usuarios a los que quiera conceder acceso. Esta información puede ser información de cuentas de Microsoft o información de cuentas de trabajo de Active Directory de usuarios.
 - En este procedimiento se supone que va a usar una de las imágenes de plantilla que se proporcionan con la suscripción o que ya ha cargado la imagen de plantilla que quiere usar. Si tiene que cargar una imagen de plantilla diferente, puede hacerlo desde la página Imágenes de plantilla. Haga clic en **cargar una imagen de plantilla** y siga los pasos del asistente. 
 - ¿Desea proporcionar aplicaciones personalizadas o programas LOB? Cree una nueva [imagen](remoteapp-imageoptions.md) y úsela en su colección en la nube.
 
-## Paso 1: Creación de una colección de RemoteApp ##
+## Paso 1: Creación de una colección ##
 
 
 
@@ -56,7 +56,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 	
 	**Importante:** puede tardarse hasta 30 minutos en aprovisionar la colección.
 
-Después de crear la colección de RemoteApp, vaya a la página **Inicio rápido** de RemoteApp para continuar con los pasos de configuración.
+Una vez creada la colección de RemoteApp, haga doble clic en el nombre de la colección. Se abrirá la página **Inicio rápido**, donde terminará de configurar la colección.
 
 
 ## Paso 2: Configuración de la sincronización de directorios de Active Directory (opcional) ##
@@ -93,4 +93,4 @@ Eso es todo, ha creado e implementado correctamente su colección en la nube de 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

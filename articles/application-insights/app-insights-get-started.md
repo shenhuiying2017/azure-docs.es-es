@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Introducción a Application Insights" 
-	description="Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights." 
-	services="application-insights" 
+<properties
+	pageTitle="Introducción a Application Insights para Visual Studio | Microsoft Azure"
+	description="Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights para Visual Studio."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="08/04/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
 
 # Introducción a Application Insights para Visual Studio
@@ -23,11 +23,11 @@ Detecte problemas, resuelva problemas y mejore continuamente sus aplicaciones. D
 
 La configuración es muy sencilla y obtendrá resultados en cuestión de minutos.
 
-Se admiten actualmente iOS, Android y aplicaciones de Windows; aplicaciones web J2EE y ASP.NET, servicios de WCF. Las aplicaciones web se pueden ejecutar en Azure o en sus propios servidores locales. El SDK de JavaScript se ejecuta en cualquier página web.
+Actualmente se admiten aplicaciones de iOS, Android y Windows; aplicaciones web de J2EE y ASP.NET, y servicios de WCF. Las aplicaciones web se pueden ejecutar en Azure o en sus propios servidores locales. El SDK de JavaScript se ejecuta en cualquier página web.
 
 ## Primeros pasos
 
-Comience con cualquier combinación, en cualquier orden, de los puntos de entrada a la izquierda de este mapa. Siga la ruta de acceso que se adapte a sus necesidades.
+Comience con cualquier combinación, en cualquier orden, de los puntos de entrada que aparecen en el siguiente diagrama. Siga la ruta de acceso que se adapte a sus necesidades.
 
 Aplicación Insights funciona agregando un SDK a la aplicación, que envía la telemetría al [Portal de Azure](http://portal.azure.com). Hay diferentes SDK para las diversas combinaciones de plataformas, lenguajes e IDE que se admiten.
 
@@ -48,7 +48,7 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
 
 * Preguntas y problemas:
  * [Solución de problemas][qna]
- * [Foro de MSDN](https://social.msdn.microsoft.com/Forums/vstudio/es-es/home?forum=ApplicationInsights)
+ * [Foro de MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Errores:
  * [Conectar](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -72,6 +72,4 @@ Lo que desea | Lo que debe hacer | Lo que obtiene
 
 [qna]: app-insights-troubleshoot-faq.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->
