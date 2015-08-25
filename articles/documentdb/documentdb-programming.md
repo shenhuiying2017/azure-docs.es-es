@@ -49,7 +49,7 @@ Este enfoque de *“JavaScript como un T-SQL moderno”* libera a los desarrolla
 	-	Agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual permite a los arquitectos de datos desarrollar sus aplicaciones de forma independiente de los datos. Esto supone una especial ventaja cuando los datos no tienen esquema, debido a débiles suposiciones que se deben integrar en la aplicación si tienen que tratar directamente con los datos.  
 	-	Esta abstracción permite a las empresas mantener seguros sus datos simplificando el acceso desde los scripts.  
 
-La creación y la ejecución de operadores de desencadenadores, procedimiento almacenado y consultas personalizadas son compatibles a través de la [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas como .NET, Node.js y JavaScript. **Este tutorial utiliza el** [SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
+La creación y la ejecución de operadores de desencadenadores, procedimiento almacenado y consultas personalizadas son compatibles a través de la [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) y los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx) en muchas plataformas como .NET, Node.js y JavaScript. **Este tutorial utiliza el** **[SDK de Node.js](http://dl.windowsazure.com/documentDB/nodedocs/)** para ilustrar la sintaxis y el uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF).
 
 ## Procedimientos almacenados
 
@@ -641,4 +641,4 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 -	[Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!----HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->
