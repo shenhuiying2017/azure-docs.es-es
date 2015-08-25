@@ -148,4 +148,4 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!----HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
