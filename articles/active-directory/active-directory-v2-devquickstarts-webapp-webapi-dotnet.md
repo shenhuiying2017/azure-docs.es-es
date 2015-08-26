@@ -18,7 +18,8 @@
 
 # Vista previa del modelo de aplicaciones v2.0: llamar a una API web desde una aplicación web de .NET
 
-> [AZURE.NOTE]Esta información se aplica a la vista previa pública del extremo v2.0. Para obtener instrucciones acerca de la integración con el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Esta información se aplica a la vista previa pública del extremo v2.0. Para obtener instrucciones acerca de la integración con el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
 
 Con el modelo de aplicaciones v2.0 puede agregar rápidamente la autenticación para sus aplicaciones web y API web compatibles tanto con las cuentas personales de Microsoft como con las cuentas profesionales o educativas. En este caso, vamos a crear una aplicación web MVC:
 
@@ -45,7 +46,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Registrar una aplicación
+## 1. Registrar una aplicación
 Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Copia el **Id. de aplicación** asignado a la aplicación, lo necesitará pronto.
@@ -54,7 +55,7 @@ Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsof
 - Escribe el **URI de redireccionamiento** correcto. El uri de redirección indica a Azure AD a dónde se deben dirigir las respuestas de autenticación: el valor predeterminado para este tutorial es `https://localhost:44326/`.
 
 
-## 2\. Iniciar la sesión del usuario con OpenID Connect
+## 2. Iniciar la sesión del usuario con OpenID Connect
 Aquí configuraremos el middleware OWIN para usar el [protocolo de autenticación de OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
 
 -	Por último, abra el archivo `web.config` en la raíz del proyecto `TodoList-WebApp` y escriba los valores de configuración de su aplicación en la sección `<appSettings>`.
@@ -123,12 +124,19 @@ Queremos usar [OAuth 2.0 conjuntamente con OpenID Connect](active-directory-v2-p
 - Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
-private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification) { string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value; string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value; string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty); ClientCredential cred = new ClientCredential(clientId, clientSecret);
+private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
+{
+		string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+		string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
+		string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty);
+		ClientCredential cred = new ClientCredential(clientId, clientSecret);
 
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		var authContext = new Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext(authority, new NaiveSessionCache(userObjectId));
 		var authResult = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), cred, new string[] { clientId });
-} ... ```
+}
+...
+```
 
 - En las aplicaciones web, ADAL tiene una caché de tokens extensible que puede utilizarse para almacenar los token. Este ejemplo implementa el `NaiveSessionCache` que usa almacenamiento de sesión http para almacenar los token en el caché.
 
@@ -195,6 +203,8 @@ Como referencia, [aquí puede ver](https://github.com/AzureADQuickStarts/AppMode
 
 ## Pasos siguientes
 
-Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Para obtener recursos adicionales, consulte:
+- [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [la etiqueta "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=August15_HO7-->
+<!-------HONumber=August15_HO7-->
