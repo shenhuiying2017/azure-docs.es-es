@@ -20,6 +20,7 @@
 
   El tutorial de inicio rápido para API web Node JS aún no está listo... Compruébelo de nuevo pronto y busque actualizaciones de @AzureAD en Twitter.
 
-  >[AZURE.NOTE]Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrarse en el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+  > [AZURE.NOTE]
+    Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrarse en el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
 
 <!------HONumber=August15_HO7-->
