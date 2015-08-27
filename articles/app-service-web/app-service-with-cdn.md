@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Integración de una aplicación web de Azure con CDN de Azure" 
-	description="Un tutorial que le enseña cómo implementar una aplicación web de Azure que ofrece contenido de un extremo de CDN de Azure integrado." 
+	description="Un tutorial que le enseña cómo implementar una aplicación web de Azure que ofrece contenido de un extremo de CDN de Azure integrado" 
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="cephalin"/>
 
 # Integración de una aplicación web de Azure con CDN de Azure #
@@ -556,4 +556,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 - [Uso de la red CDN en Azure](../cdn-how-to-use.md)
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
