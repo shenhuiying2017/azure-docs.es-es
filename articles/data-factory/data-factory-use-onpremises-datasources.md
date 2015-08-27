@@ -161,7 +161,8 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 
 	![Botón Nuevo almacén de datos del Editor][image-editor-newdatastore-onpremsql-button]
     
-3.	Debería ver la plantilla JSON para crear un servicio vinculado de SQL Server local en el panel derecho. ![Servicio vinculado de SQL local: configuración][image-editor-newdatastore-onpremsql-settings]
+3.	Debería ver la plantilla JSON para crear un servicio vinculado de SQL Server local en el panel derecho. 
+	![Servicio vinculado de SQL local: configuración][image-editor-newdatastore-onpremsql-settings]
 
 4.	En el panel JSON, haga lo siguiente:
 	1.	En la propiedad **gatewayName**, escriba **adftutorialgateway** para reemplazar todo el texto entre comillas dobles.  
@@ -396,7 +397,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 	- En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
 	- En la sección **transformation** , **SqlSource** está especificado como el **tipo de origen** y **BlobSink ** está especificado como el **tipo de receptor**.
-- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
+	- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
 	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://es.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
@@ -626,4 +627,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureDataFactoryGateway
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->

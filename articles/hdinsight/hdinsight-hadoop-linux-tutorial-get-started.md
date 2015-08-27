@@ -96,16 +96,17 @@ Cuando aprovisiona un clúster de Azure, aprovisiona cursos de proceso de Azure 
 4. Escriba o seleccione los siguientes valores:
 
 	<table border="1">
-<tr><th>Nombre</th><th>Valor</th></tr>
-<tr><td>Cluster Name</td><td>Nombre del clúster.</td></tr>
-<tr><td>Cluster Size</td><td>Número de nodos de datos que desea implementar. El valor predeterminado es 4. Pero también están disponibles las opciones para usar 1 o 2 nodos de datos en la lista desplegable. Con la opción <strong>Creación personalizada</strong> puede especificarse un número cualquiera de nodos de clúster. Hay disponible información sobre las tarifas de facturación para varios tamaños de clúster. Haga clic en el símbolo <strong>?</strong> justo encima del cuadro desplegable y siga el vínculo del elemento emergente.</td></tr>
-<tr><td>Password</td><td>La contraseña de la cuenta <i>HTTP</i> (nombre de usuario predeterminado: admin) y la cuenta <i>SSH</i> (nombre de usuario predeterminado: hdiuser). Tenga en cuenta que estas NO son las cuentas de administrador para las máquinas virtuales en las que se aprovisionan los clústeres. </td></tr>
+	<tr><th>Nombre</th><th>Valor</th></tr>
+	<tr><td>Cluster Name</td><td>Nombre del clúster.</td></tr>
+	<tr><td>Cluster Size</td><td>Número de nodos de datos que desea implementar. El valor predeterminado es 4. Pero también están disponibles las opciones para usar 1 o 2 nodos de datos en la lista desplegable. Con la opción <strong>Creación personalizada</strong> puede especificarse un número cualquiera de nodos de clúster. Hay disponible información sobre las tarifas de facturación para varios tamaños de clúster. Haga clic en el símbolo <strong>?</strong> justo encima del cuadro desplegable y siga el vínculo del elemento emergente.</td></tr>
+	<tr><td>Password</td><td>La contraseña de la cuenta <i>HTTP</i> (nombre de usuario predeterminado: admin) y la cuenta <i>SSH</i> (nombre de usuario predeterminado: hdiuser). Tenga en cuenta que estas NO son las cuentas de administrador para las máquinas virtuales en las que se aprovisionan los clústeres. </td></tr>
 
-<tr><td>Cuenta de almacenamiento</td><td>Seleccione la cuenta de almacenamiento que ha creado en el cuadro desplegable. <br/>
+	<tr><td>Cuenta de almacenamiento</td><td>Seleccione la cuenta de almacenamiento que ha creado en el cuadro desplegable. <br/>
 
-Una vez elegida una cuenta de almacenamiento, no se puede cambiar. En caso de quitarla, el clúster dejará de estar disponible para su uso. El clúster de HDInsight se coloca en el mismo centro de datos que la cuenta de almacenamiento.
-</td></tr>
-</table>Guarde una copia del nombre del clúster. La necesitará más adelante en el tutorial.
+	Una vez elegida una cuenta de almacenamiento, no se puede cambiar. En caso de quitarla, el clúster dejará de estar disponible para su uso. El clúster de HDInsight se coloca en el mismo centro de datos que la cuenta de almacenamiento.
+	</td></tr>
+	</table>
+	Guarde una copia del nombre del clúster. La necesitará más adelante en el tutorial.
 
 
 5. Haga clic en **CREAR CLÚSTER DE HDINSIGHT**. Cuando finalice el aprovisionamiento, la columna de estado muestra **En ejecución**.
@@ -271,4 +272,4 @@ En este tutorial de Linux, aprendió a aprovisionar un clúster de Hadoop en Lin
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
