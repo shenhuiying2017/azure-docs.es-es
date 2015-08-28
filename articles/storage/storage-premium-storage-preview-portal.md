@@ -130,7 +130,7 @@ Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta 
 </tbody>
 </table>
 
-	Si desea conseguir la información mas reciente, consulte el artículo [Tamaños de máquinas virtuales y de servicios en la nube de Azure] (http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obtener más información acerca de los discos de almacenamiento Premium y de sus IOPS y límites de rendimiento, consulte la tabla que encontrará en la sección [Objetivos de escalabilidad y rendimiento al usar el almacenamiento Premium](#scalability-and-performance-targets-whes-esing-premium-storage) de este artículo.
+	Si desea conseguir la información mas reciente, consulte el artículo [Tamaños de máquinas virtuales y de servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Para obtener más información acerca de los discos de almacenamiento Premium y de sus IOPS y límites de rendimiento, consulte la tabla que encontrará en la sección [Objetivos de escalabilidad y rendimiento al usar el almacenamiento Premium](#scalability-and-performance-targets-whes-esing-premium-storage) de este artículo.
 
 > [AZURE.NOTE]Los aciertos de caché no están limitados por las E/S o rendimiento asignados del disco. Es decir, cuando se utiliza un disco de datos con la configuración de caché de solo lectura en una máquina virtual de la serie DS, las lecturas que se atienden desde la memoria caché no están sujetas a los límites de disco de Almacenamiento premium. Por lo tanto, podría obtener un rendimiento muy alto desde un disco si la carga de trabajo es fundamentalmente de lectura. Tenga en cuenta que la caché depende de límites de E/S por segundo o de rendimiento independientes a nivel de la máquina virtual en función del tamaño de dicha máquina. Las máquinas virtuales de la serie DS tienen aproximadamente 4000 E/S por segundo y 33 MB/seg. por núcleo de caché y E/S de SSD locales.
 
@@ -408,4 +408,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
