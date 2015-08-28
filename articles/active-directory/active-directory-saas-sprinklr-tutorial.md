@@ -3,7 +3,8 @@
 #Tutorial: integración de Azure Active Directory con Sprinklr
 >[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=526454).
   
-El objetivo de este tutorial es mostrar la integración de Azure y Sprinklr. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+El objetivo de este tutorial es mostrar la integración de Azure y Sprinklr.  
+En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 -   Una suscripción de Azure válida
 -   Un inquilino de Sprinklr
@@ -53,7 +54,9 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Sprinklr con su cuenta de Azure AD usando el protocolo SAML basado en la federación. Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64. Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en Sprinklr con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
+Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -96,7 +99,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
     3.  Seleccione **Usar el nuevo certificado de SSO**.
     4.  Cree un archivo **codificado en Base 64** a partir del certificado descargado.  
 
-        >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP] Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     5.  Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado de proveedor de identidades**.
     6.  En el Portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Sprinklr**, copie el valor de **Id. de proveedor de identidades** y péguelo en el cuadro de texto **Id. de entidad**.
@@ -114,7 +117,8 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 ##Configuración del aprovisionamiento de usuario
   
-Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para acceso dentro de la aplicación Syncplicity. En esta sección se describe cómo crear cuentas de usuario de AAD en Sprinklr.
+Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para acceso dentro de la aplicación Syncplicity.  
+En esta sección se describe cómo crear cuentas de usuario de AAD en Sprinklr.
 
 ###Para aprovisionar cuentas de usuario a Sprinklr, realice los siguientes pasos:
 
@@ -142,7 +146,7 @@ Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para a
     4.  Seleccione un **Tipo de usuario**.
     5.  Haga clic en **Actualizar**.
 
-    >[AZURE.IMPORTANT]La opción **Contraseña deshabilitada** debe estar seleccionada para que los usuarios puedan iniciar sesión a través de un proveedor de identidades.
+    >[AZURE.IMPORTANT] La opción **Contraseña deshabilitada** debe estar seleccionada para que los usuarios puedan iniciar sesión a través de un proveedor de identidades.
 
 6.  Vaya a **Rol**y luego lleve a cabo los siguientes pasos:
 
@@ -151,7 +155,7 @@ Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse para a
     1.  En la lista **Global**, seleccione**Todos los permisos**.
     2.  Haga clic en **Actualizar**.
 
->[AZURE.NOTE]Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Sprinklr ofrecida por Sprinklr para aprovisionar cuentas de usuario de Azure AD.
+>[AZURE.NOTE] Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Sprinklr ofrecida por Sprinklr para aprovisionar cuentas de usuario de Azure AD.
 
 ##Asignación de usuarios
   
@@ -171,4 +175,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

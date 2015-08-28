@@ -83,16 +83,19 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 8.  En la página del cuadro de diálogo **Inicio de sesión mediante SAML**, realice los pasos siguientes y luego haga clic en **Guardar cambios**:
 
-    1.  Haga clic en **Habilitar el inicio de sesión único con SAML**. ![Inicio de sesión mediante SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Inicio de sesión mediante SAML")
-    2.  En el portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor del **Id. de proveedor de identidades** y luego péguelo en el cuadro de texto **URL del proveedor de identidades. ![Configurar inicio de sesión único](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configurar inicio de sesión único")
-3.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
+    1.  Haga clic en **Habilitar el inicio de sesión único con SAML**. 
+        ![Inicio de sesión mediante SAML](./media/active-directory-saas-samanage-tutorial/IC771719.png "Inicio de sesión mediante SAML")
+    2.  En el portal de Azure, en la página del cuadro de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor del **Id. de proveedor de identidades** y luego péguelo en el cuadro de texto **URL del proveedor de identidades. 
+        ![Configurar inicio de sesión único](./media/active-directory-saas-samanage-tutorial/IC771720.png "Configurar inicio de sesión único")
+    3.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor de **Dirección URL del inicio de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión**.
     4.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Samanage**, copie el valor de **Dirección URL del cierre de sesión remoto** y péguelo en el cuadro de texto **Dirección URL de cierre de sesión**.
     5.  Cree un archivo **codificado en base 64** a partir del certificado descargado.  
 
         >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
     6.  Abra el certificado codificado en base 64 en el Bloc de notas, copie el contenido del mismo en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado X.509**.
-    7.  Haga clic en **Crear usuarios si no existen en Samanage**. ![Actualizar](./media/active-directory-saas-samanage-tutorial/IC771722.png "Actualizar")
+    7.  Haga clic en **Crear usuarios si no existen en Samanage**. 
+        ![Actualizar](./media/active-directory-saas-samanage-tutorial/IC771722.png "Actualizar")
     8.  Haga clic en **Actualizar**.
 
 9.  En el portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y luego haga clic en **Completa** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
@@ -144,4 +147,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

@@ -110,9 +110,12 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
     1.  En el cuadro de texto Nombre del proveedor de identidades, escriba un nombre de proveedor (por ejemplo, *SPInitiatedSSO*).
     2.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Workday**, copie el valor del **Id. del proveedor de identidades** y péguelo en el cuadro de texto **Emisor**.
-    3.  Haga clic en **Certificado de clave pública de proveedor de identidades**y luego haga clic en **Crear**. ![Crear](./media/active-directory-saas-workday-tutorial/IC782928.png "Crear")
-    4.  Haga clic en **Crear clave pública x509**. ![Crear](./media/active-directory-saas-workday-tutorial/IC782929.png "Crear")
-    5.  En la sección **Ver clave pública x509**, realice los pasos siguientes: ![Ver clave pública x509](./media/active-directory-saas-workday-tutorial/IC782930.png "Ver clave pública x509")
+    3.  Haga clic en **Certificado de clave pública de proveedor de identidades**y luego haga clic en **Crear**. 
+        ![Crear](./media/active-directory-saas-workday-tutorial/IC782928.png "Crear")
+    4.  Haga clic en **Crear clave pública x509**.
+        ![Crear](./media/active-directory-saas-workday-tutorial/IC782929.png "Crear")
+    5.  En la sección **Ver clave pública x509**, realice los pasos siguientes:
+        ![Ver clave pública x509](./media/active-directory-saas-workday-tutorial/IC782930.png "Ver clave pública x509")
         1.  En el cuadro de texto **Nombre**, escriba el nombre del certificado (por ejemplo, *PPE\_SP*).
         2.  En el cuadro de texto **Válido desde**, escriba el valor del atributo Válido desde del certificado.
         3.  En el cuadro de texto **Válido hasta**, escriba el valor del atributo Válido hasta del certificado.
@@ -127,16 +130,19 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
         6.  En el cuadro de texto **Certificado**, pegue el contenido del portapapeles.
         7.  Haga clic en **Aceptar**.
 
-    6.  Lleve a cabo los siguiente pasos: ![Configuración de SSO](./media/active-directory-saas-workday-tutorial/IC792131.png "Configuración de SSO")
+    6.  Lleve a cabo los siguiente pasos:
+        ![Configuración de SSO](./media/active-directory-saas-workday-tutorial/IC792131.png "Configuración de SSO")
         1.  En el cuadro de texto **Id. de proveedor de servicios**, escriba ****http://www.workday.com**.
-2.  Seleccione **Habilitar autenticación SAML iniciada por el proveedor de servicios**.
+        2.  Seleccione **Habilitar autenticación SAML iniciada por el proveedor de servicios**.
         3.  En el portal de Azure, en la página de diálogo **Configurar inicio de sesión único en Workday**, copie el valor de la **Dirección URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL del servicio SSO de IdP**.
         4.  Seleccione **No desinflar la solicitud de autenticación iniciada por el SP**.
 
-    7.  Lleve a cabo los siguiente pasos: ![Método de firmas de solicitudes de autenticación](./media/active-directory-saas-workday-tutorial/IC782932.png "Método de firmas de solicitudes de autenticación")
+    7.  Lleve a cabo los siguiente pasos:
+        ![Método de firmas de solicitudes de autenticación](./media/active-directory-saas-workday-tutorial/IC782932.png "Método de firmas de solicitudes de autenticación")
         1.  Como **Método de firma de solicitud de autenticación**, seleccione**SHA256**.
 
-    8.  Haga clic en **Aceptar**. ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
+    8.  Haga clic en **Aceptar**.
+        ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
 
 12. En el portal de Azure AD, en la página **Configurar inicio de sesión único en Workday**, haga clic en **Completar** para cerrar el cuadro de diálogo.
 
@@ -164,4 +170,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->

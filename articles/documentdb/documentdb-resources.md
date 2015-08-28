@@ -32,7 +32,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 ##Modelo jerárquico de recursos
 Tal y como muestra el siguiente diagrama, el **modelo de recursos** de DocumentDB consta de conjuntos de recursos en una cuenta de base de datos, cada uno de ellos direccionable mediante un URI lógico y estable. En este artículo, los conjuntos de recursos se denominan **fuentes**.
 
->[AZURE.NOTE]DocumentDB ofrece un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación; disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE] DocumentDB ofrece un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación; disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ![][1]  
 **Modelo de recursos jerárquicos en una cuenta de base de datos**
@@ -56,12 +56,16 @@ Para empezar a trabajar con los recursos, debe [crear una cuenta de base de dato
 ##Recursos del sistema frente a recursos definidos por el usuario
 Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, las colecciones, los usuarios, los permisos, los procedimientos almacenados, los desencadenadores y las UDF) tienen todos un esquema fijo y se les denomina "recursos del sistema". En cambio, los recursos como documentos y datos adjuntos no tienen restricciones de esquema y son ejemplos de recursos definidos por el usuario. En DocumentDB, tanto los recursos del sistema como los definidos por el usuario se representan y controlan como JSON compatibles con el estándar. Todos los recursos ya sean definidos por el sistema o el usuario tienen las siguientes propiedades comunes.
 
->[AZURE.NOTE]Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (_) en su representación de JSON.
+>[AZURE.NOTE] Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (_) en su representación de JSON.
 
 
 Propiedad |¿Configurable por el usuario o generado por el sistema?|Propósito
 ---|---|---
-_\_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso. \_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista. \_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso. \_self|Generado por el sistema|URI direccionable único del recurso. id|Configurable por el usuario|Nombre único del recurso definido por el usuario.
+_rid|Generado por el sistema|Generado por el sistema, identificador único y jerárquico del recurso.
+_etag|Generado por el sistema|etag del recurso requerido para el control de simultaneidad optimista.
+_ts|Generado por el sistema|Última actualización de marca de tiempo del recurso.
+_self|Generado por el sistema|URI direccionable único del recurso.
+id|Configurable por el usuario|Nombre único del recurso definido por el usuario.
 
 ###Representación de conexión de los recursos
 DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaciones especiales; funciona con documentos JSON según la norma.
@@ -359,7 +363,7 @@ Al ser un servicio de base de datos totalmente abierto, DocumentDB no crea ning�
 Como con el resto de recursos, se pueden crear, reemplazar, eliminar, leer, enumerar y consultar documentos fácilmente mediante las API REST o con cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Al eliminar un documento se libera inmediatamente la cuota correspondiente a todos los datos adjuntos anidados. El nivel de coherencia de lectura de documentos sigue la Directiva de coherencia de la cuenta de base de datos. Esta directiva se puede reemplazar en función de la solicitud dependiendo de los requisitos de coherencia de datos de su aplicación. Al consultar documentos, la coherencia de lectura sigue el modo de indexación establecido en la colección. Para ser "coherente", sigue la Directiva de coherencia de la cuenta.
 
 ##Datos adjuntos y multimedia
->[AZURE.NOTE]Los datos adjuntos y recursos multimedia son características de vista previa.
+>[AZURE.NOTE] Los datos adjuntos y recursos multimedia son características de vista previa.
  
 DocumentDB le permite almacenar blobs binarios/multimedia en la misma DocumentDB o en su almacén multimedia remoto. También le permite representar los metadatos de un archivo multimedia en términos de un documento especial llamado dato adjunto. Un dato adjunto en DocumentDB es un documento especial (JSON) que hace referencia al archivo multimedia/blob almacenado en cualquier parte. Un dato adjunto es sencillamente un documento especial que captura los metadatos (por ejemplo, ubicación, autor, etc.) de un archivo multimedia almacenado en un almacenamiento multimedia remoto.
 
@@ -409,4 +413,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=August15_HO7-->
+<!-------HONumber=August15_HO7-->
