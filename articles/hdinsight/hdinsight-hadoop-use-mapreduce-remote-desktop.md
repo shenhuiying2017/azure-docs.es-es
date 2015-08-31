@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -46,7 +47,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	Se inicia la clase **wordcount**, incluida en el archivo **hadoop-mapreduce-examples.jar** del directorio actual. Como entrada, utiliza el documento ****wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en: ****wasb:///example/data/WordCountOutput**.
+	Se inicia la clase **wordcount**, incluida en el archivo **hadoop-mapreduce-examples.jar** del directorio actual. Como entrada, utiliza el documento \*\***wasb://example/data/gutenberg/davinci.txt** y la salida se almacena en: \*\***wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE]Para obtener más información acerca de este trabajo de MapReduce y los datos de ejemplo, consulte <a href="hdinsight-use-mapreduce.md">Uso de MapReduce en Hadoop de HDInsight</a>.
 
@@ -57,11 +58,11 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 		File Output Format Counters
         Bytes Written=337623
 
-3. Cuando finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en ****wasb://example/data/WordCountOutput**:
+3. Cuando finalice el trabajo, use el siguiente comando para mostrar los archivos de salida almacenados en \*\***wasb://example/data/WordCountOutput**:
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	Se deberían mostrar dos archivos, **\_SUCCESS** y **part-r-00000**. El archivo **part-r-00000** contiene la salida de este trabajo.
+	Se deberían mostrar dos archivos, \*\*\_SUCCESS\*\* y **part-r-00000**. El archivo **part-r-00000** contiene la salida de este trabajo.
 
 	> [AZURE.NOTE]Algunos trabajos de MapReduce pueden dividir los resultados entre varios archivos **part-r-####**. Si es así, utilice el sufijo #### para indicar el orden de los archivos.
 
@@ -69,7 +70,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Esto muestra una lista de las palabras que se encuentran en el archivo ****wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que apareció cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
+	Esto muestra una lista de las palabras que se encuentran en el archivo \*\***wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que apareció cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
 
 		wreathed        3
 		wreathing       1
@@ -95,4 +96,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

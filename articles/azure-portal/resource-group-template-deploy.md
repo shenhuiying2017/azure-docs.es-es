@@ -122,6 +122,13 @@ Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, c
 7. Para obtener información detallada acerca de los errores de la implementación.
 
         PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        
+### Vídeo
+
+En este vídeo se muestra cómo trabajar con plantillas del Administrador de recursos con PowerShell.
+
+[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
+
 
 ## Implementación con CLI de Azure para Mac, Linux y Windows
 
@@ -250,11 +257,11 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro a la p
     }
 
 ## Pasos siguientes
-- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca de clientes de .NET, consulte [Implementación de recursos mediante bibliotecas de .NET y una plantilla](../arm-template-deployment.md)
-- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, consulte [Creación de plantillas](../resource-group-authoring-templates.md)
-- Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, consulte [Funciones de plantillas](../resource-group-template-functions.md)
+- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca de clientes de .NET, consulte [Implementación de recursos mediante bibliotecas de .NET y una plantilla](../arm-template-deployment.md).
+- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, consulte [Creación de plantillas](../resource-group-authoring-templates.md).
+- Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, consulte [Funciones de plantillas](../resource-group-template-functions.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

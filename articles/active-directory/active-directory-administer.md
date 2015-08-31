@@ -1,21 +1,20 @@
-<properties 
-	pageTitle="Administración del directorio de Azure AD" 
-	description="En este tema se explica qué es un inquilino de Azure AD y cómo administrar un directorio de Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	writer="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Administración del directorio de Azure AD"
+	description="En este tema se explica qué es un inquilino de Azure AD y cómo administrar un directorio de Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="Markusvi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="05/05/2015"
+	ms.author="markvi"/>
 
 # Administración del directorio de Azure AD
 
@@ -72,7 +71,7 @@ La reposición de directorios tuvo lugar en octubre de 2013 como parte de una me
 
 No hay costes asociados al uso de Azure AD. El directorio es un recurso gratuito. Existe un nivel adicional Azure Active Directory Premium que se ofrece como licencia separada y proporciona características adicionales, como la información de marca de empresa y el autoservicio de restablecimiento de contraseñas.
 
-Para cambiar el nombre para mostrar del directorio, haga clic en el directorio del portal y luego en **Configurar**. Como se explica más adelante en este tema, puede agregar un nuevo directorio o eliminar uno que ya no necesite. Para asociar su suscripción a un directorio diferente, haga clic en la extensión **Configuración** del panel izquierdo y, en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. También puede crear un dominio personalizado mediante un nombre DNS que haya registrado en lugar del predeterminado *.onmicrosoft.com, que puede ser preferible para un servicio como SharePoint Online.
+Para cambiar el nombre para mostrar del directorio, haga clic en el directorio del portal y luego en **Configurar**. Como se explica más adelante en este tema, puede agregar un nuevo directorio o eliminar uno que ya no necesite. Para asociar su suscripción a un directorio diferente, haga clic en la extensión **Configuración** del panel izquierdo y, en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. También puede crear un dominio personalizado mediante un nombre DNS que haya registrado en lugar del predeterminado \*.onmicrosoft.com, que puede ser preferible para un servicio como SharePoint Online.
 
 ## ¿Cómo puedo administrar datos de directorio?
 
@@ -98,17 +97,17 @@ Puede agregar un directorio de Azure AD en el Portal de administración de Azure
 
 Puede administrar cada directorio como un recurso totalmente independiente: cada directorio es un par con características completas y lógicamente independiente de otros directorios que administre; no existe ninguna relación principal-secundario entre los directorios. Esta independencia entre directorios incluye la independencia de recursos, la independencia administrativa y la independencia de sincronización.
 
-- **Independencia de recursos**. Si crea o elimina un recurso en un directorio, esto no tiene efecto en ningún recurso de los demás directorios, con la excepción parcial de los usuarios externos, según se describe más adelante. Si utiliza un dominio personalizado “contoso.com” con un directorio, este no se puede utilizar con ningún otro directorio. 
-- **Independencia administrativa**. Si un usuario no administrador del directorio "Contoso", crea un directorio de prueba "Prueba". En ese caso: 
-    - ◦ La herramienta de sincronización de directorios, para sincronizar datos con un único bosque de AD. 
-    - ◦ Los administradores del directorio "Contoso" no tienen privilegios administrativos directos en el directorio "Prueba", a menos que el administrador de "Prueba" les otorgue estos privilegios específicamente. Los administradores de "Contoso" pueden controlar el acceso al directorio "Prueba" en virtud del control que tengan de la cuenta de usuario que creó "Prueba". 
+- **Independencia de recursos**. Si crea o elimina un recurso en un directorio, esto no tiene efecto en ningún recurso de los demás directorios, con la excepción parcial de los usuarios externos, según se describe más adelante. Si utiliza un dominio personalizado “contoso.com” con un directorio, este no se puede utilizar con ningún otro directorio.
+- **Independencia administrativa**. Si un usuario no administrador del directorio "Contoso", crea un directorio de prueba "Prueba". En ese caso:
+    - ◦ La herramienta de sincronización de directorios, para sincronizar datos con un único bosque de AD.
+    - ◦ Los administradores del directorio "Contoso" no tienen privilegios administrativos directos en el directorio "Prueba", a menos que el administrador de "Prueba" les otorgue estos privilegios específicamente. Los administradores de "Contoso" pueden controlar el acceso al directorio "Prueba" en virtud del control que tengan de la cuenta de usuario que creó "Prueba".
 
     Y si cambia (agrega o quita) un rol de administrador de un usuario en un directorio, el cambio no afecta a ningún rol de administrador que ese usuario pueda tener en otro directorio.
 
 
 - **Independencia de sincronización**. Puede configurar cada Azure AD de manera independiente para que los datos se sincronicen desde una sola instancia de:
     - La herramienta de sincronización de directorios, para sincronizar los datos con un único bosque de AD.
-    - El conector de Azure Active Directory para Forefront Identity Manager, para sincronizar datos con uno o varios bosques locales u orígenes de datos distintos de AD. 
+    - El conector de Azure Active Directory para Forefront Identity Manager, para sincronizar datos con uno o varios bosques locales u orígenes de datos distintos de AD.
 
 También tenga en cuenta que, a diferencia de otros recursos de Azure, los directorios no son recursos secundarios de una suscripción a Azure. Así, si cancela su suscripción a Azure o deja que esta caduque, aún podrá tener acceso a los datos de su directorio mediante Azure AD PowerShell, la API Graph de Azure u otras interfaces, como el Centro de administración de Office 365. También puede asociar otra suscripción con el directorio.
 
@@ -124,8 +123,8 @@ Azure AD requiere que se cumplan determinadas condiciones para eliminar un direc
 Se comprueban las condiciones siguientes:
 
 - El único usuario en el directorio es el administrador global que eliminará el directorio. Se deben eliminar los otros usuarios antes de poder eliminar el directorio. Si los usuarios se sincronizan localmente, se deberá desactivar la sincronización y se deberá eliminar a los usuarios en el directorio en la nube mediante el Portal de administración o el módulo de Azure para Windows PowerShell. No existen requisitos para eliminar grupos o contactos, como los contactos agregados desde el centro de administración de Office 365.
-- No puede haber aplicaciones en el directorio. Las aplicaciones se deben eliminar antes de poder eliminar el directorio. 
-- No puede haber suscripciones a ningún servicio de Microsoft Online Services, como Microsoft Azure, Office 365 o Azure AD Premium, asociadas al directorio. Por ejemplo, si se ha creado un directorio predeterminado en Azure en su nombre, no puede eliminar este directorio si la suscripción a Azure aún se basa en este directorio para la autenticación. De igual forma, no puede eliminar un directorio si otro usuario le ha asociado una suscripción. Para asociar su suscripción a un directorio diferente, inicie sesión en el Portal de administración de Azure y haga clic en **Configuración** en el panel izquierdo. A continuación, en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. Para obtener más información acerca de las suscripciones de Azure, consulte [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md). 
+- No puede haber aplicaciones en el directorio. Las aplicaciones se deben eliminar antes de poder eliminar el directorio.
+- No puede haber suscripciones a ningún servicio de Microsoft Online Services, como Microsoft Azure, Office 365 o Azure AD Premium, asociadas al directorio. Por ejemplo, si se ha creado un directorio predeterminado en Azure en su nombre, no puede eliminar este directorio si la suscripción a Azure aún se basa en este directorio para la autenticación. De igual forma, no puede eliminar un directorio si otro usuario le ha asociado una suscripción. Para asociar su suscripción a un directorio diferente, inicie sesión en el Portal de administración de Azure y haga clic en **Configuración** en el panel izquierdo. A continuación, en la parte inferior de la página **Suscripciones**, haga clic en **Editar directorio**. Para obtener más información acerca de las suscripciones de Azure, consulte [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
     > [AZURE.NOTE]Si el usuario inicia sesión con una cuenta profesional o educativa, el usuario no debe intentar eliminar su directorio particular. Por ejemplo, si el usuario ha iniciado sesión como joe@contoso.onmicrosoft.com, ese usuario no puede eliminar el directorio que tiene contoso.onmicrosoft.com como dominio predeterminado.
 
@@ -145,7 +144,4 @@ Se comprueban las condiciones siguientes:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

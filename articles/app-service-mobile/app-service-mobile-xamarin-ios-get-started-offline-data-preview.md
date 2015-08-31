@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Activación de la sincronización sin conexión para la aplicación móvil (Xamarin iOS)"
+    pageTitle="Activación de la sincronización sin conexión para la aplicación móvil de Azure (Xamarin iOS)"
     description="Obtenga información acerca de cómo usar la aplicación móvil de Servicios de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin iOS."
     documentationCenter="xamarin"
-    authors="lindydonna"
+    authors="wesmc7777"
     manager="dwrede"
     editor=""
     services="app-service\mobile"/>
@@ -10,47 +10,45 @@
 <tags
     ms.service="app-service-mobile"
     ms.workload="mobile"
-    ms.tgt_pltfrm="xamarin-ios"
+    ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="07/01/2015"
-    ms.author="donnam"/>
+	ms.date="08/11/2015"
+    ms.author="wesmc"/>
 
-# Activación de la sincronización sin conexión para la aplicación móvil Xamarin iOS
+# Activación de la sincronización sin conexión para la aplicación móvil Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Este tutorial explica la característica de sincronización sin conexión de Aplicaciones móviles para iOS. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local; una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el servicio remoto.
+## Información general
 
-La sincronización sin conexión tiene varios usos posibles:
+Este tutorial presenta la característica de sincronización sin conexión de Aplicaciones móviles de Azure para Xamarin.iOS. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local; una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el servicio remoto.
 
-* Mejore la capacidad de respuesta de las aplicaciones almacenando en caché datos de servidor de forma local en el dispositivo.
-* Hacer que las aplicaciones sean resistentes ante una conectividad de red intermitente.
-* Permitir a los usuarios finales crear y modificar datos incluso cuando no hay acceso de red, proporcionando escenarios con muy poca o ninguna conectividad.
-* Sincronizar datos entre diferentes dispositivos y detectar conflictos cuando dos dispositivos modifican el mismo registro.
+En este tutorial, actualizará el proyecto de aplicación Xamarin.iOS del tutorial [Creación de una aplicación Xamarin iOS] para conseguir compatibilidad con las características sin conexión de Aplicaciones móviles de Azure.
 
-Si esta es la primera vez que usa Aplicaciones móviles, complete el tutorial [Creación de una aplicación Xamarin iOS].
+Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
+
+## Requisitos
 
 Este tutorial requiere lo siguiente:
 
 * Visual Studio 2013
 * Visual Studio con la [extensión Xamarin] **o** [ Xamarin Studio] en OS X.
+* Finalización del tutorial [Creación de una aplicación Xamarin iOS]. Este tutorial usa la aplicación completa que se explicó en ese tutorial.
 
 ##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
-## Revisión del código de sincronización de Aplicaciones móviles
+## Revisión del código de sincronización de cliente
 
-La sincronización sin conexión de Aplicaciones móviles de Azure permite a los usuarios finales interactuar con una base de datos local cuando la red no está accesible. Para usar estas características en la aplicación, inicialice `MobileServiceClient.SyncContext` en un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz `IMobileServiceSyncTable`. Esta sección le guía a través del código relacionado con la sincronización sin conexión en `QSTodoService.cs`.
+El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Creación de una aplicación Xamarin iOS] ya contiene el código que admite la sincronización sin conexión con una base de datos SQLite local. Esta es una breve descripción de lo que ya está incluido en el código del tutorial. Para obtener información general conceptual de la característica, consulte [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
-1. En Visual Studio, abra el proyecto que ha realizado en el tutorial [Introducción a Aplicaciones móviles]. Abra el archivo `QSTodoService.cs`.
+* Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. La base de datos del almacén local se inicializa cuando `QSTodoListViewController.ViewDidLoad()` ejecuta `QSTodoService.InitializeStoreAsync()`. Esto crea una nueva base de datos SQLite local mediante la clase `MobileServiceSQLiteStore` que proporciona el SDK del cliente de la aplicación móvil de Azure. 
 
-2. Tenga en cuenta que el tipo del miembro `todoTable` es `IMobileServiceSyncTable`. La sincronización sin conexión usa esta interfaz de tabla de sincronización en lugar de `IMobileServiceTable`. Cuando se utiliza una tabla de sincronización, todas las operaciones van al almacén local y solo se sincronizan con el servicio remoto con operaciones de inserción y extracción explícitas.
+	El método `DefineTable` crea una tabla en el almacén local que coincide con los campos del tipo proporcionado, `ToDoItem` en este caso. El tipo no tiene que incluir todas las columnas que se encuentran en la base de datos remota. Es posible almacenar solo un subconjunto de columnas.
 
-    Para obtener una referencia a una tabla de sincronización, se utiliza el método `GetSyncTable()`. Para quitar la funcionalidad de sincronización sin conexión, se utilizaría `GetTable()` en su lugar.
-
-3. Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. Esto se hace en el método `InitializeStoreAsync`:
+		// QSTodoService.cs
 
         public async Task InitializeStoreAsync()
         {
@@ -61,13 +59,17 @@ La sincronización sin conexión de Aplicaciones móviles de Azure permite a los
             await client.SyncContext.InitializeAsync(store);
         }
 
-    Esto crea un almacén local mediante la clase `MobileServiceSQLiteStore`, que se proporciona en el SDK de Servicios móviles. También puede proporcionar una implementación de otro almacén local mediante la implementación de `IMobileServiceLocalStore`.
 
-    El método `DefineTable` crea una tabla en el almacén local que coincide con los campos del tipo proporcionado, `ToDoItem` en este caso. El tipo no tiene que incluir todas las columnas que se encuentran en la base de datos remota, es posible almacenar solo un subconjunto de columnas.
+* El miembro `todoTable` de `QSTodoService` es del tipo `IMobileServiceSyncTable` en lugar de `IMobileServiceTable`. Esto dirige todas las operaciones de tabla de creación, lectura, actualización y eliminación (CRUD) a la base de datos del almacén local.
+ 
+	Para decidir cuándo esos cambios se deben integrar en el back-end de la aplicación móvil de Azure, llame a `IMobileServiceSyncContext.PushAsync()` con el contexto de sincronización para la conexión de cliente. El contexto de sincronización ayuda a mantener las relaciones entre tablas mediante el seguimiento y la inserción de los cambios en todas las tablas modificadas por una aplicación cliente cuando se llama a `PushAsync`.
 
-<!--     This overload of `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
- -->
-4. El método `SyncAsync` desencadena la operación de sincronización real:
+	El código proporcionado llama a `QSTodoService.SyncAsync()` para sincronizarse cada vez que se actualiza la lista todoitem o se agrega o completa un todoitem. De esta forma, se sincroniza con cada cambio que ejecuta una inserción en el contexto de sincronización y una extracción en la tabla de sincronización. Sin embargo, es importante tener en cuenta que si se ejecuta una extracción en una tabla que tiene actualizaciones locales pendientes seguidas por el contexto, la operación de extracción primero activará de forma automática una inserción de contexto. Por eso, en estos casos (actualización y finalización de elementos), puede omitir la llamada explícita a `PushAsync`. Es redundante.
+
+    En el ejemplo proporcionado, se consultan todos los registros de la tabla `TodoItem` remota, pero también es posible filtrar registros pasando un identificador de consulta y una consulta a `PushAsync`. Para obtener más información, consulte la sección *Sincronización incremental* en [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
+
+	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
+-->	// QSTodoService.cs
 
         public async Task SyncAsync()
         {
@@ -83,70 +85,68 @@ La sincronización sin conexión de Aplicaciones móviles de Azure permite a los
             }
         }
 
-    En primer lugar, hay una llamada a `IMobileServiceSyncContext.PushAsync()`. Este método es miembro de `IMobileServicesSyncContext` y no de la tabla de sincronización porque insertará cambios en todas las tablas. Solo los registros que se han modificado localmente de alguna forma (mediante operaciones CUD) se enviarán al servidor.
 
-    A continuación, el método llama a `IMobileServiceSyncTable.PullAsync()` para extraer datos de una tabla en el servidor a la aplicación. Tenga en cuenta que si hay cambios pendientes en el contexto de sincronización, una extracción siempre realiza primero una inserción. De este modo, se asegurará de que permanezcan sincronizadas todas las tablas del almacén local con las relaciones. En este caso, hemos llamado a la inserción explícitamente.
+## Ejecución de la aplicación cliente
 
-    En este ejemplo, recuperamos todos los registros de la tabla `TodoItem` remota, pero también es posible filtrar registros pasando una consulta. El primer parámetro para `PullAsync()` es un identificador de consulta que se utiliza en la sincronización incremental, que utiliza la marca de tiempo `UpdatedAt` para obtener solo aquellos registros modificados desde la última sincronización. El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `null` como identificador de la consulta. Así se recuperarán todos los registros de cada operación de extracción, lo cual es potencialmente ineficaz.
+Ejecute la aplicación cliente al menos una vez para rellenar la base de datos del almacén local. En la siguiente sección, simulará un escenario sin conexión y modificará los datos del almacén local mientras la aplicación está sin conexión.
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `IMobileServiceSyncTable.PurgeAsync()` to purge the local store.
 
-    Note that the `MobileServicePushFailedException` can occur for both a push and a pull operation. The next tutorial, [Handling conflicts with offline support for Mobile Services], shows how to handle these sync related exceptions.
--->
+## Actualización del comportamiento de sincronización de la aplicación cliente
 
-5. En la clase `QSTodoService`, se llama al método `SyncAsync()` después de las operaciones que modifican datos, `InsertTodoItemAsync()` y `CompleteItemAsync`. También se le llama desde `RefreshDataAsync()`, de modo que el usuario obtiene los datos más recientes cada vez que realizan los gestos de actualización. La aplicación también lleva a cabo una sincronización en el inicio, ya que `QSTodoListViewController.ViewDidLoad()` llama a `RefreshDataAsync()`.
+En esta sección, modificará el proyecto de cliente para simular un escenario sin conexión usando una dirección URL de aplicación no válida para el back-end. Al agregar o cambiar elementos de datos, estos cambios se conservan en el almacén local, pero no se sincronizan con el almacén de datos de back-end hasta que se restablezca la conexión.
 
-    Dado que `SyncAsync()` se llama cada vez que se modifican datos, esta aplicación supone que el usuario está en línea siempre que se editan datos. En la siguiente sección, se actualizará la aplicación para que los usuarios puedan editar incluso cuando estén sin conexión.
+1. En la parte superior de `QSTodoService.cs`, cambie la inicialización de `applicationURL` y `gatewayURL` para que apunte a direcciones URL no válidas:
 
-## Actualización del comportamiento de sincronización de la aplicación
+        const string applicationURL = @"https://your-service.azurewebsites.xxx/"; 
+        const string gatewayURL = @"https://your-gateway.azurewebsites.xxx";
 
-En esta sección, modificará la aplicación para que no se sincronice en el inicio de la aplicación o en las operaciones de inserción o actualización, sino solo cuando se presione el botón Actualizar. De este modo, interrumpirá la conexión de la aplicación con el back-end móvil para simular un escenario sin conexión. Al agregar elementos de datos, estos se mantendrán en el almacén local, pero no se sincronizarán de inmediato con el almacén de datos de back-end móvil.
 
-1. Abra `QSTodoService.cs`. Comente las llamadas a `SyncAsync()` en los siguientes métodos:
+2. Agregue `catch` adicional para la clase `Exception` en `QSTodoService.SyncAsync`, que escribirá el mensaje de excepción en la consola.
 
-    - `InsertTodoItemAsync`
-    - `CompleteItemAsync`
-    - `RefreshAsync`
-
-    Ahora, `RefreshAsync()` solo cargará los datos del almacén local, pero no podrá conectar con el back-end de aplicación.
-
-2. En `QSTodoService.cs`, cambie la definición de `applicationURL` para que apunte a un URI de aplicación móvil no válido:
-
-        const string applicationURL = @"https://your-service.azurewebsites.xxx/"; // invalid URI
-
-3. Para asegurarse de que los datos se sincronizan cuando se realiza el movimiento de actualización, modifique el método `QSTodoListViewController.RefreshAsync()`. Agregue una llamada a `SyncAsync()` antes de llamar a `RefreshDataAsync()`:
-
-        private async Task RefreshAsync ()
+        public async Task SyncAsync()
         {
-            RefreshControl.BeginRefreshing ();
-
-            await todoService.SyncAsync();
-            await todoService.RefreshDataAsync (); // add this line
-
-            RefreshControl.EndRefreshing ();
-
-            TableView.ReloadData ();
+            try
+            {
+                await client.SyncContext.PushAsync();
+                await todoTable.PullAsync("allTodoItems", todoTable.CreateQuery()); // query ID is used for incremental sync
+            }
+            catch (MobileServiceInvalidOperationException e)
+            {
+                Console.Error.WriteLine(@"Sync Failed: {0}", e.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine(@"Exception: {0}", ex.Message);
+            }
         }
 
-4. Compile y ejecute la aplicación. Agregue nuevos elementos a la lista de tareas. Estos nuevos elementos solo existirán en el almacén local hasta que se puedan insertar en el back-end móvil. La aplicación cliente se comporta como si estuviera conectada al back-end y admite todas las operaciones de creación, lectura, actualización y eliminación (CRUD).
+3. Compile y ejecute la aplicación cliente. Agregue algunas tareas pendientes y observe la excepción registrada en la consola para cada intento de sincronización con el back-end de la aplicación móvil. Estos nuevos elementos solo existirán en el almacén local hasta que se puedan insertar en el back-end móvil. La aplicación cliente se comporta como si estuviera conectada al back-end y admite todas las operaciones de creación, lectura, actualización y eliminación (CRUD).
 
-5. Cierre la aplicación y reiníciela para comprobar que los nuevos elementos que creó se mantienen en el almacén local.
+4. Cierre la aplicación y reiníciela para comprobar que los nuevos elementos que creó se mantienen en el almacén local.
 
-## Actualización de la aplicación para volver a conectar el back-end móvil
+5. (Opcional) Use Visual Studio para ver la tabla de base de datos SQL de Azure y observar que los datos de la base de datos de back-end no han cambiado.
+
+   En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
+
+6. (Opcional) Use una herramienta REST como Fiddler o Postman para consultar el back-end móvil mediante una consulta GET con la forma `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+
+## Actualización de la aplicación cliente para volver a conectar el back-end móvil
 
 En esta sección se volverá a conectar la aplicación al back-end móvil, que simula que la aplicación vuelve a un estado en línea. Al realizar el gesto de la actualización, los datos se sincronizarán con el back-end móvil.
 
-1. Abra `QSTodoService.cs`. Quite la dirección URL de la aplicación móvil no válida y vuelva a agregar la clave de dirección URL y aplicación correctas.
+1. Abra `QSTodoService.cs`. Corrija `applicationURL` y `gatewayURL` para que apunten a las direcciones URL correctas.
 
-2. Recompile y ejecute la aplicación. Observe que los datos no han cambiado, a pesar de que la aplicación ahora está conectada al back-end móvil. Esto se debe a que la aplicación siempre funciona con el elemento `IMobileServiceSyncTable` que apunta al almacén local.
+2. Vuelva a compilar la aplicación cliente y ejecútela. La aplicación intenta sincronizarse con el back-end de la aplicación móvil de Azure después de iniciarse. Compruebe que no hay excepciones registradas en la consola de depuración.
 
-3. Conéctese a la base de datos SQL del back-end para ver los datos que se ha almacenado. En Visual Studio, vaya a **Explorador de servidores** -> **Azure** -> **Bases de datos SQL**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**.
+3. (Opcional) Vea los datos actualizados mediante el Explorador de objetos de SQL Server o una herramienta REST como Fiddler. Observe que los datos se han sincronizado entre la base de datos del back-end de la aplicación móvil de Azure y el almacén local.
 
-    Observe que los datos *no* se han sincronizado entre la base de datos y el almacén local.
+    Observe que los datos se han sincronizado entre la base de datos y el almacén local, y contienen los elementos que agregó mientras la aplicación estaba desconectada.
 
-4. En la aplicación, realice el gesto de actualización desplegando la lista de elementos. Esto hace que la aplicación llame a `RefreshDataAsync()`, que a su vez llama a `SyncAsync()`. Esto llevará a cabo las operaciones de inserción y extracción, primero enviando los elementos del almacén local al back-end móvil y después recuperando nuevos datos desde el back-end.
+## Recursos adicionales
 
-5. Actualice la vista de base de datos y confirme que los cambios se han sincronizado.
+* [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
+
+* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
 
 <!-- ##Summary
 
@@ -163,11 +163,13 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 <!-- URLs. -->
 [Creación de una aplicación Xamarin iOS]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: ../app-service-mobile-offline-data-sync-preview.md
 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
 [ Xamarin Studio]: http://xamarin.com/download
 [extensión Xamarin]: http://xamarin.com/visual-studio
  
+[Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

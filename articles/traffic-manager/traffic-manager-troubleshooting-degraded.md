@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
+
 # Solución de problemas de estado degradado en Administrador de tráfico de Azure
 En esta página se describirá cómo solucionar problemas del perfil del Administrador de tráfico de Azure, que muestra un estado degradado y proporcionar algunos puntos clave para entender los sondeos del administrador de tráfico.
 
@@ -66,9 +67,9 @@ Si el sondeo está usando el protocolo HTTPs, podrá agregar el parámetro "--no
 ## Pasos siguientes
 
 
-[Acerca de los métodos de equilibrio de carga del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
+[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
 
-[Información general sobre el Administrador de tráfico](../traffic-manmager-overview.md)
+[¿Qué es el Administrador de tráfico?](../traffic-manmager-overview.md)
 
 [Servicios en la nube](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -79,4 +80,4 @@ Si el sondeo está usando el protocolo HTTPs, podrá agregar el parámetro "--no
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

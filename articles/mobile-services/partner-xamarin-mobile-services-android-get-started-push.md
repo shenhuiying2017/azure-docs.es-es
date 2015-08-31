@@ -32,7 +32,7 @@ Ya debe tener instalados [Xamarin.Android] y el componente [Servicios móviles d
 
 ##<a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configuración del servicio móvil para enviar solicitudes de inserción
 
@@ -87,4 +87,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

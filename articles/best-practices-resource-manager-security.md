@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="08/13/2015"
 	ms.author="georgem"/>
 
 
@@ -22,6 +22,8 @@
 Al mirar los aspectos de seguridad de las plantillas del Administrador de recursos de Azure, hay varias áreas a tener en cuenta: claves y secretos, control de acceso basado en roles y grupos de seguridad de red.
 
 En este tema se supone que está familiarizado con el control de acceso basado en rol (RBAC) del Administrador de recursos de Azure. Para obtener más información, vea [Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md) y [Administración y auditoría del acceso a los recursos](resource-group-rbac.md).
+
+Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Secretos y certificados
 
@@ -222,7 +224,7 @@ DENY ALL OUTBOUND (DENEGAR TODO EL TRÁFICO SALIENTE) | 65500 | * | * | * | * | 
 
 Las reglas de los grupos de seguridad de red son explícitas. No se permite ningún tráfico o se deniega más allá de lo especificado en las reglas de los grupos de seguridad de red. Sin embargo, dos tipos de tráfico siempre se permiten, independientemente de la especificación del grupo de seguridad de red. Estos aprovisionamientos se establecen para admitir la infraestructura.
 
-- **Dirección IP virtual del nodo de host:** servicios de infraestructura básica, como DHCP, DNS y seguimiento de estado, se proporcionan a través de la dirección IP 168.63.129.16 del host virtualizado. Esta dirección IP pública pertenece a Microsoft y será la única dirección IP virtualizada que se usará en todas las regiones con este fin. Esta dirección IP se asigna a la dirección IP física del equipo del servidor (nodo de host) que hospeda la máquina virtual. El nodo de host actúa como la retransmisión DHCP, la resolución recursiva de DNS y el origen de sonda del sondeo de mantenimiento del equilibrador de carga y el sondeo de mantenimiento del equipo. La comunicación con esta dirección IP no se debe considerar como un ataque.
+- **IP virtual del nodo de host:** servicios de infraestructura básica, como DHCP, DNS y seguimiento de estado, se proporcionan a través de la dirección IP 168.63.129.16 del host virtualizado. Esta dirección IP pública pertenece a Microsoft y será la única dirección IP virtualizada que se usará en todas las regiones con este fin. Esta dirección IP se asigna a la dirección IP física del equipo del servidor (nodo de host) que hospeda la máquina virtual. El nodo de host actúa como la retransmisión DHCP, la resolución recursiva de DNS y el origen de sonda del sondeo de mantenimiento del equilibrador de carga y el sondeo de mantenimiento del equipo. La comunicación con esta dirección IP no se debe considerar como un ataque.
 - **Licencias (servicio de administración de claves):** las imágenes de Windows que se ejecutan en las máquinas virtuales deben contar con licencia. Para ello, se debe enviar una solicitud de licencia a los servidores host del servicio de administración de claves que administran dichas consultas. Esto siempre se hará en el puerto de salida 1688.
 
 ### Etiquetas predeterminadas
@@ -330,9 +332,9 @@ Como se describió anteriormente, una de las razones principales para crear una 
 La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tráfico entrante que no se dirige a sí mismo. Para permitir que una máquina virtual reciba el tráfico dirigido a otros destinos, debe habilitar el reenvío IP en la máquina virtual.
 
 ## Pasos siguientes
-- Para comprender cómo configurar las entidades de seguridad con el acceso correcto para trabajar con recursos en su organización, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
-- Si desea bloquear el acceso a un recurso, puede usar bloqueos de administración. Vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
-- Para obtener más información sobre cómo configurar el enrutamiento y el reenvío IP, vea [Creación de rutas y habilitación del reenvío IP en Azure](virtual-network/virtual-networks-udr-how-to.md). 
+- Para comprender cómo configurar las entidades de seguridad con el acceso correcto para trabajar con recursos en su organización, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
+- Si desea bloquear el acceso a un recurso, puede usar bloqueos de administración. Consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
+- Para obtener más información sobre cómo configurar el enrutamiento y el reenvío IP, consulte [Creación de rutas y habilitación del reenvío IP en Azure](virtual-network/virtual-networks-udr-how-to.md). 
 - Para obtener información general sobre el control de acceso basado en rol, consulte [Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

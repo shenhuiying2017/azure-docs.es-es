@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="07/27/2015"
+ ms.date="08/18/2015"
  ms.author="danlep"/>
 
 # Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA
@@ -26,7 +26,6 @@ En un nivel alto el diagrama siguiente muestra el clúster de HPC Pack que crear
 ## Requisitos previos
 
 * **Equipo cliente**: necesitará un equipo cliente basado en Windows para ejecutar el script de implementación del clúster de Azure PowerShell (si elige ese método de implementación) y para enviar trabajos de Excel y SOA de ejemplo al clúster.
-
 
 * **Suscripción a Azure**: si no tiene ninguna cuenta, puede crear una cuenta de evaluación gratuita en un par de minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -61,7 +60,7 @@ Use una plantilla de inicio rápido de Azure para implementar rápida y fácilme
     >
     >Las VM del nodo de proceso se crearán a partir de la imagen más reciente de la familia de nodos de proceso seleccionada. Elija la opción **ComputeNode** para la imagen de proceso de HPC Pack 2012 R2 Update 2 más reciente con fines generales. Elija la opción **ComputeNodeWithExcel** para la imagen del nodo de proceso de HPC Pack más reciente que incluye una versión de evaluación de Microsoft Excel Professional Plus 2013. Si quiere implementar un clúster para sesiones generales de SOA o para la descarga de UDF de Excel, elija la opción **ComputeNode** (sin Excel instalado).
     >
-    >Al usar **ComputeNodeWithExcel**para cargas de trabajo de producción, deberá proporcionar una licencia válida de Excel para activar Excel en los nodos de proceso. Si no, la versión de evaluación de Excel expirará a los 60 días y las cargas de trabajo de Excel no se ejecutarán en ese momento.
+    >Al usar **ComputeNodeWithExcel**para cargas de trabajo de producción, deberá proporcionar una licencia válida de Excel para activar Excel en los nodos de proceso. Si no, la versión de evaluación de Excel expirará a los 30 días y las cargas de trabajo de Excel no se ejecutarán en ese momento.
 
     c. Elija la suscripción.
 
@@ -377,4 +376,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

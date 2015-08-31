@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos"/>
 
 # Seguridad de StorSimple 
@@ -135,7 +135,7 @@ El propósito principal del servicio StorSimple Manager es administrar y configu
 > [AZURE.IMPORTANT]
 > 
 > * La clave de cifrado de datos de servicio se genera solo en el primer dispositivo registrado con el servicio. Todos los dispositivos subsiguientes que se registran con el servicio deben usar la misma clave de cifrado de datos de servicio. Es muy importante crear una copia de esta clave y guardarla en una ubicación segura. Una copia de la clave de cifrado de datos de servicio se debe almacenar de manera tal para que una persona autorizada pueda tener acceso a ella y se pueda comunicar fácilmente al administrador del dispositivo.
-> * Puede cambiar la clave de cifrado de datos de servicio y el certificado de cifrado de datos correspondiente si selecciona la opción **Cambiar clave de cifrado de datos de servicio** en el panel del servicio. Cambiar las claves de cifrado requiere que todos los dispositivos se actualicen con la clave nueva. Por lo tanto, se recomienda cambiar la clave cuando todos los dispositivos estén en línea. Si los dispositivos están sin conexión, es posible que las claves cambien en momentos distintos. Los dispositivos con claves obsoletas de todos modos podrán ejecutar copias de seguridad, pero no podrán restaurar datos hasta que se actualice la clave. Para obtener más información, vaya a [Uso del panel de servicio](storsimple-service-dashboard.md).
+> * Puede cambiar la clave de cifrado de datos de servicio y el certificado de cifrado de datos correspondiente si selecciona la opción **Cambiar clave de cifrado de datos de servicio** en el panel del servicio. Cambiar las claves de cifrado requiere que todos los dispositivos se actualicen con la clave nueva. Por lo tanto, se recomienda cambiar la clave cuando todos los dispositivos estén en línea. Si los dispositivos están sin conexión, es posible que las claves cambien en momentos distintos. Los dispositivos con claves obsoletas de todos modos podrán ejecutar copias de seguridad, pero no podrán restaurar datos hasta que se actualice la clave. Para obtener más información, vaya a [Uso del panel del servicio Administrador de StorSimple](storsimple-service-dashboard.md).
 > * Para asegurarse de que la seguridad de los datos no está comprometida, debe usar un dispositivo de StorSimple físico para cambiar la clave de cifrado de datos de servicio.
 > * Si se pierde la clave de cifrado de datos de servicio, una persona del soporte técnico de Microsoft puede ayudarle a recuperarla siempre que tenga al menos un dispositivo en línea. Se recomienda cambiar la clave de cifrado de datos de servicio después de recuperarla. Para obtener instrucciones, vaya a [Cambiar la clave de cifrado de datos de servicio](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 > * La clave de cifrado de datos de servicio y el certificado de cifrado de datos no expiran. Sin embargo, se recomienda cambiar la clave de cifrado de datos de servicio de manera regular para evitar comprometer la seguridad de la clave.</li></ul>
@@ -153,7 +153,7 @@ El dispositivo de StorSimple administra los datos a través de su almacenamiento
 
 ### Prácticas recomendadas de seguridad adicionales
 
-- Para implementar la redundancia, utilice múltiples rutas (MPIO) para prevenir un único punto de error en SAN iSCSI. Para obtener instrucciones detalladas, consulte [Configurar MPIO para el dispositivo StorSimple](#storsimple-configure-mpio-windows-server.md).
+- Para implementar la redundancia, utilice múltiples rutas (MPIO) para prevenir un único punto de error en SAN iSCSI. Para obtener instrucciones detalladas, consulte [Configurar MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
 - División de tráfico: aísle la SAN iSCSI del tráfico de usuario en una LAN corporativa mediante la implementación de una red totalmente separada y a través de VLAN donde el aislamiento físico no es opción. Una red dedicada para almacenamiento de iSCSI garantizará la seguridad y el rendimiento de los datos críticos para la empresa. No se recomienda combinar el tráfico de usuario y almacenamiento en una LAN corporativa y puede aumentar la latencia y provocar errores en la red.
 
@@ -250,7 +250,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 ## Pasos siguientes
 
-[Implementación del dispositivo de StorSimple](storsimple-deployment-walkthrough.md)
+[Implementación del dispositivo StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

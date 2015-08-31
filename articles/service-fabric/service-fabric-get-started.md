@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configurar el entorno de desarrollo de Service Fabric"
+   pageTitle="Configurar el entorno de desarrollo de Service Fabric | Microsoft Azure"
    description="Instalar las herramientas, el SDK y el motor en tiempo de ejecución de Service Fabric y cree un clúster de desarrollo local."
    services="service-fabric"
    documentationCenter=".net"
@@ -27,7 +27,7 @@ Se admiten las siguientes versiones de sistemas operativos:
 
 - Windows 8/8.1
 - Windows Server 2012 R2
-- Windows 10 Technical Preview
+- Windows 10
 
 ### Visual Studio 2015
 
@@ -41,7 +41,7 @@ La instalación de los componentes de Service Fabric se realiza mediante el inst
 
 1. [Descargue el SDK][3] con el instalador de plataforma web.
 
-2. Haga clic en Instalar para comenzar el proceso de instalación.
+2. Haga clic en **Instalar** para comenzar el proceso de instalación.
 
 3. Revise y acepte el CLUF.
 
@@ -72,7 +72,7 @@ En unos instantes debería ver la salida que muestra información de nodo y la c
 
 Puede comprobar que su clúster se ha creado correctamente mediante la herramienta Explorador de Service Fabric que se distribuye con el SDK.
 
-1. Inicie el Explorador de Service Fabric mediante la ejecución de `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`
+1. Inicie el Explorador de Service Fabric mediante la ejecución de `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`.
 
 2. Expanda el nodo Onebox/Local Cluster en la esquina superior izquierda.
 
@@ -93,4 +93,4 @@ Ahora que está configurado su entorno de desarrollo, puede iniciar la creación
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Vínculo de WebPI"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

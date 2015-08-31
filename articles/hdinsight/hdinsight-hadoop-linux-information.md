@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -52,13 +53,16 @@ El nombre de dominio completo (FQDN) que se usa al conectarse con el clúster es
 	>
 	> La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-* **SSH** - &lt;nombre del clúster>-ssh.azurehdinsight.net en el puerto 22
+* **SSH**: &lt;nombre del clúster>-ssh.azurehdinsight.net en el puerto 22 o 23. El puerto 22 se usa para conectarse a headnode0, mientras que el 23 se usa para conectarse a headnode1. Para obtener más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
-	> [AZURE.NOTE]Solo puede tener acceso al nodo principal del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede tener acceso a los nodos de trabajo mediante el uso de SSH desde el nodo principal.
+	> [AZURE.NOTE]Solo puede tener acceso a los nodos principales del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede tener acceso a los nodos de trabajo mediante el uso de SSH desde el nodo principal.
 
 ## Ubicaciones de archivo
 
-Puede encontrar los archivos relacionados con Hadoop en los nodos de clúster en `/usr/hdp/current`.
+Puede encontrar los archivos relacionados con Hadoop en los nodos de clúster en `/usr/hdp`. Este directorio raíz contiene los siguientes subdirectorios:
+
+* __2.2.4.9-1__: este directorio se denomina con el nombre de la versión de Hortonworks Data Platform usada por HDInsight, por lo que el número de su clúster puede ser diferente del que aparece aquí.
+* __current__: este directorio contiene vínculos a los directorios que se encuentran en el directorio __2.2.4.9-1__ y existe para que no tenga que escribir un número de versión (que puede cambiar) cada vez que quiera tener acceso a un archivo.
 
 Es posible encontrar los archivos JAR y datos de ejemplo en el Sistema de archivos distribuido de Hadoop (HDFS) o en el almacenamiento de blobs de Azure en "/example" o "wasb:///example".
 
@@ -139,4 +143,4 @@ Además de mediante el comando Hadoop desde el clúster, existe una variedad de 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

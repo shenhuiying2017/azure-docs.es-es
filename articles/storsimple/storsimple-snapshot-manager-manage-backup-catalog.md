@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad | Microsoft Azure"
-   description="Describe cómo usar el complemento MMC de Administrador de instantáneas StorSimple para crear y administrar las directivas de copia de seguridad que controlan las copias de seguridad programadas."
+   description="Describe cómo usar el complemento MMC del Administrador de instantáneas StorSimple para ver y administrar el catálogo de copia de seguridad."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad
@@ -205,6 +205,6 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 
 ## Pasos siguientes
 
-Vea la información disponible [sobre tareas y flujos de trabajo de Administrador de instantáneas StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows).
+Obtenga más información acerca de las [tareas y flujos de trabajo del Administrador de instantáneas StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

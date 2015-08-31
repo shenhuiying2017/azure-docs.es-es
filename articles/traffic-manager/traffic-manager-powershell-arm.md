@@ -6,15 +6,14 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags
+<tags 
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
-
 
 
 
@@ -207,9 +206,9 @@ Se puede canalizar igualmente esta secuencia:
 
 ## Otras referencias
 
-[Información general sobre el Administrador de tráfico](traffic-manager-overview.md)
+[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
 
 [Introducción a los cmdlets de Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

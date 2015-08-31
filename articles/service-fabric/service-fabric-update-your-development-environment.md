@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Actualizar el entorno de desarrollo de Service Fabric"
+   pageTitle="Actualizar el entorno de desarrollo de Service Fabric | Microsoft Azure"
    description="Actualizar el entorno de desarrollo de Service Fabric para usar el motor en tiempo de ejecución, el SDK y las herramientas más recientes."
    services="service-fabric"
    documentationCenter=".net"
@@ -43,7 +43,7 @@
 
  1. Inicie el instalador de la plataforma web para [actualizar a la nueva versión][1].
 
- 2. Al finalizar, iniciar una nueva ventana de PowerShell como administrador y navegue hasta el directorio de instalación de clúster con `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
+ 2. Al finalizar, inicie una nueva ventana de PowerShell como administrador y navegue hasta el directorio de instalación de clúster con `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
 
  3. Ejecute `.\DevClusterSetup.ps1` para configurar su clúster local.
 
@@ -53,4 +53,4 @@ Eso es todo. Ahora puede iniciar Visual Studio y continuar creando aplicaciones 
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Vínculo de WebPI"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Métodos de enrutamiento del Administrador de tráfico"
+   pageTitle="Administrador de tráfico: métodos de enrutamiento del tráfico | Microsoft Azure"
    description="Este artículo le ayudará a entender los distintos métodos de enrutamiento de tráfico usados por el Administrador de tráfico"
    services="traffic-manager"
    documentationCenter=""
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Métodos de enrutamiento del Administrador de tráfico
 
-Existen tres métodos de enrutamiento disponibles en el Administrador de tráfico. Cada perfil de Administrador de tráfico solo puede usar un método de enrutamiento cada vez, si bien puede seleccionar otro método de enrutamiento para su perfil en cualquier momento.
+Existen tres métodos de enrutamiento disponibles en el Administrador de tráfico. Cada perfil del Administrador de tráfico solo puede usar un método de enrutamiento del tráfico cada vez, si bien puede seleccionar otro método de enrutamiento del tráfico para su perfil en cualquier momento.
 
-Es importante tener en cuenta que todos los métodos de enrutamiento incluyen la supervisión del extremo. Después de configurar su perfil en el Administrador de tráfico para especificar el método de enrutamiento que mejor satisfaga sus necesidades, configure los valores de supervisión. Cuando la supervisión esté configurada correctamente, el Administrador de tráfico supervisará el estado de los extremos, que consisten en los servicios en la nube y sitios web, y no enviará tráfico a los extremos que considera que no están disponibles. Para obtener más información acerca de la supervisión del Administrador de tráfico, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
+Es importante tener en cuenta que todos los métodos de enrutamiento del tráfico incluyen la supervisión del extremo. Después de configurar su perfil en el Administrador de tráfico para especificar el método de enrutamiento del tráfico que mejor satisfaga sus necesidades, configure los valores de supervisión. Cuando la supervisión esté configurada correctamente, el Administrador de tráfico supervisará el estado de los extremos, que consisten en los servicios en la nube y sitios web, y no enviará tráfico a los extremos que considera que no están disponibles. Para obtener más información acerca de la supervisión del Administrador de tráfico, consulte [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
 
-Los tres métodos de enrutamiento del Administrador de tráfico son los siguientes:
+Los tres métodos de enrutamiento del tráfico del Administrador de tráfico son los siguientes:
 
 - **Conmutación por error**: seleccione la conmutación por error cuando tenga extremos en el mismo centro de datos o en distintos centros de datos de Azure (más conocidos como regiones en el Portal de Administración) y desee usar un extremo principal para todo el tráfico, pero proporcionar copias de seguridad en caso de que los extremos principales o de copia de seguridad no estén disponibles. Para obtener más información, consulte [Método de enrutamiento de tráfico de conmutación por error](#failover-traffic-routing-method).
 
@@ -123,7 +123,7 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 
 ## Pasos siguientes
 
-[Información general sobre el Administrador de tráfico](traffic-manager-overview.md)
+[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
 
 [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md)
 
@@ -137,4 +137,4 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

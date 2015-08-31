@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Administrar las plantillas de ancho de banda de StorSimple"
+   pageTitle="Administración de plantillas de ancho de banda de StorSimple | Microsoft Azure"
    description="Describe cómo administrar plantillas de ancho de banda de StorSimple, que le permiten controlar el consumo de ancho de banda."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Administrar las plantillas de ancho de banda de StorSimple
@@ -176,4 +176,4 @@ Siga estas prácticas recomendadas para el dispositivo StorSimple:
 
 Obtenga más información sobre los [Componentes de StorSimple](storsimple-components.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

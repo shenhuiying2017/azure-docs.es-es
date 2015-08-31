@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: detección proactiva de anomalías
@@ -67,13 +67,17 @@ Modifique los filtros y el intervalo de tiempo para explorar la telemetría.
 * *¿Es necesario suscribirse a este servicio para recibir notificaciones?*
  * No. Nuestro bot analiza periódicamente los datos de todos los usuarios de Application Insights y envía notificaciones si detecta problemas.
 * *¿Puedo cancelar la suscripción u hacer que mis colegas reciban las notificaciones?*
- * Haga clic en el vínculo de la alerta o el correo electrónico. Abra la configuración de anomalías. ![](./media/app-insights-anomaly/01.png) Actualmente se envían a los usuarios que tengan [acceso de escritura al recurso de Application Insights](app-insights-resources-roles-access-control.md).
+ * Haga clic en el vínculo de la alerta o el correo electrónico. Abra la configuración de anomalías.
+ 
+    ![](./media/app-insights-anomaly/01.png)
+
+    Actualmente se envían a los usuarios que tienen [acceso de escritura al recurso de Application Insights](app-insights-resources-roles-access-control.md).
 * *No me quiero ver inundado por estos mensajes*.
  * Se limitan a tres al día. No obtendrá repeticiones de ningún mensaje.
 * *Si no hago nada, ¿obtendré un aviso?*
  * No, obtendrá un mensaje sobre cada problema solo una vez.
-* *He perdido el mensaje de correo electrónico. ¿Dónde puedo encontrar las notificaciones en el portal?*
- * En la información general de Application Insights de su aplicación, haga clic en la ventana **Anomalías**. 
+* *Perdí el mensaje de correo electrónico. ¿Dónde puedo encontrar las notificaciones en el portal?*
+ * En la información general de Application Insights de su aplicación, haga clic en el icono **Anomalías**. 
 
 
 
@@ -82,4 +86,4 @@ Modifique los filtros y el intervalo de tiempo para explorar la telemetría.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

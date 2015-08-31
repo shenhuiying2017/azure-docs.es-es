@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2015"
+	ms.date="08/14/2015"
 	ms.author="garye" />
 
 
-#Importación de datos de entrenamiento en Estudio de aprendizaje automático de Azure desde varios orígenes de datos
+# Importación de datos de entrenamiento en Estudio de aprendizaje automático de Azure desde varios orígenes de datos
 
 Cuando desarrolla una solución de análisis predictivo en Estudio de aprendizaje automático de Azure, entrena su modelo con datos representativos de su espacio de problemas. En este tutorial se muestra cómo importar datos desde diversos orígenes de datos para entrenar un modelo en Estudio de aprendizaje automático. También aprenderá qué formatos de datos son compatibles.
 
@@ -34,7 +34,7 @@ Para usar sus propios datos en Estudio de aprendizaje automático, puede cargar 
 
 Estudio de aprendizaje automático está diseñado para trabajar con datos rectangulares o tabulares, como datos de texto delimitados o datos estructurados de una base de datos, aunque en algunas circunstancias, es posible usar datos no rectangulares.
 
-Se recomienda que los datos estén relativamente limpios. Es decir, es aconsejable que se ocupe de problemas como las cadenas sin comillas antes de cargar los datos en el experimento.
+Se recomienda que los datos estén relativamente limpios. Es decir, querrá ocuparse de problemas como las cadenas sin comillas antes de cargar los datos en su experimento.
 
 Sin embargo, en Estudio de aprendizaje automático hay módulos que le permitirán manipular levemente los datos en el experimento. Dependiendo de los algoritmos de aprendizaje automático que usará, es posible que deba decidir cómo controlar los problemas estructurales de los datos, como valores que faltan y datos esparcidos y existen módulos que pueden ayudar en esto. Observe la sección **Transformación de datos** de la paleta de módulos para los módulos que realizan estas funciones.
 
@@ -141,6 +141,5 @@ Cuando termine de guardar, el conjunto de datos estará disponible para usarlo d
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

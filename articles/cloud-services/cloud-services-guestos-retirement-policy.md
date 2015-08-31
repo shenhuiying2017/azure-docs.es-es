@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="05/19/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
 # Directiva de compatibilidad y retirada del SO invitado de Azure
@@ -87,5 +87,7 @@ Debe utilizar la última familia del SO invitado para diseñar los servicios en 
 
 Si la arquitectura de la aplicación web requiere una dependencia más profunda del sistema operativo subyacente, utilice capacidades admitidas por la plataforma, como las "[tareas de inicio](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" u otros mecanismos de extensibilidad que puedan existir en el futuro. Como alternativa, también puede usar [máquinas virtuales de Azure](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS, Infraestructura como servicio), donde usted es responsable de mantener el sistema operativo subyacente.
  
+## Pasos siguientes
+Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md) más recientes.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

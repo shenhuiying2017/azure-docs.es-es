@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple"
-   description="Administrar su dispositivo StorSimple mediante el servicio de Administrador de StorSimple Manager en el Portal de administración de Azure."
+   description="Administre su dispositivo StorSimple mediante el servicio Administrador de StorSimple en el Portal de administración de Azure."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple
@@ -71,8 +71,8 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 |Si desea hacer esto...|Vaya a esta página de la UI...|Utilice este procedimiento.|
 |---|---|---|
 |Crear un servicio</br>Eliminar un servicio</br>Obtener la clave de registro del servicio</br>Regenerar la clave de registro del servicio regenerar|Servicio StorSimple Manager|[Implementar un servicio del Administrador de StorSimple](storsimple-manage-service.md)
-|Cambiar la clave de cifrado de datos del servicio</br>Ver los registros de operaciones|Servicio de Administrador de StorSimple → Panel|[Utilizar el panel del servicio de Administrador de StorSimple](storsimple-service-dashboard.md)|
-|Desactivar un dispositivo</br>Eliminar un dispositivo|Servicio de Administrador de StorSimple → Dispositivos|[Desactivar o eliminar un dispositivo]()|
+|Cambiar la clave de cifrado de datos del servicio</br>Ver los registros de operaciones|Servicio de Administrador de StorSimple → Panel|[Uso del panel del servicio StorSimple Manager](storsimple-service-dashboard.md)|
+|Desactivar un dispositivo</br>Eliminar un dispositivo|Servicio de Administrador de StorSimple → Dispositivos|[Desactivar o eliminar un dispositivo](storsimple-deactivate-and-delete-device.md)|
 |Obtener información sobre recuperación ante desastres y conmutación por error</br>Conmutación por error a un dispositivo físico</br>Conmutación por error a un dispositivo virtual</br>Recuperación ante desastres y continuidad empresarial (BCDR)|Servicio de Administrador de StorSimple → Dispositivos|[Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md)|
 |Listar copias de seguridad de un volumen</br>Seleccionar un conjunto de copias de seguridad</br>Eliminar un conjunto de copias de seguridad|Servicio de Administrador de StorSimple → Catálogo de copias de seguridad|[Administrar copias de seguridad](storsimple-manage-backup-catalog.md)|
 |Clonar un volumen|Servicio de Administrador de StorSimple → Catálogo de copias de seguridad|[Clonar un volumen](storsimple-clone-volume.md)|
@@ -83,7 +83,7 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 |Ver detalles del trabajo</br>Cancelar un trabajo|Servicio StorSimple Manager → Trabajos|[Trabajos de administración](storsimple-manage-jobs.md)
 |Recibir notificaciones de alerta</br>Administrar alertas</br>Revisar alertas|Servicio de Administrador de StorSimple → Alertas|[Ver y administrar alertas de StorSimple](storsimple-manage-alerts.md)
 |Ver iniciadores conectados</br>Buscar el número de serie del dispositivo</br>Encontrar el IQN de destino|Servicio de Administrador de StorSimple → Dispositivos → Panel|[Utilizar el panel del dispositivo StorSimple](storsimple-device-dashboard.md)|
-|Gráficos de supervisión de dispositivos|Servicio de Administrador de StorSimple → Dispositivos → Supervisión|[Supervisar su dispositivo StorSimple](https://msdn.microsoft.com/library/azure/dn757759.aspx)|
+|Gráficos de supervisión de dispositivos|Servicio de Administrador de StorSimple → Dispositivos → Supervisión|[Supervisar su dispositivo StorSimple](storsimple-monitor-device.md)|
 |Agregar un contenedor de volúmenes</br>Modificar un contenedor de volúmenes</br>Eliminar un contenedor de volúmenes|Servicio de Administrador de StorSimple → Dispositivos → Contenedores de volúmenes|[Administrar contenedores de volúmenes](storsimple-manage-volume-containers.md)|
 |Agregar un volumen</br>Modificar un volumen</br>Desconectar un volumen</br>Eliminar un volumen</br>Supervisar un volumen|Servicio de Administrador de StorSimple → Dispositivos → Contenedores de volúmenes → Volúmenes|[Administrar volúmenes](storsimple-manage-volumes.md)|
 |Modificar la configuración de dispositivo</br>Modificar la configuración de tiempo</br>Modificar la configuración DNS.md</br>Configurar interfaces de red|Servicio de Administrador de StorSimple → Dispositivos → Configurar|[Modificar la configuración de dispositivo de su dispositivo StorSimple device](storsimple-modify-device-config.md)|
@@ -107,6 +107,6 @@ Si tiene algún problema con la operación diaria de su dispositivo StorSimple o
 
 Si no puede resolver los problemas y necesita crear una solicitud de servicio, consulte:
 
--  [Contactar al servicio técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx)
+-  [Contactar al servicio técnico de Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

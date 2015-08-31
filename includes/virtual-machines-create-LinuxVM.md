@@ -1,4 +1,5 @@
 1. Conéctese a su suscripción de Azure mediante los pasos enumerados en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](../articles/xplat-cli-connect.md).
+
 2. Asegúrese de que está en el modo Administración de servicios, para lo que debe usar:
 
         azure config mode asm
@@ -36,6 +37,6 @@
 
 7. La máquina virtual recién creada está lista para iniciarse con el comando `azure vm start`.
 
-Para obtener más información acerca de estos comandos de la máquina virtual de la CLI de Azure, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
+Para obtener más información acerca de estos comandos de la máquina virtual de la CLI de Azure, consulte [Uso de la CLI de Azure con la API de administración de servicios](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

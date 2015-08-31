@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Uso de Proxy de aplicación para publicar aplicaciones para el acceso remoto seguro" 
-	description="En este tema se explica cómo publicar aplicaciones (como sitios de SharePoint y aplicaciones basadas en Outlook Web Access o IIS) en la red privada y se proporciona un acceso seguro a los usuarios externos a la red." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Uso de Proxy de aplicación para publicar aplicaciones para el acceso remoto seguro"
+	description="En este tema se explica cómo publicar aplicaciones (como sitios de SharePoint y aplicaciones basadas en Outlook Web Access o IIS) en la red privada y se proporciona un acceso seguro a los usuarios externos a la red."
+	services="active-directory"
+	documentationCenter=""
+	authors="rkarlin"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015" 
+	ms.author="rkarlin"/>
 
 
 # Uso de Proxy de aplicación para publicar aplicaciones para el acceso remoto seguro
@@ -30,6 +30,5 @@ Para comenzar a usar Proxy de aplicación, siga estos pasos: 1. [Habilitar servi
 ## Pasos siguientes
 
 [Blog de Microsoft Azure](http://azure.microsoft.com/blog/) [Habilitar servicios de Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768214.aspx) [Publicar aplicaciones con Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768220.aspx) [Solucionar problemas de Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768218.aspx)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

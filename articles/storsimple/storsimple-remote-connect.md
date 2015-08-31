@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Conectarse de forma remota al dispositivo StorSimple
@@ -21,7 +21,7 @@
 
 Puede usar la conexión remota de Windows PowerShell para conectarse al dispositivo StorSimple. Cuando se conecta de este modo, no verá un menú. (Verá un menú solo si utiliza la consola en serie del dispositivo para conectarse). Con la conexión remota de Windows PowerShell, se conecta a un espacio de ejecución específico. También puede especificar el idioma de visualización.
 
-Para obtener más información acerca del uso de la conexión remota de Windows PowerShell para administrar el dispositivo, vaya a [Administrar su dispositivo con Windows PowerShell para StorSimple](storsimple-windows-powershell-administration.md).
+Para obtener más información acerca del uso de la conexión remota de Windows PowerShell para administrar el dispositivo, vaya a [Uso de Windows PowerShell para StorSimple para administrar su dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 
 Este tutorial explica cómo configurar el dispositivo para la administración remota y, a continuación, cómo conectarse a Windows PowerShell para StorSimple. Puede utilizar HTTP o HTTPS para conectarse a través de la conexión remota de Windows PowerShell. Sin embargo, cuando decide cómo conectarse a Windows PowerShell para StorSimple, tenga en cuenta lo siguiente:
 
@@ -37,9 +37,9 @@ Puede conectarse de forma remota a la interfaz de Windows PowerShell. No obstant
 
 Conectarse a Windows PowerShell para StorSimple a través de una sesión HTTP proporciona una mayor seguridad que la conexión a través de la consola en serie del dispositivo StorSimple. Aunque este no es el método más seguro, es aceptable en redes de confianza.
 
-Puede usar el Portal de administración o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
+Puede usar el Portal de Azure o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
 
-- [Utilice el Portal de administración para habilitar la administración remota a través de HTTP](#use-the-management-portal-to-enable-remote-management-over-http)
+- [Uso del Portal de Azure para habilitar la administración remota a través de HTTP](#use-the-azure-portal-to-enable-remote-management-over-http)
 
 - [Utilice la consola en serie para habilitar la administración remota a través de HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
@@ -47,11 +47,11 @@ Después de habilitar la administración remota, utilice el procedimiento siguie
 
 - [Preparar al cliente para la conexión remota](#prepare-the-client-for-remote-connection)
 
-### Utilice el Portal de administración para habilitar la administración remota a través de HTTP 
+### Uso del Portal de Azure para habilitar la administración remota a través de HTTP 
 
-Siga los pasos a continuación en el Portal de administración para habilitar la administración remota a través de HTTP.
+Siga estos pasos en el Portal de Azure para habilitar la administración remota a través de HTTP.
 
-#### Para habilitar la administración remota a través del Portal de administración
+#### Para habilitar la administración remota a través del Portal de Azure
 
 1. En el dispositivo, acceda a **Dispositivos** > **Configurar**.
 
@@ -122,9 +122,9 @@ Realice los pasos siguientes en el cliente para habilitar la administración rem
 
 Conectarse a Windows PowerShell para StorSimple a través de una sesión HTTPS es el método más seguro y recomendado de conexión remota a su dispositivo StorSimple de Microsoft Azure. Los procedimientos siguientes explican cómo configurar los equipos cliente y consola en serie de modo que pueda usar HTTPS para conectarse a Windows PowerShell para StorSimple.
 
-Puede usar el Portal de administración o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
+Puede usar el Portal de Azure o la consola en serie para configurar la administración remota. Seleccione entre los siguientes procedimientos:
 
-- [Utilice el Portal de administración para habilitar la administración remota a través de HTTPS](#use-the-management-portal-to-enable-remote-management-over-https)
+- [Uso del Portal de Azure para habilitar la administración remota a través de HTTPS](#use-the-azure-portal-to-enable-remote-management-over-https)
 
 - [Utilice la consola en serie para habilitar la administración remota a través de HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
@@ -134,11 +134,11 @@ Después de habilitar la administración remota, utilice los procedimientos sigu
 
 - [Conectarse al dispositivo desde el host remoto](#connect-to-the-device-from-the-remote-host)
 
-### Utilice el Portal de administración para habilitar la administración remota a través de HTTPS
+### Uso del Portal de Azure para habilitar la administración remota a través de HTTPS
 
-Realice los pasos siguientes en el Portal de administración para habilitar la administración remota a través de HTTPS.
+Siga estos pasos en el Portal de Azure para habilitar la administración remota a través de HTTPS.
 
-#### Para habilitar la administración remota a través de HTTPS desde el Portal de administración
+#### Para habilitar la administración remota a través de HTTP desde el Portal de Azure
 
 1. Acceda a **Dispositivos** > **Configurar** para el dispositivo.
 
@@ -194,9 +194,9 @@ Realice los pasos siguientes en la consola en serie del dispositivo para habilit
 
 Para preparar el equipo host para una conexión remota que utiliza una sesión HTTPS, realice los siguientes procedimientos:
 
-- [Importar el archivo .cer en el almacén raíz del cliente o host remoto](to-import-the-certificate-on-the-remote-host).
+- [Importación del archivo .cer en el almacén raíz del cliente o un host remoto](#to-import-the-certificate-on-the-remote-host).
 
-- [Agregar los números de serie del dispositivo en el archivo de hosts en el host remoto](to-add-device-serial-numbers-to-the-remote-host).
+- [Incorporación de los números de serie del dispositivo al archivo de hosts en el host remoto](#to-add-device-serial-numbers-to-the-remote-host).
 
 A continuación se describe cada uno de estos procedimientos.
 
@@ -254,7 +254,7 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
 
 4. Cree una sesión, escriba:
 
-     $session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"
+     `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
     El nombre CN en cmdlet, proporcione la *<serial number of target device>*. Este número de serie se asigna a la dirección IP de DATA 0 en el archivo de hosts en el host remoto; Por ejemplo, **SHX0991003G44MT** tal como se muestra en la siguiente imagen.
 
@@ -268,6 +268,6 @@ Realice el procedimiento siguiente en el equipo desde el que desea realizar la c
 
 ## Pasos siguientes
 
-[Más información acerca del uso de Windows PowerShell para administrar el dispositivo StorSimple](storsimple-windows-powershell-administration.md)
+[Más información acerca del uso de Windows PowerShell para administrar el dispositivo StorSimple](storsimple-windows-powershell-administration.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

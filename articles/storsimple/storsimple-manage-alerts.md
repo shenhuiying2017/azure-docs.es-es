@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Visualización y administración de alertas de StorSimple"
+   pageTitle="Visualización y administración de alertas de StorSimple | Microsoft Azure"
    description="Describe las alertas de StorSimple y cómo utilizar el servicio de Administrador de StorSimple para verlas y borrarlas."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Visualización y administración de alertas de StorSimple
@@ -137,8 +137,24 @@ Las siguientes tablas enumeran algunas de las alertas de Microsoft Azure StorSim
 
 |Texto de la alerta|Evento|Más información / acciones recomendadas|
 |:---|:---|:---|
-|La conectividad a <*nombre de credencial en la nube*> no puede establecerse.|No es posible conectarse a la cuenta de almacenamiento.|Parece que podría existir un problema de conectividad con su dispositivo. Ejecute el cmdlet **Test-HcsmConnection** desde la interfaz de Windows PowerShell para StorSimple en su dispositivo para identificar y corregir el problema. Si la configuración es correcta, puede que el problema sea con las credenciales de la cuenta de almacenamiento por la que se desencadenó la alarma. En este caso, utilice el cmdlet **Test-HcsStorageAccountCredential** para determinar si existen problemas que puede resolver.<ul><li>Compruebe la configuración de red.</li><li>Compruebe sus credenciales de cuenta de almacenamiento.</li></ul>|
-|No hemos recibido ningún latido desde su dispositivo durante los últimos <*número*> minutos.|No es posible conectarse al dispositivo.|Parece que existe un problema de conectividad con su dispositivo. Utilice el cmdlet **Test-HcsmConnection** desde la interfaz de Windows PowerShell para StorSimple en su dispositivo para identificar y corregir el problema, o póngase en contacto con su administrador de red.|
+|La conectividad a <*nombre de credencial en la nube*> no puede establecerse.|No es posible conectarse a la cuenta de almacenamiento.|Parece que podría existir un problema de conectividad con su dispositivo. Ejecute el cmdlet `Test-HcsmConnection` desde la interfaz de Windows PowerShell para StorSimple en su dispositivo para identificar y corregir el problema. Si la configuración es correcta, puede que el problema sea con las credenciales de la cuenta de almacenamiento por la que se desencadenó la alarma. En este caso, use el cmdlet `Test-HcsStorageAccountCredential` para determinar si existen problemas que puede resolver.<ul><li>Compruebe la configuración de red.</li><li>Compruebe sus credenciales de cuenta de almacenamiento.</li></ul>|
+|No hemos recibido ningún latido desde su dispositivo durante los últimos <*número*> minutos.|No es posible conectarse al dispositivo.|Parece que existe un problema de conectividad con su dispositivo. Use el cmdlet `Test-HcsmConnection` desde la interfaz de Windows PowerShell para StorSimple en su dispositivo para identificar y corregir el problema, o póngase en contacto con su administrador de red.|
+
+### Comportamiento de StorSimple cuando se produce un error de conectividad de la nube
+
+¿Qué sucede si se produce un error de conectividad de la nube para mi dispositivo StorSimple que se ejecuta en producción?
+
+Si se produce un error en la conectividad de la nube en el dispositivo de producción de StorSimple, según el estado del dispositivo, puede ocurrir lo siguiente:
+
+- **Para los datos locales en el dispositivo**: no se producirá ninguna interrupción y las lecturas se seguirán atendiendo. Sin embargo, cuando el número de operaciones de E/S pendientes aumenta y excede el límite, las lecturas pueden comenzar a fallar. 
+
+	Según la cantidad de datos en las capas locales del dispositivo, las escrituras seguirán también produciéndose para las primeras horas después de la interrupción de la conectividad de la nube. Las escrituras se ralentizarán y finalmente comenzarán a fallar si se interrumpe la conectividad de la nube durante varias horas.
+
+ 
+- **Para los datos en la nube**: en la mayoría de los errores de conectividad de nube, se devuelve un error. Una vez restaurada la conectividad, se reanudarán las operaciones de E/S sin que el usuario tiene que incorporar el volumen en línea. En raras ocasiones, podría ser necesaria la intervención del usuario para recuperar el volumen en línea desde el Portal de Azure.
+ 
+- **Para las instantáneas en la nube en curso**: la operación se reintenta varias veces en 4 o 5 horas y, si no se restaura la conectividad, se producirá un error en las instantáneas en la nube.
+
 
 ### Alertas de clúster
 
@@ -155,8 +171,8 @@ Las siguientes tablas enumeran algunas de las alertas de Microsoft Azure StorSim
 
 |Texto de la alerta|Evento|Más información / acciones recomendadas|
 |:---|:---|:---|
-|Las operaciones de recuperación no lograron restaurar todos los valores de configuración para este servicio. Los datos de configuración de dispositivo están en un estado incoherente para algunos dispositivos.|Incoherencia de datos detectada después de la recuperación ante desastres.|Los datos cifrados en el servicio no están sincronizados con los del dispositivo. Autorice al dispositivo <*nombre de dispositivo*> desde el Administrador de StorSimple a iniciar el proceso de sincronización. Utilice la interfaz de Windows PowerShell para StorSimple para ejecutar el cmdlet **Restaurar-HcsmEncryptedServiceData en dispositivo <*nombre de dispositivo*>**, proporcionando la contraseña anterior como entrada para este cmdlet para restaurar el perfil de seguridad. A continuación, ejecute el cmdlet **Invocar-HcsmServiceDataEncryptionKeyChange** para actualizar la clave de cifrado de datos del servicio. Una vez tomadas las acciones apropiadas, borre esta alerta de la página de alertas.|
-|El servicio ha conmutado por error a un centro de datos secundario debido a un error inesperado.|Otras causas/causas desconocidas.|Debe verificar los valores de configuración en el Administrador de StorSimple para continuar. Una vez tomadas las acciones apropiadas, borre esta alerta de la página de alertas. Para obtener más información sobre StorSimple Manager, consulte la [Guía del Administrador de StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772401.aspx).|
+|Las operaciones de recuperación no lograron restaurar todos los valores de configuración para este servicio. Los datos de configuración de dispositivo están en un estado incoherente para algunos dispositivos.|Incoherencia de datos detectada después de la recuperación ante desastres.|Los datos cifrados en el servicio no están sincronizados con los del dispositivo. Autorice al dispositivo <*nombre de dispositivo*> desde el Administrador de StorSimple a iniciar el proceso de sincronización. Use la interfaz de Windows PowerShell para StorSimple para ejecutar el cmdlet `Restore-HcsmEncryptedServiceData` en dispositivo <*nombre de dispositivo*>, proporcionando la contraseña anterior como entrada para este cmdlet para restaurar el perfil de seguridad. Después ejecute el cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` para actualizar la clave de cifrado de datos del servicio. Una vez tomadas las acciones apropiadas, borre esta alerta de la página de alertas.|
+|El servicio ha conmutado por error a un centro de datos secundario debido a un error inesperado.|Otras causas/causas desconocidas.|Debe verificar los valores de configuración en el Administrador de StorSimple para continuar. Una vez tomadas las acciones apropiadas, borre esta alerta de la página de alertas. Para obtener más información, sobre el Administrador de StorSimple, consulte [Utilizar el servicio de Administrador de StorSimple para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).|
 
 ### Alertas de hardware
 
@@ -170,7 +186,7 @@ Las siguientes tablas enumeran algunas de las alertas de Microsoft Azure StorSim
 |Texto de la alerta|Evento|Más información / acciones recomendadas|
 |:---|:---|:---|
 |Error de copia de seguridad de <*Id. de grupo de volúmenes de origen*>|Error de trabajo de copia de seguridad.|Podrían existir problemas de conectividad que impiden que la operación de copia de seguridad se complete correctamente. Si no hay problemas de conectividad, podría haber alcanzado el número máximo de copias de seguridad. Elimine las copias de seguridad que ya no sean necesarias y vuelva a intentar la operación. Una vez tomadas las acciones apropiadas, borre esta alerta de la página de alertas.|
-|Error de clonación de <*Id. de elemento de copia de seguridad de origen*> a <*núeros de serie de volúmenes de destino*>.|Error de trabajo de clonación.|Actualice la lista de copias de seguridad para verificar que la copia de seguridad siga siendo válida. Si la copia de seguridad es válida, es posible que existan problemas de conectividad de nube que impidan que la operación de clonación se complete correctamente. Si no hay problemas de conectividad, podría haber alcanzado el límite de almacenamiento. Elimine las copias de seguridad que ya no sean necesarias y vuelva a intentar la operación. Una vez tomadas las acciones apropiadas para resolver el problema, borre esta alerta de la página de alertas.|
+|Error de clonación de <*Id. de elemento de copia de seguridad de origen*> a <*números de serie de volúmenes de destino*>.|Error de trabajo de clonación.|Actualice la lista de copias de seguridad para verificar que la copia de seguridad siga siendo válida. Si la copia de seguridad es válida, es posible que existan problemas de conectividad de nube que impidan que la operación de clonación se complete correctamente. Si no hay problemas de conectividad, podría haber alcanzado el límite de almacenamiento. Elimine las copias de seguridad que ya no sean necesarias y vuelva a intentar la operación. Una vez tomadas las acciones apropiadas para resolver el problema, borre esta alerta de la página de alertas.|
 |Error de restauración de <*Id. de elemento de copia de seguridad de origen*>.|Error de trabajo de restauración.|Actualice la lista de copias de seguridad para verificar que la copia de seguridad siga siendo válida. Si la copia de seguridad es válida, es posible que existan problemas de conectividad de nube que impidan que la operación de restauración se complete correctamente. Si no hay problemas de conectividad, podría haber alcanzado el límite de almacenamiento. Elimine las copias de seguridad que ya no sean necesarias y vuelva a intentar la operación. Una vez tomadas las acciones apropiadas para resolver el problema, borre esta alerta de la página de alertas.|
 
 ### Alertas de rendimiento
@@ -187,7 +203,7 @@ Las siguientes tablas enumeran algunas de las alertas de Microsoft Azure StorSim
 |La contraseña de <*elemento*> caducará en <*período de tiempo*>.||Cambiar la contraseña antes de que caduque.|
 |Falta información de configuración de seguridad de <*Id. de elemento*>.||Los volúmenes asociados con este contenedor de volúmenes no pueden utilizarse para replicar la configuración de StorSimple. Para asegurarse de que sus datos se almacenan de forma segura, recomendamos eliminar el contenedor de volúmenes y los volúmenes asociados con el contenedor de volúmenes. Una vez tomadas las acciones apropiadas, borre esta alerta de la página de alertas.|
 |<*número*> intentos de inicio de sesión erróneos en <*Id. de elemento*>.|Múltiples intentos de inicio de sesión erróneos.|Su dispositivo puede estar bajo ataque o un usuario autorizado está intentando conectarse con una contraseña incorrecta.<ul><li>Póngase en contacto con los usuarios autorizados y verifique que estos intentos proceden de un origen legítimo. Si continúa viendo un gran número de intentos de inicio de sesión erróneos, considere la posibilidad de deshabilitar la administración remota y de ponerse en contacto con su administrador de red. Una vez tomadas las acciones apropiadas, borre esta alerta de la página de alertas.</li><li>Compruebe que las instancias del Administrador de instantáneas estén configuradas con la contraseña correcta. Una vez tomadas las acciones apropiadas, borre esta alerta de la página de alertas.</li></ul>|
-|Se ha producido uno o más errores al cambiar la clave de cifrado de datos del servicio.||Se encontraron errores al cambiar la clave de cifrado de datos del servicio. Cuando haya abordado las condiciones de error, ejecute el cmdlet **Invocar-HcsmServiceDataEncryptionKeyChange** desde la interfaz de Windows PowerShell para StorSimple en su dispositivo para actualizar el servicio. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. Una vez que resolvió el problema, borre esta alerta de la página de alertas.|
+|Se ha producido uno o más errores al cambiar la clave de cifrado de datos del servicio.||Se encontraron errores al cambiar la clave de cifrado de datos del servicio. Cuando haya solucionado las condiciones de error, ejecute el cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` desde la interfaz de Windows PowerShell para StorSimple en su dispositivo para actualizar el servicio. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. Una vez que resolvió el problema, borre esta alerta de la página de alertas.|
 
 ### Alertas de paquetes de soporte
 
@@ -217,4 +233,4 @@ Las siguientes tablas enumeran algunas de las alertas de Microsoft Azure StorSim
 
 [Obtenga más información sobre los errores de StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

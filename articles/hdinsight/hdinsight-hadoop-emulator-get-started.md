@@ -6,15 +6,16 @@
 	manager="paulettm"
 	services="hdinsight"
 	authors="nitinme"
-	documentationCenter=""/>
+	documentationCenter=""
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="05/07/2015"
+	ms.topic="article" 
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
 # Introducción al ecosistema de Hadoop con el emulador de HDInsight, un espacio aislado de Hadoop
@@ -396,13 +397,17 @@ Antes de comenzar con las instrucciones dadas a continuación, debe haber creado
 
 **Para crear un contenedor**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal].
-2. Haga clic en **Almacenamiento**, a la izquierda. Se muestra una lista de cuentas de almacenamiento en la suscripción.
-3. En la lista, haga clic en la cuenta de almacenamiento donde desea crear el contenedor.
-4. Haga clic en **Contenedores** en la parte superior de la página.
-5. Haga clic en **Agregar** en la parte inferior de la página.
-6. Escriba un valor en **Nombre** y elija **Acceso**. Puede usar cualquiera de los tres niveles de acceso. El valor predeterminado es **Privado**.
-7. Haga clic en **Aceptar** para guardar los cambios. Podrá ver que el contenedor nuevo se muestra ahora en el portal.
+1. Inicie sesión en el [Portal de vista previa de Azure](https://ms.portal.azure.com/).
+2. Haga clic en **NUEVO** a la izquierda, en **Datos+almacenamiento** y luego en **Almacenamiento**.
+3. En la hoja de cuenta de almacenamiento, configure las propiedades como se muestran en la siguiente captura de pantalla.
+	
+	![Crear una cuenta de almacenamiento](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
+
+	Seleccione **Anclar a Panel de inicio** y haga clic en **Crear**.
+4. Cuando se cree la cuenta de almacenamiento, en la nueva hoja de cuenta de almacenamiento, haga clic en **Contenedores** para abrir la hoja de contenedores y luego en **Agregar**.
+5. Escriba el nombre del contenedor y después haga clic en **Seleccionar**.
+
+	![Crear un contenedor](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
 
 Para que pueda tener acceso a una cuenta de almacenamiento de Azure, debe agregar el nombre y la clave de la cuenta al archivo de configuración.
 
@@ -493,4 +498,4 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

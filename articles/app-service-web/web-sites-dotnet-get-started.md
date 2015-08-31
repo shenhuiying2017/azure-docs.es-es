@@ -52,9 +52,9 @@ En este vídeo, Scott Hanselman presenta lo sencillo que resulta suscribirse par
 
 El primer paso es crear un proyecto web en Visual Studio y una aplicación web en el Servicio de aplicaciones de Azure. Cuando esté listo, implemente el proyecto a la aplicación web para que esté disponible en Internet.
 
-Los diagramas muestran lo que hace en los pasos de creación e implementación.
+En el diagrama se muestra lo que se hace en los pasos de creación e implementación.
 
-![Crear](./media/web-sites-dotnet-get-started/Create_App.png)
+![Creación e implementación](./media/web-sites-dotnet-get-started/Create_App.png)
 
 1. Abra Visual Studio 2015 o Visual Studio 2013. 
 
@@ -62,13 +62,13 @@ Los diagramas muestran lo que hace en los pasos de creación e implementación.
 
 2. En el menú **Archivo**, haga clic en **Nuevo > Proyecto**.
 
-3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **C#** > **Web** > **Aplicación Web ASP.NET**. Si lo prefiere, puede elegir **Visual Basic**.
+3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **C\#** > **Web** > **Aplicación Web ASP.NET**. Si lo prefiere, puede elegir **Visual Basic**.
 
-3. Asegúrese de que **.NET Framework 4.5.2** sea el marco de trabajo de destino seleccionado.
+3. Asegúrese de que **.NET Framework 4.5.2** es el marco de destino seleccionado.
 
-4.  [Application Insights](app-insights-overview.md) supervisa la aplicación web en cuanto a disponibilidad, rendimiento y uso. Desactive la casilla **Agregar Application Insights a proyecto** si no desea probarlo.
+4.  [Application Insights](app-insights-overview.md) supervisa la aplicación web en cuanto a disponibilidad, rendimiento y uso. Desactive la casilla **Agregar Application Insights al proyecto** si no desea probarlo.
 
-4. Póngale a la aplicación el nombre **MyExample**.
+4. Ponga a la aplicación el nombre **MyExample**.
 
 5. Haga clic en **Aceptar**.
 
@@ -100,7 +100,7 @@ Los diagramas muestran lo que hace en los pasos de creación e implementación.
 
 	![Conectado a Azure](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. En el cuadro de diálogo **Configuración de aplicación web de Microsoft Azure**, escriba un **Nombre de aplicación web** que sea único en el dominio*azurewebsites.net*. Puede denominarlo MyExample con números a la derecha para que sea único, por ejemplo, MyExample810. Si se crea automáticamente un nombre de web predeterminado, será exclusivo y puede usarlo.
+3. En el cuadro de diálogo **Configuración de aplicación web de Microsoft Azure**, escriba un **Nombre de aplicación web** que sea único en el dominio *azurewebsites.net*. Puede denominarlo MyExample con números a la derecha para que sea único, por ejemplo, MyExample810. Si se crea automáticamente un nombre de web predeterminado, será exclusivo y puede usarlo.
 
 	Si escribe un nombre que ya usa otro usuario, aparecerá un signo de exclamación rojo a la derecha en lugar de una marca de verificación verde y tendrá que especificar otro nombre.
 
@@ -281,7 +281,7 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
 * Cómo evitar el tiempo de espera de reactivación después de tiempos de espera de inactividad
 
-	De forma predeterminada, las aplicaciones web se descargan si han estado inactivas durante algún tiempo. La primera solicitud después de cargar una aplicación web tiene que esperar a que la aplicación web se cargue de nuevo. Para evitar el tiempo de espera, puede habilitar la característica AlwaysOn. Para obtener más información, vea las opciones de configuración de [Configuración de aplicaciones web](web-sites-configure.md).
+	De forma predeterminada, las aplicaciones web se descargan si han estado inactivas durante algún tiempo. La primera solicitud después de cargar una aplicación web tiene que esperar a que la aplicación web se cargue de nuevo. Para evitar el tiempo de espera, puede habilitar la característica AlwaysOn. Para obtener más información, consulte las opciones de configuración de [Configuración de aplicaciones web](web-sites-configure.md).
 
 * Cómo agregar características en tiempo real (por ejemplo, chat)
 
@@ -289,7 +289,7 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
 * Selección entre Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales de Azure para aplicaciones web
 
-	En Azure puede ejecutar aplicaciones web en Aplicaciones web del Servicio de aplicaciones, como se muestra en este tutorial, o bien en Servicios en la nube o en Máquinas virtuales. Para obtener más información, vea [Aplicaciones web de Azure, Servicios en la nube y Máquinas virtuales: ¿cuándo se usa cada opción?](/manage/services/web-sites/choose-web-app-service/).
+	En Azure puede ejecutar aplicaciones web en Aplicaciones web del Servicio de aplicaciones, como se muestra en este tutorial, o bien en Servicios en la nube o en Máquinas virtuales. Para obtener más información, consulte [Aplicaciones web de Azure, Servicios en la nube y Máquinas virtuales: ¿cuándo se usa cada opción?](/manage/services/web-sites/choose-web-app-service/).
 
 * [Cómo elegir o crear un plan del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -301,4 +301,4 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

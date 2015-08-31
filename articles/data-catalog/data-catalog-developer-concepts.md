@@ -46,19 +46,19 @@ Catálogo de datos de Azure usa Azure Active Directory para la administración d
 
 ### Recursos
 
-Un **catálogo** contiene recursos de datos. **Recursos** son la unidad del elemento administrado por el catálogo.
+Un **catálogo** contiene recursos de datos. Los **Recursos** son la unidad de granularidad que administra el catálogo.
 
-La granularidad de un recurso varía según el origen de datos. Para SQL Server o Base de datos de Oracle, un recurso puede ser una tabla o una vista. Para SQL Server Analysis Services un recurso pueden ser unas medidas, unas dimensiones o un indicador clave de rendimiento (KPI). Para SQL Server Reporting Services, un recurso puede ser un informe.
+La granularidad de un recurso varía según el origen de datos. Para SQL Server o Base de datos de Oracle, un recurso puede ser una tabla o una vista. Para SQL Server Analysis Services, un recurso puede ser una Medida, una Dimensión o un indicador clave de rendimiento (KPI). Para SQL Server Reporting Services, un recurso es un Informe.
 
-Un **recurso** es el elemento que se agrega o quita de un catálogo. Es la unidad del resultado que recibimos de la **Búsqueda**.
+Un **Recurso** es el elemento que se agrega o quita de un Catálogo. Es la unidad del resultado que recibimos de la **Búsqueda**.
 
-Un **recurso** se compone de la información principal, su ubicación y su tipo, así como de las como anotaciones que lo describen.
+Un **Recurso** se compone de su nombre, ubicación y tipo, así como de las anotaciones que lo describen.
 
 ### Anotaciones
 
 Las anotaciones son elementos que representan los metadatos acerca de los recursos.
 
-Ejemplos de las anotaciones son la descripción, las etiquetas, los esquemas, la documentación, etc. ... En la sección del modelo de objeto de recurso se encuentra una lista completa de los tipos de recursos y anotaciones.
+Como ejemplos de anotaciones, se encuentran la descripción, las etiquetas, el esquema, la documentación, etc. En la sección de modelo de objeto del recurso se encuentra una lista completa de los tipos de recursos y anotaciones.
 
 ## Anotaciones de micromecenazgo y perspectiva del usuario (multiplicidad de opinión)
 
@@ -80,25 +80,11 @@ A continuación, la experiencia de usuario puede elegir cómo mostrar la combina
 
 -	El modelo más simple es "Show All". En este patrón se muestran todos los objetos en algún tipo de vista de lista. Esto es lo que hace la experiencia del usuario del portal de Catálogo de datos de Azure por la descripción.
 -	Otro patrón es "Merge". En este patrón todos los valores de los distintos usuarios se combinan, y se eliminan los duplicados. Ejemplos de este patrón en la experiencia del usuario del portal de Catálogo de datos de Azure son las etiquetas y las propiedades de expertos.
--	Un tercer patrón es "el último escritor gana". En este patrón se muestra solo el valor más reciente escrito. friendlyName es un ejemplo de este patrón. A algunos tipos no se les permite tener varias instancias.
-
-A continuación se muestra una lista de los tipos a los que se les permite y a los que no tener varias instancias:
-
-Los siguientes tipos pueden tener varias instancias:
-
-- Descripción
-- Expertos
-- Descripción del esquema
-
-Los siguientes tipos **no** pueden tener varias instancias:
-
-- Tipos de raíz
-- Esquema
-- Vista previa
+-	Un tercer patrón es "el último escritor gana". En este patrón se muestra solo el valor más reciente escrito. friendlyName es un ejemplo de este patrón.
 
 ## Modelo de objeto de recurso
 
-Como se mencionó en la sección Conceptos clave, el modelo de objetos **Catálogo de datos de Azure** incluye elementos, que pueden ser activos o anotaciones. Los elementos tienen propiedades, que pueden ser optional o required. Algunas propiedades se aplican a todos los elementos. Algunas propiedades se aplican a todos los recursos. Algunas propiedades se aplican solo a tipos de recursos específicos.
+Como se mencionó en la sección Conceptos clave, el modelo de objetos **Catálogo de datos de Azure** incluye elementos, que pueden ser recursos o anotaciones. Los elementos tienen propiedades, que pueden ser optional o required. Algunas propiedades se aplican a todos los elementos. Algunas propiedades se aplican a todos los recursos. Algunas propiedades se aplican solo a tipos de recursos específicos.
 
 ### Propiedades comunes
 
@@ -151,11 +137,11 @@ El Catálogo de datos de Azure usa dos mecanismos de autorización:
 
 ### Roles
 
-Existen 3 roles: **administrador**, **propietario** y **colaborador**. Cada rol tiene su ámbito y derechos, que se resumen en la tabla siguiente.
+Existen 3 roles: **Administrador**, **Propietario** y **Colaborador**. Cada rol tiene su ámbito y derechos, que se resumen en la tabla siguiente.
 
 <table><tr><td><b>Rol</b></td><td><b>Ámbito</b></td><td><b>Derechos</b></td></tr><tr><td>Administrador</td><td>Catálogo (es decir, todos los recursos/anotaciones del catálogo)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Propietario</td><td>Cada recurso (es decir, también conocido como elemento raíz)</td><td>Read Delete ViewRoles ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>Colaborador</td><td>Cada recurso y anotación individual</td><td>Read Update Delete ViewRoles Nota: todos los derechos se revocarán si la operación de lectura en el elemento se ha revocado desde el colaborador</td></tr></table>
 
-> [AZURE.NOTE]Los derechos **Read**, **Update**, **Delete**, **ViewRoles** son aplicables a cualquier elemento (recurso o anotación) mientras **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** y **ViewPermissions** solo son aplicables para el recurso de raíz.
+> [AZURE.NOTE]Los derechos **Read**, **Update**, **Delete** y **ViewRoles** se pueden aplicar a cualquier elemento (recurso o anotación), mientras que **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility** y **ViewPermissions** solo se pueden aplicar al recurso de raíz.
 >
 >El derecho **Delete** se aplica a un elemento, así como a los elementos secundarios o únicos situados debajo de él. Por ejemplo, la eliminación de un recurso también eliminará las anotaciones de ese recurso.
 
@@ -163,13 +149,13 @@ Existen 3 roles: **administrador**, **propietario** y **colaborador**. Cada rol 
 
 Un permiso es un lista de entradas de control de acceso. Cada entrada de control de acceso asigna un conjunto de derechos a una entidad de seguridad. Los permisos solo se pueden especificar en un recurso (es decir, el elemento raíz) y se aplican al recurso y a los elementos secundarios.
 
-Durante la vista previa del **Catálogo de datos de Azure**, solo se admite el derecho **Read** en la lista de permisos para habilitar el escenario para restringir la visibilidad de un recurso.
+Durante la vista previa del **Catálogo de datos de Azure**, solo se admite el derecho **Read** en la lista de permisos para habilitar el escenario que restringe la visibilidad de un recurso.
 
-De forma predeterminada, cualquier usuario autenticado tiene derecho **Read** para cualquier elemento del catálogo, a menos que la visibilidad esté restringida al conjunto de entidades de los permisos.
+De forma predeterminada, cualquier usuario autenticado tiene el derecho **Read** para cualquier elemento del catálogo, a menos que la visibilidad esté restringida al conjunto de entidades de los permisos.
 
 ## API de REST
 
-Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse para controlar roles y permisos: además de la carga de elementos, pueden especificarse dos propiedades del sistema: **\_\_roles** y **\_\_permissions**.
+Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse para controlar roles y permisos; además de la carga de elementos, pueden especificarse dos propiedades del sistema: **\_\_roles** y **\_\_permissions**.
 
 > [AZURE.NOTE]
 >
@@ -177,10 +163,10 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 >
 > El rol **Propietario** solo es aplicable a un elemento de raíz.
 >
-> De forma predeterminada, cuando se crea un elemento en el catálogo, su **Colaborador** se establece en el usuario autenticado actualmente. Si el elemento debe ser actualizable por todo el mundo, el **Colaborador** debe establecerse en entidad de seguridad especial <Everyone> en la propiedad **\_\_roles** cuando se publique la propiedad por primera vez (consulte el ejemplo siguiente). El **Colaborador** no se puede cambiar y permanece igual durante el tiempo de vida de un elemento (es decir, incluso **Administrador** o **Propietario** no tienen derecho a cambiar el **Colaborador**). El único valor admitido para la configuración explícita del **Colaborador** es <Everyone>: es decir, **Colaborador** solo puede ser un usuario que haya creado un elemento o <Everyone>.
+> De forma predeterminada, cuando se crea un elemento en el catálogo, su **Colaborador** se establece como el usuario autenticado actualmente. Si el elemento debe poder ser actualizable por todo el mundo, **Colaborador** debe establecerse como entidad de seguridad especial <Everyone> en la propiedad **\_\_roles** cuando se publique la propiedad por primera vez (consulte el ejemplo siguiente). **Colaborador** no se puede cambiar y permanece igual durante la duración de un elemento (es decir, incluso **Administrador** o **Propietario** no tienen derecho para cambiar **Colaborador**). El único valor que se admite para la configuración explícita de **Colaborador** es <Everyone>; es decir, **Colaborador** solo puede ser un usuario que haya creado un elemento o <Everyone>.
 
 ###Ejemplos
-**Establezca el colaborador en<Everyone> al publicar un elemento.** La entidad de seguridad especial <Everyone> tiene el objectId "00000000-0000-0000-0000-000000000201". **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview **Body**
+**Establecer Colaborador como <Everyone> al publicar un elemento.** La entidad de seguridad especial <Everyone> tiene el objectId "00000000-0000-0000-0000-000000000201". **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview **Body**
 
 	{
 	    "__roles": [
@@ -196,7 +182,7 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 	    … other table properties
 	}
 
-**Asignar propietarios y restringir la visibilidad de un elemento raíz existente** **PUT**https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
+**Asignar propietarios y restringir la visibilidad de un elemento de raíz existente** **PUT**https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
 
 	{
 	    "__roles": [
@@ -245,4 +231,4 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

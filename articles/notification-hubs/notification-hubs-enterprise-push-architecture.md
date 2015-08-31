@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Centros de notificaciones: arquitectura de inserción empresarial" 
-	description="Instrucciones de uso de los Centros de notificaciones de Azure en un entorno de empresa" 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Centros de notificaciones: arquitectura de inserción empresarial"
+	description="Instrucciones de uso de los Centros de notificaciones de Azure en un entorno de empresa"
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Instrucciones sobre arquitectura de inserción empresarial
@@ -21,7 +21,7 @@
 En la actualidad, las empresas están pasando cada vez más hacia la creación de aplicaciones móviles para sus usuarios finales (externos) o para los empleados (internos). Disponen de sistemas back-end como grandes sistemas (mainframes) o algunas aplicaciones de línea de negocio (LoB) que deben estar integradas en la arquitectura de aplicaciones móviles. En esta guía hablaremos acerca de la mejor manera de realizar esta integración y recomendaremos soluciones posibles a escenarios comunes.
 
 Un requisito frecuente es el envío de notificaciones de inserción a los usuarios a través de su aplicación móvil cuando se produce un evento de interés en los sistemas back-end. Por ejemplo, el cliente de un banco que tiene la aplicación del banco en su iPhone desea recibir una notificación cuando se efectúe un cargo por encima de un importe determinado desde su cuenta, o un escenario de intranet en el que un empleado del departamento financiero que tiene una aplicación de aprobación de presupuestos en su Windows Phone desea recibir una notificación cuando obtenga una solicitud de aprobación.
- 
+
 El procesamiento de la cuenta bancaria o de la solicitud de aprobación se realiza probablemente en algún sistema back-end que debe iniciar una inserción al usuario. Podría haber muchos sistemas back-end de este tipo que deben crear todos el mismo tipo de lógica para implementar inserción cuando un evento desencadena una notificación. Aquí la complejidad reside en la integración de varios back-ends juntos con un único sistema de inserción donde los usuarios finales podrían haberse suscrito a diferentes notificaciones e incluso podría haber varias aplicaciones móviles, por ejemplo, en el caso de aplicaciones móviles de intranet donde una aplicación móvil puede querer recibir notificaciones de varios de estos sistemas back-end. Los sistemas back-end no conocen o no necesitan conocer la semántica/tecnología de inserción, de modo que una solución común aquí ha sido tradicionalmente introducir un componente que sondea los sistemas back-end en busca de eventos de interés y que es responsable de enviar los mensajes de inserción al cliente. Aquí hablaremos de una solución mejor incluso usando el modelo de temas y suscripciones del Bus de servicio de Azure, que reducirá la complejidad y hará que la solución sea escalable.
 
 Esta es la arquitectura general de la solución (generalizada con varias aplicaciones móviles pero igualmente aplicable cuando solo hay una aplicación móvil).
@@ -41,7 +41,7 @@ La pieza clave en este diagrama arquitectónico es el Bus de servicio de Azure q
 	- Envía una notificación a los clientes (a través del Centro de notificaciones de Azure)
 3. Aplicación móvil
 	- Recibe y muestra notificaciones
-		
+
 ###Ventajas:
 
 1. La separación entre el receptor (aplicación/servicio móvil a través del Centro de notificaciones) y el emisor (sistemas back-end) permite la integración de sistemas back-end adicionales con cambios mínimos.
@@ -52,19 +52,19 @@ La pieza clave en este diagrama arquitectónico es el Bus de servicio de Azure q
 ###Requisitos previos
 Para familiarizarse con los conceptos, así como con los pasos comunes de creación y configuración, debe realizar los siguientes tutoriales:
 
-1. [Programación Pub/Sub del Bus de servicio]\: en este tutorial se explican los detalles de trabajar con temas y suscripciones del Bus de servicio, cómo crear un espacio de nombres que contenga temas y suscripciones o cómo enviar y recibir mensajes de ellos. 
-2. [Tutorial sobre Centros de notificaciones: Windows Universal]\: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar los Centros de notificaciones para registrar y, después, recibir notificaciones. 
+1. [Programación Pub/Sub del Bus de servicio]\: en este tutorial se explican los detalles de trabajar con temas y suscripciones del Bus de servicio, cómo crear un espacio de nombres que contenga temas y suscripciones o cómo enviar y recibir mensajes de ellos.
+2. [Tutorial sobre Centros de notificaciones: Windows Universal]\: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar los Centros de notificaciones para registrar y, después, recibir notificaciones.
 
 ###Código de ejemplo
 
 El código de ejemplo completo está disponible en [Ejemplos de centro de notificaciones]. Se divide en tres componentes:
 
 1. **EnterprisePushBackendSystem**
-	
+
 	a. Este proyecto usa el paquete de NuGet *WindowsAzure.ServiceBus* y se basa en la [programación Pub/Sub del Bus de servicio].
 
 	b. Se trata de una aplicación de consola C# sencilla para simular un sistema LoB que inicia el mensaje que se entrega a la aplicación móvil.
-	
+
 		static void Main(string[] args)
         {
             string connectionString =
@@ -76,7 +76,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
             // Send message
             SendMessage(connectionString);
         }
-	
+
 	c. `CreateTopic` se usa para crear el tema del Bus de servicio al que se enviarán los mensajes.
 
         public static void CreateTopic(string connectionString)
@@ -100,7 +100,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
                 TopicClient.CreateFromConnectionString(connectionString, sampleTopic);
 
             // Sends random messages every 10 seconds to the topic
-            string[] messages = 
+            string[] messages =
             {
                 "Employee Id '{0}' has joined.",
                 "Employee Id '{0}' has left.",
@@ -133,10 +133,10 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 	    {
 	        string connectionString =
 	                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	
+
 	        // Create the subscription which will receive messages
-	        CreateSubscription(connectionString);   
-	
+	        CreateSubscription(connectionString);
+
 	        // Receive message
 	        ReceiveMessageAndSendNotification(connectionString);
 	    }
@@ -164,14 +164,14 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
                     ("Microsoft.NotificationHub.ConnectionString");
             hub = NotificationHubClient.CreateClientFromConnectionString
                     (hubConnectionString, "enterprisepushservicehub");
-            
+
             SubscriptionClient Client =
                 SubscriptionClient.CreateFromConnectionString
                         (connectionString, sampleTopic, sampleSubscription);
 
             Client.Receive();
 
-            // Continuously process messages received from the subscription 
+            // Continuously process messages received from the subscription
             while (true)
             {
                 BrokeredMessage message = Client.Receive();
@@ -198,7 +198,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
                         message.Abandon();
                     }
                 }
-            } 
+            }
         }
         static async void SendNotificationAsync(string message)
         {
@@ -210,7 +210,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 	![][2]
 
 	f. Seleccione su perfil de publicación y cree un nuevo sitio web de Azure, si aún no existe, que hospede este trabajo web. Cuando tenga el sitio web, haga clic en **Publicar**.
-	
+
 	![][3]
 
 	g. Configure el trabajo como "Ejecutar continuamente", de modo que cuando inicie sesión en el Portal de administración de Azure vea algo parecido a esto:
@@ -221,7 +221,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 3. **EnterprisePushMobileApp**
 
 	a. Se trata de una aplicación de la Tienda Windows que recibirá notificaciones del sistema del trabajo web que se ejecuta como parte de su back-end móvil y las mostrará. Se basa en el [tutorial sobre Centros de notificaciones: Windows Universal].
-	
+
 	b. Asegúrese de que su aplicación está habilitada para recibir notificaciones del sistema.
 
 	c. Asegúrese de que se llama al siguiente código de registro de los Centros de notificaciones al inicio de la aplicación (después de sustituir los valores de *HubName* y *DefaultListenSharedAccessSignature*:
@@ -244,9 +244,9 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 ### Ejecución del ejemplo:
 
-1. Asegúrese de que su trabajo web se ejecuta correctamente y está programado como "Ejecutar continuamente". 
-2. Ejecute **EnterprisePushMobileApp**, que iniciará la aplicación de la Tienda Windows. 
-3. Ejecute la aplicación de consola **EnterprisePushBackendSystem**, que simulará el back-end LoB e iniciará el envío de mensajes, de modo que verá que aparecen notificaciones del sistema como las siguientes: 
+1. Asegúrese de que su trabajo web se ejecuta correctamente y está programado como "Ejecutar continuamente".
+2. Ejecute **EnterprisePushMobileApp**, que iniciará la aplicación de la Tienda Windows.
+3. Ejecute la aplicación de consola **EnterprisePushBackendSystem**, que simulará el back-end LoB e iniciará el envío de mensajes, de modo que verá que aparecen notificaciones del sistema como las siguientes:
 
 	![][5]
 
@@ -269,6 +269,5 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 [Programación Pub/Sub del Bus de servicio]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [trabajo web de Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Tutorial sobre Centros de notificaciones: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

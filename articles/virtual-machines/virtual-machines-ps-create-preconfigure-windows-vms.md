@@ -20,9 +20,10 @@
 # Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 En estos pasos se muestra cómo personalizar un conjunto de comandos de Azure PowerShell que creen y preconfiguren una máquina virtual de Azure basada en Windows mediante el uso de un enfoque de bloque de creación. Puede utilizar este proceso para crear un conjunto de comandos para una nueva máquina virtual basada en Windows rápidamente y expandir una implementación existente, o para crear varios conjuntos de comandos que creen rápidamente un entorno de profesionales de TI, o de desarrollo o pruebas.
 
@@ -174,7 +175,7 @@ Si está utilizando un editor de texto, copie el conjunto de comandos en el Port
 
 Si va a crear esta máquina virtual de nuevo o una similar, puede:
 
-- Guardar este conjunto de comandos como archivo de script de PowerShell (*.ps1).
+- Guardar este conjunto de comandos como archivo de script de PowerShell (\*.ps1).
 - Guardar este conjunto de comandos como un Runbook de automatización de Azure en la sección **Automatización** del Portal de administración de Azure
 
 ## <a id="examples"></a>Ejemplos
@@ -270,4 +271,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Creación de una máquina virtual de Windows con el Administrador de recursos de Azure y PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

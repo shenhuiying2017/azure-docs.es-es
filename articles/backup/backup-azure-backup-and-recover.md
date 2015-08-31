@@ -1,6 +1,6 @@
-<properties pageTitle="Copia de seguridad de Azure: copia de seguridad y restauración desde un cliente de Windows Server o Windows" | Microsoft Azure description="Aprenda a realizar copias de seguridad y restaurar a partir de un cliente de Windows Server o Windows. El artículo también describe la recuperación de servidor alternativo" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
+<properties pageTitle="Copia de seguridad de Azure: copia de seguridad y restauración desde un cliente de Windows Server o Windows" | Microsoft Azure description="Aprenda a realizar copias de seguridad y restaurar a partir de un cliente de Windows Server o Windows. El artículo también describe la recuperación de servidor alternativo "services="backup" documentationCenter="" authors="aashishr" manager="jwhit" editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="jimpark"; "aashishr"/>
 
 # Copia de seguridad y restauración de una máquina cliente de Windows o un servidor de Windows
 En este artículo se describen los pasos necesarios para realizar una copia de seguridad desde un servidor de Windows o de una máquina cliente de Windows. También describe los pasos necesarios para restaurar los archivos en el mismo equipo y para restaurar los archivos de copia de seguridad en cualquier otra máquina.
@@ -111,7 +111,13 @@ La nomenclatura usada en los pasos es la siguiente: - *Máquina de origen*: la m
 
 11. Una vez especificada la entrada, haga clic en el botón **Recuperar**, que desencadena la restauración de los archivos con copia de seguridad en el destino proporcionado.
 
+## Tutorial en vídeo
+
+Se trata del tutorial en formato de vídeo.
+
+[AZURE.VIDEO azurebackuprestoreserverandclient]
+
 ## Pasos siguientes
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

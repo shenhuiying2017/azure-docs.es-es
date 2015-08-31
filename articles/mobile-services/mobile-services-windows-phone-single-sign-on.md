@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Autenticación de la aplicación con Live Connect (Windows Phone) | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar el inicio de sesión único de Live Connect en Servicios móviles de Azure desde una aplicación de Windows Phone." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Autenticación de la aplicación con Live Connect (Windows Phone) | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar el inicio de sesión único de Live Connect en Servicios móviles de Azure desde una aplicación de Windows Phone."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Autenticación de una aplicación de Windows Phone con la autenticación del cliente administrada mediante la cuenta de Microsoft
@@ -30,11 +30,11 @@ Este tutorial requiere lo siguiente:
 + Microsoft Visual Studio 2013 Update 3 o una versión posterior.
 + Primero debe completar el tutorial [Incorporación de Servicios móviles a una aplicación existente].
 
-##Registre la aplicación para usar la cuenta Microsoft 
+##Registre la aplicación para usar la cuenta Microsoft
 
 Para autenticar usuarios, debe registrar la aplicación en el Centro para desarrolladores de la cuenta de Microsoft. A continuación, debe conectarse este registro con el servicio móvil. Complete los pasos descritos en el tema siguiente para crear un registro de la cuenta de Microsoft y conectarla al servicio móvil.
 
-+ [Registre sus aplicaciones para usar un inicio de sesión de la cuenta Microsoft](mobile-services-how-to-register-microsoft-authentication.md) 
++ [Registre sus aplicaciones para usar un inicio de sesión de la cuenta Microsoft](mobile-services-how-to-register-microsoft-authentication.md)
 
 ##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
@@ -54,10 +54,10 @@ Por último, agregue el SDK de Live y úselo para autenticar a los usuarios en l
 
 5. Abra el archivo de proyecto mainpage.xaml.cs y agregue las siguientes instrucciones using:
 
-        using Microsoft.Live;      
+        using Microsoft.Live;
 
 6. Agregue el siguiente fragmento de código a la clase MainPage:
-	
+
         private LiveConnectSession session;
         private static string clientId = "<microsoft-account-client-id>";
         private async System.Threading.Tasks.Task AuthenticateAsync()
@@ -107,12 +107,12 @@ Por último, agregue el SDK de Live y úselo para autenticar a los usuarios en l
             this.ButtonLogin.Visibility = System.Windows.Visibility.Collapsed;
             RefreshTodoItems();
         }
-		
+
 7. En el proyecto de la aplicación, abra el archivo de proyecto MainPage.xaml y agregue el siguiente elemento **botón** en el **TitlePanel**, después del elemento **TextBlock**:
 
-		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click"
                         Visibility="Visible">Sign in</Button>
-		
+
 9. Presione la tecla F5 para ejecutar la aplicación e iniciar sesión con su cuenta Microsoft.
 
    Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
@@ -140,6 +140,5 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Autorización de usuarios con scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

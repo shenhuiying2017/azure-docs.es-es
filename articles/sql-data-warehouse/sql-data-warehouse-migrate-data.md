@@ -37,7 +37,7 @@ Integration Services (SSIS) es una herramienta eficaz y flexible de extracción,
 
 > [AZURE.NOTE]SSIS puede exportar a UTF-8 sin la marca BOM en el archivo. Para configurar este comportamiento, debe usar primero el componente de columna derivada para convertir los datos de caracteres del flujo de datos para usar la página de códigos 65001 UTF-8. Una vez convertidas las columnas, escriba los datos en el adaptador de destino de archivo plano asegurándose de que 65001 también se ha seleccionado como la página de códigos para el archivo.
 
-SSIS se conecta a Almacenamiento de datos SQL del mismo modo que se conectaría a una implementación de SQL Server. Sin embargo, las conexiones tendrán que usar un administrador de conexiones de ADO.NET. También debe ocuparse de configurar el ajuste "" para maximizar el rendimiento.
+SSIS se conecta a Almacenamiento de datos SQL del mismo modo que se conectaría a una implementación de SQL Server. Sin embargo, las conexiones tendrán que usar un administrador de conexiones de ADO.NET. También debe ocuparse de configurar el ajuste "Usar la inserción masiva cuando esté disponible" para maximizar el rendimiento. Consulte el artículo [Adaptador de destino de ADO.NET][] para obtener más información sobre esta propiedad.
 
 > [AZURE.NOTE]No se admite la conexión a Almacenamiento de datos SQL de Azure mediante OLEDB.
 
@@ -93,7 +93,7 @@ PolyBase exige un terminador de fila fijo de \\n o una línea nueva. Los archivo
 
 Debe definir todas las columnas del archivo como parte de la tabla externa de PolyBase. Asegúrese de que todas las columnas exportadas son necesarias y los tipos se ajustan a los estándares necesarios.
 
-Vuelva a consultar el artículo [migración del esquema] para obtener información detallada sobre los tipos de datos admitidos.
+Vuelva a consultar el artículo [migración del esquema\] para obtener información detallada sobre los tipos de datos admitidos.
 
 ### Ubicación de archivos de datos
 Almacenamiento de datos SQL usa PolyBase para cargar exclusivamente datos del Almacenamiento de blobs de Azure. Por consiguiente, los datos deben transferirse primero al almacenamiento de blobs.
@@ -124,8 +124,8 @@ A continuación, se ofrece una vista general del proceso de importación y expor
 
 1. Configurar un contenedor de Almacenamiento de blobs de Azure para recibir los datos
 2. Exportar los datos al almacenamiento local
-2. Copiar los datos en unidades de disco duro de 3,5 pulgadas SATA II/III con la [herramienta Importación/Exportación de Azure]
-3. Crear un trabajo de importación mediante el Servicio Importación/Exportación de Azure proporcionando los archivos del diario generados por la [herramienta Importación/Exportación de Azure]
+2. Copiar los datos en unidades de disco duro de 3,5 pulgadas SATA II/III con la [herramienta Importación/Exportación de Azure\]
+3. Crear un trabajo de importación mediante el Servicio Importación/Exportación de Azure proporcionando los archivos del diario generados por la [herramienta Importación/Exportación de Azure\]
 4. Enviar los discos al centro de datos de Azure asignado
 5. Los datos se transfieren a su contenedor de almacenamiento de blobs de Azure
 6. Cargar los datos en SQLDW mediante PolyBase
@@ -191,6 +191,7 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 
 [versión de producción]: http://aka.ms/downloadazcopy/
 [versión de vista previa]: http://aka.ms/downloadazcopypr/
+[Adaptador de destino de ADO.NET]: https://msdn.microsoft.com/es-es/library/bb934041.aspx
 [documentación de SSIS]: https://msdn.microsoft.com/es-es/library/ms141026.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

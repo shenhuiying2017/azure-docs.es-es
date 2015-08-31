@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Uso de las acciones del menú de MMC en Administrador de instantáneas StorSimple
@@ -125,6 +125,6 @@ Puede usar el menú **Ayuda** para ver la Ayuda en línea disponible para Admini
 
 ## Pasos siguientes
 
-[Obtener más información acerca de la interfaz de usuario de Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md)
+[Obtenga más información acerca de la interfaz de usuario del Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -105,14 +105,16 @@ Asegúrese de que el servidor de base de datos permite el acceso a servicios de 
 
 Ahora podemos escribir [código](https://sesitai.codeplex.com/) para analizar el JSON en los blobs exportados y crear registros en la base de datos. Puesto que el almacén de la exportación y la base de datos están en Azure, ejecutaremos el código en un rol de trabajo de Azure.
 
+Este código extrae automáticamente las propiedades que están presentes en JSON. Para obtener descripciones de las propiedades, consulte el [modelo de exportación de datos](app-insights-export-data-model.md).
+
 
 #### Creación del proyecto de rol de trabajo
 
 En Visual Studio, cree un nuevo proyecto para el rol de trabajo:
 
-![Nuevo proyecto, Visual C#, Nube, Servicio en la nube de Azure.](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
+![Nuevo proyecto, Visual C\#, Nube, Servicio en la nube de Azure.](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
 
-![En el nuevo cuadro de diálogo del servicio en la nube, elija Visual C#, Rol de trabajo.](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
+![En el nuevo cuadro de diálogo del servicio en la nube, elija Visual C\#, Rol de trabajo.](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
 
 
 #### Conexión con la cuenta de almacenamiento
@@ -132,11 +134,11 @@ En Visual Studio, configure las opciones de rol de trabajo con la cadena de cone
 En el Explorador de soluciones, haga clic con el botón derecho en el proyecto Rol de trabajo y seleccione Administrar paquetes de NuGet. Busque e instale estos paquetes:
 
  * Entity Framework 6.1.2 o posterior: lo utilizaremos para generar el esquema de la tabla de base de datos sobre la marcha, según el contenido de JSON en el blob.
- * JsonFx: lo utilizaremos para acoplar el JSON a las propiedades de clase de C#.
+ * JsonFx: lo utilizaremos para acoplar el JSON a las propiedades de clase de C\#.
 
-Utilice esta herramienta para generar la clase de C# fuera de nuestro documento JSON sencillo. Esto requiere algunos cambios menores, como acoplar las matrices de JSON a la propiedad sencilla de C# en y a la vez en una columna sencilla de tabla de base de datos (p. ej. urlData\_port).
+Utilice esta herramienta para generar la clase de C#fuera de nuestro documento JSON sencillo. Esto requiere algunos cambios menores, como acoplar las matrices de JSON a la propiedad sencilla de C#en y a la vez en una columna sencilla de tabla de base de datos (p. ej. urlData\_port).
 
- * [Generador de clases de C# de JSON](http://jsonclassgenerator.codeplex.com/)
+ * [Generador de clases de C#de JSON](http://jsonclassgenerator.codeplex.com/)
 
 ## Código 
 
@@ -317,7 +319,7 @@ Reemplace el método de ejecución existente y, después, elija el intervalo des
     	    }
         }
 
-#### Conversión del documento JSON en propiedades del objeto de telemetría de clase C#
+#### Conversión del documento JSON en propiedades del objeto de telemetría de clase C\#
 
      public object GetObject(IDictionary<string, object> d)
         {
@@ -355,6 +357,8 @@ Reemplace el método de ejecución existente y, después, elija el intervalo des
         }
 
 #### Archivo de clase PageViewPerformance generado fuera del documento JSON
+
+
 
     public class PageViewPerformance
     {
@@ -519,6 +523,7 @@ Para ver este ejemplo en acción, [descargue](https://sesitai.codeplex.com/) el 
 * [Exportación a SQL con un rol de trabajo](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportación continua en Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [Modelo de exportación de datos](app-insights-export-data-model.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
 <!--Link references-->
@@ -531,4 +536,4 @@ Para ver este ejemplo en acción, [descargue](https://sesitai.codeplex.com/) el 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

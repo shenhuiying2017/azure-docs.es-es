@@ -1,34 +1,34 @@
 <properties
-	pageTitle="Introducción a Búsqueda de Azure en Java"
-	description="Recorra la creación de una aplicación personalizada de búsqueda de Azure mediante Java como su lenguaje de programación."
+	pageTitle="Introducción a Búsqueda de Azure en Java | Microsoft Azure"
+	description="Cómo crear una aplicación de Búsqueda de Azure personalizada mediante Java como su lenguaje de programación."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.date="06/24/2015"
 	ms.author="heidist"/>
 
-#Introducción a Búsqueda de Azure en Java#
+# Introducción a Búsqueda de Azure en Java
 
-Aprenda a crear una aplicación de búsqueda de Java personalizada que utiliza Búsqueda de Azure para la experiencia de búsqueda. El tutorial utiliza la [API de REST del Servicio Búsqueda de Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir los objetos y las operaciones que se utilizan en este ejercicio.
+Aprenda a crear una aplicación de búsqueda de Java personalizada que utiliza Búsqueda de Azure para la experiencia de búsqueda. Este tutorial usa la [API de REST del servicio Búsqueda de Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir los objetos y las operaciones que se utilizan en este ejercicio.
 
 Hemos usado el siguiente software para compilar y probar este ejemplo:
 
-- [IDE de Eclipse para desarrolladores de Java EE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Asegúrese de descargar la versión EE. Uno de los pasos de comprobación requiere una característica que sólo se encuentra en esta edición.
+- [IDE de Eclipse para desarrolladores de Java EE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Asegúrese de descargar la versión EE. Uno de los pasos de comprobación requiere una característica que solo se encuentra en esta edición.
 
 - [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure, para el que puede iniciar sesión en el [Portal de administración de Azure](https://portal.azure.com).
+Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [portal de administración de Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Descargue el código fuente para este tutorial en [demostración de Búsqueda de Azure en Java](http://go.microsoft.com/fwlink/p/?LinkId=530197) en Github.
 
@@ -55,9 +55,9 @@ La lista siguiente describe los archivos que son relevantes para este ejemplo.
 
 ## Creación del servicio
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. En la barra de salto, haga clic en **Nuevo** | **Datos + Almacenamiento** | **Búsqueda**.
+2. En la barra de salto, haga clic en **Nuevo** > **Datos + almacenamiento** > **Búsqueda**.
 
      ![][1]
 
@@ -107,7 +107,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 ## Importación del proyecto
 
-1. En Eclipse, elija **File** | **Import** | **General** | **Existing Projects into Workspace** (Archivo | Importar | General | Proyectos existentes al área de trabajo).
+1. En Eclipse, elija **Archivo** > **Importar** > **General** > **Proyectos existentes al área de trabajo**.
 
     ![][4]
 
@@ -117,9 +117,9 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 3. Haga clic en **Finalizar**
 
-4. Utilice **Project Explorer** (Explorador de proyectos) para ver y editar los archivos. Si aún no está abierto, haga clic en **Window** | **Show View** | **Project Explorer** (Ventana | Mostrar vista | Explorador de proyectos) o utilice el método abreviado para abrirlo.
+4. Utilice **Project Explorer** (Explorador de proyectos) para ver y editar los archivos. Si aún no está abierto, haga clic en **Ventana** > **Mostrar vista** > **Explorador de proyectos** o use el método abreviado para abrirlo.
 
-## Configuración de la dirección URL del servicio y la clave de API
+## Configuración de la dirección URL del servicio y api-key
 
 1. En **Project Explorer** (Explorador de proyectos), haga doble clic en **config.properties** para editar los valores de configuración que contienen el nombre del servidor y la clave de API.
 
@@ -131,7 +131,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 ## Configuración de los entornos de proyecto, compilación y tiempo de ejecución
 
-1. En Eclipse, en Project Explorer, haga clic con el botón secundario en el proyecto | **Properties** | **Project Facets** (Propiedades | Facetas del proyecto).
+1. En Eclipse, en Project Explorer, haga clic con el botón secundario en el proyecto > **Propiedades** > **Facetas del proyecto**.
 
 2. Seleccione **Dynamic Web Module**, **Java**, y **JavaScript**.
 
@@ -139,7 +139,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 3. Haga clic en **Apply**.
 
-4. Seleccione **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add...** (Ventana | Preferencias | Servidor | Entornos de tiempo de ejecución | Agregar...).
+4. Seleccione **Ventana** > **Preferencias** > **Servidor** > **Entornos en tiempo de ejecución** > **Agregar**.
 
 5. Expanda Apache y seleccione la versión del servidor Apache Tomcat que ha instalado anteriormente. En nuestro sistema, se instala la versión 8.
 
@@ -149,7 +149,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 6. Haga clic en **Finalizar**
 
-7. Seleccione **Window** | **Preferences** | **Java** | **Installed JREs** | **Add...** (Ventana | Preferencias | Java | JRE instalados | Agregar...).
+7. Seleccione **Ventana** > **Preferencias** > **Java** > **JRE instalados** > **Agregar...**.
 
 8. En **Add JRE** (Agregar JRE), seleccione **Standard VM** (VM estándar).
 
@@ -157,13 +157,13 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 11. En JRE Definition (Definición de JRE), en JRE home (Directorio de JRE), haga clic en **Directory** (Directorio).
 
-12. Vaya a **Program Files** | **Java** y seleccione el JDK instalado anteriormente. Es importante seleccionar el JDK como JRE.
+12. Vaya a **Archivos de programa** > **Java** y seleccione el JDK instalado anteriormente. Es importante seleccionar el JDK como JRE.
 
 13. En Installed JREs, elija el **JDK**. Su configuración debería ser similar a la siguiente captura de pantalla.
 
     ![][9]
 
-14. Opcionalmente, seleccione **Window** | **Web Browser** | **Internet Explorer** (Ventana | Explorador web | Internet Explorer) para abrir la aplicación en una ventana del explorador externo. Utilizar un explorador externo proporciona una mejor experiencia de aplicación web.
+14. Opcionalmente, seleccione **Ventana** > **Explorador web** > **Internet Explorer**para abrir la aplicación en una ventana del explorador externo. Utilizar un explorador externo proporciona una mejor experiencia de aplicación web.
 
     ![][8]
 
@@ -171,7 +171,7 @@ Ahora ha completado las tareas de configuración. A continuación, podrá compil
 
 ## Compilación del proyecto
 
-1. En Project Explorer, haga clic con el botón secundario en el nombre del proyecto y elija **Run As** | **Maven build...** (Ejecutar como | Compilación de Maven...) para configurar el proyecto.
+1. En el Explorador de proyectos, haga clic con el botón secundario en el nombre del proyecto y elija **Ejecutar como** > **Compilación de Maven...** para configurar el proyecto.
 
     ![][10]
 
@@ -187,9 +187,9 @@ Si todavía no ha especificado un entorno de tiempo de ejecución del servidor e
 
 1. En Project Explorer, expanda **WebContent** (Contenido web).
 
-5. Haga clic con el botón secundario en **Search.jsp** | **Run As** | **Run on Server** (Search.jsp | Ejecutar como | Ejecutar en el servidor). Seleccione el servidor Apache Tomcat y, a continuación, haga clic en **Run** (Ejecutar).
+5. Haga clic con el botón secundario en **Search.jsp** > **Ejecutar como** > **Ejecutar en el servidor**. Seleccione el servidor Apache Tomcat y, a continuación, haga clic en **Run** (Ejecutar).
 
-> [AZURE.TIP]Si utiliza un área de trabajo distinta de la predeterminada para almacenar el proyecto, probablemente necesite modificar **Run Configuration** (Configuración de ejecución) para que apunte a la ubicación del proyecto y evitar un error de inicio del servidor. En Project Explorer, haga clic en **Search.jsp** | **Run As** | **Run Configurations** (Search.jsp | Ejecutar como | Configuraciones de ejecución). Seleccione el servidor Apache Tomcat. Haga clic en **Arguments** (Argumentos). Haga clic en **Workspace** (Área de trabajo) o en **File System** (Sistema de archivos) para definir la carpeta que contiene el proyecto.
+> [AZURE.TIP]Si ha usado un área de trabajo distinta de la predeterminada para almacenar el proyecto, tendrá que modificar **Configuración de ejecución** para que apunte a la ubicación del proyecto y evitar un error de inicio del servidor. En el Explorador de proyectos, haga clic en **Search.jsp** > **Ejecutar como** > **Configuraciones de ejecución**. Seleccione el servidor Apache Tomcat. Haga clic en **Arguments** (Argumentos). Haga clic en **Workspace** (Área de trabajo) o en **File System** (Sistema de archivos) para definir la carpeta que contiene el proyecto.
 
 Al ejecutar la aplicación, aparecerá una ventana del explorador que ofrece un cuadro de búsqueda para introducir términos.
 
@@ -230,6 +230,5 @@ Si ya Tiene alguna experiencia con Búsqueda de Azure, puede utilizar este ejemp
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -21,7 +21,7 @@ Las métricas en [Application Insights][start] son valores medidos y recuentos d
 
 Los recuentos de métricas y eventos se muestran en los gráficos de valores agregados, como sumas, promedios o recuentos.
 
-Por ejemplo, si agrega Application Insights a una aplicación web, esto es lo que ve en la parte superior de la hoja de información general:
+Este es un gráfico de ejemplo:
 
 ![Abrir la hoja de información general de la aplicación en el portal de Azure](./media/app-insights-metrics-explorer/01-overview.png)
 
@@ -40,12 +40,13 @@ En todas las hojas puede cambiar el intervalo de tiempo cubierto por los gráfic
 
 Si espera algunos datos que no ha aparecido todavía, haga clic en Actualizar. Los gráficos se actualizan a intervalos, pero los intervalos son más largos para intervalos de tiempo mayores. En modo de lanzamiento, puede tardar un tiempo que lleguen a través de la canalización de análisis en un gráfico de datos.
 
-En la hoja de información general, arrastre una parte del gráfico para ampliarla en un gráfico nuevo.
-
+Para acercar parte de un gráfico, arrastre el puntero sobre él y, después, haga clic en el símbolo de lupa:
 
 ![Arrastre por parte de un gráfico.](./media/app-insights-metrics-explorer/12-drag.png)
 
-## Valores de punto y de nivel de detalle
+
+
+## Valores de granularidad y punto
 
 Mantenga el cursor sobre el gráfico para mostrar los valores de las métricas en ese momento.
 
@@ -53,15 +54,15 @@ Mantenga el cursor sobre el gráfico para mostrar los valores de las métricas e
 
 Se agrega el valor de la métrica en un momento determinado en el intervalo de muestreo anterior.
 
-El intervalo de muestreo o "nivel de detalle" se muestra en la parte superior de la hoja.
+El intervalo de muestreo o "granularidad" se muestra en la parte superior de la hoja.
 
 ![El encabezado de una hoja.](./media/app-insights-metrics-explorer/11-grain.png)
 
-Puede ajustar el nivel de detalle en la hoja Intervalo de tiempo:
+Puede ajustar la granularidad en la hoja Intervalo de tiempo:
 
 ![El encabezado de una hoja.](./media/app-insights-metrics-explorer/grain.png)
 
-Los niveles de detalle disponibles dependen del intervalo de tiempo que seleccione. Los niveles de detalle explícitos son alternativas al nivel de detalle "automático" para el intervalo de tiempo.
+La granularidad disponible depende del intervalo de tiempo que seleccione. Las granularidades explícitas son alternativas a la granularidad "automática" para el intervalo de tiempo.
 
 ## Explorador de métricas
 
@@ -76,7 +77,7 @@ Por ejemplo, haga clic en gráfico de solicitudes con errores de la aplicación 
 
 La leyenda del lateral muestra de forma predeterminada el valor agregado durante el período del gráfico.
 
-Cada punto de datos en el gráfico también es un agregado de los valores de datos recibidos en el intervalo de muestreo anterior o "nivel de detalle". El nivel de detalle se muestra en la parte superior de la hoja y varía en función de la escala de tiempo total del gráfico.
+Cada punto de datos en el gráfico también es un agregado de los valores de datos recibidos en el intervalo de muestreo anterior o "granularidad". La granularidad se muestra en la parte superior de la hoja y varía en función de la escala de tiempo total del gráfico.
 
 Se agregan métricas diferentes de distintas maneras:
 
@@ -197,8 +198,8 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 
 [alerts]: app-insights-alerts.md
 [start]: app-insights-get-started.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

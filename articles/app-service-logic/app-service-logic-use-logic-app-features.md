@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="08/19/2015"
 	ms.author="stepsic"/>
 	
 # Uso de las características de aplicaciones lógicas
@@ -26,6 +26,15 @@ En el [tema anterior][Create a new logic app], creó su primera aplicación lóg
 - Opciones para iniciar un flujo de trabajo.
 
 Antes de completar este tema, debe completar los pasos de [Creación de una nueva aplicación lógica]. En el [Portal de Azure], vaya a su aplicación lógica y haga clic en **Acciones y desencadenadores** en el resumen para editar la definición de la aplicación lógica.
+
+## Material de referencia
+
+Estos documentos pueden serle útiles:
+
+- [API de REST de administración y tiempo de ejecución](https://msdn.microsoft.com/library/azure/dn948513.aspx): incluyen los métodos para invocar las aplicaciones lógicas directamente.
+- [Referencia del lenguaje](https://msdn.microsoft.com/library/azure/dn948512.aspx): una lista completa de todas las funciones y expresiones compatibles.
+- [Tipos de desencadenadores y acciones](https://msdn.microsoft.com/library/azure/dn948511.aspx): los diferentes tipos de acciones y las entradas que toman.
+- [Información general sobre el Servicio de aplicaciones](app-service-value-prop-what-is.md): descripción de los componentes que se deben elegir al crear una solución.
 
 ## Incorporación de lógica condicional y una repetición
 
@@ -112,8 +121,9 @@ Los servicios pueden llamar a un extremo de aplicación lógica para iniciar un 
 
 Puede usar esta devolución de llamada para invocar una aplicación lógica desde dentro de la aplicación personalizada. Deberá usar la autenticación **básica**. El nombre de usuario de `default` se crea automáticamente, y la contraseña es el campo **Clave de acceso primaria** en la hoja **Propiedades**. Por ejemplo:
 
-        POST https://default:<<your primary access key>>@<< your endpoint>>/run?api-version=2015-02-01-preview
+        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
         Content-type: application/json
+        Authorization: Basic << base-64 encoded string of default:<access key> >>
         {
             "name" : "nameOfTrigger",
             "outputs" : { "property" : "value" }
@@ -133,4 +143,4 @@ Para iniciar la aplicación lógica a petición, haga clic en el botón **Ejecut
 [Creación de una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 [Portal de Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -43,16 +43,19 @@ En las secciones siguientes echaremos un vistazo a cada paso en profundidad y da
 
 Para preparar los archivos para el traslado a Azure, necesitará exportarlos a archivos planos. Esto se realiza mejor con la utilidad de la línea de comandos de BCP. Si no dispone aún de la utilidad, se puede descargar con las [Utilidades de la línea de comandos de Microsoft para SQL Server][]. Un comando BCP de ejemplo podría ser similar al siguiente:
 
-	bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
+bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
 
 Este comando tomará los resultados de una consulta y los exportará a un archivo en el directorio que elija. Puede colocar el proceso en paralelo ejecutando varios comandos BCP para tablas independientes a la vez. Esto le permitirá ejecutar un proceso de BCP por núcleo de su servidor; le aconsejamos que pruebe algunas operaciones más pequeñas en configuraciones diferentes para ver qué funciona mejor en su entorno.
 
 Además, conforme realizaremos la carga mediante PolyBase, tenga en cuenta que PolyBase no admite todavía con UTF-16, y todos los archivos deben estar en UTF-8. Esto se puede lograr con facilidad mediante la inclusión de la marca '-c' en su comando BCP o también puede convertir los archivos */*planos de UTF-16 en UTF-8 mediante el siguiente código:
 
-		Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
  
 Cuando haya exportado correctamente los datos a los archivos, será el momento de moverlos a Azure. Esto se puede lograr con AZCopy o con el servicio de importación y exportación, tal como se describe en la siguiente sección.
-
 
 ## Carga en Azure con AZCopy o importación y exportación
 Si va a mover datos en el intervalo de 5 a 10 terabytes o superior, recomendamos que use nuestro servicio de envío de disco[Importación/Exportación][] para lograr el traslado. Sin embargo, en nuestro estudios, hemos logrados mover datos en el rango de TB de dígito único cómodamente mediante Internet pública con AZCopy. Este proceso también puede acelerarse o ampliarse con ExpressRoute.
@@ -63,7 +66,9 @@ En los siguientes pasos se detalla cómo mover datos locales desde local a una c
 
 Ahora, dado un conjunto de archivos que ha creado con BCP, AzCopy puede ejecutarse simplemente Azure Powershell o ejecutando un script Powershell. En un nivel alto, el símbolo del sistema necesario para ejecutar AZCopy adoptará la forma:
 
-	 AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
+AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
 
 Además de la básica, recomendamos las siguientes prácticas recomendadas para la carga con AZCopy:
 
@@ -87,31 +92,38 @@ Ahora que los datos se encuentran en blobs de almacenamiento de Azure, los impor
 
 4. **Creación de un origen de datos externo.** Cuando se señala a una cuenta de almacenamiento, se puede usar un origen de datos externo al cargar desde el mismo contenedor. Para su parámetro 'LOCATION', use una ubicación con el formato: 'wasbs://mycontainer@ test.blob.core.windows.net/path’.
 
-		-- Creating master key
-		CREATE MASTER KEY;
+```
+-- Creating master key
+CREATE MASTER KEY;
 
-		-- Creating a database scoped credential
-		CREATE DATABASE SCOPED CREDENTIAL <Credential Name> WITH IDENTITY = '<User Name>', 
-    	Secret = '<Azure Storage Key>';
+-- Creating a database scoped credential
+CREATE DATABASE SCOPED CREDENTIAL <Credential Name> 
+WITH 
+    IDENTITY = '<User Name>'
+,   Secret = '<Azure Storage Key>'
+;
 
-		-- Creating external file format (delimited text file)
-		CREATE EXTERNAL FILE FORMAT text_file_format 
-		WITH (
-		    FORMAT_TYPE = DELIMITEDTEXT, 
-		    FORMAT_OPTIONS (
-		        FIELD_TERMINATOR ='|', 
-		        USE_TYPE_DEFAULT = TRUE
-		    )
-		);
+-- Creating external file format (delimited text file)
+CREATE EXTERNAL FILE FORMAT text_file_format 
+WITH 
+(
+    FORMAT_TYPE = DELIMITEDTEXT 
+,   FORMAT_OPTIONS  (
+                        FIELD_TERMINATOR ='|' 
+                    ,   USE_TYPE_DEFAULT = TRUE
+                    )
+);
 
-		--Creating an external data source
-		CREATE EXTERNAL DATA SOURCE azure_storage 
-		WITH (
-	    	TYPE = HADOOP, 
-	        LOCATION ='wasbs://<Container>@<Blob Path>’,
-	        CREDENTIAL = <Credential Name>
-		;
-
+--Creating an external data source
+CREATE EXTERNAL DATA SOURCE azure_storage 
+WITH 
+(
+    TYPE = HADOOP 
+,   LOCATION ='wasbs://<Container>@<Blob Path>'
+,   CREDENTIAL = <Credential Name>
+)
+;
+```
 
 Ahora que su cuenta de almacenamiento está correctamente configurada, puede continuar cargando sus datos en el Almacenamiento de datos SQL.
 
@@ -120,26 +132,36 @@ Después de configurar PolyBase, puede cargar datos directamente en el Almacenam
 
 1. Use el comando 'CREATE EXTERNAL TABLE' para definir la estructura de sus datos. Para asegurarse de que captura el estado de los datos de forma rápida y eficaz, se recomienda generar script de la tabla de SQL Server en SSMS y ajustar luego manualmente para representar las diferencias de la tabla externa. Después de crear una tabla externa en Azure continuará señalando la misma ubicación, incluso si los datos se actualizan o se agregan datos adicionales.  
 
-		-- Creating external table pointing to file stored in Azure Storage
-		CREATE EXTERNAL TABLE <External Table Name> (
-		    <Column name>, <Column type>, <NULL/NOT NULL>
-		)
-		WITH (LOCATION='<Folder Path>',
-		      DATA_SOURCE = <Data Source>,
-		      FILE_FORMAT = <File Format>,      
-		);
+```
+-- Creating external table pointing to file stored in Azure Storage
+CREATE EXTERNAL TABLE <External Table Name> 
+(
+    <Column name>, <Column type>, <NULL/NOT NULL>
+)
+WITH 
+(   LOCATION='<Folder Path>'
+,   DATA_SOURCE = <Data Source>
+,   FILE_FORMAT = <File Format>      
+);
+```
 
-2. Cargar datos con una instrucción 'CREATE TABLE...AS SELECT'.
+2. Cargar datos con una instrucción 'CREATE TABLE...AS SELECT'. 
 
-		CREATE TABLE <Table Name> 
-		WITH (
-    		CLUSTERED COLUMNSTORE INDEX
-    		)
-		AS SELECT * from <External Table Name>;
+```
+CREATE TABLE <Table Name> 
+WITH 
+(
+	CLUSTERED COLUMNSTORE INDEX
+)
+AS 
+SELECT  * 
+FROM    <External Table Name>
+;
+```
 
-	Tenga en cuenta que también puede cargar una subsección de las filas desde una tabla mediante una instrucción SELECT más detallada. Sin embargo, como PolyBase no inserta un proceso adicional a las cuentas de almacenamiento en este momento, si carga una subsección con una instrucción SELECT no será más rápido que cargar el conjunto de datos completo.
+Tenga en cuenta que también puede cargar una subsección de las filas desde una tabla mediante una instrucción SELECT más detallada. Sin embargo, como PolyBase no inserta un proceso adicional a las cuentas de almacenamiento en este momento, si carga una subsección con una instrucción SELECT no será más rápido que cargar el conjunto de datos completo.
 
-Además de la instrucción 'CREATE TABLE...AS SELECT', también puede cargar datos de tablas externas en tablas preexistentes con una instrucción 'INSERT...INTO'.
+Además de la instrucción `CREATE TABLE...AS SELECT`, también puede cargar datos de tablas externas en tablas preexistentes con una instrucción 'INSERT...INTO'.
 
 ## Pasos siguientes
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
@@ -167,4 +189,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [Documentación del Almacenamiento de Azure]: https://azure.microsoft.com/es-es/documentation/articles/storage-create-storage-account/
 [Documentación de ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

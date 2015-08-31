@@ -255,4 +255,4 @@ En el próximo tutorial, [Control de acceso basado en roles con Azure Active Dir
 [Control de acceso basado en roles con Azure Active Directory en Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

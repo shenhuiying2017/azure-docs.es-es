@@ -1,4 +1,4 @@
-1. Abra Visual Studio 2013.
+1. Abra Visual Studio 2015 o Visual Studio 2013.
 
 2. Seleccione **Archivo > Nuevo proyecto**.
 
@@ -20,4 +20,4 @@
 
 Visual Studio crea un proyecto de API web configurado para implementarlo como aplicación de API.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
-	ms.author="bradyg"/>
+	ms.date="08/14/2015" 
+	ms.author="tdykstra"/>
 
 # Implementación de una aplicación de API en el Servicio de aplicaciones de Azure 
 
@@ -34,17 +34,33 @@ En esta sección, use el asistente **Publicación web** de Visual Studio para cr
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
-## <a id="deploy"></a>Implemente el código en la nueva aplicación de API
+## <a id="deploy"></a>Implemente el código en la nueva aplicación de API de Azure
 
 Use el mismo asistente para **Publicación web** para implementar el código en la nueva aplicación de API.
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
-## Visualización de aplicaciones en el Portal de vista previa de Azure
+## Llamada a la aplicación de API de Azure 
 
-En esta sección, verá la configuración básica disponible para las aplicaciones de API en el portal y realizará cambios iterativos en la aplicación de API. Con cada implementación, el portal refleja los cambios que está realizando en la aplicación de API.
+Como habilitó la interfaz de usuario de Swagger en el tutorial anterior, puede usarlo para comprobar que la aplicación de API se ejecuta en Azure.
 
 1. En el [Portal de vista previa de Azure](https://portal.azure.com), vaya a la hoja **Aplicación de API** de la aplicación de API que ha implementado.
+
+2. Haga clic en la dirección URL de la aplicación de API.
+
+	![Haga clic en la dirección URL](./media/app-service-dotnet-deploy-api-app/clickurl.png)
+
+	Aparece una página que indica "La aplicación de API se creó correctamente".
+
+3. En la barra de direcciones del explorador, agregue "/swagger" al final de la dirección URL.
+
+4. En la página de Swagger que aparezca, haga clic en **Contacts > Get > Try it Out** (Contactos > Obtener > Probarlo).
+
+	![Prueba](./media/app-service-dotnet-deploy-api-app/swaggerui.png)
+
+## Visualización de la definición de API en el portal
+
+1. En el [Portal de vista previa de Azure](https://portal.azure.com), vaya a la hoja **Aplicación de API** de la aplicación de API que implementó.
 
 4. Haga clic en **Definición de API**.
  
@@ -52,7 +68,9 @@ En esta sección, verá la configuración básica disponible para las aplicacion
 
 	![Definición de la API](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
 
-5. Ahora, vuelva al proyecto de Visual Studio y agregue el código siguiente al archivo **ContactsController.cs**.
+A continuación, realizará un cambio en la definición de API y verá el cambio reflejado en el portal.
+
+5. Vuelva al proyecto de Visual Studio y agregue el código siguiente al archivo **ContactsController.cs**.   
 
 		[HttpPost]
 		public HttpResponseMessage Post([FromBody] Contact contact)
@@ -61,27 +79,41 @@ En esta sección, verá la configuración básica disponible para las aplicacion
 			return Request.CreateResponse(HttpStatusCode.Created);
 		}
 
-	![Incorporación del método Post al controlador](./media/app-service-dotnet-deploy-api-app/30-post-method-added-v3.png)
-
 	Este código agrega un método **Post** que se puede usar para registrar nuevas instancias de `Contact` en la API.
 
-6. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto y, a continuación, seleccione **Publicar**.
+	El código de la clase Contacts ahora es similar al ejemplo siguiente.
 
-	![Menú contextual de publicación del proyecto](./media/app-service-dotnet-deploy-api-app/31-publish-gesture-v3.png)
+		public class ContactsController : ApiController
+		{
+		    [HttpGet]
+		    public IEnumerable<Contact> Get()
+		    {
+		        return new Contact[]{
+		                    new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+		                    new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+		                    new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+		                };
+		    }
+		
+		    [HttpPost]
+		    public HttpResponseMessage Post([FromBody] Contact contact)
+		    {
+		        // todo: save the contact somewhere
+		        return Request.CreateResponse(HttpStatusCode.Created);
+		    }
+		}
 
-7. Haga clic en la pestaña **Configuración**.
-
-8. Desde la lista desplegable **Configuración**, seleccione **Depurar**.
-
-	![Configuración de Publicación web](./media/app-service-dotnet-deploy-api-app/36.5-select-debug-option-v3.png)
+7. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto y, a continuación, seleccione **Publicar**.
 
 9. Haga clic en la pestaña **Vista previa**.
 
-10. Haga clic en **Iniciar vista previa** para ver los cambios que se realizarán.
+10. Haga clic en **Iniciar vista previa** para ver cuáles son los archivos que se copiarán en Azure.
 
 	![Cuadro de diálogo Publicación web](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 
 11. Haga clic en **Publicar**.
+
+6. Reinicie la puerta de enlace tal como lo hizo la primera vez que publicó.
 
 12. Cuando haya completado el proceso de publicación, vuelva al portal y cierre y vuelva a abrir la hoja **Definición de API**. Verá el nuevo extremo de API que acaba de crear e implementar directamente en su suscripción de Azure.
 
@@ -92,4 +124,4 @@ En esta sección, verá la configuración básica disponible para las aplicacion
 Ha visto cómo las capacidades de implementación directa en Visual Studio facilitan la iteración y la implementación rápida y prueban que la API funcione correctamente. En el [siguiente tutorial](../app-service-dotnet-remotely-debug-api-app.md), aprenderá a depurar la aplicación de API mientras se ejecuta en Azure.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

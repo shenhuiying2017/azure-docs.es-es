@@ -20,12 +20,27 @@
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
 
+## SO invitado de agosto
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-079 | [3082442] | Actualización de seguridad acumulativa para Internet Explorer | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-080 | [3078662] | Las vulnerabilidades en un componente de gráficos de Microsoft podrían permitir la ejecución remota de código | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-082 | [3080348] | Las vulnerabilidades en RDP podrían permitir la ejecución remota de código | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-084 | [3080129] | Las vulnerabilidades en XML Core Services podrían permitir la divulgación de información | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-085 | [3082487] | Una vulnerabilidad en el Administrador de montaje podría permitir la elevación de privilegios | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-088 | [3082458] | El paso de parámetros de línea de comandos no seguros podría permitir la divulgación de información | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-089 | [3060716] | Las vulnerabilidades de Microsoft Windows podrían permitir la elevación de privilegios | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-090 | [3076949] | Una vulnerabilidad en WebDAV podría permitir la divulgación de información | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+| MS15-092 | [3086251] | Vulnerabilidades en .NET Framework podrían permitir la elevación de privilegios | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
+
+
 ## SO invitado de julio
 
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-065 | [3076321] | Actualización de seguridad acumulativa para Internet Explorer | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
-| MS15-066 | [3072604] | Una vulnerabilidad en HTTP.sys podría permitir la ejecución remota de código | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
+| MS15-066 | [3072604] | Una vulnerabilidad en HTTP.sys podría permitir la ejecución remota de código | 2\.41 | 14 de julio de 2015 |
 | MS15-067 | [3073094] | Una vulnerabilidad en RDP podría permitir la ejecución remota de código | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
 | MS15-068 | [3072000] | Una vulnerabilidad en Windows Hyper-V podría permitir la ejecución remota de código | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
 | MS15-069 | [3072631] | Vulnerabilidades de Windows podrían permitir la ejecución remota de código | 4\.22, 3.29, 2.41 | 14 de julio de 2015 |
@@ -143,6 +158,17 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 
+[3082442]: http://support.microsoft.com/kb/3082442
+[3078662]: http://support.microsoft.com/kb/3078662
+[3080348]: http://support.microsoft.com/kb/3080348
+[3080129]: http://support.microsoft.com/kb/3080129
+[3082487]: http://support.microsoft.com/kb/3082487
+[3082458]: http://support.microsoft.com/kb/3082458
+[3060716]: http://support.microsoft.com/kb/3060716
+[3076949]: http://support.microsoft.com/kb/3076949
+[3086251]: http://support.microsoft.com/kb/3086251
+
+
 [3076321]: http://support.microsoft.com/kb/3076321
 [3072604]: http://support.microsoft.com/kb/3072604
 [3073094]: http://support.microsoft.com/kb/3073094
@@ -239,4 +265,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

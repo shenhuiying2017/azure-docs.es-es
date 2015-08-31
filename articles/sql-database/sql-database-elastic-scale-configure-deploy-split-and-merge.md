@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="08/14/2015"
 	ms.author="sidneyh" />
 
 # Tutorial de la herramienta de división y combinación de Base de datos elástica
@@ -46,7 +46,11 @@ Los pasos anteriores descargan los archivos de División y combinación al direc
 
 2. Abra ServiceConfiguration.cscfg en su editor de texto favorito. Recomendamos usar Visual Studio, puesto que validará entradas como el formato de las huellas digitales del certificado.
 
-3. Cree una nueva base de datos o elija una base de datos existente que sirva como la base de datos de estado para las operaciones de División y combinación y recupere la cadena de conexión de esa base de datos. Con Base de datos SQL de Azure, la cadena de conexión suele tener el formato:
+3. Cree una nueva base de datos o elija una base de datos existente que sirva como la base de datos de estado para las operaciones de División y combinación y recupere la cadena de conexión de esa base de datos.
+
+	**Importante** En este momento, la base de datos de estado debe usar la intercalación latina (SQL\_Latin1\_General\_CP1\_CI\_AS). Para obtener más información, vea [Nombre de intercalación de Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+
+	Con Base de datos SQL de Azure, la cadena de conexión suele tener el formato:
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    Escriba esta cadena de conexión en el archivo cscfg en las secciones de roles **SplitMergeWeb** y **SplitMergeWorker** en la configuración de ElasticScaleMetadata.
@@ -117,7 +121,7 @@ Tenga en cuenta que para las implementaciones de producción se deben usar certi
 
 ### Implementación del servicio División y combinación
 
-1. Vaya al [Portal de Azure](https://manage.windowsazure.com).
+1. Vaya al [portal de Azure](https://manage.windowsazure.com).
 2. Haga clic en la pestaña **Servicios en la nube** que aparece a la izquierda y seleccione el servicio en la nube que creó anteriormente.
 3. Haga clic en **Panel**.
 4. Elija el entorno de ensayo y, a continuación, haga clic en **Cargar una nueva implementación de ensayo**.
@@ -143,7 +147,7 @@ Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probableme
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Asegúrese de que el nombre del servidor no comience con ****https://**.
+* Asegúrese de que el nombre del servidor no comience por ****https://**.
 * Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
 
 ## Prueba de la implementación del servicio División y combinación
@@ -316,7 +320,7 @@ Este error significa que el certificado SSL no está configurado correctamente. 
 
 Si no se pueden enviar solicitudes, verá lo siguiente:
 
- [Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.
+ [Exception\] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.
 
 En este caso, compruebe el archivo de configuración, en particular la configuración de **WorkerRoleSynchronizationStorageAccountConnectionString**. Este error normalmente indica que el rol de trabajo no pudo inicializar correctamente la base de datos de metadatos la primera vez.
 
@@ -330,4 +334,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

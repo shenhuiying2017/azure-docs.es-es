@@ -18,12 +18,12 @@
 	
 # Configuraciones admitidas para traslados
 
-Puede trasladar recursos de aplicaciones web de Azure (Aplicaciones web y Servicios de aplicaciones) con la [API Mover recursos de ARM](../resource-group-move-resources.md).
+Puede trasladar recursos de aplicaciones web de Azure con la [API Mover recursos de ARM](../resource-group-move-resources.md).
 
 Las aplicaciones web de Azure admiten actualmente los siguientes escenarios de traslado:
 
-* Trasladar todo el contenido de un grupo de recursos a otro
+* Mover todo el contenido de un grupo de recursos (aplicaciones web, planes de servicio de aplicaciones y certificados) a otro grupo de recursos 
 	* Nota: El grupo de recursos de destino no puede contener ningún recurso Microsoft.Web en este escenario.
-* Trasladar aplicaciones web individuales a un grupo de recursos diferente, manteniéndolas hospedadas en el servicio de aplicaciones en que se encuentran actualmente (el servicio de aplicaciones se encuentra en el grupo de recursos anterior)
+* Trasladar aplicaciones web individuales a un grupo de recursos diferente, manteniéndolas hospedadas en el plan de servicio de aplicaciones en que se encuentran actualmente (el plan de servicio de aplicaciones se encuentra en el grupo de recursos anterior)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -89,7 +89,14 @@ Ahora puede usar el conector de Yammer en el flujo.
 
 	![][11]
 
-	<!--Image references-->
+## Aplicaciones adicionales del conector
+Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+
+Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
+
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-yammer/img1.PNG
 [2]: ./media/app-service-logic-connector-yammer/img2.PNG
 [3]: ./media/app-service-logic-connector-yammer/img3.png
@@ -102,4 +109,4 @@ Ahora puede usar el conector de Yammer en el flujo.
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

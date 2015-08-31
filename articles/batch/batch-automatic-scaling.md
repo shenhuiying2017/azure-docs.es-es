@@ -147,7 +147,14 @@ Estos tipos se admiten en una fórmula:
 - double
 - doubleVec
 - cadena
-- timestamp
+- marca de tiempo. La marca de tiempo es una estructura compuesta que contiene los siguientes miembros.
+	- year
+	- mes (1-12)
+	- día (1-31)
+	- día de la semana (en formato de número. Por ejemplo, 1 para el lunes)
+	- hora (en formato de número de 24 horas. Por ejemplo, 13 significa 1 P.M.)
+	- minuto (00-59)
+	- segundo (00-59)
 - timeinterval
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
@@ -428,16 +435,16 @@ Las métricas que pueden definirse en una fórmula.
 
 Siempre es una buena práctica evaluar una fórmula antes de usarla en su aplicación. La fórmula se evalúa realizando una ejecución de prueba en un grupo existente. Puede hacer esto mediante uno de estos métodos:
 
-- [IPoolManager.EvaluateAutoScale Method](https://msdn.microsoft.com/library/azure/dn931617.aspx) o [IPoolManager.EvaluateAutoScaleAsync Method](https://msdn.microsoft.com/library/azure/dn931545.aspx): estos métodos .NET requieren el nombre de un grupo existente y la cadena que contiene la fórmula de escalación automática. Los resultados de la llamada aparecen en una instancia de [AutoScaleEvaluation Class](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
-- [Evaluar una fórmula de escalación automática](https://msdn.microsoft.com/library/azure/dn820183.aspx) – En esta operación de REST, el nombre de grupo se especifica en el URI y la fórmula de escalación automática se especifica en el elemento autoScaleFormula del cuerpo de solicitud. La respuesta de la operación contiene cualquier información de error que pueda relacionarse con la fórmula.
+- Métodos [IPoolManager.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/dn931617.aspx) o [IPoolManager.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/dn931545.aspx): estos métodos .NET requieren el nombre de un grupo existente y la cadena que contiene la fórmula de escalado automática. Los resultados de la llamada aparecen en una instancia de clase [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
+- [Evaluar una fórmula de escalado automática](https://msdn.microsoft.com/library/azure/dn820183.aspx): en esta operación de REST, el nombre del grupo se especifica en el URI y la fórmula de escalado automática se especifica en el elemento autoScaleFormula del cuerpo de solicitud. La respuesta de la operación contiene cualquier información de error que pueda relacionarse con la fórmula.
 
 ## Creación de un grupo con el escalado automático habilitado
 
 Creación de un grupo de una de las siguientes maneras:
 
-- [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx) – Este cmdlet usa el parámetro AutoScaleFormula para especificar la fórmula de escalación automática.
-- [IPoolManager.CreatePool Method](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.ipoolmanager.createpool.aspx) – Después de que se llame a este método .NET para crear un grupo, [ICloudPool.AutoScaleEnabled Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscaleenabled.aspx) y [ICloudPool.AutoScaleFormula Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscaleformula.aspx) se configuran en el grupo para habilitar el escalado automático.
-- [Agregar un grupo a una cuenta](https://msdn.microsoft.com/library/azure/dn820174.aspx): los elementos enableAutoScale y autoScaleFormula se utilizan en esta API de REST para configurar el escalado automático para el grupo cuando se crea.
+- [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx): este cmdlet usa el parámetro AutoScaleFormula para especificar la fórmula de escalado automática.
+- [IPoolManager.CreatePool Method](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.ipoolmanager.createpool.aspx): después de llamar a este método .NET para crear un grupo, las propiedades [ICloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscaleenabled.aspx) y [ICloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscaleformula.aspx) se configuran en el grupo para habilitar el escalado automático.
+- [Agregar un grupo a una cuenta](https://msdn.microsoft.com/library/azure/dn820174.aspx): los elementos enableAutoScale y autoScaleFormula se usan en esta API de REST para configurar el escalado automático del grupo cuando se crea.
 
 > [AZURE.NOTE]Si establece la escalación automática cuando el grupo se crea con los recursos mencionados anteriormente, no se usa el parámetro targetDedicated para el grupo.
 
@@ -445,8 +452,8 @@ Creación de un grupo de una de las siguientes maneras:
 
 Si ya configuró un grupo con un número específico de nodos de ejecución con el parámetro targetDedicated, puede actualizar el grupo existente posteriormente para realizar la escalación automáticamente. Realice esto de una de estas formas:
 
-- [IPoolManager.EnableAutoScale Method](https://msdn.microsoft.com/library/azure/dn931709.aspx): este método .NET requiere el nombre del grupo existente y la formula de escalación automática.
-- [Escalado automático de habilitar o deshabilitar](https://msdn.microsoft.com/library/azure/dn820173.aspx): esta API de REST requiere el nombre de grupo existente en el URI y la fórmula de escala automática en el cuerpo de solicitud.
+- Método [IPoolManager.EnableAutoScale](https://msdn.microsoft.com/library/azure/dn931709.aspx): este método .NET requiere el nombre del grupo existente y la formula de escalado automática.
+- [Escalado automático de habilitar o deshabilitar](https://msdn.microsoft.com/library/azure/dn820173.aspx): esta API de REST requiere el nombre del grupo existente en el URI y la fórmula de escalado automática en el cuerpo de solicitud.
 
 > [AZURE.NOTE]El valor que se especificó para el parámetro targetDedicated cuando se creó el grupo se ignoró cuando se evaluó la fórmula de escalación automática.
 
@@ -454,22 +461,52 @@ Si ya configuró un grupo con un número específico de nodos de ejecución con 
 
 Debe comprobar periódicamente los resultados de las ejecuciones de escalado automático. Realice este procedimiento de una de estas maneras:
 
-- [ICloudPool.AutoScaleRun Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx): cuando use la biblioteca .NET, esta propiedad de un grupo proporciona una instancia de [AutoScaleRun Class](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), que proporciona [AutoScaleRun.Error Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx), [AutoScaleRun.Results Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx) y [AutoScaleRun.Timestamp Property](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx).
-- [Obtener información sobre un grupo](https://msdn.microsoft.com/library/dn820165.aspx): esta API de REST devuelve información acerca del grupo, que incluye la actualización de escalado automático más reciente.
+- Propiedad [ICloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx): cuando use la biblioteca .NET, esta propiedad de grupo proporciona una instancia de clase [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), que proporciona las propiedades [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx), [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx) y [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx).
+- [Obtener información sobre un grupo](https://msdn.microsoft.com/library/dn820165.aspx): esta API de REST devuelve información acerca del grupo, e incluye la actualización de escalado automático más reciente.
+
+## Ejemplos
+
+### Ejemplo 1:
+
+desea ajustar el tamaño del grupo según el momento de la semana.
+
+    curTime=time();
+    workhours=curTime.hour>=8 && curTime.hour <18;
+    isweekday=curTime.weekday>=1 && curTime.weekday<=5;
+    isworkingweekdayhour = workhours && isweekday;
+    $TargetDedicated=workhours?20:10;
+    
+Esta fórmula detectará el momento actual. Es decir, si es un día de la semana (1...5) y son horas de trabajo (8 a.m ... 6 p.m.), el tamaño del grupo de destino se establecerá en 20. De lo contrario, el tamaño del grupo se establecerá en 10.
+
+### Ejemplo 2:
+
+este es otro ejemplo para ajustar el tamaño de grupo según las tareas de la cola.
+
+    // Get pending tasks for the past 15 minutes
+    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); 
+    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of last sample point and the history average
+    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+    // If number of pending task is not 0, set targetVM to pending tasks, otherwise half of current dedicated
+    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+    // The pool size is capped at 20, if target vm value is more than that, set it to 20. This value should be adjusted according to your case.
+    $TargetDedicated = max(0,min($TargetVMs,20));
+    // optionally, set vm Deallocation mode - shrink VM after task is done.
+    $TVMDeallocationOption = taskcompletion;
+    
 
 ## Pasos siguientes
 
 1.	Es posible que necesite obtener acceso al nodo de ejecución para evaluar al completo la eficiencia de la aplicación. Para aprovechar el acceso remoto, debe agregarse una cuenta de usuario al nodo de ejecución al que desee obtener acceso y debe recuperarse un archivo RDP de ese nodo. Agregue la cuenta de usuario de una de estas maneras:
 
-	- [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx): este cmdlet adquiere el nombre de grupo, el nombre de nodo de ejecución, el nombre de cuenta y la contraseña como parámetros.
-	- [IVM.CreateUser Method](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.createuser.aspx): este método .NET crea una instancia de [IUser Interface](https://msdn.microsoft.com/library/microsoft.azure.batch.iuser.aspx) en la que el nombre de cuenta y la contraseña se pueden establecer para el nodo de ejecución.
-	- [Agregar una cuenta de usuario a un nodo](https://msdn.microsoft.com/library/dn820137.aspx): el nombre de grupo y el nodo de ejecución se especifican en el URI y el nombre de cuenta y la contraseña se envían al nodo en el cuerpo de la solicitud de esta API de REST.
+	- [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx): este cmdlet adquiere el nombre del grupo, el nombre del nodo de ejecución, el nombre de cuenta y la contraseña como parámetros.
+	- Método [IVM.CreateUser](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.createuser.aspx): este método .NET crea una instancia de [IUser Interface](https://msdn.microsoft.com/library/microsoft.azure.batch.iuser.aspx) en la que el nombre de cuenta y la contraseña se pueden establecer para el nodo de ejecución.
+	- [Agregar una cuenta de usuario a un nodo](https://msdn.microsoft.com/library/dn820137.aspx): el nombre del grupo y el nodo de ejecución se especifican en el URI y el nombre de cuenta y la contraseña se envían al nodo en el cuerpo de la solicitud de esta API de REST.
 
 		Obtención del archivo RDP:
 
-	- [IVM.GetRDPFile Method](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.getrdpfile.aspx): este método .NET requiere el nombre del archivo RDP que crear.
+	- Método [IVM.GetRDPFile](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.getrdpfile.aspx): este método .NET requiere el nombre del archivo RDP que se ha de crear.
 	- [Obtener un archivo de protocolo de escritorio remoto de un nodo](https://msdn.microsoft.com/library/dn820120.aspx): esta API de REST requiere el nombre del grupo y el nombre del nodo de ejecución. La respuesta incorpora el contenido del archivo RDP.
-	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): este cmdlet obtiene el archivo RDP del nodo de ejecución especificado y lo guarda en la ubicación del archivo especificada o en una transmisión.
+	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): este cmdlet obtiene el archivo RDP del nodo de ejecución especificado y lo guarda en la ubicación del archivo especificada o en un flujo.
 2.	Algunas aplicaciones generan grandes cantidades de datos que pueden ser difíciles de procesar. Una manera de resolver esto es a través de una [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

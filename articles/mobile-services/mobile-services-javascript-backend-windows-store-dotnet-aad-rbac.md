@@ -285,4 +285,4 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Acceso a información de Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

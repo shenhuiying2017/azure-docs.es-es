@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Ejemplos contextuales de procedimientos recomendados para la implementación de plantillas
 
 En este tema se ofrecen siete ejemplos contextuales de cómo implementar las plantillas del Administrador de recursos de Azure. Para obtener información general sobre los principios que se ilustran en estos ejemplos, vea [Procedimientos recomendados para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
+
+Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## Migración de una plantilla con ámbito de funcionalidad a una plantilla con ámbito de solución completa
 
@@ -212,7 +214,7 @@ Es posible que una organización con una aplicación de supervisión necesite ac
 
 #### Implementación con el Administrador de recursos de Azure
 
-Se ofrecen datos con gran cantidad de detalles sobre cómo implementarlo en la "Guía para desarrolladores para autenticación con el recurso API del Administrador de recursos de Azure" que se encuentra[aquí](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/). En ese documento se ofrecen instrucciones de implementación paso a paso, además de código de ejemplo.
+Se ofrecen datos con gran cantidad de detalles sobre cómo implementarlo en la "Guía para desarrolladores para autenticación con el recurso API del Administrador de recursos de Azure" que se encuentra [aquí](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/). En ese documento se ofrecen instrucciones de implementación paso a paso, además de código de ejemplo.
 
 ### Habilitación del acceso de terceros para implementación de software por una vez
 
@@ -248,8 +250,8 @@ Por último, puede que se quiera garantizar que determinados recursos no se elim
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo crear plantillas, vea [Creación de plantillas](resource-group-authoring-templates.md).
-- Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, vea [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
-- Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, vea [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
+- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas](resource-group-authoring-templates.md).
+- Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
+- Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

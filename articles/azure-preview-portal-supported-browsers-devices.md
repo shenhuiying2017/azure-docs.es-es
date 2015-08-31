@@ -3,7 +3,8 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="micflan" 
+	authors="flanakin" 
+	writer="flanakin" 
 	manager="lwelicki" 
 	editor=""/>
 
@@ -32,4 +33,4 @@ Son compatibles las últimas versiones de los siguientes exploradores:
 
 *Safari 6 y versiones anteriores no son compatibles. Si usa OS X, puede usar Chrome, Firefox o actualizar a OS X Mavericks para obtener Safari 7.*
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="06/14/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
-#Codificador JSON de BizTalk
+# Codificador JSON de BizTalk
 El conector de codificación y descodificación JSON de BizTalk ayuda a la interoperabilidad de las aplicaciones entre datos JSON y XML. Puede convertir una instancia JSON dada a XML y viceversa.
 
-##Uso del codificador JSON de BizTalk
+## Uso del codificador JSON de BizTalk
 Para usar el codificador JSON de BizTalk, primero debe crear una instancia de la aplicación de API del codificador JSON de BizTalk. Esta operación puede realizarse en línea, mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API del codificador JSON de BizTalk en Azure Marketplace.
 
-##Uso del codificador JSON de BizTalk en la superficie del diseñador de aplicaciones lógicas
+## Uso del codificador JSON de BizTalk en la superficie del diseñador de aplicaciones lógicas
 Para crear una aplicación lógica, siga los pasos que se indican en [Creación de una aplicación lógica]. El codificador JSON de BizTalk puede usarse como una acción. No tiene ningún desencadenador.
 
-###Acción
+### Acción
 - Haga clic en el codificador JSON de BizTalk en el panel derecho
 
 	![Configuración de la acción][3]
@@ -49,6 +49,8 @@ La acción devuelve una representación json del contenido de entrada.
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
+Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
 
 <!--References -->
@@ -62,4 +64,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creación de una aplicación lógica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

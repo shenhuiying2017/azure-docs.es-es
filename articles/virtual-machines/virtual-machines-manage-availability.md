@@ -60,7 +60,7 @@ Combine el equilibrador de carga con un conjunto de disponibilidad para aprovech
 Si el equilibrador de carga no está configurado para equilibrar el tráfico entre varias máquinas virtuales, entonces cualquier evento de mantenimiento planeado afectará a la única máquina virtual dedicada al tráfico y provocará una interrupción del nivel de la aplicación. Si se colocan varias máquinas virtuales en el mismo nivel en el mismo equilibrador de carga y conjunto de disponibilidad, se permitirá tener un tráfico continuamente disponible asistido por al menos una instancia.
 
 ### Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad
-Evite dejar una máquina virtual de instancia única sola en un conjunto de disponibilidad. Las máquinas virtuales en esta configuración no tienen derecho a la garantía de los contratos de nivel de servicio y sufrirán un tiempo de inactividad durante los eventos de Azure mantenimiento planeado. Además, si implementa una sola instancia de máquina virtual en un conjunto de disponibilidad, no recibirá ninguna advertencia ni notificación por adelantado acerca del mantenimiento de la plataforma. En esta configuración, la instancia de máquina virtual individual se puede reiniciar y lo hará sin advertencia previa cuando se produzca el mantenimiento de la plataforma.
+Evite dejar una máquina virtual de instancia única sola en un conjunto de disponibilidad. Las máquinas virtuales en esta configuración no tienen derecho a la garantía de los contratos de nivel de servicio y sufrirán un tiempo de inactividad durante los eventos de Azure mantenimiento planeado. Tenga en cuenta que la instancia de máquina virtual única dentro de un conjunto de disponibilidad también recibirá una notificación de correo electrónico por adelantado en la notificación de mantenimiento de máquinas virtuales planeadas de varias instancias.
 
 <!-- Link references -->
 [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
@@ -69,4 +69,4 @@ Evite dejar una máquina virtual de instancia única sola en un conjunto de disp
 [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuración de un conjunto de disponibilidad para máquinas virtuales]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

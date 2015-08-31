@@ -1,44 +1,38 @@
 
 
-Siga estos pasos para crear una aplicación móvil nueva.
+Siga estos pasos para crear un nuevo back-end de aplicación móvil.
 
-1. Inicie sesión en el [Portal de Azure]. En la parte inferior izquierda de la ventana, haga clic en **+NEW**. Desplácese hasta que vea el elemento **Aplicación móvil**.
+1. Inicie sesión en el [Portal de Azure].
 
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/new-mobile-app.png)
+2. En la esquina superior izquierda de la ventana, haga clic en el botón **+NUEVO** > **Web + Móvil** > **Aplicación móvil** e indique un nombre para el back-end de la aplicación móvil.
 
-    Se muestra la hoja **Nueva aplicación móvil**.
+3. En el cuadro **Grupo de recursos**, escriba el mismo nombre que la aplicación.
 
-2. Escriba un nombre para la aplicación móvil. Debe escribirse en minúscula y tener al menos 8 caracteres.
+4. Se seleccionará el Plan del Servicio de aplicaciones predeterminado. Si desea cambiar el Plan del Servicio de aplicaciones, haga clic en el Plan del Servicio de aplicaciones > **+ Crear nuevo**. Proporcione un nombre al Plan del Servicio de aplicaciones nuevo y seleccione una ubicación adecuada. Haga clic en el nivel de precios y seleccione un nivel de precios adecuado para el servicio. Seleccione **Ver todos** para ver más opciones de precios, como **Gratis** y **Compartido**. Una vez haya seleccionado el nivel de precios, haga clic en el botón **Seleccionar** botón. De nuevo en la hoja **Plan del Servicio de aplicaciones**, haga clic en **Aceptar**.
 
-7. Seleccione una región. En este tutorial, se usa **Centro y Sur de EE. UU.**.
+5. Haga clic en **Crear**. Se crea un back-end de la aplicación móvil, donde implementará después el proyecto de servidor. El aprovisionamiento de un back-end de la aplicación móvil puede tardar unos minutos. Cuando se aprovisiona el back-end de la aplicación móvil, el portal abrirá la hoja **Configuración** para el back-end de la aplicación móvil. En el paso siguiente, creará una nueva Base de datos SQL.
 
-    > [AZURE.NOTE]Como parte de este tutorial, va a crear una instancia y un nuevo servidor de Base de datos SQL. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Si ya hay una base de datos en la misma región que el nuevo back-end de la aplicación móvil, puede elegir **Usar base de datos existente** y, a continuación, seleccionar dicha base de datos. No se recomienda el uso de una base de datos en una región diferente debido a los costes adicionales de ancho de banda y las elevadas latencias.
+    > [AZURE.NOTE]Como parte de este tutorial, va a crear una instancia y un nuevo servidor de Base de datos SQL. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Si ya hay una base de datos en la misma ubicación que el nuevo back-end de la aplicación móvil, puede elegir **Usar una base de datos existente** y después seleccionar dicha base de datos. No se recomienda el uso de una base de datos en una ubicación diferente debido a los costos adicionales de ancho de banda y las elevadas latencias.
 
-3. Seleccione su suscripción.
+6. En el nuevo back-end de la aplicación móvil, haga clic en **Configuración** > **Aplicación móvil** > **Datos** > **+Agregar**.
 
-4. Cree un nuevo grupo de recursos con el mismo nombre que la aplicación móvil.
+7. En la hoja **Agregar conexión de datos**, haga clic en **base de datos SQL- Configurar valores necesarios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el campo **Nombre**.
 
-5. En **Configuración del paquete**, seleccione **USERDATABASE**, y podrá elegir si desea usar una base de datos existente o crear una nueva. Para crear una nueva base de datos, escriba el nombre de la **base de datos**, cree un **servidor** nuevo, escriba el nombre de dicho servidor y elija un **nombre de inicio de sesión**, que es el nombre de inicio de sesión de administrador para el nuevo servidor de Base de datos SQL, escriba y confirme la contraseña, y haga clic en el botón Aceptar para completar el proceso. Si selecciona una base de datos existente, tendrá que especificar una **contraseña de administrador de servidor**.
+8. Haga clic en **Servidor**. En la hoja **Nuevo servidor**, escriba un nombre de servidor único en el campo **Nombre del servidor** y proporcione un **inicio de sesión de administrador de servidor** y una **contraseña** adecuados. Asegúrese de **Permitir que los servicios de Azure accedan al servidor** está activado. Haga clic en **Aceptar**.
 
     ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create-db.png)
 
-6. Cree un nuevo plan de hospedaje web con el mismo nombre que la aplicación móvil.
+9. En la hoja **Nueva base de datos**, haga clic en **Aceptar**.
 
-    > [AZURE.NOTE]Escriba el nombre del plan de hospedaje web, no lo copie y pegue. En este campo se validan los nombres y se producirá un error ni no escribe el nombre. No tiene que ser exactamente el mismo nombre que el sitio web (pero debe seguir las mismas reglas).
+10. En la hoja **Agregar conexión de datos**, seleccione **Cadena de conexión**, y especifique el inicio de sesión y la contraseña que proporcionó al crear la base de datos. Si usa una base de datos existente, indique las credenciales de inicio de sesión de esa base de datos. Una vez escritas, haga clic en **Aceptar**.
 
-8. Seleccione un nivel de precios. En este tutorial, se usa **Estándar 1**.
+11. En la hoja **Agregar conexión de datos**, haga clic en **Aceptar** para crear la base de datos.
 
-    La página de configuración de la nueva aplicación móvil será similar a la siguiente:
+La creación de la base de datos puede tardar unos minutos. Use el área de **notificaciones** para supervisar el progreso de la implementación. No continúe hasta que la base de datos se haya implementado correctamente.
 
-    ![](./media/app-service-mobile-dotnet-backend-create-new-service-preview/dotnet-backend-create.png)
-
-9. Tras hacer clic en el botón **Crear** de la parte inferior de la hoja debería comenzar la implementación en la ventana de notificaciones.
-
-Ya ha creado un nuevo back-end de aplicación móvil que pueden usar las aplicaciones móviles.
-
-> [AZURE.NOTE]Después de que se cree la aplicación móvil, navegue en el portal al servidor SQL que acaba de crear (asegúrese de seleccionar la base de datos SQL del servidor, no la de Azure). Ahí, haga clic en la parte de configuración, expanda la parte de firewall y cambie la opción "Permitir acceso a servicios de Azure". Si no lo hace, la aplicación no funcionará.
+Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargará un proyecto de servidor para un back-end de "lista de tareas" sencillo y lo publicará en Azure.
 
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

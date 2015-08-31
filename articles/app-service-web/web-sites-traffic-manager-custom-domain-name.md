@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mwasson"/>
 
 #Configuración de un nombre de dominio personalizado para una aplicación web en Servicio de aplicaciones de Azure utilizando el Administrador de tráfico
@@ -70,4 +70,4 @@ Para asociar su dominio personalizado con una aplicación web del Servicio de ap
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

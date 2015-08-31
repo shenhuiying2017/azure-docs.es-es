@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure
 
 En nuestro trabajo con empresas, integradores de sistemas (SI), proveedores de servicios en la nube (CSV) y equipos de proyectos de software de código abierto (OSS), a menudo es necesario implementar rápidamente entornos, cargas de trabajo o unidades de escalado. Estas implementaciones deben ser respaldadas, seguir prácticas de demostrada eficacia y cumplir las directivas identificadas. Con un enfoque flexible basado en las plantillas del Administrador de recursos de Azure, puede implementar topologías complejas de forma rápida y coherente y, luego, adaptar estas implementaciones fácilmente a medida que evolucionan las ofertas centrales o para dar cabida a variantes en el caso de escenarios o clientes atípicos.
+
+Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 Las plantillas combinan las ventajas del Administrador de recursos de Azure subyacente con la capacidad de adaptación y legibilidad de la Notación de objetos JavaScript (JSON). El uso de plantillas le permite:
 
@@ -143,7 +145,7 @@ Es posible que inicialmente piense que una plantilla debe ofrecer a los clientes
 
 A primera vista, las configuraciones de forma libre parecen idóneas. Permiten seleccionar un tipo de máquina virtual y proporcionan un número arbitrario de nodos y discos conectados para esos nodos, y lo hacen como parámetros para una plantilla. Sin embargo, cuando se examinan detenidamente y se tienen en cuenta las plantillas que implementarán varias máquinas virtuales de diferentes tamaños, surgen otros aspectos a considerar que convierten este enfoque en la opción menos adecuada en varias situaciones.
 
-En el artículo [Tamaños de máquina virtual y servicio en la nube para Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) del sitio web de Azure, se identifican los diferentes tipos de máquina virtual y tamaños disponibles, y cada número de discos durables (2, 4, 8, 16 o 32) que se pueden conectar. Cada disco conectado proporciona 500 IOPS, y se pueden agrupar múltiplos de estos discos por un multiplicador de ese número de IOPS. Por ejemplo, se pueden agrupar 16 discos para proporcionar 8000 IOPS. La agrupación se realiza con la configuración del sistema operativo, usando espacios de almacenamiento de Microsoft Windows o una matriz redundante de discos independientes (RAID) en Linux.
+En el artículo [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn641267.aspx) del sitio web de Azure, se identifican los diferentes tipos de máquina virtual y tamaños disponibles, y cada número de discos durables (2, 4, 8, 16 o 32) que se pueden conectar. Cada disco conectado proporciona 500 IOPS, y se pueden agrupar múltiplos de estos discos por un multiplicador de ese número de IOPS. Por ejemplo, se pueden agrupar 16 discos para proporcionar 8000 IOPS. La agrupación se realiza con la configuración del sistema operativo, usando espacios de almacenamiento de Microsoft Windows o una matriz redundante de discos independientes (RAID) en Linux.
 
 Una configuración de forma libre permite la selección de un número de instancias de máquina virtual, un número de diferentes tipos y tamaños de VM para esas instancias, un número de discos que puede variar según el tipo de máquina virtual y uno o más scripts para configurar el contenido de la máquina virtual.
 
@@ -245,7 +247,7 @@ La plantilla de recursos opcionales contiene los recursos que se implementan med
 
 **Plantilla de recursos opcionales**
 
-Por ejemplo, puede usar una plantilla de recursos opcionales para configurar un Jumpbox que permita el acceso indirecto a un entorno implementado desde la Internet pública. Usaría un parámetro o una variable para determinar si debe habilitarse el Jumpbox y la función *concat* para crear el nombre de destino de la plantilla, por ejemplo *jumpbox\_enabled.json*. La vinculación de plantillas usaría la variable resultante para instalar el Jumpbox.
+Por ejemplo, puede usar una plantilla de recursos opcionales para configurar un Jumpbox que permita el acceso indirecto a un entorno implementado desde la Internet pública. Usaría un parámetro o una variable para determinar si debe habilitarse el Jumpbox y la función *concat* para crear el nombre de destino de la plantilla, como *jumpbox\_enabled.json*. La vinculación de plantillas usaría la variable resultante para instalar el Jumpbox.
 
 Puede vincular la plantilla de recursos opcionales desde varios lugares:
 
@@ -377,8 +379,8 @@ Si desea publicar la plantilla en Marketplace, simplemente establezca distintas 
 
 ## Pasos siguientes
 
-- Para ver ejemplos contextuales de cómo implementar los principios de diseño presentados en este tema, consulte [Ejemplos contextuales de prácticas recomendadas para implementar plantillas](best-practices-resource-manager-examples.md).
+- Para ver ejemplos contextuales de cómo implementar los principios de diseño presentados en este tema, consulte [Ejemplos contextuales de procedimientos recomendados para la implementación de plantillas](best-practices-resource-manager-examples.md).
 - Para obtener recomendaciones sobre cómo controlar la seguridad en el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 - Para obtener información sobre cómo compartir el estado dentro y fuera de las plantillas, consulte [Uso compartido del estado en las plantillas del Administrador de recursos de Azure](best-practices-resource-manager-state.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,6 +1,8 @@
 <properties
+    title="Azure SQL Database elastic database query overview"
     pageTitle="Información general sobre consulta de bases de datos elásticas de Base de datos SQL de Azure"
     description="Información general de la característica de consultas elásticas"
+    metaKeywords="azure sql database elastic database queries"
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -88,11 +90,13 @@ La característica de consulta de Base de datos elástica se basa en estas cuatr
 Una credencial representa el identificador y la contraseña de usuario que usará la consulta de bases de datos elásticas para conectarse al mapa de particiones de escalado elástico y a las bases de datos remotas de Base de datos SQL de Azure. Puede crear la clave maestra y la credencial necesarias utilizando la sintaxis siguiente:
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';  
-    CREATE CREDENTIAL <credential_name> ON DATABASE
+    CREATE DATABASE SCOPED CREDENTIAL <credential_name>
     WITH IDENTITY = '<shard_map_username>',
     SECRET = '<shard_map_password>'
      [;]
 Asegúrese de que &lt; shard\_map\_username > no incluye ningún sufijo "@servername".
+
+La información sobre las credenciales está visible en la vista de catálogo de sys.database\_scoped.credentials.
 
 Puede usar la siguiente sintaxis para quitar la clave maestra y las credenciales:
 
@@ -263,4 +267,4 @@ Para comenzar a explorar la consulta de Base de datos elástica, pruebe nuestro 
 
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

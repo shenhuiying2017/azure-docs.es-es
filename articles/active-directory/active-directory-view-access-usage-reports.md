@@ -107,11 +107,11 @@ Para obtener detalles sobre este informe, consulte [Inicios de sesión de oríge
 
 ### Inicios de sesión tras varios errores
 
-Para obtener detalles sobre este informe, consulte [Inicios de sesión tras varios errores](active-directory-sign-ins-after-multiple-failures.md).
+Para obtener detalles sobre este informe, consulte [Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).
 
 ### Inicios de sesión desde varias ubicaciones geográficas
 
-Para obtener detalles sobre este informe, consulte [Inicios de sesión desde varias ubicaciones geográficas](active-directory-sign-ins-from-multiple-geographies.md).
+Para obtener detalles sobre este informe, consulte [Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).
 
 ### Inicios de sesión desde direcciones IP con actividad sospechosa
 
@@ -302,4 +302,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y del panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

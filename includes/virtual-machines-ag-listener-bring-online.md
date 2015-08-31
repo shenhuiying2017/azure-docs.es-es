@@ -6,18 +6,18 @@
 
 1. Una vez que el agente de escucha está en línea, en la pestaña de **Recursos**, haz clic con el botón derecho en el grupo de disponibilidad y haz clic en **Propiedades**.
 
-![Configurar el recurso de grupo de disponibilidad](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
+	![Configurar el recurso de grupo de disponibilidad](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
 1. Crea una dependencia en el recurso del nombre del agente de escucha (no en el nombre de los recursos de dirección IP). Haga clic en **Aceptar**.
 
-![Agregar dependencias en el nombre del agente de escucha](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
+	![Agregar dependencias en el nombre del agente de escucha](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
-1. Abre **SQL Server Management Studio** y conéctate a la réplica principal.
+1. Abra **SQL Server Management Studio** y conéctese a la réplica principal.
 
-1. Ve a **Alta disponibilidad de AlwaysOn** | **Grupos de disponibilidad** | **<AvailabilityGroupName>** | **Agentes de escucha del grupo de disponibilidad**.
+1. Vaya a **Alta disponibilidad AlwaysOn** | **Grupos de disponibilidad** | **<AvailabilityGroupName>** | **Agentes de escucha del grupo de disponibilidad**.
 
-3. Ahora tienes que ver el nombre del agente de escucha que creaste en el Administrador de clústeres de conmutación por error. Haz clic con el botón derecho en el nombre del agente de escucha y luego haz clic en **Propiedades**.
+3. Ahora tienes que ver el nombre del agente de escucha que creaste en el Administrador de clústeres de conmutación por error. Haga clic con el botón derecho en el nombre del agente de escucha y luego en **Propiedades**.
 
-1. En la casilla **Puerto**, especifica el número del puerto del agente de escucha del grupo de disponibilidad utilizando el $EndpointPort que utilizaste anteriormente (en este tutorial, 1433 era el valor predeterminado) y después haz clic en **Aceptar**.
+1. En la casilla **Puerto**, especifique el número del puerto del agente de escucha del grupo de disponibilidad mediante el $EndpointPort usado anteriormente (en este tutorial, 1433 era el valor predeterminado) y después haga clic en **Aceptar**.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

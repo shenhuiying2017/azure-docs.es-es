@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Desasociación de un disco de una máquina virtual con Linux en Azure"
-	description="Aprenda a desacoplar un disco de datos de una máquina virtual de Azure."
+	description="Obtenga información acerca de cómo desconectar un disco de datos de una máquina virtual de Azure creada mediante el modelo de implementación clásica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -25,6 +26,6 @@
 
 [Acoplamiento de un disco de datos a una máquina virtual de Linux](virtual-machines-linux-how-to-attach-disk.md)
 
-[Uso de la CLI de Azure con administración de servicios de Azure](virtual-machines-command-line-tools.md)
+[Uso de la CLI de Azure con la API de administración de servicios](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

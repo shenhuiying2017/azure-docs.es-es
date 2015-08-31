@@ -351,8 +351,8 @@ Y aquí vemos cómo puede modificar una colección existente para aprovechar las
 Ahora que ya sabe cómo empezar a trabajar con la compatibilidad geoespacial en DocumentDB, puede:
 
 - Comenzar a codificar con los [ejemplos de código geoespacial .NET en Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
-- Empezar a realizar consultas geoespaciales en el [Área de consultas de DocumentDB](www.documentdb.com/sql/demo)
+- Empezar a realizar consultas geoespaciales en el [Área de consultas de DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 - Obtener más información en [Base de datos de documentos de consulta](documentdb-sql-query.md).
 - Obtener más información sobre [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

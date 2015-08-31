@@ -122,4 +122,6 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 [Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO7-->
+[Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

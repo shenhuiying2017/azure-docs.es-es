@@ -230,4 +230,4 @@ Cuando haya configurado una manera de proporcionar respuestas de TwiML, puede pa
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

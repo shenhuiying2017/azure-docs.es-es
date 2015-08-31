@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -52,7 +52,7 @@ Si no ha hecho esto aún:
 
 * En el código de servidor web o de dispositivo, incluya:
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    *C\#:* `using Microsoft.ApplicationInsights;`
 
     *VB:* `Imports Microsoft.ApplicationInsights`
 
@@ -62,7 +62,7 @@ Si no ha hecho esto aún:
 
 Construya una instancia de TelemetryClient (excepto en JavaScript en páginas web):
 
-*C#:*
+*C\#:*
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -92,7 +92,7 @@ Por ejemplo, en una aplicación de juego, envíe un evento cada vez que un usuar
 
     appInsights.trackEvent("WinGame");
 
-*C#*
+*C\#*
     
     telemetry.TrackEvent("WinGame");
 
@@ -148,7 +148,7 @@ Hay algunos [límites en el número de propiedades, valores de propiedad y métr
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-*C#*
+*C\#*
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -238,7 +238,7 @@ Si le resulta más cómodo, puede recopilar los parámetros de un evento en un o
 Seguro que en ocasiones le gustaría representar el tiempo que se tarda en realizar alguna acción. Por ejemplo, puede que quiera saber cuánto tiempo tardan los usuarios en considerar las opciones de un juego. Este es un ejemplo útil del uso del parámetro de medición.
 
 
-*C#*
+*C\#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -271,7 +271,7 @@ Los valores de métrica deben ser > = 0 para que se muestren correctamente.
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C#*
+*C\#*
 
     telemetry.TrackMetric("Queue", queue.Length);
 
@@ -285,7 +285,7 @@ Los valores de métrica deben ser > = 0 para que se muestren correctamente.
 
 De hecho, puede realizar esta operación en un subproceso en segundo plano:
 
-*C#*
+*C\#*
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -316,7 +316,7 @@ Los datos de usuario y de sesión se envían como propiedades junto con las vist
 
     appInsights.trackPageView("tab1");
 
-*C#*
+*C\#*
 
     telemetry.TrackPageView("GameReviewPage");
 
@@ -337,7 +337,7 @@ Este método lo usa el SDK del servidor para registrar las solicitudes HTTP.
 
 También puede llamarlo usted mismo si quiere simular solicitudes en un contexto en el que no se está ejecutando el módulo de servicio web.
 
-*C#*
+*C\#*
 
     // At start of processing this request:
 
@@ -358,7 +358,7 @@ También puede llamarlo usted mismo si quiere simular solicitudes en un contexto
 
 Envíe excepciones a Application Insights para [contabilizarlas][metrics], como una indicación de la frecuencia de un problema, y para [examinar todas las repeticiones individuales][diagnostic]. Los informes incluyen los seguimientos de la pila.
 
-*C#*
+*C\#*
 
     try
     {
@@ -381,7 +381,7 @@ Use este método para ayudar a diagnosticar problemas mediante el envío de una 
 Los [adaptadores de registro][trace] usan esta API para enviar registros de terceros al portal.
 
 
-*C#*
+*C\#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
@@ -415,7 +415,7 @@ Para desactivar el módulo de seguimiento de dependencias estándar, edite [Appl
 
 Si quiere establecer valores de propiedad predeterminados para algunos de los eventos personalizados que escriba, puede hacerlo en una instancia de TelemetryClient. Se adjuntarán a cada elemento de telemetría enviado desde ese cliente.
 
-*C#*
+*C\#*
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -451,7 +451,7 @@ Las llamadas de telemetría individuales pueden invalidar los valores predetermi
 
 ## <a name="ikey"></a> Establecimiento de la clave de instrumentación para datos de telemetría personalizados seleccionados
 
-*C#*
+*C\#*
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
@@ -467,7 +467,7 @@ Un uso típico consiste en identificar telemetría procedente de distintas versi
 **Defina su inicializador**
 
 
-*C#*
+*C\#*
 
 ```C#
 
@@ -520,7 +520,7 @@ En ApplicationInsights.config:
 
 *Alternativamente,* se pueden crear instancias del inicializador en el código:
 
-*C#*
+*C\#*
 
 ```C#
 
@@ -552,7 +552,7 @@ Si se proporciona un inicializador de telemetría, se llama cada vez que se llam
 
 **Defina su inicializador**
 
-*C#*
+*C\#*
 
 ```C#
 
@@ -624,7 +624,7 @@ Para evitar la mezcla de telemetría de entornos de desarrollo, prueba y producc
 
 En lugar de obtener la clave de instrumentación del archivo de configuración, puede establecerla en el código. Establezca la clave en un método de inicialización, como global.aspx.cs en un servicio de ASP.NET:
 
-*C#*
+*C\#*
 
     protected void Application_Start()
     {
@@ -660,7 +660,7 @@ En páginas web, podría configurarla a partir del estado del servidor web, en l
 
 Normalmente el SDK envía datos en momentos elegidos para minimizar el impacto en el usuario. Sin embargo, en algunos casos puede que desee vaciar el búfer: por ejemplo, si usa el SDK en una aplicación que se apaga.
 
-*C#*
+*C\#*
 
     telemetry.Flush();
 
@@ -680,7 +680,7 @@ También puede [deshabilitar partes seleccionadas de los datos de telemetría es
 Durante la depuración, resulta útil enviar los datos de telemetría por la canalización para así poder ver los resultados inmediatamente. También puede recibir mensajes adicionales que le ayuden a realizar el seguimiento de los posibles problemas con la telemetría. Desactívelo en producción, ya que puede ralentizar la aplicación.
 
 
-*C#*
+*C\#*
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
@@ -728,12 +728,25 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 * [Referencia de ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Referencia de Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [Referencia de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+* [SDK de Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [SDK de iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+
+## Código del SDK
+
+* [SDK básico de ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [SDK de Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [SDK de Java](https://github.com/Microsoft/ApplicationInsights-Java)
+* [SDK de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
+* [SDK de iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
+* [Todas las plataformas](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Preguntas
 
-* *¿Qué excepciones pueden iniciar las llamadas de seguimiento *?*
+* *¿Qué excepciones pueden iniciar las llamadas de seguimiento\_()?*
     
-    Ninguno. No es necesario agruparlas en cláusulas Catch.
+    Ninguno. No es necesario agruparlas en cláusulas try-catch. Si el SDK encuentra problemas, registrará los mensajes que verá en la salida de la consola de depuración, y, si los mensajes pasan, en la búsqueda de diagnóstico.
 
 
 
@@ -768,4 +781,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

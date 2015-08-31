@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Uso de Caché en Redis de Azure con Node.js"
-   description="Introducción a Caché en Redis de Azure usando Node.js y node_redis."
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	pageTitle="Uso de Caché en Redis de Azure con Node.js | Microsoft Azure"
+	description="Introducción a Caché en Redis de Azure usando Node.js y node_redis."
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor="v-lincan"/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="nodejs"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="nodejs"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Node.js
 
@@ -42,7 +42,7 @@ Escriba un nombre de host DNS. Tendrá el formato `<name>.redis.cache.windows.ne
   ![][2]
 
 
-Una vez creada la memoria caché, haga clic en ella en el portal para ver su configuración. Haga clic en el vínculo bajo **Claves** y copie la clave principal. Necesitará esto para autenticar solicitudes.
+Una vez creada la memoria caché, haga clic en ella en el portal de Azure para ver su configuración. Haga clic en el vínculo bajo **Claves** y copie la clave principal. Necesita esto para autenticar solicitudes.
 
   ![][4]
 
@@ -50,7 +50,7 @@ Una vez creada la memoria caché, haga clic en ella en el portal para ver su con
 ## Habilitar el extremo no SSL
 
 
-Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No** para "Permitir acceso solo a través de SSL". Esto habilitará el puerto no SSL para la memoria caché. El cliente node\_redis actualmente no admite SSL.
+Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No** para "Permitir acceso solo a través de SSL". Esto habilita el puerto no SSL para la memoria caché. El cliente node\_redis actualmente no admite SSL.
 
   ![][3]
 
@@ -59,7 +59,7 @@ Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No*
 
 	var redis = require("redis");
 
-    // Put in your cache name and access key.
+    // Add your cache name and access key.
 	var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
 
 	client.set("foo", "bar", function(err, reply) {
@@ -79,7 +79,7 @@ Salida:
 
 ## Pasos siguientes
 
-- [Habilite los diagnósticos de caché](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que pueda [supervisar](https://msdn.microsoft.com/library/azure/dn763945.aspx) el estado de la memoria caché.
+- [Habilite los diagnósticos de caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [supervisar](cache-how-to-monitor.md) el estado de la memoria caché.
 - Lea la [documentación de Redis](http://redis.io/documentation) oficial.
 
 
@@ -91,4 +91,4 @@ Salida:
 
 [Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

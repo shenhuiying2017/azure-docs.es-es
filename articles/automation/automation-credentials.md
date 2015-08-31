@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Recursos de credenciales en Automatización de Azure"
+   pageTitle="Recursos de credenciales en Automatización de Azure | Microsoft Azure"
    description="Los recursos de credenciales en Automatización de Azure contienen credenciales de seguridad que se pueden usar para realizar la autenticación a los recursos a los que tiene acceso el runbook. En este artículo se describe cómo crear recursos de credenciales y usarlos en un runbook."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Recursos de credenciales en Automatización de Azure
@@ -99,8 +99,8 @@ La imagen siguiente muestra un ejemplo de cómo usar una credencial en un runboo
 
 ## Artículos relacionados
 
-- [Vínculos en creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
+- [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

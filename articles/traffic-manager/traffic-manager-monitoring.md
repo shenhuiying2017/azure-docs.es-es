@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Acerca de la supervisión del Administrador de tráfico
 
@@ -27,7 +27,7 @@ El Administrador de tráfico de Azure supervisa los extremos, incluidos los serv
 
 ## Acerca de la supervisión del estado de mantenimiento
 
-El Administrador de tráfico de Azure muestra el estado del servicio de perfiles y de extremos en el Portal de administración. La columna de estado del perfil y el extremo muestran el estado más reciente de supervisión. Puede usar este estado para comprender el estado del perfil de acuerdo con la configuración de supervisión del Administrador de tráfico. Cuando el estado del perfil es correcto, las consultas DNS se distribuirán a los servicios en función de la configuración de equilibrio de carga (round robin, rendimiento o conmutación por error) del perfil. Cuando el sistema de supervisión de Administrador de tráfico detecta un cambio en el estado de supervisión, actualiza la entrada de estado en el Portal de administración. Se puede tardar hasta cinco minutos en actualizar el cambio de estado.
+El Administrador de tráfico de Azure muestra el estado del servicio de perfiles y de extremos en el Portal de administración. La columna de estado del perfil y el extremo muestran el estado más reciente de supervisión. Puede usar este estado para comprender el estado del perfil de acuerdo con la configuración de supervisión del Administrador de tráfico. Cuando el estado del perfil es correcto, las consultas DNS se distribuirán a los servicios en función de la configuración del enrutamiento del tráfico (round robin, rendimiento o conmutación por error) del perfil. Cuando el sistema de supervisión de Administrador de tráfico detecta un cambio en el estado de supervisión, actualiza la entrada de estado en el Portal de administración. Se puede tardar hasta cinco minutos en actualizar el cambio de estado.
 
 ### Estado de supervisión de extremos
 
@@ -89,7 +89,7 @@ A continuación se muestra una escala de tiempo de ejemplo que ilustra el proces
 
 ## Estado de los extremos principal y secundarios de perfiles anidados
 
-En la tabla siguiente se describe el comportamiento de la supervisión del Administrador de tráfico para los perfiles principales y secundarios de un perfil anidado y la configuración de minChildEndpoints. Para obtener más información, consulte [Información general del Administrador de tráfico](traffic-manager-overview.md).
+En la tabla siguiente se describe el comportamiento de la supervisión del Administrador de tráfico para los perfiles principales y secundarios de un perfil anidado y la configuración de minChildEndpoints. Para obtener más información, consulte [¿Qué es el Administrador de tráfico?](traffic-manager-overview.md).
 
 |Estado de supervisión de perfiles secundarios|Estado de supervisión de extremos principales|Notas|
 |---|---|---|
@@ -108,9 +108,9 @@ En la tabla siguiente se describe el comportamiento de la supervisión del Admin
 
 ## Otras referencias
 
-[Información general sobre el Administrador de tráfico](traffic-manager-overview.md)
+[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
 
-[Acerca de los métodos de equilibrio de carga del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
+[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
 
 [Servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -119,4 +119,4 @@ En la tabla siguiente se describe el comportamiento de la supervisión del Admin
 [Solución de problemas de estado degradado en Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

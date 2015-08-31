@@ -62,4 +62,4 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación de An
 [Almacenamiento de scripts de servidor en control de código fuente]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -233,10 +233,9 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 -	[Cómo usar el almacenamiento de blobs de C++](storage-c-plus-plus-how-to-use-blobs.md)
 -	[Cómo usar el almacenamiento de tablas de C++](storage-c-plus-plus-how-to-use-tables.md)
 -	[Enumeración de los recursos de almacenamiento de Azure en C++](storage-c-plus-plus-enumeration.md)
--	[Biblioteca de cliente de almacenamiento para C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
--	[Referencia MSDN de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
+-	[Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -3,7 +3,7 @@
 	description="Use Power BI para supervisar el rendimiento y el uso de la aplicación." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -118,7 +118,7 @@ En este ejemplo:
 
 * `webapplication27` es el nombre del recurso de Application Insights. 
 * `1000...` es la clave de instrumentación que copió del recurso de Application Insights. 
-* `PageViews` es el tipo de datos que se van a analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles.
+* `PageViews` es el tipo de datos que se van a analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y consulte el [modelo de exportación de datos](app-insights-export-data-model.md).
 * `/{date}/{time}` es un patrón escrito literalmente.
 
 Para obtener el nombre y el valor iKey del recurso de Application Insights, abra Essentials en su página de información general o bien abra la Configuración.
@@ -180,7 +180,7 @@ Abra Power BI y seleccione el conjunto de datos y la tabla que ha definido como 
 
 ![En Power BI, seleccione el conjunto de datos y los campos.](./media/app-insights-export-power-bi/200.png)
 
-Ahora puede utilizar este conjunto de datos en los informes y paneles de [Power BI](https://powerbi.microsoft.com).
+Ahora puede usar este conjunto de datos en los informes y paneles de [Power BI](https://powerbi.microsoft.com).
 
 
 ![En Power BI, seleccione el conjunto de datos y los campos.](./media/app-insights-export-power-bi/210.png)
@@ -197,4 +197,4 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

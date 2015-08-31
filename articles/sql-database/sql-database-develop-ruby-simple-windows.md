@@ -28,7 +28,7 @@ En este tema se presenta un ejemplo de código Ruby que se ejecuta en un equipo 
 
 Abra el terminal e instale lo siguiente:
 
-**1) Ruby:** si el equipo no tiene Ruby, instálelo. En el caso de nuevos usuarios de Ruby, se recomienda usar los instaladores de Ruby 2.1.X. Proporcionan un lenguaje estable y una amplia lista de paquetes (gemas) que son compatibles y están actualizados. [Vaya a página de descarga de Ruby]() y descargue el instalador adecuado de 2.1.x. Por ejemplo, si se encuentra en un equipo de 64 bits, descargue el instalador de **Ruby 2.1.6 (x 64)**. <br/><br/>Una vez descargado el instalador, haga lo siguiente:
+**1) Ruby:** si el equipo no tiene Ruby, instálelo. En el caso de nuevos usuarios de Ruby, se recomienda usar los instaladores de Ruby 2.1.X. Proporcionan un lenguaje estable y una amplia lista de paquetes (gemas) que son compatibles y están actualizados. [Vaya a página de descarga de Ruby](http://rubyinstaller.org/downloads/) y descargue el instalador adecuado de 2.1.x. Por ejemplo, si se encuentra en un equipo de 64 bits, descargue el instalador de **Ruby 2.1.6 (x 64)**. <br/><br/>Una vez descargado el instalador, haga lo siguiente:
 
 
 - Haga doble clic en el archivo para iniciar el instalador.
@@ -131,4 +131,4 @@ Para estar en consonancia con el formato [datetime](http://msdn.microsoft.com/li
     puts row
     end
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

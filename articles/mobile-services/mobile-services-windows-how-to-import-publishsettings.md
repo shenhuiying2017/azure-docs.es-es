@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Importación del archivo de configuración de publicación en Visual Studio 2013 | Microsoft Azure" 
-	description="Obtenga información sobre cómo importar un archivo de configuración de publicación de suscripción para su aplicación de Servicios móviles de Azure en Visual Studio 2013." 
-	documentationCenter="" 
-	services="mobile-services" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Importación del archivo de configuración de publicación en Visual Studio 2013 | Microsoft Azure"
+	description="Obtenga información sobre cómo importar un archivo de configuración de publicación de suscripción para su aplicación de Servicios móviles de Azure en Visual Studio 2013."
+	documentationCenter=""
+	services="mobile-services"
+	manager="dwrede"
+	editor=""
 	authors="ggailey777"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Importación del archivo de configuración de publicación de la suscripción en Visual Studio 2013
@@ -22,7 +22,7 @@ Antes de crear el servicio móvil, debe importar el archivo de configuración de
 
 >[AZURE.NOTE]A partir de la actualización 2 de Visual Studio 2013, deja de ser necesario usar un archivo de configuración de publicación. Visual Studio puede conectarse directamente con Azure gracias a las credenciales que proporciona.
 
-1. En Visual Studio 2013, abra el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y, a continuación, en **Servicio conectado...**. 
+1. En Visual Studio 2013, abra el Explorador de soluciones, haga clic con el botón derecho en el proyecto, haga clic en **Agregar** y, a continuación, en **Servicio conectado...**.
 
 	![agregar servicio conectado](./media/mobile-services-windows-how-to-import-publishsettings/mobile-add-connected-service.png)
 
@@ -60,6 +60,5 @@ Antes de crear el servicio móvil, debe importar el archivo de configuración de
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

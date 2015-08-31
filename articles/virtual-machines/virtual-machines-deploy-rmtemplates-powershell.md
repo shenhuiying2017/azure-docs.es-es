@@ -18,6 +18,12 @@
 
 # Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell
 
+> [AZURE.SELECTOR]
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+
 En este artículo se muestra cómo utilizar las plantillas del Administrador de recursos de Azure y PowerShell para automatizar tareas comunes de implementación y administración de máquinas virtuales de Azure. Para obtener más plantillas que puede utilizar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de la aplicación](virtual-machines-app-frameworks.md).
 
 - [Implementación de una máquina virtual de Windows](#windowsvm)
@@ -956,4 +962,4 @@ Verá información similar a la siguiente:
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

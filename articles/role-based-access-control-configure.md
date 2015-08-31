@@ -3,8 +3,8 @@
 	description="Describe la manera en que funciona el control de acceso basado en roles y cómo configurarlo"
 	services=""
 	documentationCenter=""
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
 	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Control de acceso basado en roles en el portal de Microsoft Azure
 
@@ -84,7 +84,7 @@ En primer lugar, vamos a agregar el acceso de lectura para todos los recursos de
 
 ![][3]
 
-Haga clic en el *nombre de su suscripción* ** > Lector > Agregar**. En la lista de usuarios y grupos, seleccione o escriba el nombre del grupo de Active Directory.
+Haga clic en el *nombre de su suscripción* \*\* > Lector > Agregar\*\*. En la lista de usuarios y grupos, seleccione o escriba el nombre del grupo de Active Directory.
 
 ![][4]
 
@@ -1293,4 +1293,4 @@ Los recursos siguientes le servirán de ayuda para el control de acceso basado e
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

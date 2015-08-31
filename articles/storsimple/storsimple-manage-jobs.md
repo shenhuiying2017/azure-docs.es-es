@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Visualización y administración de trabajos de StorSimple | Microsoft Azure"
-   description="Describe la página de Trabajos del servicio StorSimple Manager y cómo usarla."
+   description="Describe la página Trabajos del servicio Administrador de StorSimple y cómo usarla para realizar un seguimiento de los trabajos de copia de seguridad programados, actuales y recientes."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Visualización y administración de trabajos de StorSimple
@@ -89,4 +89,4 @@ Ahora se cancelará este trabajo.
 
 [Obtenga información sobre cómo administrar las directivas de copia de seguridad de StorSimple](storsimple-manage-backup-policies.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

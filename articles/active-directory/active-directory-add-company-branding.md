@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y panel de acceso" 
-	description="En este tema se explica cómo puede una organización aplicar un aspecto uniforme a los sitios web y los servicios que administran de manera que los usuarios finales no se confundan cuando necesiten utilizar dichos sitios." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y panel de acceso"
+	description="En este tema se explica cómo puede una organización aplicar un aspecto uniforme a los sitios web y los servicios que administran de manera que los usuarios finales no se confundan cuando necesiten utilizar dichos sitios."
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/11/2015" 
+	ms.author="MarkVi"/>
 
 # Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y panel de acceso
 
 > [AZURE.NOTE]
-> 
+>
 - La información de marca de empresa es una característica que solo está disponible si ha actualizado a la edición Premium o Básico de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 - Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
@@ -44,7 +44,7 @@ Los usuarios verán una página de inicio de sesión con la información de marc
 Si visitan un servicio con direcciones URL no específicas de inquilinos (como https://mail.office365.com), verán una página de inicio de sesión sin información de marca. La página de inicio de sesión se actualizará para mostrar su información de marca una vez que los usuarios hayan introducido su identificador de usuario o hayan seleccionado un icono de usuario.
 
 > [AZURE.NOTE]
-> 
+>
 - El nombre de dominio debe aparecer como "Active" en la sección **Active Directory** > **Directorio** > **Dominios** del Portal de administración de Azure donde se ha configurado la marca.
 - La información de marca de la página de inicio de sesión no se traslada a la página de inicio de sesión de cliente de Microsoft. Esto significa que los usuarios que inicien sesión con una cuenta Microsoft personal (anteriormente Windows Live ID) podrán ver una lista de iconos de usuario con información de marca presentada por Azure AD, pero la información de marca de su organización no se aplicará a la página de inicio de sesión de la cuenta Microsoft.
 
@@ -185,6 +185,4 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

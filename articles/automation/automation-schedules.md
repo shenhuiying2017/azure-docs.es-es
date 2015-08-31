@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Programaciones en Automatización de Azure"
+   pageTitle="Programaciones en Automatización de Azure | Microsoft Azure"
    description="Las programaciones de Automatización se usan para programar runbooks en Automatización de Azure para que se inicien automáticamente. En este artículo se describe cómo crear programaciones."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Programaciones en Automatización de Azure
@@ -66,4 +66,4 @@ El cmdlet [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/dn6902
 - [Programación de un runbook en Automatización de Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

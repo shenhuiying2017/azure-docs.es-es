@@ -5,7 +5,7 @@ Los servicios en la nube son un ejemplo de plataforma como-servicio (PaaS). Como
 
 ![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
-Más control también significa que es menos fácil de usar; a menos que necesite opciones de control adicionales, por lo general es más rápido y fácil que una aplicación web esté en funcionamiento en Sitios web en comparación con Servicios en la nube.
+Más control también significa que es menos fácil de usar; a menos que necesite opciones de control adicionales, por lo general es más rápido y fácil poner en marcha una aplicación web y que funcione en Aplicaciones web en Servicio de aplicaciones que en Servicios en la nube.
 
 La tecnología proporciona dos opciones de VM ligeramente diferentes: las instancias de *roles web* ejecutan una variante de Windows Server con IIS mientras que las instancias de *roles de trabajo* ejecutan la misma variante de Windows Server sin IIS. Una aplicación de Servicios en la nube se basa en alguna combinación de estas dos opciones.
 
@@ -30,4 +30,4 @@ Servicios en la nube también brinda supervisión. Al igual que con Máquinas vi
 
 La naturaleza de PaaS de Servicios en la nube tiene también otras implicaciones. Una de las más importantes es que las aplicaciones creadas sobre la base de esta tecnología deben estar escritas para ejecutarse correctamente en caso de cualquier error en instancia de rol web o de trabajo. Para lograrlo, una aplicación de Servicios en la nube no debiera mantener estado en el sistema de archivos de sus propias máquinas virtuales. A diferencia de las máquinas virtuales creadas con Máquinas virtuales de Azure, las escrituras que se realizan en las máquinas virtuales de Servicios en la nube no son permanentes; no hay nada parecido a un disco de datos de Máquinas virtuales. En lugar de eso, una aplicación de Servicios en la nube debe escribir explícitamente todo estado en la base de datos de SQL, blogs, tablas u algún otro tipo de almacenamiento externo. Cuando se crean aplicaciones de esta manera, estas resultan más fáciles de escalar y son más resistentes ante los errores, ambos objetivos importantes de Servicios en la nube.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

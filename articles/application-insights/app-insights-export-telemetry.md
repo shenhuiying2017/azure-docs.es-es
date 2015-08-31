@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/13/2015" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -55,12 +55,9 @@ Para detener la secuencia de forma permanente, elimine la exportación. Al reali
 
 ## <a name="analyze"></a> ¿Qué eventos obtiene?
 
-Los datos exportados son la telemetría sin procesar que recibimos de la aplicación, con las siguientes excepciones:
+Los datos exportados son la telemetría sin procesar que recibimos de la aplicación, aunque también agregamos los datos de ubicación que calculamos a partir de la dirección IP del cliente.
 
-* Los resultados de pruebas web no se incluyen actualmente. 
-* Agregamos datos de ubicación a partir de los que calculamos la dirección IP de cliente.  
-
-Las métricas calculadas no se incluyen. Por ejemplo, no exportamos el uso medio de la CPU, pero sí la telemetría sin procesar a partir de la que se calcula la media.
+No se incluyen otras métricas calculadas. Por ejemplo, no exportamos el uso medio de la CPU, pero sí la telemetría sin procesar a partir de la que se calcula la media.
 
 ## <a name="get"></a> Inspección de los datos
 
@@ -85,7 +82,7 @@ Las duraciones de tiempo son tics, donde 10 000 tics = 1 ms. Por ejemplo, estos 
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-
+[Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 
 ## Procesamiento de los datos
 
@@ -185,6 +182,13 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
     Sí. Haga clic en Deshabilitar.
 
+## Ejemplos de código
+
+* [Transmisiones de Application Insights a Power BI](app-insights-export-power-bi.md)
+* [Analizar JSON exportado mediante un rol de trabajo][exportcode]
+* [Exportación a SQL con el Análisis de transmisiones][exportasa]
+
+* [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
@@ -194,4 +198,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

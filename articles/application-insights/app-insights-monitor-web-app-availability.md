@@ -30,8 +30,6 @@ Existen dos tipos de prueba web:
 * [Prueba de ping de la dirección URL](#set-up-a-url-ping-test): una prueba sencilla que se puede crear en el portal de Azure.
 * [Prueba web de varios pasos](#multi-step-web-tests): que se crea en Visual Studio Ultimate o Visual Studio Enterprise y se carga en el portal.
 
-*¿Es una aplicación web de Azure? Simplemente [cree la prueba web en la hoja de la aplicación web][azure-availability].*
-
 
 
 ## Configuración de una prueba de ping de la dirección URL
@@ -211,7 +209,7 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
 * Recibo un error sobre "caracteres no válidos" cuando 
 
-* **¿Hay diferencia entre las "pruebas web" y la "disponibilidad"?
+* *\*¿Hay diferencia entre las "pruebas web" y la "disponibilidad"?
 
     Usamos ambos términos de manera intercambiable.
 
@@ -239,4 +237,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

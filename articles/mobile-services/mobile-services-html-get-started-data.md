@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="08/16/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
@@ -257,4 +257,4 @@ Este tutorial muestra los aspectos básicos de la habilitación de una aplicaci�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

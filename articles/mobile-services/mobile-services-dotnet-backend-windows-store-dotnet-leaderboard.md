@@ -589,7 +589,7 @@ Finalmente, agregue métodos que llamen a la capa de servicio.
 
 ## Incorporación de una instancia de MobileServiceClient
 
-Abra el archivo *App.xaml.cs* y agregue una instancia de **MobileServiceClient** a la clase `App`.
+Abra el archivo \*App.xaml.cs\* y agregue una instancia de **MobileServiceClient** a la clase `App`.
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
@@ -763,4 +763,4 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

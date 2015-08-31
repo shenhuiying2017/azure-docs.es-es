@@ -2,6 +2,7 @@ Recurso|Límite predeterminado
 ---|---
 Número máximo de cuentas de almacenamiento por suscripción|100<sup>1</sup>
 TB por cuenta de almacenamiento|500 TB
+Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento|El único límite es los 500 TB de capacidad de la cuenta de almacenamiento
 Tamaño máximo de un contenedor de blobs, una tabla o una cola|500 TB
 Número máximo de bloques en un blob en bloques|50\.000
 Tamaño máximo un bloque en un blob en bloques|4 MB
@@ -21,12 +22,12 @@ Rendimiento de un blob|Hasta 60 MB por segundo o hasta 500 solicitudes por segun
 Rendimiento de una cola (mensajes de 1 KB)|Hasta 2000 mensajes por segundo
 Rendimiento de una partición de tabla (entidades de 1 KB)|Hasta 2000 entidades por segundo
 Rendimiento de destino para un solo recurso compartido de archivos (vista previa)|Hasta 60 MB por segundo
-Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.)|10 Gbps si GRS<sup>4</sup> está habilitado, 20 Gbps para LRS
-Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.)|20 Gbps si GRS<sup>4</sup> está habilitado, 30 Gbps para LRS
-Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones de Europa y Asia)|5 Gbps si GRS<sup>4</sup> está habilitado, 10 Gbps para LRS
-Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones de Europa y Asia)|10 Gbps si GRS<sup>4</sup> está habilitado, 15 Gbps para LRS
+Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.)|10 Gbps si GRS/ZRS<sup>4</sup> está habilitado, 20 Gbps para LRS
+Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones de EE. UU.)|20 Gbps si GRS/ZRS<sup>4</sup> está habilitado, 30 Gbps para LRS
+Entrada máxima<sup>3</sup> por cuenta de almacenamiento (regiones de Europa y Asia)|5 Gbps si GRS/ZRS<sup>4</sup> está habilitado, 10 Gbps para LRS
+Salida máxima<sup>3</sup> por cuenta de almacenamiento (regiones de Europa y Asia)|10 Gbps si GRS/ZRS<sup>4</sup> está habilitado, 15 Gbps para LRS
 
-<sup>1</sup>Si necesitas más de 100 cuentas de almacenamiento, ponte en contacto con el [soporte técnico de Azure](http://azure.microsoft.com/support/faq/) para obtener ayuda.
+<sup>1</sup>Si necesita más de 100 cuentas de almacenamiento, póngase en contacto con el [servicio de soporte técnico de Azure](http://azure.microsoft.com/support/faq/) para obtener ayuda.
 
 <sup>2</sup>El límite total de velocidad de solicitudes para una cuenta de almacenamiento es 20 000 IOPS. Si una máquina virtual usa el número máximo de IOPS por disco, para evitar una posible limitación, asegúrese de que el número total de IOPS en todos los discos duros virtuales de las máquinas virtuales no supere el límite de la cuenta de almacenamiento (20.000 IOPS).
 
@@ -36,4 +37,4 @@ Puede calcular aproximadamente el número de discos muy usados admitidos por una
 
 <sup>4</sup>GRS hace referencia al almacenamiento con redundancia geográfica. ZRS hace referencia al almacenamiento con redundancia de zona y solo está disponible para los blobs en bloques. LRS hace referencia al almacenamiento con redundancia local.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

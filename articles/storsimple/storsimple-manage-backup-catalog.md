@@ -6,13 +6,13 @@
    authors="SharS"
    manager="carolz"
    editor="" />
-<tags 
+<tags  
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/24/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos" />
 
 # Administración del catálogo de copia de seguridad de StorSimple
@@ -109,7 +109,7 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 
     Las copias de seguridad asociadas al volumen o la directiva de copia de seguridad seleccionados deben aparecer en la lista de conjuntos de copias de seguridad.
 
-3. Selecciona y expanda un conjunto de copia de seguridad. Las opciones **Restaurar y eliminar** se muestran en la parte inferior de la página. Hacer clic en **Eliminar**. Eliminación del conjunto de copia de seguridad
+3. Selecciona y expanda un conjunto de copia de seguridad. Las opciones **Restaurar y eliminar** se muestran en la parte inferior de la página. Hacer clic en **Eliminar**.
 
 4. Se le notificará cuando la eliminación esté en curso y cuando haya finalizado correctamente. Cuando finalice la eliminación, actualice la consulta en esta página. El conjunto de copia de seguridad eliminado ya no aparecerá en la lista de conjuntos de copia de seguridad.
 
@@ -117,4 +117,4 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 
 Obtenga información acerca de cómo usar el catálogo de copias de seguridad para [ restaurar el dispositivo desde un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

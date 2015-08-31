@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Implementar SQL Server AlwaysOn con una plantilla de Administrador de recursos de Azure"
-	description="Implemente fácilmente cinco servidores que admitan SQL Server AlwaysOn con una plantilla de administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
+	pageTitle="Implementación de SQL Server AlwaysOn con una plantilla del Administrador de recursos de Azure | Microsoft Azure"
+	description="Implemente fácilmente cinco servidores que admitan SQL Server AlwaysOn con una plantilla del Administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -19,7 +19,7 @@
 
 # Implementar SQL Server AlwaysOn con una plantilla de Administrador de recursos de Azure
 
-Siga las instrucciones de esta sección para implementar SQL Server AlwaysOn mediante una plantilla del Administrador de recursos. Esta plantilla crea cinco máquinas virtuales en una nueva red virtual en dos subredes diferentes.
+Siga las instrucciones de esta sección para implementar SQL Server AlwaysOn mediante una plantilla del Administrador de recursos de Azure. Esta plantilla crea cinco máquinas virtuales en una nueva red virtual en dos subredes diferentes.
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
@@ -27,7 +27,7 @@ Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerS
 
 ## Portal de vista previa de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla de Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos de Azure y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
@@ -95,7 +95,7 @@ Una vez completada la ejecución de la plantilla, tendrá una nueva configuraci�
 
 [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
+[Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
 [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
 
@@ -105,4 +105,4 @@ Una vez completada la ejecución de la plantilla, tendrá una nueva configuraci�
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

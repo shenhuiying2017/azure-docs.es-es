@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Información general sobre el Administrador de tráfico"
+   pageTitle="¿Qué es el Administrador de tráfico? | Microsoft Azure"
    description="Este artículo le ayudará a comprender qué es el Administrador de tráfico y cómo funciona"
    services="traffic-manager"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # ¿Qué es el Administrador de tráfico?
@@ -39,11 +39,11 @@ La *Ilustración 1* muestra cómo el Administrador de tráfico dirige a los usua
 1. **Tráfico de usuario al nombre de dominio de la compañía**: el cliente solicita información mediante el nombre de dominio de la compañía. El objetivo es resolver un nombre de DNS en una dirección IP. Los dominios de la compañía deben reservarse a través de registros normales de nombres de dominio de Internet de la compañía que se mantienen fuera del Administrador de tráfico. En la ilustración 1, el nombre de dominio de la compañía es *www.contoso.com*.
 2. **Nombre de dominio de la compañía al nombre de dominio del Administrador de tráfico**: el registro de recursos DNS del dominio de la compañía indica el nombre de dominio del Administrador de tráfico que se mantiene en el Administrador de tráfico de Azure. Esto se consigue con un registro de recursos CNAME que asigna el nombre de dominio de la compañía al nombre de dominio del Administrador de tráfico. En el ejemplo, el nombre de dominio del Administrador de tráfico es *contoso.trafficmanager.net*.
 3. **Nombre de dominio y perfil del Administrador de tráfico**: el nombre de dominio del Administrador de tráfico forma parte del perfil del Administrador de tráfico. El servidor DNS del usuario envía una nueva consulta de DNS para el nombre de dominio del Administrador de tráfico (en nuestro ejemplo *contoso.trafficmanager.net*), que los servidores de nombre DNS del Administrador de tráfico reciben.
-4. **Reglas procesadas del perfil del Administrador de tráfico**: el Administrador de tráfico usa el método de equilibrio de carga y el estado de supervisión especificados para determinar qué extremo de Azure debe atender la solicitud.
+4. **Reglas de perfil del Administrador de tráfico procesadas**: el Administrador de tráfico usa el método de enrutamiento y el estado de supervisión del tráfico para determinar qué extremo de Azure o que otro extremo debe atender la solicitud.
 5. **Nombre de dominio del extremo enviado al usuario**: el Administrador de tráfico devuelve un registro CNAME que asigna el nombre de dominio del Administrador de tráfico al nombre de dominio del extremo. El servidor DNS del usuario resuelve el nombre de dominio de extremo en su dirección IP y la envía al usuario.
 6. **El usuario llama al extremo**: el usuario llama al extremo devuelto usando su dirección IP directamente .
 
-Dado que el dominio de la compañía y la dirección IP resuelta se almacenan en la caché del equipo cliente, el usuario continuará interactuando con el extremo elegido hasta que su entrada de la caché DNS local expire. Es importante tener en cuenta que el cliente DNS almacena en caché las entradas de host de DNS durante su durante su período de vida (TTL). La recuperación de entradas de host desde la caché del cliente DNS pasa por alto el perfil del Administrador de tráfico y se pueden experimentar retrasos en la conexión si el extremo no está disponible antes de que expire el período de vida. Si el TTL de una entrada de host DNS en la caché expira y el equipo cliente necesita volver a resolver el nombre de dominio de la compañía, envía una nueva consulta DNS. El equipo cliente recibe la dirección IP de otro extremo en función del método de equilibrio de carga aplicado y el estado de los extremos en el momento de la solicitud.
+Dado que el dominio de la compañía y la dirección IP resuelta se almacenan en la caché del equipo cliente, el usuario continuará interactuando con el extremo elegido hasta que su entrada de la caché DNS local expire. Es importante tener en cuenta que el cliente DNS almacena en caché las entradas de host de DNS durante su durante su período de vida (TTL). La recuperación de entradas de host desde la caché del cliente DNS pasa por alto el perfil del Administrador de tráfico y se pueden experimentar retrasos en la conexión si el extremo no está disponible antes de que expire el período de vida. Si el TTL de una entrada de host DNS en la caché expira y el equipo cliente necesita volver a resolver el nombre de dominio de la compañía, envía una nueva consulta DNS. El equipo cliente recibe la dirección IP de otro extremo en función del método de enrutamiento del tráfico aplicado y el estado de los extremos en el momento de la solicitud.
 
 ## Cómo implementar el Administrador de tráfico
 
@@ -55,17 +55,17 @@ La *ilustración 2* muestra por orden los pasos que son necesarios para implemen
 
 1. **Implementar los servicios en la nube de Azure, los sitios web de Azure u otros extremos en el entorno de producción**. Cuando se crea un perfil del Administrador de tráfico, debe asociarse a una suscripción. Después agregue los extremos para servicios en la nube y sitios web de nivel estándar de producción que forman parte de la misma suscripción. Si un extremo se encuentra en almacenamiento provisional y no está en un entorno de producción de Azure o no está en la misma suscripción, se puede agregar como un extremo externo. Para obtener más información sobre servicios en la nube, consulte [Servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkId=314074). Para obtener más información sobre sitios web, consulte [Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327).
 2. **Decidir un nombre para el dominio del Administrador de tráfico**. Considerar la posibilidad de usar un nombre para el dominio con un prefijo único. La última parte del dominio, trafficmanager.net, es fija. Para obtener más información, consulte los [Procedimientos recomendados](#best-practices).
-3. **Decidir la configuración de supervisión que se desea usar**. El Administrador de tráfico supervisa los extremos para comprobar que están en línea, independientemente del método de equilibrio de carga. Después de configurar las opciones de supervisión, el Administrador de tráfico no dirigirá tráfico a extremos que estén sin conexión según el sistema de supervisión a menos que detecte que todos los extremos están sin conexión o que no puede detectar el estado de ninguno de los extremos contenidos en el perfil. Para obtener más información acerca de la supervisión, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
-4. **Decidir el método de equilibrio de carga que se desea usar**. Existen tres métodos distintos de equilibrio de carga. Tómese su tiempo para entender qué método satisface mejor sus necesidades. Si necesita cambiar el método más adelante, puede hacerlo cuando quiera. Tenga en cuenta también que cada método requiere pasos de configuración ligeramente distintos. Para obtener información sobre métodos de equilibrio de carga, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](traffic-manager-load-balancing-methods.md).
+3. **Decidir la configuración de supervisión que se desea usar**. El Administrador de tráfico supervisa los extremos para comprobar que están en línea, independientemente del método de enrutamiento del tráfico. Después de configurar las opciones de supervisión, el Administrador de tráfico no dirigirá tráfico a extremos que estén sin conexión según el sistema de supervisión a menos que detecte que todos los extremos están sin conexión o que no puede detectar el estado de ninguno de los extremos contenidos en el perfil. Para obtener más información acerca de la supervisión, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
+4. **Decidir el método de enrutamiento del tráfico que se desea usar**. Existen tres métodos distintos de enrutamiento del tráfico. Tómese su tiempo para entender qué método satisface mejor sus necesidades. Si necesita cambiar el método más adelante, puede hacerlo cuando quiera. Tenga en cuenta también que cada método requiere pasos de configuración ligeramente distintos. Para obtener información acerca de los métodos de enrutamiento del tráfico, consulte [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md).
 5. **Crear el perfil y configurar las opciones**. Puede usar las API de REST, Windows PowerShell o el Portal de administración para crear el perfil del Administrador de tráfico y configurar los valores. Para obtener más información, consulte [Cómo configurar las opciones del Administrador de tráfico](#how-to-configure-traffic-manager-settings). En los siguientes pasos se supone que va a usar **Creación rápida** en el Portal de administración. 
    - **Crear el perfil de Administrador de tráfico**: para crear un perfil mediante Creación rápida en el Portal de administración, consulte [Administrar perfiles de Administrador de tráfico](traffic-manager-manage-profiles.md).
-   - **Configurar los valores del método de equilibrio de carga**: en Creación rápida, debe seleccionar el método de equilibrio de carga para el perfil. Esta configuración puede cambiarse en cualquier momento después de completar los pasos de Creación rápida. Para obtener los pasos de configuración, consulte el tema correspondiente a su método de equilibrio de carga: [Configurar el equilibrio de carga de rendimiento](traffic-manager-configure-performance-load-balancing.md), [Configurar el equilibrio de carga de conmutación por error](traffic-manager-configure-failover-load-balancing.md), [Configurar el equilibrio de carga Round Robin](traffic-manager-configure-round-robin-load-balancing.md). >
+   - **Configurar los valores del método de enrutamiento del tráfico**: en Creación rápida, debe seleccionar el método de enrutamiento del tráfico para el perfil. Esta configuración puede cambiarse en cualquier momento después de completar los pasos de Creación rápida. Para los pasos de configuración, consulte el tema que corresponde a su método de enrutamiento del tráfico: [Configuración del método de enrutamiento del tráfico de rendimiento](traffic-manager-configure-performance-load-balancing.md), [Configuración del método de enrutamiento del tráfico de conmutación por error](traffic-manager-configure-failover-load-balancing.md), [Método de enrutamiento del tráfico Round Robin](traffic-manager-configure-round-robin-load-balancing.md).
    
-   >[AZURE.NOTE]El método de equilibrio de carga de Round Robin admite una distribución ponderada del tráfico de red. Sin embargo, en este momento debe usar las API de REST o Windows PowerShell para configurar la ponderación. Para obtener más información y un ejemplo de configuración, consulte [Extremos externos del Administrador de tráfico de Azure y Round Robin ponderado mediante PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) en el blog de Azure.
+   >[AZURE.NOTE]El método de enrutamiento del tráfico de Round Robin admite una distribución ponderada del tráfico de red. Sin embargo, en este momento debe usar las API de REST o Windows PowerShell para configurar la ponderación. Para obtener más información y un ejemplo de configuración, consulte [Extremos externos del Administrador de tráfico de Azure y Round Robin ponderado mediante PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) en el blog de Azure.
 
-   - **Configurar extremos**: los extremos no se configuran durante la Creación rápida. Después de crear el perfil y especificar el método de equilibrio de carga, debe dejar que el Administrador de tráfico conozca los extremos. Para obtener los pasos para configurar los extremos, consulte [Administrar extremos en el Administrador de tráfico](traffic-manager-endpoints.md)
+   - **Configurar extremos**: los extremos no se configuran durante la Creación rápida. Después de crear el perfil y especificar el método de enrutamiento del tráfico, tiene que informar al Administrador de tráfico sobre los extremos. Para obtener los pasos para configurar los extremos, consulte [Administrar extremos en el Administrador de tráfico](traffic-manager-endpoints.md)
 
-   - **Configurar opciones de supervisión**: las opciones de supervisión no se configuran durante la Creación rápida. Después de crear el perfil y especificar el método de equilibrio de carga, debe dejar que el Administrador de tráfico sepa lo que debe supervisar. Para obtener los pasos para configurar la supervisión, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
+   - **Configurar opciones de supervisión**: las opciones de supervisión no se configuran durante la Creación rápida. Después de crear el perfil y especificar el método de enrutamiento del tráfico, tiene que informar al Administrador de tráfico sobre lo que debe supervisar. Para obtener los pasos para configurar la supervisión, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
 6. **Probar el perfil del Administrador de tráfico**. Compruebe que el perfil y el dominio funcionan según lo esperado. Para obtener información sobre cómo llevar a cabo esto, consulte [Pruebas de configuración del Administrador de tráfico](traffic-manager-testing-settings.md).
 7. **Hacer que el registro de recursos DNS del nombre de dominio de la compañía apunte al perfil para activarlo**. Para obtener más información, consulte [Seleccionar un dominio de Internet de la compañía para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
 
@@ -79,7 +79,7 @@ Aunque en el Portal de administración no se ve cada elemento de la API de REST,
 
 Para obtener más información sobre los cmdlets de Windows PowerShell para el Administrador de tráfico, consulte [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769).
 
->[AZURE.NOTE]Actualmente no hay compatibilidad de configuración de extremos externos (tipo = 'Any'), ponderaciones para el método de equilibrio de carga de Round Robin y perfiles anidados con el Portal de administración. Debe usar REST (consulte [Crear definición](http://go.microsoft.com/fwlink/p/?LinkId=400772)) o Windows PowerShell (consulte [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
+>[AZURE.NOTE]Actualmente no hay compatibilidad de configuración de extremos externos (tipo = 'Any'), ponderaciones para el método de enrutamiento del tráfico de Round Robin y perfiles anidados con el Portal de administración. Debe usar REST (consulte [Crear definición](http://go.microsoft.com/fwlink/p/?LinkId=400772)) o Windows PowerShell (consulte [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
 
 ### Configuración de opciones del Portal de administración
 
@@ -90,8 +90,8 @@ Puede configurar las siguientes opciones en el Portal de administración:
 - **Prefijo de DNS**: prefijo único que el usuario crea. Los perfiles se muestran por prefijo en el Portal de administración.
 - **TTL de DNS**: el valor del período de vida (TTL) de DNS controla la frecuencia con la que el servidor de nombres de almacenamiento en caché local del cliente consultará el sistema DNS del Administrador de tráfico de Azure para actualizar las entradas DNS.
 - **Suscripción**: seleccione la suscripción a la que corresponde el perfil. Tenga en cuenta que esta opción solo aparece si tiene varias suscripciones.
-- **Método de equilibrio de carga**: indica la forma en la que quiere que el Administrador de tráfico controle el equilibrio de carga.
-- **Orden de conmutación por error**: es el orden de los extremos cuando se emplea el método de equilibrio de carga de conmutación por error.
+- **Método de enrutamiento del tráfico**: indica la forma en la que quiere que el Administrador de tráfico controle el enrutamiento del tráfico.
+- **Orden de conmutación por error**: es el orden de los extremos cuando se emplea el método de enrutamiento del tráfico de conmutación por error.
 - **Supervisión**: las opciones de supervisión incluyen el protocolo (HTTP o HTTPS), el puerto y la ruta de acceso relativa y nombre de archivo.
 
 ### Configuración de opciones mediante las API de REST
@@ -102,7 +102,7 @@ Puede crear y configurar el perfil del Administrador de tráfico mediante las AP
 - **Definición**: una definición contiene la configuración de la directiva y la configuración de supervisión. Una definición corresponde a un perfil. Únicamente puede tener una sola definición por perfil. La propia definición no se ve en el Portal de administración, aunque muchos de los valores contenidos en la definición se ven y pueden configurarse en el Portal de administración.
 - **Opciones de DNS**: en cada definición hay opciones de DNS. Aquí se configura el TTL de DNS.
 - **Supervisiones**: dentro de cada definición existen opciones de supervisión. Aquí se configuran el protocolo, el puerto y la ruta de acceso relativa y nombre de archivo. Las opciones de supervisión se ven en el Portal de administración. Para obtener más información, consulte [Supervisión del Administrador de tráfico](traffic-manager-monitoring.md).
-- **Directiva**: dentro de cada definición existen opciones de directiva. En la directiva se especifican los métodos de equilibrio de carga y los extremos. La propia directiva no se ve en el Portal de administración, aunque muchos de los valores contenidos en la directiva se ven y pueden configurarse en el Portal de administración. Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](traffic-manager-load-balancing-methods.md).
+- **Directiva**: dentro de cada definición existen opciones de directiva. En la directiva se especifican los métodos de enrutamiento del tráfico y los extremos. La propia directiva no se ve en el Portal de administración, aunque muchos de los valores contenidos en la directiva se ven y pueden configurarse en el Portal de administración. Para obtener más información, consulte [Acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md).
 
 ## Configuración de opciones mediante Windows PowerShell
 
@@ -136,12 +136,12 @@ De este modo puede configurar el Administrador de tráfico para que las consulta
 
 **Ilustración 3**
 
-Puede anidar hasta 10 niveles y cada perfil se puede configurar con un método de equilibrio de carga distinto.
+Puede anidar hasta 10 niveles y cada perfil se puede configurar con un método de enrutamiento del tráfico distinto.
 
 Por ejemplo, podría crear una configuración para lo siguiente:
 
-- En el nivel superior (el perfil del Administrador de tráfico que se asigna al nombre de DNS externo), puede configurar el perfil con el método de equilibrio de carga de rendimiento.
-- En el nivel intermedio, un conjunto de perfiles del Administrador de tráfico representan distintos centros de datos y usan el método de equilibrio de carga de Round Robin.
+- En el nivel superior (el perfil del Administrador de tráfico que se asigna al nombre de DNS externo), puede configurar el perfil con el método de enrutamiento del tráfico de rendimiento.
+- En el nivel intermedio, un conjunto de perfiles del Administrador de tráfico representan distintos centros de datos y usan el método de enrutamiento del tráfico de Round Robin.
 - En el nivel inferior, un conjunto de extremos de servicio en la nube de cada centro de datos atienden las solicitudes de tráfico del usuario.
 
 El resultado es que los usuarios se dirigen a un centro de datos regional adecuado en función del rendimiento y a un servicio en la nube dentro de ese centro de datos en función de la distribución de carga equivalente o ponderada. Por ejemplo, podría utilizarse ponderación para distribuir un pequeño porcentaje de tráfico a una implementación nueva o de prueba para comentarios de pruebas o de clientes.
@@ -172,4 +172,4 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

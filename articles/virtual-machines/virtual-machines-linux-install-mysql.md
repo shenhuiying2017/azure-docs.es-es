@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Instalación de MySQL en Azure"
-	description="Aprenda a instalar la pila de MySQL en una máquina virtual de Linux en Azure. Puede instalar en Ubuntu o CentOS."
+	description="Aprenda a instalar la pila de MySQL en una máquina virtual de Linux en Azure. Puede instalar en Ubuntu o los sistemas operativos de la familia RedHat."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
@@ -13,148 +13,90 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/12/2015"
+	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
 #Instalación de MySQL en Azure
 
 
-En este tema, se supone que el lector ya tiene una cuenta de Azure. Si no es así, se recomienda para suscribirse; para ello, visite [Azure](http://azure.microsoft.com).
+En este artículo aprenderá a instalar y configurar MySQL en una máquina virtual de Azure con Linux.
 
 
+> [AZURE.NOTE]Debe tener una máquina virtual de Microsoft Azure en la que se ejecuta Linux para completar este tutorial. Antes de continuar, consulte el [tutorial sobre máquinas virtuales Linux de Azure](virtual-machines-linux-tutorial.md) para crear y configurar una máquina virtual Linux con `mysqlnode` como nombre de máquina virtual y `azureuser` como usuario.
 
-##Creación de una imagen de máquina virtual de Microsoft Azure.
-A continuación creamos una nueva máquina virtual en el portal de administración de Microsoft Azure.
-###Generación de la "Clave de autenticación SSH"
-Necesitamos la clave SSH para obtener acceso al portal de Azure.
-
-
-- Descargue e instale puttygen desde [aquí](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
-- Ejecute puttygen.exe.
-- Haga clic en el botón "Generar" para generar claves.
-
-
- ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p01.png)
- 
-- Una vez generada la clave, se mostrará lo siguiente. 
- 
- ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p02.png)
-
-- Copie la clave pública y guárdela en un archivo denominado "publicKey.key". No haga clic en el botón "Guardar clave pública", porque el formato de la clave pública guardada es diferente de la clave pública que queremos.
-- Haga clic en el botón "Guardar clave privada" y guárdela como "privateKey.ppk". 
-
-###Inicio de sesión de Portal de Azure
-
-Vaya a https://portal.azure.com/ e inicie sesión.
-
-###Creación de una máquina virtual Linux
-
-Haga clic en el botón de la izquierda "NUEVO", cree una imagen siguiendo las instrucciones y elija la imagen de Linux que necesite. Aquí elija Ubuntu 14.04 como ejemplo.
-
-  ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p03.png)
-
-###Configuración del NOMBRE DE HOST
-
-Para "NOMBRE DE HOST": es la dirección URL que se puede utilizar para acceder a la máquina virtual. Basta con especificar el nombre DNS, por ejemplo "mysqlnode1" y Azure generará la dirección URL como "mysqlnode1.cloudapp.net"; para "CLAVE DE AUTENTICACIÓN SSH": es la clave pública generada por puttygen y que debe copiar del contenido al archivo "publicKey.key".
-
-  ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p04.png)
-  
-
-##Apertura del puerto predeterminado de MySQL
-Los extremos de Microsoft Azure constan de un protocolo, junto con un puerto público y privado. El puerto privado es el puerto que el servicio está escuchando en el equipo local. El puerto público es el puerto que el servicio está escuchando externamente. El puerto 3306 es el número de puerto predeterminado al que escuchará MySQL. Haga clic en "EXAMINAR" ⇒ "MÁQUINA VIRTUAL" y después haga clic en la imagen creada.
- 
-   ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p05.png)
-
-
-##Conexión a la imagen creada
-Puede elegir cualquier herramienta SSH para conectarse a la máquina virtual. Aquí usamos Putty como ejemplo.
- 
-
-- En primer lugar, descargue Putty. A continuación se indica la dirección URL de descarga de Putty.
-- Después de descargar Putty, haga clic en el archivo ejecutable "PUTTY.EXE". La configuración se indica a continuación.
-
-
-     El "nombre de host (o dirección IP)" es la dirección URL como "NOMBRE DNS" al crear una imagen.
-     
-     Se puede elegir el "Puerto" 22. Es el puerto predeterminado de servicios SSH.
-
-   ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p06.png)
- 
-- Antes de seleccionar Abrir, haga clic en la pestaña Conexión > SSH > Autenticación para examinar el archivo generado por Puttygen y que contiene la clave privada. Consulte la siguiente captura de pantalla con el campo que se va a rellenar.
-
-   ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p07.png)
- 
-- A continuación, haga clic en "Abrir"; puede recibir una alerta en un cuadro de mensaje que indica que el equipo al que se ha conectado quizá no sea el equipo al que desea conectarse. Si ha configurado el nombre DNS y número de puerto correctamente, haga clic en "Sí".
-  
- ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p08.png)
-
-- Después de eso, verá lo que sigue. 
- 
- ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p09.png)
+[En este caso, use el puerto 3306 como puerto MySQL.]
 
 
 ##Instalación de MySQL en la máquina virtual
-Se admiten tres métodos de instalación para MySQL: paquetes binarios, paquetes rpm y paquetes de código fuente. Para consideraciones sobre el rendimiento, usaremos el paquete rpm para MySQL 5.6 como ejemplo en este artículo. El rendimiento de MySQL5.6 ha mejorado considerablemente con relación a MySQL5.5. Puede encontrar más información [aquí](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
+Conéctese a la máquina virtual Linux que creó mediante putty. Si es la primera vez que usa una máquina virtual Linux de Azure, vea cómo usar putty para conectarse a una máquina virtual Linux [aquí](virtual-machines-linux-use-ssh-key.md).
+
+Usaremos el paquete de repositorio para instalar MySQL5.6 como un ejemplo de este artículo. En realidad, MySQL5.6 tiene un mejor rendimiento MySQL5.5. Puede encontrar más información [aquí](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/):
 
 
-###Instalación de MySQL5.6 en Ubuntu o Debian
-Utilizaremos Ubuntu 14.04 LTS como ejemplo en este artículo.
+###Instalación de MySQL5.6 en Ubuntu
+Usaremos aquí la máquina virtual de Linux con Ubuntu de Azure.
 
-- Paso 1: Instalación de MySQL Server 5.6
+- Paso 1: Instalar el modificador del servidor MySQL 5.6 en el usuario `root`: 
 
-    Instale mysql-server 5.6 con el comando apt-get:
+            #[azureuser@mysqlnode:~]sudo su -
 
-              # azureuser@mysqlnode1:~$ sudo apt-get update
-              # azureuser@mysqlnode1:~$ sudo apt-get -y install mysql-server-5.6
+    Instalación de mysql-server 5.6:
 
-    Durante la instalación, se mostrará un cuadro de diálogo para que establezca la contraseña raíz de MySQL. Deberá especificar la nueva contraseña raíz de usuario de MySQL. A continuación se muestra la captura de pantalla.
+            #[root@mysqlnode ~]# apt-get update
+            #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
 
- ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p10.png)
+    Durante la instalación, aparecerá una ventana de diálogo para pedirle que establezca la contraseña raíz de MySQL a continuación, tiene que establecer la contraseña aquí.
 
-    Confirm the password again when it is asked.
+    ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p1.png)
 
- ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p11.png)
- 
-- Paso 2: Inicio de sesión en MySQL Server
-
-    Una vez finalizada la instalación de MySQL Server, el servicio MySQL se inicia automáticamente. Puede iniciar sesión en MySQL Server con la raíz de usuario. Para iniciar sesión en MySQL Server, utilice el comando siguiente. Se le solicitará la contraseña raíz de MySQL que haya establecido durante la instalación de MySQL Server.
-
-             # azureuser@mysqlnode1:~$ mysql -uroot -p
-
-- Paso 3: Comprobación del servicio de MySQL en la máquina virtual
     
-    Después de iniciar sesión, asegúrese de que el servicio MySQL se está ejecutando; puede utilizar los comandos siguientes para iniciar o reiniciar el servicio.
+    Vuelva a escribir la contraseña para confirmar.
 
-    (a) Para obtener el estado del servicio MySQL
-
-             #sudo service mysql status
-
-    (b) Para iniciar el servicio MySQL
-
-             #sudo service mysql start
-
-    (c) Para detener el servicio MySQL
-
-             #sudo service mysql stop
-
-    (d) Para reiniciar el servicio MySQL
-
-             #sudo service mysql restart
-
-
-###Instalación de MySQL en la familia de sistemas operativos Redhat u Oracle Linux
-- Paso 1: Incorporación del repositorio Yum de MySQL para obtener los permisos raíz y después ejecute el comando: 
-
-            #sudo su -
-            #[root@azureuser ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm 
-            #[root@azureuser ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm 
-
-- Paso 2: Selección de una serie de versiones
+    ![imagen](./media/virtual-machines-linux-install-mysql/virtual-machines-linux-install-mysql-p2.png)
  
-            #[root@azureuser ~]# vim /etc/yum.repos.d/mysql-community.repo
+- Paso 2: Iniciar sesión en el servidor MySQL
 
-    Es una entrada típica para el subrepositorio de la serie de versiones en el archivo:
+    Una vez finalizada la instalación del servidor MySQL, el servicio MySQL se inicia automáticamente. Puede iniciar sesión en el servidor MySQL con el usuario `root`. Use el siguiente comando para la contraseña de inicio de sesión y la entrada.
+
+             #[root@mysqlnode ~]# mysql -uroot -p
+
+- Paso 3: Administrar el servicio MySQL en ejecución
+
+    (a) Obtener el estado del servicio MySQL
+
+             #[root@mysqlnode ~]# service mysql status
+
+    (b) Iniciar el servicio MySQL
+
+             #[root@mysqlnode ~]# service mysql start
+
+    (c) Detener el servicio MySQL
+
+             #[root@mysqlnode ~]# service mysql stop
+
+    (d) Reiniciar el servicio MySQL
+
+             #[root@mysqlnode ~]# service mysql restart
+
+
+###Instalación de MySQL en la familia de sistemas operativos Red Hat, como Oracle Linux o CentOS
+Aquí usaremos la máquina virtual de Linux con CentOS u Oracle Linux.
+ 
+- Paso 1: Agregar el modificador del repositorio de MySQL Yum al usuario `root`: 
+
+            #[azureuser@mysqlnode:~]sudo su -
+
+    Descargue e instale el paquete de la versión de MySQL:
+
+            #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm 
+            #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm 
+
+- Paso 2: Editar el archivo a continuación para habilitar el repositorio de MySQL para descargar el paquete MySQL5.6.
+ 
+            #[root@mysqlnode ~]# vim /etc/yum.repos.d/mysql-community.repo
+
+    Actualizar cada valor de este archivo como se muestra a continuación:
 
         # *Enable to use MySQL 5.6*
 
@@ -169,74 +111,75 @@ Utilizaremos Ubuntu 14.04 LTS como ejemplo en este artículo.
 
         gpgkey=file:/etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
 
-- Paso 3: Instalación de MySQL con Yum. Instale MySQL mediante el siguiente comando:
+- Paso 3: Instalar MySQL desde el repositorio de MySQL Install MySQL:
 
-           #[root@azureuser ~]#yum install mysql-community-server 
+           #[root@mysqlnode ~]#yum install mysql-community-server 
 
-    Se instala el paquete para MySQL Server, así como otros paquetes necesarios.
+    Se instalará el paquete RPM MySQL y todos los paquetes relacionados.
 
-- Paso 4: Comprobación del estado en ejecución de MySQL
+- Paso 4: Administrar el servicio MySQL en ejecución
 
-    Puede comprobar el estado de MySQL Server con el siguiente comando:
+    (a) Comprobar el estado del servicio del servidor MySQL:
    
-           #[root@azureuser ~]#service mysqld status
+           #[root@mysqlnode ~]#service mysqld status
 
-    Puede comprobar si el puerto predeterminado de MySQL Server se está ejecutando:
+    (b) Comprobar si el puerto predeterminado del servidor MySQL se está ejecutando:
 
-           #[root@azureuser ~]#netstat  –tunlp|grep 3306
-
-- Paso 5: Inicio y detención de MySQL Server
-
-    Inicie MySQL Server con el siguiente comando:
-
-           #[root@azureuser ~]#service mysqld start
-
-    Detenga MySQL Server con el siguiente comando:
-
-           #[root@azureuser ~]#service mysqld stop
-
-    Para configurar MySQL para que se inicie cuando arranca el sistema, ejecute el siguiente comando:
-
-           #[root@azureuser ~]#chkconfig mysqld on
+           #[root@mysqlnode ~]#netstat  –tunlp|grep 3306
 
 
-###Instalación de MySQL en Suse Linux
+    (c) Iniciar el servidor de MySQL:
 
-- Paso 1: Instalación de MySQL Server
+           #[root@mysqlnode ~]#service mysqld start
 
-    Para elevar los permisos, ejecute el comando:
+    (d) Detener el servidor de MySQL:
+
+           #[root@mysqlnode ~]#service mysqld stop
+
+    (e) Establecer MySQL para iniciarse con el arranque del sistema:
+
+           #[root@mysqlnode ~]#chkconfig mysqld on
+
+
+###Instalación de MySQL en SUSE Linux
+Aquí usaremos la máquina virtual de Linux con OpenSUSE.
+
+- Paso 1: Descargar e instalar el servidor MySQL
+
+    Cambiar a usuario `root` a través de comando siguiente:
 
            #sudo su -
 
-    Instale MySQL con el siguiente comando:
+    Descargar e instalar el paquete MySQL:
 
-           #mysql-test:~ # zypper update
+           #[root@mysqlnode ~]# zypper update
 
-           #mysql-test:~ # zypper install mysql-server mysql-devel mysql
+           #[root@mysqlnode ~]# zypper install mysql-server mysql-devel mysql
 
-- Paso 2: Comprobación del estado en ejecución de MySQL
+- Paso 2: Administrar el servicio MySQL en ejecución
 
-    Puede comprobar el estado de MySQL Server con el siguiente comando:
+    (a) Comprobar el estado del servidor de MySQL:
 
-           #mysql-test:~ # rcmysql status
+           #[root@mysqlnode ~]# rcmysql status
 
-    Puede comprobar si el puerto predeterminado de MySQL Server se está ejecutando;
+    (b) Comprobar si el puerto predeterminado del servidor de MySQL se está ejecutando:
 
-           #mysql-test:~ # netstat  –tunlp|grep 3306
+           #[root@mysqlnode ~]# netstat  –tunlp|grep 3306
 
-- Paso 3: Inicio y detención de MySQL Server
 
-    Inicie MySQL Server con el siguiente comando:
+    (c) Iniciar el servidor de MySQL:
 
-           #mysql-test:~ # rcmysql start
+           #[root@mysqlnode ~]# rcmysql start
 
-    Detenga MySQL Server con el siguiente comando:
+    (d) Detener el servidor de MySQL:
 
-           #mysql-test:~ # rcmysql stop
+           #[root@mysqlnode ~]# rcmysql stop
 
-    Para configurar MySQL para que se inicie cuando el sistema arranque, ejecute el siguiente comando:
+    (e) Establecer MySQL para iniciarse con el arranque del sistema:
 
-           #mysql-test:~ # insserv mysql
- 
+           #[root@mysqlnode ~]# insserv mysql
 
-<!---HONumber=August15_HO6-->
+###Paso siguiente
+Buscar más información de uso y sobre MySQL [aquí](https://www.mysql.com/).
+
+<!---HONumber=August15_HO8-->

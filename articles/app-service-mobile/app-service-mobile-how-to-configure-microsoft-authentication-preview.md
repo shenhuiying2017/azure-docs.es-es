@@ -13,22 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/26/2015"
+	ms.date="07/27/2015"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar la cuenta Microsoft como proveedor de autenticación.
+En este tema se muestra cómo configurar las Aplicaciones móviles de Azure para usar la cuenta Microsoft como proveedor de autenticación.
 
 ## <a name="register"> </a>Registro de la aplicación con la cuenta Microsoft
 
-1. Vaya a la página [Mis aplicaciones] del Centro para desarrolladores de la cuenta Microsoft e inicie sesión con su cuenta Microsoft, si procede.
+1. Inicie sesión en el [Portal de administración de Azure] y vaya a la aplicación móvil.
 
-2. Haga clic en **Crear aplicación** y, a continuación, escriba el **nombre de la aplicación** y haga clic en **Acepto**.
+2. Haga clic en **Configuración**, **Autenticación del usuario** y, después, haga clic en **Cuenta Microsoft**. Copie la **Dirección URL de redireccionamiento**. La usará para configurar una aplicación nueva para su cuenta Microsoft.
 
-3. Haga clic en **Configuración de API**. Seleccione **Sí** para **Aplicación cliente móvil o de escritorio**. En el campo **Dirección URL de redireccionamiento**, escriba la dirección URL de la puerta de enlace anexada a la ruta de acceso, _/signin-microsoft_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-microsoft`. Asegúrese de que está utilizando el esquema HTTPS. Después de escribir la dirección URL de redireccionamiento, haga clic en **Guardar**.
+3. Vaya a la página [Mis aplicaciones] del Centro para desarrolladores de la cuenta Microsoft e inicie sesión con su cuenta Microsoft, si procede.
+
+4. Haga clic en **Crear aplicación** y, a continuación, escriba el **nombre de la aplicación** y haga clic en **Acepto**.
+
+5. Haga clic en **Configuración de API**. Seleccione **Sí** para **Aplicación cliente móvil o de escritorio**. En el campo **Dirección URL de redireccionamiento**, escriba la **Dirección URL de redireccionamiento** que copió anteriormente. Se trata de la puerta de enlace de la aplicación móvil anexada, _/signin-microsoft_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-microsoft`. Asegúrese de que está utilizando el esquema HTTPS. Después de escribir la dirección URL de redireccionamiento, haga clic en **Guardar**.
 
 	![][0]
 
@@ -41,9 +45,7 @@ En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para
 
 ## <a name="secrets"> </a>Adición de información de la cuenta de Microsoft a la aplicación móvil
 
-5. Inicie sesión en el [Portal de administración de Azure] y vaya a la puerta de enlace de Servicios de aplicaciones.
-
-6. En **Configuración**, elija **Identidad** y, a continuación, seleccione **Cuenta Microsoft**. Pegue los valores de Id. de aplicación y Secreto de la aplicación que obtuvo anteriormente. A continuación, haga clic en **Guardar**.
+1. De vuelta en el [Portal de administración de Azure], en la hoja de configuración de la cuenta Microsoft de la aplicación móvil, pegue los valores de Id. de cliente y Secreto de cliente que obtuvo anteriormente. A continuación, haga clic en **Guardar**.
 
     ![][1]
 
@@ -60,7 +62,7 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 <!-- Images. -->
 
 [0]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/app-service-microsoftaccount-redirect.png
-[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/app-service-microsoftaccount-settings.png
+[1]: ./media/app-service-mobile-how-to-configure-microsoft-authentication-preview/mobile-app-microsoftaccount-settings.png
 
 <!-- URLs. -->
 
@@ -68,4 +70,4 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 [Portal de administración de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

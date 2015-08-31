@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/25/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Uso del panel del servicio StorSimple Manager
@@ -74,6 +74,6 @@ Para ver los registros de operaciones, haga clic en el vínculo de registros de 
 
 ## Pasos siguientes
 
-Aprenda cómo [solucionar problemas de un dispositivo de StorSimple](storsimple-troubleshoot-operational-device.md).
+[Obtenga más información acerca de cómo solucionar problemas de un dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

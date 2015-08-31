@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="Indicadores de supervisión de StorSimple"
+    pageTitle="Indicadores de supervisión de StorSimple | Microsoft Azure" 
     description="Describe los LED y alarmas que se usan para supervisar el estado del dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" />
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/11/2015"
+    ms.date="08/14/2015"
     ms.author="v-sharos" />
 
 # Indicadores de supervisión de StorSimple   
@@ -45,7 +45,7 @@ El panel frontal contiene los siguientes indicadores:
 4. Indicador LED de error lógico (encendido rojo-ámbar/apagado
 5. Pantalla de identificación de la unidad  
 
-La principal diferencia entre los LED del panel frontal del dispositivo y los del revestimiento de EBOD estriba en el **número de identificación de la unidad de sistema** que aparece en la pantalla LED. El identificador de unidad predeterminado que se muestra en el dispositivo es **00**, mientras que el del revestimiento de EBOD es **01**. Esto permite diferenciar rápidamente entre el dispositivo y el revestimiento de EBOD cuando el dispositivo está encendido. Si el dispositivo está apagado, use la información recogida en [Encendido de un dispositivo nuevo](https://msdn.microsoft.com/library/azure/dn772378.aspx) para diferenciar el dispositivo del revestimiento de EBOD.
+La principal diferencia entre los LED del panel frontal del dispositivo y los del revestimiento de EBOD estriba en el **número de identificación de la unidad de sistema** que aparece en la pantalla LED. El identificador de unidad predeterminado que se muestra en el dispositivo es **00**, mientras que el del revestimiento de EBOD es **01**. Esto permite diferenciar rápidamente entre el dispositivo y el revestimiento de EBOD cuando el dispositivo está encendido. Si el dispositivo está apagado, use la información recogida en [Activar un dispositivo nuevo](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) para diferenciar el dispositivo del revestimiento de EBOD.
 
 ## Estado de los LED del panel frontal  
 
@@ -148,7 +148,7 @@ Use la siguiente tabla para saber si el módulo del controlador está funcionand
 
 | LED | Descripción                                                                            
 |---- | ----------- |
-| LED de identificación (azul) | Indica que el módulo se está identificando. Si el LED azul parpadea en un controlador en funcionamiento, quiere decir que es el controlador activo y el otro, el controlador en modo de espera. Para más información, vea [Identificar un controlador activo en el dispositivo](https://msdn.microsoft.com/library/azure/dn790262.aspx). |
+| LED de identificación (azul) | Indica que el módulo se está identificando. Si el LED azul parpadea en un controlador en funcionamiento, quiere decir que es el controlador activo y el otro, el controlador en modo de espera. Para más información, consulte [Identificar el controlador activo en el dispositivo](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de error (ámbar) | Indica un error en el controlador.        
 | LED correcto (verde) | Un color verde fijo indica que el controlador funciona correctamente. La intermitencia en verde indica un error de configuración de VPD del controlador. |
 | LED de actividad SAS (verde) | Un color verde fijo señala una conexión sin ninguna actividad actual. La intermitencia en verde indica que la conexión tiene una actividad en curso. |
@@ -255,6 +255,10 @@ En la siguiente tabla se describen las diversas condiciones de alarma.
 | Unidad extraída | Advertencia | Ninguna | Error de módulo |
 | Alimentación insuficiente disponible | Advertencia | Ninguna | Error de módulo |
 
+## Pasos siguientes
+
+Obtenga más información sobre los [componentes de hardware de StorSimple y su estado](storsimple-monitor-hardware-status.md).
+
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png
@@ -264,4 +268,4 @@ En la siguiente tabla se describen las diversas condiciones de alarma.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

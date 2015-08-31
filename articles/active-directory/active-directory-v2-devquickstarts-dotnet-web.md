@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Modelo de aplicaciones v2.0 | Microsoft Azure"
-	description="Cómo crear una aplicación web .NET MVC que acepte token de las cuentas de Microsoft y de las cuentas profesionales o educativas."
-	that signs users in with both personal Microsoft Account and work or school accounts.
+	description="Cómo crear una aplicación web de .NET MVC con la que los usuarios pueden iniciar sesión utilizando tanto la cuenta personal de Microsoft como sus cuentas profesionales o educativas."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -202,4 +201,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

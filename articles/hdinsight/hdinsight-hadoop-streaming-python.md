@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/13/2015"
+   ms.date="08/04/2015"
    ms.author="larryfr"/>
 
 #Desarrollo de programas de streaming para HDInsight
 
 Hadoop proporciona una API de streaming para MapReduce que le permite escribir mapas y reducir funciones en lenguajes distintos de Java. En este artículo, aprenderá a usar Python para realizar operaciones de MapReduce.
 
-> [AZURE.NOTE]Este artículo se basa en información y ejemplos publicados por Michael Noll en [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](Escribir un programa de MapReduce de Hadoop en Python).
+> [AZURE.NOTE]Mientras el código Python de este documento se puede usar con un clúster de HDInsight basado en Windows, los pasos descritos en este documento son específicos de los clústeres basados en Linux.
+
+Este artículo se basa en información y ejemplos publicados por Michael Noll en [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/\](Escribir un programa de MapReduce de Hadoop en Python).
 
 ##Requisitos previos
 
@@ -133,7 +136,7 @@ Cree un archivo nuevo llamado **reducer.py** y use los siguientes elementos como
 
 ##Carga de los archivos
 
-Tanto **mapper.py** como **reducer.py** deben estar en el nodo principal del clúster antes de poder ejecutarlos. La forma más simple de cargarlos es usar **scp** (**pscp** si usa un cliente Windows).
+Tanto **mapper.py** como **reducer.py** deben estar en el nodo principal del clúster antes de poder ejecutarlos. La forma más sencilla de cargarlos es usar **scp** (**pscp** si usa un cliente Windows).
 
 Desde el cliente, en el mismo directorio en que se encuentran **mapper.py** y **reducer.py**, use el comando siguiente. Reemplace **nombredeusuario** con un usuario SSH y **nombredelclúster** por el nombre del clúster.
 
@@ -202,4 +205,4 @@ Ahora que aprendió a usar los trabajos de transmisión de MapReduce con HDInsig
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

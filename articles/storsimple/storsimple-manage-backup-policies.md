@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Administración de directivas de copia de seguridad de StorSimple | Microsoft Azure"
-   description="Explica cómo se puede usar el Servicio de Administrador de StorSimple para crear y administrar trabajos de copia de seguridad y programaciones de copia de seguridad."
+   description="Explica cómo se puede usar el servicio Administrador de StorSimple para crear y administrar copias de seguridad manuales, programaciones de copia de seguridad y retención de copia de seguridad."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor=""/>
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/17/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 # Administración de directivas de copia de seguridad de StorSimple
@@ -82,6 +82,6 @@ Realice los pasos siguientes en el Portal de administración para crear una dire
 
 ## Pasos siguientes
 
-Obtenga información sobre cómo administrar las copias de seguridad de StorSimple con el [Administrador de instantáneas StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
+Obtenga más información acerca de [Uso del Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

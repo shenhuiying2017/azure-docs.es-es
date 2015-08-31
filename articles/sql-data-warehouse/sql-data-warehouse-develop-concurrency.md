@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -24,30 +24,33 @@ En este artículo se presentan los conceptos de simultaneidad y administración 
 ## Simultaneidad
 Es importante comprender que la simultaneidad en Almacenamiento de datos SQL se rige por dos conceptos; **consultas simultáneas** y **ranuras de simultaneidad**.
 
-Las consultas simultáneas son iguales al número de consultas que se ejecutan al mismo tiempo. Almacenamiento de datos SQL admite hasta 32 **consultas simultáneas**. Cada ejecución de consulta se cuenta como una sola consulta independientemente de si es una consulta en serie (un único subproceso) o una consulta en paralelo (multiproceso). Este es un límite fijo y se aplica a todos los niveles de servicio.
+Las consultas simultáneas son iguales al número de consultas que se ejecutan al mismo tiempo. Almacenamiento de datos SQL admite hasta 32 **consultas simultáneas**. Cada ejecución de consulta se cuenta como una sola consulta independientemente de si es una consulta en serie (un único subproceso) o una consulta en paralelo (multiproceso). Este es un límite fijo y se aplica a todos los niveles de servicio y a todas las consultas.
 
 Las ranuras de simultaneidad son un concepto más dinámico y se relacionan con el objetivo de nivel de servicio de Unidad de almacenamiento de datos (DWU) para el almacenamiento de datos. A medida que aumenta el número de DWU asignadas a Almacenamiento de datos SQL más recursos de proceso se asignan. Sin embargo, también aumenta el número de **ranuras de simultaneidad** disponibles.
 
-Almacenamiento de datos SQL tiene que funcionar dentro de ambos umbrales. Si hay más de 32 consultas simultáneas o se supera el número de ranuras de simultaneidad, la consulta se pondrá en cola hasta que puedan satisfacerse ambos umbrales.
-
-Cada consulta que se ejecuta de forma simultánea consume una o varias ranuras de simultaneidad. El número exacto de ranuras depende de dos factores:
+Como regla general, cada consulta que se ejecuta de forma simultánea consume una o varias ranuras de simultaneidad. El número exacto de ranuras depende de tres factores:
 
 1. El valor de DWU para Almacenamiento de datos SQL
-2. La **clase de recurso** a la que pertenezca el usuario 
+2. La **clase de recurso** a la que pertenezca el usuario
+3. Si la consulta o la operación se rige por el modelo de ranura de simultaneidad 
+
+> [AZURE.NOTE]Merece la pena tener en cuenta que no todas las consultas se rigen por la regla de consulta de ranura de simultaneidad. Sin embargo, sí lo hacen la mayoría de las consultas de usuario. Algunas consultas y operaciones no consumen ranuras de simultaneidad en absoluto. Estas consultas y operaciones todavía están limitadas por el límite de consultas simultáneas que es por lo que se describen ambas reglas. Consulte la siguiente sección de [excepciones de clases de recursos](#exceptions) para obtener más detalles.
+
+En la siguiente tabla se describen tanto los límites de consultas simultáneas como las ranuras de simultaneidad, suponiendo que la consulta se rige por recursos.
 
 <!--
 | Concurrency Slot Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
-| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 32     | 32     | 32     | 32     | 32    | 32     |
+| Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
 -->
 
 | Consumo de ranuras de simultaneidad | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | 
 | N.º máximo de consultas simultáneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 
-| N.º máximo de ranuras de simultaneidad | 4 | 8 | 12 | 16 | 20 | 24 | 32 | 32 | 32 | 32 | 
+| N.º máximo de ranuras de simultaneidad | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
 
-Las clases de recursos son una parte esencial de la administración de cargas de trabajo de Almacenamiento de datos SQL dado que también determinan los recursos computacionales asignados a la consulta. Este tema se abordará en la sección de administración de cargas de trabajo más adelante.
+Las cargas de trabajo de consultas del Almacenamiento de datos SQL tienen que encontrarse dentro de estos umbrales. Si hay más de 32 consultas simultáneas o se supera el número de ranuras de simultaneidad, la consulta se pondrá en cola hasta que puedan satisfacerse ambos umbrales.
 
 ## Administración de cargas de trabajo
 
@@ -60,15 +63,21 @@ Los roles son:
 - largerc
 - xlargerc
 
-De forma predeterminada, cada usuario es miembro de la clase de recurso pequeña: smallrc. Sin embargo, cualquier usuario se puede agregar a una o varias de las clases de recursos más altas. Almacenamiento de datos SQL tomará la pertenencia al rol más alto para la ejecución de consultas. El hecho de agregar un usuario a una clase de recursos más alta aumenta los recursos para ese usuario pero también consume una mayor cantidad de ranuras de simultaneidad, lo que limitará posiblemente la posibilidad de simultaneidad. Esto se debe a que a medida que se asignan más recursos a una consulta, el sistema debe limitar los recursos que otras consumen. No hay comida gratis.
+Las clases de recursos son una parte esencial de la administración de cargas de trabajo del Almacenamiento de datos SQL. Rigen los recursos informáticos asignados a la consulta.
+
+De forma predeterminada, cada usuario es miembro de la clase de recurso pequeña: smallrc. Sin embargo, cualquier usuario se puede agregar a una o varias de las clases de recursos más altas. Como regla general, el Almacenamiento de datos SQL tomará la pertenencia al rol más alto para la ejecución de consultas. El hecho de agregar un usuario a una clase de recursos más alta aumenta los recursos para ese usuario pero también consume una mayor cantidad de ranuras de simultaneidad, lo que limitará posiblemente la posibilidad de simultaneidad. Esto se debe a que a medida que se asignan más recursos a una consulta, el sistema debe limitar los recursos que otras consumen. No hay comida gratis.
 
 El recurso más importante que se rige por las clases de recursos superiores es la memoria. La mayoría de tablas de almacenamiento de datos de cualquier tamaño significativo usará índices de almacén de columnas agrupados. Si bien esto normalmente proporciona el mejor rendimiento para cargas de trabajo de almacenamiento de datos, su mantenimiento es una operación que consume mucha memoria. A menudo resulta beneficioso usar las clases de recursos más altas en operaciones de administración de datos, por ejemplo, en las regeneraciones de índices.
 
-Para aumentar la memoria, simplemente agregue el usuario de base de datos a una de las clases de rol o recurso recursos mencionadas anteriormente.
+El Almacenamiento de datos SQL ha implementado las clases de recursos mediante el uso de roles de bases de datos. Para convertirse en miembro de una clase de recurso superior y aumentar la memoria simplemente y la prioridad, agregue su usuario de base de datos a una de las clases de recursos o roles mencionados anteriormente.
 
-Puede agregarse y quitarse usted mismo del rol de base de datos de administración de cargas de trabajo con los procedimientos `sp_addrolemember` y `sp_droprolemember`. Tenga en cuenta que necesitará el permiso `ALTER ROLE` para hacerlo. No podrá usar la sintaxis ALTER ROLE DDL. Debe usar los procedimientos almacenados anteriormente mencionados.
+### Pertenencia de clase de recurso
+
+Puede agregarse y quitarse usted mismo del rol de base de datos de administración de cargas de trabajo con los procedimientos `sp_addrolemember` y `sp_droprolemember`. Tenga en cuenta que necesitará el permiso `ALTER ROLE` para hacerlo. No podrá usar la sintaxis ALTER ROLE DDL. Debe usar los procedimientos almacenados anteriormente mencionados. Se ofrece un ejemplo completo de cómo crear inicios de sesión y usuarios en la sección[administración de usuarios) [#managing-usuarios] al final de este artículo.
 
 > [AZURE.NOTE]En lugar de entrar y sacar un usuario en un grupo de administración de cargas de trabajo, con frecuencia resulta más sencillo iniciar esas operaciones de mayor carga a través de un inicio de sesión o usuario independiente que se asigna permanentemente a la clase de recurso más alta.
+
+### Asignación de memoria
 
 En la tabla siguiente se detalla el aumento de memoria disponible para cada consulta, sujeto a la clase de recurso aplicada al usuario que la ejecuta:
 
@@ -97,10 +106,12 @@ En la tabla siguiente se detalla el aumento de memoria disponible para cada cons
 | largerc (l) | 200 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
 | xlargerc (xl) | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
 
+### Consumo de ranuras de simultaneidad
+
 Además, como se mencionó anteriormente, cuanto mayor es la clase de recurso asignada al usuario mayor es el consumo de ranuras de simultaneidad. En la siguiente tabla se documenta el consumo de ranuras de simultaneidad por las consultas en una clase de recurso especificada.
 
 <!--
-| Concurrency slot consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
+| Consumption | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 | DW3000 | DW6000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- | :----- | :----- |
 | Max Concurrent Queries       | 32    | 32    | 32    | 32    | 32    | 32    | 32     | 32     | 32     | 32     | 32     | 32     |
 | Max Concurrency Slots        | 4     | 8     | 12    | 16    | 20    | 24    | 40     | 48     | 60     | 80     | 120    | 240    |
@@ -110,7 +121,7 @@ Además, como se mencionó anteriormente, cuanto mayor es la clase de recurso as
 | xlargerc (xl)                | 4     | 8     | 8     | 16    | 16    | 16    | 32     | 32     | 32     | 64     | 64     | 128    |
 -->
 
-| Consumo de ranuras de simultaneidad | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
+| Consumo | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
 | :--------------------------- | :---- | :---- | :---- | :---- | :---- | :---- | :----- | :----- | :----- | :----- |
 | N.º máximo de consultas simultáneas | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 | 32 |
 | N.º máximo de ranuras de simultaneidad | 4 | 8 | 12 | 16 | 20 | 24 | 40 | 48 | 60 | 80 |
@@ -119,9 +130,36 @@ Además, como se mencionó anteriormente, cuanto mayor es la clase de recurso as
 | largerc (l) | 2 | 4 | 4 | 8 | 8 | 8 | 16 | 16 | 16 | 32 |
 | xlargerc (xl) | 4 | 8 | 8 | 16 | 16 | 16 | 32 | 32 | 32 | 64 |
 
-Es importante recordar que la carga de trabajo de consulta activa debe estar dentro de los umbrales de consulta simultánea y de ranura de simultaneidad. Una vez que se ha superado el umbral, las consultas comenzarán a ponerse en cola. Las consultas en cola se tratarán en orden de prioridad, seguido por la hora de envío.
+### Excepciones
 
-Bajo el capó, las cosas son un poco más complicadas. Las clases de recursos se asignan dinámicamente a un conjunto genérico de grupos de administración de cargas de trabajo dentro del regulador de recursos. Los grupos usados dependerán del valor de DWU para el almacenamiento. Sin embargo, Almacenamiento de datos SQL usa un total de ocho grupos de cargas de trabajo. Son las siguientes:
+Hay ocasiones donde la pertenencia de una clase de recurso superior no altera los recursos asignados a la consulta o a la operación. Esto suele ocurrir cuando los recursos necesarios para llevar a cabo la acción son bajos. En estos casos siempre se usa la clase de recurso pequeña o predeterminada (smallrc) con independencia de la clase de recurso asignada al usuario. Por ejemplo, siempre se ejecutará `CREATE LOGIN` en el smallrc. Los recursos necesarios para llevar a cabo esta operación son muy bajos y por lo tanto no tendría sentido incluir la consulta en el modelo de ranura de simultaneidad. Sería una pérdida de tiempo asignar previamente grandes cantidades de memoria para esta acción. Al excluir `CREATE LOGIN` del modelo de ranura de simultaneidad el Almacenamiento de datos SQL puede ser mucho más eficaz.
+
+A continuación se muestra una lista de instrucciones y operaciones que **se** rigen por las clases de recursos:
+
+- INSERT-SELECT
+- UPDATE
+- DELETE
+- SELECT (cuando no se consultan DMV de manera exclusiva)
+- ALTER INDEX REBUILD
+- ALTER INDEX REORGANIZE
+- ALTER TABLE REBUILD
+- CREATE CLUSTERED INDEX
+- CREATE CLUSTERED COLUMNSTORE INDEX
+- CREATE TABLE AS SELECT 
+- Carga de datos 
+
+<!--
+Removed as these two are not confirmed / supported under SQLDW
+- CREATE REMOTE TABLE AS SELECT
+- CREATE EXTERNAL TABLE AS SELECT 
+-->
+> [AZURE.NOTE]Merece la pena resaltar que las consultas de `SELECT` que se ejecutan exclusivamente contra vistas de catálogo y vistas de administración dinámicas **no** se rigen por las clases de recursos.
+
+Es importante recordar que es probable que la mayoría de las consultas de usuario final se rijan por clases de recursos. La regla general es que la carga de trabajo de consultas activas debe tener cabida tanto en el umbral de ranuras simultáneas como en el de consultas simultáneas a menos que se haya excluido específicamente por la plataforma. Como usuario final no puede elegir excluir una consulta del modelo de ranura de simultaneidad. Una vez que se ha superado el umbral, las consultas comenzarán a ponerse en cola. Las consultas en cola se tratarán en orden de prioridad, seguido por la hora de envío.
+
+### Datos internos 
+
+En el nivel más profundo de la carga de trabajo del Almacenamiento de datos SQL, las cuestiones de administración son algo más complicadas. Las clases de recursos se asignan dinámicamente a un conjunto genérico de grupos de administración de cargas de trabajo dentro del regulador de recursos. Los grupos usados dependerán del valor de DWU para el almacenamiento. Sin embargo, Almacenamiento de datos SQL usa un total de ocho grupos de cargas de trabajo. Son las siguientes:
 
 - SloDWGroupC00
 - SloDWGroupC01
@@ -203,6 +241,10 @@ ORDER BY
 
 ## Ejemplos de administración de cargas de trabajo
 
+En esta sección se ofrecen algunos ejemplos adicionales para procesar la administración de usuarios y para detectar consultas que están en cola.
+
+### Administración de usuarios
+
 Para conceder acceso a un usuario a Almacenamiento de datos SQL, primero necesitan iniciar sesión.
 
 Abra una conexión con la base de datos maestra para Almacenamiento de datos SQL y ejecute los siguientes comandos:
@@ -214,7 +256,7 @@ CREATE USER newperson for LOGIN newperson
 ```
 
 [AZURE.NOTE]es una buena idea crear usuarios para los inicios de sesión en la base de datos maestra cuando se trabaja con Base de datos SQL y Almacenamiento de datos SQL de Azure. Hay dos roles de servidor disponibles en este nivel que requieren que el inicio de sesión tenga un usuario en la base de datos maestra para poder concederle la pertenencia. Los roles son `Loginmanager` y `dbmanager`. Tanto en Base de datos SQL como en Almacenamiento de datos SQL de Azure, estos roles conceden derechos para administrar los inicios de sesión y crear bases de datos. Esto es diferente de SQL Server. Para obtener más detalles, consulte el artículo [Administrar bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure].
- 
+
 Una vez creado el inicio de sesión, hay que agregar una cuenta de usuario.
 
 Abra una conexión con la base de datos de Almacenamiento de datos SQL y ejecute el siguiente comando:
@@ -250,9 +292,12 @@ Para quitar un usuario de un rol de administración de cargas de trabajo, use la
 ``` 
 EXEC sp_droprolemember 'largerc', 'newperson' 
 ```
+
 > [AZURE.NOTE]No se puede quitar un usuario de smallrc.
 
-Para ver qué usuarios son miembros de un rol determinado, use la siguiente consulta: ```
+Para ver qué usuarios son miembros de un rol determinado, use la siguiente consulta:
+
+```
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -262,7 +307,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
 ;
 ```
 
-## Detección de consulta en cola
+### Detección de consulta en cola
 Para identificar las consultas que se mantienen en una cola de simultaneidad, siempre puede consultar la `sys.dm_pdw_exec_requests` DMV.
 
 ```
@@ -377,4 +422,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

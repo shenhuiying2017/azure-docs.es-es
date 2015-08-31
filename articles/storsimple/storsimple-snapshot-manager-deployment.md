@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Implementación de Administrador de instantáneas StorSimple
@@ -63,7 +63,7 @@ Los pasos siguientes proporcionan una descripción general de las tareas de conf
     - Volúmenes dinámicos con reflejos (RAID 1)
     - Volúmenes compartidos de clúster
  
-    Para obtener información acerca de cómo crear volúmenes en el dispositivo de StorSimple o un dispositivo de StorSimple virtual, consulte "Paso 6: Crear un volumen" en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+    Para obtener información acerca de cómo crear volúmenes en el dispositivo StorSimple o un dispositivo de StorSimple virtual, consulte [Paso 6: Crear un volumen](storsimple-deployment-walkthrough.md#step-6-create-a-volume) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
 ## Instalación de un nuevo Administrador de instantáneas StorSimple
 
@@ -97,7 +97,7 @@ Use los pasos siguientes para instalar Administrador de instantáneas StorSimple
 
       >[AZURE.IMPORTANT]Debe instalar Administrador de instantáneas StorSimple en la unidad C:.
  
-4. Seleccione la casilla de verificación **Mostrar los archivos extraídos al completar** y, a continuación, haga clic en **Extraer**.
+4. Seleccione la casilla **Mostrar los archivos extraídos al completar** y después haga clic en **Extraer**.
 
     ![Extracción del cuadro de diálogo de archivos](./media/storsimple-snapshot-manager-deployment/HCS_SSM_extract_files.png)
 
@@ -255,4 +255,4 @@ Para obtener más información sobre Administrador de instantáneas StorSimple, 
 
 Para obtener más información acerca de la interfaz de usuario de Administrador de instantáneas StorSimple, vaya a [Interfaz de usuario de Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

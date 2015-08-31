@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -104,7 +105,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
 ##<a id="results"></a>Visualización del resultado del trabajo
 
-El trabajo de MapReduce almacenó los resultados de la operación de almacenamiento de blobs de Azure en la ruta de acceso ****wasb:///example/data/WordCountOutput** que se especificó como argumento para el trabajo. El almacenamiento de blobs de Azure es accesible a través de Azure PowerShell, pero debe conocer el nombre de la cuenta de almacenamiento, la clave y el contenedor que el clúster de HDInsight utiliza para tener acceso directamente a los archivos.
+El trabajo de MapReduce almacenó los resultados de la operación de almacenamiento de blobs de Azure en la ruta de acceso \*\***wasb:///example/data/WordCountOutput** que se especificó como argumento para el trabajo. El almacenamiento de blobs de Azure es accesible a través de Azure PowerShell, pero debe conocer el nombre de la cuenta de almacenamiento, la clave y el contenedor que el clúster de HDInsight utiliza para tener acceso directamente a los archivos.
 
 Afortunadamente, puede obtener esta información mediante los siguientes cmdlets de Azure PowerShell:
 
@@ -113,7 +114,7 @@ Afortunadamente, puede obtener esta información mediante los siguientes cmdlets
 * **Get-AzureStorageBlob**: dado un objeto de contexto y un nombre de contenedor, devuelve una lista de blobs dentro del contenedor.
 * **Get-AzureStorageBlobContent**: dado un objeto de contexto, una ruta de acceso y un nombre de archivo y un nombre de contenedor (devuelto por **Get AzureHDinsightCluster**), descarga un archivo desde el almacenamiento de blobs de Azure.
 
-En el siguiente ejemplo se recupera la información de almacenamiento, a continuación, se descarga la salida de ****wasb:///example/data/WordCountOutput**. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.
+En el siguiente ejemplo se recupera la información de almacenamiento, a continuación, se descarga la salida de \*\***wasb:///example/data/WordCountOutput**. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.
 
 		#Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -173,4 +174,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

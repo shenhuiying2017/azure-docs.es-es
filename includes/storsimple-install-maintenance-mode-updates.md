@@ -9,7 +9,7 @@
 
      `Get-HcsUpdateAvailability`
     
-4. Se le notificará si hay actualizaciones disponibles y si son problemáticas. Para aplicar actualizaciones problemáticas, deberá poner el dispositivo en modo de mantenimiento. Consulte [Acceder al modo de mantenimiento](#enter-maintenance-mode) para obtener instrucciones.
+4. Se le notificará si hay actualizaciones disponibles y si son problemáticas. Para aplicar actualizaciones problemáticas, deberá poner el dispositivo en modo de mantenimiento. Consulte [Paso 2: Acceso al modo de mantenimiento](storsimple-update-device.md#step2) para obtener instrucciones.
 
 5. Cuando el dispositivo se encuentre en modo de mantenimiento, en el símbolo del sistema, escriba: `Start-HcsUpdate`
 
@@ -23,6 +23,6 @@
 
 7. Cuando la actualización está instalada en el controlador actual y se ha reiniciado, conéctese a otro controlador y realice los pasos del 1 al 6.
 
-8. Una vez actualizados ambos controladores, salga del modo de mantenimiento. Consulte [Salir del modo de mantenimiento](#exit-maintenance-mode) para obtener instrucciones.
+8. Una vez actualizados ambos controladores, salga del modo de mantenimiento. Consulte [Paso 4: Salida del modo de mantenimiento](storsimple-update-device.md#step4) para obtener instrucciones.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

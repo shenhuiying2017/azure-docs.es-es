@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/16/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
 
@@ -78,4 +78,7 @@ Se recomienda migrar los roles de los servicios en la nube a una de las familias
 ## El soporte extendido para la familia 1 del SO invitado finalizó el 3 de noviembre de 2014.
 Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. Migre la familia 1 tan pronto como sea posible para evitar la interrupción del servicio.
 
-<!---HONumber=August15_HO7-->
+## Pasos siguientes
+Revise las [versiones del SO invitado](cloud-services-guestos-update-matrix.md) más recientes.
+
+<!---HONumber=August15_HO8-->

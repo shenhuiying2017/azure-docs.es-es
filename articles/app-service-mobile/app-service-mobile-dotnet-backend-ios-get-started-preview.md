@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Introducción a las aplicaciones iOS móviles del Servicio de aplicaciones de Azure"
-	description="Siga este tutorial para empezar a usar el Servicio de aplicaciones de Azure para el desarrollo de iOS."
+	pageTitle="Creación de una aplicación iOS en Aplicaciones móviles de Azure"
+	description="Siga este tutorial para aprender a usar back-ends de la aplicación móvil de Azure para el desarrollo de iOS en Objective-C o Swift."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="ysxu"
+	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,60 +13,50 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/18/2015"
-	ms.author="yuaxu"/>
+	ms.date="08/11/2015"
+	ms.author="krisragh"/>
 
-# <a name="getting-started"> </a>Creación de una aplicación iOS
+#Creación de una aplicación iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-Este tutorial muestra cómo crear una aplicación iOS con las aplicaciones móviles del Servicio de aplicaciones de Azure. Creará un nuevo back-end de aplicaciones móviles y una aplicación _To do list_ simple que almacena los datos de la aplicación. El tutorial utiliza .NET y Visual Studio para la lógica del lado servidor.
+##Información general
+
+En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación móvil iOS con un back-end de la aplicación móvil de Azure. Creará tanto un back-end de aplicación móvil nuevo como una aplicación iOS simple de la _lista de tareas pendientes_ que almacene los datos de la aplicación en Azure.
+
+Completar este tutorial es un requisito previo para todos los tutoriales de aplicaciones móviles para aplicaciones iOS.
+
+##Requisitos previos
 
 Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
+ 
+* [Visual Studio Community 2013] o posterior.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para abrir una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), donde podrá crear inmediatamente una aplicación móvil de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+* Un equipo Mac con Xcode v7.0 o una versión posterior.
 
-## <a name="create-new-service"> </a>Creación de un nuevo back-end de aplicación móvil
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), donde podrá crear inmediatamente una aplicación móvil de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+
+## Creación de un nuevo back-end de Aplicaciones móviles de Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Creación de una nueva aplicación iOS
+## Descarga del proyecto de servidor
 
-Una vez que haya creado el back-end móvil, podrá seguir una fácil guía de inicio rápido en el Portal de vista previa de Azure para crear una nueva aplicación o modificar una existente a fin de conectarla a dicho back-end de aplicaciones móviles.
+1. En el equipo, visite el [Portal de Azure]. Haga clic en **Examinar todo** > **Aplicaciones móviles** y, después, haga clic en el back-end de aplicaciones móviles que acaba de crear.
+ 
+2. En la hoja de la aplicación móvil, haga clic en **Configuración** y, en **Aplicación móvil**, haga clic en **Inicio rápido** > **iOS (Objective-C)**. Si prefiere Swift, en su lugar, haga clic en **Inicio rápido** > **iOS (Swift)**.
+ 
+3. En **Descargar y ejecutar el proyecto de servidor**, haga clic en **Descargar**. Extraiga los archivos comprimidos del proyecto en su equipo y abra la solución en Visual Studio.
 
-1. En el Portal de Azure, haga clic en **Aplicación móvil** y, a continuación, haga clic en el back-end de aplicaciones móviles que acaba de crear.
-
-2. En la parte superior de la hoja, haga clic en Agregar cliente y expanda iOS.
-
-	![][6]
-
-	Esto muestra los pasos para crear una aplicación iOS conectada a su back-end de aplicaciones móviles.
-
-3. Si todavía no lo ha hecho, descargue e instale <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> en el equipo local o la máquina virtual.
-
-4. Descargue e instale [Xcode] v4.4 o una versión posterior y [Xamarin Studio]. También puede usar Xamarin para Visual Studio.
-
-5. En **Descargar y publicar el servicio en la nube**, haga clic en **Descargar**.
-
- De esta forma, se descarga una solución que contiene proyectos tanto para el back-end de aplicaciones móviles como para la aplicación _To do list_ de ejemplo conectada a su back-end de aplicaciones móviles. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
-
-6. Descargue su perfil de publicación, guarde el archivo descargado en el equipo local y tome nota de dónde lo guarda.
-
-## Prueba de la aplicación móvil
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
-
-## Publicación de su aplicación móvil
+## Publicación del proyecto de servidor en Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Ejecución de la aplicación iOS
+## Descargar y ejecutar la aplicación iOS
 
 [AZURE.INCLUDE [app-service-mobile-ios-run-app-preview](../../includes/app-service-mobile-ios-run-app-preview.md)]
-
 
 
 <!-- Images. -->
@@ -82,8 +72,9 @@ Una vez que haya creado el back-end móvil, podrá seguir una fácil guía de in
 [11]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-data-tab.png
 [12]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-data-browse.png
 
-[Management Portal]: https://manage.windowsazure.com/
+[Portal de Azure]: https://portal.azure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
  
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Uso de Caché en Redis de Azure con Python"
-   description="Introducción a Caché en Redis de Azure usando Python"
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	pageTitle="Uso de Caché en Redis de Azure con Python | Microsoft Azure"
+	description="Introducción a Caché en Redis de Azure usando Python"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor="v-lincan"/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="python"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="python"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Python
 
@@ -36,9 +36,9 @@ Escriba un nombre de host DNS. Tendrá el formato `<name>.redis.cache.windows.ne
 
   ![][2]
 
-Una vez creada la memoria caché, haga clic en ella en el portal para ver su configuración. Necesitará:
+Una vez creada la memoria caché, haga clic en ella en el portal de Azure para ver su configuración. Necesitará:
 
-- **Nombre de host**. Lo que escribió cuando creó la memoria caché.
+- **Nombre de host**. Escribió este nombre cuando creó la memoria caché.
 - **Puerto**. Haga clic en el vínculo bajo **Puertos** para ver los puertos. Use el puerto SSL.
 - **Clave de acceso**. Haga clic en el vínculo bajo **Claves** y copie la clave principal.
 
@@ -59,4 +59,4 @@ Reemplace *&lt;name&gt;* por el nombre de la memoria caché y *&lt;key&gt;* por 
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

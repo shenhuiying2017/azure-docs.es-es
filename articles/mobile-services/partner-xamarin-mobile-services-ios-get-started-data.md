@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/18/2015"
 	ms.author="ggailey777"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
@@ -240,6 +240,5 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Xamarin.iOS]: http://xamarin.com/download
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -3,8 +3,8 @@
 	description="Administración del control de acceso basado en roles con la interfaz de la línea de comandos de Azure"
 	services="azure-portal"
 	documentationCenter="na"
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Administración del control de acceso basado en roles con la interfaz de la línea de comandos de Azure (CLI de Azure) #
 
@@ -94,13 +94,15 @@ Para crear una asignación de rol, tiene que pensar en lo siguiente:
 
 - A quién quiere asignar el rol: puede usar los siguientes cmdlets de Azure Active Directory para ver qué usuarios, grupos y entidades de seguridad de servicio tiene en su directorio.
 
-    `azure ad user list
-    azure ad user show
-    azure ad group list
-    azure ad group show
-    azure ad group member list
-    azure ad sp list
-    azure ad sp show`
+    ```
+    azure ad user list  
+    azure ad user show  
+    azure ad group list  
+    azure ad group show  
+    azure ad group member list  
+    azure ad sp list  
+    azure ad sp show  
+    ```
 
 - Qué rol quiere asignar: puede usar el cmdlet siguiente para ver las definiciones de rol compatibles.
 
@@ -148,6 +150,5 @@ Si quiere más información sobre cómo administrar el control de acceso basado 
 - [Blog de Azure](http://blogs.msdn.com/windowsazure): obtenga información acerca de las nuevas características de Azure.
 - [Configuración del control de acceso basado en roles usando Windows PowerShell](role-based-access-control-powershell.md)
 - [Solución de problemas de control de acceso basado en roles](role-based-access-control-troubleshooting.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

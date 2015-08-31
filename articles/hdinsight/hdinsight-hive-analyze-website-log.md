@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/07/2015" 
 	ms.author="nitinme"/>
 
 # Uso de Hive con HDInsight para analizar registros de sitios web
@@ -38,7 +39,9 @@ En este ejemplo, usará un clúster de HDInsight para analizar archivos de regis
 
 ##Para ejecutar el ejemplo
 
-1. En el Portal de Azure, haga clic en el clúster donde desea ejecutar el ejemplo y, a continuación, en **Consola de consultas** en la parte inferior. También puede abrir directamente la consola de consultas con la siguiente dirección URL:
+1. En el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio (si ha anclado el clúster allí), haga clic en el icono de clúster en el que quiera ejecutar el ejemplo.
+
+2. En la hoja del clúster, en **Vínculos rápidos**, haga clic en el **panel del clúster** y luego, en la hoja del **panel del clúster**, haga clic en el **panel del clúster de HDInsight**. También puede abrir directamente el panel con la siguiente dirección URL:
 
 	 	https://<clustername>.azurehdinsight.net
 	
@@ -58,4 +61,4 @@ Pruebe el siguiente ejemplo: [Análisis de datos de sensor usando Hive con HDIns
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

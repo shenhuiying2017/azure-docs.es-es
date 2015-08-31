@@ -4,7 +4,7 @@ Las bibliotecas de Azure para Java se distribuyen en la [licencia de Apache, ver
 
 ## Bibliotecas de Azure para Java: Maven
 
-Si su proyecto ya se ha configurado para usar Maven para la compilación, agregue la siguiente dependencia al archivo pom.xml.
+Si su proyecto ya se ha configurado para usar Maven para la compilación, agregue la siguiente dependencia al archivo pom.xml. Nota: Para obtener información sobre cómo crear proyectos Maven en Eclipse, que usan las bibliotecas de Azure para Java, consulte [http://go.microsoft.com/fwlink/?LinkId=622998]().
 
 	<dependency>
 	    <groupId>com.microsoft.azure</groupId>
@@ -58,4 +58,4 @@ En el elemento `<version>`, reemplace los números de versión de este ejemplo p
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=253887
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

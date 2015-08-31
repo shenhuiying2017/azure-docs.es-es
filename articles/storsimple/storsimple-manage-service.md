@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Implementar el servicio StorSimple Manager"
+   pageTitle="Implementación del servicio Administrador de StorSimple | Microsoft Azure"
    description="Aquí se explica cómo crear y eliminar el servicio StorSimple Manager en el Portal de administración y describe cómo administrar la clave de registro de servicio."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/12/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # Implementar el servicio StorSimple Manager
 
 ## Información general
 
-El servicio StorSimple Manager se ejecuta en Microsoft Azure y se conecta a varios dispositivos StorSimple. Después de crear el servicio, se puede utilizar para administrar estos dispositivos desde el Portal de administración de Microsoft Azure que se está ejecutando en un explorador. Esto permite supervisar todos los dispositivos que están conectados al servicio StorSimple Manager desde una única ubicación central, reduciendo la carga administrativa.
+El servicio StorSimple Manager se ejecuta en Microsoft Azure y se conecta a varios dispositivos StorSimple. Después de crear el servicio, se puede usar para administrar estos dispositivos desde el Portal de administración de Microsoft Azure que se ejecuta en un explorador. Esto permite supervisar todos los dispositivos que están conectados al servicio StorSimple Manager desde una única ubicación central, reduciendo la carga administrativa.
 
 La página de aterrizaje de StorSimple Manager enumera todos los servicios de StorSimple Manager que puede usar para administrar los dispositivos de almacenamiento de StorSimple. Para cada servicio StorSimple Manager, se presenta la siguiente información en la página de StorSimple Manager:
 
@@ -82,7 +82,7 @@ Realice los pasos siguientes para obtener la clave de registro del servicio.
 
 Mantenga la clave de registro del servicio en una ubicación segura. Necesitará esta clave, así como la clave de cifrado de datos de servicio para registrar dispositivos adicionales con este servicio. Después de obtener la clave de registro del servicio, deberá configurar el dispositivo a través de la interfaz de Windows PowerShell para StorSimple.
 
-Para obtener más información acerca de cómo usar esta clave de registro, consulte [Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md/#step-2:-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Para obtener más información acerca de cómo usar esta clave de registro, consulte [Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## Volver a generar la clave de registro de servicio
 
@@ -107,10 +107,10 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
 
 ## Pasos siguientes
 
-Obtenga más información sobre el [proceso de implementación de StorSimple](storsimple-deployment-walkthrough.md)
+[Obtenga más información sobre el proceso de implementación de StorSimple](storsimple-deployment-walkthrough.md).
 
-Obtenga más información sobre [administrar su cuenta de almacenamiento StorSimple](../storsimple-manage-storage-account.md)
+[Obtenga más información sobre cómo administrar su cuenta de almacenamiento de StorSimple](storsimple-manage-storage-accounts.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

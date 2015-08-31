@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2015" 
+	ms.date="08/16/2015" 
 	ms.author="bradyg"/>
 
 # Personalización de definiciones de API generadas por Swashbuckle 
@@ -250,4 +250,4 @@ El código de esta demostración se puede encontrar en [este repositorio de GitH
 En este artículo se ha mostrado cómo personalizar la forma en que Swashbuckle genera identificadores de operación y códigos de respuesta válidos. Para obtener más información, consulte [Swashbuckle en GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

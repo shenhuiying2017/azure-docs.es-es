@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 
@@ -108,7 +108,7 @@ Utilice el procedimiento siguiente para ver los trabajos que se están ejecutand
 
 ## Pasos siguientes
 
-[Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad](storsimple-snapshot-manager-manage-backup-catalog.md)
+[Uso del Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad](storsimple-snapshot-manager-manage-backup-catalog.md).
 
 
 
@@ -129,4 +129,4 @@ Utilice el procedimiento siguiente para ver los trabajos que se están ejecutand
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -29,7 +29,7 @@ Hay cuatro áreas principales para solucionar el acceso de una aplicación que s
 
 1.	La aplicación que se ejecuta en la máquina virtual de Azure.
 2.	La máquina virtual de Azure.
-3.	Extremos de Azure para el servicio en la nube que contiene la máquina virtual (para las máquinas virtuales creadas en la Administración de servicio), reglas NAT entrantes (para las máquinas virtuales creadas en el Administrador de recursos) y grupos de seguridad de red.
+3.	Extremos de Azure para el servicio en la nube que contiene la máquina virtual (para las máquinas virtuales creadas con la API de administración de servicios), reglas NAT entrantes (para las máquinas virtuales creadas en el Administrador de recursos) y grupos de seguridad de red.
 4.	El dispositivo perimetral de Internet.
 
 Para los equipos cliente que tienen acceso a la aplicación a través de una conexión ExpressRoute o de VPN de sitio a sitio, las áreas principales que pueden causar problemas son la aplicación y la máquina virtual de Azure. Para determinar el origen del problema y su corrección, siga estos pasos.
@@ -53,7 +53,7 @@ En máquinas virtuales basadas en Windows y Linux, use el comando **netstat -a**
 
 ## <a id="step2"></a>Paso 2: ¿Tiene acceso a la aplicación desde otra máquina virtual en la misma red virtual?
 
-Intente acceder a la aplicación desde una máquina virtual diferente en la misma red virtual que la de la máquina virtual en el que se ejecuta la aplicación con el nombre de host de la máquina virtual o su dirección IP de proveedor, privada o pública asignada por Azure. Para las máquinas virtuales creadas en la Administración de servicios, no use la dirección IP pública del servicio en la nube.
+Intente acceder a la aplicación desde una máquina virtual diferente en la misma red virtual que la de la máquina virtual en el que se ejecuta la aplicación con el nombre de host de la máquina virtual o su dirección IP de proveedor, privada o pública asignada por Azure. Para las máquinas virtuales creadas con la API de administración de servicios, no use la dirección IP pública del servicio en la nube.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
@@ -80,9 +80,9 @@ Por ejemplo, si la aplicación es un servidor web, intente tener acceso a la pá
 
 Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 
-- En las máquinas virtuales creadas en la Administración de servicios, que la configuración del extremo de la máquina virtual esté permitiendo el tráfico entrante, especialmente el protocolo (TCP o UDP) y los números de puerto público y privado. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
-- Para las máquinas virtuales creadas en Administración de servicios que tienen acceso a las listas de control (ACL) del extremo no impidan el tráfico entrante desde Internet. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
-- En las máquinas virtuales creadas en la Administrador de recursos, que la configuración de la regla NAT entrante de la máquina virtual esté permitiendo el tráfico entrante, especialmente el protocolo (TCP o UDP) y los números de puerto público y privado. 
+- En las máquinas virtuales creadas con la API de administración de servicios, en las que la configuración del extremo de la máquina virtual permita el tráfico entrante, especialmente el protocolo (TCP o UDP) y los números de puerto público y privado. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
+- Para las máquinas virtuales creadas con la API de administración de servicios que tienen acceso a las listas de control (ACL) del extremo no impidan el tráfico entrante desde Internet. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
+- En las máquinas virtuales creadas en la Administrador de recursos, que la configuración de la regla NAT entrante de la máquina virtual esté permitiendo el tráfico entrante, especialmente el protocolo (TCP o UDP) y los números de puerto público y privado.
 - Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente. Para obtener más información, consulte [¿Qué es un grupo de seguridad de red (NSG)?](virtual-networks-nsg.md).
 
 Si la máquina virtual o el extremo es un miembro de un conjunto con equilibrio de carga:
@@ -110,4 +110,4 @@ Si ha efectuado los pasos del 1 al 3 de este artículo y necesita ayuda adiciona
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

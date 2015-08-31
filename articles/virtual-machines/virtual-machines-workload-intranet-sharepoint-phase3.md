@@ -135,7 +135,7 @@ Utilice el procedimiento siguiente dos veces, una vez para cada servidor SQL Ser
 1.	En la pantalla de inicio, haga clic en **Este PC** y, a continuación, haga clic en **Propiedades**.
 2.	En la ventana **Sistema**, haga clic en **Configuración remota**.
 3.	En la sección **Escritorio remoto**, haga clic en **Seleccionar usuarios** y, a continuación, haga clic en **Agregar**.
-4.	En **Escribir los nombres de objeto para seleccionar**, escriba [dominio]** \\sp\_farm\_db** y, a continuación, haga clic en **Aceptar** tres veces.
+4.	En **Escribir los nombres de objeto para seleccionar**, escriba [dominio]\*\* \\sp\_farm\_db\*\* y, a continuación, haga clic en **Aceptar** tres veces.
 
 SQL Server requiere un puerto que los clientes utilizan para tener acceso al servidor de base de datos. También necesita puertos para conectar con SQL Server Management Studio y para administrar el grupo de alta disponibilidad. A continuación, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell de nivel de administrador dos veces, una vez para cada servidor SQL Server, para agregar una regla de firewall que permita el tráfico entrante al servidor SQL Server.
 
@@ -202,7 +202,7 @@ Utilice estos pasos para habilitar grupos de disponibilidad AlwaysOn en SQL Serv
 3.	En el panel izquierdo, haga clic en **Servicios de SQL Server**.
 4.	En el panel de contenido, haga doble clic en **SQL Server (MSSQLSERVER)**.
 5.	En **Propiedades de SQL Server (MSSQLSERVER)**, haga clic en la pestaña **Alta disponibilidad AlwaysOn**, seleccione **Habilitar los grupos de disponibilidad de AlwaysOn**, haga clic en **Aplicar** y, a continuación, haga clic en **Aceptar** cuando se le solicite. No cierre todavía la ventana Propiedades.
-6.	Haga clic en la pestaña virtual-machines-manage-availability y, a continuación, escriba [Dominio]**\\sqlservice** en **Nombre de cuenta**. Escriba la contraseña de cuenta de sqlservice en **Contraseña** y **Contraseña de confirmación** y, a continuación, haga clic en **Aceptar**.
+6.	Haga clic en la pestaña virtual-machines-manage-availability y, a continuación, escriba [Dominio]\*\*\\sqlservice\*\* en **Nombre de cuenta**. Escriba la contraseña de cuenta de sqlservice en **Contraseña** y **Contraseña de confirmación** y, a continuación, haga clic en **Aceptar**.
 7.	En la ventana de mensaje, haga clic en **Sí** para reiniciar el servicio de SQL Server.
 8.	Inicie sesión en el servidor secundario de SQL y repita este proceso.
 
@@ -226,4 +226,6 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 4: C
 
 [Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

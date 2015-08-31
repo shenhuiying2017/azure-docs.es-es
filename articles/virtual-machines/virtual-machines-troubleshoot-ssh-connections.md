@@ -108,7 +108,7 @@ Trabaje con el administrador de red para corregir la configuración de los dispo
 
 ### Causa 3: extremo de servicio en la nube y ACL
 
-Para descartar el extremo de servicio en la nube y la ACL como causas de los problemas o errores de configuración de las máquinas virtuales creadas en la administración del servicio, compruebe que otra máquina virtual de Azure que se encuentre en la misma red virtual pueda establecer conexiones con SSH en la máquina virtual de Azure.
+Para eliminar el extremo de servicio en la nube y la ACL como causas de los problemas o errores de configuración de las máquinas virtuales creadas con la API de administración de servicios, compruebe que otra máquina virtual de Azure que se encuentre en la misma red virtual pueda establecer conexiones con SSH en la máquina virtual de Azure.
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
@@ -165,4 +165,4 @@ Para obtener información sobre el uso del soporte técnico de Azure, consulte l
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="08/19/2015" 
 	ms.author="awills"/>
 
-# Application Insights en servicios y aplicaciones de escritorio de Windows
+# Application Insights en servicios, aplicaciones y roles de trabajo de escritorio de Windows
 
 *Application Insights se encuentra en su versión de vista previa.*
 
@@ -23,7 +23,7 @@
 
 Application Insights permite supervisar el uso y rendimiento de la aplicación implementada.
 
-El SDK principal de Application Insights ofrece soporte para los servicios y las aplicaciones de escritorio de Windows. Este SDK proporciona plena compatibilidad de la API con todos los datos de telemetría, pero no ofrece la recopilación automática de dichos datos.
+Todas las aplicaciones de Windows (incluidas las aplicaciones de escritorio, los servicios en segundo plano y los roles de trabajo) pueden usar el SDK principal de Application Insights para enviar telemetría a Application Insights. El SDK principal solo proporciona una API: a diferencia de los SDK web y de dispositivos, no incluye módulos que recopilen datos automáticamente, por lo que tiene que escribir un código para enviar su propia telemetría.
 
 
 ## <a name="add"></a> Creación de recursos en Application Insights
@@ -42,11 +42,15 @@ El SDK principal de Application Insights ofrece soporte para los servicios y las
 ## <a name="sdk"></a>Instalación del SDK en la aplicación
 
 
-1. En Visual Studio, edite los paquetes de NuGet de su proyecto de aplicación de escritorio. ![Haga clic con el botón secundario en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-windows-desktop/03-nuget.png)
+1. En Visual Studio, edite los paquetes de NuGet de su proyecto de aplicación de escritorio.
+
+    ![Haga clic con el botón secundario en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-windows-desktop/03-nuget.png)
 
 2. Instale el paquete de la API central de Application Insights.
 
     ![Busque "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
+
+    Puede instalar otros paquetes, como el contador de rendimiento o paquetes de captura de registros, si desea usar su funcionalidad.
 
 3. Establezca InstrumentationKey en el código; por ejemplo, en main().
 
@@ -55,16 +59,17 @@ El SDK principal de Application Insights ofrece soporte para los servicios y las
 *¿Por qué falta ApplicationInsights.config?*
 
 * El paquete de la API central no instala el archivo .config, que solo se usa para configurar los recolectores de telemetría. Por tanto, escriba su propio código para establecer la clave de instrumentación y enviar la telemetría.
+* Si ha instalado uno de los otros paquetes, tendrá un archivo .config. Puede insertar la clave de instrumentación allí en lugar codificarla.
 
 *¿Podría usar un paquete de NuGet diferente?*
 
-* Sí, puede usar el paquete del servidor web, que debería instalar los recopiladores de los contadores de rendimiento. Tendrá que [deshabilitar el recopilador de Solicitud HTTP](app-insights-configuration-with-applicationinsights-config.md). Instalará un archivo .config, donde puede colocar su clave de instrumentación.
+* Sí, puede usar el paquete de servidor web (Microsoft.ApplicationInsights.Web), que instala recopiladores para una variedad de módulos de recopilación, como los contadores de rendimiento. Instalará un archivo .config, donde puede colocar su clave de instrumentación. Use [ApplicationInsights.config para deshabilitar los módulos que no desea](app-insights-configuration-with-applicationinsights-config.md), por ejemplo, el recopilador de solicitud HTTP. 
+* Si desea usar los [paquetes de recopiladores de registros o de seguimiento](app-insights-asp-net-trace-logs.md), comience con el paquete de servidor web. 
 
 ## <a name="telemetry"></a>Inserción de llamadas de telemetría
 
 Cree una instancia `TelemetryClient` y después [utilícela para enviar telemetría][api].
 
-Utilice `TelemetryClient.Flush()` para enviar los mensajes antes de cerrar la aplicación. El SDK básico utiliza un búfer en memoria. El método de vaciado se asegurará de que se vacíe este búfer para que no se produzcan pérdidas de datos en el cierre de los procesos. (Este procedimiento no se recomienda en otros tipos de aplicaciones. Los SDK de las plataformas implementan este comportamiento automáticamente).
 
 Por ejemplo, en una aplicación de Windows Forms, podría escribir:
 
@@ -108,6 +113,10 @@ Utilice cualquiera de las [API de Application Insights][api] para enviar telemet
 * TrackMetric(name, value) en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos.
 * TrackTrace(logEvent) para el [registro de diagnóstico][diagnostic]
 * TrackException(exception) en cláusulas catch
+
+
+Para asegurarse de que toda la telemetría se envía antes de cerrar la aplicación, use `TelemetryClient.Flush()`. Normalmente, la telemetría se envía por lotes en intervalos regulares. (El vaciado se recomienda solo si está usando únicamente la API principal. Los SDK web y de dispositivos implementan este comportamiento de forma automática).
+
 
 #### Inicializadores de contexto
 
@@ -181,4 +190,4 @@ Si ha utilizado TrackMetric o el parámetro de mediciones de TrackEvent, abra el
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

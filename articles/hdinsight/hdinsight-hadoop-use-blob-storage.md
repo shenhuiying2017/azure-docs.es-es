@@ -4,6 +4,7 @@
 	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -13,8 +14,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -77,7 +78,7 @@ Hay varias ventajas asociadas al almacenamiento de datos en el almacenamiento de
 * **Archivo de datos:** almacenar los datos en un almacenamiento de blobs de Azure hace que los clústeres de HDInsight que se usan para los cálculos se eliminen de forma segura sin perder los datos del usuario.
 * **Coste de almacenamiento de datos:** almacenar datos en DFS es más caro a largo plazo que almacenarlos en el almacenamiento de blobs de Azure, ya que el coste de un clúster de cálculo es superior al de un contenedor de almacenamiento de blobs de Azure. Además, como no hay que volver a cargar los datos para cada generación de clúster de cálculo, también se ahorra en costes de carga de datos.
 * **Escalada horizontal elástica:** aunque HDFS proporciona un sistema de archivos escalable en horizontal, la escala se determina en función del número de nodos que aprovisione para su clúster. Cambiar la escala puede ser un proceso más complicado que basarse en las capacidades de escalada elástica que tiene automáticamente en el almacenamiento de blobs de Azure.
-* **Replicación geográfica:** sus contenedores de almacenamiento de blobs se pueden replicar geográficamente mediante el portal de Azure. Aunque esto le aporta recuperación geográfica y redundancia de datos, una conmutación por error en la ubicación replicada geográficamente afecta gravemente a su rendimiento y puede incurrir en costes adicionales. Por lo tanto, nuestra recomendación es que elija la replicación geográfica de forma inteligente y únicamente si merece la pena pagar el coste adicional por el valor de los datos.
+* **Replicación geográfica:** sus contenedores de almacenamiento de blobs se pueden replicar geográficamente. Aunque esto le aporta recuperación geográfica y redundancia de datos, una conmutación por error en la ubicación replicada geográficamente afecta gravemente a su rendimiento y puede incurrir en costes adicionales. Por lo tanto, nuestra recomendación es que elija la replicación geográfica de forma inteligente y únicamente si merece la pena pagar el coste adicional por el valor de los datos.
 
 Determinados trabajos y paquetes de MapReduce podrían crear resultados intermedios que realmente no desea almacenar en el almacenamiento de blobs de Azure. En tal caso, puede optar por almacenar los datos en el HDFS local. De hecho, HDInsight usa DFS para varios de estos resultados intermedios en los trabajos de Hive y otros procesos.
 
@@ -92,23 +93,11 @@ Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a un co
 No comparta un contenedor de almacenamiento predeterminado con varios clústeres de HDInsight. Si necesita usar un contenedor compartido para proporcionar acceso a datos para varios clústeres de HDInsight, debe agregarlo como una cuenta de almacenamiento adicional en la configuración del clúster. Para obtener más información, consulte [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Sin embargo, puede volver a usar un contenedor de almacenamiento predeterminado después de que se haya eliminado el clúster de HDInsight original. Para clústeres de HBase, puede conservar realmente el esquema de la tabla HBase y los datos aprovisionando un nuevo clúster de HBase mediante el contenedor de almacenamiento de blobs predeterminado que se usa por un clúster de HBase que se ha eliminado.
 
 
-###Uso del portal de Azure
+###Usando el portal de vista previa de Azure
 
-Al aprovisionar un clúster de HDInsight desde el portal de Azure, tiene dos opciones: **Creación rápida** y **Creación personalizada**. La opción Creación rápida requiere la creación previa de la cuenta de almacenamiento de Azure. Para obtener instrucciones, consulte [Creación de una cuenta de almacenamiento][azure-storage-create].
+Al aprovisionar un clúster de HDInsight desde el portal de vista previa, tiene las opciones para usar una cuenta de almacenamiento existente o crear una nueva cuenta de almacenamiento:
 
-Al usar la opción Creación rápida, puede elegir una cuenta de almacenamiento existente. El proceso de aprovisionamiento crea un nuevo contenedor con el mismo nombre que el del clúster de HDInsight. Si ya existe un contenedor con el mismo nombre, se usará <clusterName>-<x>. Por ejemplo, *myHDIcluster-1*. Este contenedor se usa como sistema de archivos predeterminado.
-
-![Mediante la Creación rápida para un nuevo clúster de Hadoop en HDInsight en el portal de Azure.][img-hdi-quick-create]
-
-Mediante la Creación personalizada, dispone de una de las siguientes opciones para la cuenta de almacenamiento predeterminada:
-
-- Usar almacenamiento existente
-- Crear nuevo almacenamiento
-- Utilizar almacenamiento de otra suscripción
-
-También tiene la opción de crear su propio contenedor o de usar uno existente.
-
-![Opción para usar una cuenta de almacenamiento existente para el clúster de HDInsight.][img-hdi-custom-create-storage-account]
+![origen de datos de aprovisionamiento de hadoop de hdinsight](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ###Uso de la CLI de Azure
 
@@ -326,6 +315,5 @@ Para obtener más información, consulte los artículos siguientes:
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

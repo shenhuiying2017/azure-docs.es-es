@@ -18,6 +18,12 @@
 
 #¿Qué son las aplicaciones lógicas?
 
+| Referencia rápida |
+| --------------- |
+| [Lenguaje de definición de aplicaciones lógicas](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
+| [Documentación del conector de aplicaciones lógicas](https://azure.microsoft.com/es-es/documentation/articles/app-service-logic-connectors-list/) |
+| [Foro de aplicaciones lógicas](https://social.msdn.microsoft.com/Forums/es-es/home?forum=azurelogicapps) |
+
 Servicio de aplicaciones de Azure cuenta con una administración PaaS (plataforma como servicio) completa para los desarrolladores que hace que sea más fácil crear aplicaciones web, móviles y de integración. Las aplicaciones lógicas forman parte de este conjunto y permiten a cualquier usuario técnico o el desarrollador automatizar la ejecución de procesos de negocio y flujo de trabajo a través de un diseñador visual fácil de usar.
 
 Lo mejor de todo, las aplicaciones lógicas pueden combinarse con [conectores][connectors] de nuestro Marketplace para ayudar a resolver incluso escenarios de integración complicados de forma fácil.
@@ -38,7 +44,7 @@ Además, con nuestras aplicaciones de [API de BizTalk][biztalk], puede realizar 
 
 - **Crear fácilmente SaaS**: incluso las tareas de composición que son fáciles de describir son difíciles de implementar en el código. Las aplicaciones lógicas hacen muy fácil de conectar sistemas dispares. ¿Desea crear una tarea en el software CRM que se basa en la actividad de las cuentas de Facebook o Twitter? ¿Desea conectar su solución de marketing en la nube a su sistema de facturación local? Las aplicaciones lógicas son la forma más rápida y más confiable para ofrecer soluciones a estos problemas.
 
-- **Introducción rápida desde plantillas**: para ayudarle a empezar, hemos proporcionado una [galería de plantillas][templates] que permiten crear rápidamente algunas soluciones comunes. Desde soluciones avanzadas de BizTalk a la conectividad de SaaS simple e incluso algunos que sean solo por diversión: la galería es la forma más rápida de comprender la eficacia de las aplicaciones lógicas.
+- **Introducción rápida desde plantillas**: para ayudarle a empezar, hemos dispuesto una [galería de plantillas][templates] que permiten crear rápidamente algunas soluciones comunes. Desde soluciones avanzadas de BizTalk a la conectividad de SaaS simple e incluso algunos que sean solo por diversión: la galería es la forma más rápida de comprender la eficacia de las aplicaciones lógicas.
 
 - **Extensibilidad incorporada**: ¿no ve el conector que necesita? Las aplicaciones lógicas forman parte del conjunto de aplicaciones Servicio de aplicaciones y están diseñadas para trabajar con Aplicaciones de API; puede crear fácilmente su propia aplicación de API que se usará como un conector. Cree una nueva aplicación solo para usted, o bien compártala y rentabilícela en el marketplace.
 
@@ -69,4 +75,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

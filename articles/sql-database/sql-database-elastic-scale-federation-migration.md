@@ -13,12 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/21/2015" 
+    ms.date="08/14/2015" 
     ms.author="sidneyh"/>
 
 # Migración de federaciones 
 
-La característica Federaciones de Base de datos SQL de Azure se retirará en septiembre de 2015 junto con las ediciones Web/Business. En ese momento, las aplicaciones que utilizan la característica Federaciones dejarán de ejecutarse. Para garantizar una migración exitosa, se recomienda encarecidamente que los esfuerzos de migración comiencen lo antes posible para permitir una planeación y ejecución suficientes. Este documento proporciona el contexto, los ejemplos y una presentación de la utilidad Migración de federaciones que ilustra cómo migrar con éxito una aplicación de Federaciones actual sin problemas a las API de la [biblioteca de cliente de Base de datos elástica](http://go.microsoft.com/?linkid=9862592) para la partición. El objetivo del documento es guiarlo por los pasos sugeridos para migrar una aplicación de Federaciones sin ningún desplazamiento de datos.
+La característica Federaciones de Base de datos SQL de Azure se retirará en septiembre de 2015 junto con las ediciones Web/Business. En ese momento, las aplicaciones que utilizan la característica Federaciones dejarán de ejecutarse. Para garantizar una migración exitosa, se recomienda encarecidamente que los esfuerzos de migración comiencen lo antes posible para permitir una planeación y ejecución suficientes.
+
+Si la aplicación aún no está lista para trabajar sin las federaciones, póngase en contacto con el Soporte técnico de Microsoft siguiendo las instrucciones que se mencionan [aquí](https://support.microsoft.com/kb/3087180).
+
+Este documento proporciona el contexto, los ejemplos y una presentación de la utilidad Migración de federaciones que ilustra cómo migrar con éxito una aplicación de Federaciones actual sin problemas a las API de la [biblioteca de cliente de Base de datos elástica](http://go.microsoft.com/?linkid=9862592) para la partición. El objetivo del documento es guiarlo por los pasos sugeridos para migrar una aplicación de Federaciones sin ningún desplazamiento de datos.
 
 Hay tres pasos importantes para la migración de una aplicación de Federaciones existente a una que usa las herramientas de Base de datos elástica.
 
@@ -88,7 +92,7 @@ Los pasos de esta sección son necesarios, pero es probable que no aborden todos
 
 ![Desactivación de los miembros de la federación para las particiones][3]
 
-Una vez que se ha modificado la aplicación con la inclusión de las API de herramientas de Base de datos elástica, el último paso de la migración de una aplicación de Federaciones es emitir **SWITCH OUT** para los miembros de la federación (para obtener más información, consulte la referencia de MSDN para [ALTER FEDERATION (Base de datos SQL de Azure)](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx))). El resultado final de emitir **SWITCH OUT** contra un miembro de federación determinado es la eliminación de todas las restricciones de la federación y los metadatos que presentan al miembro de la federación como una Base de datos SQL de Azure normal, no diferente de ninguna otra Base de datos SQL de Azure.
+Una vez que se ha modificado la aplicación con la inclusión de las API de herramientas de Base de datos elástica, el último paso de la migración de una aplicación de Federaciones es emitir **SWITCH OUT** para los miembros de la federación (para obtener más información, consulte la referencia de MSDN para [ALTER FEDERATION (Base de datos SQL de Azure)\](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx))). El resultado final de emitir **SWITCH OUT** contra un miembro de federación determinado es la eliminación de todas las restricciones de la federación y los metadatos que presentan al miembro de la federación como una Base de datos SQL de Azure normal, no diferente de ninguna otra Base de datos SQL de Azure.
 
 Tenga en cuenta que la emisión de **SWITCH OUT** contra un miembro de la federación es una operación irreversible y no se puede deshacer. Una vez que se realiza, la base de datos resultante no se puede volver a agrear a una federación y los comandos USE FEDERATION dejarán de funcionar para esta base de datos.
 
@@ -129,6 +133,9 @@ Aunque las herramientas de Base de datos elástica ofrece muchas característica
 
 * Realizar la instrucción SWITCH OUT sobre un miembro de la federación permite que la base de datos resultante aproveche todas las características de la base de datos SQL de Azure (es decir, ediciones nuevas, copia de seguridad, PITR, auditoría, etc.).
 
+##¿Necesita más tiempo para la migración? 
+Si la aplicación aún no está lista para trabajar sin las federaciones, póngase en contacto con el Soporte técnico de Microsoft siguiendo las instrucciones que se mencionan [aquí](https://support.microsoft.com/kb/3087180).
+
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
@@ -143,4 +150,4 @@ Aunque las herramientas de Base de datos elástica ofrece muchas característica
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

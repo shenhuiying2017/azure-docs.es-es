@@ -1,4 +1,11 @@
-<properties pageTitle="Inicios de sesión desde varias ubicaciones geográficas" description="Un informe que indica a los usuarios dónde parece que dos inicios de sesión se originaron desde distintas regiones y que, según el tiempo pasado entre los inicios de sesión, parece imposible que el usuario haya viajado entre dichas regiones."" services="active-directory" documentationCenter="" authors="kenhoff" manager="ilanas" editor=""/>
+<properties
+	pageTitle="Inicios de sesión desde varias ubicaciones geográficas"
+	description="Informe que señala usuarios en los que dos inicios de sesión parecían originarse en distintas regiones y, por el tiempo transcurrido entre inicios de sesión, resultaba imposible que el usuario viajase entre dichas regiones."
+	services="active-directory"
+	documentationCenter=""
+	authors="SSalahAhmed"
+	manager="gchander"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -6,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Inicios de sesión desde varias ubicaciones geográficas
 
@@ -17,4 +24,4 @@
 
 ![Inicios de sesión desde varias ubicaciones geográficas](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

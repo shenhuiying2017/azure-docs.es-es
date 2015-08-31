@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/27/2015"
+   ms.date="08/19/2015"
    ms.author="maroche"/>
 
 
@@ -35,6 +35,7 @@ En la vista previa actual, el **Catálogo de datos de Azure** admite el registro
 * Dimensiones, medidas e indicadores multidimensionales de SQL Server Analysis Services
 * Tablas de modo tabular de SQL Server Analysis Services
 * Informes de SQL Server Reporting Services
+* Directorios y los blobs de almacenamiento de Azure
 
 > [AZURE.NOTE]El soporte de SQL Server incluye también Base de datos SQL de Microsoft Azure.
 
@@ -62,4 +63,4 @@ Al volver a registrar un origen de datos ya registrado se realiza una operación
 ## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure** se facilita la detección y comprensión de ese origen de datos, copiando los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Una vez registrado un origen de datos, se puede anotar, administrar y detectar mediante el portal **Catálogo de datos de Azure**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

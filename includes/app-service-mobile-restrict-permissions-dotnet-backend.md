@@ -1,22 +1,16 @@
 
+De forma predeterminada, se pueden invocar API en un back-end de aplicación móvil de forma anónima. A continuación, deberá restringir el acceso a solo los clientes autenticados.
 
-De forma predeterminada, los extremos definidos en su aplicación móvil se exponen públicamente. Para proteger los recursos, debe restringir el acceso únicamente a los clientes autenticados.
+1. En su equipo, abra el proyecto de servidor en Visual Studio y vaya a **Controladores** > **TodoItemController.cs**.
 
-1. En Visual Studio, abra el proyecto que contiene el código de la aplicación móvil. 
+2. Agregue el atributo `[Authorize]` a la clase **TodoItemController** como sigue. Esto requiere que un usuario autenticado realice todas las operaciones con la tabla TodoItem. Para restringir el acceso solo a determinados métodos, también puede aplicar este atributo solo a esos métodos en lugar de la clase.
 
-2. En el Explorador de soluciones, expanda la carpeta Controladores y abra el archivo de proyecto TodoItemController.cs.
-
-	La clase **TodoItemController** implementa el acceso a los datos para la tabla TodoItem.
-
-3. Aplique el atributo `Authorize` a la clase **TodoItemController**:
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
+   
+    Esto requiere que un usuario autenticado realice todas las operaciones con la tabla TodoItem. Para restringir el acceso solo a determinados métodos, también puede aplicar este atributo solo a esos métodos en lugar de la clase.
+   
+3. Vuelva a publicar el proyecto del servidor.
 
-	De esta forma, se garantiza que todas las operaciones en la tabla **TodoItem** requieren un usuario autenticado.
-
-	>[AZURE.NOTE]Aplique el atributo Authorize a métodos individuales para establecer los niveles de autorización específicos en los métodos expuestos por el controlador.
-
-4. Volver a publicar un proyecto de aplicación móvil.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

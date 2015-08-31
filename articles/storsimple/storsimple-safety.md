@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Seguridad del dispositivo
 
 ![Icono Advertencia](./media/storsimple-safety/IC740879.png)![Icono Leer el aviso de seguridad](./media/storsimple-safety/IC740885.png)**LEER LA INFORMACIÓN DE SEGURIDAD Y SALUD**
 
-Lea toda la información de seguridad y salud de esta guía que sea aplicable a su dispositivo de Microsoft Azure StorSimple Conserve todas las guías impresas entregadas con su dispositivo de StorSimple para futuras referencias. Si no se siguen las instrucciones y se configura, usa y cuida adecuadamente este producto, puede aumentar el riesgo de lesiones graves o muerte, o bien de daños en el dispositivo o dispositivos. También hay disponible una [versión descargable de esta guía](http://www.microsoft.com/es-es/download/details.aspx?id=44233).
+Lea toda la información de seguridad y salud de esta guía que sea aplicable a su dispositivo de Microsoft Azure StorSimple Conserve todas las guías impresas entregadas con su dispositivo de StorSimple para futuras referencias. Si no se siguen las instrucciones y se configura, usa y cuida adecuadamente este producto, puede aumentar el riesgo de lesiones graves o muerte, o bien de daños en el dispositivo o dispositivos. También hay disponible una [versión descargable de esta guía](http://www.microsoft.com/download/details.aspx?id=44233).
 
 ## Convenciones de iconos de seguridad
 
@@ -129,7 +129,7 @@ El dispositivo está diseñado para operar con dos PCM. Cada uno de los PCM tien
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
-- No quite las cubiertas del PCM. Existe peligro de descargas eléctricas en su interior. Para devolver el PCM y obtener un reemplazo, [póngase en contacto con el soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+- No quite las cubiertas del PCM. Existe peligro de descargas eléctricas en su interior. Para devolver el PCM y obtener un reemplazo, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
 ![Icono Aviso](./media/storsimple-safety/IC740881.png)**AVISO:**
 
@@ -175,8 +175,8 @@ Después de revisar estos avisos de seguridad, el siguiente paso es desempaqueta
 
 ## Pasos siguientes
 
-- Para un dispositivo 8100, vaya a[ Desempaquetar, montar en bastidor y cablear el dispositivo 8600](storsimple-8600-hardware-installation)
+- Para un dispositivo 8100, vaya a [Instalación del dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
 
-- Para un dispositivo 8600, vaya a[ Desempaquetar, montar en bastidor y cablear el dispositivo 8600](storsimple-8600-hardware-installation)
+- Para un dispositivo 8600, vaya a [Instalación del dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

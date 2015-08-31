@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 # Uso del conector de SharePoint en una aplicación lógica
@@ -60,7 +60,7 @@ Password | No | Especifique una contraseña válida para conectarse al sitio de 
 Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente:
+5. Cuando termine, la configuración del paquete tendrá un aspecto similar al siguiente: 
 <br/>
 ![][2]
 
@@ -219,7 +219,7 @@ ItemId | Id. de elemento del documento agregado a la biblioteca de documentos.
 Estado | Si la carga del documento es correcta, se devuelve el código de estado 200 (correcto).
 
 
- 
+ 
 
 ### 2. Obtención de elementos desde los documentos compartidos (JSON)
 Esta acción obtiene el documento de la biblioteca de documentos con la URL relativa (estructura de carpetas) del documento.
@@ -472,7 +472,10 @@ Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybri
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
+Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](app-service-api-manage-in-portal.md).
+
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png
@@ -483,4 +486,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

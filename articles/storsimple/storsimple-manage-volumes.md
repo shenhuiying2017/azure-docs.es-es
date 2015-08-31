@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Administrar los volúmenes de StorSimple"
+   pageTitle="Administración de volúmenes de StorSimple | Microsoft Azure"
    description="Se explica cómo agregar, modificar y supervisar volúmenes de StorSimple y cómo desconectarlos en caso necesario."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Administrar los volúmenes de StorSimple
@@ -21,7 +21,7 @@
 
 Este tutorial explica cómo usar el servicio de Administrador de StorSimple para crear y administrar volúmenes en el dispositivo StorSimple y en el dispositivo virtual de StorSimple.
 
-El servicio de Administrador de StorSimple es una extensión del Portal de administración de Azure que le permite administrar la solución de StorSimple desde una interfaz web única. Además de administrar volúmenes, puede usar el servicio de Administrador de StorSimple para crear y administrar servicios de StorSimple, ver y administrar dispositivos, ver alertas, y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
+El servicio Administrador de StorSimple es una extensión del Portal de Azure que permite administrar la solución de StorSimple desde una interfaz web única. Además de administrar volúmenes, puede usar el servicio de Administrador de StorSimple para crear y administrar servicios de StorSimple, ver y administrar dispositivos, ver alertas, y ver y administrar las directivas de copia de seguridad y el catálogo de copias de seguridad.
 
 > [AZURE.NOTE]Azure StorSimple solo puede crear volúmenes con aprovisionamiento fino. No es posible crear volúmenes total o parcialmente aprovisionados en un sistema de Azure StorSimple.
 >
@@ -55,7 +55,7 @@ Las tareas más comunes asociadas a un volumen son:
 
 ## Agregar un volumen
 
-Ya [creó un volumen](storsimple-deployment-walkthrough.md#to-create-a-volume) durante la implementación de la solución de StorSimple. El procedimiento para agregar un volumen es similar.
+Ya [creó un volumen](storsimple-deployment-walkthrough-u1.md#step-6-create-a-volume) durante la implementación de la solución de StorSimple. El procedimiento para agregar un volumen es similar.
 
 ### Para agregar un volumen
 
@@ -148,7 +148,7 @@ Siga estos pasos para eliminar un volumen.
 
 2. Seleccione el contenedor de volúmenes que tiene el volumen que desea eliminar. Haga clic en el contenedor de volúmenes para acceder a la página **Volúmenes**.
 
-3. Todos los volúmenes asociados a este contenedor se muestran en formato tabular. Compruebe el estado del volumen que desea eliminar. Si el volumen que desea eliminar no está desconectado, desconéctelo primero siguiendo los pasos indicados en [Desconectar un volumen](#Take-a-volume-offline).
+3. Todos los volúmenes asociados a este contenedor se muestran en formato tabular. Compruebe el estado del volumen que desea eliminar. Si el volumen que desea eliminar no está desconectado, desconéctelo primero siguiendo los pasos indicados en [Desconectar un volumen](#take-a-volume-offline).
 
 4. Una vez desconectado el volumen, haga clic en **Eliminar** en la parte inferior de la página.
 
@@ -181,4 +181,4 @@ Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

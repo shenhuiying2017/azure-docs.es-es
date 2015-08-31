@@ -1,6 +1,7 @@
+
 #### Para instalar revisiones regulares a través de Windows PowerShell para StorSimple
 
-1. Conéctese a la consola serie del dispositivo. Para obtener más información, vea [Conexión con la consola serie](#connect-to-the-serial-console).
+1. Conéctese a la consola serie del dispositivo. Para obtener más información, consulte [Paso 1: Conexión a la consola serie](storsimple-update-device.md#step1).
 
 2. En el menú de la consola serie, seleccione la opción 1, **iniciar sesión con acceso completo**. Escriba la contraseña. La contraseña predeterminada es **Password1**.
 
@@ -14,4 +15,4 @@
 
 5. Se le pedirá confirmación. Escriba **Y** para continuar con la instalación de la revisión.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Uso del conector de archivos en la aplicación lógica #
@@ -27,9 +27,7 @@ Para usar el conector de archivos, deberá crear primero una instancia de la apl
 
 1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte izquierda del Portal de Azure.
 2.	Vaya a "Marketplace > Aplicaciones de API" y busque "Conector de archivos".
-3.	Configure el conector de archivos de la siguiente forma:
-
-	![][1]
+3.	Configure el conector de archivos de la siguiente forma: ![][1]
 
 	- **Nombre**: asigne un nombre al conector de archivos.
 	- **Configuración del paquete**
@@ -55,24 +53,25 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de archivo
 
 3.	El conector de archivos aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho.
 
-4.	Puede quitar la aplicación de la API del conector de archivos en el editor haciendo clic en "Conector de archivos". El conector de archivos muestra un desencadenador y cuatro acciones.
+4.	Puede quitar la aplicación de la API del conector de archivos en el editor haciendo clic en "Conector de archivos". El conector de archivos muestra un desencadenador y cuatro acciones: ![][5]
 
-	![][5]
-
-6.	Cada uno de ellos muestra algunas propiedades. La imagen siguiente enumera las propiedades para el desencadenador y para la acción Obtener archivo.
-
-	![][6]
+6.	Cada uno de ellos muestra algunas propiedades. La imagen siguiente enumera las propiedades para el desencadenador y para la acción Obtener archivo: ![][6]
 
 7. Cuando se han configurado, el desencadenador y la acción pueden utilizarse en el flujo. De forma similar, pueden configurarse también otras acciones.
 
 > [AZURE.NOTE]El desencadenador de archivo eliminará el archivo después de leerlo correctamente desde la carpeta.
 
 ## API de REST del conector de archivos ##
-Para usar el conector fuera de una lógica de aplicación, pueden aprovecharse las API de REST expuestas por el conector. Puede ver estas definiciones de API con Examinar -> Aplicación de API -> Conector de archivos. Ahora haga clic en el modo de definición de API en la sección de resumen para ver todas las API expuestas por este conector.
-
-  ![][7]
+Para usar el conector fuera de una lógica de aplicación, pueden aprovecharse las API de REST expuestas por el conector. Puede ver estas definiciones de API con Examinar -> Aplicación de API -> Conector de archivos. Ahora haga clic en el modo de definición de API en la sección de resumen para ver todas las API expuestas por este conector: ![][7]
 
 Los detalles de las API se pueden encontrar en [Definición de la API del conector de archivos].
+
+## Aplicaciones adicionales del conector
+Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+
+Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -82,7 +81,7 @@ Los detalles de las API se pueden encontrar en [Definición de la API del conect
 
 <!-- Links -->
 [crear una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
-[Definición de la API del conector de archivos]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
+[Definición de la API del conector de archivos]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso del Administrador de conexiones híbridas]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple
@@ -65,7 +65,7 @@ Este tutorial explica cómo usar Administrador de instantáneas StorSimple para 
 - Cambio de una contraseña de dispositivo caducada
 - Reemplazo de un dispositivo con errores
 
->[AZURE.NOTE]Para obtener información general acerca del uso de la interfaz de Administrador de instantáneas StorSimple, vaya a [Interfaz de usuario de Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md)
+>[AZURE.NOTE]Para obtener información general acerca del uso de la interfaz del Administrador de instantáneas StorSimple, vaya a [Interfaz de usuario del Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md).
 
 
 ## Incorporación o remplazo de un dispositivo
@@ -252,14 +252,14 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
 
 5. Inicie Administrador de instantáneas StorSimple.
 
-6. Para configurar el nuevo dispositivo de StorSimple, complete los pasos que encontrará en [Paso 2: Conexión a un dispositivo StorSimple](storsimple-snapshot-manager-deployment.md#step-2:-connect-a-storsimple-device) en [Implementación de Administrador de instantáneas StorSimple](storsimple-snapshot-manager-deployment.md).
+6. Para configurar el nuevo dispositivo StorSimple, complete los pasos que encontrará en Paso 2: Conexión a un dispositivo StorSimple en [Implementación del Administrador de instantáneas StorSimple](storsimple-snapshot-manager-deployment.md).
 
-7. Haga clic con el botón derecho en el primer nodo en el panel **Ámbito** (Administrador de instantáneas StorSimple en el ejemplo) y, a continuación, haga clic en **Alternar visualización de importaciones**.
+7. Haga clic con el botón derecho en el nodo de nivel superior en el panel **Ámbito** (Administrador de instantáneas StorSimple en el ejemplo) y, a continuación, haga clic en **Alternar visualización de importaciones**.
 
 8. Aparece un mensaje cuando los grupos de volúmenes importados y las copias de seguridad son visibles en Administrador de instantáneas StorSimple. Haga clic en **Aceptar**.
 
 ## Pasos siguientes
 
-[Uso de Administrador de instantáneas para ver y administrar volúmenes StorSimple](storsimple-snapshot-manager-manage-volumes.md).
+[Uso del Administrador de instantáneas StorSimple para ver y administrar volúmenes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

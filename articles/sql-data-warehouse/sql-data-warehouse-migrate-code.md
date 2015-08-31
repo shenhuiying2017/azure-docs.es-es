@@ -22,20 +22,20 @@ Para asegurarse de que el código es compatible con Almacenamiento de datos SQL,
 
 ## Cambios de código de Transact-SQL
 
-En la lista siguiente se resumen las principales características que no se admiten en Almacenamiento de datos SQL de Azure:
+En la lista siguiente se resumen las principales características que no se admiten en Almacenamiento de datos SQL de Azure. Los vínculos ofrecidos le llevan a soluciones alternativas para la característica no admitida:
 
-- ANSI JOINS en UPDATE
-- ANSI JOINS en DELETE
-- instrucción MERGE
+- [ANSI JOINS en UPDATE][]
+- [ANSI JOINS en DELETE][]
+- [instrucción MERGE][]
 - combinaciones entre bases de datos
 - [cursores][]
 - [SELECT..INTO][]
-- INSERT..EXEC
+- [INSERT..EXEC][]
 - cláusula OUTPUT
 - funciones insertadas definidas por el usuario
 - funciones de múltiples instrucciones
-- expresiones de tabla común recursivas (CTE)
-- actualizaciones a través de las CTE
+- [expresiones de tabla común recursivas (CTE)](#Recursive-common-table-expressions-(CTE)
+- [actualizaciones a través de las CTE](#Updates-through-CTEs)
 - procedimientos y funciones CLR
 - función $partition
 - variables de tabla
@@ -51,6 +51,16 @@ En la lista siguiente se resumen las principales características que no se admi
 - [No escriba ningún tipo de datos MAX en cadenas de SQL dinámico][]
 
 Afortunadamente la mayoría de estas limitaciones se puede solucionar. Se incluyen explicaciones en los artículos de desarrollo correspondientes antes mencionados.
+
+### Expresiones de tabla común recursivas (CTE)
+
+Se trata de un escenario complejo sin ninguna corrección rápida. La CTE necesitará pueden desglosarse y administrarse en pasos. Normalmente puede usar un bucle bastante complejo, rellenando una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula agrupar por con opciones de acumulación/cubo/agrupación][].
+
+### Actualizaciones a través de las CTE
+
+Si la CTE es no recursiva, puede volver a escribir la consulta para usar subconsultas. Para las CTE recursivas, necesitará crear el conjunto de resultados primero como se ha descrito anteriormente; luego una el conjunto de resultados final a la tabla de destino y realice la actualización.
+
+### Funciones del sistema
 
 También hay algunas funciones del sistema que no son compatibles. Algunas de las principales que normalmente se usan en almacenamiento de datos son:
 
@@ -85,10 +95,15 @@ Para obtener consejos sobre el desarrollo del código, consulte la [información
 <!--Image references-->
 
 <!--Article references-->
-[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
+[ANSI JOINS en UPDATE]: sql-data-warehouse-develop-ctas.md
+[ANSI JOINS en DELETE]: sql-data-warehouse-develop-ctas.md
+[instrucción MERGE]: sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+
 [cursores]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS]: sql-data-warehouse-develop-group-by-options.md
+[cláusula agrupar por con opciones de acumulación/cubo/agrupación]: sql-data-warehouse-develop-group-by-options.md
 [anidación de niveles más allá de 8]: sql-data-warehouse-develop-transactions.md
 [actualización a través de vistas]: sql-data-warehouse-develop-views.md
 [uso de SELECT para la asignación de variables]: sql-data-warehouse-develop-variable-assignment.md
@@ -99,4 +114,4 @@ Para obtener consejos sobre el desarrollo del código, consulte la [información
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

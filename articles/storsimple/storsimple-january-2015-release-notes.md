@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="Notas de la versión 0.2 de la actualización de la serie StorSimple 8000 - enero de 2015"
+    pageTitle="Notas de la versión de la actualización 0.2 de la serie StorSimple 8000 - enero de 2015 | Microsoft Azure"
     description="Describe las nuevas características, problemas y soluciones alternativas de la versión de Microsoft Azure StorSimple de enero de 2015."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/02/2015"
+    ms.date="08/19/2015"
     ms.author="v-sharos" />
 
 
@@ -27,10 +27,10 @@ Esta actualización no cambia la versión de software del dispositivo físico de
 Consulte la siguiente información de las notas de la versión referente a la actualización de enero de 2015.
 
 > [AZURE.IMPORTANT]
-
-- Esta actualización no está disponible a través de Windows Update y no se puede instalar como otras actualizaciones. El dispositivo no recibirá esta actualización aunque haya aplicado las actualizaciones mediante el Portal de administración. Esta actualización solo se aplicará a los dispositivos virtuales creados después del 20 de enero de 2015. 
- 
-- La versión de enero de StorSimple no contiene actualizaciones para el dispositivo físico StorSimple. Puede aplicar cualquier actualización disponible de Windows en el dispositivo virtual, incluidas revisiones de seguridad recientes, pero no verá un cambio de versión en el dispositivo físico StorSimple.
+>
+>- Esta actualización no está disponible a través de Windows Update y no se puede instalar como otras actualizaciones. El dispositivo no recibirá esta actualización aunque haya aplicado las actualizaciones mediante el Portal de administración. Esta actualización solo se aplicará a los dispositivos virtuales creados después del 20 de enero de 2015. 
+> 
+>- La versión de enero de StorSimple no contiene actualizaciones para el dispositivo físico StorSimple. Puede aplicar cualquier actualización disponible de Windows en el dispositivo virtual, incluidas revisiones de seguridad recientes, pero no verá un cambio de versión en el dispositivo físico StorSimple.
 
 ## Novedades de la versión de enero
 
@@ -60,7 +60,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 |6|	Cuentas de almacenamiento|El uso del servicio de almacenamiento para eliminar la cuenta de almacenamiento es un escenario no admitido. Esto provocará una situación en la que no se pueden recuperar los datos de usuario.|| Sí |	Sí
 |7|Conmutación por error del dispositivo|	No se admiten varias conmutaciones por error de un contenedor de volúmenes del mismo dispositivo de origen a diferentes dispositivos de destino.|	La conmutación por error de un único dispositivo inactivo a varios dispositivos hará que los contenedores de volúmenes del primer dispositivo conmutado por error pierdan la propiedad de los datos. Después de este tipo de conmutación por error, estos contenedores de volúmenes aparecerán o se comportarán de forma diferente cuando se visualizan en el Portal de administración.|Sí|No
 |8|	Instalación|Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente.||Sí|No
-|9|	Proxy web|Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo.|Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Obtenga más información sobre cómo [Configurar el proxy web para el dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).|Sí |No
+|9|	Proxy web|Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo.|Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Obtenga más información sobre cómo [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md).|Sí |No
 |10|Proxy web|	Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo.||	Sí |No
 |11|Latencia alta de la nube y alta carga de trabajo de E/S|Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo».|Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación.|Sí|No
 
@@ -72,10 +72,10 @@ Esta actualización no contiene otros cambios en el dispositivo StorSimple.
 
 Esta versión no contiene las actualizaciones para el controlador SCSI conectado en serie (SAS) o el firmware. La actualización del controlador se introdujo en la versión de octubre de 2014.
 
-## Actualizaciones del dispositivo virtual de enero
+## Actualizaciones del dispositivo virtual en la versión de enero
 
 Esta versión contiene una imagen actualizada para el dispositivo virtual. Todos los dispositivos virtuales creados después del 20 de enero de 2015 mostrarán la versión del software como 6.3.9600.17361.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

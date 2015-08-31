@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introducción a Base de datos SQL"
-	description="Cree la primera base de datos en la nube en cuestión de minutos con Base de datos SQL de Azure, el servicio de administración de bases de datos relacionales de Microsoft (RDBMS) en la nube mediante el Portal de Azure y la base de datos de ejemplo AdventureWorks."
+	pageTitle="Introducción a la Base de datos SQL | Microsoft Azure"
+	description="Cree la primera base de datos en la nube en cuestión de minutos con Base de datos SQL de Azure, el servicio de administración de bases de datos relacionales de Microsoft (RDBMS) en la nube mediante el portal de Azure y la base de datos de ejemplo AdventureWorks."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -46,8 +46,8 @@ En este tutorial se supone que tiene una suscripción a Azure. Si no tiene una, 
 
 
 
-1. En la hoja Base de datos SQL, elija un **nombre** para la base de datos, en este ejemplo **AdventureWorks**.
-2. Para crear el servidor lógico de la base de datos, haga clic en **Servidor** y después en **Crear un nuevo servidor**.
+1. En la hoja **Base de datos SQL**, elija un **nombre** para la base de datos, en este ejemplo **AdventureWorks**.
+2. Para crear el servidor lógico de la base de datos, haga clic en **Servidor** y luego en **Crear un nuevo servidor**.
 
 
 ## Paso 3: Configuración del servidor
@@ -66,7 +66,7 @@ En este tutorial se supone que tiene una suscripción a Azure. Si no tiene una, 
 ## Paso 4: Creación de la base de datos
 
 
-1. En la hoja Base de datos SQL, especifique el origen de la base de datos haciendo clic en **Seleccionar origen**.
+1. En la hoja **Base de datos SQL**, especifique el origen de la base de datos haciendo clic en **Seleccionar origen**.
  - Si omite este paso, se crea una base de datos vacía.
 2. Seleccione **Ejemplo**.
  - Se crea una base de datos que es copia de la base de datos de ejemplo estándar denominada **AdventureWorks**.
@@ -85,8 +85,8 @@ En los pasos siguientes se muestra cómo especificar qué intervalos de direccio
 
 1. En la cinta de opciones en el lado izquierdo de la pantalla, haga clic en **Examinar** y, a continuación, en **Servidores SQL Server**.
 2. Entre las opciones disponibles, haga clic en el servidor SQL Server que creó anteriormente.
-3. Haga clic en **Configuración** y después en **Firewall**.
-4. Haga clic en este vínculo para obtener la dirección IP actual de [Bing](http://www.bing.com/search?q=my%20ip%20address).
+3. Haga clic en **configuración** y luego en **Firewall**.
+4. Obtenga la dirección IP actual de [Bing](http://www.bing.com/search?q=my%20ip%20address).
 5. En la configuración del firewall, especifique un **nombre de regla** y pegue la dirección IP pública del paso anterior en los campos **IP inicial** e **IP final**.
 6. Cuando haya finalizado, haga clic en **Guardar** en la parte superior de la página.
 
@@ -109,6 +109,5 @@ Ahora está preparado para escribir un pequeño programa cliente que puede conec
 [2]: ./media/sql-database-get-started/GettingStarted_CreateServer.png
 [3]: ./media/sql-database-get-started/GettingStarted_BrowseServer.png
 [4]: ./media/sql-database-get-started/GettingStarted_FireWall.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/18/2015" 
 	ms.author="paulettm"/>
 
 #Preguntas más frecuentes de Aprendizaje automático de Azure: facturación, capacidades, limitaciones y compatibilidad
@@ -93,7 +93,9 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 **¿Se pueden leer datos de Amazon S3?**
 
 Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. 
-<!--<SEE CLOUD DS PROCESS>-->
+<!--
+<SEE CLOUD DS PROCESS>
+-->
 
 **¿Hay una capacidad integrada para usar una entrada de imagen?**
 
@@ -176,7 +178,7 @@ Actualmente no, pero con el módulo de Python estándar, o con un conjunto de el
 
 **¿Hay un entorno de REPL para Python?**
 
-No. No hay ningún entorno de REPL para Python en el estudio.
+Puede usar los Jupyter Notebooks en el Estudio de aprendizaje automático de Azure. Para obtener más información, consulte [Presentación de Jupyter Notebooks en Azure ML Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
 
 ## Servicio web
 ###Reentrenamiento de modelos mediante programación
@@ -201,6 +203,8 @@ El servicio de solicitud-respuesta (RRS) es un servicio web de alta escala y baj
 
 Actualizar un modelo predictivo para un servicio ya implementado es tan fácil como modificar y volver a ejecutar el experimento usado para crear y guardar el modelo entrenado. Una vez que puede disponer de la nueva versión del modelo entrenado, el Estudio de aprendizaje automático le pregunta si quiere actualizar el servicio web provisional. Después de aplicar la actualización al servicio web provisional, la misma actualización estará disponible para que la aplique también al servicio web de producción. Consulte [Publicación de un servicio web de Aprendizaje automático](machine-learning-publish-a-machine-learning-web-service.md) para obtener detalles sobre cómo actualizar un servicio web implementado.
 
+También puede usar las API de reciclaje. El código de ejemplo está disponible [aquí](https://azuremlretrain.codeplex.com/).
+
 
 **¿Cómo se supervisa el servicio web implementado en producción?**
 
@@ -208,15 +212,16 @@ Cuando el modelo predictivo se ha puesto en producción, lo puede supervisar des
 
 **¿Hay algún lugar donde pueda ver la salida de mi RRS/BES?**
 
-Sí. Debe especificar una ubicación de almacenamiento blob. El resultado de los RRS/BES se guardará en ella.
-
-
+Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribirlo en un blob. Para BES, el resultado se escribe en un blob de manera predeterminada. También puede escribir el resultado en una base de datos o una tabla con el módulo de escritor.
+ 
+ **¿**Solamente puedo crear servicios web a partir de los modelos creados en el Estudio? No. También puede crear servicios web directamente desde los Jupyter Notebooks y RStudio.
+ 
 
 ##Escalabilidad 
 
 **¿Qué es la escalabilidad del servicio web?**
 
-Actualmente, el máximo es 20 solicitudes simultáneas por punto final, aunque se puede ampliar a 80 puntos finales. Esto se traduce en 4800 solicitudes simultáneas si usamos todos los recursos (300 trabajadores).
+Actualmente, el máximo es 20 solicitudes simultáneas por punto final, aunque se puede ampliar a 10.000 puntos finales. Esto se traduce en 4800 solicitudes simultáneas si usamos todos los recursos (300 trabajadores).
 
 
 **¿Los trabajos de R se reparten entre nodos?**
@@ -258,7 +263,8 @@ Nº
 
 **De forma predeterminada, ¿quién tiene acceso al punto final http del servicio web implementado en producción? ¿Cómo se restringe el acceso al punto final?**
 
-Una vez que el modelo predictivo se ha puesto en producción, el Portal de Azure muestra la URL de los servicios web implementados. Las URL de servicio provisional son accesibles desde el entorno de Estudio de aprendizaje automático, en la sección de servicios web; mientras que las URL de servicio de producción son accesibles desde el Portal de Azure, en la sección Aprendizaje automático. Se proporcionan claves de acceso para los servicios web, tanto de ensayo como de producción, desde el panel de servicios web en el entorno del Estudio de aprendizaje automático y del Portal de Azure, respectivamente. Las claves de acceso son necesarias para realizar llamadas al servicio web en producción y ensayo. Para obtener más información, consulte [Conexión a un servicio web de Aprendizaje automático](machine-learning-connect-to-azure-machine-learning-web-service.md).
+Cuando se publica un servicio web, creamos un extremo predeterminado para ese servicio. Ese extremo predeterminado se implementa en producción y se puede llamar mediante su clave de API. Los extremos adicionales se pueden agregar con sus propias claves desde el Portal de Azure o mediante programación con la API de administración de servicios web. Las claves de acceso son necesarias para realizar llamadas al servicio web en producción y ensayo. Para obtener más información, consulte [Conexión a un servicio web de Aprendizaje automático](machine-learning-connect-to-azure-machine-learning-web-service.md).
+
 
 **¿Qué ocurre si no encuentro mi cuenta de almacenamiento?**
 
@@ -302,4 +308,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

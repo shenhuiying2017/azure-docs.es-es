@@ -14,4 +14,4 @@
 La directiva recién agregada se mostrará en la vista tabular en la página **Directivas de copia de seguridad**.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mazha"/>
 
 
@@ -33,7 +33,7 @@ Para crear una cuenta de almacenamiento, debe ser administrador del servicio o c
 **Para crear una cuenta de almacenamiento para una suscripción de Azure**
 
 1.  Inicie sesión en el [Portal de administración de Azure].
-2.  En la esquina inferior izquierda, haga clic en **Nuevo**. En el cuadro de diálogo **Nuevo**, seleccione **Servicios de datos**, haga clic en **Almacenamiento** y, a continuación en **Creación rápida**.
+2.  En la esquina inferior izquierda, seleccione **Nuevo**. En el cuadro de diálogo **Nuevo**, seleccione **Servicios de datos**, haga clic en **Almacenamiento** y, a continuación en **Creación rápida**.
 
     Aparece el cuadro de diálogo **Crear cuenta de almacenamiento**.
 
@@ -51,7 +51,7 @@ Para crear una cuenta de almacenamiento, debe ser administrador del servicio o c
 
 5.  En la lista desplegable **Región/grupo de afinidad**, seleccione una región o grupo de afinidad para la cuenta de almacenamiento. Seleccione un grupo de afinidad en lugar de una región si desea que sus servicios de almacenamiento estén en el mismo centro de datos con otros servicios de Microsoft Azure que utilice. Con esto se puede mejorar el rendimiento y no se generan cargos por concepto de salida.
 
-    **Nota**: para crear un grupo de afinidad, abra el área **Configuración** del Portal de administración, haga clic en **Grupos de afinidad** y haga clic en **Agregar un grupo de afinidad** o en **Agregar**. Además puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Microsoft Azure. Para obtener más información, consulte [Operaciones en grupos de afinidad].
+    **Nota**: para crear un grupo de afinidad, abra el área **Configuración** del Portal de administración, haga clic en **Grupos de afinidad** y haga clic en **Agregar un grupo de afinidad** o en **Agregar**. Además puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Microsoft Azure. Para obtener más información, consulte [Operaciones en grupos de afinidad\].
 
 6. En la lista desplegable **Suscripción**, seleccione la suscripción que se usará con la cuenta de almacenamiento.
 7.  Haga clic en **Crear cuenta de almacenamiento**. El proceso de creación de la cuenta de almacenamiento podría tardar varios minutos en completarse.
@@ -120,4 +120,4 @@ El Portal de administración de Azure no admite actualmente la posibilidad de pu
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

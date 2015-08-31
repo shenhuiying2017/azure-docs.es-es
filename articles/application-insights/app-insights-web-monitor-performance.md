@@ -102,20 +102,25 @@ Si desea ver las demás métricas que puede mostrar, haga clic en un gráfico y 
 
 Si selecciona una métrica, se deshabilitarán las demás que no pueden aparecer en el mismo gráfico.
 
-## Recopilación de más contadores de rendimiento
+## Contadores de rendimiento del sistema
 
 Algunas de las métricas entre las que puede elegir son [contadores de rendimiento](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows proporciona una amplia variedad de ellos, pero también puede definir los suyos propios.
 
-Si los contadores que desea no están en la lista, puede agregarlos al conjunto que recopila el SDK. Abra ApplicationInsights.config y edite la directiva del recopilador de rendimiento:
+Este ejemplo muestra los contadores de rendimiento que están disponibles de forma predeterminada. Hemos [agregado un gráfico aparte](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador y, para asignar nombres a dichos gráficos, los hemos [guardado como favoritos](app-insights-metrics-explorer.md#editing-charts-and-grids):
+
+![](./media/app-insights-web-monitor-performance/sys-perf.png)
+
+
+Si los contadores que desea no están en la lista de propiedades, puede agregarlos al conjunto que recopila el SDK. Abra ApplicationInsights.config y edite la directiva del recopilador de rendimiento:
 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
+        <Add PerformanceCounter="\Sales(electronics)#Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-El formato es `\Category(instance)\Counter"` o, para las categorías que no tienen instancias, simplemente `\Category\Counter`.
+El formato es `\Category(instance)\Counter"` o, para las categorías que no tienen instancias, simplemente `\Category\Counter`. Para detectar qué contadores están disponibles en el sistema, lea [esta introducción](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 `ReportAs` se requiere para los nombres de contadores que contengan caracteres que no sean: letras, paréntesis, barras diagonales, guiones, subrayados, espacios y puntos.
 
@@ -126,7 +131,7 @@ Si lo prefiere, puede escribir código que realice la misma acción:
     var perfCollector = new PerformanceCollectorModule();
     perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
-      @"\Sales(electronics)# Items Sold", "Items sold"));
+      @"\Sales(electronics)#Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
@@ -178,4 +183,4 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

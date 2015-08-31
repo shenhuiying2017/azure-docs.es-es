@@ -1,4 +1,5 @@
 
+
 #### Para modificar un contenedor de volúmenes
 
 1. En la página **Dispositivos**, seleccione el dispositivo, haga doble clic en él y, a continuación, haga clic en la pestaña **Contenedores de volúmenes**.
@@ -25,4 +26,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

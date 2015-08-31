@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/10/2015"
+   ms.date="08/19/2015"
    ms.author="andalmia"/>
 
 # Conector de Box
@@ -32,7 +32,7 @@ Nombre de parámetro | Descripción | Obligatorio
 --- | --- | ---
 Ruta de acceso a la carpeta | Ruta de acceso de la carpeta para enumerar. | Sí
 
-> [AZURE.NOTE]No devuelve ningún contenido del archivo.
+> [AZURE.NOTE] No devuelve ningún contenido del archivo.
 
 b. *Obtener archivo:* esta operación recupera un archivo que incluye su contenido y propiedades. Lista de los parámetros necesarios para la acción:
 
@@ -65,7 +65,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de Box", selecciónelo y seleccione **Crear**.
-3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades:  
+3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades: 
 	![][1]
 4. Seleccione **Crear**.
 
@@ -76,24 +76,24 @@ Una vez creada la aplicación de API, puede usar el conector de Box como acción
 
 1. En la aplicación lógica, abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configure el flujo. El conector de Box se muestra en la galería. Selecciónelo para agregarlo automáticamente al diseñador de Aplicaciones lógicas.
 
-	> [AZURE.NOTE]Si se selecciona el conector de Box al principio de la aplicación lógica, actúa como desencadenador. De lo contrario, podrían realizarse acciones en la cuenta de Box mediante el conector. El conector de Box no tiene ningún desencadenador en el momento en que se redacta este artículo.
+	> [AZURE.NOTE] Si se selecciona el conector de Box al principio de la aplicación lógica, actúa como desencadenador. De lo contrario, podrían realizarse acciones en la cuenta de Box mediante el conector. El conector de Box no tiene ningún desencadenador en el momento en que se redacta este artículo.
 
-2. Autentique y autorice las aplicaciones lógicas para realizar operaciones en su nombre. Seleccione **Autorizar** en el conector de Box:  
+2. Autentique y autorice las aplicaciones lógicas para realizar operaciones en su nombre. Seleccione **Autorizar** en el conector de Box: 
 	![][2]
 
-3. Proporcione los detalles de inicio de sesión de la cuenta de Box en la que desea realizar las operaciones:  
+3. Proporcione los detalles de inicio de sesión de la cuenta de Box en la que desea realizar las operaciones: 
 	![][3]
 
-4. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre:  
+4. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre: 
 	![][4]
 
-5. Se muestra la lista de acciones y puede elegir la operación apropiada que desea realizar:  
+5. Se muestra la lista de acciones y puede elegir la operación apropiada que desea realizar: 
 	![][5]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
-Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia sobre conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
@@ -104,4 +104,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

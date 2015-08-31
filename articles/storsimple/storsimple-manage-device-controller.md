@@ -5,14 +5,14 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Administrar controladores de dispositivo StorSimple
@@ -25,7 +25,7 @@ Este tutorial incluye instrucciones paso a paso para administrar los controlador
 - La sección **Controladores** de la página **Mantenimiento** del servicio de Administrador de StorSimple
 - Windows PowerShell para StorSimple 
 
-Recomendamos que el usuario administre los controladores del dispositivo mediante el servicio de Administrador de StorSimple. Si una acción solo puede realizarse mediante el Windows PowerShell para StorSimple, el tutorial se refiere a ello en una nota.
+Le recomendamos que administre los controladores del dispositivo mediante el servicio Administrador de StorSimple. Si una acción solo puede realizarse mediante Windows PowerShell para StorSimple, el tutorial se refiere a ello en una nota.
 
 Después de leer este tutorial, podrá:
 
@@ -59,24 +59,24 @@ Para administrar los controladores de su dispositivo desde el Portal de administ
 
 1. Vaya a **Estado del hardware** y verifique que el estado de los dos controladores de su dispositivo sea **Correcto**.
 
-	![Verificar que los controladores del dispositivo de StorSimple están en buen estado](./media/storsimple-manage-device-controller/IC766017.png)
+	![Comprobar que los controladores del dispositivo StorSimple están en buen estado](./media/storsimple-manage-device-controller/IC766017.png)
 
 1. En la parte inferior de la página **Mantenimiento**, haga clic en**Administrar controladores**.
 
-	![Administrar los controladores del dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766018.png)</br>
+	![Administrar controladores de dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	> [AZURE.NOTE]Si no ve Administrar controladores, debe instalar las actualizaciones. Para obtener más información, consulte [Actualizar dispositivo](storsimple-update-device.md).
+	>[AZURE.NOTE]Si no ve **Administrar controladores**, debe instalar las actualizaciones. Para obtener más información, consulte [Actualizar dispositivo StorSimple](storsimple-update-device.md).
 
 1. En el cuadro de diálogo **Cambiar configuración de controlador**, haga lo siguiente:
 
 
 	- En la lista desplegable **Seleccionar controlador**, seleccione el controlador que desea administrar. Las opciones son Controlador 0 y Controlador 1. Estos controladores también se identifican como activo o pasivo.
 
-		> [AZURE.NOTE]Si un controlador no está disponible o está apagado, el mismo no podrá administrarse y tampoco aparecerá en la lista desplegable.
+		>[AZURE.NOTE]Si un controlador no está disponible o está apagado, el mismo no podrá administrarse y tampoco aparecerá en la lista desplegable.
 	
 
 
-	- En la lista desplegable **Seleccionar acción**, elija**Reiniciar controlador** o **Apagar controlador**.
+	- En la lista desplegable **Seleccionar acción**, elija **Reiniciar controlador** o **Apagar controlador**.
 	
 		![Reiniciar el controlador pasivo del dispositivo StorSimple](./media/storsimple-manage-device-controller/IC766020.png)
  
@@ -89,16 +89,16 @@ El controlador se reiniciará o apagará. En la siguiente tabla se resumen los d
 |Número de selección|Si decide|Sucederá esto|
 |---|---|---|
 |1\.|Reiniciar el controlador pasivo.|Se creará un trabajo para reiniciar el controlador y se le notificará una vez que el mismo se haya creado correctamente. Se iniciará el reinicio del controlador. Puede supervisar el proceso de reinicio al acceder a **Servicio > Panel > Ver registros de operaciones** y filtrar por parámetros específicos de su servicio.|
-|2\.|Reiniciar el controlador activo.|Verá la siguiente advertencia: "Si reinicia el controlador activo, el dispositivo conmutará por error al controlador pasivo. ¿Desea continuar?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los utilizados para reiniciar el controlador pasivo (consulte selección 1).|
-|3\.|Apagar el controlador pasivo.|Verá el siguiente mensaje: "Una vez apagado, deberá presionar el botón de encendido en el controlador para activarlo. ¿Está seguro de que desea apagar este controlador?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los utilizados para reiniciar el controlador pasivo (consulte selección 1).|
-|4\.|Apagar el controlador activo.|Verá el siguiente mensaje: "Una vez apagado, deberá presionar el botón de encendido en el controlador para activarlo. ¿Está seguro de que desea apagar este controlador?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los utilizados para reiniciar el controlador pasivo (consulte selección 1).|
+|2\.|Reiniciar el controlador activo.|Verá la siguiente advertencia: "Si reinicia el controlador activo, el dispositivo conmutará por error al controlador pasivo. ¿Desea continuar?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los usados para reiniciar el controlador pasivo (consulte selección 1).|
+|3\.|Apagar el controlador pasivo.|Verá el siguiente mensaje: "Una vez apagado, deberá presionar el botón de encendido en el controlador para activarlo. ¿Está seguro de que desea apagar este controlador?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los usados para reiniciar el controlador pasivo (consulte selección 1).|
+|4\.|Apagar el controlador activo.|Verá el siguiente mensaje: "Una vez apagado, deberá presionar el botón de encendido en el controlador para activarlo. ¿Está seguro de que desea apagar este controlador?" </br>Si decide continuar con esta operación, los pasos siguientes serán idénticos a los usados para reiniciar el controlador pasivo (consulte selección 1).|
 
 
 #### Para reiniciar o apagar un controlador en Windows PowerShell para StorSimple
 Lleve a cabo los siguientes pasos para apagar o reiniciar un solo controlador de su dispositivo StorSimple desde el Portal de administración.
 
 
-1. Acceda al dispositivo desde la consola serie o a través de una sesión de telnet desde un equipo remoto. Conéctese al Controlador 0 o al Controlador 1 siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola de serie del dispositivo](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Acceda al dispositivo desde la consola serie o a través de una sesión de telnet desde un equipo remoto. Conéctese al Controlador 0 o al Controlador 1 siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola de serie del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
 1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**.
 
@@ -123,18 +123,18 @@ Lleve a cabo los siguientes pasos para apagar o reiniciar un solo controlador de
 
 En esta sección se explica cómo apagar un dispositivo StorSimple en ejecución o con errores desde un equipo remoto. Un dispositivo se apaga después de apagar sus dos controladores. El dispositivo se apaga cuando se lo va a trasladar físicamente o cuando se lo va a dejar fuera de servicio.
 
-> [AZURE.IMPORTANT]Antes de apagar el dispositivo, compruebe el estado de los componentes del dispositivo. Vaya a **Dispositivos > Mantenimiento > Estado del hardware** y verifique que el estado de los LED de todos los componentes sea verde. Solo los dispositivos correctos tendrán un estado verde. Si el dispositivo se apaga para sustituir un componente que no funciona correctamente, verá un estado de error (rojo) o de degradado (amarillo) para los componentes correspondientes.
+> [AZURE.IMPORTANT]Antes de apagar el dispositivo, compruebe el estado de los componentes del dispositivo. Vaya a **Dispositivos > Mantenimiento > Estado del hardware** y compruebe que el estado de los LED de todos los componentes sea verde. Solo los dispositivos correctos tendrán un estado verde. Si el dispositivo se apaga para sustituir un componente que no funciona correctamente, verá un estado de error (rojo) o de degradado (amarillo) para los componentes correspondientes.
 
 #### Para apagar un dispositivo StorSimple
 
-1. Utilice el procedimiento [reiniciar o apagar un controlador](#restart-or-shut-down-a-single-controller) para identificar y apagar el controlador pasivo del dispositivo. Puede realizar esta operación en el Portal de administración o en el Windows PowerShell para StorSimple.
+1. Use el procedimiento [reiniciar o apagar un controlador](#restart-or-shut-down-a-single-controller) para identificar y apagar el controlador pasivo del dispositivo. Puede realizar esta operación en el Portal de administración o en el Windows PowerShell para StorSimple.
 2. Repita el paso anterior para apagar el controlador activo.
 3. Ahora debe mirar el plano posterior del dispositivo. Una vez apagados por completo los dos controladores, los LED de estado de ambos controladores deben parpadear en rojo. Si necesita apagar el dispositivo por completo en este momento, cambie los interruptores de alimentación de los módulos de alimentación y refrigeración (PCM) a la posición de apagado. Esto debe apagar el dispositivo.
 
 
 <!--#### To shut down a StorSimple device in Windows PowerShell for StorSimple
 
-1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-serial-console).
 
 1. In the serial console menu, verify from the banner message that the controller you are connected to is the passive controller. If you are connected to the active controller, disconnect from this controller and connect to the other controller.
 
@@ -170,9 +170,9 @@ Lleve a cabo los siguientes pasos para restablecer su dispositivo Microsoft Azur
 
 	> [AZURE.TIP]
 	
-	> - Utilice el comando `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` para omitir la comprobación de la versión de firmware si el cmdlet de restablecimiento de fábrica (según se utilizó anteriormente) notifica un error de coincidencia de firmware: El restablecimiento de fábrica no puede continuar debido a una incoherencia en las versiones de firmware. Debe omitir la comprobación de firmware (mediante el uso de opción `–SkipFirmwareCheck`) al realizar un restablecimiento de fábrica en un dispositivo que se actualizó previamente mediante Microsoft Update o un mecanismo de revisión.
+	> - Use el comando `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` para omitir la comprobación de la versión de firmware si el cmdlet de restablecimiento de fábrica (según se usó anteriormente) notifica un error de coincidencia de firmware: El restablecimiento de fábrica no puede continuar debido a una incoherencia en las versiones de firmware. Debe omitir la comprobación de firmware (mediante el uso de opción `–SkipFirmwareCheck`) al realizar un restablecimiento de fábrica en un dispositivo que se actualizó previamente mediante Microsoft Update o un mecanismo de revisión.
 	
-	> - Para obtener más información sobre cómo utilizar este cmdlet, vaya a [Referencia de cmdlet de Windows PowerShell para StorSimple](https://technet.microsoft.com/es-es/library/dn688168.aspx).
+	> - Para obtener más información sobre cómo usar este cmdlet, vaya a [Referencia de cmdlet de Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
 
 ## Preguntas y respuestas sobre cómo administrar los controladores de dispositivo
@@ -213,12 +213,12 @@ En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre 
 
 **R.** Las conexiones TCP entre los iniciadores y el controlador activo se reiniciarán como resultado de la conmutación por error del controlador, pero se restablecerán cuando el controlador pasivo asuma la operación. Puede haber una pausa temporal (de menos de 30 segundos) en la actividad de E/S entre los iniciadores y el dispositivo en el transcurso de esta operación.
 
-**P.** ¿Cómo puedo volver a poner en servicio mi controlador después de haberlo apagado y puesto fuera de servicio?
+**P.** ¿Cómo puedo volver a poner en servicio mi controlador después de haberlo apagado y quitado?
 
-**R.** Para que un controlador vuelva a funcionar, se debe insertar en el chasis tal como se describe en [Guía para la sustitución de componentes de hardware](https://msdn.microsoft.com/library/azure/dn757736.aspx).
+**R.** Para que un controlador vuelva a funcionar, se debe insertar en el chasis tal como se describe en [Reemplazar un módulos de controladores en el dispositivo StorSimple](storsimple-controller-replacement.md).
 
 ## Pasos siguientes
 
-Si tiene algún problema con los controladores de su dispositivo StorSimple que no pueda resolver mediante la utilización de los procedimientos descritos en este tutorial,[póngase en contacto con el servicio técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+Si tiene algún problema con los controladores de su dispositivo StorSimple que no pueda resolver mediante el uso de los procedimientos descritos en este tutorial,[póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

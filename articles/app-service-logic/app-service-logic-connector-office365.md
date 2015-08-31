@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -29,92 +29,58 @@ Las aplicaciones lógicas se pueden desencadenar en función de una variedad de 
 - Enviar evento
 - Agregar contacto
 
-##Creación de la aplicación de API del conector de O365##
-Para crear la aplicación de API del conector de O365, lleve a cabo los pasos siguientes:
+## Creación de la aplicación de API del conector de O365
+Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
-1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior derecha del Portal de Azure.
-2.	Vaya a “Web y móvil > Aplicaciones de API” y busque “Office365”.
-3.	Para configurar el conector de Office 365, proporcione los detalles del plan de hospedaje, el grupo de recursos y seleccione el nombre de la aplicación de API.
-
-	![][21]
+1. En el panel de inicio de Azure, seleccione **Marketplace**.
+2. Busque "Conector de Office 365", selecciónelo y seleccione **Crear**.
+3.	Para configurar el conector de Office 365, proporcione los detalles del plan de hospedaje, el grupo de recursos y seleccione el nombre de la aplicación de API: ![][21]
 
 
-##Crear una aplicación lógica##
+## Crear una aplicación lógica
 Vamos a crear una aplicación lógica simple que se desencadene cuando se reciba un correo electrónico (en el identificador de correo electrónico de consultas sobre ventas, por ejemplo, sales@contoso.com). Crea un evento, agrega un contacto con los detalles del remitente, envía un correo electrónico a su cuenta personal y finalmente envía una respuesta con una confirmación.
 
-1.	Inicie sesión en el Portal de Azure y haga clic en "Nuevo -> Web+móvil -> Aplicación lógica"
+1.	Inicie sesión en el portal de Azure y haga clic en "Nuevo -> Web + móvil -> Aplicación lógica": ![][1]
 
-	![][1]
+2.	En la página "Crear aplicación lógica", especifique la información necesaria, como el nombre, el plan de servicio de la aplicación y la ubicación: ![][2]
 
-2.	En la página "Crear aplicación lógica", especifique la información necesaria, como el nombre, el plan de servicio de la aplicación y la ubicación.
+3.	Haga clic en "Desencadenadores y acciones" para que se abra el editor de aplicación lógica: ![][3]
 
-	![][2]
+4.	Seleccione el desencadenador de Office 365 en la sección 'Aplicaciones de API de este grupo de recursos' de la galería para agregarlo al flujo: ![][4]
 
-3.	Haga clic en "Desencadenadores y acciones" y aparecerá la pantalla del editor de aplicación lógica.
+6.	Conectarse a Office 365 requiere autorizar la aplicación lógica para poder acceder a su cuenta. Haga clic en "Autorizar" para proporcionar las credenciales de inicio de sesión de Office 365: ![][5]
 
-	![][3]
+7.	Se le redirigirá a la página de inicio de sesión de Office 365 y podrá autenticarse con las credenciales de su cuenta de Office 365: ![][6] ![][7]
 
-4.	Seleccione el desencadenador de Office 365 en la sección 'Aplicaciones de API’ de este grupo de recursos de la Galería para agregarlo al flujo.
-
-	![][4]
-
-6.	Conectarse a Office 365 requiere autorizar la aplicación lógica para poder acceder a su cuenta. Haga clic en "Autorizar" para proporcionar las credenciales de inicio de sesión de Office 365.
-
-	![][5]
-
-7.	Se le redirigirá a la página de inicio de sesión de Office 365 y podrá autenticarse con las credenciales de cuenta de Office 365.
-
-	![][6]
-
-	![][7]
-
-8.	Una vez completada la autorización, se muestran los desencadenadores de Office 365.
-
-	![][8]
+8.	Una vez completada la autorización, se muestran los desencadenadores de Office 365: ![][8]
 
 9.	Seleccione el desencadenador "Nuevo correo electrónico" y se mostrarán todos los parámetros de entrada.
 
 
-10.	Cambie la frecuencia del desencadenador a ’Minutos’ y haga clic en ✓.
+10.	Cambie la frecuencia del desencadenador a 'Minutos' y haga clic en ✓: ![][9]
 
-	![][9]
-
-11. El desencadenador ’Nuevo correo electrónico’ de Office 365 está configurado y puede ver también los parámetros de salida.
-
-	![][10]
+11. El desencadenador 'Nuevo correo electrónico' de Office 365 está configurado, y puede ver también los parámetros de salida: ![][10]
 
 12.	Seleccione "Conector de Office 365" en la sección "Usados recientemente" en la galería y se agregará una nueva acción de "Office 365".
 
-13.	Seleccione "Enviar evento" de la lista de acciones y se mostrarán los parámetros de entrada de la acción "Enviar evento".
+13.	Seleccione "Enviar evento" en la lista de acciones y se mostrarán los parámetros de entrada de la acción "Enviar evento": ![][11]
 
-	![][11]
-
-14.	Especifique los detalles del evento y haga clic en ✓.
-
-	![][12]
+14.	Especifique los detalles del evento y haga clic en ✓: ![][12]
 
 15.	Seleccione "Conector de Office 365" en la sección "Usados recientemente" en la galería y se agregará una nueva acción de "Office 365".
 
-16.	Seleccione "Agregar contacto" de la lista de acciones y se mostrarán los parámetros de entrada de la acción "Agregar contacto".
+16.	Seleccione "Agregar contacto" en la lista de acciones y se mostrarán los parámetros de entrada de la acción "Agregar contacto": ![][13]
 
-	![][13]
+17.	Haga clic en '+' junto al campo 'Dirección de correo electrónico' y seleccione el valor de campo de salida 'Desde' del desencadenador: ![][14]
 
-17.	Haga clic en ’+’ junto al campo ’Dirección de correo electrónico’ y seleccione el valor de campo de salida ’Desde’ del desencadenador.
-
-	![][14]
-
-18. Haga clic en ✓ y la configuración de la acción se habrá completado.
-
-	![][15]
+18. Haga clic en ✓ y la configuración de la acción se habrá completado: ![][15]
 
 19.	Seleccione "Conector de Office 365" en la sección "Usados recientemente" en la galería y se agregará una nueva acción de "Office 365".
 
 
-20.	Seleccione "Enviar correo electrónico" de la lista de acciones y se mostrarán los parámetros de entrada de la acción "Enviar correo electrónico".
+20.	Seleccione "Enviar correo electrónico" en la lista de acciones y se mostrarán los parámetros de entrada de la acción "Enviar correo electrónico": ![][19]
 
-	![][19]
-
-21.	Proporcione los detalles necesarios para enviar el correo electrónico. Puede crear un mensaje escribiendo algo como aparece a continuación. Cuando la acción ’Enviar correo electrónico’ está configurada, haga clic en ✓.
+21.	Proporcione los detalles necesarios para enviar el correo electrónico. Puede crear un mensaje escribiendo algo como aparece a continuación. Cuando la acción 'Enviar correo electrónico' esté configurada, haga clic en ✓:
 
 		Body - @concat('You got a new sales enquiry from',triggers().output.body.From)
 
@@ -122,17 +88,20 @@ Vamos a crear una aplicación lógica simple que se desencadene cuando se reciba
 22.	Seleccione "Conector de Office 365" en la sección "Usados recientemente" en la galería y se agregará una nueva acción de "Office 365".
 
 
-23.	Seleccione "Responder a" de la lista de acciones y se mostrarán los parámetros de entrada de la acción "Responder a".
+23.	Seleccione "Responder a" en la lista de acciones y se mostrarán los parámetros de entrada de la acción "Responder a": ![][16]
 
-	![][16]
-
-24.	Haga clic en ’+’ junto al campo ’Desde’ y seleccione el identificador de mensaje de salida del desencadenador y haga clic en ✓.
-
-	![][17]
+24.	Haga clic en '+' junto al campo 'Desde' y seleccione el valor del identificador de mensaje de salida del desencadenador, y, después, haga clic en ✓: ![][17]
 
 25. Haga clic en Aceptar en la pantalla del editor de Aplicación lógica y, a continuación, haga clic en ’Crear’. Se tardará aproximadamente 30 segundos en completar la creación.
 
 26. Envíe un correo electrónico a la cuenta que configuró con el desencadenador. Debería ver un correo electrónico en su cuenta de correo personal y eventos del calendario y contactos en la cuenta de correo de la empresa. Además, obtendrá una respuesta en la que se le indicará que se responderá a las consultas sobre ventas en breve.
+
+## Aplicaciones adicionales del conector
+Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+
+Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-office365/1_New_Logic_App.png
@@ -157,4 +126,4 @@ Vamos a crear una aplicación lógica simple que se desencadene cuando se reciba
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

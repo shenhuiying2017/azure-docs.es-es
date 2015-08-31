@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Administrar la cuenta de almacenamiento de StorSimple"
+   pageTitle="Administración de la cuenta de almacenamiento de StorSimple en Microsoft Azure | Microsoft Azure"
    description="Se explica cómo usar la página Configurar para agregar, editar, eliminar o rotar las claves de seguridad de una cuenta de almacenamiento."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/25/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # Administrar la cuenta de almacenamiento de StorSimple
@@ -50,7 +50,7 @@ Las tareas más comunes relacionadas con las cuentas de almacenamiento que se pu
 
 Hay tres tipos de cuentas de almacenamiento que se pueden usar con el dispositivo StorSimple.
 
-- **Cuentas de almacenamiento generadas automáticamente**: como sugiere su nombre, este tipo de cuenta de almacenamiento se genera automáticamente cuando se crea el servicio. Para obtener más información sobre cómo se crea esta cuenta de almacenamiento, vea el Paso 1: Crear un nuevo servicio, en [Implementar el dispositivo StorSimple](storsimple-deployment-walkthrough.md). 
+- **Cuentas de almacenamiento generadas automáticamente**: como sugiere su nombre, este tipo de cuenta de almacenamiento se genera automáticamente cuando se crea el servicio. Para obtener más información sobre cómo se crea esta cuenta de almacenamiento, consulte el [Paso 1: Crear un nuevo servicio](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service), en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md). 
 - **Cuentas de almacenamiento en la suscripción al servicio**: se trata de cuentas de almacenamiento de Azure que están asociadas a la misma suscripción que la del servicio. Para obtener más información sobre cómo se crean estas cuentas de almacenamiento, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md). 
 - **Cuentas de almacenamiento fuera de la suscripción al servicio**: son las cuentas de almacenamiento de Azure no asociadas al servicio que probablemente existían antes de que se crease el servicio.
 
@@ -97,7 +97,7 @@ Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes.
 
 2. En la lista tabular de cuentas de almacenamiento, desplace el mouse sobre la cuenta que desea eliminar.
 
-3. Aparecerá un icono de eliminación (**x**) en la columna en el extremo derecho para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
+3. Aparecerá un icono de eliminación (**x**) en la columna más a la derecha para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
 
 4. Cuando se le pida confirmación, haga clic en **Sí** para continuar con la eliminación. La lista tabular se actualizará para reflejar los cambios.
 
@@ -150,6 +150,6 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 
 ## Pasos siguientes
 
-Obtenga más información acerca de la [seguridad de StorSimple](storsimple-security.md)
+Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

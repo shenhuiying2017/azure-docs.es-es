@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -52,7 +52,7 @@ Acceda a la aplicación de API que acaba de crear mediante Examinar -> Aplicacio
 
 ![][2]
 
-Para establecer la conectividad híbrida, haga lo siguiente:
+El conector SAP requiere conectividad híbrida para conectarse a *cualquier* extremo SAP. Para establecer la conectividad híbrida, haga lo siguiente:
 
 1. Copie la cadena de conexión principal.
 2. Haga clic en el vínculo 'Descargar y configurar’.
@@ -85,6 +85,13 @@ El paso/acción aparecerá ahora como configurado en la aplicación lógica. Se 
 
 Complete la aplicación lógica para definir el proceso empresarial y, a continuación, ejecútelo para lograr el objetivo deseado.
 
+## Aplicaciones adicionales del conector
+Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+
+Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sap/Create.jpg
 [2]: ./media/app-service-logic-connector-sap/BrowseSetupIncomplete.jpg
@@ -94,4 +101,4 @@ Complete la aplicación lógica para definir el proceso empresarial y, a continu
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

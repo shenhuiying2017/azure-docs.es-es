@@ -4,6 +4,7 @@
 	description="Aprenda a ejecutar una muestra de GraySort de uso general para grandes volúmenes de datos (normalmente un mínimo de 100 TB) en Hadoop con HDInsight mediante Azure PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
+	tags="azure-portal"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"/>
@@ -34,7 +35,7 @@ Este ejemplo utiliza tres conjuntos de programas de MapReduce:
 El formato de entrada y salida, que utilizan las tres aplicaciones, lee y escribe los archivos de texto en el formato correcto. La salida de la reducción tiene la replicación definida en 1, en lugar del valor predeterminado 3, porque el concurso de estándar de comparación no requiere que los datos de salida se repliquen en varios nodos.
 
 
-**Aprenderá:** * cómo usar Azure PowerShell para ejecutar una serie de programas de MapReduce en HDInsight de Azure. * El aspecto de un programa de MapReduce escrito en Java.
+**Aprenderá:** \* cómo usar Azure PowerShell para ejecutar una serie de programas de MapReduce en HDInsight de Azure. \* El aspecto de un programa de MapReduce escrito en Java.
 
 
 **Requisitos previos:**
@@ -433,4 +434,4 @@ Para ver tutoriales que le guíen en la ejecución de otras muestras y ofrezcan 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

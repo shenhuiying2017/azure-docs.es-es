@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="08/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -41,7 +41,7 @@ Si se especifica que el recurso se cifre con una opción **CommonEncrypted** o u
 
 Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el SDK de Servicios multimedia para .NET creará una **StorateEncrypted** **ContentKey** para el recurso.
 
->[AZURE.NOTE]Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+>[AZURE.NOTE]Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !\*'();:@&=+$,/?%#". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 En este tema se muestra cómo usar el SDK de Servicios multimedia para .NET, así como las extensiones del SDK de Servicios multimedia para .NET para cargar archivos en un recurso de Servicios multimedia.
 
@@ -111,53 +111,53 @@ El código hace lo siguiente:
 >[AZURE.NOTE]Use el método UploadAsync para asegurarse de que las llamadas no provocan un bloqueo y los archivos se cargan en paralelo.
  	
  	
-	static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
-	{
-	    var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
-	
-	    var asset = CreateEmptyAsset(assetName, assetCreationOptions);
-	
-	    var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(30),
-	                                                        AccessPermissions.Write | AccessPermissions.List);
+        static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
+        {
+            var assetName = "UploadMultipleFiles_" + DateTime.UtcNow.ToString();
 
-	    var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
-	
-	    var blobTransferClient = new BlobTransferClient();
-		blobTransferClient.NumberOfConcurrentTransfers = 20;
-	    blobTransferClient.ParallelTransferThreadCount = 20;
-	
-	    blobTransferClient.TransferProgressChanged += blobTransferClient_TransferProgressChanged;
-	
-	    var filePaths = Directory.EnumerateFiles(folderPath);
-	
-	    Console.WriteLine("There are {0} files in {1}", filePaths.Count(), folderPath);
-	
-	    if (!filePaths.Any())
-	    {
-	        throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
-	    }
-	
-	    var uploadTasks = new List&lt;Task&gt;();
-	    foreach (var filePath in filePaths)
-	    {
-	        var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
-	        Console.WriteLine("Created assetFile {0}", assetFile.Name);
-	                
-	        // It is recommended to validate AccestFiles before upload. 
-	        Console.WriteLine("Start uploading of {0}", assetFile.Name);
-	        uploadTasks.Add(assetFile.UploadAsync(filePath, blobTransferClient, locator, CancellationToken.None));
-	    }
-	
-	    Task.WaitAll(uploadTasks.ToArray());
-	    Console.WriteLine("Done uploading the files");
-	
-	    blobTransferClient.TransferProgressChanged -= blobTransferClient_TransferProgressChanged;
-	
-	    locator.Delete();
-	    accessPolicy.Delete();
-	
-	    return asset;
-	}
+            IAsset asset = _context.Assets.Create(assetName, assetCreationOptions);
+
+            var accessPolicy = _context.AccessPolicies.Create(assetName, TimeSpan.FromDays(30),
+                                                                AccessPermissions.Write | AccessPermissions.List);
+
+            var locator = _context.Locators.CreateLocator(LocatorType.Sas, asset, accessPolicy);
+
+            var blobTransferClient = new BlobTransferClient();
+            blobTransferClient.NumberOfConcurrentTransfers = 20;
+            blobTransferClient.ParallelTransferThreadCount = 20;
+
+            blobTransferClient.TransferProgressChanged += blobTransferClient_TransferProgressChanged;
+
+            var filePaths = Directory.EnumerateFiles(folderPath);
+
+            Console.WriteLine("There are {0} files in {1}", filePaths.Count(), folderPath);
+
+            if (!filePaths.Any())
+            {
+                throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
+            }
+
+            var uploadTasks = new List<Task>();
+            foreach (var filePath in filePaths)
+            {
+                var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
+                Console.WriteLine("Created assetFile {0}", assetFile.Name);
+
+                // It is recommended to validate AccestFiles before upload. 
+                Console.WriteLine("Start uploading of {0}", assetFile.Name);
+                uploadTasks.Add(assetFile.UploadAsync(filePath, blobTransferClient, locator, CancellationToken.None));
+            }
+
+            Task.WaitAll(uploadTasks.ToArray());
+            Console.WriteLine("Done uploading the files");
+
+            blobTransferClient.TransferProgressChanged -= blobTransferClient_TransferProgressChanged;
+
+            locator.Delete();
+            accessPolicy.Delete();
+
+            return asset;
+        }
 	
 	static void  blobTransferClient_TransferProgressChanged(object sender, BlobTransferProgressChangedEventArgs e)
 	{
@@ -305,4 +305,4 @@ Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obten
 [Obtención de un procesador multimedia]: media-services-get-media-processor.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

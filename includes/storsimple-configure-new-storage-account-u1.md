@@ -1,4 +1,3 @@
-
 #### Para agregar una cuenta de almacenamiento en StorSimple 8000 Series Update 1.0
 
 1. En la página de aterrizaje del servicio de Administrador de StorSimple, seleccione el servicio y haga doble clic en él. Esto le llevará a la página **Inicio rápido**. Seleccione la página **Configurar**.
@@ -46,4 +45,4 @@
 
 7. La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. Haga clic en **Guardar** para guardar la nueva cuenta de almacenamiento. Haga clic en **Aceptar** cuando se le pida confirmación.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

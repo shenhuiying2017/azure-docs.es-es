@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="08/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -356,9 +356,7 @@ Un anuncio ejecutable se puede inicializar usando el elemento <AdParameters> den
 
 ##Implementación de un reproductor de Windows o Windows Phone 8 con compatibilidad para anuncios
 
-Microsoft Media Platform: Player Framework para Windows 8 y Windows Phone 8 contiene una colección de aplicaciones de ejemplo que muestran cómo implementar una aplicación de reproductor de vídeo usando el marco. Puede descargar Player Framework y los ejemplos de [Player Framework para Windows 8 y Windows Phone 8](https://playerframework.codeplex.com/releases/view/105214).
-
-Para obtener más información acerca de la inserción de anuncios, consulte [Inserción de anuncios en contenido multimedia](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
+Microsoft Media Platform: Player Framework para Windows 8 y Windows Phone 8 contiene una colección de aplicaciones de ejemplo que muestran cómo implementar una aplicación de reproductor de vídeo usando el marco. Puede descargar Player Framework y los ejemplos de [Player Framework para Windows 8 y Windows Phone 8](https://playerframework.codeplex.com).
 
 Cuando abra la solución Microsoft.PlayerFramework.Xaml.Samples, verá varias carpetas en el proyecto. La carpeta Advertising contiene el código de ejemplo correspondiente a la creación de un reproductor de vídeo con compatibilidad para anuncios. Dentro de la carpeta Advertising, hay varios archivos XAML/cs que muestran diferentes maneras de insertar anuncios. La lista siguiente describe cada una de ellas:
 
@@ -571,9 +569,8 @@ Los ejemplos usan el VmapSchedulerPlugin para programar anuncios con un archivo 
 ##Implementación de un reproductor de vídeo de iOS con compatibilidad para anuncios
 
 
-Microsoft Media Platform: Player Framework para iOS contiene una colección de aplicaciones de ejemplo que muestran cómo implementar una aplicación de reproductor de vídeo usando el marco. Puede descargar Player Framework y los ejemplos de [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). La página de Github incluye un vínculo a un wiki que contiene información adicional sobre Player Framework y una introducción al ejemplo del reproductor: [Wiki de Azure Media Player](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Microsoft Media Platform: Player Framework para iOS contiene una colección de aplicaciones de ejemplo que muestran cómo implementar una aplicación de reproductor de vídeo usando el marco. Puede descargar el Reproductor multimedia y los ejemplos del [Marco de trabajo del Reproductor multimedia de Azure](https://github.com/Azure/azure-media-player-framework). La página de Github incluye un vínculo a un wiki que contiene información adicional sobre el Reproductor multimedia y una introducción al ejemplo del reproductor: [Wiki del Reproductor multimedia de Azure](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
-Para obtener más información acerca de la inserción de anuncios, consulte [Inserción de anuncios en contenido multimedia](media-services-inserting-ads-on-client-side.md#insert_ads_into_media).
 
 ###Programación de anuncios con VMAP
 
@@ -624,7 +621,7 @@ El ejemplo siguiente muestra cómo programar un anuncio VAST de enlace en tiempo
         [self logFrameworkError];
     }
          
-   El ejemplo siguiente muestra cómo programar un anuncio VAST de enlace anticipado. //Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
+   El ejemplo siguiente muestra cómo programar un anuncio VAST de enlace anticipado. //Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"\]\]) { [self logFrameworkError\]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
         
 		// Create AdInfo instance
 	    AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
@@ -802,6 +799,6 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
  
 ##Otras referencias
 
-[Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md) [Introducción a Azure Media Player Framework para iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
+[Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,14 +1,12 @@
 
-## <a id="add-push"></a>Incorporación de notificaciones de inserción a la aplicación
-
-* En QSAppDelegate.m, importe el SDK de iOS y QSTodoService.h:
+* En **QSAppDelegate.m**, importe el SDK de iOS y **QSTodoService.h**:
 
 ```
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
         #import "QSTodoService.h"
 ```
 
-* En `didFinishLaunchingWithOptions` QSAppDelegate.m, inserte las líneas siguientes justo antes de `return YES;`:
+* En `didFinishLaunchingWithOptions`, en **QSAppDelegate.m**, inserte las líneas siguientes justo antes de `return YES;`:
 
 ```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -16,7 +14,7 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
 ```
 
-* En QSAppDelegate.m, agregue los métodos de controlador siguientes. Ahora su aplicación está actualizada para que sea compatible con las notificaciones push.
+* En **QSAppDelegate.m**, agregue los métodos de controlador siguientes. Ahora su aplicación está actualizada para que sea compatible con las notificaciones push.
 
 ```
         // Registration with APNs is successful
@@ -57,4 +55,4 @@
         }
 ```
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -25,12 +25,10 @@
 
 	Como este proceso puede tardar unos minutos, Visual Studio muestra un cuadro de diálogo de confirmación.
 
-	![Mensaje de confirmación de inicio de creación de Servicio de API](./media/app-service-api-pub-web-create/25-api-provisioning-started-v3.png)
-
 6. Haga clic en **Aceptar** en el cuadro de diálogo de confirmación.
  
 	El proceso de aprovisionamiento crea el grupo de recursos y la aplicación de API en su suscripción de Azure. Visual Studio muestra el progreso en la ventana **Actividad del Servicio de aplicaciones de Azure**.
 
 	![Notificación de estado mediante la ventana de actividad del Servicio de aplicaciones de Azure](./media/app-service-api-pub-web-create/26-provisioning-success-v3.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

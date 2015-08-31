@@ -18,7 +18,7 @@
 
 # Incorporación de Servicios móviles a una aplicación existente
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-ec.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -29,7 +29,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">Ver el tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">(en inglés) Reproducir vídeo (en inglés)</span></a><span class="time">15:32</span></div>
 </div>
 
-> [AZURE.NOTE]Este tutorial está destinado a ayudarle a comprender cómo los Servicios móviles le permiten usar Azure para almacenar y recuperar datos de una aplicación Android. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles](../get-started-android-EC.md).
+> [AZURE.NOTE]Este tutorial está destinado a ayudarle a comprender cómo los Servicios móviles le permiten usar Azure para almacenar y recuperar datos de una aplicación Android. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles](../get-started-android-ec.md).
 > 
 > Si desea ver el código fuente de la aplicación final, vaya [aquí](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData).
 
@@ -49,16 +49,16 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ###Obtención del código de ejemplo
 
-[AZURE.INCLUDE [download-android-sample-code](../../includes/download-android-sample-code-EC.md)]
+[AZURE.INCLUDE [download-android-sample-code](../../includes/download-android-sample-code-ec.md)]
 
 ###Comprobación de la versión del SDK de Android
 
-[AZURE.INCLUDE [Comprobar el SDK](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [Comprobar el SDK](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 
 ###Inspección y ejecución del código de ejemplo
 
-[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-ec.md)]
 
 ##<a name="create-service"></a>Creación de un servicio móvil nuevo en el Portal de administración
 
@@ -70,7 +70,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ##<a name="update-app"></a>Actualización de la aplicación para usar el servicio móvil para el acceso a datos
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-ec.md)]
 
 ##<a name="test-app"></a>Prueba de la aplicación con su servicio móvil nuevo
 
@@ -123,7 +123,7 @@ A continuación, pruebe estos otros tutoriales de Android:
 
 <!-- URLs. -->
 [Introducción a la autenticación]: mobile-services-android-get-started-users.md
-[Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-android-get-started-push-ec.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Portal de administración]: https://manage.windowsazure.com/
@@ -132,4 +132,4 @@ A continuación, pruebe estos otros tutoriales de Android:
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

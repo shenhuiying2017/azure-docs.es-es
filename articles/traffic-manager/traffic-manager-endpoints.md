@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Administrar extremos en el Administrador de tráfico"
+   pageTitle="Administración de extremos en el Administrador de tráfico | Microsoft Azure"
    description="Este artículo le ayudará a agregar, quitar, habilitar y deshabilitar extremos del Administrador de tráfico."
    services="traffic-manager"
    documentationCenter=""
@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Adición, deshabilitación, habilitación o eliminación de extremos
 
-Sitios web de Azure ya proporcionan la funcionalidad de equilibrio de carga de conmutación por error y de round robin para sitios web en un centro de datos, independientemente del modo del sitio web. El Administrador de tráfico permite especificar el equilibrio de carga de conmutación por error y de round robin para sitios web y servicios en la nube en distintos centros de datos. El primer paso necesario para proporcionar esa funcionalidad es agregar el extremo del sitio web o del servicio en la nube al Administrador de tráfico.
+Sitios web de Azure ya proporciona la funcionalidad de enrutamiento del tráfico de conmutación por error y round robin para sitios web en un centro de datos, independientemente del modo del sitio web. El Administrador de tráfico permite especificar el enrutamiento del tráfico de conmutación por error y round robin para sitios web y servicios en la nube en distintos centros de datos. El primer paso necesario para proporcionar esa funcionalidad es agregar el extremo del sitio web o del servicio en la nube al Administrador de tráfico.
 
 >[AZURE.NOTE]No se pueden agregar ubicaciones externas o perfiles del Administrador de tráfico como extremos mediante el uso del Portal de administración. Debe utilizar la API de REST [Creación de definición](http://go.microsoft.com/fwlink/p/?LinkId=400772) o Windows PowerShell [Add-AzureTrafficManagerEndpoint](http://go.microsoft.com/fwlink/p/?LinkId=400774).
 
@@ -36,7 +36,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 6. Seleccione los sitios web de la lista para agregarlos como extremos para este perfil. Si borra el nombre del servicio en la nube, este se eliminará de la lista de extremos. Tenga en cuenta que solo puede seleccionar un único sitio web por centro de datos de Azure (también conocido como región). Si selecciona un sitio web en un centro de datos que hospeda varios sitios web, al seleccionar el primer sitio web, el resto de sitios del mismo centro de datos no se podrá seleccionar. Tenga en cuenta, asimismo, que solo se enumeran sitios web estándar.
 7. Una vez seleccionados los extremos de este perfil, haga clic en la marca de verificación, situada abajo a la derecha, para guardar los cambios.
 
->[AZURE.NOTE]Si va a utilizar el método de equilibrio de carga de *Conmutación por error*, después de agregar o de quitar un extremo, asegúrese de ajustar la Lista de prioridad de conmutación por error en la página Configuración, para que refleje el orden de conmutación por error que desee especificar. Para obtener más información, consulte [Configuración del equilibrio de carga de conmutación por error](traffic-manager-configure-failover-load-balancing.md).
+>[AZURE.NOTE]Si va a usar el método de enrutamiento del tráfico de *Conmutación por error*, después de agregar o de quitar un extremo, asegúrese de ajustar la Lista de prioridades de conmutación por error en la página Configuración, para que refleje el orden de conmutación por error que desee especificar. Para obtener más información, consulte [Método de enrutamiento del tráfico de conmutación por error](traffic-manager-configure-failover-load-balancing.md).
 
 ## Para deshabilitar un extremo
 
@@ -68,7 +68,9 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 [Acerca de la supervisión del Administrador de tráfico](traffic-manager-monitoring.md)
 
-[Tareas de configuración del Administrador de tráfico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
+
+[Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
 
 [Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
@@ -77,4 +79,4 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 [Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

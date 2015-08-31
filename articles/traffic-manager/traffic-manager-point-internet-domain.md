@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Hacer que un dominio de Internet de la empresa indique un dominio del Administrador de tráfico"
+   pageTitle="Selección de un dominio de Internet de la compañía para un dominio del Administrador de tráfico | Microsoft Azure"
    description="Este artículo le ayudará a que el nombre de dominio de la empresa indique un nombre de dominio del Administrador de tráfico."
    services="traffic-manager"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # un dominio de Internet de la compañía a un dominio del Administrador de tráfico
 
@@ -27,13 +27,15 @@ Todas las solicitudes de tráfico de *www.contoso.com* se redirigirán ahora a *
 
 >[AZURE.IMPORTANT]No puede hacer que un dominio de segundo nivel como por ejemplo *contoso.com*, indique el dominio del Administrador de tráfico. Se trata de una limitación del protocolo DNS, que no permite registros CNAME para nombres de dominio de segundo nivel.
 
-## Otras referencias
+## Pasos siguientes
 
-[Acerca de los métodos de equilibrio de carga del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
+[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-load-balancing-methods.md)
 
-[Tareas de configuración del Administrador de tráfico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
 
-[Información general sobre el Administrador de tráfico](traffic-manager-overview.md)
+[Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
+
+[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

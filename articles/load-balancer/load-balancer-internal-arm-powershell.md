@@ -15,7 +15,7 @@
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# Creación de un equilibrador de carga mediante el Administrador de recursos de Azure
+# Introducción a la configuración de un equilibrador de carga interno con el Administrador de recursos de Azure
 
 
 > [AZURE.SELECTOR]
@@ -245,4 +245,4 @@ Encontrará instrucciones paso a paso para crear una máquina virtual y asignarl
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

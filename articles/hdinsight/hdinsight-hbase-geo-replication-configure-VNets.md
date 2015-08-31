@@ -29,7 +29,7 @@ La conectividad de sitio a sitio de redes virtuales de Azure usa una puerta de e
 - Aplicaciones regionales de niveles múltiples con límite de aislamiento sólido 
 - Comunicación entre suscripciones y entre organizaciones en Azure
 
-Para obtener más información, vea [Configuración de una conexión de red virtual a red virtual](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Para obtener más información, vea [Configuración de una conexión de red virtual a red virtual](https://msdn.microsoft.com/library/azure/dn690122.aspx).
 
 Para verla en vídeo:
 
@@ -256,8 +256,7 @@ En este tutorial ha aprendido cómo configurar una conexión VPN entre dos redes
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-portal]: http://manage.windowsazure.com
-
+[azure-portal]: https://portal.azure.com
 
 [powershell-install]: ../install-configure-powershell
 
@@ -271,4 +270,4 @@ En este tutorial ha aprendido cómo configurar una conexión VPN entre dos redes
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

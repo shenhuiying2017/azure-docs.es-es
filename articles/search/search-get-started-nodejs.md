@@ -1,32 +1,32 @@
 <properties
-	pageTitle="Introducción a Búsqueda de Azure en NodeJS"
+	pageTitle="Introducción a Búsqueda de Azure en NodeJS | Microsoft Azure"
 	description="Recorra la creación de una aplicación de Búsqueda de Azure personalizada utilizando NodeJS como lenguaje de programación."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
-#Introducción a Búsqueda de Azure en NodeJS#
+# Introducción a Búsqueda de Azure en NodeJS
 
-Aprenda a crear una aplicación de búsqueda de NodeJS personalizada que utiliza Búsqueda de Azure para la experiencia de búsqueda. El tutorial utiliza la [API de REST del servicio Búsqueda de Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir los objetos y las operaciones que se utilizan en este ejercicio.
+Aprenda a crear una aplicación de búsqueda de NodeJS personalizada que utiliza Búsqueda de Azure para la experiencia de búsqueda. Este tutorial usa la [API de REST del servicio Búsqueda de Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir los objetos y las operaciones que se utilizan en este ejercicio.
 
 Hemos utilizado [NodeJS](https://nodejs.org) y NPM, [Sublime Text 3](http://www.sublimetext.com/3) y Windows PowerShell en Windows 8.1 para desarrollar y probar este código.
 
-Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure, para el que puede registrarse en el [portal de Azure](https://portal.azure.com).
+Para ejecutar este ejemplo, necesita un servicio Búsqueda de Azure, para el que puede registrarse en el [portal de Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Descargue el código fuente de este tutorial en [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 
-##Acerca de los datos##
+## Acerca de los datos
 
 Esta aplicación de ejemplo usa los datos del [Servicio geológico de Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia, como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
 
@@ -34,11 +34,11 @@ En esta aplicación, el programa **DataIndexer** compila y carga el índice usan
 
 > [AZURE.NOTE]Se aplicó un filtro a este conjunto de datos para no sobrepasar el límite de 10.000 documentos del nivel de precios gratuito. Si usa el nivel estándar, este límite no se aplica. Para obtener más información acerca de la capacidad de cada nivel de precios, consulte [Límites y restricciones](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-##Creación del servicio##
+## Creación del servicio
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
-2. En la barra de salto, haga clic en **Nuevo** | **Datos + Almacenamiento** | **Búsqueda**.
+2. En la barra de salto, haga clic en **Nuevo** > **Datos + Almacenamiento** > **Búsqueda**.
 
      ![][1]
 
@@ -64,11 +64,11 @@ En esta aplicación, el programa **DataIndexer** compila y carga el índice usan
 Preste atención a las notificaciones de la barra de salto. Cuando el servicio esté listo para su uso, aparecerá un aviso.
 
 <a id="sub-2"></a>
-##Buscar el nombre del servicio y la clave de API del servicio Búsqueda de Azure
+## Buscar el nombre del servicio y la clave de API del servicio Búsqueda de Azure
 
-Después de crear el servicio, puede volver al portal para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
+Después de crear el servicio, vuelva al portal para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
 
-1. En la barra de salto, haga clic en **Inicio** y, después, haga clic en el servicio de búsqueda para abrir el panel del servicio.
+1. En la barra de salto, haga clic en **Inicio** y, a continuación, haga clic en el servicio de búsqueda para abrir el panel del servicio.
 
 2. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
 
@@ -76,7 +76,7 @@ Después de crear el servicio, puede volver al portal para obtener la dirección
 
 3. Copie la dirección URL del servicio, una clave de administración y una clave de consulta. Necesitará las tres más adelante para agregarlas al archivo config.js.
 
-##Descarga de los archivos de ejemplo
+## Descarga de los archivos de ejemplo
 
 Use uno de los siguientes métodos para descargar el ejemplo.
 
@@ -87,9 +87,9 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 Como alternativa, si tiene GIT en la instrucción de ruta de acceso, abra una ventana de PowerShell y escriba `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
-##Actualización del archivo config.js. con la dirección URL del servicio de búsqueda y la clave de API
+## Actualización del archivo config.js. con la dirección URL del servicio de búsqueda y la clave de API
 
-Utilizando la dirección URL y las claves de API que copió anteriormente, especifique la dirección URL, la clave de administración y la clave de consulta en el archivo de configuración.
+Utilizando la dirección URL y la api-key que copió anteriormente, especifique la dirección URL, la clave de administración y la clave de consulta en el archivo de configuración.
 
 La clave de administración concede control total sobre las operaciones de servicio, incluidas la creación o eliminación de un índice y la carga de documentos. En cambio, las claves de consulta son para operaciones de solo lectura, utilizadas normalmente por las aplicaciones cliente que se conectan a Búsqueda de Azure.
 
@@ -100,7 +100,7 @@ La siguiente captura de pantalla muestra el archivo **config.js** abierto en un 
 ![][5]
 
 
-##Hospedar un entorno de tiempo de ejecución para el ejemplo
+## Hospedar un entorno de tiempo de ejecución para el ejemplo
 
 El ejemplo requiere un servidor HTTP, que puede instalar globalmente mediante npm.
 
@@ -110,14 +110,14 @@ Ejecute los comandos siguientes en una ventana de PowerShell.
 2. Escriba `npm install`.
 2. Escriba `npm install -g http-server`.
 
-##Compilación del índice y ejecución de la aplicación
+## Compilación del índice y ejecución de la aplicación
 
 1. Escriba `npm run indexDocuments`.
 2. Escriba `npm run build`.
 3. Escriba `npm run start_server`.
 4. Dirija el explorador a `http://localhost:8080/index.html`
 
-##Buscar en los datos de USGS##
+## Buscar en los datos de USGS
 
 El conjunto de datos de USGS incluye los registros que son relevantes para el estado de Rhode Island. Si hace clic en **Search** en un cuadro de búsqueda vacío, obtendrá las 50 primeras entradas (es el valor predeterminado).
 
@@ -132,7 +132,7 @@ También puede probar con alguno de estos términos:
 - goose +cape
 
 
-##Pasos siguientes##
+## Pasos siguientes
 
 Este es el primer tutorial de Búsqueda de Azure basado en NodeJS y en el conjunto de datos de USGS. Con el tiempo, ampliaremos este tutorial para mostrar otras características de búsqueda que podría querer usar en sus soluciones personalizadas.
 
@@ -146,6 +146,5 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="shkurhek"/>
 
 # Niveles de servicio
@@ -68,16 +68,16 @@ El nivel Premium está diseñado para aplicaciones críticas. Ofrece el mejor ni
 **Rendimiento y tamaño**
 
 
-| Nivel de servicio | Premium P1 | Premium P2 | Premium P6 (anteriormente P3) |
-| :-- | :-- | :-- | :-- |
-| Unidades de rendimiento de base de datos (DTU) | 125 | 250 | 1000 |
-| Tamaño máximo de la base de datos | 500 GB | 500 GB | 500 GB |
+| Nivel de servicio | Premium P1 | Premium P2 | Premium P4 | Premium P6 (anteriormente P3) |
+| :-- | :-- | :-- | :-- | :-- |
+| Unidades de rendimiento de base de datos (DTU) | 125 | 250 | 500 | 1000 |
+| Tamaño máximo de la base de datos | 500 GB | 500 GB | 500 GB | 500 GB |
 
 
 **Características**
 
 
-| Nivel de servicio | Premium (P1, P2, P6) |
+| Nivel de servicio | Premium (P1, P2, P4, P6) |
 | :-- | :-- |
 | Restauración a un momento dado (PITR) | Hasta el milisegundo en los últimos 35 días |
 | Recuperación ante desastres | Replicación geográfica activa, hasta 4 secundarias legibles en línea |
@@ -89,4 +89,4 @@ Para obtener más información sobre los precios de estos niveles, consulte [Pre
 Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

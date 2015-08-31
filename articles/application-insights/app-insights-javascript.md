@@ -25,6 +25,10 @@ Obtenga información sobre el rendimiento y el uso de su página web. Agregue Vi
 
 Si ya ha configurado la telemetría de servidor para su aplicación web [ASP.NET][greenbrown] o [Java][java], tendrá una idea clara tanto desde el punto de vista del cliente como del servidor. Las dos secuencias se integrarán en el portal de Application Insights.
 
+#### Demostración rápida
+
+Si no tiene una suscripción de Azure y le gustaría probar Application Insights en la página web, visite [Probar Application Insights](http://aka.ms/ainow).
+
 ## Creación de recursos en Application Insights
 
 El recurso de Application Insights es donde se muestran los datos sobre el rendimiento y el uso de la página. (Si ha ya creado un recurso, quizá para recopilar datos de su servidor web, omita este paso).
@@ -124,7 +128,7 @@ Inserte una llamada de JavaScript como esta en el lugar adecuado del código de 
 
     appInsights.trackPageView(myPageName);
 
-El nombre de página puede contener los mismos caracteres que una URL, aunque se ignorarán los elementos situados tras "#" o "?".
+El nombre de página puede contener los mismos caracteres que una URL, aunque se ignorarán los elementos situados tras "\#" o "?".
 
 
 ## Inspección de eventos de vista de página individuales
@@ -143,7 +147,7 @@ Seleccione el evento que desea ver con mayor detalle. En la página de detalles,
 
 ### Propiedades de la vista de página
 
-* **Duración de la vista de página** Tiempo que se tarda en cargar la página y se inicia la ejecución de scripts. En concreto, el intervalo entre el inicio de la carga de la página y la ejecución de trackPageView. Si mueve trackPageView desde su posición habitual después de la inicialización del script, reflejará un valor diferente. 
+* **Duración de la vista de página** Tiempo que se tarda en cargar la página e iniciar la ejecución de scripts. En concreto, el intervalo entre el inicio de la carga de la página y la ejecución de trackPageView. Si mueve trackPageView desde su posición habitual después de la inicialización del script, reflejará un valor diferente. 
 
 ## Seguimiento de uso personalizado
 
@@ -182,4 +186,4 @@ Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

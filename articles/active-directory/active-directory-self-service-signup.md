@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="¿Qué es la suscripción de autoservicio de Azure?" 
-	description="Información general de la suscripción de autoservicio de Azure: cómo administrar el proceso de suscripción." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="¿Qué es la suscripción de autoservicio de Azure?"
+	description="Información general de la suscripción de autoservicio de Azure: cómo administrar el proceso de suscripción."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="identity" 
-	ms.date="05/13/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/14/2015" 
+	ms.author="stevenpo"/>
 
 
 # ¿Qué es la suscripción de autoservicio de Azure?
@@ -26,12 +26,12 @@ En este tema se explica el proceso de suscripción de autoservicio (conocido tam
 - Permita que los usuarios tengan acceso a los servicios que desean más rápido.
 - Cree ofertas (virales) basadas en correo electrónico para un servicio.
 - Cree flujos de suscripción basados en correo electrónico que permitan a los usuarios crear identidades rápidamente con sus alias de correo electrónico del trabajo fáciles de recordar.
-- Los inquilinos de Azure no administrados pueden crecer y convertirse en inquilinos administrados más adelante y reutilizarse para otros servicios. 
+- Los inquilinos de Azure no administrados pueden crecer y convertirse en inquilinos administrados más adelante y reutilizarse para otros servicios.
 
 ## Términos y definiciones
 
-+ **Suscripción de autoservicio**: método por el que un usuario se suscribe a un servicio en la nube y por el que se le crea automáticamente una identidad en Azure Active Directory basado en su dominio de correo electrónico. 
-+ **Inquilino de Azure no administrado**: directorio donde se crea la identidad. Un inquilino no administrado es un directorio que no tiene administrador global. 
++ **Suscripción de autoservicio**: método por el que un usuario se suscribe a un servicio en la nube y por el que se le crea automáticamente una identidad en Azure Active Directory basado en su dominio de correo electrónico.
++ **Inquilino de Azure no administrado**: directorio donde se crea la identidad. Un inquilino no administrado es un directorio que no tiene administrador global.
 + **Usuario comprobado por correo electrónico**: tipo de cuenta de usuario en Azure AD. Un usuario que tiene una identidad que se crean automáticamente después de suscribirse a una oferta de autoservicio se conoce como usuario comprobado por correo electrónico. Un usuario comprobado por correo electrónico es un miembro regular de un directorio etiquetado con creationmethod = EmailVerified.
 
 ## Experiencia del cliente
@@ -46,8 +46,8 @@ Si Dan es el primer usuario con una dirección de correo electrónico de Bellows
 
 Un administrador que posee el nombre de dominio DNS de un inquilino de Azure no administrado puede adquirir o fusionar el inquilino después de demostrar la propiedad. En las secciones siguientes se explica con más detalle la experiencia del administrador, pero a continuación se incluye un resumen:
 
-- Al adquirir un inquilino de Azure no administrado, se convierte en administrador global del inquilino no administrado. Esto se denomina a veces adquisición interna. 
-- Al fusionar un inquilino de Azure no administrado, agregue el nombre de dominio DNS del inquilino no administrado a su inquilino de Azure administrado. Se creará una asignación de usuarios a recursos para que los usuarios puedan seguir teniendo acceso a los servicios sin interrupción. Esto se denomina a veces adquisición externa. 
+- Al adquirir un inquilino de Azure no administrado, se convierte en administrador global del inquilino no administrado. Esto se denomina a veces adquisición interna.
+- Al fusionar un inquilino de Azure no administrado, agregue el nombre de dominio DNS del inquilino no administrado a su inquilino de Azure administrado. Se creará una asignación de usuarios a recursos para que los usuarios puedan seguir teniendo acceso a los servicios sin interrupción. Esto se denomina a veces adquisición externa.
 
 ### ¿Qué se crea en Microsoft Azure Directory?
 
@@ -103,13 +103,13 @@ Supongamos que un administrador de TI de Bellows College detecta que los usuario
 En una adquisición externa, ya tiene un inquilino administrado y desea que todos los usuarios y grupos de un inquilino no administrado se unan a ese inquilino administrado en lugar de poseer dos inquilinos independientes.
 
 Como administrador de un inquilino administrado, se agrega un dominio que tiene asociado un inquilino no administrado.
-	
+
 Por ejemplo, supongamos que es administrador de TI y ya tiene un inquilino administrado para Contoso.com, un nombre de dominio registrado para su organización. Descubre que los usuarios de su organización han realizado una suscripción de autoservicio a una oferta con un nombre de dominio de correo electrónico user@contoso.co.uk, que es otro nombre de dominio que posee su organización. Actualmente, esos usuarios tienen cuentas en un inquilino no administrado para contoso.co.uk.
 
 Usted no desea administrar dos inquilinos independientes, por lo que fusiona el inquilino no administrado para contoso.co.uk en su inquilino administrado de TI existente para contoso.com.
-	
+
 La adquisición externa sigue el mismo proceso de validación de DNS que la adquisición interna. La diferencia es que se reasignan los usuarios y servicios al inquilino administrado de TI.
-	
+
 #### ¿Cuál es el impacto de realizar una adquisición externa?
 
 Con una adquisición externa, se crea una asignación de usuarios a recursos para que los usuarios sigan teniendo acceso a los servicios sin interrupción. Muchas aplicaciones, como RMS para usuarios, administran la asignación de usuarios a los recursos bien y los usuarios pueden seguir teniendo acceso a los servicios sin cambios. Si una aplicación no administra la asignación de usuarios a recursos de forma eficaz, es posible que se bloquee la adquisición externa explícitamente para evitar una experiencia deficiente de los usuarios.
@@ -160,7 +160,7 @@ Tiene unas cuantas opciones para realizar una validación de dominio (y realizar
 Por ejemplo:
 
 1. Conéctese a Azure AD con las credenciales que se usaron para responder a la oferta de autoservicio: import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
-		
+
 2. Obtenga una lista de dominios:
 
 	Get-MsolDomain
@@ -205,8 +205,8 @@ Actualmente, los administradores tienen dos controles de autoservicio . Pueden c
 
 Un administrador puede configurar estas capacidades con estos parámetros Set-MsolCompanySettings de cmdlet de Azure AD:
 
-+ **AllowEmailVerifiedUsers** controla si un usuario puede crear o unirse a un inquilino no administrado. Si establece este parámetro en $false, ningún usuario comprobado por correo electrónico se puede unir al inquilino. 
-+ **AllowAdHocSubscriptions** controla la capacidad de los usuarios de realizar suscripciones de autoservicio. Si establece el parámetro en $false, ningún usuario puede realizar suscripciones de autoservicio. 
++ **AllowEmailVerifiedUsers** controla si un usuario puede crear o unirse a un inquilino no administrado. Si establece este parámetro en $false, ningún usuario comprobado por correo electrónico se puede unir al inquilino.
++ **AllowAdHocSubscriptions** controla la capacidad de los usuarios de realizar suscripciones de autoservicio. Si establece el parámetro en $false, ningún usuario puede realizar suscripciones de autoservicio.
 
 
 ### ¿Cómo funciona los controles conjuntamente?
@@ -234,6 +234,4 @@ Para obtener más información y ejemplos de cómo usar estos parámetros, consu
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

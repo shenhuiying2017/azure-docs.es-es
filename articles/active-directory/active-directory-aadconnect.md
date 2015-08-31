@@ -103,8 +103,23 @@ Antes de instalar Azure AD Connect con Configuración rápida, hay algunas cosas
 - Azure AD Connect debe instalarse en Windows Server 2008 o en una versión superior. Este servidor puede ser un controlador de dominio o un servidor miembro.
 - El nivel de bosque y la versión del esquema de AD debe ser Windows Server 2003 o una versión posterior. Los controladores de dominio pueden ejecutar cualquier versión siempre que se cumplan los requisitos de nivel de bosque y esquema.
 - Si se va a implementar Servicios de federación de Active Directory, los servidores en los que se va a instalar AD FS deben ser Windows Server 2012 o versiones posteriores.
+- Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada se instala SQL Server 2012 Express LocalDB (una versión ligera de SQL Server Express) y se crea la cuenta de servicio para el servicio en el equipo local. SQL Server Express tiene un límite de tamaño de 10 GB que le permite que administre aproximadamente 100.000 objetos.
+- Si tiene que administrar un volumen elevado de objetos de directorio, es preciso que el proceso de instalación apunte a otra versión de SQL Server. Azure AD Connect admite todas las versiones de Microsoft SQL Server de SQL Server 2008 (con Service Pack 4) a SQL Server 2014.
 - Una cuenta de administrador de empresa para su Active Directory local
-- Opcional: una cuenta de usuario de prueba para comprobar la sincronización. 
+- Si usa un servidor proxy saliente, debe agregarse la siguiente configuración en el archivo **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** para completar la instalación. <code>
+		
+		<system.net>
+    		<defaultProxy>
+      		<proxy
+        	usesystemdefault="true"
+        	proxyaddress=http://<PROXYIP>:80"
+        	bypassonlocal="true"
+     		 />
+    		</defaultProxy>
+  		</system.net>
+</code> Este texto debe escribirse en la parte inferior del archivo. En este código, &lt;PROXYIP&gt; representa la dirección IP de proxy real.
+
+- Opcional: una cuenta de usuario de prueba para comprobar la sincronización.
 
 #### Requisitos de hardware de Azure AD Connect
 La tabla siguiente muestra los requisitos mínimos de un equipo con Azure AD Connect.
@@ -185,7 +200,7 @@ Ahora que los usuarios se han sincronizado a la nube, debe asignarlos una licenc
 2. En la parte izquierda, seleccione **Active Directory**.
 3. En la página Active Directory, haga doble clic en el directorio que tiene los usuarios que desea habilitar.
 4. En la parte superior de la página de directorios, seleccione **Licencias**.
-5. En la página Licencias, seleccione Active Directory Premium o Enterprise Mobility Suite y luego haga clic en **Asignar**.
+5. En la página Licencias, seleccione Active Directory Premium o Enterprise Mobility Suite y haga clic en **Asignar**.
 6. En el cuadro de diálogo, seleccione los usuarios a los que desee asignar las licencias y, a continuación, haga clic en el icono de marca de verificación para guardar los cambios.
 
 
@@ -258,4 +273,4 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

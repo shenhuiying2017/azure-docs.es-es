@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="08/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -71,4 +71,4 @@ En este tema se enumeran las ubicaciones del punto de presencia (POP) de CDN de 
 - Melbourne
 - Sidney 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

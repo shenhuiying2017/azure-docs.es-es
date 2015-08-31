@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Pruebas de configuración del Administrador de tráfico
 
@@ -54,7 +54,7 @@ Hay servicios gratuitos de indagación y de búsqueda DNS basada en web disponib
 
 ## Otras referencias
 
-[Acerca de los métodos de equilibrio de carga del Administrador de tráfico](../about-traffic-manager-balancing-methods.md) [Tareas de configuración del Administrador de tráfico](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Administrador de tráfico](../traffic-manager.md)
+[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](../about-traffic-manager-balancing-methods.md) [Administrador de tráfico](../traffic-manager.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

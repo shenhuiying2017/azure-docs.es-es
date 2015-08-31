@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Solución de problemas de un dispositivo de StorSimple operativo"
+   pageTitle="Solución de problemas de un dispositivo StorSimple operativo | Microsoft Azure"
    description="Se describe cómo diagnosticar y corregir los errores que se producen en un dispositivo de StorSimple que está operativo."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/19/2015"
    ms.author="v-sharos" />
 
 # Solución de problemas de un dispositivo de StorSimple operativo
@@ -25,7 +25,7 @@ Al final de este artículo, verá una lista de códigos de error que pueden surg
 
 ## Proceso del Asistente de instalación para dispositivos operativos
 
-Utilice el Asistente para instalación (Invoke-HcsSetupWizard) para comprobar la configuración del dispositivo y tomar medidas correctivas si es necesario.
+Use el Asistente para instalación ([Invoke-HcsSetupWizard][1]) para comprobar la configuración del dispositivo y tomar medidas correctivas si es necesario.
 
 Al ejecutar el Asistente para instalación en un dispositivo previamente configurado y operativo, el flujo del proceso es diferente. Solo se pueden cambiar las siguientes entradas:
 
@@ -42,9 +42,9 @@ En la tabla siguiente se describen los errores que pueden surgir al ejecutar el 
 
 | Nº | Mensaje o condición de error | Causas posibles | Acción recomendada |
 |:--- |:-------------------------- |:--------------- |:------------------ |
-| 1 | Error 350032: El dispositivo ya se ha desactivado. | Verá este error si ejecuta al Asistente para instalación en un dispositivo que está desactivado. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes. No se puede poner en servicio un dispositivo desactivado. Puede ser necesario un restablecimiento de fábrica para que el dispositivo pueda volver a activarse. |
+| 1 | Error 350032: El dispositivo ya se ha desactivado. | Verá este error si ejecuta al Asistente para instalación en un dispositivo que está desactivado. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para conocer los pasos siguientes. No se puede poner en servicio un dispositivo desactivado. Puede ser necesario un restablecimiento de fábrica para que el dispositivo pueda volver a activarse. |
 | 2 | Invoke-HcsSetupWizard: ERROR\_INVALID\_FUNCTION (excepción de HRESULT: 0x80070001) | Se produce un error en la actualización del servidor DNS. La configuración de DNS es global y se aplica en todas las interfaces de red habilitadas. | Habilite la interfaz y vuelva a aplicar la configuración de DNS. Esto puede interrumpir la red en otras interfaces habilitadas, ya que esta configuración es global. |
-| 3 | El dispositivo parece estar en línea en el portal de servicios de StorSimple Manager, pero al intentar completar la instalación mínima y guardar la configuración, se produce un error en la operación. | Durante la instalación inicial, no se configuró el proxy web, aunque había un servidor proxy local. | Use el cmdlet [Test-HcsmConnection](https://msdn.microsoft.com/library/azure/eedae62d-0957-4005-b346-9248724f90e0#sec05) para localizar el error. [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) si no puede corregir el problema. |
+| 3 | El dispositivo parece estar en línea en el portal de servicios de StorSimple Manager, pero al intentar completar la instalación mínima y guardar la configuración, se produce un error en la operación. | Durante la instalación inicial, no se configuró el proxy web, aunque había un servidor proxy local. | Use el [cmdlet Test-HcsmConnection][2] para localizar el error. [Póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) si no puede corregir el problema. |
 | 4 | Invoke-HcsSetupWizard: El valor no está dentro del intervalo esperado. | Este error se debe a una máscara de subred incorrecta. Las posibles causas son: <ul><li> La máscara de subred falta o está vacía.</li><li>El formato de prefijo de Ipv6 es incorrecto.</li><li>La interfaz está habilitada para la nube, pero la puerta de enlace falta o es incorrecta.</li></ul>Tenga en cuenta que DATA 0 se habilita automáticamente para la nube si se configura mediante el Asistente para instalación. | Para determinar el problema, utilice la subred 0.0.0.0 o 256.256.256.256 y, a continuación, examine la salida. Escriba los valores correctos para la máscara de subred, la puerta de enlace y el prefijo de Ipv6, según sea necesario. |
  
 ## Códigos de error
@@ -61,6 +61,10 @@ Los errores se muestran en orden numérico.
 
 ## Pasos siguientes
 
-Si no puede resolver el problema, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para obtener ayuda.
+Si no puede resolver el problema, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para obtener ayuda.
 
-<!---HONumber=August15_HO6-->
+
+[1]: https://technet.microsoft.com/es-es/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/es-es/%5Clibrary/Dn715782(v=WPS.630).aspx
+
+<!---HONumber=August15_HO8-->

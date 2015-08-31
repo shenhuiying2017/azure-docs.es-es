@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 
@@ -219,11 +219,11 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 
 ## Pasos siguientes
 
-Obtenga más información acerca de la [seguridad de StorSimple](storsimple-security.md)
+Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
 
 
 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

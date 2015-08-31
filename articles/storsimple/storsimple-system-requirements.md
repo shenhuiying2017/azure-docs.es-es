@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/12/2015"
+   ms.date="08/17/2015"
    ms.author="alkohli"/>
 
 # Requisitos del sistema StorSimple
@@ -188,10 +188,10 @@ Además de los requisitos de redes anteriores, para obtener un rendimiento ópti
 
 ## Pasos siguientes
 
-- Obtenga más información acerca de los [límites de StorSimple](storsimple-limits.md).
-- [Implementar la solución StorSimple](storsimple-deployment-walkthrough.md).
+- [Obtenga más información acerca de los límites de StorSimple](storsimple-limits.md).
+- [Obtenga más información acerca de cómo implementar la solución StorSimple](storsimple-deployment-walkthrough.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

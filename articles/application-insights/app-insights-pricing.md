@@ -53,7 +53,10 @@ En cualquier momento, puede cambiar a la evaluación gratuita de Premium de 30 d
 * La cuota depende del nivel de precios que haya elegido.
 * La cuota se cuenta a partir de la medianoche UTC del primer día de cada mes.
 * El gráfico de puntos de datos muestra el uso que se ha hecho de la cuota en este mes.
-* La cuota se mide en *puntos de datos.* Un único punto de datos es una llamada a uno de los métodos de seguimiento, independientemente de si se llama explícitamente en el código o por uno de los módulos de telemetría estándar. Cada fila que se ve en la búsqueda de diagnóstico es un punto de datos. Cada medida de una métrica como un contador de rendimiento es un punto de datos. 
+* La cuota se mide en *puntos de datos.* Un único punto de datos es una llamada a uno de los métodos de seguimiento, independientemente de si se llama explícitamente en el código o por uno de los módulos de telemetría estándar. Los puntos de datos incluyen:
+ * Cada fila que se ve en la [búsqueda de diagnóstico](app-insights-diagnostic-search.md). 
+ * Cada medida sin procesar de una [métrica](app-insights-metrics-explorer.md), como un contador de rendimiento. (Los puntos que se ven en los gráficos normalmente son agregados de varios puntos de datos sin procesar).
+ * Cada punto de los gráficos de [prueba web (disponibilidad)](app-insights-monitor-web-app-availability.md). 
 * Los *datos de la sesión* no se cuentan en la cuota. Esto incluye los recuentos de datos de usuarios, sesiones, entorno y dispositivo.
 
 
@@ -72,18 +75,18 @@ El gráfico de la parte inferior de la hoja de precios muestra el volumen del pu
 
 ![En la parte inferior de la hoja de precios.](./media/app-insights-pricing/03-allocation.png)
 
-Haga clic en el gráfico para obtener más detalles, o arrastre el puntero por el mismo para ver el detalle de un intervalo de tiempo.
+Haga clic en el gráfico para obtener más detalles, o arrastre el puntero por él y haga clic en (+) para ver el detalle de un intervalo de tiempo.
 
 
 ## Velocidad de datos
 
-Además de la cuota mensual, estos valores limitan la velocidad de los datos. Para el [nivel de precios][pricing] gratuito, el límite es de 200 puntos de datos por segundo de promedio durante 5 minutos y para los niveles de pago es de 500/s de promedio durante 1 minuto.
+Además de la cuota mensual, estos valores limitan la velocidad de los datos. Para el [nivel de precios][pricing] gratuito, el límite es de 200 puntos de datos por segundo de promedio durante 5 minutos, y para los niveles de pago es de 500/s de promedio durante 1 minuto.
 
 Hay tres depósitos que se cuentan por separado:
 
 * [Llamadas a TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) y [registros capturados](app-insights-asp-net-trace-logs.md)
 * [Excepciones](app-insights-api-custom-events-metrics.md#track-exception), limitado a 50 puntos/s.
-* Toda la demás telemetría (vistas de páginas, sesiones, solicitudes, dependencias, métricas, eventos personalizados).
+* Toda la demás telemetría (vistas de páginas, sesiones, solicitudes, dependencias, métricas, eventos personalizados, resultados de prueba web).
 
 Si su aplicación envía más que el límite, se quitan algunos de los datos. Verá una notificación de advertencia que indica que esto ha sucedido.
 
@@ -118,7 +121,9 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
 ![En el menú lateral, elija Facturación.](./media/app-insights-pricing/02-billing.png)
 
+## Resumen de límites
 
+[AZURE.INCLUDE [límites-de-application-insights](../../includes/application-insights-limits.md)]
 
 
 <!--Link references-->
@@ -130,4 +135,4 @@ Los cargos de Application Insights se agregarán a la factura de Azure. Puede ve
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

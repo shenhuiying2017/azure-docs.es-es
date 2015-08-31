@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Actualización del dispositivo de StorSimple"
+   pageTitle="Actualización del dispositivo StorSimple | Microsoft Azure"
    description="Se explica cómo utilizar la característica de actualización de StorSimple para instalar actualizaciones y revisiones, tanto normales como en modo de mantenimiento."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/19/2015"
    ms.author="v-sharos" />
 
 # Actualización del dispositivo de StorSimple
@@ -42,7 +42,7 @@ Se trata de actualizaciones no perturbadoras que se pueden instalar cuando el di
 
 ### Actualizaciones en modo de mantenimiento
 
-Se trata de actualizaciones perturbadoras, como las actualizaciones de firmware de disco o de firmware de USM. En estas actualizaciones es necesario que el dispositivo esté en modo de mantenimiento. Para obtener más información, consulte [Paso 2: activar el modo de mantenimiento](#to-enter-maintenance-mode). No puede usar el Portal de administración para instalar las actualizaciones en modo de mantenimiento. En su lugar, debe usar Windows PowerShell para StorSimple.
+Se trata de actualizaciones perturbadoras, como las actualizaciones de firmware de disco o de firmware de USM. En estas actualizaciones es necesario que el dispositivo esté en modo de mantenimiento. Para obtener más información, consulte [Paso 2: Acceso al modo de mantenimiento](#step2). No puede usar el Portal de administración para instalar las actualizaciones en modo de mantenimiento. En su lugar, debe usar Windows PowerShell para StorSimple.
 
 Para obtener más información sobre cómo instalar las actualizaciones en modo de mantenimiento, consulte [Instalación de actualizaciones en modo de mantenimiento a través de Windows PowerShell para StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -66,32 +66,32 @@ También puede usar Windows PowerShell para StorSimple para aplicar las actualiz
 
 Para aplicar las actualizaciones en modo de mantenimiento en el dispositivo de StorSimple se usa Windows PowerShell para StorSimple. En este modo, todas las solicitudes de E/S se interrumpen. También se detienen servicios como la memoria de acceso aleatorio no volátil (NVRAM) o el servicio de Cluster Server. Al entrar o salir de este modo, se reinician ambos controladores. Al salir de este modo, los servicios se reanudan y deben estar correctos. Esto puede tardar unos minutos.
 
-Si debe aplicar actualizaciones en modo de mantenimiento, recibirá una alerta a través del Portal de administración para indicarle que existen actualizaciones que se deben instalar. Esta alerta incluye instrucciones para usar Windows PowerShell para StorSimple con el fin de instalar las actualizaciones. Después de actualizar el dispositivo, utilice el mismo procedimiento para cambiarlo a modo normal. Para obtener instrucciones detalladas, consulte [Paso 4: salir del modo de mantenimiento](#to-exit-maintenance-mode).
+Si debe aplicar actualizaciones en modo de mantenimiento, recibirá una alerta a través del Portal de administración para indicarle que existen actualizaciones que se deben instalar. Esta alerta incluye instrucciones para usar Windows PowerShell para StorSimple con el fin de instalar las actualizaciones. Después de actualizar el dispositivo, utilice el mismo procedimiento para cambiarlo a modo normal. Para obtener instrucciones detalladas, consulte [Paso 4: Salida del modo de mantenimiento](#step4).
 
 > [AZURE.IMPORTANT]
 > 
 > - Antes de entrar en modo de mantenimiento, asegúrese de que los controladores de dispositivos son correctos; para ello, compruebe el **Estado de hardware** en la página **Mantenimiento** del Portal de administración. Si el controlador no es correcto, póngase en contacto con el servicio de soporte técnico de Microsoft para conocer los pasos siguientes. Para obtener más información, póngase en contacto con el servicio de soporte técnico de Microsoft. 
 > - Si está en modo de mantenimiento, debe aplicar primero la actualización en un controlador y, a continuación, en el otro.
 
-### Paso 1: conéctese a la consola serie del dispositivo.
+### Paso 1: Conexión a la consola serie <a name="step1">
 
 En primer lugar, utilice una aplicación como PuTTY para tener acceso a la consola serie. El siguiente procedimiento explica cómo usar PuTTY para conectarse a la consola serie.
 
 [AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### Paso 2: acceda al modo de mantenimiento
+### Paso 2: Acceso al modo de mantenimiento <a name="step2">
 
 Una vez esté conectado a la consola, mire a ver si hay actualizaciones que se deban instalar y active el modo de mantenimiento para hacerlo.
 
 [AZURE.INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### Paso 3: instale las actualizaciones
+### Paso 3: Instalación de las actualizaciones <a name="step3">
 
 A continuación, instale las actualizaciones.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
  
-### Paso 4: salir del modo de mantenimiento
+### Paso 4: Salida del modo de mantenimiento <a name="step4">
 
 Por último, salga del modo de mantenimiento.
 
@@ -112,11 +112,11 @@ Los siguientes procedimientos explican cómo usar Windows PowerShell para StorSi
 
 ## ¿Qué ocurre con las actualizaciones si se realiza un restablecimiento de fábrica del dispositivo?
 
-Si se restablece la configuración de fábrica de un dispositivo, se pierden todas las actualizaciones. Después de registrar y configurar el dispositivo en el que se ha efectuado un restablecimiento de fábrica, deberá instalar manualmente las actualizaciones a través del Portal de administración o de Windows PowerShell para StorSimple. Para obtener más información acerca de los restablecimientos de fábrica, consulte [Restablecer el dispositivo a los valores de fábrica](https://msdn.microsoft.com/library/azure/dn772373.aspx).
+Si se restablece la configuración de fábrica de un dispositivo, se pierden todas las actualizaciones. Después de registrar y configurar el dispositivo en el que se ha efectuado un restablecimiento de fábrica, deberá instalar manualmente las actualizaciones a través del Portal de administración o de Windows PowerShell para StorSimple. Para obtener más información acerca de los restablecimientos de fábrica, consulte [Restablecer el dispositivo a los valores predeterminados de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 ## Pasos siguientes
 
-Obtenga más información sobre [Windows PowerShell para StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
+[Obtenga más información acerca de cómo usar Windows PowerShell para administrar su dispositivo StorSimple](storsimple-windows-powershell-administration.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

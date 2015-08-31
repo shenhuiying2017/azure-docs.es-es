@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Deshabilitación o habilitación de un extremo de Administrador de tráfico"
+   pageTitle="Deshabilitación o habilitación de un extremo del Administrador de tráfico | Microsoft Azure"
    description="Este artículo le ayudará a deshabilitar o habilitar los extremos del perfil de Administrador de tráfico."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Deshabilitación o habilitación de un extremo de Administrador de tráfico
@@ -38,9 +38,9 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 
 ## Pasos siguientes
 
-[Tareas de configuración del Administrador de tráfico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
 
-[Información general sobre el Administrador de tráfico](../traffic-manager.md)
+[¿Qué es el Administrador de tráfico?](../traffic-manager.md)
 
 [Servicios en la nube](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -50,4 +50,4 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 [Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

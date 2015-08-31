@@ -16,7 +16,7 @@
    ms.date="06/23/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-# Introducción al aprovisionamiento de una instancia de Almacenamiento de datos SQL #
+# Introducción: aprovisionar un Almacenamiento de datos SQL #
 
 Este artículo es una guía acelerada para ayudarle a aprovisionar una instancia de Almacenamiento de datos SQL en Azure. Si sigue esta guía, realizará las siguientes tareas:
 
@@ -25,20 +25,20 @@ Este artículo es una guía acelerada para ayudarle a aprovisionar una instancia
 3. Definición de una regla del firewall de Azure para habilitar el acceso de cliente externo.
 
 ## Evaluación gratuita de Azure ##
-Para completar las tareas que aparecen a continuación, debe tener una suscripción a Azure. Si todavía no tiene acceso a una suscripción a Azure, el primer paso debe ser solucionar esto.
+Para completar las siguientes tareas, debe tener una suscripción a Azure. Si todavía no tiene acceso a una suscripción a Azure, el primer paso debe ser solucionar esto.
 
 Puede obtener acceso a una [evaluación gratuita][] que le permite probar cualquiera de los servicios de Azure, incluido Almacenamiento de datos SQL.
 
 
-## Inicio de sesión en el Portal de Azure ##
+## Iniciar sesión en el portal de Azure ##
 
-Una vez que tenga una suscripción, puede iniciar sesión en el [Portal de Azure][]. Continúe e inicie sesión ahora.
+Cuando tenga una suscripción, puede iniciar sesión en el [portal de Azure][]. Continúe e inicie sesión ahora.
 
 En la siguiente serie de pasos, estableceremos rápidamente un servidor lógico nuevo y crearemos una base de datos de Almacenamiento de datos SQL.
 
 ## Ubicación del servicio de Almacenamiento de datos SQL
 
-Lo primero que debemos hacer es ubicar el servicio de Almacenamiento de datos SQL en el Portal de Azure.
+Lo primero que debemos hacer es ubicar el servicio de Almacenamiento de datos SQL en el portal de Azure.
 
 El botón Nuevo está en la esquina inferior izquierda del Portal de Azure. El botón Nuevo es el punto de partida para crear cualquier servicio en Azure.
 
@@ -48,13 +48,13 @@ El botón Nuevo está en la esquina inferior izquierda del Portal de Azure. El b
 
 Cuando hizo clic en el botón Nuevo se abrieron todas las categorías de servicio dentro de Azure. Almacenamiento de datos SQL reside en la categoría "Datos + almacenamiento".
 
-- Haga clic en "Datos + almacenamiento" para obtener detalles sobre los servicios que Azure ofrece en esta categoría.
+- Haga clic en **Datos + almacenamiento** para obtener detalles sobre los servicios que Azure ofrece en esta categoría.
 
 ### Almacenamiento de datos SQL
 
 Como puede ver, Azure ofrece grandes cantidades de datos y motores de almacenamiento. Sin embargo, esta guía de introducción es para Almacenamiento de datos SQL.
 
-- Continúe y seleccione Almacenamiento de datos SQL.
+- Continúe y seleccione **Almacenamiento de datos SQL**.
 
 ## Configuración de Almacenamiento de datos SQL
 
@@ -74,7 +74,7 @@ La primera configuración es poner nombre a la base de datos.
 
 ### Rendimiento
 
-La opción del rendimiento es **importante**. Almacenamiento de datos SQL proporciona su capacidad de escabilidad mediante este control deslizante. Puede aumentar o disminuir el rendimiento en cualquier momento, no solo cuando configure el almacén de datos. Cuanto más se desliza a la derecha, mayor es la cantidad de recursos a su disposición. Si esos recursos ya no son necesarios, puede mover el control deslizante en la otra dirección, para ahorrar costos. Almacenamiento de datos SQL permite cambiar el perfil de rendimiento a petición, sin tener que volver a crear el clúster o mover los datos.
+La opción del rendimiento es *importante*. Almacenamiento de datos SQL proporciona su capacidad de escabilidad mediante este control deslizante. Puede aumentar o disminuir el rendimiento en cualquier momento, no solo cuando configure el almacén de datos. Cuanto más se desliza a la derecha, mayor es la cantidad de recursos a su disposición. Si esos recursos ya no son necesarios, puede mover el control deslizante en la otra dirección, para ahorrar costos. Almacenamiento de datos SQL permite cambiar el perfil de rendimiento a petición, sin tener que volver a crear el clúster o mover los datos.
 
 - Use ahora el control deslizante para ver cómo las unidades de almacenamiento de datos aumentan a medida que se desliza a la derecha y disminuyen cuando mueve el control deslizante a la izquierda.
 
@@ -98,7 +98,7 @@ Puede establecer estos valores como considere oportuno. El nombre del servidor d
 
 > [AZURE.NOTE]Anote el nombre del servidor, el nombre del administrador del servidor y la contraseña y guárdelos en un lugar seguro. Necesitará esta información para conectarse a la base de datos de Almacenamiento de datos SQL.
 
-### El grupos de recursos
+### Grupos de recursos
 Los grupos de recursos son contenedores diseñados para ayudarle a administrar una colección de recursos de Azure.
 
 En esta guía de inicio rápido, el grupo de recursos puede estar configurado en sus valores predeterminados.
@@ -117,7 +117,7 @@ Para crear el almacenamiento de datos, solo falta hacer clic en el botón Crear.
 
 ¡Enhorabuena! Creó su primera base de datos de Almacenamiento de datos SQL.
 
-Ahora debería volver a la página principal del [Portal de Azure][]. Observe que la base de datos de Almacenamiento de datos SQL se agregó a la página.
+Ahora debería volver al [portal de Azure][]. Observe que la base de datos de Almacenamiento de datos SQL se agregó a la página.
 
 
 En este punto, nadie tiene acceso a la base de datos de Almacenamiento de datos SQL. De manera predeterminada y por motivos de seguridad, el acceso de clientes a la base de datos todavía no está configurado.
@@ -126,17 +126,17 @@ Por lo tanto, el último paso del proceso de aprovisionamiento es configurar el 
 
 ## Configuración del firewall de Azure ##
 
-Haga lo siguiente para configurar por primera vez el firewall de Azure:
+Para configurar el firewall de Azure por primera vez:
 
-1. Haga clic en Examinar en el panel de navegación de la izquierda.
+1. Haga clic en **Examinar** en la hoja de navegación de la izquierda.
 
-2. Elija Servidores SQL Server.
+2. Elija **Servidores SQL Server**.
 
 3. Seleccione el servidor SQL Server lógico.
 
 4. Elija la configuración.
 
-5. Haga clic en el firewall.
+5. Haga clic en **Firewall**.
 
 6. Establezca la regla del firewall.
 
@@ -151,7 +151,7 @@ Ahora que configuró el firewall, podría establecer conexiones desde su escrito
 
 ## Pasos siguientes
 
-Ahora que se aprovisionó correctamente el servicio SQLDW, podemos aprender a usarlo.
+Ahora que se aprovisionó correctamente el servicio Almacenamiento de datos SQL, podemos aprender a usarlo.
 
 Por lo tanto, los pasos siguientes sirven para aprender a:
 
@@ -167,6 +167,6 @@ Por lo tanto, los pasos siguientes sirven para aprender a:
 
 <!--External links-->
 [evaluación gratuita]: https://azure.microsoft.com/es-es/pricing/free-trial/
-[Portal de Azure]: https://portal.azure.com/
+[portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

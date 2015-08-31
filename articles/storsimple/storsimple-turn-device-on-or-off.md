@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-<tags 
+<tags  
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli" />
 
 # Encendido o apagado del dispositivo de StorSimple 
@@ -28,7 +28,7 @@ En la tabla siguiente, se muestran varios escenarios en los cuales se debe activ
 |Activar un dispositivo nuevo|[Activar un dispositivo nuevo](#turn-on-a-new-device)<ul><li>[Dispositivo nuevo solo con gabinete principal](#new-device-with-primary-enclosure-only)</li><li>[Dispositivo nuevo con gabinete EBOD](#new-device-with-ebod-enclosure)</li></ul>|
 |Activar un dispositivo después del apagado|[Activar un dispositivo después del apagado](#turn-on-a-device-after-shutdown)<ul><li>[Dispositivo solo con gabinete principal](#device-with-primary-enclosure-only)</li><li>[Dispositivo con gabinete EBOD](#device-with-ebod-enclosure)</li></ul>|
 |Activar un dispositivo después de una pérdida de energía|[Activar un dispositivo después de una pérdida de energía](#turn-on-a-device-after-a-power-loss)<ul><li>[Dispositivo solo con gabinete principal](#8100)</li><li>[Dispositivo con gabinete EBOD](#8600)</li></ul>|
-|Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD|[Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD](turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD|[Activar un dispositivo tras la pérdida de la conexión entre el gabinete principal y EBOD](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
 |Apagar un dispositivo activo|[Apagar un dispositivo activo](#turn-off-a-running-device)<ul><li>[Dispositivo solo con gabinete principal](#8100a)</li><li>[Dispositivo con gabinete EBOD](#8600a)</li></ul>|
 
 ## Activar un dispositivo nuevo
@@ -37,7 +37,7 @@ Los pasos para activar por primera vez un dispositivo de Microsoft Azure StorSim
 
 - [Dispositivo nuevo solo con gabinete principal](#new-device-with-primary-enclosure-only)
 
-- [Dispositivo nuevo con gabinete EBOD](#new-device-with-EBOD-enclosure)
+- [Dispositivo nuevo con gabinete EBOD](#new-device-with-ebod-enclosure)
 
 ### Dispositivo nuevo solo con gabinete principal
 
@@ -241,4 +241,4 @@ Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie 
 
 Si encuentra problemas al encender o apagar un dispositivo de StorSimple, [póngase en contacto con el soporte técnico de Microsoft Support](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

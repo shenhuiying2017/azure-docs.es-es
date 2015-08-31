@@ -26,7 +26,7 @@ Azure trata esta plantilla como una imagen y la almacena en **Imágenes**. Aquí
 
 ## Antes de empezar
 
-Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y ha configurado el sistema operativo, incluida la anexión de cualquier disco de datos. Si no ha realizado esto todavía, siga estas instrucciones:
+En estos pasos se supone que ya ha creado un máquina virtual de Azure con el modelo de implementación clásica y ha configurado el sistema operativo, incluido adjuntar cualquier disco de datos. Si no ha realizado esto todavía, siga estas instrucciones:
 
 - [Creación de una máquina virtual que ejecuta Linux][]
 
@@ -86,7 +86,7 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 
 
 ## Pasos siguientes
-La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que acaba de crear. Consulte [Uso de la CLI de Azure con la administración de servicios](virtual-machines-command-line-tools.md) para obtener más información acerca del comando. Como alternativa, puede usar el [Portal de administración][] para crear una máquina virtual personalizada mediante el método **Desde la galería** y seleccionar la imagen que acaba de crear. Consulte [Creación de una máquina virtual personalizada][] para obtener más detalles.
+La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que acaba de crear. Consulte [Uso de la CLI de Azure con la API de administración de servicios](virtual-machines-command-line-tools.md) para obtener más información acerca del comando. Como alternativa, puede usar el [Portal de administración][] para crear una máquina virtual personalizada mediante el método **Desde la galería** y seleccionar la imagen que acaba de crear. Consulte [Creación de una máquina virtual personalizada][] para obtener más detalles.
 
 **Consulte también:**[Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -97,4 +97,4 @@ La imagen está lista para ser utilizada como plantilla para crear máquinas vir
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

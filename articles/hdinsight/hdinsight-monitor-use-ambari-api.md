@@ -3,6 +3,7 @@
 	description="Use las API de Apache Ambari para el aprovisionamiento, la administración y la supervisión de clústeres de Hadoop. Las API y herramientas de operador intuitivas ocultan la complejidad de Hadoop."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	editor="cgronlun"
 	manager="paulettm"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # Supervisión de clústeres de Hadoop en HDInsight con la API de Ambari
@@ -49,7 +50,7 @@ Nombre del clúster de HDInsight|$clusterName||El nombre del clúster de HDInsig
 Nombre de usuario del clúster|$clusterUsername||Nombre de usuario del clúster especificado en el aprovisionamiento.
 Contraseña de clúster|$clusterPassword||Contraseña de usuario de clúster
 
-	> [AZURE.NOTE] Rellene los valores de la tabla. Esto le resultará útil para completar el tutorial.
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -120,7 +121,7 @@ La salida es la siguiente:
 
 **Para la versión del 10/8/2014**:
 
-Cuando se usa el extremo Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", el campo *host_name* devuelve ahora el nombre de dominio completo (FQDN) del nodo en lugar de solo el nombre del host. Antes de la versión del 10/8/2014, este ejemplo devolvía simplemente "**headnode0**". Después de la versión 10/8/2014, se obtiene el FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**", como se muestra en el ejemplo anterior. Este cambio se solicitó para facilitar escenarios donde se pueden implementar varios tipos de clúster (como HBase y Hadoop) en una misma red virtual (VNET). Esto ocurre, por ejemplo, cuando se usa HBase como plataforma de back-end para Hadoop.
+Cuando se usa el extremo Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", el campo *host\_name* devuelve ahora el nombre de dominio completo (FQDN) del nodo en lugar de solo el nombre del host. Antes de la versión del 10/8/2014, este ejemplo devolvía simplemente "**headnode0**". Después de la versión del 10/8/2014, se obtiene el FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**", como se muestra en el ejemplo anterior. Este cambio se solicitó para facilitar escenarios donde se pueden implementar varios tipos de clúster (como HBase y Hadoop) en una misma red virtual (VNET). Esto ocurre, por ejemplo, cuando se usa HBase como plataforma de back-end para Hadoop.
 
 ##<a id="monitor"></a>API de supervisión de Ambari
 
@@ -146,7 +147,7 @@ Obtener información de configuración|`/api/v1/clusters/&lt;ClusterName&gt;.azu
 
 Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtener más información, consulte:
 
-- [Administrar clústeres de HDInsight con el Portal de administración][hdinsight-admin-portal]
+- [Administrar clústeres de HDInsight con el portal de vista previa de Azure][hdinsight-admin-portal]
 - [Administrar clústeres de HDInsight con Azure PowerShell][hdinsight-admin-powershell]
 - [Administrar clústeres de HDInsight con la interfaz de línea de comandos][hdinsight-admin-cli]
 - [Documentación de HDInsight][hdinsight-documentation]
@@ -173,6 +174,5 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

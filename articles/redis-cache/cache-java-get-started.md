@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso de Caché en Redis de Azure con Java"
-   description="Introducción a Caché en Redis de Azure usando Java"
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	description="Introducción a Caché en Redis de Azure usando Java"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="java"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="java"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Java
 
@@ -87,4 +87,4 @@ Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No*
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/17/2015"
    ms.author="telmos" />
 
 # Descripción general de una IP reservada
@@ -32,8 +32,6 @@ Para impedir que cambien las direcciones IP, puede reservar una dirección IP. L
   - En este momento, todas las suscripciones de Azure tienen autorización para usar 20 direcciones IP reservadas. Sin embargo, puede solicitar direcciones IP reservadas adicionales. Consulte la página [Límites y restricciones de suscripción](../azure-subscription-service-limits/) para obtener más información.
 1. ¿Hay un cargo por las IP reservadas? 
   - Para obtener información sobre los precios, consulte [Detalles de precios de las direcciones IP reservadas](http://go.microsoft.com/fwlink/?LinkID=398482).
-1. ¿Cuántas direcciones IP reservadas puedo asignar a un servicio en la nube? 
-  - Solo se permite una dirección IP por cada extremo en un servicio en la nube, independientemente de si esa dirección IP está reservada o no. Al reservar una dirección IP no permite agregar direcciones IP adicionales a un servicio en la nube.
 1. ¿Cómo se reserva una dirección IP? 
   - Puede usar PowerShell o la [API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) para solicitar una IP reservada de una región determinada. Azure reservará una dirección IP de dicha región y la correlacionará con su suscripción. A continuación, puede utilizar la IP reservada en dicha región. No se puede reservar una dirección IP mediante el Portal de administración.
 1. ¿Puedo usarla con redes virtuales basadas en grupos de afinidad? 
@@ -121,4 +119,4 @@ También puede asociar una IP reservada a un servicio en la nube mediante un arc
 
 - Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

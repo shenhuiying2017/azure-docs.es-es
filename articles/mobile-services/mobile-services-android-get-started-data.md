@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="08/18/2015" 
 	ms.author="ricksal"/>
 
 # Incorporación de servicios móviles a una aplicación Android
@@ -101,7 +101,7 @@ Así concluye el tutorial **Introducción a los datos** para Android.
 
 ## Versiones anteriores del código
 
-Si desea ver la versión de Eclipse de este tutorial, vaya a [Introducción a los datos mediante Eclipse](mobile-services-android-get-started-data-EC.md):
+Si desea ver la versión de Eclipse de este tutorial, vaya a [Introducción a los datos mediante Eclipse](mobile-services-android-get-started-data-ec.md):
 
 Para obtener una versión completa del código fuente de un proyecto de Eclipse, haga clic <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">aquí</a>.
 
@@ -156,4 +156,4 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Andro
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

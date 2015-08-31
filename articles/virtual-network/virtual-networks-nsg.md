@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="08/13/2015"
    ms.author="telmos" />
 
 # ¿Qué es un grupo de seguridad de red?
 
 Puede usar un grupo de seguridad de red para controlar el tráfico a una o más instancias de máquina virtual en la red virtual. Un grupo de seguridad de red es un objeto de nivel superior que está asociado a la suscripción. Un grupo de seguridad de red contiene reglas de control de acceso que permiten o deniegan el tráfico a las instancias de máquina virtual. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para utilizar un grupo de seguridad de red debe tener una red virtual asociada a una región (ubicación).
 
->[AZURE.WARNING]Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no tiene una red virtual regional y desea controlar el tráfico a los extremos, consulte [¿Qué es una lista de control de acceso (ACL) de red?](../virtual-networks-acl).
+>[AZURE.WARNING]Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no tiene una red virtual regional y desea controlar el tráfico a los extremos, consulte [¿Qué es una lista de control de acceso (ACL) de red?](./virtual-networks-acl.md). También puede [migrar la red virtual a una red virtual regional](./virtual-networks-migrate-to-regional-vnet.md).
 
 Puede asociar un grupo de seguridad de red a una máquina virtual o a una subred dentro de una red virtual. Cuando se asocia a una máquina virtual, el grupo de seguridad de red se aplica a todo el tráfico enviado y recibido por la instancia de máquina virtual. Cuando se aplica a una subred de la red virtual, se aplica a todo el tráfico enviado y recibido por TODAS las instancias de máquina virtual de la subred. Una máquina virtual o una subred solo puede asociarse a un grupo de seguridad de red y cada grupo de seguridad de red puede contener hasta 200 reglas. Puede tener 100 grupos de seguridad de red por suscripción.
 
@@ -149,6 +149,7 @@ En lugar de usar una regla de denegación, pruebe a usar una regla para permitir
 |A INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|PERMITIR|
 |DESDE INTERNET|110| INTERNET|&#42;|VIRTUAL\_NETWORK|&#42;|TCP|DENEGAR| 
 
+>[AZURE.WARNING]Azure usa una subred especial que se conoce como la subred de la **puerta de enlace** para manejar la puerta de enlace de VPN con otras redes locales y redes virtuales. Asociar un grupo de seguridad de red a esa subred hará que la puerta de enlace de VPN deje de funcionar como se esperaba. No asocie grupos de seguridad de red a subredes de puerta de enlace.
 
 ## Planificación: flujo de trabajo de grupos de seguridad de red
 
@@ -248,4 +249,4 @@ De momento, solo puede configurar y modificar los grupos de seguridad de red med
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

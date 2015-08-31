@@ -6,7 +6,7 @@ Supongamos que el conjunto de datos Blob está en formato CSV y contiene 3 colum
 Va a definir el conjunto de datos de origen de Blob como se indica a continuación junto con las definiciones de tipo para las columnas.
 
 	{
-	    "name": " AzureBlobTypeSystemInput",
+	    "name": "AzureBlobTypeSystemInput",
 	    "properties":
 	    {
 	         "structure": 
@@ -30,7 +30,7 @@ Va a definir el conjunto de datos de origen de Blob como se indica a continuaci�
 	        "availability":
 	        {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        },
 			"policy": {
 	            "externalData": {
@@ -69,4 +69,4 @@ A continuación definirá el conjunto de datos de SQL de Azure como sigue. Nota:
 
 En este caso la factoría de datos realizará automáticamente las conversiones de tipo, incluido el campo de fecha y hora con el formato personalizado de fecha y hora usando la referencia cultural fr-fr, al mover datos de Blob a SQL deAzure.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

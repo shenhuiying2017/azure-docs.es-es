@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -23,9 +24,11 @@ El Administrador de recursos es un componente del panel de clúster Spark que le
 
 ## <a name="launchrm"></a>¿Cómo se inicia el Administrador de recursos?
 
-1. Seleccione el clúster Spark en el Portal de Azure y, en la barra de tareas del portal en la parte inferior, haga clic en **Panel de Spark**.
+1. Desde el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ha anclado al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**. 
+ 
+2. En la hoja del clúster de Spark, haga clic en **Panel**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
 
-2. En el panel superior del panel, haga clic en la pestaña **Administrador de recursos**.
+	![Iniciar el Administrador de recursos](./media/hdinsight-apache-spark-resource-manager/HDI.Cluster.Launch.Dashboard.png "Inicio del Administrador de recursos")
 
 ##<a name="scenariosrm"></a>¿Cómo se pueden solucionar estos problemas mediante el Administrador de recursos?
 
@@ -55,7 +58,7 @@ El clúster Apache Spark en HDInsight está diseñado para una arquitectura mult
 
 ### No uso herramientas de BI con el clúster Spark. ¿Cómo puedo recuperar recursos? 
 
-Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecución por nodo de trabajo de servidor Thrift como 0. Sin núcleos ni memoria asignados, el servidor Thrift pasará al estado **En espera**.
+Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecución por nodo de trabajo de servidor Thrift como 0. Sin núcleos ni memoria asignados, el servidor Thrift pasará al estado **EN ESPERA**.
 
 ![Asignación de recursos](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.No.Thrift.png "No hay recursos en el servidor Thrift")
 
@@ -79,4 +82,4 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

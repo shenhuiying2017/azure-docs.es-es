@@ -1,18 +1,18 @@
 <properties 
    pageTitle="Modificación de las opciones de configuración de la interfaz de red DATA 0 en el dispositivo StorSimple"
-   description="Aprenda a volver a configurar la interfaz de red DATA 0 en el dispositivo StorSimple"
+   description="Obtenga más información acerca de cómo volver a configurar la interfaz de red DATA 0 en el dispositivo StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # Modificación de las opciones de configuración de la interfaz de red DATA 0 en el dispositivo StorSimple
@@ -40,22 +40,21 @@ Puede volver a establecer la configuración de red de DATA 0 conectándose a la 
 
 1. Aparecerá un asistente para instalación que le ayudará a configurar la interfaz DATA 0 del dispositivo. Proporcione nuevos valores para la dirección IP, la pasarela y la máscara de red.
 
-> [AZURE.NOTE]Las IP fijas de controladores deberán volverse a configurar a través de la página Configurar del dispositivo StorSimple en el Portal de administración de Azure. Para obtener más información, vaya a [Modificar la interfaz de red a través de la página Configurar (dispositivo)](storsimple-modify-device-config.md#modify-network-interfaces).
+> [AZURE.NOTE]Las IP fijas de controladores deberán volverse a configurar mediante la página **Configurar** del dispositivo StorSimple en el Portal de administración de Azure. Para obtener más información, vaya a [Modificar las interfaces de red](storsimple-modify-device-config.md#modify-network-interfaces).
 
 
 ## Modificación de la configuración de red de DATA 0 mediante el cmdlet Set-HcsNetInterface
-Una alternativa para volver a configurar la interfaz de red DATA 0 es a través del uso del cmdlet `Set-HcsNetInterface`. El cmdlet se ejecuta desde la interfaz de Windows PowerShell del dispositivo StorSimple. Siga estos pasos para modificar la configuración de DATA 0:
+Una alternativa para volver a configurar la interfaz de red DATA 0 es mediante el cmdlet `Set-HcsNetInterface`. El cmdlet se ejecuta desde la interfaz de Windows PowerShell del dispositivo StorSimple. Siga estos pasos para modificar la configuración de DATA 0:
 
-#### Para modificar la configuración de red de DATA 0 mediante el cmdlet Set-HcsNetInterface
+#### Para modificar la configuración de la red DATA 0 mediante el cmdlet Set-HcsNetInterface
 
-1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la **contraseña de administrador del dispositivo**. La contraseña predeterminada es `Password1`.
+1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la contraseña del administrador de dispositivo. La contraseña predeterminada es `Password1`.
 
-1. En el símbolo del sistema, escriba:
+2. En el símbolo del sistema, escriba:
 
 	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-
 	
-1. Escriba valores para DATA 0 en los corchetes angulares (<>) para los elementos siguientes:
+    En los corchetes angulares, escriba los siguientes valores para DATA 0:
 											
 	- Dirección IPv4
 	
@@ -68,6 +67,7 @@ Una alternativa para volver a configurar la interfaz de red DATA 0 es a través 
 	- Dirección IPv4 fija para el controlador 1
 
 ## Pasos siguientes
+
 Para configurar las interfaces de red que no sean DATA 0, puede usar la página [Configurar del Portal de administración](storsimple-modify-device-config.md). Si experimenta problemas al configurar las interfaces de red, consulte [Solucionar problemas de implementación](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

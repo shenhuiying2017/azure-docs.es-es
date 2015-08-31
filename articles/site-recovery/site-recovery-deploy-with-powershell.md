@@ -45,7 +45,7 @@ Asegúrese de que tiene preparados estos requisitos previos:
 - Necesitará al menos una nube en el servidor VMM que desea proteger. La nube debe contener:
 	- Uno o más grupos de hosts de VMM
 	- Uno o más servidores host de Hyper-V o clústeres en cada grupo de hosts.
-	- Una o más máquinas virtuales en el servidor de Hyper-V de origen. Las máquinas virtuales deben ser de la generación 1.
+	- Una o más máquinas virtuales en el servidor de Hyper-V de origen.
 - Más información acerca de cómo configurar las nubes de VMM:
 	- Obtenga más información acerca de las nubes privadas de VMM en [Novedades de la nube privada con System Center 2012 R2 VMM](http://go.microsoft.com/fwlink/?LinkId=324952) y en [VMM 2012 y las nubes](http://go.microsoft.com/fwlink/?LinkId=324956).
 	- Obtenga información acerca de cómo [configurar el tejido de la nube de VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric).
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

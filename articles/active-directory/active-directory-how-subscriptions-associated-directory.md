@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Cómo se asocian las suscripciones a Azure con Azure AD" 
-	description="Un tema acerca del inicio de sesión en Microsoft Azure y temas relacionados, como la relación entre una suscripción de Azure y Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Cómo se asocian las suscripciones a Azure con Azure AD"
+	description="Un tema acerca del inicio de sesión en Microsoft Azure y temas relacionados, como la relación entre una suscripción de Azure y Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015" 
+	ms.author="curtand"/>
 
 # Cómo se asocian las suscripciones a Azure con Azure AD
 
@@ -88,7 +88,7 @@ Si en algún momento en el pasado ha creado una cuenta Microsoft de cliente util
 
 ![][3]
 
-Dispone de cuentas de usuario con el mismo nombre, una en Azure AD y otra en el sistema de cuenta de Microsoft de cliente. Debe elegir la cuenta que está asociada a la suscripción de Azure que desee utilizar. Si se produce un error que indica que no existe una suscripción para este usuario, es posible que haya elegido la opción incorrecta. Cierre la sesión y vuelva a intentarlo. Para obtener más información acerca de los errores que pueden impedir el inicio de sesión, vea [Solución de errores: "No podemos encontrar las suscripciones asociadas a su cuenta"](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Dispone de cuentas de usuario con el mismo nombre, una en Azure AD y otra en el sistema de cuenta de Microsoft de cliente. Debe elegir la cuenta que está asociada a la suscripción de Azure que desee utilizar. Si se produce un error que indica que no existe una suscripción para este usuario, es posible que haya elegido la opción incorrecta. Cierre la sesión y vuelva a intentarlo. Para obtener más información acerca de los errores que pueden impedir el inicio de sesión, vea [Solución de errores: "No podemos encontrar las suscripciones asociadas a su cuenta"](https://social.msdn.microsoft.com/Forums/es-es/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Administración del directorio para la suscripción de Office 365 en Azure
 
@@ -124,6 +124,4 @@ Para administrar ambos directorios en el Portal de administración, siga estos p
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

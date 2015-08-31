@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="03/24/2015"
+	ms.date="08/18/2015"
 	ms.author="donnam"/>
 
 # Creación de una aplicación con un cliente móvil y con un cliente web en el Servicio de aplicaciones de Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

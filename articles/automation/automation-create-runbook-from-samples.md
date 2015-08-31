@@ -30,6 +30,12 @@ Para completar este tutorial, deberá tener una suscripción de Azure. Si aún n
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
+## Tutorial en vídeo
+
+Se trata del tutorial en formato de vídeo.
+
+[AZURE.VIDEO get-started-with-azure-automation]
+
 ## <a name="automationaccount"></a>Creación de una cuenta de automatización
 
 Una cuenta de Automatización es un contenedor para los recursos de Automatización de Azure: proporciona una manera de separar los entornos u organizar aún más los flujos de trabajo. Para obtener más información, vea [Cuentas de automatización](http://aka.ms/runbookauthor/azure/automationaccounts) en la biblioteca de automatización. Si ya ha creado una cuenta de automatización, puede omitir este paso.
@@ -141,4 +147,4 @@ Microsoft y la comunidad de Automatización de Azure proporcionan runbooks de ej
 **Envíenos sus comentarios.** Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

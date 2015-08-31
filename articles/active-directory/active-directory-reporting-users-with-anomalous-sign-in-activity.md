@@ -3,8 +3,8 @@
 	description="Un informe que indica todas las cuentas de usuario respecto a las cuales se ha identificado la actividad de inicio de sesión anómala."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Usuarios con actividad de inicio de sesión erróneo.
 
@@ -24,4 +24,4 @@
 
 ![Usuarios con actividad de inicio de sesión erróneo.](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

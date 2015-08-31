@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (vista previa)
@@ -72,15 +73,17 @@ Cuando crea un clúster de HDInsight basado en Linux, tiene la opción de usar u
 
 Cuando cree un clúster de HDInsight basado en Linux, deberá proporcionar la clave pública anteriormente creada. Desde clientes Linux, Unix u OS X, hay dos formas de crear un clúster de HDInsight:
 
-* **Portal de Azure**: usa un portal basado en web para crear el clúster.
+* **Portal de vista previa de Azure**: usa un portal basado en web para crear el clúster.
 
 * **CLI de Azure para Mac, Linux y Windows**: usa comandos de la línea de comandos para crear el clúster.
 
 Cada uno de estos métodos requerirá una contraseña o una clave pública. Para obtener información completa sobre la creación de un clúster de HDInsight basado en Linux, consulte [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Portal de Azure
+###Portal de vista previa de Azure
 
-Al usar el portal para crear un clúster de HDInsight basado en Linux, debe escribir un **NOMBRE DE USUARIO DE SSH** y seleccionar una **CONTRASEÑA** o una **CLAVE PÚBLICA DE SSH**. Si selecciona **CLAVE PÚBLICA DE SSH**, debe pegar la clave pública (contenida en el archivo con extensión **.pub**) en el siguiente formulario:
+Al usar el [Portal de vista previa de Azure][preview-portal] para crear un clúster de HDInsight basado en Linux, debe escribir un **NOMBRE DE USUARIO DE SSH** y seleccionar una **CONTRASEÑA** o una **CLAVE PÚBLICA DE SSH**.
+
+Si selecciona **CLAVE PÚBLICA DE SSH**, puede pegar la clave pública (contenida en el archivo con la extensión **.pub**) en el campo __SSH PublicKey__ o seleccionar __Seleccionar un archivo__ para examinar y seleccionar el archivo de clave pública.
 
 ![Imagen del formulario que solicita la clave pública](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
@@ -115,6 +118,8 @@ Si utilizó una clave SSH protegida con una frase de contraseña, se le pedirá 
 > [AZURE.NOTE]Si SSH no realiza la autenticación automáticamente con la clave privada correcta, utilice el parámetro **-i** y especifique la ruta de acceso a la clave privada. En el ejemplo siguiente se cargará la clave privada desde `~/.ssh/id_rsa`:
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
+
+Si no se especifica ningún puerto, SSH establecerá el puerto 22 como predeterminado, lo cual provocará la conexión a headnode0 en el clúster de HDInsight. Si usa el puerto 23, se conectará a headnode1. Para obtener más información acerca de los nodos principales, consulte [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
 ###Conexión a los nodos de trabajo
 
@@ -203,9 +208,9 @@ Siga estos pasos para conectarse a los nodos de trabajo de su clúster.
 
 ##<a id="tunnel"></a>Tunelización de SSH
 
-SSH también se puede usar para tunelizar las solicitudes locales, como solicitudes web, al clúster de HDInsight. La solicitud se enrutará al recurso solicitado como si se hubiese originado en el nodo principal del clúster de HDInsight.
+SSH se puede usar para tunelizar las solicitudes locales, como solicitudes web, al clúster de HDInsight. La solicitud se enrutará al recurso solicitado como si se hubiese originado en el nodo principal del clúster de HDInsight.
 
-Esto resulta muy útil para obtener acceso a servicios basados en web en el clúster de HDInsight que usan nombres de dominio interno para el nodo principal o el nodo de trabajo en el clúster. Por ejemplo, algunas secciones de la página web de Ambari usan nombres de dominio interno, como **headnode0.mycluster.d1.internal.cloudapp.net**. Estos nombres no se pueden resolver desde el exterior del clúster, pero las solicitudes tunelizadas sobre SSH se originan dentro del clúster y se resolverán correctamente.
+> [AZURE.IMPORTANT]El túnel SSH es un requisito para tener acceso a la interfaz de usuario web de algunos servicios de Hadoop. Por ejemplo, solo se puede acceder a la interfaz de usuario del historial de trabajos o la interfaz de usuario del administrador de recursos usando un túnel SSH.
 
 Use los siguientes pasos para crear un túnel SSH y configure el explorador para que lo use para conectarse al clúster.
 
@@ -295,4 +300,6 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+[preview-portal]: https://portal.azure.com/
+
+<!---HONumber=August15_HO8-->

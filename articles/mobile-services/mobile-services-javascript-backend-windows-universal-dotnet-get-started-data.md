@@ -114,4 +114,4 @@ En este tutorial se demostraron los aspectos básicos de la habilitación de una
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

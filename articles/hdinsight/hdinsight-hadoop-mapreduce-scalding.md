@@ -5,8 +5,9 @@
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
- editor="cgronlun"/>
-<tags
+ editor="cgronlun"
+	tags="azure-portal"/>
+<tags 
  ms.service="hdinsight"
  ms.devlang="na"
  ms.topic="article"
@@ -289,4 +290,4 @@ Ahora que sabe usar Scalding para crear trabajos de MapReduce para HDInsight, us
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

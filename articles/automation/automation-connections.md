@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Recursos de conexión en Automatización de Azure"
+   pageTitle="Recursos de conexión en Automatización de Azure | Microsoft Azure"
    description="Los recursos de conexión en Automatización de Azure contienen la información necesaria para conectarse a una aplicación o a un servicio externo desde un runbook. En este artículo se explican los detalles de las conexiones y cómo trabajar con ellas en la creación de texto y de gráficos."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Recursos de conexión en Automatización de Azure
@@ -117,7 +117,7 @@ La imagen que aparece a continuación muestra el mismo ejemplo anterior, pero us
 
 ## Artículos relacionados
 
-- [Vínculos en creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
+- [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->
