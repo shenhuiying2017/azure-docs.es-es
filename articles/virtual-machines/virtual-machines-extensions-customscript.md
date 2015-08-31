@@ -79,4 +79,4 @@ Para obtener información sobre cómo usar la extensión de scripts personalizad
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->
