@@ -1,8 +1,6 @@
-<!---
-Don't use this file. It's deprecated and will be removed. Instead use, virtual-machines-linux-tutorial-log-on-attach-disk.md
--->
 
-## <a id="logon"> </a>Inicio de sesión en una máquina virtual después de su creación ##
+
+## <a id="logon"> </a>Inicio de sesión en la máquina virtual después de crearla ##
 
 Para administrar la configuración de la máquina virtual y las aplicaciones que se ejecutan en la máquina, puede usar un cliente de SSH. Para ello, debe instalar un cliente de SSH en el equipo que desea usar para tener acceso a la máquina virtual. Existen muchos programas cliente de SSH donde elegir. Las siguientes son algunas posibles opciones:
 
@@ -13,17 +11,17 @@ Este tutorial le muestra cómo usar el programa PuTTY para tener acceso a la má
 
 1. Busque el **nombre de host** y la **información de puerto** en el Portal de administración. Puede encontrar la información que necesita en el panel de la máquina virtual. Haga clic en el nombre de la máquina virtual y busque **Detalles de SSH** en la sección **Vista rápida** del panel.
 
-	![Buscar detalles de SSH](./media/CreateVirtualMachineLinuxTutorial/SSHdetails.png)
+	![Buscar detalles de SSH](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/SSHdetails.png)
 
 2. Abra el programa PuTTY.
 
 3. Escriba el **nombre de host** y la **información de puerto** que recopiló del panel y, a continuación, haga clic en **Abrir**.
 
-	![Escribir el nombre de host y la información de puerto](./media/CreateVirtualMachineLinuxTutorial/putty.png)
+	![Escribir el nombre de host y la información de puerto](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/putty.png)
 
 4. Inicie sesión en la máquina virtual usando la cuenta NewUser1 que se agregó cuando creó la máquina virtual.
 
-	![Iniciar sesión en la nueva máquina virtual](./media/CreateVirtualMachineLinuxTutorial/sshlogin.png)
+	![Iniciar sesión en la nueva máquina virtual](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/sshlogin.png)
 
 	Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro servidor.
 
@@ -32,13 +30,9 @@ Este tutorial le muestra cómo usar el programa PuTTY para tener acceso a la má
 
 Es posible que su aplicación necesite almacenar datos. Para hacerlo posible, adjunta un disco de datos a la máquina virtual que creó anteriormente. La manera más fácil de hacerlo es adjuntar un disco de datos vacío a la máquina.
 
-**Nota: disco de datos frente a disco de recursos** Los discos de datos residen en el Almacenamiento de Azure y se pueden usar para un almacenamiento continuo de archivos y datos de aplicaciones.
+En Linux, el disco de recursos se administra generalmente mediante el agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otro lado, en Linux el kernel podría denominar al disco de datos como `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [guía de usuario del Agente de Linux de Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) para obtener más información.
 
-Cada máquina virtual que se crea tiene también adjunto un *disco de recursos* local temporal. Debido a que los datos de un disco de recursos podrían no resistir los diversos reinicios, muchas veces los usan aplicaciones y procesos que se ejecutan en la máquina virtual para un almacenamiento de datos transitorio ytemporal. También se usan para almacenar archivos de intercambio y de paginación para el sistema operativo.
-
-En Linux, el disco de recursos se administra generalmente mediante el agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Tenga en cuenta que el disco de recursos es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Por otro lado, en Linux el kernel podría denominar al disco de datos como `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [guía de usuario del Agente de Linux de Azure](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/) para obtener más información.
-
-
+>[AZURE.NOTE]No almacene datos en el disco de recursos. Este disco proporciona almacenamiento temporal para aplicaciones y procesos y se utiliza para almacenar datos que no tiene que conservar, como archivos de intercambio. Los discos de datos residen en Almacenamiento de Azure como archivos .vhd en blobs de páginas y ofrecen redundancia de almacenamiento para proteger sus datos. Para obtener más información, consulte [Acerca de discos e imágenes en Azure](http://msdn.microsoft.com/library/jj672979.aspx).
 
 1. Si no lo ha hecho todavía, inicie sesión en el Portal de administración de Azure.
 
@@ -48,7 +42,7 @@ En Linux, el disco de recursos se administra generalmente mediante el agente de 
 	
 	Aparece el cuadro de diálogo **Conectar disco vacío**.
 
-	![Definir los detalles del disco](./media/CreateVirtualMachineLinuxTutorial/attachnewdisklinux.png)
+	![Definir los detalles del disco](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
 
 4. El **nombre de máquina virtual**, la **ubicación de almacenamiento** y el **nombre de archivo** ya están definidos. Solo tiene que especificar el tamaño que desea utilizar para el disco. Escriba **5** en el campo **Tamaño**.
 
@@ -60,7 +54,7 @@ En Linux, el disco de recursos se administra generalmente mediante el agente de 
 
 	La cantidad de discos ahora es 2 para la máquina virtual, y el disco que adjuntó se enumera en la tabla **Discos**.
 
-	![Disco adjuntado correctamente](./media/CreateVirtualMachineLinuxTutorial/attachemptysuccess.png)
+	![Disco adjuntado correctamente](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachemptysuccess.png)
 
 
 El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desconectado y no inicializado después de haberlo agregado. Debe iniciar sesión en la máquina virtual e inicializar el disco para usarlo para almacenar datos.
@@ -74,7 +68,7 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 
 	Puede buscar el identificador del último disco de datos conectado en los mensajes que se muestran.
 
-	![Identificar disco](./media/CreateVirtualMachineLinuxTutorial/diskmessages.png)
+	![Identificar disco](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskmessages.png)
 
 
 3. En la ventana SSH, escriba el siguiente comando para crear un nuevo dispositivo y, a continuación, especifique la contraseña de la cuenta:
@@ -86,34 +80,34 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 
 4. Escriba **n** para crear una nueva partición.
 
-	![Crear un dispositivo nuevo](./media/CreateVirtualMachineLinuxTutorial/diskpartition.png)
+	![Crear un dispositivo nuevo](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskpartition.png)
 
 
 5. Escriba **p** para que la partición sea la partición principal, escriba **1** para que sea la primera partición y, a continuación, escriba "enter" para aceptar el valor predeterminado para el cilindro.
 
-	![Crear partición](./media/CreateVirtualMachineLinuxTutorial/diskcylinder.png)
+	![Crear partición](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskcylinder.png)
 
 
 6. Escriba **p** para ver los detalles del disco en el que se va a crear la partición.
 
-	![Enumerar la información del disco](./media/CreateVirtualMachineLinuxTutorial/diskinfo.png)
+	![Enumerar la información del disco](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskinfo.png)
 
 
 7. Escriba **w** para escribir la configuración del disco.
 
-	![Escribir los cambios del disco](./media/CreateVirtualMachineLinuxTutorial/diskwrite.png)
+	![Escribir los cambios del disco](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskwrite.png)
 
 
 8. Debe crear el sistema de archivos en la partición nueva. Como ejemplo, escriba el siguiente comando para crear el sistema de archivos y, a continuación, especifique la contraseña de la cuenta:
 
 	`sudo mkfs -t ext4 /dev/sdc1`
 
-	![Crear sistema de archivos](./media/CreateVirtualMachineLinuxTutorial/diskfilesystem.png)
+	![Crear sistema de archivos](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskfilesystem.png)
 
 	>[AZURE.NOTE]Tenga en cuenta que los sistemas SUSE Linux Enterprise 11 ofrecen únicamente acceso de solo lectura a sistemas de archivos ext4. Para estos sistemas, es recomendable dar formato al nuevo sistema de archivos como ext3 en vez de ext4.
 
 
-9. A continuación, debe tener un directorio disponible para montar el nuevo sistema de archivos. Como ejemplo, escriba el siguiente comando para crear un nuevo directorio para el montaje de la unidad y, a continuación, especifique la contraseña de la cuenta:
+9. Cree un directorio para montar el nuevo sistema de archivos. Como ejemplo, escriba el siguiente comando y, a continuación, especifique la contraseña de la cuenta:
 
 	`sudo mkdir /datadrive`
 

@@ -379,7 +379,7 @@ Agregue notificaciones push a la aplicación Android mediante el servicio de men
 
 ###<a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ###<a id="configure"></a>Configuración del servicio móvil para enviar solicitudes de inserción
 

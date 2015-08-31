@@ -34,7 +34,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 ## Creación de una máquina virtual que ejecuta Windows Server
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Acoplamiento de un disco de datos
 

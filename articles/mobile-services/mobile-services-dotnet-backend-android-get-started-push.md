@@ -28,7 +28,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
  
 ##<a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Configuración del servicio móvil para enviar solicitudes de inserción
 
@@ -51,7 +51,7 @@ Si va a realizar pruebas con un dispositivo antiguo, consulte [Configuración de
 
 ###Incorporación de Google Play Services al proyecto
 
-[AZURE.INCLUDE [Incorporación de Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Incorporación de Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Incorporación de código
 
@@ -123,4 +123,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

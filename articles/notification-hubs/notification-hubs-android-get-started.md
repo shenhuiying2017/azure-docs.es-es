@@ -39,7 +39,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
 ##Creación de un proyecto que admite Servicio de mensajería en la nube de Google
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##Configuración de un centro de notificaciones nuevo
@@ -62,7 +62,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
 ###Incorporación de Google Play Services al proyecto
 
-[AZURE.INCLUDE [Incorporación de Play Services](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Incorporación de Play Services](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Incorporación de código
 

@@ -42,7 +42,7 @@ Completar este tutorial es un requisito previo para todos los demás tutoriales 
 
 ##<a name="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a name="configure-hub"></a>Configuración del Centro de notificaciones
 

@@ -18,7 +18,7 @@ Si desea saber más, consulte [Máquinas virtuales](http://go.microsoft.com/fwli
 
 En esta sección se muestra cómo utilizar la opción **De la galería** en el Portal de administración para crear la máquina virtual. Esta opción proporciona más opciones de configuración que la opción **Creación rápida**. Por ejemplo, si desea conectar una máquina virtual a una red virtual, necesitará usar la opción **De la galería**.
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-windowsvm](../includes/virtual-machines-create-windowsvm.md)]
 
 ## <a id="logon"> </a>Inicio de sesión en la máquina virtual después de crearla ##
 
