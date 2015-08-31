@@ -134,4 +134,4 @@ Pruebe uno de estos otros tutoriales:
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

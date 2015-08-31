@@ -132,4 +132,4 @@ A continuación, pruebe estos otros tutoriales de Android:
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
