@@ -31,15 +31,15 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
  
 2. Haga clic en **Configuración**, **Autenticación del usuario** y, después, haga clic en **Google**. Copie el **URI de redireccionamiento**. La usará para configurar la aplicación de Google.
 
-3. Vaya al sitio web de <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">API de Google</a>, inicie sesión con sus credenciales de la cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto** y haga clic en **Crear**.
+3. Vaya al sitio web de <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">API de Google</a>, inicie sesión con sus credenciales de la cuenta de Google, haga clic en **Create Project**, proporcione un **Project name** y haga clic en **Create**.
 
-4. En la barra de navegación de la izquierda, haga clic en **API y autenticación**. A continuación, haga clic en **Pantalla de consentimiento**. Seleccione la **dirección de correo electrónico** y, a continuación, especifique un **nombre de producto**. A continuación, haga clic en **Guardar**.
+4. En la barra de navegación de la izquierda, haga clic en **API & Auth**. A continuación, haga clic en **Consent screen**. Seleccione la **Email address** y, a continuación, especifique un **Product Name**. A continuación, haga clic en **Save**.
 
-5. También en **API y autenticación**, seleccione **API** y habilite la **API de Google+**. Se encuentra en **API sociales**. También puede buscar simplemente **API de Google +**.
+5. También en **API & Auth**, seleccione **API** y habilite la **Google+ API**. Se encuentra en **Social APIs**. También puede buscar simplemente **Google+ API**.
 
-6. Una vez más, en **API y autenticación**, seleccione **Credenciales** y, a continuación, **Crear nuevo Id. de cliente**.
+6. Una vez más, en **API & Auth**, seleccione **Credentials** y, a continuación, **Create new client ID**.
 
-7. Seleccione **Aplicación web**. Pegue el **URL** que copió anteriormente en **Orígenes de JavaScript autorizados** y, después, reemplace el URL generado en **URI de redireccionamiento autorizado** por el **URI de redireccionamiento** de la aplicación móvil que copió anteriormente. Este URI es la puerta de enlace de la aplicación móvil anexada a la ruta de acceso, _/signin-google_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-google`. Asegúrese de que está utilizando el esquema HTTPS. A continuación, haga clic en **Crear Id. de cliente**.
+7. Seleccione **Web application**. Pegue el **URL** que copió anteriormente en **Authorized JavaScript Origins** y, después, reemplace el URL generado en **Authorized Redirect URI** por el **URI de redireccionamiento** de la aplicación móvil que copió anteriormente. Este URI es la puerta de enlace de la aplicación móvil anexada a la ruta de acceso, _/signin-google_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-google`. Asegúrese de que está utilizando el esquema HTTPS. A continuación, haga clic en **Create client ID**.
 
      ![][0]
 
