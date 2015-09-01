@@ -52,8 +52,8 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
     ![Egnyte](./media/active-directory-saas-egnyte-tutorial/IC787814.png "Egnyte")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo permitir a los usuarios autenticarse en Egnyte con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
-Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64.
+El objetivo de esta sección es describir cómo permitir a los usuarios autenticarse en Egnyte con su cuenta de Azure AD mediante federación basada en el protocolo SAML.  
+Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64.  
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
@@ -151,4 +151,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
   
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

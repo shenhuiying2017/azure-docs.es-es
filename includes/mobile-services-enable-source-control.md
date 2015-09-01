@@ -1,5 +1,5 @@
 
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles**, haga clic en el servicio móvil y, a continuación, haga clic en la pestaña **Panel**.
+1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Servicios móviles**, haga clic en el servicio móvil y, a continuación, haga clic en la pestaña **Panel**.
 
 2. (Opcional) Si ya ha establecido las credenciales de control de código fuente de Sitios web o Servicios móviles para la suscripción a Azure, puede pasar directamente al paso 4. De lo contrario, haga clic en **Configurar control de código fuente** en **Vista rápida** y haga clic en **Sí** para confirmar.
 
@@ -18,4 +18,4 @@
 Con el control de código fuente habilitado en el servicio móvil, puede usar Git para clonar el repositorio en el equipo local.
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

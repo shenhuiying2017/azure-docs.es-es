@@ -51,8 +51,8 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
     ![Samanage](./media/active-directory-saas-samanage-tutorial/IC771708.png "Samanage")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Samanage con su cuenta de Azure AD a través de la federación basada en el protocolo SAML. 
-Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.
+El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Samanage con su cuenta de Azure AD a través de la federación basada en el protocolo SAML.  
+Como parte de este procedimiento, es necesario crear un archivo de certificado codificado en base 64.  
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
@@ -149,4 +149,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->

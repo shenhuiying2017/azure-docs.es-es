@@ -51,8 +51,8 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
 ##Configuración del inicio de sesión único
   
-El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en NetDocuments con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
-La configuración de un inicio de sesión único para NetDocuments requiere la recuperación de un valor de huella digital de un certificado.
+El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en NetDocuments con su cuenta de Azure AD usando el protocolo SAML basado en la federación.  
+La configuración de un inicio de sesión único para NetDocuments requiere la recuperación de un valor de huella digital de un certificado.  
 Si no está familiarizado con este procedimiento, consulte [Recuperación del valor de huella digital de un certificado](http://youtu.be/YKQF266SAxI).
 
 ###Siga estos pasos para configurar el inicio de sesión único:
@@ -145,4 +145,4 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
   
 Si quiere probar su configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!-------HONumber=August15_HO7-->
+<!--------HONumber=August15_HO7-->
