@@ -30,12 +30,12 @@
 
     De esta forma, se garantiza que el proyecto usa el nuevo perfil para la firma de código. Para ver la documentación oficial de aprovisionamiento de dispositivos Xamarin, consulte [Aprovisionamiento de dispositivos Xamarin].
 
-[120]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[121]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
-[122]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
-[123]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
-[124]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
+[120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
+[121]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
+[122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
+[123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
+[124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
 
 [Aprovisionamiento de dispositivos Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

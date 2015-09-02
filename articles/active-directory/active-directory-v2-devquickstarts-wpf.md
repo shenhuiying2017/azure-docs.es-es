@@ -38,19 +38,19 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-The completed app is provided at the end of this tutorial as well.
+La aplicación completa se ofrece también al final de este tutorial.
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Registrar una aplicación
+Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md).  Asegúrese de:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
+- Agregar la plataforma **Móvil** para la aplicación.
+- Anotar la **URI de redirección** del portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
 
-## 2. Install & Configure ADAL
-Now that you have an app registered with Microsoft, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
+## 2. Instalar y configurar ADAL
+Ahora que ya tiene una aplicación registrada con Microsoft, instale ADAL y escribe su código relacionado con la identidad.  Para que ADAL pueda comunicarse con el extremo v2.0, debe proporcionar cierta información sobre el registro de la aplicación.
 
--	Begin by adding ADAL to the TodoListClient project using the Package Manager Console.
+-	Comience agregando ADAL al proyecto TodoListClient con la Consola del Administrador de paquetes.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
@@ -231,11 +231,11 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null) { /
 		...
 ```
 
-Congratulations! You now have a working .NET WPF app that has the ability to authenticate users & securely call Web APIs using OAuth 2.0.  Run your both projects, and sign in with either a personal Microsoft account or a work or school account.  Add tasks to that user's To-Do list.  Sign out, and sign back in as another user to view their To-Do list.  Close the app, and re-run it.  Notice how the user's session remains intact - that is becuase the app caches tokens in a local file.
+¡Enhorabuena! Ya tiene una aplicación WPF .NET en funcionamiento que puede autenticar usuarios y llamar con seguridad a las API web con OAuth 2.0.  Ejecute ambos proyectos e inicie sesión con una cuenta Microsoft personal o con una cuenta profesional o educativa.  Agregue tareas a la lista de tareas pendientes del usuario.  Cierre sesión y vuelva a iniciarla como otro usuario para ver su lista de tareas pendientes.  Cierre la aplicación y vuelva a ejecutarla.  Observe que la sesión del usuario permanece intacta. Esto es debido a que la aplicación captura tokens de un archivo local.
 
-ADAL makes it easy to incorporate common identity features into your app, using both personal and work accounts.  It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.  All you really need to know is a single API call, `authContext.AcquireTokenAsync(...)`.
+ADAL facilita la incorporación de las características de identidades comunes en la aplicación, mediante las cuentas personal y profesional.  Se encarga de todo el trabajo: administración de caché, soporte del protocolo OAuth, presentación al usuario de una interfaz de usuario de inicio de sesión, actualización de tokens expirados.  Todo lo que necesita saber es una única llamada API, `authContext.AcquireTokenAsync(...)`.
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip), or you can clone it from GitHub:
+Para obtener referencia, el ejemplo completo (sin sus valores de configuración) [se proporciona aquí como un archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip) o puede clonarlo de GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
@@ -247,4 +247,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!------HONumber=August15_HO7-->
+<!-------HONumber=August15_HO7-->

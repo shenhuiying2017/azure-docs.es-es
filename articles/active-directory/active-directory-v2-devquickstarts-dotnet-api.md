@@ -34,25 +34,25 @@ El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-The completed app is provided at the end of this tutorial as well.
+La aplicación completa se ofrece también al final de este tutorial.
 
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Registrar una aplicación
+Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md).  Asegúrese de:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
+- Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
 
-This visual studio solution also contains a "TodoListClient", which is a simple WPF app.  The TodoListClient is used to demonstrate how a user signs-in and how a client can issue requests to your Web API.  In this case, both the TodoListClient and the TodoListService are represented by the same app.  To configure the TodoListClient, you should also:
+La solución de Visual Studio también contiene "TodoListClient", que es una sencilla aplicación WPF.  TodoListClient se utiliza para demostrar cómo el usuario inicia sesión y cómo el cliente puede enviar solicitudes a la API de web.  En este caso, tanto TodoListClient como TodoListService se representan por la misma aplicación.  Para configurar TodoListClient, también debe:
 
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- Agregar la plataforma **Móvil** para la aplicación.
+- Anotar la **URI de redirección** del portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2. Set up your app to use the OWIN authentication pipeline
+## 2. Configurar la aplicación para que use la canalización de autenticación OWIN
 
-Now that you’ve registered an app, you need to set up your app to communicate with the v2.0 endpoint in order to validate incoming requests & tokens.
+Ahora que ha registrado una aplicación, debe configurarla para comunicarse con el extremo v2.0 con objeto de validar las solicitudes y tokens entrantes.
 
--	To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project using the Package Manager Console.
+-	Para comenzar, abra la solución y agregue los paquetes de NuGet del middleware OWIN al proyecto TodoListService desde la Consola del Administrador de paquetes.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService ```
@@ -155,4 +155,4 @@ Ahora puede pasar a otros temas adicionales. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

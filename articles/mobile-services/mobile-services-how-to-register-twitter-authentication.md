@@ -40,7 +40,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
    	De esta forma, la aplicación se registra y se muestran los detalles correspondientes.
 
-6. Haga clic en la pestaña **Keys and Access Tokens** (Claves y tokens de acceso) en el panel de la aplicación y anote los valores de **Consumer key** (Clave de consumidor) y **Consumer secret** (Secreto de consumidor).
+6. Haga clic en la pestaña **Claves y tokens de acceso** (Claves y tokens de acceso) en el panel de la aplicación y anote los valores de **Consumer key** (Clave de consumidor) y **Consumer secret** (Secreto de consumidor).
 
     > [AZURE.NOTE]El secreto de consumidor es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación.
 
@@ -62,4 +62,4 @@ De este modo ya estará listo para usar un inicio de sesión de Twitter para aut
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
