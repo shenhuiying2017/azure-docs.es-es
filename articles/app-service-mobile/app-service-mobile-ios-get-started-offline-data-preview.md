@@ -162,7 +162,9 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | id | Cadena, marcado obligatorio | primary key in remote store |
     | complete | Booleano | todo item field |
     | text | Cadena | todo item field |
-    | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | | ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | | ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
+    | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | 
+	| ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | 
+	| ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
 
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
@@ -250,4 +252,4 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

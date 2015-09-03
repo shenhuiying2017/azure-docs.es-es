@@ -37,17 +37,25 @@ El conector Edifact puede usarse como un desencadenador o como una acción.
 
 ### Desencadenador
 - Inicie el diseñador de flujo de aplicaciones lógicas de Azure.
-- Haga clic en el conector Edifact en el panel derecho: ![Configuración del desencadenador][3]
-- Haga clic en ->: ![Opciones del desencadenador][4]
-- El conector Edifact expone un solo desencadenador. Seleccione *Lote de versión*: ![Entrada de lote de versión][5]
-- Este desencadenador no tiene ninguna entrada. Haga clic en ->: ![Lote de versión configurado][6]
+- Haga clic en el conector Edifact en el panel derecho:  
+![Configuración del desencadenador][3]
+- Haga clic en ->:  
+![Opciones del desencadenador][4]
+- El conector Edifact expone un solo desencadenador. Seleccione *Lote de versión*:  
+![Entrada de lote de versión][5]
+- Este desencadenador no tiene ninguna entrada. Haga clic en ->:  
+![Lote de versión configurado][6]
 - Como parte de la salida, el conector devuelve la carga Edifact, el identificador del contrato e información sobre si el mensaje se procesa por lotes o no.
 
 ### Acción
-- Haga clic en el conector Edifact en el panel derecho: ![Configuración de la acción][7]
-- Haga clic en ->: ![Lista de acciones][8]
-- El conector Edifact admite muchas acciones. Seleccione *Codificar*: ![Codificar entrada][9]
-- Proporcione las entradas para la acción y configure esta última: ![Codificar configurado][10]
+- Haga clic en el conector Edifact en el panel derecho:  
+![Configuración de la acción][7]
+- Haga clic en ->:  
+![Lista de acciones][8]
+- El conector Edifact admite muchas acciones. Seleccione *Codificar*:  
+![Codificar entrada][9]
+- Proporcione las entradas para la acción y configure esta última:  
+![Codificar configurado][10]
 
 	Parámetro|Tipo|Descripción del parámetro
 ---|---|---
@@ -85,4 +93,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

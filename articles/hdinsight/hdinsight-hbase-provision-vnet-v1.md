@@ -151,7 +151,7 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 		<td>Especifique la contraseña del usuario del clúster de HDInsight.</td></tr>
 	<tr><td>Habilitar Escritorio remoto para un clúster</td>
 		<td>Active esta casilla para especificar un nombre de usuario, una contraseña y una fecha de caducidad para un usuario de Escritorio remoto que puede conectarse en remoto a los nodos del clúster, cuando esté aprovisionado. También puede habilitar Escritorio remoto más adelante, cuando el clúster esté aprovisionado. Para obtener instrucciones, vea <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.</td></tr>
-</table>
+	</table>
 
 6. En la página **Cuenta de almacenamiento**, proporcione los siguientes valores:
 
@@ -434,4 +434,4 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalles de aprovisionamiento para el nuevo clúster de HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Uso de la acción de script para personalizar un clúster de HBase"
 
-<!----HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->

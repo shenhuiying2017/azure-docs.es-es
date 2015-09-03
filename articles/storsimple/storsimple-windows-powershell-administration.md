@@ -79,7 +79,7 @@ Puede elegir entre las siguientes opciones:
 	- Instalar revisiones 
 												
 
-	>[AZURE.NOTE]**Esta es la opción preferida si ha olvidado la contraseña del administrador de dispositivos y no se puede conectar a través de la opción 1 o 2.**
+	>[AZURE.NOTE] **Esta es la opción preferida si ha olvidado la contraseña del administrador de dispositivos y no se puede conectar a través de la opción 1 o 2.**
 
 1. **Cambiar idioma**: esta opción le permite cambiar el idioma para mostrar en la interfaz de Windows PowerShell. Los idiomas admitidos son inglés, japonés, ruso, francés, coreano de Corea del Sur, español, italiano, alemán, chino y portugués de Brasil.
 
@@ -197,4 +197,4 @@ Puede actualizar fácilmente la Ayuda en la interfaz de Windows PowerShell. Real
 ## Pasos siguientes
 Si experimenta problemas con el dispositivo StorSimple al realizar uno de los flujos de trabajo anteriores, consulte [Herramientas para solucionar problemas en implementaciones de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

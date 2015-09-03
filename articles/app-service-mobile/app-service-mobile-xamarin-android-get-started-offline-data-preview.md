@@ -180,4 +180,4 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!----HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->

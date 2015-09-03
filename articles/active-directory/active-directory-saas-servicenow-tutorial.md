@@ -138,7 +138,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
      11\.4. Como **Format**, seleccione **PEM**.
 
-     11\.5. Cree un archivo codificado en Base 64 a partir del certificado descargado. >[AZURE.NOTE]Para obtener más información, vea [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
+     11\.5. Cree un archivo codificado en Base 64 a partir del certificado descargado.  > [AZURE.NOTE] Para obtener más información, vea [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
      11\.6. En **el Bloc de notas**, abra el archivo codificado en Base 64 y copie el contenido de este archivo en el Portapapeles.
 
@@ -213,4 +213,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

@@ -314,8 +314,8 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 <tr>
 	<td>7.1</td>
 	<td>3.10.0-229.1.2.el7</td>
-	<td>LIS 4.0 recomendado
-		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"></a> <br/> 
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.0 recomendado</a> <br/> 
 		*Vea la nota a continuación 
 	</td> 
 </tr>
@@ -458,4 +458,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
