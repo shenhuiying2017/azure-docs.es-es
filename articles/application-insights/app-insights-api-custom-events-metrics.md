@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="API de Application Insights para eventos y métricas personalizados" 
-	description="Inserte unas cuantas líneas de código en su aplicación de dispositivo o de escritorio, página o servicio web, para realizar el seguimiento del uso y diagnosticar problemas." 
+	pageTitle="API de Application Insights para eventos y métricas personalizados"
+	description="Inserte unas cuantas líneas de código en su aplicación de dispositivo o de escritorio, página o servicio web, para realizar el seguimiento del uso y diagnosticar problemas."
 	services="application-insights"
-    documentationCenter="" 
-	authors="alancameronwills" 
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
  
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -52,7 +52,7 @@ Si no ha hecho esto aún:
 
 * En el código de servidor web o de dispositivo, incluya:
 
-    *C\#:* `using Microsoft.ApplicationInsights;`
+    *C#:* `using Microsoft.ApplicationInsights;`
 
     *VB:* `Imports Microsoft.ApplicationInsights`
 
@@ -62,7 +62,7 @@ Si no ha hecho esto aún:
 
 Construya una instancia de TelemetryClient (excepto en JavaScript en páginas web):
 
-*C\#:*
+*C#:*
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -92,7 +92,7 @@ Por ejemplo, en una aplicación de juego, envíe un evento cada vez que un usuar
 
     appInsights.trackEvent("WinGame");
 
-*C\#*
+*C#*
     
     telemetry.TrackEvent("WinGame");
 
@@ -148,7 +148,7 @@ Hay algunos [límites en el número de propiedades, valores de propiedad y métr
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-*C\#*
+*C#*
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -238,7 +238,7 @@ Si le resulta más cómodo, puede recopilar los parámetros de un evento en un o
 Seguro que en ocasiones le gustaría representar el tiempo que se tarda en realizar alguna acción. Por ejemplo, puede que quiera saber cuánto tiempo tardan los usuarios en considerar las opciones de un juego. Este es un ejemplo útil del uso del parámetro de medición.
 
 
-*C\#*
+*C#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -271,7 +271,7 @@ Los valores de métrica deben ser > = 0 para que se muestren correctamente.
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C\#*
+*C#*
 
     telemetry.TrackMetric("Queue", queue.Length);
 
@@ -285,7 +285,7 @@ Los valores de métrica deben ser > = 0 para que se muestren correctamente.
 
 De hecho, puede realizar esta operación en un subproceso en segundo plano:
 
-*C\#*
+*C#*
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -316,7 +316,7 @@ Los datos de usuario y de sesión se envían como propiedades junto con las vist
 
     appInsights.trackPageView("tab1");
 
-*C\#*
+*C#*
 
     telemetry.TrackPageView("GameReviewPage");
 
@@ -337,7 +337,7 @@ Este método lo usa el SDK del servidor para registrar las solicitudes HTTP.
 
 También puede llamarlo usted mismo si quiere simular solicitudes en un contexto en el que no se está ejecutando el módulo de servicio web.
 
-*C\#*
+*C#*
 
     // At start of processing this request:
 
@@ -358,7 +358,7 @@ También puede llamarlo usted mismo si quiere simular solicitudes en un contexto
 
 Envíe excepciones a Application Insights para [contabilizarlas][metrics], como una indicación de la frecuencia de un problema, y para [examinar todas las repeticiones individuales][diagnostic]. Los informes incluyen los seguimientos de la pila.
 
-*C\#*
+*C#*
 
     try
     {
@@ -381,7 +381,7 @@ Use este método para ayudar a diagnosticar problemas mediante el envío de una 
 Los [adaptadores de registro][trace] usan esta API para enviar registros de terceros al portal.
 
 
-*C\#*
+*C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
@@ -411,11 +411,41 @@ Recuerde que los SDK del servidor incluyen un [módulo de dependencia](app-insig
 
 Para desactivar el módulo de seguimiento de dependencias estándar, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) y elimine la referencia a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
+
+## Usuarios autenticados
+
+En una aplicación web, los usuarios se identifican por cookies de manera predeterminada. Se puede contar al usuario más de una vez si accede a la aplicación desde un equipo o explorador diferente, o elimina las cookies.
+
+Pero si los usuarios inician sesión en su aplicación, puede obtener un recuento más preciso estableciendo el identificador del usuario autenticado en el código del explorador:
+
+*JavaScript*
+
+```JS
+    // Called when my app has identified the user.
+    function Authenticated(signInId) {
+      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
+      appInsights.setAuthenticatedUserContext(validatedId);
+      ...
+    }
+```
+
+No es necesario usar el nombre de inicio de sesión real del usuario. Solo tiene que ser un identificador único para ese usuario. No debe incluir espacios ni ninguno de los caracteres `,;=|`.
+
+El identificador de usuario también se establece en una cookie de sesión y se envía al servidor. Si está instalado el SDK del servidor, el Id. de usuario autenticado se enviará como parte de las propiedades de contexto tanto de la telemetría del cliente como del servidor, para que pueda filtrar y buscar en ella.
+
+Si su aplicación agrupa a los usuarios en cuentas, también puede pasar un identificador de la cuenta (con las mismas restricciones de caracteres).
+
+
+      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+
+En el [explorador de métricas](app-insights-metrics-explorer.md), puede crear un gráfico de **Usuarios autenticados** y **Cuentas**.
+
+
 ## <a name="defaults"></a>Establecimiento de valores predeterminados para los datos de telemetría personalizados seleccionados
 
 Si quiere establecer valores de propiedad predeterminados para algunos de los eventos personalizados que escriba, puede hacerlo en una instancia de TelemetryClient. Se adjuntarán a cada elemento de telemetría enviado desde ese cliente.
 
-*C\#*
+*C#*
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -443,15 +473,17 @@ Si quiere establecer valores de propiedad predeterminados para algunos de los ev
     context.getProperties().put("Game", currentGame.Name);
     
     gameTelemetry.TrackEvent("WinGame");
+
+
     
 Las llamadas de telemetría individuales pueden invalidar los valores predeterminados en los diccionarios de propiedad.
 
-
+**Para los clientes web de JavaScript**, [use los inicializadores de telemetría de JavaScript](#js-initializer).
 
 
 ## <a name="ikey"></a> Establecimiento de la clave de instrumentación para datos de telemetría personalizados seleccionados
 
-*C\#*
+*C#*
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
@@ -467,7 +499,7 @@ Un uso típico consiste en identificar telemetría procedente de distintas versi
 **Defina su inicializador**
 
 
-*C\#*
+*C#*
 
 ```C#
 
@@ -520,7 +552,7 @@ En ApplicationInsights.config:
 
 *Alternativamente,* se pueden crear instancias del inicializador en el código:
 
-*C\#*
+*C#*
 
 ```C#
 
@@ -540,7 +572,10 @@ En ApplicationInsights.config:
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
 ```
 
-En el cliente web de JavaScript, no hay actualmente ninguna forma de establecer propiedades predeterminadas.
+
+### Cliente web de JavaScript
+
+Para los clientes web de JavaScript, [use los inicializadores de telemetría para establecer valores predeterminados](#js-initializer).
 
 ## Inicializadores de telemetría
 
@@ -552,7 +587,7 @@ Si se proporciona un inicializador de telemetría, se llama cada vez que se llam
 
 **Defina su inicializador**
 
-*C\#*
+*C#*
 
 ```C#
 
@@ -618,13 +653,62 @@ En ApplicationInsights.config:
 
 [Obtenga más información de este ejemplo.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
+<a name="js-initializer"></a>
+### Inicializadores de telemetría de JavaScript
+
+*JavaScript*
+
+Inserte un inicializador de telemetría inmediatamente después del código de inicialización que obtuvo del portal:
+
+```JS
+
+    <script type="text/javascript">
+        // ... initialization code
+        ...({
+            instrumentationKey: "your instrumentation key"
+        });
+        window.appInsights = appInsights;
+
+
+        // Adding telemetry initializer.
+        // This is called whenever a new telemetry item
+        // is created.
+
+        appInsights.queue.push(function () {
+            appInsights.context.addTelemetryInitializer(function (envelope) {
+                var telemetryItem = envelope.data.baseData;
+
+                // To check the telemetry item’s type - for example PageView:
+                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                    // this statement removes url from all page view documents
+                    telemetryItem.url = "URL CENSORED";
+                }
+
+                // To set custom properties:
+                telemetryItem.properties = telemetryItem.properties || {};
+                telemetryItem.properties["globalProperty"] = "boo";
+
+                // To set custom metrics:
+                telemetryItem.measurements = telemetryItem.measurements || {};
+                telemetryItem.measurements["globalMetric"] = 100;
+            });
+        });
+
+        // End of inserted code.
+
+        appInsights.trackPageView();
+    </script>
+```
+
+Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, consulte el [modelo de datos](app-insights-export-data-model.md/#lttelemetrytypegt).
+
 ## <a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 
 Para evitar la mezcla de telemetría de entornos de desarrollo, prueba y producción, puede [crear recursos separados de Application Insights][create] y cambiar sus claves según el entorno.
 
 En lugar de obtener la clave de instrumentación del archivo de configuración, puede establecerla en el código. Establezca la clave en un método de inicialización, como global.aspx.cs en un servicio de ASP.NET:
 
-*C\#*
+*C#*
 
     protected void Application_Start()
     {
@@ -660,7 +744,7 @@ En páginas web, podría configurarla a partir del estado del servidor web, en l
 
 Normalmente el SDK envía datos en momentos elegidos para minimizar el impacto en el usuario. Sin embargo, en algunos casos puede que desee vaciar el búfer: por ejemplo, si usa el SDK en una aplicación que se apaga.
 
-*C\#*
+*C#*
 
     telemetry.Flush();
 
@@ -680,7 +764,7 @@ También puede [deshabilitar partes seleccionadas de los datos de telemetría es
 Durante la depuración, resulta útil enviar los datos de telemetría por la canalización para así poder ver los resultados inmediatamente. También puede recibir mensajes adicionales que le ayuden a realizar el seguimiento de los posibles problemas con la telemetría. Desactívelo en producción, ya que puede ralentizar la aplicación.
 
 
-*C\#*
+*C#*
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
@@ -704,7 +788,7 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
  * **SyntheticSource**: si no es null o no está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada se excluirá de cálculos en el Explorador de métricas.
 * **Properties** Propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
 * **Session** Identifica la sesión del usuario. El id. se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
-* **User** Permite contar a los usuarios. En una aplicación web, si hay una cookie, el id. de usuario se toma de ella. Si no hay ninguna, se genera un identificador nuevo. Si los usuarios tienen que iniciar sesión en su aplicación, puede establecer el id. desde su id. autenticado, con el fin de proporcionar un recuento más confiable que sea correcto incluso si el usuario inicia sesión desde otro equipo. 
+* **User** Información del usuario, 
 
 
 
@@ -781,4 +865,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

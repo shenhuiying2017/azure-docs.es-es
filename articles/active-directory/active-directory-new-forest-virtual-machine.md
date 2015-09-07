@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Instalación de un bosque nuevo de Active Directory en una red virtual de Azure" 
-	description="Un tutorial que explica cómo crear un nuevo bosque de Active Directory en una máquina virtual (VM) en una red virtual de Azure." 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="TerryLan" 
+	pageTitle="Instalación de un bosque nuevo de Active Directory en una red virtual de Azure"
+	description="Un tutorial que explica cómo crear un nuevo bosque de Active Directory en una máquina virtual (VM) en una red virtual de Azure."
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="markusvi"
+	manager="TerryLan"
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="07/23/2015" 
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/23/2015"
 	ms.author="markusvi"/>
 
 
 # Instalación de un bosque nuevo de Active Directory en una red virtual de Azure
 
-En este tema se muestra la creación de un nuevo entorno de Windows Server Active Directory en una red virtual de Azure en una máquina virtual (VM) de una [red virtual de Azure](https://msdn.microsoft.com/library/azure/jj156007.aspx). En este caso, la red virtual de Azure no está conectada a una red de un entorno local.
+En este tema se muestra la creación de un nuevo entorno de Windows Server Active Directory en una red virtual de Azure en una máquina virtual (VM) de una [red virtual de Azure](../virtual-network/virtual-networks-overview.md). En este caso, la red virtual de Azure no está conectada a una red de un entorno local.
 
 Es posible que también le interesen los siguientes temas relacionados:
 
@@ -32,8 +32,7 @@ Es posible que también le interesen los siguientes temas relacionados:
 
 En este escenario, los usuarios externos necesitan tener acceso a las aplicaciones que se ejecutan en servidores unidos a un dominio. Las máquinas virtuales que ejecutan los servidores de aplicaciones y las máquinas virtuales que ejecutan los controladores de dominio se instalan en su propio servicio en la nube en una red virtual de Azure. También se incluyen dentro de un conjunto de disponibilidad para mayor tolerancia a errores.
 
-![][1]
-
+![][1] 7
 ## ¿En qué se diferencia del entorno local?
 
 No existe mucha diferencia entre instalar un controlador de dominio en Azure y una instalación en el entorno local. Las principales diferencias se mencionan en la siguiente tabla.
@@ -120,12 +119,12 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 
 -  [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Windows Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [Configuración de una red virtual solo en la nube](https://msdn.microsoft.com/library/dn631643.aspx)
+-  [Configuración de una red virtual solo en la nube](../virtual-network/virtual-networks-create-vnet.md)
 -  [Configuración de una VPN de sitio a sitio](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Instalación de un controlador de dominio de Active Directory de réplica en una red virtual de Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IaaS para profesionales de TI: (01) Principios básicos sobre máquinas virtuales](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS para profesionales de TI: (05) Creación de redes virtuales y conectividad entre instalaciones](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [Información general sobre redes virtuales](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
 -  [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Referencia de cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
@@ -139,4 +138,4 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

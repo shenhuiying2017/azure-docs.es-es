@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del teléfono de la oficina como método de contacto con Azure MFA" 
-	description="Esta página mostrará a los usuarios cómo utilizar su teléfono de la oficina como método de contacto principal para Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Uso del teléfono de la oficina como método de contacto con Azure MFA"
+	description="Esta página mostrará a los usuarios cómo utilizar su teléfono de la oficina como método de contacto principal para Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Uso del teléfono de la oficina como método de contacto con Azure Multi-Factor Authentication
@@ -40,4 +40,4 @@ Este artículo puede serle útil si desea usar el teléfono de la oficina como m
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

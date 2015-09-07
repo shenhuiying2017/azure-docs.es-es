@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Movimiento de datos entre una ubicación local y la nube mediante Factoría de datos de Azure" 
-	description="Obtenga información acerca de cómo mover datos entre local y la nube mediante Data Management Gateway y Factoría de datos de Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Movimiento de datos entre una ubicación local y la nube mediante Factoría de datos de Azure"
+	description="Obtenga información acerca de cómo mover datos entre local y la nube mediante Data Management Gateway y Factoría de datos de Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
@@ -193,18 +193,7 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 5. Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 	
 6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
-Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con el equipo de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión al origen de datos.
-
-##### Configuración de credenciales y seguridad
-Cuando usa el método descrito anteriormente con la aplicación "Establecer credenciales" iniciada desde el Portal de Azure para establecer credenciales para un origen de datos local, el portal cifra las credenciales con el certificado especificado en la pestaña Certificado del Administrador de configuración de Data Management Gateway en el equipo de puerta de enlace.
-
-Si desea un enfoque basado en API para cifrar las credenciales, puede usar el cmdlet [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas devueltas por este cmdlet y agregarlas al elemento EncryptedCredential de connectionString en el archivo JSON que se va a emplear con el cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) o en el fragmento JSON en el Editor de la Factoría de datos en el portal.
-
-	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**Nota:** Si usa la aplicación "Establecer credenciales", establece automáticamente las credenciales cifradas en el servicio vinculado, como se mostró anteriormente.
-
-No hay otro enfoque más para establecer credenciales mediante el Editor de la Factoría de datos. Si crea un servicio vinculado de SQL Server mediante el editor y escribe las credenciales en texto sin formato, las credenciales se cifran mediante un certificado que posee el servicio Factoría de datos, NO el certificado que la puerta de enlace está configurada para usar. Aunque este enfoque puede resultar un poco más rápido, en algunos casos es menos seguro. Por lo tanto, se recomienda seguir este enfoque solo para fines de desarrollo y pruebas.
+Consulte [Configuración de credenciales y seguridad](#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales.
 
 #### Adición de un servicio vinculado para una cuenta de almacenamiento de Azure
  
@@ -279,10 +268,10 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 
 	Tenga en cuenta lo siguiente:
 	
-	- **type** está establecido en **SqlServerTable**.
+	- **type** está establecido como **SqlServerTable**.
 	- **tableName** está establecido en **emp**.
 	- **linkedServiceName** está establecido en **SqlServerLinkedService** (creó este servicio vinculado en el paso 2).
-	- Para una tabla de entrada no generada por otra canalización en Factoría de datos de Azure, debe especificar la propiedad **external** en **true**. Indica que los datos de entrada se han producido fuera del servicio Factoría de datos de Azure. Opcionalmente, puede especificar las directivas de datos externos mediante el elemento **externalData** en la sección **Policy**.    
+	- Para una tabla de entrada no generada por otra canalización en Factoría de datos de Azure, tiene que especificar la propiedad **external** en **true**. Indica que los datos de entrada se han producido fuera del servicio Factoría de datos de Azure. Opcionalmente, puede especificar las directivas de datos externos mediante el elemento **externalData** en la sección **Policy**.    
 
 	Consulte la [documentación de referencia de scripting con JSON][json-script-reference] para obtener información detallada acerca de las propiedades JSON.
 
@@ -405,7 +394,7 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 
 	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
-	Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
+	Si no especifica ningún valor para la propiedad **end**, se calcula como "￼**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
 	
 	Está definiendo la duración del procesamiento de los segmentos de datos según las propiedades de **disponibilidad** que se definieron para cada tabla de la Factoría de datos de Azure.
 	
@@ -476,6 +465,20 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 	![Explorador de almacenamiento de Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 
+## Configuración de credenciales y seguridad
+Si tiene acceso al portal desde un equipo diferente del equipo de la puerta de enlace, debe asegurarse de que la aplicación del Administrador de credenciales puede conectarse al equipo de la puerta de enlace. Si la aplicación no puede ponerse en contacto con el equipo de la puerta de enlace, no podrá establecer las credenciales del origen de datos ni probar la conexión al origen de datos.
+
+Cuando usa la aplicación "Establecer credenciales" iniciada desde el Portal de Azure para establecer credenciales para un origen de datos local, el portal cifra las credenciales con el certificado especificado en la pestaña Certificado del Administrador de configuración de Data Management Gateway en el equipo de puerta de enlace.
+
+Si desea un enfoque basado en API para cifrar las credenciales, puede usar el cmdlet [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) de PowerShell para cifrar las credenciales. El cmdlet usa el certificado cuyo uso tiene configurado esa puerta de enlace para cifrar las credenciales. Puede usar las credenciales cifradas devueltas por este cmdlet y agregarlas al elemento EncryptedCredential de connectionString en el archivo JSON que se va a emplear con el cmdlet [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) o en el fragmento JSON en el Editor de la Factoría de datos en el portal.
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
+**Nota:** si usa la aplicación "Establecer credenciales", esta establece automáticamente las credenciales cifradas en el servicio vinculado, como se mostró anteriormente.
+
+Hay otro enfoque para establecer las credenciales mediante el Editor de la Factoría de datos. Si crea un servicio vinculado de SQL Server mediante el editor y escribe las credenciales en texto sin formato, las credenciales se cifran mediante un certificado que posee el servicio Factoría de datos, NO el certificado que la puerta de enlace está configurada para usar. Aunque este enfoque puede resultar un poco más rápido, en algunos casos es menos seguro. Por lo tanto, se recomienda seguir este enfoque solo para fines de desarrollo y pruebas.
+
+
 ## Creación y registro de una puerta de enlace con Azure PowerShell 
 En esta sección se explica cómo crear y registrar una puerta de enlace usando cmdlets de Azure PowerShell.
 
@@ -517,7 +520,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. En Azure PowerShell, cambie a la carpeta **C:\\\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
+4. En Azure PowerShell, cambie a la carpeta **C:\\\Archivos de programa\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -547,13 +550,13 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 1. Como se mencionó anteriormente en el tutorial paso a paso, hay varias maneras de establecer credenciales para almacenes de datos locales con la factoría de datos. Las consideraciones de puerto varían para estas opciones.	
 
 	- Mediante la aplicación **Establecer credenciales**: de forma predeterminada, el programa de instalación de Data Management Gateway abre los puertos **8050** y **8051** en el Firewall de Windows local para el equipo de puerta de enlace. La aplicación Establecer credenciales usa estos puertos para retransmitir las credenciales a la puerta de enlace. Estos puertos se abren solo para el equipo en el Firewall de Windows local. Estos puertos no se pueden alcanzar desde Internet y no es necesario que estén abiertos en el firewall corporativo.
-	2.	Mediante commandlet de powershell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx): a. Si está usando el comando de Powershell para cifrar las credenciales y como resultado no desea que la instalación de puerta de enlace abra los puertos de entrada en el equipo de puerta de enlace en Firewall de Windows, puede hacerlo mediante el comando siguiente durante la instalación:
+	2.	Mediante el commandlet de powershell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx): a. Si está usando el comando de Powershell para cifrar las credenciales y como resultado no desea que la instalación de puerta de enlace abra los puertos de entrada en el equipo de puerta de enlace en Firewall de Windows, puede hacerlo mediante el comando siguiente durante la instalación:
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
-3.	Si usa la aplicación **Configuración de credenciales**, debe iniciarla en un equipo que pueda conectarse a Data Management Gateway para poder establecer credenciales para el origen de datos y probar la conexión al origen de datos.
+3.	Si usa la aplicación **Configuración de credenciales**, tiene que iniciarla en un equipo que pueda conectarse a Data Management Gateway para poder establecer credenciales para el origen de datos y probar la conexión al origen de datos.
 4.	Al copiar datos desde y hacia una base de datos de SQL Server local hacia o desde una base de datos SQL a Azure, asegúrese de lo siguiente:	
-	- 	El firewall del equipo de la puerta de enlace permite la salida de la comunicación TCP en el puerto **TCP** **1433**.
+	- 	El firewall del equipo de la puerta de enlace permite la salida de la comunicación TCP de en el puerto **TCP** **1433**.
 	- 	Establezca la [configuración de firewall de SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) para agregar la **dirección IP del equipo de la puerta de enlace** a las **direcciones IP permitidas**.
 5.	Si copia datos desde y hacia SQL Server local a cualquier destino y los equipos de la puerta de enlace y de SQL Server son diferentes, haga lo siguiente: [configure Firewall de Windows](https://msdn.microsoft.com/library/ms175043.aspx) en el equipo de SQL Server para que la puerta de enlace pueda tener acceso a la base de datos a través de puertos en los que escucha la instancia de SQL Server. En la instancia predeterminada es el puerto 1433.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

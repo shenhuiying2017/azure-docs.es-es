@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Creación de varias instancias de recursos"
-   description="Describe cómo usar la operación de copia en una plantilla del Administrador de recursos de Azure para iterar varias veces cuando se implementan recursos."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   pageTitle="Implementación de varias instancias de recursos | Microsoft Azure"
+	description="Use la operación de copia y matrices en una plantilla del Administrador de recursos de Azure para iterar varias veces al implementar recursos."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Creación de varias instancias de recursos en el Administrador de recursos de Azure
 
 En este tema se muestra cómo iterar en la plantilla del Administrador de recursos de Azure para crear varias instancias de un recurso.
 
-## copy y copyIndex()
+## copy, copyIndex y length
 
 En el recurso que se va a crear varias veces, puede definir un objeto **copy** que especifica el número de veces que se va a iterar. La copia tiene el formato siguiente:
 
@@ -32,6 +32,13 @@ En el recurso que se va a crear varias veces, puede definir un objeto **copy** q
 Se puede obtener acceso al valor de iteración actual con la función **copyIndex()**, como se muestra a continuación dentro de la función concat.
 
     [concat('examplecopy-', copyIndex())]
+
+Al crear varios recursos desde una matriz de valores, puede usar la función **length** para especificar el recuento. Especifique la matriz como parámetro para la función length.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
 
 ## Uso del valor de índice en el nombre
 
@@ -89,11 +96,7 @@ Use la siguiente plantilla:
              "Fabrikam", 
              "Coho" 
           ] 
-      },
-      "count": { 
-         "type": "int", 
-         "defaultValue": 3 
-      } 
+      }
     }, 
     "resources": [ 
       { 
@@ -103,15 +106,15 @@ Use la siguiente plantilla:
           "apiVersion": "2014-06-01",
           "copy": { 
              "name": "websitescopy", 
-             "count": "[parameters('count')]" 
+             "count": "[length(parameters('org'))]" 
           }, 
           "properties": {} 
       } 
     ]
 
 ## Pasos siguientes
-- [Creación de plantillas de Administrador de recursos de Azure](./resource-group-authoring-templates.md)
-- [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
+- Para obtener información sobre las secciones de una plantilla, consulte [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
+- Para obtener todas las funciones que puede usar en una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md).
+- Para obtener información sobre cómo implementar la plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

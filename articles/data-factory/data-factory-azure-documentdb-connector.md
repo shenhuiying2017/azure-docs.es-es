@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector de DocumentDB: movimiento de datos a y desde DocumentDB" 
-	description="Obtenga información acerca del conector de DocumentDB de Azure para el servicio Factoría de datos que le permite mover datos a y desde la colección de DocumentDB de Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Movimiento de datos hacia y desde DocumentDB | Factoría de datos de Azure"
+	description="Obtenga información acerca de cómo mover los datos hacia y desde DocumentDB de Azure mediante Factoría de datos de Azure"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector de DocumentDB: movimiento de datos a y desde DocumentDB
+# Movimiento de datos hacia y desde DocumentDB mediante Factoría de datos de Azure
 
 En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos a DocumentDB de Azure desde otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
@@ -24,11 +24,11 @@ En este artículo se describe cómo puede usar la actividad de copia en la Facto
 
 El ejemplo siguiente muestra:
 
-1. Un servicio vinculado de tipo DocumentDb.
-2. Un servicio vinculado de tipo AzureStorage. 
-3. Un conjunto de datos de entrada de tipo DocumentDbCollection. 
-4. Un conjunto de datos de salida de tipo AzureBlob.
-4. Una canalización con la actividad de copia que usa DocumentDbCollectionSource y BlobSink.
+1. Un servicio vinculado de tipo [DocumentDb](#azure-documentdb-linked-service-properties).
+2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 El ejemplo copia los datos en DocumentDB de Azure a un blob de Azure. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -164,11 +164,12 @@ La siguiente canalización copia los datos de la colección Person de la base de
 
 El ejemplo siguiente muestra:
 
-1. Un servicio vinculado de tipo DocumentDb.
-2. Un servicio vinculado de tipo AzureStorage.
-3. Un conjunto de datos de entrada de tipo AzureBlob.
-4. Un conjunto de datos de salida de tipo DocumentDbCollection. 
-4. Una canalización con la actividad de copia que usa BlobSource y DocumentDbCollectionSink.
+1. Un servicio vinculado de tipo [DocumentDb](#azure-documentdb-linked-service-properties).
+2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [DocumentDbCollection](#azure-documentdb-dataset-type-properties). 
+4. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) y [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties).
+
 
 El ejemplo copia datos de un blob de Azure a DocumentDB de Azure Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -400,4 +401,4 @@ En caso de la actividad de copia si el origen es de tipo **DocumentDbCollectionS
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

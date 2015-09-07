@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Lista de actualizaciones aplicadas al SO invitado de Azure | Microsoft Azure" 
-   description="Lista de las actualizaciones aplicadas a las versiones del SO invitado." 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="markkie" 
-   editor=""/>
+   pageTitle="Lista de actualizaciones aplicadas al SO invitado de Azure | Microsoft Azure"
+	description="Lista de las actualizaciones aplicadas a las versiones del SO invitado."
+	services="cloud-services"
+	documentationCenter="na"
+	authors="yuemlu"
+	manager="markkie"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/24/2015"
+	ms.author="yuemlu"/>
 
 # SO invitado de Azure 
 
@@ -32,7 +32,6 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-088 | [3082458] | El paso de parámetros de línea de comandos no seguros podría permitir la divulgación de información | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
 | MS15-089 | [3060716] | Las vulnerabilidades de Microsoft Windows podrían permitir la elevación de privilegios | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
 | MS15-090 | [3076949] | Una vulnerabilidad en WebDAV podría permitir la divulgación de información | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
-| MS15-092 | [3086251] | Vulnerabilidades en .NET Framework podrían permitir la elevación de privilegios | 4\.23, 3.30, 2.42 | 11 de agosto de 2015 |
 
 
 ## SO invitado de julio
@@ -265,4 +264,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

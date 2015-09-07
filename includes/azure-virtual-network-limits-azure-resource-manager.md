@@ -4,7 +4,7 @@
    <th align="left" valign="middle">Límite predeterminado</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Redes virtuales</a><sup>1</sup> por suscripción</p></td>
+   <td valign="middle"><p><a href="../virtual-network/virtual-networks-overview.md">Redes virtuales</a><sup>1</sup> por suscripción</p></td>
    <td valign="middle"><p>50 por región<sup>1</sup></p></td>
 </tr>
 <tr>
@@ -51,4 +51,4 @@
 
 <sup>1</sup>Para aumentar el límite, póngase en contacto con soporte técnico.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Proveedor de recursos de red"
-   description="Proveedor de recursos de red"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Proveedor de recursos de red"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="telmos"/>
 
 # Proveedor de recursos de red
 Una necesidad que sustenta el éxito de un negocio hoy en día es la capacidad de crear y administrar aplicaciones compatibles con redes de gran escala de una forma ágil, flexible, segura y repetible. El Administrador de recursos de Azure (ARM) permite crear aplicaciones, como una única colección de recursos en grupos de recursos. Estos recursos se administran a través de diversos proveedores de recursos en el Administrador de recursos de Azure.
@@ -210,7 +210,7 @@ Las principales ventajas derivadas del uso de plantillas son las siguientes:
 
 Para ver plantillas de ejemplo, consulte [Plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Para obtener más información sobre el lenguaje de la plantilla del Administrador de recursos de Azure, vea [Idioma de la plantilla del administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obtener más información sobre el lenguaje de la plantilla del Administrador de recursos de Azure, vea [Idioma de la plantilla del administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
 La plantilla del ejemplo anterior utiliza la red virtual y los recursos de la subred. Hay otros recursos de red que se pueden utilizar, como se muestra a continuación:
 
@@ -267,6 +267,19 @@ Los equilibradores de carga contienen los siguientes recursos secundarios:
 - **Sondeos**: los sondeos permiten realizar un seguimiento del estado de las instancias de máquina virtual. Si se produce un error en un sondeo de estado, la instancia de VM se sacará automáticamente de la rotación.
 - **Reglas NAT entrantes**: las reglas NAT que definen el tráfico entrante que fluye a través de la dirección IP de front-end y se distribuye a la dirección IP de back-end.
 
+## Puerta de enlace de aplicaciones
+
+La puerta de enlace de aplicaciones ofrece una solución de equilibrio de carga HTTP administrada de Azure basada en el equilibrio de carga de nivel 7. El equilibrio de carga de aplicaciones permite el uso de reglas de enrutamiento para el tráfico de red basado en HTTP.
+
+La puerta de enlace de aplicaciones contiene los siguientes recursos secundarios:
+
+- **Grupo de servidores back-end**: la lista de direcciones IP de los servidores back-end. Las direcciones IP mostradas deben pertenecer a la subred de la red virtual o ser una VIP/IP pública. 
+- **Configuración del grupo de servidores back-end**: cada grupo tiene una configuración como el puerto, el protocolo y la afinidad basada en cookies. Estos valores están vinculados a un grupo y se aplican a todos los servidores del grupo.
+- **Puerto front-end**: este puerto es el puerto público abierto en la puerta de enlace de aplicaciones. El tráfico llega a este puerto y después se redirige a uno de los servidores back-end.
+- **Agente de escucha**: la escucha tiene un puerto front-end, un protocolo (http o https, que distinguen mayúsculas de minúsculas) y el nombre del certificado SSL (si se configura la descarga de SSL). 
+- **Regla**: enlaza el agente de escucha y el grupo de servidores back-end y define a qué grupo de servidores back-end se redirigirá el tráfico cuando se seleccione un agente de escucha concreto. Actualmente, solo se admite la regla básica. La regla básica es la distribución de carga round robin.
+
+
 ## Dirección IP pública
 Un recurso de dirección IP pública proporciona una dirección IP pública reservada o dinámica. Una dirección IP pública puede asignarse a un equilibrador de carga, NAT, o asociarse a una dirección IP privada en una tarjeta NIC de una máquina virtual.
 
@@ -307,6 +320,8 @@ Entre las principales propiedades de una puerta de enlace de VPN se incluyen las
 - **Tipo de puerta de enlace**: puerta de enlace de ruta dinámica o estática. 
 - **Prefijo del grupo de direcciones de cliente VPN**: direcciones IP que se asignarán a los clientes que se conectan en una configuración de punto a sitio.
 
+
+
 ## Perfil del Administrador de tráfico
 El Administrador de tráfico y su recurso de extremo secundario permiten la distribución del tráfico a los extremos de Azure y fuera de Azure. Esta distribución de tráfico se rige por las directivas. El Administrador de tráfico también permite supervisar el estado del extremo y desviar el tráfico adecuadamente según el estado de un extremo.
 
@@ -329,6 +344,16 @@ Entre las principales propiedades de un extremo se incluyen las siguientes:
 - **Ponderación**: ponderación del extremo utilizada en la administración del tráfico. 
 - **Prioridad**: prioridad del extremo, utilizada para definir una acción de conmutación por error. 
 
+## DNS de Azure
+
+DNS de Azure es un servicio de hospedaje para los dominios DNS, que permite resolver nombres mediante la infraestructura de Microsoft Azure.
+
+Entre las principales propiedades del DNS de Azure se incluyen las siguientes:
+
+- ** Zonas DNS **: información de la zona de dominio para almacenar los registros de DNS de un dominio determinado.
+- ** Conjunto de registros de DNS**: una colección de registros de un tipo específico. Los tipos compatibles son A, AAAA, CNAME, MX, NS, SOA, SRV y TXT.
+
+
 ## Uso de una plantilla
 
 Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CLI de Azure o mediante un clic para implementar desde GitHub. Para implementar servicios de una plantilla en GitHub, ejecute los siguientes pasos:
@@ -343,13 +368,14 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 ![Implementación de plantilla de ejemplo](./media/resource-groups-networking/Figure6.png)
 
+
 ## Otras referencias
 
 [Referencia de API de redes de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 [Referencia de Azure PowerShell para redes](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 
 [Redes de Azure: plantillas utilizadas habitualmente](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +389,4 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 [Implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

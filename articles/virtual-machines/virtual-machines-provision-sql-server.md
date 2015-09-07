@@ -1,22 +1,28 @@
 <properties 
-	pageTitle="Aprovisionamiento de una máquina virtual de SQL Server en Azure" 
-	description="Un tutorial que le enseña cómo crear y configurar una máquina virtual de SQL Server en Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
+	pageTitle="Aprovisionamiento de una máquina virtual de SQL Server en Azure"
+	description="En este tutorial se le enseña cómo crear y configurar una máquina virtual de SQL Server en Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
 	editor="monicar"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="jroth"/>
 
-# Aprovisionamiento de una máquina virtual de SQL Server en Azure #
+# Aprovisionamiento de una máquina virtual de SQL Server en Azure
+
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-provision-sql-server.md)
+- [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
+
+## Información general
 
 La galería de máquinas virtuales de Azure incluye varias imágenes que contienen Microsoft SQL Server. Puede seleccionar una de las imágenes de máquina virtual en la galería y, con unos pocos clics, puede aprovisionar la máquina virtual a su entorno de Azure.
 
@@ -37,7 +43,7 @@ En este tutorial, aprenderá lo siguiente:
 
 	![Elegir una imagen](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
 
-Para obtener la información más actualizada sobre las imágenes compatibles de SQL Server en Azure, consulte el tema [Introducción a SQL Server en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720).
+Para obtener la información más actualizada sobre las imágenes compatibles de SQL Server en Azure, consulte el tema [Introducción a SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
 >[AZURE.NOTE]Si tiene una máquina virtual creada con la edición de evaluación de SQL Server de imagen de plataforma, no puede actualizarla a una imagen de edición de pago por minuto en la galería. Puede elegir una de las dos siguientes opciones:
 >
@@ -61,7 +67,7 @@ Para obtener la información más actualizada sobre las imágenes compatibles de
     > - Seleccione A3 o un tamaño superior cuando use SQL Server Enterprise Edition.
    	> - Seleccione A4 o superior si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo transaccionales.  
    	> - Seleccione A7 o superior si usa SQL Server 2012 o 2014 Enterprise optimizado para imágenes de cargas de trabajo de almacenamiento de datos. 
-   	> - Para obtener el máximo rendimiento use DS2 o DS3 con Almacenamiento Premium. Para obtener más información, consulte [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+   	> - Para obtener el máximo rendimiento use DS2 o DS3 con Almacenamiento Premium. Para obtener más información, consulte [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-performance-best-practices.md).
    	> - El tamaño seleccionado limita el número de discos de datos que se puede configurar. Para obtener la información más actualizada sobre los tamaños disponibles de máquina virtual y la cantidad de discos de datos que puede adjuntar a una máquina virtual, consulte [Tamaños de máquina virtual para Azure](virtual-machines-size-specs.md).
 
 5. Después de escribir los detalles de configuración de máquina virtual, haga clic en la flecha siguiente en la parte inferior derecha para continuar.
@@ -70,7 +76,7 @@ Para obtener la información más actualizada sobre las imágenes compatibles de
 	- En el cuadro **Servicio en la nube**, seleccione **Crear un nuevo servicio en la nube**.
 	- En el cuadro **Nombre DNS de servicio en la nube**, proporcione la primera parte de un nombre DNS que elija, para que así se complete un nombre con el formato **TESTNAME.cloudapp.net** 
 	- Seleccione una **SUSCRIPCIÓN**, si tiene varias suscripciones entre las que elegir. La opción determina qué **cuentas de almacenamiento **están disponibles.
-	- En el cuadro **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL**, seleccione una región donde se hospedará esta imagen virtual.
+- En el cuadro **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL**, seleccione una región donde se hospedará esta imagen virtual.
 	- En la **Cuenta de almacenamiento**, genere automáticamente una cuenta o seleccione una en la lista. Cambie la **SUSCRIPCIÓN** para ver más cuentas. 
 	- En el cuadro **CONJUNTO DE DISPONIBILIDAD**, seleccione **(none)**.
 	- Lea y acepte los términos legales.
@@ -124,30 +130,30 @@ Para obtener más información, consulte [Solución de problemas de conexión al
 
 Ha visto cómo crear y configurar SQL Server en una máquina virtual de Azure mediante el uso de la imagen de plataforma. En muchos casos, el siguiente paso es migrar las bases de datos a esta nueva VM de SQL Server. Para obtener instrucciones para la migración de bases de datos, consulte [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database.md).
 
-Además de estos recursos, se recomienda que revise [otros temas relacionados con la ejecución de SQL Server en máquinas virtuales Azure](virtual-machines-sql-server-infrastructure-services.md). La siguiente lista ofrece algunas recomendaciones específicas.
+En la lista siguiente se proporcionan recursos adicionales para SQL Server en máquinas virtuales de Azure.
 
 ### Recursos recomendados para SQL Server en máquinas virtuales de Azure:
-- [Introducción a SQL Server en Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720)
+- [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-- [Consideraciones de conectividad para SQL Server en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294723)
+- [Conexión a una máquina virtual de SQL Server en Azure](virtual-machines-sql-server-connectivity.md)
 
-- [Consideraciones de rendimiento para SQL Server en Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/?LinkId=294724)
+- [Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-performance-best-practices.md)
 
-- [Consideraciones de seguridad para SQL Server en Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294725)
+- [Consideraciones de seguridad para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-security-considerations.md)
 
 ### Alta disponibilidad y recuperación ante desastres:
-- [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294727)
+- [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 
-- [Copias de seguridad y restauración para SQL Server en Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294728)
+- [Copias de seguridad y restauración para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-backup-and-restore.md)
 
 ### Cargas de trabajo de servidor SQL en Azure:
-- [Business Intelligence de SQL Server en Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294729)
+- [Business Intelligence de SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-business-intelligence.md)
 
-- [Almacenamiento de datos de SQL Server y cargas de trabajo transaccionales en máquinas virtuales de Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+- [Almacenamiento de datos de SQL Server y cargas de trabajo transaccionales en máquinas virtuales de Azure](virtual-machines-sql-server-dw-and-oltp-workloads.md)
 
 ### Notas del producto:
 - [Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
-- [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/dn574746.aspx)
+- [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fase 1 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configurar Azure"
-	description="En esta primera fase de la implementación de una granja de servidores solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, creará la red virtual de Azure y otros elementos de la infraestructura de Azure."
+	pageTitle="Fase 1 de la granja de SharePoint Server 2013 | Microsoft Azure"
+	description="Cree la red virtual y otros elementos de la infraestructura de Azure en la fase 1 de la granja de SharePoint Server 2013 en Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -53,7 +53,7 @@ Elemento | Nombre de subred | Espacio de direcciones de subred | Propósito
 
 **Tabla S: Subredes de la red virtual**
 
-> [AZURE.NOTE]Esta arquitectura predefinida usa una sola subred por motivos de simplicidad. Si desea superponer un conjunto de filtros de tráfico para emular el aislamiento de subred, puede usar los [grupos de seguridad de red](https://msdn.microsoft.com/library/azure/dn848316.aspx) de Azure.
+> [AZURE.NOTE]Esta arquitectura predefinida usa una sola subred por motivos de simplicidad. Si desea superponer un conjunto de filtros de tráfico para emular el aislamiento de subred, puede usar los [grupos de seguridad de red](virtual-networks-nsg.md) de Azure.
 
 Para los dos servidores DNS locales que desea usar al configurar inicialmente los controladores de dominio de la red virtual, rellene tabla D. Asigne a cada servidor DNS un nombre descriptivo y una dirección IP única. No es necesario que este nombre descriptivo coincida con el nombre de host o el nombre de equipo del servidor DNS. Tenga en cuenta que se muestran dos entradas en blanco, pero puede agregar más. Trabaje con su departamento de TI para determinar esta lista.
 
@@ -78,7 +78,7 @@ Elemento | Espacio de direcciones de la red local
 
 Para crear la red virtual con la configuración de las tablas V, S, D y L, use las instrucciones indicadas en [Crear una red virtual entre locales usando las tablas de configuración](virtual-machines-workload-deploy-vnet-config-tables.md).
 
-> [AZURE.NOTE]Este procedimiento le guiará en el proceso de creación de una red virtual que usa una conexión VPN de sitio a sitio. Para obtener información sobre cómo usar ExpressRoute para la conexión de sitio a sitio, vea [Introducción técnica a ExpressRoute](http://msdn.microsoft.com/library/dn606309.aspx).
+> [AZURE.NOTE]Este procedimiento le guiará en el proceso de creación de una red virtual que usa una conexión VPN de sitio a sitio. Para obtener información sobre cómo usar ExpressRoute para la conexión de sitio a sitio, vea [Introducción técnica a ExpressRoute](../expressroute/expressroute-introduction.md).
 
 Después de crear la red virtual de Azure, el Portal de administración de Azure determinará lo siguiente:
 
@@ -87,9 +87,9 @@ Después de crear la red virtual de Azure, el Portal de administración de Azure
 
 Para ver estos datos en el Portal de administración de Azure después de crear la red virtual, haga clic en **Redes**, en el nombre de la red virtual y, a continuación, en la opción de menú **Panel**.
 
-A continuación, configurará la puerta de enlace de red virtual para crear una conexión VPN de sitio a sitio segura. Vea [Configurar una puerta de enlace de red virtual en el Portal de administración](http://msdn.microsoft.com/library/jj156210.aspx) para consultar las instrucciones.
+A continuación, configurará la puerta de enlace de red virtual para crear una conexión VPN de sitio a sitio segura. Vea [Configurar una puerta de enlace de red virtual en el Portal de administración](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md) para consultar las instrucciones.
 
-A continuación, cree la conexión VPN de sitio a sitio entre la nueva red virtual y un dispositivo VPN local. Para obtener más detalles, vea [Configurar una puerta de enlace de red virtual en el Portal de administración](http://msdn.microsoft.com/library/jj156210.aspx).
+A continuación, cree la conexión VPN de sitio a sitio entre la nueva red virtual y un dispositivo VPN local. Para obtener más detalles, vea [Configurar una puerta de enlace de red virtual en el Portal de administración](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
 
 A continuación, asegúrese de que el espacio de direcciones de la red virtual sea accesible desde la red local. Esto se hace normalmente agregando una ruta correspondiente al espacio de direcciones de la red virtual a su dispositivo VPN y, a continuación, anunciando esa ruta al resto de la infraestructura de enrutamiento de la red de su organización. Trabaje con su departamento de TI para determinar cómo hacerlo.
 
@@ -171,4 +171,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 2: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

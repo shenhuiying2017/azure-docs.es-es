@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Qué es un grupo de seguridad de red"
-   description="Información acerca de los grupos de seguridad de red"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Información acerca de los grupos de seguridad de red"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/13/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/13/2015"
+	ms.author="telmos"/>
 
 # ¿Qué es un grupo de seguridad de red?
 
@@ -23,7 +23,7 @@ Puede usar un grupo de seguridad de red para controlar el tráfico a una o más 
 
 Puede asociar un grupo de seguridad de red a una máquina virtual o a una subred dentro de una red virtual. Cuando se asocia a una máquina virtual, el grupo de seguridad de red se aplica a todo el tráfico enviado y recibido por la instancia de máquina virtual. Cuando se aplica a una subred de la red virtual, se aplica a todo el tráfico enviado y recibido por TODAS las instancias de máquina virtual de la subred. Una máquina virtual o una subred solo puede asociarse a un grupo de seguridad de red y cada grupo de seguridad de red puede contener hasta 200 reglas. Puede tener 100 grupos de seguridad de red por suscripción.
 
->[AZURE.NOTE]No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+>[AZURE.NOTE]No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](virtual-networks-acl-powershell.md).
 
 ## ¿Cómo funciona un grupo de seguridad de red?
 
@@ -249,4 +249,4 @@ De momento, solo puede configurar y modificar los grupos de seguridad de red med
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

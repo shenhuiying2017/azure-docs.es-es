@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Preguntas más frecuentes de Azure AD Connect Health" 
-	description="Las preguntas más frecuentes son preguntas y respuestas sobre Azure AD Connect Health. Estas preguntas más frecuentes cubre las preguntas acerca de cómo utilizar el servicio, incluido el modelo de facturación, las capacidades, las limitaciones y la compatibilidad." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Preguntas más frecuentes de Azure AD Connect Health"
+	description="Las preguntas más frecuentes son preguntas y respuestas sobre Azure AD Connect Health. Estas preguntas más frecuentes cubre las preguntas acerca de cómo utilizar el servicio, incluido el modelo de facturación, las capacidades, las limitaciones y la compatibilidad."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015"
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="billmath"/>
 
 
@@ -45,7 +45,6 @@ Los números siguientes son una aproximación.
 - Uso de ancho de banda de la red: ~1 MB por cada 1000 solicitudes de ADFS
 >[AZURE.NOTE]Ante la eventualidad de que el agente no pueda comunicarse con Azure, el agente almacenará localmente los datos, hasta un límite máximo de 10 % de la memoria total del sistema. Una vez que el agente alcance el 10 % de la memoria física total, si no hay podido cargar los datos al servicio, las nuevas transacciones ADFS sobreescribirán cualquier transacción almacenada en caché o que haya sido menos atendida recientemente.
 
-
 - Almacenamiento en búfer local para el agente de AD Health: ~20 MB
 - Almacenamiento de datos requerido para canal de auditoría
 
@@ -69,10 +68,9 @@ Hágalo en cualquier momento antes de ejecutar Register-AdHealthAgent (el paso f
 - Paso 1: agregar una entrada en el archivo machine.config
 
 
-Busque el archivo machine.config El archivo se encuentra en in%windir%\Microsoft.NET\Framework64[versión]\config\machine.config</li>
+Busque el archivo machine.config El archivo se encuentra en in%windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>
 
-Agregue la entrada siguiente en el elemento <configuration></configuration> en el archivo machine.config.
- 
+Agregue la entrada siguiente en el elemento <configuration></configuration> del archivo machine.config.
 		
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
@@ -85,7 +83,7 @@ Agregue la entrada siguiente en el elemento <configuration></configuration> en e
 
  
 
-Puede encontrar información <defaultProxy> adicional [aquí](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
+Puede encontrar <defaultProxy> información adicional [aquí](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 
 Este ajuste configura las aplicaciones .NET en todo el sistema para usar el proxy explícitamente definido cuando se realizan solicitudes .NET HTTP. No se recomienda modificar cada archivo app.config individual, porque esta acción se podría deshacer durante la actualización automática. Solo debe cambiar un archivo, el que se mantendrá a través de las actualizaciones si solo modifica machine.config.
 
@@ -129,4 +127,11 @@ Las alertas de Azure AD Connect Health se resuelven con una condición de aciert
 
 Deberá abrir los puertos 80 y 443 TCP/UDP para que el agente de Azure AD Connect Health pueda comunicarse con los extremos de servicio de Azure AD Health.
 
-<!---HONumber=August15_HO6-->
+## Vínculos relacionados
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Instalación del agente de Azure AD Connect Health para AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+
+<!---HONumber=August15_HO9-->

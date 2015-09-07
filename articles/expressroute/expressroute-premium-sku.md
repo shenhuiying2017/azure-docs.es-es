@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Cómo habilitar o deshabilitar el complemento ExpressRoute Premium | Microsoft Azure"
-   description="Cómo habilitar o deshabilitar el complemento ExpressRoute Premium en un circuito de ExpressRoute. ExpressRoute Premium le permite agregar hasta 10.000 rutas para emparejamientos públicos y privados, y hasta 10 redes virtuales a su circuito de ExpressRoute. También puede vincular una red virtual de una región a un circuito de ExpressRoute de otra."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Cómo habilitar o deshabilitar el complemento ExpressRoute Premium en un circuito de ExpressRoute. ExpressRoute Premium le permite agregar hasta 10.000 rutas para emparejamientos públicos y privados, y hasta 10 redes virtuales a su circuito de ExpressRoute. También puede vincular una red virtual de una región a un circuito de ExpressRoute de otra."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Configurar el complemento ExpressRoute Premium en el circuito de ExpressRoute
 
@@ -172,9 +172,9 @@ Puede deshabilitar el complemento ExpressRoute Premium en un circuito de Express
 		Sku                              : Premium
 		Status                           : Standard
 
-	El circuito tendrá ahora el complemento ExpressRoute Premium deshabilitado.
+	El complemento Premium ahora está deshabilitado para el circuito.
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

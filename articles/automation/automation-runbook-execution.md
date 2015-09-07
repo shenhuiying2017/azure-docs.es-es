@@ -1,19 +1,19 @@
 <properties
    pageTitle="Ejecución de un runbook en Automatización de Azure"
-   description="Describe los detalles de cómo se procesa un runbook en Automatización de Azure."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	description="Describe los detalles de cómo se procesa un runbook en Automatización de Azure."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn"/>
 <tags
    ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
-   ms.author="bwren" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/22/2015"
+	ms.author="bwren"/>
 
 # Ejecución de un runbook en Automatización de Azure
 
@@ -89,7 +89,7 @@ Los comandos de ejemplo siguientes recuperan el último trabajo para un runbook 
 
 ## Equitativamente
 
-Para compartir recursos entre todos los runbooks en la nube, Automatización de Azure descargará temporalmente cualquier trabajo cuando haya estado ejecutándose durante 3 horas y lo volverá a iniciar desde su último [punto de control](http://aka.ms/runbookauthor/checkpoints). Durante este tiempo, el trabajo mostrará un estado En ejecución, Esperando recursos. Si el runbook no tiene puntos de control o el trabajo no había alcanzado el primer punto de control antes de la descarga, se reiniciará desde el principio.
+Para compartir recursos entre todos los runbooks en la nube, Automatización de Azure descargará temporalmente cualquier trabajo cuando haya estado ejecutándose durante 3 horas y lo volverá a iniciar desde su último [punto de control](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). Durante este tiempo, el trabajo mostrará un estado En ejecución, Esperando recursos. Si el runbook no tiene puntos de control o el trabajo no había alcanzado el primer punto de control antes de la descarga, se reiniciará desde el principio.
 
 Si el runbook se reinicia desde el mismo punto de control o desde el principio del runbook tres veces consecutivas, terminará con un estado Error, esperando recursos. De esta forma se impide que los runbooks se ejecuten de manera indefinida sin completarse, ya que no pueden llegar al siguiente punto de control sin que se descarguen de nuevo. En este caso, recibirá la siguiente excepción con el error.
 
@@ -101,8 +101,6 @@ Cuando se crea un runbook, debe asegurarse de que el tiempo para ejecutar las ac
 
 ## Artículos relacionados
 
-- [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook)
-- [Visualización del estado de un trabajo de runbook en Automatización de Azure](automation-viewing-the-status-of-a-runbook-job)
- 
+- [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

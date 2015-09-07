@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Aprovisionamiento de clústeres de HBase en una red virtual | Microsoft Azure"
 	description="Introducción al uso de HBase en HDInsight de Azure Aprenda a crear clústeres de HBase de HDInsight en Red virtual de Azure."
-	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -10,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/07/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/07/2015"
+	ms.author="jgao"/>
 
 # Aprovisionamiento de clústeres de HBase en Red virtual de Azure
 
@@ -59,9 +58,9 @@ Antes de aprovisionar un clúster de HBase, debe tener una red virtual de Azure.
 
 	- **Nombre**: el nombre de la red virtual.
 	- **Espacio de direcciones**: elija un espacio de direcciones para la red virtual que sea lo bastante grande para proporcionar direcciones para todos los nodos del clúster. De lo contrario, se producirá un error en el aprovisionamiento. Para completar este tutorial, puede elegir cualquiera de las tres opciones.
-	- **Número máximo de VM**: elija uno de los números máximos de máquinas virtuales (VM). Este valor determina el número de hosts (VM) posibles que se pueden crear en el espacio de direcciones. Para realizar este tutorial, es suficiente con **4096 [CIDR: /20\]**.
+	- **Número máximo de VM**: elija uno de los números máximos de máquinas virtuales (VM). Este valor determina el número de hosts (VM) posibles que se pueden crear en el espacio de direcciones. Para realizar este tutorial, es suficiente con **4096 [CIDR: /20]**.
 	- **Ubicación**: la ubicación debe ser la misma que el clúster de HBase que va a crear
-	- **Servidor DNS**: este tutorial usa un servidor de Sistema de nombres de dominio (DNS) interno proporcionado por Azure, de modo que pueda elegir **Ninguno**. Asimismo, se admiten configuraciones de red más avanzadas con servidores DNS personalizados. Para obtener instrucciones detalladas, consulte [Resolución de nombres (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+	- **Servidor DNS**: este tutorial usa un servidor de Sistema de nombres de dominio (DNS) interno proporcionado por Azure, de modo que pueda elegir **Ninguno**. Asimismo, se admiten configuraciones de red más avanzadas con servidores DNS personalizados. Para obtener instrucciones detalladas, consulte [Resolución de nombres (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 4. Haga clic en **CREAR UNA RED VIRTUAL** en la esquina inferior derecha. El nombre de la nueva red virtual aparecerá en la lista. Espere hasta que aparezca **Creado** en la columna de estado.
 5. En el panel principal, haga clic en la red virtual que acaba de crear.
 6. En la parte superior de la página, haga clic en **PANEL**.
@@ -133,9 +132,7 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 	<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual para el nodo principal.</p></td></tr>
 	<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
 	<tr><td>Tamaño de Zookeeper</td><td><p>Seleccione un tamaño de máquina virtual para el nodo Zookeeper.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+</table>>[AZURE.NOTE]En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 	Haga clic en el botón derecho.
 
@@ -151,7 +148,7 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 		<td>Especifique la contraseña del usuario del clúster de HDInsight.</td></tr>
 	<tr><td>Habilitar Escritorio remoto para un clúster</td>
 		<td>Active esta casilla para especificar un nombre de usuario, una contraseña y una fecha de caducidad para un usuario de Escritorio remoto que puede conectarse en remoto a los nodos del clúster, cuando esté aprovisionado. También puede habilitar Escritorio remoto más adelante, cuando el clúster esté aprovisionado. Para obtener instrucciones, vea <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.</td></tr>
-	</table>
+</table>
 
 6. En la página **Cuenta de almacenamiento**, proporcione los siguientes valores:
 
@@ -180,9 +177,7 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
     </td></tr>
 	<tr><td>Cuentas de almacenamiento adicionales</td>
 		<td>Si es necesario, especifique cuentas de almacenamiento adicionales para el clúster. HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el Portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página <strong>Cuenta de almacenamiento</strong> adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega una página adicional al asistente.</td></tr>
-	</table>
-
-	Haga clic en la flecha derecha.
+</table>Haga clic en la flecha derecha.
 
 7. En la página **Acciones de scripts**, seleccione la marca de verificación en la esquina inferior derecha. No haga clic en el botón para **agregar acción de script**, ya que este tutorial no requiere una configuración de clúster personalizada.
 
@@ -337,7 +332,7 @@ Para usar esta información en una aplicación Java, puede seguir los pasos que 
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]Para obtener más información sobre la resolución de nombres en redes virtuales de Azure, incluido el uso de su propio servidor DNS, consulte [Resolución de nombres (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+> [AZURE.NOTE]Para obtener más información sobre la resolución de nombres en redes virtuales de Azure, incluido el uso de su propio servidor DNS, consulte [Resolución de nombres (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ##Aprovisionamiento de un clúster de HBase mediante Azure PowerShell
 
@@ -396,7 +391,7 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 
 [hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
-[vnet-overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
+[vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
@@ -434,4 +429,4 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalles de aprovisionamiento para el nuevo clúster de HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Uso de la acción de script para personalizar un clúster de HBase"
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

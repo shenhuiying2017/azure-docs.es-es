@@ -1,20 +1,20 @@
 <properties
    pageTitle="Carga de datos de ejemplo en Almacenamiento de datos SQL | Microsoft Azure"
-   description="Carga de datos de ejemplo en Almacenamiento de datos SQL"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+	description="Carga de datos de ejemplo en Almacenamiento de datos SQL"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="lodipalm"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/05/2015"
-   ms.author="lodipalm;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/05/2015"
+	ms.author="lodipalm;barbkess"/>
 
 #Carga de datos de ejemplo en Almacenamiento de datos SQL
 
@@ -24,7 +24,18 @@ Ahora que ha configurado una instancia del Almacenamiento de datos SQL puede car
 
 2. Cuando se haya descargado el archivo, extraiga el contenido del archivo AdventureWorksPDW2012.zip y abra la nueva carpeta AdventureWorksPDW2012.
 
-3. Edite el archivo aw\_create.bat y establezca los siguientes valores en la parte superior del archivo: a. **Servidor**: el nombre completo del servidor en el que se encuentra el Almacenamiento de datos SQL. b. **Usuario**: el usuario para el servidor anterior. c . **Contraseña**: la contraseña para el inicio de sesión del servidor suministrado. d. **Base de datos**: el nombre de la instancia del Almacenamiento de datos SQL en el que quiera cargar datos.
+3. Edite el archivo aw\_create.bat y establezca los siguientes valores en la parte superior del archivo:
+
+   a. **Servidor**: el nombre completo del servidor en el que se encuentra el Almacenamiento de datos SQL
+
+   b. **Usuario**: el usuario para el servidor anterior
+   
+   c. **Contraseña**: la contraseña para el inicio de sesión del servidor suministrado
+   
+   d. **Base de datos**: el nombre de la instancia del Almacenamiento de datos SQL en el que quiera cargar datos
+   
+   Asegúrese de que no haya ningún espacio en blanco entre el “=” y estos parámetros.
+   
 
 4. Ejecute aw\_create.bat desde el directorio en el que se encuentra. Esto creará el esquema y cargará datos en todas las tablas mediante BCP.
 
@@ -55,21 +66,21 @@ Incluso podemos usar la cláusula WHERE para filtrar órdenes desde antes de una
 De hecho, el Almacenamiento de datos SQL admite casi todas las construcciones de T-SQL que SQL Server realiza, y se pueden encontrar algunas de las diferencias en nuestra documentación para [migrar código][].
 
 ## Pasos siguientes
-Ahora que le hemos dado algún tiempo para */*entusiasmarse con los datos de ejemplo, consulte como realizar el [desarrollo][], [cargar][] o [migrar][].
+Ahora que le hemos dado algún tiempo para */*entusiasmarse con los datos de ejemplo, consulte como [desarrollar][], [cargar][] o [migrar][].
 
 <!--Image references-->
 
 <!--Article references-->
-[migrar]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-overview-migrate/
-[desarrollo]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-overview-develop/
-[cargar]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-overview-load/
-[conexión y consulta]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[migrar código]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-migrate-code/
+[migrar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-migrate/
+[desarrollar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-develop/
+[cargar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-load/
+[conexión y consulta]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-connect-query/
+[migrar código]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-migrate-code/
 
 <!--MSDN references-->
-[Utilidades de la línea de comandos de Microsoft para SQL Server]: http://www.microsoft.com/es-es/download/details.aspx?id=36433
+[Utilidades de la línea de comandos de Microsoft para SQL Server]: http://www.microsoft.com/es-ES/download/details.aspx?id=36433
 
 <!--Other Web references-->
 [Scripts de datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

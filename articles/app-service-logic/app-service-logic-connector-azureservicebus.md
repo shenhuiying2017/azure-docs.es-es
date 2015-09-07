@@ -1,25 +1,24 @@
 <properties
-   pageTitle="Uso del conector de Bus de servicio de Azure en el Servicio de aplicaciones de Azure"
-   description="Uso del conector de Bus de servicio de Azure"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+	pageTitle="Uso del conector del bus de servicio de Azure en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector del bus de servicio de Azure o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.service="app-service-logic"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
 
-# Conector de Bus de servicio de Azure
-
-El conector de Bus de servicio de Azure le permite enviar mensajes desde entidades de Bus de servicio, como colas y temas, y recibir mensajes de entidades de Bus de servicio, como colas y suscripciones.
+# Introducción al conector del bus de servicio de Azure y su incorporación a su aplicación lógica 
+Conéctese al bus de servicio de Azure para enviar mensajes a los temas y las colas y recibir mensajes de suscripciones y colas. Los conectores se usan en Aplicaciones lógicas como parte de un "flujo de trabajo".
 
 ## Acciones y desencadenadores
 Los desencadenadores son eventos que se producen. Por ejemplo, cuando se actualiza un pedido o cuando se agrega un cliente nuevo. Un acción es el resultado del desencadenador. Por ejemplo, cuando se coloca un pedido o un mensaje nuevo en una cola o cuando se envía una alerta o un mensaje.
@@ -38,6 +37,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector del Bus de servicio de Azure", selecciónelo y seleccione **Crear**.
 3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades: 
+<br/> 
 ![][1]
 
 4. Escriba la siguiente configuración del paquete:
@@ -97,4 +97,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

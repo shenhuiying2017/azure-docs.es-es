@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creación de una colección híbrida de Azure RemoteApp" 
-	description="Obtenga información acerca de cómo crear una implementación de RemoteApp que se conecte a su red interna." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+	pageTitle="Creación de una colección híbrida de Azure RemoteApp"
+	description="Obtenga información acerca de cómo crear una implementación de RemoteApp que se conecte a su red interna."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
 	ms.author="elizapo"/>
 
 # Creación de una colección híbrida de Azure RemoteApp
@@ -53,9 +53,9 @@ Puede implementar una colección híbrida de RemoteApp que use una red virtual e
 
 ### Creación de una red virtual de Azure y su unión a la implementación de Active Directory
 
-Empiece por crear una [red virtual](https://msdn.microsoft.com/library/azure/dn631643.aspx). Esto se realiza en la pestaña **Red** del Portal de administración de Azure. Es necesario conectar la red virtual a la implementación de Active Directory que se sincroniza con el inquilino de Azure Active Directory.
+Empiece por crear una [red virtual](../virtual-network/virtual-networks-create-vnet.md). Esto se realiza en la pestaña **Red** del Portal de administración de Azure. Es necesario conectar la red virtual a la implementación de Active Directory que se sincroniza con el inquilino de Azure Active Directory.
 
-Consulte [Acerca de la configuración de red virtual en el Portal de administración](https://msdn.microsoft.com/library/azure/jj156074.aspx) para obtener más información.
+Consulte [Acerca de la configuración de red virtual en el Portal de administración](../virtual-network/virtual-networks-settings.md) para obtener más información.
 
 ### Asegúrese de que la red virtual está lista para RemoteApp
 Antes de crear la colección de RemoteApp, nos aseguraremos de que la nueva red virtual está lista. Esto se puede validar haciendo lo siguiente:
@@ -136,4 +136,4 @@ Esto es todo: ha creado e implementado correctamente su colección híbrida de R
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

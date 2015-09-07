@@ -1,20 +1,20 @@
 <properties
    pageTitle="Recuperación de una base de datos de un error de usuario en Almacenamiento de datos SQL | Microsoft Azure"
-   description="Pasos para recuperar una base de datos de un error de usuario en Almacenamiento de datos SQL"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Pasos para recuperar una base de datos de un error de usuario en Almacenamiento de datos SQL"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/26/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/26/2015"
+	ms.author="sahajs"/>
 
 # Recuperación de una base de datos de un error de usuario en Almacenamiento de datos SQL
 
@@ -58,6 +58,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 # Monitor progress of restore operation
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+Tenga en cuenta que si el servidor es foo.database.windows.net, use "foo" como -ServerName en los cmdlets de powershell.
 
 ### API de REST
 Use REST para realizar la restauración de la base de datos mediante programación.
@@ -116,8 +118,8 @@ Para obtener información sobre las características de continuidad del negocio 
 [Estado de operación de base de datos]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Obtener base de datos eliminada que se puede restaurar]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [Lista de bases de datos eliminadas que se pueden restaurar]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/es-es/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/es-ES/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

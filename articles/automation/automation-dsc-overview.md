@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Información general de DSC de Automatización de Azure" 
-   description="Una información general de Configuración de estado deseado (DSC) de Automatización de Azure, sus condiciones y problemas conocidos" 
-   services="automation" 
-   documentationCenter="dev-center-name" 
-   authors="coreyp-at-msft" 
-   manager="stevenka" 
-   editor="tysonn"/>
+   pageTitle="Información general de DSC de Automatización de Azure"
+	description="Una información general de Configuración de estado deseado (DSC) de Automatización de Azure, sus condiciones y problemas conocidos"
+	services="automation"
+	documentationCenter="dev-center-name"
+	authors="coreyp-at-msft"
+	manager="stevenka"
+	editor="tysonn"/>
 
 <tags
    ms.service="automation"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="TBD" 
-   ms.date="07/09/2015"
-   ms.author="coreyp"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="TBD"
+	ms.date="08/18/2015"
+	ms.author="coreyp"/>
 
 # Información general de DSC de Automatización de Azure #
 
@@ -57,7 +57,7 @@ DSC de PowerShell introdujo un concepto nuevo llamado configuraciones. Las confi
 
 ![texto alternativo](./media/automation-dsc-overview/AADSC_1.png)
 
-Dentro del bloque de configuración puede definir bloques de configuración de nodo que especifican la configuración deseada de un conjunto de nodos (equipos) en su entorno que se deben configurar exactamente de la misma manera. De esta manera, una configuración de nodo representa un "rol" que uno o más nodos deben asumir. Un bloque de configuración de nodo comienza con la palabra clave Node. Esta palabra clave va seguida del nombre del rol, que puede ser una variable. Después del nombre del equipo, use llaves {} para delimitar el bloque de configuración del nodo.
+Dentro del bloque de configuración puede definir bloques de configuración de nodo que especifican la configuración deseada de un conjunto de nodos (equipos) en su entorno que se deben configurar exactamente de la misma manera. De esta manera, una configuración de nodo representa un "rol" que uno o más nodos deben asumir. Un bloque de configuración de nodo comienza con la palabra clave Node. Esta palabra clave va seguida del nombre del rol, que puede ser una variable o una expresión. Después del nombre del rol, use llaves {} para delimitar el bloque de configuración del nodo.
 
 ![texto alternativo](./media/automation-dsc-overview/AADSC_2.png)
  
@@ -82,14 +82,14 @@ Actualmente, DSC de Automatización de Azure proporciona los siguientes cmdlets 
 
 Cuando se compila una configuración de DSC, se generan una o más configuraciones de nodo, dependiendo de los bloques de nodo en la configuración. Una configuración de nodo es lo mismo que un "MOF" o un "documento de configuración" (si está familiarizado con esos términos de DSC de PS) y representa un "rol", como servidor web o de trabajo, cuyo estado deseado deben asumir uno o más nodos.
 
-Los nodos de DSC de PS descubren las configuraciones de nodo que deben aplicar a través de métodos de inserción o extracción de DSC. DSC de Automatización de Azure se basa en el método de extracción de DSC, donde los nodos solicitan configuraciones de nodo que deben aplicar desde los servidores de extracción de DSC de Automatización de Azure. Debido a que los nodos realizan la solicitud a DSC de Automatización de Azure, pueden encontrarse detrás de firewalls, pueden tener cerrados todos los puertos de entrada, etc. Lo único que necesitan es acceso de salida a Internet.
+Los nodos de DSC de PS descubren las configuraciones de nodo que deben aplicar a través de métodos de inserción o extracción de DSC. DSC de Automatización de Azure se basa en el método de extracción de DSC, donde los nodos solicitan configuraciones de nodo que deben aplicar desde el servidor de extracción de DSC de Automatización de Azure. Debido a que los nodos realizan la solicitud a DSC de Automatización de Azure, pueden encontrarse detrás de firewalls, tener cerrados todos los puertos de entrada, etc. Lo único que necesitan es acceso de salida a Internet.
 
 DSC de Automatización de Azure proporciona actualmente los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt244122.aspx) para la administración de configuraciones de nodos de DSC: `Get-AzureAutomationDscNodeConfiguration`
 
 
 ###Nodo###
 
-Un nodo de DSC es cualquier equipo cuya configuración es administrada por DSC. Puede tratarse de una máquina virtual de Azure o de un host físico/máquina virtual local. Los nodos aplican las configuraciones de nodo para cumplir con el estado deseado que definen y también pueden informar a un servidor de informes sobre el estado de su configuración y su cumplimiento.
+Un nodo de DSC es cualquier equipo que tenga la configuración administrada por DSC. Puede tratarse de una máquina virtual de Azure o de un host físico/máquina virtual local. Los nodos aplican las configuraciones de nodo para cumplir con el estado deseado que definen y también pueden informar a un servidor de informes sobre el estado de su configuración y su cumplimiento.
 
 DSC de Automatización de Azure facilita la incorporación de nodos para su administración por parte de DSC de Automatización de Azure y permite cambiar la configuración de nodos asignada al lado servidor de cada nodo, para que la próxima vez que un nodo revise un servidor para obtener instrucciones, asumirá un rol distinto y cambiará cómo se configura para coincidir. Los nodos también informan el cumplimiento de estado y configuración a DSC de Automatización de Azure.
 
@@ -170,7 +170,7 @@ Los recursos de DSC también se pueden importar como parte de los módulos Power
 
 DSC de Automatización de Azure incluye los mismos recursos integrados de DSC que DSC de PS. Es posible agregar recursos adicionales a DSC de Automatización de Azure mediante la importación a Automatización de Azure de los módulos PowerShell que contienen los recursos.
 
-DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt244122.aspx) para la administración de nodos de DSC:
+DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt244122.aspx) para la administración de módulos PowerShell:
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -195,7 +195,7 @@ DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets e
 
 ##Problemas conocidos:##
 
-- Debido a que DSC de Automatización de Azure se encuentra en vista previa, la primera vez que use esta característica, deberá registrarse para obtenerla mediante cmdlets de PowerShell de Azure. Para registrarse, puede llamar a los dos siguientes cmdlets:
+- Debido a que DSC de Automatización de Azure se encuentra en vista previa, la primera vez que use esta característica, deberá registrarse para obtenerla mediante cmdlets de Azure PowerShell o el Portal de vista previa de Azure. Para registrarse, puede llamar a los dos siguientes cmdlets:
 
  - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
  - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
@@ -226,4 +226,4 @@ DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets e
 
 - Los nodos de DSC incorporados a DSC de Automatización de Azure mostrarán inicialmente el estado ''Conforme'', incluso si no son realmente conformes con la configuración del nodo de DSC que tienen asignada. Después de que un nodo realice su primera extracción y envíe su primer informe de DSC a DSC de Automatización de Azure, el estado del nodo debe ser correcto.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

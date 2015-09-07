@@ -18,31 +18,31 @@
 
 #Implementación de una aplicación LAMP con la extensión CustomScript de Azure para Linux#
 
-La extensión CustomScript de Azure para Linux proporciona una manera de personalizar sus máquinas virtuales (VM) mediante la ejecución de código arbitrario escrito en cualquier lenguaje de scripting compatible con la máquina virtual (por ejemplo, Python, Bash, etc.). Esto proporciona una forma muy flexible de automatizar la implementación de aplicaciones en varios equipos.
+La extensión CustomScript de Microsoft Azure para Linux ofrece una manera de personalizar sus máquinas virtuales mediante la ejecución de código arbitrario escrito en cualquier lenguaje de scripting compatible con la máquina virtual (por ejemplo, Python y Bash). Esto proporciona una forma muy flexible de automatizar la implementación de aplicaciones en varios equipos.
 
-Puede implementar la extensión CustomScript mediante el Portal de Azure, PowerShell o la interfaz de la línea de comandos de Azure (CLI de Azure).
+Puede implementar la extensión CustomScript mediante el Portal de Azure, Windows PowerShell o la interfaz de la línea de comandos de Azure (CLI de Azure).
 
-En este ejemplo, analizaremos los pasos para implementar una simple aplicación LAMP para Ubuntu usando la CLI de Azure.
+En este artículo, implementaremos una simple aplicación LAMP para Ubuntu usando la CLI de Azure.
 
 ## Requisitos previos
 
-Para este tutorial, cree dos máquinas virtuales de Azure con Ubuntu 14.04. Los llamaré *script-vm* y *lamp-vm* aquí. Use nombres únicos cuando pruebe esto. Una será para ejecutar los comandos de CLI y la otra es donde se implementará la aplicación LAMP.
+En el ejemplo siguiente, cree primero dos máquinas virtuales de Azure con Ubuntu 14.04. Las máquinas virtuales se denominan *script-vm* y *lamp-vm*. Use nombres únicos cuando cree las máquinas virtuales. Una se usa para ejecutar los comandos de CLI y la otra, para implementar la aplicación LAMP.
 
-También necesita una cuenta de almacenamiento de Azure y una clave para tener acceso a ella (se puede obtener desde el portal de Azure).
+También necesita una cuenta de Almacenamiento de Azure y una clave para tener acceso a ella (se puede obtener desde el Portal de Azure).
 
 Si necesita ayuda para crear máquinas virtuales Linux en Azure, consulte [Creación de una máquina virtual que ejecuta Linux](virtual-machines-linux-tutorial.md).
 
-Si bien los comandos de instalación específicos darán por sentado Ubuntu, puede adaptar los pasos generales para cualquier distribución admitida.
+Los comandos de instalación asumen Ubuntu, pero puede adaptar la instalación para cualquier distribución de Linux admitida.
 
-La máquina virtual *script-vm* debe tener instalada la CLI de Azure, con una conexión activa a Azure. Para obtener ayuda con este procedimiento, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli.md).
+La máquina virtual script-vm debe tener instalada la CLI de Azure, con una conexión activa a Azure. Para obtener ayuda con este procedimiento, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli.md).
 
-## Cargar una secuencia de comandos
+## Cargar un script
 
-En este ejemplo, la extensión CustomScript ejecutará una secuencia de comandos en una máquina virtual remota para instalar la pila LAMP y crear una página PHP. Para tener acceso a la secuencia de comandos desde cualquier lugar, la cargaremos como un blob de Azure.
+En este ejemplo, la extensión CustomScript ejecuta un script en una máquina virtual remota para instalar la pila LAMP y crear una página PHP. Para tener acceso a la secuencia de comandos desde cualquier lugar, la cargaremos como un blob de Azure.
 
-**El script**
+### Información general del script
 
-Esta secuencia de comandos instala una pila LAMP en Ubuntu (incluida la configuración de una instalación silenciosa de MySQL), escribe un simple archivo PHP e inicia Apache:
+Este ejemplo de script instala una pila LAMP en Ubuntu (incluida la configuración de una instalación silenciosa de MySQL), escribe un simple archivo PHP e inicia Apache:
 
 	#!/bin/bash
 	# set up a silent install of MySQL
@@ -62,49 +62,48 @@ Esta secuencia de comandos instala una pila LAMP en Ubuntu (incluida la configur
 	# restart Apache
 	apachectl restart
 
-**Cargar**
+### Cargar script
 
-Guarde el script como un archivo de texto, por ejemplo, *lamp\_install.sh* y, a continuación, cárguelo en Almacenamiento de Azure. Puede hacerlo fácilmente con la CLI de Azure. En el ejemplo siguiente se carga el archivo en un contenedor de almacenamiento denominado "scripts". Nota: si el contenedor no existe, deberá crearlo primero.
+Guarde el script como un archivo de texto, por ejemplo, *lamp\_install.sh* y luego cárguelo en Almacenamiento de Azure. Puede hacerlo fácilmente con la CLI de Azure. En el ejemplo siguiente se carga el archivo en un contenedor de almacenamiento denominado "scripts". Si el contenedor no existe, deberá crearlo primero.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-También debe crear un archivo JSON que describa cómo descargar la secuencia de comandos del almacenamiento de Azure. Guárdelo como *public\_config.json* (reemplazando "mystorage" por el nombre de la cuenta de almacenamiento):
+También debe crear un archivo JSON que describa cómo descargar el script del almacenamiento de Azure. Guárdelo como *public\_config.json* (reemplazando "mystorage" por el nombre de la cuenta de almacenamiento):
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
 
-## Implementación de la extensión
+## Implementar la extensión
 
-Ahora, ya estamos listos para implementar la extensión CustomScript de Linux en la máquina virtual remota usando la CLI de Azure:
+Ahora puede usar el siguiente comando para implementar la extensión CustomScript de Linux en la máquina virtual remota usando la CLI de Azure.
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-Esto descargará y ejecutará el script *lamp\_install.sh* en la máquina virtual denominada *lamp-vm*.
+El comando anterior descargar y ejecutar el script *lamp\_install.sh* en la máquina virtual denominada *lamp-vm*.
 
-Dado que la aplicación incluye un servidor web, no olvide abrir un puerto de escucha HTTP en la máquina virtual remota:
+Dado que la aplicación incluye un servidor web, no olvide abrir un puerto de escucha HTTP en la máquina virtual remota con el siguiente comando.
 
     azure vm endpoint create -n Apache -o tcp lamp-vm 80 80
 
 ## Supervisión y solución de problemas
 
-Para comprobar el progreso de la ejecución de la secuencia de comandos, puede examinar el archivo de registro en la máquina virtual remota. SSH en *lamp-vm* y el archivo de registro en la cola:
+Para comprobar el progreso de la ejecución del script personalizado, puede examinar el archivo de registro en la máquina virtual remota. SSH en *lamp-vm* y el archivo de registro en la cola con el siguiente comando.
 
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-Una vez que la extensión CustomScript haya terminado de ejecutarse, puede examinar la página PHP que creó, que en este ejemplo sería: **http://lamp-vm.cloudapp.net/phpinfo.php*.
+Después de ejecutar la extensión CustomScript, puede examinar hasta la página PHP que ha creado para obtener información. Por ejemplo, en este artículo, la página PHP es **http://lamp-vm.cloudapp.net/phpinfo.php*.
 
 ## Recursos adicionales
 
 Puede usar los mismos pasos básicos para implementar aplicaciones más complejas. En este ejemplo, la secuencia de comandos de instalación se guardó como un blob público en el almacenamiento de Azure. Una opción más segura sería almacenar el script de instalación como un blob seguro con una [firma de acceso seguro](https://msdn.microsoft.com/library/azure/ee395415.aspx) (SAS).
 
-A continuación, se ofrecen algunos recursos adicionales para la CLI de Azure, Linux y la extensión CustomScript:
+A continuación, se ofrecen algunos recursos adicionales para la CLI de Azure, Linux y la extensión CustomScript.
 
 [Automatización de las tareas de personalización de VM de Linux con la extensión CustomScript](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Extensiones de Linux de Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Configuración de Copia de seguridad de Azure para preparar la copia de seguridad de Windows Server
 
@@ -26,9 +19,9 @@ Para hacer una copia de seguridad de los archivos y los datos de Windows Server 
 
 - **Crear un almacén de copia de seguridad**: cree un almacén en la consola de Copia de seguridad de Azure.
 - **Descargar las credenciales de almacén**: en Copia de seguridad de Azure, cargue el certificado de administración que creó en el almacén.
-- **Instalar Azure Backup Agent y registrar el servidor**: en Copia de seguridad de Azure, instale el agente y registre el servidor en el almacén de copia de seguridad.
+- **Instalación de Azure Backup Agent y registro del servidor**: en Copia de seguridad de Azure, instale el agente y registre el servidor en el almacén de copia de seguridad.
 
-[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
+[AZURE.INCLUDE [backup-create-vault-wgif](../../includes/backup-create-vault-wgif.md)]
 
 [AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -41,4 +34,4 @@ Para hacer una copia de seguridad de los archivos y los datos de Windows Server 
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 - [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

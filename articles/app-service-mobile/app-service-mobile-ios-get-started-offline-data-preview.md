@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="08/22/2015"
 	ms.author="krisragh"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil iOS
@@ -24,13 +24,9 @@
 
 Este tutorial explica la característica de sincronización sin conexión de Aplicaciones móviles de Azure para iOS. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local; una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el back-end remoto.
 
-Si esta es la primera vez que usa Aplicaciones móviles de Azure, primero debería completar el tutorial [Creación de una aplicación iOS].
+Si esta es la primera vez que usa Aplicaciones móviles de Azure, primero debería completar el tutorial [Creación de una aplicación iOS]. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
-
-##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
 ## <a name="review-sync"></a>Revisión del código de sincronización de cliente 
 
@@ -163,8 +159,8 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | complete | Booleano | todo item field |
     | text | Cadena | todo item field |
     | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | 
-	| ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | 
-	| ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
+    | ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | 
+    | ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
 
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
@@ -252,4 +248,4 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

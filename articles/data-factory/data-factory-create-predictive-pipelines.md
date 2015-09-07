@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Factoría de datos - Crear canalizaciones predictivas con la factoría de datos y el aprendizaje automático | Microsoft Azure" 
-	description="Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Aprendizaje automático de Azure" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Factoría de datos - Crear canalizaciones predictivas con la factoría de datos y el aprendizaje automático | Microsoft Azure"
+	description="Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Aprendizaje automático de Azure"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="spelluru"/>
 
 # Crear canalizaciones predictivas con la factoría de datos de Azure y el aprendizaje automático de Azure 
@@ -38,7 +38,7 @@ Una **canalización predictiva** consta de estas partes:
 ## Ejemplo
 Este ejemplo utiliza Almacenamiento de Azure para almacenar los datos de entrada y salida. También puede utilizar Base de datos SQL de Azure en lugar de utilizar Almacenamiento de Azure.
 
-Se recomienda que siga el tutorial [Introducción a la Factoría de datos de Azure][adf-getstarted] antes de pasar por este ejemplo y utilizar el Editor de Factoría de datos para crear artefactos de Factoría de datos (servicios vinculados, tablas y canalización) en este ejemplo.
+Antes de continuar con este ejemplo y usar el Editor de Factoría de datos para crear artefactos de Factoría de datos (servicios vinculados, tablas, canalizaciones), se recomienda que siga el tutorial [Introducción a la Factoría de datos de Azure][adf-build-1st-pipeline].
  
 
 1. Cree un **servicio vinculado** para su **Almacenamiento de Azure**. Si los archivos de entrada y salida de puntuación van a estar en diferentes cuentas de almacenamiento, necesitará dos servicios vinculados. Este es un ejemplo de JSON:
@@ -179,9 +179,8 @@ Se recomienda que siga el tutorial [Introducción a la Factoría de datos de Azu
 		  }
 		}
 
-	Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
-## Parámetros del servicio web
+## Parámetros de servicio web
 Puede utilizar parámetros de servicios web expuestos por un servicio web de Aprendizaje automático de Azure publicado en las canalizaciones de Factoría de datos de Azure (ADF). Puede crear un experimento en Aprendizaje automático de Azure y publicarlo como un servicio web y, a continuación, usar ese servicio web en varias actividades y canalizaciones ADF pasando por distintas entradas a través de los parámetros de servicio web.
 
 ### Paso de valores para los parámetros de servicio web
@@ -199,7 +198,7 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 
 	"typeProperties": {
     	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -229,7 +228,7 @@ Como con el Lector SQL Azure, un Escritor SQL Azure también puede tener sus pro
 
 | Entrada/salida | La entrada es SQL Azure | La entrada es Blob de Azure |
 | ------------ | ------------------ | ------------------- |
-| La salida es SQL Azure | <p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de ENTRADA para generar los parámetros del servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros del servicio web en Estudio de aprendizaje automático de Azure.</p><p>Si el Lector SQL de Azure y el Escritor SQL de Azure en el modelo de Aprendizaje automático de Azure comparten los mismos parámetros del servicio web mencionados anteriormente, significa que todo es correcto. Si no comparten los mismos parámetros del servicio web, por ejemplo, si el Escritor SQL de Azure usa los nombres de parámetros: Database server name1, Database name1, Server user account name1, Server user account password1 (con "1" al final), debe pasar estos valores para estos parámetros del servicio web de SALIDA en la sección webServiceParameters de JSON de actividad.</p><p>Puede pasar valores para cualquier otro parámetro del servicio web con la sección webServiceParameters de JSON de actividad.</p> | <p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de SALIDA para generar los parámetros del servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros del servicio web en Estudio de aprendizaje automático de Azure.</p><p>Puede pasar valores para cualquier otro parámetro del servicio web con la sección webServiceParameters de JSON de actividad. <p>El blob de entrada se usará como ubicación de entrada.</p> |
+| La salida es SQL Azure | <p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de ENTRADA para generar los parámetros del servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros del servicio web en Estudio de aprendizaje automático de Azure.</p><p>Si el Lector SQL de Azure y el Escritor SQL de Azure en el modelo de Aprendizaje automático de Azure comparten los mismos parámetros del servicio web mencionados anteriormente, significa que todo es correcto. Si no comparten los mismos parámetros del servicio web, por ejemplo, si el Escritor SQL de Azure usa los nombres de parámetros: Database server name1, Database name1, Server user account name1, Server user account password1 (con "1" al final), debe pasar estos valores para estos parámetros del servicio web de SALIDA en la sección webServiceParameters de JSON de actividad.</p><p>Puede pasar valores para cualquier otro parámetro del servicio web con la sección webServiceParameters de JSON de actividad.</p> | <p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de SALIDA para generar los parámetros del servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros del servicio web en Estudio de aprendizaje automático de Azure.</p><p>Puede pasar valores para cualquier otro parámetro del servicio web con la sección webServiceParameters de JSON de actividad. <p>El blob de entrada se utilizará como ubicación de entrada.</p> |
 |La salida es Blob de Azure | El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de ENTRADA para generar los parámetros de servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros de servicio web en Estudio de aprendizaje automático de Azure. | <p>Debe pasar valores para cualquier otro parámetro del servicio web con la sección webServiceParameters de JSON de actividad.</p><p>Los blobs se usarán como ubicaciones de entrada y salida.</p> |
     
 
@@ -301,30 +300,17 @@ En el ejemplo JSON anterior:
 - El servicio Factoría de datos no completa automáticamente los parámetros de escritor (los que tienen el sufijo "1"). Por lo tanto, tiene que especificar valores para estos parámetros en la sección **webServiceParameters** de JSON de actividad.  
 - **Id. de cliente**, **etiquetas puntuadas** y **probabilidades puntuadas** se guardan como columnas separadas por comas. 
 - El **nombre de la tabla de datos** en este ejemplo se corresponde con una tabla en la base de datos de salida.
-- Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+- Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de la propiedad **end** es opcional. Si no especifica ningún valor para la propiedad **end**, se calcula como "**￼start + 48 horas￼**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 
 
 
-## Otras referencias
 
-Artículo | Descripción
------- | ---------------
-[Referencia para desarrolladores de Factoría de datos de Azure][developer-reference] | La Referencia para desarrolladores incluye contenido de referencia completo para cmdlets, script de JSON, biblioteca de clase .NET, funciones, etc. 
-
-[adf-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[adf-tutorial]: data-factory-tutorial.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md
-[developer-reference]: http://go.microsoft.com/fwlink/p/?LinkId=516908
+[adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

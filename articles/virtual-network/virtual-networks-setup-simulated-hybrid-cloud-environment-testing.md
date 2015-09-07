@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuración de un entorno de nube híbrida simulado para pruebas" 
-	description="Aprenda a crear un entorno de nube híbrida simulado para profesionales de TI o pruebas de desarrollo, con dos redes virtuales de Azure y una conexión de red virtual a red virtual." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Entorno de prueba de nube híbrida simulado | Microsoft Azure"
+	description="Cree un entorno de nube híbrida simulado para profesionales de TI o pruebas de desarrollo con dos redes virtuales de Azure y una conexión de red virtual a red virtual."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configuración de un entorno de nube híbrida simulado para pruebas
@@ -171,7 +171,7 @@ A continuación, inicie sesión en la nueva máquina virtual de DC2.
 3.	Cuando se le pida que abra DC2.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
-- Nombre: **DC2\**[Nombre de la cuenta del administrador local]
+- Nombre: **DC2**[Nombre de la cuenta del administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -273,4 +273,4 @@ A continuación, configure la clave previamente compartida para que ambas puerta
 A continuación, en la página Red del Portal de administración de Azure, haga clic en la red virtual **TestLab** y, a continuación, haga clic en **Conectar** en la barra de tareas. Espere hasta que la red virtual TestLab muestre un estado conectado a la red local TestVNET.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introducción a Azure | Microsoft Azure" 
-	description="¿Es un usuario nuevo de Microsoft Azure? Obtenga una visión general básica de los servicios que ofrece con ejemplos de cómo son útiles." 
-	services=" " 
-	documentationCenter=".net" 
-	authors="Rboucher" 
+	pageTitle="Introducción a Azure | Microsoft Azure"
+	description="¿Es un usuario nuevo de Microsoft Azure? Obtenga una visión general básica de los servicios que ofrece con ejemplos de cómo son útiles."
+	services=" "
+	documentationCenter=".net"
+	authors="Rboucher"
 	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015"  
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="robb"/>
 
 # Introducción a Microsoft Azure
@@ -179,9 +179,9 @@ Es posible que alguna vez desee trasladar una gran cantidad de datos a Azure. Es
 
 
 ### Servicio de archivos
-![Servicio de archivos de Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Ilustración: los Servicios de archivo de Azure ofrecen rutas de acceso \\\\servidor\\recurso compartido de SMB para aplicaciones que se ejecutan en la nube.*
+![Servicio de archivos de Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Ilustración: los Servicios de archivo de Azure ofrecen rutas de acceso \\\servidor\\recurso compartido de SMB para aplicaciones que se ejecutan en la nube.*
 
-En un entorno local, es habitual usar grandes cantidades de almacenamiento de archivos al que se puede obtener acceso a través del protocolo Bloque de mensajes del servidor (SMB) utilizando un formato \\\\Servidor\\recurso compartido. Azure cuenta ahora con un servicio que le permite utilizar este protocolo en la nube. Las aplicaciones que se ejecutan en Azure pueden usarlo para compartir archivos entre máquinas virtuales utilizando las API de sistemas de archivos familiares como ReadFile y WriteFile. Además, es posible obtener acceso a los archivos al mismo tiempo a través de una interfaz REST, lo que hace posible obtener acceso a los recursos compartidos desde instalaciones locales, donde puede configurar además una red virtual. Archivos de Azure se crea sobre un servicio de blobs; por tanto, hereda la misma disponibilidad, durabilidad, escalabilidad y redundancia geográfica del Almacenamiento de Azure.
+En un entorno local, es habitual usar grandes cantidades de almacenamiento de archivos al que se puede obtener acceso a través del protocolo Bloque de mensajes del servidor (SMB) utilizando un formato \\\Servidor\\recurso compartido. Azure cuenta ahora con un servicio que le permite utilizar este protocolo en la nube. Las aplicaciones que se ejecutan en Azure pueden usarlo para compartir archivos entre máquinas virtuales utilizando las API de sistemas de archivos familiares como ReadFile y WriteFile. Además, es posible obtener acceso a los archivos al mismo tiempo a través de una interfaz REST, lo que hace posible obtener acceso a los recursos compartidos desde instalaciones locales, donde puede configurar además una red virtual. Archivos de Azure se crea sobre un servicio de blobs; por tanto, hereda la misma disponibilidad, durabilidad, escalabilidad y redundancia geográfica del Almacenamiento de Azure.
 
 **Escenarios para Archivos de Azure**
 
@@ -212,7 +212,7 @@ Como puede crear VM a petición y luego eliminarlas (y dejar de pagar) cuando ya
 
 Si bien, para que esto resulte realmente útil, sería aconsejable que sus usuarios trataran estas aplicaciones como si se ejecutaran en su propio centro de datos. Esto es exactamente lo que permite Red virtual de Azure. Mediante un dispositivo de puerta de enlace de VPN, un administrador puede configurar una red privada virtual (VPN) entre la red local y las máquinas virtuales que se implementan en una red virtual de Azure. Como asigna sus propias direcciones IP v4 a las VM en la nube, estas parecen estar en su propia red. De este modo, los usuarios de su organización pueden tener acceso a las aplicaciones que dichas VM contienen como si se estuvieran ejecutando localmente.
 
-Para obtener más información sobre la planificación y la creación de una red virtual idónea para usted, consulte [Red virtual](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Para obtener más información sobre la planificación y la creación de una red virtual idónea para usted, consulte [Red virtual](../virtual-network/virtual-networks-overview.md).
 
 ### ExpressRoute
 
@@ -224,7 +224,7 @@ Si necesita más ancho de banda o seguridad que la que puede ofrecer Red virtual
 
 La configuración de una conexión ExpressRoute requiere más tiempo y planificación; por ello es posible que prefiera empezar con una red privada virtual y migrar luego a una conexión ExpressRoute.
 
-Para obtener más información sobre ExpressRoute, consulte [ Información general técnica sobre ExpressRoute](http://msdn.microsoft.com/library/azure/dn606309.aspx).
+Para obtener más información sobre ExpressRoute, consulte [ Información general técnica sobre ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ### Administrador de tráfico
 
@@ -592,4 +592,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

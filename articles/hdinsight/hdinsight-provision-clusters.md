@@ -1,21 +1,21 @@
 <properties
-   pageTitle="Aprovisionamiento personalizado de clústeres de Hadoop en HDInsight | Microsoft Azure"
-   	description="Obtenga información sobre cómo aprovisionar clústeres de manera personalizada para HDInsight de Azure mediante el Portal de vista previa de Azure, Azure PowerShell, una línea de comandos o el SDK de .NET."
-   services="hdinsight"
-   documentationCenter=""
-   tags="azure-portal"
-   authors="mumian"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Aprovisionamiento personalizado de clústeres de Hadoop en HDInsight | Microsoft Azure"
+	description="Obtenga información sobre cómo aprovisionar clústeres de manera personalizada para HDInsight de Azure mediante el Portal de vista previa de Azure, Azure PowerShell, una línea de comandos o el SDK de .NET."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
-   ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/11/2015"
-   ms.author="jgao"/>
+	ms.service="hdinsight"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/21/2015"
+	ms.author="jgao"/>
 
 # Aprovisionamiento de clústeres de Hadoop en HDInsight
 
@@ -224,9 +224,9 @@ Puede instalar componentes adicionales o personalizar la configuración del clú
 
 	![Diagrama de la configuración de punto a sitio](./media/hdinsight-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-Para obtener más información sobre las características, las ventajas y la funcionalidad de Red virtual, consulte [Información general sobre Red virtual de Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Para obtener más información sobre las características, las ventajas y la funcionalidad de Red virtual, consulte [Información general sobre Red virtual de Azure](../virtual-network/virtual-networks-overview.md).
 
-> [AZURE.NOTE] Debe crear la red virtual de Azure antes de aprovisionar un clúster de HDInsight. Para obtener más información, consulte [Aprovisionar un clúster de Hadoop en una red virtual](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network).
+> [AZURE.NOTE]Debe crear la red virtual de Azure antes de aprovisionar un clúster de HDInsight. Para obtener más información, consulte [Aprovisionar un clúster de Hadoop en una red virtual](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network).
 >
 > HDInsight de Azure solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad. Utilice el cmdlet Get-AzureVNetConfig de Azure PowerShell para comprobar si una red virtual existente de Azure está basada en la ubicación. Si la red virtual no está basada en la ubicación, tiene las opciones siguientes:
 >
@@ -305,7 +305,7 @@ Puede revisar la sección [opciones de configuración básica] y la sección [op
 	| ------------------ | --------------------- |
 	| ![Indicador de aprovisionamiento en el panel de inicio](./media/hdinsight-provision-clusters/provisioning.png) | ![Icono de clúster aprovisionado](./media/hdinsight-provision-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]El clúster tardará algún tiempo en crearse, normalmente unos 15 minutos. Use el icono del panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
+	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
 
 5. Una vez que termine el aprovisionamiento, haga clic en el icono del clúster desde el panel de inicio para iniciar la hoja del clúster. La hoja de clúster proporciona información esencial sobre el clúster, como el nombre, el grupo de recursos al que pertenece, la ubicación, el sistema operativo, la dirección URL para el panel del clúster, etc.
 
@@ -543,6 +543,19 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 7. Presione **F5** para ejecutar la aplicación. Una ventana de consola se abrirá y mostrará el estado de la aplicación. También se le pedirá que escriba las credenciales de la cuenta de Azure. La creación del clúster de HDInsight puede durar varios minutos.
 
 
+## Creación de un clúster de HDInsight mediante SQL Server Integration Services local
+
+También puede usar SQL Server Integration Services (SSIS) para crear o eliminar un clúster de HDInsight. El paquete de características de Azure para SSIS proporciona los siguientes componentes que funcionan con clústeres de HDInsight.
+
+
+- [Tarea de creación de un clúster de Azure HDInsight][ssisclustercreate]
+- [Tarea de eliminación de un clúster de Azure HDInsight][ssisclusterdelete]
+- [Administrador de conexiones de suscripción de Azure][connectionmanager]
+
+Obtenga más información acerca del paquete de características de Azure para SSIS [aquí][ssispack].
+
+
+
 ##<a id="nextsteps"></a> Pasos siguientes
 En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varias formas. Para obtener más información, consulte los artículos siguientes:
 
@@ -555,5 +568,9 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
+[connectionmanager]: http://msdn.microsoft.com/es-ES/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/es-ES/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/es-ES/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/es-ES/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Configuración de los servicios fiables con estado"
-   description="Obtenga información acerca de cómo configurar servicios fiables con estado en Service Fabric."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="Obtenga información acerca de cómo configurar servicios fiables con estado en Service Fabric."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/24/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Configuración de los servicios fiables con estado
 La configuración predeterminada del servicio fiable con estado puede modificarse cambiando el archivo "settings.xml" generado en la raíz del paquete de Visual Studio en la carpeta "Config" para cada servicio de la aplicación.
@@ -91,4 +91,4 @@ El MaxRecordSizeInKB define el tamaño máximo de un registro que puede escribir
 La configuración de SharedLogId y SharedLogPath siempre se usa conjuntamente y permite que un servicio utilice un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Los archivos de registro compartido deben colocarse en discos que se usen únicamente para el archivo de registro compartido, para reducir la contención del movimiento de los cabezales. Se espera que deba cambiarse solamente en raras ocasiones.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

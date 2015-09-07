@@ -1,21 +1,21 @@
 <properties
    pageTitle="Creación de una red virtual con una conexión VPN sitio a sitio mediante el Administrador de recursos de Azure y PowerShell | Microsoft Azure"
-   description="Creación de una conexión VPN de sitio a sitio desde la red virtual a su ubicación local mediante el Administrador de recursos de Azure y PowerShell"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Creación de una conexión VPN de sitio a sitio desde la red virtual a su ubicación local mediante el Administrador de recursos de Azure y PowerShell"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="cherylmc"/>
 
 # Creación de una red virtual con una conexión VPN sitio a sitio mediante el Administrador de recursos de Azure y PowerShell
 
@@ -96,9 +96,26 @@ Especifique también el prefijo del espacio de direcciones para el sitio local. 
 - *GatewayIPAddress* es la dirección IP del dispositivo VPN local. El dispositivo VPN no se encuentra detrás de un NAT. 
 - *AddressPrefix* es el espacio de direcciones local.
 
-Use este ejemplo para agregar el sitio local:
+Utilice este ejemplo para agregar un sitio local con un prefijo de dirección única.
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+
+Si desea agregar un sitio local con varios prefijos de dirección, utilice este ejemplo.
+
+		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+
+
+Para agregar prefijos de direcciones adicionales a un sitio local que ya haya creado, utilice el siguiente ejemplo.
+
+		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+
+Para quitar un prefijo de dirección de un sitio local, utilice el siguiente ejemplo. Omita los prefijos que ya no necesite. En este ejemplo, ya no necesitamos el prefijo 20.0.0.0/24 (del ejemplo anterior), por lo que se actualizará el sitio local y se excluirá ese prefijo.
+
+		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+
 
 ## Solicitud de una dirección IP pública para la puerta de enlace de red virtual
 
@@ -150,6 +167,6 @@ Después de unos minutos, se debe establecer la conexión. En este momento, las 
 
 ## Pasos siguientes
 
-Agregue una máquina virtual a una red virtual. [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md)
+Agregue una máquina virtual a una red virtual. [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

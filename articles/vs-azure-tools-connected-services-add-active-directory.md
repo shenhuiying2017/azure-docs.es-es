@@ -1,12 +1,12 @@
 <properties 
-   pageTitle="Adición de Azure Active Directory con Servicios conectados en Visual Studio"
-   description="Adición de Azure Active Directory mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
-<tags  ms.service="visual-studio-online"" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="na" ms.date="08/12/2015" ms.author="patshea" />
+   pageTitle="Adición de Azure Active Directory con Servicios conectados en Visual Studio | Microsoft Azure"
+	description="Adición de Azure Active Directory mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
+<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea"/>
 
 # Adición de Azure Active Directory con Servicios conectados en Visual Studio 
 
@@ -48,9 +48,7 @@ Puede usar el cuadro de diálogo Servicios conectados para conectarse a Azure AD
 
 1. Elija el botón **Finalizar**. El cuadro de diálogo agrega el código de configuración y las referencias necesarios para habilitar su proyecto para la autenticación de Azure AD. Puede ver el dominio de AD en el Portal de Azure.
 
-    ![Busque el dominio en el Portal de administración de Azure](./media/vs-azure-tools-connected-services-add-active-directory/IC765882.png)
-
-1. Revise la página Introducción que aparece en su explorador para obtener ideas sobre los siguientes pasos y la página ¿Qué ha ocurrido? para ver cómo se ha modificado su proyecto. Si desea comprobar que todo funcionaba, abra uno de los archivos de configuración modificados y verifique que la configuración mencionada en ¿Qué ha ocurrido? existe. Por ejemplo, al archivo web.config principal de un proyecto de ASP.NET MVC se le agregará esta configuración:
+1. Revise la página Introducción que aparece en el explorador para obtener ideas sobre los siguientes pasos y la página ¿Qué ha ocurrido? para ver cómo se modificó el proyecto. Si quiere comprobar que todo funcionó, abra uno de los archivos de configuración modificados y compruebe que la configuración mencionada en ¿Qué ha ocurrido? existe. Por ejemplo, al archivo web.config principal de un proyecto de ASP.NET MVC se le agregará esta configuración:
 
         <appSettings> 
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
@@ -62,7 +60,7 @@ Puede usar el cuadro de diálogo Servicios conectados para conectarse a Azure AD
 
 ## ¿Cómo se modifica el proyecto?
 
-Al ejecutar el asistente, Visual Studio agrega Azure AD y referencias asociadas a su proyecto. También se modifican los archivos de configuración y archivos de código de su proyecto para agregar compatibilidad con Azure AD. Las modificaciones específicas realizadas por Visual Studio dependen del tipo de proyecto. Para información detallada sobre cómo se modifican los proyectos de ASP.NET MVC, consulte [¿Qué ha ocurrido? - Proyectos de MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Para los proyectos de API web, consulte [¿Qué ha ocurrido? - Proyectos de API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+Al ejecutar el asistente, Visual Studio agrega Azure AD y referencias asociadas a su proyecto. También se modifican los archivos de configuración y archivos de código de su proyecto para agregar compatibilidad con Azure AD. Las modificaciones específicas realizadas por Visual Studio dependen del tipo de proyecto. Para obtener más información sobre cómo se modifican los proyectos de ASP.NET MVC, consulte [¿Qué ha ocurrido? - Proyectos de MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Para los proyectos de API web, consulte [¿Qué ha ocurrido? - Proyectos de API web](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ##Pasos siguientes
 
@@ -74,4 +72,4 @@ Formule preguntas y obtenga ayuda.
 
  - [Entrada de blog: introducción a Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

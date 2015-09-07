@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Fase 3 de la carga de trabajo de aplicación de línea de negocio: Configuración de la infraestructura de SQL Server" 
-	description="En esta tercera fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, creará los equipos de clúster de SQL Server y el propio clúster." 
+	pageTitle="Fase 3 de la aplicación de línea de negocio | Microsoft Azure"
+	description="Cree los equipos y el clúster de SQL Server y habilite los grupos de disponibilidad en la fase 3 de la aplicación de línea de negocio en Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Fase 3 de la carga de trabajo de aplicación de línea de negocio: Configuración de la infraestructura de SQL Server
@@ -169,7 +169,7 @@ Use el procedimiento siguiente dos veces, una vez para cada servidor SQL Server,
 1.	En la pantalla de inicio, haga clic en **Este PC** y, a continuación, haga clic en **Propiedades**.
 2.	En la ventana **Sistema**, haga clic en **Configuración remota**.
 3.	En la sección **Escritorio remoto**, haga clic en **Seleccionar usuarios** y, a continuación, haga clic en **Agregar**.
-4.	En **Escribir los nombres de objeto para seleccionar**, escriba [dominio]** \\\\sqladmin** y haga clic en **Aceptar** tres veces.
+4.	En **Escribir los nombres de objeto para seleccionar**, escriba [dominio]** \\\sqladmin** y haga clic en **Aceptar** tres veces.
 
 El servicio SQL Server requiere un puerto que los clientes usen para tener acceso al servidor de base de datos. También necesita puertos para conectar con SQL Server Management Studio y para administrar el grupo de alta disponibilidad. A continuación, ejecute dos veces el siguiente comando en un símbolo del sistema de Windows PowerShell de nivel de administrador, una vez para cada máquina virtual de SQL Server, con el fin de agregar una regla de firewall que permita este tipo de tráfico entrante.
 
@@ -177,7 +177,7 @@ El servicio SQL Server requiere un puerto que los clientes usen para tener acces
 
 Cierre la sesión como administrador local en cada una de las máquinas virtuales de SQL Server.
 
-Para obtener más información acerca de la optimización del rendimiento de SQL Server en Azure, consulte [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). También puede deshabilitar el almacenamiento de redundancia geográfica (GRS) en la cuenta de almacenamiento de la aplicación de línea de negocio y usar espacios de almacenamiento para optimizar la tasa de E/S por segundo.
+Para obtener más información acerca de la optimización del rendimiento de SQL Server en Azure, consulte [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-performance-best-practices.md). También puede deshabilitar el almacenamiento de redundancia geográfica (GRS) en la cuenta de almacenamiento de la aplicación de línea de negocio y usar espacios de almacenamiento para optimizar la tasa de E/S por segundo.
 
 ## Configuración del servidor de nodos de mayoría de clúster
 
@@ -268,4 +268,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 4: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

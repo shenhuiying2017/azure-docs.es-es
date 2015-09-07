@@ -1,15 +1,15 @@
-## Deploy the ARM template by using the Azure CLI
+## Implementar la plantilla ARM mediante la CLI de Azure
 
-To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
+Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalar y configurar la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
+2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
 
 		info:    New mode is arm
 
-3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. Si es necesario, ejecute **azure group create** para crear un nuevo grupo de recursos, tal como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
 		info:    Executing command group create
@@ -24,10 +24,10 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		data:
 		info:    group create command OK
 
-	- **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
+	- **-n (or --name)**. Nombre del nuevo grupo de recursos. En este escenario, *TestRG*.
+	- **-l (or --location)**. Región de Azure donde se creará el nuevo grupo de recursos. En este escenario, *centralus*.
 
-4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que ha descargado y modificado anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
@@ -54,11 +54,11 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		data:    subnet2Name    String  BackEnd
 		info:    group deployment create command OK
 
-	- **-g (or --resource-group)**. Name of the resource group the new VNet will be created in.
-	- **-f (or --template-file)**. Path to your ARM template file.
-	- **-e (or --parameters-file)**. Path to your ARM parameters file.
+	- **-g (or --resource-group)**. Nombre del grupo de recursos en el que se creará la red virtual.
+	- **-f (or --template-file)**. Ruta de acceso al archivo de plantilla ARM.
+	- **-e (or --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
 
-5. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+5. Ejecute el comando **azure network vnet show** para ver las propiedades de la nueva red virtual, tal como se muestra a continuación.
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -79,3 +79,5 @@ To deploy the ARM template you downloaded by using PowerShell, follow the steps 
 		data:      Address prefix                : 192.168.2.0/24
 		data:
 		info:    network vnet show command OK
+
+<!---HONumber=August15_HO9-->

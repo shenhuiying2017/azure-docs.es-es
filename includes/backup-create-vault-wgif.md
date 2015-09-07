@@ -1,44 +1,46 @@
-## Create a Backup Vault
-To back up files and data from your Windows Server or System Center Data Protection Manager (SCDPM) to Azure or when backing up IaaS VMs to Azure, you must create a backup vault in the geographic region where you want to store the data.
+## Creación de un almacén de copia de seguridad
+Para hacer una copia de seguridad de los archivos y los datos desde Windows Server o desde System Center Data Protection Manager (SCDPM) en Azure, o al realizar copias de seguridad de máquinas virtuales de IaaS, debe crear un almacén de copia de seguridad en la región geográfica donde desea almacenar los datos.
 
-This article will walk you through the creation of the vault you will use to store backups.
+Este artículo le guiará a través de la creación del almacén que usará para guardar las copias de seguridad.
 
-## Video walkthrough
+## Tutorial en vídeo
 
-Here's a quick video of the process.
+Este es un vídeo rápido del proceso.
 
 [AZURE.VIDEO azure-backup-vault-creation]
 
-The following steps will walk you through the creation of the vault used to store backups.
+Los siguientes pasos lo guiarán por la creación del almacén usado para guardar copias de seguridad.
 
-### Creating a backup vault
-1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
-2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** and choose **Quick Create**.
-3. For the **Name** parameter, enter a friendly name to identify the backup vault. This needs to be unique for each subscription.
-4. For the **Region** parameter, select the geographic region for the backup vault. The choice determines the geographic region to which your backup data is sent. By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.
-5. Click on **Create Vault** to complete the workflow. It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal.
+### Creación de un almacén de copia de seguridad
+1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com/).
+2. Haga clic en **Nuevo** -> **Servicios de datos** -> **Servicios de recuperación** -> **Almacén de copia de seguridad** y elija **Creación rápida**.
+3. Para el parámetro **Nombre**, escriba un nombre descriptivo para identificar el almacén de copia de seguridad. Esto debe ser único para cada suscripción.
+4. Para el parámetro **Región**, seleccione la región geográfica para el almacén de credenciales de copia de seguridad. La elección determina la región geográfica a la que se envían los datos de copia de seguridad. Si elige una región geográfica cerca de su ubicación, puede reducir la latencia de red al hacer una copia de seguridad en Azure.
+5. Haga clic en **Crear almacén** para completar el flujo de trabajo. La creación del almacén de credenciales de copia de seguridad puede tardar unos minutos. Para revisar el estado, puede supervisar las notificaciones en la parte inferior del portal.
 
-    ![Creating Vault](./media/backup-create-vault-wgif/create-vault-wgif.gif)
+    ![Creación de almacén](./media/backup-create-vault-wgif/create-vault-wgif.gif)
 
-6. After the backup vault has been created, a message tells you the vault has been successfully created. The vault is also listed in the resources for Recovery Services as **Active**.
-
-
+6. Después de crear el almacén de copia de seguridad, un mensaje indica que el almacén se ha creado correctamente. El almacén aparece también en los recursos de Servicios de recuperación como **Activo**.
 
 
-### Azure Backup - Storage Redundancy Options
 
-The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 
-Your business needs would determine the storage redundancy of the Azure Backup backend storage. If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) Geo-Redundant storage option. This is seen under the **Configure** option of your Backup vault.
+### Copia de seguridad de Microsoft Azure: Opciones de redundancia de almacenamiento
+
+El mejor momento para identificar la opción de redundancia de almacenamiento es justo después de la creación del almacén, y antes de que las máquinas se registren en este. Una vez que un elemento se ha registrado en el almacén, la opción de redundancia de almacenamiento está bloqueada y no se puede modificar.
+
+Sus necesidades empresariales determinarían la redundancia de almacenamiento del almacenamiento backend de Copia de seguridad de Azure. Si está usando Azure como un extremo de almacenamiento de copia de seguridad principal (por ejemplo, copia de seguridad en Azure desde un servidor de Windows), debe considerar seleccionar la opción de almacenamiento con redundancia geográfica (valor predeterminado). Esto se ve en la opción **Configurar** de su almacén de copia de seguridad.
 
 ![GRS](./media/backup-create-vault/grs.png)
 
-#### Geo-Redundant Storage (GRS)
-GRS maintains six copies of your data. With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability. In the event of a failure at the primary region, by storing data in GRS, Azure Backup ensures that your data is durable in two separate regions.
+#### Almacenamiento con redundancia geográfica (GRS)
+GRS mantiene seis copias de sus datos. Con GRS, sus datos se replican tres veces dentro de la región principal, y se replican también tres veces en una región secundaria a cientos de kilómetros de distancia de la región principal, proporcionando el nivel más alto de durabilidad. Si se produce un error en la región principal, al almacenar datos en GRS, la Copia de seguridad de Azure garantiza que los datos perduren en dos regiones independientes.
 
-#### Locally Redundant Storage (LRS)
-Loclly redundant storage (LRS) maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of an entire Azure facility.
+#### Almacenamiento con redundancia local (LRS)
+El almacenamiento con redundancia local (LRS) mantiene tres copias de sus datos. LRS se replica tres veces dentro de una única instalación de una sola región. LRS protege los datos frente a errores comunes del hardware, pero no frente a errores de una instalación de Azure completa.
 
-If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage from the **Configure** option of your Backup vault. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
+Si está usando Azure como un extremo de almacenamiento de copia de seguridad terciaria (por ejemplo, usa SCDPM para tener una copia de seguridad local y usa Azure para sus necesidades de retención a largo plazo), debería considerar elegir el almacenamiento redundante local en la opción **Configurar** de su almacén de copia de seguridad. Esto reduce el costo de almacenamiento de datos en Azure, a la vez que ofrece un menor nivel de durabilidad de los datos, el cual podría ser aceptable para copias terciarias.
 
 ![LRS](./media/backup-create-vault/lrs.png)
+
+<!---HONumber=August15_HO9-->

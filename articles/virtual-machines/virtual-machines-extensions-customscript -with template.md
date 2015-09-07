@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso de las plantillas del Administrador de recursos de Azure de la extensión de scripts personalizados"
-   description="Automatización de las tareas de configuración de máquina virtual de Azure mediante el script personalizado con plantillas de ARM"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="kundanap"
-   manager="madhana"
-   editor=""/>
+	description="Automatización de las tareas de configuración de máquina virtual de Azure mediante el script personalizado con plantillas de ARM"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kundanap"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
-   ms.author="kundanap"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/01/2015"
+	ms.author="kundanap"/>
 
 # Uso de la extensión de scripts personalizados con plantillas del Administrador de recursos de Azure
 
@@ -97,4 +97,4 @@ Consulte los ejemplos siguientes para obtener ejemplos completos de configuraci�
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensión del script personalizado en una máquina virtual de Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensión del script personalizado en una máquina virtual de Windows</a>.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

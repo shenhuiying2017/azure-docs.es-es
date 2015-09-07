@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Colas de Service Bus y colas de Azure: comparación y diferencias"
-   description="Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+	description="Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure."
+	services="service-bus"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor="tysonn"/>
 <tags 
    ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="05/21/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/25/2015"
+	ms.author="sethm"/>
 
 # Colas de Service Bus y colas de Azure: comparación y diferencias
 
@@ -290,8 +290,6 @@ En esta sección se comparan las colas de Azure y las de Service Bus desde una p
 
 - En el momento de elaborar este artículo, ninguna transferencia de datos de entrada está sujeta a cobro.
 
-- El coste de las transacciones de ACS es insignificante cuando se realizan operaciones de mensajería con las colas de Service Bus. Service Bus adquiere un token de ACS por instancia única del objeto de factoría de mensajería. El token se reutiliza entonces hasta que expire tras 20 minutos aproximadamente. Por tanto, el volumen de las operaciones de mensajería en Service Bus no es directamente proporcional a la cantidad de transacciones de ACS necesarias para admitir estas operaciones.
-
 - Dada la compatibilidad del sondeo prolongado, el uso de la colas de Service Bus puede ser rentable en situaciones en las que se necesita la entrega de baja latencia.
 
 >[AZURE.NOTE]Todos los costes están sujetos a cambios. Esta tabla refleja los precios actuales en el momento de redactar este artículo y no incluye ninguna oferta promocional que pueda haber disponible actualmente. Para obtener información actualizada sobre los precios de Azure, vea la página [Precios de Azure](http://azure.microsoft.com/pricing/). Para obtener más información sobre los precios de Bus de servicio, consulte [Precios de Bus de servicio]((http://azure.microsoft.com/pricing/details/service-bus/).
@@ -317,4 +315,4 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 - [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

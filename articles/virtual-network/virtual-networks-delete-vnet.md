@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Eliminación de una red virtual (VNet)"
-   description="Obtenga información acerca de cómo eliminar una red virtual existente"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Obtenga información acerca de cómo eliminar una red virtual existente"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="05/29/2015"
+	ms.author="telmos"/>
 
 # Eliminación de una red virtual (VNet)
 
 Si desea eliminar una red virtual, no solo hay que hacer clic en **Eliminar**. Hay que llevar a cabo antes algunos procedimientos:
 
-1. **Guardar la configuración (opcional)**: si desea guardar la configuración de la red virtual en un archivo local, exporte el archivo de configuración antes de eliminar la red virtual. Consulte [Exportación de la configuración de la red virtual a un archivo de configuración de red](https://msdn.microsoft.com/library/azure/dn133804.aspx) para obtener más información. Guardar la configuración le permite volver a crear la red virtual en el futuro, si es preciso.
+1. **Guardar la configuración (opcional)**: si desea guardar la configuración de la red virtual en un archivo local, exporte el archivo de configuración antes de eliminar la red virtual. Consulte [Exportación de la configuración de la red virtual a un archivo de configuración de red](virtual-networks-using-network-configuration-file.md) para obtener más información. Guardar la configuración le permite volver a crear la red virtual en el futuro, si es preciso.
 
 1. **Eliminar la puerta de enlace de red virtual**: si configura una puerta de enlace para la red virtual, debe eliminarla antes de eliminar la red virtual. Para eliminar la puerta de enlace de la red virtual, vaya a la página Panel de la red virtual. En la parte inferior de la página, haga clic en **Eliminar puerta de enlace**.
 						
@@ -32,4 +32,4 @@ Si desea eliminar una red virtual, no solo hay que hacer clic en **Eliminar**. H
 1. **Procedimiento adicional**: también puede eliminar cualquier configuración de la red local, los servidores DNS y el grupo de afinidad después de eliminar la red virtual.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

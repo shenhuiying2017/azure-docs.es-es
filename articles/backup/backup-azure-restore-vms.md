@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Copia de seguridad de Azure: restauración de una máquina virtual | Microsoft Azure"
 	description="Información sobre cómo restaurar una máquina virtual de Azure"
@@ -50,7 +49,7 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
 
         El nombre del servicio en la nube que seleccione debe ser único global. Por lo general, ese nombre se asocia a una dirección URL pública con formato [servicioEnLaNube].cloudapp.net. Azure no le permite crear un nuevo servicio en la nube si el nombre ya se ha usado. Si decide crear un nuevo servicio en la nube, debe asignarle el mismo nombre que la máquina virtual, en cuyo caso el nombre de la máquina virtual elegido debe ser lo suficientemente único para aplicarse al servicio en la nube asociado.
 
-        Solo se muestran los servicios en la nube y las redes virtuales que no estén asociados a ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](https://msdn.microsoft.com/es-es/library/azure/jj156085.aspx).
+        Solo se muestran los servicios en la nube y las redes virtuales que no estén asociados a ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de copia de seguridad de Azure. No se admiten cuentas de almacenamiento redundantes de zona ni de almacenamiento Premium.
 
@@ -95,4 +94,4 @@ Para la mayoría de los errores, puede seguir la acción recomendada sugerida en
 ## Pasos siguientes
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

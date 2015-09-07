@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Máquinas virtuales y contenedores de Azure" 
-	description="Describe las máquinas virtuales, los contenedores de Docker y Linux y su uso en grupos en Azure, incluyendo las ventajas de cada uno y escenarios en los que cada enfoque funciona muy bien." 
-	services="virtual-machines" 
-	documentationCenter="virtual-machines" 
-	authors="squillace" 
-	manager="timlt" />
+	pageTitle="Máquinas virtuales y contenedores de Azure"
+	description="Describe las máquinas virtuales, los contenedores de Docker y Linux y su uso en grupos en Azure, incluyendo las ventajas de cada uno y escenarios en los que cada enfoque funciona muy bien."
+	services="virtual-machines"
+	documentationCenter="virtual-machines"
+	authors="squillace"
+	manager="timlt"/>
 	
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure" 
-	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
-	ms.author="rasquill" 
-/>
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="infrastructure"
+	ms.workload="infrastructure"
+	ms.date="07/02/2015"
+	ms.author="rasquill"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Máquinas virtuales y contenedores de Azure
@@ -122,7 +121,7 @@ Estas capacidades a menudo se migran posteriormente a herramientas como [Puppet]
 
 ### Plantillas de grupo de recursos de Azure
 
-Más recientemente, Azure presentó la API de REST de [Administración de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md) y herramientas actualizadas de PowerShell y CLI de Azure para usarlo con facilidad. Puede implementar, modificar o volver a implementar topologías de toda la aplicación mediante [plantillas de Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx) con la API de administración de recursos de Azure usando:
+Más recientemente, Azure presentó la API de REST de [Administración de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md) y herramientas actualizadas de PowerShell y CLI de Azure para usarlo con facilidad. Puede implementar, modificar o volver a implementar topologías de toda la aplicación mediante [plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md) con la API de administración de recursos de Azure usando:
 
 - el [portal de vista previa de Azure mediante plantillas](https://github.com/Azure/azure-quickstart-templates)&mdash;sugerencia, use el botón "DeployToAzure"
 - la [CLI de Azure](virtual-machines-deploy-rmtemplates-azure-cli.md)
@@ -235,4 +234,4 @@ Desmarque [Docker](https://www.docker.com) y [Contenedores de Windows Server](ht
 [microservicio]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

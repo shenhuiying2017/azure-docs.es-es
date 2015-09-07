@@ -1,9 +1,4 @@
-El proyecto de servidor descargado del portal ya dispone de la autenticación habilitada.
 
-En el proyecto ASP.NET, deberá ver lo siguiente:
+>[AZURE.TIP]El paquete de extensión de autenticación se incluye en el paquete de extensión de inicio rápido. El proyecto de servidor que ha descargado del portal ya tiene la autenticación habilitada. Para obtener información sobre cómo instalar e inicializar la autenticación cuando no se utiliza la extensión de inicio rápido, consulte [Cómo agregar autenticación a un proyecto de servidor](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-authentication-to-a-server-project).
 
-* El paquete `Microsoft.Azure.Mobile.Server.Authentication` NuGet está instalado.
-
-* En WebApiConfig.cs, se llama al método `UseDefaultConfiguration()` en el objeto MobileAppConfiguration. Esto a su vez llama al método de extensión `AddAppServiceAuthentication()` ofrecido por el paquete NuGet anterior. También registra un middleware de OWIN necesario para la autenticación mediante una llamada a `app.UseAppServiceAuthentication()`durante el inicio OWIN.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector DB2 - Mover datos desde DB2" 
-	description="Obtenga información acerca del conector DB2 para el servicio Factoría de datos que le permite mover datos desde la base de datos DB2." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Movimiento de datos de DB2 | Factoría de datos de Azure"
+	description="Obtenga información acerca de cómo mover los datos de la base de datos de DB2 mediante Factoría de datos de Azure"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector DB2 - Mover datos desde DB2
+# Movimiento de datos de DB2 mediante Factoría de datos de Azure
 En este artículo se describe cómo puede usar la actividad de copia en Factoría de datos de Azure para mover datos de DB2 a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
 La factoría de datos admite la conexión a orígenes de DB2 locales mediante Data Management Gateway. Consulte el artículo sobre cómo [mover datos entre ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener información acerca de Data Management Gateway, así como instrucciones paso a paso sobre cómo configurar la puerta de enlace.
@@ -35,11 +35,11 @@ Se conocen varios problemas notificados por IBM acerca de la instalación de IBM
 
 El ejemplo siguiente muestra:
 
-1.	Un servicio vinculado de tipo OnPremisesDb2.
-2.	Un servicio vinculado de tipo AzureStorage. 
-3.	Un conjunto de datos de entrada de tipo RelationalTable.
-4.	Un conjunto de datos de salida de tipo AzureBlob. 
-5.	Una canalización con la actividad de copia que usa RelationalSource y BlobSink. 
+1.	Un servicio vinculado de tipo [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
+2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties).
+4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+5.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 El ejemplo copia cada hora los datos de un resultado de consulta de la base de datos DB2 en un blob. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -80,7 +80,7 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 
 El ejemplo supone que ha creado una tabla "MyTable" en DB2 y que contiene una columna denominada "timestamp" para los datos de serie temporal.
 
-Si se establece "external": true y se especifica la directiva externalData, se indica a Factoría de datos que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos. Tenga en cuenta que **type**está establecido como **RelationalTable**.
+Si se establece "external": true y se especifica la directiva externalData, se indica a Factoría de datos que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos. Tenga en cuenta que **type** se establece en **RelationalTable**.
 
 	{
 	    "name": "Db2DataSet",
@@ -215,7 +215,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | Descripción | Obligatorio |
 | -------- | ----------- | -------- | 
-| type | La propiedad type debe establecerse en **OnPremisesDB2** | Sí |
+| type | La propiedad type debe establecerse en: **OnPremisesDB2** | Sí |
 | server | Nombre del servidor DB2. | Sí |
 | database | Nombre de la base de datos DB2. | Sí |
 | schema | Nombre del esquema de la base de datos. | No |
@@ -223,6 +223,9 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | nombre de usuario | Especifique el nombre de usuario si usa la autenticación Basic o Windows. | No |
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No |
 | gatewayName | Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos DB2 local. | Sí |
+
+Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de DB2 local.
+
 
 ## Propiedades de tipo de conjunto de datos de DB2
 
@@ -250,7 +253,7 @@ En caso de la actividad de copia si el origen es de tipo **RelationalSource** (q
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Asignación de tipos para DB2
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
@@ -306,4 +309,4 @@ Char | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

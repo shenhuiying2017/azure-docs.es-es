@@ -1,19 +1,19 @@
 <properties      
-    pageTitle="Datos de creación de particiones en DocumentDB | Microsoft Azure"      
-    description="Obtenga información sobre crear particiones de datos en DocumentDB y cuándo utilizar las particiones por búsqueda, rangos y hash."          
-    services="documentdb"      
-    authors="arramac"      
-    manager="jhubbard"      
-    editor="monicar"      
-    documentationCenter=""/>
-<tags      
-    ms.service="documentdb"      
-    ms.workload="data-services"      
-    ms.tgt_pltfrm="na"      
-    ms.devlang="na"      
-    ms.topic="article"      
-    ms.date="05/28/2015"      
-    ms.author="arramac"/>
+    pageTitle="Datos de creación de particiones en DocumentDB | Microsoft Azure"
+	description="Obtenga información sobre crear particiones de datos en DocumentDB y cuándo utilizar las particiones por búsqueda, rangos y hash."
+	services="documentdb"
+	authors="arramac"
+	manager="jhubbard"
+	editor="monicar"
+	documentationCenter=""/>
+<tags       
+    ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/28/2015"
+	ms.author="arramac"/>
 
 # Partición de datos en DocumentDB
 
@@ -92,7 +92,7 @@ De lo contrario, puede guardarlo en cualquier almacén persistente. Un patrón d
 
 ## Adición y eliminación de particiones
 
-Con DocumentDB, puede agregar y quitar colecciones en cualquier momento y utilizarlas para almacenar nuevos datos entrantes, así como reequilibrar los datos disponibles en las colecciones existentes. Consulte la página [Límites](documentdb-limits.md) para conocer el número de colecciones. También puede llamarnos siempre que desee aumentar dichos límites.
+Con DocumentDB, puede agregar y quitar colecciones en cualquier momento y usarlas para almacenar nuevos datos entrantes, así como reequilibrar los datos disponibles en las colecciones existentes. Consulte la página [Límites](documentdb-limits.md) para conocer el número de colecciones. También puede llamarnos siempre que desee aumentar dichos límites.
 
 Es muy fácil agregar y eliminar una nueva partición con los procesos de creación de particiones por búsquedas y rangos. Por ejemplo, para agregar una nueva región geográfica o un nuevo rango de tiempo para los datos recientes, basta con anexar las particiones nuevas al mapa de particiones. Para dividir una partición existente en varias particiones o mezclar dos particiones se requiere un poco más esfuerzo. Hay que hacer lo siguiente:
 
@@ -114,4 +114,4 @@ En este artículo, hemos presentado algunas técnicas habituales para efectuar p
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

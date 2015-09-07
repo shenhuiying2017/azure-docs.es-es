@@ -1,30 +1,37 @@
 <properties 
-	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
+	pageTitle="Integración del SDK de Android para Azure Mobile Engagement"
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #Notas de la versión
+
+##4\.1.0 (08/25/2015)
+
+- Controle el nuevo modelo de permiso para Android M.
+- Ahora puede configurar las características de ubicación en tiempo de ejecución en lugar de usar `AndroidManifest.xml`.
+- Corrección de un error de permiso: si usa `ACCESS_FINE_LOCATION`, ya no es necesario `ACCESS_COARSE_LOCATION`.
+- Mejoras de estabilidad.
 
 ##4\.0.0 (07/06/2015)
 
 -   Cambios en el protocolo interno para que la inserción y los análisis sean más confiables.
 -   La inserción nativa (GCM/ADM) ahora también se usa para notificaciones dentro de la aplicación, por lo que debe configurar las credenciales de inserción nativas para cualquier tipo de campaña de inserción.
 -   Corrección de la notificación con imagen grande: se mostraban solo 10 s después de insertarse.
--   Corrección del clic en un vínculo dentro de un anuncio web que tiene una dirección URL de acción predeterminada.
+-   Corrección de un error en la vista web: al hacer clic en un vínculo, también se ejecutaba la URL de la acción predeterminada.
 -   Corrección de un bloqueo excepcional relacionado con la administración del almacenamiento local.
 -   Corrección de la administración dinámica de cadenas de configuración.
 -   Actualización del CLUF.
@@ -40,4 +47,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

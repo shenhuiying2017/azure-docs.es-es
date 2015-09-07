@@ -1,21 +1,21 @@
 <properties
    pageTitle="Uso de Pig de Hadoop en HDInsight | Microsoft Azure"
-   description="Aprenda a usar Pig con Hadoop en HDInsight."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"
+	description="Aprenda a usar Pig con Hadoop en HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/21/2015"
+	ms.author="larryfr"/>
 
 # Uso de Pig con Hadoop en HDInsight
 
@@ -63,7 +63,7 @@ Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HD
 
 Dado que WASB es el almacenamiento predeterminado para HDInsight, también puede acceder al archivo mediante **/example/data/sample.log** desde Pig Latin.
 
-> [AZURE.NOTE]La sintaxis, \*\***wasb:///**, se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo:\*\***wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE]La sintaxis, ****wasb:///**, se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo:****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 
 ##<a id="job"></a>Acerca del trabajo de ejemplo
@@ -94,6 +94,19 @@ HDInsight puede ejecutar trabajos de Pig Latin mediante una variedad de métodos
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) | &nbsp; | ✔ | Linux o Windows | Windows |
 | [Escritorio remoto](hdinsight-hadoop-use-pig-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+
+## Ejecución de trabajos de Pig en Azure HDInsight mediante SQL Server Integration Services local
+
+También puede usar SQL Server Integration Services (SSIS) para ejecutar un trabajo de Pig. El paquete de características de Azure para SSIS proporciona los siguientes componentes que funcionan con trabajos de Pig en HDInsight.
+
+
+- [Tarea de Pig de Azure HDInsight][pigtask]
+- [Administrador de conexiones de suscripción de Azure][connectionmanager]
+
+
+Obtenga más información acerca del paquete de características de Azure para SSIS [aquí][ssispack].
+
+
 ##<a id="nextsteps"></a>Pasos siguientes
 
 Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para explorar otras formas de trabajar con HDInsight de Azure.
@@ -107,6 +120,9 @@ Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para 
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
+[pigtask]: http://msdn.microsoft.com/es-ES/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/es-ES/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/es-ES/library/mt146770(v=sql.120).aspx
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -128,4 +144,4 @@ Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para 
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

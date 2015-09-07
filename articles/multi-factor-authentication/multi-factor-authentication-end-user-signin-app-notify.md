@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Inicio de sesión en la aplicación móvil mediante notificación con Azure Multi-Factor Authentication" 
-	description="Esta página describe cómo un usuario puede iniciar sesión a través de una notificación a una aplicación móvil con Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Inicio de sesión en la aplicación móvil mediante notificación con Azure Multi-Factor Authentication"
+	description="Esta página describe cómo un usuario puede iniciar sesión a través de una notificación a una aplicación móvil con Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Inicio de sesión en la aplicación móvil mediante notificación con Azure Multi-Factor Authentication
@@ -38,4 +38,4 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 
 <li>Con esto debe haber iniciado sesión.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

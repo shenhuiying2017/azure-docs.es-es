@@ -46,7 +46,7 @@ Se trata de una lista de artículos para trabajar con máquinas virtuales en Adm
 
 [Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[¿Necesito una red virtual?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[¿Necesito una red virtual?](../virtual-network/virtual-networks-overview.md)
 
 ## Crear
 
@@ -150,4 +150,4 @@ Se trata de una lista de artículos para trabajar con máquinas virtuales en Adm
 
 [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

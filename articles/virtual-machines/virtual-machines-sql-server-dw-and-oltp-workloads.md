@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Almacenamiento de datos de SQL Server y cargas de trabajo transaccionales en máquinas virtuales de Azure
 
-Para usar SQL Server para el almacenamiento de datos o las cargas de trabajo transaccionales en una máquina virtual de Azure, se recomienda usar una de las imágenes de máquina virtual preconfiguradas de la Galería de máquinas virtuales de Azure. Estas imágenes se han optimizado según las recomendaciones de [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+Para usar SQL Server para el almacenamiento de datos o las cargas de trabajo transaccionales en una máquina virtual de Azure, se recomienda usar una de las imágenes de máquina virtual preconfiguradas de la Galería de máquinas virtuales de Azure. Estas imágenes se han optimizado según las recomendaciones de [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Este artículo se centra en la ejecución de estas cargas de trabajo en Máquinas virtuales de Azure (lo que también se conoce como infraestructura como servicio, o IaaS). El almacenamiento de datos y las cargas de trabajo transaccionales también se pueden ejecutar como un servicio en Azure. Para obtener más información, consulte [Documentación de Almacenamiento de datos SQL](http://azure.microsoft.com/documentation/services/sql-data-warehouse/) y [Documentación de Base de datos SQL de Azure](http://azure.microsoft.com/documentation/services/sql-database/).
 
@@ -75,20 +75,23 @@ Para obtener más información sobre la creación de imágenes con PowerShell, c
 
 ## Configuraciones específicas que se incluyen en las imágenes transaccionales/de DW
 
-Las optimizaciones incluidas en las imágenes se basan en las [prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). En concreto, la configuración de estas imágenes incluye las siguientes optimizaciones.
+Las optimizaciones incluidas en las imágenes se basan en las [prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-performance-best-practices.md). En concreto, la configuración de estas imágenes incluye las siguientes optimizaciones.
 
 >[AZURE.NOTE]Si va a traer su propia licencia y a crear una máquina virtual transaccional o de almacenamiento de datos desde el principio, puede basar las optimizaciones en el artículo de rendimiento y en el ejemplo de las optimizaciones en las siguientes imágenes de galería preconfiguradas.
 
 ### Configuraciones de disco
 
-
+|Configuración|Configuración|
 |---|---|
 |Número de discos de datos conectados|15|
 |Espacios de almacenamiento|Dos bloques de almacenamiento:<br/>: 1 bloque de datos con 12 discos de datos; tamaño fijo de 12 TB; Columna = 12<br/>: 1 bloque de registro con 3 discos de datos; tamaño fijo de 3 TB; Columna = 3<br/><br/>Un disco de datos restante que el usuario puede conectar y determinar su uso.<br/><br/>**DW**: tamaño de sección = 256 KB<br/>**Transaccional**: tamaño de sección = 64 KB|
-|Tamaños de disco, almacenamiento en caché, tamaño de asignación|1 TB cada uno, HostCache = No, tamaño de unidad de asignación de NTFS = 64 KB|
+|Tamaños de disco|1 TB cada uno|
+|Almacenamiento en caché|HostCache=None|
+|Tamaño de la asignación|Tamaño de la unidad de asignación NTFS = 64 KB|
 
 ### Configuraciones de SQL Server
 
+|Configuración|Configuración|
 |---|---|
 |Parámetros de inicio|-T1117 para ayudar a conservar los archivos de datos con el mismo tamaño, en caso de que la base de datos necesite crecer automáticamente<br/><br/>-T1118 para ayudar en la escalabilidad de tempdb (para obtener más información, consulte [Uso de la marca de seguimiento 1118 (-T1118) de SQL Server (2005 y 2008)](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce).)|
 |Modelo de recuperación|**DW**: establecido en SIMPLE para la base de datos modelo mediante ALTER DATABASE<br/>**Transaccional **: sin cambios|
@@ -130,6 +133,6 @@ Después de instalar cualquier máquina virtual con SQL Server puede realizar la
 - [Migración de los datos](virtual-machines-migrate-onpremises-database.md)
 - [Configuración de la conectividad](virtual-machines-sql-server-connectivity.md).
 
-Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
+Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

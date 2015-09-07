@@ -1,26 +1,28 @@
 <properties 
-   pageTitle="Conector Edifact de BizTalk" 
-   description="Conector Edifact de BizTalk" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Uso del conector Edifact de BizTalk en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector Edifact de BizTalk o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# Conector Edifact de BizTalk
-El servicio Edifact de Microsoft Azure le permite recibir y enviar mensajes mediante el protocolo Edifact en comunicaciones negocio a negocio. Edifact se conoce también comúnmente como ASC Edifact, o Accredited Standards Committee Edifact. Su uso está muy extendido en las industrias.
+# Introducción al conector Edifact de BizTalk y su incorporación a su aplicación lógica  
+Use el servicio Edifact para recibir y enviar mensajes mediante el protocolo Edifact en comunicaciones de negocio a negocio. Edifact se conoce también comúnmente como ASC Edifact o Accredited Standards Committee Edifact y se usa ampliamente en las industrias.
+
+Puede agregar el conector Edifact de BizTalk a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ## Requisitos previos
-- Aplicación de API TPM: antes de crear un conector Edifact, debe crear un [conector de administración de socios comerciales de BizTalk][1].
+- Aplicación de API TPM: antes de crear un conector Edifact, debe crear un [conector de Administración de socios comerciales de BizTalk][1].
 - Base de datos SQL de Azure: cada una de las aplicaciones de API B2B requiere su propia base de datos SQL de Azure.
 - Bus de servicio de Azure: es opcional y se usa solo en el caso de procesamiento por lotes.
 
@@ -30,32 +32,24 @@ Para usar el conector Edifact, deberá crear primero una instancia de la aplicac
 ## Configuración del conector Edifact de BizTalk
 Los socios comerciales son las entidades implicadas en comunicaciones B2B (negocio a negocio). Cuando dos asociados establecen una relación, esto se conoce como contrato. El contrato definido se basa en la comunicación que los dos socios desean lograr y es específico del protocolo o el transporte.
 
-Los pasos necesarios para crear un contrato de socio comercial se documentan [aquí][2].
+Los pasos necesarios para crear un contrato de socio comercial se documentan [aquí][2]
 
 ## Uso del conector Edifact en la superficie del diseñador de aplicaciones lógicas
 El conector Edifact puede usarse como un desencadenador o como una acción.
 
 ### Desencadenador
 - Inicie el diseñador de flujo de aplicaciones lógicas de Azure.
-- Haga clic en el conector Edifact en el panel derecho:  
-![Configuración del desencadenador][3]
-- Haga clic en ->:  
-![Opciones del desencadenador][4]
-- El conector Edifact expone un solo desencadenador. Seleccione *Lote de versión*:  
-![Entrada de lote de versión][5]
-- Este desencadenador no tiene ninguna entrada. Haga clic en ->:  
-![Lote de versión configurado][6]
+- Haga clic en el conector Edifact en el panel derecho: ![Configuración del desencadenador][3]
+- Haga clic en ->: ![Opciones del desencadenador][4]
+- El conector Edifact expone un solo desencadenador. Seleccione *Lote de versión*: ![Entrada de lote de versión][5]
+- Este desencadenador no tiene ninguna entrada. Haga clic en ->: ![Lote de versión configurado][6]
 - Como parte de la salida, el conector devuelve la carga Edifact, el identificador del contrato e información sobre si el mensaje se procesa por lotes o no.
 
 ### Acción
-- Haga clic en el conector Edifact en el panel derecho:  
-![Configuración de la acción][7]
-- Haga clic en ->:  
-![Lista de acciones][8]
-- El conector Edifact admite muchas acciones. Seleccione *Codificar*:  
-![Codificar entrada][9]
-- Proporcione las entradas para la acción y configure esta última:  
-![Codificar configurado][10]
+- Haga clic en el conector Edifact en el panel derecho: ![Configuración de la acción][7]
+- Haga clic en ->: ![Lista de acciones][8]
+- El conector Edifact admite muchas acciones. Seleccione *Codificar*: ![Codificar entrada][9]
+- Proporcione las entradas para la acción y configúrela: ![Codificar configurado][10]
 
 	Parámetro|Tipo|Descripción del parámetro
 ---|---|---
@@ -93,4 +87,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

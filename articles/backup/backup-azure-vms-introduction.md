@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2015"
+	ms.date="08/24/2015"
 	ms.author="aashishr"/>
 
 # Copia de seguridad de máquinas virtuales de Azure: introducción
@@ -111,7 +111,7 @@ Obtenga información acerca del [Agente de máquina virtual](https://go.microsof
 
 ## Limitaciones durante la vista previa
 
-- No se admite la copia de seguridad de máquinas virtuales con más de 5 discos.
+- No se admite la copia de seguridad de máquinas virtuales con más de 16 discos de datos.
 - No se admite la copia de seguridad de máquinas virtuales con el almacenamiento Premium.
 - No se admite la copia de seguridad de máquinas virtuales mediante varios NIC o en una configuración con equilibrio de carga.
 - No se admite el reemplazo de una máquina virtual existente durante la restauración. Primero, elimine la máquina virtual existente y los discos asociados y, a continuación, restaure los datos de copia de seguridad.
@@ -136,4 +136,4 @@ Para empezar a usar la copia de seguridad de máquina virtual, aprenda cómo:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

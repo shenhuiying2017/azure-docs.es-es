@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web" 
-	description="Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sitio web | Microsoft Azure"
+	description="Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/08/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/08/2015"
 	ms.author="awills"/>
- 
+
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -42,7 +42,7 @@ Suscríbase a [Microsoft Azure](http://azure.com), vaya al [portal de Azure](htt
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Se abrirá la hoja de información general para el nuevo recurso. Para encontrar esta opción en cualquier momento en el [portal de Azure](https://portal.azure.com), haga clic en Examinar.
+Se abrirá la hoja de información general para el nuevo recurso. Para encontrar esta opción en cualquier momento en el [Portal de Azure](https://portal.azure.com), haga clic en **Examinar**.
 
 ### <a name="setup"></a>2. Crear una prueba web
 
@@ -50,7 +50,7 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- **La dirección URL** debe ser visible desde la red pública de Internet. Puede incluir una cadena de consulta, así por ejemplo se podría ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguiremos, con un máximo de 10 redirecciones.
+- **La dirección URL** debe ser visible desde la red pública de Internet. Puede incluir una cadena de consulta, así por ejemplo se puede ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguiremos, con un máximo de 10 redirecciones.
 
 - Si **Habilitar reintentos** está activado, cuando se produce un error en la prueba, esta se vuelve a intentar después de un intervalo corto. Se notifica un error únicamente si los tres intentos sucesivos producen un error. Si es así, las pruebas siguientes se realizan con el intervalo habitual. El reintento se suspende temporalmente hasta que uno se complete correctamente. Esta regla se aplica independientemente en cada ubicación de la prueba.
 
@@ -67,12 +67,12 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 
 #### Prueba de más URL
 
-Agregue más pruebas. Por ejemplo, además de probar la página principal, podría asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
+Agregue más pruebas. Por ejemplo, además de probar la página principal, puede asegurarse de que la base de datos se está ejecutando probando la URL con una búsqueda.
 
 
 ### <a name="monitor"></a>3. Ver informes de disponibilidad
 
-Después de 1 o 2 minutos, haga clic en Actualizar en la hoja de pruebas de disponibilidad/web. (No se actualiza automáticamente).
+Después de 1 o 2 minutos, haga clic en **Actualizar** en la hoja de pruebas de disponibilidad/web. (No se actualiza automáticamente).
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -127,6 +127,8 @@ Puede supervisar un escenario que implique una secuencia de direcciones URL. Por
 
 Para crear una prueba de varios pasos, grabe el escenario con Visual Studio y, a continuación, cargue la grabación en Application Insights. Application Insights reproducirá el escenario a intervalos y comprobará las respuestas.
 
+Tenga en cuenta que no puede usar funciones codificadas en las pruebas: los pasos del escenario deben incluirse como un script en el archivo .webtest.
+
 #### 1\. Grabar un escenario
 
 Utilice Visual Studio Ultimate para grabar una sesión web.
@@ -150,9 +152,9 @@ Utilice Visual Studio Ultimate para grabar una sesión web.
     El ejecutor de pruebas web abre un explorador web y repite las acciones grabadas. Asegúrese de que funciona como se esperaba.
 
     ![En Visual Studio, abra el archivo .webtest y haga clic en Ejecutar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
- 
 
-(No inserte bucles en el código de prueba web).
+
+(No inserte bucles en la prueba web).
 
 #### 2\. Cargar la prueba web en Application Insights
 
@@ -169,6 +171,8 @@ Vea los resultados y los errores de la prueba igual que hace con las pruebas de 
 Un motivo habitual de error es que la prueba se ejecuta durante demasiado tiempo. No deben ejecutar durante más de dos minutos.
 
 No olvide que todos los recursos de una página se deben cargar correctamente para que la prueba sea correcta, incluidos los scripts, las hojas de estilo, las imágenes, etc.
+
+Tenga en cuenta que la prueba web debe estar contenida totalmente en el archivo .webtest: no puede usar las funciones codificadas en la prueba.
 
 
 ### Conexión de tiempo y números aleatorios a su prueba de varios pasos
@@ -207,13 +211,14 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
 ## ¿Tiene preguntas? ¿Tiene problemas?
 
-* Recibo un error sobre "caracteres no válidos" cuando 
 
-* *\*¿Hay diferencia entre las "pruebas web" y la "disponibilidad"?
+* *¿Hay diferencia entre las "pruebas web" y la "disponibilidad"?*
 
     Usamos ambos términos de manera intercambiable.
 
+* *¿Puedo llamar el código desde mi prueba web?*
 
+    No. Los pasos de la prueba deben encontrarse en el archivo .webtest.
 
 ## <a name="video"></a>Vídeo
 
@@ -235,6 +240,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

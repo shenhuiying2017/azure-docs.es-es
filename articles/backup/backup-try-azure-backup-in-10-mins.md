@@ -1,16 +1,16 @@
 <properties
    pageTitle="Copia de seguridad de Azure en 10 minutos | Microsoft Azure"
-   description="Introducción a la Copia de seguridad de Azure en 10 minutos"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Introducción a la Copia de seguridad de Azure en 10 minutos"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
 
 # Pruebe la Copia de seguridad de Azure en 10 minutos
-Es muy fácil configurar la Copia de seguridad de Azure, y los siguientes vídeos de procedimientos le ayudarán a empezar.
+Es muy fácil configurar Copia de seguridad de Azure; los siguientes vídeos de procedimientos le ayudarán a empezar.
 
 ## Paso 1: obtener una suscripción de Azure
 - Si no tiene una suscripción de Azure, puede comenzar con una oferta de prueba gratuita que permite el acceso a cualquier servicio de Azure. Visite el vínculo siguiente [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) para obtener más información.
@@ -42,7 +42,8 @@ Siga los pasos mencionados en el vídeo [Introducción a Copia de seguridad de A
 > [AZURE.VIDEO getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server]
 
 ## Pasos siguientes
-- Para más información sobre la Copia de seguridad de Azure, vea [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
+- Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
+- [Copia de seguridad de servidores Windows](backup-azure-backup-windows-server.md)
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

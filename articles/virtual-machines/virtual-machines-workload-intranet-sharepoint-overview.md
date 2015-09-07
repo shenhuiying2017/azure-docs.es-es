@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Implementación de SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure"
-	description="Puede implementar SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases."
+	pageTitle="Implementación de una granja de SharePoint Server 2013 | Microsoft Azure"
+	description="Implemente una granja de alta disponibilidad de SharePoint Server 2013 con los grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -49,7 +49,7 @@ Tenga en cuenta lo siguiente:
 
 - Si es un implementador experimentado de SharePoint, no dude en adaptar las instrucciones indicadas en las fases de la 3 a la 5 para crear la granja que mejor se adapte a sus necesidades.
 - Si ya tiene una implementación en la nube híbrida de Azure, puede adaptar u omitir las instrucciones de las fases 1 y 2 para hospedar la nueva granja de servidores de SharePoint en la subred adecuada.
-- Todos los servidores se encuentran en una sola subred en la red virtual de Azure. Si desea proporcionar seguridad adicional equivalente al aislamiento de subred, puede usar los [grupos de seguridad de red](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+- Todos los servidores se encuentran en una sola subred en la red virtual de Azure. Si desea proporcionar seguridad adicional equivalente al aislamiento de subred, puede usar los [grupos de seguridad de red](virtual-networks-nsg.md).
 
 Para compilar un entorno de desarrollo/pruebas o una prueba de concepto de esta configuración, vea [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
@@ -72,4 +72,4 @@ Para iniciar la configuración de esta carga de trabajo, vaya a [Fase 1: Configu
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

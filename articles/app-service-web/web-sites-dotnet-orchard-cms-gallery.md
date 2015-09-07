@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Creación de una aplicación web Orchard CMS desde Azure Marketplace" 
-	description="Un tutorial que le enseña a crear una nueva aplicación web en Azure. Obtenga también información sobre cómo iniciar y administrar la aplicación web con el Portal de Azure." 
+	pageTitle="Creación de una aplicación web Orchard CMS desde Azure Marketplace"
+	description="Un tutorial que le enseña a crear una nueva aplicación web en Azure. Obtenga también información sobre cómo iniciar y administrar la aplicación web con el Portal de Azure."
 	tags="azure-portal"
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación web Orchard CMS desde Azure Marketplace
@@ -73,7 +73,6 @@ Va a crear una aplicación web de Orchard CMS que utiliza una plantilla predeter
 
 ## Pasos siguientes
 
-* [Desarrollo e implementación de una aplicación web con Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) - Obtenga información sobre cómo editar una aplicación web del Servicio de aplicaciones en WebMatrix. 
 * [Creación de una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementación en el Servicio de aplicaciones de Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) - Obtenga información sobre cómo crear una nueva aplicación web en el Servicio de aplicaciones de Azure desde Visual Studio.
 
 ## Lo que ha cambiado
@@ -92,4 +91,4 @@ Va a crear una aplicación web de Orchard CMS que utiliza una plantilla predeter
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

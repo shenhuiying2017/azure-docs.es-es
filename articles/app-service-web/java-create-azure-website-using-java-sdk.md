@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Creación de una aplicación web en el Servicio de aplicaciones de Azure mediante el SDK de Azure para Java" 
-	description="Obtenga información acerca de cómo crear una aplicación web en el Servicio de aplicaciones de Azure mediante programación usando el SDK de Azure para Java." 
+	pageTitle="Creación de una aplicación web en el Servicio de aplicaciones de Azure mediante el SDK de Azure para Java"
+	description="Obtenga información acerca de cómo crear una aplicación web en el Servicio de aplicaciones de Azure mediante programación usando el SDK de Azure para Java."
 	tags="azure-classic-portal"
-	services="app-service\web" 
-	documentationCenter="Java" 
-	authors="donntrenton" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter="Java"
+	authors="donntrenton"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/24/2015"
 	ms.author="v-donntr"/>
 
 
@@ -438,7 +438,6 @@ Elija un cliente FTP de terceros para publicar la aplicación. En este procedimi
 
 Para obtener más información acerca de la implementación en una aplicación web del Servicio de aplicaciones mediante FTP, consulte los temas siguientes:
 
-- [Administración de aplicaciones web mediante el Portal de Azure: implementación](web-sites-manage.md/#deployment)
 - [Implementación mediante una utilidad FTP](web-sites-deploy.md)
 
 
@@ -590,4 +589,4 @@ Este procedimiento crea una aplicación web de Servicio de aplicaciones. Se le f
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

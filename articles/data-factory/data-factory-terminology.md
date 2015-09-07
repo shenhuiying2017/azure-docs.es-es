@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Factoría de datos de Azure: terminología" 
-	description="En este artículo se presenta la terminología que se usa al crear factorías de datos con el servicio Factoría de datos de Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Factoría de datos de Azure: terminología"
+	description="En este artículo se presenta la terminología que se usa al crear factorías de datos con el servicio Factoría de datos de Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 #Factoría de datos de Azure: terminología
@@ -47,7 +47,7 @@ Un paso del procesamiento de datos en una canalización que toma uno o más conj
 El servicio de Factoría de datos de Azure admite las siguientes actividades en una canalización:
 
 - La **actividad de copia** copia los datos de un almacén de datos en otro almacén de datos.  
-- La **actividad de HDInsight** procesa datos ejecutando scripts de Hive o Pig o programas de MapReduce en un clúster de HDInsight. Consulte [Uso de Pig y Hive con Factoría de datos][use-pig-hive] e [Invocación de programas de MapReduce desde Factoría de datos][run-map-reduce] para obtener más información. 
+- La **actividad de HDInsight** procesa datos ejecutando scripts de Hive o Pig o programas de MapReduce en un clúster de HDInsight.  
 - La **actividad de puntuación por lotes de Aprendizaje automático de Azure** invoca la API de puntuación por lotes de Aprendizaje automático de Azure. Consulte [Creación de canalizaciones predictivas mediante la Factoría de datos de Azure y el Aprendizaje automático de Azure][azure-ml-adf] para obtener más información. 
 - La **actividad de procedimiento almacenado** invoca un procedimiento almacenado en una base de datos SQL de Azure. Consulte la [actividad de procedimiento almacenado][msdn-stored-procedure-activity] en MSDN Library para obtener información detallada.   
 
@@ -82,8 +82,6 @@ Una característica importante de los centros es que una canalización se ejecut
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[use-pig-hive]: data-factory-pig-hive-activities.md
-[run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
 [adf-common-scenarios]: data-factory-common-scenarios.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
@@ -112,4 +110,4 @@ Una característica importante de los centros es que una canalización se ejecut
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

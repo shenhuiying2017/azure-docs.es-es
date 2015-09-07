@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Escalado de Caché en Redis de Azure" 
-	description="Obtenga información acerca de cómo ampliar las instancias de Caché en Redis de Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Escalado de Caché en Redis de Azure"
+	description="Obtenga información acerca de cómo ampliar las instancias de Caché en Redis de Azure"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Escalado de Caché en Redis de Azure
 
 >[AZURE.NOTE]Actualmente, la característica de escalado Caché en Redis de Azure está en vista previa.
 
-Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Si los requisitos de la aplicación cambian después de crear una memoria caché, puede escalar el tamaño de la caché mediante la hoja **cambio de nivel de precios** en el [Portal de Azure](https://portal.azure.com).
+Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Si los requisitos de la aplicación cambian después de crear una memoria caché, puede escalar el tamaño de la caché mediante la hoja **cambio de nivel de precios** en el [Portal de vista previa de Azure](https://portal.azure.com).
 
 >[AZURE.NOTE]Al escalar Caché en Redis de Azure, puede cambiar el tamaño, pero no puede cambiar de una caché Standard a Basic y viceversa.
 
@@ -38,7 +38,7 @@ Puede supervisar las métricas siguientes para ayudar a determinar si necesita e
 Si determina que la memoria caché ya no cumple los requisitos de su aplicación, puede cambiar a un nivel de precios de caché mayor o menor que sea adecuado para su aplicación. Para obtener más información acerca de cómo determinar qué nivel de precios de caché, consulte [¿Qué oferta y tamaño de Caché en Redis debo utilizar?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Escalado de una caché
-Para escalar la memoria caché, [vaya a la memoria caché](https://msdn.microsoft.com/library/azure/dn793612.aspx#RedisCacheConfiguration) en el [Portal de Azure](https://portal.azure.com) y haga clic en la parte **Nivel Standard** o **nivel Basic** de la hoja **Caché en Redis**.
+Para escalar la memoria caché, [vaya a la memoria caché](cache-configure.md#configure-redis-cache-settings) en el [Portal de vista previa](https://portal.azure.com) y haga clic en la parte **Nivel Standard** o **nivel Basic** de la hoja **Caché en Redis**.
 
 ![Nivel de precios][redis-cache-pricing-tier-part]
 
@@ -58,12 +58,12 @@ Cuando se completa el escalado, el estado cambia de **Escalado** a **En ejecuci�
 
 ## Automatización de una operación de escalado
 
-Además del escalado de la instancia de Caché en Redis de Azure en el Portal de Azure, se puede escalar mediante las [Bibliotecas de administración de Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para escalar la memoria caché, llame al método `IRedisOperations.CreateOrUpdate` y pase el nuevo tamaño de `RedisProperties.SKU.Capacity`.
+Además del escalado de la instancia de Caché en Redis de Azure en el Portal de vista previa, se puede escalar mediante las [Bibliotecas de administración de Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Para escalar la memoria caché, llame al método `IRedisOperations.CreateOrUpdate` y pase el nuevo tamaño de `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
-        // https://msdn.microsoft.com/es-es/library/azure/dn790557.aspx#bk_portal
+        // https://azure.microsoft.com/documentation/articles/cache-configure/#access-keys
         string token = GetAuthorizationHeader();
 
         TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
@@ -120,7 +120,7 @@ El escalado tarda aproximadamente 20 minutos, según la cantidad de datos que ha
 
 ## ¿Cómo puedo saber si el escalado ha terminado?
 
-En el portal puede ver la operación de escalado en curso. Cuando se completa el escalado, el estado de la memoria caché cambia de **En ejecución**.
+En el portal de vista previa puede ver la operación de escalado en curso. Cuando se completa el escalado, el estado de la memoria caché cambia de **En ejecución**.
 
 ## ¿Por qué esta característica está en vista previa?
 
@@ -138,4 +138,4 @@ Estamos lanzando esta característica para obtener comentarios. Nos basaremos en
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

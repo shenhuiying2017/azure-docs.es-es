@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso del conector de Dropbox en la aplicación lógica en Servicio de aplicaciones de Azure"
-	description="cómo comenzar con el conector de Dropbox en una aplicación lógica en el Servicio de aplicaciones"
+	pageTitle="Uso del conector de Dropbox en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de Dropbox o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,20 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="sameerch"/>
 
-# Conector de Dropbox
-
-El conector de Dropbox permite cargar o descargar archivos desde su cuenta de Dropbox.
-
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
+# Introducción al conector de Dropbox y su incorporación a su aplicación lógica
+Conéctese a la cuenta de Dropbox para cargar o descargar archivos. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos. Puede agregar el conector de Dropbox a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ## Acciones y desencadenadores
 
 Un desencadenador inicia una nueva instancia en función de un evento específico, como la llegada de un nuevo mensaje. Una acción es el resultado, por ejemplo después de recibir un nuevo mensaje cargar el archivo en Dropbox.
 
-El conector de Dropbox puede usarse como acción en una aplicación lógica y es compatible con datos en formato JSON y XML. El conector de Chatter dispone de los siguientes desencadenadores y acciones:
+El conector de Dropbox puede usarse como acción en una aplicación lógica y es compatible con datos en formato JSON y XML. El conector de Dropbox dispone de los siguientes desencadenadores y acciones:
 
 Desencadenadores | Acciones
 --- | ---
@@ -38,7 +35,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de Dropbox", selecciónelo y seleccione **Crear**.
-3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades: 
+3. Escriba el nombre, el plan de Servicio de aplicaciones y otras propiedades: 
 	![][1]
 	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
 	- **Suscripción**: elija una suscripción en la que desee crear este conector.
@@ -90,4 +87,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

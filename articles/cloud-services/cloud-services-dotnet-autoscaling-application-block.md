@@ -1,44 +1,25 @@
 <properties 
-	pageTitle="Uso del bloque de autoescala de la aplicación (.NET) - Azure | Microsoft Azure" 
-	description="Aprenda a utilizar la autoescala de la aplicación en Azure. Los ejemplos de código están escritos en C# y utilizan la API .NET." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="squillace" 
-	manager="timlt" 
+	pageTitle="Uso del bloque de autoescala de la aplicación (.NET) - Azure | Microsoft Azure"
+	description="Aprenda a utilizar la autoescala de la aplicación en Azure. Los ejemplos de código están escritos en C# y utilizan la API .NET."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="05/18/2015"
 	ms.author="rasquill"/>
-
-
-
-
-
-
-
 # Uso del bloque de autoescala de la aplicación
 
-En esta guía se demuestra cómo llevar a cabo supuestos comunes usando el bloque de autoescala de la aplicación desde el [Paquete de integración de Microsoft Enterprise Library 5.0 para Azure][]. Los ejemplos están escritos en C# y utilizan la API .NET. Los supuestos abordados incluyen **hospedaje del bloque**, **uso de reglas de restricción** y **uso de reglas reactivas**. Para obtener más información sobre el bloque de autoescala de la aplicación, consulte la sección [Pasos siguientes][].
+En esta guía se demuestra cómo llevar a cabo supuestos comunes usando el bloque de autoescala de la aplicación desde el [Paquete de integración de Microsoft Enterprise Library 5.0 para Azure][]. Los ejemplos están escritos en C# y utilizan la API .NET. Los supuestos abordados incluyen **hospedaje del bloque**, **uso de reglas de restricción** y **uso de reglas reactivas**. Para obtener más información sobre el bloque de autoescala de la aplicación, consulte la sección [Pasos siguientes](#next-steps).
 
-## Tabla de contenido
-
-[¿Qué es el bloque de autoescala de la aplicación?][]   
-[Conceptos][]   
-[Recopilación de datos del contador de rendimiento de la aplicación de Azure de destino][]   
-[Configuración de una aplicación host para el bloque de autoescala de la aplicación][]   
-[Creación de instantáneas y ejecución de la autoescala][]   
-[Definición de un modelo de servicio][]   
-[Definición de las reglas de autoescala][]   
-[Configuración del bloque de autoescala de la aplicación][]   
-[Pasos siguientes][]   
-
-## <a id="WhatIs"> </a>¿Qué es el bloque de autoescala de la aplicación?
+## ¿Qué es el bloque de autoescala de la aplicación?
 
 El bloque de autoescala de la aplicación puede escalar automáticamente su aplicación de Azure según las reglas que define específicamente para su aplicación. Puede usar estas reglas para ayudar a su aplicación de Azure a mantener su rendimiento en respuesta a los cambios en su carga de trabajo y, al mismo tiempo, controlar los costes asociados al hospedaje de su aplicación en Azure. Además del escalado mediante el aumento o la disminución de la cantidad de instancias de rol en su aplicación, el bloque le permite también usar otras acciones de escalado, como limitar cierta funcionalidad dentro de su aplicación o usar acciones definidas por el cliente.
 
@@ -46,7 +27,7 @@ Puede optar por hospedar el bloque en un rol de Azure o en una aplicación local
 
 El bloque de autoescala de la aplicación forma parte del [Paquete de integración de Microsoft Enterprise Library 5.0 para Azure][].
 
-## <a id="Concepts"> </a>Conceptos
+## Conceptos
 
 En el siguiente diagrama, la línea verde muestra un gráfico de la cantidad de instancias en ejecución de un rol de Azure en dos días. La cantidad de instancias cambia automáticamente con el paso del tiempo en respuesta a un conjunto de reglas de autoescala.
 
@@ -64,13 +45,13 @@ El bloque almacena su configuración en dos almacenes:
 
 -   **Almacén de información de servicio:** el almacén de información de servicio almacena su configuración funcional, que es el modelo de servicio de su aplicación de Azure. Este modelo de servicio incluye toda la información acerca de su aplicación de Azure (como los nombres de rol y los detalles de la cuenta de almacenamiento) que el bloque necesita para poder recopilar puntos de datos desde la aplicación de Azure de destino y realizar operaciones de escalado.
 
-## <a id="PerfCounter"> </a>Recopilación de datos del contador de rendimiento desde la aplicación de Azure de destino
+## Recopilación de datos del contador de rendimiento desde la aplicación de Azure de destino
 
 Las reglas reactivas pueden usar los datos del contador de rendimiento de los roles como parte de la definición de la regla. Por ejemplo, una regla reactiva puede supervisar el uso de la CPU de un rol de Azure para determinar si el bloque debe iniciar una operación de escalado. El bloque lee los datos del contador de rendimiento de la tabla de Diagnósticos de Azure llamada **WADPerformanceCountersTable** en el almacenamiento de Azure.
 
 De manera predeterminada, Azure no escribe datos del contador de rendimiento en la tabla de Diagnósticos de Azure en el almacenamiento de Azure. Por lo tanto, debe modificar los roles a partir de los cuales necesita recopilar datos del contador de rendimiento para guardar estos datos. Para obtener detalles sobre la habilitación de los contadores de rendimiento en su aplicación, vea [Uso de contadores de rendimiento en Azure][].
 
-## <a id="CreateHost"> </a>Instalación de una aplicación host para el bloque de autoescala de la aplicación
+## Instalación de una aplicación host para el bloque de autoescala de la aplicación
 
 Puede hospedar el bloque de autoescala de la aplicación en un rol Azure o en una aplicación local. El bloque de autoescala de la aplicación se hospeda generalmente en una aplicación separada de la aplicación destino que desea escalar automáticamente. Esta sección proporciona instrucciones para configurar su aplicación host.
 
@@ -109,7 +90,7 @@ Agregue las siguientes declaraciones de espacio de nombres de código en la part
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.Autoscaling;
 
-## <a id="Instantiate"> </a>Creación de instancias y ejecución de la autoescala
+## Creación de instancias y ejecución de la autoescala
 
 Use el método **IServiceLocator.GetInstance** para crear una instancia de autoescala y, a continuación, llame al método **Autoscaler.Start** para ejecutar **Autoescala**.
 
@@ -117,7 +98,7 @@ Use el método **IServiceLocator.GetInstance** para crear una instancia de autoe
         EnterpriseLibraryContainer.Current.GetInstance<Autoscaler>();
     scaler.Start();
 
-## <a id="DefineServiceModel"> </a>Definición del modelo de servicio
+## Definición del modelo de servicio
 
 Por lo general, el modelo de servicio (una descripción de su entorno de Azure que incluye información sobre suscripciones, servicios hospedados, roles y cuentas de almacenamiento) se almacena en un archivo XML. Puede encontrar una copia del esquema de este archivo XML en el archivo **AutoscalingServiceModel.xsd** de su proyecto. En Visual Studio, este esquema ofrece Intellisense y validación cuando se edita el archivo XML del modelo de servicio.
 
@@ -214,7 +195,7 @@ Inicie sesión en el Portal de administración.
 
 Para obtener más información sobre el contenido del archivo de servicio, consulte [Almacenamiento de sus datos de información del servicio][].
 
-## <a id="DefineAutoscalingRules"> </a>Definición de las reglas de autoescala
+## Definición de las reglas de autoescala
 
 Generalmente, las reglas de autoescala que controlan la cantidad de instancias de rol en su aplicación de destino se almacenan en un archivo XML. Puede encontrar una copia del esquema de este archivo XML en el archivo **AutoscalingRules.xsd** de su proyecto. En Visual Studio, este esquema ofrece Intellisense y validación cuando se edita el archivo XML.
 
@@ -261,7 +242,7 @@ El siguiente código de ejemplo muestra un conjunto de reglas de ejemplo en un a
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)\% Processor Time"
+          performanceCounterName="\Processor(_Total)% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -277,7 +258,7 @@ En este ejemplo hay tres reglas de autoescala (una **regla de restricción** y d
 
 -   La regla reactiva llamada **ScaleDownOnLowUtilization** disminuye el recuento de instancias del rol de destino en uno si el uso promedio de CPU en los últimos cinco minutos ha sido inferior al 60 %.
 
-## <a id="Configure"> </a>Configuración del bloque de autoescala de la aplicación
+## Configuración del bloque de autoescala de la aplicación
 
 Después de haber definido su modelo de servicio y las reglas de autoescala, debe configurar el bloque de autoescala de la aplicación para usarlas. Esta información de configuración funcional se almacena en el archivo de configuración de la aplicación.
 
@@ -290,7 +271,7 @@ De manera predeterminada, el bloque de autoescala de la aplicación espera que l
 2.  En el menú **Bloques**, haga clic en **Agregar configuración de autoescala**:  
 	![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
-3.  Expanda **Configuración de autoescala** y, a continuación, haga clic en los puntos suspensivos (...) junto a **Cuenta de almacenamiento del almacén de puntos de datos**, agregue el **nombre de cuenta** y la **clave de cuenta** de la cuenta de almacenamiento de Azure donde el bloque va a almacenar los puntos de datos que recopila (vea [Definición del modelo de servicio][] si no está seguro de dónde encontrar estos valores) y haga clic en **Aceptar**:
+3.  Expanda **Configuración de autoescala** y, a continuación, haga clic en los puntos suspensivos (...) junto a **Cuenta de almacenamiento del almacén de puntos de datos**, agregue el **nombre de cuenta** y la **clave de cuenta** de la cuenta de almacenamiento de Azure donde el bloque va a almacenar los puntos de datos que recopila (consulte [Definición del modelo de servicio][] si no está seguro de dónde encontrar estos valores) y haga clic en **Aceptar**:
 
 	![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
@@ -366,7 +347,7 @@ Ahora puede ejecutar su aplicación de consola de host del bloque de autoescala 
     "InstanceChanges":{"AutoscalingApplicationRole":{"CurrentValue":1,"DesiredValue":2}},
     "SettingChanges":{},"RequestID":"f8ca3ada07c24559b1cb075534f02d44"}
 
-## <a id="NextSteps"> </a>Pasos siguientes
+## Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos del uso del bloque de autoescala de la aplicación, siga estos vínculos para obtener información sobre cómo implementar escenarios de autoescala más complejos.
 
@@ -383,16 +364,6 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
 -   [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure][]
 
   [Paquete de integración de Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
-  [Pasos siguientes]: #NextSteps
-  [¿Qué es el bloque de autoescala de la aplicación?]: #WhatIs
-  [Conceptos]: #Concepts
-  [Recopilación de datos del contador de rendimiento de la aplicación de Azure de destino]: #PerfCounter
-  [Configuración de una aplicación host para el bloque de autoescala de la aplicación]: #CreateHost
-  [Creación de instantáneas y ejecución de la autoescala]: #Instantiate
-  [Definición de un modelo de servicio]: #DefineServiceModel
-  [Definición del modelo de servicio]: #DefineServiceModel
-  [Definición de las reglas de autoescala]: #DefineAutoscalingRules
-  [Configuración del bloque de autoescala de la aplicación]: #Configure
   [Uso de contadores de rendimiento en Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Portal de administración de Azure]: http://manage.windowsazure.com
@@ -410,4 +381,4 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
   [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

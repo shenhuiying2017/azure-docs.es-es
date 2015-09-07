@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introducción al servicio web de aplicación móvil del servidor MFA" 
-	description="La aplicación Azure Multi-Factor Authentication ofrece una opción de autenticación de ancho de banda adicional. Permite al Servidor MFA utilizar notificaciones push en los usuarios." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Introducción al servicio web de aplicación móvil del servidor MFA"
+	description="La aplicación Azure Multi-Factor Authentication ofrece una opción de autenticación de ancho de banda adicional. Permite al Servidor MFA utilizar notificaciones push en los usuarios."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Introducción al servicio web de aplicación móvil del servidor MFA
@@ -89,4 +89,4 @@ Ahora que el servicio web de la aplicación móvil está instalado, debe configu
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Arquitectura de administrador de recursos de Azure"
-   description="Obtenga información acerca de la arquitectura del Administrador de recursos y las relaciones entre el proceso, la red y los proveedores de recursos de almacenamiento."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="davidmu1"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Obtenga información acerca de la arquitectura del Administrador de recursos y las relaciones entre el proceso, la red y los proveedores de recursos de almacenamiento."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="azure-resource-manager"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Arquitectura de administrador de recursos de Azure
@@ -79,4 +79,4 @@ También puede ver la creación de componentes y relaciones de dependencia entre
 
 [Información general del Administrador de recursos de Azure](resource-group-overview.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

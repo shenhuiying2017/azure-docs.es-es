@@ -1,19 +1,19 @@
 <properties 
     pageTitle="Notas de la versión de la actualización 1 de la serie StorSimple 8000 - enero de 2015 | Microsoft Azure"
-    description="Describe las nuevas características, problemas y soluciones alternativas de la actualización 1 de la serie StorSimple 8000."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="carolz"
-    editor="" />
+	description="Describe las nuevas características, problemas y soluciones alternativas de la actualización 1 de la serie StorSimple 8000."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/19/2015"
-    ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/21/2015"
+	ms.author="alkohli"/>
 
 # Notas de la versión 1 de la actualización de la serie StorSimple 8000  
 
@@ -28,7 +28,7 @@ Revise la información contenida en las notas de la versión antes de implementa
 >[AZURE.IMPORTANT]
 > 
 - El 23 de junio se lanzó una revisión de gran importancia, la actualizazión 1.1. Esta revisión soluciona un problema que surgía en el motor de copia de seguridad. Si aplicó la actualización 1 antes del 23 de junio y está utilizando la versión de software **6.3.9600.17491**, asegúrese de aplicar esta actualización crítica para evitar problemas con las copias de seguridad. Una vez instalada la actualización, la versión del software cambiará a **6.3.9600.17521**.
-- Si ha creado un dispositivo virtual entre el 27 de mayo y el 10 de julio cuya versión de software sea la 6.3.9600.17481, cree un nuevo dispositivo virtual y conmute por error los volúmenes del dispositivo virtual antiguo al nuevo. (Esto se debe a que no se puede actualizar el dispositivo virtual anterior). Si no crea un nuevo dispositivo virtual, es posible que las copias de seguridad empiezan a generar errores. Para ver los procedimientos de recuperación ante desastres y conmutación por error, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
+- Si ha creado un dispositivo virtual entre el 27 de mayo y el 10 de julio cuya versión de software sea la **6.3.9600.17481**, cree un nuevo dispositivo virtual y conmute por error los volúmenes del dispositivo virtual antiguo al nuevo. (Esto se debe a que no se puede actualizar el dispositivo virtual anterior). Si no crea un nuevo dispositivo virtual, es posible que las copias de seguridad empiezan a generar errores. Para ver los procedimientos de recuperación ante desastres y conmutación por error, vaya a [Conmutación por error y recuperación ante desastres para el dispositivo StorSimple](storsimple-device-failover-disaster-recovery.md).
 - Para instalar la actualización 1, use el Servicio de Administrador de StorSimple, no Windows PowerShell para StorSimple.
 - Esta versión contiene también las actualizaciones del firmware del disco que solo pueden aplicarse cuando el dispositivo está en modo de mantenimiento. Estas actualizaciones son perturbadoras, por lo que provocarán un tiempo de inactividad en el dispositivo. Estas actualizaciones se pueden aplicar durante el mantenimiento planificado.
 - Esta actualización tarda aproximadamente 5-10 horas en instalarse (incluidas las actualizaciones de Windows). 
@@ -94,9 +94,9 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 
 ## Actualizaciones del dispositivo físico en la actualización 1
 
-Cuando aplique estas actualizaciones en un dispositivo físico, la versión del software cambiará a 6.3.9600.17521.
+Si se aplica la actualización 1.2 de la revisión a un dispositivo físico (con las versiones anteriores a Update 1), la versión del software cambiará a 6.3.9600.17521.
 
-## Controlador SCSI conectado en serie (SAS) y actualizaciones de firmware en la actualización 1
+## Actualizaciones de firmware y de controlador en Update 1
 
 Esta versión actualiza el controlador y el firmware del controlador SAS del dispositivo físico. También actualiza el firmware de disco del dispositivo.
  
@@ -115,4 +115,4 @@ No se puede aplicar esta actualización al dispositivo virtual. Sin embargo, los
 - [Instalación de la actualización 1 en el dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

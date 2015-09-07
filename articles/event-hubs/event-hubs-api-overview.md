@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Introducción a la API de centros de eventos"
-   description="Resumen de algunas de las API de cliente de .NET de los centros de eventos clave."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+	description="Resumen de algunas de las API de cliente de .NET de los centros de eventos clave."
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="07/10/2015"
+	ms.author="sethm"/>
 
 # Introducción a la API de Centros de eventos
 
@@ -186,6 +186,5 @@ A continuación se incluyen referencias de API de .NET:
 
 - [Referencia de Bus de servicio y API de .NET de los centros de eventos](https://msdn.microsoft.com/library/jj933424.aspx)
 - [Referencia de la API de host del procesador de eventos](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
-- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

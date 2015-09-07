@@ -3,7 +3,7 @@
 	description="Aprenda a usar el servicio de almacenamiento Blob de Azure desde Python para cargar, enumerar, descargar y eliminar blobs."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # Uso del almacenamiento de blobs de Azure desde Python
 
@@ -22,7 +22,7 @@
 
 ## Información general
 
-Este artículo le muestra cómo realizar algunas tareas comunes con el almacenamiento de blobs. Los ejemplos están escritos en Python y usan el [paquete de Azure para Python][]. Entre los escenarios descritos se incluyen cargar, enumerar, descargar y eliminar blobs.
+Este artículo le muestra cómo realizar algunas tareas comunes con el almacenamiento de blobs. Los ejemplos están escritos en Python y usan el [paquete de almacenamiento de Azure para Python][]. Entre los escenarios descritos se incluyen cargar, enumerar, descargar y eliminar blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -34,7 +34,7 @@ Este artículo le muestra cómo realizar algunas tareas comunes con el almacenam
 
 El objeto **BlobService** permite trabajar con contenedores y blobs. El código siguiente crea un objeto **BlobService**. Agregue lo siguiente cerca de la parte superior de cualquier archivo Python en el que desee obtener acceso al almacenamiento de Azure mediante programación.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 El código siguiente crea un objeto **BlobService** utilizando el nombre de la cuenta de almacenamiento y la clave de la cuenta: sustituya "myaccount" y "mykey" por la cuenta real y la clave.
 
@@ -73,7 +73,7 @@ En el siguiente ejemplo se carga el contenido del archivo **sunset.png** en el b
 
 ## Enumerar los blobs de un contenedor
 
-Para enumerar los blobs de un contenedor, use el método **list\\\_blobs**. Cada llamada a **list\_blobs** devolverá un segmento de resultados. Para obtener todos los resultados, compruebe el **next\_marker** de los resultados y vuelva a llamar a **list\_blobs** de nuevo según sea necesario. El código siguiente ofrece el **nombre** de todos los blobs de un contenedor a la consola.
+Para enumerar los blobs de un contenedor, use el método **list\\_blobs**. Cada llamada a **list\_blobs** devolverá un segmento de resultados. Para obtener todos los resultados, compruebe el **next\_marker** de los resultados y vuelva a llamar a **list\_blobs** de nuevo según sea necesario. El código siguiente ofrece el **nombre** de todos los blobs de un contenedor a la consola.
 
 	blobs = []
 	marker = None
@@ -112,5 +112,6 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
+[paquete de almacenamiento de Azure para Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

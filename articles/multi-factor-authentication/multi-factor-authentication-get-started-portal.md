@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Implementación del Portal de usuarios para Servidor Azure Multi-Factor Authentication" 
-	description="En esta página de Azure Multi-Factor Authentication, se describe cómo empezar a trabajar con Azure MFA y el Portal de usuarios." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Implementación del Portal de usuarios para Servidor Azure Multi-Factor Authentication"
+	description="En esta página de Azure Multi-Factor Authentication, se describe cómo empezar a trabajar con Azure MFA y el Portal de usuarios."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Implementación del Portal de usuarios para Servidor Azure Multi-Factor Authentication
@@ -189,4 +189,4 @@ La autoinscripción del usuario ahora está completa y el usuario inicia sesión
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

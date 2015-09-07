@@ -1,20 +1,20 @@
 <properties
    pageTitle="Catálogo de datos de Azure Introducción al catálogo de datos de Azure"
-   description="Tutorial integral de los escenarios y las capacidades del Catálogo de datos de Azure"
-   documentationCenter=""
-   services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Tutorial integral de los escenarios y las capacidades del Catálogo de datos de Azure."
+	documentationCenter=""
+	services="data-catalog"
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Introducción al Catálogo de datos de Azure
 
@@ -62,7 +62,7 @@ En este ejercicio usará la herramienta de registro de Catálogo de datos de Azu
     ![register3][3]
 6.	Escriba su **Nombre del servidor** y haga clic en **CONECTAR**.
 7.	En la página siguiente es donde se registran los metadatos de su origen de datos. En este ejemplo, registrará objetos de **producto** del espacio de nombres de producción de AdventureWorks. Aquí se muestra cómo hacerlo:
-    
+
     a. En el árbol de jerarquía, haga clic en **Producción**.
 
     b. Ctrl+haga clic en Producto, ProductCategory, ProductDescription y ProductPhoto.
@@ -76,7 +76,7 @@ En este ejercicio usará la herramienta de registro de Catálogo de datos de Azu
     d. **Opcional**: puede **Incluir una vista previa** y **Agregar un experto de origen de datos**.
 
     e. En **Agregar etiquetas**, introduzca una descripción, foto. De este modo se agregarán etiquetas de búsqueda para estos recursos de datos. Las etiquetas son una excelente manera de ayudar a los usuarios buscar un origen de datos registrados.
- 
+
     f. Haga clic en **REGISTRAR**. Catálogo de datos de Azure registra los objetos seleccionados. En este ejercicio, se registran los objetos seleccionados de Adventure Works.
 
     ![register6][6]
@@ -115,9 +115,9 @@ En este ejemplo, se hace una búsqueda de **agrupación** de recursos de datos e
 
 1.	Inicie sesión en el portal **Catálogo de datos de Azure**.
 2.	Haga clic en **Detectar**.
-3.	En el cuadro **Búsqueda**, especifique una consulta de **Agrupación**: (tags:description OR tags:photo). 
+3.	En el cuadro **Búsqueda**, especifique una consulta de **Agrupación**: (tags:description OR tags:photo).
 4.	Haga clic en el icono de búsqueda o presione ENTRAR. **Catálogo de datos de Azure** mostrará los recursos de datos de esta consulta de búsqueda.
-    
+
     ![búsqueda][8]
 
 En este ejercicio ha usado el portal **Catálogo de datos de Azure** para detectar y ver los recursos de datos registrados con el catálogo.
@@ -222,4 +222,4 @@ En este tutorial exploró capacidades esenciales de la vista previa del **Catál
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

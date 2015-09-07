@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicación web de .NET en el Servicio de aplicaciones de Azure con administración de rendimiento de aplicaciones de New Relic" 
-	description="Aprenda a usar la supervisión de rendimiento de New Relic para las aplicaciones de ASP.NET que se ejecutan en el Servicio de aplicaciones de Azure." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Aplicación web de .NET en el Servicio de aplicaciones de Azure con administración de rendimiento de aplicaciones de New Relic"
+	description="Aprenda a usar la supervisión de rendimiento de New Relic para las aplicaciones de ASP.NET que se ejecutan en el Servicio de aplicaciones de Azure."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
 
 
@@ -78,7 +78,7 @@ Para suscribirse a New Relic directamente desde Azure Marketplace, siga estos cu
 
 ## Paso 3: Publicación de la aplicación web ASP.NET
 
-Use Visual Studio o WebMatrix para publicar la aplicación web. Si anteriormente publicó la aplicación web, vuelva a publicarla para que la instancia de Aplicaciones web agregue el paquete New Relic NuGet necesario para habilitar la supervisión de New Relic.
+Use Visual Studio para publicar la aplicación web. Si anteriormente publicó la aplicación web, vuelva a publicarla para que la instancia de Aplicaciones web agregue el paquete New Relic NuGet necesario para habilitar la supervisión de New Relic.
 
 ## Paso 4 Comprobar el rendimiento de la aplicación en New Relic.
 
@@ -180,4 +180,4 @@ Consulte estos recursos adicionales para obtener más información:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

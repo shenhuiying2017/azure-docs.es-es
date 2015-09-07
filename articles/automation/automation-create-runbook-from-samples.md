@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a la automatización de Azure"
+	pageTitle="Introducción a Automatización de Azure | Microsoft Azure"
 	description="Vea cómo importar y ejecutar un trabajo de automatización en Azure."
 	services="automation"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -21,7 +21,7 @@
 
 ## ¿Qué es Automatización de Azure?
 
-Automatización de Microsoft Azure ofrece una forma de que los usuarios automaticen las tareas manuales, propensas a errores, con una ejecución prolongada y repetidas con frecuencia que se realizan normalmente en un entorno en la nube. Puede crear, supervisar, administrar e implementar recursos en el entorno de Azure mediante runbooks, que se basan en flujos de trabajo de Windows PowerShell. En esta guía, recorrerá un tutorial para ejecutar un runbook de ejemplo sencillo. A continuación, encontrará recursos para explorar las capacidades más avanzadas del servicio.
+Automatización de Microsoft Azure ofrece una forma de que los usuarios automaticen las tareas manuales, propensas a errores, con una ejecución prolongada y repetidas con frecuencia que se realizan normalmente en un entorno en la nube. Puede crear, supervisar, administrar e implementar recursos en el entorno de Azure mediante runbooks, que se basan en flujos de trabajo de Windows PowerShell. En este artículo, recorrerá un tutorial para ejecutar un runbook de ejemplo sencillo. A continuación, encontrará recursos para explorar las capacidades más avanzadas del servicio.
 
 ## Tutorial
 En este tutorial se enseña a crear una cuenta de automatización, a importar un runbook "Hello World" de ejemplo en Automatización de Azure, a ejecutar dicho runbook y, a continuación, a ver el resultado.
@@ -38,11 +38,11 @@ Se trata del tutorial en formato de vídeo.
 
 ## <a name="automationaccount"></a>Creación de una cuenta de automatización
 
-Una cuenta de Automatización es un contenedor para los recursos de Automatización de Azure: proporciona una manera de separar los entornos u organizar aún más los flujos de trabajo. Para obtener más información, vea [Cuentas de automatización](http://aka.ms/runbookauthor/azure/automationaccounts) en la biblioteca de automatización. Si ya ha creado una cuenta de automatización, puede omitir este paso.
+Una cuenta de automatización es un contenedor para los recursos de automatización de Azure. Proporciona una manera de separar los entornos u organizar aún más los flujos de trabajo. Para obtener más información, consulte [Cuentas de automatización](http://aka.ms/runbookauthor/azure/automationaccounts) en la biblioteca de automatización. Si ya ha creado una cuenta de automatización, puede omitir este paso.
 
-1.	Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
+1.	Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com).
 
-2.	En el Portal de administración, haga clic en **Crear una cuenta de automatización**.
+2.	En el Portal de Azure, haga clic en **Creación de una cuenta de Azure**.
 
 	![Creación de cuenta](./media/automation-create-runbook-from-samples/automation_01_CreateAccount.png)
 
@@ -123,7 +123,7 @@ Con el runbook importado y publicado, ahora puede ejecutarlo y, a continuación,
 ¡Enhorabuena! Ha finalizado el tutorial.
 
 ## <a name="nextsteps"></a>Pasos siguientes
-1. El runbook simple de este tutorial **no administra los servicios de Azure**. La mayoría de los runbooks usarán [cmdlets de Azure](http://msdn.microsoft.com/library/jj156055.aspx) a tal efecto, lo que requiere autenticación para la suscripción de Azure. Siga las instrucciones de [Configuración de Azure para la administración de runbooks](http://aka.ms/azureautomationauthentication) para configurar su suscripción de Azure para trabajar con estos cmdlets.  
+1. El runbook simple de este tutorial *no administra los servicios de Azure*. La mayoría de los runbooks usarán [cmdlets de Azure](http://msdn.microsoft.com/library/jj156055.aspx) a tal efecto, lo que requiere autenticación para la suscripción de Azure. Siga las instrucciones de [Configuración de Azure para la administración de runbooks](http://aka.ms/azureautomationauthentication) para configurar su suscripción de Azure para trabajar con estos cmdlets.  
 2. Consulte los [recursos](#resources) enumerados a continuación para obtener más información acerca de las capacidades de Automatización de Azure.
 3. Suscríbase al [blog de Automatización de Azure](http://azure.microsoft.com/blog/tag/azure-automation) para mantenerse al día con las novedades del equipo de Automatización de Azure.
 
@@ -139,12 +139,11 @@ Hay una amplia gama de recursos disponibles para aprender mucho más acerca de A
 
 ## Runbooks de utilidades y ejemplos
 
-Microsoft y la comunidad de Automatización de Azure proporcionan runbooks de ejemplos, que pueden ayudarle a empezar a crear sus propias soluciones, y runbooks de utilidades, que puede usar como bloques de creación para tareas de automatización más grandes. Puede descargar estos runbooks desde el [Centro de scripts](http://go.microsoft.com/fwlink/p/?LinkId=393029) o importarlos directamente a Automatización de Azure usando la [Galería de runbooks](http://aka.ms/runbookgallery).
+Microsoft y la comunidad de Automatización de Azure proporcionan runbooks de ejemplos, que pueden ayudarle a empezar a crear sus propias soluciones, y runbooks de utilidades, que puede usar como bloques de creación para tareas de automatización más grandes. Puede descargar estos runbooks desde el [Centro de scripts](http://azure.microsoft.com/documentation/scripts/) o importarlos directamente en Automatización de Azure mediante la [Galería de runbooks](http://aka.ms/runbookgallery).
 
 
 ## Comentarios
 
 **Envíenos sus comentarios.** Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias.
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

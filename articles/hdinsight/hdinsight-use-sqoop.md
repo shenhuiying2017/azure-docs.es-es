@@ -61,13 +61,13 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	<tr><td>Nombre de la base de datos SQL de Azure</td><td>$sqlDatabaseName</td><td></td><td>Base de datos SQL de Azure a la que Sqoop exportará datos o desde la que los importará. </td></tr>
 	</table>
 
-	> [AZURE.NOTE]De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de vista previa de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
+	> [AZURE.NOTE]De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
 
 * **SQL Server**: si el clúster de HDInsight se encuentra en la misma red virtual de Azure que un SQL Server, puede seguir los pasos indicados en este artículo para importar y exportar datos a una base de datos de SQL Server.
 
 	> [AZURE.NOTE]HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
 
-	* Para crear y configurar una red virtual, consulte [Tareas de configuración de red virtual](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+	* Para crear y configurar una red virtual, consulte [Tareas de configuración de red virtual](../services/virtual-machines/).
 
 		* Cuando use SQL Server en el centro de datos, debe configurar la red virtual como de *sitio a sitio* o de *punto a sitio*.
 
@@ -80,12 +80,12 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	> [AZURE.NOTE]SQL Server también debe permitir la autenticación. Debe usar un inicio de sesión de SQL Server para completar los pasos de este artículo.
 
 	<table border="1">
-<tr><th>Propiedad de la base de datos de SQL Server</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
-<tr><td>Nombre de SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>SQL Server al que Sqoop exportará datos o desde el que los importará. </td></tr>
-<tr><td>Nombre de inicio de sesión de SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>El nombre de inicio de sesión para SQL Server.</td></tr>
-<tr><td>Contraseña de inicio de sesión de SQL Server</td><td>$sqlDatabasePassword</td><td></td><td>La contraseña de inicio de sesión para SQL Server.</td></tr>
-<tr><td>Nombre de la base de datos de SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de datos de SQL Server a la que Sqoop exportará datos o desde la que los importará. </td></tr>
-</table>
+	<tr><th>Propiedad de la base de datos de SQL Server</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
+	<tr><td>Nombre de SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>SQL Server al que Sqoop exportará datos o desde el que los importará. </td></tr>
+	<tr><td>Nombre de inicio de sesión de SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>El nombre de inicio de sesión para SQL Server.</td></tr>
+	<tr><td>Contraseña de inicio de sesión de SQL Server</td><td>$sqlDatabasePassword</td><td></td><td>La contraseña de inicio de sesión para SQL Server.</td></tr>
+	<tr><td>Nombre de la base de datos de SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de datos de SQL Server a la que Sqoop exportará datos o desde la que los importará. </td></tr>
+	</table>
 
 
 > [AZURE.NOTE]Rellene los valores de las tablas anteriores. Le resultará útil para completar el tutorial.
@@ -103,19 +103,19 @@ Un clúster de HDInsight incluye algunos datos de ejemplo. Usará los dos ejempl
 - Una tabla de Hive denominada *hivesampletable* que hace referencia al archivo de datos ubicado en */hive/warehouse/hivesampletable*. La tabla contiene algunos datos del dispositivo móvil. El esquema de dicha tabla es el siguiente:
 
 	<table border="1">
-<tr><th>Campo</th><th>Tipo de datos</th></tr>
-<tr><td>clientid</td><td>cadena</td></tr>
-<tr><td>querytime</td><td>cadena</td></tr>
-<tr><td>market</td><td>cadena</td></tr>
-<tr><td>deviceplatform</td><td>cadena</td></tr>
-<tr><td>devicemake</td><td>cadena</td></tr>
-<tr><td>devicemodel</td><td>cadena</td></tr>
-<tr><td>state</td><td>cadena</td></tr>
-<tr><td>country</td><td>cadena</td></tr>
-<tr><td>querydwelltime</td><td>double</td></tr>
-<tr><td>sessionid</td><td>bigint</td></tr>
-<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-</table>
+	<tr><th>Campo</th><th>Tipo de datos</th></tr>
+	<tr><td>clientid</td><td>cadena</td></tr>
+	<tr><td>querytime</td><td>cadena</td></tr>
+	<tr><td>market</td><td>cadena</td></tr>
+	<tr><td>deviceplatform</td><td>cadena</td></tr>
+	<tr><td>devicemake</td><td>cadena</td></tr>
+	<tr><td>devicemodel</td><td>cadena</td></tr>
+	<tr><td>state</td><td>cadena</td></tr>
+	<tr><td>country</td><td>cadena</td></tr>
+	<tr><td>querydwelltime</td><td>double</td></tr>
+	<tr><td>sessionid</td><td>bigint</td></tr>
+	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+	</table>
 
 En primer lugar, exportará tanto *sample.log* como *hivesampletable* a la base de datos de SQL de Azure o a SQL Server y, a continuación, importará la tabla que contiene los datos del dispositivo móvil de nuevo en HDInsight con la ruta de acceso siguiente:
 
@@ -395,7 +395,7 @@ En esta sección, usará Azure PowerShell para ejecutar el comando de exportaci�
 
 	Para ver más descripciones de las variables, consulte la sección [Requisitos previos](#prerequisites) de este tutorial.
 
-	Observe que $exportDir_log4j no tiene especificado el nombre del archivo sample.log. Sqoop exportará los datos de todos los archivos ubicados en esa carpeta.
+	Observe que $exportDir\_log4j no tiene especificado el nombre del archivo sample.log. Sqoop exportará los datos de todos los archivos ubicados en esa carpeta.
 
 4. Anexe el script siguiente en el panel de scripts:
 
@@ -648,4 +648,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

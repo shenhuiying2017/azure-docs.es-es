@@ -1,20 +1,20 @@
 <properties
    pageTitle="Conceptos para desarrolladores del Catálogo de datos de Azure"
-   description="Conceptos para programadores en el Catálogo de datos de Azure: catálogo, usuarios, recursos, micromecenazgo."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Introducción a los conceptos clave en el modelo conceptual del Catálogo de datos de Azure, como se expone mediante la API de REST del catálogo."
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags 
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Conceptos para desarrolladores del Catálogo de datos de Azure
 
@@ -231,4 +231,4 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

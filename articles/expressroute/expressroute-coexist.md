@@ -1,21 +1,21 @@
 <properties
-   pageTitle="Configuración de conexiones de ExpressRoute y VPN de sitio a sitio coexistentes"
-   description="Este tutorial le guiará por el proceso de configuración de una conexión ExpressRoute y VPN de sitio a sitio para que coexistan."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="carolz"
-   editor="tysonn" />
+   pageTitle="Configuración de conexiones de ExpressRoute y VPN de sitio a sitio coexistentes | Microsoft Azure"
+	description="Este tutorial le guiará por el proceso de configuración de una conexión ExpressRoute y VPN de sitio a sitio para que coexistan."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor="tysonn"/>
 <tags
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/05/2015"
+	ms.author="cherylmc"/>
 
-# Configuración de conexiones de ExpressRoute y VPN sitio a sitio coexistentes
+# Configuración de conexiones de ExpressRoute de Azure y VPN sitio a sitio coexistentes
 
 Ahora puede conectar ExpressRoute y una VPN sitio a sitio a la misma red virtual. Hay dos escenarios y dos procedimientos de configuración diferentes entre los que se puede elegir.
 
@@ -40,12 +40,12 @@ En este escenario, tiene dos redes locales. Puede conectar una a Azure mediante 
 
 Hay dos conjuntos diferentes de los procedimientos entre los que elegir para configurar las conexiones de manera que coexistan. El procedimiento de configuración que seleccione dependerá de si ya tiene una red virtual existente a la que quiere conectarse o si desea crear una nueva red virtual.
 
-- **Creación de una nueva red virtual con conexiones coexistentes:** 
-	
+- **Creación de una nueva red virtual con conexiones coexistentes:**
+
 	Si aún no tiene una red virtual, este procedimiento le guiará a través de la creación de una nueva red virtual y la creación de nuevas conexiones VPN de sitio a sitio y ExpressRoute. Para configurarla, siga los pasos de [Creación de una nueva red virtual con conexiones](#create-a-new-virtual-network-and-connections-that-coexist).
 
 - **Configuración de la red virtual existente para conexiones coexistentes**
-	
+
 	Puede que ya tenga una red virtual con una conexión VPN de sitio a sitio o una conexión ExpressRoute existentes. El procedimiento [Configuración de conexiones coexistentes para la red virtual existente](#configure-connections-that-coexist-for-your-existing-virtual-network) le guiará a través de la eliminación de la puerta de enlace y la creación de nuevas conexiones VPN de sitio a sitio y ExpressRoute. Tenga en cuenta que al crear las nuevas conexiones, se deben completar los pasos en un orden muy específico. No utilice las instrucciones que aparecen en otros artículos para crear puertas de enlace y conexiones.
 
 	En este procedimiento, para crear conexiones que puedan coexistir, tendrá que eliminar la puerta de enlace y luego configurar nuevas puertas de enlace. Esto significa que tendrá tiempo de inactividad para las conexiones entre entornos mientras elimina y vuelve a crear la puerta de enlace y las conexiones, pero no necesitará migrar las máquinas virtuales o servicios a una nueva red virtual. Las máquinas virtuales y los servicios podrán comunicarse con el exterior a través del equilibrador de carga mientras configura la puerta de enlace si están configurados para ello.
@@ -56,11 +56,11 @@ Hay dos conjuntos diferentes de los procedimientos entre los que elegir para con
 - No se podrá realizar un enrutamiento (a través de Azure) entre una red local conectada a través de una VPN sitio a sitio y una red local conectada a través de ExpressRoute.
 - No se pueden habilitar conexiones VPN de punto a sitio a la misma red virtual que esté conectada a ExpressRoute. VPN de punto a sitio y ExpressRoute no pueden coexistir en la misma red virtual.
 - La puerta de enlace de ExpressRoute y la puerta de enlace de VPN sitio a sitio deben ser una SKU de puerta de enlace estándar o de alto rendimiento. Para obtener información sobre las SKU de puerta de enlace, vea [SKU de puerta de enlace](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-- Si la red local está conectada a ExpressRoute y a una VPN sitio a sitio (escenario 1), debe tener una ruta estática configurada en la red local para enrutar la conexión VPN sitio a sitio a la red Internet pública. 
+- Si la red local está conectada a ExpressRoute y a una VPN sitio a sitio (escenario 1), debe tener una ruta estática configurada en la red local para enrutar la conexión VPN sitio a sitio a la red Internet pública.
 - Debe crear la puerta de enlace de ExpressRoute antes de agregar la puerta de enlace de la VPN sitio a sitio.
-- Para ambos procedimientos se supone que ya tiene un circuito ExpressRoute configurado. Si no es así, consulte los siguientes artículos: 
+- Para ambos procedimientos se supone que ya tiene un circuito ExpressRoute configurado. Si no es así, consulte los siguientes artículos:
 
-	- [Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red (NSP)](expressroute-configuring-nsps.md) 
+	- [Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red (NSP)](expressroute-configuring-nsps.md)
 	- [Configuración de una conexión ExpressRoute a través de un proveedor de Exchange (EXP)](expressroute-configuring-exps.md)
 
 
@@ -104,9 +104,9 @@ Este procedimiento le guiará por la creación de una red virtual, así como por
 	Use el cmdlet siguiente para cargar el archivo, reemplazando el valor por el suyo propio.
 
 	`Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'`
-4. Cree una puerta de enlace de ExpressRoute. Asegúrese de especificar GatewaySKU como *Standard* o *HighPerformance*, y GatewayType como *DynamicRouting*. 
+4. Cree una puerta de enlace de ExpressRoute. Asegúrese de especificar GatewaySKU como *Standard* o *HighPerformance*, y GatewayType como *DynamicRouting*.
 
-	Use el ejemplo siguiente, sustituyendo los valores por los suyos propios.
+	Use el ejemplo siguiente y sustituya los valores por los suyos propios.
 
 	`New-AzureVNetGateway -VNetName MyAzureVNET -GatewayType DynamicRouting -GatewaySKU HighPerformance`
 
@@ -121,7 +121,7 @@ Este procedimiento le guiará por la creación de una red virtual, así como por
 	Para recuperar la configuración de la puerta de enlace de red virtual, incluido el identificador de puerta de enlace y la dirección IP pública, use el cmdlet `Get-AzureVirtualNetworkGateway`.
 
 		Get-AzureVirtualNetworkGateway
-		
+
 		GatewayId            : 348ae011-ffa9-4add-b530-7cb30010565e
 		GatewayName          : S2SVPN
 		LastEventData        :
@@ -143,16 +143,16 @@ Este procedimiento le guiará por la creación de una red virtual, así como por
 
 7. Cree una entidad de puerta de enlace de VPN de sitio local. Este comando no configura la puerta de enlace de VPN local. En su lugar, permite proporcionar la configuración de puerta de enlace local, como la dirección IP pública y el espacio de direcciones local, para que la puerta de enlace de VPN de Azure pueda conectarse a ella.
 
-	**Importante:** el sitio local para la VPN de sitio a sitio no está definido en netcfg. En su lugar, es preciso usar este cmdlet para especificar los parámetros del sitio local. No se puede definir con el Portal de administración o el archivo netcfg.
+	> [AZURE.IMPORTANT]El sitio local para la VPN de sitio a sitio no está definido en netcfg. En su lugar, es preciso usar este cmdlet para especificar los parámetros del sitio local. No se puede definir con el Portal de administración o el archivo netcfg.
 
-	Use el ejemplo siguiente, reemplazando los valores por los suyos propios:
+	Use el ejemplo siguiente y reemplace los valores por los suyos propios:
 
 	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
 
-	Para recuperar la configuración de la puerta de enlace de red virtual, incluido el identificador de puerta de enlace y la dirección IP pública, use el cmdlet `Get-AzureVirtualNetworkGateway`. Observe el ejemplo siguiente:
+	Para recuperar la configuración de la puerta de enlace de red virtual, incluido el identificador de puerta de enlace y la dirección IP pública, use el cmdlet `Get-AzureVirtualNetworkGateway`. Consulte el ejemplo siguiente.
 
 		Get-AzureLocalNetworkGateway
-		
+
 		GatewayId            : 532cb428-8c8c-4596-9a4f-7ae3a9fcd01b
 		GatewayName          : MyLocalNetwork
 		IpAddress            : 23.39.x.y
@@ -161,9 +161,9 @@ Este procedimiento le guiará por la creación de una red virtual, así como por
 		OperationId          : ddc4bfae-502c-adc7-bd7d-1efbc00b3fe5
 		OperationStatus      : Succeeded
 
-	
+
 8. Configure el dispositivo VPN local para que se conecte a la nueva puerta de enlace. Al configurar el dispositivo VPN, use la información que recuperó en el paso 6. Para obtener más información sobre la configuración del dispositivo VPN, vea [Configuración de dispositivos VPN](http://go.microsoft.com/fwlink/p/?linkid=615099).
-	
+
 
 9. Vincule la puerta de enlace de VPN sitio a sitio en Azure a la puerta de enlace local.
 
@@ -181,7 +181,7 @@ Si tiene una red virtual conectada a través de una conexión VPN sitio a sitio 
 
 
 1. Descargue la versión más reciente de los cmdlets de PowerShell. Los cmdlets de PowerShell más recientes se pueden descargar e instalar desde la sección de PowerShell de la [página de descarga](http://azure.microsoft.com/downloads/).
- 
+
 2. Elimine la puerta de enlace de la VPN sitio a sitio. Use el siguiente cmdlet, reemplazando los valores por los suyos propios.
 
 	`Remove-AzureVNetGateway –VnetName MyAzureVNET`
@@ -189,7 +189,7 @@ Si tiene una red virtual conectada a través de una conexión VPN sitio a sitio 
 2. Exporte el esquema de red virtual. Use el siguiente cmdlet de PowerShell, reemplazando los valores por los suyos propios.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Edite el esquema del archivo de configuración de red para que la subred de puerta de enlace sea /27 (o un prefijo más corto). Observe el ejemplo siguiente. Para obtener más información sobre cómo trabajar con el archivo de configuración de red, vea [Configuración de una red virtual con un archivo de configuración de red](../virtual-network/virtual-networks-using-network-configuration-file.md). Para obtener más información sobre el esquema de configuración, vea [Esquema de configuración de la red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Edite el esquema del archivo de configuración de red para que la subred de puerta de enlace sea /27 (o un prefijo más corto). Consulte el ejemplo siguiente. Para obtener más información sobre cómo trabajar con el archivo de configuración de red, consulte [Configuración de una red virtual con un archivo de configuración de red](../virtual-network/virtual-networks-using-network-configuration-file.md). Para obtener más información sobre el esquema de configuración, consulte [Esquema de configuración de la red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 
           <Subnet name="GatewaySubnet">
@@ -204,14 +204,14 @@ Si tiene una red virtual conectada a través de una conexión VPN sitio a sitio 
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. Ya tiene una red virtual sin puertas de enlace. Para crear nuevas puertas de enlace y completar las conexiones, puede dirigirse al **paso 3** del artículo, [Creación de una nueva red virtual con conexiones coexistentes](#create-a-new-virtual-network-and-connections-that-coexist).
+5. Ya tiene una red virtual sin puertas de enlace. Para crear nuevas puertas de enlace y completar las conexiones, puede dirigirse al **paso 3** del artículo [Creación de una nueva red virtual con conexiones coexistentes](#create-a-new-virtual-network-and-connections-that-coexist).
 
 
 
 ## Pasos siguientes
-	
-Más información acerca de ExpressRoute. Vea [Información general de ExpressRoute](expressroute-introduction.md).
 
-Más información acerca de las puertas de enlace de VPN. Vea [Información acerca de las puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Más información acerca de ExpressRoute. Consulte [Información técnica de ExpressRoute](expressroute-introduction.md).
 
-<!---HONumber=August15_HO6-->
+Más información acerca de las puertas de enlace de VPN. Consulte [Información acerca de las puertas de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+
+<!---HONumber=August15_HO9-->

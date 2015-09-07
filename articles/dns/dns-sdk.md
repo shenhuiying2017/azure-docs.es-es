@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Automatización de operaciones de conjuntos de registros y DNS con el SDK de .NET | Microsoft Azure" 
-   description="Uso del SDK de .NET para automatizar todas las operaciones DNS para DNS de Azure." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
-   editor=""/>
+   pageTitle="Automatización de operaciones de conjuntos de registros y DNS con el SDK de .NET | Microsoft Azure"
+	description="Uso del SDK de .NET para automatizar todas las operaciones DNS para DNS de Azure."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/20/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="joaoma"/>
 # Creación de conjuntos de registros y zonas DNS con el SDK de .NET
 Puede automatizar las operaciones para crear, eliminar o actualizar zonas, conjuntos de registros y registros DNS mediante el SDK de DNS con la biblioteca de administración de DNS de .NET. Un proyecto completo de Visual Studio se encuentra disponible [aquí](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip).
 
@@ -54,7 +54,7 @@ Creación de una zona DNS:
 	dnsClient.Zones.CreateOrUpdate("myresgroup", "myzone.com", zoneParams);
 
 
-DNS de Azure admite la simultaneidad optimista denominada [Etags](../dns-getstarted-create-dnszone#Etags-and-tags). La Etag es una propiedad de la zona e IfNoneMatch es una propiedad de ZoneCreateOrUpdateParameters.
+DNS de Azure admite la simultaneidad optimista denominada [Etags](dns-getstarted-create-dnszone.md#Etags-and-tags). La Etag es una propiedad de la zona e IfNoneMatch es una propiedad de ZoneCreateOrUpdateParameters.
 
 ## Creación o actualización de registros DNS
 Los registros DNS se administran como un conjunto de registros. Un conjunto de registros es el conjunto de registros con el mismo nombre y el tipo de registro dentro de una zona. Para crear o actualizar un conjunto de registros, se crea un objeto RecordSet y se pasa a dnsClient.RecordSets.CreateOrUpdate. Tenga en cuenta que el nombre del conjunto de registros es relativo al nombre de la zona en lugar de ser el nombre DNS completo. Una vez más, la ubicación se establece en "global".
@@ -74,7 +74,7 @@ Creación de algunos conjuntos de registros
 	"myzone.com", "www", RecordType.A, recordParams);
 	
     
-DNS de Azure admite la simultaneidad optimista [Etags](../dns-getstarted-create-dnszone#Etags-and-tags). La Etag es que una propiedad del conjunto de registros e IfNoneMatch es una propiedad de RecordSetCreateOrUpdateParameters.
+DNS de Azure admite la simultaneidad optimista [Etags](dns-getstarted-create-dnszone.md#Etags-and-tags). La Etag es que una propiedad del conjunto de registros e IfNoneMatch es una propiedad de RecordSetCreateOrUpdateParameters.
 
 ## Obtener zonas y conjuntos de registros
 Las colecciones de conjuntos de registros y zonas ofrecen la posibilidad de obtener conjuntos de registros y zonas, respectivamente Los conjuntos de registros se identifican por su tipo y su nombre y por la zona (y el grupo de recursos) en que se encuentran. Las zonas se identifican por su nombre y el grupo de recursos en que se encuentran.
@@ -100,11 +100,12 @@ En el ejemplo siguiente se ilustra cómo obtener una lista de zonas y conjuntos 
 
     // do something like write out each record set
 	}
-## Otras referencias 
-[Información general sobre el Administrador de tráfico](../traffic-manager-overview)
+## Pasos siguientes
 
-[Introducción a DNS de Azure](../dns-overview)
+[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
+
+[¿Qué es Azure DNS?](dns-overview.md)
 
 [Proyecto de ejemplo del SDK de Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

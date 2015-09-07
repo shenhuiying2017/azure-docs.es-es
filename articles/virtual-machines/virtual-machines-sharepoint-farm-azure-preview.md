@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Granja de servidores SharePoint"
-	description="Puede crear rápidamente una nueva granja de SharePoint Server 2013 mediante la función de granja de servidores de SharePoint en el Portal de vista previa de Azure."
+	pageTitle="Granja de servidores SharePoint | Microsoft Azure"
+	description="Cree rápidamente una nueva granja de SharePoint Server 2013 básica o de alta disponibilidad mediante Granja de servidores SharePoint en el Portal de vista previa de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -95,4 +95,4 @@ La función de granja de servidores de SharePoint del Portal de vista previa de 
 
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

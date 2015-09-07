@@ -1,23 +1,28 @@
 <properties
    pageTitle="Creación de un conjunto de registros y registros para una zona DNS | Microsoft Azure"
-   description="Creación de registros host para DNS de Azure. Configuración de conjuntos de registros y registros mediante PowerShell"
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="Adinah"
-   editor=""/>
+	description="Creación de registros host para DNS de Azure. Configuración de conjuntos de registros y registros mediante PowerShell"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 
 # Creación de registros DNS
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-recordset.md)
 
 Después de crear la zona DNS, deberá agregar los registros DNS para su dominio. Para ello, primero debe saber qué son los registros y los conjuntos de registros DNS.
 
@@ -119,4 +124,4 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

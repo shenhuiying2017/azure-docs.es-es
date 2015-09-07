@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Administración de servidores DNS usados por una red virtual"
-   description="Obtenga información sobre cómo agregar y quitar servidores DNS en una red virtual"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Obtenga información sobre cómo agregar y quitar servidores DNS en una red virtual"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # Administración de servidores DNS usados por una red virtual
 
@@ -49,11 +49,11 @@ Puede administrar la lista de servidores DNS usados en una red virtual en el Por
 
 Para editar una lista de servidores DNS mediante el uso de un archivo de configuración de red, primero hay que exportar los valores de configuración del Portal de administración. Después, podrá editar el archivo de configuración de red y volverlo a importar mediante el Portal de administración. A continuación se muestra una lista detallada de los pasos necesarios para completar este proceso.
 
-1. Exporte la configuración de la red virtual a un archivo de configuración de red. Para que obtener más información y conocer los pasos necesarios para exportar las opciones de configuración de red, consulte [Exportación de la configuración de una red virtual a un archivo de configuración de red](https://msdn.microsoft.com/library/azure/dn133804.aspx).
+1. Exporte la configuración de la red virtual a un archivo de configuración de red. Para que obtener más información y conocer los pasos necesarios para exportar las opciones de configuración de red, consulte [Exportación de la configuración de una red virtual a un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 
-1. Especifique la información del servidor DNS para la red virtual. Para obtener más información acerca de cómo especificar un servidor DNS, consulte [Especificación de un servidor DNS en un archivo de configuración de red virtual](https://msdn.microsoft.com/library/windowsazure/jj156098.aspx). Para obtener información adicional acerca de los archivos de configuración de red, consulte [Esquema de configuración de Red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) y [Configuración de una red virtual con un archivo de configuración de red](https://msdn.microsoft.com/library/azure/jj156097.aspx).
+1. Especifique la información del servidor DNS para la red virtual. Para obtener más información acerca de cómo especificar un servidor DNS, consulte [Especificación de un servidor DNS en un archivo de configuración de red virtual](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). Para obtener información adicional acerca de los archivos de configuración de red, consulte [Esquema de configuración de Red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) y [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 
-1. Importe un archivo de configuración de red. Para obtener más información y conocer los pasos necesarios para importar el archivo de configuración de red, consulte [Importación de un archivo de configuración de red](https://msdn.microsoft.com/library/azure/jj156213.aspx).
+1. Importe un archivo de configuración de red. Para obtener más información y conocer los pasos necesarios para importar el archivo de configuración de red, consulte [Importación de un archivo de configuración de red](virtual-networks-using-network-configuration-file.md).
 
 1. Reinicie las máquinas virtuales que se encuentran en la red virtual para que puedan adquirir la nueva configuración de DNS.
 
@@ -65,4 +65,4 @@ Para editar una lista de servidores DNS mediante el uso de un archivo de configu
 
 [Eliminación de una red virtual](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

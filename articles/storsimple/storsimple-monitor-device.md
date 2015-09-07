@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Uso del servicio StorSimple Manager para supervisar el dispositivo StorSimple | Microsoft Azure"
-   description="Se describe cómo usar el servicio StorSimple Manager para supervisar el rendimiento de E/S, la utilización de la capacidad, la capacidad de proceso de la red y rendimiento del dispositivo."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Se describe cómo usar el servicio StorSimple Manager para supervisar el rendimiento de E/S, la utilización de la capacidad, la capacidad de proceso de la red y rendimiento del dispositivo."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/25/2015"
+	ms.author="alkohli"/>
 
 # Uso del servicio StorSimple Manager para supervisar el dispositivo StorSimple. 
 
@@ -61,7 +61,7 @@ La capacidad de almacenamiento principal, en la nube y del dispositivo puede des
 	![Uso de la capacidad en la nube después de la instantánea en la nube](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
-- **El uso de la capacidad de almacenamiento del dispositivo** muestra el uso total del dispositivo, que será superior al uso del almacenamiento principal porque incluye el nivel lineal de SSD. Este nivel contiene una cantidad de datos que también existe en los otros niveles del dispositivo. La capacidad en el nivel lineal de SSD es cíclica de modo que cuando llegan nuevos datos, los datos antiguos se mueven a la nube (momento en el cual están desduplicados y comprimidos).
+- **El uso de la capacidad de almacenamiento del dispositivo** muestra el uso total del dispositivo, que será superior al uso del almacenamiento principal porque incluye el nivel lineal de SSD. Este nivel contiene una cantidad de datos que también existe en los otros niveles del dispositivo. La capacidad en el nivel lineal de SSD es cíclica de modo que cuando llegan nuevos datos, los datos antiguos se mueven al nivel HDD (momento en el cual están desduplicados y comprimidos) y, posteriormente, a la nube.
 
 	Con el tiempo, la utilización de la capacidad principal y la utilización de la capacidad del dispositivo aumentarán al mismo tiempo hasta que los datos comiencen a almacenarse en niveles en la nube. En ese momento, la utilización de la capacidad del dispositivo probablemente empezará a estabilizarse, pero aumentará la utilización de la capacidad principal conforme se escriban más datos.
 
@@ -93,4 +93,4 @@ Los gráficos siguientes muestran el rendimiento de la red para Data 0 y Data 4,
 
 [Obtenga información sobre cómo usar el panel de dispositivos del servicio StorSimple Manager](storsimple-device-dashboard.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

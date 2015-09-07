@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure"
-	description="Aprenda a crear una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure con Visual Studio 2013."
+	pageTitle="Creación de una aplicación de API de ASP.NET en Servicio de aplicaciones de Azure | Microsoft Azure"
+	description="Obtenga información acerca de cómo crear una aplicación de API de ASP.NET en Servicio de aplicaciones de Azure con Visual Studio 2013."
 	services="app-service\api"
 	documentationCenter=".net"
 	authors="bradygaster"
@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
@@ -34,7 +34,7 @@ Este tutorial requiere la versión 2.6 o posterior de SDK de Azure para .NET.
 
 ## Creación de un proyecto de aplicación de API
 
-Cuando las instrucciones indican que escriba un nombre para el proyecto, escriba *ContactsList*.
+Cuando las instrucciones indiquen que escriba un nombre para el proyecto, escriba **ContactsList**.
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
@@ -47,6 +47,5 @@ Cuando las instrucciones indican que escriba un nombre para el proyecto, escriba
 ## Pasos siguientes
 
 La aplicación de API ya está lista para implementarse. Para ello, puede seguir el tutorial [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md).
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

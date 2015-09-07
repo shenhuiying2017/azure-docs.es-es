@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Requisitos del sistema StorSimple | Microsoft Azure" 
-   description="Describe los requisitos del sistema y procedimientos recomendados para software, alta disponibilidad y conexión a la de red de una solución Azure StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="alkohli" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="Requisitos del sistema StorSimple | Microsoft Azure"
+	description="Describe los requisitos del sistema y procedimientos recomendados para software, alta disponibilidad y conexión a la de red de una solución Azure StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/17/2015"
-   ms.author="alkohli"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# Requisitos del sistema StorSimple
+# Software de StorSimple, alta disponibilidad y requisitos de red
 
 ## Información general
 
@@ -194,4 +194,4 @@ Además de los requisitos de redes anteriores, para obtener un rendimiento ópti
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

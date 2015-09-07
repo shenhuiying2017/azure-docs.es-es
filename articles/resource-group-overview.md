@@ -1,26 +1,28 @@
 <properties
    pageTitle="Información general del Administrador de recursos de Azure"
-   description="Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
 
 Las aplicaciones normalmente se componen de muchos componentes: quizá una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlas, administrarlas y supervisarlas como grupo. Administrador de recursos de Azure permite trabajar con los recursos de la aplicación como un grupo. Puede implementar, actualizar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo.
 
 Administrador de recursos de Azure integra de forma nativa el control de acceso en la plataforma de administración, para que pueda especificar las acciones que puede realizar un usuario de la organización en un grupo de recursos.
+
+El Administrador de recursos ofrece una nueva manera de implementar y administrar las soluciones. Para obtener información sobre los cambios en este nuevo modelo de implementación, consulte [Descripción de la implementación del Administrador de recursos y la implementación clásica](resource-manager-deployment-model.md).
 
 La siguiente es una demostración de esta introducción.
 
@@ -48,9 +50,9 @@ La imagen siguiente muestra un grupo de recursos con Application Insights, servi
 
 Un grupo de recursos también se puede vincular a un recurso de otro grupo de recursos. Se considera que un recurso está vinculado cuando existe una dependencia de implementación entre recursos de distintos grupos de recursos. Por ejemplo, si una aplicación web de un grupo de recursos se conecta a la base de datos dn otro grupo de recursos, estos recursos están vinculados. También puede definir de manera explícita vínculos entre recursos en otro grupo de recursos.
 
-Para obtener más información sobre cómo vincular recursos, consulte [Vinculación de recursos en el Administrador de recursos de Azure](resource-group-link-resources.md)
+Para obtener más información sobre cómo vincular recursos, consulte [Vinculación de recursos en el Administrador de recursos de Azure](resource-group-link-resources.md).
 
-Si necesita trasladar un recurso a un grupo de recursos nuevos, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
+Si necesita mover un recurso a otro grupo de recursos, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
 
 Desde el Portal de vista previa, puede ver fácilmente los costos, supervisar eventos y administrar alertas. La siguiente imagen muestra la facturación consolidada de un grupo.
 
@@ -108,7 +110,7 @@ Para obtener más información acerca del control de acceso basado en rol, consu
 
 Para obtener ejemplos de configuración de directivas de acceso, consulte [Administración y auditoría del acceso a los recursos](azure-portal/resource-group-rbac.md).
 
-Para conocer las prácticas recomendadas, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md)
+Para conocer las prácticas recomendadas, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 
 ## Capa de administración coherente
 
@@ -124,9 +126,9 @@ Para obtener información sobre cómo usar el portal de vista previa, consulte [
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas](./resource-group-authoring-templates.md)
-- Para implementar la plantilla que creó, consulte [Implementación de plantillas](azure-portal/resource-group-template-deploy.md)
-- Para comprender las funciones que puede utilizar en una plantilla, consulte [Funciones de plantillas](./resource-group-template-functions.md)
-- Para obtener instrucciones sobre cómo estructuras las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md)
+- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas](./resource-group-authoring-templates.md).
+- Para implementar la plantilla que creó, consulte [Implementación de plantillas](azure-portal/resource-group-template-deploy.md).
+- Para comprender las funciones que puede usar en una plantilla, consulte [Funciones de plantillas](./resource-group-template-functions.md)
+- Para obtener instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

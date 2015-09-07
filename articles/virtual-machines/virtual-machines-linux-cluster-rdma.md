@@ -1,19 +1,19 @@
 <properties
  pageTitle="Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI | Microsoft Azure"
- description="Obtenga información acerca de cómo crear un clúster de máquinas virtuales de tamaño A8 o A9 para usar RDMA para ejecutar aplicaciones MPI."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="Obtenga información acerca de cómo crear un clúster de máquinas virtuales de tamaño A8 o A9 para usar RDMA para ejecutar aplicaciones MPI."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="infrastructure-services"
- ms.date="07/17/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="07/17/2015"
+	ms.author="danlep"/>
 
 # Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI
 
@@ -137,7 +137,7 @@ Guarde la clave pública en una ubicación predeterminada y recuerde la frase de
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-En el directorio \~/.ssh, edite o cree el archivo ssh\_config. Proporcione el intervalo de direcciones IP de la red privada que va a usar en Azure:
+En el directorio ~/.ssh, edite o cree el archivo ssh\_config. Proporcione el intervalo de direcciones IP de la red privada que va a usar en Azure:
 
 ```
 host 10.32.0.*
@@ -190,7 +190,7 @@ Modifique el script siguiente con los valores apropiados para su entorno y ejec�
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -339,4 +339,4 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/es-es/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

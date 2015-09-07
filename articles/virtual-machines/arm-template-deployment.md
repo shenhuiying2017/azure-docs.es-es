@@ -1,12 +1,12 @@
-<properties pageTitle="Implementación de recursos de Azure con una plantilla" description="Aprenda a usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties pageTitle="Implementación de recursos de Azure con una plantilla" description="Aprenda a usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager"/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-resource-manager"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla
@@ -75,7 +75,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
             "contentVersion": "1.0.0.0",
         }
 
-6. Los [parámetros](https://msdn.microsoft.com/library/azure/dn835138.aspx#parameters) no siempre son necesarios, pero facilitan la administración de la plantilla. Describen el tipo del valor, el valor predeterminado, en caso de ser necesario, y, posiblemente, los valores permitidos del parámetro. En este tutorial, los parámetros que se usan para crear una máquina virtual, una cuenta de almacenamiento y una red virtual se agregan a la plantilla.
+6. Los [parámetros](../resource-group-authoring-templates.md#parameters) no siempre son necesarios, pero facilitan la administración de la plantilla. Describen el tipo del valor, el valor predeterminado, en caso de ser necesario, y, posiblemente, los valores permitidos del parámetro. En este tutorial, los parámetros que se usan para crear una máquina virtual, una cuenta de almacenamiento y una red virtual se agregan a la plantilla.
 
     Agregue el elemento parameters y sus elementos secundarios después del elemento contentVersion:
 
@@ -106,7 +106,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
           },
         }
 
-7.	Pueden usarse [variables](https://msdn.microsoft.com/library/azure/dn835138.aspx#variables) en una plantilla para especificar los valores que pueden cambiar con frecuencia o los valores que se deben crear a partir de una combinación de valores de parámetro.
+7.	Pueden usarse [variables](../resource-group-authoring-templates.md#variables) en una plantilla para especificar los valores que pueden cambiar con frecuencia o los valores que se deben crear a partir de una combinación de valores de parámetro.
 
     Agregue el elemento variables después de la sección parameters:
 
@@ -142,7 +142,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
           },
         }
 
-8.	Los [recursos](https://msdn.microsoft.com/library/azure/dn835138.aspx#resources), como la máquina virtual, la red virtual y la cuenta de almacenamiento se definen a continuación en la plantilla.
+8.	Los [recursos](../resource-group-authoring-templates.md#resources), como la máquina virtual, la red virtual y la cuenta de almacenamiento se definen a continuación en la plantilla.
 
     Agregue la sección resources después de la sección variables:
 
@@ -443,4 +443,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

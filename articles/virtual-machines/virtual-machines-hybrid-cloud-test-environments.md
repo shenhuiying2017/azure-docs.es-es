@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Entornos de prueba de nube híbrida de Azure"
-	description="Acceda a los temas fundamentales que describen cómo crear entornos de prueba que se pueden utilizar para desarrollo/prueba o para prueba de concepto en la nube híbrida de Azure."
+	pageTitle="Entornos de prueba de nube híbrida de Azure | Microsoft Azure"
+	description="Busque los artículos que describen cómo crear pruebas y desarrollo o entornos de profesionales de TI de prueba de concepto para la nube híbrida basada en Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -56,6 +56,6 @@ Para aquellas organizaciones y usuarios sin acceso fácil a una conexión direct
 
 [Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-[Directrices de implementación de Servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

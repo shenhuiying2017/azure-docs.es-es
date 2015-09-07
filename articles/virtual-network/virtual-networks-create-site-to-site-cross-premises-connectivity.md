@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio" 
-	description="Obtenga información acerca de cómo crear una red virtual de Azure con conectividad entre locales en este tutorial." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio"
+	description="Obtenga información acerca de cómo crear una red virtual de Azure con conectividad entre locales en este tutorial."
+	services="virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 
@@ -24,7 +24,7 @@ En este tutorial se muestran los pasos que debe seguir para crear, por ejemplo, 
 
 Si desea crear una red virtual solo en la nube, consulte [Tutorial: Creación de una red virtual solo en la nube en Azure](../virtual-machines/create-virtual-network.md). Si desea crear una VPN de punto a sitio utilizando certificados y un cliente VPN, consulte [Configurar una VPN de punto a sitio con el asistente del Portal de administración](http://go.microsoft.com/fwlink/p/?LinkId=296653).
 
-En este tutorial se asume que no tiene ninguna experiencia previa con Azure. La finalidad del mismo es ayudarle a familiarizarse con los pasos necesarios para crear una red virtual entre locales de ejemplo. Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte [Información general de la red virtual de Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+En este tutorial se asume que no tiene ninguna experiencia previa con Azure. La finalidad del mismo es ayudarle a familiarizarse con los pasos necesarios para crear una red virtual entre locales de ejemplo. Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte [Información general de la red virtual de Azure](../virtual-network/virtual-networks-overview.md).
 
 Después de completar este tutorial, tendrá una red virtual entre locales de ejemplo. La siguiente ilustración muestra los detalles, según la configuración de ejemplo de este tutorial.
 
@@ -253,9 +253,9 @@ Si desea exportar la configuración de la red virtual a un archivo de configurac
 
 ## Otras referencias
 
--  [Introducción técnica de la red virtual de Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Introducción técnica de la red virtual de Azure](../virtual-network/virtual-networks-overview.md)
 
--  [Preguntas frecuentes sobre redes virtuales](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
+-  [Preguntas frecuentes sobre redes virtuales](virtual-networks-faq.md)
 
 -  [Configuración de una red virtual con un archivo de configuración de red](virtual-networks-using-network-configuration-file.md)
 
@@ -272,4 +272,4 @@ Si desea exportar la configuración de la red virtual a un archivo de configurac
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

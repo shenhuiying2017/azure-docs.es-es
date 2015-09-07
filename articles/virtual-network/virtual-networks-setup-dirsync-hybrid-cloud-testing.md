@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas" 
-	description="Aprenda a configurar un servidor de sincronización de directorios (DirSync) de Office 365 en una nube híbrida de profesionales de TI o de pruebas de desarrollo." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Entorno de prueba de Office 365 DirSync | Microsoft Azure"
+	description="Aprenda a configurar un servidor de sincronización de directorios (DirSync) de Office 365 en una nube híbrida de profesionales de TI o de pruebas de desarrollo."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas
@@ -197,4 +197,4 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

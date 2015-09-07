@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Uso de Caché en Redis de Azure con Java"
+   pageTitle="Uso de Caché en Redis de Azure con Java | Microsoft Azure"
 	description="Introducción a Caché en Redis de Azure usando Java"
 	services="redis-cache"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Java
 
-Caché en Redis de Azure le proporciona acceso a una caché en Redis segura y dedicada, administrada por Microsoft. Se puede obtener acceso a su caché desde cualquier aplicación dentro de Microsoft Azure.
+Caché en Redis de Azure le proporciona acceso a una caché en Redis dedicada, administrada por Microsoft. Se puede obtener acceso a su caché desde cualquier aplicación dentro de Microsoft Azure.
 
 En este tema se explica cómo comenzar a usar Caché en Redis de Azure usando Java.
 
@@ -32,7 +32,7 @@ Este tutorial usa Jedis, pero puede usar cualquier cliente de Java enumerado en 
 
 ## Crear una caché de Redis en Azure
 
-En la [Vista previa del Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkId=398536), haga clic en **Nuevo**, **Datos y almacenamiento** y seleccione **Caché en Redis**.
+En el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=398536), haga clic en **Nuevo**, **Datos y almacenamiento** y seleccione **Caché en Redis**.
 
   ![][1]
 
@@ -41,7 +41,7 @@ Escriba un nombre de host DNS. Tendrá el formato `<name>.redis.cache.windows.ne
   ![][2]
 
 
-Una vez creada la memoria caché, haga clic en ella en el portal para ver su configuración. Haga clic en el vínculo bajo **Claves** y copie la clave principal. Necesitará esto para autenticar solicitudes.
+Una vez creada la memoria caché, haga clic en ella en el portal de vista previa para ver su configuración. Haga clic en el vínculo bajo **Claves** y copie la clave principal. Necesita esto para autenticar solicitudes.
 
   ![][4]
 
@@ -49,7 +49,7 @@ Una vez creada la memoria caché, haga clic en ella en el portal para ver su con
 ## Habilitar el extremo no SSL
 
 
-Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No** para "Permitir acceso solo a través de SSL". Esto habilitará el puerto no SSL para la memoria caché. El cliente Jedis actualmente no admite SSL.
+Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No** para "Permitir acceso solo a través de SSL". Esto habilita el puerto no SSL para la memoria caché. El cliente Jedis actualmente no admite SSL.
 
   ![][3]
 
@@ -60,7 +60,7 @@ Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No*
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
 
-	/* Make sure your turn on non SSL port in Azure Redis using the Configuration section in the Azure portal */
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the preview portal */
 	public class App
 	{
 	  public static void main( String[] args )
@@ -87,4 +87,4 @@ Haga clic en el vínculo bajo **Puertos** y, a continuación, haga clic en **No*
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

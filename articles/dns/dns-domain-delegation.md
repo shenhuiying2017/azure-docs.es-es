@@ -1,25 +1,25 @@
 <properties
-   pageTitle="Delegación de dominios en DNS de Azure | Microsoft Azure"
-   description="Información sobre cómo cambiar la delegación de dominios y usar los servidores de nombres DNS de Azure para ofrecer hospedaje de dominios"
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="Adinah"
-   editor=""/>
+	pageTitle="Delegación de dominios en DNS de Azure | Microsoft Azure"
+	description="Información sobre cómo cambiar la delegación de dominios y usar los servidores de nombres DNS de Azure para ofrecer hospedaje de dominios."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
-   ms.service="dns"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
-   ms.author="joaoma"/>
+	ms.service="dns"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 
 # Delegación de dominios en DNS de Azure
 
-DNS de Azure es un servicio de hospedaje para dominios DNS. Para que las consultas DNS de un dominio lleguen a DNS de Azure, es necesario haber delegado dicho dominio en DNS de Azure desde el dominio primario. En esta página se explica cómo funciona la delegación de dominios y cómo delegar dominios en DNS de Azure.
+DNS de Azure es un servicio de hospedaje para dominios DNS. Para que las consultas DNS de un dominio lleguen a DNS de Azure, es necesario haber delegado dicho dominio en DNS de Azure desde el dominio primario. En este artículo se explica cómo funciona la delegación de dominios y cómo delegar dominios en DNS de Azure.
 
 
 ## Funcionamiento de la delegación de DNS
@@ -53,11 +53,10 @@ A esto es a lo que se le denomina la resolución del nombre DNS (en el sentido e
 
 ¿Cómo “apunta” una zona primaria a los servidores de nombres de una zona secundaria? Para ello usa un tipo especial de registro DNS, denominado registro NS (NS, por sus siglas en inglés, significa “servidor de nombres”). Por ejemplo, la zona raíz contiene registros NS para “com”, donde se muestran los servidores de nombres de la zona “com”. A su vez, la zona “com” contiene registros NS para “contoso.com”, donde se muestran los servidores de nombres para la zona “contoso.com”. A la acción que conlleva configurar los registros NS para una zona secundaria en una zona primaria se le denomina delegación de dominios.
 
-En el siguiente diagrama se puede encontrar una ilustración:
 
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
-Cada delegación realmente contiene dos copias de los registros NS, una en la zona primaria que apunta a la secundaria y otra en la misma zona secundaria. Es decir, la zona “contoso.com” contiene los registros NS para “contoso.com” (además de los registros NS de “com”). Estos registros se corresponden con registros NS autoritativos, que se sitúan en la cúspide de la zona secundaria.
+Cada delegación realmente contiene dos copias de los registros NS, una en la zona primaria que apunta a la secundaria y otra en la misma zona secundaria. La zona “contoso.com” contiene los registros NS para “contoso.com” (además de los registros NS de “com”). Estos registros se corresponden con registros NS autoritativos, que se sitúan en la cúspide de la zona secundaria.
 
 
 ## Delegación de un dominio en DNS de Azure
@@ -70,7 +69,7 @@ Por ejemplo, supongamos que adquiere el dominio “contoso.com” y que crea una
 
 Para configurar la delegación, necesita saber los nombres del servidor de nombres de la zona de que se trate. DNS de Azure asigna los servidores de nombres a partir de un grupo cada vez que se crea una zona y los almacena en registros NS autoritativos que se crean automáticamente dentro de la zona correspondiente. Por tanto, para ver los nombres del servidor de nombres, solo necesita recuperar estos registros.
 
-Mediante Azure PowerShell, los registros NS autoritativos pueden recuperarse como se explica a continuación (el nombre de registro “@” se usa para hacer referencia a los registros que se encuentran en la cúspide de la zona):
+Mediante Azure PowerShell, los registros NS autoritativos pueden recuperarse como se explica a continuación (el nombre de registro “@” se usa para hacer referencia a los registros que se encuentran en la cúspide de la zona).
 
 	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -117,28 +116,28 @@ Tras configurar y delegar "contoso.com" en DNS de Azure, suponga que desea confi
 
 La única diferencia es que en el paso 3 los registros NS deben crearse en la zona principal "contoso.com" de DNS de Azure, en lugar de configurarse a través de un registrador de dominios.
 
-En el siguiente ejemplo de PowerShell se muestra. En primer lugar, se crean las zonas principal y secundaria (dichas zonas pueden estar en el mismo grupo de recursos o grupos diferentes):
+En el siguiente ejemplo de PowerShell se muestra. En primer lugar, se crean las zonas primaria y secundaria (dichas zonas pueden estar en el mismo grupo de recursos o grupos diferentes).
 
 	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
 	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
-A continuación, se recuperan los registros NS autoritativos de la zona secundaria:
+A continuación, se recuperan los registros NS autoritativos de la zona secundaria, tal como se muestra en el ejemplo siguiente:
 
 	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-Por último, se crea el conjunto de registros NS correspondiente en la zona principal para completar la delegación (tenga en cuenta que el nombre del conjunto de registros de la zona principal coincide con el nombre de la zona secundaria, en este caso "asociados"):
+Por último, se crea el conjunto de registros NS correspondiente en la zona primaria para completar la delegación (tenga en cuenta que el nombre del conjunto de registros de la zona primaria coincide con el nombre de la zona secundaria, en este caso "partners").
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
 
-Como al delegar mediante un registrador, es posible comprobar que todo esté configurado correctamente mediante la búsqueda del registro SOA de la zona secundaria:
+Como al delegar mediante un registrador, es posible comprobar que todo esté configurado correctamente mediante la búsqueda del registro SOA de la zona secundaria.
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-	
+
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-	
+
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com
@@ -159,6 +158,5 @@ Como al delegar mediante un registrador, es posible comprobar que todo esté con
 [Automatización de operaciones de Azure con .NET SDK](../dns-sdk)
 
 [Referencia de la API de REST a DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

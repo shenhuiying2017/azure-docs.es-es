@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Crear una red virtual entre locales usando las tablas de configuración"
-	description="En este tema se describe cómo configurar una red virtual entre locales usando las tablas de configuración predeterminadas."
+	pageTitle="Red virtual que usa tablas de configuración | Microsoft Azure"
+	description="Obtenga información acerca de cómo configurar una red virtual de Azure entre entornos con la configuración de una tabla de configuración con valores predeterminados."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -30,7 +30,7 @@ Estas tablas suelen rellenarse en un tema que describe la configuración de una 
 
 El procedimiento siguiente hace referencia a la información contenida en dichas tablas para guiarle a lo largo del proceso de configuración de la red virtual. Si todavía no ha especificado la configuración de estas tablas en otro tema, pero desea configurar una red virtual entre locales, consulte [Configurar una conexión sitio a sitio entre entornos a una red virtual de Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-> [AZURE.NOTE]Este procedimiento le guiará en el proceso de creación de una red virtual que usa una conexión VPN de sitio a sitio. Para obtener información sobre cómo usar Azure ExpressRoute para la conexión de sitio a sitio, vea [Introducción técnica a ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
+> [AZURE.NOTE]Este procedimiento le guiará en el proceso de creación de una red virtual que usa una conexión VPN de sitio a sitio. Para obtener información sobre cómo usar Azure ExpressRoute para la conexión de sitio a sitio, vea [Introducción técnica a ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## Crear una nueva red virtual de Azure entre locales mediante el uso de los valores de las tablas de configuración
 
@@ -61,10 +61,10 @@ El procedimiento siguiente hace referencia a la información contenida en dichas
 
 ## Recursos adicionales
 
-[Información general sobre redes virtuales](https://msdn.microsoft.com/library/jj156007.aspx)
+[Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
 
-[Tareas de configuración de red virtual](https://msdn.microsoft.com/library/jj156206.aspx)
+[Tareas de configuración de red virtual](../documentation/services/virtual-machines/)
 
 [Configurar una conexión sitio a sitio entre entornos a una red virtual de Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

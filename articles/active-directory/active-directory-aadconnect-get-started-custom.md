@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Instalación personalizada de Azure AD Connect" 
-	description="En este documento se explica las opciones de instalación personalizada de Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Instalación personalizada de Azure AD Connect"
+	description="En este documento se explica las opciones de instalación personalizada de Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Instalación personalizada de Azure AD Connect
@@ -21,7 +21,7 @@
 
 La documentación siguiente proporciona información acerca del uso de la opción de instalación personalizada para Azure AD Connect. Puede utilizar esta opción si tiene opciones de configuración adicionales o necesita características opcionales que no se tratan en la instalación rápida.
 
-Para obtener información sobre una instalación rápida, consulte [Instalación rápida](active-directory-aadconnect/#getting-started-with-azure-ad-connect). Para obtener información sobre la actualización de DirSync a Azure AD Connect, consulte [Actualizar DirSync a Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Para obtener información sobre una instalación rápida, consulte [Instalación rápida](active-directory-aadconnect.md#getting-started-with-azure-ad-connect). Para obtener información sobre la actualización de DirSync a Azure AD Connect, consulte [Actualizar DirSync a Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
 
@@ -83,7 +83,7 @@ Mi propio atributo|Esta opción le permite seleccionar su propio atributo. **Lim
 
 - **Delimitador de origen**: el atributo sourceAnchor es un atributo que es inmutable durante la duración de un objeto de usuario. Es la clave principal que vincula el usuario local con el usuario de Azure AD. Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea adecuado usar. Un buen candidato es objectGUID. Este atributo no cambiará a menos que la cuenta de usuario se mueva entre bosques o dominios. En un entorno de varios bosque donde se muevan cuentas entre bosques, debe utilizarse otro atributo, como un atributo con el identificador de empleado. Atributos que hay que evitar son aquellos que podrían cambiar si combina una persona o cambian las asignaciones. No se pueden utilizar los atributos con un signo @, por lo que no se puede utilizar el correo electrónico y userPrincipalName. El atributo también distingue mayúsculas de minúsculas por lo que si mueve un objeto entre bosques, asegúrese de conservar las mayúsculas y minúsculas. Para los atributos binarios el valor está codificado en base 64, pero para otros tipos de atributo permanecerá en su estado sin codificar. En escenarios de federación y en algunas interfaces de Azure AD, este atributo se conoce también como immutableID.
 
-- **UserPrincipalName**: el atributo userPrincipalName es el atributo que los usuarios van a usar al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Se recomienda encarecidamente mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro atributo, por ejemplo, correo electrónico, como atributo que contiene el identificador de inicio de sesión.
+- **UserPrincipalName**: el atributo userPrincipalName es el atributo que los usuarios van a usar al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Se recomienda encarecidamente mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro atributo, por ejemplo, correo electrónico, como atributo que contiene el identificador de inicio de sesión. Este se conoce como **Alternate ID**. El valor del atributo Alternate ID debe seguir el estándar RFC822. Un id. alternativo puede usarse como solución de inicio de sesión tanto con el SSO de contraseña como con el SSO de federación.
 
 >[AZURE.WARNING]El uso de un identificador alternativo no es compatible con todas las cargas de trabajo de Office 365. Para obtener más información, consulte [Configuración del identificador de inicio de sesión alternativo](https://technet.microsoft.com/library/dn659436.aspx.).
 
@@ -103,7 +103,7 @@ La característica de filtrado en grupos le permite ejecutar una pequeña prueba
 
 Esta pantalla le permite seleccionar las características opcionales para situaciones específicas. A continuación se ofrece una breve explicación de cada una de las características individuales.
 
-<center>![Express Installation](./media/active-directory-aadconnect-get-started-custom/of.png)</center>
+<center>![Express Installation](./media/active-directory-aadconnect-get-started-custom/optional.png)</center>
 
 
 Características opcionales | Descripción
@@ -111,7 +111,6 @@ Características opcionales | Descripción
 Implementación híbrida de Exchange |La característica Implementación híbrida de Exchange permite la coexistencia de buzones de Exchange tanto a nivel local como en Azure mediante la sincronización de un conjunto específico de atributos de Azure AD en su directorio local.
 Aplicación Azure AD y filtro de atributos|Al habilitar la aplicación de Azure AD y el filtro de atributos, el conjunto de atributos sincronizados se puede adaptar a un conjunto específico de una página posterior del asistente. Esto abre dos páginas de configuración adicionales en el asistente.  
 Escritura diferida de contraseñas|Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan con Azure AD se volverán a escribir en su directorio local.
-Reescritura de usuarios|Al habilitar la reescritura de usuarios, los usuarios creados en Azure AD se volverán a escribir en su directorio local. Esto abre una página de configuración adicional en el asistente.  
 Sincronización de atributos de las extensiones de directorios|Al habilitar la sincronización de atributos de las extensiones de directorios, los atributos especificados se sincronizará con Azure AD. Esto abre una página de configuración adicional en el asistente.  
 
 Para opciones de configuración adicionales, como cambiar la configuración predeterminada, usar el editor de reglas de sincronización y el aprovisionamiento declarativo, vea [Administración de Azure AD Connect](active-directory-aadconnect-whats-next.md).
@@ -137,17 +136,7 @@ Estos atributos ahora estarán disponibles en Graph:
 ![Filtrado de sincronización](./media/active-directory-aadconnect-get-started-custom/extension4.png)
 
 
-## Reescritura de usuarios (vista previa)
 
-> [AZURE.WARNING]Si actualmente tiene activo DirSync o Azure AD Sync, no active ninguna de las características de escritura diferida en Azure AD Connect
-
-Reescritura de usuarios permite tomar un usuario creado en Azure AD (a través del portal, gráfico, PowerShell o cualquier otro método) y reescribir al usuario en AD DS local. Para habilitar la característica, seleccione «Reescritura de usuarios» en la página de características opcionales. Ahora se le mostrará la ubicación donde desea que se creen estos usuarios. La configuración predeterminada creará todos los usuarios en una ubicación en AD DS.
-
-![Filtrado de sincronización](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
-
-Los usuarios se crearán con una contraseña aleatoria, de tal forma que haya que restablecer la contraseña en AD DS para que el usuario pueda realmente iniciar sesión.
-
->[AZURE.NOTE]La sincronización de contraseñas y la reescritura de contraseñas no son compatibles con esta característica de vista previa.
 
 ## Reescritura de grupos (vista previa)
 
@@ -290,4 +279,4 @@ Puede personalizar la imagen de logotipo y la ilustración para las páginas de 
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

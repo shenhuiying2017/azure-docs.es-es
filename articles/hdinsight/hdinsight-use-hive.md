@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/06/2015"
+	ms.date="08/21/2015"
 	ms.author="larryfr"/>
 
 # Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra
@@ -55,11 +55,11 @@ Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HD
 
 Dado que el almacenamiento de blobs de Azure es el almacenamiento predeterminado para HDInsight, también puede acceder al archivo mediante **/example/data/sample.log** desde HiveQL.
 
-> [AZURE.NOTE]La sintaxis, \*\***wasb:///**, se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo: \*\***wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE]La sintaxis, ****wasb:///**, se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo: ****wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Trabajo de ejemplo: proyectar columnas en datos delimitados
 
-Las siguientes instrucciones de HiveQL proyectarán columnas en datos delimitados que se almacenan en el directorio \*\***wasb:///example/data**:
+Las siguientes instrucciones de HiveQL proyectarán columnas en datos delimitados que se almacenan en el directorio ****wasb:///example/data**:
 
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -119,13 +119,26 @@ HDInsight puede ejecutar trabajos de HiveQL mediante una variedad de métodos. U
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux o Windows | Windows |
 | [Escritorio remoto](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+## Ejecución de trabajos de Hive en Azure HDInsight mediante SQL Server Integration Services local
+
+También puede usar SQL Server Integration Services (SSIS) para ejecutar un trabajo de Hive. El paquete de características de Azure para SSIS proporciona los siguientes componentes que funcionan con trabajos de Hive en HDInsight.
+
+
+- [Tarea de Hive de Azure HDInsight][hivetask]
+- [Administrador de conexiones de suscripción de Azure][connectionmanager]
+
+
+Obtenga más información acerca del paquete de características de Azure para SSIS [aquí][ssispack].
+
+
 ##<a id="nextsteps"></a>Pasos siguientes
 
 Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los siguientes vínculos para explorar otras formas de trabajar con HDInsight de Azure.
 
-* [Carga de datos en HDInsight][hdinsight-upload-data]
-* [Uso de Pig con HDInsight][hdinsight-use-pig]
-* [Uso de trabajos de MapReduce con HDInsight][hdinsight-use-mapreduce]
+
+- [Carga de datos en HDInsight][hdinsight-upload-data]
+- [Uso de Pig con HDInsight][hdinsight-use-pig]
+- [Uso de trabajos de MapReduce con HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
@@ -142,6 +155,9 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: http://msdn.microsoft.com/es-ES/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/es-ES/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/es-ES/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -163,4 +179,4 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

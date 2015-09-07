@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fase 4 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de servidores de SharePoint"
-	description="En esta cuarta fase de implementación de una granja de servidores solo de intranet de SharePoint 2013, crea las nuevas máquinas virtuales del servidor de SharePoint y una nueva granja de SharePoint."
+	pageTitle="Fase 4 de la granja de SharePoint Server 2013 | Microsoft Azure"
+	description="Cree las máquinas virtuales del servidor de SharePoint y una nueva granja de SharePoint en la fase 4 de la granja de SharePoint Server 2013 en Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -110,7 +110,7 @@ Siga estos pasos para configurar el primer servidor de SharePoint en la granja d
 4.	En la página **Conectar a una granja de servidores**, seleccione **Crear una nueva granja de servidores** y, a continuación, haga clic en **Siguiente**.
 5.	En la página **Especificar configuración de base de datos**:
  - En **Servidor de base de datos**, escriba el nombre del servidor de la base de datos principal.
- - En **Nombre de usuario**, escriba [dominio]\*\* \\sp\_farm\_db\*\* (creado en [Fase 2: Configuración de controladores de dominio](virtual-machines-workload-intranet-sharepoint-phase2.md)). Recuerde que la cuenta de sp\_farm\_db tiene privilegios de sysadmin en el servidor de la base de datos.
+ - En **Nombre de usuario**, escriba [dominio]** \\sp\_farm\_db** (creado en [Fase 2: Configuración de controladores de dominio](virtual-machines-workload-intranet-sharepoint-phase2.md)). Recuerde que la cuenta de sp\_farm\_db tiene privilegios de sysadmin en el servidor de la base de datos.
  - En **Contraseña**, escriba la contraseña de la cuenta de sp\_farm\_db.
 6.	Haga clic en **Siguiente**.
 7.	En la página **Especificación de la configuración de seguridad de la granja de servidores**, escriba una frase de contraseña dos veces. Registre la frase de contraseña y almacénela en una ubicación segura para futuras referencias. Haga clic en **Siguiente**.
@@ -193,4 +193,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

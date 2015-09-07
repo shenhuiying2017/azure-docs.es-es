@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Depuración de servicios en la nube"
-   description="Depuración de servicios en la nube"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Depuración de Servicios en la nube de Azure | Microsoft Azure"
+	description="Depuración de Servicios en la nube de Azure"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
 
 # Depuración de servicios en la nube
 
@@ -27,4 +27,4 @@ Puede utilizar diferentes enfoques para depurar una aplicación de Azure utiliza
 
 - Puede habilitar la depuración remota en los servicios en la nube cuando implementa el servicio en la nube desde Visual Studio. Si elige habilitar la depuración remota para una implementación, los servicios de depuración remota se instalan en las máquinas virtuales que ejecutan cada instancia de rol. Estos servicios, como msvsmon.exe, no afectan al rendimiento ni al resultado en cuando a costos adicionales. Para obtener más información, vea [Depurar un servicio en la nube o una máquina virtual en Visual Studio](http://go.microsoft.com/fwlink/p/?LinkID=623018).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

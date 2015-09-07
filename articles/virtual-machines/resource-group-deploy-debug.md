@@ -1,30 +1,30 @@
 <properties
    pageTitle="Solución de problemas de implementaciones de grupo de recursos en Azure"
-   description="Describe los problemas habituales que se dan al implementar recursos en Azure, y muestra cómo usar el Portal de Azure, la interfaz de línea de comandos de Azure para Mac, Linux, Windows (CLI de Azure) y PowerShell para examinar las implementaciones y detectar problemas."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+	description="Describe los problemas habituales que se dan al implementar recursos en Azure, y muestra cómo usar el Portal de Azure, la interfaz de línea de comandos de Azure para Mac, Linux, Windows (CLI de Azure) y PowerShell para examinar las implementaciones y detectar problemas."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="command-line-interface"
-   ms.workload="infrastructure"
-   ms.date="04/25/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.workload="infrastructure"
+	ms.date="04/25/2015"
+	ms.author="rasquill"/>
 
 # Solución de problemas de implementaciones de grupo de recursos en Azure
 
-Para evitar errores de implementación, lo mejor es comprobar previamente un par de cosas; no obstante, a veces se dan errores en las implementaciones por diversos motivos. Este documento describe herramientas y operaciones para evitar errores sencillos, descargar archivos de plantilla y examinar registros de implementación. También describe los principales aspectos que hay que tener en cuenta al buscar errores en los registros de implementación.
+Las implementaciones pueden tener errores por varios motivos. Es mucho mejor evitar errores de implementación mediante la comprobación de antemano de un par de cosas. Este documento describe herramientas y operaciones para evitar errores sencillos, descargar archivos de plantilla y examinar registros de implementación. También describe los principales aspectos que hay que tener en cuenta al buscar errores en los registros de implementación.
 
 ## Herramientas útiles para interactuar con Azure
-El módulo AzureResourceManager incluye cmdlets que, al trabajar con los recursos de Azure desde la línea de comandos, le permitirán recopilar herramientas que le ayudan a realizar su trabajo. Las plantillas de grupo de recursos de Azure son documentos JSON, y la API de administración de recursos de Azure acepta y devuelve JSON; así pues, las herramientas de análisis de JSON son uno de los primeros utensilios que podrán ayudarle a navegar por la información sobre los recursos, así como diseñar o interactuar con plantillas y archivos de parámetros de plantilla.
+Cuando trabaje con los recursos de Azure desde la línea de comandos, recopilará herramientas que le ayudarán a realizar su trabajo. Las plantillas de grupo de recursos de Azure son documentos JSON, y la API de administración de recursos de Azure acepta y devuelve JSON; así pues, las herramientas de análisis de JSON son uno de los primeros utensilios que podrán ayudarle a navegar por la información sobre los recursos, así como diseñar o interactuar con plantillas y archivos de parámetros de plantilla.
 
 ### Herramientas de Windows, Linux y Mac
-Si utiliza la interfaz de línea de comandos de Azure para Mac, Linux y Windows, probablemente esté familiarizado con las herramientas estándar de descarga como **[curl](http://curl.haxx.se/)** y **[wget](https://www.gnu.org/software/wget/)**, o **[Resty](https://github.com/beders/Resty)**, y las utilidades de JSON como **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)** y las bibliotecas de lenguaje que sirven para administrar JSON correctamente. (Muchas de estas herramientas también tienen puertos para Windows, como [wget](http://gnuwin32.sourceforge.net/packages/wget.htm); de hecho, hay varias formas de conseguir que Linux y otras herramientas de software de código abierto se ejecuten también en Windows).
+Si usa la interfaz de línea de comandos de Azure para Mac, Linux y Windows, probablemente esté familiarizado con las herramientas estándar de descarga como **[curl](http://curl.haxx.se/)** y **[wget](https://www.gnu.org/software/wget/)**, o **[Resty](https://github.com/beders/Resty)**, y las utilidades de JSON como **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)** y las bibliotecas de lenguaje que sirven para administrar JSON correctamente. (Muchas de estas herramientas también tienen puertos para Windows, como [wget](http://gnuwin32.sourceforge.net/packages/wget.htm); de hecho, hay varias formas de conseguir que Linux y otras herramientas de software de código abierto se ejecuten también en Windows).
 
 Este tema incluye algunos comandos de CLI de Azure que puede utilizar con **jq** para obtener exactamente la información que desee de forma más eficaz. Debe elegir el conjunto de herramientas que le resulte cómodo para comprender el uso de los recursos de Azure.
 
@@ -51,7 +51,7 @@ La CLI de Azure tiene diversos comandos para ayudar a evitar errores y detectar 
 
 - **azure group template validate <resource group>**. Este comando valida sus plantillas y parámetros de plantilla antes de usarlos. Especifique una plantilla personalizada o de la galería y los valores de los parámetros de la plantilla que pretende usar.
 
-    En el ejemplo siguiente se muestra cómo validar una plantilla y los parámetros necesarios; la CLI de Azure solicita valores de parámetros que son necesarios.
+    En el ejemplo siguiente se muestra cómo validar una plantilla y los parámetros necesarios. La CLI de Azure solicita valores de parámetros que son necesarios.
 
         azure group template validate \
         > --template-uri "https://contoso.com/templates/azuredeploy.json" \
@@ -203,7 +203,7 @@ El módulo AzureResourceManager incluye cmdlets que le ayudan a prevenir errores
 
 - **Verbose y Debug**: los cmdlets del módulo AzureResourceManager llaman a las API de REST que hacen el trabajo real. Para ver los mensajes que las API devuelven, defina la variable $DebugPreference en "Continue" y use el parámetro común Verbose en los comandos. Los mensajes suelen ofrecer pistas fundamentales sobre la causa de cualquier error.
 
-- **Las credenciales de Azure no se han configurado o han caducado**: para actualizar las credenciales de la sesión de Windows PowerShell, use el cmdlet Add-AzureAccount. Las credenciales de un archivo de configuración de publicación no son suficientes para los cmdlets del módulo AzureResourceManager.
+- **Las credenciales de Azure no se han configurado o han caducado**: para actualizar las credenciales de la sesión de Windows PowerShell, use el cmdlet **Add-AzureAccount**. Las credenciales de un archivo de configuración de publicación no son suficientes para los cmdlets del módulo AzureResourceManager.
 
 ## Problemas de autenticación, suscripción, rol y cuota
 
@@ -213,14 +213,14 @@ Sin embargo, Azure Active Directory permite al usuario o al administrador contro
 
 También puede tener problemas cuando una implementación llega a cuota predeterminada, que podría haberse establecido por grupo de recursos, suscripciones, cuentas, etc. Confirme que dispone de los recursos disponibles para implementar correctamente. Para obtener información completa de las cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
-Para examinar las cuotas de su propia suscripción para núcleos, debería usar el comando `azure vm list-usage` en la CLI de Azure y el cmdlet `Get-AzureVMUsage` de PowerShell. A continuación se muestra el comando en la CLI de Azure y la cuota de núcleos para una cuenta de evaluación gratuita es 4:
+Para examinar las cuotas de su propia suscripción para núcleos, debería usar el comando `azure vm list-usage` en la CLI de Azure y el cmdlet **Get-AzureVMUsage** de PowerShell. A continuación se muestra el comando en la CLI de Azure y la cuota de núcleos para una cuenta de evaluación gratuita es 4:
 
     azure vm list-usage
     info:    Executing command vm list-usage
     Location: westus
     data:    Name   Unit   CurrentValue  Limit
     data:    -----  -----  ------------  -----
-    data:    Cores  Count  0             4    
+    data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
 Si tuviera que intenta implementar una plantilla que crea más de 4 núcleos en la región occidental de Estados Unidos en la suscripción anterior, obtendría un error de implementación que podría ser similar al siguiente (en el portal o investigando los registros de implementación):
@@ -231,12 +231,12 @@ Si tuviera que intenta implementar una plantilla que crea más de 4 núcleos en 
 
 En estos casos, debe ir al portal y archivar un problema de soporte técnico para aumentar su cuota para la región en la que desea realizar la implementación.
 
-> [AZURE.NOTE]Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administración de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administración de recursos en todas las regiones. <!-- --> Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de <!-- --> muestra Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "Este de Estados Unidos", "Oeste de Estados Unidos", "Europa occidental", "Asia oriental", "Sudeste de Asia" ] }
-     
+> [AZURE.NOTE]Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administrador de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administrador de recursos en todas las regiones. <!-- --> Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de <!-- --> muestra Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "Este de Estados Unidos", "Oeste de Estados Unidos", "Europa occidental", "Asia oriental", "Sudeste de Asia" ] }
+
 
 ## Problemas del modo de CLI de Azure y PowerShell
 
-Puede que haya observado que los recursos implementados mediante la API de administración de servicio o el portal clásico no son visibles al utilizar la API de administración de recursos o el portal de Azure. Es importante administrar los recursos con la misma API de administración o el mismo portal que se usó para crearlos. Si un recurso ha desaparecido, compruebe si está disponible mediante la otra API de administración o el otro portal.
+Puede que haya observado que los recursos implementados mediante la API de administración de servicio o el portal no son visibles al usar la API de administrador de recursos o el portal de Azure. Es importante administrar los recursos con la misma API de administrador o el mismo portal que se usó para crearlos. Si un recurso ha desaparecido, compruebe si está disponible mediante la otra API de administración o el otro portal.
 
 ## Problemas de registro del proveedor de recursos de Azure
 
@@ -294,9 +294,9 @@ Si un proveedor requiere el registro, use el comando `azure provider register <n
 
 ## Descripción de una implementación correcta para las plantillas personalizadas
 
-Si utiliza las plantillas que ha creado, es importante comprender que el sistema de administración de recursos de Azure informa de que una implementación se ha completado correctamente cuando todos los proveedores terminan la implementación correctamente. Esto significa que todos los elementos de plantilla se implementaron para su uso.
+Si utiliza las plantillas que ha creado, es importante comprender que el sistema de Administrador de recursos de Azure informa de que una implementación se ha completado correctamente cuando todos los proveedores terminan la implementación correctamente. Esto significa que todos los elementos de plantilla se implementaron para su uso.
 
-Sin embargo, esto no significa necesariamente que el grupo de recursos esté **activo y listo para sus usuarios**. Por ejemplo, la mayoría de las implementaciones solicitan a la implementación que descargue actualizaciones, que espere en otros recursos no son plantillas o que instale complejos scripts o alguna otra actividad ejecutable que Azure no conoce porque no es una actividad de la que un proveedor esté realizando seguimiento. En estos casos, puede trascurrir algo de tiempo antes de que los recursos estén disponibles para su utilización por parte de todos los usuarios. Por ello, debe esperar a cierto tiempo tras la confirmación del estado de implementación antes de que la implementación se pueda utilizar realmente.
+Sin embargo, tenga en cuenta que esto no significa necesariamente que el grupo de recursos esté "activo y listo para sus usuarios". Por ejemplo, la mayoría de las implementaciones solicitan a la implementación que descargue actualizaciones, que espere en otros recursos no son plantillas o que instale complejos scripts o alguna otra actividad ejecutable que Azure no conoce porque no es una actividad de la que un proveedor esté realizando seguimiento. En estos casos, puede trascurrir algo de tiempo antes de que los recursos estén disponibles para su utilización por parte de todos los usuarios. Por ello, debe esperar a cierto tiempo tras la confirmación del estado de implementación antes de que la implementación se pueda utilizar realmente.
 
 Sin embargo, puede evitar que Azure informe de que la implementación se produjo correctamente mediante la creación de un script personalizado para su plantilla personalizada (usando por ejemplo [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)) que sepa cómo supervisar toda la implementación para la preparación de todo el sistema y se devuelva correctamente solo cuando los usuarios puedan interactuar con toda la implementación. Si desea asegurarse de que su extensión es la última en ejecutarse, utilice la propiedad **dependsOn** de la plantilla. Puede ver un ejemplo [aquí](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
@@ -326,7 +326,7 @@ En ocasiones puede que necesite combinar dos plantillas, o puede que necesite ge
 
 ## Uso cruzado de grupos de recursos
 
-Es habitual querer utilizar un recurso desde fuera del grupo de recursos actual donde se está implementando una plantilla. La situación de este tipo más común responde al uso de una cuenta de almacenamiento o una red virtual en un grupo de recursos alternativo. A menudo, esto es necesario para que la eliminación del grupo de recursos que contiene las máquinas virtuales no dé como resultado la eliminación de los blobs de un disco duro virtual o de una red virtual que usan varios grupos de recursos. En el ejemplo siguiente se muestra cómo un recurso de un grupo de recursos externos se puede utilizar fácilmente:
+Es habitual querer utilizar un recurso desde fuera del grupo de recursos actual donde se está implementando una plantilla. La situación de este tipo más común responde al uso de una cuenta de almacenamiento o una red virtual en un grupo de recursos alternativo. A menudo, esto es necesario para que la eliminación del grupo de recursos que contiene las máquinas virtuales no dé como resultado la eliminación de los blobs de un disco duro virtual o de una red virtual que usan varios grupos de recursos. En el ejemplo siguiente se muestra cómo un recurso de un grupo de recursos externos se puede usar:
 
 
     {
@@ -385,6 +385,5 @@ Para dominar la creación de plantillas, lea [Creación de plantillas del Admini
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

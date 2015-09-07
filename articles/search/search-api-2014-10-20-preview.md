@@ -1,8 +1,8 @@
-<properties pageTitle="API de REST del Servicio Búsqueda de Azure versión 2014-10-20-Preview" description="API de REST del Servicio Búsqueda de Azure versión 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
+<properties pageTitle="API de REST del Servicio Búsqueda de Azure versión 2014-10-20-Preview" description="API de REST del Servicio Búsqueda de Azure versión 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist"/>
 
-# API de REST del Servicio Búsqueda de Azure versión 2014-10-20-Preview #
+#API de REST del Servicio Búsqueda de Azure versión 2014-10-20-Preview
 
 En este documento se describe la versión preliminar **2014-10-20-Preview** de la API de REST del servicio Búsqueda de Azure, publicada como actualización de la versión preliminar pública de Búsqueda de Azure. Dado que esta versión quedará pronto obsoleta, se recomienda encarecidamente que use en su lugar la versión asociada a la versión de disponibilidad general. Para obtener instrucciones sobre migración de código, consulte [Transición de la versión preliminar a la versión de la API de disposición general](search-transition-from-preview.md).
 
@@ -12,7 +12,7 @@ Entre otros contenidos de la API relacionados con la versión **2014-10-20-Previ
 
 La documentación de la versión actual disponible con carácter general de la API de REST de Búsqueda de Azure puede encontrarse en MSDN. Consulte [API de REST del servicio Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información.
 
-##Acerca de la API de REST del servicio##
+##Acerca de la API de REST del servicio
 
 Búsqueda de Azure es un servicio basado en la nube que puede usar para crear aplicaciones de búsqueda personalizadas. Búsqueda de Azure tiene los conceptos de *Servicios de búsqueda* e *índices*, en los que un servicio de búsqueda contiene uno o más índices. El servicio de búsqueda se identifica mediante un nombre de dominio completo (por ejemplo: `mysearchservice.search.windows.net`). Cuando el servicio se aprovisiona, se genera una clave de API, y se usa para autenticar las solicitudes al servicio de Búsqueda de Azure.
 
@@ -126,7 +126,7 @@ En el ejemplo siguiente se proporciona una ilustración de un esquema que se uti
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -649,7 +649,7 @@ Actualmente solo tiene un proveedor de sugerencias en las colecciones de proveed
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1455,4 +1455,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,23 @@
 <properties
-   pageTitle="Uso del conector de Box en la aplicación lógica"
-   description="Cómo usar el conector de Box en la aplicación lógica"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="dwrede"
-   editor=""/>
+	pageTitle="Uso del conector de Box en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de Box o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.service="app-service-logic"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
-# Conector de Box
+# Introducción al conector de Box y su incorporación a su aplicación lógica 
+Conéctese a Box para obtener, cargar, eliminar, etc. archivos. Los conectores se usan en Aplicaciones lógicas como parte de un "flujo de trabajo".
 
 Puede tener escenarios donde sea necesario trabajar con Box, que le permite compartir datos de forma segura con cualquier persona, incluso si están ubicados fuera del firewall. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
 
@@ -32,7 +33,7 @@ Nombre de parámetro | Descripción | Obligatorio
 --- | --- | ---
 Ruta de acceso a la carpeta | Ruta de acceso de la carpeta para enumerar. | Sí
 
-> [AZURE.NOTE] No devuelve ningún contenido del archivo.
+> [AZURE.NOTE]No devuelve ningún contenido del archivo.
 
 b. *Obtener archivo:* esta operación recupera un archivo que incluye su contenido y propiedades. Lista de los parámetros necesarios para la acción:
 
@@ -65,7 +66,8 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de Box", selecciónelo y seleccione **Crear**.
-3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades: 
+3. Escriba el nombre, el plan de Servicio de aplicaciones y otras propiedades: 
+
 	![][1]
 4. Seleccione **Crear**.
 
@@ -104,4 +106,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Entrega de multimedia a petición con Servicios multimedia de Azure" 
-	description="En este tema se describen escenarios comunes de entrega de contenido multimedia con Servicios multimedia de Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Entrega de multimedia a petición con Servicios multimedia de Azure"
+	description="En este tema se describen escenarios comunes de entrega de contenido multimedia con Servicios multimedia de Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@ Tenga en cuenta que puede integrar Servicios multimedia con los procesos y herra
 
 En el diagrama siguiente se muestran las partes principales de la plataforma de Servicios multimedia que intervienen en el flujo de trabajo de vídeo bajo demanda.![Flujo de trabajo de VoD][vod-overview]
 
-##<a id="vod_scenarios"></a>Escenarios comunes: Entrega de contenido multimedia bajo demanda. 
+##<a id="vod_scenarios"></a>Escenarios comunes: Entrega de contenido multimedia bajo demanda
 
 ###Protección del contenido en almacenamiento y entrega de contenido multimedia en streaming sin cifrar
 
@@ -220,4 +220,4 @@ Para obtener más información, consulte [Reproducción de contenido con reprodu
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

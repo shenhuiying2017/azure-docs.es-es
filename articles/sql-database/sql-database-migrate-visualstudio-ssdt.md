@@ -1,98 +1,85 @@
 <properties 
-   pageTitle="Migración con Visual Studio y SSDT" 
-   description="Base de datos SQL de Microsoft Azure, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="pehteh" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="Migración con Visual Studio y SSDT"
+	description="Base de datos SQL de Microsoft Azure, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración"
+	services="sql-database"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/17/2015"
-   ms.author="pehteh"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="08/24/2015"
+	ms.author="carlrab"/>
 
 #Actualización de la base de datos in situ para su posterior implementación en Base de datos SQL de Azure
 
 ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/01VSSSDTDiagram.png)
 
-Use esta opción cuando la migración de una base de datos a Base de datos SQL de Azure V12 requiere cambios de esquema que no se pueden atender con el Asistente de migración de SQL Azure (SAMW) porque la base de datos usa características de SQL Server que no se admiten en la Base de datos SQL de Azure. Con esta opción, Visual Studio se usa en primer lugar para crear un proyecto de base de datos a partir de la base de datos de origen. La plataforma de destino del proyecto se establece en Base de datos SQL de Azure V12 y se compila el proyecto para identificar todos los problemas de compatibilidad. SAMW puede corregir muchos problemas compatibilidad, pero no todos, por lo que se usa para procesar todos los scripts de los proyectos como primer paso. El uso de SAMW es opcional pero muy recomendable. La compilación del proyecto después de procesar los archivos de script con SAMW identificará los problemas restantes que, a continuación, deben resolverse manualmente mediante las herramientas de edición de Transact-SQL en Visual Studio. Cuando el proyecto se compila correctamente, el esquema se publica en una copia (recomendado) de la base de datos de origen para actualizar su esquema y los datos in situ. La base de datos actualizada se implementa en Azure, ya sea directamente o bien mediante la exportación e importación de un archivo BACPAC, con las técnicas descritas en la opción 1.
+Use esta opción cuando la migración de una base de datos local a Base de datos SQL de Azure V12 requiere cambios de esquema porque la base de datos usa características de SQL Server que no se admiten en la Base de datos SQL de Azure o para comprobar si las características no compatibles están presentes en una base de datos local.
+
+Use las [SQL Server Data Tools para Visual Studio más recientes](https://msdn.microsoft.com/library/mt204009.aspx) con Visual Studio 2013 Update 4 o versiones posteriores.
+
+Con esta opción:
+
+ - SQL Server Data Tools para Visual Studio ("SSDT") se usa en primer lugar para crear un proyecto de base de datos a partir de la base de datos de origen. 
+ - La plataforma de destino del proyecto se establece en Base de datos SQL de Azure V12 y se compila el proyecto para identificar todos los problemas de compatibilidad. 
+ - Cuando el proyecto se compila correctamente, el esquema se publica en una copia de la base de datos de origen (no se sobrescribe la base de datos de origen).
+ - La característica de comparación de datos de SSDT se usa a continuación para comparar la base de datos de origen con la base de datos compatible con SQL Azure recién creada y, a continuación, actualiza la nueva base de datos con datos de la base de datos de origen. 
+ - La base de datos actualizada se implementa a continuación en Azure mediante SSMS, ya sea directamente o bien mediante la exportación e importación de un archivo BACPAC.
  
-Como esta opción implica la actualización del esquema de la base de datos in situ antes de realizar la implementación en Azure, se recomienda encarecidamente realizar esta operación en una copia de la base de datos. La herramienta de comparación de esquemas de Visual Studio puede utilizarse para revisar el conjunto completo de cambios que se aplicarán a la base de datos antes de publicar el proyecto.
-
-El uso del Asistente para migración a SQL de Azure (SAMW) es opcional pero recomendado. SAMW detectará los problemas de compatibilidad en el cuerpo de funciones, procedimientos almacenados y desencadenadores que, en caso contrario, no se detectarán hasta la implementación.
-
-Si solo es necesario la implementación del esquema, el esquema actualizado se puede publicar directamente desde Visual Studio a Base de datos SQL de Azure.
+>[AZURE.NOTE]Nota: Si solo es necesario la implementación del esquema, el esquema actualizado se puede publicar directamente desde Visual Studio a Base de datos SQL de Azure.
 
 ## Pasos de migración
 
 1.	Abra el **Explorador de objetos de SQL Server** en Visual Studio. Use **Agregar SQL Server** para conectarse a la instancia de SQL Server que contiene la base de datos que se está migrando. Busque la base de datos en el explorador, haga clic con el botón derecho en ella y seleccione **Crear nuevo proyecto...** 
 
-![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
 
 2.	Configure las opciones de importación para **solo los objetos con ámbito de aplicación de importación**. Desmarque las opciones para importar los inicios de sesión de referencia, permisos y configuraciones de base de datos.
 
-![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/03MigrateSSDT.png)
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/03MigrateSSDT.png)
 
 3.	Haga clic en **Iniciar** para importar la base de datos y crear el proyecto, que contiene un archivo de scripts T-SQL para cada objeto de la base de datos. Los archivos de scripts se anidan en las carpetas del proyecto.
 
-![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/04MigrateSSDT.png)
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/04MigrateSSDT.png)
 
 4.	En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho y seleccione Propiedades. Se abrirá la página **Configuración del proyecto** en donde va a configurar la plataforma de destino para Base de datos de SQL de Microsoft Azure V12.
 
-![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/05MigrateSSDT.png)
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/05MigrateSSDT.png)
 
-5.	Opcional: haga clic con el botón derecho en el proyecto y seleccione **Crear** para generar el proyecto (no es estrictamente necesario en este momento, pero hacerlo ahora le proporcionará una línea de base para el número de problemas de compatibilidad en el proyecto y la eficacia de los siguientes pasos).
+5.	Haga clic con el botón derecho en el proyecto y seleccione **Crear** para crear el proyecto.
 
-![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/06MigrateSSDT.png)
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/06MigrateSSDT.png)
 
-6.	Opcional: haga clic con el botón derecho en el proyecto y seleccione **Proyecto de instantánea**. Tomando una instantánea al principio y posiblemente en fases posteriores durante la transformación, puede utilizar la herramienta de comparación de esquemas para comparar el esquema en cada fase.
+6.	La **lista de errores** muestra cada incompatibilidad. En este caso, el nombre de usuario NT AUTHORITY\\NETWORK SERVICE es incompatible. Puesto que es incompatible, puede comentarlo o quitarlo (y tratar las implicaciones de eliminar este inicio de sesión y rol de la solución de base de datos).
 
-![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/07MigrateSSDT.png) - La toma de instantáneas del proyecto crea un archivo .dacpac con marca de tiempo que contiene el esquema completo del proyecto. Puede modificar el nombre de archivo para indicar en qué etapa del proceso se tomó esta instantánea. ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/08MigrateSSDT.png)
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/07MigrateSSDT.png)
+7.	Haga doble clic en el primer script para abrirlo en una ventana de consulta, coméntelo y, a continuación, ejecute el script. ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/08MigrateSSDT.png)
 
-7.	Procese los archivos de scripts importados mediante el Asistente para migración a SQL de Azure (SAMW). Utilice la opción de carpeta y seleccione la carpeta del proyecto raíz. ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/09MigrateSSDT.png)
+8.	Repita este proceso para cada script que contenga incompatibilidades hasta que no quede ningún error. ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/09MigrateSSDT.png)
+9.	Cuando la base de datos está libre de errores, haga clic con el botón derecho en el proyecto y seleccione **Publicar** para generar y publicar la base de datos en una copia de la base de datos de origen (se recomienda usar una copia, al menos inicialmente). 
+ - Antes de realizar la publicación, dependiendo de la versión de SQL Server de origen (anterior a SQL Server 2014), es posible que necesite restablecer la plataforma de destino del proyecto para habilitar la implementación. 
+ - Si va a migrar una base de datos de SQL Server anterior, no debe introducir ninguna característica en el proyecto que no se admita en SQL Server de origen a menos que migre primero la base de datos a una versión más reciente de SQL Server. 
 
-8.	El Asistente procesará los archivos de scripts de esta carpeta y de todas sus subcarpetas. Se mostrará un resumen de los resultados en la página siguiente. ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/10MigrateSSDT.png)
-9.	Haga clic en Siguiente para ver una lista resumen de los archivos que han cambiado. 
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/10MigrateSSDT.png)
 
-![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)
 
-> [AZURE.NOTE]Se realizan copias temporales tanto de los archivos originales antes del procesamiento como de los archivos afectados después del procesamiento en las ubicaciones indicadas en la parte superior de la página.
+10.	En el Explorador de objetos de SQL Server, haga clic con el botón derecho en la base de datos de origen y haga clic en **Comparación de datos** para comparar el proyecto con la base de datos original para comprender qué cambios ha realizado el asistente. Seleccione la versión Azure SQL V12 de la base de datos y, a continuación, haga clic en **Finalizar**.
 
-10.	Haga clic en **Sobrescribir** y en **Aceptar** en el cuadro de diálogo de confirmación y los archivos originales se sobrescribirán con los archivos modificados. Solo se sobrescribirán los archivos que ya se hayan modificado.
-11.	Opcional. Utilice la comparación de esquemas para comparar el proyecto a una instantánea anterior o a la base de datos original para comprender qué cambios se han realizado por el asistente. Es posible que desee tomar también otra instantánea en este momento. 
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
 
-![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
-12.	Vuelva a compilar el proyecto (consulte el paso anterior) para determinar qué errores permanecen.
+12.	Revise las diferencias detectadas y, a continuación, haga clic en **Actualizar destino** para migrar datos de la base de datos de origen a la base de datos Azure SQL V12.
 
-13.	Examine los errores de forma sistemática para resolver cada problema. Evalúe el impacto de cada cambio en las aplicaciones que usan la base de datos.
+	![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/14MigrateSSDT.png)
 
-14.	Cuando la base de datos está libre de errores, haga clic con el botón derecho en el proyecto y seleccione **Publicar** para generar y publicar la base de datos en una copia de la base de datos de origen (se recomienda usar una copia, al menos inicialmente). El objetivo de este paso es actualizar el esquema de la base de datos de origen y realice los cambios consiguientes en los datos de la base de datos.
-- Antes de realizar la publicación, dependiendo de la versión de SQL Server de origen, puede que necesite restablecer la plataforma de destino del proyecto para habilitar la implementación. Si va a migrar una base de datos de SQL Server anterior, no debe introducir ninguna característica en el proyecto que no se admita en SQL Server de origen a menos que migre primero la base de datos a una versión más reciente de SQL Server. 
-- Debe configurar el paso de publicación para habilitar las opciones de publicación adecuadas. Por ejemplo, si se han eliminado o comentado objetos no admitidos en el proyecto, estos deben eliminarse de la base de datos para que pueda permitir la publicación y eliminar datos de la base de datos de destino. 
-- Si prevé que va a publicar de forma repetida 
+14.	Implemente el esquema de base de datos compatible con Azure SQL V12 y los datos a Base de datos SQL de Azure mediante SSMS. Consulte [Migración de una base de datos compatible con SSMS](sql-database-migrate-ssms.md).
 
-15.	Implemente la base de datos copiada en Base de datos SQL de Azure mediante las técnicas descritas en la opción 1.
-
-## Validación de la migración
-
-Una vez completada la migración, es una buena idea para comparar el esquema de la base de datos migrada con el esquema de la base de datos de origen para familiarizarse con los cambios que se han realizado y asegurarse de que son los esperados y no causarán problemas al migrar aplicaciones a la nueva base de datos. Puede utilizar la herramienta de comparación de esquemas que se incluye con las herramientas de SQL Server de Visual Studio para realizar la comparación. Puede comparar la base de datos en Base de datos SQL de Azure con la base de datos de SQL Server original o con una instantánea tomada cuando se importó la base de datos por primera vez en el proyecto.
-
-1.	Conéctese al servidor de Base de datos SQL de Azure que contiene la base de datos migrada y busque la base de datos. 
-
-2.	Haga clic con el botón derecho en la base de datos y seleccione **Comparación de esquemas...** Se abrirá una nueva comparación de esquemas con la base de datos de Azure seleccionada como origen en el lado izquierdo. Use la lista desplegable Seleccionar destino en el lado derecho para seleccionar la base de datos de destino o el archivo de instantáneas para la comparación.
-
-3.	Con el origen y el destino seleccionados, haga clic en Comparar para desencadenar la comparación. La carga del esquema de una base de datos compleja en Base de datos SQL de Azure puede tardar bastante tiempo. La carga del esquema y la realización de otras tareas de metadatos en Base de datos SQL de Azure tardará menos tiempo con un nivel de precios superior.
-
-4.	Una vez completada la comparación, revise las diferencias. A menos que tenga alguna duda, no debe como regla general aplicar los cambios a cualquier esquema.
-
-En la comparación de esquemas debajo de la base de datos Adventure Works 2014 de Base de datos SQL de Azure V12 situada a la izquierda, transformada y migrada mediante el Asistente para migración a SQL de Azure, se compara con la base de datos de origen de SQL Server situada a la derecha.
-
-![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

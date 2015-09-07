@@ -1,20 +1,20 @@
 <properties
    pageTitle="Desarrollar un servicio de Service Fabric"
-   description="Tutoriales e información de conceptos que le ayudarán a entender cómo desarrollar un servicio de Service Fabric con los modelos de programación de actor confiable o servicios de confianza."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+	description="Tutoriales e información de conceptos que le ayudarán a entender cómo desarrollar un servicio de Service Fabric con los modelos de programación de actor confiable o servicios de confianza."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="rwike77"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/14/2015"
-   ms.author="ryanwi"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/20/2015"
+	ms.author="ryanwi"/>
 
 # Desarrollar un servicio de Service Fabric
 Esta página tiene vínculos a tutorial y artículos de información general y sobre conceptos para ayudarle a aprender a desarrollar un servicio de Service Fabric. Service Fabric ofrece dos modelos de programación de alto nivel para la creación de servicios: las API de actores confiables y las API de servicios de confianza. Aunque ambas se basan en el mismo núcleo de Service Fabric, hacen diferentes compromisos entre la simplicidad y la flexibilidad en términos de simultaneidad, creación de particiones y comunicación. Es útil comprender ambos modelos para que pueda elegir el marco adecuado para un servicio concreto dentro de la aplicación.
@@ -53,7 +53,7 @@ Se proporciona una simultaneidad simple basada en turnos para los métodos de ac
 - [Eventos y contadores de rendimiento relacionados con la simultaneidad](service-fabric-reliable-actors-diagnostics.md)
 - [Reentrada de actor](service-fabric-reliable-actors-reentrancy.md)
 - [Temporizadores de actor](service-fabric-reliable-actors-timers-reminders.md)
- 
+
 Aquí encontrará la información sobre cómo configurar los actores confiables:
 
 - [Configuración de KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)  
@@ -86,6 +86,5 @@ A continuación se describen la comunicación con los servicios de confianza y l
 Los servicios de confianza emiten eventos y contadores de rendimiento, que se pueden usar para diagnosticar y supervisar su servicio:
 
 - [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

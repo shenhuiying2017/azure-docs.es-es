@@ -1,25 +1,24 @@
 <properties
-   pageTitle="Conector de QuickBooks"
-   description="Uso del conector de QuickBooks"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del conector de QuickBooks en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de QuickBooks o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-#Uso del conector de QuickBooks en la aplicación lógica#
-
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. El conector de QuickBooks permite crear y modificar diferentes entidades de QuickBooks. A continuación se proporciona la lista de entidades de QuickBooks compatibles con el conector de QuickBooks.
+# Introducción al conector de QuickBooks y su incorporación a su aplicación lógica
+Use el conector de QuickBooks para crear y modificar diferentes entidades de QuickBooks. En la tabla siguiente se enumeran las entidades compatibles:
 
 Entidades|Descripción
 ---|---
@@ -31,7 +30,7 @@ Factura|Una factura representa un formulario de venta donde el cliente paga un p
 Elemento|Un elemento es algo que su compañía adquiere, vende o revende; por ejemplo, productos, gastos de envío y manipulación, descuentos e impuestos (si corresponde). Un elemento se muestra como una línea en una factura u otro formulario de venta.
 Recibo de venta|Esta entidad representa el recibo de venta entregado a un cliente.
 
-
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Puede agregar el conector de QuickBooks a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ##Acciones de QuickBooks ##
 A continuación se muestran las distintas acciones disponibles en el conector de QuickBooks.
@@ -141,4 +140,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

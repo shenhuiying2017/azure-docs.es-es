@@ -1,20 +1,20 @@
 <properties
    pageTitle="Preguntas frecuentes sobre el Catálogo de datos de Azure"
-   description="Catálogo de datos de Azure: preguntas frecuentes sobre el Catálogo"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="Preguntas más frecuentes acerca de la vista previa del Catálogo de datos de Azure, incluidas las capacidades de detección del origen de datos, la anotación y la administración."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="08/19/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/21/2015"
+	ms.author="maroche"/>
 
 # Preguntas frecuentes sobre el Catálogo de datos de Azure
 
@@ -160,4 +160,4 @@ Si tiene problemas o necesita ayuda con la vista previa del Catálogo de datos d
 
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

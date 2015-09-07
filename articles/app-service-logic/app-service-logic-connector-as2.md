@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="Uso del conector AS2 en el Servicio de aplicaciones de Microsoft Azure" 
-   description="Uso del conector AS2" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Uso del conector AS2 en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector AS2 o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# Conector AS2 de Microsoft
-El conector AS2 de Microsoft Azure le permite recibir y enviar mensajes a través del protocolo de transporte AS2 (Applicability Statement 2) en comunicaciones de negocio a negocio. Los datos se transportan de forma segura y confiable a través de Internet. La seguridad se consigue mediante el uso de cifrado y certificados digitales.
+# Introducción al conector AS2 y su incorporación a una aplicación lógica
+El conector AS2 se usa para recibir y enviar mensajes a través del protocolo de transporte AS2 (Applicability Statement 2) en comunicaciones de negocio a negocio. Los datos se transportan de forma segura y confiable a través de Internet. La seguridad se consigue mediante el uso de cifrado y certificados digitales.
+
+El conector AS2 se puede agregar a los datos de flujos de trabajo y de procesos empresariales como parte de un flujo de trabajo de negocio a negocio dentro de una aplicación lógica.
 
 ## Acciones y desencadenadores
 Un desencadenador inicia una nueva instancia en función de un suceso específico, como la llegada de un mensaje AS2 de un socio. Una acción es el resultado, por ejemplo, después de recibir un mensaje AS2 enviarlo mediante AS2.
@@ -33,9 +35,9 @@ El usuario debe crear los siguientes elementos para que el conector AS2 pueda ut
 
 Requisito | Descripción
 --- | ---
-Aplicación de API TPM | Antes de crear un conector AS2, debe crear un [conector de administración de socios comerciales de BizTalk][1]. <br/><br/>**Nota** Conozca el nombre de la aplicación de API TPM. 
+Aplicación de API TPM | Antes de crear un conector AS2, es preciso crear un [conector de Administración de socios comerciales de BizTalk][1]. <br/><br/>**Nota** Debe conocer el nombre de la aplicación de API TPM. 
 Base de datos SQL de Azure | Almacena elementos B2B, lo que incluye socios, esquemas, certificados y acuerdos. Cada una de las aplicaciones de API de B2B requiere su propia base de datos de SQL Azure. <br/><br/>**Nota** Copie la cadena de conexión en esta base de datos.<br/><br/>[Creación de una base de datos SQL Azure](../sql-database-get-started.md)
-Contenedor de Almacenamiento de blobs de Azure | Almacena las propiedades de los mensajes cuando está habilitado el archivado AS2. Si no necesita el archivado de mensajes de AS2, no se necesita un contenedor de almacenamiento. <br/><br/>**Nota** Si va a habilitar el archivado, copie la cadena de conexión para el almacenamiento de blobs.<br/><br/>[Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md).
+Contenedor de Almacenamiento de blobs de Azure | Almacena las propiedades de los mensajes cuando está habilitado el archivado AS2. Si no se necesita el archivado de mensajes de AS2, no hace falta un contenedor de almacenamiento. <br/><br/>**Nota** Si va a habilitar el archivado, copie la cadena de conexión en este almacenamiento de blobs.<br/><br/>[Acerca de las cuentas de almacenamiento de Azure](../storage-create-storage-account.md).
 
 ## Creación del conector AS2
 
@@ -57,11 +59,11 @@ Nombre de la instancia de TPM | Escriba el nombre de la aplicación de API de **
 
 Los socios comerciales son las entidades implicadas en comunicaciones B2B (negocio a negocio). Cuando dos asociados establecen una relación, esto se conoce como contrato. El contrato definido se basa en la comunicación que los dos socios desean lograr y es específico del protocolo o el transporte.
 
-Los pasos necesarios para crear un contrato de socio comercial se documentan [aquí][2]
+Los pasos necesarios para crear un contrato de socio comercial se documentan [aquí][2].
 
 ## Uso del conector como desencadenador
 
-1. Al crear o editar una aplicación lógica, seleccione el conector AS2 que creó en el panel derecho: ![Configuración del desencadenador][3]
+1. Al crear o editar una aplicación lógica, seleccione en el panel derecho el conector AS2 que creó: ![Configuración del desencadenador][3]
 
 2. Haga clic en la flecha derecha →: ![Opciones del desencadenador][4]
 
@@ -71,16 +73,16 @@ Los pasos necesarios para crear un contrato de socio comercial se documentan [aq
 
 Como parte del resultado, el conector devuelve la carga de AS2, así como los metadatos específicos de AS2.
 
-El desencadenador se activa cuando una carga de AS2 es como una COMENTARIO a https://{Host URL}/descodificar. Puede encontrar la dirección URL de Host en la configuración de la aplicación de API. También deberá cambiar el nivel de acceso de la aplicación de API en Configuración de la aplicación a Público (autenticado o anónimo).
+El desencadenador se activa cuando una carga de AS2 es un COMENTARIO a https://{Host URL}/decode. Puede encontrar la dirección URL de Host en la configuración de la aplicación de API. También deberá cambiar el nivel de acceso de la aplicación de API en Configuración de la aplicación a Público (autenticado o anónimo).
 
 ## Uso del conector como acción
-1. Después del desencadenador (o de elegir "Ejecutar esta lógica manualmente"), agregue el conector AS2 que ha creado en el panel derecho: ![Configuración de la acción][7]
+1. Después del desencadenador (o de elegir "Ejecutar esta lógica manualmente"), agregue en el panel derecho el conector AS2 que creó: ![Configuración de la acción][7]
 
 2. Haga clic en la flecha derecha →: ![Lista de acciones][8]
 
 3. El conector AS2 solo admite una acción. Seleccione *Codificar y enviar*: ![Entrada de Codificar y enviar][9]
 
-4. Proporcione las entradas para la acción y configúrela: ![Codificar y enviar configurados][10]
+4. Especifique las entradas de la acción y configúrela: ![Codificar y enviar configurados][10]
 
 	Los parámetros son:
 
@@ -95,7 +97,7 @@ Habilitar archivado | boolean | Determina si se debe archivar el mensaje salient
 La acción devuelve un código de respuesta HTTP 200 de finalización satisfactoria.
 
 ## Aplicaciones adicionales del conector
-Más información sobre aplicaciones lógicas en [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+Encontrará más información sobre las aplicaciones lógicas en [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -113,4 +115,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

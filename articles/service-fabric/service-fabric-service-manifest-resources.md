@@ -1,20 +1,20 @@
 <properties
    pageTitle="Recursos de manifiesto de Service Fabric"
-   description="Cómo se describen los recursos de un manifiesto de servicio"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="timlt"
-   editor=""/>
+	description="Cómo se describen los recursos de un manifiesto de servicio"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/23/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Recursos de manifiesto de servicio
 
@@ -69,4 +69,4 @@ Service Fabric hace ACL automáticamente en los extremos HTTP.
 ```
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

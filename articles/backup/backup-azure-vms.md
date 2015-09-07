@@ -24,7 +24,7 @@ El proceso de detección envía consultas a Azure para obtener la lista de máqu
 
 ### Para desencadenar el proceso de detección
 
-1. Vaya al almacén de credenciales de copia de seguridad, que puede encontrarse en **Servicios de recuperación** en el Portal de Azure y haga clic en la pestaña **Elementos registrados**.
+1. Vaya al almacén de copia de seguridad, que puede encontrarse en **Servicios de recuperación** en el Portal de Azure y haga clic en la pestaña **Elementos registrados**.
 
 2. Elija el tipo de carga de trabajo en el menú desplegable como **Máquina virtual de Azure** y haga clic en el botón **Seleccionar**.
 
@@ -45,13 +45,13 @@ Para que se pueda proteger una máquina virtual, esta debe estar registrada en e
 
 1. Conectar la extensión de copia de seguridad en el agente de VM en la máquina virtual
 
-2. Para asociar la máquina virtual con el servicio Copia de seguridad de Azure
+2. Asociar la máquina virtual con el servicio Copia de seguridad de Azure.
 
 El registro suele ser una actividad de una vez. El servicio Copia de seguridad de Azure controla perfectamente la actualización y revisión de la extensión de copia de seguridad sin necesidad de intervención incómoda del usuario. Esto libera al usuario de la "sobrecarga de administración de agente" que normalmente se asocia con productos de copia de seguridad.
 
 ### Para registrar las máquinas virtuales
 
-1. Vaya al almacén de credenciales de copia de seguridad, que puede encontrarse en **Servicios de recuperación** en el Portal de Azure y haga clic en la pestaña **Elementos registrados**
+1. Vaya al almacén de copia de seguridad, que puede encontrarse en **Servicios de recuperación** en el Portal de Azure y haga clic en la pestaña **Elementos registrados**.
 
 2. Elija el tipo de carga de trabajo en el menú desplegable como **Máquina virtual de Azure** y haga clic en el botón Seleccionar.
 
@@ -59,7 +59,7 @@ El registro suele ser una actividad de una vez. El servicio Copia de seguridad d
 
 3. Haga clic en el botón **REGISTRAR** que se encuentra en la parte inferior de la página. ![botón Registrar](./media/backup-azure-vms/register-button-only.png)
 
-4. En la ventana emergente **Elementos registrados**, elija las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir entre las máquinas virtuales.
+4. En el menú contextual **Elementos registrados**, elija las máquinas virtuales que desea registrar. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir entre las máquinas virtuales.
 
     La operación **Registrar** puede realizarse a escala, lo que significa que se pueden seleccionar a la vez varias máquinas virtuales para registrar. Esto reduce en gran medida el esfuerzo único realizado para preparar la máquina virtual para la copia de seguridad.
 
@@ -81,14 +81,14 @@ El registro suele ser una actividad de una vez. El servicio Copia de seguridad d
 Este paso implica configurar una directiva de copia de seguridad y retención para la máquina virtual. Para proteger una máquina virtual, siga estos pasos:
 
 ### Para realizar una copia de seguridad de máquinas virtuales de Azure
-1. Vaya al almacén de credenciales de copia de seguridad, que puede encontrarse en **Servicios de recuperación** en el Portal de Azure y haga clic en la pestaña **Elementos registrados**.
+1. Vaya al almacén de copia de seguridad, que puede encontrarse en **Servicios de recuperación** en el Portal de Azure y haga clic en la pestaña **Elementos registrados**.
 2. Elija el tipo de carga de trabajo en el menú desplegable como **Máquina virtual de Azure** y haga clic en el botón **Seleccionar**.
 
     ![Seleccionar carga de trabajo en el portal](./media/backup-azure-vms/select-workload.png)
 
-3. Haga clic en el botón **PROTEGER** que se encuentra en la parte inferior de la página.
+3. Haga clic en el botón **PROTEGER** que se encuentra en la parte inferior de la página. Se abrirá el asistente **Proteger elementos**.
 
-4. Se abrirá el asistente **Proteger elementos**, donde puede seleccionar las máquinas virtuales que se protegerán. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir entre las máquinas virtuales.
+4. En el asistente **Proteger elementos** puede seleccionar las máquinas virtuales que se protegerán. Si hay dos o más máquinas virtuales con el mismo nombre, use el servicio en la nube para distinguir entre las máquinas virtuales.
 
     La operación **Proteger** puede realizarse a escala, lo que significa que se pueden seleccionar a la vez varias máquinas virtuales para proteger. Esto reduce en gran medida el esfuerzo único realizado para proteger la máquina virtual.
 
@@ -98,7 +98,7 @@ Este paso implica configurar una directiva de copia de seguridad y retención pa
 
     >[AZURE.NOTE]Para la vista previa, se admiten hasta 30 días de retención y un máximo de una copia de seguridad una vez al día.
 
-    En cada almacén de copia de seguridad, puede tener varias directivas de copia de seguridad. Las directivas reflejan los detalles acerca de cómo se debe programar y retener la copia de seguridad. Por ejemplo, una directiva de copia de seguridad podría ser para copia de seguridad diaria a las 22:00 h, mientras que otra directiva de copia de seguridad podría ser para copia de seguridad semanal a las 6:00 h. Varias directivas de copia de seguridad proporcionan flexibilidad en la programación de copias de seguridad de su infraestructura de máquinas virtuales.
+    En cada almacén de copia de seguridad, puede tener varias directivas de copia de seguridad. Las directivas reflejan los detalles acerca de cómo se debe programar y retener la copia de seguridad. Por ejemplo, una directiva de copia de seguridad podría ser para copia de seguridad diaria a las 22:00 h, mientras que otra directiva de copia de seguridad podría ser para copia de seguridad semanal a las 06:00 h. Varias directivas de copia de seguridad proporcionan flexibilidad en la programación de copias de seguridad de su infraestructura de máquinas virtuales.
 
     Cada directiva de copia de seguridad puede tener varias máquinas virtuales asociadas. La máquina virtual puede asociarse solo con una directiva en cualquier momento.
 
@@ -118,7 +118,7 @@ Este paso implica configurar una directiva de copia de seguridad y retención pa
     ![Se realiza una copia de seguridad de la máquina virtual con punto de recuperación](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## Visualización de los detalles y el estado de la copia de seguridad
-Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. Además, la página Panel muestra el número de trabajos de las últimas 24 horas que se realizaron correctamente, que han producido un error y que siguen en curso. Al hacer clic en una categoría, esta se desglosará en la página **Trabajos**.
+Una vez protegidas, el recuento de máquinas virtuales también aumenta en el resumen de la página **Panel**. Además, la página **Panel** muestra el número de trabajos de las últimas 24 horas que se realizaron correctamente, que han producido un error y que siguen en curso. Al hacer clic en una categoría, esta se desglosará en la página **Trabajos**.
 
 ![Estado de la copia de seguridad en la página Panel](./media/backup-azure-vms/dashboard-protectedvms.png)
 
@@ -128,16 +128,16 @@ Puede solucionar los errores detectados al usar Copia de seguridad de Azure con 
 | Operación de copia de seguridad | Detalles del error | Solución alternativa |
 | -------- | -------- | -------|
 | Detección | Se ha producido un error al detectar elementos nuevos: Copia de seguridad de Microsoft Azure ha detectado un error interno. Espere unos minutos y vuelva a intentar la operación. | Después de 15 minutos, vuelva a intentar el proceso de detección.
-| Detección | Se ha producido un error al detectar elementos nuevos: ya hay otra operación de detección en curso. Espere hasta que se haya completado la operación de detección. | None |
+| Detección | Se ha producido un error al detectar elementos nuevos: ya hay otra operación de detección en curso. Espere hasta que se haya completado la operación de detección actual. | Ninguno. |
 | Registro | El rol de VM de Azure no está en un estado para instalar la extensión: compruebe si la máquina virtual está en estado de ejecución. La extensión de Servicios de recuperación de Azure requiere que la máquina virtual se esté ejecutando. | Inicie la máquina virtual y cuando esté en estado en ejecución, vuelva a intentar la operación de registro.|
-| Registro | El número de discos de datos asociados a la máquina virtual sobrepasa el límite admitido. Desconecte algunos discos de datos de esta máquina virtual y vuelva a intentarlo. Copia de seguridad de Azure admite hasta 5 discos de datos conectados a una máquina virtual de Azure para copia de seguridad. | None |
-| Registro | Copia de seguridad de Microsoft Azure encontró un error interno. Espere unos minutos y vuelva a intentarlo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. | Este error puede deberse a una de las siguientes configuraciones no admitidas: <ol><li>LRS Premium <li>Varias NIC <li>Equilibrador de carga </ol> |
+| Registro | El número de discos de datos asociados a la máquina virtual sobrepasa el límite admitido. Desconecte algunos discos de datos de esta máquina virtual y vuelva a intentarlo. Copia de seguridad de Azure admite hasta 5 discos de datos conectados a una máquina virtual de Azure para realizar una copia de seguridad. | Ninguno. |
+| Registro | Copia de seguridad de Microsoft Azure encontró un error interno. Espere unos minutos y vuelva a intentarlo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. | Este error puede deberse a una de las siguientes configuraciones no admitidas: <ol><li>LRS Premium. <li>Varias NIC. <li>Equilibrador de carga</ol> |
 | Registro | No se encuentra el certificado del agente invitado de la máquina virtual. | Siga estas instrucciones para resolver el error: <ol><li>Descargue la versión más reciente del agente de la máquina virtual desde [aquí](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Asegúrese de que la versión del agente descargado sea la 2.6.1198.718 o una posterior. <li>Instale el agente de la máquina virtual en la máquina virtual.</ol> [Aprenda](#validating-vm-agent-installation) a comprobar la versión del agente de la máquina virtual. |
 | Registro | Se ha producido un error en el registro porque se ha agotado el tiempo de espera de la operación de instalación del agente. | Compruebe si se admite la versión del sistema operativo de la máquina virtual. |
-| Registro | Error en la ejecución de comando: hay otra operación en curso en este elemento. Espere hasta que se complete la operación anterior. | None |
+| Registro | Error en la ejecución de comando: hay otra operación en curso en este elemento. Espere hasta que se complete la operación anterior. | Ninguno. |
 | Copia de seguridad | Al copiar discos duros virtuales desde el almacén de copia de seguridad se agotó el tiempo de espera. Vuelva a intentar la operación en unos minutos. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. | Esto ocurre cuando hay demasiados datos que copiar. Compruebe si tiene menos de 6 discos de datos. |
-| Copia de seguridad | Se agotó el tiempo de espera de la subtarea de la máquina virtual para realizar la instantánea: vuelva a intentar la operación en unos minutos. Si el problema persiste, póngase en contacto con el Servicio técnico de Microsoft. | Este error se produce si hay un problema con el agente de la máquina virtual o cuando el acceso de red a la infraestructura de Azure está bloqueado por algún motivo. <ul><li>Obtenga información sobre cómo [depurar los problemas del agente de la máquina virtual.](#Troubleshooting-vm-agent-related-issues) <li>Obtenga información sobre cómo [depurar los problemas relacionados con las redes.](#troubleshooting-networking-issues) </ul> |
-| Copia de seguridad | Error interno en la copia de seguridad. Vuelva a intentar la operación en unos minutos. Si el problema persiste, póngase en contacto con el Servicio técnico de Microsoft. | Este error puede aparecer por 2 razones: <ol><li> Hay demasiados datos que copiar. Compruebe si tiene menos de 6 discos. <li>Se ha eliminado la máquina virtual original y, por tanto, no se puede realizar la copia de seguridad. Para mantener los datos de copia de seguridad de una máquina virtual eliminada y, a la vez, detener los errores de copia de seguridad, desproteja la máquina virtual y elija la opción para conservar los datos. Este comando detiene la programación de la copia de seguridad y también los mensajes de error recurrentes. |
+| Copia de seguridad | Se agotó el tiempo de espera de la subtarea de la máquina virtual para realizar la instantánea: vuelva a intentar la operación en unos minutos. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. | Este error se produce si hay un problema con el agente de la máquina virtual o cuando el acceso de red a la infraestructura de Azure está bloqueado por algún motivo. <ul><li>Obtenga información acerca de [la depuración de problemas de agente de máquina virtual](#Troubleshooting-vm-agent-related-issues). <li>Obtenga información acerca de [la depuración de problemas de red](#troubleshooting-networking-issues).</ul> |
+| Copia de seguridad | Error interno en la copia de seguridad. Vuelva a intentar la operación en unos minutos. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. | Este error puede aparecer por 2 razones: <ol><li> Hay demasiados datos que copiar. Compruebe si tiene menos de 6 discos. <li>Se ha eliminado la máquina virtual original y, por tanto, no se puede realizar la copia de seguridad. Para mantener los datos de copia de seguridad de una máquina virtual eliminada y, a la vez, detener los errores de copia de seguridad, desproteja la máquina virtual y elija la opción para conservar los datos. Este comando detiene la programación de la copia de seguridad y también los mensajes de error recurrentes. |
 | Copia de seguridad | No se pudo instalar la extensión de los Servicios de recuperación de Azure en el elemento seleccionado. El agente de la máquina virtual es un requisito previo para la extensión de los servicios de recuperación de Azure. Instale el agente de la máquina virtual de Azure y reinicie el funcionamiento del registro. | <ol> <li>Compruebe si el agente de la máquina virtual se ha instalado correctamente. <li>Asegúrese de que la marca de configuración de la máquina virtual se haya establecido correctamente.</ol> [Obtenga más información](#validating-vm-agent-installation) acerca del agente de la máquina virtual y sobre cómo validar su instalación. |
 | Copia de seguridad | Error en la ejecución del comando: otra operación está actualmente en curso en este elemento. Espere hasta que se complete la operación anterior y vuelva a intentarlo. | Se está ejecutando una copia de seguridad existente o un trabajo de restauración para la máquina virtual. No se puede iniciar un nuevo trabajo mientras se está ejecutando otro. <br><br>Si desea que esté disponible la opción para cancelar un trabajo en curso, especifique su voto en el [foro de comentarios de Azure](http://feedback.azure.com/forums/258995-azure-backup-and-scdpm/suggestions/7941501-add-feature-to-allow-cancellation-of-backup-restor). |
 
@@ -159,7 +159,7 @@ Actualizar el agente de la máquina virtual es tan sencillo como volver a instal
 #### Validación de la instalación del agente de la máquina virtual
 Cómo comprobar la versión del agente de la máquina virtual en máquinas virtuales de Windows:
 
-1. Inicie sesión en la máquina virtual de Azure y vaya a la carpeta *C:\\WindowsAzure\\Packages*. El archivo WaAppAgent.exe debe estar ahí.
+1. Inicie sesión en la máquina virtual de Azure y vaya a la carpeta *C:\\WindowsAzure\\Packages*. Encontrará el archivo WaAppAgent.exe en la carpeta Packages.
 2. Haga clic con el botón derecho en el archivo, vaya a **Propiedades** y seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior.
 
 ### Resolución de problemas de red
@@ -173,7 +173,7 @@ La necesidad de resolver direcciones públicas de Internet se describe [aquí](h
 
 Una vez que la resolución de nombres se haya realizado correctamente, también hay que proporcionar acceso a las direcciones IP de Azure. Para desbloquear el acceso a la infraestructura de Azure, siga estos pasos:
 
-1. Obtenga la lista de [IP del centro de datos de Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) que van a formar parte de la lista de direcciones IP aprobadas.
+1. Obtenga la lista de [IP del centro de datos de Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) que son direcciones IP seguras.
 2. Desbloquee las direcciones IP usando el commandlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Ejecute este commandlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados (realice la ejecución como administrador).
 
 
@@ -185,12 +185,12 @@ Cuando se trabaja con datos de copia de seguridad, los clientes se preocupan por
 - ¿La aplicación podrá leer los datos o se dañarán los datos?
 - ¿Los datos tendrán sentido para la aplicación o serán coherentes cuando la aplicación los lea?
 
-La siguiente tabla explica los tipos de coherencia que se detectan durante la restauración y la copia de seguridad de máquinas virtuales de Azure:
+La siguiente tabla explica los tipos de coherencia que se detectan durante la restauración y la copia de seguridad de máquinas virtuales de Azure.
 
-| Coherencia | Basada en el VSS | Explicación y detalles |
+| Coherencia | Con base en VSS | Explicación y detalles |
 |-------------|-----------|---------|
-| Coherencia de las aplicaciones | Sí | Este es el lugar ideal para las cargas de trabajo de Microsoft, ya que garantiza:<ol><li> que la máquina virtual *arranque*, <li>no *se produzca ningún daño*, <li>no se produzca ninguna *pérdida de datos* y<li> los datos sean coherentes con la aplicación que los usa, implicando la aplicación en el momento de la copia de seguridad mediante el uso del VSS.</ol> El servicio de instantáneas de volumen (VSS) garantiza que los datos se escriban correctamente en el almacenamiento. La mayoría de cargas de trabajo de Microsoft tienen escritores VSS que realizan acciones específicas de carga de trabajo relacionadas con la coherencia de los datos. Por ejemplo, Microsoft SQL Server tiene un escritor VSS que garantiza que las escrituras en el archivo de registro de transacciones y en la base de datos se realizan correctamente.<br><br> En la copia de seguridad de máquina virtual de Azure, obtener un punto de recuperación coherente con la aplicación significa que la extensión de copia de seguridad pudo invocar el flujo de trabajo VSS y completarlo *correctamente* antes de que se tomase la instantánea de la máquina virtual. Naturalmente, esto significa que los escritores VSS de todas las aplicaciones de la máquina virtual de Azure también se han invocado.<br><br>Obtenga [Aprenda los conceptos básicos de VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) y profundice en los detalles de su [funcionamiento](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
-| Coherencia del sistema de archivos | Sí, para máquinas de Windows | Hay dos escenarios donde el punto de recuperación puede ser coherente con el sistema de archivos:<ul><li>copia de seguridad de máquinas virtuales Linux en Azure, ya que Linux no tiene una plataforma equivalente a VSS.<li>Error de VSS durante la copia de seguridad de máquinas virtuales de Windows en Azure.</li></ul> En ambos casos, lo mejor que puede hacer es asegurarse de que: <ol><li> la máquina virtual *arranque*, <li> *no se produzca ningún daño* y <li>no se produzca *ninguna pérdida de datos*.</ol> Las aplicaciones deben implementar su propio mecanismo de "reparación" en los datos restaurados.|
+| Coherencia de las aplicaciones | Sí | Este es el lugar ideal para las cargas de trabajo de Microsoft, ya que garantiza:<ol><li> que la máquina virtual *arranca*. <li>que *no hay daños*. <li>que *no hay pérdida de datos*.<li> Los datos son coherentes con la aplicación que usa los datos, gracias a la implicación la aplicación en el momento de la copia de seguridad (con el uso de VSS).</ol> El servicio de instantáneas de volumen (VSS) garantiza que los datos se escriban correctamente en el almacenamiento. La mayoría de cargas de trabajo de Microsoft tienen escritores VSS que realizan acciones específicas de carga de trabajo relacionadas con la coherencia de los datos. Por ejemplo, Microsoft SQL Server tiene un escritor VSS que garantiza que las escrituras en el archivo de registro de transacciones y en la base de datos se realizan correctamente.<br><br> En la copia de seguridad de máquina virtual de Azure, obtener un punto de recuperación coherente con la aplicación significa que la extensión de copia de seguridad pudo invocar el flujo de trabajo VSS y completarlo *correctamente* antes de que se tomase la instantánea de la máquina virtual. Naturalmente, esto significa que los escritores VSS de todas las aplicaciones de la máquina virtual de Azure también se han invocado.<br><br>Obtenga [Aprenda los conceptos básicos de VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) y profundice en los detalles de su [funcionamiento](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx). |
+| Coherencia del sistema de archivos | Sí, para máquinas de Windows | Hay dos escenarios donde el punto de recuperación puede ser coherente con el sistema de archivos:<ul><li>copia de seguridad de máquinas virtuales Linux en Azure, ya que Linux no tiene una plataforma equivalente a VSS.<li>Error de VSS durante la copia de seguridad de máquinas virtuales de Windows en Azure.</li></ul> En ambos casos, lo mejor que puede hacer es asegurarse de que: <ol><li> la máquina virtual *arranca*. <li>No hay *ningún daño*.<li>No hay *ninguna pérdida de datos*.</ol> Las aplicaciones deben implementar su propio mecanismo de "reparación" en los datos restaurados.|
 | Coherencia de bloqueos | No | Esta situación es equivalente a aquellos casos en que una máquina experimenta un "bloqueo" (a través de un restablecimiento parcial o completo). Esto suele ocurrir cuando la máquina virtual de Azure se apaga en el momento de realizar la copia de seguridad. Para la copia de seguridad de la máquina virtual de Azure, obtener un punto de recuperación coherente con el bloqueo significa que Copia de seguridad de Azure no ofrece ninguna garantía sobre la coherencia de los datos en el medio de almacenamiento, ni desde la perspectiva del sistema operativo ni desde la perspectiva de la aplicación. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad. <br/> <br/> Aunque no hay ninguna garantía, en la mayoría de los casos, se iniciará el sistema operativo. Normalmente, esto va seguido de un procedimiento de comprobación de disco como chkdsk para corregir los errores por daños. Se perderán los datos o las escrituras en memoria que no se hayan vaciado completamente en el disco. Normalmente, la aplicación sigue con su propio mecanismo de comprobación en caso de que se deba realizar una reversión de datos. En la copia de seguridad de una máquina virtual de Azure, obtener un punto de recuperación coherente con el bloqueo significa que Copia de seguridad de Azure no ofrece ninguna garantía sobre la coherencia de los datos en el almacenamiento, ya sea desde el punto de vista del sistema operativo o desde el punto de vista de la aplicación. Esto ocurre normalmente cuando la máquina virtual de Azure se apaga en el momento de la copia de seguridad.<br><br>Por ejemplo, si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de la base de datos realiza una reversión hasta que los datos sean coherentes. Cuando se trabaja con datos repartidos en varios discos virtuales (por ejemplo, los volúmenes distribuidos), un punto de recuperación consistente para fallas proporciona garantías para la corrección de los datos.|
 
 ## Pasos siguientes
@@ -199,4 +199,4 @@ Para obtener más información acerca de cómo empezar a usar Copia de seguridad
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

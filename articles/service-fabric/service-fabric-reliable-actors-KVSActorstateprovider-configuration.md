@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Descripción general de la configuración &quot;KVSActorStateProvider&quot; de los actores confiables de Service Fabric"
-   description="Obtenga información sobre cómo configurar los actores con estado de Service Fabric de tipo &quot;KVSActorStateProvider&quot;"
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+   pageTitle="Descripción general de la configuración KVSActorStateProvider de los actores confiables de Service Fabric"
+	description="Obtenga información sobre cómo configurar los actores con estado de Service Fabric de tipo KVSActorStateProvider"
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/20/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Actores confiables de configuración: KVSActorStateProvider
 La configuración predeterminada de KVSActorStateProvider puede modificarse cambiando el archivo "settings.xml" generado en la raíz del paquete de Visual Studio en la carpeta "Config" del actor en cuestión especificado.
@@ -84,4 +84,4 @@ Las configuraciones de almacén se usan para configurar el almacén local que se
 BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones). Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

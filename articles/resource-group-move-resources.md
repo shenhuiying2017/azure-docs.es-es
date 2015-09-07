@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Traslado de recursos al nuevo grupo de recursos" 
-	description="Use Azure PowerShell o la API de REST para trasladar los recursos a un nuevo grupo de recursos para el Administrador de recursos de Azure." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	pageTitle="Traslado de recursos al nuevo grupo de recursos"
+	description="Use Azure PowerShell o la API de REST para trasladar los recursos a un nuevo grupo de recursos para el Administrador de recursos de Azure."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -55,9 +55,14 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 
 - Redes virtuales
 
+Al trabajar con aplicaciones web, no se puede mover solo un plan del Servicio de aplicaciones. Para mover las aplicaciones web, las opciones son:
+
+- Mover todos los recursos de un grupo de recursos a otro grupo de recursos, si el grupo de recursos de destino no tiene ya recursos Microsoft.Web.
+- Mover las aplicaciones web a un grupo de recursos distinto, pero mantener el plan del Servicio de aplicaciones del grupo de recursos original.
+
 ## Uso de PowerShell para trasladar recursos
 
-Para trasladar recursos existentes a otro grupo de recursos o a una suscripción, use el comando **Move-AzureResource**.
+Para mover recursos existentes a otro grupo de recursos o a otra suscripción, use el comando **Move-AzureResource**.
 
 El primer ejemplo muestra cómo trasladar un recurso a un nuevo grupo de recursos.
 
@@ -69,7 +74,7 @@ El segundo ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de r
     PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
     PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
-Para trasladar a una nueva suscripción, especifique un valor para el parámetro **DestinationSubscriptionId**.
+Para moverlos a una nueva suscripción, especifique un valor para el parámetro **DestinationSubscriptionId**.
 
 ## Uso de la API de REST para trasladar recursos
 
@@ -77,7 +82,7 @@ Para trasladar recursos existentes a otro grupo de recursos o a una suscripción
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Reemplace **{source-subscription-id}** y **{source-resource-group-name}** por la suscripción y el grupo de recursos que contienen actualmente los recursos que desea trasladar. Use **2015-01-01** para {api-version}.
+Reemplace **{source-subscription-id}** y **{source-resource-group-name}** por la suscripción y el grupo de recursos que actualmente contienen los recursos que desea trasladar. Use **2015-01-01** para {api-version}.
 
 En la solicitud, incluya un objeto JSON que define el grupo de recursos de destino y los recursos que desea mover.
 
@@ -96,4 +101,4 @@ En la solicitud, incluya un objeto JSON que define el grupo de recursos de desti
 - [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
 - [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

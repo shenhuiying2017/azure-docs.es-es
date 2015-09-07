@@ -1,20 +1,20 @@
 <properties
    pageTitle="Notas de la versión del Catálogo de datos de Azure"
-   description="Notas de la versión del 13 de julio de 2015 del Catálogo de datos de Azure"
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Notas de la vista previa pública de la versión del 13 de julio de 2015 del Catálogo de datos de Azure"
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Notas del 13 de julio de 2015 del Catálogo de datos de Azure
 
@@ -35,7 +35,7 @@ La compatibilidad con orígenes de datos de SQL Server Reporting Services (SSRS)
 
 Al abrir recursos de datos en Microsoft Excel desde el portal del Catálogo de datos de Azure, es posible que a los usuarios se les muestre un cuadro de diálogo de **Aviso de seguridad de Microsoft Excel**. Este es el comportamiento estándar esperado y los usuarios pueden seleccionar **Habilitar** para continuar.
 
-Para obtener más información, consulte [Habilitar o deshabilitar las alertas de seguridad acerca de vínculos y archivos de sitios web sospechosos](https://support.office.com/es-es/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Para obtener más información, consulte [Habilitar o deshabilitar las alertas de seguridad acerca de vínculos y archivos de sitios web sospechosos](https://support.office.com/es-ES/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ## Faltan las columnas BLOB y UDT en las vistas previas
 
@@ -67,4 +67,4 @@ Para obtener más información, consulte [Configuración de la autenticación ba
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

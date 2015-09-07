@@ -72,7 +72,7 @@ Posibles soluciones a este problema:
 
 Causa: la máquina virtual a la que se está conectando no encuentra la entidad de seguridad que se indica en la parte del nombre de usuario de las credenciales.
 
-Cuando el nombre de usuario tiene la forma *autoridadDeSeguridad*\*nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
+Cuando el nombre de usuario tiene la forma *autoridadDeSeguridad**nombreDeUsuario* (ejemplo: CORP\\User1), la parte *autoridadDeSeguridad* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
 
 Posibles soluciones a este problema:
 
@@ -86,8 +86,8 @@ Causa: la máquina virtual a la que se está conectando no puede validar el nomb
 
 Un equipo basado en Windows puede validar las credenciales de una cuenta local o de una cuenta basada en dominio.
 
-- Para las cuentas locales, use la sintaxis *nombreDeEquipo*\*nombreDeUsuario* (ejemplo: SQL1\\Admin4798).
-- Para las cuentas de dominio, use la sintaxis *nombreDeDominio*\*nombreDeUsuario* (ejemplo: CONTOSO\\johndoe).
+- Para las cuentas locales, use la sintaxis *nombreDeEquipo**nombreDeUsuario* (ejemplo: SQL1\\Admin4798).
+- Para las cuentas de dominio, use la sintaxis *nombreDeDominio**nombreDeUsuario* (ejemplo: CONTOSO\\johndoe).
 
 Para los equipos que promueve a controladores de dominio en un nuevo bosque de Active Directory, la cuenta de administrador local a la que está conectado al realizar la promoción se convierte en una cuenta equivalente con la misma contraseña en el nuevo bosque y dominio. La cuenta de administrador local anterior se elimina. Por ejemplo, si inició sesión con la cuenta de administrador local DC1\\DCAdmin y promovió la máquina virtual como controlador de dominio en un bosque nuevo para el dominio corp.contoso.com, la cuenta local DC1\\DCAdmin se elimina y se crea una nueva cuenta de dominio CORP\\DCAdmin con la misma contraseña.
 
@@ -182,7 +182,7 @@ Si no tiene otra máquina virtual en el mismo servicio en la nube o red virtual,
 Si se puede establecer una conexión a Escritorio remoto con una máquina virtual en el mismo servicio en la nube o red virtual, compruebe lo siguiente:
 
 - La configuración del extremo para el tráfico de Escritorio remoto en la máquina virtual de destino. El puerto TCP privado del extremo debe coincidir con el puerto TCP en el que escucha el servicio Servicios de Escritorio remoto en la máquina virtual, que de forma predeterminada es 3389.
-- La ACL del extremo para el tráfico de Escritorio remoto en la máquina virtual de destino. Las ACL permiten especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de Escritorio remoto al extremo. Examine las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+- La ACL del extremo para el tráfico de Escritorio remoto en la máquina virtual de destino. Las ACL permiten especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de Escritorio remoto al extremo. Examine las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](../virtual-network/virtual-networks-acl.md).
 
 Para descartar el extremo como causa del problema, quite el extremo actual y cree un nuevo extremo. Para ello, elija un puerto aleatorio en el intervalo que va entre 49152 y 65535 para el número de puerto externo. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
 
@@ -287,4 +287,4 @@ Para obtener información sobre el uso del soporte técnico de Azure, consulte l
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

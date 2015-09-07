@@ -3,7 +3,7 @@
 	description="Aprenda a usar el servicio Tabla de Azure desde Python para crear y eliminar una tabla e insertar y consultar una tabla."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 
 # Uso del almacenamiento de tablas de Python
@@ -23,7 +23,7 @@
 
 ## Información general
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento Tabla de Azure. Los ejemplos están escritos en Python y usan el [paquete de Azure para Python][]. Entre los escenarios descritos se incluyen la creación y eliminación de una tabla, la inserción y la consulta de entidades en una tabla.
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento Tabla de Azure. Los ejemplos están escritos en Python y usan el [paquete de almacenamiento de Azure para Python][]. Entre los escenarios descritos se incluyen la creación y eliminación de una tabla, la inserción y la consulta de entidades en una tabla.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -36,7 +36,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 El objeto **TableService** le permite trabajar con servicios de tabla. El siguiente código crea un objeto **TableService**. Agregue el código cerca de la parte superior de todo archivo Python en el que desee obtener acceso al almacenamiento de Azure mediante programación:
 
-	from azure.storage import TableService, Entity
+	from azure.storage.table import TableService, Entity
 
 El código siguiente crea un objeto **TableService** usando el nombre de la cuenta de almacenamiento y la clave de la cuenta. sustituya "myaccount" y "mykey" por la cuenta real y la clave.
 
@@ -139,5 +139,6 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 [Almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del equipo de Almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
+[paquete de almacenamiento de Azure para Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

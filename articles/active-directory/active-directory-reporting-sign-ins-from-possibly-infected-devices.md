@@ -17,11 +17,11 @@
 	ms.author="saah;kenhoff"/>
 
 # Inicios de sesión desde dispositivos posiblemente infectados
+<p>Este informe intenta identificar los dispositivos de los usuarios que han sido infectados y que forman ahora parte de una botnet (también conocido como ejército zombie). Correlacionamos las direcciones IP de inicios de sesión de usuarios con las direcciones IP que sabemos que están en contacto con servidores de botnet.</p>
+<p>Recomendación: este informe marca direcciones IP y no dispositivos de usuario. Se recomienda ponerse en contacto con el usuario y examinar todos sus dispositivos para estar seguro. También es posible que el dispositivo personal del usuario esté infectado o que alguien que no sea el usuario, que estaba usando la misma dirección IP que el usuario, tenga un dispositivo infectado. </p>
+<p>Para obtener más información acerca de cómo tratar infecciones de malware, consulte [Centro de protección contra malware] (http://go.microsoft.com/fwlink/?linkid=335773). </p>
 
-| Descripción | Ubicación del informe |
-| :-------------     | :-------        |
-| <p>Use este informe si desea ver inicios de sesión desde dispositivos en los que puede que se esté ejecutando malware (software malintencionado). Correlacionamos las direcciones IP de inicios de sesión frente a las direcciones IP desde las que se realizó un intento de ponerse en contacto con un servidor de malware.</p><p>Recomendación: como este informe supone que una dirección IP se asoció con el mismo dispositivo en ambos casos, recomendamos que se ponga en contacto con el usuario y analice el dispositivo del usuario para estar seguro.</p><p>Para obtener más información sobre cómo tratar infecciones de malware, consulte el [Centro de protección contra malware](http://go.microsoft.com/fwlink/?linkid=335773). </p> | Directorio > pestaña Informes |
 
 ![Inicios de sesión desde dispositivos posiblemente infectados](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

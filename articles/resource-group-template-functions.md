@@ -1,24 +1,36 @@
 <properties
    pageTitle="Funciones de la plantilla del Administrador de recursos de Azure"
-   description="Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, cadenas de formato e información de implementación."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, cadenas de formato e información de implementación."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/27/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
 
 Este tema describe todas las funciones que puede utilizar en una plantilla del Administrador de recursos de Azure.
+
+## agregar
+
+**add(operand1, operand2)**
+
+Devuelve la suma de los dos enteros especificados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| operand1 | Sí | Primer operando que se va a usar.
+| operand2 | Sí | Segundo operando que se va a usar.
+
 
 ## base64
 
@@ -56,7 +68,7 @@ En el ejemplo siguiente se muestra cómo combinar varios valores para devolver u
 
 **copyIndex(offset)**
 
-Devuelve el índice actual de un bucle de iteración. Para obtener ejemplos de cómo utilizar esta función, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+Devuelve el índice actual de un bucle de iteración. Para obtener ejemplos de cómo usar esta función, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
 ## deployment
 
@@ -85,6 +97,23 @@ En el ejemplo siguiente se muestra cómo se devuelve la información de implemen
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+Devuelve la división de enteros de los dos enteros especificados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| operand1 | Sí | Número que se va a dividir.
+| operand2 | Sí | Número que se usa para dividir, tiene que ser distinto de 0.
+
+## length
+
+**length(array)**
+
+Devuelve el número de elementos de una matriz. Normalmente, sirve para especificar el número de iteraciones al crear recursos. Para obtener un ejemplo de cómo usar esta función, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -104,6 +133,30 @@ En el ejemplo siguiente se muestra cómo se devuelven las claves de una cuenta d
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+Devuelve el resto de la división de enteros de los dos enteros especificados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| operand1 | Sí | Número que se va a dividir.
+| operand2 | Sí | Número que se usa para dividir, tiene que ser distinto de 0.
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+Devuelve la multiplicación de los dos enteros especificados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| operand1 | Sí | Primer operando que se va a usar.
+| operand2 | Sí | Segundo operando que se va a usar.
+
 
 ## padLeft
 
@@ -194,7 +247,7 @@ Permite que una expresión derive su valor del estado de tiempo de ejecución de
 
 La función **reference** deriva su valor desde un estado de tiempo de ejecución y, por tanto, no se puede utilizar en la sección de variables. Se puede utilizar en la sección de salidas de una plantilla.
 
-Mediante el uso de la expresión de referencia, se declara implícitamente que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla. No necesita utilizar también la propiedad **dependsOn**. La expresión no se evalúa hasta que el recurso al que se hace referencia complete la implementación.
+Mediante el uso de la expresión de referencia, se declara implícitamente que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla. No es necesario usar también la propiedad **dependsOn**. La expresión no se evalúa hasta que el recurso al que se hace referencia complete la implementación.
 
     "outputs": {
       "siteUri": {
@@ -311,6 +364,37 @@ A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacen
       }]
     }
 
+## split
+
+**split(inputString, delimiter)** **split(inputString, [delimiters])**
+
+Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entrada que están delimitadas por los delimitadores enviados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| inputString | Sí | Cadena que se va a dividir.
+| delimiter | Sí | Delimitador que se va a usar, puede ser una cadena o una matriz de cadenas.
+
+En el ejemplo siguiente la cadena de entrada se divide con una coma.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+Devuelve la resta de los dos enteros especificados.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| operand1 | Sí | Número del que se va a restar.
+| operand2 | Sí | Número que se va a restar.
+
 
 ## subscription
 
@@ -383,9 +467,9 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 
 
 ## Pasos siguientes
-- Para obtener una descripción de las secciones de una plantilla del Administrador de recursos de Azure, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md)
-- Para combinar varias plantillas, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md)
-- Para iterar una cantidad de veces específica al crear un tipo de recursos, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md)
-- Para ver cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
+- Para obtener una descripción de las secciones de una plantilla del Administrador de recursos de Azure, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+- Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
+- Para iterar una cantidad de veces específica al crear un tipo de recurso, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+- Para ver cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Supervisión de un servicio en la nube | Microsoft Azure" 
-	description="Vea cómo supervisar servicios en la nube usando el Portal de administración de Azure." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="rboucher" 
-	manager="jwhit" 
+	pageTitle="Supervisión de un servicio en la nube | Microsoft Azure"
+	description="Vea cómo supervisar servicios en la nube usando el Portal de administración de Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="rboucher"
+	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2014" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="robb"/>
 
 
@@ -192,4 +192,4 @@ Por ejemplo, las tablas siguientes almacenarían datos de supervisión detallado
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

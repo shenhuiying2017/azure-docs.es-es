@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Adición de almacenamiento de Azure mediante Servicios conectados en Visual Studio"
-   description="Adición de almacenamiento de Azure a la aplicación mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Adición de almacenamiento de Azure con Servicios conectados en Visual Studio | Microsoft Azure"
+	description="Adición de almacenamiento de Azure a la aplicación mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="mobile"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="mobile"
+	ms.date="08/12/2015"
+	ms.author="patshea"/>
 
 # Adición de almacenamiento de Azure mediante Servicios conectados de Visual Studio
 
@@ -38,13 +38,13 @@ Puede usar el cuadro de diálogo Servicios conectados para conectarse al Almacen
 
 ## Conexión con Almacenamiento de Azure mediante el cuadro de diálogo Servicios conectados
 
-1. Asegúrese de que tiene una cuenta de Azure. Si no tiene una cuenta de Azure, puede registrarse para [evaluación gratuita](http://go.microsoft.com/fwlink/?LinkId=518146). Una vez que tenga una cuenta de Azure, puede crear cuentas de almacenamiento, crear servicios móviles y configurar Azure Active Directory.
+1. Asegúrese de que tiene una cuenta de Azure. Si aún no tiene ninguna, puede registrarse para obtener una [evaluación gratuita](http://go.microsoft.com/fwlink/?LinkId=518146). Cuando tenga una cuenta de Azure, puede crear cuentas de almacenamiento, crear servicios móviles y configurar Azure Active Directory.
 
 1. Abra el proyecto en Visual Studio, abra el menú contextual del nodo **Referencias** en el Explorador de soluciones y luego elija **Agregar servicio conectado**.
 
     ![Adición de un servicio conectado](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. En el cuadro de diálogo **Agregar servicio conectado**, seleccione **Almacenamiento de Azure** y elija el botón **Configurar**. Es posible que se le solicite que inicie sesión en Azure si aún no lo ha hecho.
+1. En el cuadro de diálogo **Agregar servicio conectado**, seleccione **Almacenamiento de Azure** y elija el botón **Configurar**. Es posible que se le pida que inicie sesión en Azure si aún no lo ha hecho.
 
     ![Cuadro de diálogo Agregar servicio conectado - Almacenamiento](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
@@ -79,7 +79,7 @@ Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencia
  - Para los proyectos de ASP.NET, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
  - Para los proyectos de ASP.NET 5, vea [¿Qué ha ocurrido? - Proyectos de ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
  - Para los proyectos de servicio en la nube (roles web y roles de trabajo), vea [¿Qué ha ocurrido? – Proyectos de servicio en la nube](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
- - Para los proyectos de trabajo web, vea [¿Qué ha ocurrido? - Proyectos de trabajo web](storage/vs-storage-webjobs-what-happened/).
+ - Para los proyectos de trabajo web, consulte [¿Qué ha ocurrido? - Proyectos de trabajo web](vs-storage-webjobs-what-happened/).
 
 ## Pasos siguientes
 
@@ -94,4 +94,4 @@ Cuando haya terminado con el cuadro de diálogo, Visual Studio agrega referencia
 
      - [Documentación de almacenamiento en azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -34,7 +34,7 @@ Para las aplicaciones de Javascript que se ejecuta en un explorador, Azure AD pr
 
 Para crear la aplicación de trabajo completa, deberá realizar estas acciones:
 
-2. Registrar la aplicación con Azure AD
+2. Registrar la aplicación con Azure AD.
 3. Instalar ADAL y configurar SPA
 5. Usar ADAL para proteger las páginas de la SPA
 
@@ -151,4 +151,4 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/SinglePageApp-Ang
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

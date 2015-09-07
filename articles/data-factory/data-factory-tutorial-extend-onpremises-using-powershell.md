@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Copia de datos de salida del tutorial en una base de datos de SQL Server local" 
+	pageTitle="Copia de datos de salida del tutorial en una base de datos de SQL Server local"
 	description="Los pasos de este tutorial amplían el tutorial de la Factoría de datos para copiar datos de eficacia de campaña de marketing en una base de datos de SQL Server local."
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 
@@ -152,8 +152,7 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 [datafactorytutorial]: data-factory-tutorial-using-powershell.md
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[useonpremisesdatasources]: data-factory-move-data-between-onprem-and-cloud.md
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -171,4 +170,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

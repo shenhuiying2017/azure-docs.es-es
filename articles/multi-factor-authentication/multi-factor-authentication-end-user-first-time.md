@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Iniciar sesión por primera vez con Azure Multi-Factor Authentication" 
-	description="Esta página describe cuál será la experiencia del usuario la primera vez que se inicia sesión." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Iniciar sesión por primera vez con Azure Multi-Factor Authentication"
+	description="Esta página describe cuál será la experiencia del usuario la primera vez que se inicia sesión."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 # La experiencia de configuración para Azure Multi-Factor Authentication
 
  Cuando un administrador ha configurado su cuenta para solicitar que proporcione tanto la contraseña como una respuesta desde el teléfono para comprobar su identidad, se utilizan ajustes de comprobación de seguridad adicionales. Si un administrador ha configurado su cuenta para requerir una comprobación de seguridad adicional, **no podrá iniciar sesión hasta que haya completado el proceso de inscripción automática**.
@@ -37,4 +36,4 @@ Método|Descripción
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

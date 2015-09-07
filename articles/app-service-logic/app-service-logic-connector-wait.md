@@ -1,44 +1,38 @@
 <properties 
-   pageTitle="Conector de espera" 
-   description="Conector de espera" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Uso del conector de Wait en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de Wait o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-#Conector de espera
-El conector de espera permite que una aplicación retrase su ejecución durante un período de tiempo especificado o hasta la aparición de un tiempo especificado. Cuando se emplea en un flujo, se puede usar para retrasar la ejecución.
+# Introducción al conector de Wait y su incorporación a su aplicación lógica
+El conector de espera permite que una aplicación retrase su ejecución durante un período de tiempo especificado o hasta la aparición de un tiempo especificado. Puede agregar el conector de Wait a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica. Cuando se emplea en una aplicación lógica, se puede usar para retrasar la ejecución.
 
-##Uso del conector de espera
+## Uso del conector de espera
 Para usar el conector espera, deberá crear primero una instancia de la aplicación de API del conector de espera. Esta tarea puede realizarse en línea mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API del conector de espera en Azure Marketplace.
 
-##Uso del conector de espera en la superficie del diseñador de aplicaciones lógicas
+## Uso del conector de espera en la superficie del diseñador de aplicaciones lógicas
 El conector de espera se puede usar como una acción. No tiene ningún desencadenador.
 
-###Acción
-- Haga clic en el conector de espera en el panel derecho.
-
-	![Lista de acciones][1]
+### Acción
+- Haga clic en el conector de espera en el panel derecho: ![Lista de acciones][1]
 - El conector de espera admite dos acciones: 
 	- Retraso
 	- Retrasar hasta
 	 
-- Seleccione *Retraso*.
-
-	![Entrada de retraso][2]
-- Proporcione las entradas para la acción y configúrela.
-
-	![Acción configurada][3]
+- Seleccione *Retraso*: ![Entrada de retraso][2]
+- Proporcione las entradas para la acción y configúrela: ![Acción configurada][3]
 
 Parámetro|Tipo|Descripción del parámetro
 ---|---|---
@@ -57,4 +51,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

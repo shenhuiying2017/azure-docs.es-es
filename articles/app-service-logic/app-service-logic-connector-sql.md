@@ -1,29 +1,30 @@
 <properties
-   pageTitle="Uso del conector de SQL en el Servicio de aplicaciones de Microsoft Azure"
-   description="Uso del conector de SQL"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del conector de SQL en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de SQL o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Conector de Microsoft SQL
-
+# Introducción al conector de Microsoft SQL y su incorporación a las aplicaciones lógicas
 Conéctese a un servidor SQL Server o a una Base de datos SQL de Azure local para crear y cambiar información o datos. Los conectores pueden utilizarse en aplicaciones lógicas para recuperar, procesar o insertar datos como parte de un “flujo de trabajo”. Al utilizar el conector de SQL en su flujo de trabajo, puede conseguir distintos escenarios. Por ejemplo, puede:
 
 - Exponer una parte de los datos que residen en la base de datos SQL a través de una aplicación móvil o web.
 - Insertar los datos en la tabla de base de datos de SQL para almacenarlos. Por ejemplo, puede especificar los registros de empleados, actualizar los pedidos de ventas y así sucesivamente.
 - Obtener datos de SQL para usarlos en un proceso empresarial. Por ejemplo, puede obtener los registros de clientes y colocarlos en SalesForce.
+
+Puede agregar el conector de SQL a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ## Acciones y desencadenadores
 Los *desencadenadores* son eventos que se producen. Por ejemplo, cuando se actualiza un pedido o cuando se agrega un cliente nuevo. Un *acción* es el resultado del desencadenador. Por ejemplo, cuando se actualiza un pedido,se envía una alerta al vendedor. O bien, cuando se agrega un nuevo cliente, a este se le envía un correo electrónico de bienvenida.
@@ -57,9 +58,9 @@ Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local
 Nombre del servidor asociado | No | Si el servidor principal no está disponible, puede especificar un servidor asociado como un servidor de copia de seguridad o alternativo.
 Tablas | No | Enumere las tablas de base de datos que se pueden actualizar mediante el conector. Por ejemplo, escriba *OrdersTable* o *EmployeeTable*. Si no se especifica ninguna tabla, todas las tablas pueden usarse. Las tablas válidas o los procedimientos almacenados son necesarios para usar este conector como una acción.
 Procedimientos almacenados | No | Escriba un procedimiento almacenado que se pueda llamar mediante el conector. Por ejemplo, escriba *sp\_IsEmployeeEligible* o *sp\_CalculateOrderDiscount*. Las tablas válidas o los procedimientos almacenados son necesarios para usar este conector como una acción.
-Consulta de datos disponibles | Para la compatibilidad del desencadenador | Instrucción SQL para determinar si los datos están disponibles para el sondeo de una tabla de la base de datos de SQL Server. Esto debería devolver un valor numérico que representa el número de filas de datos disponibles. Ejemplo: SELECT COUNT(*) from table\_name. Consulta de sondeo de datos | Para la compatibilidad del desencadenador | La instrucción SQL para sondear la tabla de base de datos de SQL Server. Puede especificar cualquier número de instrucciones SQL separadas por un signo de punto y coma. Esta instrucción se ejecuta transaccionalmente y se confirma solo cuando los datos estén almacenados de forma segura en la aplicación lógica. Ejemplo: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>***Nota**<br/>Debe proporcionar una instrucción de sondeo que evite un bucle infinito mediante la eliminación, la transferencia o la actualización de los datos seleccionados para garantizar que no se vuelven a sondear los mismos datos.
+Consulta de datos disponibles | Para la compatibilidad del desencadenador | Instrucción SQL para determinar si los datos están disponibles para el sondeo de una tabla de la base de datos de SQL Server. Esto debería devolver un valor numérico que representa el número de filas de datos disponibles. Ejemplo: SELECT COUNT(*) from table\_name. Consulta de sondeo de datos | Para la compatibilidad del desencadenador | La instrucción SQL para sondear la tabla de base de datos de SQL Server. Puede especificar cualquier número de instrucciones SQL separadas por un signo de punto y coma. Esta instrucción se ejecuta transaccionalmente y se confirma solo cuando los datos estén almacenados de forma segura en la aplicación lógica. Ejemplo: SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>***Nota**<br/>Tiene que proporcionar una instrucción de sondeo que evite un bucle infinito mediante la eliminación, la transferencia o la actualización de los datos seleccionados para garantizar que no se vuelven a sondear los mismos datos.
 
-5. Cuando haya terminado, la configuración del paquete tendrá un aspecto similar al siguiente: ![][1]
+5. Cuando termine, la configuración del paquete tendrá un aspecto similar al siguiente: ![][1]
 
 6. Seleccione **Crear**.
 
@@ -91,14 +92,14 @@ Para usar el conector de SQL como un desencadenador, especifique los valores **C
 
 2. Seleccione el desencadenador **Datos de sondeo (JSON)**, especifique la frecuencia y haga clic en el signo ✓: ![][6]
 
-3. El desencadenador aparece ahora como configurado en la aplicación lógica. Se mostrarán las salidas del desencadenador y se podrán utilizar como entradas en acciones posteriores: ![][7]
+3. El desencadenador aparece ahora como configurado en la aplicación lógica. Se mostrarán las salidas del desencadenador y se podrán usar como entradas en acciones posteriores: ![][7]
 
 ## Uso del conector como acción
 Veamos el escenario de una aplicación lógica sencilla que sondea datos en una tabla de SQL, agrega los datos en otra tabla y actualiza los datos.
 
 Para usar el conector de SQL como una acción, escriba el nombre de las tablas o procedimientos almacenados que especificó al crear el conector de SQL:
 
-1. Después del desencadenador (o seleccione “Ejecutar esta lógica manualmente”), agregue el conector de SQL que ha creado desde la Galería. Seleccione una de las acciones de inserción, como *Insertar en TempEmployeeDetails (JSON)*: ![][8]
+1. Después del desencadenador (o seleccione “Ejecutar esta lógica manualmente”), agregue el conector de SQL que ha creado desde la Galería. Seleccione una de las acciones de inserción, como *insertar en TempEmployeeDetails (JSON)*: ![][8]
 
 2. Escriba los valores de entrada del registro que se va a insertar y haga clic en el signo ✓: ![][9]
 
@@ -148,4 +149,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

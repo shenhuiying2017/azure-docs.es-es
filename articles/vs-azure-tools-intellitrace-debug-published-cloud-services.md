@@ -1,19 +1,21 @@
 <properties 
-   pageTitle="Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado"
-   description="Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado | Microsoft Azure"
+	description="Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
+
+
 
 # Depuración con IntelliTrace y Visual Studio de un servicio en la nube publicado
 
@@ -31,9 +33,11 @@ Para habilitar IntelliTrace para una aplicación de Azure, debe crear y publicar
 
 1. Cuando esté preparado para implementar su aplicación de Azure, compruebe que sus destinos de compilación del proyecto se establecen en **Depurar**.
 
-1. Abra el menú contextual del proyecto de Azure en el Explorador de soluciones y elija **Publicar**. Aparecerá el asistente para publicar aplicación de Azure.
+1. Abra el menú contextual del proyecto de Azure en el Explorador de soluciones y elija **Publicar**.
+ 
+    Aparecerá el asistente para publicar aplicación de Azure.
 
-1. Para recopilar registros de IntelliTrace para su aplicación al publicarse en la nube, seleccione la casilla de verificación **Habilitar IntelliTrace**.
+1. Para recopilar registros de IntelliTrace para su aplicación al publicarse en la nube, seleccione la casilla **Habilitar IntelliTrace**.
 
     >[AZURE.NOTE]Puede habilitar IntelliTrace o bien la generación de perfiles al publicar su aplicación de Azure. No puede habilitar ambas cosas.
 
@@ -61,8 +65,8 @@ Puede continuar trabajando en Visual Studio mientras se descargan los registros 
 
 >[AZURE.NOTE]Es posible que los registros de IntelliTrace contengan excepciones que el marco genera y maneja posteriormente. El código del marco interno genera estas excepciones como parte normal del inicio de un rol, por lo que puede omitirlas de forma segura.
 
-## Pasos siguientes
+## Otras referencias
 
-[Depuración de Servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkID=62304)
+[Depuración de Servicios en la nube](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

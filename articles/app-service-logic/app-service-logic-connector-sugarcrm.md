@@ -1,37 +1,37 @@
 <properties
-   pageTitle="Conector de SugarCRM"
-   description="Uso del conector de SugarCRM"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del conector de SugarCRM en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de SugarCRM o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Uso del conector de SugarCRM en la aplicación lógica
-
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. El conector de SugarCRM le permite crear y modificar diferentes entidades como cuentas, clientes potenciales, contactos etc. A continuación se muestran los escenarios de integración típicos relacionados con SugarCRM.
+# Introducción al conector de SugarCRM y su incorporación a las aplicaciones lógicas
+El conector de SugarCRM le permite crear y modificar diferentes entidades como cuentas, clientes potenciales, contactos, etc. A continuación se muestran los escenarios de integración típicos relacionados con SugarCRM:
 
 - Sincronización de cuentas entre sistemas ERP y SugarCRM como SAP
-
 - Sincronización de cuentas, contactos y clientes potenciales entre Marketo y SugarCRM
-
 - Solicitud de flujo de caja de SugarCRM a sistemas ERP
 
+Como parte de la configuración del paquete del conector, puede especificar entidades que el conector puede administrar y las acciones y los parámetros de entrada y salida se completarán de forma dinámica.
 
-Como parte de la configuración del paquete del conector, el usuario puede especificar entidades que el conector puede administrar y las acciones y los parámetros de entrada y salida se completarán de forma dinámica.
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Puede agregar el conector de SugarCRM a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
+
+
 
 ## Acciones de conector de SugarCRM
-A continuación se muestran las distintas acciones disponibles en el conector de SugarCRM.
+A continuación se muestran las distintas acciones disponibles en el conector de SugarCRM:
 
 - Crear módulo: use esta acción para crear un nuevo registro para el módulo SugarCRM, como cuentas, clientes potenciales y contactos.
 
@@ -57,7 +57,7 @@ A continuación se muestran las distintas acciones disponibles en el conector de
 
 	Nombre | Obligatorio | Descripción
 --- | --- | ---
-Dirección URL del sitio | Sí | Escriba la dirección URL de la instancia de SugarCRM. Por ejemplo, escriba https://abcde1234.sugarcrm.com.
+Dirección URL del sitio | Sí | Escriba la dirección URL de la instancia de SugarCRM. Por ejemplo, escriba: https://abcde1234.sugarcrm.com.
 Id. de cliente | Sí | Escriba la clave de consumidor de clave de OAUTH 2.0 en SugarCRM. 
 Secreto del cliente | Sí | Escriba el secreto de consumidor de OAUTH.
 Nombre de usuario | Sí | Escriba el nombre de usuario de SugarCRM.
@@ -71,49 +71,31 @@ Nombres de módulo | Sí | Especifique los módulos de SugarCRM (como cuentas, c
 ## Crear una aplicación lógica
 Vamos a crear una aplicación lógica simple que cree una cuenta en SugarCRM y actualice la información de la dirección de facturación de la misma cuenta.
 
-1.	Inicie sesión en el Portal de Azure y haga clic en "Nuevo -> Web+móvil -> Aplicación lógica"
+1.	Inicie sesión en el Portal de Azure y haga clic en "Nuevo -> Web+móvil -> Aplicación lógica": ![][1]
 
-	![][1]
-
-2.	En la página "Crear aplicación lógica", especifique la información necesaria, como el nombre, el plan de servicio de la aplicación y la ubicación.
-
-	![][2]
+2.	En la página "Crear aplicación lógica", especifique la información necesaria, como el nombre, el plan de servicio de la aplicación y la ubicación: ![][2]
 
 3.	Haga clic en "Desencadenadores y acciones" y aparecerá la pantalla del editor de aplicación lógica. Seleccione "Ejecutar esta lógica manualmente", lo que significa que esta aplicación lógica solo se puede invocar manualmente.
 
+4.	Expanda ’Aplicaciones de API’ en este grupo de recursos en la Galería para ver todas las Aplicaciones de API disponibles. Seleccione "SugarCRM" en la galería y el "Conector de SugarCRM" se agregará al flujo: ![][3]
 
-5.	Expanda ’Aplicaciones de API’ en este grupo de recursos en la Galería para ver todas las Aplicaciones de API disponibles. Seleccione «SugarCRM» en la galería y el «Conector de SugarCRM» se agregará al flujo.
+5.	Seleccione la acción "Crear cuenta" y se mostrarán los parámetros de entrada: ![][4]
 
+6.	Proporcione un nombre como ’Cuenta Microsoft’ y haga clic en ✓: ![][5]
 
-	![][3]
+7.	Seleccione ’Conector de SugarCRM’ en la sección ’Usados recientemente’ en la galería y se agregará una nueva acción de SugarCRM.
 
-6.	Seleccione la acción "Crear cuenta" y se mostrarán los parámetros de entrada.
+8.	Seleccione "Actualizar cuenta" (estará en Acciones avanzadas "...") de la lista de acciones y se mostrarán los parámetros de entrada de la acción "Actualizar cuenta": ![][6]
 
-	![][4]
+9.	Haga clic en "..." junto a "Id. de registro" para elegir el valor del identificador de la salida de la acción "Crear cuenta": ![][7]
 
-12.	Proporcione un nombre como ’Cuenta Microsoft’ y haga clic en ✓.
+10.	Proporcione los valores de la información de dirección de facturación y haga clic en ✓: ![][8]
 
-	![][5]
+11. Haga clic en Aceptar en la pantalla del editor de Aplicación lógica y, a continuación, haga clic en ’Crear’. Se tardará aproximadamente 30 segundos en completar la creación.
 
-13.	Seleccione ’Conector de SugarCRM’ en la sección ’Usados recientemente’ en la galería y se agregará una nueva acción de SugarCRM.
+12. Busque la aplicación lógica creada recientemente y haga clic en "Ejecutar ahora" para iniciar una ejecución.
 
-14.	Seleccione "Actualizar cuenta" (estará en Acciones avanzadas "...") de la lista de acciones y se mostrarán los parámetros de entrada de la acción "Actualizar cuenta".
-
-	![][6]
-
-15.	Haga clic en "..." junto a "Id. de registro" para elegir el valor del identificador de la salida de la acción "Crear cuenta".
-
-	![][7]
-
-16.	Proporcione los valores de la información de dirección de facturación y haga clic en ✓.
-
-	![][8]
-
-17. Haga clic en Aceptar en la pantalla del editor de Aplicación lógica y, a continuación, haga clic en ’Crear’. Se tardará aproximadamente 30 segundos en completar la creación.
-
-18. Busque la aplicación lógica creada recientemente y haga clic en "Ejecutar ahora" para iniciar una ejecución.
-
-19. Puede comprobar que se crea una nueva cuenta llamada ’Cuenta Microsoft’ en su cuenta de SugarCRM y la misma cuenta también se actualiza con la información de dirección de facturación.
+13. Puede comprobar que se crea una nueva cuenta llamada ’Cuenta Microsoft’ en su cuenta de SugarCRM y la misma cuenta también se actualiza con la información de dirección de facturación.
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
@@ -133,4 +115,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Comparación de las herramientas para la integración de directorios" 
-	description="Esta página proporcionará tablas completas que comparan las distintas herramientas para la integración de directorios." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Comparación de las herramientas para la integración de directorios"
+	description="Esta página proporcionará tablas completas que comparan las distintas herramientas para la integración de directorios."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Comparación de las herramientas para la integración de directorios
@@ -88,4 +88,4 @@ Permitir aplicar distintas plantillas de servicio para flujos de atributo |● |
 Permitir quitar atributos del flujo de AD a Azure AD | ● | ● | |  
 Permitir personalización avanzada para flujos de atributo | ● | ● | | ●  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

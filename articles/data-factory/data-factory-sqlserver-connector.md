@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector de SQL Server - Mover datos a y desde SQL Server" 
-	description="Obtenga información acerca del conector de SQL Server para el servicio Factoría de datos que le permite mover datos a y desde la Base de datos SQL Server que está en local o en una máquina virtual de Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Movimiento de datos hacia y desde SQL Server | Factoría de datos de Azure"
+	description="Aprenda a mover los datos hacia y desde una base de datos SQL Server en un entorno local o en una máquina virtual de Azure mediante Factoría de datos de Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector de SQL Server - Mover datos a y desde SQL Server, local o en IaaS (Máquina virtual de Azure)
+# Movimiento de los datos entre entornos locales de SQL Server o en IaaS (máquina virtual de Azure) mediante Factoría de datos de Azure
 
 En este artículo se describe cómo puede usar la actividad de copia en Factoría de datos de Azure para mover datos a SQL Server desde otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
@@ -32,11 +32,11 @@ Aunque puede instalar la puerta de enlace en el mismo equipo local o una instanc
 
 El ejemplo siguiente muestra:
 
-1.	Un servicio vinculado de tipo OnPremisesSqlServer.
-2.	Un servicio vinculado de tipo AzureStorage.
-3.	Un conjunto de datos de entrada de tipo SqlServerTable. 
-4.	Un conjunto de datos de salida de tipo AzureBlob.
-4.	La canalización con la actividad de copia que usa SqlSource y BlobSink.
+1.	Un servicio vinculado de tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
+4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	La [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 El ejemplo copia los datos que pertenecen a una serie temporal desde una tabla de una Base de datos SQL Server a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -156,7 +156,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Canalización con actividad de copia**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **SqlSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **SqlSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
 
 
 	{  
@@ -183,7 +183,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -208,11 +208,11 @@ La canalización contiene una actividad de copia que está configurada para usar
 
 El ejemplo siguiente muestra:
 
-1.	El servicio vinculado de tipo OnPremisesSqlServer.
-2.	El servicio vinculado de tipo AzureStorage.
-3.	Un conjunto de datos de entrada de tipo AzureBlob.
-4.	Un conjunto de datos de salida de tipo SqlServerTable.
-4.	La canalización con la actividad de copia que usa BlobSource y SqlSink.
+1.	El servicio vinculado de tipo [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	El servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.	La [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) y [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
 
 El ejemplo copia los datos que pertenecen a una serie temporal desde un blob de Azure a una tabla de una Base de datos SQL Server cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -329,7 +329,7 @@ El ejemplo copia los datos a una tabla denominada "MyTable" en SQL Server. Debe 
 
 **Canalización con actividad de copia**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **SqlSink**.
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **SqlSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -388,6 +388,10 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | nombre de usuario | Especifique el nombre de usuario si usa la autenticación de Windows. | No |
 | contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No |
 
+Puede cifrar las credenciales con el cmdlet **New-AzureDataFactoryEncryptValue** cmdlet y usarlas en la cadena de conexión, como se muestra en el ejemplo siguiente (propiedad **EncryptedCredential**):
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
 ### Muestras
 
 **JSON para usar autenticación de SQL**
@@ -417,6 +421,8 @@ Si se especifican el nombre de usuario y la contraseña, la puerta de enlace los
 	         "gatewayName": "<gateway name>" 
 	     } 
 	}
+
+Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de SQL Server.
 
 ## Propiedades de tipo de conjunto de datos de SQL Server
 
@@ -512,4 +518,4 @@ La asignación es igual que la asignación de tipo de datos de SQL Server para A
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -85,10 +85,10 @@ En todos estos casos, intente deshabilitar temporalmente el software y pruebe a 
 
 Si utiliza la autenticación de certificados, compruebe que dispone de estos permisos a la carpeta .ssh en el directorio principal:
 
-- Chmod 700 \~/.ssh
-- Chmod 644 \~/.ssh/*.pub
-- Chmod 600 \~/.ssh/id\_rsa (o cualquier otro archivo en el que tenga almacenadas las claves privadas)
-- Chmod 644 \~/.ssh/known\_hosts (contiene los hosts a los que se ha conectado a través de SSH)
+- Chmod 700 ~/.ssh
+- Chmod 644 ~/.ssh/*.pub
+- Chmod 600 ~/.ssh/id\_rsa (o cualquier otro archivo en el que tenga almacenadas las claves privadas)
+- Chmod 644 ~/.ssh/known\_hosts (contiene los hosts a los que se ha conectado a través de SSH)
 
 ### Causa 2: Dispositivo perimetral de la organización
 
@@ -119,7 +119,7 @@ Si no tiene otra máquina virtual en la misma red virtual, puede crear una fáci
 Si puede crear una conexión a SSH con una máquina virtual en la misma red virtual, compruebe:
 
 - La configuración del extremo para el tráfico de SSH en la máquina virtual de destino. El puerto TCP privado del extremo debe coincidir con el puerto TCP en el que escucha el servicio SSH en la máquina virtual, que de forma predeterminada es 22. En el caso de las máquinas virtuales creadas en el Administrador de recursos de Azure mediante plantillas, compruebe el número de puerto TCP de SSH en el Portal de vista previa de Azure con **Examinar** > **Máquinas virtuales (v2)** > *Nombre de máquina virtual* > **Configuración** > **Extremos**.
-- La ACL del extremo para el tráfico de SSH en la máquina virtual de destino. Las ACL permiten especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de SSH al extremo. Examine las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](https://msdn.microsoft.com/library/azure/dn376541.aspx).
+- La ACL del extremo para el tráfico de SSH en la máquina virtual de destino. Las ACL permiten especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de SSH al extremo. Examine las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](../virtual-network/virtual-networks-acl.md).
 
 Para descartar el extremo como causa del problema, quite el extremo actual y cree un nuevo extremo, especificando el nombre **SSH** (puerto TCP 22 para el número de puerto público y privado). Para obtener más información, vea [ Configuración de extremos en una máquina virtual en Azure](virtual-machines-set-up-endpoints.md).
 
@@ -165,4 +165,4 @@ Para obtener información sobre el uso del soporte técnico de Azure, consulte l
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

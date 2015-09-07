@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Administración de aplicaciones de API" 
-	description="Aprenda a administrar aplicaciones de API del Servicio de aplicaciones de Azure mediante el portal de Azure y el Explorador de servidores de Visual Studio." 
-	services="app-service\api" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Administración de aplicaciones de API"
+	description="Aprenda a administrar aplicaciones de API del Servicio de aplicaciones de Azure mediante el portal de Azure y el Explorador de servidores de Visual Studio."
+	services="app-service\api"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="tdykstra"/>
 
 # Administración de aplicaciones de API en el Servicio de aplicaciones de Azure
@@ -65,7 +65,7 @@ Las únicas funciones proporcionadas en la hoja de **aplicación de API** que no
 
 ### Tareas que solo se pueden realizar en la hoja de host de aplicación de API
 
-La hoja de **host de aplicación de API** se utiliza para todas las tareas que haría para cualquier aplicación web. Para obtener más información, consulte [Administración de aplicaciones web en el portal](../app-service-web/web-sites-manage.md).
+La hoja de **host de aplicación de API** se utiliza para todas las tareas que haría para cualquier aplicación web.
 
 ### Tareas que solo se pueden realizar en la hoja de la puerta de enlace
 
@@ -80,7 +80,7 @@ Las hojas de la puerta de enlace y del host de puerta de enlace comparten la int
 
 ### Tareas que solo se pueden realizar en la hoja del host de puerta de enlace
 
-La hoja de **host de puerta de enlace** se utiliza para todas las tareas que haría para cualquier aplicación web. Para obtener más información, consulte [Administración de aplicaciones web en el portal](web-sites-manage.md).
+La hoja de **host de puerta de enlace** se utiliza para todas las tareas que haría para cualquier aplicación web.
 
 ## <a id="navigate"></a>Cómo desplazarse a las hojas de puerta de enlace y la aplicación de API 
 
@@ -130,8 +130,8 @@ Para obtener una aplicación de API en el Explorador de servidores, haga clic en
 
 ## Pasos siguientes
 
-En este artículo, se muestra cómo usar el portal de Azure para realizar tareas de administración de aplicaciones de API. Para las aplicaciones de API que haya instalado desde la Galería de aplicaciones de API, consulte también [Administración y supervisión de conectores y aplicaciones de API integrados](../app-service-logic/app-service-logic-monitor-your-connectors.md).
+En este artículo, se muestra cómo usar el portal de Azure para realizar tareas de administración de aplicaciones de API. Para las aplicaciones de API que haya instalado desde la Galería de aplicaciones de API, consulte también [Administración y supervisión de las aplicaciones de API y los conectores integrados](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 Para obtener información acerca de cómo administrar aplicaciones de API mediante la línea de comandos, consulte los artículos de la sección **Automatizar** del menú que aparece en el lado izquierdo del artículo (en las ventanas del explorador anchas) o en la parte superior del artículo (en las ventanas del explorador estrechas).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

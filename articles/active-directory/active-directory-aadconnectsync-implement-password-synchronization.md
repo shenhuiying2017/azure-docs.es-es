@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Sincronización de Azure AD Connect: implementación de la sincronización de contraseñas"
+	pageTitle="Sincronización de Azure AD Connect: implementación de la sincronización de contraseñas | Microsoft Azure"
 	description="Le proporciona la información que necesita para comprender cómo funciona la sincronización de contraseñas y cómo habilitarla en su entorno."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,31 +13,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
-	ms.author="markusvi"/>
+	ms.date="08/24/2015"
+	ms.author="markusvi;andkjell"/>
 
 
-# Sincronización de Azure AD Connect: implementación de la sincronización de contraseñas 
+# Sincronización de Azure AD Connect: implementación de la sincronización de contraseñas
 
-Con la sincronización de contraseñas permitirá a los usuarios usar la misma contraseña que utilizan para iniciar sesión en Active Directory local para iniciar sesión en Azure Active Directory.
+Con la sincronización de contraseñas los usuarios podrán usar la misma contraseña que usan para iniciar sesión en Active Directory local para iniciar sesión en Azure Active Directory.
 
 El objetivo de este tema es proporcionarle la información que necesita para comprender cómo funciona la sincronización de contraseñas y cómo habilitarla en su entorno.
 
 ## Qué es la sincronización de contraseñas
 
-La sincronización de contraseñas es una característica de Servicios de sincronización de Azure Active Directory Connect (Sincronización de Azure AD Connect) que sincroniza las contraseñas de usuario de Active Directory local a Azure Active Directory (Azure AD). Esta característica permite que los usuarios inicien sesión en sus servicios de Azure Active Directory (como Office 365, Microsoft Intune, CRM Online, etc.) con la misma contraseña que usan para iniciar sesión en la red local. Es importante tener en cuenta que esta característica no proporciona una solución de inicio de sesión único (SSO) porque no hay ningún intercambio/uso compartido de tokens en el proceso basado en la sincronización de contraseñas.
+La sincronización de contraseñas es una característica de los servicios de sincronización de Azure Active Directory Connect (sincronización de Azure AD Connect) que sincroniza las contraseñas de usuario de Active Directory local con Azure Active Directory (Azure AD). Esta característica permite que los usuarios inicien sesión en sus servicios de Azure Active Directory (como Office 365, Microsoft Intune, CRM Online, etc.) con la misma contraseña que usan para iniciar sesión en la red local.
 
 > [AZURE.NOTE]Para obtener más información acerca de los Servicios de dominio de Active Directory configurados para la sincronización de contraseñas y FIPS, vea Errores de sincronización de contraseñas en sistemas compatibles con FIPS.
- 
+
 ## Disponibilidad de sincronización de contraseñas
 
 Cualquier cliente de Azure Active Directory es apto para ejecutar la sincronización de contraseñas. A continuación se ofrece información sobre la compatibilidad de la sincronización de contraseñas y otras características como la autenticación federada.
 
 ## Funcionamiento de la sincronización de contraseñas
 
-La sincronización de contraseñas es una extensión de la característica de sincronización de directorios implementada por Sincronización de Azure AD Connect. Por lo tanto, esta característica requiere la sincronización de directorios entre su local y Azure Active Directory para realizar la configuración.
+La sincronización de contraseñas es una extensión de la característica de sincronización de directorios implementada por la sincronización de Azure AD Connect. Por lo tanto, esta característica requiere la sincronización de directorios entre su local y Azure Active Directory para realizar la configuración.
 
-El Servicio de dominio de Active Directory almacena contraseñas en forma de representación de valor hash de la contraseña de usuario real. El hash de contraseña no puede usarse para iniciar sesión en la red local. También se ha diseñado para que no se pueda deshacer para obtener acceso a la contraseña de texto sin formato del usuario. Para sincronizar una contraseña, Sincronización de Azure AD Connect extrae el hash de contraseña de usuario de Active Directory local. El procesamiento de seguridad adicional se aplica al hash de contraseña antes de que se sincronice con el servicio de Azure Active Directory Authentication. El flujo de datos reales del proceso de sincronización de contraseñas es similar al de sincronización de datos de usuario, como el nombre para mostrar o las direcciones de correo electrónico.
+El Servicio de dominio de Active Directory almacena contraseñas en forma de representación de valor hash de la contraseña de usuario real. El hash de contraseña no puede usarse para iniciar sesión en la red local. También se ha diseñado para que no se pueda deshacer para obtener acceso a la contraseña de texto sin formato del usuario. Para sincronizar una contraseña, la sincronización de Azure AD Connect extrae el hash de contraseña del usuario de Active Directory local. El procesamiento de seguridad adicional se aplica al hash de contraseña antes de que se sincronice con el servicio de Azure Active Directory Authentication. El flujo de datos reales del proceso de sincronización de contraseñas es similar al de sincronización de datos de usuario, como el nombre para mostrar o las direcciones de correo electrónico.
 
 Las contraseñas se sincronizan con más frecuencia que la ventana de sincronización de directorios estándar para otros atributos. Las contraseñas se sincronizan según el usuario y, por lo general, en orden cronológico. Cuando se sincroniza una contraseña de usuario desde AD local a la nube, se sobrescribirá la contraseña existente en la nube.
 
@@ -49,7 +49,7 @@ La sincronización de una contraseña no influye en los usuarios con la sesión 
 
 Al sincronizar contraseñas, la versión de texto sin formato de una contraseña de usuario no se expone a la característica de sincronización de contraseñas ni a Azure AD ni a ninguno de los servicios asociados.
 
-Además, no hay ningún requisito en Active Directory local para almacenar la contraseña en un formato cifrado reversible. Se usa un resumen del hash de contraseña de Windows Active Directory para la transmisión entre Azure Active Directory y AD local. El resumen del hash de contraseña no se puede usar para obtener acceso a recursos en el entorno local del cliente.
+Además, no hay ningún requisito en Active Directory local para almacenar la contraseña en un formato cifrado reversible. Se usa un resumen del hash de contraseña de Active Directory para la transmisión entre Azure Active Directory y AD local. El resumen del hash de contraseña no se puede usar para obtener acceso a recursos en el entorno local del cliente.
 
 ## Consideraciones de la directiva de contraseña
 
@@ -64,7 +64,7 @@ Cuando se habilita la sincronización de contraseñas, las directivas de complej
 
 
 > [AZURE.NOTE]Las contraseñas para los usuarios que se crean directamente en la nube siguen estando sujetas a las directivas de contraseñas tal como se definen en la nube.
- 
+
 ### Directiva de expiración de contraseñas
 
 Si un usuario está en el ámbito de sincronización de contraseñas, la contraseña de cuenta en la nube se establece en "*No caduca nunca*". Esto significa que es posible que la contraseña de un usuario expire en el entorno local, pero los usuarios pueden seguir iniciando sesión en los servicios en la nube con la contraseña expirada.
@@ -91,12 +91,12 @@ El inquilino de Azure Active Directory debe habilitarse para la sincronización 
 Habilite la sincronización de contraseñas cuando ejecute el Asistente de configuración de Azure AD Connect.
 
 En la página del cuadro de diálogo **Características opcionales**, seleccione “**Sincronización de contraseñas**”.
- 
+
 ![Características opcionales][1]
 
 
 > [AZURE.NOTE]Este proceso activa una sincronización completa. Los ciclos de sincronización completa suelen tardan más en completarse que otros ciclos de sincronización.
- 
+
 
 ## Administración de la sincronización de contraseñas
 
@@ -111,7 +111,7 @@ Puede determinar qué usuarios han sincronizado las contraseñas correctamente r
 | --- | --- |
 | Sincronización de directorios| 656|
 | Sincronización de directorios| 657|
- 
+
 Los eventos con el Id. de evento 656 proporcionan un informe de solicitudes de cambio de contraseña procesadas:
 
 ![Id. de evento 656][2]
@@ -132,14 +132,29 @@ Una contraseña sincronizada correctamente se indica en un evento con el Id. de 
 
 ![Resultado de cambio de contraseña][5]
 
- 
+### Desencadenamiento de una sincronización completa de todas las contraseñas
+Si ha cambiado la configuración del filtro, debe desencadenar una sincronización completa de todas las contraseñas de modo que los usuarios ahora en el ámbito tengan sincronizadas sus contraseñas.
+
+    $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
+    $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
+    Import-Module adsync
+    $c = Get-ADSyncConnector -Name $adConnector
+    $p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter “Microsoft.Synchronize.ForceFullPasswordSync”, String, ConnectorGlobal, $null, $null, $null
+    $p.Value = 1
+    $c.GlobalParameters.Remove($p.Name)
+    $c.GlobalParameters.Add($p)
+    $c = Add-ADSyncConnector -Connector $c
+    Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
+    Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
+
+
 ## Deshabilitación de la sincronización de contraseñas
 
 Deshabilite la sincronización de contraseñas volviendo a ejecutar el Asistente de configuración de Azure AD Connect. Cuando se lo solicite el asistente, anule la selección de la casilla "Sincronización de contraseñas".
 
 
 > [AZURE.NOTE]Este proceso activa una sincronización completa. Los ciclos de sincronización completa suelen tardan más en completarse que otros ciclos de sincronización.
- 
+
 Después de ejecutar el Asistente para configuración, el inquilino dejará de sincronizar contraseñas. Los cambios de contraseña nueva no se sincronizarán con la nube. Los usuarios que anteriormente sincronizaron sus contraseñas podrán seguir iniciando sesión con esas contraseñas hasta que cambien manualmente las contraseñas en la nube.
 
 
@@ -148,7 +163,7 @@ Después de ejecutar el Asistente para configuración, el inquilino dejará de s
 
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-implement-password-synchronization/IC759788.png
 [2]: ./media/active-directory-aadsync-implement-password-synchronization/IC662504.png
@@ -156,4 +171,4 @@ Después de ejecutar el Asistente para configuración, el inquilino dejará de s
 [4]: ./media/active-directory-aadsync-implement-password-synchronization/IC662506.png
 [5]: ./media/active-directory-aadsync-implement-password-synchronization/IC662507.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

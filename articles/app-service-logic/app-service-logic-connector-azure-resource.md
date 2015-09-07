@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Conector de recursos de Azure"
-   description="Conector de recursos de Azure"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del conector de recursos de Azure en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de recursos de Azure o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="stepsic"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="stepsic"/>
 
-# Conector de recursos de Azure
-El Conector de recursos de Azure ofrece una manera fácil de administrar los recursos de Azure dentro de la aplicación lógica.
+# Introducción al conector de recursos de Azure y su incorporación a su aplicación lógica 
+Use el conector de recursos de Azure para administrar de manera fácil los recursos de Azure dentro de la aplicación lógica.
 
 ## Creación del Conector de recursos de Azure
 Para usar la aplicación de API del Conector de recursos de Azure, deberá crear primero una instancia de ella. Esta tarea puede realizarse en línea mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API del Conector del Administrador de recursos de Azure en Azure Marketplace.
@@ -96,4 +96,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -100,36 +100,8 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 
 ## Informes de actividades anómalas
+Los informes de actividades anómalas de inicio de sesión contienen actividades de inicio de sesión sospechosos en el Portal de administración de Azure, el Panel de acceso de Azure AD, Office365, Sharepoint Online, Dynamics CRM Online y otros servicios en línea de Microsoft, independientemente del proveedor de federación. <p>Están disponibles los siguientes informes: </p><ul> <li>[Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuarios con actividad de inicio de sesión erróneo](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuarios con credenciales perdidas</li></ul>
 
-### Inicios de sesión desde orígenes desconocidos
-
-Para obtener detalles sobre este informe, consulte [Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).
-
-### Inicios de sesión tras varios errores
-
-Para obtener detalles sobre este informe, consulte [Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).
-
-### Inicios de sesión desde varias ubicaciones geográficas
-
-Para obtener detalles sobre este informe, consulte [Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).
-
-### Inicios de sesión desde direcciones IP con actividad sospechosa
-
-Para obtener detalles sobre este informe, consulte [Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
-
-### Actividad de inicio de sesión irregular
-
-Para obtener detalles sobre este informe, consulte [Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).
-
-### Inicios de sesión desde dispositivos posiblemente infectados
-
-Para obtener detalles sobre este informe, consulte [Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
-
-### Usuarios con actividad de inicio de sesión erróneo.
-
-Para obtener detalles sobre este informe, consulte [Usuarios con actividad de inicio de sesión anómala](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
-
-<!-- Users with leaked credentials goes here -->
 
 
 
@@ -254,7 +226,7 @@ Solo determinados tipos de eventos de inicio de sesión aparecerán en el inform
 | Inicios de sesión en una aplicación empresarial personalizada que se ha agregado al directorio | No (próximamente) |
 | Inicios de sesión en una aplicación de Proxy de aplicación de Azure AD que se ha agregado al directorio | No (próximamente) |
 
-> Nota: para reducir la cantidad de ruido en este informe, no se muestran los inicios de sesión en la aplicación nativa [Lync/Skype para empresas](http://products.office.com/es-es/skype-for-business/online-meetings) y el [Asistente para el inicio de sesión de Microsoft Online Services](http://community.office365.com/es-es/w/sso/534.aspx).
+> Nota: para reducir la cantidad de ruido en este informe, no se muestran los inicios de sesión en la aplicación nativa [Lync/Skype para empresas](http://products.office.com/es-ES/skype-for-business/online-meetings) y el [Asistente para el inicio de sesión de Microsoft Online Services](http://community.office365.com/es-ES/w/sso/534.aspx).
 
 
 
@@ -302,4 +274,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y del panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

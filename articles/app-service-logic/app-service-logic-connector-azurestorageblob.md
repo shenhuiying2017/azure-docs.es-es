@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Conector de blobs de almacenamiento de Azure" 
-   description="Introducción al conector de blobs de almacenamiento de Azure" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Uso del conector de blobs de almacenamiento de Azure en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector del blob de almacenamiento de Azure o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
    
-# Conector de blobs de almacenamiento de Azure
-Conecte con el blob de almacenamiento de Azure para cargar, descargar y eliminar blobs del contenedor de blobs. Los conectores se pueden usar en aplicaciones lógicas como parte de un "flujo de trabajo".
+# Introducción al conector del blog de almacenamiento de Azure y su incorporación a su aplicación lógica 
+Conecte con el blob de almacenamiento de Azure para cargar, descargar y eliminar blobs del contenedor de blobs. Los conectores se usan en Aplicaciones lógicas como parte de un "flujo de trabajo".
 
 ## Acciones y desencadenadores
 Los *desencadenadores* son eventos que se producen. Por ejemplo, cuando se actualiza un pedido o cuando se agrega un cliente nuevo. Un *acción* es el resultado del desencadenador. Por ejemplo, cuando se actualiza un pedido,se envía una alerta al vendedor. O bien, cuando se agrega un nuevo cliente, a este se le envía un correo electrónico de bienvenida.
@@ -102,4 +102,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

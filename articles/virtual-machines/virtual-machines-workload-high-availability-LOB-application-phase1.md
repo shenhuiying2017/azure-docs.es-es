@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Fase 1 de la carga de trabajo de aplicación de línea de negocio: Configuración de Azure" 
-	description="En esta primera fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en los servicios de infraestructura de Azure, creará la red virtual de Azure y otros elementos de la infraestructura de Azure." 
+	pageTitle="Fase 1 de la aplicación de línea de negocio | Microsoft Azure"
+	description="Cree la red virtual y otros elementos de la infraestructura de Azure en la fase 1 de la aplicación de línea de negocio en Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Fase 1 de la carga de trabajo de aplicación de línea de negocio: Configuración de Azure
@@ -60,7 +60,7 @@ Elemento | Nombre de subred | Espacio de direcciones de subred | Propósito
 
 **Tabla S: Subredes de la red virtual**
 
-> [AZURE.NOTE]Esta arquitectura predefinida usa una sola subred por motivos de simplicidad. Si desea superponer un conjunto de filtros de tráfico para emular el aislamiento de subred, puede usar los [grupos de seguridad de red](https://msdn.microsoft.com/library/azure/dn848316.aspx) de Azure.
+> [AZURE.NOTE]Esta arquitectura predefinida usa una sola subred por motivos de simplicidad. Si desea superponer un conjunto de filtros de tráfico para emular el aislamiento de subred, puede usar los [grupos de seguridad de red](virtual-networks-nsg.md) de Azure.
 
 Para los dos servidores DNS locales que desea usar al configurar inicialmente los controladores de dominio de la red virtual, rellene tabla D. Asigne a cada servidor DNS un nombre descriptivo y una dirección IP única. No es necesario que este nombre descriptivo coincida con el nombre de host o el nombre de equipo del servidor DNS. Tenga en cuenta que se muestran dos entradas en blanco, pero puede agregar más. Trabaje con su departamento de TI para determinar esta lista.
 
@@ -248,4 +248,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 2: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

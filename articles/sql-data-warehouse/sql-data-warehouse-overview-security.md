@@ -1,20 +1,20 @@
 <properties
    pageTitle="Proteger una base de datos en Almacenamiento de datos SQL | Microsoft Azure"
-   description="Sugerencias para proteger una base de datos en Almacenamiento de datos SQL de Azure para desarrollar soluciones."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Sugerencias para proteger una base de datos en Almacenamiento de datos SQL de Azure para desarrollar soluciones."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="sahajs"/>
 
 # Proteger una base de datos en Almacenamiento de datos SQL
 
@@ -58,6 +58,28 @@ Existen formas para limitar aún más lo que un usuario puede hacer con Base de 
 La administración bases de datos y servidores lógicos desde el Portal de administración de Azure o mediante la API del Administrador de recursos de Azure la controlan las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en roles en el Portal de vista previa de Azure][].
 
 
+
+## Cifrado
+
+Almacenamiento de datos SQL de Azure puede ayudar a proteger los datos mediante el cifrado de los mismos cuando estén "en reposo" o almacenados en archivos de base de datos y copias de seguridad, con el [cifrado de datos transparente][]. Para cifrar una base de datos, conéctese como propietario de la base de datos y ejecute:
+
+
+```
+
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+
+```
+
+También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal Azure][].
+
+
+
+## Auditoría
+
+La auditoría y el seguimiento de eventos de la base de datos pueden ayudarle a mantener el cumplimiento de las reglamentaciones y a identificar cualquier actividad sospechosa. La auditoría de Almacenamiento de datos SQL permite grabar los eventos de la base de datos en un registro de auditoría de una cuenta de Almacenamiento de Azure. La auditoría de Almacenamiento de datos SQL también se integra con Microsoft Power BI, con el fin de facilitar la generación de análisis e informes detallados. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL][].
+
+
+
 ## Pasos siguientes
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
 
@@ -73,9 +95,11 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [permisos]: https://msdn.microsoft.com/library/ms191291.aspx
 [procedimientos almacenados]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+[cifrado de datos transparente]: http://go.microsoft.com/fwlink/?LinkId=526242
+[Introducción a la auditoría de Base de datos SQL]: sql-database-auditing-get-started.md
+[Portal Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Control de acceso basado en roles en el Portal de vista previa de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

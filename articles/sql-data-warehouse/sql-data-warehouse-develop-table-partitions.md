@@ -1,20 +1,20 @@
 <properties
    pageTitle="Particiones de tablas en el Almacenamiento de datos SQL | Microsoft Azure"
-   description="Sugerencias para usar las particiones de tabla en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+	description="Sugerencias para usar las particiones de tabla en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="jrowlandjones"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Particiones de tabla en el Almacenamiento de datos SQL
 
@@ -24,9 +24,16 @@ Para migrar las definiciones de las particiones de SQL Server al Almacenamiento 
 - Defina las particiones al crear la tabla. Simplemente especifique puntos límite de partición y, si desea que el punto límite sea eficaz, `RANGE RIGHT` o `RANGE LEFT`.
 
 ### Tamaño de la partición
-El tamaño de la partición es una consideración importante para el Almacenamiento de datos SQL. Normalmente, las operaciones de administración de datos y las rutinas de carga de datos se centran en particiones individuales en lugar de tratar toda la tabla de una sola vez. Esto es especialmente relevante para el almacenamiento de columnas en clúster (CCI). El CCI puede consumir gran cantidad de memoria. Por lo tanto, aunque nos conviene revisar la granularidad del plan de partición, no queremos cambiar el tamaño de las particiones a un tamaño que conlleve presionar la memoria al tratar de ejecutar tareas de administración.
+El Almacenamiento de datos de SQL ofrece a un DBA varias opciones para tipos de tabla: montón, índice agrupado (CI) e índice de almacén de columnas en clúster (CCI). Para cada uno de estos tipos de tabla, el DBA también puede crear particiones en la tabla, lo que significa dividirla en varias secciones para mejorar el rendimiento. Sin embargo, la creación de una tabla con demasiadas particiones puede provocar realmente degradaciones del rendimiento o errores de consultas en algunas circunstancias. Estas cuestiones son especialmente ciertas para las tablas de CCI. Para que la creación de particiones sea útil, es importante para un administrador de bases de datos comprender cuándo se deben usar las particiones y el número de particiones que se crearán. Estas instrucciones están diseñadas para ayudar a los administradores de bases de datos a tomar las mejores decisiones para sus escenarios.
 
-Al decidir la granularidad de las particiones, es importante recordar que el Almacenamiento de datos SQL distribuirá automáticamente los datos en las distribuciones. En consecuencia, los datos que existirían normalmente en una tabla en una partición de una base de datos SQL Server, ahora se encuentran en una partición en muchas tablas de una base de datos del Almacenamiento de datos SQL. Para mantener un número significativo de filas en cada partición, se suele cambiar el tamaño del límite de partición. Por ejemplo, si ha utilizado la creación de particiones de nivel de día para el almacenamiento de datos, es conveniente que tenga en cuenta una granularidad algo inferior, como los meses o trimestres.
+Normalmente, las particiones de tabla son útiles de dos maneras principales:
+
+1. Mediante el uso del intercambio de particiones para truncar rápidamente una sección de una tabla. Un diseño de uso común es que una tabla de hechos solo contenga filas durante un período finito predeterminado. Por ejemplo, una tabla de hechos de ventas podría contener datos solo para los últimos 36 meses. Al final de cada mes, el mes más antiguo de datos de ventas se elimina de la tabla. Esto se podría lograr mediante la simple eliminación de todas las filas del mes más antiguo, pero la eliminación de una gran cantidad de datos fila a fila puede tardar mucho tiempo. Para optimizar este escenario, el Almacenamiento de datos de SQL admite el intercambio de particiones, que permite quitar todo el conjunto de filas de una partición en una sola operación rápida.   
+
+2. La creación de particiones permite a las consultas excluir con facilidad el procesamiento de un conjunto grande de filas (es decir, una partición) si las consultas colocan un predicado en la columna de partición. Por ejemplo, si la tabla de hechos de ventas se particiona en 36 meses con el campo de fecha de ventas, las consultas que se filtran por esa fecha de ventas pueden omitir particiones de procesamiento que no coinciden con el filtro. En efecto, la creación de particiones usada de esta manera es un índice general.
+
+Al crear índices de almacén de columnas en clúster en el almacenamiento de datos de SQL, un administrador de base de datos debe tener en cuenta un factor adicional: el número de fila. Las tablas de ICC pueden lograr un alto grado de compresión y ayudan al Almacenamiento de datos de SQL a acelerar el rendimiento de las consultas. Debido a cómo funciona la compresión internamente en el Almacenamiento de datos de SQL, cada partición de una tabla de ICC necesita tener un número bastante grande de filas antes de que se compriman los datos. Además, el Almacenamiento de datos de SQL distribuye los datos entre un gran número de distribuciones y cada distribución se divide a su vez en particiones. Para lograr una compresión y rendimiento óptimos, es necesario un mínimo de 100.000 filas por partición y distribución. Usando el ejemplo anterior, si la tabla de hechos de ventas contenía 36 particiones mensuales, y dado que el Almacenamiento de datos de SQL tiene 60 distribuciones, la tabla de hechos de ventas debería contener 6 millones de filas por mes o 216 millones de filas cuando se rellenan todos los meses. Si una tabla contiene muchas menos filas que el mínimo recomendado, el DBA debería pensar en crear la tabla con particiones menos con el fin de aumentar el número de filas por distribución.
+
 
 Para cambiar el tamaño de la base de datos actual al nivel de partición, use una consulta como la siguiente:
 
@@ -319,4 +326,4 @@ Una vez migrado correctamente el esquema de base de datos al Almacenamiento de d
 
 <!-- Other web references -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

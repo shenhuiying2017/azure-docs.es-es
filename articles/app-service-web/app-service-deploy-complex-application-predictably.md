@@ -291,7 +291,7 @@ Obtenga información sobre cómo [aplicar metodologías ágiles y publicar conti
 <a name="resources"></a>
 ## Más recursos ##
 
--	[Idioma de la plantilla del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn835138.aspx)
+-	[Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 -	[Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 -	[Funciones de la plantilla del Administrador de recursos de Azure](../resource-group-template-functions.md)
 -	[Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy.md)
@@ -303,4 +303,4 @@ Obtenga información sobre cómo [aplicar metodologías ágiles y publicar conti
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

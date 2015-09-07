@@ -25,7 +25,7 @@ En esta guía se identifican muchas áreas en las que la planificación es la cl
 
 Este artículo está adaptado del contenido de la entrada de blog [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) (Directrices de implementación de Azure). Gracias a Santiago Cánepa (Director de desarrollo de aplicaciones de Microsoft) y Hugo Salcedo (Director de desarrollo de aplicaciones de Microsoft) por su material original.
 
-> [AZURE.NOTE]Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, vea [Redes virtuales regionales y grupos de afinidad](https://msdn.microsoft.com/library/azure/jj156085.aspx).
+> [AZURE.NOTE]Los grupos de afinidad han quedado en desuso. Aquí no se describe su uso. Para obtener más información, vea [Redes virtuales regionales y grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Convenciones de nomenclatura
 
@@ -440,4 +440,4 @@ Esta configuración incluye:
 
 [Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

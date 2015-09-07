@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introducción a los Centros de notificaciones de Azure"
-	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure para enviar notificaciones de inserción."
+	pageTitle="Introducción a los Centros de notificaciones de Azure | Microsoft Azure"
+	description="En este tutorial, obtenga información acerca de cómo usar los Centros de notificaciones de Azure para enviar notificaciones push a una aplicación Kindle."
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
@@ -22,18 +22,18 @@
 
 ##Información general
 
-Este tema muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación Kindle. En este tutorial, creará una aplicación Kindle vacía que recibirá notificaciones de inserción mediante Amazon Device Messaging (ADM).
+Este tutorial muestra cómo puede usar Centros de notificaciones de Azure para enviar notificaciones push a una aplicación Kindle. Creará una aplicación Kindle vacía que recibirá notificaciones push mediante Amazon Device Messaging (ADM).
 
 ##Requisitos previos
 
 Este tutorial requiere lo siguiente:
 
-+ El SDK de Android (se presupone que usará Eclipse), que puede descargarse desde <a href="http://go.microsoft.com/fwlink/?LinkId=389797">aquí</a>.
-+ Siga los pasos descritos <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">aquí</a> para configurar el entorno de desarrollo para Kindle.
++ Obtenga el SDK de Android (suponemos que usará Eclipse) en el <a href="http://go.microsoft.com/fwlink/?LinkId=389797">sitio de Android</a>.
++ Siga los pasos que se indican en <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Configuración de su entorno de desarrollo</a> para configurar el entorno de desarrollo para Kindle.
 
 ##Incorporación de una aplicación nueva al portal para desarrolladores
 
-1. En primer lugar, cree una aplicación en el [portal de desarrolladores].
+1. En primer lugar, cree una aplicación en el [portal de desarrolladores de Amazon].
 
 	![][0]
 
@@ -41,15 +41,15 @@ Este tutorial requiere lo siguiente:
 
 	![][1]
 
-3. En el portal, haga clic en el nombre de la aplicación y, a continuación, haga clic en la pestaña **Mensajería de dispositivo**.
+3. En el portal, haga clic en el nombre de la aplicación y, luego, haga clic en la pestaña **Device Messaging** (Mensajería de dispositivo).
 
 	![][2]
 
-4. Haga clic en **Crear un nuevo perfil de seguridad** y, a continuación, cree un nuevo perfil de seguridad (por ejemplo, **perfil de seguridad TestAdm**). A continuación, haga clic en **Guardar**.
+4. Haga clic en **Create a New Security Profile** (Crear un nuevo perfil de seguridad) y, luego, cree un nuevo perfil de seguridad (por ejemplo, **perfil de seguridad TestAdm**). A continuación, haga clic en **Guardar**.
 
 	![][3]
 
-5. Haga clic en "Security Profiles" (Perfiles de seguridad) para ver el perfil de seguridad que acaba de crear. Copie los valores **Id. de cliente** y **Secreto del cliente** para usarlos más adelante.
+5. Haga clic en **Security Profiles** (Perfiles de seguridad) para ver el perfil de seguridad que acaba de crear. Copie los valores **Id. de cliente** y **Secreto del cliente** para usarlos más adelante.
 
 	![][4]
 
@@ -66,22 +66,22 @@ Este tutorial requiere lo siguiente:
 4.  Para la contraseña de **keystore**, escriba **android**.
 
 5.  Copie la huella digital **MD5**.
-6.  En la pestaña **Mensajes** del portal para desarrolladores, haga clic en **Android/Kindle** y escriba el nombre del paquete para la aplicación (por ejemplo, **com.sample.notificationhubtest**), el valor de **MD5** y después haga clic en **Generar clave de API**.
+6.  En la pestaña **Messaging** (Mensajes) del portal para desarrolladores, haga clic en **Android/Kindle** y escriba el nombre del paquete de la aplicación (por ejemplo, **com.sample.notificationhubtest**), el valor de **MD5** y, luego, haga clic en **Generate API Key** (Generar clave de API).
 
 ## Incorporación de credenciales al centro
 
-En el portal, agregue el secreto de cliente y el identificador de cliente a la pestaña **Configurar** del Centro de notificaciones.
+En el portal, agregue el secreto de cliente y el Id. de cliente a la pestaña **Configure** (Configurar) de su centro de notificaciones.
 
 ## Configuración de la aplicación
 
-> [AZURE.NOTE]Al crear un aplicación, use al menos la API Level 17.
+> [AZURE.NOTE]Al crear un aplicación, use al menos el nivel de API 17.
 
-Agregue las bibliotecas de ADM al proyecto Eclipse.
+Agregue las bibliotecas de ADM al proyecto de Eclipse.
 
 1. Para obtener la biblioteca de ADM, [descargue el SDK]. Extraiga el archivo ZIP del SDK.
-2. En Eclipse, haga clic con el botón derecho en el proyecto y, a continuación, haga clic en **Propiedades** (Propiedades). Seleccione **Java Build Path** (Ruta de compilación de Java) en la izquierda y, a continuación, seleccione la pestaña **Libraries ** (Bibliotecas) en la parte superior. Haga clic en **Add External Jar** (Agregar Jar externo) y seleccione el archivo `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` en el directorio en que ha extraído el SDK de Amazon.
+2. En Eclipse, haga clic con el botón derecho en el proyecto y, a continuación, haga clic en **Propiedades** (Propiedades). Seleccione **Java Build Path** (Ruta de compilación de Java) en la izquierda y, luego, seleccione la pestaña **Libraries ** (Bibliotecas) en la parte superior. Haga clic en **Add External Jar** (Agregar Jar externo) y seleccione el archivo `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` en el directorio en que ha extraído el SDK de Amazon.
 3. Descargue el SDK de Android NotificationHubs (vínculo).
-4. Descomprima el paquete y arrastre el archivo `notification-hubs-sdk.jar` a la `libs `carpeta de Eclipse.
+4. Descomprima el paquete y arrastre el archivo `notification-hubs-sdk.jar` a la carpeta `libs` de Eclipse.
 
 Edite el manifiesto de la aplicación para admitir ADM:
 
@@ -132,7 +132,7 @@ Edite el manifiesto de la aplicación para admitir ADM:
 		    </intent-filter>
 		</receiver>
 
-## Creación del controlador de mensajes de ADM:
+## Creación del controlador de mensajes de ADM
 
 1. Cree una nueva clase que hereda de `com.amazon.device.messaging.ADMMessageHandlerBase` y asígnele el nombre `MyADMMessageHandler`, como se muestra en la siguiente imagen:
 
@@ -216,11 +216,11 @@ Edite el manifiesto de la aplicación para admitir ADM:
 				Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
 			}
 
-7. A continuación, en el método `MainActivity`, agregue la siguiente instrucción import:
+7. En el método `MainActivity`, agregue la siguiente instrucción import:
 
 		import com.amazon.device.messaging.ADM;
 
-8. Ahora, agregue el siguiente código al final del método `OnCreate`:
+8. Agregue el siguiente código al final del método `OnCreate`:
 
 		final ADM adm = new ADM(this);
 		if (adm.getRegistrationId() == null)
@@ -240,10 +240,10 @@ Edite el manifiesto de la aplicación para admitir ADM:
 			   }.execute(null, null, null);
 		}
 
-## Incorporación de APIKey a la aplicación
+## Incorporación de clave de API a la aplicación
 
 1. En Eclipse, cree un archivo nuevo con nombre **api\_key.txt** en los recursos del directorio del proyecto.
-2. Abra el archivo y copie la **clave de API** generada en el portal para desarrolladores de Amazon.
+2. Abra el archivo y copie la clave de API generada en el portal para desarrolladores de Amazon.
 
 ## Ejecución de la aplicación
 
@@ -269,7 +269,7 @@ Para enviar un mensaje con .NET:
 ![][7]
 
 <!-- URLs. -->
-[portal de desarrolladores]: https://developer.amazon.com/home.html
+[portal de desarrolladores de Amazon]: https://developer.amazon.com/home.html
 [descargue el SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
@@ -280,6 +280,5 @@ Para enviar un mensaje con .NET:
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

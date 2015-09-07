@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso de colas del Bus de servicio (Node.js) | Microsoft Azure" 
-	description="Obtenga información sobre cómo usar las colas del Bus de servicio en Azure desde una aplicación Node.js." 
-	services="service-bus" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Uso de colas del Bus de servicio (Node.js) | Microsoft Azure"
+	description="Obtenga información sobre cómo usar las colas del Bus de servicio en Azure desde una aplicación Node.js."
+	services="service-bus"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="07/06/2015"
 	ms.author="mwasson"/>
 
 # Utilización de las colas del Bus de servicio
@@ -24,7 +24,7 @@ Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos e
 
 ## Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Node.js Cloud Service] (con Windows PowerShell) o [Sitio web con WebMatrix].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Node.js Cloud Service] (con Windows PowerShell).
 
 ## Configuración de la aplicación para usar el Bus de servicio
 
@@ -48,7 +48,7 @@ Para utilizar el Bus de servicio de Azure, descargue y use el paquete azure para
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de esa carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a las colas del Bus de servicio.
+3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de dicha carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a las colas del bus de servicio.
 
 ### Importación del módulo
 
@@ -60,7 +60,7 @@ Utilizando el Bloc de notas u otro editor de texto, agregue el código siguiente
 
 El módulo Azure leerá las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE y AZURE\_SERVICEBUS\_ACCESS\_KEY para obtener la información necesaria para conectarse al Bus de servicio. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio en la nube de Azure, consulte [Servicio en la nube de Node.js con almacenamiento].
+Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento].
 
 Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento].
 
@@ -70,7 +70,7 @@ El objeto **ServiceBusService** le permite trabajar con colas. El siguiente cód
 
     var serviceBusService = azure.createServiceBusService();
 
-Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService** se devolverá la cola especificada (si existe) o se creará una nueva cola con el nombre especificado. El código siguiente utiliza **createQueueIfNotExists** para crear una cola llamada "myqueue" o conectarse a ella.
+Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService**, se obtiene la cola especificada (si existe) o se crea una nueva con el nombre especificado. El código siguiente utiliza **createQueueIfNotExists** para crear una cola llamada "myqueue" o conectarse a ella.
 
     serviceBusService.createQueueIfNotExists('myqueue', function(error){
         if(!error){
@@ -110,7 +110,7 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 
 ## Envío de mensajes a una cola
 
-Para enviar un mensaje a una cola del Bus de servicio, la aplicación debe llamar al método **sendQueueMessage** del objeto **ServiceBusService**. Los mensajes enviados a las colas del Bus de servicio (y recibidos de ellas) son objetos **BrokeredMessage** y cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando una cadena como el mensaje. Las propiedades estándar requeridas se rellenan con valores predeterminados.
+Para enviar un mensaje a una cola del Bus de servicio, la aplicación debe llamar al método **sendQueueMessage** del objeto **ServiceBusService**. Los mensajes enviados a las colas del bus de servicio (y recibidos de ellas) son objetos **BrokeredMessage** y cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando una cadena como el mensaje. Las propiedades estándar requeridas se rellenan con valores predeterminados.
 
 En el ejemplo siguiente se demuestra cómo enviar un mensaje de prueba a la cola `myqueue` mediante **sendQueueMessage**:
 
@@ -129,7 +129,7 @@ Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB
 
 ## Recepción de mensajes de una cola
 
-Se pueden recibir mensajes de una cola con el uso del método **receiveQueueMessage** en el objeto **ServiceBusService**. De forma predeterminada, los mensajes se eliminan de la cola cuando se leen. Sin embargo, puede leer (ojear) y bloquear los mensajes sin eliminarlos de la cola estableciendo el parámetro opcional **isPeekLock** en **true**.
+Los mensajes se reciben de una cola utilizando el método **receiveQueueMessage** del objeto **ServiceBusService**. De manera predeterminada, los mensajes se eliminan de la cola una vez que se leen; sin embargo, puede leer (echar un vistazo) y bloquear los mensajes sin eliminarlos de la cola estableciendo el parámetro opcional **isPeekLock** en **true**.
 
 El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
@@ -184,10 +184,9 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [Sitio web con WebMatrix]: ../app-service-web/web-sites-dotnet-using-webmatrix.md
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-  [Servicio en la nube de Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Servicio de nube de Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicación web de Node.js con almacenamiento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

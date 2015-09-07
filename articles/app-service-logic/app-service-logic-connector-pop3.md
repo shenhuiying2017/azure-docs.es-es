@@ -1,27 +1,27 @@
 <properties
-   pageTitle="Aplicación de API del conector de POP3"
-   description="Uso del conector de POP3"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+	pageTitle="Uso del conector de POP3 en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de POP3 o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.service="app-service-logic"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Uso del conector de POP3 en la aplicación lógica #
+# Introducción al conector de POP3 y su incorporación a su aplicación lógica
+Conéctese a un servidor POP3 para recuperar correos electrónicos, incluidos mensajes con datos adjuntos.
 
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Puede agregar el conector de POP3 a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
-El conector POP3 permite conectarse a un servidor POP3 y proporciona un desencadenador para recuperar mensajes de correo electrónico con datos adjuntos.
 
 ## Creación de un conector de POP3 para la aplicación lógica ##
 Para usar el conector de POP3, deberá crear primero una instancia de la aplicación de API del conector de POP3. Esto puede hacerse desde el diseñador de la aplicación lógica directamente o fuera de él. Para crear una instancia fuera del diseñador, proceda como sigue:
@@ -82,4 +82,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

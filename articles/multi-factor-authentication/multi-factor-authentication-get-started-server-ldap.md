@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Servidor de autenticación LDAP y Azure Multi-Factor Authentication" 
-	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la autenticación LDAP y el servidor Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Servidor de autenticación LDAP y Azure Multi-Factor Authentication"
+	description="Se trata de la página Azure Multi-Factor Authentication que ayudará a implementar la autenticación LDAP y el servidor Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Servidor de autenticación LDAP y Azure Multi-Factor Authentication 
@@ -63,4 +63,4 @@ Para configurar el cliente LDAP, use las siguientes directrices:
 - Configure el tiempo de espera LDAP en entre 30 y 60 segundos para que haya tiempo para validar las credenciales del usuario con el directorio LDAP, realizar la autenticación de segundo factor, recibir su respuesta y, a continuación, responder a la solicitud de acceso LDAP. 
 - Si usa LDAPS, el dispositivo o el servidor que realiza las consultas LDAP debe confiar en el certificado SSL instalado en el servidor Azure Multi-Factor Authentication.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,27 +1,27 @@
 <properties
-   pageTitle="Aplicación de API del conector de SMTP"
-   description="Uso del conector de SMTP"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+	pageTitle="Uso del conector de SMTP en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de SMTP o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.service="app-service-logic"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
 
-# Conector de SMTP
+# Introducción al conector de SMTP y su incorporación a su aplicación lógica
+Conéctese a un servidor SMTP para enviar correos electrónicos, incluidos mensajes con datos adjuntos. La acción "Enviar correo electrónico" del conector de SMTP permite enviar correo electrónico a las direcciones de correo electrónico especificadas.
 
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo de trabajo.
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo de trabajo. Puede agregar el conector de SMTP a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
-El conector de SMTP permite conectarse a un servidor SMTP y realizar una acción para enviar correo electrónico con datos adjuntos. La acción "Enviar correo electrónico" del conector de SMTP permite enviar correo electrónico a las direcciones de correo electrónico especificadas.
 
 ## Acciones y desencadenadores
 Los *desencadenadores* son eventos que se producen. Por ejemplo, cuando se actualiza un pedido o cuando se agrega un cliente nuevo. Un *acción* es el resultado del desencadenador. Por ejemplo, cuando se actualice un pedido o se agregue un nuevo cliente, enviar un correo electrónico al nuevo cliente.
@@ -57,18 +57,15 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 ## Uso del conector de SMTP en la aplicación lógica
 Una vez creado el conector, ahora puede usar el conector de SMTP como acción para la aplicación lógica. Para ello, siga estos pasos:
 
-1.	Cree una nueva aplicación lógica.
-
+1.	Cree una nueva aplicación lógica: 
 	![][2]
-2.	Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas y configurar el flujo de trabajo.
-
+2.	Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas y configurar el flujo de trabajo: 
 	![][3]
-3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo:
-
+3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo: 
 	![][4]
 4.	Seleccione el conector de SMTP para agregarlo automáticamente al diseñador de flujo de trabajo.
 
-Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. Seleccione la acción **Enviar correo electrónico** y configure las propiedades de entrada como sigue:
+Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. Seleccione la acción **Enviar correo electrónico** y configure las propiedades de entrada:
 
 	Propiedad | Descripción
 	--- | ---
@@ -99,4 +96,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

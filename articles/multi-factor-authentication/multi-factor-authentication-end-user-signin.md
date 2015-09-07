@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="La experiencia de inicio de sesión de Azure MFA con Azure Multi-Factor Authentication " 
-	description="Esta página proporciona instrucciones sobre dónde debe ir para ver los distintos métodos de inicio de sesión disponibles con Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="La experiencia de inicio de sesión de Azure MFA con Azure Multi-Factor Authentication "
+	description="Esta página proporciona instrucciones sobre dónde debe ir para ver los distintos métodos de inicio de sesión disponibles con Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # La experiencia de inicio de sesión con Azure Multi-Factor Authentication
@@ -33,4 +33,4 @@ Dependiendo de cómo inicie sesión y use la autenticación multifactor, su expe
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

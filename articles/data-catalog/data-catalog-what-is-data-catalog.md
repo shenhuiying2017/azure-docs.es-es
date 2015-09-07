@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Catálogo de datos de Azure qué es el catálogo de datos"
-   description="Catálogo de datos de Microsoft Azure es un servicio en la nube totalmente administrado que actúa como un sistema de registro y de detección para orígenes de datos empresariales. Catálogo de datos de Azure proporciona capacidades que permiten a cualquier usuario (desde analistas hasta científicos de datos y desarrolladores) registrar, detectar, comprender y usar orígenes de datos."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+   pageTitle="Catálogo de datos de Azure: ¿Qué es el catálogo de datos?"
+	description="Información general del Catálogo de datos de Microsoft Azure, incluidas sus características y los problemas que está diseñado para solucionar. Catálogo de datos de Azure proporciona capacidades que permiten a cualquier usuario (desde analistas a científicos de datos y desarrolladores) registrar, detectar, comprender y consumir orígenes de datos."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="08/19/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/21/2015"
+	ms.author="maroche"/>
 
 # ¿Qué es el Catálogo de datos de Azure?
 
@@ -122,4 +122,4 @@ El objetivo final de la detección de datos es encontrar los datos que necesita 
 
 > [AZURE.NOTE]Para la vista previa privada del Catálogo de datos de Azure, de forma directa solo se admitirán y estarán disponibles Microsoft Excel y el Administrador de informes de SQL Server Reporting Services en el menú **Abrir en**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -11,7 +11,7 @@
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
@@ -24,7 +24,7 @@ En las secciones siguientes vamos a desglosar un flujo de trabajo típico para u
 
 Antes de iniciar la creación de prototipos, recomendamos que haga un repaso con uno de los tutoriales de introducción, o con este [vídeo de presentación de una hora con información detallada](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Los tutoriales de introducción se proporcionan en los siguientes lenguajes: [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md), [Node.JS](search-get-started-nodejs.md).
 
-##Desarrollo de prototipos
+## Desarrollo de prototipos
 
 Normalmente, el camino más rápido para la creación de un prototipo correcto incluye los pasos de esta sección. Estos pasos incluyen el aprovisionamiento de un servicio, la definición de un esquema para el índice, la carga del índice con documentos y la consulta del índice.
 
@@ -32,19 +32,19 @@ Para las aplicaciones con datos volátiles (por ejemplo, si el caso común inclu
 
    ![][1]
 
-###Paso 1: aprovisionamiento del servicio
+### Paso 1: aprovisionamiento del servicio
 
 Búsqueda de Azure es un servicio en línea totalmente administrado disponible a través de la suscripción de Azure. [Una vez que se suscriba a Azure](http://azure.microsoft.com/pricing/free-trial/), Búsqueda se puede agregar con rapidez. Visite [Creación de un servicio de Búsqueda de Azure en el portal](search-create-service-portal.md) para obtener instrucciones sobre cómo agregar un servicio de Búsqueda a su suscripción.
 
 Hay dos niveles de precios para elegir. Se recomienda el servicio compartido (gratuito) para crear prototipos, con la advertencia de que tendrá que trabajar con un pequeño subconjunto de los datos. El servicio compartido es gratuito para los suscriptores existentes (a través de la suscripción normal o de evaluación) y se configura con rapidez, pero limita el número de índices y documentos que puede utilizar a 3 índices y hasta 10.000 documentos por índice, o a 50 MB de almacenamiento total, lo que se alcance primero.
 
-###Paso 2: creación del índice
+### Paso 2: creación del índice
 
 Después de crear el servicio, está listo para crear un índice, empezando con su definición de esquema.
 
-La manera más rápida y fácil de crear un índice es a través del portal. Como mínimo, cada documento tiene que tener una clave única y al menos un campo que contenga datos que se puedan buscar. Para comenzar, consulte [Creación de un índice de Búsqueda de Azure en el portal](search-create-index-portal.md).
+La manera más rápida y fácil de crear un índice es a través del Portal de Azure. Como mínimo, cada documento tiene que tener una clave única y al menos un campo que contenga datos que se puedan buscar. Para comenzar, consulte [Creación de un índice de Búsqueda de Azure en el portal](search-create-index-portal.md).
 
-> [AZURE.NOTE]**Dentro de un índice de Búsqueda de Azure**
+> [AZURE.NOTE]Dentro de un índice de Búsqueda de Azure
 >
 > Un *índice* se compone de datos conservados y organizados que actúan como *corpus de búsqueda* para todas las operaciones de búsqueda subsiguientes. El corpus de búsqueda se almacena en la nube como parte de la suscripción al servicio de Búsqueda, lo que permite realizar operaciones de búsqueda de forma rápida y coherente. En terminología de búsqueda, se denomina *documento* a cada elemento en el corpus de búsqueda, y la suma total de todos los documentos es la *colección de documentos*.
 >
@@ -54,17 +54,17 @@ La manera más rápida y fácil de crear un índice es a través del portal. Com
 >
 > Para poner un ejemplo del mundo real, piense en una aplicación de comercio electrónico. El índice de búsqueda contendrá todos los productos o servicios que se pueden buscar en la aplicación (cualquier cosa que los resultados de búsqueda puedan devolver). Habrá un documento para cada SKU. Cada documento incluirá el nombre del producto, marca, tamaños, precio, colores e incluso referencias a imágenes u otros archivos de recursos que se desee que aparezcan en los resultados de la búsqueda.
 
-###Paso 3: carga de documentos
+### Paso 3: carga de documentos
 
 Después de guardar el índice de Búsqueda de Azure, el siguiente paso es rellenar el índice con documentos. En este paso, los datos se cargan, analizan, acortan y almacenan en estructuras de datos (por ejemplo, índices invertidos) diseñadas para cargas de trabajo de búsqueda.
 
 Los datos que se cargan en un índice deben ajustarse al esquema definido en el paso anterior. Los datos de documentos se representan como un conjunto de pares clave-valor para cada campo, en formato JSON. Si el esquema especifica un campo identificador (clave), un campo de nombre, un campo de número y un campo de dirección URL (lo que podría hacer si las imágenes externas forman parte de los resultados de búsqueda), todos los documentos que introduzca en el índice tienen que tener valores (o null) para cada campo.
 
-Hay varias formas de cargar documentos, pero ahora mismo, todas ellas requieren una API. Para la mayoría de los prototipos, este paso puede resultar el más lento debido a un requisito de codificación. A continuación se describen las opciones.
+Hay varias formas de cargar documentos, pero ahora mismo, todas ellas requieren una API. Para la mayoría de los prototipos, este paso puede resultar el más lento debido a un requisito de codificación. Las opciones se describen más adelante en este artículo.
 
 > [AZURE.NOTE]Recuerde que el servicio compartido tiene un límite de 10.000 documentos por índice. Asegúrese de reducir el conjunto de datos para que permanezca dentro de los límites. Consulte [Límites y restricciones](https://msdn.microsoft.com/library/dn798934.aspx) para obtener detalles.
 
-####Cómo cargar datos en un índice
+#### Cómo cargar datos en un índice
 
 Un enfoque consiste en utilizar un indizador. Para orígenes de datos relacionales de SQL Server o DocumentDB de Azure en Azure (de forma específica la base de datos de SQL de Azure o SQL Server en una máquina virtual de Azure), puede usar [indizadores](https://msdn.microsoft.com/library/dn946891.aspx) para recuperar documentos desde un origen de datos admitido. Se pueden encontrar ejemplos de código que utilizan indizadores para cargar documentos en cualquiera de estos tutoriales de introducción: [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md), [Node.JS](search-get-started-nodejs.md).
 
@@ -79,7 +79,7 @@ Una cuarta opción, posiblemente la más sencilla, consiste en tomar prestado el
 
 > [AZURE.TIP]Puede modificar y ejecutar el [ejemplo de perfiles de puntuación](https://azuresearchscoringprofiles.codeplex.com/), reemplazando los archivos de datos de JSON y el archivo schema.json con datos válidos para la aplicación.
 
-###Paso 4: documentos de la consulta
+### Paso 4: documentos de la consulta
 
 Una vez que se cargan los documentos en el índice, puede escribir la primera consulta.
 
@@ -96,7 +96,7 @@ Las consultas de Búsqueda de Azure pueden ser muy simples. Al incluir `search=*
 
 > [AZURE.TIP]La lista más completa de ejemplos de consultas puede encontrarse en [Buscar documentos](https://msdn.microsoft.com/library/dn798927.aspx), también puede revisar la [referencia sobre la sintaxis](https://msdn.microsoft.com/library/dn798920.aspx) para ver la lista de operadores compatibles.
 
-###Paso 5: explorar más características
+### Paso 5: explorar más características
 
 Ahora que tiene un servicio y un índice, puede experimentar con otras características para desarrollar aún más la experiencia de búsqueda. A continuación se enumera una breve lista de características para investigar.
 
@@ -114,7 +114,7 @@ Ahora que tiene un servicio y un índice, puede experimentar con otras caracter�
 
 **Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
 
-###Paso 6: actualización de índices y documentos
+### Paso 6: actualización de índices y documentos
 
 Algunas de las características que se vayan a evaluar pueden requerir una actualización del índice, lo que a menudo hace que sea necesario actualizar sus documentos.
 
@@ -128,13 +128,13 @@ Si tiene que actualizar el índice o los documentos, por ejemplo para agregar pr
 
 Una vez que se ha creado un prototipo que establece la prueba de concepto, puede aprovechar lo que ha aprendido para pasar al siguiente nivel mediante el diseño de un proyecto de desarrollo que puede admitir cargas de trabajo de producción.
 
-##Desarrollo de aplicaciones
+## Desarrollo de aplicaciones
 
 Avanzar a la siguiente fase requiere decisiones acerca de qué API usar, cómo gestionar los documentos y cargar la frecuencia y si se desea incluir recursos externos en los resultados de búsqueda.
 
 El diseño de solución que realice tendrá que incluir todos los pasos descritos para los prototipos, pero en lugar de dar prioridad a la ruta de acceso más expedita, tendrá que considerar cuáles son los métodos más compatibles con la solución general.
 
-###Elija una API
+### Elija una API
 
 Búsqueda de Azure proporciona dos modelos de programación: la biblioteca de .NET para código administrado y una API de REST para los lenguajes de programación como Java, JavaScript u otros lenguajes no destinados a Microsoft .NET Framework.
 
@@ -146,7 +146,7 @@ Actualmente, un pequeño subconjunto de características no están aún en la bi
 
 Puede comprobar periódicamente el artículo [Novedades](search-latest-updates.md) para ver los cambios en el estado de las características.
 
-###Determinación de los métodos de sincronización de datos: inserción o extracción
+### Determinación de los métodos de sincronización de datos: inserción o extracción
 
 Los modelos de inserción y extracción hacen referencia a la forma en la que se actualizan los documentos en el índice. A menudo, el escenario mismo dicta cuál de los modelos es el adecuado.
 
@@ -156,7 +156,7 @@ No hay ningún mecanismo concreto en Búsqueda de Azure para implementar un mode
 
 Los modelos de extracción son generalmente operaciones programadas que recuperan datos a partir de fuentes de datos externas. En Búsqueda de Azure, está disponible un modelo de extracción a través de [indizadores](https://msdn.microsoft.com/library/azure/dn946891.aspx), que se encuentran a su vez disponibles para orígenes de datos específicos: DocumentDB de Azure o Base de datos de SQL Azure (y también SQL Server en máquinas virtuales de Azure).
 
-###Carga de documentos en lotes
+### Carga de documentos en lotes
 
 Recomendamos la adición de documentos en lotes para mejorar el rendimiento. Puede procesar por lotes hasta 1.000 documentos, asumiendo un tamaño medio de los documentos de entre 1 y 2 KB.
 
@@ -168,7 +168,7 @@ Bajo una carga elevada, no es extraño que se produzcan algunos errores. En este
 
 Al actualizar un índice, puede combinar varias acciones (insertar, combinar y eliminar) en el mismo lote, acabando con la necesidad de varios recorridos de ida y vuelta. Actualmente, Búsqueda de Azure no admite actualizaciones parciales (PATCH de HTTP), de modo que, si tiene que actualizar un índice, debe reenviar la definición de los índices.
 
-###Integración de datos externos en los resultados de la búsqueda
+### Integración de datos externos en los resultados de la búsqueda
 
 Búsqueda de Azure usa almacenamiento interno para los índices y los documentos que se utilizan en operaciones de búsqueda. El análisis de texto y de índice depende de la disponibilidad inmediata de todos los campos localizables y atributos asociados.
 
@@ -176,11 +176,11 @@ De todas formas, no todos los campos de un documento se podrán localizar. Por e
 
 Para utilizar datos externos, tiene que definir un campo en el índice que almacena un puntero de dirección URL al archivo de datos externo. Si emite una solicitud de [búsqueda de documento](https://msdn.microsoft.com/library/dn798929.aspx) o incluye el campo en los resultados de búsqueda, el archivo binario aparece en el contexto de un documento.
 
-###Planificación de capacidad
+### Planificación de capacidad
 
 Una de la características más atractivas en Búsqueda de Azure es la facilidad con la que se puede ampliar o reducir los recursos en respuesta a la demanda. Aunque esta funcionalidad no elimina la necesidad de una planificación de capacidad, minimiza la mayoría de los riesgos. No estará limitado por el hardware adicional o el hardware equivocado para ejecutar las cargas de trabajo de búsqueda.
 
-Como último paso, revise los niveles de recursos existentes para réplicas y particiones, y determine si se necesitan ajustes. La manera más fácil de ajustar la capacidad está en el [Portal de administración de Azure](https://ms.portal.azure.com/).
+Como último paso, revise los niveles de recursos existentes para réplicas y particiones, y determine si se necesitan ajustes. La manera más fácil de ajustar la capacidad está en el [Portal de Azure](https://ms.portal.azure.com/).
 
 Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Además, según el grado de ajuste, puede tardar desde unos minutos hasta varias horas para implementar clústeres adicionales para el servicio.
 
@@ -189,6 +189,5 @@ Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Ade
 
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

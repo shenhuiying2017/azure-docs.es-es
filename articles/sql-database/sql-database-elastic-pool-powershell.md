@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell" 
-   description="Creación y administración de un grupo de bases de datos SQL elásticas de Azure mediante PowerShell" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell"
+	description="Creación y administración de un grupo de bases de datos SQL elásticas de Azure mediante PowerShell"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/12/2015"
-   ms.author="adamkr; sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="adamkr; sstein"/>
 
 # Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell
 
@@ -105,6 +105,7 @@ Ahora ya dispone de un grupo de recursos, un servidor y una regla de firewall co
 
 El grupo creado en el paso anterior está vacío, no tiene ninguna base de datos elástica. En las secciones siguientes se muestra cómo crear nuevas bases de datos dentro del grupo y también cómo agregar bases de datos existentes al grupo.
 
+*Después de crear un grupo también puede usar Transact-SQL para crear nuevas bases de datos elásticas en el grupo y mover bases de datos existentes dentro y fuera de un grupo. Para obtener información detallada, consulte [Referencia de grupo de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Creación de nuevas bases de datos elásticas en un grupo de bases de datos elásticas
 
@@ -117,7 +118,7 @@ Para crear una nueva base de datos directamente dentro de un grupo, use el cmdle
 
 ### Movimiento de una base de datos existente a un grupo de bases de datos elásticas
 
-Para mover una base de datos existente a un grupo, use el cmdlet **Set-AzurSqlDatabase** y establezca el parámetro **ElasticPoolName**.
+Para mover una base de datos existente a un grupo, use el cmdlet **Set-AzureSqlDatabase** y establezca el parámetro **ElasticPoolName**.
 
 
 Para obtener una demostración, cree una base de datos que no se encuentre en el grupo de bases de datos elásticas.
@@ -239,4 +240,4 @@ Tras la creación de un grupo de bases de datos elásticas, puede administrar la
 
 Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -487,7 +487,7 @@ Si desea personalizar el tamaño de la implementación del clúster de Redis, pu
 
 Nota: Las propiedades `totalMemberCountExcludingLast` y `totalMemberCount` son necesarias porque el idioma de la plantilla actualmente no contiene operaciones “matemáticas”.
 
-Encontrará más información sobre el idioma de la plantilla en MSDN en [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Encontrará más información sobre el idioma de la plantilla en MSDN en [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
 ### Sección "resources"
 
@@ -664,6 +664,6 @@ Básicamente, se sugiere este enfoque para:
 - Para los miembros idénticos de un grupo de recursos (nodos de un clúster, etc.), crear plantillas específicas que aprovechen bucles de recursos a fin de implementar varias instancias con propiedades únicas.
 - Para todas las tareas de implementación posteriores (instalación del producto, configuraciones, etc.), aprovechar las extensiones de implementación de scripts y crear scripts específicos de cada tecnología.
 
-Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

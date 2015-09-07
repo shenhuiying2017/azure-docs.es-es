@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Proveedor de recursos de red"
-   description="Proveedor de recursos de red"
-   services="azure-portal"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Proveedor de recursos de red"
+	services="azure-portal"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="azure-portal"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="04/22/2015"
+	ms.author="telmos"/>
 
 # Proveedor de recursos de red
 Una necesidad que sustenta el éxito de un negocio hoy en día es la capacidad de crear y administrar aplicaciones compatibles con redes de gran escala de una forma ágil, flexible, segura y repetible. El Administrador de recursos de Azure (ARM) permite crear aplicaciones, como una única colección de recursos en grupos de recursos. Estos recursos se administran a través de diversos proveedores de recursos en el Administrador de recursos de Azure.
@@ -210,7 +210,7 @@ Las principales ventajas derivadas del uso de plantillas son las siguientes:
 
 Para ver plantillas de ejemplo, consulte [Plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Para obtener más información sobre el lenguaje de la plantilla del Administrador de recursos de Azure, vea [Idioma de la plantilla del administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obtener más información sobre el lenguaje de la plantilla del Administrador de recursos de Azure, vea [Idioma de la plantilla del administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
 La plantilla del ejemplo anterior utiliza la red virtual y los recursos de la subred. Hay otros recursos de red que se pueden utilizar, como se muestra a continuación:
 
@@ -349,7 +349,7 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 [Referencia de Azure PowerShell para redes](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
 
 [Redes de Azure: plantillas utilizadas habitualmente](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +363,4 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 [Implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

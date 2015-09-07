@@ -1,20 +1,20 @@
 <properties
    pageTitle="Información general sobre el modelo de programación de un servicio fiable de Service Fabric"
-   description="Obtenga información sobre el modelo de programación de un servicio fiable de Service Fabric y comience a escribir sus propios servicios."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor="jessebenson; mani-ramaswamy"/>
+	description="Obtenga información sobre el modelo de programación de un servicio fiable de Service Fabric y comience a escribir sus propios servicios."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="masnider"
+	manager="timlt"
+	editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/17/2015"
-   ms.author="masnider;jesseb"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="masnider;jesseb"/>
 
 # Información general sobre los servicios fiables
 Service Fabric simplifica la escritura y la administración de servicios con y sin estado fiables. En este documento se hablará acerca de:
@@ -23,11 +23,11 @@ Service Fabric simplifica la escritura y la administración de servicios con y s
 2. Las distintas opciones que debe elegir al escribir un servicio fiable.
 3. Algunos de los diferentes escenarios y ejemplos de cuándo debe utilizar los servicios fiables y cómo se escriben.
 
-Servicios fiables es uno de los modelos de programación disponibles en Service Fabric. Para obtener más información sobre el modelo de programación de actores fiables, consulte [la introducción](../service-fabric/service-fabric-reliable-actors-introduction.md).
+Servicios fiables es uno de los modelos de programación disponibles en Service Fabric. Para obtener más información sobre el modelo de programación de actores fiables, consulte [la introducción](service-fabric-reliable-actors-introduction.md).
 
 En Service Fabric, un servicio se compone de configuración, código de aplicación y opcionalmente de estado.
 
-Service Fabric administra la duración de los servicios desde el aprovisionamiento hasta la implementación a través de la actualización y eliminación mediante la [administración de aplicaciones de Service Fabric](../service-fabric/service-fabric-deploy-remove-applications.md).
+Service Fabric administra la duración de los servicios desde el aprovisionamiento hasta la implementación a través de la actualización y eliminación mediante la [administración de aplicaciones de Service Fabric](service-fabric-deploy-remove-applications.md).
 
 ## ¿Qué son los servicios fiables?
 Servicios fiables le ofrece un modelo de programación de nivel superior, sencillo y potente para ayudarle a expresar lo que es importante para su aplicación. Con el modelo de programación de un servicio fiable obtendrá:
@@ -36,7 +36,7 @@ Servicios fiables le ofrece un modelo de programación de nivel superior, sencil
 
 2. Un modelo simple para ejecutar su propio código que se parece a modelos de programación a los que ya está acostumbrado: el código tiene un punto de entrada bien definido y un ciclo de vida de fácil administración.
 
-3. Un modelo de comunicación acoplable: utilice el transporte que desee, como HTTP con [WebAPI](../service-fabric/service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados, etc. Servicios fiables proporciona excelentes opciones originales que puede usar o le permite proporcionar las suyas propias.
+3. Un modelo de comunicación acoplable: utilice el transporte que desee, como HTTP con [WebAPI](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados, etc. Servicios fiables proporciona excelentes opciones originales que puede usar o le permite proporcionar las suyas propias.
 
 ## ¿Qué hace que los servicios fiables resulten diferentes?
 Los servicios fiables de Service Fabric son diferentes de los servicios que haya podido escribir previamente. Service Fabric proporciona confiabilidad, disponibilidad, coherencia y escalabilidad.
@@ -52,7 +52,7 @@ Los servicios fiables de Service Fabric son diferentes de los servicios que haya
 ## Ciclo de vida del servicio
 Si el servicio está con estado o sin estado, los servicios fiables proporcionan un ciclo de vida simple que permite conectar rápidamente el código y empezar a trabajar. Realmente solo existen uno o dos métodos que se deben implementar para poner su servicio en funcionamiento.
 
-+ CreateCommunicationListener: aquí es donde el servicio define la pila de comunicación que desea utilizar. La pila de comunicación, como [API web](../service-fabric/service-fabric-reliable-services-communication-webapi.md), es lo que define los extremos de escucha para el servicio (cómo lo alcanzarán los clientes), así como de qué manera dichos mensajes que aparecen acaban interactuando con el resto del código de servicio.
++ CreateCommunicationListener: aquí es donde el servicio define la pila de comunicación que desea utilizar. La pila de comunicación, como [API web](service-fabric-reliable-services-communication-webapi.md), es lo que define los extremos de escucha para el servicio (cómo lo alcanzarán los clientes), así como de qué manera dichos mensajes que aparecen acaban interactuando con el resto del código de servicio.
 
 + RunAsync: aquí es donde el servicio ejecuta su lógica empresarial. El token de cancelación que se proporciona es una señal de cuándo debe detenerse ese trabajo. Por ejemplo, si tiene un servicio que necesita extraer mensajes constantemente de una ReliableQueue y procesarlos, aquí sería donde se produciría ese trabajo.
 
@@ -63,13 +63,13 @@ Los eventos principales del ciclo de vida de un servicio fiable son los siguient
 2. Se llama al método CreateCommunicationListener, proporcionando al servicio una oportunidad para devolver un agente de escucha de comunicación de su agrado.
   + Tenga en cuenta que esto es opcional, aunque la mayoría de los servicios expondrán algún extremo directamente.
 
-3. Una vez creado el CommunicationListener, se abre
-  + CommunicationListeners disponen de un método llamado Open(), al que se llama en este momento y que devuelve la dirección de escucha para el servicio. Si el servicio fiable utiliza uno de los ICommunicationListeners integrados, esto es controlado por usted.
+3. Una vez creado el agente de escucha de comunicación, se abre
+  + Los agentes de escucha de comunicación disponen de un método llamado Open(), al que se llama en este momento y que devuelve la dirección de escucha para el servicio. Si el servicio fiable utiliza uno de los ICommunicationListeners integrados, esto es controlado por usted.
 
 4. Una vez que el agente de escucha de comunicación es Open(), se llama a la llamada RunAsync() del servicio principal.
   + Tenga en cuenta que RunAsync es opcional. Si el servicio realiza todo su trabajo en respuesta a llamadas de usuario solamente, entonces no es necesario que implemente RunAsync().
 
-Cuando se está cerrando el servicio (ya sea cuando se ha eliminado o simplemente cuando se esté moviendo desde una ubicación determinada) el orden de llamada es el mismo. Primero se llama a Close() en el CommunicationListener y, a continuación, se cancela el token de cancelación que se pasó a RunAsync().
+Cuando se está cerrando el servicio (ya sea cuando se ha eliminado o simplemente cuando se esté moviendo desde una ubicación determinada) el orden de llamada es el mismo. Primero se llama a Close() en el agente de escucha de comunicación y, a continuación, se cancela el token de cancelación que se pasó a RunAsync().
 
 ## Servicios de ejemplo
 Tras conocer este modelo de programación, echemos un vistazo rápido a dos servicios diferentes para ver cómo encajan estas piezas.
@@ -79,7 +79,7 @@ Un servicio sin estado es aquel en el que literalmente no se mantiene ningún es
 
 Por ejemplo, tomemos una calculadora que no tenga memoria y que recibe todos los términos y las operaciones que debe realizar a la vez.
 
-En este caso, el RunAsync() del servicio puede estar vacío, ya que no hay ningún procesamiento de tareas en segundo plano que necesite hacer el servicio. Cuando se cree el servicio de calculadora, devolverá un CommunicationListener (por ejemplo, [API web](../service-fabric/service-fabric-reliable-services-communication-webapi.md)), lo que abre un extremo de escucha en algún puerto. Este extremo de escucha se enlazará con los diferentes métodos (por ejemplo: "Add (n1, n2)") que definen la API pública de la calculadora.
+En este caso, el RunAsync() del servicio puede estar vacío, ya que no hay ningún procesamiento de tareas en segundo plano que necesite hacer el servicio. Cuando se cree el servicio de calculadora, devolverá un CommunicationListener (por ejemplo, [API web](service-fabric-reliable-services-communication-webapi.md)), lo que abre un extremo de escucha en algún puerto. Este extremo de escucha se enlazará con los diferentes métodos (por ejemplo: "Add (n1, n2)") que definen la API pública de la calculadora.
 
 Cuando se realiza una llamada desde un cliente, se invoca el método adecuado y el servicio de calculadora realiza las operaciones en los datos proporcionados y devuelve el resultado. No se almacena ningún estado.
 
@@ -125,9 +125,9 @@ Si cualquiera de las siguientes caracterizan sus necesidades de servicio de apli
 
 
 ## Pasos siguientes
-+ [Inicio rápido de servicios fiables](../service-fabric/service-fabric-reliable-services-quick-start.md)
++ [Inicio rápido de servicios fiables](service-fabric-reliable-services-quick-start.md)
 + [Consulte Uso avanzado de servicios fiables](service-fabric-reliable-services-advanced-usage.md)
-+ [Lea el modelo de programación de actores fiables](../service-fabric/service-fabric-reliable-actors-introduction.md)
++ [Lea el modelo de programación de actores fiables](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

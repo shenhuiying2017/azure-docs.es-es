@@ -208,7 +208,7 @@ También puede utilizar Sqoop para importar y exportar datos de SQL Server, tant
 
     > [AZURE.NOTE]En el caso d las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
 
-    Para obtener más información sobre la creación y la configuración de una red virtual, consulte [Tareas de configuración de la red virtual](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+    Para obtener más información sobre la creación y la configuración de una red virtual, consulte [Tareas de configuración de la red virtual](../services/virtual-machines/).
 
 * SQL Server estar configurado para permitir la autenticación SQL. Para obtener más información, consulte [Elegir un modo de autenticación](https://msdn.microsoft.com/ms144284.aspx).
 
@@ -263,4 +263,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

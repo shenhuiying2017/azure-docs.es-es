@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Administración de contenido multimedia con Servicios multimedia de Azure con el Portal de administración de Azure" 
-	description="Aprenda a administrar su contenido multimedia en Servicios multimedia de Azure. Esto incluye: carga, indización, codificación, cifrado y publicación." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Administración de contenido multimedia con Servicios multimedia de Azure con el Portal de administración de Azure"
+	description="Aprenda a administrar su contenido multimedia en Servicios multimedia de Azure. Esto incluye: carga, indización, codificación, cifrado y publicación."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="juliako"/>
 
 
@@ -99,7 +99,7 @@ Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámi
 En esta sección se describen los pasos que puede seguir para codificar el contenido con Azure Media Encoder mediante el Portal de administración.
 
 1.  Seleccione el archivo que desea codificar. Si se admite la codificación para este tipo de archivo, se habilitará el botón PROCESAR en la parte inferior de la página de contenido.
-4. En el cuadro de diálogo **Proceso**, seleccione el procesador de **Codificador multimedia de Azure**.
+4. En el cuadro de diálogo **Proceso**, seleccione el procesador **Codificador multimedia de Azure**.
 5. Elija una de las **configuraciones de codificación**.
 
 	![Process2][process2]
@@ -129,6 +129,7 @@ En esta sección se describen los pasos que puede seguir para codificar el conte
 
 ##<a id="encrypt"></a>Cifrado de contenido
 
+
 Si desea que Servicios multimedia cifre el recurso de forma dinámica con una clave AES o PlayReady DRM, haga lo siguiente:
 
 - Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran en la sección [Codificación](#encode)).
@@ -141,6 +142,11 @@ Si desea que Servicios multimedia cifre el recurso de forma dinámica con una cl
 	![Cifrar][encrypt]
 
 	Una vez habilitado el cifrado, siempre que un reproductor solicita una secuencia, Servicios multimedia usa la clave especificada para cifrar de forma dinámica el contenido con cifrado AES o PlayReady. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
+
+Consulte también:
+
+- [Protección con DRM de PlayReady](media-services-rest-deliver-streaming-content.md)
+- [Protección con una clave AES-128](media-services-protect-with-aes128.md)
 
 ##<a id="publish"></a>Publicación de contenido
 
@@ -215,4 +221,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

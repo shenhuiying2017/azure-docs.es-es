@@ -1,25 +1,27 @@
 <properties 
-   pageTitle="Configuración de una puerta de enlace de red virtual en el Portal de administración | Microsoft Azure"
-   description="Este artículo le guiará a través de la configuración de la puerta de enlace VPN de red virtual y el cambio de un tipo de enrutamiento de la puerta de enlace VPN de estático a dinámico o de dinámico a estático."
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+   pageTitle="Configuración de una puerta de enlace de VPN en el portal de Azure | Microsoft Azure"
+	description="Este artículo le guiará a través de la configuración de la puerta de enlace VPN de red virtual y el cambio de un tipo de enrutamiento de la puerta de enlace VPN de estático a dinámico o de dinámico a estático."
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/12/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
-# Configuración de una puerta de enlace de red virtual en el Portal de administración
+# Configuración de una puerta de enlace de VPN en el portal de Azure
 
 Si desea crear una conexión segura entre entornos Azure y la ubicación local, necesita configurar una puerta de enlace de red virtual. Hay diferentes tipos de puertas de enlace y el tipo de puerta de enlace que se va a crear depende tanto del plan de diseño de la red y el dispositivo VPN local que desee utilizar. Por ejemplo, algunas opciones de conectividad, como una conexión punto a sitio, requieren una puerta de enlace de enrutamiento dinámico. Si desea configurar la puerta de enlace para admitir conexiones punto a sitio (P2S) y una conexión de sitio a sitio (S2S), tendrá que configurar una puerta de enlace de enrutamiento dinámico, aunque se puede configurar el sitio a sitio con cualquier tipo de enrutamiento de puerta de enlace. Además, tendrá que asegurarse de que el dispositivo que desea utilizar para la conexión de sitio a sitio será compatible con el tipo de puerta de enlace que se va a crear. Consulte [Información acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
 
 ## Información general sobre la configuración
+
+El siguiente procedimiento le guiará a través de la configuración de una puerta de enlace de VPN en el portal de Azure. Estos pasos se aplican a las puertas de enlace de redes virtuales que se crearon usando el modo de administración de servicios y están visibles en el portal de Azure. No son los pasos para usar el portal de vista previa o para redes virtuales configuradas mediante el modo del Administrador de recursos. Puede encontrar información acerca de cómo crear puertas de enlace de red virtual para las redes virtuales creadas mediante el modo del Administrador de recursos en [Crear una red virtual con una conexión de sitio a sitio mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 Antes de configurar la puerta de enlace, primero deberá crear la red virtual. Para ver los pasos para crear una red virtual para conectividad entre entornos, consulte [Configuración de una red virtual con una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md) o [Configuración de una red virtual con una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md). A continuación, utilice los pasos siguientes para configurar la puerta de enlace de VPN y recopilar la información necesaria para configurar el dispositivo VPN.
 
@@ -35,7 +37,7 @@ Si ya tiene una puerta de enlace de VPN y desea cambiar el tipo de enrutamiento,
 
 ## Creación de una puerta de enlace de VPN
 
-1. En la página **Redes**, compruebe que la columna de estado de la red virtual sea **Creada**.
+1. En la página **Redes** del portal de Azure, compruebe que la columna de estado de la red virtual sea **Creada**.
 
 1. En la columna **Nombre**, haga clic en el nombre de la red virtual.
 
@@ -44,7 +46,7 @@ Si ya tiene una puerta de enlace de VPN y desea cambiar el tipo de enrutamiento,
 ![Puerta de enlace no creada](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
-A continuación, en la parte inferior de la página, haga clic en **Crear puerta de enlace**. Puede seleccionar *Enrutamiento estático* o *Enrutamiento dinámico*. El tipo de enrutamiento que seleccione depende de una serie de factores. Por ejemplo, lo que será compatible con el dispositivo VPN y si necesita admitir conexiones punto a sitio. Consulte [Acerca de los dispositivos VPN para la conectividad de redes virtuales](http://go.microsoft.com/fwlink/p/?LinkId=615934) para comprobar el tipo de enrutamiento que necesita. Una vez creada la puerta de enlace, no se puede cambiar entre los tipos de puerta de enlace sin eliminar y volver a crear la puerta de enlace. Cuando el sistema le pida confirmación de que desea crear la puerta de enlace, haga clic en **SÍ**.
+A continuación, en la parte inferior de la página, haga clic en **Crear puerta de enlace**. Puede seleccionar *Enrutamiento estático* o *Enrutamiento dinámico*. El tipo de enrutamiento que seleccione depende de una serie de factores. Por ejemplo, lo que será compatible con el dispositivo VPN y si necesita admitir conexiones punto a sitio. Consulte [Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md) para comprobar el tipo de enrutamiento que necesita. Una vez creada la puerta de enlace, no se puede cambiar entre los tipos de puerta de enlace sin eliminar y volver a crear la puerta de enlace. Cuando el sistema le pida confirmación de que desea crear la puerta de enlace, haga clic en **SÍ**.
 
 ![Tipo de puerta de enlace](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
@@ -69,7 +71,7 @@ Una vez creada la puerta de enlace, recopile la información de la configuració
 
 ## Configurar el dispositivo VPN
 
-Después de completar los pasos anteriores, usted o su administrador de red se debe configurar el dispositivo VPN para crear la conexión. [Para obtener más información acerca de los dispositivos VPN, consulte Acerca de los dispositivos VPN para la conectividad de redes virtuales](http://go.microsoft.com/fwlink/p/?LinkID=615934).
+Después de completar los pasos anteriores, usted o su administrador de red se debe configurar el dispositivo VPN para crear la conexión. [Para obtener más información acerca de los dispositivos VPN, consulte Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md).
 
 Una vez configurado el dispositivo VPN, puede ver la información de conexión actualizada en la página Panel para la red virtual.
 
@@ -126,7 +128,7 @@ Puesto que algunas configuraciones de conectividad solo están disponibles para 
 
 Si necesita cambiar un tipo de enrutamiento de puerta de enlace de VPN, deberá eliminar la puerta de enlace existente y, a continuación, volver a crearla con el nuevo tipo de enrutamiento. No es necesario eliminar toda la red virtual para cambiar el tipo de enrutamiento de la puerta de enlace.
 
-Antes de cambiar el tipo de puerta de enlace, asegúrese de comprobar que el dispositivo VPN será compatible con el tipo de enrutamiento que desea utilizar. Para descargar nuevos ejemplos de configuración de enrutamiento y comprobar los requisitos del dispositivo VPN, consulte [Acerca de los dispositivos VPN para la conectividad de redes virtuales](http://go.microsoft.com/fwlink/p/?LinkID=615934).
+Antes de cambiar el tipo de puerta de enlace, asegúrese de comprobar que el dispositivo VPN será compatible con el tipo de enrutamiento que desea utilizar. Para descargar nuevos ejemplos de configuración de enrutamiento y comprobar los requisitos del dispositivo VPN, consulte [Acerca de los dispositivos VPN para la conectividad de redes virtuales](vpn-gateway-about-vpn-devices.md).
 
 >[AZURE.IMPORTANT]Cuando se elimina una puerta de enlace de VPN de red virtual, se libera la VIP asignada a la puerta de enlace. Al volver a crear la puerta de enlace, se la asignará una nueva VIP.
 
@@ -141,12 +143,12 @@ Antes de cambiar el tipo de puerta de enlace, asegúrese de comprobar que el dis
 
 ## Pasos siguientes
 
-Puede obtener más información acerca de la conectividad de red virtual entre entornos en este artículo: [Sobre la conectividad segura entre entornos de redes virtuales](http://go.microsoft.com/fwlink/p/?LinkID=532884)
+Puede obtener más información acerca de la conectividad de red virtual entre locales en este artículo: [Información sobre la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md).
 
-Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md)
+Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Si desea configurar una conexión VPN de sitio a sitio, consulte [Configuración de una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md)
+Si desea configurar una conexión VPN de punto a sitio, consulte [Configurar una conexión VPN de punto a sitio](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

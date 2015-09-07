@@ -1,20 +1,20 @@
 <properties
    pageTitle="Autenticación de una entidad de servicio con el Administrador de recursos de Azure"
-   description="Describe cómo conceder acceso a una entidad de servicio a través del control de acceso basado en rol y autenticarla. Muestra cómo realizar estas tareas con PowerShell y la CLI de Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Describe cómo conceder acceso a una entidad de servicio a través del control de acceso basado en rol y autenticarla. Muestra cómo realizar estas tareas con PowerShell y la CLI de Azure."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/25/2015"
+	ms.author="tomfitz"/>
 
 # Autenticación de una entidad de servicio con el Administrador de recursos de Azure
 
@@ -32,6 +32,11 @@ Puede utilizar Azure PowerShell o CLI de Azure para Mac, Linux y Windows. Si no 
 ## Autenticar entidad de servicio con contraseña: PowerShell
 
 En esta sección, llevará a cabo los pasos para crear una entidad de servicio para una aplicación de Azure Active Directory, asignar un rol a la entidad de servicio y autenticarse como la entidad de servicio proporcionando el identificador de la aplicación y la contraseña.
+
+1. Cambie al modo de Administrador de recursos de Azure e inicie sesión en su cuenta.
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. Cree una nueva aplicación de AAD ejecutando el comando **New-AzureADApplication**. Proporcione un nombre para mostrar para la aplicación, el URI para una página que describe la aplicación (no se comprueba el vínculo), los URI que identifican la aplicación y la contraseña para la identidad de aplicación.
 
@@ -98,6 +103,24 @@ En esta sección, llevará a cabo los pasos para crear una entidad de servicio p
 
      Ahora debe autenticarse como la entidad de servicio para la aplicación de AAD que ha creado.
 
+7. Para autenticarse en una aplicación, incluya el código .NET siguiente. Después de recuperar el token, puede tener acceso a recursos de la suscripción.
+
+        public static string GetAToken()
+        {
+          var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+          var credential = new ClientCredential(clientId: "{application id}", clientSecret: {application password}");
+          var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+          if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+          }
+
+          string token = result.AccessToken;
+
+          return token;
+        }
+
+
 
 ## Autenticar entidad de servicio con certificado: PowerShell
 
@@ -107,12 +130,17 @@ Muestra dos maneras de trabajar con certificados: credenciales de clave y valore
 
 En primer lugar, debe configurar algunos valores en PowerShell que utilizará más adelante al crear la aplicación.
 
+1. Cambie al modo de Administrador de recursos de Azure e inicie sesión en su cuenta.
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
+
 1. Para ambos enfoques, cree un objeto X509Certificate desde su certificado y recupere el valor de clave. Utilice la ruta de acceso a su certificado y la contraseña de ese certificado.
 
         $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-2. Si está usando credenciales de clave, cree el objeto de credenciales de clave y establece su valor en el `$keyValue` del paso anterior.
+2. Si usa credenciales de clave, cree el objeto de credenciales de clave y establezca su valor en el `$keyValue` del paso anterior.
 
         $currentDate = Get-Date
         $endDate = $currentDate.AddYears(1)
@@ -172,11 +200,11 @@ En primer lugar, debe configurar algunos valores en PowerShell que utilizará m�
 
         PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
-6. Para autenticarse desde una aplicación, incluya el código siguiente. Tras la recuperación del cliente, puede tener acceso a recursos de la suscripción.
+6. Para autenticarse en una aplicación, incluya el código .NET siguiente. Tras la recuperación del cliente, puede tener acceso a recursos de la suscripción.
 
-        string clientId = "<Client ID for your AAD app>"; 
+        string clientId = "<Application ID for your AAD app>"; 
         var subscriptionId = "<Your Azure SubscriptionId>"; 
-        string tenant = "<AAD tenant name>.onmicrosoft.com"; 
+        string tenant = "<Tenant id or tenant name>"; 
 
         var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
 
@@ -205,7 +233,12 @@ En primer lugar, debe configurar algunos valores en PowerShell que utilizará m�
 
 Comenzará creando una entidad de servicio. Para ello, debemos crear una aplicación en el directorio. Esta sección le guiará a través de la creación de una nueva aplicación en el directorio.
 
-1. Cree una nueva aplicación de AAD ejecutando el comando **azure ad app create**. Proporcione un nombre para mostrar para la aplicación, el URI para una página que describe la aplicación (no se comprueba el vínculo), los URI que identifican la aplicación y la contraseña para la identidad de aplicación.
+1. Cambie al modo de Administrador de recursos de Azure e inicie sesión en su cuenta.
+
+        azure config mode arm
+        azure login
+
+2. Cree una nueva aplicación de AAD ejecutando el comando **azure ad app create**. Proporcione un nombre para mostrar para la aplicación, el URI para una página que describe la aplicación (no se comprueba el vínculo), los URI que identifican la aplicación y la contraseña para la identidad de aplicación.
 
         azure ad app create --name "<Your Application Display Name>" --home-page "<https://YourApplicationHomePage>" --identifier-uris "<https://YouApplicationUri>" --password <Your_Password>
         
@@ -221,7 +254,7 @@ Comenzará creando una entidad de servicio. Para ello, debemos crear una aplicac
         ...
         info:    ad app create command OK
 
-2. Cree a una entidad de servicio para la aplicación. Proporcione el identificador de la aplicación que se devolvió en el paso anterior.
+3. Cree a una entidad de servicio para la aplicación. Proporcione el identificador de la aplicación que se devolvió en el paso anterior.
 
         azure ad sp create b57dd71d-036c-4840-865e-23b71d8098ec
         
@@ -236,15 +269,15 @@ Comenzará creando una entidad de servicio. Para ello, debemos crear una aplicac
 
     Ahora ha creado una entidad de servicio en el directorio, pero el servicio no tiene asignado ningún permiso o ámbito. Debe conceder explícitamente permisos a la entidad de servicio a fin de realizar operaciones en cierto ámbito.
 
-3. Conceda los permisos de la entidad de servicio en su suscripción. En este ejemplo se concederá a la entidad de servicio el permiso de lectura para todos los recursos de la suscripción. Para el parámetro **ServicePrincipalName**, proporcione el valor de **ApplicationId** o **IdentifierUris** que utilizó al crear la aplicación. Para obtener más información sobre el control de acceso basado en rol, consulte [Administración y auditoría de acceso a recursos](azure-portal/resource-group-rbac.md).
+4. Conceda los permisos de la entidad de servicio en su suscripción. En este ejemplo se concederá a la entidad de servicio el permiso de lectura para todos los recursos de la suscripción. Para el parámetro **ServicePrincipalName**, proporcione el valor de **ApplicationId** o **IdentifierUris** que utilizó al crear la aplicación. Para obtener más información sobre el control de acceso basado en rol, consulte [Administración y auditoría de acceso a recursos](azure-portal/resource-group-rbac.md).
 
         azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
 
-4. Determine el valor **TenantId** del inquilino en el que reside la asignación del rol de la entidad de servicio mostrando las cuentas y buscando la propiedad **TenantId** en la salida.
+5. Determine el valor **TenantId** del inquilino en el que reside la asignación del rol de la entidad de servicio mostrando las cuentas y buscando la propiedad **TenantId** en la salida.
 
         azure account list
 
-5. Inicie sesión utilizando la entidad de servicio como su identidad. Para el nombre de usuario, utilice el valor de **ApplicationId** que utilizó al crear la aplicación. Para la contraseña, use la que especificó al crear la cuenta.
+6. Inicie sesión utilizando la entidad de servicio como su identidad. Para el nombre de usuario, utilice el valor de **ApplicationId** que utilizó al crear la aplicación. Para la contraseña, use la que especificó al crear la cuenta.
 
         azure login -u "<ApplicationId>" -p "<password>" --service-principal --tenant "<TenantId>"
 
@@ -252,12 +285,12 @@ Comenzará creando una entidad de servicio. Para ello, debemos crear una aplicac
 
 ## Pasos siguientes
   
-- Para obtener más información sobre el control de acceso basado en rol, consulte [Administración y auditoría de acceso a recursos](azure-portal/resource-group-rbac.md)  
-- Para obtener información sobre cómo usar el portal con entidades de servicio, consulte [Creación de una nueva entidad de servicio de Azure mediante el Portal de Azure](./resource-group-create-service-principal-portal.md)  
-- Para obtener instrucciones sobre cómo implementar la seguridad con el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md)
+- Para obtener información general sobre el control de acceso basado en rol, consulte [Administración y auditoría del acceso a recursos](azure-portal/resource-group-rbac.md).  
+- Para obtener información sobre cómo usar el portal con entidades de servicio, consulte [Creación de una entidad de servicio de Azure mediante el Portal de Azure](./resource-group-create-service-principal-portal.md).  
+- Para obtener instrucciones sobre la implementación de seguridad con el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

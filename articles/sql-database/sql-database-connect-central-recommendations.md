@@ -1,38 +1,34 @@
 <properties 
-	pageTitle="Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño" 
-	description="Un tema de punto de partida que reúne vínculos y recomendaciones para los programas cliente que se conectan a Base de datos SQL de Azure a partir de tecnologías como ADO.NET y PHP." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	pageTitle="Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño"
+	description="Un tema de punto de partida que reúne vínculos y recomendaciones para los programas cliente que se conectan a Base de datos SQL de Azure a partir de tecnologías como ADO.NET y PHP."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="genemi"/>
 
 
 # Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño
 
 
-Este tema es un buen lugar para empezar a trabajar con conectividad de cliente a Base de datos SQL de Azure. Proporciona vínculos a ejemplos de código para diversas tecnologías que puede usar para conectarse e interactuar con la Base de datos SQL. Las tecnologías incluyen, entre otras, Enterprise Library, JDBC y PHP. Se ofrecen recomendaciones que generalmente se aplican independientemente de la tecnología de conexión específica o del lenguaje de programación.
+Este tema es un buen lugar para empezar a trabajar con conectividad de cliente a Base de datos SQL de Azure. Proporciona vínculos a ejemplos de código para diversas tecnologías que puede usar para conectarse e interactuar con la Base de datos SQL. Las tecnologías incluyen, entre otras, Enterprise Library, JDBC y PHP. La información proporcionada se aplica independientemente de la tecnología específica que se use para conectarse a la Base de datos SQL.
 
 
 ## Recomendaciones independientes de la tecnología
 
 
-La información de esta sección se aplica independientemente de la tecnología específica que se use para conectarse a la Base de datos SQL.
-
-
 - [Instrucciones para conectar con Base de datos SQL de Azure mediante programación](http://msdn.microsoft.com/library/azure/ee336282.aspx) - Se incluye lo siguiente:
- - Puertos
- - Firewalls
+ - [Puertos y firewalls](https://azure.microsoft.com/es-ES/documentation/articles/sql-database-configure-firewall-settings/)
  - Cadenas de conexión
 - [Administración de recursos de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) - Se incluye lo siguiente:
  - Regulador de recursos
@@ -40,22 +36,16 @@ La información de esta sección se aplica independientemente de la tecnología 
  - Limitaciones
 
 
-Independientemente de la tecnología de conexión que se use, ciertas opciones de firewall para el servidor de Base de datos SQL y e incluso para las bases de datos individuales, son importantes:
-
-
-- [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
 ## Recomendaciones para la autenticación
 
 
-- Use la autenticación de Base de datos SQL, no la autenticación de Windows.
+- Use la autenticación de Base de datos SQL de Azure, no la autenticación de Windows que no está disponible en la Base de datos de SQL de Azure.
 - Especifique una base de datos determinada, en lugar de utilizar la base de datos *maestra* predeterminada.
-- A veces, se debe facilitar el nombre de usuario con el sufijo de *@nombredesuservidor*, pero otras veces se debe omitir el sufijo. Depende de cómo se haya escrito la herramienta o API.
- - Compruebe los detalles de cada tecnología individual.
 - Conéctese mediante la especificación de un usuario en una [base de datos independiente](http://msdn.microsoft.com/library/ff929071.aspx).
  - Este enfoque ofrece mejor rendimiento y escalabilidad al evitar la necesidad de un inicio de sesión en la base de datos maestra.
- - No puede utilizar la instrucción **USE NombreDeMiBaseDeDatos;** de Transact-SQL en Base de datos SQL.
+ - No puede usar la instrucción **USE NombreDeMiBaseDeDatos;** de Transact-SQL en Base de datos SQL.
 
 
 ## Recomendaciones para la conexión
@@ -114,7 +104,7 @@ Para obtener vínculos a temas de ejemplo de código que muestran la lógica de 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
 
-<a id="gatewaynoretry" name="gatewaynoretry"> &nbsp;</a>
+<a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
 
 
 ## Proxy de software intermedio y lógica de reintento
@@ -168,4 +158,4 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

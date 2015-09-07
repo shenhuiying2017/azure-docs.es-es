@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Incorporación del SDK de Application Insights para supervisar la aplicación de ASP.NET" 
-	description="Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Incorporación del SDK de Application Insights para supervisar la aplicación de ASP.NET | Microsoft Azure"
+	description="Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
 
 
@@ -54,7 +54,7 @@ Un [recurso][roles] de Azure es una instancia de un servicio. Este recurso es do
 
 La elección del tipo de aplicación establece el contenido predeterminado de las hojas de recursos y las propiedades que estarán visibles en el [Explorador de métricas][metrics].
 
-####  Realice una copia de la clave de instrumentación.
+#### Copia de la clave de instrumentación
 
 La clave identifica al recurso y se instalará pronto en el SDK para dirigir los datos al recurso.
 
@@ -74,25 +74,24 @@ Instalar y configurar el SDK de Application Insights varía en función de la pl
 
     ![Busque "Application Insights"](./media/app-insights-start-monitoring-app-health-usage/04-ai-nuget.png)
 
-
-3. Edite ApplicationInsights.config (que la instalación de NuGet ha agregado). Inserte esto justo antes de la etiqueta de cierre:
+3. Edite ApplicationInsights.config (que la instalación de NuGet agregó). Inserte esto justo antes de la etiqueta de cierre:
 
     `<InstrumentationKey>` *la clave de instrumentación que copió* `</InstrumentationKey>`
 
-    (También puede [establecer la clave escribiendo código][apikey] en su aplicación.)
+    (Asimismo, puede [establecer la clave escribiendo código][apikey] en su aplicación.)
 
 #### Para actualizar a futuras versiones del SDK
 
 De vez en cuando, lanzamos una versión nueva del SDK.
 
-Para actualizar a una [nueva versión del SDK](app-insights-release-notes-dotnet.md), vuelva a abrir el Administrador de paquetes de NuGet y filtre los paquetes instalados. Seleccione Microsoft.ApplicationInsights.Web y elija Actualizar.
+Para actualizar a una [nueva versión del SDK](app-insights-release-notes-dotnet.md), vuelva a abrir el Administrador de paquetes de NuGet y filtre los paquetes instalados. Seleccione **Microsoft.ApplicationInsights.Web** y elija **Actualizar**.
 
 Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copia del mismo antes de actualizar y después combine los cambios en la nueva versión.
 
 
 ## <a name="run"></a> 3. Ejecución del proyecto
 
-Ejecute la aplicación con F5 y pruébela. Abra varias páginas para generar telemetría.
+Use **F5** para ejecutar la aplicación y pruébela. Abra varias páginas para generar telemetría.
 
 En Visual Studio, aparecerá un recuento de los eventos que se han enviado.
 
@@ -100,7 +99,7 @@ En Visual Studio, aparecerá un recuento de los eventos que se han enviado.
 
 ## <a name="monitor"></a> 4. Visualización de la telemetría
 
-Vuelva al [portal de Azure][portal] y busque el recurso de Application Insights.
+Vuelva al [Portal de Azure][portal] y busque el recurso de Application Insights.
 
 
 Busque los datos en los gráficos de Información general. Al principio, solo aparecerán uno o dos puntos. Por ejemplo:
@@ -118,14 +117,14 @@ Si se trabaja en modo de depuración, la telemetría se agiliza a través de la 
 
 * Abra el icono [Buscar][diagnostic] para ver los eventos individuales.
 * Use la aplicación y abra varias páginas para generar telemetría.
-* Espere unos segundos y haga clic en Actualizar. Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente si espera que aparezcan algunos datos.
+* Espere unos segundos y haga clic en **Actualizar**. Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente si espera que aparezcan algunos datos.
 * Vea [Solución de problemas][qna].
 
 #### ¿Tiene problemas el servidor de compilación?
 
 Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
-## Adición del seguimiento de dependencia
+## 5\. Adición del seguimiento de dependencia
 
 El SDK necesita un poco de ayuda para obtener acceso a algunos datos. En concreto, este paso adicional será necesario para medir automáticamente las llamadas de la aplicación a las bases de datos, las API de REST y otros componentes externos. Estas métricas de dependencia pueden ser inestimables para ayudar a diagnosticar problemas de rendimiento.
 
@@ -143,7 +142,7 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 (La extensión solo ayuda a una aplicación que se ha compilado con el SDK. A diferencia del Monitor de estado, no puede instrumentar una aplicación existente).
 
-## Adición de la supervisión del lado cliente
+## 6\. Adición de la supervisión del lado cliente
 
 Instaló el SDK que envía datos de telemetría desde el servidor (back-end) de la aplicación. Ahora puede agregar la supervisión del lado cliente. Esto proporciona datos de los usuarios, sesiones, vistas de página y excepciones o bloqueos que se producen en el cliente.
 
@@ -166,7 +165,7 @@ Si la aplicación atiende a clientes como teléfonos u otros dispositivos, agreg
 Si configura el SDK del cliente con la misma clave de instrumentación que el SDK del servidor, las dos secuencias se integrarán de modo que podrá verlas juntas.
 
 
-## Finalización de la instalación.
+## 7\. Finalización de la instalación.
 
 Para obtener la vista completa de 360 grados de la aplicación, debe realizar algunas tareas adicionales:
 
@@ -182,7 +181,7 @@ Necesitará [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=
 
 #### Si se trata de un proyecto nuevo:
 
-Cuando cree un proyecto nuevo en Visual Studio, asegúrese de seleccionar Application Insights.
+Cuando cree un proyecto nuevo en Visual Studio, asegúrese de seleccionar **Agregar Application Insights**.
 
 
 ![Crear un proyecto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -193,7 +192,7 @@ Si el proyecto tiene páginas web, también agrega el [SDK de JavaScript][client
 
 #### ....o si se trata de un proyecto existente
 
-Haga clic con el botón secundario en el Explorador de soluciones y seleccione Agregar Application Insights.
+Haga clic con el botón derecho en el Explorador de soluciones y seleccione **Agregar Application Insights**.
 
 ![Elija Agregar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -207,9 +206,9 @@ La primera vez deberá iniciar sesión o registrarse en Microsoft Azure en vista
 
 Si esta aplicación forma parte de una aplicación mayor, es posible que quiera usar **Configurar valor** para colocarla en el mismo grupo de recursos que los demás componentes.
 
-*¿No encuentra la opción Application Insights? Compruebe que está usando Visual Studio 2013 Update 3 o posterior, que las herramientas de Application Insights se encuentran habilitadas en Extensiones y actualizaciones.*
+*¿No encuentra la opción Application Insights? Compruebe que está usando Visual Studio 2013 Update 3 o posterior y que las herramientas de Application Insights se encuentran habilitadas en Extensiones y actualizaciones.*
 
-#### Abra Application Insights desde un proyecto.
+#### Abrir Application Insights desde un proyecto
 
 ![Haga clic con el botón secundario en el proyecto y abra el Portal de Azure](./media/app-insights-start-monitoring-app-health-usage/appinsights-04-openPortal.png)
 
@@ -241,6 +240,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

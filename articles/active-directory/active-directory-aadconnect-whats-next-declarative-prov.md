@@ -1,21 +1,21 @@
 
 
 <properties 
-	pageTitle="Uso del aprovisionamiento declarativo de Azure AD Connect" 
-	description="Aprenda a usar el aprovisionamiento declarativo de Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Uso del aprovisionamiento declarativo de Azure AD Connect"
+	description="Aprenda a usar el aprovisionamiento declarativo de Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Aprovisionamiento declarativo de Azure AD Connect
@@ -28,4 +28,4 @@ Una parte esencial del aprovisionamiento declarativo es el lenguaje de expresion
 
 Para obtener más información sobre el lenguaje de expresiones, vea [Descripción de las expresiones de aprovisionamiento declarativo](https://msdn.microsoft.com/library/azure/dn801048.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

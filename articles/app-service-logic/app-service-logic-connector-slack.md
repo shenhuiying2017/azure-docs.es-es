@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Uso del conector de Slack en el Servicio de aplicaciones de Azure"
-	description="Introducción al conector de Slack"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="Uso del conector de Slack en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de Slack o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Conector Slack
-
+# Introducción al conector de Slack y su incorporación a su aplicación lógica
 Conéctese a los canales de Slack y publique mensajes para su equipo. Los conectores pueden usarse en aplicaciones lógicas como parte de un "flujo de trabajo" para realizar diferentes tareas. El uso del conector de Slack en su flujo de trabajo, en combinación con otros conectores, puede permitirle conseguir diversos resultados. Por ejemplo, puede usar el [conector de Facebook](app-service-logic-connector-facebook.md) en el flujo de trabajo para publicar un mensaje en el canal de Slack.
 
 ## Acciones y desencadenadores
@@ -36,7 +35,8 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Seleccione **Aplicaciones de API** y busque "Conector de Slack".
-3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades: <br/> ![][1] 
+3. Escriba el nombre, el plan de Servicio de aplicaciones y otras propiedades: 
+	![][1] 
 
 4. Haga clic en **Crear**.
 
@@ -49,20 +49,21 @@ Una vez creado el conector de Slack, puede agregarlo como acción a su aplicaci�
 1.	En la aplicación lógica, abra **Desencadenadores y acciones**. [Creación de una nueva aplicación lógica](app-service-logic-create-a-logic-app.md)
 
 2.	El conector de Slack aparece en la galería en el lado derecho: 
-<br/>
-![][2]
+	![][2]
 
 3.	Seleccione el conector de Slack que creó para añadirlo automáticamente a la aplicación lógica.
-4.	Seleccione **Autorizar**. Inicie sesión en su cuenta de Slack. Hacia el final, se le pedirá que conceda permiso de acceso al conector a su cuenta de Slack. Seleccione **Autorizar**: <br/> ![][3] ![][4] ![][5] ![][6]
+4.	Seleccione **Autorizar**. Inicie sesión en su cuenta de Slack. Hacia el final, se le pedirá que conceda permiso de acceso al conector a su cuenta de Slack. Seleccione **Autorizar**: 
+	![][3] 
+	![][4] 
+	![][5] 
+	![][6]  
 	
 5.	Ahora puede usar el conector Slack en el flujo. Está disponible la acción Publicar mensaje: 
-<br/>
-![][7]
+	![][7]
 
 
-Vamos a explicar el proceso para "Publicar mensaje". Puede usar esta acción para publicar un mensaje en cualquier canal de Slack:
- 
-![][8]
+Vamos a explicar el proceso para "Publicar mensaje". Puede usar esta acción para publicar un mensaje en cualquier canal de Slack: 
+	![][8]
 
 Configure las propiedades de entrada de la acción "Publicar mensaje" de la forma siguiente:
 
@@ -70,12 +71,11 @@ Propiedad | Descripción
 --- | ---
 Texto | Escriba el texto del mensaje que se va a publicar.
 Nombre del canal | Especifique el canal de Slack donde se publica este mensaje. Si no se especifica el canal, el mensaje se registra en #general.
-Propiedades avanzadas | **Nombre de usuario de bot**: nombre del bot que se usará en este mensaje. Si no se especifica, los mensajes se publicarán como "Bot".<p><p>**Dirección URL de icono**: la dirección URL de la imagen que se usará como icono en este mensaje.<p><p>**Emoji de icono**: el Emoji que se usará como icono en este mensaje. Esta propiedad reemplaza la propiedad Dirección URL de icono.
+Propiedades avanzadas | **Nombre de usuario de bot**: nombre del bot que se usará en este mensaje. Si no se especifica, los mensajes se publicarán como "Bot".<p><p>**Dirección URL de icono**: la dirección URL de la imagen que se usará como icono en este mensaje.<p><p>**Emoji de icono**: Emoji que se usará como icono en este mensaje. Esta propiedad reemplaza la propiedad Dirección URL de icono.
 
 
-El conector de Slack dispone de API de REST para que pueda usar el conector fuera de la aplicación lógica. Abra el conector de Slack y seleccione **Definición de API**:
-
-![][9]
+El conector de Slack dispone de API de REST para que pueda usar el conector fuera de la aplicación lógica. Abra el conector de Slack y seleccione **Definición de API**: 
+	![][9]
 
 
 ## Aplicaciones adicionales del conector
@@ -97,4 +97,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

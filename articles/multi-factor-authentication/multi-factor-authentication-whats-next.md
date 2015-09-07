@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Pasos siguientes para Azure Multi-Factor Authentication" 
-	description="Esta es la página de Azure Multi-Factor Authentication que describe los pasos siguientes a realizar con MFA. Esto incluye informes, alertas de fraude, omisión por única vez, mensajes de voz personalizados, almacenamiento en caché, direcciones IP de confianza y contraseñas de aplicación." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Pasos siguientes para Azure Multi-Factor Authentication"
+	description="Esta es la página de Azure Multi-Factor Authentication que describe los pasos siguientes a realizar con MFA. Esto incluye informes, alertas de fraude, omisión por única vez, mensajes de voz personalizados, almacenamiento en caché, direcciones IP de confianza y contraseñas de aplicación."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Configuración de Azure Multi-Factor Authentication
@@ -228,6 +228,8 @@ En algunas aplicaciones, como Office 2010 o anteriores y Apple Mail no se puede 
 >
 > Los clientes de Office 2013 (incluye Outlook) ahora admiten nuevos protocolos de autenticación que pueden habilitarse para admitir Multi-Factor Authentication. Esto significa que una vez habilitada, las contraseñas de aplicación no son necesarias para los clientes de Office 2013. Para obtener más información, consulte [Anuncio de la vista previa pública de la autenticación moderna de Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
+
+
 ### Aspectos importantes acerca de las contraseñas de aplicación
 
 La siguiente es una lista importante de cosas que debe saber acerca de las contraseñas de aplicación.
@@ -240,6 +242,11 @@ Experiencia de autenticación|Para las aplicaciones basadas en explorador|Para l
 - Aplicaciones que almacenar en caché las contraseñas y usan este método en escenarios locales, pueden fallar ya que la contraseña de aplicación no se reconocerá fuera del identificador de organización. Un ejemplo es el de los mensajes de correo electrónico de Exchange que son locales pero que se archivan en la nube. La misma contraseña no funcionará.
 - La contraseña real se genera automáticamente y no la proporciona el usuario. Esto es así porque una contraseña generada automáticamente es más difícil de adivinar y por tanto es más segura.
 - Actualmente hay un límite de 40 contraseñas por usuario. Para crear una nueva contraseña de aplicación se le pedirá que elimine una de las existentes.
+- Una vez habilitada la autenticación multifactor en una cuenta de usuario, las contraseñas de aplicación pueden usarse con la mayoría de los clientes que no son explorador, como Outlook y Lync, pero no se puede realizar acciones administrativas con contraseñas de aplicación a través de aplicaciones que no son explorador, como Windows PowerShell, incluso si ese usuario tiene una cuenta administrativa. Asegúrese de crear una cuenta de servicio con una contraseña segura para ejecutar scripts de PowerShell y no habilite esa cuenta para la autenticación multifactor.
+
+>[AZURE.WARNING]Las contraseñas de aplicación no funcionarán en entornos híbridos donde los clientes se comunican tanto en el entorno local como en los extremos de detección automática en la nube.
+>
+>Tenga en cuenta que las contraseñas de aplicación no funcionarán en entornos híbridos donde los clientes se comunican tanto en el entorno local como en los extremos de detección automática en la nube, ya que para autenticarse en el entorno local se requieren contraseñas de dominio y contraseñas de aplicación para autenticarse en la nube.
 
 
 ### Guía de nomenclatura para las contraseñas de aplicación
@@ -303,10 +310,10 @@ Además los usuarios también pueden crear contraseñas de aplicación más adel
 1. Inicie sesión en el portal de Office 365
 2. En la esquina superior derecha seleccione el widget de configuración
 3. A la izquierda seleccione Comprobación de seguridad adicional
-4. A la derecha, seleccione **Actualizar los números de teléfono usados para la seguridad de cuenta**
+4. A la derecha, seleccione **Actualizar los números de teléfono usados para la seguridad de cuenta**.
 5. En la página de proofup, en la parte superior, seleccione las contraseñas de aplicación
-6. Haga clic en **Crear**
-7. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**
+6. Haga clic en **Crear**.
+7. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**.
 8. Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/security.png)</center>
@@ -317,8 +324,8 @@ Además los usuarios también pueden crear contraseñas de aplicación más adel
 1. Inicie sesión en el Portal de administración de Azure
 3. En la parte superior, haga clic con el botón derecho en su nombre de usuario y seleccione Comprobación de seguridad adicional.
 5. En la página de proofup, en la parte superior, seleccione las contraseñas de aplicación
-6. Haga clic en **Crear**
-7. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**
+6. Haga clic en **Crear**.
+7. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**.
 8. Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.
 
 
@@ -330,8 +337,8 @@ Además los usuarios también pueden crear contraseñas de aplicación más adel
 2. En la parte superior, seleccione el perfil.
 3. Haga clic en su nombre de usuario y seleccione Comprobación de seguridad adicional.
 5. En la página de proofup, en la parte superior, seleccione las contraseñas de aplicación
-6. Haga clic en **Crear**
-7. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**
+6. Haga clic en **Crear**.
+7. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**.
 8. Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/myapp.png)</center>
@@ -356,6 +363,6 @@ Para asegurarse de que se protegen las cuentas de usuario, debe restaurar Multi-
 <li>En el directorio que ha seleccionado, haga clic en Configurar.</li>
 <li>En la sección de la autenticación multifactor, haga clic en Administrar configuración del servicio.</li>
 <li>En la página Configuración del servicio, en administrar la configuración de dispositivo de usuario, seleccione o anule la selección de la opción para **permitir a los usuarios suspender la autenticación multifactor haciendo que se recuerde el dispositivo **.</li>
-![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Establezca el número de días que desea permitir la suspensión. El valor predeterminado es 14 días</li>. <li>Haga clic en Guardar.</li> <li>Haga clic en Cerrar.</li>
+![Suspender dispositivos](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>Establezca el número de días que desea permitir la suspensión. El valor predeterminado es 14 días.</li> <li>Haga clic en Guardar.</li> <li>Haga clic en Cerrar.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

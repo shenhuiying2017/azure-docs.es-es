@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Creación y administración Base de datos SQL de Azure con C#" 
-   description="En este artículo se muestra cómo crear y administrar una base de datos SQL de Azure con C# usando la biblioteca de bases de datos SQL de Azure para. NET." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="Creación y administración Base de datos SQL de Azure con C#"
+	description="En este artículo se muestra cómo crear y administrar una base de datos SQL de Azure con C# usando la biblioteca de bases de datos SQL de Azure para. NET."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/07/2015"
-   ms.author="sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="sstein"/>
 
 # Creación y administración de bases de datos SQL con C&#x23;
 
@@ -335,6 +335,8 @@ Para crear un nuevo grupo en un servidor:
 
 ## Movimiento de una base de datos existente a un grupo de bases de datos elásticas
 
+*Después de crear un grupo también puede usar Transact-SQL para mover bases de datos existentes dentro y fuera de un grupo. Para obtener información detallada, consulte [Referencia de grupo de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+
 Para mover una base de datos existente a un grupo:
 
     
@@ -364,6 +366,8 @@ Para mover una base de datos existente a un grupo:
 
 
 ## Creación de una nueva base de datos en un grupo de bases de datos elásticas
+
+*Después de crear un grupo también puede usar Transact-SQL para crear nuevas bases de datos elásticas en el grupo. Para obtener información detallada, consulte [Referencia de grupo de bases de datos elásticas - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Para crear una nueva base de datos directamente en un grupo:
 
@@ -780,7 +784,7 @@ Para eliminar un grupo de recursos:
 
 [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-
+[Referencia de grupo de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
 
 <!--Image references-->
@@ -794,4 +798,4 @@ Para eliminar un grupo de recursos:
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

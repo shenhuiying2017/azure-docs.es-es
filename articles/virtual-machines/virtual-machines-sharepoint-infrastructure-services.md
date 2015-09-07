@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure"
-	description="Busque artículos clave que describan cómo configurar una granja de servidores de desarrollo/prueba o de producción de SharePoint 2013 en los servicios de infraestructura de Microsoft Azure."
+	pageTitle="Granjas de SharePoint Server 2013 en Azure | Microsoft Azure"
+	description="Busque artículos que describan cómo configurar una granja de servidores de entorno de desarrollo/prueba o de producción de SharePoint 2013 en Microsoft Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -63,4 +63,4 @@ Consulte estos recursos para obtener información y configuraciones adicionales 
 
 - [Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

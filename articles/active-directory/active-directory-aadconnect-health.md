@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Monitorización de la infraestructura de identidad local en la nube" 
-	description="En esta página se describe qué es Azure AD Connect Health y por qué debería usarlo." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Monitorización de la infraestructura de identidad local en la nube"
+	description="En esta página se describe qué es Azure AD Connect Health y por qué debería usarlo."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/12/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/12/2015"
 	ms.author="billmath"/>
 
-# Monitorización de la infraestructura de identidad local en la nube
+# Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube
 
-Azure AD Connect Health le ayuda a supervisar y a comprender mejor su infraestructura de identidad local. Ofrece la capacidad de ver alertas, rendimiento, patrones de uso, ajustes de configuración; le permite mantener una conexión confiable a Office 365 y mucho más. Esto se logra mediante un agente instalado en los servidores de destino. Si desea obtener más información sobre los requisitos de Azure AD Connect Health, consulte [Requisitos de Azure AD Connect Health](active-directory-aadconnect-health-requirements.md).
+Azure AD Connect Health le ayuda a supervisar y a comprender mejor su infraestructura de identidad local y los servicios de sincronización disponibles mediante Azure AD Connect. Ofrece la capacidad de ver alertas, rendimiento, patrones de uso, ajustes de configuración; le permite mantener una conexión confiable a Office 365 y mucho más. Esto se logra mediante un agente instalado en los servidores de destino.
 
 ![Qué es Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
@@ -30,7 +30,7 @@ Esta información se presenta en el portal de Azure AD Connect Health. Mediante 
 Las actualizaciones futuras de Azure AD Connect Health incluirá la supervisión adicional y la información sobre otros componentes de identidad y servicios, como servicios de Azure AD Connect Sync. Por tanto, se proporciona un único panel mediante el modo de identidad, al permitir un entorno más sólido, mantenido e integrado que los usuarios pueden aprovechar para aumentar su capacidad de hacer su trabajo.
 
 
-![Qué es Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)
+<center>![Qué es Azure AD Connect Health](./media/active-directory-aadconnect-health/logo1.png)</center>
 
 
 
@@ -51,30 +51,26 @@ El vídeo siguiente proporcionará información general de Azure AD Connect Heal
 [AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 
-## Uso de Azure Active Directory Connect Health por primera vez desde el Portal de Azure
-Para empezar a usar Azure Active Directory Connect Health, siga los pasos siguientes. Recuerde que para ver los datos de la instancia de Azure AD Connect Health, deberá instalar el agente de Azure AD Connect Health en los servidores de destino. Para descargar el agente de Azure AD Connect Health, seleccione Inicio rápido y Obtener herramientas en la primera hoja. También puede descargar directamente el agente en el vínculo que aparece a continuación. Para utilizar Azure Active Directory Connect Health, haga lo siguiente:
+
+## Introducción al Portal de Azure
+Para empezar a usar Azure Active Directory Connect Health, siga los pasos siguientes.
 
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com/).
 2. Para obtener acceso a Azure Active Directory Connect Health, vaya a Marketplace y búsquelo o seleccione Marketplace y, luego, Seguridad + Identidad.
-3. En la hoja de introducción (una hoja es una parte de la vista general. Puede pensar en una hoja como una ventana o un menú flotante), haga clic en Crear. Se abrirá otra hoja con la información del directorio.
-4. En la hoja del directorio, haga clic en Crear. Si no tiene una licencia de Azure Active Directory Premium, necesitará obtener una para usar Azure AD Connect Health. Para obtener información sobre Azure AD Premium, consulte Introducción a Azure AD Premium.
+3. En la hoja de introducción (una hoja es una parte de la vista general. Puede considerar una hoja como una ventana o menú emergente. Haga clic en **Crear**. Se abrirá otra hoja con la información del directorio.
+4. En la hoja del directorio, haga clic en **Crear**. Si no tiene una licencia de Azure Active Directory Premium, necesitará obtener una para usar Azure AD Connect Health. Para obtener información sobre Azure AD Premium, consulte Introducción a Azure AD Premium.
+
+>[AZURE.NOTE]Recuerde que para ver los datos de la instancia de Azure AD Connect Health, deberá instalar el agente de Azure AD Connect Health en los servidores de destino. Para descargar el agente de Azure AD Connect Health, seleccione Inicio rápido y Obtener herramientas en la primera hoja. También puede descargar directamente el agente mediante el [vínculo](#download-the-agent) que aparece a continuación. Para utilizar Azure Active Directory Connect Health, haga lo siguiente:
 
 
 
-
-
-
-![Portal de Azure AD Connect Health](./media/active-directory-aadconnect-health/portal1.png)
-
-
-
-## El portal de Azure Active Directory Connect Health
-El portal de Azure AD Connect Health le permite ver alertas, información de supervisión del rendimiento y análisis de uso. Después del primer acceso a Azure AD Connect Health, se mostrará la primera hoja. Una hoja es una parte de la vista general. Puede considerar una hoja como una ventana. La primera hoja que verá muestra Inicio rápido, Servicios y Configurar. Debajo de la captura de pantalla aparece una breve explicación de cada una de ellas.
+### El portal y los servicios de Azure AD Connect Health
+El portal de Azure AD Connect Health le permite ver alertas, información de supervisión del rendimiento y análisis de uso. Después del primer acceso a Azure AD Connect Health, se mostrará la primera hoja. Puede considerar una hoja como una ventana. La primera hoja que verá muestra Inicio rápido, Servicios y Configurar. Debajo de la captura de pantalla aparece una breve explicación de cada una de ellas. La sección de servicios muestra los servicios y las instancias activos de esos servicios que supervisa Azure AD Connect Health.
 
 ![Portal de Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
 - **Inicio rápido**: al seleccionar esta opción, se abrirá la hoja Inicio rápido. Aquí podrá descargar el agente de Azure AD Connect Health; para ello, elija Obtener herramientas, obtenga acceso a la documentación y proporcione comentarios.
-- **Servicios de federación de Active Directory**: esta opción representa todos los servicios de AD FS que actualmente supervisa Azure AD Connect Health. Las opciones que se aparecen en esta sección se describen en la sección siguiente. Consulte Servicios de Azure Active Directory Connect Health.
+- **Servicios de federación de Active Directory**: representa todos los servicios de AD FS que actualmente supervisa Azure AD Connect Health. Si selecciona una de las instancias, se abre una hoja con información sobre esa instancia de servicios. Esta información incluye una descripción general, propiedades, alertas, supervisión y análisis de uso. 
 - Configurar: esta opción le permite activar o desactivar lo siguiente:
 <ol>
 1. La actualización automática, para actualizar automáticamente el agente de Azure AD Connect Health a la versión más reciente. Esto significa que actualizará automáticamente a la versión más reciente del agente de Azure AD Connect Health cuando esté disponible. Esta opción está habilitada de manera predeterminada.
@@ -83,76 +79,39 @@ El portal de Azure AD Connect Health le permite ver alertas, información de sup
 
 
 
-## Servicios de Azure Active Directory Connect Health
-Esta sección representa los servicios activos y las instancias de esos servicios que supervisa Azure AD Connect Health. Si hace clic en el botón de puntos suspensivos, se abrirá una hoja con todas las instancias.
 
-![Servicios de Azure AD Connect Health](./media/active-directory-aadconnect-health/portal3.png)
+## Requisitos
+La tabla siguiente es una lista de los requisitos que se deben cumplir para usar Azure AD Connect Health.
 
-Si selecciona una de las instancias, Azure AD Connect Health abrirá una hoja con información sobre esa instancia de servicios. Aquí encontrará gran cantidad de información sobre la instancia. Esta información incluye una descripción general, propiedades, alertas, supervisión y análisis de uso. Para obtener información al respecto, consulte los vínculos a las secciones siguientes en la parte superior de esta página.
+| Requisito | Descripción|
+| ----------- | ---------- |
+|Azure AD Premium| Azure AD Connect Health es una característica de Azure AD Premium y, por tanto, requiere Azure AD Premium. </br></br>Para obtener más información, consulte [Introducción a Azure AD Premium](active-directory-get-started-premium.md).</br></br>Para iniciar un evaluación gratuita de 30 días, consulte [la sección pertinente.](https://azure.microsoft.com/trial/get-started-active-directory/)|.
+|Debe ser administrador global del directorio de Azure AD.|De manera predeterminada, los administradores globales tienen acceso a la información proporcionada por Azure AD Connect Health. Si no es administrador global del directorio de Azure AD, no podrá crear una instancia de servicio de Azure AD Connect Health. Asegúrese de ser un administrador global. Para obtener más información, consulte [Administración del directorio de Azure AD](active-directory-administer.md).</br></br>** Importante: ** la cuenta que use al instalar los agentes debe ser una cuenta profesional y no puede ser una cuenta Microsoft. Para obtener más información, consulte [Inicio de sesión en Azure como una organización](sign-up-organization.md)|
+|En AD FS, la auditoría de AD FS debe estar habilitada para usar el análisis de uso| Si planea usar el análisis de uso con AD FS, debe habilitarse la auditoría de AD FS. </br></br>Consulte [Habilitación de la auditoría para AD FS.](active-directory-aadconnect-health-operations.md#enable-auditing-for-ad-fs)
+|Requisitos del agente de Azure AD Connect Health|Vea la tabla siguiente para conocer los requisitos específicos de agente.
 
+En la tabla siguiente se muestran los requisitos que se deben cumplir para usar Azure AD Connect Health.
 
+| Requisito | Descripción|
+| ----------- | ---------- |
+|Agente de Azure AD Connect Health instalado en cada servidor de destino| Azure AD Connect Health requiere que haya un agente instalado en los servidores de destino para proporcionar los datos que se ven en el portal. </br></br>Por ejemplo, para obtener datos en su infraestructura de AD FS local, el agente se debe instalar en los servidores AD FS. Esto incluye los servidores proxy de AD FS y de aplicación web. </br></br>Para obtener información sobre la instalación del agente, consulte [Instalación del agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md).</br></br>**Importante:** la cuenta que use al instalar los agentes debe ser una cuenta profesional, no puede ser una cuenta Microsoft. Para obtener más información, consulte [Inicio de sesión en Azure como una organización](sign-up-organization.md).|
+|Conectividad saliente a los extremos del servicio de Azure|Durante la instalación y el tiempo de ejecución, el agente requiere conectividad a los extremos del servicio de Azure AD Connect Health que se enumeran a continuación. Si bloquea la conectividad saliente, asegúrese de agregar lo siguiente a la lista de elementos permitidos: </br></br><li>&#42;.servicebus.windows.net - Port: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|Puertos de Firewall en el servidor que ejecuta al agente.| El agente requiere que los siguientes puertos de firewall estén abiertos para poder comunicarse con los extremos de Azure AD Health.</br></br><li>Puerto 80 de TCP/UDP</li><li>Puerto 443 de TCP/UDP</li>
+|Permitir los siguientes sitios web si la seguridad mejorada de IE está habilitada|Los siguientes sitios web se deben permitir si está habilitada la seguridad mejorada de Internet Explorer en el servidor que va a tener instalado el agente.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>El servidor de federación de su organización en el que confía Azure Active Directory, por ejemplo: https://sts.contoso.com</li> 
 
-----------------------------------------------------------------------------------------------------------
-## Descargar el agente de Azure AD Connect Health
+## Descarga del agente
 
 Para empezar a utilizar Azure AD Connect Health, puede descargar la versión más reciente del agente aquí: [Descargar agente de Azure AD Connect Health](http://go.microsoft.com/fwlink/?LinkID=518973). Asegúrese de que ha agregado el servicio de Marketplace antes de instalar los agentes.
 
-----------------------------------------------------------------------------------------------------------
 
-## Alertas de Azure Active Directory Connect Health
-La sección Alertas de Azure AD Connect Health proporciona la lista de alertas activas. Cada alerta incluye información pertinente, pasos de resolución y vínculos a documentación relacionada. Al seleccionar una alerta activa o una alerta resulta, verá una hoja nueva con información adicional, así como los pasos que puede seguir para resolver la alerta y vínculos a documentación adicional. También puede ver datos históricos sobre las alertas resueltas en el pasado.
+## Vínculos relacionados
 
-![Portal de Azure AD Connect Health](./media/active-directory-aadconnect-health/alert1.png)
-
-Al seleccionar una alerta, recibirá información adicional, así como los pasos que puede seguir para resolver la alerta y vínculos a documentación adicional.
-
-![Portal de Azure AD Connect Health](./media/active-directory-aadconnect-health/alert2.png)
-
-## Supervisión de rendimiento de Azure Active Directory Connect Health
-Supervisión de rendimiento de Azure AD Connect Health proporciona información de supervisión sobre métricas. Al activar la casilla Supervisión, se abrirá una hoja con información detallada sobre las métricas.
-
-
-![Portal de Azure AD Connect Health](./media/active-directory-aadconnect-health/perf1.png)
-
-
-Al seleccionar la opción Filtro en la parte superior de la hoja, puede filtrar por servidor para ver las métricas de un servidor individual. Para cambiar las métricas, simplemente haga clic con el botón derecho en el diagrama de supervisión bajo la hoja de supervisión y seleccione Editar gráfico. A continuación, desde la nueva hoja que se abre, puede seleccionar métricas adicionales en la lista desplegable y especificar un intervalo de tiempo para la visualización de los datos de rendimiento.
-
-
-![Portal de Azure AD Connect Health](./media/active-directory-aadconnect-health/perf2.png)
-
-## Análisis e informes de uso de Azure Active Directory Connect Health
-Análisis de uso de Azure AD Connect Health analiza el tráfico de autenticación de los servidores de federación. Al activar la casilla de análisis de uso se abrirá la hoja de análisis de uso, que le mostrará las métricas y las agrupaciones.
-
->[AZURE.NOTE]Para poder utilizar el análisis de uso con AD FS, debe asegurarse de que esté habilitada la auditoría de AD FS. Para obtener más información, consulte Requisitos de Azure AD Connect Health.
-
-![Portal de Azure AD Connect Health](./media/active-directory-aadconnect-health/report1.png)
-
-Para seleccionar otras métricas, especifique un intervalo de tiempo. Para cambiar la agrupación, simplemente haga clic con el botón derecho en el gráfico de análisis de uso y seleccione Editar gráfico. A continuación, puede especificar el intervalo de tiempo, cambiar o seleccionar métricas y cambiar la agrupación. Puede ver la distribución del tráfico de autenticación según diferentes "métricas" y agrupar cada métrica con los correspondientes parámetros "Agrupar por" que se describen a continuación
-
-| Métrica | Agrupar por | ¿Qué significa la agrupación y por qué es útil? |
-| ------ | -------- | -------------------------------------------- |
-| Total de solicitudes: número total de solicitudes procesadas por el servicio de federación | Todo | Esta opción mostrará el recuento total de solicitudes sin agrupación. |
-| | Application | Esta opción agrupará el número total de solicitudes en función del usuario de confianza de destino. Esta agrupación es útil para comprender qué aplicación está recibiendo tráfico y qué porcentaje del tráfico total recibe. |
-| | Server | Esta opción agrupará el número total de solicitudes en el servidor que procesó la solicitud. Esta agrupación es útil para comprender la distribución de la carga de tráfico total. |
-| | Unión al área de trabajo | Esta opción agrupará el número total de solicitudes en función de si las solicitudes proceden o no de dispositivos que están unidos al área de trabajo (conocidos). Esta agrupación es útil para comprender si el acceso a sus recursos se realiza con dispositivos que son desconocidos para la infraestructura de identidades. |
-| | Método de autenticación | Esta opción agrupará el número total de solicitudes en función del método de autenticación utilizado para la autenticación. Esta agrupación es útil para comprender el método de autenticación común que se utiliza para la autenticación. A continuación, se indican los métodos de autenticación posibles <ol> <li>Autenticación integrada en Windows (Windows)</li> <li>Autenticación basada en formularios (formularios)</li> <li>SSO (inicio de sesión único)</li> <li>Autenticación de certificados X509 (certificado)</li> <br>Tenga en cuenta que una solicitud se considera como SSO (inicio de sesión único) si los servidores de federación reciben la solicitud con una cookie de SSO. En estos casos, si la cookie es válida, no se pide al usuario que proporcione credenciales y obtiene acceso a la aplicación sin problemas. Esto es habitual si tiene varios usuarios de confianza protegidos por los servidores de federación. |
-| | Ubicación de red | Esta opción agrupará el número total de solicitudes en función de la ubicación de red del usuario. Puede ser intranet o extranet. Esta agrupación es útil para saber qué porcentaje del tráfico es de intranet y cuál de extranet. |
-| Total de solicitudes con error: número total de solicitudes procesadas por el servicio de federación <br> (Esta métrica solo está disponible en AD FS para Windows Server 2012 R2)| Tipo de error | Se mostrará el número de errores en función de los tipos de error predefinidos. La agrupación es útil para comprender cuáles son los tipos de errores comunes. <ul><li>Nombre de usuario o contraseña incorrectos: errores por nombre de usuario o contraseña incorrectos.</li> <li>"Bloqueo de extranet": errores producidos cuando se reciben solicitudes de un usuario cuyo acceso a la extranet está bloqueado.</li><li> "Contraseña caducada": errores producidos cuando un usuario inicia sesión con una contraseña caducada.</li><li>"Cuenta deshabilitada": errores producidos cuando un usuario inicia sesión con una cuenta deshabilitada.</li><li>"Autenticación de dispositivos": errores producidos cuando un usuario no se puede autenticar mediante la Autenticación de dispositivos.</li><li>"Autenticación de certificado de usuario": errores producidos cuando un usuario no se puede autenticar porque el certificado no es válido.</li><li>"MFA": errores producidos cuando un usuario no se puede autenticar mediante Multi-Factor Authentication.</li><li>"Otra credencial": "Autorización de emisión": problemas producidos por errores de autorización.</li><li>"Delegación de emisión": problemas producidos por errores de delegación de emisión.</li><li>"Aceptación de tokens": errores producidos cuando ADFS rechaza el token de un proveedor de identidades de terceros.</li><li>"Protocolo": error producido por errores de protocolo.</li><li>"Desconocido": detectar todas. Otros errores que no encajan en las categorías definidas.</li> |
-| | Server | Esta opción agrupará los errores en función del servidor. Esto es útil para comprender la distribución de errores entre servidores. Una distribución desigual podría indicar que un servidor presenta un estado defectuoso. |
-| | Ubicación de red | Esta función agrupará los errores en función de la ubicación de red de las solicitudes (intranet frente a extranet). Esto es útil para comprender qué tipo de solicitud está fallando. |
-| | Application | Esta opción agrupará los errores en función de la aplicación de destino (usuario de confianza). Esto es útil para comprender qué aplicación de destino está experimentado una mayor cantidad de errores. |
-| Número de usuarios: número medio de usuarios únicos activos en el sistema | Todo | Esta opción proporciona un recuento del número medio de usuarios mediante el servicio de federación en el intervalo de tiempo seleccionado. Los usuarios no están agrupados. <br>El promedio dependerá del intervalo de tiempo seleccionado. |
-| | Application | Esta opción agrupará el número medio de usuarios en función de la aplicación de destino (usuario de confianza). Esto es útil para comprender cuántos usuarios utilizan una aplicación y determinar qué aplicación. |
-
-## Pasos siguientes
-Para continuar utilizando Azure AD Connect Health, consulte [Requisitos de Azure AD Connect Health](active-directory-aadconnect-health-requirements.md). Una vez que haya instalado el agente y se recolecten datos, consulte [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md) para obtener más información sobre cómo configurar Azure AD Connect Health o revise las [Preguntas más frecuentes.](active-directory-aadconnect-health-faq.md)
-
-
-**Recursos adicionales**
-
-* [Azure AD Connect Health en MSDN](https://msdn.microsoft.com/library/azure/dn906722.aspx)
+* [Instalación del agente de Azure AD Connect Health para AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Uso de Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
+* [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

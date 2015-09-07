@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
+	pageTitle="Integración del SDK de Android para Azure Mobile Engagement"
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #Procedimientos de actualización
@@ -24,6 +24,29 @@ Si ya integró una versión anterior de nuestro SDK en la aplicación, debería 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Por ejemplo, si migra de la versión 1.4.0 a la versión 1.6.0, primero tiene que seguir el procedimiento "de la versión 1.4.0 a la versión 1.5.0" y, a continuación, el procedimiento "de la versión 1.5.0 a la versión 1.6.0".
 
 Sea cual sea la versión desde la que actualice, debe reemplazar `mobile-engagement-VERSION.jar` por el nuevo.
+
+##De 4.0.0 a 4.1.0
+
+El SDK ahora controla el nuevo modelo de permiso desde Android M.
+
+Si usa las características de ubicación o notificaciones de panorama general, lea [esta sección](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
+
+Además del nuevo modelo de permiso, ahora se admiten características de ubicación de configuración en tiempo de ejecución. Seguimos siendo compatibles con los parámetros de manifiesto de ubicación, pero ahora está en desuso. Para usar la configuración de tiempo de ejecución, quite las siguientes secciones de ``AndroidManifest.xml``:
+
+    <meta-data
+      android:name="engagement:locationReport:lazyArea"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:background"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:fine"
+      android:value="true"/>
+
+y lea [este procedimiento actualizado](mobile-engagement-android-integrate-engagement.md#location-reporting) para usar la configuración de tiempo de ejecución.
 
 ##De 3.0.0 a 4.0.0
 
@@ -363,4 +386,4 @@ La configuración de Proguard se puede ver afectada por la renovación de la mar
 			}
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

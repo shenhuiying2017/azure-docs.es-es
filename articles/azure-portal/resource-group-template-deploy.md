@@ -1,20 +1,20 @@
 <properties
    pageTitle="Implementación de una aplicación con la plantilla del Administrador de recursos de Azure"
-   services="azure-resource-manager"
-   description="Uso de Administrador de recursos de Azure para implementar una aplicación en Azure Una plantilla es un archivo JSON y puede usarse desde el Portal, PowerShell, la interfaz de la línea de comandos de Azure para Mac, Linux y Windows o REST."
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	services="azure-resource-manager"
+	description="Uso de Administrador de recursos de Azure para implementar una aplicación en Azure Una plantilla es un archivo JSON y puede usarse desde el Portal, PowerShell, la interfaz de la línea de comandos de Azure para Mac, Linux y Windows o REST."
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
 
@@ -256,12 +256,14 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro a la p
        }
     }
 
+El tamaño del archivo de parámetros no puede ser superior a 64 KB.
+
 ## Pasos siguientes
 - Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca de clientes de .NET, consulte [Implementación de recursos mediante bibliotecas de .NET y una plantilla](../arm-template-deployment.md).
-- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obtener un ejemplo detallado de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, consulte [Creación de plantillas](../resource-group-authoring-templates.md).
 - Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, consulte [Funciones de plantillas](../resource-group-template-functions.md).
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

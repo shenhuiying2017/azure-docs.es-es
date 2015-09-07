@@ -1,4 +1,3 @@
-
 #Equilibrio de carga para Servicios de infraestructura de Azure#
 
 Hay dos niveles de equilibrio de carga disponibles para Servicios de infraestructura de Azure:
@@ -18,7 +17,7 @@ El Administrador de tráfico de Azure utiliza tres métodos de equilibrio de car
 - **Rendimiento**: use este método cuando tenga extremos en diferentes ubicaciones geográficas y desee solicitar a los clientes que usen el extremo "más cercano" en términos de la latencia más baja.
 - **Round Robin:** use este método cuando desee distribuir la carga entre un conjunto de servicios en la nube en el mismo centro de datos o entre servicios en la nube o sitios en diferentes centros de datos.
 
-Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](http://msdn.microsoft.com/library/azure/dn339010.aspx).
+Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 En la figura siguiente se muestra un ejemplo del método de equilibrio de carga Round Robin para la distribución del tráfico entre diferentes servicios en la nube.
 
@@ -31,8 +30,6 @@ El proceso básico es el siguiente:
 3.	El Administrador de tráfico devuelve el nombre DNS del servicio en la nube en la lista de Round Robin. El servidor DNS del cliente de Internet resuelve el nombre en una dirección IP y lo envía al cliente de Internet.
 4.	El cliente de Internet se conecta con el servicio en la nube elegido.
 
-Para obtener más información, consulte [Administrador de tráfico](http://msdn.microsoft.com/library/azure/hh745750.aspx).
-
 ## Equilibrio de carga de Azure para máquinas virtuales ##
 
 Las máquinas virtuales que están en el mismo servicio en la nube o en la misma red virtual pueden comunicarse directamente entre sí mediante sus direcciones IP privadas. Los equipos y servicios fuera del servicio en la nube o la red virtual solo pueden comunicarse con las máquinas virtuales de un servicio en la nube o red virtual con un extremo configurado. Un extremo es una asignación de una dirección IP pública y un puerto a esa dirección IP privada y un puerto de una máquina virtual o rol web en un servicio en la nube de Azure.
@@ -43,7 +40,7 @@ En la siguiente ilustración se muestra un extremo con equilibrio de carga para 
 
 ![equilibrio de carga](./media/load-balancing-vms/LoadBalancing.png)
 
-Para obtener más información, consulte [Equilibrador de carga de Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Para conocer los pasos para crear un conjunto con equilibrio de carga, consulte [Configurar un conjunto de carga equilibrada](http://msdn.microsoft.com/library/azure/dn655055.aspx).
+Para obtener más información, consulte [Equilibrador de carga de Azure](../articles/load-balancer/load-balancer-overview.md). Para conocer los pasos para crear un conjunto con equilibrio de carga, consulte [Configurar un conjunto de carga equilibrada](../load-balancer/load-balancer-overview.md).
 
 Azure también puede equilibrar la carga en un servicio en la nube o una red virtual. Esto se conoce como equilibrio de carga interno y se puede usar de las siguientes maneras:
 
@@ -57,8 +54,8 @@ En la figura siguiente se muestra un ejemplo de un extremo con carga equilibrada
 
 ![equilibrio de carga](./media/load-balancing-vms/LOBServers.png)
 
-Para obtener más información, consulte [Equilibrio de carga interno](http://msdn.microsoft.com/library/azure/dn690121.aspx). Para conocer los pasos de creación de un conjunto con equilibrio de carga, consulte [Configuración de un conjunto con equilibrio de carga interno](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+Para obtener más información, consulte [Equilibrio de carga interno](../load-balancer/load-balancer-internal-overview.md). Para conocer los pasos de creación de un conjunto con equilibrio de carga, consulte [Configuración de un conjunto con equilibrio de carga interno](../load-balancer/load-balancer-internal-getstarted.md).
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

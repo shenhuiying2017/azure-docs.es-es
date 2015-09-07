@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Fase 4 de la carga de trabajo de aplicación de línea de negocio: Configuración de servidores web" 
-	description="En esta cuarta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, creará los servidores web y cargará la aplicación de línea de negocio en ellos." 
+	pageTitle="Fase 4 de la aplicación de línea de negocio | Microsoft Azure"
+	description="Cree los servidores web y cargue la aplicación de línea de negocio en ellos en la fase 4 de la aplicación de línea de negocio en Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Fase 4 de la carga de trabajo de aplicación de línea de negocio: Configuración de servidores web
@@ -168,4 +168,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

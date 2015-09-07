@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Consultar datos desde el almacenamiento de blobs compatible con HDFS | Microsoft Azure"
 	description="HDInsight usa el almacenamiento de blobs como el almacén de Big Data para HDFS. Obtenga información acerca de cómo realizar consultas de datos desde el almacenamiento de blobs y almacene los resultados de su análisis."
-	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
 	tags="azure-portal"
@@ -19,7 +18,7 @@
 	ms.author="jgao"/>
 
 
-#Uso del almacenamiento de blobs de Azure compatibles con HDFS con Hadoop en HDInsight
+# Uso del almacenamiento de blobs de Azure compatibles con HDFS con Hadoop en HDInsight
 
 En este tutorial, aprenda a usar el almacenamiento de blobs de Azure de bajo costo con HDInsight, a crear una cuenta de almacenamiento de Azure y un contenedor de almacenamiento de blobs y, a continuación, a tratar los datos que se encuentran dentro.
 
@@ -36,7 +35,7 @@ Almacenar los datos en un almacenamiento de blobs hace que elimine de forma segu
 Para obtener información sobre el aprovisionamiento de un clúster de HDInsight, consulte [Introducción a HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision].
 
 
-##<a id="architecture"></a>Arquitectura de almacenamiento de HDInsight
+## <a id="architecture"></a>Arquitectura de almacenamiento de HDInsight
 El diagrama siguiente proporciona una panorámica de la arquitectura de almacenamiento de HDInsight:
 
 ![Los clústeres de Hadoop usan la API de HDFS para acceder y almacenar datos estructurados y no estructurados en el almacenamiento de blobs.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Arquitectura de almacenamiento de HDInsight")
@@ -60,7 +59,7 @@ Además de esta cuenta de almacenamiento, puede agregar más cuentas de almacena
 
 	> [AZURE.NOTE]> Los contenedor públicos le permiten obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. Los blobs públicos le permiten acceder a los blobs solo si conoce la URL exacta. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restringir acceso a contenedores y blobs</a>.
 
-- **Los contenedores privados de las cuentas de almacenamiento que no están conectados a un clúster:** no puede tener acceso a los blobs de los contenedores a menos que defina la cuenta de almacenamiento al enviar los trabajos de WebHCat. Esto se explica posteriormente en este artículo.
+- **Contenedores privados de las cuentas de almacenamiento que no están conectados a un clúster:** no puede tener acceso a los blobs de los contenedores a menos que defina la cuenta de almacenamiento al enviar los trabajos de WebHCat. Esto se explica posteriormente en este artículo.
 
 
 Las cuentas de almacenamiento definidas en el proceso de aprovisionamiento y sus claves se almacenan en %HADOOP\_HOME%/conf/core-site.xml del nodos de clúster. El comportamiento predeterminado de HDInsight es usar las cuentas de almacenamiento definidas en el archivo core-site.xml. No es recomendable editar el archivo core-site.xml porque se puede volver a crear una imagen del nodo principal (maestro) del clúster o dicho nodo se puede migrar en cualquier momento, por lo que se perderá cualquier cambio en los archivos.
@@ -84,7 +83,7 @@ Determinados trabajos y paquetes de MapReduce podrían crear resultados intermed
 
 
 
-##<a id="preparingblobstorage"></a>Creación de un contenedor de blobs
+## <a id="preparingblobstorage"></a>Creación de un contenedor de blobs
 
 Para usar blobs, en primer lugar debe crear una [cuenta de almacenamiento de Azure][azure-storage-create]. Como parte de este proceso, debe especificar un centro de datos de Azure que almacenará los objetos que cree con esta cuenta. El clúster y la cuenta de almacenamiento deben ubicarse en el mismo centro de datos. La base de datos de SQL Server de la tienda de metadatos de Hive y la base de datos de SQL Server de la tienda de metadatos de Oozie también deben encontrarse en el mismo centro de datos.
 
@@ -93,7 +92,7 @@ Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a un co
 No comparta un contenedor de almacenamiento predeterminado con varios clústeres de HDInsight. Si necesita usar un contenedor compartido para proporcionar acceso a datos para varios clústeres de HDInsight, debe agregarlo como una cuenta de almacenamiento adicional en la configuración del clúster. Para obtener más información, consulte [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Sin embargo, puede volver a usar un contenedor de almacenamiento predeterminado después de que se haya eliminado el clúster de HDInsight original. Para clústeres de HBase, puede conservar realmente el esquema de la tabla HBase y los datos aprovisionando un nuevo clúster de HBase mediante el contenedor de almacenamiento de blobs predeterminado que se usa por un clúster de HBase que se ha eliminado.
 
 
-###Usando el portal de vista previa de Azure
+### Usando el portal de vista previa de Azure
 
 Al aprovisionar un clúster de HDInsight desde el portal de vista previa, tiene las opciones para usar una cuenta de almacenamiento existente o crear una nueva cuenta de almacenamiento:
 
@@ -109,7 +108,7 @@ Si ha [instalado y configurado la CLI Azure](../xplat-cli.md), se puede usar el 
 
 Se le pedirá que especifique la región geográfica en la que se encontrará la cuenta de almacenamiento. Debe crear la cuenta de almacenamiento en la misma región en la que planea crear el clúster de HDInsight.
 
-Cuando se haya creado la cuenta de almacenamiento, use el siguiente comando para recuperar las claves de la cuenta de almacenamiento:
+Una vez creada la cuenta de almacenamiento, use el siguiente comando para recuperar las claves de la cuenta de almacenamiento:
 
 	azure storage account keys list <storageaccountname>
 
@@ -117,9 +116,9 @@ Para crear un contenedor, use el comando siguiente:
 
 	azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-###Uso de Azure PowerShell
+### Uso de Azure PowerShell
 
-Si ha [instalado y configurado Azure PowerShell][powershell-install], puede usar lo siguiente desde el símbolo del sistema de PowerShell de Azure para crear una cuenta de almacenamiento y contenedor:
+Si ha [instalado y configurado Azure PowerShell][powershell-install], puede usar lo siguiente desde el símbolo del sistema de Azure PowerShell para crear una cuenta de almacenamiento y contenedor:
 
 	$subscriptionName = "<SubscriptionName>"	# Azure subscription name
 	$storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
@@ -137,7 +136,7 @@ Si ha [instalado y configurado Azure PowerShell][powershell-install], puede usar
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 
-##<a id="addressing"></a>Archivos de dirección en almacenamiento de blobs
+## <a id="addressing"></a>Archivos de dirección en almacenamiento de blobs
 
 El esquema URI para obtener acceso a los archivos del almacenamiento de blobs desde HDInsight es:
 
@@ -167,7 +166,7 @@ La &lt;ruta&gt; es el nombre de la ruta HDFS del archivo o el directorio. Dado q
 
 > [AZURE.NOTE]Al trabajar con blobs fuera de HDInsight, la mayoría de las utilidades no reconocen el formato WASB y en su lugar, espera un formato básico de ruta de acceso, como `example/jars/hadoop-mapreduce-examples.jar`.
 
-##<a id="azurecli"></a>Acceder a blobs con CLI de Azure
+## <a id="azurecli"></a>Acceder a blobs con CLI de Azure
 
 Use el siguiente comando para mostrar los cmdlets relacionados con blobs:
 
@@ -189,7 +188,7 @@ Use el siguiente comando para mostrar los cmdlets relacionados con blobs:
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-##<a id="powershell"></a>Acceder a blobs con Azure PowerShell
+## <a id="powershell"></a>Acceder a blobs con Azure PowerShell
 
 > [AZURE.NOTE]Los comandos de esta sección proporcionan un ejemplo básico de uso de PowerShell para acceder a los datos almacenados en blobs. Para obtener un ejemplo más completo que se personaliza para trabajar con HDInsight, vea las [Herramientas de HDInsight](https://github.com/Blackmist/hdinsight-tools).
 
@@ -291,11 +290,11 @@ En este ejemplo se muestra cómo enumerar una carpeta desde la cuenta de almacen
 
 	Invoke-Hive -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-##<a id="nextsteps"></a>Pasos siguientes
+## <a id="nextsteps"></a>Pasos siguientes
 
 En este artículo, ha aprendido a usar el almacenamiento de blobs de Azure compatible con HDFS con HDInsight y que el almacenamiento de blobs de Azure es un componente fundamental de HDInsight. Esto le permite crear soluciones de adquisición de datos de archivado escalable y a largo plazo con el almacenamiento de blobs de Azure; además de usar HDInsight para desbloquear la información que hay dentro de los datos estructurados y no estructurados almacenados.
 
-Para obtener más información, consulte los artículos siguientes:
+Para más información, consulte:
 
 * [Introducción a HDInsight de Azure][hdinsight-get-started]
 * [Carga de datos en HDInsight][hdinsight-upload-data]
@@ -316,4 +315,4 @@ Para obtener más información, consulte los artículos siguientes:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

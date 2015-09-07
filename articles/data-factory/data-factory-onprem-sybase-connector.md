@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector Sybase: mover datos desde Sybase" 
-	description="Obtenga información acerca del conector Sybase para el servicio Factoría de datos que le permite mover datos desde Base de datos Sybase." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Movimiento de datos de Sybase | Factoría de datos de Azure"
+	description="Obtenga información acerca de cómo mover los datos de la base de datos de Sybase mediante Factoría de datos de Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector Sybase: mover datos desde Sybase 
+# Movimiento de datos de Sybase mediante Factoría de datos de Azure 
 
 En este artículo se describe cómo puede usar la actividad de copia en Factoría de datos de Azure para mover datos de Sybase a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
@@ -34,11 +34,11 @@ Para que Data Management Gateway se conecte a la Base de datos Sybase, es precis
 
 El ejemplo siguiente muestra:
 
-1.	Un servicio vinculado de tipo OnPremisesSybase.
-2.	Un servicio vinculado de tipo AzureStorage.
-3.	Un conjunto de datos de entrada de tipo RelationalTable.
-4.	Un conjunto de datos de salida de tipo AzureBlob.
-4.	La canalización con la actividad de copia que usa RelationalSource y BlobSink.
+1.	Un servicio vinculado de tipo [OnPremisesSybase](data-factory-onprem-sybase-connector.md#sybase-linked-service-properties).
+2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [RelationalTable](data-factory-onprem-sybase-connector.md#sybase-dataset-type-properties).
+4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	La [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [RelationalSource](data-factory-onprem-sybase-connector.md#sybase-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 El ejemplo copia cada hora los datos de un resultado de consulta de la base de datos Sybase en un blob. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -79,7 +79,7 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 
 El ejemplo supone que ha creado una tabla "MyTable" en Sybase y que contiene una columna denominada "timestamp" para los datos de serie temporal.
 
-Si se establece "external": true y se especifica la directiva externalData, se indica a Factoría de datos que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos. Tenga en cuenta que el **tipo**del servicio vinculado se establece en: **RelationalTable**.
+Si se establece "external": true y se especifica la directiva externalData, se indica a Factoría de datos que la tabla es externa a la factoría de datos y que no se produce por ninguna actividad de la factoría de datos. Tenga en cuenta que el **tipo** del servicio vinculado se establece en: **RelationalTable**.
 	
 	{
 	    "name": "SybaseDataSet",
@@ -225,6 +225,8 @@ nombre de usuario | Especifique el nombre de usuario si usa la autenticación Ba
 contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. | No
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de Sybase local. | Sí 
 
+Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Sybase local.
+
 ## Propiedades del tipo Base de datos Sybase
 
 Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
@@ -262,4 +264,4 @@ Sybase admite T-SQL y tipos de T-SQL. Para ver una tabla de asignación de tipos
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

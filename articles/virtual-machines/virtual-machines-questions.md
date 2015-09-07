@@ -59,7 +59,7 @@ En muchos aspectos son similares a las máquinas virtuales Hyper-V de "generaci�
 
 ## ¿Pueden estas máquinas virtuales usar mi infraestructura de red local existente?
 
-Para las máquinas virtuales creadas en la Administración de servicios, puede usar la red virtual de Azure para extender su infraestructura existente. El enfoque es como configurar una sucursal. Puede aprovisionar y administrar redes privadas virtuales (VPN) en Azure, así como conectarlas de forma segura con la infraestructura de TI local. Para obtener más información, consulte [Información general de la red virtual de Azure](https://msdn.microsoft.com/library/jj156007.aspx).
+Para las máquinas virtuales creadas en la Administración de servicios, puede usar la red virtual de Azure para extender su infraestructura existente. El enfoque es como configurar una sucursal. Puede aprovisionar y administrar redes privadas virtuales (VPN) en Azure, así como conectarlas de forma segura con la infraestructura de TI local. Para obtener más información, consulte [Información general de la red virtual de Azure](../virtual-network/virtual-networks-overview.md).
 
 Necesitará especificar la red a la que desea que pertenezca la máquina virtual al crear la máquina virtual. Por ejemplo, esto significa que no puede unir una máquina virtual existente a una red virtual. Sin embargo, puede solucionar este problema separando el disco duro virtual (VHD) de la máquina virtual existente y, a continuación, usarlo para crear una nueva máquina virtual con la configuración de red que desee.
 
@@ -148,4 +148,4 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

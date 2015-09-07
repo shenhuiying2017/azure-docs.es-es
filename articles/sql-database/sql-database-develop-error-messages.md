@@ -5,16 +5,16 @@
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor="" />
+	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="genemi"/>
 
 
@@ -60,9 +60,11 @@ Los errores transitorios también se denominan a veces anomalías transitorias. 
 |40197|17|Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de Base de datos SQL se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a la base de datos SQL hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo.|
 |40501|20|El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>*Nota:* para obtener más información acerca de este error y de cómo resolverlo, vea:<br/>• [Limitación de base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338079.aspx).
 |40613|17|La base de datos '%.&#x2a;ls' en el servidor '%.&#x2a;ls' no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de '%. & #x2a; ls'.|
+|49918|16|No se puede procesar la solicitud. No hay suficientes recursos para procesar la solicitud.<br/><br/>El servicio está ocupado actualmente. Vuelva a intentar realizar la solicitud más tarde. |
+|49919|16|No se procesar, crear ni actualizar la solicitud. Hay demasiadas operaciones de creación o actualización en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes de creación o actualización para su suscripción o servidor. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) para las operaciones pendientes. Espere a que se completen solicitudes de creación o actualización pendientes o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
+|49920|16|No se puede procesar la solicitud. Hay demasiadas operaciones en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes para esta suscripción. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm\_operation\_stats](https://msdn.microsoft.com/library/dn270022.aspx) de estadísticas de la operación. Espere a que las solicitudes pendientes se hayan completado o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
 
-
-**Nota:** los errores de federación 10053 y 10054 también podrían requerir la inclusión en su lógica de reintento.
+**Nota:** Es posible que los errores de federación 10053 y 10054 requieran también la inclusión en su lógica de reintento.
 
 
 ## Errores de copia de base de datos
@@ -103,7 +105,7 @@ En la tabla siguiente se muestran los errores causados por un uso excesivo de re
 **Sugerencia:** el vínculo siguiente ofrece más información que se aplica a la mayoría de los errores de esta sección o todos ellos:
 
 
-- [Límites de recursos de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn338081.aspx).
+- [Límites de recursos de Base de datos SQL](http://msdn.microsoft.com/library/azure/dn338081.aspx).
 
 
 |Número de error|Gravedad|Descripción|
@@ -240,4 +242,4 @@ En la tabla siguiente se muestran todos los errores generales que no pertenecen 
 - [Instrucciones y limitaciones generales de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Administración de recursos](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

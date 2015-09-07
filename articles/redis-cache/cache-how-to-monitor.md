@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Supervisión de Caché en Redis de Azure" 
-	description="Obtenga información sobre cómo supervisar el estado y el rendimiento de las instancias de Caché en Redis de Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Supervisión de Caché en Redis de Azure"
+	description="Obtenga información sobre cómo supervisar el estado y el rendimiento de las instancias de Caché en Redis de Azure"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Supervisión de Caché en Redis de Azure
@@ -24,11 +24,11 @@ Cuando se habilitan los diagnósticos de caché, las métricas para las instanci
 
 Las métricas de caché se recopilan mediante el comando [INFO](http://redis.io/commands/info) de Redis. Para obtener más información acerca de los distintos comandos INFO que se utilizan para las métricas de caché, consulte [Métricas disponibles e intervalos de informes](#available-metrics-and-reporting-intervals).
 
-Para ver métricas de caché, [examine](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings) la instancia de caché en el [Portal de Azure](https://portal.azure.com). Se obtiene acceso a las métricas para las instancias de Caché en Redis de Azure en la hoja **Caché en Redis**.
+Para ver métricas de caché, [examine](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings) la instancia de caché en el [Portal de vista previa de Azure](https://portal.azure.com). Se obtiene acceso a las métricas para las instancias de Caché en Redis de Azure en la hoja **Caché en Redis**.
 
 ![Supervisión][redis-cache-monitor-overview]
 
->[AZURE.IMPORTANT]Si se muestra el mensaje siguiente en el Portal de Azure, siga los pasos de la sección [Habilitación de diagnósticos de caché](#enable-cache-diagnostics) para habilitar diagnósticos de memoria caché.
+>[AZURE.IMPORTANT]Si se muestra el mensaje siguiente en el Portal de vista previa, siga los pasos de la sección [Habilitación de diagnósticos de caché](#enable-cache-diagnostics) para habilitar diagnósticos de memoria caché.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
@@ -58,9 +58,9 @@ Después de establecer la configuración de diagnóstico, haga clic en **Guardar
 
 >[AZURE.IMPORTANT]Las memorias caché de la misma región y suscripción comparten la misma cuenta de almacenamiento de información de diagnóstico y, al cambiar de configuración, esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región.
 
-Para ver las métricas almacenadas, examine las tablas de la cuenta de almacenamiento con nombres que empiezan por `WADMetrics`. Para obtener más información acerca del acceso a las métricas almacenadas fuera del Portal de Azure, consulte el ejemplo [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) (Acceso a datos de supervisión de Caché en Redis).
+Para ver las métricas almacenadas, examine las tablas de la cuenta de almacenamiento con nombres que empiezan por `WADMetrics`. Para obtener más información acerca del acceso a las métricas almacenadas fuera del Portal de vista previa, consulte el ejemplo [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) (Acceso a datos de supervisión de Caché en Redis).
 
->[AZURE.NOTE]Solo las métricas que se almacenan en la cuenta de almacenamiento seleccionada se muestran en el portal. Si cambia las cuentas de almacenamiento, los datos de la cuenta de almacenamiento configurada previamente siguen estando disponibles para su descarga pero no se muestran en el portal y no se purgan una vez transcurrido el intervalo de período de retención.
+>[AZURE.NOTE]Solo las métricas que se almacenan en la cuenta de almacenamiento seleccionada se muestran en el portal de vista previa. Si cambia las cuentas de almacenamiento, los datos de la cuenta de almacenamiento configurada previamente siguen estando disponibles para su descarga pero no se muestran en el portal de vista previa y no se purgan una vez transcurrido el intervalo de período de retención.
 
 ## Métricas disponibles e intervalos de informes
 
@@ -80,7 +80,7 @@ Las métricas de caché se notifican mediante varios intervalos de informes, inc
 | Sets | El número de operaciones set a la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` y `cmdstat_setnx`. |
 | Total de operaciones | El número total de comandos procesados por el servidor de caché durante el intervalo de informes especificado. Este valor se asigna al comando INFO `total_commands_processed` de Redis. Tenga en cuenta que cuando se utiliza Caché en Redis de Azure simplemente para Pub/Sub, no habrá ninguna métrica para `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, pero habrá métricas `Total Operations` que reflejan el uso de la memoria caché para operaciones Pub/Sub. |
 | Memoria usada | La cantidad de memoria caché utilizada en MB durante el intervalo de informes especificado. Este valor se asigna al comando INFO `used_memory` de Redis. |
-| CPU | El uso de CPU del servidor de Caché en Redis de Azure como porcentaje durante el intervalo de informes especificado. Este valor se asigna al contador de rendimiento `\Processor(_Total)\% Processor Time` del sistema operativo. |
+| CPU | El uso de CPU del servidor de Caché en Redis de Azure como porcentaje durante el intervalo de informes especificado. Este valor se asigna al contador de rendimiento `\Processor(_Total)% Processor Time` del sistema operativo. |
 | Lectura de caché | La cantidad de datos que se leen de la memoria caché en KB/s durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. |
 | Escritura de caché | La cantidad de datos que se escriben en la memoria caché en KB/s durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. |
 
@@ -221,4 +221,4 @@ Para obtener más información acerca de las alertas en Azure, consulte [Recibir
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

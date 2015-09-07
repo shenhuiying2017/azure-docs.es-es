@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Creación de una red virtual"
-   description="Obtenga información sobre cómo crear una red virtual"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Obtenga información sobre cómo crear una red virtual"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # Creación de una red virtual
 
 Cuando crea una red virtual, los servicios y las máquinas virtuales de la red virtual pueden comunicarse de manera segura entre sí sin tener que hacerlo a través de Internet. Crear una red virtual de Azure es un proceso relativamente rápido y sencillo si la red virtual no está diseñada para conectarse a otras redes virtuales o a la red local, ya que no se necesita adquirir y configurar un dispositivo VPN ni coordinar las direcciones IP que se elijan con otras redes virtuales o la red local.
 
->[AZURE.WARNING]No utilice este procedimiento para crear una red virtual que posteriormente se conectará a otras redes virtuales o su red local. Si desea crear una conexión segura híbrida o entre locales, consulte [Sobre la conectividad segura entre locales de redes virtuales](https://msdn.microsoft.com/library/azure/dn133798.aspx). Si desea crear una máquina virtual que se conecta a otra red virtual, consulte [Configurar una conexión VNet a VNet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+>[AZURE.WARNING]No utilice este procedimiento para crear una red virtual que posteriormente se conectará a otras redes virtuales o su red local. Si desea crear una conexión segura híbrida o entre locales, consulte [Sobre la conectividad segura entre locales de redes virtuales](vpn-gateway-cross-premises-options.md). Si desea crear una máquina virtual que se conecta a otra red virtual, consulte [Configurar una conexión VNet a VNet](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 ## Configuración de la red virtual
 
@@ -35,7 +35,7 @@ Cuando crea una red virtual, los servicios y las máquinas virtuales de la red v
 
 	- **Ubicación**: seleccione la ubicación (región) en la lista desplegable. La ubicación está directamente relacionada con la ubicación física (región) en la que desea que residan los recursos (máquinas virtuales) cuando los implementa en esta red virtual. Por ejemplo, si desea que las máquinas virtuales se encuentren físicamente en *Oeste de EE.UU.*, seleccione esa región de ubicación. No se puede cambiar la región asociada a la red virtual después de crearla.
 
-1. En la página **Servidores DNS y conectividad de VPN**, no realice ningún cambio. Simplemente haga clic en la flecha para avanzar a la página siguiente. De modo predeterminado, Azure proporciona una resolución de nombres básica para la red virtual. Es posible que sus requisitos de resolución de nombres sean más complejos de lo que pueda manejar la resolución de nombres básica de Azure. En ese caso, puede que desee agregar más adelante una máquina virtual que ejecute el DNS en su red virtual. Para obtener más información acerca de la resolución de nombres de Azure y DNS, consulte [Resolución de nombres (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx).
+1. En la página **Servidores DNS y conectividad de VPN**, no realice ningún cambio. Simplemente haga clic en la flecha para avanzar a la página siguiente. De modo predeterminado, Azure proporciona una resolución de nombres básica para la red virtual. Es posible que sus requisitos de resolución de nombres sean más complejos de lo que pueda manejar la resolución de nombres básica de Azure. En ese caso, puede que desee agregar más adelante una máquina virtual que ejecute el DNS en su red virtual. Para obtener más información acerca de la resolución de nombres de Azure y DNS, consulte [Resolución de nombres (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 1. La página **Espacios de direcciones de la red virtual** es donde introduce el espacio de direcciones que desea usar para esta red virtual. A menos que exija un cierto intervalo de direcciones IP internas para las máquinas virtuales o desee crear una subred específica para las máquinas virtuales que recibirán una DIP estática, no es necesario que realice ningún cambio en esta página. Si desea crear varias subredes, puede hacer clic en **Agregar subred** en esta página para hacerlo.
 
@@ -66,4 +66,4 @@ Después de crear la red virtual, puede agregar nuevas máquinas virtuales a ell
 [Eliminación de una red virtual](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

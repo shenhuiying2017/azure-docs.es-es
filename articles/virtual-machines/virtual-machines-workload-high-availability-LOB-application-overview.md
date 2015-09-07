@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure" 
-	description="Puede implementar una aplicación de línea de negocio de alta disponibilidad basada en web con grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases." 
+	pageTitle="Implementación de una aplicación de línea de negocio | Microsoft Azure"
+	description="Implemente una aplicación de línea de negocio de alta disponibilidad basada en web con grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure
@@ -66,4 +66,4 @@ Para iniciar la configuración de esta carga de trabajo, vaya a [Fase 1: Configu
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

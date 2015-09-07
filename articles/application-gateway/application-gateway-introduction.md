@@ -1,24 +1,26 @@
 <properties 
    pageTitle="Introducción a Puerta de enlace de aplicaciones | Microsoft Azure"
-   description="Esta página proporciona información general sobre el servicio Puerta de enlace de aplicaciones para equilibrio de carga de nivel 7, incluidos los tamaños de puerta de enlace, el equilibrio de carga HTTP, la afinidad de sesión basada en cookies y la descarga SSL."
-   documentationCenter="na"
-   services="application-gateway"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn"/>
+	description="Esta página proporciona información general sobre el servicio Puerta de enlace de aplicaciones para equilibrio de carga de nivel 7, incluidos los tamaños de puerta de enlace, el equilibrio de carga HTTP, la afinidad de sesión basada en cookies y la descarga SSL."
+	documentationCenter="na"
+	services="application-gateway"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/24/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="joaoma"/>
 
-# Introducción técnica a la Puerta de enlace de aplicaciones 
+# ¿Qué es una Puerta de enlace de aplicaciones?
 
 
-La Puerta de enlace de aplicaciones de Microsoft Azure ofrece una solución de equilibrio de carga HTTP administrada de Azure basada en el equilibrio de carga de nivel 7. El equilibrio de carga de aplicaciones permite a los administradores de TI y desarrolladores crear reglas de enrutamiento para el tráfico de red basadas en HTTP. El servicio de puerta de enlace de aplicaciones tiene alta disponibilidad y está muy medido. Para obtener información sobre el contrato de nivel de servicio y los precios, consulte las páginas [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/) y [Precios](https://azure.microsoft.com/pricing/details/application-gateway/).
+La Puerta de enlace de aplicaciones de Microsoft Azure ofrece una solución de equilibrio de carga HTTP administrada de Azure basada en el equilibrio de carga de nivel 7.
+
+El equilibrio de carga de aplicaciones permite a los administradores de TI y desarrolladores crear reglas de enrutamiento para el tráfico de red basadas en HTTP. El servicio de puerta de enlace de aplicaciones tiene alta disponibilidad y está muy medido. Para obtener información sobre el contrato de nivel de servicio y los precios, consulte las páginas [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/) y [Precios](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 Puerta de enlace de aplicaciones actualmente admite la entrega de aplicación del nivel 7 para lo siguiente:
 
@@ -34,7 +36,7 @@ Azure ofrece equilibrio de carga de nivel 4 a través del equilibrador de carga 
 
 La Puerta de enlace de aplicaciones enrutará el tráfico HTTP en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube, una aplicación web o una dirección IP externa.
 
-En el diagrama siguiente se explica cómo fluye el tráfico para la Puerta de enlace de aplicaciones:![Puerta de enlace de aplicaciones2](./media/application-gateway-introduction/appgateway2.png)
+En el diagrama siguiente se explica cómo fluye el tráfico para la Puerta de enlace de aplicaciones: ![Puerta de enlace de aplicaciones2](./media/application-gateway-introduction/appgateway2.png)
 
 El equilibrio de carga de nivel 7 HTTP es útil para:
 
@@ -59,4 +61,4 @@ Creación de una puerta de enlace de aplicaciones. Consulte [Creación de una pu
 
 Configuración de la descarga SSL. Consulte [Configuración de la descarga SSL con Puerta de enlace de aplicaciones](application-gateway-ssl.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

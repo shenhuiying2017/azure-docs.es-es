@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Application Insights para y aplicaciones web de JavaScript" 
-	description="Obtenga recuentos de sesiones y vistas de página, además de datos de cliente web, y realice el seguimiento de los patrones de uso. Detecte problemas de rendimiento y excepciones en páginas web de JavaScript." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Application Insights para aplicaciones web de JavaScript | Microsoft Azure"
+	description="Obtenga recuentos de sesiones y vistas de página, además de datos de cliente web, y realice el seguimiento de los patrones de uso. Detecte problemas de rendimiento y excepciones en páginas web de JavaScript."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/10/2015"
 	ms.author="awills"/>
- 
+
 # Application Insights para y aplicaciones web de JavaScript
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -48,19 +48,19 @@ En Inicio rápido, obtenga el script para páginas web:
 
 Inserte el script justo antes de la etiqueta &lt;/head&gt; de cada página de la que quiera realizar el seguimiento. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo:
 
-* En un proyecto de ASP.NET MVC, lo colocaría en View\\Shared\\\_Layout.cshtml.
+* En un proyecto de ASP.NET MVC, lo colocaría en View\\Shared\\_Layout.cshtml.
 * En un sitio de SharePoint, en el panel de control, abra [Configuración del sitio/Página maestra](app-insights-sharepoint.md).
 
 El script contiene la clave de instrumentación que dirige los datos al recurso de Application Insights.
 
 *(Si está usando un marco de página web conocido, mire a ver si encuentra adaptadores de Application Insights). Por ejemplo, hay [un módulo AngularJS](http://ngmodules.org/modules/angular-appinsights)).*
 
- 
+
 ## <a name="run"></a>Ejecución de la aplicación
 
-Ejecute la aplicación web, úsela un rato para generar datos de telemetría y espere unos segundos. Puede ejecutarla con F5 en la máquina de desarrollo, o publicarla y dejar que los usuarios jueguen con ella.
+Ejecute la aplicación web, úsela un rato para generar datos de telemetría y espere unos segundos. Puede ejecutarla con la tecla **F5** en la máquina de desarrollo, o publicarla y dejar que los usuarios jueguen con ella.
 
-Si quiere comprobar la telemetría que envía una aplicación web a Application Insights, use las herramientas de depuración del explorador (F12 en muchos exploradores). Los datos se envían a dc.services.visualstudio.com.
+Si quiere comprobar la telemetría que envía una aplicación web a Application Insights, use las herramientas de depuración del explorador (**F12** en muchos exploradores). Los datos se envían a dc.services.visualstudio.com.
 
 ## Exploración de los datos
 
@@ -72,7 +72,7 @@ En la hoja de información general de la aplicación, hay un gráfico cerca de l
 
 *¿Aún no hay datos? Haga clic en **Actualizar** en la parte superior de la página. ¿Todavía nada? Consulte [Solución de problemas][qna].*
 
-Haga clic en ese gráfico, y obtendrá una versión más detallada:
+Haga clic en ese gráfico y obtendrá una versión más detallada:
 
 ![](./media/app-insights-javascript/07-client-perf.png)
 
@@ -96,7 +96,7 @@ Si quiere ver el rendimiento de las páginas con el paso del tiempo, haga doble 
 
 ## Información general del uso de clientes
 
-De vuelta en la hoja de información general, haga clic en Uso:
+De vuelta en la hoja de información general, haga clic en **Uso**:
 
 ![](./media/app-insights-javascript/14-usage.png)
 
@@ -128,7 +128,7 @@ Inserte una llamada de JavaScript como esta en el lugar adecuado del código de 
 
     appInsights.trackPageView(myPageName);
 
-El nombre de página puede contener los mismos caracteres que una URL, aunque se ignorarán los elementos situados tras "\#" o "?".
+El nombre de página puede contener los mismos caracteres que una URL, aunque se ignorarán los elementos situados tras "#" o "?".
 
 
 ## Inspección de eventos de vista de página individuales
@@ -147,11 +147,11 @@ Seleccione el evento que desea ver con mayor detalle. En la página de detalles,
 
 ### Propiedades de la vista de página
 
-* **Duración de la vista de página** Tiempo que se tarda en cargar la página e iniciar la ejecución de scripts. En concreto, el intervalo entre el inicio de la carga de la página y la ejecución de trackPageView. Si mueve trackPageView desde su posición habitual después de la inicialización del script, reflejará un valor diferente. 
+* **Duración de la vista de página**&#151;Tiempo que se tarda en cargar la página e iniciar la ejecución de scripts. En concreto, el intervalo entre el inicio de la carga de la página y la ejecución de trackPageView. Si mueve trackPageView desde su posición habitual después de la inicialización del script, reflejará un valor diferente.
 
 ## Seguimiento de uso personalizado
 
-¿Desea averiguar qué hacen los usuarios con su aplicación? Mediante la inserción de llamadas en el código de cliente y servidor, puede enviar su propia telemetría a Application Insights. Por ejemplo, podría averiguar el número de usuarios que crean pedidos sin completarlos o qué errores de validación aparecen con más frecuencia, o el promedio de puntuación en un juego.
+¿Desea averiguar qué hacen los usuarios con su aplicación? Mediante la inserción de llamadas en el código de cliente y servidor, puede enviar su propia telemetría a Application Insights. Por ejemplo, puede averiguar el número de usuarios que crean pedidos sin completarlos o qué errores de validación aparecen con más frecuencia, o el promedio de puntuación en un juego.
 
 * [Más información sobre la API de eventos y métricas personalizados][track].
 * [Referencia de API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
@@ -184,6 +184,4 @@ Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los 
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -78,7 +78,11 @@ En ambos casos, las credenciales se almacenan en estado cifrado en el directorio
 
 El SSO con contraseña depende de la extensión del navegador para recuperar información específica de la aplicación y el usuario desde Azure AD de manera segura y aplicarla al servicio. La mayoría de las aplicaciones de SaaS de terceros que son compatibles con Azure AD admite esta característica.
 
-Para el SSO con contraseña, los exploradores del usuario final pueden ser: - IE 8, IE9 e IE10 en Windows 7 o posterior - Chrome en Windows 7 o posterior, o MacOS X o posterior
+Para el SSO basado en contraseña, los exploradores del usuario final pueden ser:
+
+- Internet Explorer 8, 9 y 10 (en Windows 7 o posterior)
+- Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
+- Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
 
 **Nota:** la extensión del SSO con contraseña estará disponible para Edge en Windows 10 cuando Edge admita las extensiones del explorador.
 
@@ -216,4 +220,4 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

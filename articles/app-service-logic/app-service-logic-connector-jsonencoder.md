@@ -1,29 +1,31 @@
 <properties
-   pageTitle="Codificador JSON de BizTalk"
-   description="Codificador JSON de BizTalk"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del conector del codificador JSON de BizTalk en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector del codificador JSON de BizTalk o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# Codificador JSON de BizTalk
+# Introducción al codificador JSON de BizTalk y su incorporación a su aplicación lógica 
 El conector de codificación y descodificación JSON de BizTalk ayuda a la interoperabilidad de las aplicaciones entre datos JSON y XML. Puede convertir una instancia JSON dada a XML y viceversa.
+
+Puede agregar el conector del Codificador JSON de BizTalk a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ## Uso del codificador JSON de BizTalk
 Para usar el codificador JSON de BizTalk, primero debe crear una instancia de la aplicación de API del codificador JSON de BizTalk. Esta operación puede realizarse en línea, mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API del codificador JSON de BizTalk en Azure Marketplace.
 
 ## Uso del codificador JSON de BizTalk en la superficie del diseñador de aplicaciones lógicas
-Para crear una aplicación lógica, siga los pasos que se indican en [Creación de una aplicación lógica]. El codificador JSON de BizTalk puede usarse como una acción. No tiene ningún desencadenador.
+Siga los pasos que se indican en [Creación de una aplicación lógica]. El codificador JSON de BizTalk puede usarse como una acción. No tiene ningún desencadenador.
 
 ### Acción
 - Haga clic en el codificador JSON de BizTalk en el panel derecho
@@ -64,4 +66,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creación de una aplicación lógica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

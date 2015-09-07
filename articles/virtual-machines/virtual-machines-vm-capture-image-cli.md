@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter=""
 	authors="karthmut"
-	manager="madhana"
+	manager="timlt"
 	editor="tysonn"/>
 
 <tags
@@ -162,4 +162,4 @@ Visite la [página de documentación de CLI de Azure][] para conocer más detall
 [Acoplamiento de un disco de datos a una máquina virtual]: storage-windows-attach-disk.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

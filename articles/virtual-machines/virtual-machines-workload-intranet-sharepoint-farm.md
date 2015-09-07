@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint de intranet"
-	description="Obtenga información sobre el valor de granja de SharePoint de intranet implementada en Azure, cómo configurar un entorno de desarrollo y pruebas y cómo implementar una configuración de producción de alta disponibilidad."
+	pageTitle="Granja de SharePoint Server 2013 en Azure | Microsoft Azure"
+	description="Obtenga información sobre el valor de una granja de SharePoint Server 2013 en Azure, configure un entorno de prueba e implemente una configuración de alta disponibilidad."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -124,4 +124,4 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

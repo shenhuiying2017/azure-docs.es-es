@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Cómo usar Fiddler para evaluar y probar las API de REST de Búsqueda de Azure"
+	pageTitle="Cómo usar Fiddler para evaluar y probar las API de REST de Búsqueda de Azure | Microsoft Azure"
 	description="Usar Fiddler para comprobar la disponibilidad de Búsqueda de Azure y probar las API de REST sin código."
 	services="search"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
-# Cómo usar Fiddler para evaluar y probar las API de REST de Búsqueda de Azure
+# Usar Fiddler para evaluar y probar las API de REST de Búsqueda de Azure
 
 En este procedimiento se explica cómo usar Fiddler, disponible como [descarga gratuita de Telerik](http://www.telerik.com/fiddler), para emitir solicitudes HTTP y ver las respuestas usando la API de REST de Búsqueda de Azure sin tener que escribir código. Las API de REST del servicio Búsqueda de Azure están documentadas en [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -26,20 +26,20 @@ Para completar estos pasos, necesitará un servicio Búsqueda de Azure y `api-ke
 
 ## Creación de un índice
 
-1. Inicie Fiddler. En el menú Archivo, desactive **Capturar tráfico** para ocultar actividad HTTP irrelevante que no está relacionada con la tarea actual.
+1. Inicie Fiddler. En el menú **Archivo**, desactive **Capturar tráfico** para ocultar actividad HTTP irrelevante que no está relacionada con la tarea actual.
 
-3. En la pestaña Compositor, formulará una solicitud que se ve similar a lo siguiente:
+3. En la pestaña **Compositor**, formulará una solicitud similar a la siguiente captura de pantalla:
 
   	![][1]
 
 2. Seleccione **PUT**.
 
 3. Escriba una dirección URL que especifica la dirección URL del servicio, los atributos de la solicitud y la versión de la API. Algunos indicadores que tener en cuenta:
-   + Use HTTPS como el prefijo
+   + Use HTTPS como el prefijo.
    + El atributo de solicitud es "/índices/hoteles". Esto le indica a la búsqueda que cree un índice llamado "hoteles".
    + La versión de la API se escribe en minúsculas y se especifica como "?api-version=2015-02-28". Las versiones de API son importantes porque Búsqueda de Azure implementa actualizaciones regularmente. En raras ocasiones, una actualización de servicio puede presentar un cambio innovador en la API. Al usar las versiones de API, puede seguir usando la versión actual y actualizar a una más nueva cuando sea conveniente.
 
-    La URL completa debe ser similar al siguiente ejemplo:
+    La URL completa debe ser similar al siguiente ejemplo.
 
          https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
@@ -77,13 +77,13 @@ Si obtiene HTTP 504, compruebe que la URL especifique HTTPS. Si se muestra el er
 
 ## Carga de documentos
 
-En la pestaña Compositor, se verá su solicitud para enviar documentos como a continuación. El cuerpo de la solicitud contiene los datos de búsqueda de cuatro hoteles.
+En la pestaña **Compositor**, se verá su solicitud para enviar documentos como a continuación. El cuerpo de la solicitud contiene los datos de búsqueda de cuatro hoteles.
 
    ![][2]
 
 1. Seleccione **POST**.
 
-2.	Escriba una URL que comience con HTTPS, seguida de la URL del servicio y, después, "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". La URL completa debe ser similar al siguiente ejemplo:
+2.	Escriba una URL que comience con HTTPS, seguida de la URL del servicio y, después, "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". La URL completa debe ser similar al siguiente ejemplo.
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -163,7 +163,7 @@ En unos pocos segundos debe ver una respuesta HTTP 200 en la lista de sesiones. 
 
 ## Consultas al índice
 
-Ahora que se han cargado el índice y los documentos, puede emitir consultas con ellos. En la pestaña Compositor, el comando GET que consulta su servicio tendrá la siguiente apariencia:
+Ahora que se han cargado el índice y los documentos, puede emitir consultas con ellos. En la pestaña **Compositor**, el comando **GET** que consulta su servicio será similar a la siguiente captura de pantalla.
 
    ![][3]
 
@@ -182,7 +182,7 @@ Ahora que se han cargado el índice y los documentos, puede emitir consultas con
         content-type: application/json
         api-key: 1111222233334444
 
-El código de respuesta debe ser 200 y el resultado de la respuesta debe ser similar a la siguiente ilustración.
+El código de respuesta debe ser 200 y el resultado de la respuesta debe ser similar a la siguiente captura de pantalla.
 
    ![][4]
 
@@ -198,7 +198,7 @@ La siguiente consulta de ejemplo proviene del tema [Operación de índice de bú
 
 ## Consultas al sistema
 
-También puede consultar al sistema para obtener recuentos de documentos y consumo de almacenamiento. En la pestaña Compositor, su solicitud tendrá la siguiente apariencia y la respuesta devolverá un recuento de la cantidad de documentos y el espacio usado.
+También puede consultar al sistema para obtener recuentos de documentos y consumo de almacenamiento. En la pestaña **Compositor**, su solicitud tendrá la siguiente apariencia y la respuesta devolverá un recuento de la cantidad de documentos y el espacio usado.
 
  ![][5]
 
@@ -219,7 +219,7 @@ También puede consultar al sistema para obtener recuentos de documentos y consu
 
 5.	Haga clic en **Ejecutar**. Debe ver un código de estado HTTP 200 en la lista de sesiones. Seleccione la entrada enviada para su comando.
 
-6.	Haga clic en la pestaña **Inspectores** | **Encabezados** y seleccione el formato JSON. Debe ver el recuento de documentos y el tamaño del almacenamiento (en KB).
+6.	Haga clic en la pestaña **Inspectores**, en **Encabezados** y seleccione el formato JSON. Debe ver el recuento de documentos y el tamaño del almacenamiento (en KB).
 
 ## Pasos siguientes
 
@@ -234,6 +234,5 @@ Los vínculos siguientes proporcionan información sobre cómo administrar y usa
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

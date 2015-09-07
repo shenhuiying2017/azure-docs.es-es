@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Diagnostique problemas de rendimiento en un sitio web en ejecución" 
-	description="Supervise el rendimiento de un sitio web sin volver a implementarlo. Úselo de forma independiente o con el SDK de Application Insights para obtener la telemetría de dependencia." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Diagnóstico de problemas de rendimiento en un sitio web en ejecución | Microsoft Azure"
+	description="Supervise el rendimiento de un sitio web sin volver a implementarlo. Úselo de forma independiente o con el SDK de Application Insights para obtener la telemetría de dependencia."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="ronmart"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/27/2015"
 	ms.author="awills"/>
- 
+
 
 # Instalación del Monitor de estado de Application Insights para supervisar el rendimiento del sitio web
 
@@ -27,12 +27,12 @@ El Monitor de estado de Application Insights de Visual Studio permite diagnostic
 Puede optar entre tres formas de aplicar Application Insights a sus aplicaciones web IIS:
 
 * **Tiempo de compilación:** [agregue el SDK de Application Insights][greenbrown] al código de la aplicación web. El resultado obtenido es el siguiente:
- * Un intervalo de telemetría estándar de diagnóstico y uso. 
+ * Un intervalo de telemetría estándar de diagnóstico y uso.
  * Y puede usar la [API de Application Insights][api] si desea escribir su propia telemetría para realizar un seguimiento del uso o diagnosticar los problemas.
 * **Tiempo de ejecución:** utilice el Monitor de estado para instrumentar su aplicación web en el servidor.
  * Supervise las aplicaciones web que ya se están ejecutando, sin necesidad de volver a compilarlas o publicarlas.
  * Un intervalo de telemetría estándar de diagnóstico y uso.
- * Diagnóstico de dependencia: busque errores o rendimiento deficiente donde su aplicación usa otros componentes, como bases de datos, API de REST u otros servicios.
+ * Diagnóstico de dependencia&#151; busque errores o rendimiento deficiente donde su aplicación usa otros componentes, como bases de datos, API de REST u otros servicios.
  * Solucione cualquier problema con la telemetría.
 * **Ambos:** compile el SDK en el código de la aplicación web y ejecute el Monitor de estado en el servidor web. Lo mejor de ambos mundos:
  * Telemetría estándar de diagnóstico y uso.
@@ -42,12 +42,12 @@ Puede optar entre tres formas de aplicar Application Insights a sus aplicaciones
 
 
 
-> [AZURE.TIP]¿Es la aplicación una [aplicación web del Servicio de aplicaciones de Azure](../app-service-web/websites-learning-map.md)? [Agregue el SDK de Application Insights][greenbrown] y, a continuación, [agregue la extensión Application Insights](../insights-perf-analytics.md) desde el panel de control de la aplicación en Azure.
+> [AZURE.TIP]¿Es la aplicación una [aplicación web del Servicio de aplicaciones de Azure](../app-service-web/websites-learning-map.md)? [Agregue el SDK de Application Insights][greenbrown] y, a continuación, [agregue la extensión Application Insights](../insights-perf-analytics.md) desde el panel de control de la aplicación en Microsoft Azure.
 
 
 ## Instalación del Monitor de estado de Application Insights en el servidor web IIS
 
-1. Necesita una suscripción a [Microsoft Azure](http://azure.com) 
+1. Necesita una suscripción a [Microsoft Azure](http://azure.com)
 
 1. En el servidor web IIS, inicie sesión con las credenciales de administrador.
 2. Descargue y ejecute el [instalador del Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648).
@@ -60,9 +60,9 @@ Puede optar entre tres formas de aplicar Application Insights a sus aplicaciones
 
     ![Elija una aplicación y un recurso.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    Normalmente, debe optar por configurar un nuevo recurso y [grupo de recursos][roles].
+    Normalmente, debe optar por configurar un nuevo recurso y un [grupo de recursos][roles].
 
-    Utilizaría un recurso existente si ya ha configurado [pruebas web][availability] para su sitio, o la [supervisión de cliente web][client].
+    De lo contrario, usará un recurso existente si ya ha configurado [pruebas web][availability] para su sitio, o la [supervisión de cliente web][client].
 
 6. Reinicie IIS.
 
@@ -106,7 +106,7 @@ Los gráficos con la etiqueta HTTP, SQL, AZUREBLOB muestran los tiempos de respu
 #### Contadores de rendimiento
 
 Haga clic en cualquier gráfico del contador de rendimiento para cambiar lo que se muestra. O bien, puede agregar un nuevo gráfico.
- 
+
 #### Excepciones
 
 ![Haga clic en el gráfico de excepciones de servidor.](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
@@ -117,16 +117,16 @@ Puede profundizar en las excepciones específicas (de los últimos siete días) 
 ### ¿No hay telemetría?
 
   * Utilice su sitio para generar algunos datos.
-  * Espere unos minutos para permitir que los datos lleguen y, a continuación, haga clic en Actualizar.
+  * Espere unos minutos para permitir que los datos lleguen y, a continuación, haga clic en **Actualizar**.
   * Abra la Búsqueda de diagnóstico (icono Buscar) para ver los eventos individuales. Los eventos suelen estar visibles en la Búsqueda de diagnóstico antes de que los datos agregados aparezcan en los gráficos.
   * Abrir el Monitor de estado y seleccione la aplicación en el panel izquierdo. Compruebe si hay algún mensaje de diagnóstico para esta aplicación en la sección "Notificaciones de configuración":
-  
+
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * Asegúrese de que el firewall del servidor permite el tráfico saliente en el puerto 443 a dc.services.visualstudio.com. 
-  * Si ve en el servidor un mensaje acerca de "permisos insuficientes":
-  * En el Administrador de IIS, seleccione el grupo de aplicaciones, abra Opciones avanzadas y bajo el Modelo de proceso, observe la Identidad.
-  * En el panel de control de administración del equipo, agregue esta identidad al grupo Usuarios del monitor de sistema.
+  * Asegúrese de que el firewall del servidor permite el tráfico saliente en el puerto 443 a dc.services.visualstudio.com.
+  * En el servidor, si ve en un mensaje acerca de "permisos insuficientes", intente lo siguiente:
+    * En el Administrador de IIS, seleccione el grupo de aplicaciones, abra **Configuración avanzada** y en **Modelo de proceso**, observe la identidad.
+    * En el panel de control de administración del equipo, agregue esta identidad al grupo Usuarios del monitor de sistema.
   * Vea [Solución de problemas][qna].
 
 ## Requisitos del sistema
@@ -168,6 +168,4 @@ La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
+	pageTitle="Integración del SDK de Android para Azure Mobile Engagement"
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 #Integración de cobertura para Engagement en Android
 
@@ -93,6 +93,8 @@ Edite su archivo `AndroidManifest.xml`:
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 			<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+
+  -   En Android M y si la aplicación está destinada al nivel de API Android 23 o superior, el permiso ``WRITE_EXTERNAL_STORAGE`` requiere la aprobación del usuario. Lea [esta sección](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
 
 -   En el caso de las notificaciones del sistema, también puede especificar en la campaña de cobertura si el dispositivo debe sonar y/o vibrar. Para que funcione, debe asegurarse de haber declarado el siguiente permiso (después de la etiqueta `</application>`):
 
@@ -191,7 +193,7 @@ De manera predeterminada, una notificación en aplicación es una vista que se a
 
 Para modificar el aspecto de las superposiciones de notificación, puede simplemente modificar el archivo `engagement_notification_area.xml` según sus necesidades.
 
-> [AZURE.NOTE] El archivo `engagement_notification_overlay.xml` es el que se usa para crear una superposición de notificación; incluye el archivo `engagement_notification_area.xml`. También puede personalizarla para ajustarse a sus necesidades (como para posicionar el área de notificación dentro de la superposición).
+> [AZURE.NOTE]El archivo `engagement_notification_overlay.xml` es el que se usa para crear una superposición de notificación; incluye el archivo `engagement_notification_area.xml`. También puede personalizarla para ajustarse a sus necesidades (como para posicionar el área de notificación dentro de la superposición).
 
 ##### Incluya el diseño de la notificación como parte de un diseño de actividad
 
@@ -247,7 +249,7 @@ Cuando modifica los diseños proporcionados, modifica el aspecto de todas las no
 
 Para registrar un controlador de categorías para las notificaciones, debe agregar una llamada cuando se inicializa la aplicación.
 
-> [AZURE.IMPORTANT] Lea la advertencia acerca del atributo android:process \<android-sdk-engagement-process\> en el tema Integración de Engagement en Android antes de continuar.
+> [AZURE.IMPORTANT] Lea la advertencia acerca del atributo android:process <android-sdk-engagement-process> en el tema Integración de Engagement en Android antes de continuar.
 
 El siguiente ejemplo supone que reconoció la advertencia anterior y que usa una subclase de `EngagementApplication`:
 
@@ -647,4 +649,4 @@ Ahora, para comprobar su integración, lea Prueba de integración de Engagement 
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

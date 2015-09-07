@@ -1,13 +1,13 @@
 <properties
    pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
-   description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Copia de seguridad de Azure - Preguntas más frecuentes
 A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre Copia de seguridad de Azure, vaya al [foro de discusión](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) y publique sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -21,6 +21,7 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 | Windows 8 y SP más recientes | 64 bits | Enterprise, Pro |
 | Windows 7 y SP más recientes | 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 y SP más recientes | 64 bits | Enterprise, Pro |
+| Windows 10 | 64 bits | Enterprise, Pro, Home |
 |Windows Server 2012 R2 y SP más recientes|	64 bits|	Standard, Datacenter, Foundation|
 |Windows Server 2012 y SP más recientes|	64 bits|	Datacenter, Foundation, Standard|
 |Windows Storage Server 2012 R2 y SP más recientes |64 bits|	Standard, Workgroup|
@@ -93,13 +94,25 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 
 ## Copia de seguridad y retención
-**P1. ¿Hay algún límite en el tamaño de cada origen de datos del que se realiza una copia de seguridad?** <br/> R1. A partir de julio de 2015, cada origen de datos debe ser menor o igual a 1,7 TB. Un origen de datos es:
+**P1. ¿Hay algún límite en el tamaño de cada origen de datos del que se realiza una copia de seguridad?** <br/> R1. A partir de agosto de 2015, el tamaño máximo del origen de datos es el que se menciona a continuación para varios sistemas operativos
 
-- Volumen de archivos/carpetas
-- Base de datos SQL
-- Granja de SharePoint
-- Servidor de Exchange
-- VM de Hyper-V
+|S.No |	Sistema operativos |	Tamaño máximo del origen de datos |
+| :-------------: |:-------------| :-----|
+|1| Windows Server 2012 o superior| 54400 GB|
+|2| Windows Server 8 o superior| 54400 GB|
+|3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
+|4| Windows 7 | 1700 GB|
+ 
+El tamaño de origen de datos se mide según se menciona a continuación
+
+|	Origen de datos |	Detalles |
+| :-------------: |:-------------|
+|Volumen |La cantidad de datos de los que se realiza copia de seguridad desde un único volumen de un equipo. Esto es aplicable para los volúmenes protegidos en el servidor y los equipos cliente.|
+|Máquina virtual de Hyper-V|Suma de los datos de todos los discos duros virtuales de la máquina virtual de los que se hace copia de seguridad|
+|Base de datos de Microsoft SQL Server|Tamaño de una sola base de datos SQL de la que se hace copia de seguridad |
+|Microsoft SharePoint|Suma de las bases de datos de contenido y configuración dentro de una granja de SharePoint de los que se hace copia de seguridad|
+|Microsoft Exchange|Suma de todas las bases de datos de un servidor de Exchange de las que se hace copia de seguridad|
+|Estado del sistema y BMR|Cada copia individual del estado del sistema o BMR del equipo del que se hace copia de seguridad|
 
 **P2. ¿Hay algún límite en el número de veces que se puede programar la copia de seguridad al día?**<br/> R2. Sí, la Copia de seguridad de Azure permite 3 copias de seguridad diarias a través del servidor/cliente de Windows, y 2 copias de seguridad diarias a través de SCDPM.
 
@@ -166,4 +179,4 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 Una vez que las copias de seguridad se realizan correctamente con la nueva ubicación de caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

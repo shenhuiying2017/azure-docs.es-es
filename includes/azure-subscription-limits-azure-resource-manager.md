@@ -8,7 +8,7 @@ Lecturas de API del Administrador de recursos|32 000 por hora|32 000 por hora
 Escrituras de API del Administrador de recursos|1200 por hora|1200 por hora
 Tamaño de recursos de API de Administrador de recursos|4194304 bytes|4194304 bytes
 [Servicios en la nube](cloud-services-what-is.md) por suscripción|En desuso<sup>3</sup>|En desuso<sup>3</sup>
-[Grupos de afinidad](http://msdn.microsoft.com/library/azure/jj156085.aspx) por suscripción|En desuso<sup>3</sup>|En desuso<sup>3</sup>
+[Grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción|En desuso<sup>3</sup>|En desuso<sup>3</sup>
 
 <sup>1</sup>Los límites predeterminados varían según el tipo de categoría de la oferta, como versión de prueba gratuita, pago por uso, etc.
 
@@ -16,4 +16,4 @@ Tamaño de recursos de API de Administrador de recursos|4194304 bytes|4194304 by
 
 <sup>3</sup>Estas características ya no son necesarias con los grupos de recursos de Azure y el Administrador de recursos de Azure.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Orientación de renovación de certificado para los usuarios de Office 365 y Azure AD." 
-	description="Este artículo explica a los usuarios de Office 365 cómo solucionar problemas con mensajes de correo electrónico que informan sobre la renovación de un certificado." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Orientación de renovación de certificado para los usuarios de Office 365 y Azure AD."
+	description="Este artículo explica a los usuarios de Office 365 cómo solucionar problemas con mensajes de correo electrónico que informan sobre la renovación de un certificado."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -85,4 +85,4 @@ Ahora deben aparecer dos certificados, uno de los cuales tiene una fecha de NotA
 
 >[AZURE.NOTE]Si necesita admitir varios dominios de nivel superior, por ejemplo, contoso.com y fabrikam.com, debe utilizar el modificador SupportMultipleDomain con cualquier cmdlet. Para obtener más información, vea Compatibilidad con varios dominios de nivel superior. Por último, compruebe que todos los servidores proxy de aplicación web se actualizan con el paquete acumulativo de [Windows Server de mayo de 2014](http://support.microsoft.com/kb/2955164). De lo contrario, es posible que los servidores proxy no se actualicen con el nuevo certificado y se produzca una interrupción del sistema.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

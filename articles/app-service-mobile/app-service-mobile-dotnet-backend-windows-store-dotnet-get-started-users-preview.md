@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo usar las Aplicaciones móviles del Servicio de aplicaciones de Azure para autenticar a los usuarios de su aplicación de Windows en una variedad de proveedores de identidades, incluidos Google, Facebook, Twitter y Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="glenga"/>
 
 # Incorporación de la autenticación a la aplicación de Windows
@@ -22,13 +22,9 @@
 
 En este tema se muestra cómo autenticar usuarios de una Aplicación móvil del Servicio de aplicaciones desde la aplicación cliente. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicio de aplicaciones. Una vez que la aplicación móvil haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
-Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Introducción a su aplicación móvil].
+Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Introducción a su aplicación móvil]. http://acom-sandbox.azurewebsites.net/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/?rnd=1
 
-##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
-
-##<a name="create-gateway"></a>Creación de una puerta de enlace del Servicio de aplicaciones
+##<a name="create-gateway"></a>Creación de una puerta de enlace de Servicio de aplicaciones
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)]
 
@@ -40,7 +36,7 @@ Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero deb
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. En Visual Studio, abra el archivo de proyecto App.xaml.cs compartido en el proyecto de aplicación cliente y asegúrese de que la instancia **MobileServiceClient** está configurada para usar tanto la dirección URL del back-end de la aplicación móvil como la puerta de enlace.
+&nbsp;&nbsp;4. En Visual Studio, abra el archivo de proyecto App.xaml.cs compartido en el proyecto de aplicación cliente y asegúrese de que la instancia **MobileServiceClient** está configurada para usar la dirección URL del back-end de la aplicación móvil y la puerta de enlace.
 
 &nbsp;&nbsp;5. Con uno de los proyectos de aplicación de Windows configurado como proyecto de inicio, presione la tecla F5 para ejecutar la aplicación y compruebe que, cuando esta se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado).
 
@@ -64,4 +60,4 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 [Introducción a su aplicación móvil]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

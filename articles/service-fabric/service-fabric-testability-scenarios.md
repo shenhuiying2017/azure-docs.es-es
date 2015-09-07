@@ -1,20 +1,20 @@
 <properties
    pageTitle="Ejecución de la prueba de caos."
-   description="En este artículo se describen los escenarios de Service Fabric predefinidos proporcionados por Microsoft."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="anmolah"
-   manager="timlt"
-   editor=""/>
+	description="En este artículo se describen los escenarios de Service Fabric predefinidos proporcionados por Microsoft."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="anmolah"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/14/2015"
-   ms.author="anmola"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="anmola"/>
 
 # Escenarios de Testability
 Los grandes sistemas distribuidos, como infraestructuras de nube, son inherentemente poco confiables. Service Fabric ofrece a los desarrolladores la capacidad de escribir servicios para ejecutarse sobre infraestructuras poco confiables. Para poder escribir servicios de alta calidad, los desarrolladores deben poder inducir tal infraestructura confiable para probar la estabilidad de sus servicios. Service Fabric permite a los desarrolladores la capacidad de inducir acciones de error para probar los servicios en presencia de errores. Sin embargo, hasta ahora solo se obtendrán errores simulados dirigidos. Para seguir realizando pruebas, Service Fabric incluye escenarios de prueba predefinidos. Los escenarios simulan errores continuos intercalados, tanto correctos como incorrectos, en todo el clúster durante períodos prolongados de tiempo. Una vez configurado con la tasa y el tipo de errores, se ejecuta como una herramienta de cliente, a través de las API de C# o de PowerShell para generar errores en el clúster y en el servicio. Como parte de la característica de capacidad de prueba se incluyen los escenarios siguientes.
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

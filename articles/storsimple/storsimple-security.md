@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Seguridad de StorSimple | Microsoft Azure" 
-   description="Describe las características de seguridad y privacidad que protegen el servicio, el dispositivo y los datos de StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="AdinaH" 
-   editor=""/>
+   pageTitle="Seguridad de StorSimple | Microsoft Azure"
+	description="Describe las características de seguridad y privacidad que protegen el servicio y el dispositivo StorSimple y los datos locales y en la nube."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="Carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/17/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos"/>
 
-# Seguridad de StorSimple 
+# Protección de datos y seguridad de StorSimple
 
 ## Información general
 
@@ -253,4 +253,4 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 [Implementación del dispositivo StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

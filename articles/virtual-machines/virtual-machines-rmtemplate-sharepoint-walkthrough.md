@@ -364,7 +364,7 @@ Su propia plantilla JSON para construir una infraestructura de múltiples capas 
 1.	Cree los elementos comunes (cuenta de almacenamiento, red virtual), específicos del nivel (conjuntos de disponibilidad) y específicos de la máquina virtual (direcciones IP públicas, conjuntos de disponibilidad, interfaces de red, instancias de equilibrador de carga) de la infraestructura de Azure necesarios para su implementación.
 2.	Para cada capa de la aplicación (por ejemplo, autenticación, base de datos, web), cree y configure los servidores de esa capa mediante los elementos comunes (cuenta de almacenamiento, red virtual), específicos de la capa (conjuntos de disponibilidad) y específicos de la máquina virtual (direcciones IP públicas, conjuntos de disponibilidad, interfaces de red e instancias de equilibrador de carga).
 
-Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
 ## Recursos adicionales
 
@@ -374,4 +374,4 @@ Para obtener más información, consulte [Idioma de la plantilla del Administrad
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

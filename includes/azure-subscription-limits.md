@@ -11,10 +11,10 @@ Servidores DNS por suscripción|9|100
 Direcciones IP reservadas por suscripción|20|100
 Circuitos ExpressRoute dedicados por suscripción|10|25
 Certificados de servicio hospedados por suscripción|400|400
-[Grupos de afinidad](http://msdn.microsoft.com/library/azure/jj156085.aspx) por suscripción|256|256
+[Grupos de afinidad](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción|256|256
 Cuentas de [Lote](http://azure.microsoft.com/services/batch/) por región y suscripción|1|50
 Reglas de alerta por suscripción|250|250
 
 <sup>1</sup>Recuento de instancias extrapequeñas como un núcleo hacia el límite de núcleos a pesar de utilizar un núcleo parcial.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

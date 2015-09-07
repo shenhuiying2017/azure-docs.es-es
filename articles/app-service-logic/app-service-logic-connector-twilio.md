@@ -1,61 +1,54 @@
 <properties
-   pageTitle="Aplicación de API del conector de Twilio"
-   description="Uso del conector de Twilio"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del conector de Twilio en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de Twilio o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Uso del conector de Twilio en la aplicación lógica #
-
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
-
-El conector de Twilio permite enviar y recibir SMS en su cuenta de Twilio. También permite recuperar números de teléfono y datos de uso.
+# Introducción al conector de Twilio y su incorporación a las aplicaciones lógicas
+Conéctese a su cuenta de Twilio para enviar y recibir mensajes SMS. También puede recuperar números de teléfono y datos de uso. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Puede agregar el conector de Twilio a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ## Creación de un conector de Twilio para la aplicación lógica ##
-Para usar el conector de Twilio, deberá crear primero una instancia de la aplicación de API del conector de Twilio. Se puede hacer de la forma siguiente:
+Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
-1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior izquierda del Portal de Azure.
-2.	Vaya a “Aplicaciones de API” y busque “Conector Twilio”.
-3.	Configure el conector de Twilio de la siguiente forma:
- 
-	![][1]
-	- **Ubicación**: elija la ubicación geográfica en que desearía implementar el conector.
-	- **Suscripción**: elija una suscripción en que desea crear este conector.
-	- **Grupo de recursos**: seleccione o cree un grupo de recursos en que debe residir el conector.
+1. En el panel de inicio de Azure, seleccione **Marketplace**.
+2. Busque "Conector de Twilio", selecciónelo y seleccione **Crear**.
+3. Configure el conector de Twilio de la siguiente forma: 
+	![][1]  
+	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
+	- **Suscripción**: elija una suscripción en la que desee crear este conector.
+	- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
 	- **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web.
 	- **Nivel de precios**: elija un nivel de precios para el conector.
-	- **Nombre**: asigne un nombre al conector de Twilio.
+	- **Nombre**: asigne un nombre al conector de Twilio
 	- **Configuración del paquete**
-		- **SID de la cuenta**: el identificador exclusivo de la cuenta. El SID de la cuenta puede obtenerse desde <https://www.twilio.com/user/account/settings>
-		- **Token de autorización**: token de autorización asociado con la cuenta. El token de autorización para la cuenta se puede recuperar desde <https://www.twilio.com/user/account/settings>
+		- **SID de la cuenta**: el identificador único de la cuenta. El SID de la cuenta para su cuenta se puede recuperar desde <https://www.twilio.com/user/account/settings>
+		- **Token de autorización**: token de autorización asociado a la cuenta. El token de autorización para la cuenta se puede recuperar desde <https://www.twilio.com/user/account/settings>
 
 
-4.	Haga clic en Crear. Se creará un nuevo conector de Twilio.
-5.	Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de Twilio.
+4.	Haga clic en Crear. Se crea un nuevo conector de Twilio.
+5.	Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica para usar el conector de Twilio.
 
 ## Uso del conector de Twilio en la aplicación lógica ##
 Una vez creada la aplicación de la API, ahora puede usar el conector de Twilio como desencadenador/acción para la aplicación lógica. Para ello, necesita lo siguiente:
 
-1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de Twilio.
-
+1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de Twilio.  
 	![][2]
-2.	Abra "Desencadenadores y acciones" para abrir el Diseñador de aplicaciones lógicas y configure el flujo.
-
+2.	Abra "Desencadenadores y acciones" para abrir el Diseñador de aplicaciones lógicas y configure el flujo:  
 	![][3]
-3.	El conector de Twilio aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho.
-
+3.	El conector de Twilio aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho:  
 	![][4]
 4. Puede quitar la aplicación de la API del conector de Twilio en el editor haciendo clic en "Conector de Twilio".
 
@@ -64,7 +57,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Twilio 
 	- **A número de teléfono**: el número de teléfono de destino. Formato aceptado: +, seguido por el código de país y, a continuación, el número de teléfono. Por ejemplo, +16175551212. Si omite el +, Twilio utilizará el código de país que escribió en “Desde” número.
 	- **Texto**: el texto del mensaje que desea enviar.
 
-	![][5] 
+	![][5]  
 	![][6]
 
 ## Aplicaciones adicionales del conector
@@ -82,4 +75,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

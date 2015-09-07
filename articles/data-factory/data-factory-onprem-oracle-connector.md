@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector de Oracle: mover datos a y desde Oracle" 
-	description="Obtenga información acerca del conector de Oracle para el servicio Factoría de datos que le permite mover datos a y desde una base de datos de Oracle, que es local." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Movimiento de datos hacia y desde Oracle | Factoría de datos de Azure"
+	description="Obtenga información acerca de cómo mover los datos hacia y desde la base de datos de Oracle local mediante Factoría de datos de Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector de Oracle: mover datos a Oracle local 
+# Movimiento de datos a Oracle local mediante Factoría de datos de Azure 
 
 En este artículo se describe cómo se puede usar la actividad de copia de la Factoría de datos para mover datos de Oracle a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
@@ -24,11 +24,11 @@ En este artículo se describe cómo se puede usar la actividad de copia de la Fa
 
 El ejemplo siguiente muestra:
 
-1.	Un servicio vinculado de tipo OnPremisesOracle.
-2.	Un servicio vinculado de tipo AzureStorage.
-3.	Un conjunto de datos de entrada de tipo OracleTable. 
-4.	Un conjunto de datos de salida de tipo AzureBlob.
-5.	Una canalización con la actividad de copia que usa OracleSource como origen y BlobSink como receptor.
+1.	Un servicio vinculado de tipo [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
+2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties). 
+4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+5.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties) como origen y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) como receptor.
 
 El ejemplo copia datos de una tabla de una base de datos de Oracle local a un blob cada hora. Para obtener más información sobre las distintas propiedades que se usan en el ejemplo siguiente, consulte la documentación de las diferentes propiedades en las secciones de las secciones que aparecen después de los ejemplos.
 
@@ -177,7 +177,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 	        "typeProperties": {
 	          "source": {
 	            "type": "OracleSource",
-	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -208,6 +208,7 @@ type | La propiedad type debe establecerse en: **OnPremisesOracle** | Sí
 connectionString | Especifique la información necesaria para conectarse a la instancia de Base de datos de Oracle para la propiedad connectionString. | Sí 
 gatewayName | Nombre de la puerta de enlace que se usará para conectarse al servidor de Oracle local | Sí
 
+Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Oracle local.
 ## Propiedades del tipo Base de datos de Oracle
 
 Para obtener una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy de un conjunto de datos JSON son similares en todos los tipos de conjunto de datos (Oracle, blob de Azure, tabla de Azure, etc.).
@@ -237,7 +238,7 @@ Por ejemplo: select * from MyTable <p>Si no se especifica, la instrucción SQL q
 
 ### Asignación de tipos para Oracle
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
@@ -273,4 +274,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

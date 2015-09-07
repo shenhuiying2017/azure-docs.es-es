@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Administración de la configuración de Azure MFA en el portal de Office 365" 
-	description="Esta página muestra a los usuarios dónde en el portal de Office 365 tienen que ir para administrar su configuración de Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Administración de la configuración de Azure MFA en el portal de Office 365"
+	description="Esta página muestra a los usuarios dónde en el portal de Office 365 tienen que ir para administrar su configuración de Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Administración de la configuración de Azure Multi-Factor Authentication en el portal de Office 365
@@ -41,4 +41,4 @@ Si utiliza la autenticación multifactor con Office 365 deberá administrar la c
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-manage-o365/addsec.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

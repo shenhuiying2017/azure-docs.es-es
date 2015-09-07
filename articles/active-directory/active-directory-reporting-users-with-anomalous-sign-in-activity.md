@@ -17,11 +17,9 @@
 	ms.author="saah;kenhoff"/>
 
 # Usuarios con actividad de inicio de sesión erróneo.
+Se trata de un informe agregado que combina inicios de sesión sospechoso de los siguientes informes: <ul><li>Inicios de sesión de orígenes desconocidos</li> <li>Inicios de sesión tras varios errores</li> <li>Inicios de sesión desde varias ubicaciones geográficas</li> <li>Inicios de sesión desde direcciones IP con actividad sospechosa</li> <li>Inicios de sesión desde dispositivos posiblemente infectados</li> <li>Inicios sesión con actividad irregular</li> </ul>
 
-| Descripción | Ubicación del informe |
-| :-------------     | :-------        |
-| <p>Use este informe para ver todas las cuentas de usuario respecto a las cuales se ha identificado actividad de inicio de sesión erróneo. Este informe incluye datos de todos los informes de actividad errónea. Los resultados de este informe mostrarán detalles sobre el usuario, el motivo por el que el evento de inicio de sesión se ha identificado como erróneo, la fecha y hora y otra información relevante sobre el evento.</p> | Directorio > pestaña Informes |
 
 ![Usuarios con actividad de inicio de sesión erróneo.](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

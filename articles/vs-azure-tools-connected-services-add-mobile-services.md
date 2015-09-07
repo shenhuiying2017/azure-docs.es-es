@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Adición de Servicios móviles mediante Servicios conectados en Visual Studio"
-   description="Adición de Servicios móviles mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Adición de servicios móviles con Servicios conectados en Visual Studio | Microsoft Azure"
+	description="Adición de Servicios móviles mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="mobile"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="mobile"
+	ms.date="08/12/2015"
+	ms.author="patshea"/>
 
 # Adición de Servicios móviles mediante Servicios conectados de Visual Studio
 
@@ -43,13 +43,13 @@ Puede usar el cuadro de diálogo Servicios conectados para conectarse a Servicio
 
  - En los proyectos de aplicación Apache Cordova, abra el proyecto en Visual Studio, abra el menú contextual del nodo del proyecto en el Explorador de soluciones y luego elija **Agregar servicio conectado**.
 
-1. En el cuadro de diálogo **Agregar servicio conectado**, seleccione **Servicios móviles de Azure** y elija el botón **Configurar**. Es posible que se le solicite que inicie sesión en Azure si aún no lo ha hecho.
+1. En el cuadro de diálogo **Agregar servicio conectado**, seleccione **Servicios móviles de Azure** y elija el botón **Configurar**. Es posible que se le pida que inicie sesión en Azure si aún no lo ha hecho.
 
     ![Adición de un servicio móvil de Azure](./media/vs-azure-tools-connected-services-add-mobile-services/IC797636.png)
 
-1. En el cuadro de diálogo Servicios móviles de Azure, elija un servicio móvil existente si tiene uno. Si necesita crear un nuevo servicio móvil de Azure, siga el procedimiento a continuación. Si no, continúe con el paso siguiente.
+1. En el cuadro de diálogo **Servicios móviles de Azure**, seleccione un servicio móvil existente si tiene uno. Si necesita crear un servicio móvil de Azure, siga el procedimiento indicado a continuación para ello. Si no, continúe con el paso siguiente.
 
-    Para crear una nueva cuenta de servicio móvil: 1. elija el vínculo **Creación de un servicio** en la parte inferior del cuadro de diálogo. ![Agregar nuevo servicio conectado móvil](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+    Para crear una cuenta de servicio móvil: 1. elija el vínculo **Creación de un servicio** de la parte inferior del cuadro de diálogo. ![Agregar nuevo servicio conectado móvil](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
 
 
 
@@ -58,14 +58,14 @@ Puede usar el cuadro de diálogo Servicios conectados para conectarse a Servicio
   
         ![Creación de un servicio móvil](./media/vs-azure-tools-connected-services-add-mobile-services/IC797638.png)
 
-        Un servicio de back-end de JavaScript es sencillo y eficaz. Si crea un servicio móvil de back-end de JavaScript, el código JavaScript del servidor se almacena en la nube, pero puede editar scripts del servidor utilizando el Explorador de servidores o el portal de administración de Azure.
+        Un servicio de back-end de JavaScript es sencillo y eficaz. Si crea un servicio móvil de back-end de JavaScript, el código JavaScript del servidor se almacena en la nube, pero pueden editarse scripts del servidor mediante el Explorador de servidores o el Portal de administración de Azure.
 
         Un servicio móvil de back-end de .NET le ofrece todo el potencial y flexibilidad de API web y Entity Framework. Si crea un servicio móvil de back-end de .NET, se crea un proyecto para usted y se agrega a su solución.
 
-    1. Elija la **región** donde desea el servicio móvil y, a continuación, escriba un nombre de usuario y una contraseña para el servidor.
+    1. Elija la **Región** donde desea el servicio móvil y escriba un nombre de usuario y una contraseña para el servidor.
  
-    1. Después de haber especificado toda la información necesaria, elija el botón **Crear** para crear el servicio móvil.
-    2. El nuevo servicio móvil debe aparecer en la lista de servicios del cuadro de diálogo **Servicios móviles de Azure**. Seleccione el nuevo servicio móvil en la lista y, a continuación, elija el botón **Agregar** para agregar el servicio a su proyecto.
+    1. Después de especificar toda la información necesaria, elija el botón **Crear** para crear el servicio móvil.
+    2. El nuevo servicio móvil debe aparecer en la lista de servicios del cuadro de diálogo **Servicios móviles de Azure**. Elija el nuevo servicio móvil en la lista y luego el botón **Agregar** para agregar el servicio al proyecto.
     
 
 1. Revise la página Introducción que aparece y consulte cómo se ha modificado el proyecto. Una página Introducción aparece en el explorador siempre que se agregue un servicio conectado. Puede revisar los pasos siguientes sugeridos y los ejemplos de código, o pasar a la página ¿Qué ha ocurrido? para ver qué referencias se agregaron al proyecto y cómo se han modificado los archivos de configuración y códigos.
@@ -89,4 +89,4 @@ Formule preguntas y obtenga ayuda:
 
  - [Documentación de Servicios móviles de Azure en azure.microsoft.com](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

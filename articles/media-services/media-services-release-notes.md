@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Notas de la versión de Servicios multimedia" 
-	description="Notas de la versión de Servicios multimedia" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Notas de la versión de Servicios multimedia"
+	description="Notas de la versión de Servicios multimedia"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="media" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="media"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 - [Problemas actualmente conocidos](#issues)
 - [Historial de versiones de API de REST](#rest_version_history)
+- [Versión de agosto de 2015](#august_changes_15)
 - [Versión de julio de 2015](#july_changes_15)
 - [Versión de junio de 2015](#june_changes_15)
 - [Versión de mayo de 2015](#may_changes_15)
@@ -72,12 +73,21 @@ Los objetos de Servicios multimedia del SDK no se pueden serializar y, como resu
 
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
 
+##<a id="august_changes_15"></a>Versión de agosto de 2015
+
+- Ya están disponibles el SDK de Servicios multimedia de Azure para la versión de Java V0.8.0 y nuevos ejemplos. Para más información, consulte:
+
+	- [Entrada de blog](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
+	- [Repositorio de ejemplos de Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- Actualización del Reproductor multimedia de Azure con compatibilidad con secuencias de audio múltiples. Para más información, consulte:
+	- [Entrada de blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
+
 ##<a id="july_changes_15"></a>Versión de julio de 2015
 
-Anuncia la disponibilidad general de Media Encoder estándar. Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+- Anuncia la disponibilidad general de Media Encoder estándar. Para obtener más información, consulte [esta publicación del blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-Media Encoder Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalado de codificación](media-services-portal-encoding-units).
-
+	Codificador multimedia Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalado de codificación](media-services-portal-encoding-units).
+- Subtítulos en tiempo real con Servicios multimedia de Azure y el Reproductor. Para obtener más información, consulte [esta publicación del blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###Actualizaciones del SDK .NET de Servicios multimedia
 
@@ -87,7 +97,7 @@ Ahora la versión del SDK de Servicios multimedia para .NET de Azure es la 3.4.0
 - Se ha implementado compatibilidad para filtros dinámicos.
 - Se ha implementado compatibilidad una funcionalidad que permite a los usuarios a mantener el contenedor de almacenamiento al eliminar el recurso.
 - Correcciones de errores relacionados con directivas de reintentos en canales.
-- **Flujo de trabajo premium de codificación de medios** habilitado.
+- **Flujo de trabajo de Media Encoder Premium** habilitado.
 
 ##<a id="june_changes_15"></a>Versión de junio de 2015
 
@@ -562,4 +572,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

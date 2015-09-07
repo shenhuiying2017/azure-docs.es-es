@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/12/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/12/2015"
+	ms.author="jgao"/>
 
 # Aprovisionamiento de clústeres de HBase en Red virtual de Azure
 
@@ -77,7 +77,7 @@ Antes de aprovisionar un clúster de HBase, debe tener una red virtual de Azure.
 2. Haga clic en **NUEVO**, en **Red** y, a continuación, haga clic en **Red virtual**.
 3. En **Seleccionar un modelo de implementación**, seleccione **Clásico** y, a continuación, haga clic en **Crear**.
 
-	>[AZURE.NOTE] El clúster de HDInsight basado en Windows solo se puede implementar en una red virtual clásica.
+	>[AZURE.NOTE]El clúster de HDInsight basado en Windows solo se puede implementar en una red virtual clásica.
 
 4. Escriba o seleccione los valores siguientes:
 
@@ -89,7 +89,7 @@ Antes de aprovisionar un clúster de HBase, debe tener una red virtual de Azure.
 
 5. Haga clic en **Crear**.
 
-De forma predeterminada, la red virtual usa un servidor de sistema de nombres de dominio (DNS) interno proporcionado por Azure. Asimismo, se admiten configuraciones de red más avanzadas con servidores DNS personalizados. Para obtener instrucciones detalladas, consulte [Resolución de nombres (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+De forma predeterminada, la red virtual usa un servidor de sistema de nombres de dominio (DNS) interno proporcionado por Azure. Asimismo, se admiten configuraciones de red más avanzadas con servidores DNS personalizados. Para obtener instrucciones detalladas, consulte [Resolución de nombres (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 **(Opcional) Para agregar una máquina virtual de servidor DNS a la red virtual**
 
@@ -102,7 +102,7 @@ Un servidor DNS es opcional, pero es necesario en algunos casos. El procedimient
 
 **Para aprovisionar un clúster de HBase usando el Portal de Azure, siga estos pasos:**
 
-> [AZURE.NOTE] Para obtener más información acerca del aprovisionamiento de un nuevo clúster de HBase usando Azure PowerShell, consulte [Aprovisionamiento de un clúster de HBase usando Azure PowerShell](#powershell).
+> [AZURE.NOTE]Para obtener más información acerca del aprovisionamiento de un nuevo clúster de HBase usando Azure PowerShell, consulte [Aprovisionamiento de un clúster de HBase usando Azure PowerShell](#powershell).
 
 
 **Para crear un clúster de HDInsight**
@@ -146,7 +146,7 @@ Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimien
 
 			curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-		En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host_name". Esta entrada contendrá el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo:
+		En los datos de notación de objetos JavaScript (JSON) devueltos, busque la entrada "host\_name". Esta entrada contendrá el nombre de dominio completo (FQDN) de los nodos del clúster. Por ejemplo:
 
 			...
 			"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -281,7 +281,7 @@ Para usar esta información en una aplicación Java, puede seguir los pasos que 
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]Para obtener más información sobre la resolución de nombres en redes virtuales de Azure, incluido el uso de su propio servidor DNS, consulte [Resolución de nombres (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+> [AZURE.NOTE]Para obtener más información sobre la resolución de nombres en redes virtuales de Azure, incluido el uso de su propio servidor DNS, consulte [Resolución de nombres (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ##Aprovisionamiento de un clúster de HBase mediante Azure PowerShell
 
@@ -341,7 +341,7 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 
 [hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
-[vnet-overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
+[vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://portal.azure.com
@@ -379,4 +379,4 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalles de aprovisionamiento para el nuevo clúster de HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Uso de la acción de script para personalizar un clúster de HBase"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

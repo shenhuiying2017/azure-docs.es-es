@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Información técnica de Lote de Azure"
+	pageTitle="Información técnica de Lote de Azure | Microsoft Azure"
 	description="Obtener información acerca de los conceptos, los flujos de trabajo y los escenarios del servicio Batch de Azure"
 	services="batch"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.author="danlep"/>
 
 
-#Información técnica de Lote de Azure
+# Información técnica de Lote de Azure
 Lote de Azure le ayudará a ejecutar aplicaciones a gran escala paralelas y de informática de alto rendimiento (HPC) de manera eficaz en la nube. Es un servicio de plataforma que proporciona la programación de trabajos y el ajuste automático de una colección administrada de máquinas virtuales (VM) para ejecutar los trabajos. Mediante el servicio de proceso por lotes, puede configurar las cargas de trabajo por lotes para ejecutarse en Azure a petición o según una programación y no preocuparse acerca de la complejidad de configurar y administrar un clúster HPC, máquinas virtuales o un programador de trabajos.
 
 >[AZURE.NOTE]Para usar Lote, necesitará una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Crear una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).
@@ -29,7 +29,7 @@ Lote usa la elasticidad y la escala de la nube para ayudarle con el *procesamien
 
 La informática por lotes es un patrón común para las organizaciones que procesan, transforman y analizan grandes cantidades de datos, ya sea según un programa o a petición. Incluye un procesamiento de fin de ciclo, como el informe de riesgos diarios de un banco o una nómina que se debe realizar según una programación. También incluye aplicaciones empresariales, científicas y de ingeniería a gran escala que normalmente necesitan las herramientas y los recursos de una cuadrícula o clúster de cálculo. Entre las aplicaciones se incluyen aplicaciones HPC tradicionales, como las simulaciones de dinámica de fluidos, así como las cargas de trabajo especializadas en los campos que van desde la creación de contenidos digitales hasta servicios financieros y de investigaciones de ciencias biológicas.
 
-Lote funciona bien con cargas de trabajo o aplicaciones intrínsicamente paralelas (a veces llamadas "lamentablemente paralelas"), las que se prestan para ejecutar como tareas paralelas en varios equipos, como las máquinas virtuales de cálculo que administra el servicio de Lote. Consulte la ilustración 1.
+Lote funciona bien con cargas de trabajo o aplicaciones intrínsicamente paralelas (a veces llamadas "lamentablemente paralelas"), las que se prestan para ejecutar como tareas paralelas en varios equipos, como las máquinas virtuales de cálculo que administra el servicio de Lote.
 
 ![Tareas paralelas][parallel]
 
@@ -49,13 +49,13 @@ También puede usar Lote para realizar cálculos paralelos con un paso menos al 
 
 ## Escenarios de desarrollador
 
-Lote admite escenarios de desarrollo diferentes para ayudarle a configurar y ejecutar las cargas de trabajo paralelas a gran escala con el servicio Lote. Estos escenarios aprovechan las API para crear y administrar grupos de máquinas virtuales (nodos de ejecución) y programar los trabajos y tareas que se ejecutan en ellos. Consulte [Aspectos básicos de la API de Lote de Azure](batch-api-basics.md) para obtener más información acerca de los conceptos de Lote.
+Lote admite escenarios de desarrollo diferentes para ayudarle a configurar y ejecutar las cargas de trabajo paralelas a gran escala con el servicio Lote. Estos escenarios usan las API para crear y administrar grupos de máquinas virtuales (nodos de ejecución) y programar los trabajos y tareas que se ejecutan en ellos. Consulte [Aspectos básicos de la API de Lote de Azure](batch-api-basics.md) para obtener más información acerca de los conceptos de Lote.
 
 En las secciones siguientes se facilitan escenarios típicos para desarrolladores de Lote.
 
 ### Escalar horizontalmente una carga de trabajo paralela
 
-Use la API de Lote para escalar horizontalmente trabajo paralelo intrínsecamente, como la representación de imágenes en un grupo de hasta miles de núcleos de cálculo. En lugar de tener que configurar un clúster de cálculo o de escribir código para agregar a la cola y programar los trabajos y mover los datos de entrada y salida necesarios, automatice la programación de grandes trabajos de cálculo y escale un grupo de máquinas virtuales de cálculo hacia arriba y abajo para ejecutarlas. Puede escribir aplicaciones cliente o front-end para ejecutar trabajos y tareas bajo demanda, según una programación, o como parte de un flujo de trabajo mayor administrado mediante herramientas como [Factoría de datos de Azure](https://azure.microsoft.com/documentation/services/data-factory/).
+Use la API de Lote para escalar horizontalmente trabajo paralelo intrínsecamente, como la representación de imágenes en un grupo de hasta miles de núcleos de cálculo. En lugar de configurar un clúster de proceso o de escribir código para agregar a la cola y programar los trabajos y mover los datos de entrada y salida necesarios, automatice la programación de grandes trabajos de proceso y escale un grupo de máquinas virtuales de proceso hacia arriba y abajo para ejecutarlas. Puede escribir aplicaciones cliente o front-end para ejecutar trabajos y tareas bajo demanda, según una programación, o como parte de un flujo de trabajo mayor administrado mediante herramientas como [Factoría de datos de Azure](https://azure.microsoft.com/documentation/services/data-factory/).
 
 En la figura 2 se muestra un flujo de trabajo simplificado para enviar una aplicación a un grupo de lotes en los que se distribuye para su procesamiento.
 
@@ -75,7 +75,7 @@ En la figura 2 se muestra un flujo de trabajo simplificado para enviar una aplic
 
 Puede usar la API de vista previa de aplicaciones de Lote para ajustar una aplicación existente para que se ejecute como un servicio en un grupo de nodos de ejecución que Lote administra en segundo plano. La aplicación puede ser una que se ejecute hoy en estaciones de trabajo cliente o en un clúster de proceso. Puede desarrollar el servicio para que los usuarios puedan descargar el trabajo de punta en la nube o ejecutar picos de trabajo completamente en la nube. El marco de trabajo de aplicaciones de Lote controla el movimiento de archivos de entrada y salida, la división de trabajos en tareas, el procesamiento de trabajos y tareas y la persistencia de los datos.
 
->[AZURE.IMPORTANT]Azure solo ofrecerá la API de aplicaciones de Lote en formato de vista previa. Solo deberá desarrollar con ella proyectos de prueba o de prueba de concepto. En futuras versiones del servicio se integrarán capacidades de aplicaciones de Lote clave en la API de Lote.
+>[AZURE.IMPORTANT]Azure solo ofrece la API de aplicaciones de Lote en formato de vista previa. Solo deberá desarrollar con ella proyectos de prueba o de prueba de concepto. En futuras versiones del servicio se integrarán capacidades de aplicaciones de Lote clave en la API de Lote.
 
 La ilustración 3 muestra un flujo de trabajo básico para publicar una aplicación mediante la API de aplicaciones de Lote y, a continuación, le permitirá a un usuario enviar trabajos a la aplicación.
 
@@ -84,7 +84,7 @@ La ilustración 3 muestra un flujo de trabajo básico para publicar una aplicaci
 **Ilustración 3. flujo de trabajo para publicar y ejecutar una aplicación con Aplicaciones de Lote**
 
 1.	Prepare una **imagen de aplicación**, un archivo zip de los archivos ejecutables de aplicaciones existentes y cualquier archivo de compatibilidad que necesiten. Pueden ser los mismos archivos ejecutables que ejecuta en un clúster o una granja de servidores tradicional.
-2.	Cree un archivo zip del **ensamblado de nubes** que invocarán y enviarán las cargas de trabajo al servicio de Lote. Este contiene dos componentes:
+2.	Cree un archivo ZIP del **ensamblado de nubes** que invoca y envía las cargas de trabajo al servicio de Lote. Este contiene dos componentes:
 
 	a. **Divisor de trabajo**: divide un trabajo en tareas que se pueden procesar de manera independiente. Por ejemplo, en un escenario de animación, el divisor de trabajo podría tomar un trabajo de representación de película y dividirlo en tramas individuales.
 
@@ -153,4 +153,4 @@ Una vez creada la cuenta, puede encontrarla en el portal para administrar claves
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

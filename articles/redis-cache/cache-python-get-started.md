@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure con Python
@@ -28,7 +28,7 @@ Instale [redis-py](https://github.com/andymccurdy/redis-py).
 
 ## Crear una caché de Redis en Azure
 
-En la [Vista previa del Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkId=398536), haga clic en **Nuevo**, **Datos y almacenamiento** y seleccione **Caché en Redis**.
+En el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=398536), haga clic en **Nuevo**, **Datos y almacenamiento** y seleccione **Caché en Redis**.
 
   ![][1]
 
@@ -36,7 +36,7 @@ Escriba un nombre de host DNS. Tendrá el formato `<name>.redis.cache.windows.ne
 
   ![][2]
 
-Una vez creada la memoria caché, haga clic en ella en el portal de Azure para ver su configuración. Necesitará:
+Una vez creada la memoria caché, haga clic en ella en el portal de vista previa para ver su configuración. Necesitará:
 
 - **Nombre de host**. Escribió este nombre cuando creó la memoria caché.
 - **Puerto**. Haga clic en el vínculo bajo **Puertos** para ver los puertos. Use el puerto SSL.
@@ -59,4 +59,4 @@ Reemplace *&lt;name&gt;* por el nombre de la memoria caché y *&lt;key&gt;* por 
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

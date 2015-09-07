@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Creación de contraseñas de aplicación con el portal de Office 365 para Azure Multi-Factor Authentication" 
-	description="Esta página muestra a los usuarios cómo pueden crear contraseñas de aplicación adicionales en el portal de Office 365." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Creación de contraseñas de aplicación con el portal de Office 365 para Azure Multi-Factor Authentication"
+	description="Esta página muestra a los usuarios cómo pueden crear contraseñas de aplicación adicionales en el portal de Office 365."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
-# Creación de contraseñas de aplicación con el portal de Office 365 para Azure Multi-Factor Authentication
+# Creación o eliminación de contraseñas de aplicación en el portal de Office 365 para Azure Multi-Factor Authentication
 
-Si utiliza la autenticación multifactor con Office 365, le interesará crear contraseñas de aplicación a través del portal de Office 365.
+Si usa la autenticación multifactor con Office 365, le interesará crear contraseñas de aplicación a través del portal de Office 365.
 
 ## Creación de contraseñas de aplicación en el portal de Office 365
 --------------------------------------------------------------------------------
@@ -43,4 +43,29 @@ Si utiliza la autenticación multifactor con Office 365, le interesará crear co
 <li>Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**</li>
 <li>Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.</li>
 
-<!---HONumber=August15_HO6-->
+
+
+## Para eliminar contraseñas de aplicación en el portal de Office 365
+--------------------------------------------------------------------------------
+
+<ol>
+<li>Inicie sesión en el portal de Office 365</li>
+<li>En la esquina superior derecha, seleccione el widget y elija la configuración de Office 365.</li>
+<li>En la parte inferior, haga clic en Comprobación de seguridad adicional y seleccione **Actualizar los números de teléfono usados para la seguridad de la cuenta**.3</li>
+
+![Nube](./media/multi-factor-authentication-end-user-app-passwords-create-o365/security.png)
+
+<li>A la derecha, seleccione **Actualizar los números de teléfono usados para la seguridad de cuenta**</li>
+<li>En la página de proofup, en la parte superior, seleccione las contraseñas de aplicación</li>
+
+<center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/addsec.png)</center>
+
+<li>Junto a la contraseña de la aplicación que desea quitar, seleccione **Eliminar**.</li>
+
+
+<center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)</center>
+
+<li>Aparece una ventana emergente que le pide que confirme la eliminación.</li>
+<li>Haga clic en **Sí**.</li>
+
+<!---HONumber=August15_HO9-->

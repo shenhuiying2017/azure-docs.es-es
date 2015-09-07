@@ -1,24 +1,23 @@
 <properties
-   pageTitle="Uso del conector de Twitter en el Servicio de aplicaciones de Microsoft Azure"
-   description="Uso de la aplicación de API del conector de Twitter"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+	pageTitle="Uso del conector de Twitter en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de Twitter o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.service="app-service-logic"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Conector de Twitter
-
+# Introducción al conector de Twitter y su incorporación a su aplicación lógica
 Conéctese a la fuente de Twitter para registrar tweets y recibir tweets de su escala de tiempo, de la escala de tiempo de sus amigos y de los seguidores de su cuenta de Twitter. Los conectores pueden utilizarse en aplicaciones lógicas para recuperar, procesar o insertar datos como parte de un “flujo de trabajo”. El uso del conector de Twitter en su flujo de trabajo le permite conseguir distintos resultados. Por ejemplo, puede:
 
 - Recibir nuevos tweets asociados con una palabra clave o un texto determinados. Cuando se recupera un nuevo tweet, se desencadena una nueva instancia del flujo de trabajo y se pasan los datos al siguiente conector del flujo. Por ejemplo, suponga que crea un conector de Twitter y que usa el desencadenador Nuevo tweet a partir de búsqueda para supervisar #peanutbutterandjelly. Siempre que hay un nuevo tweet para #peanutbutterandjelly, el flujo de trabajo (también conocido como aplicación lógica) se inicia automáticamente.
@@ -42,19 +41,18 @@ El desencadenador **Nuevo tweet** se ha archivado. Actualmente, sigue estando di
 
 ## Creación del conector de Twitter
 
-> [AZURE.IMPORTANT]Actualmente, la creación de un conector de Twitter requiere el registro de una aplicación de API con Twitter. Puede registrar una aplicación de forma gratuita en [http://apps.twitter.com](http://apps.twitter.com). Necesitará la clave y el secreto de API de Twitter para crear un conector.
+> [AZURE.IMPORTANT] Actualmente, la creación de un conector de Twitter requiere el registro de una aplicación de API con Twitter. Puede registrar una aplicación de forma gratuita en [http://apps.twitter.com](http://apps.twitter.com). Necesitará la clave y el secreto de API de Twitter para crear un conector.
 
 Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
-1. Creación de una aplicación gratuita de Twitter en [http://apps.twitter.com](http://apps.twitter.com)
+1. Cree una aplicación gratuita de Twitter en [http://apps.twitter.com](http://apps.twitter.com).
     * Al registrarse para la aplicación, puede colocar cualquier dirección URL para el sitio web y dejar en blanco la dirección URL de devolución de llamada.
 2. En el panel de inicio de Azure, seleccione **Marketplace**.
-2. Busque “Conector de Twitter”.
-3. Seleccione el "conector de Twitter" y haga clic "Crear". Se abrirá la hoja Crear.
-3. Haga clic en 'Configuración del paquete' y pegue la 'clave consumidor' de su aplicación de Twitter en el campo 'clientId'. Pegue el 'secreto de consumidor' de su aplicación de Twitter en el campo 'clientSecret'. 
+3. Busque "Conector de Twitter", selecciónelo y seleccione **Crear**.
+4. Haga clic en 'Configuración del paquete' y pegue la 'clave consumidor' de su aplicación de Twitter en el campo 'clientId'. Pegue el 'secreto de consumidor' de su aplicación de Twitter en el campo 'clientSecret'. 
 	![][10]
-4. Especifique otra configuración necesaria en el nombre del conector, el servicio de la aplicación y el grupo de recursos.
-5.	Haga clic en **Crear**.
+5. Especifique otra configuración necesaria en el nombre del conector, el servicio de la aplicación y el grupo de recursos.
+6.	Haga clic en **Crear**.
 
 > [AZURE.NOTE] Si desea proteger aún más su API de Twitter con la dirección URL de redireccionamiento, puede ver detalles sobre cómo hacerlo [aquí](app-service-logic-oauth-security.md).
 
@@ -62,28 +60,22 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 ## Uso del conector Twitter en su aplicación lógica
 Una vez creada la aplicación de API, ahora puede usar el conector de Twitter como desencadenador o como acción en las aplicaciones lógicas. Para ello, siga estos pasos:
 
-1.	Cree una nueva aplicación lógica o abra una existente:
-
+1.	Cree una nueva aplicación lógica o abra una existente: 
 	![][2]
-2.	Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas:
-
+2.	Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas: 
 	![][3]
-3.	El conector de Twitter aparece en el lado derecho. Selecciónelo para agregarlo automáticamente a su aplicación lógica:
-
+3.	El conector de Twitter aparece en el lado derecho. Selecciónelo para agregarlo automáticamente a su aplicación lógica: 
 	![][4]
-4.	Seleccione **Autorizar**, escriba sus credenciales de Twitter y seleccione **Autorizar aplicación**:
-
+4.	Seleccione **Autorizar**, escriba sus credenciales de Twitter y seleccione **Autorizar aplicación**: 
 	![][5]
 
 
-Ahora puede configurar el conector de Twitter para compilar el flujo de trabajo. Puede usar los tweets recuperados del desencadenador de Twitter en otras acciones del flujo:
+Ahora puede configurar el conector de Twitter para compilar el flujo de trabajo. Puede usar los tweets recuperados del desencadenador de Twitter en otras acciones del flujo: 
+	![][6]
 
-![][6]
-
-De igual forma, puede usar las acciones de Twitter en el flujo. Seleccione una acción de Twitter y configure las entradas para esa acción:
-
-![][7] 
-![][8]
+De igual forma, puede usar las acciones de Twitter en el flujo. Seleccione una acción de Twitter y configure las entradas para esa acción: 
+	![][7] 
+	![][8]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
@@ -104,4 +96,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

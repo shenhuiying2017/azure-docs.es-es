@@ -14,15 +14,55 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/21/2015"
 	ms.author="jgao"/>
 
 # Desarrollo de la acción de script con HDInsight
 
 La acción de se usa para instalar software adicional que se ejecuta en un clúster de Hadoop o para cambiar la configuración de las aplicaciones instaladas en un clúster. Las acciones de script son scripts que se ejecutan en los nodos del clúster cuando se implementan clústeres de HDInsight y que se ejecutan una vez que los nodos del clúster completan la configuración de HDInsight. Una acción de script se ejecuta con privilegios de cuenta de administrador de sistema y proporciona derechos de acceso completo a los nodos del clúster. Cada clúster se puede proporcionar con una lista de acciones de scripts que se ejecutarán en el orden en que se especifican.
 
+## Métodos auxiliares para scripts personalizados
 
+Los métodos auxiliares de la acción de script son utilidades que puede usar al escribir scripts personalizados. Se definen en [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), y se pueden incluir en los scripts mediante:
 
+    # Download config action module from a well-known directory.
+	$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
+	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
+	$webclient = New-Object System.Net.WebClient;
+	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
+	
+	# (TIP) Import config action helper method module to make writing config action easy.
+	if (Test-Path ($CONFIGACTIONMODULE))
+	{ 
+		Import-Module $CONFIGACTIONMODULE;
+	} 
+	else
+	{
+		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
+		exit;
+	}
+
+Estos son los métodos auxiliares proporcionados por este script:
+
+Método auxiliar | Descripción
+-------------- | -----------
+**Save-HDIFile** | Descargar un archivo desde el Identificador uniforme de recursos (URI) especificado en una ubicación en el disco local asociado con el nodo de máquina virtual de Azure asignado al clúster.
+**Expand-HDIZippedFile** | Descomprimir un archivo comprimido.
+**Invoke-HDICmdScript** | Ejecutar un script desde cmd.exe.
+**Write-HDILog** | Escribir la salida del script personalizado para la acción de script.
+**Get-Services** | Obtener una lista de los servicios que se ejecutan en la máquina donde se ejecuta el script.
+**Get-Service** | Con el nombre de servicio específico como entrada, devuelve información detallada de un servicio específico (nombre del servicio, identificador del proceso, estado, etc.) en la máquina donde se ejecuta el script.
+**Get-HDIServices** | Obtener una lista de los servicios de HDInsight que se ejecutan en el equipo donde se ejecuta el script.
+**Get-HDIService** | Con el nombre de servicio de HDInsight específico como entrada, devuelve información detallada de un servicio específico (nombre del servicio, identificador del proceso, estado, etc.) en el equipo donde se ejecuta el script.
+**Get-ServicesRunning** | Obtener una lista de los servicios que se ejecutan en el equipo donde se ejecuta el script.
+**Get-ServiceRunning** | Comprobar si un servicio específico (por nombre) se ejecuta en el equipo donde se ejecuta el script.
+**Get-HDIServicesRunning** | Obtener una lista de los servicios de HDInsight que se ejecutan en el equipo donde se ejecuta el script.
+**Get-HDIServiceRunning** | Comprobar si un servicio de HDInsight específico (por nombre) se ejecuta en el equipo donde se ejecuta el script.
+**Get-HDIHadoopVersion** | Obtener la versión de Hadoop instalado en el equipo donde se ejecuta el script.
+**Test-IsHDIHeadNode** | Comprobar si el equipo donde se ejecuta el script es un nodo principal.
+**Test-IsActiveHDIHeadNode** | Comprobar si el equipo donde se ejecuta el script es un nodo principal activo.
+**Test-IsHDIDataNode** | Comprobar si el equipo donde se ejecuta el script es un nodo de datos.
+**Edit-HDIConfigFile** | Editar los archivos de configuración hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml o yarn-site.xml.
 
 ## Llamada a acciones de script
 
@@ -30,10 +70,10 @@ HDInsight proporciona varios scripts para instalar los componentes adicionales e
 
 Nombre | Script
 ----- | -----
-**Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Consulte [Instalación y uso de Spark en clústeres Hadoop de HDInsight][hdinsight-install-spark].
-**Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalación y uso de R en clústeres de Hadoop para HDInsight][hdinsight-r-scripts].
-**Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Consulte [Instalación y uso de Solr en clústeres de Hadoop de HDInsight](hdinsight-hadoop-solr-install.md).
-: **Instalar Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Consulte [Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala](hdinsight-hadoop-giraph-install.md).
+**Instalar Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Consulte [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark].
+**Instalar R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalación y uso de R en clústeres de HDInsight][hdinsight-r-scripts].
+**Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Consulte [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md).
+: **Instalar Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Consulte [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
 La acción de script puede implementarse desde el portal de vista previa de Azure, Azure PowerShell o mediante el SDK de HDInsight para .NET. Para obtener más información, consulte [Personalización de clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize].
 
@@ -126,30 +166,6 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 - Configurar los componentes personalizados para usar el almacenamiento de blobs de Azure
 
 	Los componentes personalizados instalados en los nodos del clúster podrían tener una configuración predeterminada para utilizar el almacenamiento Sistema de archivos distribuido de Hadoop (HDFS). Debe cambiar la configuración para usar el almacenamiento de blobs de Azure. En una recreación de imagen del clúster, el sistema de archivos HDFS se podría formatear y se perderían todos los datos almacenados allí. Usar el almacenamiento de blobs de Azure garantizar que se conservarán los datos.
-
-## Métodos auxiliares para scripts personalizados
-
-La acción de script proporciona los siguientes métodos auxiliares que puede utilizar al escribir scripts personalizados.
-
-Método auxiliar | Descripción
--------------- | -----------
-**Save-HDIFile** | Descargar un archivo desde el Identificador uniforme de recursos (URI) especificado en una ubicación en el disco local asociado con el nodo de máquina virtual de Azure asignado al clúster.
-**Expand-HDIZippedFile** | Descomprimir un archivo comprimido.
-**Invoke-HDICmdScript** | Ejecutar un script desde cmd.exe.
-**Write-HDILog** | Escribir la salida del script personalizado para la acción de script.
-**Get-Services** | Obtener una lista de los servicios que se ejecutan en la máquina donde se ejecuta el script.
-**Get-Service** | Con el nombre de servicio específico como entrada, devuelve información detallada de un servicio específico (nombre del servicio, identificador del proceso, estado, etc.) en la máquina donde se ejecuta el script.
-**Get-HDIServices** | Obtener una lista de los servicios de HDInsight que se ejecutan en el equipo donde se ejecuta el script.
-**Get-HDIService** | Con el nombre de servicio de HDInsight específico como entrada, devuelve información detallada de un servicio específico (nombre del servicio, identificador del proceso, estado, etc.) en el equipo donde se ejecuta el script.
-**Get-ServicesRunning** | Obtener una lista de los servicios que se ejecutan en el equipo donde se ejecuta el script.
-**Get-ServiceRunning** | Comprobar si un servicio específico (por nombre) se ejecuta en el equipo donde se ejecuta el script.
-**Get-HDIServicesRunning** | Obtener una lista de los servicios de HDInsight que se ejecutan en el equipo donde se ejecuta el script.
-**Get-HDIServiceRunning** | Comprobar si un servicio de HDInsight específico (por nombre) se ejecuta en el equipo donde se ejecuta el script.
-**Get-HDIHadoopVersion** | Obtener la versión de Hadoop instalado en el equipo donde se ejecuta el script.
-**Test-IsHDIHeadNode** | Comprobar si el equipo donde se ejecuta el script es un nodo principal.
-**Test-IsActiveHDIHeadNode** | Comprobar si el equipo donde se ejecuta el script es un nodo principal activo.
-**Test-IsHDIDataNode** | Comprobar si el equipo donde se ejecuta el script es un nodo de datos.
-**Edit-HDIConfigFile** | Editar los archivos de configuración hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml o yarn-site.xml.
 
 ## Patrones de uso común
 
@@ -292,8 +308,8 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 - [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-cluster-customize]
 - [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]
 - [Instalación y uso de R en clústeres de Hadoop de HDInsight][hdinsight-r-scripts]
-- [Instalación y uso de Solr en clústeres de Hadoop de HDInsight](hdinsight-hadoop-solr-install.md).
-- [Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala](hdinsight-hadoop-giraph-install.md).
+- [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md).
+- [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
@@ -304,4 +320,4 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

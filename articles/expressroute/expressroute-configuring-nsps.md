@@ -1,20 +1,20 @@
 <properties 
    pageTitle="Configuración de Expressroute con NSP"
-   description="Este tutorial le guiará por el proceso de configuración de ExpressRoute a través de NSP"
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="Este tutorial le guiará por el proceso de configuración de ExpressRoute a través de NSP"
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="adinah"
+	editor="tysonn"/>
 
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/29/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/29/2015"
+	ms.author="cherylmc"/>
 
 #  Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red
 
@@ -134,7 +134,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 4. **Configure la red virtual y la puerta de enlace.**
 
-	Vea [Configuración de una red virtual y una puerta de enlace para ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Tenga en cuenta que la subred de la puerta de enlace debe ser/28 para poder trabajar con una conexión ExpressRoute.
+	Vea [Configuración de una red virtual y una puerta de enlace para ExpressRoute](../expressroute/expressroute-configuring-vnet-gateway.md). Tenga en cuenta que la subred de la puerta de enlace debe ser/28 para poder trabajar con una conexión ExpressRoute.
 
 5. **Vincule la red a un circuito.**
 
@@ -150,4 +150,4 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 		
 		Provisioned 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Instalación del dispositivo StorSimple 8600 | Microsoft Azure"
-   description="Aquí se describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600 antes de implementar y configurar el software."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/06/2015"
+	ms.author="alkohli"/>
 
-# Instalar el dispositivo StorSimple 8600
+# Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
 
 ## Información general
 Su Microsoft Azure StorSimple 8600 es un dispositivo de receptáculo dual que consta de un receptáculo principal y EBOD. En este tutorial se explica cómo desempaquetar, montar en bastidor y conectar los cables del hardware del dispositivo StorSimple 8600 antes de configurar el software de StorSimple.
@@ -289,4 +289,4 @@ Ha completado el cableado de alimentación, acceso a la red y conexión en serie
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Administración de una aplicación web en Servicio de aplicaciones de Azure" 
-	description="Vínculos a recursos para administrar una aplicación web en Servicio de aplicaciones de Azure." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="erikre" 
-	manager="wpickett" 
+	pageTitle="Administración de una aplicación web en Servicio de aplicaciones de Azure"
+	description="Vínculos a recursos para administrar una aplicación web en Servicio de aplicaciones de Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="erikre"/>
 
 # Administración de una aplicación web en Servicio de aplicaciones de Azure
@@ -22,7 +22,7 @@ Este tema contiene vínculos a recursos para administrar una aplicación web en 
 
 A lo largo de la vida de una aplicación web, llevará a cabo distintas tareas de administración, desde la implementación inicial hasta el funcionamiento normal, pasando por el mantenimiento y las actualizaciones.
 
-Muchas tareas de administración de aplicaciones web se pueden hacer desde el Portal de Azure. Para obtener más información, consulte [Administración de aplicaciones web mediante el Portal de Azure](web-sites-manage.md).
+Muchas tareas de administración de aplicaciones web se pueden hacer desde el Portal de Azure.
 
 ## Antes de implementar su aplicación web para la producción.
 
@@ -103,4 +103,4 @@ Si usa Visual Studio Online, puede configurar una implementación continua desde
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

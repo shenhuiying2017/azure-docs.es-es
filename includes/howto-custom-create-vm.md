@@ -1,4 +1,3 @@
-
 #Creación de una máquina virtual personalizada
 
 Una máquina virtual *personalizada* se refiere a una máquina virtual creada con el método **Desde la galería** porque le permite configurar más opciones que el método **Creación rápida**. Entre estas opciones se incluyen:
@@ -37,7 +36,7 @@ Una máquina virtual *personalizada* se refiere a una máquina virtual creada co
 
 	**Nota**: para obtener más información sobre la colocación de máquinas virtuales en el mismo servicio en la nube, consulte [Conexión de máquinas virtuales en un Servicio en la nube.](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)
 
-12. En **Región/grupo de afinidad/red virtual**, seleccione la región, el grupo de afinidad o la red virtual que desea usar con la máquina virtual. Para obtener más información sobre los grupos de afinidad, consulte [Acerca de los grupos de afinidad para la red virtual](http://msdn.microsoft.com/library/azure/jj156085.aspx).
+12. En **Región/grupo de afinidad/red virtual**, seleccione la región, el grupo de afinidad o la red virtual que desea usar con la máquina virtual. Para obtener más información sobre los grupos de afinidad, consulte [Acerca de los grupos de afinidad para la red virtual](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 13. En **Cuenta de almacenamiento**, seleccione una cuenta de almacenamiento existente para el archivo VHD o use una cuenta de almacenamiento generada automáticamente. Solo se crea una cuenta de almacenamiento por región de manera automática. Todas las demás máquinas virtuales que crea con esta configuración se ubican en esta cuenta de almacenamiento. Tiene un límite de 20 cuentas de almacenamiento.
 
@@ -60,4 +59,4 @@ Una vez creada una máquina virtual, esta arrancará automáticamente. Cuando el
 - [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Inicio de sesión en una máquina virtual con Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

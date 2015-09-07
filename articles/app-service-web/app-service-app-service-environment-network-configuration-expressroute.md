@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Detalles de configuración de red para trabajar con ExpressRoute" 
-	description="Detalles de configuración de red para ejecutar entornos del Servicio de aplicaciones en las redes virtuales conectadas a un circuito de ExpressRoute." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
+	pageTitle="Detalles de configuración de red para trabajar con ExpressRoute"
+	description="Detalles de configuración de red para ejecutar entornos del Servicio de aplicaciones en las redes virtuales conectadas a un circuito de ExpressRoute."
+	services="app-service\web"
+	documentationCenter=""
+	authors="stefsch"
+	manager="nirma"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="stefsch"/>
 
 # Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute 
@@ -34,7 +34,7 @@ Los entornos del Servicio de aplicaciones requieren todas las opciones siguiente
 
 El requisito de DNS puede cumplirse al garantizar una configuración DNS válida para la red virtual.
 
-Se pueden cumplir los requisitos de acceso de red entrante mediante la configuración de un [grupo de seguridad de red][NetworkSecurityGroups] en la subred del entorno del Servicio de aplicaciones, tal como se describe en este [artículo][requiredports].
+Se pueden cumplir los requisitos de acceso de red entrante mediante la configuración de un [grupo de seguridad de red][NetworkSecurityGroups] en la subred del entorno de Servicio de aplicaciones, tal como se describe en este [artículo][requiredports].
 
 ## Habilitar la conectividad de red saliente para un entorno del Servicio de aplicaciones##
 De forma predeterminada, un circuito de ExpressRoute recién creado anuncia una ruta predeterminada que permite la conectividad saliente de Internet. Con esta configuración, un entorno del Servicio de aplicaciones podrá conectarse a otros extremos de Azure.
@@ -77,7 +77,7 @@ Necesitará agregar una o varias rutas a la tabla de ruta para habilitar el acce
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
 
 
-Para obtener una lista completa y actualizada de los intervalos CIDR que Azure utiliza, puede descargar un archivo XML que contiene todos los intervalos en el [Centro de descarga de Microsoft][DownloadCenterAddressRanges]
+Para obtener una lista completa y actualizada de los intervalos CIDR que Azure usa, puede descargar un archivo XML que contiene todos los intervalos en el [Centro de descarga de Microsoft][DownloadCenterAddressRanges]
 
 **Nota:** en algún momento, un intervalo CIDR abreviado de 0.0.0.0/0 estará disponible para utilizarse en el parámetro *AddressPrefix*. Esta forma abreviada equivale a "todas las direcciones de Internet". Por ahora, los desarrolladores necesitarán usar un amplio conjunto de intervalos CIDR suficientes para cubrir todos los intervalos de direcciones de Azure posibles utilizados en la región en que se ha implementado el entorno del Servicio de aplicaciones.
 
@@ -113,12 +113,12 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureDownloads]: http://azure.microsoft.com/downloads/
-[DownloadCenterAddressRanges]: http://www.microsoft.com/es-es/download/details.aspx?id=41653
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
  
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

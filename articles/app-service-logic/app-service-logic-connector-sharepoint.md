@@ -1,26 +1,27 @@
 <properties
-   pageTitle="Creación de un conector de SharePoint para usarlo en la aplicación lógica"
-   description="Creación de un conector de SharePoint; Uso del conector de SharePoint en una aplicación lógica"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+	pageTitle="Uso del conector de SharePoint en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de SharePoint o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.service="app-service-logic"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
-# Uso del conector de SharePoint en una aplicación lógica
-
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. El conector de Microsoft SharePoint permite conectarse a Microsoft SharePoint Server y SharePoint Online y administrar documentos y elementos de lista. Puede realizar diversas acciones tales como crear, actualizar, obtener y eliminar documentos y elementos de lista. Cuando se usa el servidor local de SharePoint, puede proporcionar la cadena de conexión del bus de servicio como parte de la configuración del conector e instalar el agente de escucha local para conectarse al servidor.
+# Introducción al conector de SharePoint y su incorporación a su aplicación lógica
+Conéctese a SharePoint Server o SharePoint Online para administrar documentos y enumerar elementos. Puede realizar diversas acciones tales como crear, actualizar, obtener y eliminar documentos y elementos de lista. Cuando se usa el servidor local de SharePoint, puede proporcionar la cadena de conexión del bus de servicio como parte de la configuración del conector e instalar el agente de escucha local para conectarse al servidor.
 
 La aplicación de galería del conector de SharePoint Server y el conector de SharePoint Online proporciona desencadenadores y acciones como mecanismos para interactuar con SharePoint.
+
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Puede agregar el conector de SharePoint a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ## Creación de un conector de SharePoint Online
 
@@ -36,9 +37,8 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*.
 Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 
-5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente:
-<br/>
-![][1]
+5. Cuando haya terminado, la configuración del paquete tendrá un aspecto similar al siguiente: 
+	![][1]
 
 Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Online.
 
@@ -61,8 +61,7 @@ Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direc
 Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/)
 
 5. Cuando termine, la configuración del paquete tendrá un aspecto similar al siguiente: 
-<br/>
-![][2]
+	![][2]
 
 Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Server.
 
@@ -81,24 +80,19 @@ Una vez creada la aplicación de API, puede usar el conector de SharePoint como 
 <br/>
 ![][3]
 
-5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta en la que desea realizar las operaciones:
-<br/>
+5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta de SharePoint en la que desea realizar las operaciones: 
 ![][4]
 
-6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre:
-<br/>
+6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre: 
 ![][5]
 
-7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores. De lo contrario, se muestra una lista de acciones y puede elegir la operación apropiada que se desea realizar:
-<br/>
+7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores. De lo contrario, se muestra la lista de acciones y puede elegir la operación apropiada que desea realizar: 
 ![][6]
-<br/>
-**Dirección URL relativa configurada para la biblioteca de documentos**
-<br/>
+  
+**Dirección URL relativa configurada para la biblioteca de documentos** 
 ![][7]
-<br/>
+
 **Dirección URL relativa configurada para la lista de documentos**
-<br/>
 
 > [AZURE.NOTE]Para los siguientes desencadenadores, se supone que ha especificado “Documentos compartidos, Listas/Tareas” en la configuración del paquete del conector, donde “Documentos compartidos” es una biblioteca de documentos y “Listas/Tareas” es una lista.
 
@@ -341,7 +335,7 @@ ItemId | Sí | Id. de elemento del elemento de la lista.
 #### Salida
 
 Nombre | Descripción
---- | --- 
+--- | ---
 Estado | Si la eliminación del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
 
@@ -486,4 +480,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

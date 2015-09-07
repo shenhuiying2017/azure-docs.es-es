@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas" 
-	description="Aprenda a crear una granja de intranet de SharePoint en un entorno de nube híbrida para desarrollo o pruebas de profesionales de TI." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Entorno de prueba de granja de SharePoint 2013 | Microsoft Azure"
+	description="Aprenda a crear una granja de intranet de SharePoint Server 2013 de dos niveles en un entorno de nube híbrida para desarrollo o pruebas de profesionales de TI."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 
@@ -88,7 +88,7 @@ A continuación, conéctese a la nueva máquina virtual de SQL1 *mediante la cue
 3.	Cuando se le pida que abra SQL1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
-	- Nombre: **SQL1\**[Nombre de la cuenta de administrador local]
+	- Nombre: **SQL1**[Nombre de la cuenta de administrador local]
 	- Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -212,4 +212,4 @@ Su granja de intranet de SharePoint en un entorno de nube híbrida ya está list
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

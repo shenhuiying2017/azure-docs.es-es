@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fase 2 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de controladores de dominio"
-	description="En esta segunda fase de la implementación de una granja de servidores solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, creará y configurará los dos controladores de dominio de Active Directory."
+	pageTitle="Fase 2 de la granja de SharePoint Server 2013 | Microsoft Azure"
+	description="Cree y configure los dos controladores de dominio de réplica de Active Directory en la fase 2 de la granja de SharePoint Server 2013 en Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -113,7 +113,7 @@ Inicie sesión en el primer equipo de controlador de dominio mediante las creden
 5.	Aparecerá el cuadro de diálogo de explorador que mostrará el mensaje: "¿Desea abrir o guardar ComputerName.rdp desde manage.windowsazure.com?" Haga clic en **Abrir**.
 6.	Seleccione el cuadro de diálogo **Conexión de escritorio remoto** y haga clic en **Conectar**.
 7.	En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
-8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Use el siguiente formato: *nombreDeEquipo*\\*nombreDeCuentaDeAdministradorLocal*
+8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Use el siguiente formato: *nombreDeEquipo**nombreDeCuentaDeAdministradorLocal*
 9.	En **Contraseña**, escriba la contraseña para la cuenta de administrador local.
 10.	Haga clic en **Aceptar**.
 11.	En el cuadro de diálogo **Conexión a Escritorio remoto**, haga clic en **Sí**. El escritorio de la nueva máquina aparece en una ventana de sesión de Escritorio remoto.
@@ -246,4 +246,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

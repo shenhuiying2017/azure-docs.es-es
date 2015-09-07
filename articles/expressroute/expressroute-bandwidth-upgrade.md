@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Actualizar dinámicamente el ancho de banda de ExpressRoute | Microsoft Azure"
-   description="Cómo aumentar dinámicamente el tamaño del ancho de banda de un circuito de ExpressRoute sin tiempo de inactividad."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Cómo aumentar dinámicamente el tamaño del ancho de banda de un circuito de ExpressRoute sin tiempo de inactividad."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Actualizar el ancho de banda del circuito de ExpressRoute dinámicamente sin tiempo de inactividad
 
@@ -85,4 +85,4 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

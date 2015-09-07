@@ -1,4 +1,3 @@
-
 Las máquinas virtuales creadas en Administración de servicios siempre se colocan en un servicio en la nube. El servicio en la nube actúa como contenedor y proporciona un nombre DNS público único, una dirección IP pública y un conjunto de extremos para acceder a la máquina virtual a través de Internet. El servicio en la nube opcionalmente puede estar en una red virtual.
 
 Si no es un servicio en la nube en una red virtual, se denomina un servicio en la nube *independiente*. Las máquinas virtuales de un servicio en la nube independiente solo pueden comunicarse con otras máquinas virtuales mediante los nombres DNS públicos de dichas máquinas, y ese tráfico viaja a través de Internet. Si un servicio en la nube está en una red virtual, las máquinas virtuales de ese servicio en la nube pueden comunicarse con todas las otras máquinas virtuales de la red virtual sin enviar tráfico a través de Internet.
@@ -17,7 +16,7 @@ Las redes virtuales son el método recomendado para conectar máquinas virtuales
 
 Para conectar máquinas virtuales en una red virtual:
 
-1.	Cree la red virtual en el [Portal de Azure](http://manage.windowsazure.com). Para obtener más información, consulte [Tareas de configuración de la red virtual](https://msdn.microsoft.com/library/azure/jj156206.aspx).
+1.	Cree la red virtual en el [Portal de Azure](http://manage.windowsazure.com). Para obtener más información, consulte [Tareas de configuración de la red virtual](../documentation/services/virtual-machines/).
 2.	Cree el conjunto de servicios en la nube para la implementación de forma que refleje el diseño de los conjuntos de disponibilidad y del equilibrio de carga. En el portal, haga clic en **Nuevo > Proceso > Servicio en la nube > Creación personalizada** para cada servicio en la nube.
 3.	Para crear cada máquina virtual nueva, haga clic en **Nuevo > Proceso > Máquina virtual > De la galería**. Elija el servicio en la nube y la red virtual correctos para la máquina virtual. Si el servicio en la nube ya está unido a una red virtual, su nombre se seleccionará automáticamente.
 
@@ -35,7 +34,7 @@ Para conectar máquinas virtuales en un servicio en la nube independiente:
 
 [Administración de la disponibilidad de las máquinas virtuales](../articles/manage-availability-virtual-machines.md)
 
-[Tareas de configuración de red virtual](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+[Tareas de configuración de red virtual](../documentation/services/virtual-machines/)
 
 Después de haber creado una máquina virtual, es conveniente agregar un disco de datos para que los servicios y las cargas de trabajo tengan una ubicación donde almacenar los datos. Consulte alguno de los recursos siguientes:
 
@@ -43,4 +42,4 @@ Después de haber creado una máquina virtual, es conveniente agregar un disco d
 
 [Acoplamiento de un disco de datos a una máquina virtual de Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

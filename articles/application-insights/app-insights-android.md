@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Application Insights para aplicaciones Android" 
-    description="Analice el uso y el rendimiento de la aplicación Android con Application Insights." 
-    services="application-insights" 
-    documentationCenter="android"
-    authors="alancameronwills" 
-    manager="ronmart"/>
+<properties
+    pageTitle="Application Insights para aplicaciones Android | Microsoft Azure"
+	description="Analice el uso y el rendimiento de la aplicación Android con Application Insights."
+	services="application-insights"
+	documentationCenter="android"
+	authors="alancameronwills"
+	manager="ronmart"/>
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-android" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-	ms.date="04/28/2015" 
-    ms.author="awills"/>
+<tags
+    ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/28/2015"
+	ms.author="awills"/>
 
 # Application Insights para aplicaciones Android
 
@@ -37,9 +37,9 @@ En la hoja que se abre podrá ver los datos de uso y rendimiento sobre la aplica
 
 ## Instale el complemento Application Insights en Android Studio
 
-(si aún no lo ha hecho).
+si aún no lo ha hecho.
 
-1.  Inicio de Studio Android y configuración de complementos
+1.  Inicie Studio Android y configure los complementos.
 
     ![Elija Configurar](./media/app-insights-android/01-configure.png)
 
@@ -50,10 +50,10 @@ En la hoja que se abre podrá ver los datos de uso y rendimiento sobre la aplica
 ## <a name="sdk"></a>Instalación del SDK en la aplicación
 
 
-1.  Seleccione Herramientas -> Integrar Application Insights.
+1.  Seleccione **Herramientas** -> **Integrar SDK de Application Insights**.
 
     ![Integre Application Insights](./media/app-insights-android/04-tools-integrate.png)
-    
+
 3.  Creación de un componente en la suscripción
 
     ![Crear un componente](./media/app-insights-android/07-create-component.png)
@@ -63,10 +63,10 @@ En la hoja que se abre podrá ver los datos de uso y rendimiento sobre la aplica
 4.  Sincronización de Gradle para descargar el SDK e integrarlo con el proyecto
 
     ![Sincronice archivos Gradle para descargar el SDK](./media/app-insights-android/08-successful-integration.png)
-    
+
     (En la [página de uso](http://go.microsoft.com/fwlink/?LinkID=533220) hay disponible información adicional.)
-    
-En este punto se ha agregado la siguiente referencia a los módulos build.gradle, permisos para `INTERNET` y `ACCESS_NETWORK_STATE`, y una etiqueta de metadatos que contiene la clave de instrumentación del componente se han agregado a los `AndroidManifest.xml` de los módulos.
+
+En este punto se agregó la siguiente referencia a los módulos build.gradle, permisos para `INTERNET` y `ACCESS_NETWORK_STATE`, y una etiqueta de metadatos que contiene la clave de instrumentación del componente se agregaron a los `AndroidManifest.xml` de los módulos.
 
 ```java
 
@@ -80,7 +80,7 @@ En este punto se ha agregado la siguiente referencia a los módulos build.gradle
     <manifest>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application>
         <meta-data
             android:name="com.microsoft.applicationinsights.instrumentationKey"
@@ -104,7 +104,7 @@ También es posible establecer la clave de instrumentación en el código. Esto 
 
 Inicialice el SDK y empiece a realizar un seguimiento de la telemetría.
 
-Agregue el elemento importado siguiente a la actividad raíz de las aplicaciones.
+Agregue el elemento importado siguiente a la actividad raíz de la aplicación:
 
 ```java
 
@@ -119,18 +119,18 @@ Y agregue lo siguiente a la devolución de llamada de `onCreate` de la actividad
     ApplicationInsights.start();
 ```
 
-Una vez que se llame a `ApplicationInsights.start()`, el SDK comenzará a realizar el seguimiento de la actividad del ciclo de vida de Android y de cualquier excepción no controlada.
+Una vez que se llame a `ApplicationInsights.start()`, el SDK comienza a realizar el seguimiento de la actividad del ciclo de vida de Android y de cualquier excepción no controlada.
 
-> [AZURE.NOTE]Los eventos del ciclo de vida de la aplicación solo se recopilan en la versión 15 o posterior del SDK de Android (Ice Cream Sandwich+).
+> [AZURE.NOTE]Los eventos del ciclo de vida de la aplicación solo se recopilan en la versión 15 y posteriores del SDK de Android (Ice Cream Sandwich+).
 
 Además, se pueden recopilar eventos personalizados, seguimientos, métricas y excepciones controladas. Utilice cualquiera de las [API de Application Insights][api] para enviar telemetría.
 
 * TrackEvent(eventName) para las demás acciones de usuario
 * TrackTrace(logEvent) para el [registro de diagnóstico][diagnostic]
 * TrackException(exception) en cláusulas Catch
-* TrackMetric(name, value) en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos.
+* TrackMetric(name, value) en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos
 
-A continuación se muestra un ejemplo de inicialización y recopilación manual de telemetría.
+El código siguiente es un ejemplo de inicialización y recopilación manual de telemetría.
 
 ```java
 
@@ -138,11 +138,11 @@ A continuación se muestra un ejemplo de inicialización y recopilación manual 
 
       @Override
       protected void onCreate(Bundle savedInstanceState) {
-        
+
         ApplicationInsights.setup(this);
         //... other initialization code ...//
         ApplicationInsights.start();
-        
+
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
         HashMap<String, String> properties = new HashMap<String, String>();
@@ -163,7 +163,7 @@ Ejecute la aplicación (MAYÚS+ 10 en Windows, CTRL+R en OS X) para generar tele
 
 Vuelva a http://portal.azure.com y busque el recurso de Application Insights.
 
-Haga clic en Buscar para abrir [Búsqueda de diagnóstico][diagnostic], que es donde aparecerán los primeros eventos. Si no ve nada, espere un minuto o dos y haga clic en Actualizar.
+Haga clic en **Buscar** para abrir [Búsqueda de diagnóstico][diagnostic], que es donde aparecerán los primeros eventos. Si no ve nada, espere un minuto o dos y haga clic en **Actualizar**.
 
 ![Haga clic en Búsqueda de diagnóstico](./media/app-insights-android/21-search.png)
 
@@ -195,8 +195,6 @@ Haga clic en cualquier gráfico para obtener más detalles. Por ejemplo, bloqueo
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introducción a los cmdlets de Lote de Azure PowerShell | Microsoft Azure"
-   description="Presenta los cmdlets de Azure PowerShell usados para administrar el servicio de lotes de Azure"
-   services="batch"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="Presenta los cmdlets de Azure PowerShell usados para administrar el servicio de lotes de Azure"
+	services="batch"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="batch"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="big-compute"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="big-compute"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # Introducción a los cmdlets de lotes PowerShell de Azure
 Este artículo es una breve introducción a los cmdlets de Azure PowerShell que puede usar para administrar sus cuentas de Lote y obtener información acerca de sus trabajos de Lote y otros detalles.
@@ -39,6 +39,12 @@ Utilice los procedimientos estándar para iniciar Azure PowerShell y [conectarse
 
     ```
     Switch-AzureMode -Name AzureResourceManager
+    ```
+
+* **Registro en el espacio de nombres del proveedor de Lote (operación única)**: antes de poder administrar las cuentas de Lote, debe registrarse en el espacio de nombres del proveedor de Lote. Esta operación solo debe realizarse una vez por cada suscripción.
+
+    ```
+    Register-AzureProvider -ProviderNamespace Microsoft.Batch
     ```
 
 ## Administrar claves y cuentas por lotes
@@ -105,7 +111,7 @@ Aplique este contexto en los cmdlets que interactúan con el servicio de proceso
 
 ### Consulta de datos
 
-Por ejemplo, use **Get-AzureBatchPools** para encontrar sus grupos. De forma predeterminada, esto consulta todos los grupos de su cuenta, suponiendo que ya ha almacenado el objeto BatchAccountContext en *$context*:
+Por ejemplo, use **Get-AzureBatchPools** para encontrar sus grupos. De forma predeterminada, esto consulta todos los grupos de su cuenta, siempre que ya haya almacenado el objeto BatchAccountContext en *$context*:
 
 ```
 Get-AzureBatchPool -BatchContext $context
@@ -123,13 +129,13 @@ Este método no es tan flexible como "Where-Object" en una canalización local. 
 
 ### Uso del parámetro Id
 
-Una alternativa al filtro OData es el parámetro **Id**. Para consultar un grupo específico con el Id. "myPool":
+Una alternativa a un filtro OData es el parámetro **Id**. Para consultar un grupo específico con el Id. "myPool":
 
 ```
 Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
 ```
-El parámetro **Id** solo admite la búsqueda de id completo, no con caracteres comodín ni filtros al estilo de OData.
+El parámetro **Id** solo admite la búsqueda de id. completo, no con caracteres comodín ni filtros al estilo de OData.
 
 ### Uso de la canalización
 
@@ -156,4 +162,4 @@ Para quitar el límite superior, establezca **MaxCount** en 0 o menos.
 * [Referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

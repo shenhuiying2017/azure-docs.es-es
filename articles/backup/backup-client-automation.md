@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/17/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
@@ -75,7 +82,7 @@ Las opciones disponibles incluyen:
 
 
 ### Registro con el servicio de Copia de seguridad de Azure
-Para poder registrarse con el servicio de copia de seguridad de Azure, debe asegurarse de que se cumplen los [requisitos previos](backup-try-azure-backup-in-10-mins.md). Debe:
+Para poder registrarse con el servicio de copia de seguridad de Azure, debe asegurarse de que se cumplen los [requisitos previos](backup-configure-vault.md). Debe:
 
 - Disponer de una suscripción válida a Azure
 - Disponer de un almacén de copia de seguridad
@@ -507,7 +514,7 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### Desencadenar el proceso de restauración
-Para desencadenar el proceso de restauración, primero es necesario especificar las opciones de recuperación. Esto puede hacerse mediante el uso del cmdlet [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx). En este ejemplo, supongamos que desea restaurar los archivos en *C:\\temp*. Supongamos también que deseamos omitir archivos que ya existen en la carpeta de destino *C:\\temp*. Para crear dicha opción de recuperación, use el siguiente comando:
+Para desencadenar el proceso de restauración, primero es necesario especificar las opciones de recuperación. Esto puede hacerse mediante el uso del cmdlet [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx). En este ejemplo, supongamos que desea restaurar los archivos en *C:\temp*. Supongamos también que deseamos omitir archivos que ya existen en la carpeta de destino *C:\temp*. Para crear dicha opción de recuperación, use el siguiente comando:
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -578,6 +585,9 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ```
 
 ## Pasos siguientes
-Para obtener más información sobre Copia de seguridad de Azure para Windows Server o cliente de Windows, consulte [Introducción a Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
+Para obtener más información sobre Copia de seguridad de Azure para Windows Server o cliente de Windows, consulte
 
-<!---HONumber=August15_HO8-->
+- [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
+- [Copia de seguridad de servidores Windows](backup-azure-backup-windows-server.md)
+
+<!---HONumber=August15_HO9-->

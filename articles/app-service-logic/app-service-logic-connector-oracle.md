@@ -1,24 +1,23 @@
 <properties
-   pageTitle="Uso del conector de Oracle en el Servicio de aplicaciones de Microsoft Azure"
-   description="Uso del conector de Oracle"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Uso del conector de base de datos de Oracle en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de base de datos de Oracle o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Conector de base de datos de Oracle
-
+# Introducción al conector de base de datos de Oracle y su incorporación a su aplicación lógica
 Conéctese a un servidor de base de datos de Oracle local para crear y modificar la información o los datos. Los conectores pueden utilizarse en aplicaciones lógicas para recuperar, procesar o insertar datos como parte de un “flujo de trabajo”. Al utilizar el conector de Oracle en su flujo de trabajo, puede conseguir distintos escenarios. Por ejemplo, puede:
 
 - Exponer una parte de los datos que residen en la base de datos Oracle a través de una aplicación móvil o web.
@@ -117,4 +116,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

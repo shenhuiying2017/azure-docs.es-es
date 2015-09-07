@@ -1,20 +1,20 @@
 <properties
    pageTitle="Supervisión de la carga de trabajo mediante DMV | Microsoft Azure"
-   description="Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/06/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/06/2015"
+	ms.author="sahajs"/>
 
 # Supervisión de la carga de trabajo mediante DMV
 
@@ -135,7 +135,11 @@ ORDER BY step_index;
 
 Guarde el índice de paso del paso de larga ejecución.
 
-Compruebe la columna *operation\_type* del paso de consulta de larga ejecución: - Ir al paso 4a para **operaciones SQL**: OnOperation, RemoteOperation, ReturnOperation - Ir al paso 4b para **operaciones de movimiento de datos**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation
+Compruebe la columna *operation\_type* del paso de consulta de larga ejecución:
+
+- Continúe con el paso 4a para **operaciones SQL**: OnOperation, RemoteOperation, ReturnOperation.
+- Continúe con el paso 4b para **Operaciones de movimiento de datos**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+
 
 
 
@@ -213,4 +217,4 @@ Para obtener más sugerencias sobre cómo administrar el Almacenamiento de datos
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

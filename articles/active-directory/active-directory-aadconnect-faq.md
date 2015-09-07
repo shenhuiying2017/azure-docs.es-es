@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Preguntas más frecuentes sobre Azure AD Connect" 
-	description="Esta página contiene las preguntas más frecuentes sobre Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Preguntas más frecuentes sobre Azure AD Connect"
+	description="Esta página contiene las preguntas más frecuentes sobre Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Preguntas más frecuentes sobre Azure Active Directory Connect
@@ -40,4 +40,4 @@
 
 Utilice las instrucciones que se describen en el artículo para resolver [aquí](active-directory-aadconnect-o365-certs.md) la renovación del certificado.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Fase 2 de la carga de trabajo de aplicación de línea de negocio: Configuración de controladores de dominio" 
-	description="En esta segunda fase, creará y configurará los dos controladores de dominio de Active Directory." 
+	pageTitle="Fase 2 de la aplicación de línea de negocio | Microsoft Azure"
+	description="Cree y configure los dos controladores de dominio de réplica de Active Directory en la fase 2 de la aplicación de línea de negocio en Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Fase 2 de la carga de trabajo de aplicación de línea de negocio: Configuración de controladores de dominio
@@ -206,4 +206,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

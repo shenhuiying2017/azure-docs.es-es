@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Conector de archivos"
-	description="Introducción al conector de archivos"
+	pageTitle="Uso del conector de archivos en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de archivos o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Uso del conector de archivos en la aplicación lógica #
+# Introducción al conector de archivos y su incorporación a su aplicación lógica
+Conéctese a un sistema de archivos para cargar, descargar los archivos en un equipo host, etc. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos. Puede agregar el conector de archivos a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
-
-El conector de archivos permite cargar, descargar y eliminar archivos del sistema de archivos en un equipo host. Usa el administrador de conexiones híbridas para la conectividad híbrida al equipo host.
+El conector de archivos usa el Administrador de conexiones híbridas para la conectividad híbrida con el sistema de archivos host.
 
 ## Creación de un conector de archivos para la aplicación lógica ##
 Para usar el conector de archivos, deberá crear primero una instancia de la aplicación de API del conector de archivos. Se puede hacer de la forma siguiente:
@@ -84,4 +83,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [Definición de la API del conector de archivos]: https://msdn.microsoft.com/library/dn936296.aspx
 [Uso del Administrador de conexiones híbridas]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

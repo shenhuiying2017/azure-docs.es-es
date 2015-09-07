@@ -1,31 +1,31 @@
 <properties 
-   pageTitle="Administración de socios comerciales de BizTalk" 
-   description="Administración de socios comerciales de BizTalk" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Uso del conector de Administración de socios comerciales de BizTalk en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de Administración de socios comerciales de BizTalk o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-#Administración de socios comerciales de BizTalk
-El servicio Administración de socios comerciales (TPM) de Microsoft Azure permite definir y mantener relaciones de negocio a negocio, como socios y contratos, junto con artefactos asociados como esquemas y certificados. Estas relaciones se pueden aplicar mediante servicios de API relacionados como X 12, EDIFACT y AS2.
+# Introducción a Administración de socios comerciales de BizTalk y su incorporación a su aplicación lógica
+El servicio Administración de socios comerciales (TPM) de BizTalk le permite definir y mantener relaciones de negocio a negocio, como socios y contratos, junto con artefactos asociados como esquemas y certificados. Estas relaciones se pueden aplicar mediante servicios de API relacionados como X 12, EDIFACT y AS2.
 
-La aplicación de API TPM es el requisito básico del conector AS2 y de las aplicaciones de API X12 o EDIFACT.
+La aplicación de API TPM es el requisito básico del conector AS2, de la aplicación de API X12 o de la aplicación de API EDIFACT. Puede agregar Administración de socios comerciales de BizTalk a los datos de flujos de trabajo y de procesos empresariales como parte de un flujo de trabajo de negocio a negocio dentro de una aplicación lógica.
 
-##Requisitos previos
+## Requisitos previos
 - Base de datos de SQL Azure en blanco: debe crear primero una base de datos de SQL Azure en blanco antes de crear una nueva aplicación de API de TPM.
 
-##Descripción de socios, contratos y perfiles
-Para obtener más información sobre los contratos de socios comerciales, haga clic en [aquí][1]
+## Descripción de socios, contratos y perfiles
+Para obtener más información sobre los contratos de socios comerciales, haga clic [aquí][1]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
@@ -37,4 +37,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

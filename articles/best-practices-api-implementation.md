@@ -1,21 +1,21 @@
 <properties
    pageTitle="Guía de implementación de API | Microsoft Azure"
-   description="Guía sobre cómo implementar una API."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
+	description="Guía sobre cómo implementar una API."
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/13/2015"
-   ms.author="masashin"/>
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="05/13/2015"
+	ms.author="masashin"/>
 
 # Guía de implementación de API
 
@@ -1061,7 +1061,7 @@ Azure ofrece el [servicio de administración de API](http://azure.microsoft.com/
 
 Puede encontrar información detallada sobre cómo realizar estas tareas en la página [Administración de API](http://azure.microsoft.com/services/api-management/) del sitio web de Microsoft. El servicio de administración de API de Azure también ofrece su propia interfaz REST, que permite crear una interfaz personalizada para simplificar el proceso de configuración de una API web. Para obtener más información, visite la página [Referencia de la API REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) del sitio web de Microsoft.
 
-> [AZURE.TIP]Azure ofrece el Administrador de tráfico de Azure que le permite implementar la conmutación por error y equilibrio de carga y reducir la latencia en varias instancias de un sitio web hospedado en distintas ubicaciones geográficas. Puede usar el Administrador de tráfico de Azure junto con el servicio de administración de API, que puede enrutar solicitudes a instancias de un sitio web a través del Administrador de tráfico de Azure. Para obtener más información, visite la página [Acerca de los métodos de equilibrio de carga de Traffic Manager](https://msdn.microsoft.com/library/azure/dn339010.aspx) del sitio web de Microsoft.
+> [AZURE.TIP]Azure ofrece el Administrador de tráfico de Azure que le permite implementar la conmutación por error y equilibrio de carga y reducir la latencia en varias instancias de un sitio web hospedado en distintas ubicaciones geográficas. Puede usar el Administrador de tráfico de Azure junto con el servicio de administración de API, que puede enrutar solicitudes a instancias de un sitio web a través del Administrador de tráfico de Azure. Para obtener más información, visite la página [Acerca de los métodos de equilibrio de carga de Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md) del sitio web de Microsoft.
 
 > En esta estructura, si está utilizando nombres DNS personalizados para sus sitios web, debe configurar el registro CNAME adecuado para que cada sitio web apunte al nombre DNS del sitio web del Administrador de tráfico de Azure.
 
@@ -1147,9 +1147,9 @@ Puede usar esta información para determinar si una operación o API web determi
 - En la página [Notificación a los usuarios con los Centros de notificaciones de Azure](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) del sitio web de Microsoft se muestra cómo se puede usar un Centro de notificaciones de Azure para insertar respuestas asíncronas en las aplicaciones cliente.
 - En la página [Administración de API](http://azure.microsoft.com/services/api-management/) del sitio web de Microsoft se describe cómo publicar un producto que ofrezca un acceso seguro y controlado a una API web.
 - En la página [Referencia de la API REST de administración de API de Azure](https://msdn.microsoft.com/library/azure/dn776326.aspx) del sitio web de Microsoft se describe cómo usar la API de REST de administración de API para crear aplicaciones de administración personalizadas.
-- En la página [Acerca de los métodos de equilibrio de carga de Traffic Manager](https://msdn.microsoft.com/library/azure/dn339010.aspx) del sitio web de Microsoft se resume cómo se puede usar el Administrador de tráfico de Azure para realizar un equilibrio de carga de las solicitudes entre varias instancias de un sitio web que hospeda una API web.
+- En la página [Acerca de los métodos de equilibrio de carga de Traffic Manager](../traffic-manager/traffic-manager-load-balancing-methods.md) del sitio web de Microsoft se resume cómo se puede usar el Administrador de tráfico de Azure para realizar un equilibrio de carga de las solicitudes entre varias instancias de un sitio web que hospeda una API web.
 - En la página [Application Insights: comience a supervisar el estado y el uso de la aplicación](app-insights-start-monitoring-app-health-usage.md) del sitio web de Microsoft se ofrece información detallada sobre la instalación y configuración de Application Insights en un proyecto API Web de ASP.NET.
 - En la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft se ofrece información detallada sobre la creación y administración de las pruebas unitarias con Visual Studio.
 - En la página [Ejecutar pruebas de rendimiento en la aplicación](https://msdn.microsoft.com/library/dn250793.aspx) del sitio web de Microsoft se describe cómo usar Visual Studio Ultimate para crear un proyecto de pruebas de carga y rendimiento web.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

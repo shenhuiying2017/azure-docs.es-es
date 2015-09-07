@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Actividades de transformación de datos | Microsoft Azure" 
-	description="Obtenga información sobre cómo puede usar el servicio de la Factoría de datos de Azure para transformar y analizar los datos." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Actividades de transformación de datos | Microsoft Azure"
+	description="Obtenga información sobre cómo puede usar el servicio de la Factoría de datos de Azure para transformar y analizar los datos."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
 
 # Transformar y analizar mediante la Factoría de datos de Azure
@@ -37,4 +37,4 @@ Deberá crear un servicio vinculado para el entorno de proceso y después usar e
 
 Vea el artículo [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para obtener información sobre los servicios vinculados de proceso compatibles con la Factoría de datos.
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

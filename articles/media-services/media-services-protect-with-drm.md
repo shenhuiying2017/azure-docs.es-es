@@ -12,17 +12,21 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="08/06/2015"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 #Uso del cifrado dinámico DRM de PlayReady y del servicio de entrega de licencias
 
-Servicios multimedia de Microsoft Azure le permute entregar secuencias MPEG-DASH, Smooth Streaming y Http-Live-Streaming (HLS) protegidas con [DRM de Microsoft PlayReady](https://www.microsoft.com/playready/overview/).
+> [AZURE.SELECTOR]
+- [.NET](media-services-protect-with-drm.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+
+Servicios multimedia de Microsoft Azure permite entregar secuencias MPEG-DASH, Smooth Streaming y Http-Live-Streaming (HLS) protegidas con [DRM de Microsoft PlayReady](https://www.microsoft.com/playready/overview/).
 
 Servicios multimedia proporciona un servicio de entrega de licencias de Microsoft PlayReady. Servicios multimedia también proporciona API que le permiten configurar los derechos y las restricciones que desee para que se apliquen en tiempo de ejecución de DRM de PlayReady cuando un usuario intente reproducir contenido protegido. Cuando un usuario solicita ver el contenido protegido de PlayReady, la aplicación de reproducción cliente solicita este a Servicios multimedia de Azure. A continuación, Servicios multimedia de Azure redirige al cliente a un servidor de licencias de PlayReady de Servicios multimedia de Azure que autentica y autoriza el acceso del usuario al contenido. Una licencia de PlayReady contiene la clave de descifrado que puede usar el reproductor cliente para descifrar y transmitir el contenido.
 
-Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato [tokens web simples](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) y en formato [tokens web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para obtener más información, consulte Configuración de la directiva de autorización de la clave de contenido.
+Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato [Token de web simple](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) y en formato [Token de web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para obtener más información, consulte Configuración de la directiva de autorización de la clave de contenido.
 
 Para aprovechar las ventajas del cifrado dinámico, debe disponer de un recurso que contenga un conjunto de archivos MP4 o archivos de origen Smooth Streaming, de varias velocidades de bits. También deberá configurar la directiva de entrega para el recurso (se describe más adelante en este tema). Luego, según el formato especificado en la URL de streaming, el servidor de streaming a petición se asegurará de que se reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente.
 
@@ -135,14 +139,14 @@ El fragmento de código siguiente muestra cómo codificar un recurso con Adaptiv
 	        DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
 	}
 
-##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el recurso codificado.
+##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el recurso codificado
 
 En Servicios multimedia, la clave de contenido contiene la clave con la que desea cifrar un recurso.
 
 Para obtener más información, consulte [Creación de la clave de contenido](media-services-dotnet-create-contentkey.md).
 
 
-##<a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de la clave de contenido.
+##<a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de la clave de contenido
 
 Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave. La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP.
 
@@ -182,7 +186,7 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
 	
-Puede usar [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
+Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
 
 ##<a id="example"></a>Ejemplo
 
@@ -575,4 +579,4 @@ Puede usar [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html
 		    }
 		}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

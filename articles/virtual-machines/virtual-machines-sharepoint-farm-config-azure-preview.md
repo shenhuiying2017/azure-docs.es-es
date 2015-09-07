@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Detalles de configuración de una granja de servidores de SharePoint"
-	description="En este artículo se describe la configuración predeterminada de las granjas de SharePoint cuando se usa la función Granja de servidores SharePoint del Portal de vista previa de Azure."
+	pageTitle="Configuración de una granja de servidores de SharePoint | Microsoft Azure"
+	description="Obtenga información acerca de la configuración predeterminada de las granjas de SharePoint cuando se usa la función Granja de servidores SharePoint del Portal de vista previa de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -139,4 +139,4 @@ La función Granja de servidores SharePoint del Portal de vista previa de Azure 
 
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

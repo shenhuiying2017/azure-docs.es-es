@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Activación de la sincronización sin conexión para la aplicación móvil de Azure (Xamarin Android)"
-    description="Obtenga información acerca de cómo usar la aplicación móvil del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin Android."
-    documentationCenter="xamarin"
-    authors="wesmc7777"
-    manager="dwrede"
-    editor=""
-    services="app-service\mobile"/>
+	pageTitle="Activación de la sincronización sin conexión para la aplicación móvil de Azure (Xamarin Android)"
+	description="Obtenga información acerca de cómo usar la aplicación móvil del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin Android."
+	documentationCenter="xamarin"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
+	services="app-service\mobile"/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-xamarin-android"
-    ms.devlang="dotnet"
-    ms.topic="article"
-	ms.date="08/11/2015"
-    ms.author="wesmc"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/22/2015"
+	ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil Xamarin.Android
 
@@ -26,19 +26,15 @@
 
 Este tutorial presenta la característica de sincronización sin conexión de Aplicaciones móviles de Azure para Xamarin.Android. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local; una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el servicio remoto.
 
-En este tutorial, actualizará el proyecto de cliente del tutorial [Creación de una aplicación Xamarin Android] para conseguir compatibilidad con las características sin conexión de Aplicaciones móviles de Azure.
+En este tutorial, actualizará el proyecto de cliente del tutorial [Creación de una aplicación Xamarin Android] para conseguir compatibilidad con las características sin conexión de Aplicaciones móviles de Azure. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar paquetes de extensión de acceso de datos al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Para obtener más información acerca de la característica de sincronización sin conexión, consulte el tema [Sincronización de datos sin conexión en Aplicaciones móviles de Azure].
 
 ## Requisitos
 
 * Visual Studio 2013
-* Visual Studio con la [extensión Xamarin] **o** [ Xamarin Studio]
+* Visual Studio con la [extensión Xamarin] **o** [Xamarin Studio]
 * Finalización del tutorial [Creación de una aplicación Xamarin Android]. Este tutorial usa la aplicación completa que se explicó en ese tutorial.
-
-##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
 ## Revisión del código de sincronización de cliente
 
@@ -69,7 +65,7 @@ El proyecto de cliente de Xamarin que descargó cuando completó el tutorial [Cr
 
 * El miembro `toDoTable` de `ToDoActivity` es del tipo `IMobileServiceSyncTable` en lugar de `IMobileServiceTable`. Esto dirige todas las operaciones de tabla de creación, lectura, actualización y eliminación (CRUD) a la base de datos del almacén local.
  
-	Para decidir cuándo esos cambios se deben integrar en el back-end de la aplicación móvil de Azure, llame a `IMobileServiceSyncContext.PushAsync()` con el contexto de sincronización para la conexión de cliente. El contexto de sincronización ayuda a mantener las relaciones entre tablas mediante el seguimiento y la inserción de los cambios en todas las tablas modificadas por una aplicación cliente cuando se llama a `PushAsync`.
+	Para decidir cuándo se deben integrar esos cambios en el back-end de la aplicación móvil de Azure, llame a `IMobileServiceSyncContext.PushAsync()` con el contexto de sincronización para la conexión de cliente. El contexto de sincronización ayuda a mantener las relaciones entre tablas mediante el seguimiento y la inserción de los cambios en todas las tablas modificadas por una aplicación cliente cuando se llama a `PushAsync`.
 
 	El código proporcionado llama a `ToDoActivity.SyncAsync()` para sincronizarse cada vez que se actualiza la lista todoitem o se agrega o completa un todoitem. De esta forma, se sincroniza con cada cambio que ejecuta una inserción en el contexto de sincronización y una extracción en la tabla de sincronización. Sin embargo, es importante tener en cuenta que si se ejecuta una extracción en una tabla que tiene actualizaciones locales pendientes seguidas por el contexto, la operación de extracción primero activará de forma automática una inserción de contexto. Por eso, en estos casos (actualización y finalización de elementos), puede omitir la llamada explícita a `PushAsync`. Es redundante.
 
@@ -108,7 +104,7 @@ En esta sección, modificará la aplicación cliente para simular un escenario s
         const string gatewayURL = @"https://your-gateway.azurewebsites.xxx";
 
 
-2. Actualice `ToDoActivity.SyncAsync` para que se capture y simplemente se omita `MobileServicePushFailedException` por asumirse que está sin conexión.
+2. Actualice `ToDoActivity.SyncAsync` para que se detecten y simplemente se omitan `MobileServicePushFailedException` por asumirse que está sin conexión.
 
         private async Task SyncAsync()
         {
@@ -154,7 +150,7 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 
-* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] \(nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure\)
+* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
 
 <!-- ##Summary
 
@@ -175,9 +171,9 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 
 [How to use the Xamarin Component client for Azure Mobile Services]: ../partner-xamarin-mobile-services-how-to-use-client-library.md
 
-[ Xamarin Studio]: http://xamarin.com/download
+[Xamarin Studio]: http://xamarin.com/download
 [extensión Xamarin]: http://xamarin.com/visual-studio
 
 [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

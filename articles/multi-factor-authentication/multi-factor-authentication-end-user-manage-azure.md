@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Administrar la configuración de Azure MFA en el Portal de Azure" 
-	description="Esta página muestra a los usuarios dónde en el Portal de Azure tienen que ir para administrar su configuración de Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Administrar la configuración de Azure MFA en el Portal de Azure"
+	description="Esta página muestra a los usuarios dónde en el Portal de Azure tienen que ir para administrar su configuración de Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Administración de la configuración de Azure Multi-Factor Authentication en el Portal de Azure
@@ -31,4 +31,4 @@ Si utiliza la autenticación multifactor con Azure deberá administrar la config
 
 <center>![Setup](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

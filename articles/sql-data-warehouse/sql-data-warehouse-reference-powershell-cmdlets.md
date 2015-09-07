@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introducción a los cmdlets de Almacenamiento de datos SQL"
-   description="Suspender y reiniciar el Almacenamiento de datos SQL mediante cmdlets de PowerShell"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sidneyh"
-   manager="jhubbard"
-   editor=""/>
+	description="Suspender y reiniciar el Almacenamiento de datos SQL mediante cmdlets de PowerShell"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sidneyh"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/29/2015"
-   ms.author="sidneyh;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/29/2015"
+	ms.author="sidneyh;barbkess"/>
 
 # Introducción a los cmdlets de Almacenamiento de datos de Azure y a las API de REST
 
@@ -90,6 +90,10 @@ Este ejemplo recupera una base de datos denominada "Database02" desde un servido
 	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
+
+> [AZURE.NOTE]Tenga en cuenta que si el servidor es foo.database.windows.net, use "foo" como -ServerName en los cmdlets de powershell.
+
+
 ## Pasos siguientes
 Para obtener más información de referencia, vea [Información general de referencia de Almacenamiento de datos SQL][].
 
@@ -106,4 +110,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

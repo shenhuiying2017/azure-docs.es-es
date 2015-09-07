@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Introducción a ExpressRoute | Microsoft Azure"
-   description="Esta página proporciona información general sobre el servicio ExpressRoute, lo que incluye el funcionamiento de una conexión ExpressRoute, el trabajo con proveedores de Exchange y proveedores de servicios de red, y los emparejamientos público, privado y de Microsoft de ExpressRoute."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="Esta página proporciona información general sobre el servicio ExpressRoute, lo que incluye el funcionamiento de una conexión ExpressRoute, el trabajo con proveedores de Exchange y proveedores de servicios de red, y los emparejamientos público, privado y de Microsoft de ExpressRoute."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/15/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Información técnica de ExpressRoute
 
@@ -110,4 +110,4 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
 - Busque un proveedor de servicios. Consulte [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md).
 - Configure su conexión ExpressRoute. Consulte [Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red](expressroute-configuring-nsps.md) o [Configurar una conexión ExpressRoute a través de un proveedor de Exchange](expressroute-configuring-exps.md) para obtener instrucciones. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

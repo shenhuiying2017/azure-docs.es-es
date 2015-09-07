@@ -127,7 +127,6 @@ Para obtener información sobre la implementación en aplicaciones web desde Vis
 
 Para obtener información sobre la implementación en aplicaciones web desde Webmatrix, consulte los siguientes recursos:
 
-* [Desarrollo e implementación de una aplicación web con Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md). Cómo crear un sitio web ASP.NET simple con una plantilla WebMatrix e implementarlo en aplicaciones web con WebMatrix y Web Deploy.
 * [Creación e implementación de un sitio web Node.js en Azure con WebMatrix](web-sites-nodejs-use-webmatrix.md).
 * [Creación e implementación de una aplicación web PHP-MySQL con WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Git integrado e implementación en Azure.](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Uso de WebMatrix para implementar desde un repositorio de control de código fuente de Git.
@@ -228,4 +227,4 @@ Para obtener información sobre otros temas de implementación, consulte la secc
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Fase 3 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de la infraestructura de servidor SQL"
-	description="En esta tercera fase de la implementación de una granja de servidores solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, creará los equipos de clúster de SQL Server y el propio clúster."
+	pageTitle="Fase 3 de la granja de SharePoint Server 2013 | Microsoft Azure"
+	description="Cree los equipos y el clúster de SQL Server y habilite los grupos de disponibilidad en la fase 3 de la granja de SharePoint Server 2013 en Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -44,7 +44,7 @@ Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en 
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 2 – Availability set name column>"
 
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Enterprise on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
 
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
@@ -135,7 +135,7 @@ Utilice el procedimiento siguiente dos veces, una vez para cada servidor SQL Ser
 1.	En la pantalla de inicio, haga clic en **Este PC** y, a continuación, haga clic en **Propiedades**.
 2.	En la ventana **Sistema**, haga clic en **Configuración remota**.
 3.	En la sección **Escritorio remoto**, haga clic en **Seleccionar usuarios** y, a continuación, haga clic en **Agregar**.
-4.	En **Escribir los nombres de objeto para seleccionar**, escriba [dominio]\*\* \\sp\_farm\_db\*\* y, a continuación, haga clic en **Aceptar** tres veces.
+4.	En **Escribir los nombres de objeto para seleccionar**, escriba [dominio]** \\sp\_farm\_db** y, a continuación, haga clic en **Aceptar** tres veces.
 
 SQL Server requiere un puerto que los clientes utilizan para tener acceso al servidor de base de datos. También necesita puertos para conectar con SQL Server Management Studio y para administrar el grupo de alta disponibilidad. A continuación, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell de nivel de administrador dos veces, una vez para cada servidor SQL Server, para agregar una regla de firewall que permita el tráfico entrante al servidor SQL Server.
 
@@ -143,7 +143,7 @@ SQL Server requiere un puerto que los clientes utilizan para tener acceso al ser
 
 Para cada una de las máquinas virtuales de servidor SQL Server, cierre la sesión como administrador local.
 
-Para obtener más información acerca de la optimización del rendimiento de SQL Server en Azure, consulte [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). También puede deshabilitar el almacenamiento de redundancia geográfica (GRS) para la cuenta de almacenamiento de la granja de servidores de SharePoint y usar espacios de almacenamiento para optimizar la tasa IOPS.
+Para obtener más información acerca de la optimización del rendimiento de SQL Server en Azure, consulte [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-performance-best-practices.md). También puede deshabilitar el almacenamiento de redundancia geográfica (GRS) para la cuenta de almacenamiento de la granja de servidores de SharePoint y usar espacios de almacenamiento para optimizar la tasa IOPS.
 
 ## Configuración del servidor de nodos de mayoría de clúster
 
@@ -202,7 +202,7 @@ Utilice estos pasos para habilitar grupos de disponibilidad AlwaysOn en SQL Serv
 3.	En el panel izquierdo, haga clic en **Servicios de SQL Server**.
 4.	En el panel de contenido, haga doble clic en **SQL Server (MSSQLSERVER)**.
 5.	En **Propiedades de SQL Server (MSSQLSERVER)**, haga clic en la pestaña **Alta disponibilidad AlwaysOn**, seleccione **Habilitar los grupos de disponibilidad de AlwaysOn**, haga clic en **Aplicar** y, a continuación, haga clic en **Aceptar** cuando se le solicite. No cierre todavía la ventana Propiedades.
-6.	Haga clic en la pestaña virtual-machines-manage-availability y, a continuación, escriba [Dominio]\*\*\\sqlservice\*\* en **Nombre de cuenta**. Escriba la contraseña de cuenta de sqlservice en **Contraseña** y **Contraseña de confirmación** y, a continuación, haga clic en **Aceptar**.
+6.	Haga clic en la pestaña virtual-machines-manage-availability y, a continuación, escriba [Dominio]**\\sqlservice** en **Nombre de cuenta**. Escriba la contraseña de cuenta de sqlservice en **Contraseña** y **Contraseña de confirmación** y, a continuación, haga clic en **Aceptar**.
 7.	En la ventana de mensaje, haga clic en **Sí** para reiniciar el servicio de SQL Server.
 8.	Inicie sesión en el servidor secundario de SQL y repita este proceso.
 
@@ -228,4 +228,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 4: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

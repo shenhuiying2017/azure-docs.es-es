@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas" 
-	description="Aprenda a crear una aplicación de línea de negocio basada en web en un entorno de nube híbrida para profesionales de TI o pruebas de desarrollo." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Entorno de prueba de aplicación LOB | Microsoft Azure"
+	description="Aprenda a crear una aplicación de línea de negocio basada en web en un entorno de nube híbrida para profesionales de TI o pruebas de desarrollo."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
@@ -80,7 +80,7 @@ A continuación, conéctese a la nueva máquina virtual de SQL1 *mediante la cue
 3.	Cuando se le pida que abra SQL1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
-	- Nombre: **SQL1\**[Nombre de la cuenta de administrador local]
+	- Nombre: **SQL1**[Nombre de la cuenta de administrador local]
 	- Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -196,4 +196,4 @@ Este entorno ya está preparado para implementar su aplicación basada en web en
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

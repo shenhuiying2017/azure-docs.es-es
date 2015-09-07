@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Cómo usar a Chrome Postman con Búsqueda de Azure"
-	description="Cómo usar a Chrome Postman con Búsqueda de Azure"
+	pageTitle="Usar Chrome Postman con Búsqueda de Azure | Microsoft Azure"
+	description="Usar Chrome Postman con Búsqueda de Azure. Instalar y configurar Postman. Creación de un índice de Búsqueda de Azure. Enviar documentos y consultar el índice con Postman."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
@@ -27,26 +27,26 @@
 
 Debe disponer de un servicio de Búsqueda de Azure. Como con cualquier aplicación personalizada que use Búsqueda de Azure, necesitará la dirección URL de su servicio, además de un administrador `api-key` para que pueda crear el índice. Consulte [Crear un servicio en el portal](search-create-service-portal.md) para obtener instrucciones sobre cómo obtener los valores de su servicio de búsqueda.
 
-## Instalar Postman ##
+## Para instalar Postman ##
 Para descargar Postman, visite la [Google Chrome Store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). El vínculo desde esta página le permite descargar e instalar el cliente REST para Postman. Una vez instalado, puede iniciar Postman desde Chrome App Launcher.
 
 ![][2]
 
-## Configuración de Postman para realizar consultas de Búsqueda de Azure ##
+## Para configurar Postman para realizar consultas de Búsqueda de Azure ##
 Para configurar Postman, siga los pasos siguientes:
 
 1. Escriba la dirección URL del servicio de Búsqueda de Azure donde dice "Introduzca la URL de solicitud aquí".  
-2. Anexar a la dirección URL: `?api-version=2015-02-28`. También puede especificar una versión diferente de la API. Consulte [Versiones del servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información.
+2. Anexar a la dirección URL: `?api-version=2015-02-28`. También puede especificar una versión diferente de la API. Consulte [Versiones del servicio de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información.
 3. Asegúrese de seleccionar `GET`.
 4. Haga clic en el botón **Encabezados**.
-5. Proporcione valores para:
+5. Introduzca valores para:
 	- `api-key`: [clave de administrador]
 	- `Content-Type`: `application/json; charset=utf-8`
 6. Haga clic en **Enviar** para emitir la llamada REST para la Búsqueda de Azure y visualizar la respuesta JSON.
 
 ![][3]
 
-## Creación de un índice de Búsqueda de Azure con Postman ##
+## Para crear un índice de Búsqueda de Azure con Postman ##
 
 A continuación, ampliaremos lo completado en el último paso mediante la emisión de una llamada REST para crear un nuevo índice de Búsqueda de Azure. A diferencia de la llamada anterior, la creación del índice requiere un HTTP PUT y un documento JSON con la definición del esquema de índice. En este ejemplo, vamos a crear un índice que almacenará una lista de caminos de montaña. Para ello, siga estos pasos:
 
@@ -68,7 +68,7 @@ A continuación, ampliaremos lo completado en el último paso mediante la emisi�
 
 ![][4]
 
-## Publicación de documentos en un índice de Búsqueda de Azure con Postman ##
+## Para publicar documentos en un índice de Búsqueda de Azure con Postman ##
 Ahora que se ha creado el índice, podemos cargar documentos en él. Para ello, publicaremos un grupo de documentos en un lote, con datos para cinco caminos del conjunto de datos del United States Geological Survey (USGS):
 
 1. Cambie la dirección URL a: `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28` usando el nombre del servicio de búsqueda. Tenga en cuenta que la dirección URL incluye una ruta de acceso al índice que acaba de crear.
@@ -89,7 +89,7 @@ Ahora que se ha creado el índice, podemos cargar documentos en él. Para ello, 
 
 ![][5]
 
-## Consulta del índice con Postman ##
+## Para consultar el índice con Postman ##
 El paso final consiste en consultar el índice y emitir una solicitud de búsqueda de texto completo simple para la palabra *camino*.
 
 1. Escriba lo siguiente en la dirección URL: `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail` usando el nombre del servicio de búsqueda. Observe que la dirección URL incluye el parámetro de consulta `search` y un término de búsqueda de *camino*.
@@ -117,6 +117,5 @@ También puede visitar la [Lista de vídeos y tutoriales](https://msdn.microsoft
 [4]: ./media/search-chrome-postman/create_index.png
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

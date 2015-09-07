@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Escenarios de Testability de Service Fabric: comunicación del servicio" 
-   description="La comunicación entre servicios es un punto crítico de integración de una aplicación de Service Fabric. En este artículo se describen las consideraciones de diseño y las técnicas de prueba." 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="vturecek" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="Escenarios de Testability de Service Fabric: comunicación del servicio"
+	description="La comunicación entre servicios es un punto crítico de integración de una aplicación de Service Fabric. En este artículo se describen las consideraciones de diseño y las técnicas de prueba."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="vturecek"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
-   ms.date="04/17/2015"
-   ms.author="vturecek"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="vturecek"/>
 
 # Escenarios de Testability de Service Fabric: comunicación del servicio
 
@@ -101,4 +101,4 @@ En este ejemplo, se establece `QuorumLossMode` en `PartialQuorumLoss` para indic
 
 [Más información sobre los escenarios de Testability](service-fabric-testability-scenarios.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

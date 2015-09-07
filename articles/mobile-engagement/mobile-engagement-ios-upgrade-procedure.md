@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #Procedimientos de actualización
 
@@ -23,11 +23,13 @@ Si ya integró una versión anterior de Engagement en la aplicación, debería t
 Para cada nueva versión del SDK debe reemplazar primero (quitar y volver a importar en xcode) las carpetas EngagementSDK y EngagementReach.
 
 ##De 2.0.0 a 3.0.0
-Si está usando Reach en la aplicación, debe agregar el valor `remote-notification` a la matriz `UIBackgroundModes` en el archivo Info.plist para recibir notificaciones remotas.
+Soporte de iOS 4.X eliminado. A partir de esta versión, el destino de implementación de la aplicación debe ser como mínimo iOS 6.
+
+Si usa Reach en la aplicación, debe agregar el valor `remote-notification` a la matriz `UIBackgroundModes` en el archivo Info.plist para recibir notificaciones remotas.
 
 El método `application:didReceiveRemoteNotification:` debe reemplazarse por `application:didReceiveRemoteNotification:fetchCompletionHandler:` en el delegado de aplicación.
 
-"AEPushDelegate.h" es una interfaz desusada y debe quitar todas las referencias. Esto incluye la eliminación de `[[EngagementAgent shared] setPushDelegate:self]` y de los métodos delegados desde el delegado de la aplicación:
+"AEPushDelegate.h" es una interfaz desusada y debe quitar todas las referencias. Esto incluye eliminar `[[EngagementAgent shared] setPushDelegate:self]` y los métodos delegados del delegado de la aplicación:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
@@ -70,4 +72,4 @@ Ejemplos:
 -   La clase `CapptainUtils` cambia su nombre a `EngagementUtils`.
 -   La clase `CapptainViewController` cambia su nombre a `EngagementViewController`.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

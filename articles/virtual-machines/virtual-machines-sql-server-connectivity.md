@@ -1,22 +1,22 @@
 <properties 
    pageTitle="Conexión a una máquina virtual de SQL Server en Azure"
-   description="En este tema se describe cómo conectarse a SQL Server que se ejecuta en una máquina virtual en Azure. Los escenarios varían según la configuración de red y la ubicación del cliente."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
+	description="En este tema se describe cómo conectarse a SQL Server que se ejecuta en una máquina virtual en Azure. Los escenarios varían según la configuración de red y la ubicación del cliente."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 <tags 
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
-   ms.author="jroth" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/18/2015"
+	ms.author="jroth"/>
 
 # Conexión a una máquina virtual de SQL Server en Azure
-
+ 
 ## Información general
 
 Configurar la conectividad con SQL Server que se ejecuta en una máquina virtual de Azure no es muy distinto de los pasos necesarios para una instancia local de SQL Server. Tendrá que trabajar con los pasos de configuración relacionados con el firewall, la autenticación y los inicios de sesión de base de datos.
@@ -79,8 +79,8 @@ Para ver instrucciones de aprovisionamiento además de estos pasos de conectivid
 
 Si planea usar también grupos de disponibilidad AlwaysOn para alta disponibilidad y recuperación ante desastres, considere la posibilidad de implementar un agente de escucha. Los clientes de la base de datos se conectan al agente de escucha en lugar de directamente a una de las instancias de SQL Server. El agente de escucha enruta los clientes a la réplica principal del grupo de disponibilidad. Para obtener más información, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
-Es importante revisar todos los procedimientos recomendados de seguridad para SQL Server que se ejecuta en una máquina virtual de Azure. Para obtener más información, consulte [Consideraciones de seguridad para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn133147.aspx).
+Es importante revisar todos los procedimientos recomendados de seguridad para SQL Server que se ejecuta en una máquina virtual de Azure. Para obtener más información, consulte [Consideraciones de seguridad para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-security-considerations.md).
 
 Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="Administración de extremos de streaming en una cuenta de Servicios multimedia" 
-	description="En este tema se muestra cómo administrar los extremos de streaming mediante el Portal de administración de Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Administración de extremos de streaming en una cuenta de Servicios multimedia"
+	description="En este tema se muestra cómo administrar los extremos de streaming mediante el Portal de administración de Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>Administración de extremos de streaming en una cuenta de Servicios multimedia
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
-
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-origins.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 En Servicios multimedia de Microsoft Azure, un **extremo de streaming** representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red de entrega de contenido (CDN) para la distribución posterior. Servicios multimedia también proporciona integración sin problemas de CDN de Azure. La secuencia de salida de un servicio de StreamingEndpoint puede ser una secuencia en vivo o un recurso de vídeo bajo demanda en su cuenta de Servicios multimedia.
 
-Además, puede controlar la capacidad del servicio de extremo de streaming para administrar las necesidades crecientes de ancho de banda mediante el ajuste de unidades de escalado (también conocidas como unidades de streaming). Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Las unidades de escalado proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y funcionalidad adicional que incluye: [empaquetado dinámico](https://msdn.microsoft.com/library/azure/jj889436.aspx), integración con CDN y configuración avanzada.
+Además, puede controlar la capacidad del servicio de extremo de streaming para administrar las necesidades crecientes de ancho de banda mediante el ajuste de unidades de escalado (también conocidas como unidades de streaming). Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Las unidades de escalado proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y funcionalidad adicional que incluye: [empaquetado dinámico](media-services-dynamic-packaging-overview.md), integración con CDN y configuración avanzada.
 
 Tenga en cuenta que solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
 
@@ -46,11 +47,11 @@ Para agregar/quitar el extremo de streaming mediante el Portal, haga lo siguient
 	![Página Extremo de streaming][streaming-endpoint]
 
 
-De forma predeterminada puede tener hasta dos extremos de streaming. Si necesita solicitar más, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations/).
+De forma predeterminada puede tener hasta dos extremos de streaming. Si necesita solicitar más, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
 
 ##<a id="scale_streaming_endpoints"></a>Escalado del extremo de streaming
 
-Las unidades de streaming proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y una funcionalidad adicional que actualmente incluye [funcionalidades de empaquetado dinámico](http://go.microsoft.com/fwlink/?LinkId=276874). De forma predeterminada, el streaming se configura en un modelo de instancia compartida para el que los recursos del servidor (por ejemplo, cálculo, capacidad de salida, etc.) se comparten con los demás usuarios. Para mejorar el rendimiento de streaming, se recomienda adquirir unidades de streaming.
+Las unidades de streaming proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y una funcionalidad adicional que actualmente incluye [funcionalidades de empaquetado dinámico](media-services-dynamic-packaging-overview.md). De forma predeterminada, el streaming se configura en un modelo de instancia compartida para el que los recursos del servidor (por ejemplo, cálculo, capacidad de salida, etc.) se comparten con los demás usuarios. Para mejorar el rendimiento de streaming, se recomienda adquirir unidades de streaming.
 
 Puede escalar con el SDK de .NET , la API de REST o el Portal de administración de Azure.
 
@@ -98,7 +99,7 @@ Aparecerá una breve descripción de los campos.
 
 3. Especifique la configuración para la autenticación del encabezado de firma de Akamai.
 
-4. Puede especificar una directiva de acceso entre dominios para los clientes de Adobe Flash (para obtener más información, consulte [Especificación de archivos de directiva entre dominios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html). Así como la directiva de acceso de cliente para los clientes de Microsoft Silverlight (para obtener más información, consulte [Disponibilidad de un servicio entre límites del dominio.aspx](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
+4. Puede especificar una directiva de acceso entre dominios para los clientes de Adobe Flash (para obtener más información, consulte [Especificación de archivos de directiva entre dominios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)). Así como la directiva de acceso de cliente para los clientes de Microsoft Silverlight (para obtener más información, consulte [Disponibilidad de un servicio entre límites del dominio](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
 
 5. También puede configurar nombres de host personalizados haciendo clic en el botón **Configurar**. Para obtener más información, consulte la propiedad **CustomHostNames** en el tema [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
 
@@ -139,4 +140,4 @@ Para obtener más información, consulte [Anuncio de la integración de Servicio
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

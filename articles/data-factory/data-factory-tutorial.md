@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure" 
-	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure"
+	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 # Tutorial: Medición de la eficacia de una campaña de marketing  
@@ -429,8 +429,7 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 [adfgetstarted]: data-factory-get-started.md
 [adftutorial-using-powershell]: data-factory-tutorial-using-powershell.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[usepigandhive]: data-factory-data-transformation-activities.md
 [tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
@@ -527,4 +526,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

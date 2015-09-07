@@ -18,8 +18,6 @@
 
 # Actividad de inicio de sesión irregular
 
-| Descripción | Ubicación del informe |
-| :-------------     | :-------        |
-| <p>Este informe incluye inicios de sesión que nuestros algoritmos de aprendizaje automático han identificado como "erróneos". Los motivos para marcar como irregular un intento de inicio de sesión incluyen ubicaciones de inicio de sesión inesperadas, la hora del día y las ubicaciones o una combinación de ambas cosas. Esto puede indicar que un hacker ha intentado iniciar sesión con esta cuenta. El algoritmo de aprendizaje automático clasifica los eventos como "erróneos" o "sospechosos", donde "sospechoso" indica una mayor probabilidad de una infracción de seguridad.</p><p>Los resultados de este informe mostrarán estos inicios de sesión, junto con la clasificación, la ubicación y una marca de tiempo asociada a cada inicio de sesión.</p><p>Enviaremos una notificación por correo electrónico a los administradores globales si encontramos 10 o más eventos de inicio de sesión erróneo dentro de un intervalo de 30 días o menos. Asegúrese de incluir aad-alerts-noreply@mail.windowsazure.com en la lista de remitentes seguros.</p> | Directorio > pestaña Informes |
+Inicios de sesión irregulares son aquellos que han sido identificados por los algoritmos de aprendizaje automático, de acuerdo con una condición de "viaje imposible" combinado con una ubicación y un dispositivo inicio de sesión anómalo. Esto puede indicar que un hacker ha inicio sesión con esta cuenta. Se enviará una notificación por correo electrónico a los administradores globales si encontramos 10 o más eventos de inicio de sesión anómalos dentro de un intervalo de 30 días o menos. Asegúrese de incluir aad-alerts-noreply@mail.windowsazure.com en la lista de remitentes seguros.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

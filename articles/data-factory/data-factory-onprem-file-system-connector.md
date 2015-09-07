@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector del sistema de archivos: mover datos a y desde sistema de archivos" 
-	description="Obtenga información acerca del conector de sistema de archivos para el servicio Factoría de datos que le permite mover datos al sistema de archivos local, y desde este." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Movimiento de datos hacia y desde el sistema de archivos | Factoría de datos de Azure"
+	description="Aprenda a mover datos hacia y desde el sistema de archivos local con Factoría de datos de Azure"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector del sistema de archivos: mover datos a y desde sistema de archivos local
+# Movimiento de datos hacia y desde el sistema de archivos local con Factoría de datos de Azure
 
 En este artículo se describe cómo se puede usar la actividad de copia de la Factoría de datos para mover datos al sistema de archivos local, y desde este. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
@@ -35,15 +35,15 @@ Realice los dos pasos siguientes para usar un recurso compartido de archivos de 
 
 El ejemplo siguiente muestra:
 
-1.	Un servicio vinculado de tipo OnPremisesFileServer.
-2.	Un servicio vinculado de tipo AzureStorage.
-3.	Un conjunto de datos de entrada de tipo FileShare.
-4.	Un conjunto de datos de salida de tipo AzureBlob.
-4.	Una canalización con la actividad de copia que usa FileSystemSource y BlobSink. 
+1.	Un servicio vinculado de tipo [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
+2.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+3.	Un conjunto de [datos de entrada](data-factory-create-datasets.md) de tipo [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
+4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 En el siguiente ejemplo se copian los datos que pertenecen a una serie temporal del sistema de archivos local a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
-Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo sobre cómo [mover datos entre las ubicaciones locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
+Como primer paso, configure la puerta de enlace de administración de datos según las instrucciones del artículo sobre cómo [Movimiento de datos entre origenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Servicio vinculado del servidor de archivos local:**
 
@@ -52,7 +52,7 @@ Como primer paso, configure la puerta de enlace de administración de datos seg�
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -196,7 +196,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Actividad de copia:**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **FileSystemSource** y el tipo **sink** se establece en **BlobSink**.
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **FileSystemSource** y el tipo **sink** se establece en **BlobSink**.
 	
 	{  
 	    "name":"SamplePipeline",
@@ -273,7 +273,7 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde una tabla d
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -372,7 +372,7 @@ Los datos se copian a un archivo nuevo cada hora con la ruta de acceso para el b
 	  }
 	}
 
-**Canalización con actividad de copia:** la canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **SqlSource** y el tipo **sink**, en **FileSystemSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
+**Canalización con actividad de copia:** la canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **SqlSource** y el tipo **sink** en **FileSystemSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
 
 	
 	{  
@@ -399,7 +399,7 @@ Los datos se copian a un archivo nuevo cada hora con la ruta de acceso para el b
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd}\' AND timestampcolumn < \'{1:yyyy-MM-dd}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -427,11 +427,13 @@ Un sistema de archivos local se puede vincular a una Factoría de datos de Azure
 Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 type | La propiedad type se debe establecer en **OnPremisesFileServer**. | Sí 
-host | Nombre de host del servidor. Use ' \\ ' como carácter de escape como en el ejemplo siguiente: si el recurso compartido es: \\servername, especifique \\\\servername.<p>Si el sistema de archivos es local en el equipo de puerta de enlace, utilice Local o localhost. Si el sistema de archivos está en un servidor que no es el equipo de puerta de enlace, use \\\\servername.</p> | Sí
-userid | Especifique el identificador del usuario que tiene acceso al servidor. | No (si elige encryptedcredential)
-Password | Especifique la contraseña del usuario (identificador de usuario). | No (si elige encryptedcredential) 
-Encryptedcredential | Especifique las credenciales cifradas que puede obtener, para lo que debe ejecutar el cmdlet New-AzureDataFactoryEncryptValue<p>** Nota: ** debe usar Azure PowerShell, versión 0.8.14 o posterior para usar cmdlets como New-AzureDataFactoryEncryptValue de nuevo con el parámetro type establecido en OnPremisesFileSystemLinkedService</p> | No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato)
-Gatewayname | Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servidor de archivos local. | Sí
+host | Nombre de host del servidor. Use ' \\ ' como carácter de escape como en el ejemplo siguiente: si el recurso compartido es: \\servername, especifique \\\servername.<p>Si el sistema de archivos es local en el equipo de puerta de enlace, use Local o localhost. Si el sistema de archivos está en un servidor que no es el equipo de puerta de enlace, use \\\servername.</p> | Sí
+userid | Especifique el identificador del usuario que tiene acceso al servidor. | No (si elige encryptedCredential)
+contraseña | Especifique la contraseña del usuario (identificador de usuario). | No (si elige encryptedCredential) 
+encryptedCredential | Especifique las credenciales cifradas que puede obtener con la ejecución del cmdlet New-AzureDataFactoryEncryptValue<p>** Nota: ** tiene que usar Azure PowerShell, versión 0.8.14 o posterior para usar cmdlets como New-AzureDataFactoryEncryptValue con el parámetro type establecido en OnPremisesFileSystemLinkedService</p> | No (si opta por especificar el identificador de usuario y la contraseña en texto sin formato)
+gatewayName | Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse al servidor de archivos local. | Sí
+
+Consulte [Configuración de credenciales y seguridad](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales para un origen de datos de Sybase local.
 
 **Ejemplo: uso de nombre de usuario y contraseña en texto sin formato**
 	
@@ -440,7 +442,7 @@ Gatewayname | Nombre de la puerta de enlace que debe usar el servicio Factoría 
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -456,7 +458,7 @@ Gatewayname | Nombre de la puerta de enlace que debe usar el servicio Factoría 
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
 	      "host": "localhost",
-	      "encryptedcredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
+	      "encryptedCredential": "WFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5xxxxxxxxxxxxxxxxx",
 	      "gatewayName": "mygateway"
 	    }
 	  }
@@ -516,8 +518,8 @@ Propiedad | Descripción | Obligatorio
 -------- | ----------- | --------
 columnDelimiter | Los caracteres que se usan como separador de columna en un archivo. El valor predeterminado es coma (,). | No
 rowDelimiter | Los caracteres que se usan como separador sin formato en un archivo. El valor predeterminado es cualquiera de los siguientes: ["\\r\\n", "\\r", "\\n"]. | No
-escapeChar | El carácter especial que se usa para anular el delimitador de columna que se muestra en el contenido. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<p>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: "Hello, world"), puede definir '$' como carácter de escape y usar la cadena "Hello$, world" en el origen.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar para una tabla.</p> | No
-quoteChar | El carácter especial que se usa para poner entre comillas el valor de la cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<p>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo:<Hello  world>), puede definir ‘"’ como comillas y usar la cadena <"Hello, world"> en el origen. Esta propiedad es aplicable a las tablas de entrada y de salida.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar para una tabla.</p> | No
+escapeChar | El carácter especial que se usa para anular el delimitador de columna que se muestra en el contenido. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<p>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: "Hello, world"), puede definir '$' como carácter de escape y usar la cadena "Hello$, world" en el origen.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.</p> | No
+quoteChar | El carácter especial que se usa para poner entre comillas el valor de la cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<p>￼￼Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: <Hello  world>), puede definir ‘"’ como comillas y usar la cadena <"Hello, world"> en el origen. Esta propiedad es aplicable a las tablas de entrada y de salida.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.</p> | No
 nullValue | Los caracteres que se usan para representar un valor nulo en el contenido del archivo de blob. El valor predeterminado es “\\N”.> | No
 encodingName | Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, vea: Propiedad Encoding.EncodingName. <p>Por ejemplo: windows-1250 o shift\_jis. El valor predeterminado es: UTF-8.</p> | No
 
@@ -556,7 +558,7 @@ Para usar el formato Avro en una tabla de Hive posterior, consulte [Tutorial de 
 
 ## Propiedades de tipo de actividad de copia de recurso compartido de archivos
 
-**FileSystemSource** y **FileSystemSink** no admiten propiedades en este momento.
+**FileSystemSource** y **FileSystemSink** no admiten propiedades en la actualidad.
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -571,4 +573,4 @@ Para usar el formato Avro en una tabla de Hive posterior, consulte [Tutorial de 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

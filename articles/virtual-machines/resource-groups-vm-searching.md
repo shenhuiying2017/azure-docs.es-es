@@ -1,24 +1,25 @@
 <properties
-   pageTitle="Navegación por las imágenes de máquina virtual de Azure y su selección con PowerShell y la CLI de Azure"
-   description="Obtenga información para determinar el publicador, la oferta y la SKU para las imágenes al crear una máquina virtual de Azure con Administrador de recursos."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+   pageTitle="Seleccione y navegue por imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure"
+	description="Obtenga información para determinar el publicador, la oferta y la SKU para las imágenes al crear una máquina virtual de Azure con Administrador de recursos."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="command-line-interface"
-   ms.workload="infrastructure"
-   ms.date="05/29/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.workload="infrastructure"
+	ms.date="05/29/2015"
+	ms.author="rasquill"/>
 
-# Navegación por las imágenes de máquina virtual de Azure y su selección con PowerShell y la CLI de Azure
+# Seleccione y navegue por imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure
 
-> [AZURE.NOTE]Cuando busca imágenes de máquina virtual en este tema, utiliza el [modo de administración de recursos de Azure](../resource-group-overview.md) con una instalación reciente de la interfaz de la línea de comandos de Azure para Mac, Linux y Windows o de Windows PowerShell. Con la CLI de Azure, especifique el modo escribiendo `azure config mode arm`. Con PowerShell, escriba `Switch-AzureMode AzureResourceManager`. Consulte [Interfaz de la línea de comandos de Azure con Administrador de recursos](xplat-cli-azure-resource-manager.md) y [PowerShell con Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para obtener más información sobre la configuración y actualización.
+> [AZURE.NOTE]Cuando busca imágenes de máquina virtual en este tema, usa el [modo de Administrador de recursos de Azure](../resource-group-overview.md) con una instalación reciente de la interfaz de la línea de comandos de Azure para Mac, Linux y Windows o de Windows PowerShell. Con la CLI de Azure, especifique el modo escribiendo `azure config mode arm`. Con PowerShell, escriba `Switch-AzureMode AzureResourceManager`. Consulte [Uso de la Interfaz de la línea de comandos de Azure con Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Uso de Azure PowerShell con Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para obtener más información sobre la configuración y actualización.
 
 ## Tabla de imágenes más usadas
 
@@ -31,8 +32,8 @@
 | CoreOS | CoreOS | Stable |
 | MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
 | MicrosoftSharePoint | MicrosoftSharePointServer | 2013 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
+| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Standard |
+| Microsoft | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
 | MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-DW |
 | MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-OLTP |
 | Canonical | UbuntuServer | 12\.04.5-LTS |
@@ -53,7 +54,7 @@ La manera más fácil y rápida de buscar una imagen para usar con `azure vm qui
     info:    Executing command vm image list
     warn:    The parameter --sku if specified will be ignored
     + Getting virtual machine image skus (Publisher:"canonical" Offer:"ubuntuserver" Location:"westus")
-    data:    Publisher  Offer         Sku          Version          Location  Urn                                               
+    data:    Publisher  Offer         Sku          Version          Location  Urn
     data:    ---------  ------------  -----------  ---------------  --------  --------------------------------------------------
     data:    canonical  ubuntuserver  12.04-DAILY  12.04.201504201  westus    canonical:ubuntuserver:12.04-DAILY:12.04.201504201
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201302250  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201302250
@@ -63,15 +64,15 @@ La manera más fácil y rápida de buscar una imagen para usar con `azure vm qui
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201305270  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201305270
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306030  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306030
     data:    canonical  ubuntuserver  12.04.2-LTS  12.04.201306240  westus    canonical:ubuntuserver:12.04.2-LTS:12.04.201306240
-    
+
 La columna **Urn** será el formulario que pase a `azure vm quick-create`.
-    
-A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, puede navegar por las imágenes, detectando primero los publicadores que utilizan `azure vm image list-publishers` y respondiendo a la solicitud de ubicación con la ubicación de centro de datos que vaya a utilizar para el grupo de recursos. Por ejemplo, a continuación se enumeran todos los publicadores de imágenes en la ubicación Oeste de EE. UU. (pase el argumento de ubicación en minúsculas y sin espacios a partir de las ubicaciones estándar).
+
+A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, puede navegar por las imágenes, detectando primero los publicadores mediante `azure vm image list-publishers` y respondiendo a la solicitud de ubicación con la ubicación de centro de datos que vaya a usar para el grupo de recursos. Por ejemplo, a continuación se enumeran todos los publicadores de imágenes en la ubicación Oeste de EE. UU. (pase el argumento de ubicación en minúsculas y sin espacios a partir de las ubicaciones estándar).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
     Location: westus
-    + Getting virtual machine image publishers (Location: "westus")                
+    + Getting virtual machine image publishers (Location: "westus")
     data:    Publisher                                       Location
     data:    ----------------------------------------------  --------
     data:    a10networks                                     westus  
@@ -79,10 +80,10 @@ A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, 
     data:    alertlogic                                      westus  
     data:    AlertLogic.Extension                            westus  
 
-    
-Estas listas pueden ser bastante largas, por lo que la lista del ejemplo anterior es simplemente un fragmento. Supongamos que hemos observado que Canonical es, de hecho, un publicador de imágenes en la ubicación Oeste de EE. UU. Ahora puede encontrar sus ofertas mediante una llamada a `azure vm image list-offers y pasar la ubicación y el publicador cuando se soliciten, como en el ejemplo siguiente:
 
-    azure vm image list-offers           
+Estas listas pueden ser bastante largas, por lo que la lista del ejemplo anterior es simplemente un fragmento. Supongamos que hemos observado que Canonical es, de hecho, un publicador de imágenes en la ubicación Oeste de EE. UU. Ahora puede encontrar sus ofertas mediante una llamada a `azure vm image list-offers` y pasar la ubicación y el publicador cuando se soliciten, como en el ejemplo siguiente:
+
+    azure vm image list-offers
     info:    Executing command vm image list-offers
     Location: westus
     Publisher: canonical
@@ -91,10 +92,10 @@ Estas listas pueden ser bastante largas, por lo que la lista del ejemplo anterio
     data:    ---------  ------------  --------
     data:    canonical  UbuntuServer  westus  
     info:    vm image list-offers command OK
-    
+
 Ahora ya sabemos que, en la región Oeste de EE. UU., Canonical publica la oferta **UbuntuServer** en Azure. Pero, ¿con qué SKU? Para obtenerlas, se llama a `azure vm image list-skus` y se responde a la solicitud con la ubicación, el publicador y la oferta que haya encontrado.
 
-    azure vm image list-skus           
+    azure vm image list-skus
     info:    Executing command vm image list-skus
     Location: westus
     Publisher: canonical
@@ -120,19 +121,19 @@ Ahora ya sabemos que, en la región Oeste de EE. UU., Canonical publica la ofer
     data:    canonical  ubuntuserver  15.04-beta   westus  
     data:    canonical  ubuntuserver  15.04-DAILY  westus  
     info:    vm image list-skus command OK
-    
+
 Con esta información, ahora puede buscar con precisión la imagen que desee mediante una llamada a la llamada original en la parte superior.
 
     azure vm image list westus canonical ubuntuserver 14.04.2-LTS
     info:    Executing command vm image list
     + Getting virtual machine images (Publisher:"canonical" Offer:"ubuntuserver" Sku: "14.04.2-LTS" Location:"westus")
-    data:    Publisher  Offer         Sku          Version          Location  Urn                                               
+    data:    Publisher  Offer         Sku          Version          Location  Urn
     data:    ---------  ------------  -----------  ---------------  --------  --------------------------------------------------
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201503090  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201503090
-    data:    canonical  ubuntuserver  14.04.2-LTS  14.04.20150422   westus    canonical:ubuntuserver:14.04.2-LTS:14.04.20150422 
+    data:    canonical  ubuntuserver  14.04.2-LTS  14.04.20150422   westus    canonical:ubuntuserver:14.04.2-LTS:14.04.20150422
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
-    
+
 Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una máquina virtual rápidamente con la información de URN que acaba de encontrar, o para utilizar una plantilla con esa información de URN, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md).
 
 ### Tutorial en vídeo
@@ -152,7 +153,7 @@ Al crear una nueva máquina virtual con el Administrador de recursos de Azure, e
 
 Por ejemplo, estos valores son necesarios para el cmdlet **Set-AzureVMSourceImage** de PowerShell o con un archivo de plantilla de grupo de recursos en el que debe especificar el tipo de máquina virtual que se creará.
 
-Si necesita determinar estos valores, puede explorar las imágenes para determinar estos valores por:
+Si necesita determinar estos valores, puede explorar las imágenes para determinar estos valores:
 
 1. Listado de los publicadores de imágenes.
 2. Para un publicador determinado, enumeración de sus ofertas.
@@ -160,7 +161,7 @@ Si necesita determinar estos valores, puede explorar las imágenes para determin
 
 Para hacer esto en PowerShell, en primer lugar cambie al modo de Administrador de recursos de Azure PowerShell.
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 Para el primer paso, enumere los publicadores con estos comandos.
 
@@ -183,7 +184,7 @@ Aquí tiene un ejemplo.
 
 	PS C:\> $locName="West US"
 	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
-	
+
 	PublisherName
 	-------------
 	a10networks
@@ -202,7 +203,7 @@ Para el publicador de "MicrosoftWindowsServer":
 
 	PS C:\> $pubName="MicrosoftWindowsServer"
 	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
-	
+
 	Offer
 	-----
 	WindowsServer
@@ -211,7 +212,7 @@ Para la oferta "WindowsServer":
 
 	PS C:\> $offerName="WindowsServer"
 	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
-	
+
 	Skus
 	----
 	2008-R2-SP1
@@ -238,6 +239,5 @@ Este vídeo muestra los pasos anteriores con PowerShell.
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

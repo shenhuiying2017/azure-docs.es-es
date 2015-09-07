@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Ejecución de Cassandra con Linux en Azure" 
-	description="Ejecución de un clúster de Cassandra en Linux en las máquinas virtuales Azure desde la aplicación Node.js." 
-	services="virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Ejecución de Cassandra con Linux en Azure"
+	description="Ejecución de un clúster de Cassandra en Linux en las máquinas virtuales Azure desde la aplicación Node.js."
+	services="virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="MikeWasson"/>
 
 
@@ -53,7 +53,7 @@ Ilustración 1: Implementación de una sola región
 
 Tenga en cuenta que en el momento de redactar este artículo, Azure no permite la asignación explícita de un grupo de máquinas virtuales a un dominio de error concreto; por lo tanto, incluso con el modelo de implementación que se muestra en la Figura 1, es estadísticamente probable que todas las máquinas virtuales se puedan asignar a dos dominios de error en lugar de a cuatro.
 
-**Tráfico de Thrift de equilibrio de carga:** Las bibliotecas de cliente de Thrift en el servidor web se conectan al clúster a través de un equilibrador de carga interno. Esto requiere el proceso de agregar el equilibrador de carga interno a la subred "datos" (consulte la Ilustración 1) en el contexto del servicio en la nube que hospeda el clúster de Cassandra. Una vez definido el equilibrador de carga interno, cada nodo requiere agregar el extremo con equilibrio de carga con las anotaciones de un conjunto con equilibrio de carga con el nombre del equilibrador de carga previamente definido. Consulte [Equilibrio de carga interno de Azure ](http://msdn.microsoft.com/library/azure/dn690121.aspx)para obtener más detalles.
+**Tráfico de Thrift de equilibrio de carga:** Las bibliotecas de cliente de Thrift en el servidor web se conectan al clúster a través de un equilibrador de carga interno. Esto requiere el proceso de agregar el equilibrador de carga interno a la subred "datos" (consulte la Ilustración 1) en el contexto del servicio en la nube que hospeda el clúster de Cassandra. Una vez definido el equilibrador de carga interno, cada nodo requiere agregar el extremo con equilibrio de carga con las anotaciones de un conjunto con equilibrio de carga con el nombre del equilibrador de carga previamente definido. Consulte [Equilibrio de carga interno de Azure ](../load-balancer/load-balancer-internal-overview.md)para obtener más detalles.
 
 **Valores de inicialización de clúster:** Es importante seleccionar los nodos más disponibles para los valores de inicialización, ya que los nuevos nodos se comunicarán con los nodos de valores de inicialización para detectar la topología del clúster. Un nodo de cada conjunto de disponibilidad se designa como nodos de valores de inicialización para evitar un punto único de error.
 
@@ -124,7 +124,7 @@ Las siguientes versiones de software se utilizan durante la implementación:
 
 Puesto que la descarga de JRE requiere la aceptación manual de licencia de Oracle, para simplificar la implementación, descargue todo el software necesario en el escritorio para su carga más adelante en la imagen de plantilla Ubuntu que crearemos como paso previo a la implementación del clúster.
 
-Descargue el software anterior en un directorio conocido de descargas (por ejemplo, %TEMP%/downloads en Windows o \~/downloads en Linux o Mac) en el escritorio local.
+Descargue el software anterior en un directorio conocido de descargas (por ejemplo, %TEMP%/downloads en Windows o ~/downloads en Linux o Mac) en el escritorio local.
 
 ### CREAR LA MÁQUINA VIRTUAL DE UBUNTU
 En este paso del proceso crearemos una imagen de Ubuntu con el software de requisito previo para que la imagen se pueda reutilizar para el aprovisionamiento de varios nodos de Cassandra.
@@ -165,7 +165,7 @@ Haga clic en la flecha a la derecha, deje los valores predeterminados en la pant
 
 ###INSTALAR EL SOFTWARE NECESARIO
 ####PASO 1: Carga de tarballs 
-Mediante scp o pscp, copie el software descargado anteriormente en el directorio \~/downloads mediante el comando siguiente:
+Mediante scp o pscp, copie el software descargado anteriormente en el directorio ~/downloads mediante el comando siguiente:
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -301,7 +301,7 @@ Asegúrese de que la máquina virtual está resaltada y haga clic en el vínculo
 Esto tardará unos segundos. La imagen debe estar disponible en la sección Mis imágenes de la Galería de imágenes. La VM de origen se eliminará automáticamente después de que la imagen se capture correctamente.
 
 ##Proceso de implementación en una sola región
-**Paso 1: Creación de la red virtual** Inicie sesión en el portal de administración y cree una red virtual con la presentación de atributos en la tabla. Consulte [Configurar una red virtual solo en la nube en el Portal de administración](http://msdn.microsoft.com/library/azure/dn631643.aspx) para obtener pasos detallados del proceso.
+**Paso 1: Creación de la red virtual** Inicie sesión en el portal de administración y cree una red virtual con la presentación de atributos en la tabla. Consulte [Configurar una red virtual solo en la nube en el Portal de administración](../virtual-network/virtual-networks-create-vnet.md) para obtener pasos detallados del proceso.
 
 <table>
 <tr><th>Nombre del atributo de VM</th><th>Valor</th><th>Comentarios</th></tr>
@@ -467,7 +467,7 @@ Tenga en cuenta que el espacio de claves que creó en el paso 4 utiliza SimpleSt
 Aprovechará la implementación de región única completada y repetirá el mismo proceso para la instalación de la segunda región. La diferencia clave entre la implementación de región única o múltiple es la configuración de túnel VPN para la comunicación entre regiones; empezaremos con la instalación de red, aprovisionamiento de las máquinas virtuales y configuración de Cassandra.
 
 ###Paso 1: Creación de la red virtual en la segunda región
-Inicie sesión en el portal de administración y cree una red virtual con la presentación de atributos en la tabla. Consulte [Configurar una red virtual solo en la nube en el Portal de administración](http://msdn.microsoft.com/library/azure/dn631643.aspx) para obtener pasos detallados del proceso.
+Inicie sesión en el portal de administración y cree una red virtual con la presentación de atributos en la tabla. Consulte [Configurar una red virtual solo en la nube en el Portal de administración](../virtual-network/virtual-networks-create-vnet.md) para obtener pasos detallados del proceso.
 
 <table>
 <tr><th>Nombre del atributo    </th><th>Valor	</th><th>Comentarios</th></tr>
@@ -700,4 +700,4 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

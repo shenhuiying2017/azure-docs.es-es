@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Conector de FTP"
-	description="Inicio del conector de FTP"
+	pageTitle="Uso del conector de FTP en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de FTP o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
 	authors="rajram"
 	manager="dwrede"
 	editor=""
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-# Conector de FTP
-
-## Información general
-El conector de FTP permite mover datos a un servidor FTP o a partir de él. Las características clave del conector de FTP son las siguientes:
+# Introducción al conector de FTP y su incorporación a su aplicación lógica
+Conéctese a un servidor FTP para mover datos o archivos. Las características clave del conector de FTP incluyen:
 
 - Extracción de archivos del servidor FTP a petición
 - Ejecución de sondeos según una programación configurable
@@ -27,6 +25,8 @@ El conector de FTP permite mover datos a un servidor FTP o a partir de él. Las 
 - Especificación del servidor FTP como dirección IP, puerto, contraseña y nombre de host
 - Capacidad para ejecutar envíos a petición
 - Capacidad de eliminar archivos en el servidor FTP a petición
+
+Puede agregar el conector de FTP a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ## Creación de un nuevo conector de FTP
 Para crear un nuevo conector de FTP, siga los pasos que se mencionan a continuación. -Inicie el portal de Azure - Abra Azure Marketplace con +Nuevo (en la parte inferior de la página) -> Web+móvil--> Azure Marketplace: ![Inicio de Azure Marketplace][1]
@@ -158,4 +158,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

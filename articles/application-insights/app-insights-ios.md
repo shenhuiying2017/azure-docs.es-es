@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Application Insights para aplicaciones iOS" 
-    description="Analice el uso y el rendimiento de la aplicación de iOS con Application Insights." 
-    services="application-insights" 
-    documentationCenter="ios"
-    authors="alancameronwills" 
-    manager="ronmart"/>
+<properties
+    pageTitle="Application Insights para aplicaciones iOS | Microsoft Azure"
+	description="Analice el uso y el rendimiento de la aplicación de iOS con Application Insights."
+	services="application-insights"
+	documentationCenter="ios"
+	authors="alancameronwills"
+	manager="ronmart"/>
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="04/27/2015" 
-    ms.author="awills"/>
+<tags
+    ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/27/2015"
+	ms.author="awills"/>
 
 # Application Insights para aplicaciones iOS
 
@@ -35,11 +35,11 @@ En el [portal de Azure][portal], cree un nuevo recurso de Application Insights. 
 
 En la hoja que se abre podrá ver los datos de uso y rendimiento sobre la aplicación. Para volver a ella la próxima vez que inicie sesión en Azure, encontrará un icono correspondiente en la pantalla de inicio. También puede hacer clic en Examinar para buscarla.
 
-## Descarga de Application Insights para iOS
+## Descargue Application Insights para Mac,
 
 si aún no lo ha hecho.
 
-1. Descarga de [Application Insights para Mac](http://go.microsoft.com/fwlink/?LinkID=533209)
+1. Descargue [Application Insights para Mac](http://go.microsoft.com/fwlink/?LinkID=533209).
 
 2. Extraiga el archivo ZIP.
 
@@ -47,41 +47,39 @@ si aún no lo ha hecho.
 
 ## <a name="signin"></a>Inicio de sesión en Azure
 
-1. Haga clic en Iniciar sesión.
+1. Haga clic en **Iniciar sesión**.
 
 2. Inicie sesión con su cuenta de Azure.
 
 ## Instale el SDK en su aplicación.
 
-1. Haga clic en Integrar para iniciar la integración con el SDK.
+1. Haga clic en **Integrar** para iniciar la integración con el SDK.
 
-2. Seleccione el proyecto de Xcode de la lista o haga clic en Abrir para buscar el proyecto. A continuación, haga clic en Integrar.
+2. Seleccione el proyecto de Xcode de la lista o haga clic en **Abrir** para buscar el proyecto. A continuación, haga clic en **Integrar**.
 
-3. Elija la carpeta del SDK de Application Insights y luego haga clic en Instalar.
+3. Elija la carpeta del SDK de Application Insights y luego haga clic en **Instalar**.
 
-4. Agregue el script de ejecución que se muestra a las fases de compilación.
-
-    [Agregar fase de ejecución de script](http://hockeyapp.net/help/runscriptbuildphase/)
+4. Agregue el script de ejecución que se muestra a las fases de compilación: [Agregar fase de ejecución de script](http://hockeyapp.net/help/runscriptbuildphase/).
 
 5. Agregue los marcos que faltan al proyecto de Xcode.
 
-6. Arrastre el marco de Application Insights a su proyecto de Xcode y haga clic en Siguiente.
+6. Arrastre el marco de Application Insights a su proyecto de Xcode y haga clic en **Siguiente**.
 
-7. Seleccione Integrar SDK en destino para su destino.
+7. Seleccione **Integrar SDK en destino** para su destino.
 
-8. Haga clic en Crear nuevo componente para crear la aplicación en el portal de Application Insights.
+8. Haga clic en **Crear nuevo componente** para crear la aplicación en el Portal de Application Insights.
 
-9. Seleccione su suscripción, el grupo de recursos y escriba un nombre de componente. En la mayoría de los casos, este nombre debe coincidir con el nombre de la aplicación. Confirme con el botón Crear recurso.
+9. Seleccione su suscripción, el grupo de recursos y escriba un nombre de componente. En la mayoría de los casos, este nombre debe coincidir con el nombre de la aplicación. Confirme con el botón **Crear recurso**.
 
-10. Asegúrese de que se haya seleccionado el componente adecuado y haga clic en Siguiente.
+10. Asegúrese de que se haya seleccionado el componente adecuado y haga clic en **Siguiente**.
 
-11. Modifique el código fuente, como se muestra en el asistente, y haga clic en Finalizar.
+11. Modifique el código fuente, como se muestra en el asistente, y haga clic en **Finalizar**.
 
-12. Inicie la aplicación en el simulador de iOS con Compilar y ejecutar.
+12. Inicie la aplicación en el simulador de iOS con **Compilar y ejecutar**.
 
 ## Inserción de llamadas de telemetría
 
-Una vez que se llama a `[MSAIApplicationInsights start]`, el SDK comenzará a realizar el seguimiento de las sesiones y las vistas de página, así como de las excepciones no controladas o los bloqueos.
+Una vez que se llama a `[MSAIApplicationInsights start]`, el SDK comienza a realizar el seguimiento de las sesiones y las vistas de página, así como de las excepciones no controladas o los bloqueos.
 
 Puede agregar eventos adicionales de la manera siguiente:
 
@@ -102,14 +100,14 @@ Puede agregar eventos adicionales de la manera siguiente:
                              properties:@{@"Test measurement 1":@(4.8)}];
 
     // Send custom metrics
-    [MSAITelemetryManager trackMetricWithName:@"Test metric" 
+    [MSAITelemetryManager trackMetricWithName:@"Test metric"
                                         value:42.2];
 
 ## Visualización de los datos en Application Insights
 
 Vuelva a http://portal.azure.com y busque el recurso de Application Insights.
 
-Haga clic en Buscar para abrir [Búsqueda de diagnóstico][diagnostic], que es donde aparecerán los primeros eventos. Si no ve nada, espere un minuto o dos y haga clic en Actualizar.
+Haga clic en **Buscar** para abrir [Búsqueda de diagnóstico][diagnostic], que es donde aparecerán los primeros eventos. Si no ve nada, espere un minuto o dos y haga clic en **Actualizar**.
 
 ![Haga clic en Búsqueda de diagnóstico.](./media/app-insights-ios/21-search.png)
 
@@ -137,8 +135,6 @@ Haga clic en cualquier gráfico para obtener más detalles. Por ejemplo, bloqueo
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Análisis de uso de aplicaciones web con Application Insights" 
-	description="Información general del análisis de uso con Application Insights" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Análisis de uso de aplicaciones web con Application Insights"
+	description="Información general del análisis de uso con Application Insights"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # Análisis de uso de aplicaciones web con Application Insights
@@ -109,13 +109,33 @@ Sin embargo, cuando explore intervalos de tiempo más pequeños (por ejemplo, un
 
 ## Usuarios y cuentas de usuario
 
+
 Cada sesión de usuario está asociada a un identificador de usuario único.
 
-De forma predeterminada, el usuario se identifica mediante la colocación de una cookie. En este caso, un usuario que utilice varios exploradores o dispositivos se contará varias veces.
+De forma predeterminada, el usuario se identifica mediante la colocación de una cookie. Un usuario que use varios exploradores o dispositivos se contará varias veces. (No obstante, consulte [Usuarios autenticados](#authenticated-users)).
+
 
 La métrica **Recuento de usuarios** en un intervalo determinado se define como el número de usuarios únicos con actividad registrada durante este intervalo. Como resultado, es posible que los usuarios con sesiones extensas se cuenten varias veces cuando se establece un intervalo de tiempo tal que la unidad es inferior a una hora o similar.
 
 **Usuarios nuevos** cuenta los usuarios cuyas primeras sesiones con la aplicación se produjeron durante este intervalo. Si se usa el método predeterminado de recuento de usuarios por las cookies, esto incluirá también a los usuarios que han desactivado sus cookies o que usan un nuevo dispositivo o explorador para tener acceso a la aplicación por primera vez. ![En la hoja Uso, haga clic en el gráfico Usuarios para examinar los usuarios nuevos.](./media/app-insights-web-track-usage/031-dual.png)
+
+### Usuarios autenticados
+
+Si su aplicación web permite a los usuarios iniciar sesión, puede obtener un recuento más preciso al proporcionar a Application Insights un identificador de usuario único. No tiene por qué ser el nombre del usuario o el mismo identificador que usa en la aplicación. Una vez que la aplicación identifique al usuario, use este código:
+
+
+*JavaScript en el cliente*
+
+      appInsights.setAuthenticatedUserContext(userId);
+
+Si su aplicación agrupa a los usuarios en cuentas, también puede pasar un identificador de la cuenta.
+
+      appInsights.setAuthenticatedUserContext(userId, accountId);
+
+Los identificadores de usuario y de cuenta no pueden contener espacios ni caracteres `,;=|`
+
+
+En el [explorador de métricas](app-insights-metrics-explorer.md), puede crear un gráfico de **Usuarios autenticados** y **Cuentas**.
 
 ## Tráfico sintético
 
@@ -144,7 +164,7 @@ Supongamos en lugar de implementar cada juego en una página web independiente s
 
 Pero todavía desea que Application Insights registre el número de veces que se abre cada juego, exactamente igual que cuando estaban en páginas web independientes. Es muy sencillo: inserte una llamada al módulo de telemetría en el JavaScript donde desea registrar que se ha abierto una nueva «página»:
 
-	telemetryClient.trackPageView(game.Name);
+	appInsights.trackPageView(game.Name);
 
 ## Eventos personalizados
 
@@ -152,7 +172,7 @@ Use eventos personalizados. Puede enviarlos desde aplicaciones de dispositivo, p
 
 *JavaScript*
 
-    telemetryClient.trackEvent("GameEnd");
+    appInsights.trackEvent("GameEnd");
 
 *C#*
 
@@ -371,4 +391,4 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

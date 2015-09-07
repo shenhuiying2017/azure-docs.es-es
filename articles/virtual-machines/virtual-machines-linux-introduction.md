@@ -15,25 +15,11 @@
 	ms.topic="article"
 	ms.date="06/11/2015"
 	ms.author="szark"/>
-
-
-
-
-
 #Introducción a Linux en Azure
 
 En este tema se ofrece información general acerca de algunos aspectos relacionados con el uso de las máquinas virtuales con Linux en la nube de Azure. La implementación de una máquina virtual con Linux es un proceso sencillo cuando se usa una imagen de la galería.
 
-## Tabla de contenido ##
-
-* [Autenticación: Nombres de usuario, contraseñas y claves SSH.](#authentication)
-* [Obtención de privilegios de superusuario con el uso de sudo](#superuserprivileges)
-* [Configuración del firewall](#firewallconfiguration)
-* [Cambios del nombre de host](#hostnamechanges)
-* [Captura de imagen de máquina virtual](#virtualmachine)
-* [Acoplamiento de discos](#attachingdisks)
-
-## <a id="authentication"></a>Autenticación: Nombres de usuario, contraseñas y claves SSH.
+## Autenticación: Nombres de usuario, contraseñas y claves SSH.
 
 Al crear una máquina virtual Linux con el Portal de administración de Azure, se le pedirá que facilite un nombre de usuario, una contraseña o una clave pública SSH. La elección de un nombre de usuario para implementar una máquina virtual Linux en Azure está sujeta a la siguiente limitación: no se admiten los nombres de cuentas del sistema (UID <100) ya existentes en la máquina virtual, como por ejemplo, "root".
 
@@ -42,7 +28,7 @@ Al crear una máquina virtual Linux con el Portal de administración de Azure, s
  - Consulte [Utilización de SSH con Linux en Azure](../linux-use-ssh-key.md)
 
 
-## <a id="superuserprivileges"></a>Obtención de privilegios de superusuario con el uso de `sudo`
+## Obtención de privilegios de superusuario con el uso de `sudo`
 
 La cuenta de usuario especificada durante la implementación de la instancia de máquina virtual en Azure es una cuenta con privilegios. El Agente de Linux de Azure configura esta cuenta para elevar privilegios a root (cuenta de superusuario) con la utilidad `sudo`. Después de iniciar sesión con esta cuenta de usuario, podrá ejecutar comandos como root con el uso del la sintaxis de comando
 
@@ -53,7 +39,7 @@ También puede obtener un shell root con **sudo -s**.
 - Consulte [Uso de privilegios raíz en máquinas virtuales con Linux en Azure](virtual-machines-linux-use-root-privileges.md)
 
 
-## <a id="firewallconfiguration"></a>Configuración del firewall
+## Configuración del firewall
 
 Azure ofrece un filtro de paquetes de entrada que restringe la conectividad a los puertos especificados en el Portal de administración. De forma predeterminada, el único puerto permitido es SSH. Puede abrir el acceso a puertos adicionales de la máquina virtual con Linux con la configuración de extremos en el Portal de administración.
 
@@ -62,7 +48,7 @@ Azure ofrece un filtro de paquetes de entrada que restringe la conectividad a lo
 Las imágenes de Linux de la Galería de Azure no habilitan el firewall *iptables* de forma predeterminada. Si lo desea, el firewall puede configurarse para proporcionar filtrado adicional.
 
 
-## <a id="hostnamechanges"></a>Cambios del nombre de host
+## Cambios del nombre de host
 
 Al implementar inicialmente una instancia de una imagen de Linux, se le pide que facilite un nombre de host para la máquina virtual. Cuando la máquina virtual está en ejecución, este nombre de host se publica en los servidores DNS de la plataforma, a fin de que varias máquinas virtuales conectadas entre sí puedan realizar búsquedas de direcciones IP con el uso de nombres de host.
 
@@ -83,7 +69,7 @@ Las imágenes de **Ubuntu** y **CoreOS** usan cloud-init en Azure, que proporcio
  - [Uso de CoreOS en Azure](virtual-machines-linux-coreos-how-to.md)
 
 
-## <a id="virtualmachine"></a>Captura de imagen de máquina virtual
+## Captura de imagen de máquina virtual
 
 Azure ofrece la capacidad de capturar el estado de una máquina virtual existente en una imagen que posteriormente puede usarse para implementar instancias adicionales de máquina virtual. El Agente de Linux de Azure puede usarse para la reversión de la personalización realizada durante el proceso de aprovisionamiento. Puede seguir los siguientes pasos para capturar una máquina virtual como una imagen:
 
@@ -96,7 +82,7 @@ Azure ofrece la capacidad de capturar el estado de una máquina virtual existent
  - Consulte: [Captura de una máquina virtual de Linux para usar como plantilla](virtual-machines-linux-capture-image.md)
 
 
-## <a id="attachingdisks"></a>Acoplamiento de discos
+## Acoplamiento de discos
 
 Las máquinas virtuales disponen de un *disco de recursos* local y temporal acoplado. Debido a que los datos de un disco de recursos podrían no resistir los diversos reinicios, muchas veces los usan aplicaciones y procesos que se ejecutan en la máquina virtual para un almacenamiento de datos transitorio y **temporal**. También se usan para almacenar archivos de intercambio o de paginación para el sistema operativo.
 
@@ -110,4 +96,4 @@ En Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuar
  - **Consulte también:** [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

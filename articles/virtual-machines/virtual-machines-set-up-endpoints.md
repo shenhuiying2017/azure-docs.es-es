@@ -29,7 +29,7 @@ Cada extremo cuenta con un puerto público y uno privado:
 
 Se proporcionan los valores predeterminados para el protocolo IP y los puertos TCP o UDP para los protocolos de red conocidos cuando crea extremos con el portal. Para los extremos personalizados, debe especificar el protocolo IP correcto (TCP o UDP) y los puertos públicos y privados. Para distribuir el tráfico entrante de forma aleatoria entre varias máquinas virtuales, debe crear un conjunto con equilibrio de carga que conste de varios extremos.
 
-Tras la creación de un extremo, puede utilizar una lista de control de acceso (ACL) para definir reglas que permitan o denieguen el tráfico entrante al puerto público del extremo, en función de su dirección IP de origen. Sin embargo, si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Tras la creación de un extremo, puede utilizar una lista de control de acceso (ACL) para definir reglas que permitan o denieguen el tráfico entrante al puerto público del extremo, en función de su dirección IP de origen. Sin embargo, si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [¿Qué es un grupo de seguridad de red?](virtual-networks-nsg.md).
 
 **Importante**: La configuración de firewall para máquinas virtuales de Azure se realiza automáticamente para los puertos asociados con el Escritorio remoto y Shell seguro (SSH) y, en la mayoría de los casos, para la comunicación remota de Windows PowerShell. Para los puertos especificados para todos los demás extremos, no se realiza ninguna configuración automáticamente en el firewall de la máquina virtual. Cuando se crea un extremo para la máquina virtual, deberá asegurarse de que el firewall de la máquina virtual también permite el tráfico para el protocolo y el puerto privado correspondiente a la configuración del extremo.
 
@@ -65,7 +65,7 @@ Para definir el conjunto de equipos que pueden enviar tráfico, la ACL en un ext
 
 > [AZURE.NOTE]Si el extremo forma parte de un conjunto con equilibrio de carga, los cambios que realice en la ACL en un extremo se aplican a todos los extremos del conjunto.
 
-Si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](virtual-networks-nsg.md).
 
 
 1.	Si no lo ha hecho todavía, inicie sesión en el portal.
@@ -85,7 +85,7 @@ Puede usar reglas para permitir solo el tráfico desde equipos específicos corr
 
 Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben estar ordenadas de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [Acerca de las listas de control de acceso (ACL) de red](http://go.microsoft.com/fwlink/p/?linkid=303816).
 
-Para usar un cmdlet de Azure PowerShell para configurar esto, consulte [Administración de las listas de control de acceso (ACL) de los extremos mediante PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+Para usar un cmdlet de Azure PowerShell para configurar esto, consulte [Administración de las listas de control de acceso (ACL) de los extremos mediante PowerShell](../virtual-network/virtual-networks-acl-powershell.md).
 
 ## Recursos adicionales
 
@@ -93,6 +93,6 @@ Para usar un cmdlet de Azure PowerShell para configurar esto, consulte [Administ
 
 [Acerca de las listas de control de acceso (ACL) de red](http://go.microsoft.com/fwlink/p/?linkid=303816)
 
-[Información sobre los grupos de seguridad de red](https://msdn.microsoft.com/library/azure/dn848316.aspx)
+[Información sobre los grupos de seguridad de red](virtual-networks-nsg.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Factoría de datos de Azure: preguntas más frecuentes" 
-	description="Preguntas más frecuentes acerca de la factoría de datos de Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Factoría de datos de Azure: preguntas más frecuentes"
+	description="Preguntas más frecuentes acerca de la factoría de datos de Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure: preguntas más frecuentes
@@ -90,17 +90,6 @@ Consulte los artículos [Actividades de movimiento de datos](data-factory-data-m
 La configuración de **disponibilidad** en la tabla de datos de salida determina cuándo se ejecuta la actividad. La actividad comprueba si todas las dependencias de datos de entrada se han satisfecho (es decir, estado **Listo**) antes de ejecutarse.
 
 ## Actividad de copia: preguntas más frecuentes
-### ¿Qué regiones admite la actividad de copia?
-
-La actividad de copia es compatible con la copia de datos en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., EE. UU. central, Centro-Norte de EE. UU., Sur-Centro de EE. UU., Europa del Norte, Europa occidental, Sudeste Asiático, Este de Japón y Sur de Brasil.
-
-También se admite la copia de los datos en otras regiones, mediante el uso de las regiones anteriores para enrutar los datos. La operación de copia se mide según la región por la que se enrutan los datos.
-
-Región de destino de copia | Región usada para el enrutamiento
--------------------------- | -----------------------
-Asia oriental | Sudeste de Asia
-Oeste de Japón | Este de Japón
- 
 ### ¿Es mejor tener una canalización con varias actividades o una canalización independiente para cada actividad? 
 Se supone que las canalizaciones incluyen actividades relacionadas. Lógicamente, puede mantener las actividades en una canalización si las tablas que las conectan no se consumen por otra actividad fuera de la canalización. De este modo, no necesitará períodos activos de canalizaciones de cadena puesto que se alinean con las demás. Además, la integridad de los datos de las tablas internas de la canalización se conservarán mejor cuando se actualice la canalización. La actualización de la canalización detiene fundamentalmente todas las actividades en la canalización, las elimina y las vuelve a crear. Desde la perspectiva de la creación, puede ser más fácil ver el flujo de datos dentro de las actividades relacionadas en un archivo JSON para la canalización.
 
@@ -192,4 +181,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

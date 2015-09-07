@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Fase 5 de la carga de trabajo de aplicación de línea de negocio: Creación del grupo de disponibilidad y adición de las bases de datos de la aplicación" 
-	description="En esta fase final de la implementación de una línea de alta disponibilidad de aplicaciones empresariales, creará un grupo de disponibilidad y agregará las bases de datos de la aplicación." 
+	pageTitle="Fase 5 de la aplicación de línea de negocio | Microsoft Azure"
+	description="Cree un grupo de disponibilidad y agréguele las bases de datos de la aplicación en la fase 5 de la aplicación de línea de negocio en Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Fase 5 de la carga de trabajo de aplicación de línea de negocio: Creación del grupo de disponibilidad y adición de las bases de datos de la aplicación
@@ -56,7 +56,7 @@ Siga estos pasos para hacer una copia de seguridad de una base de datos.
 3.	En el panel izquierdo, amplíe el nodo **Base de datos**.
 4.	Haga clic con el botón derecho en una base de datos para realizar una copia de seguridad, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 5.	En la sección **Destino**, haga clic en **Quitar** para quitar la ruta de acceso del archivo predeterminado para el archivo de copia de seguridad.
-6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde **nombreDeEquipo** es el nombre del **equipo servidor** SQL principal y **nombreDeBaseDeDatos** es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
+6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde **nombreDeEquipo** es el nombre del **equipo servidor** SQL principal y **nombreDeBaseDeDatos** es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
 7.	En el panel izquierdo, haga clic con el botón derecho en **[nombreDeBaseDeDatos]**, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 8.	En **Tipo de copia de seguridad**, seleccione **Registro de transacciones** y, a continuación, haga clic en **Aceptar** dos veces.
 9.	Mantenga esta sesión de Escritorio remoto abierta.
@@ -69,7 +69,7 @@ Use estos pasos para reiniciar una base de datos.
 4.	En el panel izquierdo, haga clic con el botón derecho en **Bases de datos** y, a continuación, haga clic en **Restaurar base de datos**.
 5.	En la sección **Origen**, seleccione **Dispositivo** y haga clic en el botón de puntos suspensivos (...).
 6.	En **Seleccionar dispositivos de copia de seguridad**, haga clic en **Agregar**.
-7.	En **Ubicación de archivo de copia de seguridad**, escriba **\\[nombreDeEquipo]\\backup**, presione **Entrar**, seleccione **[nombreDeBaseDeDatos].bak** y después haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
+7.	En **Ubicación de archivo de copia de seguridad**, escriba **\[nombreDeEquipo]\\backup**, presione **Entrar**, seleccione **[nombreDeBaseDeDatos].bak** y después haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
 8.	En **Seleccionar una página**, haga clic en **Opciones**. En la sección **Opciones de restauración** en **Estado de recuperación**, seleccione **RESTAURAR CON NORECOVERY** y, a continuación, haga clic en **Aceptar**. 
 9.	Cuando se le solicite, haga clic en **Aceptar**.
 
@@ -126,4 +126,4 @@ Una vez configurado el agente de escucha, tendrá que configurar todas las máqu
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

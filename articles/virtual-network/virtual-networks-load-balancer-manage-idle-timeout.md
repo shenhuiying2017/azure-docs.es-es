@@ -1,22 +1,20 @@
 <properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="Administrar: Tiempo de espera de inactividad del equilibrador de carga" 
-   description="Características de administración para el tiempo de espera de inactividad del equilibrador de carga de Azure" 
-   services="virtual-network" 
-   />
+   authors="danielceckert"
+	documentationCenter="dev-center-name"
+	editor=""
+	manager="jefco"
+	pageTitle="Administrar: Tiempo de espera de inactividad del equilibrador de carga"
+	description="Características de administración para el tiempo de espera de inactividad del equilibrador de carga de Azure"
+	services="virtual-network"/>
 
 <tags
    ms.author="danecke"
-   ms.date="05/27/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   />
+	ms.date="05/27/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"/>
    
 # Administrar la red virtual: Tiempo de espera de inactividad de TCP del equilibrador de carga
 
@@ -34,8 +32,8 @@ Para admitir escenarios de dispositivos móviles, el equilibrador de carga de Az
 
 El tiempo de espera de inactividad de TCP se puede configurar para:
 
-* [Direcciones IP públicas en el nivel de instancia](http://msdn.microsoft.com/library/azure/dn690118.aspx)
-* [Conjuntos de extremo de carga equilibrada](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [Direcciones IP públicas en el nivel de instancia](virtual-networks-instance-level-public-ip.md)
+* [Conjuntos de extremo de carga equilibrada](../load-balancer/load-balancer-overview.md)
 * [Extremos de máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md)
 * [Roles web](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Roles de trabajo](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -152,4 +150,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

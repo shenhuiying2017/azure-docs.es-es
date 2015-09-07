@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Uso de la retransmisión de Bus de servicio (.NET) | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar el servicio de retransmisión del Bus de servicio de Azure para conectar dos aplicaciones hospedadas en diferentes ubicaciones." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
+<properties
+	pageTitle="Uso de la retransmisión de Bus de servicio (.NET) | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar el servicio de retransmisión del Bus de servicio de Azure para conectar dos aplicaciones hospedadas en diferentes ubicaciones."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
-	ms.date="07/02/2015" 
+<tags
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
 
-# Uso del servicio de Retransmisión de bus de servicio
+# Uso del servicio de Retransmisión de bus de servicio de Azure
 
-En esta guía se describe cómo utilizar el servicio de retransmisión del Bus de servicio. Los ejemplos se escriben en C# y usan la API de Windows Communication Foundation (WCF) con extensiones contenidas en el conjunto del Bus de servicio que forma parte del SDK de Microsoft Azure para .NET. Para obtener más información sobre la Retransmisión de bus de servicio, consulte la sección [Pasos siguientes](#Next-steps).
+En este artículo se describe cómo usar el servicio de Retransmisión de bus de servicio. Los ejemplos se escriben en C# y usan la API de Windows Communication Foundation (WCF) con extensiones contenidas en el conjunto del Bus de servicio que forma parte del SDK de Microsoft Azure para .NET. Para obtener más información sobre la Retransmisión de bus de servicio, consulte la sección [Pasos siguientes](#Next-steps).
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -31,7 +31,7 @@ El servicio *Retransmisión* de bus de servicio permite crear aplicaciones híbr
 
 La retransmisión de bus de servicio le permite hospedar servicios WCF en su entorno empresarial existente. A continuación, puede delegar la escucha de las sesiones entrantes y las solicitudes a esos servicios WCF al bus de servicio que se ejecuta en Azure. Esto le permite exponer esos servicios en el código de aplicación que se ejecuta en Azure o en entornos móviles de trabajo o asociados de extranet. El Bus de servicio permite controlar de forma segura quién puede obtener acceso a estos servicios en un nivel específico. Proporciona una forma segura y eficaz de exponer los datos y la funcionalidad de aplicaciones de las soluciones empresariales existentes y aprovecharlos desde la nube.
 
-En esta guía se muestra cómo usar la Retransmisión de bus de servicio para crear un servicio web de WCF, expuesto mediante el enlace de canales TCP, que implementa una conversación segura entre dos partes.
+En este artículo se muestra cómo usar la Retransmisión de bus de servicio para crear un servicio web de WCF, expuesto mediante el enlace de canales TCP, que implementa una conversación segura entre dos partes.
 
 ## Creación de un espacio de nombres de servicio
 
@@ -39,11 +39,11 @@ Para comenzar a usar el relé del bus de servicio en Azure, primero debe crear u
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de Azure][].
 
-2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **us de servicio**.
+2.  En el panel de navegación izquierdo del Portal de Azure, haga clic en **Bus de servicio**.
 
-3.  En el panel inferior del Portal de administración, haga clic en **Crear**.
+3.  En el panel inferior del Portal de Azure, haga clic en **Crear**.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -51,16 +51,15 @@ Para crear un nombre de espacio de servicio:
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
 
-
 5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
 
-	IMPORTANTE: seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
+	> [AZURE.IMPORTANT]seleccione la *misma región* que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
 6.	Deje los demás campos del cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	El espacio de nombres que creó aparecerá a continuación en el Portal de administración y tardará un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
+	El espacio de nombres que creó aparecerá a continuación en el Portal de Azure y tardará un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
@@ -68,25 +67,23 @@ Para realizar operaciones de administración, como la creación de una conexión
 
 1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
-
 2.  Haga doble clic en el nombre del espacio de nombres que acaba de crear en la lista que se muestra:![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
 
-
 3.  Haga clic en la pestaña **Configurar** en la parte superior de la página.
- 
+
 4.  Cuando se aprovisiona un espacio de nombres del Bus de servicio, se crea de forma predeterminada **SharedAccessAuthorizationRule**, con **KeyName** establecido en **RootManageSharedAccessKey**. Esta página muestra esa clave, así como las claves principales y secundarias para la regla predeterminada.
 
 ## Obtenga el paquete NuGet del bus de servicio
 
-El paquete **NuGet** del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio.
+El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio.
 
 Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
 
 1.  En el Explorador de soluciones, haga clic con el botón secundario en **References** y, a continuación, en **Manage NuGet Packages**.
-2.  Busque "Bus de servicio" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Haga clic en **Install** para completar la instalación y, a continuación, cierre este diálogo.
+2.  Busque "Bus de servicio" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Haga clic en **Install** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
-  
+
 
 ## Cómo usar el bus de servicio para exponer y consumir un servicio web SOAP con TCP
 
@@ -97,13 +94,13 @@ En esta tarea, creará un servicio WCF simple y le agregará un agente de escuch
 Antes comenzar a realizar los pasos siguientes, complete el procedimiento que aparece a continuación para configurar su entorno:
 
 1.  En Visual Studio, cree una aplicación de consola que contenga dos proyectos en la solución: "Client" y "Service".
-2.  Agregue el paquete NuGet de **Bus de servicio de Microsoft Azure** a ambos proyectos. De esa forma, se agregarán todas las referencias necesarias del conjunto a los proyectos.
+2.  Agregue el paquete NuGet de Bus de servicio de Microsoft Azure a ambos proyectos. De esa forma, se agregarán todas las referencias necesarias del conjunto a los proyectos.
 
 ### Creación del servicio
 
 Primero cree el servicio. Los servicios WCF cuentan con al menos tres partes distintas:
 
--   Definición de un contrato que describe qué mensajes se intercambian y qué operaciones se van a invocar. 
+-   Definición de un contrato que describe qué mensajes se intercambian y qué operaciones se van a invocar.
 -   Implementación del contrato establecido.
 -   Host que hospeda el servicio WCF y expone una serie de extremos.
 
@@ -112,14 +109,14 @@ Los ejemplos de código de esta sección están relacionados con cada uno de est
 El contrato define una única operación, `AddNumbers`, que agrega dos números y devuelve el resultado. La interfaz de `IProblemSolverChannel` permite al cliente administrar más fácilmente la duración del proxy. La creación de esta interfaz se considera una práctica recomendada. Es buena idea poner la definición del contrato en un archivo independiente para poder hacer referencia a ese archivo desde los proyectos "Client" y "Service". También puede copiar el código en los dos proyectos:
 
         using System.ServiceModel;
-     
+
         [ServiceContract(Namespace = "urn:ps")]
         interface IProblemSolver
         {
             [OperationContract]
             int AddNumbers(int a, int b);
         }
-     
+
         interface IProblemSolverChannel : IProblemSolver, IClientChannel {}
 
 Con el contrato en su lugar, la implementación es trivial:
@@ -139,11 +136,11 @@ Con el contrato y la implementación en su lugar, puede hospedar el servicio. El
     ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
 
     sh.AddServiceEndpoint(
-       typeof (IProblemSolver), new NetTcpBinding(), 
+       typeof (IProblemSolver), new NetTcpBinding(),
        "net.tcp://localhost:9358/solver");
 
     sh.AddServiceEndpoint(
-       typeof(IProblemSolver), new NetTcpRelayBinding(), 
+       typeof(IProblemSolver), new NetTcpRelayBinding(),
        ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver"))
         .Behaviors.Add(new TransportClientEndpointBehavior {
               TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", "yourKey")});
@@ -159,7 +156,7 @@ En el ejemplo, se crean dos extremos que se encuentran en la misma implementaci�
 
 ### Configuración de un host de servicio en el archivo App.config
 
-También puede configurar el host con el archivo App.config. El código de hospedaje del servicio en este caso es el siguiente:
+También puede configurar el host con el archivo App.config. El servicio que aloja el código en este caso aparece en el ejemplo siguiente.
 
     ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
     sh.Open();
@@ -167,7 +164,7 @@ También puede configurar el host con el archivo App.config. El código de hospe
     Console.ReadLine();
     sh.Close();
 
-Las definiciones del extremo se trasladan al archivo App.config. Tenga en cuenta que el paquete **NuGet** ya agregó un rango de definiciones al archivo App.config, que son las extensiones de configuración requeridas para el Bus de servicio. El siguiente fragmento de código, que es el equivalente exacto del fragmento anterior, debe aparecer directamente debajo del elemento **system.serviceModel**. El fragmento presupone que el espacio de nombres C# del proyecto tiene el nombre de "Service". Reemplace los marcadores de posición por el espacio de nombres del servicio de Bus de servicio y la clave SAS.
+Las definiciones del extremo se trasladan al archivo App.config. Tenga en cuenta que el paquete NuGet ya agregó un rango de definiciones al archivo App.config, que son las extensiones de configuración requeridas para el Bus de servicio. El siguiente ejemplo de código, que es el equivalente exacto del ejemplo anterior, debe aparecer directamente debajo del elemento **system.serviceModel**. Este ejemplo de código presupone que el espacio de nombres C# del proyecto tiene el nombre de "Service". Reemplace los marcadores de posición por el espacio de nombres del servicio de Bus de servicio y la clave SAS.
 
     <services>
         <service name="Service.ProblemSolver">
@@ -198,19 +195,19 @@ Una vez que realice estos cambios, el servicio se iniciará como antes, pero con
 
 #### Configuración de un cliente mediante programación
 
-Para consumir el servicio, puede construir un cliente de WCF mediante un objeto [`ChannelFactory`](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). El Bus de servicio usa un modelo basado en tokens de seguridad implementado mediante SAS. La clase **TokenProvider** representa un proveedor de tokens de seguridad con patrones de diseño Factory Method integrados que devuelven algunos proveedores de tokens conocidos. El ejemplo siguiente usa el método [`CreateSharedAccessSignatureTokenProvider`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para controlar la adquisición del token SAS adecuado. El nombre y la clave son los que se obtienen del portal tal y como se describió en la sección anterior.
+Para consumir el servicio, puede construir un cliente WCF mediante un objeto [`ChannelFactory`](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). El Bus de servicio usa un modelo basado en tokens de seguridad implementado mediante SAS. La clase **TokenProvider** representa un proveedor de tokens de seguridad con métodos integrados de fábrica que devuelven algunos proveedores de tokens conocidos. El ejemplo siguiente utiliza el método [`CreateSharedAccessSignatureTokenProvider`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para controlar la adquisición del token SAS adecuado. El nombre y la clave son los que se obtienen del portal tal y como se describió en la sección anterior.
 
-En primer lugar, haga referencia al código del contrato `IProblemSolver` o cópielo del servicio en el proyecto del cliente.
+Primero, haga referencia al código del contrato `IProblemSolver` o cópielo del servicio en el proyecto del cliente.
 
-A continuación, reemplace el código del método `Main` del cliente, y vuelva a reemplazar el texto del marcador de posición por el espacio de nombres del Bus de servicio y la clave SAS:
+A continuación, reemplace el código del método `Main` del cliente, y vuelva a reemplazar el texto del marcador de posición por el espacio de nombres del Bus de servicio y la clave SAS.
 
     var cf = new ChannelFactory<IProblemSolverChannel>(
-        new NetTcpRelayBinding(), 
+        new NetTcpRelayBinding(),
         new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver")));
 
     cf.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior
                 { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","yourKey") });
-     
+
     using (var ch = cf.CreateChannel())
     {
         Console.WriteLine(ch.AddNumbers(4, 5));
@@ -220,7 +217,7 @@ Ya puede compilar el cliente y el servicio y ejecutarlos (ejecute primero el ser
 
 #### Configuración de un cliente en el archivo App.config
 
-También puede configurar el cliente con el archivo App.config. El código de cliente para esto es el siguiente:
+El siguiente código muestra cómo configurar el cliente con el archivo App.config.
 
     var cf = new ChannelFactory<IProblemSolverChannel>("solver");
     using (var ch = cf.CreateChannel())
@@ -228,7 +225,7 @@ También puede configurar el cliente con el archivo App.config. El código de cl
         Console.WriteLine(ch.AddNumbers(4, 5));
     }
 
-Las definiciones del extremo se trasladan al archivo App.config. El siguiente fragmento de código, que es el mismo que el código anterior, debe aparecer directamente debajo del elemento **system.serviceModel**. Aquí, como antes, debe reemplazar los marcadores de posición por el espacio de nombres del Bus de servicio y la clave SAS.
+Las definiciones del extremo se trasladan al archivo App.config. El siguiente ejemplo de código, que es el mismo que el código anterior, debe aparecer directamente debajo del elemento **system.serviceModel**. Aquí, como antes, debe reemplazar los marcadores de posición por el espacio de nombres del Bus de servicio y la clave SAS.
 
     <client>
         <endpoint name="solver" contract="Service.IProblemSolver"
@@ -250,7 +247,7 @@ Las definiciones del extremo se trasladan al archivo App.config. El siguiente fr
 
 ## Pasos siguientes
 
-Ahora que conoce los fundamentos del servicio de **retransmisión** del Bus de servicio, siga estos vínculos para obtener más información.
+Ahora que conoce los fundamentos del servicio de *retransmisión* del Bus de servicio, siga estos vínculos para obtener más información.
 
 -   Compilación de un servicio: [Creación de un servicio de Bus de servicio][].
 -   Compilación del cliente: [Creación de una aplicación de cliente de Bus de servicio][].
@@ -260,12 +257,11 @@ Ahora que conoce los fundamentos del servicio de **retransmisión** del Bus de s
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [Portal de Azure]: http://manage.windowsazure.com
   [Autenticación con firma de acceso compartido en Bus de servicio]: http://msdn.microsoft.com/library/azure/dn170477.aspx
   [Creación de un servicio de Bus de servicio]: http://msdn.microsoft.com/library/azure/ee173564.aspx
   [Creación de una aplicación de cliente de Bus de servicio]: http://msdn.microsoft.com/library/azure/ee173543.aspx
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/es-es/library/azure/dn194201.aspx
- 
+  [MSDN]: https://msdn.microsoft.com/es-ES/library/azure/dn194201.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

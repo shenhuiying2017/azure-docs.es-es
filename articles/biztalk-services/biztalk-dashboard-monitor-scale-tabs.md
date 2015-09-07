@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Panel, Monitor, Escala, Configurar y Conexiones híbridas en Servicios de BizTalk | Microsoft Azure" 
-	description="Obtenga información acerca de los controles y la supervisión del rendimiento en las pestañas del Portal de administración de Servicios de BizTalk: Panel, Monitor, Escala, Configurar y Conexiones híbridas. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	pageTitle="Panel, Monitor, Escala, Configurar y Conexiones híbridas en Servicios de BizTalk | Microsoft Azure"
+	description="Obtenga información acerca de los controles y la supervisión del rendimiento en las pestañas del Portal de administración de Servicios de BizTalk: Panel, Monitor, Escala, Configurar y Conexiones híbridas. MABS, WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="mandia"/>
 
 
 
 
-# Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas
+# Revise las pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas
 
 Después de crear su servicio de BizTalk e implementar su aplicación, puede cambiar algunas de las configuraciones del servicio de BizTalk y supervisar el rendimiento de la aplicación.
 
@@ -241,15 +241,13 @@ También puede elegir los valores **Relativo** o **Absoluto** y el intervalo de 
 ![Seleccione Agregar métricas][AddMetrics]
 3. Compruebe las métricas de rendimiento que quiera mostrar.
 4. Seleccione la marca de verificación para volver a la pestaña **Monitor**.
-5. Seleccione el círculo situado junto a la métrica para mostrar el valor de dicha métrica en el gráfico.
-<br/>
-Por ejemplo, la métrica **Uso de CPU** está en gris; su salida no se muestra en el gráfico:
-<br/>
-![La métrica Uso de CPU está atenuada][GrayedMetric]
-<br/>
-Seleccione el círculo atenuado para habilitar la métrica de **Uso de CPU** para mostrar su resultado en el gráfico:
-<br/>
-![La métrica Uso de CPU está habilitada][EnabledMetric]
+5. Seleccione el círculo situado junto a la métrica para mostrar el valor de dicha métrica en el gráfico.  
+
+	Por ejemplo, la métrica de **Uso de CPU** está atenuada; su salida no se muestra en el gráfico: 
+	![La métrica Uso de CPU está atenuada][GrayedMetric]
+
+	Seleccione el círculo atenuado para habilitar la métrica de **Uso de CPU** para mostrar su resultado en el gráfico: 
+	![La métrica Uso de CPU está habilitada][EnabledMetric]
 
 6. Para eliminar una métrica del gráfico mostrado y de la lista, seleccione **Eliminar métrica** en la barra de tareas. Para agregar la métrica a lista otra vez, seleccione **Agregar métricas** en la barra de tareas, compruebe la métrica y seleccione la marca de verificación para volver a la pestaña **Monitor**. Seleccione el círculo gris para habilitar la métrica.
 
@@ -322,11 +320,11 @@ En un escenario de respuesta de solicitud, la métrica se incrementa cuando el d
 ## Escala
 En la pestaña Escala puede sumar o restar el número de unidades usadas por su servicio de BizTalk. De forma predeterminada, hay una unidad configurada. Se pueden agregar unidades adicionales para escalar su servicio de BizTalk. Cuando se incrementa la escala, se aumenta el rendimiento. La cantidad de recursos también aumenta, incluyendo los puentes implementados, los acuerdos, las conexiones de LOB y la eficacia de procesamiento. Por ejemplo, si aumenta la escala de 1 unidad a 2. En esta situación, puede implementar el doble de puentes, acuerdos, conexiones de LOB y eficacia de procesamiento.
 
-Algunas ediciones de BizTalk no ofrecen la opción de escala. En esta situación, se admite una unidad. A fin de determinar cuántas unidades puede escalar su edición, consulte [Servicios de BizTalk: Gráfico de ediciones](http://go.microsoft.com/fwlink/p/?LinkID=302279).
+Algunas ediciones de BizTalk no ofrecen la opción de escala. En esta situación, se admite una unidad. A fin de determinar cuántas unidades puede escalar su edición, consulte [Servicios de BizTalk: Gráfico de ediciones](biztalk-editions-feature-chart.md).
 
 El aumento del número de unidades podría afectar al precio. Si aumenta las unidades, al seleccionar **Guardar** aparece un mensaje que le indica si la facturación se ve afectada. A continuación, seleccione Continue. Cuando aumente el número de unidades, el estado del servicio de BizTalk cambia de Activo a Actualizando. En el estado Actualizando, su servicio de BizTalk continúa ejecutándose.
 
-[Servicios de BizTalk: gráfico de ediciones](http://go.microsoft.com/fwlink/p/?LinkID=302279) define una unidad.
+[Servicios de BizTalk: gráfico de ediciones](biztalk-editions-feature-chart.md) define una unidad.
 
 
 ## Configuración
@@ -334,7 +332,7 @@ No se aplica a conexiones híbridas.
 
 Establezca Estado de copia de seguridad en Ninguno o Automático. Cuando se establezca en Ninguno, no se creará ninguna copia de seguridad automáticamente. Cuando se establece en Automático, configure la ubicación de la copia de seguridad, la frecuencia de la misma y cuánto tiempo quiere conservar los archivos de copia de seguridad.
 
-[Servicios de BizTalk: copias de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873) proporciona los detalles.
+[Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md) proporciona los detalles.
 
 
 ## <a name="HybridConnections"></a>Conexiones híbridas
@@ -344,22 +342,22 @@ Para crear conexiones híbridas en Sitios web de Azure, consulte [Conexión híb
 
 Para usar conexiones híbridas en Servicios móviles de Azure, consulte [Servicios móviles de Azure y conexiones híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-Para crear o administrar conexiones híbridas en Servicios de BizTalk de Azure, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+Para crear o administrar conexiones híbridas en Servicios de BizTalk de Azure, consulte [Conexiones híbridas](integration-hybrid-connection-overview.md).
 
 
 
 ## Pasos siguientes
 Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener más información acerca de las características de los servicios de BizTalk de Azure:
 
-- [Servicios de BizTalk: limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [Servicios de BizTalk: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-- [Servicios de BizTalk: copias de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [Servicios de BizTalk: limitaciones](biztalk-throttling-thresholds.md)  
+- [Servicios de BizTalk: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)  
+- [Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md)
 
 ## Otras referencias
-- [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-- [Servicios de BizTalk: gráfico de las ediciones Developer, Basic, Standard y Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Servicios de BizTalk: aprovisionamiento con el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Servicios de BizTalk: gráfico del estado del servicio de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [Conexiones híbridas](integration-hybrid-connection-overview.md)  
+- [Servicios de BizTalk: gráfico de las ediciones Developer, Basic, Standard y Premium](biztalk-editions-feature-chart.md)  
+- [Servicios de BizTalk: aprovisionamiento con el Portal de administración de Azure](biztalk-provision-services.md)  
+- [Servicios de BizTalk: gráfico de estado del servicio de BizTalk](biztalk-service-state-chart.md)  
 - [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
@@ -368,4 +366,4 @@ Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener má
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

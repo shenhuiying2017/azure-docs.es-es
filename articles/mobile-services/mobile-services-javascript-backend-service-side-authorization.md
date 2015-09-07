@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="05/20/2015"
+	ms.date="08/25/2015"
 	ms.author="krisragh"/>
 
 # Autorización en el servicio de usuarios en Servicios móviles
@@ -70,4 +70,4 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 [Portal de administración de Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

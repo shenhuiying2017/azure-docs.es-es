@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introducción técnica"
-   description="Introducción técnica a Service Fabric. Explica los conceptos claves y la introducción a la arquitectura"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor="chackdan;subramar"/>
+	description="Introducción técnica a Service Fabric. Explica los conceptos claves y la introducción a la arquitectura"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="msfussell"
+	manager="timlt"
+	editor="chackdan;subramar"/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/14/2015"
-   ms.author="mfussell"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="mfussell"/>
 
 # Introducción técnica a Service Fabric
 
@@ -54,4 +54,4 @@ Para obtener más información acerca de Service Fabric, consulte:
 - [Escenarios de aplicación](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Códecs y formatos de Media Encoder Standard" 
-	description="En este tema se ofrece información general sobre los códecs y formatos de Azure Media Encoder Standard." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Códecs y formatos de Media Encoder Standard"
+	description="En este tema se ofrece información general sobre los códecs y formatos de Azure Media Encoder Standard."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
@@ -27,7 +27,7 @@ Este documento contiene una lista de los formatos de archivo de importación y e
 [Formatos de exportación del codificador multimedia](#export_formats)
 
 
-##<a id="import_formats"></a>Formatos de importación de Media Encoder 
+##<a id="import_formats"></a>Formatos de importación de Codificador multimedia Estándar 
 
 En la siguiente sección se enumeran los códecs y el formato de archivo que se admiten para la importación.
 
@@ -69,7 +69,7 @@ GXF|.gxf
 WAVE/WAV |.wav
 
 
-##<a id="export_formats"></a>Formatos de exportación de Media Encoder
+##<a id="export_formats"></a>Formatos de exportación de Codificador multimedia Estándar
 
 La siguiente tabla enumera los códecs y los formatos de archivo compatibles para exportación.
 
@@ -83,4 +83,4 @@ MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-L
 
 [Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

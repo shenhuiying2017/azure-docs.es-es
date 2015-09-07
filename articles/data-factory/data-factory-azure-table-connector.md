@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Conector de tablas de Azure: movimiento de datos a y desde tablas de Azure" 
-	description="Obtenga información acerca del conector de tablas de Azure para el servicio Factoría de datos que le permite mover datos a y desde el almacenamiento de tablas de Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Movimiento de datos hacia y desde Tabla de Azure | Factoría de datos de Azure"
+	description="Obtenga información acerca de cómo mover los datos hacia y desde Almacenamiento de tablas de Azure mediante Factoría de datos de Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Conector de tablas de Azure: movimiento de datos a y desde tablas de Azure
+# Movimiento de datos hacia y desde Tabla de Azure mediante Factoría de datos de Azure
 
 En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos a tablas de Azure desde otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
@@ -24,10 +24,10 @@ En este artículo se describe cómo puede usar la actividad de copia en la Facto
 
 El ejemplo siguiente muestra:
 
-1.	Un servicio vinculado de tipo AzureStorage (usado para tabla y blob).
-2.	Un conjunto de datos de entrada de tipo AzureTable.
-3.	Un conjunto de datos de salida de tipo AzureBlob. 
-3.	Una canalización con la actividad de copia que usa AzureTableSource y BlobSink. 
+1.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usado para tabla y blob).
+2.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [AzureTable](#azure-table-dataset-type-properties).
+3.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+3.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [AzureTableSource](#azure-table-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 El ejemplo copia los datos que pertenecen a la partición predeterminada de una tabla de Azure a un blob cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -132,7 +132,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Canalización con actividad de copia:**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **AzureTableSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada con la propiedad **AzureTableSourceQuery** selecciona los datos de la partición predeterminada cada hora, que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **AzureTableSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada con la propiedad **AzureTableSourceQuery** selecciona los datos de la partición predeterminada cada hora, que se van a copiar.
 
 	{  
 	    "name":"SamplePipeline",
@@ -183,10 +183,11 @@ La canalización contiene una actividad de copia que está configurada para usar
 
 El ejemplo siguiente muestra:
 
-1.	Un servicio vinculado de tipo AzureStorage (usado para tabla y blob)
-3.	Un conjunto de datos de entrada de tipo AzureBlob.
-4.	Un conjunto de datos de salida de tipo AzureTable. 
-4.	Una canalización con la actividad de copia que usa BlobSource y AzureTableSink. 
+1.	Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usado para tabla y blob)
+3.	Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureTable](#azure-table-dataset-type-properties). 
+4.	Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) y [AzureTableSink](#azure-table-copy-activity-type-properties). 
+
 
 El ejemplo copia los datos que pertenecen a una serie temporal desde un blob de Azure a una tabla de una base de datos de una tabla de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -290,7 +291,7 @@ El ejemplo copia los datos a una tabla denominada "MyTable" en la tabla de Azure
 
 **Canalización con actividad de copia:**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **AzureTableSink**.
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **AzureTableSink**.
 
 
 	{  
@@ -388,12 +389,12 @@ writeBatchTimeout | Inserta datos en la tabla de Azure cuando se alcanza el valo
 
 ### Asignación de tipos para tabla de Azure
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos:
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos.
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Al mover datos a y desde la tabla de Azure, se usarán las siguientes [asignaciones definidas por el servicio Tabla de Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) desde tipos OData de la tabla de Azure al tipo .NET y viceversa.
+Al mover datos a y desde Tabla de Azure, se usarán las siguientes [asignaciones definidas por el servicio Tabla de Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) desde tipos OData de Tabla de Azure al tipo .NET y viceversa.
 
 | Tipo de datos OData | Tipo .NET | Detalles |
 | --------------- | --------- | ------- |
@@ -484,4 +485,4 @@ En este caso, la Factoría de datos realizará automáticamente las conversiones
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Consideraciones de rendimiento del Administrador de tráfico de Azure | Microsoft Azure"
-   description="Descripción del rendimiento en el Administrador de tráfico y cómo probar el rendimiento de su sitio web al usar el Administrador de tráfico"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="kwill-MSFT"
-   manager="adinah"
-   editor="joaoma" />
+	description="Descripción del rendimiento en el Administrador de tráfico y cómo probar el rendimiento de su sitio web al usar el Administrador de tráfico"
+	services="traffic-manager"
+	documentationCenter=""
+	authors="kwill-MSFT"
+	manager="adinah"
+	editor="joaoma"/>
 
 <tags 
    ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/19/2015"
+	ms.author="joaoma"/>
 
 
 # Consideraciones de rendimiento sobre el Administrador de tráfico
@@ -28,12 +28,12 @@ En esta página se hablará sobre el impacto directo sobre el rendimiento que Ad
 
 ## Nota importante acerca del funcionamiento del Administrador de tráfico
 
-http://msdn.microsoft.com/library/windowsazure/hh744833.aspx es un excelente recurso para aprender cómo funciona el Administrador de tráfico, pero hay mucha información en esa página y obtener la información clave relacionada con el rendimiento puede resultar difícil. Los puntos importantes a observar en la documentación de MSDN son los pasos #5 y 6 # de la imagen 3, que se explicarán con más detalle a continuación:
+[Información general sobre el Administrador de tráfico](traffic-manager-overview.md) es un excelente recurso para aprender cómo funciona el Administrador de tráfico, pero hay mucha información en esa página y obtener la información clave relacionada con el rendimiento puede resultar difícil. Los puntos importantes a observar en la documentación de MSDN son los pasos #5 y 6 # de la imagen 3, que se explicarán con más detalle a continuación:
 
 - El Administrador de tráfico básicamente solo hace una cosa: la resolución de DNS. Esto significa que el único impacto en el rendimiento que puede tener el Administrador de tráfico en su sitio web es la búsqueda de DNS inicial.
 - Un punto de aclaración sobre la búsqueda de DNS del Administrador de tráfico. Administrador de tráfico rellena y actualiza con regularidad los servidores de raíz DNS de Microsoft basados en su directiva y en los resultados del sondeo. Por lo tanto, incluso durante la búsqueda de DNS inicial no hay ninguna participación por parte del Administrador de tráfico ya que la solicitud DNS la controlan los servidores de raíz DNS de Microsoft normales. Si el Administrador se vuelve inactivo (por ejemplo, se produce un error en las máquinas virtuales que realizan el sondeo de directivas y la actualización de DNS), no habrá ningún impacto en su nombre de DNS de Administrador de tráfico, ya que las entradas de los servidores DNS de Microsoft se mantendrán; el único impacto será que el sondeo y la actualización basados en políticas no se producirán (por ejemplo, si su sitio principal deja de funcionar, Administrador de tráfico no podrá actualizar DNS para señalar su sitio de conmutación por error).
 - El tráfico NO fluye a través del Administrador de tráfico. No hay ningún servidor de Administrador de tráfico que actúe como intermediario entre los clientes y su servicio hospedado de Azure. Una vez finalizada la búsqueda de DNS, Administrador de tráfico se eliminará completamente de la comunicación entre cliente y servidor.
-- La búsqueda de DNS es muy rápida y se almacena en la memoria caché. La búsqueda de DNS inicial dependerá del cliente y de sus servidores DNS configurados. Normalmente, un cliente puede realizar una búsqueda de DNS en \~ 50 ms (consulte http://www.solvedns.com/dns-comparison/)). Una vez que se realice la primera búsqueda, los resultados se almacenarán en la memoria caché para el TTL de DNS, que para Administrador de tráfico es un valor predeterminado de 300 segundos.
+- La búsqueda de DNS es muy rápida y se almacena en la memoria caché. La búsqueda de DNS inicial dependerá del cliente y de sus servidores DNS configurados. Normalmente, un cliente puede realizar una búsqueda de DNS en ~ 50 ms (consulte http://www.solvedns.com/dns-comparison/)). Una vez que se realice la primera búsqueda, los resultados se almacenarán en la memoria caché para el TTL de DNS, que para Administrador de tráfico es un valor predeterminado de 300 segundos.
 - La directiva de Administrador de tráfico que elija (rendimiento, conmutación por error, round robin) no influye en el rendimiento de DNS. La directiva de rendimiento puede afectar negativamente a la experiencia del usuario, por ejemplo, si envía a usuarios de Estados Unidos a un servicio alojado en Asia, pero este problema de rendimiento no está causado por el Administrador de tráfico.
 
   
@@ -79,7 +79,7 @@ http://www.digwebinterface.com: es similar al sitio de watchmouse, pero este mue
 
 ## Conclusión
 
-Dada la información anterior, sabemos que el único impacto en el rendimiento que tendrá Administrador de tráfico en un sitio web es la primera búsqueda de DNS (los tiempos varían, pero de media serán \~ 50 ms), y no tendrá ningún impacto en el rendimiento durante el TTL de DNS (300 segundos de manera predeterminada) y, a continuación, nuevamente una actualización de la caché de DNS una vez caducado el TTL. Por lo tanto, en esencia, la respuesta a la pregunta "¿Cuánta latencia agregará el Administrador de tráfico a mi sitio web?", la respuesta es cero.
+Dada la información anterior, sabemos que el único impacto en el rendimiento que tendrá Administrador de tráfico en un sitio web es la primera búsqueda de DNS (los tiempos varían, pero de media serán ~ 50 ms), y no tendrá ningún impacto en el rendimiento durante el TTL de DNS (300 segundos de manera predeterminada) y, a continuación, nuevamente una actualización de la caché de DNS una vez caducado el TTL. Por lo tanto, en esencia, la respuesta a la pregunta "¿Cuánta latencia agregará el Administrador de tráfico a mi sitio web?", la respuesta es cero.
 
 
 ## Pasos siguientes
@@ -98,4 +98,4 @@ Dada la información anterior, sabemos que el único impacto en el rendimiento q
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

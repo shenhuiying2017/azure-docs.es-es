@@ -1,6 +1,6 @@
 ## Descripción de las plantillas de recursos y grupos de recursos de Azure
 
-La mayoría de las aplicaciones que se implementan y ejecutan en Microsoft Azure constan de una combinación de diferentes tipos de recursos en la nube (por ejemplo, una o varias máquinas virtuales y cuentas de almacenamiento, una base de datos SQL, una red virtual, una CDN, etc.). Las [plantillas del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx) permiten implementar y administrar los distintos recursos conjuntamente mediante una descripción de JSON de los recursos y los parámetros de configuración e implementación asociados.
+La mayoría de las aplicaciones que se implementan y ejecutan en Microsoft Azure constan de una combinación de diferentes tipos de recursos en la nube (por ejemplo, una o varias máquinas virtuales y cuentas de almacenamiento, una base de datos SQL, una red virtual, una CDN, etc.). Las [plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md) permiten implementar y administrar los distintos recursos conjuntamente mediante una descripción de JSON de los recursos y los parámetros de configuración e implementación asociados.
 
 Una vez definida una plantilla de recursos basada en JSON, puede ejecutarla y que los recursos definidos en ella se implementen en Azure mediante un comando de PowerShell. Puede ejecutar este comando de PowerShell de forma independiente dentro del shell de comandos de PowerShell, o bien integrarlo dentro de un script de PowerShell que contenga una lógica de automatización adicional.
 
@@ -8,4 +8,4 @@ Los recursos que se crean con plantillas del Administrador de recursos de Azure 
 
 Los siguientes ejemplos de automatización muestran cómo usar las plantillas del Administrador de recursos de Azure e implementar grupos de recursos con PowerShell o la CLI.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

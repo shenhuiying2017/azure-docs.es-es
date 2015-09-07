@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell
@@ -962,4 +962,4 @@ Verá información similar a la siguiente:
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

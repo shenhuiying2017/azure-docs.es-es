@@ -1,23 +1,27 @@
-
 <properties 
-	pageTitle="Crear filtros con la API de REST de Servicios multimedia" 
-	description="En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. Servicios multimedia crea manifiestos dinámicos par lograr este streaming selectivo." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Crear filtros con la API de REST de Servicios multimedia"
+	description="En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una secuencia. Servicios multimedia crea manifiestos dinámicos para lograr este streaming selectivo."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
 #Crear filtros con la API de REST de Servicios multimedia
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-dynamic-manifest.md)
+- [REST](media-services-rest-dynamic-manifest.md)
+
 
 A partir de la versión 2.11, los Servicios multimedia permiten definir filtros para los activos. Estos filtros son reglas del lado servidor que permitirán a los clientes elegir realizar acciones como: reproducir solo una sección de un vídeo (en lugar de reproducir el vídeo completo), o especificar solo un subconjunto de las representaciones de audio y vídeo que el dispositivo de su cliente puede controlar (en lugar de todas las copias asociadas al activo). Este filtrado de sus activos se logra a través de los **manifiestos dinámicos** que se crean tras la solicitud del cliente para transmitir un vídeo en función de los filtros especificados.
 
@@ -29,10 +33,10 @@ En este tema se muestra cómo usar las API de REST para crear, actualizar y elim
 
 Al crear filtros, se usan los siguientes tipos:
 
-- [Filter](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- [AssetFilter](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- [PresentationTimeRange](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- [FilterTrackSelect y FilterTrackPropertyCondition](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+- [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
+- [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
+- [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
+- [FilterTrackSelect y FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
 
 
 
@@ -41,7 +45,6 @@ Al crear filtros, se usan los siguientes tipos:
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
 >Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md).
-
 
 
 ##Crear filtros
@@ -250,7 +253,7 @@ Cuerpo de la solicitud:
 	   ] 
 	} 
 
-###Cargar AssetFilters locales
+###Actualización de AssetFilters locales
 
 Para actualizar un filtro local, use las siguientes solicitudes HTTP:
 
@@ -363,4 +366,4 @@ En los ejemplos siguientes se muestra cómo agregar filtros a sus URL de streami
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

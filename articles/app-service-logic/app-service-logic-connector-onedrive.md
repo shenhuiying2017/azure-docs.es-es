@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Conector de OneDrive"
-	description="Introducción al conector de OneDrive"
+	pageTitle="Uso del conector de OneDrive en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+	description="Creación y configuración del conector de OneDrive o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Uso del conector de OneDrive en la aplicación lógica #
-
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
-
-El conector de OneDrive permite cargar, descargar o eliminar archivos desde su cuenta de OneDrive.
+# Introducción al conector de OneDrive y su incorporación a su aplicación lógica
+Conéctese a su OneDrive para cargar, descargar y eliminar archivos. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Puede agregar el conector de OneDrive a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 ## Creación de un conector de OneDrive para la aplicación lógica ##
 Para usar el conector de OneDrive, deberá crear primero una instancia de la aplicación de API del conector de OneDrive. Esto puede hacerse desde el diseñador de la aplicación lógica directamente o fuera de él. Para crear una instancia fuera del diseñador, proceda como sigue:
@@ -98,6 +95,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [crear una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 [Definición de la API de OneDrive]: https://msdn.microsoft.com/es-es/library/dn974227.aspx
 
-<!---HONumber=August15_HO6-->
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

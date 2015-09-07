@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Ver y modificar los nombres de host"
-   description="Descripción"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn" />
+	description="Descripción"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="joaoma"/>
 
 # Ver y modificar los nombres de host
 
@@ -51,7 +51,7 @@ Desde un cliente REST, siga estas instrucciones:
 
 1. Establezca una entrada de encabezado denominada x-ms-version con un valor de 2013-11-01.
 
-1. Envíe una solicitud con el siguiente formato: https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
+1. Envíe una solicitud con el siguiente formato: https://management.core.windows.net/<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
 
 1. Busque el elemento **HostName** de cada elemento **RoleInstance**.
 
@@ -61,14 +61,14 @@ Desde un cliente REST, siga estas instrucciones:
 
 Puede modificar el nombre de host de cualquier máquina virtual o instancia de rol al cargar un archivo de configuración de servicio modificado o al cambiar el nombre del equipo desde una sesión de Escritorio remoto.
 
-## Otras referencias
+## Pasos siguientes
 
-[resolución de nombres DNS](https://msdn.microsoft.com/library/azure/jj156088.aspx)
+[resolución de nombres DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Esquema de configuración del servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
 [Esquema de configuración de la red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Configuración de una red virtual mediante archivos de configuración de red](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Especificación de la configuración de DNS usando los archivos de configuración de red](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->
