@@ -156,4 +156,4 @@ En la lista siguiente se proporcionan recursos adicionales para SQL Server en m�
 
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->
