@@ -88,7 +88,7 @@ La característica de sincronización de datos sin conexión de Aplicaciones mó
 
     El segundo parámetro para `pullWithQuery` es un identificador de consulta que se utiliza para la *sincronización incremental*. La sincronización incremental recupera solo aquellos registros modificados desde la última sincronización, mediante la marca de tiempo del registro `UpdatedAt` (llamada `ms_updatedAt` en el almacén local). El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `nil` como identificador de la consulta. Tenga en cuenta que esto puede resultar potencialmente ineficaz, ya que se recuperarán todos los registros de cada operación de extracción.
 
-	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a {MSSyncTable.purgeWithQuery} para purgar el almacén local.
  -->
 
 5. En la clase `QSTodoService`, se llama al método `syncData` después de las operaciones que modifican datos, `addItem` y `completeItem`. También se le llama desde `QSTodoListViewController.refresh`, de modo que el usuario obtiene los datos más recientes cada vez que realizan los gestos de actualización. La aplicación también lleva a cabo una sincronización en el inicio, ya que `QSTodoListViewController.init` llama a `refresh`.
@@ -159,8 +159,8 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     | complete | Booleano | todo item field |
     | text | Cadena | todo item field |
     | ms\_createdAt | Date | (opcional) maps to \_\_createdAt system property | 
-    | ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | 
-    | ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
+	| ms\_updatedAt | Date | (opcional) maps to \_\_updatedAt system property | 
+	| ms\_version | String | (opcional) used to detect conflicts, maps to \_\_version |
 
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
@@ -224,7 +224,7 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 
     Si desea cancelar la sincronización incremental, pase `nil` como identificador de consulta. En este caso, se recuperarán todos los registros en cada llamada a `pullWithQuery`, que es potencialmente ineficaz.
 
-<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+<!-- * Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->
 
 ## Recursos adicionales

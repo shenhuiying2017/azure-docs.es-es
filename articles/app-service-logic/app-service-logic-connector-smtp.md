@@ -57,11 +57,14 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 ## Uso del conector de SMTP en la aplicación lógica
 Una vez creado el conector, ahora puede usar el conector de SMTP como acción para la aplicación lógica. Para ello, siga estos pasos:
 
-1.	Cree una nueva aplicación lógica: 
+1.	Cree una nueva aplicación lógica.
+
 	![][2]
-2.	Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas y configurar el flujo de trabajo: 
+2.	Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas y configurar el flujo de trabajo.
+
 	![][3]
-3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo: 
+3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo:
+
 	![][4]
 4.	Seleccione el conector de SMTP para agregarlo automáticamente al diseñador de flujo de trabajo.
 
@@ -69,14 +72,14 @@ Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. S
 
 	Propiedad | Descripción
 	--- | ---
-	To | Especifique la dirección de correo electrónico de los destinatarios. Separe varias direcciones de correo electrónico mediante un punto y coma (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Especifique la dirección de correo electrónico de los destinatarios de copia oculta. Separe varias direcciones de correo electrónico mediante un punto y coma (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Especifique el asunto del correo electrónico.
-	Body | Escriba el cuerpo del correo electrónico.
-	Is HTML | Si esta propiedad está establecida en true, el contenido del cuerpo se envía como HTML.
+	Para | Escriba la dirección de correo electrónica de los destinatarios. Separe las distintas direcciones de correo electrónico con puntos y comas (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Escriba la dirección de correo electrónica de los destinatarios. Separe varias direcciones de correo electrónico mediante un punto y coma (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
+	Asunto | Especifique el asunto del correo electrónico.
+	Cuerpo | Escriba el cuerpo del correo electrónico.
+	Es HTML | Si esta propiedad está establecida en true, el contenido del cuerpo se envía como HTML.
 	Bcc | Especifique la dirección de correo electrónico de los destinatarios para la copia de carbón oculta. Separe varias direcciones de correo electrónico mediante un punto y coma (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Especifique la importancia del correo electrónico. Las opciones son Normal, Baja y Alta.
-	Attachments | Datos adjuntos que se deben enviar con el correo electrónico. Contiene los campos siguientes: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	Importancia | Especifique la importancia del correo electrónico. Las opciones son Normal, Baja y Alta.
+	Datos adjuntos | Datos adjuntos que se deben enviar con el correo electrónico. Contiene los campos siguientes: Contiene los campos siguientes:<ul><li>Contenido (String)</li><li>Codificación de trasferencia de contenido (Enum) (“none”|”base64”)</li><li>Tipo de contenido (String)</li><li>ID de contenido (String)</li><li>Nombre de archivo (String)</li></ul>
 
 	![][5]
 	![][6]
@@ -96,4 +99,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->
