@@ -21,7 +21,8 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure</a>.
+>[AZURE.NOTE]
+> Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure</a>.
 
 Esta guía de inicio rápido le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo bajo demanda (VoD) mediante API de REST de Servicios multimedia de Azure (AMS).
 
@@ -81,7 +82,8 @@ En los pasos siguientes se describe el flujo de trabajo más común al usar la A
 1. Obtención de un token de acceso 
 2. Conexión al URI de Servicios multimedia 
 	
-	>[AZURE.NOTE]Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
+	>[AZURE.NOTE]
+	Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
 	> 
 	> Es posible que también reciba una respuesta HTTP/1.1 200 que contenga la descripción de metadatos de la API de ODATA.
 3. Registre las llamadas de API posteriores en la nueva dirección URL. 
@@ -145,7 +147,8 @@ En el ejemplo siguiente se muestra la respuesta HTTP que contiene el token de ac
 	}
 	
 
->[AZURE.NOTE]Se recomienda almacenar en memoria caché los valores "access_token" y "expires_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
+>[AZURE.NOTE]
+>Se recomienda almacenar en memoria caché los valores "access_token" y "expires_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
 
 Asegúrese de supervisar el valor "expires_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
 
@@ -211,7 +214,7 @@ En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios m
 	 
 
 
->[AZURE.NOTE]A partir de ahora se usará el nuevo URI en este tutorial.
+>[AZURE.NOTE] A partir de ahora se usará el nuevo URI en este tutorial.
 
 ## <a id="upload"></a>Creación de un nuevo recurso y carga de un archivo de vídeo con la API de REST
 
@@ -466,7 +469,7 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 	
 Una vez establecidas AccessPolicy y Locator, el archivo real se carga en un contenedor de almacenamiento de blobs de Azure mediante las API de REST de almacenamiento de Azure. Puede cargar en la página o blobs en bloques.
 
->[AZURE.NOTE]Debe agregar el nombre de archivo para el archivo que desea cargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?.
+>[AZURE.NOTE] Debe agregar el nombre de archivo para el archivo que desea cargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?.
 
 Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
@@ -496,7 +499,8 @@ Ahora que ha cargado el archivo, actualice la información de tamaño de FileAss
 
 **Respuesta HTTP**
 
-Si se realiza correctamente, se devuelve lo siguiente: HTTP/1.1 204 No Content
+Si se realiza correctamente, se devuelve lo siguiente: 
+	HTTP/1.1 204 No Content
 
 ## Eliminación de Locator y AccessPolicy 
 
@@ -553,7 +557,7 @@ Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
 
 
->[AZURE.NOTE]Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE] Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 	
@@ -827,7 +831,7 @@ Hay algunas cuestiones importantes a tener en cuenta en cualquier solicitud de t
 - Las tareas no pueden formar un ciclo.
 - El parámetro de valor que se pasa a JobInputAsset o JobOutputAsset representa el valor de índice para un recurso. Los recursos reales se definen en las propiedades de navegación InputMediaAssets y OutputMediaAssets en la definición de la entidad Job. 
 
->[AZURE.NOTE]Dado que Servicios multimedia se basa en OData v3, se hace referencia a los recursos individuales de las colecciones de propiedades de navegación InputMediaAssets y OutputMediaAssets a través de un par nombre-valor "\_\_metadata: uri".
+>[AZURE.NOTE] Dado que Servicios multimedia se basa en OData v3, se hace referencia a los recursos individuales de las colecciones de propiedades de navegación InputMediaAssets y OutputMediaAssets a través de un par nombre-valor "\_\_metadata: uri".
 
 - InputMediaAssets se asigna a uno o más recursos que ha creado en Servicios multimedia. El sistema crea OutputMediaAssets. Estos no hacen referencia a ningún recurso existente.
 - Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor del texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) \_NewJob".
@@ -902,7 +906,7 @@ En el ejemplo siguiente se muestra cómo llamar a CancelJob.
 
 Si se realiza correctamente, se devuelve un código de respuesta 204 sin cuerpo del mensaje.
 
->[AZURE.NOTE]Debe codificar con URL el identificador del trabajo (normalmente, nb:jid:UUID: somevalue) al pasarlo como parámetro a CancelJob.
+>[AZURE.NOTE] Debe codificar con URL el identificador del trabajo (normalmente, nb:jid:UUID: somevalue) al pasarlo como parámetro a CancelJob.
 
 
 ### Obtención del resultado de salida 
@@ -1082,7 +1086,7 @@ La propiedad **Path** devuelta contiene la dirección URL de SAS.
 
 Una vez establecidos AccessPolicy y Locator, puede descargar archivos mediante las API de REST de almacenamiento de Azure.
 
->[AZURE.NOTE]Debe agregar el nombre de archivo para el archivo que desea descargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?.
+>[AZURE.NOTE] Debe agregar el nombre de archivo para el archivo que desea descargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?.
 
 Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
@@ -1197,4 +1201,4 @@ Para probar la descarga progresiva, pegue una dirección URL en un explorador (p
 
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

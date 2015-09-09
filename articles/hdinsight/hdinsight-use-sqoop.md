@@ -61,23 +61,23 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	<tr><td>Nombre de la base de datos SQL de Azure</td><td>$sqlDatabaseName</td><td></td><td>Base de datos SQL de Azure a la que Sqoop exportará datos o desde la que los importará. </td></tr>
 	</table>
 
-	> [AZURE.NOTE]De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
+	> [AZURE.NOTE] De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
 
 * **SQL Server**: si el clúster de HDInsight se encuentra en la misma red virtual de Azure que un SQL Server, puede seguir los pasos indicados en este artículo para importar y exportar datos a una base de datos de SQL Server.
 
-	> [AZURE.NOTE]HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
+	> [AZURE.NOTE] HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
 
 	* Para crear y configurar una red virtual, consulte [Tareas de configuración de red virtual](../services/virtual-machines/).
 
 		* Cuando use SQL Server en el centro de datos, debe configurar la red virtual como de *sitio a sitio* o de *punto a sitio*.
 
-			> [AZURE.NOTE]En el caso d las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
+			> [AZURE.NOTE] En el caso d las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
 
 		* Si usa SQL Server en una máquina virtual de Azure, se puede usar cualquier configuración de red virtual si la máquina virtual que hospeda SQL Server es miembro de la misma red virtual que HDInsight.
 
 	* Para aprovisionar un clúster de HDInsight en una red virtual, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight usando opciones personalizadas](hdinsight-provision-clusters.md)
 
-	> [AZURE.NOTE]SQL Server también debe permitir la autenticación. Debe usar un inicio de sesión de SQL Server para completar los pasos de este artículo.
+	> [AZURE.NOTE] SQL Server también debe permitir la autenticación. Debe usar un inicio de sesión de SQL Server para completar los pasos de este artículo.
 
 	<table border="1">
 	<tr><th>Propiedad de la base de datos de SQL Server</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
@@ -88,7 +88,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	</table>
 
 
-> [AZURE.NOTE]Rellene los valores de las tablas anteriores. Le resultará útil para completar el tutorial.
+> [AZURE.NOTE] Rellene los valores de las tablas anteriores. Le resultará útil para completar el tutorial.
 
 ##Descripción del escenario
 Un clúster de HDInsight incluye algunos datos de ejemplo. Usará los dos ejemplos siguientes:
@@ -131,9 +131,9 @@ Para obtener instrucciones sobre cómo agregar más cuentas de almacenamiento, c
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]La sintaxis **wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis **asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
+> [AZURE.NOTE] La sintaxis **wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis **asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
 
-> [AZURE.NOTE]La ruta de acceso **wasb://* es una ruta de acceso virtual. Para obtener más información, consulte [Uso de almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
+> [AZURE.NOTE] La ruta de acceso **wasb://* es una ruta de acceso virtual. Para obtener más información, consulte [Uso de almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
 
 Para acceder a un archivo almacenado en el blog del sistema de archivos predeterminado desde HDInsight se puede usar cualquiera de los URI siguientes (en los siguientes ejemplos se usa sample.log):
 
@@ -282,7 +282,7 @@ Esto es válido para otros ejemplos que usan estos datos, pero debemos quitar es
 
 	Se le pedirá que escriba las credenciales de la cuenta de Azure. Este método de agregar una conexión de suscripción expira y, transcurridas 12 horas, tendrá que volver a iniciar sesión.
 
-	> [AZURE.NOTE]Si tiene varias suscripciones de Azure y no desea usar la predeterminada, use el cmdlet <strong>Select-AzureSubscription</strong> para seleccionar la suscripción actual.
+	> [AZURE.NOTE] Si tiene varias suscripciones de Azure y no desea usar la predeterminada, use el cmdlet <strong>Select-AzureSubscription</strong> para seleccionar la suscripción actual.
 
 3. Copie el script siguiente en el panel de scripts y, a continuación, establezca las primeras dos variables:
 
@@ -354,7 +354,7 @@ Esto es válido para otros ejemplos que usan estos datos, pero debemos quitar es
 
 En esta sección, usará Azure PowerShell para ejecutar el comando de exportación de Sqoop a fin de exportar una tabla de Hive y un archivo de datos a una base de datos SQL de Azure o a SQL Server. En la siguiente sección se ofrece un ejemplo de .NET de HDInsight.
 
-> [AZURE.NOTE]Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
+> [AZURE.NOTE] Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
 >
 > * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte[ Configuración de una VPN de punto a sitio en el Portal de administración](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 > * **Azure HDInsight 3.1**: consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight usando opciones personalizadas](hdinsight-provision-clusters.md) para obtener información sobre la creación de un clúster en una red virtual.
@@ -395,7 +395,7 @@ En esta sección, usará Azure PowerShell para ejecutar el comando de exportaci�
 
 	Para ver más descripciones de las variables, consulte la sección [Requisitos previos](#prerequisites) de este tutorial.
 
-	Observe que $exportDir\_log4j no tiene especificado el nombre del archivo sample.log. Sqoop exportará los datos de todos los archivos ubicados en esa carpeta.
+	Observe que $exportDir_log4j no tiene especificado el nombre del archivo sample.log. Sqoop exportará los datos de todos los archivos ubicados en esa carpeta.
 
 4. Anexe el script siguiente en el panel de scripts:
 
@@ -648,4 +648,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

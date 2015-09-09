@@ -81,8 +81,8 @@ Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. S
 	Importancia | Especifique la importancia del correo electrónico. Las opciones son Normal, Baja y Alta.
 	Datos adjuntos | Datos adjuntos que se deben enviar con el correo electrónico. Contiene los campos siguientes: Contiene los campos siguientes:<ul><li>Contenido (String)</li><li>Codificación de trasferencia de contenido (Enum) (“none”|”base64”)</li><li>Tipo de contenido (String)</li><li>ID de contenido (String)</li><li>Nombre de archivo (String)</li></ul>
 
-	![][5]
-	![][6]
+![][5]
+![][6]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
@@ -99,4 +99,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!-----HONumber=August15_HO9-->
+<!-------HONumber=August15_HO9-->

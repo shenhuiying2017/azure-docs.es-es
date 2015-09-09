@@ -920,4 +920,4 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 -	[Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!-----HONumber=August15_HO8-->
+<!------HONumber=August15_HO8-->

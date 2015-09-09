@@ -94,7 +94,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
      6\.6. Como **Sign LogoutRequest**, seleccione **Yes**.
 
-     6\.7. En el cuadro de texto **When SAML 2.0 single sign-on fails because the session is not authenticated, or this is the first login, redirect to this URL**, escriba **https://login.windows.net/<su GUID de inquilino>/saml2**.
+     6.7. En el cuadro de texto **Cuando se produce un error en el inicio de sesión único de SAML 2.0 porque la sesión no está autenticada, o es el primer inicio de sesión, redirigir a esta dirección URL**, escriba **https://login.windows.net/<su GUID de inquilino>/saml2**.
 
   
 
@@ -113,7 +113,7 @@ Como parte de este procedimiento, es necesario cargar un certificado codificado 
 
      7\.6 Deje la casilla **Create an AuthnContextClass request in the AuthnRequest statement** sin activar.
 
-     7\.7 En el cuadro de texto **The AuthnContextClassRef method that will be included in our SAML 2.0 AuthnRequest to the Identity Provider**, escriba ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+     7\.7 En el cuadro de texto **The AuthnContextClassRef method that will be included in our SAML 2.0 AuthnRequest to the Identity Provider**, escriba **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
 
 
 
@@ -213,4 +213,4 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-<!----HONumber=August15_HO8-->
+<!-----HONumber=August15_HO8-->

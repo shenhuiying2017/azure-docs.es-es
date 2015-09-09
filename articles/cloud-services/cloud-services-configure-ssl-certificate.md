@@ -143,7 +143,7 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 
     ![Ejemplo de sitio web con SSL][3]
 
-Si desea usar SSL para una implementación de ensayo en vez de una implementación de producción, tendrá que determinar primero la dirección URL que se usó para la implementación de ensayo. Implemente su servicio en la nube para el entorno de ensayo sin incluir un certificado ni ninguna información del certificado. Una vez implementado, puede determinar la dirección URL basada en el GUID, que se incluye en el campo **Dirección URL del sitio** del Portal de administración. Cree un certificado con un nombre común (CN) igual a la dirección URL basada en el GUID (por ejemplo, 32818777-6e77-4ced-**a8fc-57609d404462.cloudapp.net**), use el Portal de administración para agregar el certificado al servicio en la nube de ensayo, agregue la información del certificado a los archivos CSDEF y CSCFG, vuelva a empaquetar la aplicación y actualice la implementación de ensayo para usar el paquete y el archivo CSCFG nuevos.
+Si desea usar SSL para una implementación de ensayo en vez de una implementación de producción, tendrá que determinar primero la dirección URL que se usó para la implementación de ensayo. Implemente su servicio en la nube para el entorno de ensayo sin incluir un certificado ni ninguna información del certificado. Una vez implementado, puede determinar la dirección URL basada en el GUID, que se incluye en el campo **Dirección URL del sitio** del Portal de administración. Cree un certificado con un nombre común (CN) igual a la dirección URL basada en el GUID (por ejemplo, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), use el Portal de administración para agregar el certificado al servicio en la nube de ensayo, agregue la información del certificado a los archivos CSDEF y CSCFG, vuelva a empaquetar la aplicación y actualice la implementación de ensayo para usar el paquete y el archivo CSCFG nuevos.
 
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
@@ -152,4 +152,4 @@ Si desea usar SSL para una implementación de ensayo en vez de una implementaci�
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!------HONumber=August15_HO7-->
+<!-------HONumber=August15_HO7-->
