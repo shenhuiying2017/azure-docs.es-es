@@ -73,26 +73,26 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 
 5.  En otra ventana del explorador web, inicie sesión en como administrador en el sitio de la compañía de ArcGIS.
 
-6.  Haga clic en **Edit Settings** (Editar configuración).
+6.  Haga clic en **Editar configuración**.
 
     ![Editar configuración](./media/active-directory-saas-arcgis-tutorial/IC784742.png "Editar configuración")
 
-7.  Haga clic en **Security** (Seguridad).
+7.  Haga clic en **Seguridad**.
 
     ![Seguridad](./media/active-directory-saas-arcgis-tutorial/IC784743.png "Seguridad")
 
-8.  En **Enterprise Logins** (Inicios de sesión de la empresa), haga clic en **Set Identity Provider** (Establecer proveedor de identidades).
+8.  En **Inicios de sesión de la empresa**, haga clic en **Establecer proveedor de identidades**.
 
-    ![Enterprise Logins (Inicios de sesión de la empresa)](./media/active-directory-saas-arcgis-tutorial/IC784744.png "Enterprise Logins (Inicios de sesión de la empresa)")
+    ![Enterprise Logins (Inicios de sesión de la empresa)](./media/active-directory-saas-arcgis-tutorial/IC784744.png "Enterprise Logins")
 
-9.  En la sección **Set Identity Provider** (Configurar proveedor de identidades), realice los pasos siguientes:
+9.  En la sección **Configurar proveedor de identidades**, realice los pasos siguientes:
 
-    ![Set Identity Provider (Establecer proveedor de identidades)](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Set Identity Provider (Establecer proveedor de identidades)")
+    ![Set Identity Provider (Establecer proveedor de identidades)](./media/active-directory-saas-arcgis-tutorial/IC784745.png "Set Identity Provider ")
 
-    1.  En el cuadro de texto Name (Nombre), escriba el nombre de su organización.
-    2.  En **Metadata for the Enterprise Identity Provider will be supplied using** (Los metadatos para el proveedor de identidades de la empresa se proporcionarán con), seleccione **A File** (Un archivo).
-    3.  Haga clic en **Choose file** (Elegir archivo) para cargar el archivo de metadatos descargado.
-    4.  Haga clic en **Set Identity Provider** (Establecer proveedor de identidades).
+    1.  En el cuadro de texto **Nombre**, escriba el nombre de su organización.
+    2.  En **Los metadatos para el proveedor de identidades de la empresa se proporcionarán con**, seleccione **Un archivo**.
+    3.  Haga clic en **Elegir archivo** para cargar el archivo de metadatos descargado.
+    4.  Haga clic en **Establecer proveedor de identidades**.
 
 10. En el Portal de Azure AD, seleccione la confirmación de configuración de inicio de sesión único y, a continuación, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
 
@@ -106,22 +106,22 @@ En el caso de ArcGIS, el aprovisionamiento es una tarea manual.
 
 1.  Inicie sesión en su inquilino de **ArcGIS**.
 
-2.  Haga clic en **Invite Members (Invitar a miembros)**.
+2.  Haga clic en **Invitar a miembros**.
 
-    ![Invite Members (Invitar a miembros)](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invite Members (Invitar a miembros)")
+    ![Invite Members (Invitar a miembros)](./media/active-directory-saas-arcgis-tutorial/IC784747.png "Invite Members")
 
-3.  Seleccione **Add members automatically without sending an email** (Agregar miembros automáticamente sin enviar un correo electrónico) y, a continuación, haga clic en **Next** (Siguiente).
+3.  Seleccione **Agregar miembros automáticamente sin enviar un correo electrónico** y, a continuación, haga clic en **Siguiente**.
 
     ![Agregar miembros automáticamente](./media/active-directory-saas-arcgis-tutorial/IC784748.png "Agregar miembros automáticamente")
 
-4.  En la página de diálogo **Members** (Miembros), realice los pasos siguientes:
+4.  En la página de diálogo **Miembros**, realice los pasos siguientes:
 
     ![Agregar y revisar](./media/active-directory-saas-arcgis-tutorial/IC784749.png "Agregar y revisar")
 
-    1.  Escriba**First Name** (Nombre), **Last Name** (Apellido) y **Email** (Correo electrónico) de una cuenta válida de AAD que desee aprovisionar.
-    2.  Haga clic en **Add And Review** (Agregar y revisar).
+    1.  Escriba **Nombre**, **Apellido** y **Correo electrónico** de una cuenta válida de AAD que desee aprovisionar.
+    2.  Haga clic en **Agregar y revisar**.
 
-5.  Revise los datos que ha escrito y, a continuación, haga clic en**Add Members** (Agregar miembros).
+5.  Revise los datos que ha escrito y, a continuación, haga clic en **Agregar miembros**.
 
     ![Agregar miembro](./media/active-directory-saas-arcgis-tutorial/IC784750.png "Agregar miembro")
 
@@ -145,4 +145,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!-------HONumber=August15_HO7-->
+<!---------HONumber=August15_HO7-->
