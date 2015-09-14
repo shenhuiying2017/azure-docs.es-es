@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="" 
-	description="Uso de Servicios móviles de Azure en un proyecto de Visual Studio .NET" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle=""
+	description="Uso de Servicios móviles de Azure en un proyecto de Visual Studio .NET"
+	services="mobile-services"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/22/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="patshea123"/>
 
 # Introducción a Servicios móviles (proyectos .NET)
@@ -47,22 +47,22 @@ El código siguiente crea una referencia a una tabla (`todoTable`) que contiene 
 
 Este código funciona si la tabla tiene permisos establecidos en **Cualquier persona con la clave de aplicación**. Si cambia los permisos para asegurar el servicio móvil, tendrá que agregar compatibilidad con la autenticación de usuarios. Consulte [Introducción a la autenticación](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
-#####Adición de un elemento de tabla 
+#####Adición de un elemento de tabla
 
 Inserte un nuevo elemento en una tabla de datos.
 
 	TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
 	await todoTable.InsertAsync(todoItem);
 
-#####Lectura o consulta de una tabla 
+#####Lectura o consulta de una tabla
 
 El código siguiente consulta una tabla para todos los elementos. Tenga en cuenta que devuelve solo la primera página de los datos, que de manera predeterminada contiene 50 elementos. Puede pasar el tamaño de página que desee, ya que es un parámetro opcional.
 
     List<TodoItem> items;
     try
     {
-        // Query that returns all items.   
-        items = await todoTable.ToListAsync();             
+        // Query that returns all items.
+        items = await todoTable.ToListAsync();
     }
     catch (MobileServiceInvalidOperationException e)
     {
@@ -85,4 +85,4 @@ Elimine una fila en la base de datos. El elemento de parámetro es el objeto Tod
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

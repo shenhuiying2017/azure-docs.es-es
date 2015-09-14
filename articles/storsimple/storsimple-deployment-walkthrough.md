@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Implementación del dispositivo StorSimple local | Microsoft Azure"
-   description="Pasos y procedimientos recomendados para implementar el servicio y el dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   pageTitle="Implementación de un dispositivo StorSimple local | Microsoft Azure"
+	description="Describe los pasos y procedimientos recomendados para implementar el servicio y el dispositivo StorSimple. (Se aplica a la versión 3 y anteriores de Microsoft Azure StorSimple)."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
 # Implementar el dispositivo StorSimple local
 
@@ -290,4 +290,4 @@ Siga estos pasos en el Portal de Azure para crear una copia de seguridad manual 
 
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

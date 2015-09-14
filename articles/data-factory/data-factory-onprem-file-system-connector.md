@@ -399,7 +399,7 @@ Los datos se copian a un archivo nuevo cada hora con la ruta de acceso para el b
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd}\' AND timestampcolumn < \'{1:yyyy-MM-dd}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "FileSystemSink"
@@ -477,6 +477,7 @@ fileName | Especifique el nombre del archivo en **folderPath** si desea que la t
 partitionedBy | partitionedBy se puede usar para especificar un folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza por cada hora de datos. | No
 Formato | Se admiten dos tipos de formatos: **TextFormat** y **AvroFormat**. Deberá establecer la propiedad type en format en cualquiera de estos valores. Cuando el formato de forAvroFormatmat es TextFormat, puede especificar propiedades opcionales adicionales para format. Consulte la sección sobre formato a continuación para obtener más detalles. | No
 fileFilter | Especifique el filtro que se va a usar para seleccionar un subconjunto de archivos de folderPath, en lugar de todos los archivos. <p>Los valores permitidos son: * (varios caracteres) y ? (un solo carácter).</p><p>Ejemplo 1: "fileFilter": "*. log"</p>Ejemplo 2: "fileFilter": 2014-1-?. txt"</p><p>**Nota**: fileFilter es aplicable a un conjunto de datos de FileShare de entrada</p> | No
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Los tipos admitidos son: GZip y Deflate y BZip2 y los niveles admitidos son: óptimo y más rápido. Vea la sección [Compatibilidad de compresión](#compression-support) para obtener más detalles. | No |
 
 > [AZURE.NOTE]filename y fileFilter no pueden usarse simultáneamente.
 
@@ -519,7 +520,7 @@ Propiedad | Descripción | Obligatorio
 columnDelimiter | Los caracteres que se usan como separador de columna en un archivo. El valor predeterminado es coma (,). | No
 rowDelimiter | Los caracteres que se usan como separador sin formato en un archivo. El valor predeterminado es cualquiera de los siguientes: ["\\r\\n", "\\r", "\\n"]. | No
 escapeChar | El carácter especial que se usa para anular el delimitador de columna que se muestra en el contenido. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<p>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: "Hello, world"), puede definir '$' como carácter de escape y usar la cadena "Hello$, world" en el origen.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.</p> | No
-quoteChar | El carácter especial que se usa para poner entre comillas el valor de la cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<p>￼￼Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: <Hello  world>), puede definir ‘"’ como comillas y usar la cadena <"Hello, world"> en el origen. Esta propiedad es aplicable a las tablas de entrada y de salida.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.</p> | No
+quoteChar | El carácter especial que se usa para poner entre comillas el valor de la cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. No hay ningún valor predeterminado. No debe especificar más de un carácter para esta propiedad.<p>Por ejemplo, si tiene la coma (,) como delimitador de columna, pero desea usar el carácter de coma en el texto (por ejemplo: <Hello  world>), puede definir ‘"’ como comillas y usar la cadena <"Hello, world"> en el origen. Esta propiedad es aplicable a las tablas de entrada y de salida.</p><p>Tenga en cuenta que no se pueden especificar escapeChar y quoteChar a la vez para una tabla.</p> | No
 nullValue | Los caracteres que se usan para representar un valor nulo en el contenido del archivo de blob. El valor predeterminado es “\\N”.> | No
 encodingName | Especifique el nombre de codificación. Para obtener la lista de nombres de codificación válidos, vea: Propiedad Encoding.EncodingName. <p>Por ejemplo: windows-1250 o shift\_jis. El valor predeterminado es: UTF-8.</p> | No
 
@@ -556,6 +557,8 @@ Si se establece el formato en **AvroFormat**, no es preciso especificar propieda
 	
 Para usar el formato Avro en una tabla de Hive posterior, consulte [Tutorial de Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
+[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
+
 ## Propiedades de tipo de actividad de copia de recurso compartido de archivos
 
 **FileSystemSource** y **FileSystemSink** no admiten propiedades en la actualidad.
@@ -573,4 +576,4 @@ Para usar el formato Avro en una tabla de Hive posterior, consulte [Tutorial de 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

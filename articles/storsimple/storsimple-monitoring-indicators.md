@@ -1,21 +1,21 @@
 <properties 
-    pageTitle="Indicadores de supervisión de StorSimple | Microsoft Azure" 
-    description="Describe los LED y alarmas que se usan para supervisar el estado del dispositivo StorSimple."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="adinah"
-    editor="" />
+    pageTitle="Indicadores de supervisión de StorSimple | Microsoft Azure"
+	description="Describe los diodos emisores de luz (LED) y alarmas audibles que se usan para supervisar el estado del dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/14/2015"
-    ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
-# Indicadores de supervisión de StorSimple   
+# Usar indicadores de supervisión de StorSimple para administrar su dispositivo   
 
 ## Información general
 
@@ -33,9 +33,7 @@ En lo que resta de artículo se describen los distintos indicadores LED de super
 
 El panel frontal, también conocido como *panel de operaciones*, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el dispositivo StorSimple y el revestimiento de EBOD, como se ilustra aquí.
 
-   ![][1]
-
-**Figura 1: Panel frontal del dispositivo**
+   ![Panel frontal del dispositivo][1]
  
 El panel frontal contiene los siguientes indicadores:
 
@@ -72,10 +70,8 @@ Los indicadores LED del módulo de refrigeración de alimentación (PCM) se encu
 
 El dispositivo StorSimple tiene un módulo PCM de 764 W con una batería adicional. En la siguiente ilustración se muestra el panel de indicadores LED del dispositivo.
 
-   ![][2]
+   ![LED de PCM del revestimiento principal][2]
 
-**Figura 2: LED de PCM del revestimiento principal**
- 
 Leyenda de LED:
 
 1. Error de corriente alterna
@@ -114,9 +110,7 @@ El estado del PCM se indica en el panel de LED. El panel de LED de PCM del dispo
 
 El revestimiento de EBOD tiene un PCM de 580 W sin batería adicional. El panel del PCM del revestimiento de EBOD tiene LED únicamente para las fuentes de alimentación y el ventilador. En la siguiente ilustración se muestran estos indicadores.
 
-   ![][3]
-
-**Figura 3: LED de PCM del revestimiento de EBOD**
+   ![LED de PCM del revestimiento de EBOD][3]
  
 Use la siguiente tabla para conocer el estado del PCM.
 
@@ -138,10 +132,8 @@ El dispositivo StorSimple dispone de LED relativos al controlador principal y a 
 ### LED de supervisión del controlador principal
 La siguiente ilustración sirve para identificar los LED en el controlador principal con mayor facilidad. (Se muestran todos los componentes a modo orientativo).
 
-   ![][4]
+   ![LED de supervisión: controlador principal][4]
  
-**Figura 4: LED de supervisión - controlador principal**
-
 Use la siguiente tabla para saber si el módulo del controlador está funcionando correctamente.
 
 ### Indicadores LED de controlador  
@@ -162,10 +154,8 @@ Use la siguiente tabla para saber si el módulo del controlador está funcionand
 
 Cada uno de los controladores de EBOD SAS de 6 Gb/s tiene varios LED que indican su estado, como se muestra en la siguiente ilustración.
 
-  ![][5]
+  ![LED de supervisión: revestimiento de EBOD][5]
 
-**Figura 5: Supervisión LED - receptáculo de EBOD**
- 
 Use la siguiente tabla para saber si el módulo del controlador EBOD funciona con normalidad.
 
 ### Indicadores LED del módulo de controlador de EBOD  
@@ -180,9 +170,7 @@ El dispositivo StorSimple tiene unidades de disco en el revestimiento principal 
 
 El estado de las unidades de disco se indica con un LED verde y un LED rojo-ámbar montados en la parte frontal de cada módulo portador de unidades. En la siguiente ilustración se muestran estos indicadores.
 
-  ![][6]
-
-**Figura 6: LED de unidad de disco**
+  ![LED de unidad de disco][6]
  
 Use la siguiente tabla para conocer el estado de cada unidad de disco, lo que a su vez afecta al estado de los LED del panel frontal.
 
@@ -268,4 +256,4 @@ Obtenga más información sobre los [componentes de hardware de StorSimple y su 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

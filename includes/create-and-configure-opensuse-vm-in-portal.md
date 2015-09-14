@@ -1,49 +1,53 @@
+1. Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com). Consulte la oferta [gratuita](http://azure.microsoft.com/pricing/free-trial/) si no tiene todavía una suscripción.
 
-**Importante**: si quiere que la máquina virtual use una red virtual, asegúrese de especificar la red virtual cuando cree la máquina virtual. Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener más información sobre las redes virtuales, consulte [Información general sobre redes virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+2. En la barra de comandos que se encuentra en la parte inferior de la ventana, haga clic en **Nuevo**.
 
-
-1. Inicie sesión en el [Portal de administración de Azure][AzurePreviewPortal] con la cuenta de Azure.
-
-2. En el Portal de administración, en la parte inferior izquierda de la página web, haga clic en **+Nuevo**, en **Máquina virtual** y, a continuación, en **Desde la galería**.
+3. En **Proceso**, haga clic en **Máquina virtual**, y, a continuación, en **Desde la galería**.
 
 	![Crear una máquina virtual][Image1]
 
-3. En el grupo **SUSE**, seleccione una imagen de máquina virtual OpenSUSE y, a continuación, haga clic en la flecha de avance en la parte inferior derecha de la página.
+4. En el grupo **SUSE**, seleccione una imagen de máquina virtual de OpenSUSE y, luego, haga clic en la flecha para continuar.
 
-
-4. Rellene la primera página **Configuración de la máquina virtual** o compruebe la configuración:
+5. Aparecerá la primera página de **Configuración de máquina virtual**.
 
 	- Escriba un **nombre de máquina virtual**, como "testlinuxvm".
-	- Compruebe el **Nivel** y seleccione un **Tamaño**. El nivel determina los tamaños entre los que elegir.
-	- Escriba un **Nombre de usuario nuevo**, como "newuser", que se agregará al archivo de lista de Sudoers.
+	- Compruebe el **Nivel** y seleccione un **Tamaño**. El nivel determina los tamaños entre los que elegir. El tamaño afecta al coste de usarla, así como a algunas opciones de configuración como el número de discos de datos que se pueden acoplar. Para obtener más información, vea [Tamaños de máquina virtual](../articles/virtual-machines-size-specs.md).
+	- Escriba un **Nuevo nombre de usuario**, o acepte el predeterminado, **azureuser**. Este nombre se agrega al archivo de lista de Sudoers.
 	- Decida qué tipo de **Autenticación** desea usar. Para obtener instrucciones generales sobre contraseñas, consulte [Contraseñas seguras](http://msdn.microsoft.com/library/ms161962.aspx).
 
+6. En la página siguiente **Configuración de máquina virtual**:
 
-5. Rellene la siguiente página de **Configuración de la máquina virtual** o compruebe la configuración:
 	- Use el valor predeterminado de **Crear un nuevo servicio en la nube**.
 	- En el cuadro **Nombre DNS**, escriba un nombre DNS válido para utilizarlo como parte de la dirección, como "testlinuxvm".
 	- En el cuadro **Región/Grupo de afinidad/Red virtual**, seleccione una región donde se hospedará esta imagen virtual.
+	- En **Extremos**, mantenga el extremo de SSH. Puede agregar otros ahora, o agregarlos, cambiarlos o eliminarlos una vez creada la máquina virtual.
 
-6.	Haga clic en la flecha Siguiente para finalizar; espere mientras Azure prepara la máquina virtual hasta que la inicie.
+	>[AZURE.NOTE]Si desea que una máquina virtual use una red virtual, **debe** especificar la red virtual cuando cree la máquina virtual. No puede agregar una máquina virtual a una red virtual después de crear la máquina virtual. Para obtener más información, consulte [Información general sobre redes virtuales de Azure](virtual-networks-overview.md).
+
+7.	En la última página **Configuración de máquina virtual**, mantenga la configuración predeterminada y, luego, haga clic en la marca de verificación para finalizar.
+
+El portal muestra la nueva máquina virtual en **Máquinas virtuales**. Mientras se notifique el estado **(Aprovisionando)**, la máquina virtual se está configurando. Cuando se notifique el estado **Ejecutando**, puede continuar al paso siguiente.
 
 ##Conexión a una máquina virtual
-Usará SSH o PuTTY para conectarse a la máquina virtual, en función del sistema operativo que ejecute en el equipo:
 
-- Si usa Linux para conectarse en la máquina virtual, utilice SSH. En el símbolo del sistema, ejecute:
+Usará SSH o PuTTY para conectarse a la máquina virtual, en función del sistema operativo que se ejecute en el equipo desde el que se va a conectar:
+
+- Desde un equipo que ejecuta Linux, use SSH. En el símbolo del sistema, escriba:
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
 
 	Escriba la contraseña del usuario.
 
-- Si usa Windows para conectarse en la máquina virtual, utilice PuTTY. PuTTY puede descargarse desde la [página de descarga de PuTTY][PuTTYDownload].
+- Desde un equipo que ejecute Linux, use PuTTY. Si no lo ha instalado, descárguelo desde la [página de descarga de PuTTY][PuTTYDownload].
 
-	Descargue y guarde **putty.exe** en un directorio del equipo. Abra un símbolo del sistema, vaya hasta la carpeta correspondiente y ejecute **putty.exe**.
+	Guarde **putty.exe** en un directorio de su equipo. Abra un símbolo del sistema, vaya a esa carpeta y ejecute **putty.exe**.
 
 	Escriba el nombre de host, como "testlinuxvm.cloudapp.net" y escriba "22" en **Puerto**.
 
 	![Pantalla de PuTTY][Image6]
 
 ##Actualización de la máquina virtual (opcional)
+
 1. Después de conectarse a la máquina virtual, tiene la opción de instalar revisiones y actualizaciones del sistema. Para ejecutar la actualización, ejecute:
 
 	`$ sudo zypper update`
@@ -53,10 +57,9 @@ Usará SSH o PuTTY para conectarse a la máquina virtual, en función del sistem
 3. Una vez completada la instalación, seleccione **Finalizar**. El sistema estará ahora actualizado.
 
 [PuTTYDownload]: http://www.puttyssh.org/download.html
-[AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

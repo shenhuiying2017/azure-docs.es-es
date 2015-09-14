@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de roles web y de trabajo"
+	pageTitle="Roles web y de trabajo de PHP | Microsoft Azure"
 	description="Una guía para crear roles web y de trabajo de PHP en un servicio en la nube de Azure y configurar el tiempo en ejecución de PHP."
 	services=""
 	documentationCenter="php"
@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
-	ms.date="06/09/2015"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 #Creación de roles de trabajo y web de PHP
@@ -23,13 +23,13 @@
 En esta guía se explica cómo crear roles de trabajo o web de PHP en un entorno de desarrollo de Windows, elegir una versión específica de PHP de versiones "integradas" disponibles", cambiar la configuración de PHP, habilitar extensiones y, por último, implementar en Azure. También se describe cómo configurar un rol web o de trabajo para usar un tiempo de ejecución de PHP (con las extensiones y la configuración personalizada) proporcionado por el usuario.
 
 ## ¿Qué son los roles web y de trabajo de PHP?
-Azure proporciona tres modelos de proceso para la ejecución de aplicaciones: [Sitios web Azure][execution model-web sites], [Máquinas virtuales de Azure][execution model-vms] y [Servicios en la nube de Azure][execution model-cloud services]. Los tres modelos admiten PHP. Servicios en la nube, que incluye roles web y de trabajo, ofrece el modelo *Plataforma como servicio (PaaS)*. En un servicio en la nube, un rol web ofrece un servidor web dedicado de Internet Information Services (IIS) para hospedar aplicaciones web front-end, mientras que un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas independientes de la entrada o la interacción del usuario.
+Azure ofrece tres modelos de proceso para la ejecución de aplicaciones: Servicio de aplicaciones de Azure, Máquinas virtuales de Azure y Servicios en la nube de Azure. Los tres modelos admiten PHP. Servicios en la nube, que incluye roles web y de trabajo, ofrece el modelo *plataforma como servicio (PaaS)*. En un servicio en la nube, un rol web ofrece un servidor web dedicado de Internet Information Services (IIS) para hospedar aplicaciones web front-end, mientras que un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas independientes de la entrada o la interacción del usuario.
 
-Para obtener más información, consulte [¿Qué es un servicio en la nube?].
+Para obtener más información sobre estas opciones, consulte [Cálculo de las opciones de hospedaje proporcionadas por Azure](./cloud-services/fundamentals-application-models.md).
 
 ## Descarga del SDK de Azure para PHP
 
-El [SDK de Azure para PHP] tiene varios componentes. Este artículo usará dos de ellos: los emuladores de Azure y de PowerShell de Azure. Estos dos componentes se pueden instalar a través del instalador de plataforma web de Microsoft aquí: [Instalación de los emuladores de PowerShell de Azure y de Azure][install ps and emulators].
+El [SDK de Azure para PHP] tiene varios componentes. Este artículo usará dos de ellos: los emuladores de Azure y de PowerShell de Azure. Estos dos componentes se pueden instalar a través del instalador de la plataforma web de Microsoft. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 
 ## Creación de un proyecto de servicios en la nube
 
@@ -99,7 +99,7 @@ En algunos casos, en lugar de seleccionar un tiempo de ejecución de PHP integra
 
 Para configurar un rol web para usar un tiempo de ejecución de PHP proporcionado por el usuario, siga los pasos siguientes.
 
-1. Cree un proyecto de servicio de Azure y agregue un rol web de PHP, como se describe en las secciones [Creación de un proyecto de servicios en la nube](#how-to-create-a-cloud-services-project) e [Incorporación de roles web o de trabajo de PHP](#how-to-add-php-web-or-worker-roles).
+1. Cree un proyecto del servicio de Azure y agregue un rol web de PHP según se describe anteriormente en este tema.
 2. Cree una carpeta `php` en la carpeta `bin` que se encuentra en el directorio raíz del rol web y, a continuación, agregue el tiempo de ejecución de PHP (todos los binarios, archivos de configuración, subcarpetas, etc.) a la carpeta `php`.
 3. (OPCIONAL) Si el tiempo de ejecución de PHP usa los [Controladores de Microsoft para PHP en SQL Server][sqlsrv drivers], tendrá que configurar el rol web para instalar [SQL Server Native Client 2012][sql native client] cuando se aprovisione. Para esto, agregue el instalador `sqlncli.msi` a la carpeta `bin` en el directorio raíz del rol web. Puede descargar el instalador aquí: [instalador sqlncli.msi x64]. El script de inicio descrito en el siguiente paso ejecutará el instalador silenciosamente cuando se aprovisione el rol. Si el tiempo de ejecución de PHP no usa los controladores de Microsoft para PHP en SQL Server, puede eliminar la línea siguiente del script que se muestra en el paso siguiente:
 
@@ -133,7 +133,7 @@ Para configurar un rol web para usar un tiempo de ejecución de PHP proporcionad
 
 Para configurar un rol de trabajo para usar un tiempo de ejecución de PHP propio, siga los pasos siguientes.
 
-1. Cree un proyecto de servicio de Azure y agregue un rol web de PHP, como se describe en las secciones [Creación de un proyecto de servicios en la nube](#how-to-create-a-cloud-services-project) e [Incorporación de roles web o de trabajo de PHP](#how-to-add-php-web-or-worker-roles) anteriores.
+1. Cree un proyecto del servicio de Azure y agregue un rol de trabajo de PHP según se describe anteriormente en este tema.
 2. Cree una carpeta `php` en el directorio raíz del rol de trabajo y, a continuación, agregue el tiempo de ejecución de PHP (todos los binarios, archivos de configuración, subcarpetas, etc.) a la carpeta `php`.
 3. .(OPCIONAL) Si el tiempo de ejecución de PHP usa los [Controladores de Microsoft para PHP en SQL Server][sqlsrv drivers], tendrá que configurar el rol de trabajo para instalar [SQL Server Native Client 2012][sql native client] cuando se aprovisione. Para ello, agregue el instalador `sqlncli.msi` al directorio raíz del rol de trabajo. Puede descargar el instalador aquí: [instalador sqlncli.msi x64]. El script de inicio descrito en el siguiente paso ejecutará el instalador silenciosamente cuando se aprovisione el rol. Si el tiempo de ejecución de PHP no usa los controladores de Microsoft para PHP en SQL Server, puede eliminar la línea siguiente del script que se muestra en el paso siguiente:
 
@@ -172,7 +172,7 @@ Para configurar un rol de trabajo para usar un tiempo de ejecución de PHP propi
 
 ## Ejecución de la aplicación en los emuladores de proceso y de almacenamiento
 
-Los emuladores de proceso y almacenamiento de Azure ofrecen un entorno local en el que puede probar la aplicación de Azure antes de implementarla en la nube. Existen algunas diferencias entre los emuladores y el entorno de Azure. Para entenderlo mejor, consulte [Diferencias entre el emulador de proceso y Azure](http://msdn.microsoft.com/library/windowsazure/gg432960.aspx) y [Diferencias entre el emulador de almacenamiento y los servicios de almacenamiento de Azure](http://msdn.microsoft.com/library/windowsazure/gg433135.aspx).
+Los emuladores de Azure ofrecen un entorno local en el que puede probar la aplicación de Azure antes de implementarla en la nube. Existen algunas diferencias entre los emuladores y el entorno de Azure. Para comprender esto mejor, vea [Usar el emulador de almacenamiento de Azure para desarrollo y pruebas](./storage/storage-use-emulator.md).
 
 Tenga en cuenta que debe tener instalado PHP localmente para usar el emulador de proceso. El emulador de proceso usará la instalación de PHP local para ejecutar la aplicación.
 
@@ -195,21 +195,15 @@ Para detener los emuladores, ejecute este comando:
 
 ## Publicación de la aplicación
 
-Para publicar la aplicación, primero tiene que importar la configuración de la publicación con el cmdlet **Import-PublishSettingsFile** y, a continuación, puede publicar la aplicación con el cmdlet **Publish-AzureServiceProject**. Encontrará detalles sobre el uso de cada uno de estos cmdlets en [Importación de la configuración de publicación] e [Implementación de un servicio en la nube en Azure] respectivamente.
+Para publicar la aplicación, primero tiene que importar la configuración de la publicación con el cmdlet **Import-PublishSettingsFile** y, a continuación, puede publicar la aplicación con el cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Para obtener información sobre cómo iniciar sesión, consulte [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 
-[execution model-web sites]: /develop/net/fundamentals/compute/#WebSites
-[execution model-vms]: /develop/net/fundamentals/compute/#VMachine
-[execution model-cloud services]: /develop/net/fundamentals/compute/#CloudServices
 [SDK de Azure para PHP]: /develop/php/common-tasks/download-php-sdk/
-[install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-[¿Qué es un servicio en la nube?]: /manage/services/cloud-services/what-is-a-cloud-service/
+[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [definición de servicio (.csdef))]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [configuración del servicio (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
-[Importación de la configuración de publicación]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-[Implementación de un servicio en la nube en Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Notas de la versión de Application Insights" 
-	description="Las actualizaciones más recientes." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Notas de la versión de Application Insights"
+	description="Las actualizaciones más recientes."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/11/2015"
 	ms.author="awills"/>
  
 # Notas de la versión del SDK: Application Insights
@@ -24,7 +24,7 @@ Se trata de notas de la versión detalladas e instrucciones de actualización de
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](app-insights-release-notes-java.md)
-* [JavaScript](app-insights-release-notes-javascript.md)
+* [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [Tienda Windows Phone C#|VB](app-insights-release-notes-windows.md)
 * [Tienda Windows Phone C++](app-insights-release-notes-windows-cpp.md)
 * [Otras plataformas](https://github.com/Microsoft/ApplicationInsights-Home)
@@ -33,4 +33,4 @@ Obtenga información también sobre nuestras [Actualizaciones del servicio](http
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

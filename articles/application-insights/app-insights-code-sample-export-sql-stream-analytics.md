@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Tutorial: exportación de telemetría a Base de datos SQL desde Application Insights" 
-	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="noamben" 
+	pageTitle="Tutorial: exportación de telemetría a Base de datos SQL desde Application Insights"
+	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua."
+	services="application-insights"
+	documentationCenter=""
+	authors="noamben"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # Tutorial: exportación a SQL desde Application Insights mediante Análisis de transmisiones
@@ -92,12 +92,16 @@ La exportación continua siempre envía los datos a una cuenta de almacenamiento
 
     ![Elija los tipos de evento.](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
-Ahora deje que los usuarios utilicen la aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas][metrics] y eventos individuales en la [búsqueda de diagnóstico][diagnostic].
 
-Y además, los datos se exportarán al almacenamiento, donde puede inspeccionar el contenido. Por ejemplo, hay un explorador de almacenamiento en Visual Studio:
+3. Permita que se acumulen algunos datos. Póngase cómo y deje que los usuarios usen su aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](app-insights-metrics-explorer.md) y eventos individuales en la [búsqueda de diagnóstico](app-insights-diagnostic-search.md).
 
+    Y, además, exportará los datos en el almacenamiento.
 
-![En Visual Studio, abra Explorador de servidores, Azure, Almacenamiento.](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+4. Inspeccione los datos exportados. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no dispone de esta opción de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener el SDK de Microsoft Azure para. NET.)
+
+    ![En Visual Studio, abra Explorador de servidores, Azure, Almacenamiento.](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+
+    Tome nota de la parte común del nombre de la ruta de acceso, que se deriva del nombre de la aplicación y de la clave de instrumentación.
 
 Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en usar Stream Analytics para trasladar los datos a una base de datos SQL. De este modo, será más sencillo ejecutar muchas consultas interesantes.
 
@@ -194,14 +198,14 @@ Ahora, necesitará la clave de acceso principal de la cuenta de almacenamiento, 
 
 Asegúrese de establecer el formato de fecha como AAAA-MM-DD (con guiones).
 
-El patrón del prefijo de la ruta de acceso especifica cómo busca el Análisis de transmisiones los archivos de entrada en el almacenamiento. Deberá configurarlo para que coincida con el modo en que la Exportación continua almacena los datos. Configúrelo como este caso que se muestra a continuación:
+El patrón del prefijo de la ruta de acceso especifica cómo busca el Análisis de transmisiones los archivos de entrada en el almacenamiento. Deberá establecerlo para que coincida con el modo en que la Exportación continua almacena los datos. Configúrelo como este caso que se muestra a continuación:
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 En este ejemplo:
 
-* `webapplication27` es el nombre del recurso de Application Insights. 
-* `1000...` es la clave de instrumentación que copió del recurso de Application Insights. 
+* `webapplication27` es el nombre del recurso de Application Insights, **todo en minúsculas**. 
+* `1234...` es la clave de instrumentación que copió del recurso de Application Insights **con guiones quitados**. 
 * `PageViews` es el tipo de datos que se van a analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y consulte el [modelo de exportación de datos](app-insights-export-data-model.md).
 * `/{date}/{time}` es un patrón escrito literalmente.
 
@@ -259,7 +263,7 @@ Reemplace la consulta predeterminada por lo siguiente:
 
 ```
 
-Observe que las primeras propiedades son específicas de los datos de la vista de página. Las exportaciones de otros tipos de telemetría tendrán diferentes propiedades.
+Observe que las primeras propiedades son específicas de los datos de la vista de página. Las exportaciones de otros tipos de telemetría tendrán diferentes propiedades. Vea la [referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 
 ## Configuración de la salida a la base de datos
 
@@ -294,6 +298,7 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 ## Artículos relacionados
 
 * [Exportación a SQL con un rol de trabajo](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 * [Exportación continua en Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
@@ -307,4 +312,4 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Compilación de la primera canalización mediante la Factoría de datos de Azure | Microsoft Azure"
-	description="En este tutorial se muestra cómo crear una canalización de datos de ejemplo que transforma los datos con HDInsight de Azure y Azure PowerShell."
+	pageTitle="Compilación de la primera canalización mediante Azure PowerShell"
+	description="En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo con Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -263,4 +263,7 @@ Vea [Referencia de cmdlets de factoría de datos](https://msdn.microsoft.com/lib
 ## Pasos siguientes
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un blob de Azure a SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
 
-<!---HONumber=August15_HO8-->
+## Enviar comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
+
+<!---HONumber=September15_HO1-->

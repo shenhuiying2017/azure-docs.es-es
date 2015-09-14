@@ -85,7 +85,7 @@ Al implementar un proyecto de grupo de recursos de Azure, lo implementa en un gr
 
     ![Cuadro de diálogo Implementar en grupo de recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. En el cuadro desplegable **Grupo de recursos**, elija un grupo de recursos existente o cree uno nuevo. Para crear un grupo de recursos, abra el cuadro desplegable **Grupo de recursos** y elija **<Create New...>**.
+1. En el cuadro de lista desplegable **Grupo de recursos**, elija un grupo de recursos existente o cree uno nuevo. Para crear un grupo de recursos, abra la lista desplegable **Grupo de recursos** y elija **<Create New...>**.
 
     Aparece el cuadro de diálogo **Crear grupo de recursos**.
 
@@ -195,4 +195,4 @@ También se realizaron ajustes en algunos nombres de variables y tareas de compi
 
 Para obtener información sobre cómo agregar recursos a su grupo de recursos de Azure en Visual Studio, vea [Adición de recursos a un grupo de recursos de Azure](https://msdn.microsoft.com/library/azure/mt125415.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

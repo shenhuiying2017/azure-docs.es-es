@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Copia de datos de salida del tutorial en una base de datos de SQL Server local"
-	description="Los pasos de este tutorial amplían el tutorial de la Factoría de datos para copiar datos de eficacia de campaña de marketing en una base de datos de SQL Server local."
+	pageTitle="Copia de datos de salida en una base de datos de SQL Server local (Portal de Azure)"
+	description="En este tutorial se amplía el del uso del editor de la factoría de datos en el Portal de Azure en el sentido de que la canalización copia datos de salida en una base de datos de SQL Server."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -169,4 +169,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

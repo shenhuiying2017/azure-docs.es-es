@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Desactivación y eliminación de un dispositivo de StorSimple | Microsoft Azure"
-   description="Describe cómo desactivar y eliminar el dispositivo de StorSimple para quitarlo del servicio."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Describe cómo desactivar y eliminar en primer lugar el dispositivo de StorSimple para quitarlo del servicio."
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="v-sharos"/>
 
 # Desactivación y eliminación de un dispositivo de StorSimple
 
@@ -91,4 +91,4 @@ Para restaurar los valores predeterminados de fábrica del dispositivo desactiva
 
 Para obtener asistencia técnica, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

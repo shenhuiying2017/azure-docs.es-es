@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Introducción a Application Insights en un proyecto web de Java" 
-	description="Supervisión del rendimiento y del uso del sitio web de Java con Application Insights" 
-	services="application-insights" 
-    documentationCenter="java"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Introducción a Application Insights en un proyecto web de Java | Microsoft Azure"
+	description="Supervisión del rendimiento y del uso del sitio web de Java con Application Insights"
+	services="application-insights"
+	documentationCenter="java"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/30/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/30/2015"
 	ms.author="awills"/>
- 
+
 # Introducción a Application Insights en un proyecto web de Java
 
 *Application Insights se encuentra en su versión de vista previa.*
@@ -38,7 +38,7 @@ Necesitará:
 ## 1\. Obtención de una clave de instrumentación de Application Insights
 
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
-2. Creación de un recurso de Application Insights
+2. Cree un recurso de Application Insights.
 
     ![Haga clic en + y elija Application Insights](./media/app-insights-java-get-started/01-create.png)
 3. Establezca el tipo de aplicación a una aplicación web de Java.
@@ -58,7 +58,7 @@ Utilice el [complemento de SDK de Application Insights para Java][eclipse].
 
 #### Si está usando Maven...
 
-Si su proyecto ya se ha configurado para usar Maven para la compilación, combine el siguiente fragmento de código al archivo pom.xml.
+Si su proyecto ya se ha configurado para usar Maven para la compilación, combine el siguiente código en el archivo pom.xml.
 
 A continuación, actualice las dependencias del proyecto, para obtener los archivos binarios descargados.
 
@@ -80,13 +80,12 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     </dependencies>
 
 
-* *¿Errores de validación de suma de comprobación o de compilación? Utilice en su lugar una versión específica, como:* `<version>1.0.n</version>` Encontrará la versión más reciente en las [notas de la versión de SDK](app-insights-release-notes-java.md) o en nuestros [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Para actualizar a un nuevo SDK*
- * Actualice las dependencias del proyecto.
+* *¿Errores de validación de suma de comprobación o de compilación?* Utilice en su lugar una versión específica, como:`<version>1.0.n</version>`. Encontrará la versión más reciente en las [notas de la versión de SDK](app-insights-release-notes-java.md) o en nuestros [artefactos de Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *¿Necesita actualizar a un nuevo SDK?* Actualice las dependencias del proyecto.
 
 #### Si está usando Gradle...
 
-Si su proyecto ya se ha configurado para usar Grade para la compilación, combine el siguiente fragmento de código al archivo build.gradle.
+Si su proyecto ya se ha configurado para usar Grade para la compilación, combine el siguiente código al archivo build.gradle.
 
 A continuación, actualice las dependencias del proyecto, para obtener los archivos binarios descargados.
 
@@ -99,7 +98,7 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
       // or applicationinsights-core for bare API
     }
 
-* *¿Errores de validación de suma de comprobación o de compilación? Utilice en su lugar una versión específica, como:* `version:'1.0.n'` *Encontrará la versión más reciente en las [notas de la versión de SDK](app-insights-release-notes-java.md).* 
+* *¿Errores de validación de suma de comprobación o de compilación? Utilice en su lugar una versión específica, como:* `version:'1.0.n'` *Encontrará la versión más reciente en las [notas de la versión de SDK](app-insights-release-notes-java.md).*
 * *Para actualizar a un nuevo SDK*
  * Actualice las dependencias del proyecto.
 
@@ -107,25 +106,25 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
 
 Agregue manualmente el SDK:
 
-1. Descargue el [SDK de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
+1. Descargue del [SDK de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
 2. Extraiga los archivos binarios del archivo zip y agréguelos al proyecto.
 
 ### Preguntas...
 
 * *¿Cuál es la relación entre los componentes `-core` y `-web` del archivo zip?*
 
- * `applicationinsights-core` le proporciona la API básica. Lo necesita siempre.
- * `applicationinsights-web` proporciona métricas que realizan el seguimiento de recuentos de solicitud HTTP y tiempos de respuesta. Lo puede omitir si no desea que se recopile automáticamente esta telemetría: por ejemplo, si desea escribir la suya propia.
+ * `applicationinsights-core` le ofrece la API básica. Lo necesita siempre.
+ * `applicationinsights-web` proporciona métricas que realizan el seguimiento de recuentos de solicitud HTTP y tiempos de respuesta. Lo puede omitir si no desea que se recopile automáticamente esta telemetría. Por ejemplo, si desea escribir la suya propia.
 
 * *Para actualizar el SDK cuando publicamos cambios*
- * Descargue el[SDK más reciente de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) y reemplácelo por los antiguos.
+ * Descargue el [SDK más reciente de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) y reemplácelo por los antiguos.
  * Los cambios se describen en las [notas de la versión de SDK](app-insights-release-notes-java.md).
 
 
 
-## 3\. Adición de un archivo xml de Application Insights
+## 3\. Adición de un archivo .xml de Application Insights
 
-Agregue ApplicationInsights.xml a la carpeta de recursos del proyecto o, en caso contrario, asegúrese de que se agrega a la ruta de acceso de la clase de implementación del proyecto. Copie en ella el código XML siguiente.
+Agregue ApplicationInsights.xml a la carpeta de recursos del proyecto o asegúrese de que se agrega a la ruta de acceso de la clase de implementación del proyecto. Copie en ella el siguiente XML.
 
 Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
 
@@ -168,7 +167,7 @@ Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
 
 El último paso de la configuración permite que el componente de la solicitud HTTP registre las solicitudes web. (No es necesario si solo desea la API básica).
 
-Busque y abra el archivo web.xml en el proyecto y combine el siguiente fragmento de código bajo el nodo web-app, donde se han configurado los filtros de aplicación.
+Busque y abra el archivo web.xml en el proyecto y combine el siguiente código bajo el nodo web-app, donde se han configurado los filtros de aplicación.
 
 Para obtener los resultados más precisos, el filtro debe asignarse antes de todos los demás filtros.
 
@@ -226,16 +225,16 @@ Vuelva al recurso Application Insights en el [Portal de Microsoft Azure](https:/
 Los datos de las solicitudes HTTP aparecerán en la hoja de información general. (Si todavía no está ahí, espere unos segundos y, a continuación, haga clic en Actualizar).
 
 ![datos de ejemplo](./media/app-insights-java-get-started/5-results.png)
- 
+
 
 Haga clic en cualquier gráfico para ver métricas más detalladas.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
- 
+
 
 Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemetría asociados, como solicitudes y excepciones.
- 
+
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
@@ -270,20 +269,20 @@ Para recopilar datos de otras excepciones, tiene dos opciones:
 
 ## Contadores de rendimiento
 
-Haga clic en el icono de los servidores y verá una variedad de contadores de rendimiento.
+Haga clic en el icono **Servidores** y verá una variedad de contadores de rendimiento.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
-### Personalización de la recopilación de contadores de rendimiento
+### Personalizar la recopilación de contadores de rendimiento
 
-Para deshabilitar la recopilación del conjunto estándar de contadores de rendimiento, agregue el siguiente fragmento de código bajo el nodo raíz del archivo ApplicationInsights.xml:
+Para deshabilitar la recopilación del conjunto estándar de contadores de rendimiento, agregue el siguiente código bajo el nodo raíz del archivo ApplicationInsights.xml:
 
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
 
-### Recopilación de contadores de rendimiento adicionales
+### Recopilar contadores de rendimiento adicionales
 
 Puede especificar contadores de rendimiento adicionales que se van a recopilar.
 
@@ -306,7 +305,7 @@ Puede especificar contadores de rendimiento adicionales que se van a recopilar.
 
 
 
-#### Contadores de rendimiento de Windows 
+#### Contadores de rendimiento de Windows
 
 Cada [contador de rendimiento de Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) es un miembro de una categoría (de la misma manera que un campo es un miembro de una clase). Las categorías puede ser globales, o pueden tener instancias con nombre o numeradas.
 
@@ -318,8 +317,8 @@ Cada [contador de rendimiento de Windows](https://msdn.microsoft.com/library/win
     </PerformanceCounters>
 
 *	displayName: el nombre mostrado en el portal de Application Insights.
-*	categoryName: la categoría de contador de rendimiento (objeto de rendimiento) con la que está asociada este contador de rendimiento
-*	counterName: el nombre del contador de rendimiento
+*	categoryName: la categoría de contador de rendimiento (objeto de rendimiento) con la que está asociada este contador de rendimiento.
+*	counterName: el nombre del contador de rendimiento.
 *	instanceName: el nombre de la instancia de categoría del contador de rendimiento o una cadena vacía (""), si la categoría contiene una sola instancia. Si categoryName es Proceso, y el contador de rendimiento que desea recopilar está en el proceso de JVM actual en que se ejecuta la aplicación, especifique `"__SELF__"`.
 
 Los contadores de rendimiento están visibles como métricas personalizadas en el [Explorador de métricas][metrics].
@@ -371,6 +370,4 @@ Ahora que ha instalado el SDK, puede utilizar la API para enviar su propia telem
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

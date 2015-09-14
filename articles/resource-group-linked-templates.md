@@ -1,20 +1,20 @@
 <properties
    pageTitle="Uso de plantillas vinculadas con el Administrador de recursos de Azure"
-   description="Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="tomfitz"/>
 
 # Uso de plantillas vinculadas con el Administrador de recursos de Azure
 
@@ -44,9 +44,17 @@ Cree un vínculo entre dos plantillas mediante la adición de un recurso de impl
       } 
     ] 
 
+El Administrador de recursos debe poder tener acceso a la plantilla vinculada, lo que significa que no se puede especificar un archivo local para la plantilla vinculada. Solo se puede proporcionar un valor de URI que incluya **http** o **https**. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento, como se muestra a continuación.
+
+    "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0",
+    }
+
+
 ## Vinculación con un archivo de parámetros
 
-El siguiente ejemplo usa la propiedad **parametersLink** para vincular con un archivo de parámetros.
+El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un archivo de parámetros.
 
     "resources": [ 
       { 
@@ -66,6 +74,8 @@ El siguiente ejemplo usa la propiedad **parametersLink** para vincular con un ar
          } 
       } 
     ] 
+
+El valor del URI para el archivo del parámetro vinculado no puede ser un archivo local y debe incluir **http** o **https**.
 
 ## Uso de variables para vincular plantillas
 
@@ -100,4 +110,4 @@ Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, 
 - [Creación de plantillas](./resource-group-authoring-templates.md)
 - [Implementación de plantillas](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

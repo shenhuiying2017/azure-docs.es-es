@@ -93,7 +93,7 @@ Puede aprovisionar clústeres de HDInsight desde el portal de Azure si sigue est
 		
 	- __Seleccionar__: use esta opción para guardar la configuración del origen de datos.
 	
-7. Seleccione __Niveles de precios de nodo__ para mostrar información sobre los nodos que se crearán para este clúster. De forma predeterminada, el número de nodos de trabajo se establecerá en __4__. Establezca esta propiedad en __1__, ya que esto será suficiente para este tutorial y reducirá el costo del clúster. También puede cambiar el número de nodos en un clúster después su aprovisionamiento.
+7. Seleccione __Niveles de precios de nodo__ para mostrar información sobre los nodos que se crearán para este clúster. De forma predeterminada, el número de nodos de trabajo se establecerá en __4__.
 
 	El costo estimado del clúster se mostrará en la parte inferior de esta hoja.
 
@@ -116,7 +116,7 @@ Puede aprovisionar clústeres de HDInsight desde el portal de Azure si sigue est
 	| ------------------ | --------------------- |
 	| ![Indicador de aprovisionamiento en el panel de inicio](./media/hdinsight-administer-use-portal-linux/provisioning.png) | ![Icono de clúster aprovisionado](./media/hdinsight-administer-use-portal-linux/provisioned.png) |
 
-	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada __Notificaciones__ de la izquierda de la página para comprobar el estado del proceso de aprovisionamiento.
+	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del panel de inicio o la entrada __Notificaciones__ de la izquierda de la página para comprobar el proceso de aprovisionamiento.
 
 ##Administración de un clúster
 
@@ -124,25 +124,25 @@ Si selecciona un clúster desde el portal de vista previa de Azure, aparecerá i
 
 ![Detalles del clúster](./media/hdinsight-administer-use-portal-linux/clusterdetails.png)
 
-Consulte la información siguiente para comprender los iconos de la parte superior de esta hoja y la que encontrará en las secciones __Conceptos básicos__ y __Vínculos rápidos__:
+Use lo siguiente para comprender los iconos de la parte superior de esta hoja y, en la sección __Conceptos básicos__ y __Vínculos rápidos__:
 
-* __Configuración__ y __Toda la configuración__: muestra la hoja __Configuración__ del clúster, que permite obtener acceso a información de configuración detallada del clúster.
+* __Configuración__ y __Toda la configuración__: muestra la hoja __Configuración__ del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
 
 * __Panel__, __Panel de clúster__ y __URL__: se trata de formas de tener acceso al panel del clúster, que es la web de Ambari para clústeres de Linux.
 
 * __Shell seguro__: información necesaria para tener acceso al clúster mediante SSH.
 
-* __Escalar clúster__: permite cambiar el número de nodos de trabajo de este clúster.
+* __Clúster de escala__: le permite cambiar el número de nodos de trabajo para este clúster.
 
 * __Eliminar__: elimina el clúster de HDInsight.
 
-* __Inicio rápido(![icono de nube y rayo = inicio rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png))__: muestra información que le ayudará a empezar a usar HDInsight.
+* __Inicio rápido__ (![icono de nube y rayo = inicio rápido](./media/hdinsight-administer-use-portal-linux/quickstart.png)): muestra información que le ayudará a empezar a usar HDInsight.
 
-* __Usuarios (![icono de usuarios](./media/hdinsight-administer-use-portal-linux/users.png))__: permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
+* __Usuarios__ (![icono de usuarios](./media/hdinsight-administer-use-portal-linux/users.png)): permite establecer permisos para la _administración del portal_ de este clúster para otros usuarios de su suscripción de Azure.
 
-	> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y los permisos de este clúster en el portal de vista previa de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
+	> [AZURE.IMPORTANT]Esto _solo_ afecta al acceso y permisos para este clúster en el Portal de vista previa de Azure, y no tiene ningún efecto sobre quién puede conectarse a o enviar trabajos al clúster de HDInsight.
 
-* __Etiquetas (![icono de etiqueta](./media/hdinsight-administer-use-portal-linux/tags.png))__: las etiquetas permiten establecer pares clave/valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y así usar un valor común para todos los servicios asociados a un proyecto específico.
+* __Etiquetas__ (![icono de etiqueta](./media/hdinsight-administer-use-portal-linux/tags.png)): las etiquetas permiten establecer pares clave/valor para definir una taxonomía personalizada de sus servicios en la nube. Por ejemplo, puede crear una clave denominada __proyecto__ y, a continuación, usar un valor común para todos los servicios asociados a un proyecto específico.
 
 * __Documentación__: vínculos a la documentación de HDInsight de Azure.
 
@@ -154,7 +154,7 @@ La sección __Uso__ de la hoja del clúster de HDInsight muestra información so
 
 ![Información de uso](./media/hdinsight-administer-use-portal-linux/usage.png)
 
-> [AZURE.IMPORTANT]Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md)
+> [AZURE.IMPORTANT]Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para obtener más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ##Pasos siguientes
 En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Portal de Azure y a abrir la herramienta de línea de comandos de Hadoop. Para obtener más información, consulte los artículos siguientes:
@@ -168,4 +168,4 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

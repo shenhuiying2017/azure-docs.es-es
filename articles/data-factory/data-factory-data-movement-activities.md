@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Actividades de movimiento de datos" 
-	description="Obtenga información acerca de las entidades de Factoría de datos que puede usar en las canalizaciones de Factoría de datos para mover los datos." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Actividades de movimiento de datos"
+	description="Obtenga información acerca de las entidades de Factoría de datos que puede usar en las canalizaciones de Factoría de datos para mover los datos."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # Actividades de movimiento de datos
@@ -93,4 +93,8 @@ Propiedades como nombre, descripción, tablas de entrada y salida, varias direct
 
 En el caso de la actividad de copia, la sección **typeProperties** varía en función de los tipos de origen y receptor. En cada la página específica del almacén de datos en los documentos enumerados anteriormente se encuentran las propiedades específicas del tipo de almacén de datos.
 
-<!---HONumber=August15_HO7-->
+
+## Enviar comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
+
+<!---HONumber=September15_HO1-->

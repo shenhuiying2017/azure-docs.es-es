@@ -1,20 +1,20 @@
 <properties
    pageTitle="Pila de comunicaciones predeterminada proporcionada por Service Fabric"
-   description="Este artículo describe la pila de comunicaciones predeterminada proporcionada por el marco del servicio fiable para que se comuniquen los servicios y clientes."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="timlt"
-   editor=""/>
+	description="Este artículo describe la pila de comunicaciones predeterminada proporcionada por el marco del servicio fiable para que se comuniquen los servicios y clientes."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="BharatNarasimman"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="04/13/2015"
-   ms.author="bharatn@microsoft.com"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="08/27/2015"
+	ms.author="bharatn@microsoft.com"/>
 
 # Pila de comunicaciones predeterminada proporcionada por el marco de servicios de confianza
 Los autores de servicio que no están vinculados a una implementación concreta de la pila de comunicaciones (WebAPI, WCF, etc.), el marco de trabajo proporciona comunicaciones de cliente y servicio que pueden utilizarse para configurar la comunicación entre el servicio y el cliente.
@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]El marco de trabajo de comunicación se encarga de propagar las excepciones producidas en el servicio al cliente. Por lo tanto, la lógica de control en el cliente mediante ServiceProxy puede controlar excepciones directamente que potencialmente puede iniciar el servicio.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

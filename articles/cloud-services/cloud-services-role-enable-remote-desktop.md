@@ -1,37 +1,104 @@
 <properties 
-pageTitle="Configuración de una conexión a Escritorio remoto para un rol de servicios en la nube de Azure" 
-description="Configuración de la aplicación de servicios en la nube de Azure para permitir conexiones a Escritorio remoto" 
-services="cloud-services" 
-documentationCenter="" 
-authors="Thraka" 
-manager="timlt" 
-editor=""/>
+pageTitle="Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure"
+	description="Configuración de la aplicación de servicios en la nube de Azure para permitir conexiones a Escritorio remoto"
+	services="cloud-services"
+	documentationCenter=""
+	authors="sbtron"
+	manager="timlt"
+	editor=""/>
 <tags 
-ms.service="cloud-services" 
-ms.workload="tbd" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="07/06/2015" 
-ms.author="adegeo"/>
+ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2015"
+	ms.author="saurabh"/>
 
-# Configuración de una conexión a Escritorio remoto para un rol de Azure
-Después de crear un servicio en la nube que ejecuta su aplicación, puede tener acceso remoto a una instancia de rol en esa aplicación para configurar valores o solucionar problemas. El servicio en la nube debe estar configurado para Escritorio remoto.
+# Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure
 
-* ¿Necesita un certificado para habilitar la autenticación de Escritorio remoto? [Cree](cloud-services-certs-create.md)uno y configúrelo a continuación.
-* ¿Ya tiene una configuración de Escritorio remoto para el servicio en la nube? [Conéctese](#remote-into-role-instances) al servicio en la nube.
+>[AZURE.SELECTOR]
+- [Azure Portal](cloud-services-role-enable-remote-desktop.md)
+- [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
 
-## Configuración de una conexión a Escritorio remoto para roles web o de trabajo
-Para habilitar una conexión a Escritorio remoto para un rol web o de trabajo, puede configurar la conexión en el modelo de servicio de la aplicación, o puede usar el Portal de administración de Azure para configurar la conexión después de que las instancias están en ejecución.
 
-### Configuración de la conexión en el modelo de servicio
-El elemento **Imports** debe agregarse al archivo de definición de servicio que importa los módulos **RemoteAccess** y **RemoteForwarder** en el modelo de servicio. Al crear un proyecto de Azure mediante Visual Studio, los archivos del modelo de servicio se crean automáticamente.
+Escritorio remoto le permite tener acceso al escritorio de un rol que se ejecuta en Azure. Puede usar la conexión de Escritorio remoto para solucionar y diagnosticar problemas con su aplicación mientras se ejecuta.
 
-El modelo de servicio consta de los archivos [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef) y [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg). El archivo de definición se empaqueta con los archivos binarios de rol cuando la aplicación del servicio en la nube está preparada para la implementación. El archivo ServiceConfiguration.cscfg se implementa con el paquete de aplicación y se usa en Azure para determinar cómo se debe ejecutar la aplicación.
+Puede habilitar una conexión a Escritorio remoto en el rol durante el desarrollo mediante la inclusión de los módulos de Escritorio remoto en la definición de servicio, o puede habilitar Escritorio remoto a través de la extensión de Escritorio remoto. El método preferido es usar la extensión de Escritorio remoto dado que puede habilitar Escritorio remoto incluso después de que se implementa la aplicación sin tener que volver a implementarla.
 
-Después de crear el proyecto, puede usar Visual Studio para [habilitar una conexión a Escritorio remoto](https://msdn.microsoft.com/library/gg443832.aspx).
 
-Después de configurar la conexión, el archivo de definición de servicio debe parecerse al ejemplo siguiente con el elemento `<Imports>` agregado.
+## Configuración de Escritorio remoto desde el portal
+El portal usa el método de extensión de Escritorio remoto, por lo que puede habilitar Escritorio remoto incluso después de que se implementa la aplicación. En la pagina **Configurar** de su servicio en la nube, puede habilitar Escritorio remoto, cambiar la cuenta de Administrador local usada para conectarse a las máquinas virtuales o el certificado que se usa en la autenticación y definir la fecha de caducidad.
+
+
+1. Haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Configurar**.
+
+2. Haga clic en **Remoto**.
+    
+    ![Servicios en la nube remotos](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
+    
+    > [AZURE.WARNING]se reiniciarán todas las instancias de rol la primera vez que habilite el Escritorio remoto y haga clic en Aceptar (marca de verificación). Para evitar un reinicio, el certificado que se usó para cifrar la contraseña debe instalarse en el rol. Para evitar un reinicio, [cargue un certificado para el servicio en la nube](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) y, luego, vuelva a este cuadro de diálogo.
+    
+
+3. En **Roles**, seleccione el rol de servicio que desea actualizar o seleccione **Todos** para todos los roles.
+
+4. Realice alguno de los siguientes cambios:
+    
+    - Para habilitar Escritorio remoto, seleccione la casilla **Habilitar Escritorio remoto**. Para deshabilitar el Escritorio remoto, desmarque la casilla.
+    
+    - Cree una cuenta para usarla en las conexiones de Escritorio remoto con las instancias de rol.
+    
+    - Actualice la contraseña de la cuenta existente.
+    
+    - Seleccione un certificado cargado para usar en la autenticación (cargue el certificado usando **Cargar** en la página **Certificados**) o cree un certificado nuevo.
+    
+    - Cambie la fecha de caducidad para la configuración de Escritorio remoto.
+
+5. Después terminar las actualizaciones de la configuración, haga clic en **Aceptar** (marca de verificación).
+
+
+## Acceso remoto en instancias de rol
+Una vez que Escritorio remoto está habilitado en los roles, puede conectarse de forma remota a una instancia de rol a través de varias herramientas.
+
+Para conectarse a una instancia de rol desde el portal:
+    
+  1.   Haga clic en **Instancias** para abrir la página **Instancias**.
+  2.   Seleccione una instancia de rol que tenga el Escritorio remoto configurado.
+  3.   Haga clic en **Conectar** y siga las instrucciones para abrir el escritorio. 
+  4.   Haga clic en **Abrir** y, a continuación, en **Conectar** para iniciar la conexión del Escritorio remoto. 
+
+
+### Uso de Visual Studio para conectarse de forma remota a una instancia de rol
+
+En el Explorador de servidores de Visual Studio:
+
+1. Expanda el nodo **Azure\\Cloud Services\\[nombre del servicio en la nube]**.
+2. Expanda **Ensayo** o **Producción**.
+3. Expanda el rol individual.
+4. Haga clic con el botón derecho en una de las instancias de rol, haga clic en **Conectar con Escritorio remoto...** y, luego, escriba el nombre de usuario y la contraseña. 
+
+![Escritorio remoto del Explorador de servidores](./media/cloud-services-role-enable-remote-desktop/ServerExplorer_RemoteDesktop.png)
+
+
+### Uso de PowerShell para obtener el archivo RDP
+Puede usar el cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) para recuperar el archivo RDP. Luego, puede usar este archivo con Conexión a Escritorio remoto para tener acceso al servicio en la nube.
+
+### Descarga del archivo RDP mediante programación a través de la API de REST de administración de servicios
+Puede usar la operación de REST [Descargar archivo RDP](https://msdn.microsoft.com/library/jj157183.aspx) para descargar el archivo RDP.
+
+
+
+## Para configurar Escritorio remoto en el archivo de definición de servicio
+
+Este método permite habilitar Escritorio remoto para la aplicación durante el desarrollo. Este enfoque requiere el almacenamiento de contraseñas cifradas en el archivo de configuración de servicio y cualquier actualización a la configuración de Escritorio remoto requeriría que se volviera a implementar la aplicación. Si desea evitar estas desventajas, debe usar el enfoque de extensión de Escritorio remoto descrito anteriormente.
+
+Puede usar Visual Studio para [habilitar una conexión a Escritorio remoto](https://msdn.microsoft.com/library/gg443832.aspx) mediante el enfoque de archivo de definición de servicio. Los pasos siguientes describen los cambios necesarios en los archivos de modelo de servicio para habilitar Escritorio remoto. Visual Studio realizará estos cambios automáticamente al publicar.
+
+### Configuración de la conexión en el modelo de servicio 
+Use el elemento **Importaciones** para importar el módulo **RemoteAccess** módulo y el módulo **RemoteForwarder** para el archivo [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef).
+
+El archivo de definición de servicio debe parecerse al ejemplo siguiente con el elemento `<Imports>` agregado.
 
 ```xml
 <ServiceDefinition name="<name-of-cloud-service>" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2013-03.2.0">
@@ -54,8 +121,7 @@ Después de configurar la conexión, el archivo de definición de servicio debe 
     </WebRole>
 </ServiceDefinition>
 ```
-
-El archivo de configuración de servicio debe parecerse al ejemplo siguiente con los valores que proporcionó al configurar la conexión; observe los elementos `<ConfigurationSettings>` y `<Certificates>`:
+El archivo [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) debe parecerse al ejemplo siguiente; observe los elementos `<ConfigurationSettings>` y `<Certificates>`. El certificado especificado debe [cargarse en el servicio en la nube](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -76,41 +142,9 @@ El archivo de configuración de servicio debe parecerse al ejemplo siguiente con
 </ServiceConfiguration>
 ```
 
-Cuando [empaquete](cloud-services-model-and-package.md#cspkg) y [publique](cloud-services-how-to-create-deploy-portal.md) la aplicación, debe asegurarse de que la casilla **Habilitar Escritorio remoto para todos los Roles** esté seleccionada. [Este](https://msdn.microsoft.com/library/ff683672.aspx)artículo proporciona listas de tareas comunes relacionadas con el uso de Visual Studio y servicios en la nube.
 
-### Configuración de la conexión en instancias en ejecución
-En la página de configuración del servicio en la nube, puede habilitar o modificar la configuración de la conexión a Escritorio remoto. Para obtener más información, vea [Configuración del acceso remoto a instancias de rol](cloud-services-how-to-configure.md).
+## Recursos adicionales
 
+[Configuración de servicios en la nube](cloud-services-how-to-configure.md)
 
-
-
-## Acceso remoto en instancias de rol
-Para acceder a instancias de roles web o de trabajo, debe usar un archivo de protocolo de Escritorio remoto (RDP). Puede descargar el archivo desde el Portal de administración, o puede recuperarlo mediante programación.
-
-### Descarga del archivo RDP a través del Portal de administración
-
-Puede usar los siguientes pasos para recuperar el archivo RDP del Portal de administración y, luego, utilizar Conexión a Escritorio remoto para conectarse a la instancia con el archivo:
-
-1.  En la página Instancias, seleccione la instancia y, luego, haga clic en **Conectar** en la barra de comandos.
-2.  Haga clic en **Guardar** para guardar el archivo de protocolo de Escritorio remoto en el equipo local.
-3.  Abra **Conexión a Escritorio remoto**, haga clic en **Mostrar opciones** y, luego, haga clic en **Abrir**.
-4.  Vaya a la ubicación donde guardó el archivo RDP, seleccione el archivo, haga clic en **Abrir** y, luego, haga clic en **Conectar**. Siga las instrucciones para completar la conexión.
-
-### Uso de PowerShell para obtener el archivo RDP
-Puede usar el cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) para recuperar el archivo RDP.
-
-### Uso de Visual Studio para descargar el archivo RDP
-En Visual Studio, puede usar el Explorador de servidores para crear una conexión a Escritorio remoto.
-
-1.  En el Explorador de servidores, expanda el nodo **Azure\\Servicios en la nube\\[nombre del servicio en la nube]**.
-2.  Expanda **Ensayo** o **Producción**.
-3.  Expanda el rol individual.
-4.  Haga clic con el botón derecho en una de las instancias de rol, haga clic en **Conectar con Escritorio remoto...** y, luego, escriba el nombre de usuario y la contraseña.
-
-### Descarga del archivo RDP mediante programación a través de la API de REST de administración de servicios
-Puede usar la operación de REST [Descargar archivo RDP](https://msdn.microsoft.com/library/jj157183.aspx) para descargar el archivo RDP. Luego, puede usar este archivo con Conexión a Escritorio remoto para tener acceso al servicio en la nube.
-
-## Pasos siguientes
-Puede que tenga que [empaquetar](cloud-services-model-and-package.md) o [cargar (implementar)](cloud-services-how-to-create-deploy-portal.md) su aplicación.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

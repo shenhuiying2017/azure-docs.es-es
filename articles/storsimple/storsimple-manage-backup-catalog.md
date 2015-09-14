@@ -1,31 +1,29 @@
 <properties 
    pageTitle="Administración del catálogo de copias de seguridad de StorSimple | Microsoft Azure"
-   description="Explica cómo usar el servicio de StorSimple Manager para administrar conjuntos de copia de seguridad para un volumen."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags  
+	description="Explica cómo usar la página del catálogo de copias de seguridad del servicio de Administrador de StorSimple para enumerar, seleccionar y eliminar conjuntos de copias de seguridad de un volumen."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
+<tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/13/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="v-sharos"/>
 
-# Administración del catálogo de copia de seguridad de StorSimple
+# Usar el servicio de Administrador de StorSimple para administrar su catálogo de copia de seguridad
 
 ## Información general
 
-La página **Catálogo de copias de seguridad** muestra todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
+La página **Catálogo de copias de seguridad** del servicio StorSimple Manager muestra todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
 
 En este tutorial se explica cómo enumerar, seleccionar y eliminar un conjunto de copia de seguridad. Para obtener información sobre cómo restaurar su dispositivo de copia de seguridad, vaya a [Restaurar el dispositivo desde un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md). Para aprender cómo clonar un volumen, vaya a [Clonar un volumen de StorSimple](storsimple-clone-volume.md).
 
 ![Catálogo de copias de seguridad](./media/storsimple-manage-backup-catalog/HCS_BackupCatalog.png)
-
-**Figura 1: Catálogo de copias de seguridad**
 
 La página **Catálogo de copias de seguridad** proporciona una consulta para restringir la selección de conjuntos de copias de seguridad. Puede filtrar los conjuntos de copias de seguridad que se recuperan en función de los parámetros siguientes:
 
@@ -117,4 +115,4 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 
 Obtenga información acerca de cómo usar el catálogo de copias de seguridad para [ restaurar el dispositivo desde un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -138,7 +138,7 @@ El agente de Copia de seguridad de Azure que se ejecuta en el servidor DPM neces
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-En el ejemplo anterior, el área de ensayo se establecerá en *C:\StagingArea* en el objeto de PowerShell de Azure ```$setting```. Asegúrese de que la carpeta especificada ya existe, o bien se producirá un error en la confirmación final de la configuración de la suscripción.
+En el ejemplo anterior, el área de ensayo se establecerá en *C:\\StagingArea* en el objeto de PowerShell ```$setting```. Asegúrese de que la carpeta especificada ya existe, o bien se producirá un error en la confirmación final de la configuración de la suscripción.
 
 
 ### Configuración de cifrado
@@ -259,6 +259,8 @@ Cuando efectúa una copia de seguridad de un origen de datos por primera vez, DP
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
+### Cambiar el tamaño de la réplica de DPM y el volumen de puntos de recuperación
+También puede cambiar el tamaño del volumen de réplica de DPM, así como el volumen de instantánea mediante el cmdlet [Set-DPMDatasourceDiskAllocation] (https://technet.microsoft.com/es-ES/library/hh881618(v=sc.20).aspx) como en el ejemplo siguiente: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### Confirmar los cambios en el grupo de protección
 Por último, los cambios deben confirmarse antes de que DPM pueda realizar la copia de seguridad según la configuración del nuevo grupo de protección. Esto se realiza mediante el cmdlet [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758).
@@ -266,7 +268,6 @@ Por último, los cambios deben confirmarse antes de que DPM pueda realizar la co
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
-
 ## Ver los puntos de copia de seguridad
 Puede usar el cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obtener una lista de todos los puntos de recuperación para un origen de datos. En este ejemplo: -recuperaremos todos los PG del servidor DPM que se almacenarán en una matriz ```$PG``` - obtenga los orígenes de datos correspondientes a ```$PG[0]``` - obtenga todos los puntos de recuperación de un origen de datos.
 
@@ -300,4 +301,4 @@ Los comandos se pueden ampliar fácilmente para cualquier tipo de origen de dato
 ## Pasos siguientes
 Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM en Azure](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Protección de una aplicación API de Azure" 
-	description="Obtenga información acerca de cómo proteger una aplicación de API de Azure mediante el uso de Visual Studio." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Protección de una aplicación API de Azure"
+	description="Obtenga información acerca de cómo proteger una aplicación de API de Azure mediante el uso de Visual Studio."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="tdykstra"/>
 
 # Protección de una aplicación de API: agregar la autenticación de Azure Active Directory o de un proveedor social
@@ -229,7 +229,11 @@ En esta sección, se cambiar el código de la aplicación de API de ContactsList
 	* "twitter"
 	* "facebook". 
 
-2. En el archivo *ContactsController.cs*, reemplace el código del método `Get` con el código siguiente.
+3. En el archivo *ContactsController.cs*, agregue una instrucción `using` en la parte superior del archivo.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+2. Reemplace el código del método `Get` por el código siguiente:
 
 		var runtime = Runtime.FromAppSettings(Request);
 		var user = runtime.CurrentUser;
@@ -269,4 +273,4 @@ Ha visto cómo proteger una aplicación de API de Azure al requerir Azure Active
 [Portal de vista previa de Azure]: https://portal.azure.com/
 [Portal del vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

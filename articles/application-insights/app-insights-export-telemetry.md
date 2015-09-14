@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exportación continua de telemetría desde Application Insights" 
-	description="Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Exportación continua de telemetría desde Application Insights"
+	description="Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -40,6 +40,7 @@ Elija los tipos de evento que desea exportar:
 
 Una vez que ha creado la exportación, comienza el proceso. (Solo obtendrá los datos que lleguen después de crear la exportación.)
 
+Puede haber un retraso de aproximadamente una hora antes de que aparezcan los datos en el blob.
 
 Si desea cambiar los tipos de evento más tarde, simplemente edite la exportación:
 
@@ -59,20 +60,23 @@ Los datos exportados son la telemetría sin procesar que recibimos de la aplicac
 
 No se incluyen otras métricas calculadas. Por ejemplo, no exportamos el uso medio de la CPU, pero sí la telemetría sin procesar a partir de la que se calcula la media.
 
+Los datos también incluyen los resultados de cualquier [prueba web de disponibilidad](app-insights-monitor-web-app-availability.md) que haya configurado.
+
 ## <a name="get"></a> Inspección de los datos
 
-Al abrir el almacén de blobs con una herramienta como el [Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx), verá un contenedor con un conjunto de archivos blob. El URI de cada archivo es-id/telemetry-type/date/time.
+Para inspeccionar el almacenamiento de Azure en Visual Studio, abra **Ver**, **Cloud Explorer**. (Si no dispone de ese comando de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo **Nuevo proyecto**, expanda Visual C#/Cloud y elija **Obtener el SDK de Microsoft Azure para. NET**.)
+
+Al abrir el almacén de blobs, verá un contenedor con un conjunto de archivos blob. El URI de cada archivo que se deriva del nombre del recurso de Application Insights, su clave de instrumentación, y el tipo, fecha y hora de telemetría. (El nombre del recurso está todo en minúsculas y la clave de instrumentación omite guiones).
 
 ![Inspección del almacén de blobs con una herramienta apropiada](./media/app-insights-export-telemetry/04-data.png)
 
 La fecha y hora son UTC e indican cuándo se depositó la telemetría en el almacén, no la hora en que se generó. De modo que si escribe código para descargar los datos, se puede mover linealmente a través de los datos.
 
 
-
 ## <a name="format"></a> Formato de datos
 
 * Cada blob es un archivo de texto que contiene varias filas separadas por' \\n'.
-* Cada fila es un documento JSON sin formato. Si desea centrarse en él, pruebe un visor como el Bloc de notas ++ con el complemento de JSON:
+* Cada fila es un documento JSON sin formato. Si quiere sentarse a mirarlo, ábralo en Visual Studio y elija Editar, Avanzadas, Archivo de formato:
 
 ![Visualización de la telemetría con una herramienta apropiada](./media/app-insights-export-telemetry/06-json.png)
 
@@ -198,4 +202,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

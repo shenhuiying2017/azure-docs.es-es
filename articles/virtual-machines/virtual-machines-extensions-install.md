@@ -1,25 +1,25 @@
 <properties 
- pageTitle="Administración de extensiones de máquina virtual | Microsoft Azure" 
- description="Describe cómo agregar, encontrar, actualizar y quitar extensiones." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
+ pageTitle="Administración de extensiones de máquina virtual | Microsoft Azure"
+	description="Describe cómo agregar, encontrar, actualizar y quitar extensiones."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="rasquill"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="rasquill"/>
 #Administración de extensiones de máquina virtual
 Describe cómo encontrar, agregar, modificar o quitar extensiones de VM con máquinas virtuales de Windows o Linux en Azure.
 
 ##Uso de extensiones de máquina virtual
 
-Las extensiones de máquina virtual de Azure implementan comportamientos o características que bien ayudan a otros programas a funcionar en máquinas virtuales de Azure (por ejemplo, la extensión **WebDeployForVSDevTest** permite Visual Studio en soluciones Web Deploy en la máquina virtual de Azure) o bien ofrecen la posibilidad de interactuar con la máquina virtual para que admita algún otro comportamiento (por ejemplo, puede usar las extensiones de acceso de máquina virtual desde Powershell, la xplat-cli y clientes REST para restablecer o modificar valores de acceso remoto en la máquina virtual de Azure).
+Las extensiones de máquina virtual de Azure implementan comportamientos o características que bien ayudan a otros programas a funcionar en máquinas virtuales de Azure (por ejemplo, la extensión **WebDeployForVSDevTest** permite Visual Studio en soluciones Web Deploy en la máquina virtual de Azure) o bien ofrecen la posibilidad de interactuar con la máquina virtual para que admita algún otro comportamiento (por ejemplo, puede usar las extensiones de acceso de máquina virtual desde Powershell, la CLI de Azure y clientes REST para restablecer o modificar valores de acceso remoto en la máquina virtual de Azure).
 
 >[AZURE.IMPORTANT]Para obtener una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](https://msdn.microsoft.com/library/dn606311.aspx). Dado que cada extensión de máquina virtual admite una característica específica, lo que se puede y no se puede hacer exactamente con una extensión depende de la extensión. Por lo tanto, antes de modificar la máquina virtual, asegúrese de leer la documentación de la extensión de máquina virtual que quiera usar. Algunas extensiones de máquina virtual no admiten que se quiten; otras tienen propiedades que se pueden establecer y cambian radicalmente el comportamiento de la máquina virtual.
 
@@ -38,7 +38,7 @@ Las tareas más comunes son:
 Son extensiones de máquina virtual de Azure (Para obtener una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](https://msdn.microsoft.com/library/dn606311.aspx)). Puede buscar la extensión e información extendida con:
 
 -   PowerShell
--   Interfaz entre plataformas de Azure (xplat-cli)
+-   Interfaz entre plataformas de Azure (CLI de Azure)
 -   API de REST de administración del servicio
 
 Use los cmdlet de [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn495240.aspx) o las [API de REST de administración de servicios](https://msdn.microsoft.com/library/ee460799.aspx) para encontrar información sobre extensiones disponibles.
@@ -78,13 +78,13 @@ Puede usar los cmdlets siguientes para obtener información sobre las extensione
         CompanyName                 :
 
 
-###Interfaz de la línea de comandos de Azure (xplat-cli)
+###Interfaz de la línea de comandos de Azure (CLI de Azure)
 
-Algunas extensiones tienen comandos de xplat-cli específicos para ellas (la extensión de máquina virtual de Docker es un ejemplo), lo que puede facilitar su configuración; pero los siguientes comandos funcionan para todas las extensiones de máquina virtual.
+Algunas extensiones tienen comandos de CLI de Azure específicos para ellas (la extensión de máquina virtual de Docker es un ejemplo), lo que puede facilitar su configuración; pero los siguientes comandos funcionan para todas las extensiones de máquina virtual.
 
 Puede usar el comando **azure vm extension list** para obtener información sobre las extensiones disponibles y usar la opción **–-json** para mostrar toda la información disponible sobre una o varias extensiones. Si no incluye un nombre de extensión, el comando devuelve una descripción json de todas las extensiones disponibles.
 
-En el ejemplo de código siguiente se indica cómo se muestra la información de la extensión **IaaSDiagnostics** con el comando **azure vm extension list** de xplat-cli y se usa la opción **–-json** para devolver información completa.
+En el ejemplo de código siguiente se indica cómo se muestra la información de la extensión **IaaSDiagnostics** con el comando **azure vm extension list** de CLI de Azure y se usa la opción **–-json** para devolver información completa.
 
 
     $ azure vm extension list -n IaaSDiagnostics --json
@@ -137,4 +137,4 @@ Puede usar las API de REST siguientes para saber si una extensión requiere una 
 
 >[AZURE.NOTE]Las extensiones también pueden usar configuraciones que se definen con JSON. Cuando se utilizan estos tipos de extensiones, solo se usa el elemento **SampleConfig**.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

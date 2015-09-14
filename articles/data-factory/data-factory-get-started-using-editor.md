@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Tutorial: Copia de datos de un blob de Azure a SQL Azure"
-	description="En este tutorial se muestra cómo crear una canalización de datos de ejemplo que copia datos de un blob a una instancia de base de datos de SQL de Azure."
+	pageTitle="Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos"
+	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante el Editor de la factoría de datos en el Portal de Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
-# Tutorial: Creación y supervisión de un generador de datos mediante el Editor de Factoría de datos
+# Tutorial: Crear una canalización con la actividad de copia mediante el editor de la factoría de datos
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -381,6 +381,9 @@ Para obtener una lista de actividades admitidas, vea el tema [Canalizaciones y a
  
 Para realizar este tutorial con PowerShell de Azure, consulte [Creación y supervisión de una factoría de datos con PowerShell de Azure][monitor-manage-using-powershell].
 
+## Enviar comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md).
+
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -498,4 +501,4 @@ Para realizar este tutorial con PowerShell de Azure, consulte [Creación y super
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

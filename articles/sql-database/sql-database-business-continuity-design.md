@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Diseño de la base de datos SQL para la continuidad del negocio" 
-   description="Directrices para realizar su elección En esta sección se proporcionan directrices que le ayudarán a elegir las características BCDR que deben usarse, así como el momento en que deben usarse. Esto incluye descripciones de lo que obtendrá automáticamente con el uso de la base de datos SQL."
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="Diseño de la base de datos SQL para la continuidad del negocio"
+	description="Directrices para realizar su elección En esta sección se proporcionan directrices que le ayudarán a elegir las características BCDR que deben usarse, así como el momento en que deben usarse. Esto incluye descripciones de lo que obtendrá automáticamente con el uso de la base de datos SQL."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 #Diseño para la continuidad del negocio
 
@@ -59,6 +59,8 @@ Puede habilitar la replicación geográfica mediante el Portal de Azure o median
 
 ###Portal de Azure
 
+[AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
+
 1. Inicie sesión en el [Portal de Azure](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **EXAMINAR** y, a continuación, seleccione **Bases de datos SQL**.
 3. Desplácese hasta la hoja de su base de datos, seleccione el **Mapa de replicación geográfica** y haga clic en **Configurar replicación geográfica**.
@@ -68,7 +70,8 @@ Puede habilitar la replicación geográfica mediante el Portal de Azure o median
 7. Haga clic en **Crear** para completar la configuración.
 
 > [AZURE.NOTE]La región emparejada de recuperación ante desastres de la hoja de replicación geográfica se marcará como *Recomendada*. Si usa una base de datos de nivel Premium, podrá elegir una región diferente. Si está usando una base de datos Standard, no podrá cambiar esta opción. La base de datos Premium ofrece la opción de especificar el tipo de base de datos secundaria (*legible* o *no legible*). La base de datos Standard solo permite seleccionar una base de datos secundaria *no legible*.
- 
+
+
 ###PowerShell
 
 Use el cmdlet de PowerShell [AzureSqlDatabaseCopy Start](https://msdn.microsoft.com/library/dn720220.aspx) para automatizar la configuración de la replicación geográfica.
@@ -99,4 +102,4 @@ Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

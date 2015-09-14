@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -22,7 +22,7 @@
 
 # Uso de temas/suscripciones del Bus de servicio
 
-En esta guía se indica cómo usar los temas y las suscripciones del Bus de servicio desde aplicaciones Ruby. Entre los escenarios tratados se incluye la **creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes** a un tema, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes](#NextSteps).
+En esta guía se indica cómo usar los temas y las suscripciones del Bus de servicio desde aplicaciones Ruby. Entre los escenarios tratados se incluye la **creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes** a un tema, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
 
 ## Qué son las suscripciones y los temas del Bus de servicio
 
@@ -58,7 +58,7 @@ El cmdlet de PowerShell que ejecutó para crear el espacio de nombres del bus de
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]También puede encontrar esta clave si inicia sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/) y va a la información de conexión para el espacio de nombres del bus de servicio.
+> [AZURE.NOTE]También puede encontrar esta clave si inicia sesión en el [Portal de Azure](http://manage.windowsazure.com/) y va a la información de conexión para el espacio de nombres del bus de servicio.
 
 ## Creación de una aplicación de Ruby
 
@@ -201,7 +201,7 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 ## Eliminación de temas y suscripciones
 
-Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de administración de Azure](https://manage.windowsazure.com) o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema llamado "test-topic".
+Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure](https://manage.windowsazure.com) o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema llamado "test-topic".
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -218,4 +218,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 -	Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

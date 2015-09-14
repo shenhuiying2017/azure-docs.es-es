@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="08/28/2015"
 	ms.author="csand"/>
 
 
 
-#Administración de Bus de servicio de Azure con Automatización de Azure
+# Administración de Bus de servicio de Azure con Automatización de Azure
 
 Esta guía presenta el servicio Automatización de Azure y cómo se puede usar para simplificar la administración de Bus de servicio de Azure.
 
@@ -30,11 +30,9 @@ Automatización de Azure proporciona un motor de ejecución de flujo de trabajo 
 
 Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentrarse en el trabajo que proporciona valor al negocio trasladando las tareas de administración en la nube para que se ejecuten automáticamente mediante Automatización de Azure.
 
-
 ## ¿Cómo puede ayudar Automatización de Azure a administrar Bus de servicio de Azure?
 
-Bus de servicio se puede administrar en Automatización de Azure mediante el uso de la [API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx). En Automatización de Azure puede escribir scripts de flujo de trabajo de PowerShell para llevar a cabo muchas de las tareas de Bus de servicio con la API de REST. También puede emparejar estas llamadas de API de REST en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas en los servicios de Azure y en sistemas de terceros.
-
+Puede administrar el Bus de servicio con la Automatización de Azure mediante el uso de la [API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx). En Automatización de Azure puede escribir scripts de flujo de trabajo de PowerShell para llevar a cabo muchas de las tareas de Bus de servicio con la API de REST. También puede emparejar estas llamadas de API de REST en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas en los servicios de Azure y en sistemas de terceros.
 
 ## Pasos siguientes
 
@@ -44,4 +42,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 * Consulte el artículo sobre [Administración de Bus de servicio con PowerShell](service-bus-powershell-how-to-provision.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

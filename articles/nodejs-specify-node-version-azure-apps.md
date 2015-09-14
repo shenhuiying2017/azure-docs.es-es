@@ -1,6 +1,6 @@
 <properties pageTitle="Especificación de una versión de Node.js" description="Aprenda a especificar la versión de Node.js que usan Sitios web Azure y Servicios en la nube" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
 
 
 
@@ -40,9 +40,11 @@ Si hospeda la aplicación en un sitio web, puede definir la variable de entorno 
 
 Si hospeda la aplicación en un servicio en la nube y la aplicación se implementa con Azure PowerShell, puede reemplazar la versión predeterminada de Node.js mediante el uso del cmdlet **Set-AzureServiceProjectRole** de PowerShell. Por ejemplo:
 
-	Set-AzureServiceProjectRole WebRole1 node 0.8.4
+	Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-También puede utilizar **Get-AzureServiceProjectRoleRuntime** para recuperar una lista de las versiones disponibles de Node.js para las aplicaciones hospedadas como Servicio en la nube.
+Tenga en cuenta que los parámetros de la instrucción anterior distinguen entre mayúsculas y minúsculas. Puede comprobar la versión correcta de Node.js que se ha seleccionado comprobando la propiedad **motores** en el **package.json** de su rol.
+
+También puede utilizar **Get-AzureServiceProjectRoleRuntime** para recuperar una lista de las versiones disponibles de Node.js para las aplicaciones hospedadas como Servicio en la nube. Compruebe siempre que la versión de Node.js de la que depende su proyecto se encuentre en esta lista.
 
 ##Uso de una versión personalizada con Sitios web Azure
 
@@ -93,4 +95,4 @@ Ahora que sabe cómo especificar la versión de Node.js que utiliza su aplicaci�
 [funcionamiento con módulos]: nodejs-use-node-modules-azure-apps.md
 [compilación e implementación de un sitio web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

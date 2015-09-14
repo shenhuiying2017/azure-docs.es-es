@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/02/2015"
 	ms.author="mmercuri"/>
 
 # Uso compartido del estado en las plantillas del Administrador de recursos de Azure
 
-En este tema se describe cómo administrar y compartir el estado de una plantilla del Administrador de recursos de Azure y a través de plantillas vinculadas.
+En este tema se muestran prácticas recomendadas para administrar y compartir el estado de una plantilla del Administrador de recursos de Azure y a través de plantillas vinculadas. Los parámetros y variables que se muestran en este tema son ejemplos del tipo de objetos que puede definir para organizar con facilidad sus requisitos de implementación. Desde estos ejemplos, puede implementar sus propios objetos con valores de propiedad que tengan sentido para su entorno.
 
 ## Uso de objetos complejos para compartir el estado
 
@@ -366,7 +366,7 @@ En el ejemplo siguiente se muestra cómo pasar la dirección IP privada generada
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
             "type": "string"
          }
     }
@@ -381,4 +381,4 @@ Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguient
 - [Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
 - [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

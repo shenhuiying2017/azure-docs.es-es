@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/04/2015"
+	ms.date="06/16/2015"
 	ms.author="krisragh"/>
 
 # Llamada a una API personalizada desde un cliente iOS (backend JavaScript)
@@ -54,6 +54,5 @@ También, considere la posibilidad de profundizar más en los siguientes temas d
 [Get started with authentication]: mobile-services-ios-get-started-users.md
 [Get started with push notifications]: ../mobile-services-ios-get-started-push.md
 [Almacenamiento de scripts de servidor en control de código fuente]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

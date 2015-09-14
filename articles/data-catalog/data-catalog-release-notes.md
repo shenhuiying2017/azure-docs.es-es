@@ -1,10 +1,10 @@
 <properties
    pageTitle="Notas de la versión del Catálogo de datos de Azure"
-	description="Notas de la vista previa pública de la versión del 13 de julio de 2015 del Catálogo de datos de Azure"
+	description="Notas de la vista previa pública de la versión del 28 de agosto de 2015 del Catálogo de datos de Azure."
 	services="data-catalog"
 	documentationCenter=""
-	authors="dvana"
-	manager="mblythe"
+	authors="steelanddata"
+	manager="NA"
 	editor=""
 	tags=""/>
 <tags
@@ -13,12 +13,28 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+	ms.date="08/28/2015"
+	ms.author="maroche"/>
 
-# Notas del 13 de julio de 2015 del Catálogo de datos de Azure
+# Notas de la versión del Catálogo de datos de Azure
 
-## Registro y conexión a Oracle Database
+## Notas del 28 de agosto de 2015 del Catálogo de datos de Azure
+
+### Perfil de datos que faltan para algunos activos de datos registrados
+
+Al registrar los orígenes de datos con la opción generación de perfiles de datos seleccionada en la herramienta de registro de origen de datos, la información del perfil de datos no puede incluirse en los siguientes escenarios:
+
+* Tablas de la Base de datos SQL de Azure
+* Vista y tablas de SQL Server donde hay varios objetos con el mismo nombre en distintos esquemas
+* Vistas y tablas de SQL Server con nombres de columna con más de 118 caracteres
+* Vistas y tablas de Oracle con nombres de columna con más de 20 caracteres
+* Vistas y tablas de Oracle con espacios o caracteres de múltiples bits en nombres de columna
+
+Estas restricciones se deben a un problema conocido de la versión de 28 de agosto y se solucionará en una futura actualización al catálogo de datos de Azure.
+
+## Notas del 13 de julio de 2015 del Catálogo de datos de Azure
+
+### Registro y conexión a Oracle Database
 
 Para conectarse a orígenes de datos de Oracle Database, los usuarios deben tener instalados los controladores de Oracle correctos que coinciden con el valor de bits (32 bits o 64 bits) del software que se va a usar.
 
@@ -27,21 +43,21 @@ Para conectarse a orígenes de datos de Oracle Database, los usuarios deben tene
 -	Para conectarse a orígenes de datos de Oracle mediante Excel en un equipo con la versión de 32 bits de Microsoft Office, incluida en Windows de 64 bits, se usarán los controladores de Oracle de 32 bits
 -	Para conectarse a orígenes de datos de Oracle mediante Excel en un equipo con la versión de 64 bits de Microsoft Office, se usarán los controladores de Oracle de 64 bits
 
-## Registro y conexión a SQL Server Reporting Services
+### Registro y conexión a SQL Server Reporting Services
 
 La compatibilidad con orígenes de datos de SQL Server Reporting Services (SSRS) en la versión inicial de vista previa del Catálogo de datos de Azure está limitada a tan solo los servidores de modo nativo. La compatibilidad con SSRS en modo SharePoint se agregará en una versión posterior.
 
-## Apertura de recursos de datos en Excel
+### Apertura de recursos de datos en Excel
 
 Al abrir recursos de datos en Microsoft Excel desde el portal del Catálogo de datos de Azure, es posible que a los usuarios se les muestre un cuadro de diálogo de **Aviso de seguridad de Microsoft Excel**. Este es el comportamiento estándar esperado y los usuarios pueden seleccionar **Habilitar** para continuar.
 
 Para obtener más información, consulte [Habilitar o deshabilitar las alertas de seguridad acerca de vínculos y archivos de sitios web sospechosos](https://support.office.com/es-ES/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
-## Faltan las columnas BLOB y UDT en las vistas previas
+### Faltan las columnas BLOB y UDT en las vistas previas
 
 Al registrar tablas y vistas que contienen columnas de objeto binario grande (BLOB) y de tipo de datos definidos por el usuario (UDT) y al seleccionar la inclusión de una vista previa de los recursos de datos, estas columnas no se incluirán en la vista previa.
 
-## Configuración de proxy y directiva, y registro de orígenes de datos
+### Configuración de proxy y directiva, y registro de orígenes de datos
 
 Es posible que los usuarios se encuentren en una situación en la que puedan iniciar sesión en el portal del Catálogo de datos de Azure, pero cuando intenten iniciar sesión en la herramienta de registro de orígenes de datos se encuentren un mensaje de error que les impida iniciar sesión.
 
@@ -67,4 +83,4 @@ Para obtener más información, consulte [Configuración de la autenticación ba
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

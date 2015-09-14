@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicaciones web con Express (Node.js) | Microsoft Azure" 
-	description="Este tutorial se basa en el tutorial sobre servicios en la nube y muestra cómo usar el módulo Express." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Aplicaciones web con Express (Node.js) | Microsoft Azure"
+	description="Este tutorial se basa en el tutorial sobre servicios en la nube y muestra cómo usar el módulo Express."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -43,9 +43,9 @@ Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
-		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
+		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 
-	> [AZURE.NOTE]De forma predeterminada, **Add-AzureNodeWebRole** usa una versión anterior de Node.js. La instrucción **Set-AzureServiceProjectRole** anterior indica a Azure que debe usar la v0.10.21 del nodo.
+	> [AZURE.NOTE]De forma predeterminada, **Add-AzureNodeWebRole** usa una versión anterior de Node.js. La instrucción **Set-AzureServiceProjectRole** anterior indica a Azure que debe usar la v0.10.21 del nodo. Tenga en cuenta que los parámetros distinguen mayúsculas de minúsculas. Puede comprobar la versión correcta de Node.js que se ha seleccionado comprobando la propiedad **motores** en **WebRole1\\package.json**.
 
 ##Instalación de Express
 
@@ -88,7 +88,7 @@ Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube
 
 	Este cambio es necesario porque el archivo se movió (anteriormente **bin/www**) al mismo directorio que el archivo de aplicación que se requiere. Después de realizar este cambio, guarde el archivo **server.js**.
 
-8.  Utilice el siguiente comando para ejecutar la aplicación en el emulador de Azure:
+8.  Use el siguiente comando para ejecutar la aplicación en el emulador de Azure:
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
@@ -135,4 +135,4 @@ Una vez finalizada la operación de implementación, el explorador abrirá y mos
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

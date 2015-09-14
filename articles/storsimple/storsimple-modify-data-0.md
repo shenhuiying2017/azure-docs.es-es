@@ -1,23 +1,24 @@
 <properties 
-   pageTitle="Modificación de las opciones de configuración de la interfaz de red DATA 0 en el dispositivo StorSimple"
-   description="Obtenga más información acerca de cómo volver a configurar la interfaz de red DATA 0 en el dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Modificar la configuración de DATA 0 en un dispositivo StorSimple | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar Windows PowerShell para StorSimple para volver a configurar la interfaz de red DATA 0 en el dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
 # Modificación de las opciones de configuración de la interfaz de red DATA 0 en el dispositivo StorSimple
 
 ## Información general
+
 El dispositivo Microsoft Azure StorSimple tiene seis interfaces de red: de DATA de 0 a DATA 5. La interfaz DATA 0 siempre se configura a través de la interfaz de Windows PowerShell o la consola de serie, y se habilitada para la nube automáticamente. La interfaz DATA 0 se configura por primera vez a través del asistente para la instalación durante la implementación inicial del dispositivo StorSimple. Cuando el dispositivo está en un modo de funcionamiento, tal vez tenga que volver a establecer la configuración de DATA 0. En este tutorial se proporcionan dos métodos para modificar la configuración de red de DATA 0, ambos a través de Windows PowerShell para StorSimple.
 
 Después de leer este tutorial, podrá:
@@ -33,12 +34,12 @@ Puede volver a establecer la configuración de red de DATA 0 conectándose a la 
 
 1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la **contraseña de administrador del dispositivo**. La contraseña predeterminada es `Password1`.
 
-1. En el símbolo del sistema, escriba:
+2. En el símbolo del sistema, escriba:
 
 
 	`Invoke-HcsSetupWizard`
 
-1. Aparecerá un asistente para instalación que le ayudará a configurar la interfaz DATA 0 del dispositivo. Proporcione nuevos valores para la dirección IP, la pasarela y la máscara de red.
+3. Aparecerá un asistente para instalación que le ayudará a configurar la interfaz DATA 0 del dispositivo. Proporcione nuevos valores para la dirección IP, la pasarela y la máscara de red.
 
 > [AZURE.NOTE]Las IP fijas de controladores deberán volverse a configurar mediante la página **Configurar** del dispositivo StorSimple en el Portal de administración de Azure. Para obtener más información, vaya a [Modificar las interfaces de red](storsimple-modify-device-config.md#modify-network-interfaces).
 
@@ -70,4 +71,4 @@ Una alternativa para volver a configurar la interfaz de red DATA 0 es mediante e
 
 Para configurar las interfaces de red que no sean DATA 0, puede usar la página [Configurar del Portal de administración](storsimple-modify-device-config.md). Si experimenta problemas al configurar las interfaces de red, consulte [Solucionar problemas de implementación](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

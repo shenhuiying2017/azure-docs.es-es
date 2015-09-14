@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Documentación de la API de recomendaciones de Aprendizaje automático | Microsoft Azure" 
-	description="Documentación de la API de recomendaciones de Aprendizaje automático de Azure para un motor de recomendaciones disponible en Microsoft Azure Marketplace." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="AharonGumnik" 
-	manager="paulettm" 
+	pageTitle="Documentación de la API de recomendaciones de Aprendizaje automático | Microsoft Azure"
+	description="Documentación de la API de recomendaciones de Aprendizaje automático de Azure para un motor de recomendaciones disponible en Microsoft Azure Marketplace."
+	services="machine-learning"
+	documentationCenter=""
+	authors="AharonGumnik"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="LuisCa"/>
 
 #Documentación de la API de recomendación de Aprendizaje automático de Azure
@@ -1600,7 +1600,7 @@ Recupera la información de características, incluida la clasificación de una 
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=%27<rankBuildId>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=%271000551%27&apiVersion=%271.0%27`
+|GET |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=<rankBuildId>&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=1000551&apiVersion=%271.0%27`
 
 | Nombre de parámetro |	Valores válidos |
 |:--------			|:--------			|
@@ -2510,7 +2510,7 @@ Obtenga recomendaciones de la compilación activa de tipo o "Fbt" basadas en las
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1` – Id. de elemento recomendado. - `Feed\entry\content\properties\Name1` – Nombre del elemento. - `Feed\entry\content\properties\Id2` – Id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – Nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – Clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – Razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id1` id. de elemento recomendado. - `Feed\entry\content\properties\Name1` nombre del elemento. - `Feed\entry\content\properties\Id2` id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 En la respuesta de ejemplo siguiente se incluyen 3 elementos recomendados.
 
@@ -2596,7 +2596,7 @@ Obtenga recomendaciones de una compilación concreta de tipo "Fbt".
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1` – Id. de elemento recomendado. - `Feed\entry\content\properties\Name1` – Nombre del elemento. - `Feed\entry\content\properties\Id2` – Id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – Nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – Clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – Razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id1` id. de elemento recomendado. - `Feed\entry\content\properties\Name1` nombre del elemento. - `Feed\entry\content\properties\Id2` id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.3
 
@@ -2879,4 +2879,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/08/2015"
+	ms.date="09/01/2015"
 	ms.author="tdykstra"/>
 
 # Introducción a Servicios en la nube de Azure y ASP.NET
@@ -399,7 +399,7 @@ Una vez creada la solución, se asegurará de que el código es único en proyec
 
 12. En el panel izquierdo, seleccione **Actualizaciones**.
 
-13. Busque el paquete *Almacenamiento de Azure* y, si se encuentra en la lista, haga clic en **Actualizar** para obtener la versión más reciente de la biblioteca de cliente de almacenamiento.
+13. Busque el paquete *WindowsAzure.Storage* y, si se encuentra en la lista, haga clic en **Actualizar** para obtener la versión más reciente de la biblioteca de cliente de almacenamiento.
 
 	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)
 
@@ -408,6 +408,8 @@ Una vez creada la solución, se asegurará de que el código es único en proyec
 14. En el panel izquierdo, seleccione **En línea**.
 
 16. Busque el paquete NuGet de *EntityFramework* e instálelo en los otros tres proyectos.
+
+17. Busque el paquete NuGet *Microsoft.WindowsAzure.ConfigurationManager* e instálelo en el proyecto de rol de trabajo.
 
 ### Establecimiento de preferencias del proyecto
 
@@ -811,4 +813,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Administración de servicios en la nube](cloud-services-how-to-manage.md)
 * [Almacenamiento de Azure](/documentation/services/storage/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

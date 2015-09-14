@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Comandos equivalentes del Administrador de recursos y de la Administración de servicios para las operaciones de máquina virtual con la CLI de Azure para Mac, Linux y Windows"
-	description="Muestra los comandos equivalente de la CLI de Azure para crear y administrar máquinas virtuales de Azure en los modos Administrador de recursos y Administración de servicios"
+	pageTitle="Comandos de la CLI de Azure equivalentes para las tareas de máquina virtual | Microsoft Azure"
+	description="Comandos equivalente de la CLI de Azure para crear y administrar máquinas virtuales de Azure en los modos Administrador de recursos de Azure y Administración de servicios de Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,33 +14,34 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="command-line-interface"
 	ms.workload="infrastructure-services"
-	ms.date="04/28/2015"
+	ms.date="08/28/2015"
 	ms.author="danlep"/>
 
 
-# Comandos equivalentes del Administrador de recursos y de la Administración de servicios para las operaciones de máquina virtual con la CLI de Azure para Mac, Linux y Windows
-Este artículo muestra la interfaz de línea de comandos equivalente de Microsoft Azure (CLI de Azure) para crear y administrar máquinas virtuales de Azure en los modos Administración de servicios (asm) y Administrador de recursos (arm). Utilícelo como una guía para migrar los scripts de un modo de comando a otro.
+# Comandos equivalentes del Administrador de recursos y de Administración de servicios para las tareas de máquina virtual con la CLI de Azure para Mac, Linux y Windows
+Este artículo muestra la interfaz de línea de comandos equivalente de Microsoft Azure (CLI de Azure) para crear y administrar máquinas virtuales de Azure en Administración de servicios de Azure y Administrador de recursos de Azure. Utilícelo como una guía para migrar los scripts de un modo de comando a otro.
 
-* Si aún no ha instalado la CLI de Azure y se ha conectado a su suscripción, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) y [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md). Cuando use los comandos del modo arm asegúrese de conectarse con el método de inicio de sesión.
+* Si aún no ha instalado la CLI de Azure y se ha conectado a su suscripción, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) y [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md). Si desea usar los comandos de modo del Administrador de recursos, asegúrese de conectar con el método de inicio de sesión.
 
-* Para comenzar con el modo arm en los modos de comando de CLI de Azure y de modificador, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md).
+* Para comenzar con el modo del Administrador de recursos en la CLI de Azure, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md). De forma predeterminada, la CLI se inicia en el modo de administración de servicio. Para cambiar al modo del Administrador de recursos, ejecute `azure config mode arm`. Para volver al modo de Administración de servicios, ejecute `azure config mode asm`.
 
 * Para obtener ayuda en pantalla sobre los conozco y conocer las distintas opciones, escriba `azure <command> <subcommand> --help` o `azure help <command> <subcommand>`.
 
-## Escenarios
-A continuación encontrará una tabla que enumera varias operaciones habituales de las máquinas virtuales que se pueden realizar con la CLI de Azure en los modos asm y arm. En el caso de muchos comandos del modo arm, es preciso agregar el nombre de un grupo de recursos existente.
+## Tareas de la máquina virtual
+En la tabla siguiente, se comparan tareas comunes de la máquina virtual que se pueden realizar con los comandos de CLI de Azure en Administración de servicios y el Administrador de recursos. En el caso de muchos comandos del Administrador de recursos, es preciso agregar el nombre de un grupo de recursos existente.
 
-> [AZURE.NOTE]Estos ejemplos no incluyen las operaciones basadas en plantilla del modo arm. Para obtener información, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE]Estos ejemplos no incluyen las operaciones basadas en plantilla del Administrador de recursos. Para obtener información, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md).
 
-Escenario | modo asm | modo arm
+Tarea | Administración de servicios | Resource Manager
 -------------- | ----------- | -------------------------
-Creación de la máquina virtual más básica | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`
+Creación de la máquina virtual más básica | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenga `image-urn` desde el comando `azure vm image list`).
 Creación de una máquina virtual Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Creación de una máquina virtual Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Enumeración de máquinas virtuales | `azure  vm list [options]` | `azure  vm list [options] <resource_group>`
 Obtención información acerca de una máquina virtual | `azure  vm show [options] <vm_name>` | `azure  vm show [options] <resource_group> <name>`
 Inicio de una máquina virtual | `azure vm start [options] <name>` | `azure vm start [options] <resource_group> <name>`
 Detención de una máquina virtual | `azure vm shutdown [options] <name>` | `azure vm stop [options] <resource_group> <name>`
+Cancelación de la asignación de una máquina virtual | No disponible | `azure vm deallocate [options] <resource-group> <name>`
 Reinicio de una máquina virtual | `azure vm restart [options] <vname>` | `azure vm restart [options] <resource_group> <name>`
 Eliminación de una máquina virtual | `azure vm delete [options] <name>` | `azure vm delete [options] <resource_group> <name>`
 Captura de una máquina virtual | `azure vm capture [options] <name>` | `azure vm capture [options] <resource_group> <name>`
@@ -56,11 +58,13 @@ Eliminación de una extensión de máquina virtual | `azure  vm extension set [o
 Lista de extensiones de máquina virtual | `azure vm extension list [options]` | `azure  vm extension get [options] <resource-group> <vm-name>`
 Enumeración de imágenes de máquina virtual | `azure vm image list [options]` | `azure vm image list [options] <location> <publisher> [offer] [sku]`, O BIEN <br/> `azure vm image list-publishers [options] <location>`, O BIEN <br/> `azure vm image list-offers [options] <location>`, O BIEN <br/> `azure vm image list-skus [options] <location>`
 Visualización de una imagen de máquina virtual | `azure vm image show [options]` | No disponible
+Obtención del uso de los recursos de una máquina virtual | No disponible | `azure vm list-usage [options] <location>`
+Obtención de todos los tamaños disponibles de la máquina virtual | No disponible | `azure vm sizes [options]`
 
 
 ## Pasos siguientes
 
-* Para obtener más información acerca del uso de la CLI de Azure para trabajar con recursos en modo arm, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Administración del control de acceso basado en rol con la interfaz de línea de comandos de Azure](../role-based-access-control-xplat-cli.md).
-* Para obtener ejemplos adicionales de los comandos CLI, consulte [Uso de la interfaz de la línea de comandos de Azure](../virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
+* Para obtener más información acerca del uso de la CLI de Azure para trabajar con recursos del Administrador de recursos, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Administración del control de acceso basado en rol con la interfaz de línea de comandos de Azure](../role-based-access-control-xplat-cli.md).
+* Para obtener ejemplos adicionales de los comandos CLI, consulte [Uso de la interfaz de la línea de comandos de Azure con la administración de servicios de Azure](../virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

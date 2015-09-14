@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Contactar al soporte técnico de Microsoft | Microsoft Azure"
-   description="Aprenda a crear una solicitud de soporte técnico y a iniciar una sesión de soporte técnico en su dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Aprenda a crear una solicitud de soporte técnico y a iniciar una sesión de soporte técnico en su dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Contactar al soporte técnico de Microsoft
 
-Si tiene problemas con la solución de Microsoft Azure StorSimple, puede crear una solicitud de servicio de soporte técnico. Durante una sesión en línea con un ingeniero de soporte, podría tener que iniciar una sesión de soporte en su dispositivo StorSimple. Este artículo le guiará a través del proceso de creación de una solicitud de soporte y también le explicará cómo iniciar una sesión de apoyo en la interfaz de Windows PowerShell del dispositivo StorSimple.
+Si tiene algún problema con la solución de Microsoft Azure StorSimple, puede crear una solicitud de servicio de soporte técnico. En una sesión en línea con su ingeniero de soporte técnico, también deberá iniciar una sesión de soporte técnico en su dispositivo StorSimple. Este artículo le guiará a través del proceso de creación de una solicitud de soporte y también le explicará cómo iniciar una sesión de apoyo en la interfaz de Windows PowerShell del dispositivo StorSimple.
 
 ## Crear una solicitud de soporte
 
@@ -71,4 +71,4 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 
 > [AZURE.IMPORTANT]Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

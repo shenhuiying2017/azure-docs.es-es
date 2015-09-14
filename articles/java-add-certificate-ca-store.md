@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Agregar un certificado al almacén de CA de Java | Microsoft Azure" 
-	description="Obtenga información acerca de cómo agregar un certificado de entidad de certificación (CA) al almacén de certificados CA de Java (cacerts) para el servicio de Twilio o el Bus de servicio de Azure." 
-	services="" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Agregar un certificado al almacén de CA de Java | Microsoft Azure"
+	description="Obtenga información acerca de cómo agregar un certificado de entidad de certificación (CA) al almacén de certificados CA de Java (cacerts) para el servicio de Twilio o el Bus de servicio de Azure."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Incorporación de un certificado al almacén de certificados CA de Java
@@ -28,7 +28,7 @@ Puede usar keytool para agregar el certificado de entidad de certificación ante
 	`keytool -list -keystore cacerts`
 
 	Se le solicitará la contraseña del almacén. La contraseña predeterminada es **changeit**. (Si desea cambiar la contraseña, consulte la documentación de keytool en http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html). En este ejemplo se asume que el certificado con huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 no está en la lista y que se desea importarlo (en particular, este certificado es necesario para el servicio de API Twilio).
-2. Obtenga el certificado de la lista de certificados que se muestra en [Certificados raíz de GeoTrust](http://www.geotrust.com/resources/root-certificates/). Haga clic con el botón derecho en el vínculo al certificado con número de serie 35:DE:F4:CF y guárdelo en la carpeta **jdk\\jre\\lib\\security**. A los efectos de este ejemplo, se ha guardado un archivo con nombre **Equifax\\\_Secure\\\_Certificate\\\_Authority.cer**.
+2. Obtenga el certificado de la lista de certificados que se muestra en [Certificados raíz de GeoTrust](http://www.geotrust.com/resources/root-certificates/). Haga clic con el botón derecho en el vínculo al certificado con número de serie 35:DE:F4:CF y guárdelo en la carpeta **jdk\\jre\\lib\\security**. A los efectos de este ejemplo, se ha guardado un archivo con nombre **Equifax\\_Secure\\_Certificate\\_Authority.cer**.
 3. Importe el certificado a través del siguiente comando:
 
 	`keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
@@ -52,4 +52,4 @@ Si necesita agregar Baltimore CyberTrust Root, tiene el número de serie 02:00:0
 
 Para obtener más información sobre los certificados raíz que usa Azure, consulte [Azure Root Certificate Migration (Migración de certificados raíz de Azure)](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

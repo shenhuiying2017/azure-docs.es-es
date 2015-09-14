@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Llamada a una API personalizada desde una aplicación Windows Phone - Servicios móviles" 
-	description="Obtenga información acerca de cómo definir una API personalizada y, a continuación, llamarla desde una aplicación de Windows Phone que utiliza Servicios móviles de Azure." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Llamada a una API personalizada desde una aplicación Windows Phone - Servicios móviles"
+	description="Obtenga información acerca de cómo definir una API personalizada y, a continuación, llamarla desde una aplicación de Windows Phone que utiliza Servicios móviles de Azure."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Llamada a una API personalizada desde el cliente
@@ -54,6 +54,5 @@ También, considere la posibilidad de profundizar más en los siguientes temas d
 <!-- URLs. -->
 [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Almacenamiento de scripts de servidor en control de código fuente]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

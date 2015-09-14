@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del almacenamiento de archivos de Java | Microsoft Azure" 
-	description="Aprenda a utilizar el servicio de archivos de Azure para cargar, descargar, incluir en un listado y eliminar archivos. Ejemplos escritos en Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe" />
+	pageTitle="Uso del almacenamiento de archivos de Java | Microsoft Azure"
+	description="Aprenda a utilizar el servicio de archivos de Azure para cargar, descargar, incluir en un listado y eliminar archivos. Ejemplos escritos en Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="v-dedomi"/>
 
 # Uso del almacenamiento de archivos de Java
@@ -222,4 +222,4 @@ Si desea obtener más información acerca de otras API de almacenamiento de Azur
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

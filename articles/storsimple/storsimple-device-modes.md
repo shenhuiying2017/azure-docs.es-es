@@ -1,27 +1,27 @@
 <properties 
-   pageTitle="Cambio de los modos de dispositivo en el dispositivo StorSimple | Microsoft Azure"
-   description="Obtenga información sobre los distintos modos del dispositivo StorSimple y cómo cambiarlos."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Cambiar el modo del dispositivo StorSimple | Microsoft Azure"
+	description="Describe los modos de dispositivo StorSimple y explica cómo usar Windows PowerShell para StorSimple para cambiar el modo del dispositivo."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Modos del dispositivo StorSimple
+# Cambiar el modo del dispositivo en su dispositivo StorSimple
 
 En este artículo se proporciona una breve descripción de los distintos modos en que puede funcionar el dispositivo StorSimple. El dispositivo StorSimple puede funcionar en tres modos: normal, de mantenimiento y de recuperación.
 
 Después de leer este artículo, sabrá acerca de:
 
-- Los modos del dispositivo StorSimple.
+- ¿Qué son los modos del dispositivo StorSimple?
 - Cómo determinar el modo en que está establecido el dispositivo StorSimple.
 - Cómo cambiar del modo normal al modo de mantenimiento y *viceversa*.
 
@@ -52,9 +52,9 @@ Si el sistema entra en modo de recuperación, debe ponerse en contacto con el so
 
 >[AZURE.NOTE]**No puede poner el dispositivo en modo de recuperación. Si el dispositivo está en mal estado, el modo de recuperación intenta llevar al dispositivo a un estado en el que el personal de soporte técnico de Microsoft pueda examinarlo.**
 
-## Determinar el modo del dispositivo StorSimple
+## Determinar el modo de dispositivo StorSimple
 
-Para determinar el modo del dispositivo, lleve a cabo los siguientes pasos:
+#### Para determinar el modo del dispositivo actual
 
 1. Inicie sesión en la consola serie del dispositivo siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 2. Mire el mensaje de pancarta del menú de la consola serie del dispositivo. Este mensaje indica de forma explícita si el dispositivo está en modo de mantenimiento o de recuperación. Si el mensaje no contiene información específica relativa al modo del sistema, el dispositivo está en modo normal.
@@ -97,4 +97,4 @@ Puede colocar el dispositivo StorSimple en modo de mantenimiento (desde el modo 
 
 Aprenda a [aplicar las actualizaciones del modo normal y del de mantenimiento](storsimple-update-device.md) en el dispositivo StorSimple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

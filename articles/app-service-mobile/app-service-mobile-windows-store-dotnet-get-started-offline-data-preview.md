@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="08/27/2015"
 	ms.author="wesmc"/>
 
 # Activación de la sincronización sin conexión para la aplicación de Windows
@@ -36,8 +36,6 @@ Este tutorial requiere lo siguiente:
 * Finalización del tutorial [Creación de una aplicación para Windows][create a windows app].
 * [Almacén SQLite de Servicios móviles de Azure versión 2.0.0-beta][sqlite store nuget]
 * [SQLite para Windows 8.1](http://www.sqlite.org/downloads)
-
->[AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.
 
 ## Actualización de la aplicación cliente para que admita características sin conexión
 
@@ -251,7 +249,7 @@ Cuando queremos sincronizar el almacén local con el servidor, usamos los métod
 
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 
-* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] \(nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
+* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
 
 * [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]
 
@@ -281,4 +279,4 @@ Cuando queremos sincronizar el almacén local con el servidor, usamos los métod
 [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

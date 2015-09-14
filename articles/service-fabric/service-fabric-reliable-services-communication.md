@@ -1,20 +1,20 @@
 <properties
    pageTitle="Información general del modelo de comunicación de servicio"
-   description="Este artículo describe los aspectos básicos del modelo de comunicación compatibles con la api del servicio fiable."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="vipulm"
-   editor=""/>
+	description="Este artículo describe los aspectos básicos del modelo de comunicación compatibles con la api del servicio fiable."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="BharatNarasimman"
+	manager="vipulm"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="04/13/2015"
-   ms.author="bharatn@microsoft.com"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="08/27/2015"
+	ms.author="bharatn@microsoft.com"/>
 
 # Modelo de comunicación de servicio
 
@@ -70,7 +70,7 @@ var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 
 ```
 
-> [AZURE.NOTE]Los recursos de los extremos son comunes para el paquete de servicio completo y son asignados por Service Fabric cuando se activa el paquete de servicio. (Consulte [Service Fabric ServiceModel](../service-fabric-service-model.md) para obtener más detalles). Por ello, las réplicas alojadas en el mismo ServiceHost comparten el mismo puerto. Esto significa que el agente de escucha de comunicación debe admitir el uso compartido de puertos. La manera recomendada de hacerlo es que el agente de escucha de comunicación utilice el Id. de partición y el Id. de instancia o de réplica cuando se genera la dirección de escucha.
+> [AZURE.NOTE]Los recursos de los extremos son comunes para el paquete de servicio completo y son asignados por Service Fabric cuando se activa el paquete de servicio. Por ello, las réplicas alojadas en el mismo ServiceHost comparten el mismo puerto. Esto significa que el agente de escucha de comunicación debe admitir el uso compartido de puertos. La manera recomendada de hacerlo es que el agente de escucha de comunicación utilice el Id. de partición y el Id. de instancia o de réplica cuando se genera la dirección de escucha.
 
 ```csharp
 
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Escribir un servicio mediante la API de servicios fiables que usa la pila de comunicación de WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="command-line-interface"
 	ms.workload="infrastructure"
-	ms.date="04/25/2015"
+	ms.date="08/26/2015"
 	ms.author="rasquill"/>
 
 # Solución de problemas de implementaciones de grupo de recursos en Azure
@@ -373,17 +373,10 @@ Es habitual querer utilizar un recurso desde fuera del grupo de recursos actual 
 
 ## Pasos siguientes
 
-Para dominar la creación de plantillas, lea [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md) y visite el [repositorio de AzureRMTemplates](https://github.com/azurermtemplates/azurermtemplates) para obtener ejemplos implementables. Un ejemplo de la propiedad **dependsOn** es el [Equilibrador de carga con la plantilla de regla NAT entrante](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
+Para dominar la creación de plantillas, lea [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md) y visite el [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates) para obtener ejemplos implementables. Un ejemplo de la propiedad **dependsOn** es [Creación de una máquina virtual con varias NIC y con acceso a RDP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-1-vm-loadbalancer-2-nics).
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/
-[yah]: http://search.yahoo.com/
-[msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

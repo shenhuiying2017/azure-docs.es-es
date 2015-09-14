@@ -1,20 +1,19 @@
 <properties 
-	pageTitle="Exploradores y dispositivos compatibles" 
-	description="" 
-	services="" 
-	documentationCenter="" 
-	authors="flanakin" 
-	writer="flanakin" 
-	manager="lwelicki" 
+	pageTitle="Exploradores y dispositivos compatibles"
+	description=""
+	services=""
+	documentationCenter=""
+	authors="flanakin"
+	manager="lwelicki"
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/23/2015"
 	ms.author="micflan"/>
 
 #Exploradores y dispositivos compatibles
@@ -26,6 +25,7 @@ El portal se ejecutará de manera excelente en tabletas, Mac y PC modernos. Los 
 ### Exploradores compatibles
 Son compatibles las últimas versiones de los siguientes exploradores:
 
+- Edge (última versión)
 - Internet Explorer (11 y versiones posteriores)
 - Safari (7 y versiones posteriores)
 - Chrome (última versión)
@@ -33,4 +33,4 @@ Son compatibles las últimas versiones de los siguientes exploradores:
 
 *Safari 6 y versiones anteriores no son compatibles. Si usa OS X, puede usar Chrome, Firefox o actualizar a OS X Mavericks para obtener Safari 7.*
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

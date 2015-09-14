@@ -77,10 +77,10 @@ Una cuenta de almacenamiento proporciona acceso a los servicios Blob, Cola y Tab
 1. Seleccione o escriba la siguiente información para la nueva cuenta de almacenamiento en el cuadro de diálogo **Crear cuenta de almacenamiento**.
     - Suscripción de Azure a la que desee agregar la cuenta de almacenamiento.
     - Nombre que quiere usar para la nueva cuenta de almacenamiento.
-    - Región o grupo de afinidad (por ejemplo, Oeste de EE. UU. o Asia oriental).
+    - La región o el grupo de afinidad (por ejemplo, Oeste de EE. UU. o Asia oriental).
     - Tipo de replicación que quiere usar para la cuenta de almacenamiento, por ejemplo, Redundancia geográfica.
 
-1. Cuando finalice, elija **Crear**. La nueva cuenta de almacenamiento aparecerá en la lista **Almacenamiento** del Explorador de servidores.
+1. Cuando termine, seleccione **Crear**. La nueva cuenta de almacenamiento aparecerá en la lista **￼Almacenamiento￼** del Explorador de soluciones.
 
 ### Para crear una cuenta de almacenamiento mediante el Portal de administración de Azure
 
@@ -153,4 +153,4 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 [Publicación en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

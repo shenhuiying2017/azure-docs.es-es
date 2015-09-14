@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Creación de un recurso de Application Insights" 
-	description="Configure una nueva aplicación y obtenga una nueva clave de instrumentación. Application Insights supervisa el rendimiento y el uso de aplicaciones en directo." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Recursos de Application Insights independientes para desarrollo, pruebas y producción"
+	description="Supervisar el rendimiento y el uso de la aplicación en diferentes fases de desarrollo"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="awills"/>
 
-# Creación de un recurso de Application Insights
+# Recursos de Application Insights independientes para desarrollo, pruebas y producción
 
 
 Para evitar que se mezcle la telemetría de las versiones de depuración, prueba y producción de la aplicación, cree recursos independientes de [Application Insights][start] para recibir los datos de cada versión.
@@ -98,4 +98,4 @@ La iKey también se usa en las páginas web de su aplicación, en el [script que
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

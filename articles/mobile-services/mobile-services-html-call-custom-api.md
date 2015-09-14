@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Llamada a una API personalizada desde un cliente HTML - Servicios móviles" 
-	description="Obtenga información acerca de cómo definir una API personalizada y, a continuación, llamarla desde una aplicación de HTML que utiliza Servicios móviles de Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="bureado"  
-	manager="dwrede" 
+<properties
+	pageTitle="Llamada a una API personalizada desde un cliente HTML - Servicios móviles"
+	description="Obtenga información acerca de cómo definir una API personalizada y, a continuación, llamarla desde una aplicación de HTML que utiliza Servicios móviles de Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Llamada a una API personalizada desde una aplicación HTML
@@ -32,9 +32,9 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 ##<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
 
-1. Mediante el editor de texto, abra el archivo index.html, busque el elemento **button** llamado `buttonRefresh` y agregue el siguiente elemento nuevo justo después de él: 
+1. Mediante el editor de texto, abra el archivo index.html, busque el elemento **button** llamado `buttonRefresh` y agregue el siguiente elemento nuevo justo después de él:
 
-		<button id="buttonCompleteAll">Complete All</button> 
+		<button id="buttonCompleteAll">Complete All</button>
 
 	Esta acción agrega un nuevo botón a la página.
 
@@ -92,4 +92,4 @@ También, considere la posibilidad de profundizar más en los siguientes temas d
 [Incorporación de Servicios móviles a una aplicación existente]: mobile-services-html-get-started-data.md
 [Almacenamiento de scripts de servidor en control de código fuente]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

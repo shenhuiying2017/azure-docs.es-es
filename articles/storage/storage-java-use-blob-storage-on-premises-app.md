@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Aplicación local con almacenamiento en blobs
@@ -26,8 +26,8 @@ El siguiente ejemplo muestra cómo se puede utilizar el almacenamiento de Azure 
 
 - Un kit para desarrolladores de Java (JDK) v 1.6 o posteriores instalado.
 - El SDK de Azure instalado.
-- El archivo JAR de las Bibliotecas de Azure para Java (y cualquier JAR de dependencia correspondiente) instalado y en la ruta de acceso de compilación utilizada por el compilador de Java. Para obtener información acerca de la instalación de bibliotecas de Azure para Java, consulte [Descarga del SDK de Azure para Java].
-- Una cuenta de almacenamiento configurada en Azure. El código en este artículo usará el nombre y la clave de cuenta para la cuenta de almacenamiento. Consulte [Creación de una cuenta de almacenamiento] para obtener información acerca de la creación de una cuenta de almacenamiento y [Administración de cuentas de almacenamiento] para obtener información acerca del la recuperación de la clave de la cuenta.
+- El archivo JAR de las Bibliotecas de Azure para Java (y cualquier JAR de dependencia correspondiente) instalado y en la ruta de acceso de compilación utilizada por el compilador de Java. Para obtener información acerca de la instalación de bibliotecas de Azure para Java, consulte [Descarga del SDK de Azure para Java][].
+- Una cuenta de almacenamiento configurada en Azure. El código en este artículo usará el nombre y la clave de cuenta para la cuenta de almacenamiento. Consulte [Creación de una cuenta de almacenamiento] para obtener información acerca de la creación de una cuenta de almacenamiento y [Administración de cuentas de almacenamiento][] para obtener información acerca del la recuperación de la clave de la cuenta.
 - Un archivo de imagen local creado con nombre y almacenado en la ruta de acceso c:\\myimages\\image1.jpg. También puede modificar el constructor **FileInputStream** en el ejemplo para utilizar una ruta de acceso de imagen y un nombre de archivo diferentes.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -353,12 +353,12 @@ Para ver información general de otras clases y métodos de almacenamiento de bl
 
 Siga estos vínculos para obtener más información acerca de las tareas de almacenamiento más complejas.
 
-- [SDK de almacenamiento de Azure para Java]
-- [Referencia del SDK de cliente de almacenamiento de Azure]
-- [API de REST de almacenamiento de Azure]
-- [Blog del equipo de almacenamiento de Azure]
+- [SDK de almacenamiento de Azure para Java][]
+- [Referencia del SDK de cliente de almacenamiento de Azure][]
+- [API de REST de almacenamiento de Azure][]
+- [Blog del equipo de almacenamiento de Azure][]
 
-  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Creación de una cuenta de almacenamiento]: storage-create-storage-account.md#create-a-storage-account
   [Administración de cuentas de almacenamiento]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Uso del servicio de almacenamiento de blobs desde Java]: storage-java-how-to-use-blob-storage.md
@@ -367,4 +367,4 @@ Siga estos vínculos para obtener más información acerca de las tareas de alma
   [API de REST de almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

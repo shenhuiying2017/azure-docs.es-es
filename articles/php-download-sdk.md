@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 #Descarga del SDK de Azure para PHP
@@ -103,18 +103,10 @@ Para obtener más información acerca del uso de Azure PowerShell, consulte [Có
 
 ##Azure CLI
 
-La interfaz de la línea de comandos de Azure es un conjunto de herramientas que sirve para implementar y administrar servicios de Azure, como Sitios web Azure y Red virtual de Azure. La siguiente lista describe cómo instalar la interfaz de la línea de comandos de Azure, en función del sistema operativo:
-
-* **Mac**: descargue el instalador del SDK de Azure aquí: [http://go.microsoft.com/fwlink/?LinkId=252249][mac-installer]. Abra el archivo .pkg descargado y complete los pasos de instalación a medida que se le solicita.
-
-* **Linux**: instale la última versión de [Node.js][nodejs-org] (consulte [Instalación de Node.js a través del Administrador de paquetes][install-node-linux]) y, a continuación, ejecute el siguiente comando:
-
-		npm install azure-cli -g
-
-	> [AZURE.NOTE]Es posible que necesite ejecutar este comando con privilegios elevados: `sudo npm install azure-cli -g`
+La interfaz de la línea de comandos de Azure es un conjunto de herramientas que sirve para implementar y administrar servicios de Azure, como Sitios web Azure y Red virtual de Azure. Para obtener información acerca de cómo instalar la CLI de Azure, consulte [Instalar la CLI de Azure](xplat-cli-install.md).
 
 
-Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure, consulte [Uso de la CLI de Azure para Mac, Linux y Windows][azure cli].
+
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
@@ -136,4 +128,4 @@ Para obtener información sobre cómo usar la interfaz de la línea de comandos 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

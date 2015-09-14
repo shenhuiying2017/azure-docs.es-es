@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Configuración de un servicio en la nube | Microsoft Azure" 
-	description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+	pageTitle="Configuración de un servicio en la nube | Microsoft Azure"
+	description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="adegeo"/>
 
@@ -85,8 +85,8 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 
 ## acceso remoto a las instancias de rol
 
-El acceso remoto no se puede configurar mediante el **Portal de vista previa de Azure**, solo puede cambiar esta configuración mediante el [portal que no es de vista previa](http://manage.windowsazure.com/). Esto se detalla [aquí](cloud-services-how-to-configure.md#configure-remote-access-to-role-instances).
+El acceso remoto no se puede configurar mediante el **Portal de vista previa de Azure**, solo puede cambiar esta configuración mediante el [portal que no es de vista previa](http://manage.windowsazure.com/). Esto se detalla [aquí](cloud-services-role-enable-remote-desktop.md).
 			
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

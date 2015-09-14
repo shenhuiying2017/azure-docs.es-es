@@ -1,25 +1,26 @@
 <properties 
-	pageTitle="Datos de ejemplo en el almacenamiento de blobs de Azure | Microsoft Azure" 
-	description="Datos de ejemplo en el almacenamiento de blobs de Azure" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Datos de ejemplo en el almacenamiento de blobs de Azure | Microsoft Azure"
+	description="Datos de ejemplo en el almacenamiento de blobs de Azure"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Datos de ejemplo en el almacenamiento de blobs de Azure
 
 En este documento se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure mediante su descarga con programación y, a continuación, realizando un muestreo de los mismos con código Python de ejemplo. Los pasos para hacerlo son los siguientes:
 
+## Descarga y muestreado de datos
 1. Descargar los datos del almacenamiento de blobs de Azure con el servicio BLOB desde el código de Python de ejemplo siguiente: 
 
 	    from azure.storage import BlobService
@@ -45,7 +46,7 @@ En este documento se tratan los datos de muestreo almacenados en el almacenamien
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Mostrar los datos mediante `random.choice` de `numpy` como se indica a continuación:
+3. Muestreo de los datos mediante `random.choice` de `numpy` como se indica a continuación:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -55,7 +56,7 @@ En este documento se tratan los datos de muestreo almacenados en el almacenamien
 
 	Ahora se puede trabajar con el marco de datos anterior, con el ejemplo del 1 por ciento, para la generación de características y exploración más a fondo.
 
-##<a name="heading"></a>Conexión con Aprendizaje automático de Azure
+##<a name="heading"></a>Carga de datos y lectura en Aprendizaje automático de Azure
 
 Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos directamente en Aprendizaje automático de Azure:
 
@@ -96,4 +97,4 @@ Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos di
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

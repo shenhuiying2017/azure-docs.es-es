@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Administración de plantillas de ancho de banda de StorSimple | Microsoft Azure"
-   description="Describe cómo administrar plantillas de ancho de banda de StorSimple, que le permiten controlar el consumo de ancho de banda."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Describe cómo administrar plantillas de ancho de banda de StorSimple, que le permiten controlar el consumo de ancho de banda."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Administrar las plantillas de ancho de banda de StorSimple
+# Usar el servicio de Administrador de StorSimple para administrar plantillas de ancho de banda de StorSimple
 
 ## Información general
 
@@ -54,7 +54,7 @@ Realice los siguientes pasos para crear una nueva plantilla de ancho de banda.
 
 #### Para agregar una plantilla de ancho de banda
 
-1. Haga clic en **Agregar/Editar plantilla de ancho de banda**.
+1. En la página **Configurar** del servicio de Administrador de StorSimple, haga clic en **Agregar o Editar plantilla de ancho de banda**.
 
 2. En el cuadro de diálogo **Agregar/Editar plantilla de ancho de banda**:
 
@@ -68,7 +68,7 @@ Realice los siguientes pasos para crear una nueva plantilla de ancho de banda.
    3. En la lista desplegable, seleccione una **hora de inicio**. Esta es la hora a la que se iniciará la programación.
    4. En la lista desplegable, seleccione una **hora de finalización**. Esta es la hora a la que finalizará la programación.
    
-         > [AZURE.NOTE] No se permiten las programaciones superpuestas. Si las horas de inicio y finalización provocan una programación superpuesta, verá un mensaje de error que lo indica.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. Especifique la **velocidad de ancho de banda**. Esto es el ancho de banda en Megabits por segundo (Mbps) utilizado por el dispositivo StorSimple en operaciones que afectan a la nube. Proporcione un número entre 1 y 1.000 para este campo.
    
@@ -176,4 +176,4 @@ Siga estas prácticas recomendadas para el dispositivo StorSimple:
 
 Obtenga más información sobre los [Componentes de StorSimple](storsimple-components.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

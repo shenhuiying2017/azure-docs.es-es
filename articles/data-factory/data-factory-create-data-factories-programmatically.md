@@ -105,6 +105,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
         );
 
 8. Agregue el siguiente código que crea un **servicio vinculado** al método **Main**.
+
 	> [AZURE.NOTE]Use el **nombre de cuenta** y la **clave de cuenta** de su cuenta de almacenamiento de Azure para la **ConnectionString**.
 
         // create a linked service
@@ -117,7 +118,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                     Name = "LinkedService-AzureStorage",
                     Properties = new LinkedServiceProperties
                     (
-                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>")
                     )
                 }
             }
@@ -335,6 +336,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
         Console.WriteLine("Getting run details of a data slice");
 
 		// give it a few minutes for the output slice to be ready
+        Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
         Console.ReadKey();
 
         var datasliceRunListResponse = client.DataSliceRuns.List(
@@ -392,4 +394,4 @@ Artículo | Descripción
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

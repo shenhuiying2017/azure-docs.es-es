@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Use Servicios móviles de Azure y Centros de notificaciones para enviar notificaciones push a la aplicación de Windows Phone." 
-	description="Obtenga información acerca de cómo usar Centros de notificaciones con Servicios móviles de Azure y para enviar notificaciones de inserción a la aplicación de Windows Phone." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Use Servicios móviles de Azure y Centros de notificaciones para enviar notificaciones push a la aplicación de Windows Phone."
+	description="Obtenga información acerca de cómo usar Centros de notificaciones con Servicios móviles de Azure y para enviar notificaciones de inserción a la aplicación de Windows Phone."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
@@ -38,8 +38,8 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 
 2. Agregue el siguiente método `AcquirePushChannel` a la clase `App`:
 
-        public static HttpNotificationChannel CurrentChannel { get; private set; }	
-        
+        public static HttpNotificationChannel CurrentChannel { get; private set; }
+
         private void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
@@ -68,13 +68,13 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
                     {
                         Deployment.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            MessageBox.Show(exception.Message, 
+                            MessageBox.Show(exception.Message,
                                             "Registering for Push Notifications",
                                             MessageBoxButton.OK);
                         });
                     }
             });
-            CurrentChannel.ShellToastNotificationReceived += 
+            CurrentChannel.ShellToastNotificationReceived +=
                 new EventHandler<NotificationEventArgs>((o, args) =>
                 {
                     string message = "";
@@ -90,7 +90,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
         }
 
     Este código recupera el URI de canal para la aplicación, si existe. De lo contrario, se creará. De ese modo, el URI de canal se abre y se enlaza para las notificaciones del sistema. Una vez que el URI de canal está completamente abierto, se llama al controlador del método `ChannelUriUpdated` y el canal se registra para recibir notificaciones de inserción. En caso de que se produzca un error en el registro, el canal se cierra para que las ejecuciones subsiguientes de la aplicación puedan volver a intentar el registro. El controlador `ShellToastNotificationReceived` se configura de manera tal que la aplicación pueda recibir y controlar notificaciones de inserción mientras se ejecuta.
-    
+
 4. En el controlador de eventos `Application_Launching` en App.xaml.cs, agregue la siguiente llamada al nuevo método `AcquirePushChannel`:
 
         AcquirePushChannel();
@@ -98,7 +98,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 	Esto garantiza que se solicitará registro cada vez que se cargue la aplicación. En la aplicación, es posible que solo desee realizar este registro de manera periódica para asegurarse de que el registro esté actualizado.
 
 5. Presione la tecla **F5** para ejecutar la aplicación. Se muestra un cuadro de diálogo emergente con la clave de registro.
-  
+
 6. En Visual Studio, abra el archivo Package.appxmanifest y asegúrese de que la opción **Capacidad de aviso** esté definida en **Sí** en la pestaña **IU de la aplicación**.
 
    	![][1]
@@ -202,6 +202,5 @@ Considere la posibilidad de profundizar más en los siguientes temas sobre Servi
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-html-how-to-use-client-library.md
 [Aplicaciones Silverlight de Windows Phone 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Portal de administración de Azure]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

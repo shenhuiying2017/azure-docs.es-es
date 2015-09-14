@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Tecnología y procesos de análisis avanzado: uso de clústeres de Hadoop | Microsoft Azure" 
-	description="Uso de la tecnología y procesos de análisis avanzado para un escenario integral que emplea un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente."  
-	services="machine-learning,hdinsight" 
-	solutions="" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Tecnología y procesos de análisis avanzado: uso de clústeres de Hadoop | Microsoft Azure"
+	description="Uso de la tecnología y procesos de análisis avanzado para un escenario integral que emplea un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente."
+	services="machine-learning,hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="hangzh;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
                 
 # Tecnología y procesos de análisis avanzado: uso de clústeres de Hadoop de HDInsight
@@ -29,7 +28,7 @@ También es posible utilizar un cuaderno de iPython para realizar las tareas que
 
 ## <a name="dataset"></a>Descripción del conjunto de datos NYC Taxi Trips
 
-Los datos de carreras de taxi de Nueva York son aproximadamente 20 GB de archivos comprimidos de valores separados por comas (CSV) (\~48 GB sin comprimir), que incluyen más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y de entrega, el número de licencia de (del conductor) anónimo y el número de ida y vuelta incluye la ubicación de entrega y recogida y el tiempo, la número de licencia y el número de identificador único del taxi. Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
+Los datos de carreras de taxi de Nueva York son aproximadamente 20 GB de archivos comprimidos de valores separados por comas (CSV) (~48 GB sin comprimir), que incluyen más de 173 millones de carreras individuales y las tarifas pagadas por cada carrera. Cada registro de carrera incluye la hora y la ubicación de recogida y de entrega, el número de licencia de (del conductor) anónimo y el número de ida y vuelta incluye la ubicación de entrega y recogida y el tiempo, la número de licencia y el número de identificador único del taxi. Los datos cubren todos los viajes del año 2013 y se proporcionan en los dos conjuntos de datos siguientes para cada mes:
 
 1. Los archivos CSV 'trip\_data' contienen información detallada de las carreras, como el número de pasajeros, los puntos de recogida y destino, la duración de las carreras y la longitud del recorrido. Estos son algunos registros de ejemplo:
 
@@ -49,7 +48,7 @@ Los datos de carreras de taxi de Nueva York son aproximadamente 20 GB de archiv
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-La clave única para unir trip\\\_data y trip\\\_fare se compone de los campos: medallion, hack\\\_licence y pickup\\\_datetime.
+La clave única para unir trip\\_data y trip\\_fare se compone de los campos: medallion, hack\\_licence y pickup\\_datetime.
 
 Para obtener todos los detalles correspondientes a una carrera concreta, es suficiente combinar tres claves: "medallion", "hack\_license" y "pickup\_datetime".
 
@@ -283,7 +282,7 @@ Las tareas de exploración de datos e ingeniería de características para los d
 - Ver los diez registros principales en ambas tablas.
 - Explorar distribuciones de datos de algunos campos en diferentes ventanas de tiempo.
 - Investigar la calidad de los datos de los campos de longitud y latitud.
-- Generar etiquetas de clasificación binaria y multiclase según **tip\\\_amount**.
+- Generar etiquetas de clasificación binaria y multiclase según **tip\\_amount**.
 - Generar características calculando las distancias de las carreras directas.
 
 ### Exploración: Consulta de los 10 principales registros de la tabla trip
@@ -810,4 +809,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

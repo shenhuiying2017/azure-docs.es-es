@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Ejemplo de código: exportar a SQL desde Application Insights mediante un rol de trabajo" 
-	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="mazharmicrosoft" 
+	pageTitle="Ejemplo de código: exportar a SQL desde Application Insights mediante un rol de trabajo"
+	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua."
+	services="application-insights"
+	documentationCenter=""
+	authors="mazharmicrosoft"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
  
 # Ejemplo de código: exportar a SQL desde Application Insights mediante un rol de trabajo
@@ -79,14 +79,17 @@ Primeros pasos:
 
     ![Elija los tipos de evento.](./media/app-insights-code-sample-export-telemetry-sql-database/085-types.png)
 
-Ahora deje que los usuarios utilicen la aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas][metrics] y eventos individuales en la [búsqueda de diagnóstico][diagnostic].
+3. Permita que se acumulen algunos datos. Póngase cómo y deje que los usuarios usen su aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](app-insights-metrics-explorer.md) y eventos individuales en la [búsqueda de diagnóstico](app-insights-diagnostic-search.md).
 
-Y además, los datos se exportarán al almacenamiento, donde puede inspeccionar el contenido. Por ejemplo, hay un explorador de almacenamiento en Visual Studio:
+    Y, además, exportará los datos en el almacenamiento.
 
+4. Inspeccione los datos exportados. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no dispone de esta opción de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener el SDK de Microsoft Azure para. NET.)
 
-![En Visual Studio, abra Explorador de servidores, Azure, Almacenamiento.](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
+    ![En Visual Studio, abra Explorador de servidores, Azure, Almacenamiento.](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
 
-Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos escribir algún código para leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en escribir código para trasladar los datos a una base de datos SQL. De este modo, será más sencillo ejecutar muchas consultas interesantes.
+    Tome nota de la parte común del nombre de la ruta de acceso, que se deriva del nombre de la aplicación y de la clave de instrumentación.
+
+Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en escribir código para trasladar los datos a una base de datos SQL. De este modo, será más sencillo ejecutar muchas consultas interesantes.
 
 ## Creación de una Base de datos SQL de Azure
 
@@ -112,9 +115,9 @@ Este código extrae automáticamente las propiedades que están presentes en JSO
 
 En Visual Studio, cree un nuevo proyecto para el rol de trabajo:
 
-![Nuevo proyecto, Visual C\#, Nube, Servicio en la nube de Azure.](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
+![Nuevo proyecto, Visual C#, Nube, Servicio en la nube de Azure.](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
 
-![En el nuevo cuadro de diálogo del servicio en la nube, elija Visual C\#, Rol de trabajo.](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
+![En el nuevo cuadro de diálogo del servicio en la nube, elija Visual C#, Rol de trabajo.](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
 
 
 #### Conexión con la cuenta de almacenamiento
@@ -134,11 +137,11 @@ En Visual Studio, configure las opciones de rol de trabajo con la cadena de cone
 En el Explorador de soluciones, haga clic con el botón derecho en el proyecto Rol de trabajo y seleccione Administrar paquetes de NuGet. Busque e instale estos paquetes:
 
  * Entity Framework 6.1.2 o posterior: lo utilizaremos para generar el esquema de la tabla de base de datos sobre la marcha, según el contenido de JSON en el blob.
- * JsonFx: lo utilizaremos para acoplar el JSON a las propiedades de clase de C\#.
+ * JsonFx: lo utilizaremos para acoplar el JSON a las propiedades de clase de C#.
 
-Utilice esta herramienta para generar la clase de C#fuera de nuestro documento JSON sencillo. Esto requiere algunos cambios menores, como acoplar las matrices de JSON a la propiedad sencilla de C#en y a la vez en una columna sencilla de tabla de base de datos (p. ej. urlData\_port).
+Utilice esta herramienta para generar la clase de C# fuera de nuestro documento JSON sencillo. Esto requiere algunos cambios menores, como acoplar las matrices de JSON a la propiedad sencilla de C# en y a la vez en una columna sencilla de tabla de base de datos (p. ej. urlData\_port).
 
- * [Generador de clases de C#de JSON](http://jsonclassgenerator.codeplex.com/)
+ * [Generador de clases de C# de JSON](http://jsonclassgenerator.codeplex.com/)
 
 ## Código 
 
@@ -319,7 +322,7 @@ Reemplace el método de ejecución existente y, después, elija el intervalo des
     	    }
         }
 
-#### Conversión del documento JSON en propiedades del objeto de telemetría de clase C\#
+#### Conversión del documento JSON en propiedades del objeto de telemetría de clase C#
 
      public object GetObject(IDictionary<string, object> d)
         {
@@ -536,4 +539,4 @@ Para ver este ejemplo en acción, [descargue](https://sesitai.codeplex.com/) el 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

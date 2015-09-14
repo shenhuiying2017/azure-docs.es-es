@@ -6,7 +6,6 @@ Núcleos por [subscription](http://msdn.microsoft.com/library/azure/hh531793.asp
 [Servicios en la nube](cloud-services-what-is.md) por suscripción|20|200
 [Redes locales](http://msdn.microsoft.com/library/jj157100.aspx) por suscripción|10|500
 Servidores de base de datos SQL por suscripción|6|150
-Bases de datos SQL por servidor|150|500
 Servidores DNS por suscripción|9|100
 Direcciones IP reservadas por suscripción|20|100
 Circuitos ExpressRoute dedicados por suscripción|10|25
@@ -17,4 +16,4 @@ Reglas de alerta por suscripción|250|250
 
 <sup>1</sup>Recuento de instancias extrapequeñas como un núcleo hacia el límite de núcleos a pesar de utilizar un núcleo parcial.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

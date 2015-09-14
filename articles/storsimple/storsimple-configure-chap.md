@@ -1,25 +1,23 @@
 <properties 
    pageTitle="Configurar CHAP para su dispositivo StorSimple | Microsoft Azure"
-   description="Describe cómo configurar el protocolo de autenticación por desafío mutuo en un dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Describe cómo configurar el protocolo de autenticación por desafío mutuo (CHAP) en un dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # Configurar CHAP para el dispositivo StorSimple
 
-Este tutorial explica cómo configurar CHAP para su dispositivo StorSimple.
-
-CHAP significa Protocolo de autenticación por desafío mutuo. Es un esquema de autenticación utilizado por los servidores para validar la identidad de los clientes remotos. La verificación se basa en una contraseña o clave compartidas.
+Este tutorial explica cómo configurar CHAP para su dispositivo StorSimple. CHAP significa Protocolo de autenticación por desafío mutuo. Es un esquema de autenticación utilizado por los servidores para validar la identidad de los clientes remotos. La verificación se basa en una contraseña o clave compartidas.
 
 CHAP puede ser unidireccional o mutuo (bidireccional). CHAP unidireccional es cuando el destino autentica el iniciador. CHAP mutuo o invertido, por otra parte, requiere que el destino autentique el iniciador y luego que el iniciador autentique el destino. La autenticación del iniciador puede implementarse sin la autenticación del destino. Sin embargo, la autenticación del destino solo puede implementarse si también se implementa la autenticación del iniciador.
 
@@ -89,7 +87,7 @@ En la autenticación unidireccional, el destino autentica el iniciador. Esta aut
 
     > [AZURE.IMPORTANT]Si cambia el nombre de iSCSI, el nuevo nombre se utilizará para nuevas sesiones de iSCSI. La nueva configuración no se utiliza para las sesiones existentes hasta que cierra sesión y vuelve a iniciar sesión.
 
-Para obtener más información sobre cómo configurar CHAP en el servidor host de Windows, vaya a [Consideraciones adicionales](#additional-considerations).
+Para obtener más información acerca de la configuración de CHAP en el servidor de host de Windows, vaya a [Consideraciones adicionales](#additional-considerations).
 
 
 ## Autenticación bidireccional o mutua
@@ -190,6 +188,6 @@ Puede verificar que CHAP esté en uso mediante los siguientes pasos.
 
 ## Pasos siguientes
 
-Obtenga más información sobre [seguridad de StorSimple](storsimple-security.md).
+Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

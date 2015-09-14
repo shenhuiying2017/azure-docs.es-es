@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Uso del panel de dispositivos del servicio StorSimple Manager | Microsoft Azure"
-   description="Describe el panel de dispositivos de StorSimple Manager y cómo usarlo para ver las métricas de almacenamiento y los iniciadores conectados y buscar el número de serie del dispositivo y el IQN."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Uso del panel del dispositivo StorSimple Manager | Microsoft Azure"
+	description="Describe el panel de dispositivos del servicio StorSimple Manager y cómo usarlo para ver las métricas de almacenamiento y los iniciadores conectados y buscar el número de serie y el IQN."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # Uso del panel del dispositivo StorSimple Manager
 
@@ -99,4 +99,4 @@ Es posible que necesite el IQN de destino del dispositivo para configurar el Pro
 
 [Obtenga más información sobre el panel del servicio StorSimple Manager](storsimple-service-dashboard.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

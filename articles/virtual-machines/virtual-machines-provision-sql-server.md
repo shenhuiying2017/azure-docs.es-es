@@ -149,11 +149,9 @@ En la lista siguiente se proporcionan recursos adicionales para SQL Server en m�
 ### Cargas de trabajo de servidor SQL en Azure:
 - [Business Intelligence de SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-business-intelligence.md)
 
-- [Almacenamiento de datos de SQL Server y cargas de trabajo transaccionales en máquinas virtuales de Azure](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 ### Notas del producto:
 - [Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!------HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

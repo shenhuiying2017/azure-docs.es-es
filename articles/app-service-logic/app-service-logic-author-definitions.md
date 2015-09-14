@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Creación de definiciones de aplicación lógica" 
-	description="Obtenga información sobre cómo escribir la definición de JSON para aplicaciones lógicas." 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="Creación de definiciones de aplicación lógica"
+	description="Obtenga información sobre cómo escribir la definición de JSON para aplicaciones lógicas."
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="06/16/2015"
 	ms.author="stepsic"/>
 	
 #Creación de definiciones de aplicación lógica
@@ -99,7 +99,7 @@ A continuación, supongamos que queremos obtener contenido completamente diferen
         "destinationMap": {
             "defaultValue": {
                 "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/es-es/default.aspx",
+                "microsoft": "https://www.microsoft.com/es-ES/default.aspx",
                 "google": "https://www.google.com",
                 "robots": "https://en.wikipedia.org/wiki/Robot",
                 "NSA": "https://www.nsa.gov/"
@@ -234,7 +234,7 @@ A continuación, en la aplicación lógica secundaria usará la función [`trigg
 }
 ```
 
-Puede leer sobre la [acción del tipo de aplicación lógica en MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx).
+Puede leer sobre la [acción del tipo de aplicación lógica en MSDN](https://msdn.microsoft.com/es-ES/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]El Diseñador de aplicaciones lógicas no admite acciones de tipo de aplicación lógica, por lo que deberá editar manualmente la definición.
 
@@ -250,7 +250,7 @@ Normalmente desea poder escribir un *paso de corrección*; cierta lógica que se
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/es-es/default.aspx",
+                "https://www.microsoft.com/es-ES/default.aspx",
                 "https://gibberish.gibberish/"
             ],
             "type": "Array"
@@ -306,7 +306,7 @@ Para que varias acciones se ejecuten en paralelo, y no en secuencias, necesita q
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/es-es/default.aspx",
+                "https://www.microsoft.com/es-ES/default.aspx",
                 "https://office.live.com/start/default.aspx"
             ],
             "type": "Array"
@@ -688,4 +688,4 @@ A continuación, en la solicitud `PUT` real para la aplicación lógica, puede p
 
 En cada entorno puede proporcionar un valor diferente para el parámetro `connection`. Consulte la [documentación sobre la API de REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para conocer todas las opciones disponibles para crear y administrar aplicaciones lógicas.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

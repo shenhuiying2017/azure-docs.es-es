@@ -10,10 +10,10 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/01/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 
@@ -41,7 +41,7 @@ La aplicación es una aplicación sencilla de "Hola a todos":
 > [AZURE.NOTE]Este tutorial usa PowerShell de Azure, que requiere Windows.
 
 - Instale y configure [Azure PowerShell](../install-configure-powershell.md).
-- Descargar e instalar el [SDK de Azure para .NET 2.5](http://go.microsoft.com/fwlink/?linkid=518091). En la configuración de la instalación, seleccione:
+- Descargar e instalar el [SDK de Azure para .NET 2.7](http://www.microsoft.com/es-ES/download/details.aspx?id=48178). En la configuración de la instalación, seleccione:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -53,7 +53,8 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 
 1. Ejecute **Azure PowerShell** como administrador. (En el **menú Inicio** o la **pantalla Inicio**, busque **Azure PowerShell**.)
 
-2.  Escriba el siguiente cmdlet de PowerShell para crear el proyecto:
+2.  [Conecte PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) a su suscripción.
+3.  Escriba el siguiente cmdlet de PowerShell para crear el proyecto:
 
         New-AzureServiceProject helloworld
 
@@ -116,11 +117,12 @@ Con el fin de implementar su aplicación en Azure, debe descargar primero la con
 
 ### Publicación de la aplicación
 
-Para publicarla, ejecute el cmdlet **Publish-AzureServiceProject** de la siguiente forma:
+Para publicar, ejecute los siguientes comandos:
 
-    Publish-AzureServiceProject -ServiceName NodeHelloWorld -Location "East US" -Launch
+  	$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+	Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-- **-ServiceName** especifica el nombre de la implementación. Debe ser un nombre exclusivo. De lo contrario, se producirá un error en el proceso de publicación.
+- **-ServiceName** especifica el nombre de la implementación. Debe ser un nombre exclusivo. De lo contrario, se producirá un error en el proceso de publicación. El comando **Get-Date** se fija a una cadena de fecha y hora que debería hacer el nombre único.
 
 - **-Location** especifica el centro de datos en que se hospedará la aplicación. Para ver una lista de los centros de datos disponibles, utilice el cmdlet **Get-AzureLocation**.
 
@@ -192,4 +194,4 @@ Después de implementar su aplicación, es posible que desee deshabilitarla para
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

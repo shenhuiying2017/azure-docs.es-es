@@ -1,31 +1,31 @@
 <properties 
    pageTitle="Reemplazo de los componentes de hardware de StorSimple | Microsoft Azure"
-   description="Describe cómo reemplazar de forma segura los PCM, la batería, los módulos de controladores, los controladores EBOD, las unidades de disco y el chasis de un dispositivo de StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Describe cómo reemplazar de forma segura los PCM, la batería, los módulos de controladores, los controladores EBOD, las unidades de disco y el chasis de un dispositivo de StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Reemplazo de los componentes de hardware de StorSimple
 
 ## Información general
 
-Los tutoriales de reemplazo de componentes de hardware describen los componentes de hardware de dispositivo StorSimple de Microsoft Azure y los pasos necesarios para quitar y reemplazar los componentes. En estos tutoriales, obtendrá información sobre los componentes que pueden reemplazarse y cómo hacerlo.
+Los tutoriales de reemplazo de componentes de hardware describen los componentes de hardware de dispositivo StorSimple de Microsoft Azure y los pasos necesarios para quitarlos y reemplazarlos. En este artículo se describen los iconos de seguridad, se proporcionan indicaciones sobre tutoriales detallados y se enumeran los componentes que se pueden reemplazar.
 
-Antes de intentar quitar o reemplazar cualquier componente de StorSimple, asegúrese de revisar las [convenciones de iconos de seguridad](#safety-icon-conventions) y otras [precauciones de seguridad](storsimple-safety.md).
+>[AZURE.IMPORTANT]Antes de intentar quitar o reemplazar cualquier componente de StorSimple, asegúrese de revisar las [convenciones de iconos de seguridad](#safety-icon-conventions) y otras [precauciones de seguridad](storsimple-safety.md).
  
 ### Convenciones de iconos de seguridad
 
-En la tabla siguiente se describen los iconos de seguridad utilizados en esta guía. Preste mucha atención a estos iconos de seguridad al avanzar por los pasos para quitar y cambiar los componentes del dispositivo.
+En la tabla siguiente se describen los iconos de seguridad usados en estos tutoriales. Preste mucha atención a estos iconos de seguridad al avanzar por los pasos para quitar y cambiar los componentes del dispositivo.
 
 | Icono | Texto | Información adicional |
 |:---- |:---- |:-----------|
@@ -41,7 +41,7 @@ En la tabla siguiente se describen los iconos de seguridad utilizados en esta gu
 
 ### Antes de empezar
 
-Familiarícese con la información de seguridad acerca de su dispositivo y los iconos de seguridad utilizados en este tutorial. Vaya a [Seguridad del dispositivo](storsimple-safety.md) para obtener información completa. Asegúrese de revisar las [Precauciones de seguridad](storsimple-safety.md#handling-precautions) antes de manipular su dispositivo StorSimple.
+Familiarícese con la información de seguridad acerca de su dispositivo y los iconos de seguridad utilizados en este tutorial. Vaya a [Instalar y operar el dispositivo StorSimple de forma segura](storsimple-safety.md) para obtener información completa. Asegúrese de revisar las [Precauciones de seguridad](storsimple-safety.md#handling-precautions) antes de manipular su dispositivo StorSimple.
 
 Antes de intentar reemplazar un componente, considere la siguiente información.
 
@@ -55,11 +55,11 @@ Antes de intentar reemplazar un componente, considere la siguiente información.
 
 Al reemplazar un módulo, **NUNCA deje un compartimento vacío en la parte posterior del gabinete**. Obtenga un módulo de reemplazo o vacío antes de quitar la parte problemática.
 
-## Componentes de hardware del dispositivo
+## Procedimientos de reemplazo de los componentes de hardware
 
 El dispositivo StorSimple de Microsoft Azure consta de varios módulos de complementos en el gabinete principal y EBOD. El modelo 8100 tiene un único gabinete principal, mientras que el modelo 8600 es un dispositivo de dos gabinetes con un gabinete principal y un gabinete EBOD.
 
-En las tablas siguientes se resumen los principales componentes de hardware del dispositivo. Haga clic en el vínculo en la columna Procedimiento de reemplazo para ir al tutorial asociado.
+En las tablas siguientes se resumen los principales componentes de hardware del dispositivo. Haga clic en el vínculo en la columna **Procedimiento de reemplazo** para ir al tutorial asociado.
 
 |Componentes|# Presente|¿Módulo de complemento?|Procedimiento de reemplazo
 |:---------|:--------|:--------------|:---------------------|
@@ -142,4 +142,4 @@ Las siguientes unidades reemplazables en campo (FRU) están disponibles para el 
 
 Revise toda [la información de seguridad](storsimple-safety.md) antes de intentar reemplazar un componente de hardware de StorSimple.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

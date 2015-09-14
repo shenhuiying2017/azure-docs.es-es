@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Recuperación de errores de usuario en Base de datos SQL" 
-   description="Obtenga información acerca de cómo recuperarse de errores de los usuarios, datos dañados accidentalmente o una base de datos eliminada con la característica Restauración a un momento dado (PITR) de Base de datos SQL de Azure." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="Recuperación de errores de usuario en Base de datos SQL"
+	description="Obtenga información acerca de cómo recuperarse de errores de los usuarios, datos dañados accidentalmente o una base de datos eliminada con la característica Restauración a un momento dado (PITR) de Base de datos SQL de Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/23/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/23/2015"
+	ms.author="elfish"/>
 
 # Recuperar una base de datos SQL de Azure de un error de usuario
 
@@ -30,6 +30,8 @@ Base de datos SQL de Azure siempre se restaura en una base de datos nueva. Estas
 En caso de un error de usuario o de modificación no intencionada de los datos, se puede usar Restauración a un momento dado para restaurar la base de datos a cualquier punto dado del período de retención de la base de datos.
 
 Las bases de datos de la versión Basic tienen 7 días de retención, las de la versión Standard disponen de 14 días de retención y las de la versión Premium tienen 35 días de retención. Para obtener más información acerca de la retención de la base de datos, lea la [información general de continuidad del negocio](sql-database-business-continuity.md).
+
+> [AZURE.NOTE]Al restaurar una base de datos se crea una nueva base de datos. Es importante asegurarse de que el servidor en el que va a efectuar la restauración tenga suficiente capacidad DTU para la nueva base de datos. Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portal de Azure
 1. Inicie sesión en el [portal de Azure](https://portal.Azure.com).
@@ -66,6 +68,8 @@ Una vez finalizada la restauración, puede configurar la base de datos recuperad
 En caso de que se elimine una base de datos, Base de datos SQL de Azure le permite restaurar la base de datos eliminada en el momento en que se eliminó. Base de datos SQL de Azure almacena la copia de seguridad de la base de datos eliminada durante el período de retención de la base de datos.
 
 El período de retención de una base de datos eliminada lo determinan el nivel de servicio de la base de datos mientras esta existe, o bien el número de días en que existe la base de datos, el menor de estos dos valores. Para obtener más información acerca de la retención de la base de datos, lea la [información general de continuidad del negocio](sql-database-business-continuity.md).
+
+> [AZURE.NOTE]Al restaurar una base de datos se crea una nueva base de datos. Es importante asegurarse de que el servidor en el que va a efectuar la restauración tenga suficiente capacidad DTU para la nueva base de datos. Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portal de Azure
 1. Inicie sesión en el [portal de Azure](https://portal.Azure.com).
@@ -109,4 +113,4 @@ Use REST para realizar la restauración de la base de datos mediante programaci�
 Una vez finalizada la restauración, puede configurar la base de datos recuperada para su uso siguiendo la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

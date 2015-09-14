@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/21/2015"
+	ms.date="08/25/2015"
 	ms.author="maroche"/>
 
 # Preguntas frecuentes sobre el Catálogo de datos de Azure
@@ -69,6 +69,8 @@ Durante la vista previa, el Catálogo de datos de Azure admite los siguientes ti
 - Vista de la Base de datos de Oracle
 - Blob de almacenamiento de Azure
 - Directorio de almacenamiento de Azure
+- Archivo HDFS
+- Directorio HDFS
 
 ## P: ¿Cómo puedo solicitar soporte técnico para otro origen de datos?
 
@@ -160,4 +162,4 @@ Si tiene problemas o necesita ayuda con la vista previa del Catálogo de datos d
 
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Copia de seguridad de Azure: restauración de una máquina virtual | Microsoft Azure"
 	description="Información sobre cómo restaurar una máquina virtual de Azure"
@@ -12,7 +13,8 @@
 # Restauración de una máquina virtual
 Puede restaurar una máquina virtual en una nueva máquina virtual desde las copias de seguridad almacenadas en el almacén de copia de seguridad de Azure mediante la acción de restauración.
 
-## Selección de un elemento para restaurar
+## Restauración del flujo de trabajo
+### 1\. Selección de un elemento para restaurar
 
 1. Navegue hasta la pestaña **Elementos protegidos** y seleccione la máquina virtual que desea restaurar en una máquina virtual nueva.
 
@@ -24,7 +26,7 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
 
     ![Restaurar un elemento](./media/backup-azure-restore-vms/restore-item.png)
 
-## Elegir un punto de recuperación
+### 2\. Elegir un punto de recuperación
 
 1. En la pantalla **Seleccionar un punto de recuperación**, puede restaurar desde el punto de recuperación más reciente, o desde un punto anterior en el tiempo. La opción predeterminada seleccionada cuando se abre el asistente es *Punto de recuperación más reciente*.
 
@@ -38,18 +40,18 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
 
     ![Puntos de recuperación](./media/backup-azure-restore-vms/recovery-points.png)
 
-3. Seleccione el punto de recuperación desde la tabla **Puntos de recuperación** de la tabla y haga clic en la flecha siguiente para ir a la pantalla siguiente.
+3. Seleccione el punto de recuperación desde la tabla **Puntos de recuperación** y haga clic en la flecha Siguiente para ir a la pantalla siguiente.
 
-## Especifique una ubicación de destino.
+### 3\. Especifique una ubicación de destino.
 
 1. En la pantalla **Seleccionar instancia de restauración**, especifique detalles de dónde desea restaurar la máquina virtual.
 
   - Especifique el nombre de la máquina virtual: en un servicio de nube determinado, el nombre de la máquina virtual debe ser único. Si planea reemplazar una máquina virtual existente con el mismo nombre, primero elimine la máquina virtual existente y los discos de datos y, a continuación, restaure los datos de copia de seguridad de Azure.
   - Seleccione un servicio de nube para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede usar un servicio de nube existente o crear un nuevo servicio de nube.
 
-        El nombre del servicio en la nube que seleccione debe ser único global. Por lo general, ese nombre se asocia a una dirección URL pública con formato [servicioEnLaNube].cloudapp.net. Azure no le permite crear un nuevo servicio en la nube si el nombre ya se ha usado. Si decide crear un nuevo servicio en la nube, debe asignarle el mismo nombre que la máquina virtual, en cuyo caso el nombre de la máquina virtual elegido debe ser lo suficientemente único para aplicarse al servicio en la nube asociado.
+        Sea cual sea el nombre del servicio en la nube que se elija, este debe ser exclusivo. Habitualmente, el nombre del servicio en la nube queda asociado a una URL de acceso público de esta forma: [cloudservice].cloudapp.net. Azure no permite crear un nuevo servicio en la nube si el nombre elegido ya está en uso. Si se decide crea un nuevo servicio en la nube, este recibirá el mismo nombre que la máquina virtual, en cuyo caso el nombre de la VM elegida deberá ser exclusivo también para poder aplicarse al servicio en la nube que se le asocie.
 
-        Solo se muestran los servicios en la nube y las redes virtuales que no estén asociados a ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+        Solo se muestran servicios en la nube y redes virtuales que no están asociadas con ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](https://msdn.microsoft.com/es-es/library/azure/jj156085.aspx).
 
 2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de copia de seguridad de Azure. No se admiten cuentas de almacenamiento redundantes de zona ni de almacenamiento Premium.
 
@@ -63,11 +65,11 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
 
     ![Seleccionar una red virtual](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. Seleccione una subred: en caso de que la red virtual tenga subredes, de forma predeterminada se seleccionará la primera subred. Elija la subred que prefiera de las opciones de la lista desplegable. Para obtener detalles acerca de la subred, vaya a la extensión Redes en la [página principal del portal](https://manage.windowsazure.com/), acceda a **Redes virtuales** y elija la red virtual. Acceda a Configuración para ver los detalles de la subred.
+4. Seleccione una subred: en caso de que la red virtual tenga subredes, de forma predeterminada se seleccionará la primera subred. Elija la subred que prefiera de las opciones de la lista desplegable. Para obtener detalles acerca de la subred, vaya a la extensión Redes en la [página principal del portal](https://manage.windowsazure.com/), vaya a **Redes virtuales** y seleccione la red virtual. Acceda a Configurar para ver los detalles de la subred.
 
     ![Seleccionar una subred](./media/backup-azure-restore-vms/select-subnet.png)
 
-5. Haga clic en el icono **Enviar** en el Asistente para enviar los detalles y crear un trabajo de restauración.
+5. Haga clic en el icono **Enviar** en el asistente para enviar los detalles y crear un trabajo de restauración.
 
 ## Seguimiento de la operación de restauración
 Una vez que ha especificado toda la información en el Asistente de restauración y lo ha enviado, la Copia de seguridad de Azure intentará crear un trabajo para realizar un seguimiento de la operación de restauración.
@@ -84,14 +86,23 @@ Una vez finalizada la operación de restauración, se marcará como completada e
 
 Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [modificar los extremos](virtual-machines-set-up-endpoints) de la máquina virtual en el Portal de Azure.
 
-## Solución de errores
-Para la mayoría de los errores, puede seguir la acción recomendada sugerida en los detalles del error. Estos son algunos puntos adicionales para ayudar con la solución de problemas:
+## Restauración de máquinas virtuales de controlador de dominio
+Copia de seguridad de las máquinas virtuales de controlador de dominio (DC) es un escenario admitido con Copia de seguridad de Azure. Sin embargo, se debe tener cierto cuidado durante el proceso de restauración. La experiencia de restauración es muy diferente para las máquinas virtuales de controlador de dominio en una configuración de un único controlador de dominio frente a las máquinas virtuales en una configuración de varios controladores de dominio.
 
-| Operación de copia de seguridad | Detalles del error | Solución alternativa |
-| -------- | -------- | -------|
-| Restauración | Error en la restauración con error interno de nube | <ol><li>El servicio de nube que está intentando restaurar está configurado con la configuración de DNS. Puede consultar <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Si hay una dirección configurada, significa que los ajustes de DNS están configurados.<br> <li>El servicio de nube que está intentando restaurar está configurado con ReservedIP, y las VM existentes en el servicio de nube están detenidas.<br>Puede comprobar que un servicio de nube tiene IP reservada usando los siguientes cmdlets de Powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
+### Controlador de dominio único
+Se puede restaurar la máquina virtual (como cualquier otra máquina virtual) desde el Portal de Azure o mediante PowerShell.
+
+### Varios controladores de dominio
+Si tiene un entorno de varios controladores de dominio, estos tienen su propia manera de mantener los datos sincronizados. Cuando se restaura un punto de copia de seguridad anterior *sin las debidas precauciones*, proceso de reversión de USN puede causar estragos en un entorno de varios controladores de dominio. La forma adecuada de recuperar dicha VM es iniciarla en modo DSRM.
+
+El problema surge porque el modo DSRM no está presente en Azure. Así que para restaurar dicha VM, no puede usar el Portal de Azure. El único mecanismo de restauración admitido es la restauración basada en disco mediante PowerShell.
+
+>[AZURE.WARNING]En el caso de máquinas virtuales de controlador de dominio en un entorno de varios controladores de dominio, no use el Portal de Azure para la restauración. Solo admite la restauración basada en PowerShell.
+
+Obtenga más información sobre el [problema de reversión de USN](https://technet.microsoft.com/library/dd363553) y las estrategias sugeridas para corregirlo.
 
 ## Pasos siguientes
+- [Solución de errores](backup-azure-vms-troubleshoot.md#restore)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties
     pageTitle="¿Qué es Aprendizaje automático en Azure? | Microsoft Azure"
-    description="Explica los conceptos básicos del servicio Aprendizaje automático totalmente administrado, una tecnología de nube que puede utilizar para crear, operacionalizar y rentabilizar soluciones."
+	description="Explica los conceptos básicos del servicio Aprendizaje automático totalmente administrado, una tecnología de nube que puede utilizar para crear, operacionalizar y rentabilizar soluciones."
 	services="machine-learning"
-    documentationCenter=""
-    authors="cjgronlund"
-    manager="neerajkh"
-    editor="cgronlun"/>
+	documentationCenter=""
+	authors="cjgronlund"
+	manager="neerajkh"
+	editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/23/2015"
-    ms.author="cgronlun;tedway;olgali"/>
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
+	ms.author="cgronlun;tedway;olgali"/>
 
 
 # Introducción al aprendizaje automático en Microsoft Azure
@@ -47,12 +47,12 @@ Aprendizaje automático de Azure tiene todo lo que necesita para crear solucione
 
 Para crear modelos predictivos en [Estudio de aprendizaje automático](machine-learning-what-is-ml-studio.md), una herramienta basada en el explorador, arrastre, quite y conecte módulos.
 
-![Descripción de análisis predictivo: ejemplo de un experimento de análisis predictivo en Estudio de aprendizaje automático de Azure](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
+![Descripción de análisis predictivo: ejemplo de un experimento de análisis predictivo en Estudio de aprendizaje automático de Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Utilice una gran biblioteca de [algoritmos y módulos de Aprendizaje automático](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) en Estudio de aprendizaje automático para impulsar sus modelos de predictivos. Elija en la biblioteca de experimentos de ejemplo, paquetes R y Python y los mejores algoritmos de su clase en servicios de Microsoft como Xbox y Bing. Amplíe los módulos de Studio con sus propios scripts de [R](machine-learning-r-quickstart.md) y [Python](machine-learning-execute-python-scripts.md) personalizados.
 * La [Galería de la comunidad de Aprendizaje automático](machine-learning-gallery-how-to-use-contribute-publish.md) es una excelente forma para que los usuarios empiecen a trabajar con Aprendizaje automático de Azure y aprendan de otros usuarios de la comunidad. Pruebe experimentos creados por otros usuarios, formule preguntas o publique comentarios acerca de experimentos o sus propios experimentos. También puede compartir vínculos a experimentos a través de las redes sociales como LinkedIn y Twitter.  
 
-	![Pruebe ejemplos de experimentos predictivos o contribuya con los suyos propios en la Galería de Aprendizaje automático de Azure.](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
+	![Pruebe ejemplos de experimentos predictivos o contribuya con los suyos propios en la Galería de Aprendizaje automático de Azure.](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
 
 ### Operacionalización de soluciones de análisis predictivos: adquiera servicios web de compra o publique las suyas
 
@@ -115,4 +115,4 @@ Puede aprender los conceptos básicos de análisis predictivos y de aprendizaje 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

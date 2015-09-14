@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configuración de credenciales de autenticación con nombre"
 	description="Aprenda a proporcionar credenciales que Visual Studio pueda usar para autenticar solicitudes a Azure para publicar una aplicación en Azure desde Visual Studio o para supervisar un servicio en la nube existente."
 	services="visual-studio-online"
@@ -6,13 +6,13 @@
 	authors="kempb"
 	manager="douge"
 	editor="tglee"/>
-<tags 
+<tags
    ms.service="multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="multiple"
-	ms.date="08/13/2015"
+	ms.date="09/02/2015"
 	ms.author="kempb"/>
 
 # Configuración de credenciales de autenticación con nombre
@@ -21,7 +21,7 @@ Para publicar una aplicación en Azure desde Visual Studio o supervisar un servi
 
 Azure Tools también admite una forma anterior de proporcionar credenciales, mediante el archivo de suscripción (archivo .publishsettings). En este tema se describe este método, que todavía se admite en el SDK 2.2 de Azure.
 
-Se requieren dos datos para la autenticación en Azure:
+Para efectuar la autenticación en Azure se requieren los siguientes elementos:
 
 - Su Id. de suscripción
 
@@ -41,9 +41,9 @@ Si desea crear un certificado por sí mismo, puede consultar las instrucciones d
 
 También puede configurar, modificar o exportar las credenciales de autenticación en el cuadro de diálogo **Nueva suscripción**, que aparece si se lleva a cabo cualquiera de las siguientes acciones:
 
-- En el Explorador de servidores, abra el menú contextual para el nodo **Azure**, elija **Administrar suscripciones**, elija la pestaña **Certificados** y después elija el botón **Nuevo** o **Editar**.
+- En el **Explorador de servidores**, abra el menú contextual para el nodo **Azure**, elija **Administrar suscripciones**, elija la pestaña **Certificados** y después elija el botón **Nuevo** o **Editar**.
 
-- Cuando publique un servicio en la nube de Azure desde el asistente **Publicar aplicación de Azure**, elija **<Manage>** en la lista **Elija su suscripción**, elija la pestaña Certificados y después haga clic en el botón **Nuevo** o **Editar**.
+- Cuando publique un servicio en la nube de Azure desde el asistente **Publicar aplicación de Azure**, seleccione **Administrar** en la lista **Elija su suscripción**, elija la pestaña Certificados y después haga clic en el botón **Nuevo** o **Editar**.
 
 En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nueva suscripción** está abierto.
 
@@ -55,13 +55,13 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
 
     >[AZURE.IMPORTANT]Para publicar la aplicación de Azure desde Visual Studio, debe cargar este certificado en el Portal de administración.
 
-1. Para cargar el certificado en el Portal de administración:
+1. Para cargar el certificado en el Portal de administración de Azure:
 
     1. Elija el vínculo Portal de Azure.
 
-         Se abre el [Portal de administración](http://go.microsoft.com/fwlink/?LinkID=213885).
+         A continuación, se abrirá el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-    1. Inicie sesión en el Portal de administración con la cuenta Microsoft y después elija el botón **Servicios en la nube**.
+    1. Inicie sesión en el Portal de administración de Azure con la cuenta Microsoft y después elija el botón **Servicios en la nube**.
 
     1. Elija el servicio en la nube que le interese.
 
@@ -71,4 +71,4 @@ En el siguiente procedimiento, se da por supuesto que el cuadro de diálogo **Nu
 
     1. Pegue la ruta de acceso completa del archivo .cer que acaba de crear y después escriba la contraseña que especificó.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

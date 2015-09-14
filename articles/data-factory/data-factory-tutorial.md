@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure"
-	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos."
+	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure (Portal de Azure)"
+	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Editor de Factoría de datos en el Portal de Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -418,6 +418,8 @@ Para copiar los datos de eficacia de la campaña de marketing desde Blob de Azur
 
 Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] para aprender a crear una canalización para copiar datos de eficacia de campaña de marketing en una base de datos de SQL Server local.
 
+## Enviar comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md).
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -526,4 +528,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

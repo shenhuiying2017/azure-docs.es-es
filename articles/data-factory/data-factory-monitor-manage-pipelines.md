@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Supervisión y administración de canalizaciones de la Factoría de datos de Azure" 
-	description="Obtenga información sobre el uso del Portal de administración de Azure y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que cree." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Supervisión y administración de canalizaciones de la Factoría de datos de Azure"
+	description="Obtenga información sobre el uso del Portal de administración de Azure y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que cree."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # Supervisión y administración de canalizaciones de la Factoría de datos de Azure
@@ -467,4 +467,8 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 	Parameters        :
 	Outputs           
 
-<!---HONumber=August15_HO6-->
+
+## Enviar comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
+
+<!---HONumber=September15_HO1-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Consulte Datos de Application Insights en Power BI" 
-	description="Use Power BI para supervisar el rendimiento y el uso de la aplicación." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="noamben" 
+	pageTitle="Consulte Datos de Application Insights en Power BI"
+	description="Use Power BI para supervisar el rendimiento y el uso de la aplicación."
+	services="application-insights"
+	documentationCenter=""
+	authors="noamben"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="awills"/>
  
 # Vistas de datos de Application Insights en Power BI
@@ -74,9 +74,17 @@ La [exportación continua](app-insights-export-telemetry.md) transfiere los dato
 
     ![Elija los tipos de evento.](./media/app-insights-export-power-bi/080.png)
 
-Ahora deje que los usuarios utilicen la aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](app-insights-metrics-explorer.md) y eventos individuales en la [búsqueda de diagnóstico](app-insights-diagnostic-search.md).
+3. Permita que se acumulen algunos datos. Póngase cómo y deje que los usuarios usen su aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](app-insights-metrics-explorer.md) y eventos individuales en la [búsqueda de diagnóstico](app-insights-diagnostic-search.md).
 
-Y, además, exportará los datos en el almacenamiento.
+    Y, además, exportará los datos en el almacenamiento.
+
+4. Inspeccione los datos exportados. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no dispone de esta opción de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener el SDK de Microsoft Azure para. NET.)
+
+    ![](./media/app-insights-export-power-bi/04-data.png)
+
+    Tome nota de la parte común del nombre de la ruta de acceso, que se deriva del nombre de la aplicación y de la clave de instrumentación.
+
+Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en usar Stream Analytics para canalizar los datos a Power BI.
 
 ## Creación de una instancia de Análisis de transmisiones de Azure
 
@@ -108,20 +116,21 @@ Ahora, necesitará la clave de acceso principal de la cuenta de almacenamiento, 
 
 ![](./media/app-insights-export-power-bi/140.png)
 
+
 Asegúrese de establecer el formato de fecha como AAAA-MM-DD (con guiones).
 
-El patrón del prefijo de la ruta de acceso especifica cómo busca el Análisis de transmisiones los archivos de entrada en el almacenamiento. Deberá configurarlo para que coincida con el modo en que la Exportación continua almacena los datos. Configúrelo como este caso que se muestra a continuación:
+El patrón del prefijo de la ruta de acceso especifica dónde busca el Análisis de transmisiones los archivos de entrada en el almacenamiento. Deberá establecerlo para que coincida con el modo en que la Exportación continua almacena los datos. Configúrelo como este caso que se muestra a continuación:
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 En este ejemplo:
 
-* `webapplication27` es el nombre del recurso de Application Insights. 
-* `1000...` es la clave de instrumentación que copió del recurso de Application Insights. 
-* `PageViews` es el tipo de datos que se van a analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y consulte el [modelo de exportación de datos](app-insights-export-data-model.md).
+* `webapplication27` es el nombre del recurso de Application Insights, **todo en minúsculas**.
+* `1234...` es la clave de instrumentación que copió del recurso de Application Insights, **omitiendo guiones**. 
+* `PageViews` es el tipo de datos que desea analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y consulte el [modelo de exportación de datos](app-insights-export-data-model.md).
 * `/{date}/{time}` es un patrón escrito literalmente.
 
-Para obtener el nombre y el valor iKey del recurso de Application Insights, abra Essentials en su página de información general o bien abra la Configuración.
+> [AZURE.NOTE]Inspeccione el almacenamiento para asegurarse de que obtiene la ruta de acceso correcta.
 
 #### Finalización de la instalación inicial
 
@@ -194,7 +203,8 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 ## Material relacionado
 
 * [Exportación continua](app-insights-export-telemetry.md)
+* [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

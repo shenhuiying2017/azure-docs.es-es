@@ -137,7 +137,7 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 ```
 El parámetro **Id** solo admite la búsqueda de id. completo, no con caracteres comodín ni filtros al estilo de OData.
 
-### Uso de la canalización
+### Usar la canalización
 
 Los cmdlets de lote pueden aprovechar la canalización para enviar datos entre los cmdlets de PowerShell. Esto tiene el mismo efecto que si se especifica un parámetro, pero hace enumerar varias entidades de forma más fácil. Por ejemplo, puede encontrar todas las tareas en su cuenta:
 
@@ -162,4 +162,4 @@ Para quitar el límite superior, establezca **MaxCount** en 0 o menos.
 * [Referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

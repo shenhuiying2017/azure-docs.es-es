@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="MikeWasson"/>
+	ms.date="08/30/2015"
+	ms.author="mwasson"/>
 
 
 
@@ -700,4 +700,4 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

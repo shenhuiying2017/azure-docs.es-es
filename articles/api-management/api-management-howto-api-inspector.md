@@ -1,26 +1,30 @@
 <properties 
-	pageTitle="Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure" 
-	description="Obtenga información acerca de cómo realizar un seguimiento de las llamadas con API Inspector en Administración de API de Azure." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure"
+	description="Obtenga información acerca de cómo realizar un seguimiento de las llamadas con API Inspector en Administración de API de Azure."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="sdanie"/>
 
 # Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure
 
-Administración de API ofrece la herramienta API Inspector para ayudarle con la depuración y la solución de problemas de las API. El API Inspector se puede usar mediante programación desde las aplicaciones y también directamente desde el portal para desarrolladores. En esta guía se explica el uso del API Inspector.
+Administración de API ofrece la herramienta API Inspector para ayudarle con la depuración y la solución de problemas de las API. El API Inspector se puede usar mediante programación y también directamente desde el portal para desarrolladores.
 
->[AZURE.NOTE]Además de las operaciones de seguimiento, API Inspector también realiza el seguimiento de evaluaciones de [expresiones de directivas](https://msdn.microsoft.com/library/azure/dn910913.aspx). Para obtener una demostración, consulte [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) y avance rápidamente hasta el minuto 21:00.
+Además de las operaciones de seguimiento, API Inspector también realiza el seguimiento de evaluaciones de [expresiones de directivas](https://msdn.microsoft.com/library/azure/dn910913.aspx). Para obtener una demostración, consulte [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) y avance rápidamente hasta el minuto 21:00.
+
+En esta guía se explica el uso del API Inspector.
+
+>[AZURE.NOTE]Los seguimientos del Inspector de la API solo están disponibles para los [administradores](api-management-howto-create-groups.md) de la instancia del servicio de administración de API. Solo se devuelven los seguimientos del Inspector de la API al realizar llamadas a un [producto protegido](api-management-howto-add-products.md) que requiere una clave de suscripción.
 
 ## <a name="trace-call"> </a> Uso de API Inspector para realizar el seguimiento de una llamada
 
@@ -226,7 +230,7 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 ## <a name="next-steps"> </a>Pasos siguientes
 
 -	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
--	Vea una demostración del seguimiento de expresiones de políticas en [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avance rápidamente hasta el minuto 21:00 para ver la demostración.
+-	Vea una demostración del seguimiento de expresiones de políticas en [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Avance rápidamente hasta el minuto 21:00 para ver la demostración.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
@@ -257,4 +261,4 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

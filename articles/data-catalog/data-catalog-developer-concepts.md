@@ -115,13 +115,40 @@ Los tipos de anotación representan tipos de metadatos que se pueden asignar a o
 <tr><td></td><td>mimeType</td><td>cadena</td><td>El tipo MIME del contenido.</td></tr>
 <tr><td></td><td>contenido</td><td>cadena</td><td>Las instrucciones sobre cómo obtener acceso a este recurso de datos. Podría tratarse de una dirección URL, una dirección de correo electrónico o un conjunto de instrucciones.</td></tr>
 
+<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>El número de filas del conjunto de datos</td></tr>
+<tr><td></td><td>size</td><td>long</td><td>El tamaño en bytes del conjunto de datos.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>cadena</td><td>La última vez que se modificó el esquema.</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>cadena</td><td>La última vez que se modificó el conjunto de datos (se han agregado, modificado o eliminado datos)</td></tr>
+
+<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnas</td></td><td>ColumnDataProfile[]</td><td>El número de filas del conjunto de datos</td></tr>
+
+
 </table>
 
 ### Tipos comunes
 
 Tipos comunes pueden usarse como tipos de propiedades, pero no son elementos.
 
-<table><tr><td><b>Tipo común</b></td><td><b>Propiedades</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>cadena</td><td>Describe el tipo de origen de datos, es decir, SQL Server, Base de datos de Oracle, etc. ...  </td></tr><tr><td></td><td>objectType</td><td>cadena</td><td>Describe el tipo de objeto del origen de datos, por ejemplo, tabla, vista de SQL Server.</td></tr><tr><td></td><td>formatType</td><td>cadena</td><td>Describe la estructura de los datos. Los valores actuales son estructurados o no estructurados.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>cadena</td><td>Dirección de correo electrónico única del usuario.</td></tr><tr><td></td><td>firstName</td><td>cadena</td><td>Nombre de usuario (para fines de presentación).</td></tr><tr><td></td><td>lastName</td><td>cadena</td><td>Apellidos del usuario (para fines de presentación).</td></tr><tr><td>Columna</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>cadena</td><td>Nombre de la columna o atributo.</td></tr><tr><td></td><td>type</td><td>cadena</td><td>Tipo de datos de la columna o atributo. Los tipos permitidos dependerán del sourceType de datos del recurso. Solo se admite un subconjunto de tipos.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>Longitud máxima permitida para la columna o el atributo. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr><tr><td></td><td>Precisión</td><td>byte</td><td>Precisión de la columna o atributo. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr><tr><td></td><td>isNullable</td><td>Booleano</td><td>Si se permite que la columna tenga un valor null o no. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr><tr><td></td><td>expresión</td><td>cadena</td><td>Si el valor es una columna calculada, este campo contiene la expresión que expresa el valor. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr><tr><td></td><td>defaultValue</td><td>objeto</td><td>Valor predeterminado insertado si no se especifica en la instrucción insert para el objeto. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>etiquetas</td><td>string[]</td><td>Matriz de etiquetas que describen la columna.</td></tr><tr><td></td><td>description</td><td>cadena</td><td>Descripción que describe la columna.</td></tr><tr><td></td><td>columnName</td><td>cadena</td><td>Nombre de la columna a la que hace referencia esta información.</td></tr>
+<table><tr><td><b>Tipo común</b></td><td><b>Propiedades</b></td><td><b>Tipo de datos</b></td><td><b>Comentarios</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>cadena</td><td>Describe el tipo de origen de datos, es decir, SQL Server, Base de datos de Oracle, etc. ...  </td></tr><tr><td></td><td>objectType</td><td>cadena</td><td>Describe el tipo de objeto del origen de datos, por ejemplo, tabla, vista de SQL Server.</td></tr><tr><td></td><td>formatType</td><td>cadena</td><td>Describe la estructura de los datos. Los valores actuales son estructurados o no estructurados.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>cadena</td><td>Dirección de correo electrónico única del usuario.</td></tr><tr><td></td><td>firstName</td><td>cadena</td><td>Nombre de usuario (para fines de presentación).</td></tr><tr><td></td><td>lastName</td><td>cadena</td><td>Apellidos del usuario (para fines de presentación).</td></tr><tr><td>Columna</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>cadena</td><td>Nombre de la columna o atributo.</td></tr><tr><td></td><td>type</td><td>cadena</td><td>Tipo de datos de la columna o atributo. Los tipos permitidos dependerán del sourceType de datos del recurso. Solo se admite un subconjunto de tipos.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>Longitud máxima permitida para la columna o el atributo. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr><tr><td></td><td>Precisión</td><td>byte</td><td>Precisión de la columna o atributo. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr><tr><td></td><td>isNullable</td><td>Booleano</td><td>Si se permite que la columna tenga un valor null o no. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr><tr><td></td><td>expresión</td><td>cadena</td><td>Si el valor es una columna calculada, este campo contiene la expresión que expresa el valor. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td></tr><tr><td></td><td>defaultValue</td><td>objeto</td><td>Valor predeterminado insertado si no se especifica en la instrucción insert para el objeto. Derivada del origen de datos. Solo se aplica a algunos tipos de origen.</td>
+
+</tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>etiquetas</td><td>string[]</td><td>Matriz de etiquetas que describen la columna.</td></tr>
+<tr><td></td><td>description</td><td>cadena</td><td>Descripción que describe la columna.</td></tr><tr><td></td><td>columnName</td><td>cadena</td><td>Nombre de la columna a la que hace referencia esta información.</td></tr>
+
+</tr><tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName </td><td>cadena</td><td>El nombre de la columna</td></tr>
+<tr><td></td><td>type </td><td>cadena</td><td>El tipo de la columna</td></tr>
+<tr><td></td><td>min </td><td>cadena</td><td>El valor mínimo del conjunto de datos</td></tr>
+<tr><td></td><td>max </td><td>cadena</td><td>El valor máximo del conjunto de datos</td></tr>
+<tr><td></td><td>avg </td><td>double</td><td>El valor promedio del conjunto de datos</td></tr>
+<tr><td></td><td>stdev </td><td>double</td><td>La desviación estándar del conjunto de datos</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>El número de valores null del conjunto de datos</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>El número de valores distinct del conjunto de datos</td></tr>
+
+
+
 </table>
 
 ## Roles y autorización
@@ -229,6 +256,6 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 > [AZURE.NOTE]En PUT no es necesario especificar una carga de elementos en el cuerpo: PUT puede usarse para actualizar solo roles y permisos.
 
 <!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept.png
+[1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

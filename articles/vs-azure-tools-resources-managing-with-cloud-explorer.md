@@ -30,7 +30,7 @@ Cloud Explorer se instala como parte de Visual Studio Tools para Azure SDK 2.7.
 - Visual Studio 2015 RTM.
 
 - Visual Studio Tools para Azure SDK.
-- También debe tener una cuenta de Azure y haber iniciado sesión en ella para ver recursos de Azure en Cloud Explorer. Para obtener más información, consulte [Creación de una cuenta de Azure y habilitación de la características de vista previa](../php-create-account/).
+- También debe tener una cuenta de Azure y haber iniciado sesión en ella para ver recursos de Azure en Cloud Explorer. Si no tiene ninguna, puede crear una cuenta en un par de minutos. Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). De lo contrario, consulte [crear una cuenta de prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 - Si Cloud Explorer no está visible, puede mostrarlo; para ello, elija **Ver**, **Otras ventanas,** **Cloud Explorer** en la barra de menús.
 
@@ -95,4 +95,4 @@ Para buscar recursos con un nombre específico en las suscripciones de cuenta de
 
 A medida que escribe caracteres en el cuadro de búsqueda, solo los recursos que coinciden con los caracteres aparecen en el árbol de recursos.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

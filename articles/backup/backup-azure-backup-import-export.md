@@ -1,12 +1,12 @@
 <properties
    pageTitle="Copia de seguridad de Azure: copia de seguridad sin conexión o propagación inicial mediante el servicio Importación/Exportación de Azure"
-   description="Descubra cómo la copia de seguridad de Azure permite enviar datos fuera de la red mediante el servicio de importación y exportación de Azure. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de importación y exportación de Azure."
-   services="backup"
-   documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
-   editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+	description="Descubra cómo la copia de seguridad de Azure permite enviar datos fuera de la red mediante el servicio de importación y exportación de Azure. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de importación y exportación de Azure."
+	services="backup"
+	documentationCenter=""
+	authors="aashishr"
+	manager="shreeshd"
+	editor=""/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
 
 # Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure
 
@@ -22,7 +22,7 @@ Con Copia de seguridad e Importación/Exportación de Azure, es simple y directo
 2. Antes de iniciar el flujo de trabajo, asegúrese de que se ha creado un almacén de copia de seguridad de Azure, de que las credenciales de almacén se han descargado, el agente de Copia de seguridad de Azure se ha instalado en el servidor/cliente de Windows o en System Center Data Protection Manager (SCDPM) y la máquina está registrada con el almacén de copia de seguridad de Azure.
 3. Descargue la configuración del archivo de publicación de Azure [aquí](https://manage.windowsazure.com/publishsettings) en la máquina desde la que piensa hacer copia de seguridad de los datos.
 4. Prepare una *ubicación de ensayo* que podría ser un recurso compartido de red o la unidad de disco adicional en la máquina. Asegúrese de que la ubicación de ensayo tiene suficiente espacio en disco para almacenar la copia inicial. Por ejemplo, si intenta realizar una copia de seguridad en un servidor de archivos de 500 GB, asegúrese de que el área de ensayo es de al menos 500 GB (aunque se usará una cantidad menor). El área de ensayo es de almacenamiento transitorio, y se utiliza temporalmente durante este flujo de trabajo.
-5. Escritor de unidad SATA externo y una unidad SATA externa de 3,5 pulgadas. El servicio de importación y exportación solo admite unidades de disco duro SATA II/III de 3,5 pulgadas. No se admiten unidades de disco duro con un tamaño superior a 4 TB. Es posible conectar un disco SATA II/III externo a la mayoría de los equipos con un adaptador USB SATA II/III. Consulte la documentación de importación y exportación para el conjunto más reciente de las unidades compatibles con el servicio.
+5. Escritor de unidad SATA externo y una unidad SATA externa de 3,5 pulgadas. El servicio de importación y exportación solo admite unidades de disco duro SATA II/III de 3,5 pulgadas. No se admiten unidades de disco duro con un tamaño superior a 6 TB. Es posible conectar un disco SATA II/III externo a la mayoría de los equipos con un adaptador USB SATA II/III. Consulte la documentación de importación y exportación para el conjunto más reciente de las unidades compatibles con el servicio.
 6. Habilite BitLocker en la máquina a la que está conectado el sistema de escritura de la unidad SATA.
 7. Descargue la herramienta de importación y exportación [aquí](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) en la máquina a la que está conectado el sistema de escritura de la unidad SATA.
 
@@ -108,4 +108,4 @@ Una vez que los datos de copia de seguridad iniciales están disponibles en la c
 - Para las preguntas sobre el flujo de trabajo de importación y exportación de Azure, vea este [artículo](../storage-import-export-service.md).
 - Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure si tiene alguna pregunta sobre el flujo de trabajo.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/02/2015"
 	ms.author="elizapo"/>
 
 # Creación de una colección híbrida de Azure RemoteApp
 
 Hay dos tipos de colecciones de RemoteApp:
 
-- Nube: reside completamente en Azure y se crea mediante la opción **Creación rápida** del Portal de administración de Azure.  
-- Híbrida: incluye una red virtual para acceso local y se crea con la opción **Crear con VPN** del Portal de administración.
+- Nube: reside completamente en Azure. Puede guardar todos los datos en la nube (colección de solo nube) o conectar la colección a una red virtual y guardar datos en ella.   
+- Híbrido: incluye una red virtual para el acceso local (esto requiere el uso de Azure AD y de un entorno de Active Directory local).
+
+
+**Nota** *Este tema está en proceso de modificación. Estoy trabajando en un par de nuevos artículos que facilitará en gran medida el descifrar las opciones de autenticación y colección de que dispone. Por lo tanto, si está confundido, no olvide que lo sabemos y que estoy trabajando lo más rápidamente posible para obtener mejor información para usted. Gracias.*
 
 En este tutorial se realizará un recorrido por el proceso de creación de una colección híbrida. Existen ocho pasos:
 
-1.	Decida qué [imagen](remoteapp-imageoptions.md) va a usar para la colección. Puede crear una imagen personalizada o seleccionar una de las imágenes de Microsoft que se incluyen con la suscripción.
+1.	Decida qué [imagen](remoteapp-imageoptions.md) desea usar para la colección. Puede crear una imagen personalizada o seleccionar una de las imágenes de Microsoft que se incluyen con la suscripción.
 2. Configurar la red virtual.
 2.	Crear una colección de RemoteApp.
-2.	Vincular la colección a la red virtual.
+2.	Una la colección al dominio local.
 3.	Agregar una imagen de plantilla a la colección.
 4.	Configurar la sincronización de directorios. RemoteApp requiere que realice la integración con Azure Active Directory de una de las siguientes maneras: 1) configurar la sincronización de Azure Active Directory con la opción de sincronización de contraseñas o (2) configurar la sincronización de Azure Active Directory sin la opción de sincronización de contraseñas pero usando un dominio que esté federado con AD FS. Consulte la [información de configuración de Active Directory con RemoteApp](remoteapp-ad.md).
 5.	Publicar aplicaciones de RemoteApp.
@@ -42,14 +45,17 @@ Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 - Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio.
 - Recopile información sobre la red local: dirección IP de información y detalles de dispositivos VPN.
 - Instale el módulo de [Azure PowerShell](../install-configure-powershell.md).
-- Recopile información sobre los usuarios a los que quiera conceder acceso. Necesitará el nombre principal de usuario de Azure Active Directory (por ejemplo, name@contoso.com) para cada usuario.
-- Elija su imagen de plantilla. Una imagen de plantilla de RemoteApp contiene las aplicaciones y los programas que desea publicar para los usuarios. Vea [Opciones de imagen de RemoteApp](remoteapp-imageoptions.md) para obtener más información. 
+- Recopile información sobre los usuarios a los que quiera conceder acceso. Necesitará el nombre principal de usuario de Azure Active Directory (por ejemplo, name@contoso.com) para cada usuario. Asegúrese de que el UPN de Azure AD y Active Directory coincidan.
+- Elija su imagen de plantilla. Una imagen de plantilla de RemoteApp contiene las aplicaciones y los programas que desea publicar para los usuarios. Consulte [Opciones de imagen de RemoteApp](remoteapp-imageoptions.md) para obtener más información. 
+- ¿Desea usar la imagen de Office 365 ProPlus? Consulte la información [aquí](remoteapp-officesubscription.md).
 - [Configuración de Active Directory para RemoteApp de Azure](remoteapp-ad.md)
 
 
 
 ## Paso 1: Configuración de la red virtual
 Puede implementar una colección híbrida de RemoteApp que use una red virtual existente o puede crear una nueva red virtual. Una red virtual permite a los usuarios acceder a los datos de la red local a través de recursos remotos de RemoteApp. El uso de una red virtual proporciona a la colección acceso de red directo a otros servicios de Azure y máquinas virtuales implementadas en esa red virtual.
+
+Asegúrese de revisar la información del [tamaño de la red virtual](remoteapp-vnetsizing.md) antes de crear la red virtual.
 
 ### Creación de una red virtual de Azure y su unión a la implementación de Active Directory
 
@@ -72,21 +78,21 @@ Antes de crear la colección de RemoteApp, nos aseguraremos de que la nueva red 
 
 
 
-1. En el [Portal de administración de Azure](http://manage.windowsazure.com), vaya a la página RemoteApp.
+1. En el [Portal de Azure](http://manage.windowsazure.com), vaya a la página RemoteApp.
 2. Haga clic en **Nuevo > Crear con VPN**.
 3. Escriba un nombre para la colección.
 4. Seleccione el plan que quiere usar: Standard o Basic.
+5. Elija la red virtual en la lista desplegable y, a continuación, la subred.
+6. Únala a su dominio.
 5. Haga clic en **Crear colección de RemoteApp**.
 
 Una vez creada la colección de RemoteApp, haga doble clic en el nombre de la colección. Se abrirá la página **Inicio rápido**, donde terminará de configurar la colección.
 
-## Paso 3: Vinculación de la colección a la red virtual ##
+## Paso 3: Vinculación de la colección al dominio local ##
 
  
-1. En la página **Inicio rápido**, haga clic en la opción para **vincular una red virtual**.
-2. Elija la red virtual que quiere usar en la lista desplegable.
-3. Elija la región que quiere usar y asegúrese de que la suscripción correcta se muestra en el campo. 
-5. De nuevo en la página **Inicio rápido**, haga clic en **unir al dominio local**. Agregue la cuenta de servicio RemoteApp al dominio de Active Directory local. Necesitará el nombre de dominio, la unidad organizativa, el nombre del usuario de la cuenta de servicio y la contraseña. 
+1. En la página **Inicio rápido**, haga clic en **unirse al dominio local**.
+2. Agregue la cuenta de servicio RemoteApp al dominio de Active Directory local. Necesitará el nombre de dominio, la unidad organizativa, el nombre del usuario de la cuenta de servicio y la contraseña. 
 
 	Se trata de la información que recopiló si siguió los pasos descritos en [Configuración de Active Directory para RemoteApp de Azure](remoteapp-ad.md).
 
@@ -103,7 +109,11 @@ Si vincula una imagen de plantilla existente, simplemente especifique el nombre,
 
 ## Paso 5: Configuración de la sincronización de directorios de Active Directory ##
 
-RemoteApp requiere que realice la integración con Azure Active Directory de una de las siguientes maneras: 1) configurar la sincronización de Azure Active Directory con la opción de sincronización de contraseñas; 2) configurar la sincronización de Azure Active Directory sin la opción de sincronización de contraseñas pero usando un dominio que esté federado con AD FS. Consulte [Guía de sincronización de directorios](http://msdn.microsoft.com//library/azure/hh967642.aspx) para obtener información sobre planeación y pasos detallados.
+RemoteApp requiere que realice la integración con Azure Active Directory de una de las siguientes maneras: 1) configurar la sincronización de Azure Active Directory con la opción de sincronización de contraseñas; 2) configurar la sincronización de Azure Active Directory sin la opción de sincronización de contraseñas pero usando un dominio que esté federado con AD FS.
+
+Desmarque [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx): este artículo le ayuda a configurar la integración de directorios en 4 pasos.
+
+Consulte [Guía de sincronización de directorios](http://msdn.microsoft.com//library/azure/hh967642.aspx) para obtener información sobre planeación y pasos detallados.
 
 ## Paso 6. Publicación de aplicaciones de RemoteApp ##
 
@@ -136,4 +146,4 @@ Esto es todo: ha creado e implementado correctamente su colección híbrida de R
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

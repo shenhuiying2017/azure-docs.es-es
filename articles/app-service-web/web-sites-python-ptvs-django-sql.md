@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Django y Base de datos SQL en Azure con Python Tools 2.1 para Visual Studio" 
-	description="Obtenga información acerca de cómo usar las herramientas de Python para Visual Studio para crear una aplicación web Django que almacene datos en una instancia de base de datos SQL y se pueda implementar en Aplicaciones web del Servicio de aplicaciones de Azure." 
-	services="app-service\web" 
+	pageTitle="Django y Base de datos SQL en Azure con Python Tools 2.2 para Visual Studio"
+	description="Obtenga información acerca de cómo usar las herramientas de Python para Visual Studio para crear una aplicación web Django que almacene datos en una instancia de base de datos SQL y se pueda implementar en Aplicaciones web del Servicio de aplicaciones de Azure."
+	services="app-service\web"
 	tags="python"
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
 
 
-# Django y Base de datos SQL en Azure con Python Tools 2.1 para Visual Studio 
+# Django y Base de datos SQL en Azure con Python Tools 2.2 para Visual Studio 
 
 En este tutorial, usaremos las [Herramientas de Python para Visual Studio] a fin de crear una aplicación web de sondeos sencilla mediante una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible como [vídeo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
@@ -30,10 +30,10 @@ Consulte el [Centro para desarrolladores de Python] para tener acceso a más art
 
 ## Requisitos previos
 
- - Visual Studio 2012 o 2013
- - [Python Tools 2.1 para Visual Studio]
- - [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]
- - [Herramientas del SDK de Azure para 2013] o [Herramientas del SDK de Azure para VS 2012]
+ - Visual Studio 2013 o 2015
+ - [Python Tools 2.2 para Visual Studio]
+ - [Python Tools 2.2 para archivos VSIX de ejemplo de Visual Studio]
+ - [Herramientas del SDK de Azure para 2013] o [Herramientas del SDK de Azure para VS 2015]
  - [Python 2.7 de 32 bits]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -208,17 +208,16 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 <!--External Link references-->
 [Portal de Azure]: https://portal.azure.com
 [Herramientas de Python para Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Python Tools 2.2 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Herramientas del SDK de Azure para 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Herramientas del SDK de Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Herramientas del SDK de Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
-[Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
-[Depuración remota en Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Proyectos web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Documentación sobre Python Tools para Visual Studio]: http://aka.ms/ptvsdocs
+[Depuración remota en Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Proyectos web]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Proyectos de servicio en la nube]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Documentación de Django]: https://www.djangoproject.com/
 [Base de datos SQL]: /documentation/services/sql-database/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

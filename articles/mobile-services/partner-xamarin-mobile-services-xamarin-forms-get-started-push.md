@@ -2,8 +2,8 @@
 	pageTitle="Incorporación de notificaciones push a la aplicación de Servicios móviles (Xamarin.Forms) - Servicios móviles"
 	description="Obtenga información acerca de cómo usar notificaciones push en aplicaciones Xamarin.Forms con Servicios móviles de Azure."
 	documentationCenter="xamarin"
-	authors="normesta"
-	manager="stevenpo"
+	authors="wesmc7777"
+	manager="dwrede"
 	services="mobile-services"
 	editor=""/>
 
@@ -293,7 +293,7 @@ El servicio móvil está configurado ahora para que funcione con APNS.
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("es-ES"));
 
             var push = client.GetPush();
 
@@ -379,7 +379,7 @@ Agregue notificaciones push a la aplicación Android mediante el servicio de men
 
 ###<a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
-[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ###<a id="configure"></a>Configuración del servicio móvil para enviar solicitudes de inserción
 
@@ -847,4 +847,4 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 [ejemplo de notificación push de Xamarin.Forms Azure completada]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

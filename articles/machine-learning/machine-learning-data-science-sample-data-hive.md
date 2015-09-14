@@ -4,8 +4,8 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 # Muestreo de datos en tablas de HDInsight Hive de Azure
 
 Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su función en la tecnología y procesos de análisis avanzado de Aprendizaje automático de Azure consiste en permitir la creación rápida de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
-En este artículo, se describe cómo reducir la muestra de datos en tablas de HDInsight Hive de Azure mediante consultas de Hive. Veremos tres métodos de muestreo usados popularmente: muestreo aleatorio uniforme, muestreo aleatorio por grupos y muestreo estratificado.
+En este artículo, se describe cómo reducir la muestra de datos en tablas de HDInsight Hive de Azure mediante consultas de Hive. Se explican tres métodos de muestreo normalmente utilizados:
+
+* Muestreo aleatorio uniforme 
+* muestreo aleatorio por grupos 
+* muestreo estratificado
 
 Debe enviar las consultas de Hive desde la consola de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop. Para ello, inicie sesión en el nodo principal del clúster de Hadoop, abra la consola de la línea de comandos de Hadoop y envíe las consultas de Hive desde allí. Para obtener instrucciones sobre el envío de consultas de Hive en la consola de línea de comandos de Hadoop, consulte [Envío de consultas de Hive](machine-learning-data-science-process-hive-tables.md#submit).
 
@@ -95,4 +99,4 @@ Aquí se muestra una consulta de ejemplo:
 Para obtener información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [LanguageManual Sampling](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling) (Manual de lenguaje: muestreo).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

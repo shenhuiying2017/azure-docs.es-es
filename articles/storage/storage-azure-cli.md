@@ -1,19 +1,19 @@
 <properties
     pageTitle="Uso de la CLI de Azure con Almacenamiento de Azure | Microsoft Azure"
-    description="Aprenda a usar la interfaz de línea de comandos (CLI de Azure) de Azure con Almacenamiento de Azure para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure."
-    services="storage"
-    documentationCenter="na"
-    authors="tamram"
-    manager="jdial"/>
+	description="Aprenda a usar la interfaz de línea de comandos (CLI de Azure) de Azure con Almacenamiento de Azure para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure."
+	services="storage"
+	documentationCenter="na"
+	authors="tamram"
+	manager="jdial"/>
 
 <tags
     ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article" 
-    ms.date="05/27/2015"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Uso de la CLI de Azure con Almacenamiento de Azure
 
@@ -80,9 +80,9 @@ Para obtener más información acerca de las suscripciones de Azure, consulte [A
 
     - **<container_name>**Use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
 
-    - **<image_to_upload>** Escriba una ruta de acceso a una imagen del equipo local, como: "\~/images/HelloWorld.png".
+    - **<image_to_upload>** Escriba una ruta de acceso a una imagen del equipo local, como: "~/images/HelloWorld.png".
 
-    - **<destination_folder>** Escriba una ruta de acceso a un directorio local para almacenar los archivos descargados de Almacenamiento de Azure, como por ejemplo: “\~/downloadImages”.
+    - **<destination_folder>** Escriba una ruta de acceso a un directorio local para almacenar los archivos descargados de Almacenamiento de Azure, como por ejemplo: “~/downloadImages”.
 
 7. Después de haber actualizado las variables necesarias en vim, presione las combinaciones de teclas "Esc,:, wq!" para guardar el script.
 
@@ -189,7 +189,7 @@ Tenga en cuenta que la ruta de acceso al directorio puede incluir varios niveles
 
 ### Carga de un archivo local a un directorio
 
-El siguiente ejemplo carga un archivo de **\~/temp/samplefile.txt** en el directorio **myDir**. Edite la ruta de acceso al archivo de forma que apunte a un archivo válido situado en la máquina local:
+El siguiente ejemplo carga un archivo de **~/temp/samplefile.txt** en el directorio **myDir**. Edite la ruta de acceso al archivo de forma que apunte a un archivo válido situado en la máquina local:
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -203,6 +203,16 @@ Los archivos y subdirectorios del directorio raíz del recurso compartido o de o
 
 Tenga en cuenta que el nombre de directorio es opcional en la operación de enumeración. Si se omite, el comando muestra el contenido del directorio raíz del recurso compartido.
 
+### Copiar archivos
+
+A partir de la versión 0.9.8 de la CLI de Azure, puede copiar un archivo en otro, un archivo en un blob o un blob en un archivo. A continuación mostramos cómo realizar estas operaciones de copia mediante comandos de CLI. Para copiar un archivo en el nuevo directorio:
+
+	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+	
+Para copiar un blob en un directorio de archivos:
+
+	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+
 ## Pasos siguientes
 
 A continuación encontrará algunos artículos relacionados y recursos para obtener más información acerca de Almacenamiento de Azure.
@@ -214,4 +224,4 @@ A continuación encontrará algunos artículos relacionados y recursos para obte
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

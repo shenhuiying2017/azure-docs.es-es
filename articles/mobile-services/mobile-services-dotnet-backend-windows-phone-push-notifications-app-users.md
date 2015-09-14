@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Envío de notificaciones de inserción a usuarios autenticados"
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos"
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
@@ -24,7 +24,7 @@ En este tema se muestra cómo enviar notificaciones de inserción a un usuario a
 
 Este tutorial es válido para aplicaciones de Windows Phone 8.0 y Windows Phone 8.1 Silverlight. Para aplicaciones de la Tienda de Windows Phone 8.1, consulte la [versión para la Tienda Windows de este tema](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
-##Requisitos previos 
+##Requisitos previos
 
 Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales de Servicios móviles:
 
@@ -59,6 +59,5 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Incorporación de notificaciones de inserción a la aplicación]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

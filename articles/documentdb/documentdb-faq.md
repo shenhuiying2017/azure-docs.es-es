@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Preguntas más frecuentes sobre DocumentDB | Microsoft Azure" 
-	description="Respuestas a las preguntas más frecuentes sobre Azure DocumentDB, un servicio de base de datos de documentos no SQL." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+	pageTitle="Preguntas más frecuentes sobre DocumentDB | Microsoft Azure"
+	description="Respuestas a las preguntas más frecuentes sobre Azure DocumentDB, un servicio de base de datos de documentos no SQL."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mimig"/>
 
 
@@ -48,7 +48,7 @@ Las cuentas de DocumentDB se pueden escalar en términos de almacenamiento y ren
 Consulte la página [Detalles de precios de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317) para obtener detalles. Los cargos por uso de DocumentDB están determinados por la cantidad de colecciones en uso, el número de horas en que las colecciones estuvieron en línea y el [nivel de rendimiento](documentdb-performance-levels.md) de cada colección.
 
 ### ¿Existe una prueba gratuita disponible?
-Si es la primera vez que usa Azure, regístrese para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le brinda 30 días y USD 200 para que pruebe todos los servicios de Azure. Si tiene una suscripción a MSDN, puede recibir [USD 150 en créditos gratis de Azure al mes](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. Si desea probar DocumentDB gratis durante 30 días, sin que sea necesaria una tarjeta de crédito, envíe un correo electrónico a askdocdb@microsoft.com con la línea de asunto "Preguntas más frecuentes sobre documentación: prueba de Azure" y le responderemos con un código promocional mientras dure la oferta.
+Si es la primera vez que usa Azure, regístrese para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le brinda 30 días y USD 200 para que pruebe todos los servicios de Azure. Si tiene una suscripción a MSDN, puede recibir [USD 150 en créditos gratis de Azure al mes](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure.
 
 ### ¿Cómo puedo obtener ayuda adicional con DocumentDB?
 En caso de que necesite ayuda, póngase rápidamente en contacto con nosotros en [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), los [foros para desarrolladores de MSDN de Azure DocumentDB](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) o programe un [chat 1:1 con el equipo de ingeniería de DocumentDB](http://www.askdocdb.com/). Para mantenerse al día en las novedades y características más recientes de DocumentDB, síganos en [Twitter](https://twitter.com/DocumentDB).
@@ -111,4 +111,4 @@ Sí. Como Base de datos de documentos es un servicio RESTful, los vínculos de r
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

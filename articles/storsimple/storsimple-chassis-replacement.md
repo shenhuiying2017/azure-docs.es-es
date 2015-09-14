@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Reemplazar el chasis en el dispositivo StorSimple | Microsoft Azure"
-   description="Describe cómo quitar y reemplazar el chasis en su dispositivo StorSimple"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Reemplazar el chasis en un dispositivo StorSimple | Microsoft Azure"
+	description="Describe cómo quitar y reemplazar el chasis en su dispositivo StorSimple"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Reemplazar el chasis en el dispositivo StorSimple
 
 ## Información general
 
-Este tutorial explica cómo quitar y reemplazar un chasis en un dispositivo de StorSimple. El modelo 8100 es un dispositivo de un solo gabinete (un chasis), mientras que el 8600 es un dispositivo de dos gabinetes (dos chasis). Para un modelo 8600, hay potencialmente dos chasis que pueden producir un error en el dispositivo: el chasis para el gabinete principal o el chasis del gabinete EBOD.
+Este tutorial explica cómo quitar y reemplazar un chasis en un dispositivo de StorSimple. El modelo StorSimple 8100 es un dispositivo de un solo gabinete (un chasis), mientras que el 8600 es un dispositivo de dos gabinetes (dos chasis). Para un modelo 8600, hay potencialmente dos chasis que pueden producir un error en el dispositivo: el chasis para el gabinete principal o el chasis del gabinete EBOD.
 
 En cualquier caso, el chasis de reemplazo que se distribuye por Microsoft estará vacío. No se incluirán Módulos de alimentación y refrigeración (PCM), módulos de controlador, unidades de disco de estado sólido (SSD), unidades de disco duro (HDD) o módulos EBOD.
 
@@ -63,4 +63,4 @@ Realice los pasos siguientes para instalar el chasis en un dispositivo StorSimpl
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

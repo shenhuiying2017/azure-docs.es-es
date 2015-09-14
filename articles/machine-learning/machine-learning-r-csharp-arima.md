@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Previsión: media móvil integrada autorregresiva (ARIMA) | Microsoft Azure" 
-	description="Previsión - Media móvil integrada autorregresiva (ARIMA)" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Previsión: media móvil integrada autorregresiva (ARIMA) | Microsoft Azure"
+	description="Previsión - Media móvil integrada autorregresiva (ARIMA)"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
  
@@ -138,4 +138,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

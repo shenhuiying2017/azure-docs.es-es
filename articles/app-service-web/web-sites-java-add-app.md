@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Incorporación de una aplicación de Java a Aplicaciones web del Servicio de aplicaciones de Azure" 
-	description="Este tutorial muestra cómo agregar una página o aplicación a su instancia de Aplicaciones web del Servicio de aplicaciones de Azure que ya está configurado para usar Java." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Incorporación de una aplicación de Java a Aplicaciones web del Servicio de aplicaciones de Azure"
+	description="Este tutorial muestra cómo agregar una página o aplicación a su instancia de Aplicaciones web del Servicio de aplicaciones de Azure que ya está configurado para usar Java."
+	services="app-service\web"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Incorporación de una aplicación de Java a Aplicaciones web del Servicio de aplicaciones de Azure
 
-Cuando haya inicializado la aplicación web de Java en [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) tal como se documenta en [Creación de una aplicación web de Java en Servicio de aplicaciones de Azure](web-sites-java-get-started.md), podrá cargar su aplicación colocando su WAR en la carpeta **webapps**.
+Cuando haya inicializado la aplicación web de Java en [Servicio de aplicaciones de Azure][] tal como se documenta en [Creación de una aplicación web de Java en Servicio de aplicaciones de Azure](web-sites-java-get-started.md), podrá cargar su aplicación colocando su WAR en la carpeta **webapps**.
 
 La ruta de acceso de navegación a la carpeta **webapps** varía en función de cómo haya configurado la instancia de Aplicaciones web.
 
@@ -32,7 +32,8 @@ Nota para aplicaciones web de Tomcat: después de cargar el archivo WAR a la car
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=August15_HO6-->
+<!-- External Links -->
+[Servicio de aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
+
+<!---HONumber=September15_HO1-->

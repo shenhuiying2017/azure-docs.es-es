@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="Identity"
-	ms.date="08/27/2015"
+	ms.date="09/03/2015"
 	ms.author="andkjell"/>
 
 # Conceptos de diseño de Azure AD Connect
@@ -36,9 +36,13 @@ En este tema solo se habla de sourceAnchor puesto que está relacionado con los 
 El valor de atributo debe seguir las reglas siguientes:
 
 - Debe tener una longitud de menos de 60 caracteres.
-- No debe contener caracteres especiales: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @
+- No debe contener caracteres especiales: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ \_
 - Debe ser único globalmente.
 - Debe ser una cadena, un entero o un número binario.
+- No se debe basar en el nombre del usuario, */*estos cambios
+- No debe distinguir mayúsculas y minúsculas; evite valores que pueden variar según el caso
+- Debe asignarse cuando se crea el objeto.
+
 
 Si el atributo sourceAnchor seleccionado no es de tipo cadena, Azure AD Connect aplicará Base64Encode al valor de atributo para asegurarse de que no se muestre ningún carácter especial. Si usa otro servidor de federación distinto de ADFS, asegúrese de que también tenga la capacidad para aplicar Base64Encode al atributo.
 
@@ -48,9 +52,10 @@ Si tiene un solo bosque local, el atributo que debe usar es **objectGUID**. Tamb
 
 Si tiene varios bosques y no mueve usuarios entre bosques y dominios del mismo bosque, **objectGUID** es un buen atributo para usar incluso en este caso.
 
-Si mueve usuarios entre bosques y dominios, debe buscar un atributo que no cambie. Uno de los atributos de uso más común es **employeeID**. Si está considerando el uso de un atributo que contenga letras, como **sAMAccountName**, asegúrese de que no haya ninguna posibilidad de que la distinción de mayúsculas y minúsculas pueda cambiar el valor del atributo. Entre los atributos incorrectos que no deben usarse se incluyen aquellos con el nombre del usuario. En un matrimonio o divorcio se espera que cambie el nombre, lo que no está permitido para este atributo. Este también es uno de los motivos de que atributos como **userPrincipalName**, **mail** y **targetAddress** no se puedan seleccionar en el asistente de instalación de Azure AD Connect. Esos atributos también contendrán el carácter @, que no está permitido en sourceAnchor.
+Si mueve usuarios entre bosques y dominios, debe buscar un atributo que no cambie o se puede mover con los usuarios durante el movimiento. Un enfoque recomendado es introducir un atributo sintético. Un atributo que pueda contener algo parecido a un GUID sería adecuado. Durante la creación del objeto se crea un nuevo GUID y se marca en el usuario. Puede crear una regla personalizada en el servidor del motor de sincronización para crear este valor según el **objectGUID** y actualizar el atributo seleccionado en ADDS. Al mover el objeto, asegúrese de copiar también el contenido de este valor.
 
-En caso de que no haya un atributo completamente adecuado para usar, se tendría que introducir un valor sintético. Por ejemplo, un atributo que pueda contener algo parecido a un GUID sería adecuado. Durante la creación del objeto se crea un nuevo GUID y se marca en el usuario. Al mover el objeto, asegúrese de copiar también el contenido de este valor.
+Otra solución consiste en seleccionar un atributo existente que sepa que no cambiará. Uno de los atributos de uso más común es **employeeID**. Si está considerando el uso de un atributo que contenga letras, asegúrese de que no haya ninguna posibilidad de que la distinción de mayúsculas y minúsculas pueda cambiar el valor del atributo. Entre los atributos incorrectos que no deben usarse se incluyen aquellos con el nombre del usuario. En un matrimonio o divorcio se espera que cambie el nombre, lo que no está permitido para este atributo. Este también es uno de los motivos de que atributos como **userPrincipalName**, **mail** y **targetAddress** no se puedan seleccionar en el asistente de instalación de Azure AD Connect. Esos atributos también contendrán el carácter @, que no está permitido en sourceAnchor.
+
 
 ### Cambio del atributo sourceAnchor
 No se puede cambiar el valor del atributo sourceAnchor después de que el objeto se ha creado en Azure AD y la identidad se ha sincronizado.
@@ -61,4 +66,4 @@ Por este motivo, se aplican las restricciones siguientes a Azure AD Connect:
 - Si instala otro servidor de Azure AD Connect, debe seleccionar el mismo atributo sourceAnchor usado anteriormente. Si anteriormente ha estado usando la sincronización de directorios y se pasa a Azure AD Connect, debe usar **objectGUID** ya que es el atributo de sincronización de directorios.
 - Si se cambia el valor de sourceAnchor después de que el objeto se ha exportado a Azure AD, la sincronización de Azure AD Connect producirá un error y no permitirá más cambios en ese objeto antes de que el problema se haya corregido y el atributo sourceAnchor cambie de nuevo en el directorio de origen.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

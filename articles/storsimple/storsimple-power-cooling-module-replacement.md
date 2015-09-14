@@ -1,27 +1,25 @@
 <properties 
-   pageTitle="Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple | Microsoft Azure"
-   description="Explica cómo quitar y reemplazar el Módulo de alimentación y refrigeración (PCM) en el dispositivo StorSimple"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Reemplazar un PCM en el dispositivo StorSimple | Microsoft Azure"
+	description="Explica cómo quitar y reemplazar el Módulo de alimentación y refrigeración (PCM) en el dispositivo StorSimple"
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple
 
 ## Información general
 
-El Módulo de alimentación y refrigeración (PCM) en el dispositivo StorSimple de Microsoft Azure consta de una fuente de alimentación y ventiladores que se controlan a través de los gabinetes EBOD y principal.
-
-Hay un único modelo de PCM que está certificado para cada gabinete. El gabinete principal está certificado para un PCM de 764 W y el gabinete EBOD está certificado para un PCM de 580 W. Aunque los PCM para el gabinete principal y el gabinete EBOD son diferentes, el procedimiento de reemplazo es idéntico.
+El Módulo de alimentación y refrigeración (PCM) en el dispositivo StorSimple de Microsoft Azure consta de una fuente de alimentación y ventiladores que se controlan a través de los gabinetes EBOD y principal. Hay un único modelo de PCM que está certificado para cada gabinete. El gabinete principal está certificado para un PCM de 764 W y el gabinete EBOD está certificado para un PCM de 580 W. Aunque los PCM para el gabinete principal y el gabinete EBOD son diferentes, el procedimiento de reemplazo es idéntico.
 
 Este tutorial explica cómo realizar lo siguiente:
 
@@ -154,4 +152,4 @@ Siga estas instrucciones para instalar un PCM en el dispositivo StorSimple.
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

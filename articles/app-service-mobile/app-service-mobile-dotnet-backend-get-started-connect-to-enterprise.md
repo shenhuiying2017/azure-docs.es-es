@@ -12,13 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # Conexión de una aplicación móvil a API de SaaS
 
-En este tutorial, conectará su aplicación móvil a una solución de software como servicio (SaaS) empresarial. Actualizará la aplicación a partir de [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory] para crear un documento de Word en SharePoint Online siempre que se agregue un nuevo TodoItem.
+En este tutorial, conectará su aplicación móvil a una solución de software como servicio (SaaS) empresarial. Actualizará la aplicación a partir de [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Azure Active Directory] para crear un documento de Microsoft Word en SharePoint Online siempre que se agregue un nuevo TodoItem.
 
 Este tutorial requiere lo siguiente:
 
@@ -35,7 +35,7 @@ De manera predeterminada, el token que recibe de AAD tiene permisos limitados. P
 
     ![][1]
 
-Ahora ha configurado AAD para emitir un token de acceso a SharePoint para el Servicio de aplicaciones.
+Ahora ha configurado Azure AD para emitir un token de acceso a SharePoint para el Servicio de aplicaciones.
 
 ## <a name="store-credentials"></a>Incorporación de información de SharePoint a una aplicación móvil
 
@@ -57,7 +57,7 @@ Podrá obtener estos valores de nuevo en su código utilizando ApiServices.Setti
 
 ## <a name="obtain-token"></a>Obtención de un token de acceso y llamada a la API de SharePoint
 
-A fin de tener acceso a SharePoint, necesita un token de acceso especial con SharePoint como audiencia de destino. Para obtener este token, tiene que devolver la llamada en AAD con la identidad del Servicio de aplicaciones y el token que se emitió para el usuario.
+A fin de tener acceso a SharePoint, necesita un token de acceso especial con SharePoint como audiencia de destino. Para obtener este token, tiene que devolver la llamada en Azure AD con la identidad del Servicio de aplicaciones y el token que se emitió para el usuario.
 
 1. Abra el proyecto de Código de aplicación móvil en Visual Studio.
 
@@ -123,7 +123,7 @@ A fin de tener acceso a SharePoint, necesita un token de acceso especial con Sha
 
 ## <a name="create-document"></a>Creación y carga de un documento de Word
 
-Para crear un documento de Word, utilizará el paquete de NuGet OpenXML. Instale este paquete abriendo el Administrador de NuGet y buscando DocumentFormat.OpenXml.
+Para crear un documento de Word, usará el paquete de NuGet OpenXML. Instale este paquete abriendo el Administrador de NuGet y buscando DocumentFormat.OpenXml.
 
 1. Agregue el siguiente código a TodoItemController. Esto creará un documento de Word basado en un TodoItem. El texto del documento será el nombre del elemento.
 
@@ -182,9 +182,8 @@ Para crear un documento de Word, utilizará el paquete de NuGet OpenXML. Instale
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/es-es/sharepoint/
+[SharePoint Online]: http://office.microsoft.com/es-ES/sharepoint/
 [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Extensión de servicio de aplicación de back-end de .NET de Aplicaciones móviles]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

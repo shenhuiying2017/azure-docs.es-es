@@ -1,26 +1,28 @@
-<properties 
-	pageTitle="Modificación del modelo de datos de un servicio móvil back-end de .NET" 
-	description="En este tema se describen los inicializadores de modelo de datos y cómo realizar cambios en el modelo de datos en un servicio móvil de back-end. NET." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Modificación del modelo de datos de un servicio móvil back-end de .NET"
+	description="En este tema se describen los inicializadores de modelo de datos y cómo realizar cambios en el modelo de datos en un servicio móvil de back-end. NET."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Modificación del modelo de datos de un servicio móvil back-end de .NET
 
-En este tema se muestra cómo utilizar Migraciones de Entity Framework Code First para realizar cambios en el modelo de datos de una base de datos SQL de Azure existente para evitar perder datos existentes. Se asume que ya publicó el proyecto de servicio móvil en Azure, que hay datos guardados en la base de datos y que los modelos de datos remoto y local están sincronizados. En este tema también se describen los inicializadores Code First predeterminados que implementan los Servicios móviles de Azure que se usan durante el desarrollo. Estos inicializadores le permiten realizar cambios de esquema fácilmente sin usar Migraciones de Code First cuando no sea necesario para conservar los datos existentes.
+En este tema se muestra cómo usar Migraciones de Code First en Entity Framework para realizar cambios en el modelo de datos de una base de datos SQL de Azure existente para evitar perder datos existentes. Se asume que ya publicó el proyecto de backend .NET en Azure, que hay datos guardados en la base de datos y que los modelos de datos remoto y local están sincronizados. En este tema también se describen los inicializadores Code First predeterminados que implementan los Servicios móviles de Azure que se usan durante el desarrollo. Estos inicializadores le permiten realizar cambios de esquema fácilmente sin usar Migraciones de Code First cuando no sea necesario para conservar los datos existentes.
 
 >[AZURE.NOTE]El nombre del esquema que se usa para prefijar las tablas en la base de datos de SQL está definido por la configuración de la aplicación MS\_MobileServiceName en el archivo web.config. Al descargar el proyecto de inicio desde el portal, este valor ya está establecido en el nombre del servicio móvil. Cuando el nombre del esquema coincide con el servicio móvil, varios servicios móviles pueden compartir la misma instancia de base de datos con seguridad.
+
+Tenga en cuenta que no se admiten migraciones automáticas en un proyecto de backend. NET.
 
 ## Actualización del modelo de datos
 
@@ -39,14 +41,16 @@ Servicios móviles proporciona dos clases base de inicializador de modelo de dat
 Ambos inicializadores eliminan de la base de datos todas las tablas, vistas, funciones y procedimientos del esquema que usa el servicio móvil.
 
 + Los objetos de esquema **ClearDatabaseSchemaIfModelChanges** <br/> solo se eliminan cuando Code First detecta un cambio en un modelo de datos. El inicializador predeterminado de un proyecto de back-end de .NET descargado del [Portal de administración de Azure] hereda de esta clase base.
- 
+
 + **ClearDatabaseSchemaAlways**: <br/> los objetos de esquema se eliminan cada vez que se accede al modelo de datos. Use esta clase base para restablecer la base de datos sin tener que realizar una modificación del modelo de datos.
 
-En el proyecto de inicio rápido descargado, el inicializador Code First se define en el archivo WebApiConfig.cs. Reemplace el método **Seed** para agregar filas de datos iniciales a nuevas tablas. Para obtener ejemplos de datos de inicialización, vea [Datos de inicialización en las migraciones]. Puede usar otros inicializadores de modelo de datos de Code First al realizar la ejecución en un equipo local. No obstante, se producirá un error en Azure de los inicializadores que intenten eliminar la base de datos porque el usuario no cuenta con los permisos para eliminar la base de datos, lo que es un comportamiento deseado.
+Puede usar otros inicializadores del modelo de datos de Code First cuando se ejecuta en un equipo local. No obstante, se producirá un error en Azure de los inicializadores que intenten eliminar la base de datos porque el usuario no cuenta con los permisos para eliminar la base de datos, lo que es un comportamiento deseado.
 
 Puede seguir utilizando los inicializadores durante el desarrollo local del servicio móvil. Además, en los tutoriales de backend .NET se presupone que está utilizando inicializadores. Sin embargo, en aquellos casos en que desee realizar cambios en el modelo de datos y conservar los datos existentes en la base de datos, debe utilizar Migraciones de Code First.
 
 >[AZURE.IMPORTANT]A la hora de desarrollar y probar el proyecto de servicio móvil con los servicios de Azure en directo, debe utilizar siempre una instancia del servicio móvil destinada a pruebas. No debe utilizar nunca un servicio móvil que se encuentre en fase de producción o que esté siendo utilizado por aplicaciones cliente.
+
+En el proyecto de inicio rápido descargado, el inicializador Code First se define en el archivo WebApiConfig.cs. Reemplace el método **Seed** para agregar filas de datos iniciales a nuevas tablas. Para obtener ejemplos de la propagación de datos, consulte [Propagación de datos en migraciones].
 
 ## <a name="migrations"></a>Habilitación de migraciones de Code First
 
@@ -57,7 +61,7 @@ Migraciones de Code First utiliza un método de instantáneas para generar códi
 Los siguientes pasos sirven para activar las Migraciones y aplicar los cambios en el modelo de datos en el proyecto, la base de datos local y Azure.
 
 1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de servicio móvil y luego en **Establecer como proyecto de inicio**.
- 
+
 2. En el menú **Herramientas**, expanda **Administrador de paquetes NuGet** y luego haga clic en **Consola del Administrador de paquetes**.
 
 	De este modo, se muestra la Consola del Administrador de paquetes, que se puede utilizar para administrar las Migraciones de Code First.
@@ -80,7 +84,7 @@ Los siguientes pasos sirven para activar las Migraciones y aplicar los cambios e
 		using todolistService.Migrations;
 
 	En el código anterior, debe reemplazar la cadena _todolistService_ por el espacio de nombres del proyecto que, en el caso del proyecto de inicio rápido descargado, es <em>nombre&#95;servicio&#95;móvil</em>Service.
- 
+
 6. En este mismo archivo de código, convierta en comentario la llamada al método **Database.SetInitializer** y agregue el código siguiente a continuación:
 
         var migrator = new DbMigrator(new Configuration());
@@ -89,13 +93,13 @@ Los siguientes pasos sirven para activar las Migraciones y aplicar los cambios e
 	De este modo, se deshabilita el inicializador de base de datos de Code First predeterminado que elimina y vuelve a crear la base de datos y se reemplaza por una solicitud explícita de aplicación de la migración más reciente. En este momento, cualquier cambio en el modelo de datos provocará una excepción InvalidOperationException al obtener acceso a los datos, a menos que se cree una migración para él. A partir de ahora, el servicio debe utilizar Migraciones de Code First para migrar los cambios en el modelo de datos a la base de datos.
 
 7.  Presione F5 para iniciar el proyecto de servicio móvil en el equipo local.
- 
+
 	En este punto, la base de datos está sincronizada con el modelo de datos. Si proporcionó datos de inicialización, puede comprobarlo haciendo clic en **Probarlo**, **GET tables/todoitem**, luego en **Probar esto** y seguidamente en **Enviar**. Para obtener más información, vea [Datos de inicialización en las migraciones].
 
 8.   Ahora haga un cambio en el modelo de datos, como agregar una nueva propiedad UserId al tipo TodoItem, vuelva a compilar el proyecto y, a continuación, en el Administrador de paquetes ejecute el siguiente comando:
 
 		PM> Add-Migration NewUserId
-                                                               
+
 	De esta forma, se crea una nueva migración denominada *NewUserId*. Se agrega un nuevo archivo de código, que implementa este cambio, a la carpeta de migraciones.
 
 9.  Presione F5 de nuevo para reiniciar el proyecto de servicio móvil en el equipo local.
@@ -104,17 +108,20 @@ Los siguientes pasos sirven para activar las Migraciones y aplicar los cambios e
 
 10. Vuelva a publicar el servicio móvil en Azure, y, a continuación, ejecute la aplicación cliente para obtener acceso a los datos y compruebe que estos se cargan sin errores.
 
-13. (Opcional) En el [Portal de administración de Azure], seleccione el servicio móvil, haga clic en la pestaña **Configurar** y haga clic en el vínculo **Base de datos SQL**.
-
-	![][0]
-
-	De este modo, se abre la página de la base de datos SQL del servicio móvil.
+13. (Opcional) En el [Portal de administración de Azure], seleccione el servicio móvil, haga clic en **Configurar** > **Base de datos SQL**. De este modo, se abre la página de la base de datos SQL del servicio móvil.
 
 14. (Opcional) Haga clic en **Administrar**, inicie sesión en su servidor de Base de datos SQL, haga clic en **Diseñar** y compruebe que se han realizado los cambios en el esquema en Azure.
 
-    ![][1]
 
+## Uso de migraciones de Code First sin un inicializador
+Antes de usar migraciones de Code First con su proyecto de backend .NET, debe ejecutar un inicializador de modelo de datos. Cuando NO se usa un inicializador, pueden producirse errores al intentar aplicar las migraciones. Si decide no usar uno de los inicializadores del modelo de datos predefinidos, asegúrese de que las migraciones estén configuradas para usar el EntityTableSqlGenerator como el SqlGenerator en el archivo Migrations\\Configuration.cs, como en el ejemplo siguiente:
 
+    public Configuration()
+    {
+        AutomaticMigrationsEnabled = false;
+        SetSqlGenerator("System.Data.SqlClient", new EntityTableSqlGenerator());
+    }
+    
 ##<a name="seeding"></a>Datos de inicialización en las migraciones
 
 Puede hacer que Migraciones agregue datos de inicialización a la base de datos cuando se ejecuta una migración. La clase **Configuration** incluye un método **Seed** que puede reemplazar para insertar o actualizar datos. El archivo de código Configuration.cs se agrega a la carpeta de migraciones cuando están habilitadas las Migraciones. Estos ejemplos muestran cómo reemplazar el método [Seed] para propagar datos a la tabla **TodoItems**. Se llama al método [Seed] una vez realizada la migración a la versión más reciente.
@@ -138,7 +145,7 @@ El siguiente código propaga la tabla **TodoItems** con nuevas filas de datos:
 ###Propagar una nueva columna de una tabla
 
 El código siguiente únicamente propaga la columna UserId:
- 		    
+
         context.TodoItems.AddOrUpdate(
             t => t.UserId,
                 new TodoItem { UserId = 1 },
@@ -152,6 +159,7 @@ Este código llama al método auxiliar de extensión [AddOrUpdate] para agregar 
 <!-- Anchors -->
 [Migrations]: #migrations
 [Datos de inicialización en las migraciones]: #seeding
+[Propagación de datos en migraciones]: #seeding
 
 <!-- Images -->
 [0]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/navagate-to-sql-database.png
@@ -167,6 +175,5 @@ Este código llama al método auxiliar de extensión [AddOrUpdate] para agregar 
 [controlador de tabla<TEntity>]: https://msdn.microsoft.com/library/azure/dn643359.aspx
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

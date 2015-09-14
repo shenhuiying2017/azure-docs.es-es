@@ -1,6 +1,6 @@
 <properties
    pageTitle="Administración de volúmenes de StorSimple | Microsoft Azure"
-	description="Se explica cómo agregar, modificar y supervisar volúmenes de StorSimple y cómo desconectarlos en caso necesario."
+	description="Explica cómo agregar, modificar, supervisar y eliminar volúmenes de StorSimple y cómo desconectarlos en caso necesario."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="SharS"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="08/27/2015"
 	ms.author="v-sharos"/>
 
-# Administrar los volúmenes de StorSimple
+# Usar el servicio de Administrador de StorSimple para administrar volúmenes
 
 ## Información general
 
@@ -31,7 +31,7 @@ El servicio Administrador de StorSimple es una extensión del Portal de Azure qu
 
 La página **Volúmenes** permite administrar los volúmenes de almacenamiento que se aprovisionaron en el dispositivo de Microsoft Azure StorSimple para los iniciadores (servidores). Muestra la lista de volúmenes del dispositivo StorSimple.
 
- ![página de volúmenes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
+ ![Página de volúmenes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
 
 Un volumen se compone de una serie de atributos:
 
@@ -65,22 +65,22 @@ Ya [creó un volumen](storsimple-deployment-walkthrough-u1.md#step-6-create-a-vo
 
 3. Haga clic en **Agregar** en la parte inferior de la página. Se iniciará el Asistente para agregar volúmenes.
 
-     ![agregar volumen](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![Agregar configuración básica del asistente de volumen](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
 
 4. En el Asistente para agregar volúmenes, en **Configuración básica**, haga lo siguiente:
 
   1. Proporcione un **Nombre** para el volumen.
   2. Especifique la **Capacidad aprovisionada** para el volumen en GB o TB. La capacidad debe estar entre 1 y 64 TB para un dispositivo físico. La capacidad máxima que se puede aprovisionar para un volumen en un dispositivo virtual de StorSimple es de 30 TB.
   3. En la lista desplegable, seleccione el **Tipo de uso** para el volumen. Elija **Volumen de archivado** si trabaja con datos de archivado a los que se accede con menos frecuencia. Para los demás casos de uso, seleccione **Volumen por niveles**. (Los volúmenes en niveles se denominaban anteriormente volúmenes primarios).
-  5. Haga clic en el icono de flecha ![icono de flecha](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**.
+  5. Haga clic en el icono de flecha ![Icono de flecha](./media/storsimple-manage-volumes/HCS_ArrowIcon.png) para ir a la página **Configuración adicional**.
 
-     ![agregar volumen](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+     ![Agregar configuración adicional del asistente de volumen](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
    
 5. En **Configuración adicional**, agregue un nuevo registro de control de acceso (ACR):
   
   1. Seleccione un registro de control de acceso (ACR) de la lista desplegable. También puede agregar un nuevo ACR. Los ACR determinan qué hosts pueden acceder a los volúmenes haciendo coincidir el IQN del host con el que aparece en el registro.
   2. En **Copia de seguridad predeterminada para este volumen**, recomendamos que habilite una copia de seguridad predeterminada seleccionando la casilla **Habilitar** .
-   3. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para crear el volumen con la configuración especificada.
+   3. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para crear el volumen con la configuración especificada.
 
 El nuevo volumen ya está listo para usarse.
 
@@ -172,7 +172,7 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
 5. En el Asistente para modificar volúmenes, en **Configuración básica**, seleccione **Habilitar** o **Deshabilitar** en la lista desplegable de **Supervisión**.
 
-    ![supervisar un volumen](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
+    ![Modificar la configuración básica de un volumen](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
 ## Pasos siguientes
 
@@ -181,4 +181,4 @@ Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

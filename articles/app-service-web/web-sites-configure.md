@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Configuración de aplicaciones web en el Servicio de aplicaciones de Azure" 
-	description="Cómo configurar una aplicación web en servicios de aplicaciones de Azure" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Configuración de aplicaciones web en el Servicio de aplicaciones de Azure"
+	description="Cómo configurar una aplicación web en servicios de aplicaciones de Azure"
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
-	ms.author="mwasson"/>
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
+	ms.author="erikre"/>
 
 
 # Configuración de aplicaciones web en el Servicio de aplicaciones de Azure #
@@ -176,4 +176,4 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

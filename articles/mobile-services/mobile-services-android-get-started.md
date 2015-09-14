@@ -12,25 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
-	ms.topic="article" 
-	ms.date="06/03/2015"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 # Introducción a Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación Android mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de **Lista de pendientes** que almacena datos de la aplicación en el servicio móvil nuevo.
 
+> [AZURE.VIDEO android-support-in-windows-azure-mobile-services]
 
-<p>En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación Android mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de <em>Lista de pendientes</em> que almacena datos de la aplicación en el servicio móvil nuevo.</p>
-<p>La siguiente captura de pantalla muestra la aplicación final:</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Ver el tutorial (en inglés)</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo (en inglés)</span></a><span class="time">7:26</span></div>
-</div>
-
-![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+La siguiente captura de pantalla muestra la aplicación final: ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## Requisitos previos
 
@@ -81,7 +75,7 @@ En esta sección se creará una nueva aplicación Android que se conecta al serv
 Si desea ver el código fuente de la aplicación final, vaya [aquí](https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStarted/AndroidStudio).
 
 
-Si desea ver la versión de Eclipse de este tutorial, vaya a: [Introducción (Eclipse)](mobile-services-android-get-started-EC.md).
+Si desea ver la versión de Eclipse de este tutorial, vaya a: [Introducción (Eclipse)](mobile-services-android-get-started-ec.md).
 
 ## <a name="next-steps"> </a>Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
@@ -113,7 +107,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Get started (Eclipse)]: mobile-services-android-get-started-EC.md
+[Get started (Eclipse)]: mobile-services-android-get-started-ec.md
 [Introducción a los datos]: mobile-services-android-get-started-data.md
 [Introducción a la autenticación]: mobile-services-android-get-started-users.md
 [Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-android-get-started-push.md
@@ -122,6 +116,5 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

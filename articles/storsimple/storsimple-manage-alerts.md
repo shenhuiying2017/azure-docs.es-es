@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Visualización y administración de alertas de StorSimple | Microsoft Azure"
-   description="Describe las alertas de StorSimple y cómo utilizar el servicio de Administrador de StorSimple para verlas y borrarlas."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Describe las condiciones de alerta y gravedad de StorSimple, cómo configurar notificaciones de alerta y cómo usar el servicio Administrador de StorSimple para administrar las alertas."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="v-sharos"/>
 
-# Visualización y administración de alertas de StorSimple
+# Usar el servicio de Administrador de StorSimple para ver y administrar alertas de StorSimple
 
 ## Información general
 
@@ -233,4 +233,4 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 
 [Obtenga más información sobre los errores de StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

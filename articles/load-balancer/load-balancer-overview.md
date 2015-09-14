@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Información general sobre el Equilibrador de carga de Azure | Microsoft Azure"
-   description="Información general sobre las características, la arquitectura y la implementación del Equilibrador de carga de Azure Ayuda a comprender cómo funciona el equilibrador de carga y a sacarle provecho en la nube."
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Información general sobre las características, la arquitectura y la implementación del Equilibrador de carga de Azure Ayuda a comprender cómo funciona el equilibrador de carga y a sacarle provecho en la nube."
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/10/2015"
+	ms.author="joaoma"/>
 
 
 # Información general sobre el equilibrador de carga 
@@ -21,7 +21,7 @@ El Equilibrador de carga de Azure proporciona una alta disponibilidad y un eleva
  
 Se puede configurar para:
 
-- Equilibrar la carga del tráfico entrante de Internet entre las máquinas virtuales. A esto se le conoce como [equilibrio de carga accesible desde Internet](load-balancer-overview.md).
+- Equilibrar la carga del tráfico entrante de Internet entre las máquinas virtuales. A esto se le conoce como [equilibrio de carga accesible desde Internet](load-balancer-internet-overview.md).
 - Equilibrar la carga del tráfico entre máquinas virtuales de una red virtual, entre máquinas virtuales de servicios en la nube o entre equipos locales y máquinas virtuales de una red virtual local. A esto se le conoce como [equilibrio de carga interno (ILB)](load-balancer-internal-overview.md).
 - 	Enrutar el tráfico externo a una instancia específica de máquina virtual.
 
@@ -99,4 +99,4 @@ Puede tener más de una dirección IP pública con equilibrio de carga asignada 
 [Introducción al equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Información general
+#Codificación de un recurso mediante Codificador multimedia estándar
 
 Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace.
 
@@ -120,4 +120,4 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

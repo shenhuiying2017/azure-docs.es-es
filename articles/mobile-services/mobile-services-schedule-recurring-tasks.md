@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Programación de tareas de back-end con el programador | Microsoft Azure" 
-	description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Programación de tareas de back-end con el programador | Microsoft Azure"
+	description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
-# Programación de trabajos periódicos en Servicios móviles 
+# Programación de trabajos periódicos en Servicios móviles
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
- 
+
 Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
 + Archivado de registros de datos antiguos o duplicados.
@@ -46,7 +46,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
 Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena los datos de tweets en la nueva tabla de actualizaciones.
 
-2. Haga clic en la pestaña **Programador** y, a continuación, en **+Crear**. 
+2. Haga clic en la pestaña **Programador** y, a continuación, en **+Crear**.
 
     >[AZURE.NOTE]Cuando ejecute el servicio móvil en el nivel <em>Gratis</em>, solo podrá ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
 
@@ -62,23 +62,23 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 
 		// Get the service configuration module.
 		var config = require('mobileservice-config');
-		
-		// Get the stored Twitter consumer key and secret. 
+
+		// Get the stored Twitter consumer key and secret.
 		var consumerKey = config.twitterConsumerKey,
 		    consumerSecret = config.twitterConsumerSecret
-		// Get the Twitter access token from app settings.    
+		// Get the Twitter access token from app settings.
 		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
 		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
-		
-		function getUpdates() {   
+
+		function getUpdates() {
 		    // Check what is the last tweet we stored when the job last ran
 		    // and ask Twitter to only give us more recent tweets
 		    appendLastTweetId(
-		        twitterUrl, 
-		        function twitterUrlReady(url){            
+		        twitterUrl,
+		        function twitterUrlReady(url){
 		            // Create a new request with OAuth credentials.
 		            request.get({
-		                url: url,                
+		                url: url,
 		                oauth: {
 		                    consumer_key: consumerKey,
 		                    consumer_secret: consumerSecret,
@@ -89,7 +89,7 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 		                if (!error && response.statusCode == 200) {
 		                    var results = JSON.parse(body).statuses;
 		                    if(results){
-		                        console.log('Fetched ' + results.length + ' new results from Twitter');                       
+		                        console.log('Fetched ' + results.length + ' new results from Twitter');
 		                        results.forEach(function (tweet){
 		                            if(!filterOutTweet(tweet)){
 		                                var update = {
@@ -101,12 +101,12 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 		                                updatesTable.insert(update);
 		                            }
 		                        });
-		                    }            
-		                } else { 
+		                    }
+		                } else {
 		                    console.error('Could not contact Twitter');
 		                }
 		            });
-		
+
 		        });
 		 }
 		// Find the largest (most recent) tweet ID we have already stored
@@ -117,13 +117,13 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 		    .orderByDescending('twitterId')
 		    .read({success: function readUpdates(updates){
 		        if(updates.length){
-		            callback(url + '&since_id=' + (updates[0].twitterId + 1));           
+		            callback(url + '&since_id=' + (updates[0].twitterId + 1));
 		        } else {
 		            callback(url);
 		        }
 		    }});
 		}
-		
+
 		function filterOutTweet(tweet){
 		    // Remove retweets and replies
 		    return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
@@ -165,6 +165,5 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

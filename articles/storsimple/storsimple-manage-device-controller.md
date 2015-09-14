@@ -1,23 +1,24 @@
 <properties 
-   pageTitle="Administrar los controladores de su dispositivo StorSimple | Microsoft Azure"
-   description="Aprenda cómo detener, reiniciar, apagar o restablecer los controladores de su dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Administrar controladores de dispositivos StorSimple | Microsoft Azure"
+	description="Aprenda cómo detener, reiniciar, apagar o restablecer los controladores de su dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Administrar controladores de dispositivo StorSimple
+# Administrar controladores de su dispositivo StorSimple
 
 ## Información general
+
 En este tutorial se describen las distintas operaciones que pueden llevarse a cabo en los controladores de su dispositivo StorSimple. Los controladores de su dispositivo StorSimple son controladores redundantes (del mismo nivel) en una configuración activo-pasivo. En un momento dado, solo un controlador está activo y procesa todas las operaciones de disco y red. El otro controlador está en el modo pasivo. Si se produce un error en el controlador activo, el segundo controlador se activa automáticamente.
 
 Este tutorial incluye instrucciones paso a paso para administrar los controladores del dispositivo mediante:
@@ -221,4 +222,4 @@ En esta sección, hemos resumido algunas de las preguntas más frecuentes sobre 
 
 Si tiene algún problema con los controladores de su dispositivo StorSimple que no pueda resolver mediante el uso de los procedimientos descritos en este tutorial,[póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

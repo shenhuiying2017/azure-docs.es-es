@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure"
-	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio de la factoría de datos de Azure."
+	pageTitle="Desplazamiento y procesamiento de archivos de registro mediante la factoría de datos de Azure (Azure PowerShell)"
+	description="En este tutorial avanzado se describe un escenario casi real y se implementa el escenario con el servicio Factoría de datos de Azure y Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -558,4 +558,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises-us
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

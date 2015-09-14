@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Conmutación por error y recuperación ante desastres del dispositivo StorSimple | Microsoft Azure"
-   description="Aprenda cómo conmutar por error el dispositivo StorSimple a sí mismo, a otro dispositivo físico o a un dispositivo virtual."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+   pageTitle="Conmutación por error y recuperación ante desastres de StorSimple | Microsoft Azure"
+	description="Aprenda cómo conmutar por error el dispositivo StorSimple a sí mismo, a otro dispositivo físico o a un dispositivo virtual."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
 
@@ -145,4 +145,4 @@ Después de realizar la conmutación por error, puede que deba:
 Para obtener información sobre cómo administrar el dispositivo mediante el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

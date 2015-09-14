@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Migración de grupos de afinidad a una red virtual regional"
-   description="Más información acerca de la migración de grupos de afinidad a una red virtual regional"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Más información acerca de la migración de grupos de afinidad a una red virtual regional"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/02/2015"
+	ms.author="telmos"/>
 
 # Migración de grupos de afinidad a una red virtual regional
 
-Puede utilizar un grupo de afinidad para asegurarse de que los recursos creados en el mismo grupo de afinidad son hospedados físicamente por servidores que están cerca, lo que permite que estos recursos se comuniquen con mayor rapidez. En el pasado, los grupos de afinidad eran un requisito para crear redes virtuales. En el momento, el servicio de administrador de red que administraba redes virtuales solo podía trabajar en un conjunto de servidores físicos o unidad de escalado. Mejoras arquitectónicas recientes han aumentado el ámbito de administración de red a una región.
+Puede utilizar un grupo de afinidad para asegurarse de que los recursos creados en el mismo grupo de afinidad son hospedados físicamente por servidores que están cerca, lo que permite que estos recursos se comuniquen con mayor rapidez. En el pasado, los grupos de afinidad eran un requisito para crear redes virtuales. En ese momento, el servicio de administrador de red que administraba redes virtuales solo podía trabajar en un conjunto de servidores físicos o unidad de escalado. Mejoras arquitectónicas han aumentado el ámbito de administración de red a una región.
 
 Como resultado de estas mejoras de arquitectura, los grupos de afinidad ya no se recomiendan ni son necesarios para las redes virtuales. El uso de grupos de afinidad para redes virtuales se reemplaza por regiones. Las redes virtuales que están asociadas a las regiones se denominan redes virtuales regionales.
 
@@ -41,11 +41,13 @@ Las redes virtuales que están asociadas actualmente a grupos de afinidad pueden
 	
 	Edite las líneas siguientes del archivo de configuración de red y reemplace los valores por los suyos propios:
 
-	**Valor antiguo:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\>
+	**Valor antiguo:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Nuevo valor:** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+	**Nuevo valor:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Guarde los cambios e [importe](../virtual-networks-using-network-configuration-file/) la configuración de red en Azure.
+
+>[AZURE.INFO]Esta migración NO causa ningún tiempo de inactividad en sus servicios.
 
 ## Grupos de afinidad y máquinas virtuales
 
@@ -64,4 +66,4 @@ No es necesario quitar las máquinas virtuales que están en un grupo de afinida
 Una vez implementada una máquina virtual, se implementa en una sola unidad de escalado. Los grupos de afinidad pueden restringir el conjunto de tamaños de máquina virtual disponibles para una nueva implementación de máquina virtual, pero cualquier máquina virtual existente que esté implementa ya está restringida al conjunto de tamaños de máquina virtual disponible en la unidad de escalado en el que se implementa la máquina virtual. Por este motivo, quitar una máquina virtual del grupo de afinidad no tendrá ningún efecto.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

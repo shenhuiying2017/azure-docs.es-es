@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Acerca de las características y extensiones de las máquinas virtuales | Microsoft Azure" 
- description="Describe muchas de las extensiones de las máquinas virtuales, agrupadas por la función que proporcionan o mejora, como la administración básica y de conectividad." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
+ pageTitle="Acerca de las características y extensiones de las máquinas virtuales | Microsoft Azure"
+	description="Describe muchas de las extensiones de las máquinas virtuales, agrupadas por la función que proporcionan o mejora, como la administración básica y de conectividad."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="10/31/2014" 
- ms.author="rasquill"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="rasquill"/>
 #Acerca de las características y extensiones de las máquinas virtuales
 Microsoft Azure proporciona extensiones de máquina virtual creadas por Microsoft y proveedores de terceros de confianza para habilitar seguridad, tiempo de ejecución, administración y otras características que puede aprovechar con el fin de aumentar su productividad con Máquinas virtuales de Azure. En este tema, se describen varias características que las extensiones de máquina virtual de Azure brindan a las máquinas virtuales de Windows y Linux para su uso y apunta a documentación correspondiente a cada una de ellas.
 
@@ -96,4 +96,4 @@ Estas extensiones brindan la compatibilidad para otras características de máqu
 |**BGInfo**|Presenta una imagen consolidada de la información útil del servidor en el escritorio cuando se utiliza el protocolo de Escritorio remoto.|[Extensión de BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Instala, configura y mantiene los siguientes controladores de dispositivos de red en una máquina virtual de tamaño A8 u A9, de manera que la máquina virtual pueda tener acceso a la red de acceso directo a memoria remota (RDMA) de Azure.|[Extensión HpcVmDrivers](https://msdn.microsoft.com/library/dn690126.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Red CDN - Mejora del rendimiento mediante la compresión de archivos" 
-	description="Puede mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página mediante la compresión de archivos." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Red CDN - Mejora del rendimiento mediante la compresión de archivos"
+	description="Puede mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página mediante la compresión de archivos."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Mejora del rendimiento mediante la compresión de archivos
@@ -54,4 +54,4 @@ Hay dos maneras de que la red CDN pueda admitir la compresión:
 1. Para los extremos de streaming habilitados para la red CDN de Servicios multimedia, la compresión está habilitada de forma predeterminada para los siguientes tipos de contenido: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. No se puede habilitar o deshabilitar la compresión de los tipos mencionados mediante el Portal de Azure.  
 2. Una sola versión del archivo (comprimido o sin comprimir) se almacenará en caché en el servidor perimetral. Una solicitud de una versión diferente provocará que el servidor perimetral transcodifique el contenido.  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

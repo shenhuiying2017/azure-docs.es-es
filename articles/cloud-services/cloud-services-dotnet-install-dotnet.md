@@ -1,20 +1,20 @@
 <properties
    pageTitle="Instalación de .NET en un rol de servicio en la nube"
-   description="En este artículo se describe cómo instalar manualmente .NET Framework en el rol web y el rol de trabajo del servicio en la nube"
-   services="cloud-services"
-   documentationCenter=".net"
-   authors="sbtron"
-   manager="timlt"
-   editor=""/>
+	description="En este artículo se describe cómo instalar manualmente .NET Framework en el rol web y el rol de trabajo del servicio en la nube"
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="sbtron"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/03/2015"
-   ms.author="saurabh"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/03/2015"
+	ms.author="saurabh"/>
 
 # Instalación de .NET en un rol de servicio en la nube 
 
@@ -86,7 +86,7 @@ Las tareas de inicio le permiten realizar operaciones antes de que se inicie un 
 	set timehour=%time:~0,2%
 	set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
 	set startuptasklog=%PathToInstallLogs%startuptasklog-%timestamp%.txt
-	set netfxinstallerlog = %PathToInstallLogs%NetFXInstallerLog-%timestamp%
+	set netfxinstallerlog=%PathToInstallLogs%NetFXInstallerLog-%timestamp%
 	echo Logfile generated at: %startuptasklog% >> %startuptasklog%
 	
 	REM ***** Check if .NET is installed *****
@@ -142,4 +142,4 @@ Cuando implemente el servicio, se ejecutarán las tareas de inicio e instalarán
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

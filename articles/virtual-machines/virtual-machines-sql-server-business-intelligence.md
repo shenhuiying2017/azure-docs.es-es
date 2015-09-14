@@ -98,7 +98,7 @@ En la tabla siguiente se resumen las características de Inteligencia empresaria
 	
 	- La unidad **D**: es una unidad temporal que se usa principalmente para el archivo de paginación. La unidad **D**: no se conserva y no se guarda en el almacenamiento de blobs. Las tareas de administración como un cambio al tamaño de la máquina virtual restablecen la unidad de disco **D**:. Se recomienda **NO** usar la unidad **D**: para los archivos de bases de datos, incluido tempdb.
 
-	Para obtener más información sobre cómo crear y acoplar discos, consulte [Acoplamiento de un disco de datos a una máquina virtual](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/).
+	Para obtener más información sobre cómo crear y acoplar discos, consulte [Acoplamiento de un disco de datos a una máquina virtual](storage-windows-attach-disk.md).
 
 - Detenga o desinstale servicios que no planee usar. Por ejemplo, si la máquina virtual solo se usa para Reporting Services, detenga o desinstale Analysis Services y SQL Server Integration Services. La imagen siguiente es un ejemplo de los servicios que se inician de forma predeterminada.
 
@@ -427,4 +427,4 @@ En el siguiente diagrama se muestran los puertos que se abrirán en el firewall 
 
 - [Administración de Base de datos SQL de Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

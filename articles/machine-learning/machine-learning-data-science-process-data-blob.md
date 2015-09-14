@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="Proceso de datos del blob de Azure con análisis avanzado | Microsoft Azure" 
-	description="Proceso de datos en Almacenamiento de blobs de Azure." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Proceso de datos del blob de Azure con análisis avanzado | Microsoft Azure"
+	description="Proceso de datos en Almacenamiento de blobs de Azure."
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
 
-En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure. Para ello, se deben descargar los datos desde el origen de blob en un archivo local que se pueda cargar en una trama de datos de Pandas para su exploración y manipulación. Estos son los pasos que se deben seguir:
+En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure.
+
+## Carga de los datos en una trama de datos Pandas
+Para explorar y manipular un conjunto de datos, se debe descargar desde el origen de blob en un archivo local que se pueda cargar en una trama de datos de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
 
 1. Descargue los datos del blob de Azure con el siguiente código de Python de ejemplo mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos: 
 
@@ -185,4 +188,4 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Incorporación de Servicios móviles a una aplicación existente (JavaSscript para la Tienda Windows) | Microsoft Azure" 
-	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación JavaScript de la Tienda Windows." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Incorporación de Servicios móviles a una aplicación existente (JavaSscript para la Tienda Windows) | Microsoft Azure"
+	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación JavaScript de la Tienda Windows."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -26,14 +26,14 @@ Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
 * Visual Studio 2013, que usará para conectar su proyecto de aplicación de la Tienda Windows con Servicios móviles.
 
 ##Descarga del proyecto GetStartedWithData
 
 Este tutorial se basa en la [aplicación GetStartedWithMobileServices][Developer Code Samples site], que es un proyecto de aplicación de la Tienda Windows en Visual Studio 2013. La interfaz de usuario de esta aplicación es idéntica a la de la aplicación generada por el inicio rápido de Servicios móviles, con la excepción de que los elementos agregados se almacenan localmente en la memoria.
 
-1. Descargue la versión de JavaScript de la aplicación de ejemplo GetStartedWithData desde el [sitio de código de ejemplo para desarrolladores] (en inglés). 
+1. Descargue la versión de JavaScript de la aplicación de ejemplo GetStartedWithData desde el [sitio de código de ejemplo para desarrolladores] (en inglés).
 
 2. En Visual Studio, abra el proyecto descargado, expanda la carpeta **js** y examine el archivo default.js.
 
@@ -52,7 +52,7 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][Developer
 [AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="7">
-<li><p>En el Explorador de soluciones, expanda las carpetas **servicios**, **servicios móviles**, **&lt;your_service>**, abra el archivo de script service.js y observe la nueva variable global, que se asemeja al siguiente ejemplo:</p> 
+<li><p>En el Explorador de soluciones, expanda las carpetas **servicios**, **servicios móviles**, **&lt;your_service>**, abra el archivo de script service.js y observe la nueva variable global, que se asemeja al siguiente ejemplo:</p>
 
 		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
                 "https://todolist.azure-mobile.net/",
@@ -81,7 +81,7 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][Developer
 3. En el [Portal de administración], haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
 
 4. Haga clic en la pestaña **Datos** y, a continuación, en **Examinar**.
-  
+
    	Observe que la tabla **TodoItem** ahora contiene datos con valores de identificador generados por Servicios móviles, y que se agregaron automáticamente columnas a la tabla para coincidir con la clase TodoItem en la aplicación.
 
 5. En la aplicación, marque uno de los elementos de la lista, vuelva a la pestaña Examinar del portal y haga clic en **Actualizar**.
@@ -90,14 +90,14 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][Developer
 
 6. En el archivo de proyecto default.js, reemplace el método **RefreshTodoItems** existente por el siguiente código que filtra los elementos completados:
 
-        var refreshTodoItems = function () {                     
-            // More advanced query that filters out completed items. 
+        var refreshTodoItems = function () {
+            // More advanced query that filters out completed items.
             todoTable.where({ complete: false })
                .read()
                .done(function (results) {
                    todoItems = new WinJS.Binding.List(results);
                    listItems.winControl.itemDataSource = todoItems.dataSource;
-               });            
+               });
         };
 
 7. En la aplicación, marque otro de los elementos de la lista y, a continuación, haga clic en el botón **Actualizar**.
@@ -139,6 +139,5 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [sitio de código de ejemplo para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

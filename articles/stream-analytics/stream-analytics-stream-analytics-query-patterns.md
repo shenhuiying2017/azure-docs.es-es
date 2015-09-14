@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Patrones de consulta de Análisis de transmisiones de Azure | Microsoft Azure"
 	description="Patrones de consulta de Análisis de transmisiones de Azure comunes"
-	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/03/2015"
+	ms.date="08/19/2015"
 	ms.author="jeffstok"/>
 
 
@@ -260,22 +259,22 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 
 **Entrada**:
 
-| Matrícula | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Salida**:
 
-| Matrícula | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 
 **Solución**:
 
@@ -290,13 +289,13 @@ Las consultas de Análisis de transmisiones de Azure se expresan en un lenguaje 
 
 Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca concreta en un intervalo de cada 10 minutos.
 
-| Matrícula | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| YZK 5704 | Ford | 2015-07-27T07:02:17.000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:06:00.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solución**:
 
@@ -314,22 +313,22 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 
 **Entrada**:
 
-| Matrícula | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Salida**:
 
-| Matrícula | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Hora |
 | --- | --- | --- |
-| VFE 1616 | Toyota | 2015-07-27T07:09:31.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **Solución**:
 
@@ -359,7 +358,7 @@ Ahora vamos a cambiar el problema y buscaremos el primer vehículo de una marca 
 
 **Entrada**:
 
-| Asegúrese | Matrícula | Hora |
+| Asegúrese | LicensePlate | Hora |
 | --- | --- | --- |
 | Honda | ABC-123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA-999 | 2015-01-01T00:00:02.0000000Z |
@@ -444,7 +443,7 @@ Usando lo que aprendimos en "Combinación externa izquierda para incluir valores
 Al componer juntas estas funciones, obtenemos la secuencia correcto -> incorrecto -> correcto sin ningún evento correcto entre medio. Ahora podemos calcular la duración entre el principio y el final de los eventos correctos, lo que nos da la duración del error.
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -455,4 +454,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

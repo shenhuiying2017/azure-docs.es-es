@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tutorial: Copia de datos de un blob de Azure a SQL Azure" 
-	description="Obtenga información sobre cómo usar PowerShell de Azure para crear y supervisar las factorías de datos de Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell"
+	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Azure PowerShell."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # Tutorial: Crear y supervisar una factoría de datos mediante PowerShell de Azure
@@ -409,6 +409,9 @@ En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo
 
 Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
 
+## Enviar comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md).
+
 
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -429,4 +432,4 @@ Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

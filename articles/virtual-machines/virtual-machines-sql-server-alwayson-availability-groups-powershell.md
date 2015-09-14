@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Configuración de Grupos de disponibilidad AlwaysOn en Azure (PowerShell)
 
@@ -528,7 +528,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
 		$svc2.Start(); 
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Descargue **CreateAzureFailoverCluster.ps1** desde [Crear el clúster de WSFC para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de WSFC. Para obtener información importante sobre cómo WSFC interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales Azure](https://msdn.microsoft.com/es-es/library/azure/jj870962.aspx).
+1. Descargue **CreateAzureFailoverCluster.ps1** desde [Crear el clúster de WSFC para grupos de disponibilidad AlwaysOn en la máquina virtual de Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) en el directorio de trabajo local. Usará este script para ayudarle a crear un clúster funcional de WSFC. Para obtener información importante sobre cómo WSFC interactúa con la red de Azure, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 1. Cambie al directorio de trabajo y cree el clúster de WSFC con el script descargado.
 
@@ -623,4 +623,4 @@ Ha implementado correctamente SQL Server AlwaysOn creando un grupo de disponibil
 
 Para más información sobre el uso de SQL Server en Azure, consulte [SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

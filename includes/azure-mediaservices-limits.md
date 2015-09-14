@@ -13,6 +13,7 @@ Programas en estado de ejecución por canal</p></td>|3</p></td>|N/A<sup>1</sup>
 Extremos de streaming en estado de ejecución por cuenta de ASM</p></td>|2</p></td>|N/A<sup>1</sup>
 Unidades de streaming por extremo de streaming</p></td>|10 </p></td>|N/A<sup>1</sup>
 Unidades de codificación por cuenta de AMS</p></td>|25</p></td>|N/A<sup>1</sup>
+Cuentas de almacenamiento | |1\.000<sup>5</sup>
 
 <sup>1</sup> Puede solicitar la actualización de los límites de esta cuota abriendo una incidencia de soporte técnico. No cree más cuentas de AMS para aumentar los límites; en su lugar, envíe una incidencia de soporte técnico.
 
@@ -22,4 +23,6 @@ Unidades de codificación por cuenta de AMS</p></td>|25</p></td>|N/A<sup>1</sup>
 
 <sup>4</sup> Los localizadores no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM).
 
-<!---HONumber=August15_HO7-->
+<sup>5</sup> Las cuentas de almacenamiento deben proceder de la misma suscripción de Azure.
+
+<!---HONumber=September15_HO1-->

@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Administración de la cuenta de almacenamiento de StorSimple en Microsoft Azure | Microsoft Azure"
-   description="Se explica cómo usar la página Configurar para agregar, editar, eliminar o rotar las claves de seguridad de una cuenta de almacenamiento."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="Administración de la cuenta de almacenamiento de StorSimple | Microsoft Azure"
+	description="Explica cómo usar la página Configurar el Administrador de StorSimple para agregar, editar, eliminar o rotar las claves de seguridad de una cuenta de almacenamiento."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# Administrar la cuenta de almacenamiento de StorSimple
+# Usar el servicio de Administrador de StorSimple para administrar su cuenta de almacenamiento
 
 ## Información general
 
@@ -28,8 +28,6 @@ La página **Configurar** presenta todos los parámetros de servicio globales qu
 Este tutorial explica cómo usar la página **Configurar** para agregar, editar o eliminar cuentas de almacenamiento, o bien para rotar las claves de seguridad para una cuenta de almacenamiento.
 
  ![Página Configurar](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
-
-**Ilustración 1: Panel de configuración del servicio StorSimple Manager**
 
 Las cuentas de almacenamiento contienen las credenciales que usa el dispositivo para acceder a su cuenta de almacenamiento con el proveedor de servicios en la nube. En el caso de las cuentas de almacenamiento de Microsoft Azure, se trata de credenciales como el nombre de cuenta y la clave de acceso primaria.
 
@@ -97,7 +95,7 @@ Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes.
 
 2. En la lista tabular de cuentas de almacenamiento, desplace el mouse sobre la cuenta que desea eliminar.
 
-3. Aparecerá un icono de eliminación (**x**) en la columna más a la derecha para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
+3. Aparecerá un icono de eliminación (**x**) en la columna en el extremo derecho para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
 
 4. Cuando se le pida confirmación, haga clic en **Sí** para continuar con la eliminación. La lista tabular se actualizará para reflejar los cambios.
 
@@ -152,4 +150,4 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 
 Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

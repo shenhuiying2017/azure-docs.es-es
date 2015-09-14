@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # Introducción a DNS de Azure
@@ -125,7 +125,7 @@ Para consultar estos registros, use Get-AzureDnsRecordSet:
 >[AZURE.NOTE]Los conjuntos de registros de la raíz (o la “cúspide”) de una zona DNS usan “@” como el nombre del conjunto de registros.
 
 
-Tras haber creado la primera zona DNS, puede probarla con herramientas DNS, como nslookup, dig o el [cmdlet Resolve-DnsName de PowerShell](https://technet.microsoft.com/es-es/library/jj590781.aspx).<BR>
+Tras haber creado la primera zona DNS, puede probarla con herramientas DNS, como nslookup, dig o el [cmdlet Resolve-DnsName de PowerShell](https://technet.microsoft.com/es-ES/library/jj590781.aspx).<BR>
 
 Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesitará dirigir la consulta DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de la zona se proporcionan en los registros NS, según muestra la operación Get-AzureDnsRecordSet anterior; asegúrese de sustituir los valores correctos de la zona en el siguiente comando.<BR>
 
@@ -153,4 +153,4 @@ Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesita
 [Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset.md)<BR> [Administración de zonas DNS](dns-operations-dnszones.md)<BR> [Administración de registros DNS](dns-operations-recordsets.md)<BR> [Automatización de operaciones de Azure con .NET SDK](dns-sdk.md)<BR> [Referencia de la API de REST del DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

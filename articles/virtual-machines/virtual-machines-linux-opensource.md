@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/07/2015"
+	ms.date="09/02/2015"
 	ms.author="rasquill"/>
 
 
@@ -246,8 +246,11 @@ Ejecute cargas de trabajo de HPC en clústeres de VM de Linux creados con herram
 
 1.	[Plantilla de inicio rápido: Establecimiento de un clúster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) (y [una entrada de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
 2.	[Plantilla de inicio rápido: Establecimiento de un clúster Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
-3.	[Tutorial: Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md)
-4.	[Tutorial: Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md)
+3.	[Plantilla de inicio rápido: Crear un clúster de HPC con nodos de proceso de Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+4.	[Tutorial: Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md)
+5.	[Tutorial: Ejecute NAMD con Microsoft HPC Pack en los nodos de cálculo de Linux en Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
+6.	[Tutorial: Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md)
+
 
 ## DevOps, administración y optimización
 
@@ -304,4 +307,4 @@ Esta sección comienza con una entrada de blog que contiene una serie de vídeos
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

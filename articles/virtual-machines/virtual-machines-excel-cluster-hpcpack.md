@@ -1,19 +1,19 @@
 <properties
  pageTitle="Introducción a un clúster de HPC Pack para ejecutar cargas de trabajo de SOA | Microsoft Azure"
- description="."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-windows"
- ms.workload="big-compute"
- ms.date="08/18/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="08/18/2015"
+	ms.author="danlep"/>
 
 # Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA
 
@@ -60,7 +60,7 @@ Use una plantilla de inicio rápido de Azure para implementar rápida y fácilme
     >
     >Las VM del nodo de proceso se crearán a partir de la imagen más reciente de la familia de nodos de proceso seleccionada. Elija la opción **ComputeNode** para la imagen de proceso de HPC Pack 2012 R2 Update 2 más reciente con fines generales. Elija la opción **ComputeNodeWithExcel** para la imagen del nodo de proceso de HPC Pack más reciente que incluye una versión de evaluación de Microsoft Excel Professional Plus 2013. Si quiere implementar un clúster para sesiones generales de SOA o para la descarga de UDF de Excel, elija la opción **ComputeNode** (sin Excel instalado).
     >
-    >Al usar **ComputeNodeWithExcel**para cargas de trabajo de producción, deberá proporcionar una licencia válida de Excel para activar Excel en los nodos de proceso. Si no, la versión de evaluación de Excel expirará a los 30 días y las cargas de trabajo de Excel no se ejecutarán en ese momento.
+    >Al usar **ComputeNodeWithExcel**para cargas de trabajo de producción, deberá proporcionar una licencia válida de Excel para activar Excel en los nodos de proceso. De lo contrario, la versión de evaluación de Excel podría caducar antes de 30 días y la ejecución del libro de Excel fallaría constantemente con la COMExeption (0x800AC472). Si esto ocurre, puede iniciar sesión en el nodo principal situado en clusrun “%ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe” en todos los nodos de cálculo de Excel a través de la consola de administrador de clústeres de HPC para volver a activar Excel durante otros 30 días de tiempo de evaluación. El tiempo de reactivación máximo para el período de gracia es de 2. Tras este período, es posible que necesite proporcionar una licencia válida de Excel.
 
     c. Elija la suscripción.
 
@@ -222,7 +222,7 @@ Siga estos pasos para descargar un libro de Excel para que se ejecute en el clú
 ```
 4.	Descargue la [instalación de HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47755) completa e instale el cliente de HPC Pack o descargue e instale las [utilidades del cliente de HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754) y el paquete redistribuible de Visual C++ 2010 adecuado para su equipo ([x 64](http://www.microsoft.com/download/details.aspx?id=14632)[x 86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	En este ejemplo, usamos un libro de Excel de ejemplo denominado ConvertiblePricing\_Complete.xlsb, que se puede descargar [aquí](https://www.microsoft.com/es-es/download/details.aspx?id=2939).
+5.	En este ejemplo, usamos un libro de Excel de ejemplo denominado ConvertiblePricing\_Complete.xlsb, que se puede descargar [aquí](https://www.microsoft.com/es-ES/download/details.aspx?id=2939).
 
 6.	Copie el libro de Excel en una carpeta de trabajo como D:\\Excel\\Run.
 
@@ -259,7 +259,7 @@ Siga estos pasos para descargar un libro de Excel para que se ejecute en el clú
 
 Para ejecutar UDF de Excel, siga los pasos de 1 a 3 anteriores para configurar el equipo cliente. Para UDF de Excel, no es necesario que la aplicación de Excel esté instalada en los nodos de proceso, por lo que puede elegir una imagen de nodo de proceso normal en el paso 1 en lugar de la imagen del nodo de proceso con Excel.
 
->[AZURE.NOTE]Hay un límite de 34 caracteres en el cuadro de diálogo del conector de clúster de Excel 2010 y 2013. Si el nombre completo del clúster es más largo, por ejemplo, hpcexcelhn01.southeastasia.cloudapp.azure.com, no se ajustará y las UDF no se ejecutarán. La solución es usar el script de implementación de IaaS para implementar un clúster con un nombre más corto como hpcexcelhn01.cloudapp.net. Este problema se corregirá en una versión posterior de la API de sesión de SOA.
+>[AZURE.NOTE]Hay un límite de 34 caracteres en el cuadro de diálogo del conector de clúster de Excel 2010 y 2013. Si el nombre completo del clúster es más largo, por ejemplo, hpcexcelhn01.southeastasia.cloudapp.azure.com, no cabrá en el cuadro de diálogo. La solución consiste en aplicar la actualización 2 de QFE KB3085833 (descárguela [aquí](http://www.microsoft.com/es-ES/download/details.aspx?id=48725)) para la API de sesión de SOA en el equipo cliente y, a continuación, establecer una variable para todeo el equipo, por ejemplo, *CCP\_IAASHN* con el valor del nombre de clúster largo e introducir *% CCP\_IAASHN %* en el cuadro de diálogo como el nombre de nodo principal del clúster.
 
 Una vez que el clúster esté implementado correctamente, siga estos pasos para ejecutar una UDF de Excel integrada de ejemplo. Para UDF personalizadas de Excel, consulte los [recursos](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) para compilar las funciones XLL e implementarlas en el clúster de IaaS.
 
@@ -376,4 +376,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

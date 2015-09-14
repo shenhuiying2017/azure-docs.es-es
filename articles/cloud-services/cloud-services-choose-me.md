@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="¿Los servicios en la nube en Azure son la opción de proceso que deseo?" 
-	description="Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales" 
+	pageTitle="¿Los servicios en la nube en Azure son la opción de proceso que deseo?"
+	description="Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales"
 	services="cloud-services"
-    documentationCenter=""
-	authors="Thraka" 
+	documentationCenter=""
+	authors="Thraka"
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="adegeo"/>
 
 # ¿Debo elegir los servicios en la nube?
@@ -36,4 +36,4 @@ Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cad
 [Máquinas virtuales]: ../virtual-machines-choose-me.md
 [Servicios en la nube]: #tellmecs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

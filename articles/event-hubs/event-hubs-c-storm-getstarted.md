@@ -12,8 +12,8 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
-	ms.topic="article" 
-	ms.date="07/21/2015"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -24,7 +24,7 @@
 
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
-Para obtener más información, consulte [Información general de los Centros de eventos de Azure].
+Para obtener más información, consulte [Información general de los centros de eventos].
 
 En este tutorial, obtendrá información sobre cómo insertar mensajes en un Centro de eventos mediante una aplicación de consola en C y cómo recuperarlos en paralelo mediante Apache Storm.
 
@@ -38,7 +38,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Creación de un Centro de eventos
 
-1. Inicie sesión en el [Portal de administración de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [portal de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
 
 2. Haga clic en **Servicios de aplicaciones**, **Service Bus**, **Centro de eventos** y, finalmente, en **Creación rápida**.
 
@@ -80,7 +80,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 	![][23]
 
-> [AZURE.NOTE]Solo en este tutorial, use Storm en modo local para fines de desarrollo. Consulte [Introducción a Apache Storm en HDInsight: análisis en tiempo real de Hadoop] y la documentación oficial de [Apache Storm] para obtener más información sobre los patrones y las implementaciones de Storm.
+> [AZURE.NOTE]Solo en este tutorial, use Storm en modo local para fines de desarrollo. Consulte [Introducción a Storm en HDInsight] y la documentación oficial de [Apache Storm] para obtener más información sobre los patrones y las implementaciones de Storm.
 
 ## Pasos siguientes
 
@@ -101,14 +101,14 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[portal de Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de los Centros de eventos de Azure]: event-hubs-overview.md
+[Información general de los centros de eventos]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Introducción a Apache Storm en HDInsight: análisis en tiempo real de Hadoop]: ../hdinsight/hdinsight-storm-overview.md/
+[Introducción a Storm en HDInsight]: ../hdinsight/hdinsight-storm-overview.md/
 [Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
 [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

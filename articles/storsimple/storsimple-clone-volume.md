@@ -1,29 +1,27 @@
 <properties
    pageTitle="Clonación del volumen de StorSimple | Microsoft Azure"
-   description="Describe los diferentes tipos de clon y cuándo usarlos, y explica cómo se puede usar un conjunto de copia de seguridad para clonar un volumen individual."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+	description="Describe los diferentes tipos de clon y cuándo usarlos, y explica cómo se puede usar un conjunto de copia de seguridad para clonar un volumen individual."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="alkohli"/>
 
-# Clonar un volumen de StorSimple
+# Usar el servicio StorSimple Manager para clonar un volumen
 
 ## Información general
 
-La página **Catálogo de copias de seguridad** muestra todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
+La página **Catálogo de copias de seguridad** del servicio StorSimple Manager muestra todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
 
-  ![catálogo de copia de seguridad](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
-
-**Figura 1: Catálogo de copias de seguridad**
+  ![Página del catálogo de copias de seguridad](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 Este tutorial describe cómo puede usar una copia de seguridad para clonar un volumen individual. También explica la diferencia entre clones *transitorios* y *permanente*.
 
@@ -37,7 +35,7 @@ Puede crear un clon en el mismo dispositivo, en otro dispositivo o incluso en un
 
 2. Expanda el conjunto de copias de seguridad para ver los volúmenes asociados. Haga clic y seleccione un volumen del conjunto de copia de seguridad.
 
-     ![Clon](./media/storsimple-clone-volume/HCS_Clone.png)
+     ![Clonar un volumen](./media/storsimple-clone-volume/HCS_Clone.png)
 
 3. Haga clic en **Clonar** para empezar a clonar el volumen seleccionado.
 
@@ -91,4 +89,4 @@ Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conju
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

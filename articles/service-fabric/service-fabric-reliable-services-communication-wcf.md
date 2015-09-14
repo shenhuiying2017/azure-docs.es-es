@@ -1,20 +1,20 @@
 <properties
    pageTitle="Pila de comunicación basada en WCF proporcionada por la API de servicios fiables"
-   description="Este artículo describe la pila de comunicación basada en WCF proporcionada por la api del servicio fiable."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="vipulm"
-   editor=""/>
+	description="Este artículo describe la pila de comunicación basada en WCF proporcionada por la api del servicio fiable."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="BharatNarasimman"
+	manager="vipulm"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="04/13/2015"
-   ms.author="bharatn@microsoft.com"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="08/27/2015"
+	ms.author="bharatn@microsoft.com"/>
 
 # Pila de comunicación basada en WCF de servicios fiables
 El marco de servicios de confianza permite a los autores de servicio decidir la pila de comunicación que desean usar para su servicio. Pueden conectar la pila de comunicaciones que deseen mediante el `ICommunicationListener` devuelto desde el método [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). El marco de trabajo proporciona una implementación basada en WCF de la pila de comunicación para los autores de servicio que desean utilizar la comunicación basada en WCF.
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 ```
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -23,7 +23,7 @@
 
 En este tema se muestra cómo configurar un agente de escucha para un grupo de disponibilidad AlwaysOn al que se tiene acceso externo en Internet. Esto se hace posible asociando la dirección **IP Virtual pública (VIP)** del servicio en la nube al agente de escucha.
 
-El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](https://msdn.microsoft.com/library/azure/dn249504.aspx) pero no un agente de escucha.
+El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-sql-server-alwayson-availability-groups-gui.md) pero no un agente de escucha.
 
 Tenga en cuenta las siguientes limitaciones en el agente de escucha del grupo de disponibilidad en Azure cuando se implementa con la dirección VIP pública del servicio de nube:
 
@@ -124,4 +124,4 @@ Si las réplicas AlwaysOn están en subredes diferentes, los clientes deberán e
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

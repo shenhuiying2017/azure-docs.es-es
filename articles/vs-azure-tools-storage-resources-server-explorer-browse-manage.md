@@ -205,7 +205,7 @@ La tabla se organiza por entidades (mostradas en filas) y propiedades (mostradas
 
     - No se puede crear una propiedad denominada Timestamp; los servicios de Almacenamiento de Azure usan una propiedad con ese nombre.
 
-    - Si escribe un valor DateTime, debe seguir un formato adecuado para la configuración regional y de idioma del equipo (por ejemplo, MM/DD/AAAA HH:MM:SS [AM|PM] para Inglés de Estados Unidos).
+    - Si escribe un valor DateTime, debe seguir un formato adecuado para la configuración regional y de idioma del equipo (por ejemplo, MM/DD/AAAA HH:MM:SS [AM|PM] para Inglés de EE.UU.).
 
 ### Para agregar entidades
 
@@ -277,9 +277,9 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 1. Seleccione o escriba la siguiente información para la nueva cuenta de almacenamiento en el cuadro de diálogo **Crear cuenta de almacenamiento**.
 
-    - La suscripción de Azure a la que desee agregar la cuenta de almacenamiento.
+    - Suscripción de Azure a la que desee agregar la cuenta de almacenamiento.
 
-    - El nombre que desee usar para la nueva cuenta de almacenamiento.
+    - Nombre que quiere usar para la nueva cuenta de almacenamiento.
 
     - La región o el grupo de afinidad (por ejemplo, Oeste de EE. UU. o Asia oriental).
 
@@ -319,4 +319,4 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 [Obtener acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

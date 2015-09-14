@@ -7,13 +7,13 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Inserción enriquecida de los Centros de notificaciones de Azure
@@ -26,7 +26,7 @@ Para interactuar con los usuarios con contenido enriquecido instantánea, una ap
 
 Este tutorial es compatible con iOS 7 y 8.
 
-    ![][IOS1]
+  ![][IOS1]
 
 En un alto nivel:
 
@@ -380,6 +380,5 @@ Ahora que ha modificado el back-end de la aplicación para enviar solo el *id* d
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

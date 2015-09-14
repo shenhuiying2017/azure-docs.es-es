@@ -20,30 +20,11 @@
 
 ## Qué informes generan notificaciones de correo electrónico
 
-En este momento, solo el informe de inicio actividad de inicio de sesión erróneo y el informe de usuarios con actividad de inicio de sesión erróneo usan el sistema de notificación de correo electrónico.
+En este momento, solo el informe Actividad de inicio de sesión irregular desencadena notificaciones por correo electrónico.
 
-## ¿Qué desencadena el envío de la notificación de correo electrónico?
+## ¿Qué es un "inicio de sesión irregular"?
 
-De forma predeterminada, Azure Active Directory se establece para enviar automáticamente notificaciones de correo electrónico a todos los administradores globales. El correo electrónico se envía en las siguientes condiciones para cada informe.
-
-En el caso del informe de actividad de inicio de sesión erróneo.
-
-- Orígenes desconocidos: 10 eventos
-- Varios errores: 10 eventos
-- Direcciones IP con actividad sospechosa: 10 eventos
-- Dispositivos infectados: 10 eventos
-
-En el caso del informe de usuarios con actividad de inicio de sesión erróneo:
-
-- Orígenes desconocidos: 10 eventos
-- Varios errores: 10 eventos
-- Direcciones IP con actividad sospechosa: 10 eventos
-- Dispositivos infectados: 5 eventos
-- Informe de inicios de sesión erróneos: 15 eventos
-
-El correo electrónico se envía si se cumple alguna de las condiciones anteriores en un período de 30 días o desde que se envió el último correo electrónico si es menos de 30 días.
-
-Los inicios de sesión erróneos son aquellos que nuestros algoritmos de aprendizaje automático han identificado como "erróneos" debido a ubicaciones de inicio de sesión inesperadas, la hora del día y las ubicaciones o una combinación de ambas cosas. Esto puede indicar que un hacker ha intentado iniciar sesión con esta cuenta. Puede encontrar más información sobre el informe en la tabla anterior.
+Inicios de sesión irregulares son aquellos que han sido identificados por los algoritmos de aprendizaje automático, de acuerdo con una condición de "viaje imposible" combinado con una ubicación y un dispositivo inicio de sesión anómalo. Esto puede indicar que un hacker ha intentado iniciar sesión con esta cuenta.
 
 ## ¿Quién recibe las notificaciones de correo electrónico?
 
@@ -51,7 +32,9 @@ El correo electrónico se envía a todos los administradores globales a los que 
 
 ## ¿Con qué frecuencia se envían los correos electrónicos?
 
-Una vez que se envía un correo electrónico, el siguiente se enviará solo cuando se detecten 10 o más eventos de inicio de sesión erróneo en el período de 30 días tras el envío de dicho correo electrónico. ¿Cómo puedo tener acceso al informe mencionado en el correo electrónico?
+El correo electrónico se envía si se producen 10 nuevas Actividades de inicio de sesión irregulares en los últimos 30 días, o desde que se envió el último correo electrónico, lo que tenga lugar antes.
+
+## ¿Cómo puedo tener acceso al informe mencionado en el correo electrónico?
 
 Al hacer clic en el vínculo, se le redirigirá a la página del informe en el Portal de administración de Azure. Para tener acceso al informe, deberá ser:
 
@@ -67,4 +50,4 @@ Sí, para desactivar las notificaciones relacionadas con inicios de sesión err�
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

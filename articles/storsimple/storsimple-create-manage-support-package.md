@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Crear y administrar un paquete de soporte | Microsoft Azure"
-   description="Aprenda a crear, descifrar y editar un paquete de soporte para el dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Crear un paquete de soporte de StorSimple | Microsoft Azure"
+	description="Aprenda a crear, descifrar y editar un paquete de soporte para el dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 
-# Crear y administrar paquetes de soporte técnico
+# Crear y administrar paquetes de soporte técnico de StorSimple
 
 ## Información general
 
@@ -198,4 +198,4 @@ A continuación se muestra un ejemplo que explica cómo descifrar, editar y volv
 
 Aprenda cómo [usar paquetes de soporte y registros de dispositivos para solucionar los problemas de implementación de su dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

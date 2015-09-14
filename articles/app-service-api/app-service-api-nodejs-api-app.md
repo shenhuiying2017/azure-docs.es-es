@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Compilación e implementación de una aplicación de API de Node.js en el Servicio de aplicaciones de Azure"
+	pageTitle="Compilación e implementación de una aplicación de API de Node.js en el Servicio de aplicaciones de Azure | Microsoft Azure"
 	description="Aprenda a crear un paquete de aplicación de API de Node.js y a implementarlo en el Servicio de aplicaciones de Azure."
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-  manager="" 
-  editor=""/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -20,7 +20,7 @@
 
 Este tutorial muestra la forma de crear una aplicación de [Node.js](http://nodejs.org) e implementarla en aplicaciones web del Servicio de aplicaciones de Azure con [Git](http://git-scm.com). Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.
 
-A continuación se muestra una captura de pantalla de la aplicación completada:
+La captura de pantalla siguiente le muestra la aplicación completada:
 
 ![][sample-api-app-page]
 
@@ -34,7 +34,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 2. Haga clic en **NUEVO**, en la parte inferior izquierda del portal.
 
-3. Haga clic en **Web + móvil > Aplicación de API**.
+3. Haga clic en **Web + móvil** > **Aplicación de API**.
 
 	![][portal-quick-create]
 
@@ -50,7 +50,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 	Si ha dejado activada la casilla de verificación **Agregar al Panel de inicio**, el portal abrirá automáticamente la hoja de la aplicación de API a partir del momento en que se crea. Si ha desactivado la casilla de verificación, haga clic en **Notificaciones** en la página principal del portal para ver el estado de creación de la aplicación de API y en la notificación para ir a la hoja de la nueva aplicación de API.
 
-7. Haga clic en **Configuración > Configuración de la aplicación**.
+7. Haga clic en **Configuración** > **Configuración de la aplicación**.
 
 9. Establezca el nivel de acceso en **Público (anónimo)**.
 
@@ -171,7 +171,6 @@ En esta sección, se crea un repositorio Git local e inserta desde ese repositor
 
 		git init
 
-
 2. Utilice los siguientes comandos para agregar archivos al repositorio:
 
 		git add .
@@ -243,6 +242,5 @@ Ha implementado una aplicación web de Node.js que usa el back-end de una aplica
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

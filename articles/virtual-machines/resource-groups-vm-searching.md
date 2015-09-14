@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="command-line-interface"
 	ms.workload="infrastructure"
-	ms.date="05/29/2015"
+	ms.date="08/25/2015"
 	ms.author="rasquill"/>
 
 # Seleccione y navegue por imágenes de máquina virtual de Azure con PowerShell y la CLI de Azure
@@ -240,4 +240,4 @@ Este vídeo muestra los pasos anteriores con PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

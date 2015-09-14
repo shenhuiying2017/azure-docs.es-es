@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Registro para la autenticación de Google | Microsoft Azure" 
-	description="Obtenga información acerca de cómo registrar las aplicaciones para usar Google para autenticarse con los Servicios móviles de Azure." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="ggailey777" 
-	manager="dwrede" 
+	pageTitle="Registro para la autenticación de Google | Microsoft Azure"
+	description="Obtenga información acerca de cómo registrar las aplicaciones para usar Google para autenticarse con los Servicios móviles de Azure."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/27/2015"
 	ms.author="glenga"/>
 
 # Registro de las aplicaciones para el inicio de sesión de Google con Servicios móviles
@@ -26,27 +26,21 @@ En este tema se muestra cómo registrar las aplicaciones a fin de poder usar Goo
 
 Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-1. Vaya al sitio web de <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">API de Google</a>, inicie sesión con sus credenciales de la cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto** y haga clic en **Crear**.
+3. Diríjase al sitio web [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), inicie sesión con las credenciales de su cuenta de Google, haga clic en **Crear proyecto**, proporcione un **Nombre de proyecto**, y haga clic en **Crear**.
 
-   	![Nuevo proyecto de API de Google](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png)
+4. En la barra de navegación de la izquierda, haga clic en **API y autenticación** y luego, en **API sociales**, haga clic en **API de Google+** > **Habilitar API**.
 
-2. Haga clic en la **pantalla de consentimiento**, seleccione su **dirección de correo electrónico**, escriba un **nombre de producto** y luego haga clic en **Save** (Guardar).
+5. Haga clic en**API y autenticación** > **Credenciales** > **Pantalla de consentimiento de OAuth**, seleccione su **Dirección de correo electrónico**, escriba un **Nombre de producto** y haga clic en **Guardar**.
 
-3. Haga clic en **API y autenticación**, en **Credenciales** y luego en **Crear nuevo Id. de cliente**.
+6. En la pestaña **Credenciales**, haga clic en **Agregar credenciales** > **Id. de cliente de OAuth 2.0** y luego seleccione **Aplicación web**.
 
-   	![Crear nuevo Id. de cliente](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png)
-
-4. Seleccione **Aplicación web**, escriba la dirección URL de su servicio móvil en **Orígenes de JavaScript autorizados**, reemplace la dirección URL generada en **Autorizar URI de redirección** por la dirección URL de su servicio móvil anexada a la ruta de acceso `/login/google` y luego haga clic en **Crear identificador de cliente**.
+7. Escriba la dirección URL de su servicio móvil en **Orígenes de JavaScript autorizados**, reemplace la dirección URL generada en **Autorizar URI de redirección** por la dirección URL de su servicio móvil anexada a la ruta de acceso `/login/google` y luego haga clic en **Crear identificador de cliente**.
 
 	>[AZURE.NOTE]Para un servicio móvil de back-end de .NET publicado en Azure con Visual Studio, la dirección URL de redireccionamiento es la dirección URL del servicio móvil con la ruta de acceso _signin-google_ anexada como servicio .NET, como `https://todolist.azure-mobile.net/signin-google`. &nbsp;
+	
+8. En la siguiente pantalla, tome nota de los valores de id. de cliente y el secreto del cliente.
 
-   	![](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png)
-
-5. En **Client ID for web applications** (Identificador de cliente para aplicaciones web), anote los valores de **Client ID** (Identificador de cliente) y **Client secret** (Secreto de cliente).
-
-   	![Credenciales de cliente](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png)
-
-    >[AZURE.IMPORTANT]El secreto de cliente es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación.
+    > [AZURE.IMPORTANT]El secreto de cliente es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
 
 Ahora está listo para configurar el servicio móvil para utilizar inicio de sesión de Google para autenticarse en la aplicación.
 
@@ -62,4 +56,4 @@ Ahora está listo para configurar el servicio móvil para utilizar inicio de ses
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Ejecución de scripts de aprendizaje automático de Python | Microsoft Azure" 
-	description="Describe los principios de diseño subyacentes a la compatibilidad con scripts de Python en Aprendizaje automático de Azure y los escenarios de uso básico, las funcionalidades y las limitaciones." 
+	pageTitle="Ejecución de scripts de aprendizaje automático de Python | Microsoft Azure"
+	description="Describe los principios de diseño subyacentes a la compatibilidad con scripts de Python en Aprendizaje automático de Azure y los escenarios de uso básico, las funcionalidades y las limitaciones."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
-	ms.author="bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2015"
+	ms.author="bradsev"/>
 
 
 # Ejecución de scripts de Python en Aprendizaje automático de Azure | Azure
@@ -40,7 +40,7 @@ Figura 1. El módulo **Ejecutar script de Python**.
 El módulo [Ejecutar script de Python][execute-python-script] acepta hasta tres entradas y genera hasta dos salidas (las que se analizan más adelante), al igual que su análogo R, el módulo [Ejecutar script de R][execute-r-script]. El código Python que se ejecutará se escribe en el cuadro de parámetro como una función de punto de entrada especialmente denominada llamada `azureml_main`. Los siguientes son los principios de diseño clave que se usan para implementar este módulo:
 
 1.	*Debe ser idiomático para los usuarios de Python.* La mayoría de los usuarios de Python incluyen su código como funciones dentro de los módulos, por lo tanto, es poco frecuente poner gran cantidad de instrucciones ejecutables en un módulo de nivel superior. Como resultado, el cuadro del script también asume una función de Python especialmente denominada, en contraposición a solo una secuencia de instrucciones. Los objetos expuestos en la función son tipos de bibliotecas de Python estándar, como tramas de datos [Pandas](http://pandas.pydata.org/) y matrices [NumPy](http://www.numpy.org/).
-2.	*Debe contar con alta fidelidad entre las ejecuciones locales y las ejecuciones en la nube.* El backend que se utiliza para ejecutar el código de Python se basa en [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, una distribución científica de Python multiplataforma ampliamente utilizada. Incluye cerca de 200 de los paquetes más comunes de Python. Por lo tanto, un científico de datos podría depurar y calificar su código en su entorno Anaconda compatible con Aprendizaje automático de Azure mediante el uso de entornos de desarrollo existentes, como [IPython](http://ipython.org/) Notebook o [Herramientas de Python para Visual Studio](http://pytools.codeplex.com/) y ejecutarlo con toda confianza como parte de un experimento de Aprendizaje automático de Azure. Además, el `azureml_main` punto de entrada es una función de básica de Python y se puede crear sin el código específico de Aprendizaje automático de Azure o el SDK instalado.
+2.	*Debe contar con alta fidelidad entre las ejecuciones locales y las ejecuciones en la nube.* El backend que se utiliza para ejecutar el código de Python se basa en [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1, una distribución científica de Python multiplataforma ampliamente utilizada. Incluye cerca de 200 de los paquetes más comunes de Python. Por lo tanto, un científico de datos podría depurar y calificar su código en su entorno Anaconda compatible con Aprendizaje automático de Azure mediante el uso de entornos de desarrollo existentes, como [IPython](http://ipython.org/) Notebook o [Herramientas de Python para Visual Studio] y ejecutarlo con toda confianza como parte de un experimento de Aprendizaje automático de Azure. Además, el `azureml_main` punto de entrada es una función de básica de Python y se puede crear sin el código específico de Aprendizaje automático de Azure o el SDK instalado.
 3.	*Debe admitir composición sin problemas con otros módulos de Aprendizaje automático de Azure.* El módulo [Ejecutar script de Python][execute-python-script] acepta, como entradas y salidas, conjuntos de datos estándar de Aprendizaje automático de Azure. El marco subyacente une de manera transparente y eficiente los tiempos de ejecución de Aprendizaje automático de Azure y de Python (y admite características como valores omitidos). Por tanto, Python se puede usar en conjunto con flujos de trabajo existentes de Aprendizaje automático de Azure, incluidos los que llaman a R y SQLite. De este modo, es posible prever flujos de trabajo que:
   * utilizan Python y Pandas para el procesamiento previo y la limpieza de los datos, 
   * transmitan los datos a una transformación de SQL, uniendo varios conjuntos de datos para formar características, 
@@ -168,6 +168,6 @@ Durante los próximos meses, esperamos proporcionar una funcionalidad adicional 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
- 
+[Herramientas de Python para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

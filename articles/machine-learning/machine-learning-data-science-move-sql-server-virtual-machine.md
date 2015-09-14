@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Mover datos a un servidor SQL Server en una máquina virtual de Azure| Azure" 
-	description="Mover datos desde archivos planos o desde un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure" 
-	services="machine-learning"  
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Mover datos a un servidor SQL Server en una máquina virtual de Azure| Azure"
+	description="Mover datos desde archivos planos o desde un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="fashah;mohabib;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;mohabib;bradsev"/>
 
 # Mover datos a un servidor SQL Server en una máquina virtual de Azure
 
@@ -40,16 +40,17 @@ En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL
 <tr>
   <td><b>SQL Server local</b></td>
   <td>
-    1. <a href="#export-flat-file">Exportación a un archivo plano </a><br>
-    2. <a href="#sql-migration">Asistente para migración de Base de datos SQL </a> <br>    
-    3. <a href="#sql-backup">Copia de seguridad y restauración de la base de datos </a> <br>
+    1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure</a><br>
+    2. <a href="#export-flat-file">Exportación a un archivo plano </a><br>
+    3. <a href="#sql-migration">Asistente para migración de Base de datos SQL </a> <br>    
+    4. <a href="#sql-backup">Copia de seguridad y restauración de la base de datos </a> <br>
   </td>
 </tr>
 </table>
 
 Tenga en cuenta que en este documento se da por supuesto que los comandos SQL se ejecutan desde SQL Server Management Studio o el Explorador de bases de datos de Visual Studio.
 
-> [AZURE.TIP]Como alternativa, puede usar [factoría de datos de Azure](https://azure.microsoft.com/es-es/services/data-factory/) para crear y programar una canalización de datos se moverá a una máquina virtual de SQL Server en Azure. Para obtener más información, consulte [Copia de datos con Factoría de datos de Azure (actividad de copia)](../data-factory/data-factory-copy-activity.md)
+> [AZURE.TIP]Como alternativa, puede usar [factoría de datos de Azure](https://azure.microsoft.com/es-ES/services/data-factory/) para crear y programar una canalización de datos se moverá a una máquina virtual de SQL Server en Azure. Para obtener más información, consulte [Copia de datos con Factoría de datos de Azure (actividad de copia)](../data-factory/data-factory-copy-activity.md)
 
 
 ## <a name="prereqs"></a>Requisitos previos
@@ -173,13 +174,18 @@ Puede utilizar los servicios de integraciones de SQL Server (SSIS) para importar
 
 ## <a name="sqlonprem_to_sqlonazurevm"></a> Mover datos desde un servidor SQL Server local a un servidor SQL Server en una máquina virtual de Azure
 
-Los datos se pueden mover desde un SQL Server local de la siguiente manera:
+También puede usar las siguientes estrategias de migración:
 
-1. [Exportación a un archivo plano](#export-flat-file) 
-2. [Asistente para migración de Base de datos SQL](#sql-migration)
-3. [Copia de seguridad y restauración de la base de datos](#sql-backup)
+1. [Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
+2. [Exportación a un archivo plano](#export-flat-file) 
+3. [Asistente para migración de Base de datos SQL](#sql-migration)
+4. [Copia de seguridad y restauración de la base de datos](#sql-backup)
 
 Describimos cada una de estas opciones:
+
+### Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure
+
+El **Asistente para implementación de una base de datos de SQL Server en una máquina virtual de Microsoft Azure** es una manera sencilla y recomendada de mover datos de una instancia local de SQL Server a SQL Server en una máquina virtual de Azure. Para obtener pasos detallados así como un debate sobre otras alternativas, consulte [Migrar una base de datos a SQL Server en una máquina virtual de Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
 
 ### <a name="export-flat-file"></a>Exportación a un archivo plano
 
@@ -221,10 +227,13 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 
 ![Herramienta de importación SQL Server][1]
 
+## Recursos
+
+[Migración de una base de datos a SQL Server en una máquina virtual de Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+
+[Información general sobre SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

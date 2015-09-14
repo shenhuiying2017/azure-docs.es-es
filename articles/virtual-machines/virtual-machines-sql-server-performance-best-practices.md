@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # Prácticas recomendadas para mejorar el rendimiento para SQL Server en máquinas virtuales de Azure
@@ -29,45 +29,13 @@ Para un recurso complementario en este tema, puede [descargar las siguientes not
 
 La siguiente es una lista de comprobación rápida para un rendimiento óptimo de SQL Server en máquinas virtuales de Azure:
 
-- Use [Almacenamiento premium](../storage/storage-premium-storage-preview-portal.md).
-
-- Use un [Tamaño de máquina virtual](virtual-machines-size-specs.md) de DS3 o superior para la edición SQL Enterprise y DS2 o superior para la edición SQL Standard.
-
-- Use un mínimo de 2 [discos P30](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whes-ESing-premium-storage) (1 para archivos de registro; 1 para archivos de datos y TempDB).
-
-- Mantenga la [cuenta de almacenamiento](../storage/storage-create-storage-account.md) y la máquina virtual de SQL Server en la misma región.
-
-- Deshabilite el [almacenamiento con redundancia geográfica](../storage/storage-redundancy.md) de Azure (replicación geográfica) en la cuenta de almacenamiento.
-
-- Evite el uso del sistema operativo o de discos temporales para el registro o almacenamiento de bases de datos.
-
-- Habilite el almacenamiento en caché de lectura en los discos que hospedan los archivos de datos y TempDB.
-
-- No habilite el almacenamiento en caché en discos que hospedan el archivo de registro.
-
-- Seccione varios discos de datos de Azure para obtener un mayor rendimiento de E/S.
-
-- Formatee con tamaños de asignación documentados.
-
-- Habilite la compresión de páginas de bases de datos.
-
-- Habilite la inicialización instantánea de archivos para archivos de datos.
-
-- Limite o deshabilite el crecimiento automático de la base de datos.
-
-- Deshabilite la reducción automática de la base de datos.
-
-- Mueva todas las bases de datos a discos de datos, incluidas bases de datos del sistema.
-
-- Mueva los directorios de archivos de seguimiento y registros de errores de SQL Server a discos de datos.
-
-- Aplique correcciones de rendimiento de SQL Server.
-
-- Configure ubicaciones predeterminadas.
-
-- Habilite páginas bloqueadas.
-
-- Realice una copia de seguridad directamente en el almacenamiento de blobs.
+|Ámbito|Optimizaciones|
+|---|---|
+|**Tamaño de VM**|[DS3](virtual-machines-size-specs.md#standard-tier-ds-series) o superior para la edición SQL Enterprise.<br/><br/>[DS2](virtual-machines-size-specs.md#standard-tier-ds-series) o superior para las ediciones SQL Standard y Web.|
+|**Almacenamiento**|Use [almacenamiento premium](../storage/storage-premium-storage-preview-portal.md).<br/><br/>Mantenga la [cuenta de almacenamiento](../storage/storage-create-storage-account.md) y la máquina virtual de SQL Server en la misma región.<br/><br/>Deshabilite el [almacenamiento con redundancia geográfica](../storage/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento.|
+|**Discos**|Utilice como mínimo 2 [discos P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-ESing-premium-storage) (1 para los archivos de registro y 1 para los archivos de datos y TempDB).<br/><br/>Evite usar el sistema operativo o discos temporales para el registro o el almacenamiento de bases de datos.<br/><br/>Habilite la lectura del almacenamiento en caché en los discos en los que se hospedan los archivos de datos y TempDB.<br/><br/>No habilite el almacenamiento en caché en los discos que hospeden el archivo de registro.<br/><br/>Coloque en franjas varios discos de datos de Azure para obtener un mayor rendimiento de E/S.<br/><br/>Formato con tamaños de asignación documentados.|
+|**E/S**|Habilite la compresión de página de base de datos.<br/><br/>Habilite la inicialización instantánea de archivos para los archivos de datos.<br/><br/>Limite o deshabilite el crecimiento automático en la base de datos.<br/><br/>Deshabilite la reducción automática de la base de datos.<br/><br/>Mueva todas las bases de datos a discos de datos, incluidas las bases de datos del sistema.<br/><br/>Mueva el registro de errores de SQL Server y realice un seguimiento de los directorios de archivos a los discos de datos.<br/><br/>Configure las ubicaciones predeterminadas de los archivos de base de datos y copia de seguridad.<br/><br/>Habilite las páginas bloqueadas.<br/><br/>Aplique las soluciones a los problemas de rendimiento de SQL.|
+|**Específico de la característica**|Realice una copia de seguridad directamente en el almacenamiento de blobs.|
 
 Para obtener más información, siga las instrucciones de las siguientes subsecciones.
 
@@ -77,7 +45,7 @@ Para aplicaciones sensibles al rendimiento, se recomienda usar los siguientes ta
 
 - **SQL Server Enterprise Edition**: DS3 o versiones posteriores
 
-- **SQL Server Standard Edition**: DS2 o versiones posteriores
+- **SQL Server Standard y Web Editions**: DS2 o versiones posteriores
 
 Para obtener información actualizada sobre tamaños de máquina virtual admitidos, consulte [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 
@@ -89,19 +57,19 @@ Al crea una máquina virtual de Azure, la plataforma conectará al menos un disc
 
 ### Disco del sistema operativo
 
-Un disco del sistema operativo es un VHD que puede arrancar y montar como una versión en ejecución de un sistema operativo y está etiquetado como la unidad **C**.
+Un disco del sistema operativo es un VHD que se puede arrancar y montar como una versión en ejecución de un sistema operativo y está etiquetado como la unidad **C**.
 
 La directiva del almacenamiento en caché predeterminada en el disco del sistema operativo es **Lectura/escritura**. Para aplicaciones sensibles al rendimiento, se recomienda usar discos de datos en lugar del disco del sistema operativo. Vea la sección sobre Discos de datos a continuación.
 
 ### Disco temporal
 
-La unidad de almacenamiento temporal, etiquetada como la unidad **D**:, no se conserva en el almacenamiento de blobs de Azure. No almacene su archivos de registros o datos o en la unidad de disco **D**:.
+La unidad de almacenamiento temporal, etiquetada como la unidad **D**:, no se conserva en el almacenamiento de blobs de Azure. No almacene sus archivos de registros o datos en la unidad de disco **D**:.
 
 Almacene únicamente TempDB y las extensiones del grupo de búferes en la unidad **D** al usar las máquinas virtuales de la serie D o la serie G. A diferencia de la otra serie de máquinas virtuales, la unidad **D** de las máquinas de la serie D y la serie G se basa en SSD. Esto puede mejorar el rendimiento de las cargas de trabajo que usan mucho los objetos temporales o que tienen espacios de trabajo que no caben en la memoria. Para obtener más información, consulte [Uso de SSDs en máquinas virtuales de Azure para almacenar TempDB de SQL Server y extensiones del grupo de búferes](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
 
 ### Disco de datos
 
-- **Número de discos de datos para archivos de datos y de registro**: como mínimo, use 2 [discos P30](../storage/storage-premium-storage-preview-portal.md) donde un disco contiene los archivos de registro y el otro contiene los archivos de datos y TempDB. Para lograr un mayor rendimiento, es posible que requiera discos de datos adicionales Para determinar el número de discos de datos, debe analizar el número de IOPS disponibles para los discos de datos y de registro. Para ver esta información, consulte las tablas de IOPS por [tamaño de máquina virtual](virtual-machines-size-specs.md) y el tamaño del disco en el siguiente artículo: [Uso de Almacenamiento Premium para discos](../storage/storage-premium-storage-preview-portal.md). Si necesita más ancho de banda, puede conectar discos adicionales mediante la creación de franjas de discos. Si no usa Almacenamiento premium, se recomienda agregar el número máximo de discos de datos admitidos por el [tamaño de máquina virtual](virtual-machines-size-specs.md) y usar la creación de franjas de discos. Para obtener más información sobre la creación de franjas de discos, consulte la sección relacionada a continuación.
+- **Número de discos de datos para archivos de datos y de registro**: como mínimo, use 2 [discos P30](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-ESing-premium-storage) donde un disco contiene los archivos de registro y el otro contiene los archivos de datos y TempDB. Para lograr un mayor rendimiento, es posible que requiera discos de datos adicionales Para determinar el número de discos de datos, debe analizar el número de IOPS disponibles para los discos de datos y de registro. Para ver esta información, consulte las tablas de IOPS por [tamaño de máquina virtual](virtual-machines-size-specs.md) y el tamaño del disco en el siguiente artículo: [Uso de Almacenamiento premium para discos](../storage/storage-premium-storage-preview-portal.md). Si necesita más ancho de banda, puede conectar discos adicionales mediante la creación de franjas de discos. Si no usa Almacenamiento premium, se recomienda agregar el número máximo de discos de datos admitidos por el [tamaño de máquina virtual](virtual-machines-size-specs.md) y usar la creación de franjas de discos. Para obtener más información sobre la creación de franjas de discos, consulte la sección relacionada a continuación.
 
 - **Directiva de caché**: habilite el almacenamiento en caché de lectura en los discos de datos que hospedan solo sus archivos de datos y TempDB. Si no usa el Almacenamiento premium, no habilite el almacenamiento en caché en los discos de datos. Para obtener instrucciones sobre la configuración del almacenamiento en caché de disco, vea los siguientes temas: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) y [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
@@ -123,7 +91,7 @@ Almacene únicamente TempDB y las extensiones del grupo de búferes en la unidad
 
 - Considere la posibilidad de comprimir los archivos de datos cuando se transfieren dentro y fuera de Azure.
 
-- Considere la posibilidad de habilitar la inicialización instantánea de archivos para reducir el tiempo necesario para la asignación inicial de archivos. Para aprovechar la inicialización instantánea de archivos, concede la cuenta de servicio de SQL Server (MSSQLSERVER) con SE\_MANAGE\_VOLUME\_NAME y la agrega a la directiva de seguridad **Realizar tareas de mantenimiento del volumen**. Si usa una imagen de la plataforma de SQL Server para Azure, la cuenta de servicio predeterminada (NT Service\\MSSQLSERVER) no se agrega a la directiva de seguridad **Realizar tareas de mantenimiento del volumen**. En otras palabras, la inicialización instantánea de archivos no se habilita en una imagen de plataforma de SQL Server Azure. Después de agregar la cuenta de servicio de SQL Server a la directiva de seguridad **Realizar tareas de mantenimiento del volumen**, reinicie el servicio de SQL Server. Puede haber consideraciones de seguridad para usar esta característica. Para obtener más información, vea [Inicialización de archivos de bases de datos](https://msdn.microsoft.com/library/ms175935.aspx).
+- Considere la posibilidad de habilitar la inicialización instantánea de archivos para reducir el tiempo necesario para la asignación inicial de archivos. Para aprovechar la inicialización instantánea de archivos, se concede la cuenta de servicio de SQL Server (MSSQLSERVER) con SE\_MANAGE\_VOLUME\_NAME y se agrega a la directiva de seguridad **Realizar tareas de mantenimiento del volumen**. Si usa una imagen de la plataforma de SQL Server para Azure, la cuenta de servicio predeterminada (NT Service\\MSSQLSERVER) no se agrega a la directiva de seguridad **Realizar tareas de mantenimiento del volumen**. En otras palabras, la inicialización instantánea de archivos no se habilita en una imagen de plataforma de SQL Server Azure. Después de agregar la cuenta de servicio de SQL Server a la directiva de seguridad **Realizar tareas de mantenimiento del volumen**, reinicie el servicio de SQL Server. Puede haber consideraciones de seguridad para usar esta característica. Para obtener más información, vea [Inicialización de archivos de bases de datos](https://msdn.microsoft.com/library/ms175935.aspx).
 
 - El **crecimiento automático** se considera apenas una contingencia para el crecimiento inesperado. No administre su crecimiento de datos y registros a diario con el crecimiento automático. Si se usa el crecimiento automático, haga crecer previamente el archivo mediante el modificador Tamaño.
 
@@ -155,10 +123,10 @@ Algunas implementaciones pueden lograr ventajas de rendimiento adicionales media
 
 ## Pasos siguientes
 
-Si está interesado en explorar SQL Server y el Almacenamiento premium en mayor profundidad, vea el artículo [Uso del almacenamiento premium de Azure con SQL Server en máquinas virtuales](virtual-machines-sql-server-use-premium-storage.md).
+Si está interesado en explorar SQL Server y el Almacenamiento premium en mayor profundidad, vea el artículo [Uso del Almacenamiento premium de Azure con SQL Server en máquinas virtuales](virtual-machines-sql-server-use-premium-storage.md).
 
 Para ver prácticas recomendadas de seguridad, consulte [Consideraciones de seguridad para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-security-considerations.md).
 
 Revise otros temas de la máquina virtual de SQL Server en [Información general sobre SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

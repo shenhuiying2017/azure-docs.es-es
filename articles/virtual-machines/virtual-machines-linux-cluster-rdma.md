@@ -103,7 +103,7 @@ Después de que la máquina virtual complete el aprovisionamiento, SSH a la máq
 
 >[AZURE.IMPORTANT]En este momento es recomendable no aplicar actualizaciones de kernel, que pueden causar problemas con los controladores de RDMA de Linux.
 
-**Intel MPI**: descargue e instale el tiempo de ejecución de la biblioteca de MPI Intel 5.0 desde el [sitio Intel.com](https://software.intel.com/es-es/intel-mpi-library/). Después de registrarse con Intel, siga el vínculo del correo electrónico de confirmación a la página web relacionada y copie el vínculo de descarga para el archivo .tgz para obtener la versión adecuada de Intel MPI.
+**Intel MPI**: descargue e instale el tiempo de ejecución de la biblioteca de MPI Intel 5.0 desde el [sitio Intel.com](https://software.intel.com/es-ES/intel-mpi-library/). Después de registrarse con Intel, siga el vínculo del correo electrónico de confirmación a la página web relacionada y copie el vínculo de descarga para el archivo .tgz para obtener la versión adecuada de Intel MPI.
 
 Ejecute comandos similares al siguiente para instalar Intel MPI en la máquina virtual:
 
@@ -190,7 +190,7 @@ Modifique el script siguiente con los valores apropiados para su entorno y ejec�
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 -i 16 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -208,7 +208,7 @@ portnumber=101
 ### In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>.
 
 for (( i=11; i<19; i++ )); do
-        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i <image-name>
+        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
 ### Save this script and run it at the CLI prompt to provision your cluster
@@ -337,6 +337,6 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Intente implementar y ejecutar aplicaciones Linux MPI en el clúster de Linux.
 
-* Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/es-es/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
+* Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/es-ES/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

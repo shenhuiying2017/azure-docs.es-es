@@ -1,20 +1,20 @@
 <properties
    pageTitle="Crear una identidad profesional o educativa en Azure Active Directory"
-   description="Describe cómo crear una identidad de profesional o educativa desde su identidad personal para usarla con plantillas de grupo de recursos o acceso basado en roles, entre otras características."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+	description="Describe cómo crear una identidad de profesional o educativa desde su identidad personal para usarla con plantillas de grupo de recursos o acceso basado en roles, entre otras características."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure"
-   ms.date="05/05/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure"
+	ms.date="09/01/2015"
+	ms.author="rasquill"/>
 
 # Crear una identidad profesional o educativa en Azure Active Directory
 
@@ -140,4 +140,4 @@ Ahora puede usar su nueva identidad de Azure Active Directory para usar [plantil
     data:
     info:    group create command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicaciones de ejemplo de Aprendizaje automático en Azure Marketplace | Microsoft Azure" 
-	description="En los ejemplos de aplicación de aprendizaje automático de Azure Marketplace se muestra cómo publicar los servicios de aprendizaje automático en Azure Marketplace para que los suscriptores de pago los usen en sus aplicaciones." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="Aplicaciones de ejemplo de Aprendizaje automático en Azure Marketplace | Microsoft Azure"
+	description="En los ejemplos de aplicación de aprendizaje automático de Azure Marketplace se muestra cómo publicar los servicios de aprendizaje automático en Azure Marketplace para que los suscriptores de pago los usen en sus aplicaciones."
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 # Aplicaciones de aprendizaje automático en Azure Marketplace
@@ -57,6 +57,10 @@ Esta API puede utilizarse para analizar el texto no estructurado para tareas com
 [Documentación](machine-learning-apps-text-analytics.md)
 
  
- 
+ ##Predicción de rotación de clientes## La predicción de rotación de clientes es un servicio de análisis de rotación de clientes integrado con el Aprendizaje automático de Azure. Se ha diseñado para predecir cuándo es probable que un cliente (jugador, suscriptor, usuario, etc.) finalice su relación con una empresa o un servicio. Poder predecir qué clientes tienen un alto riesgo de dejar la relación con una empresa proporciona a esta una oportunidad de acercarse a ellos y reducir la probabilidad de que la abandonen.
 
-<!---HONumber=August15_HO6-->
+[Vínculo de mercado de datos](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
+
+[Documentación](https://churn.cloudapp.net/documentation)
+
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Inserción segura de los Centros de notificaciones de Azure" 
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Inserción segura de los Centros de notificaciones de Azure"
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Inserción segura de los Centros de notificaciones de Azure
@@ -75,7 +75,7 @@ Este tutorial Inserción segura muestra cómo enviar una notificación de inserc
 		using Windows.ApplicationModel.Background;
 
 4. En el menú **Archivo** de Visual Studio, haga clic en **Guardar todo**.
-		
+
 ## Creación del componente de segundo plano de inserción
 
 El paso siguiente es crear el componente de segundo plano de inserción.
@@ -96,11 +96,11 @@ El paso siguiente es crear el componente de segundo plano de inserción.
         		public string Payload { get; set; }
         		public bool Read { get; set; }
     		}
-    
+
 		    public sealed class PushBackgroundTask : IBackgroundTask
     		{
         		private string GET_URL = "{back-end endpoint}/api/notifications/";
-		
+
         		async void IBackgroundTask.Run(IBackgroundTaskInstance taskInstance)
 		        {
         		    // Store the content received from the notification so it can be retrieved from the UI.
@@ -161,7 +161,7 @@ El paso siguiente es crear el componente de segundo plano de inserción.
 	![][3]
 
 13. Todavía en **Package.appxmanifest**, haga clic en el menú **Declaraciones** cerca de la parte superior. En el cuadro desplegable **Declaraciones disponibles**, haga clic en **Tareas** en segundo plano y haga clic en **Agregar**.
- 
+
 14. En **Package.appxmanifest**, en **Propiedades**, active **Notificación de inserción**.
 
 15. En **Package.appxmanifest**, bajo **Configuración de la aplicación**, escriba **PushBackgroundComponent.PushBackgroundTask** en el campo **Punto de entrada**.
@@ -185,6 +185,5 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

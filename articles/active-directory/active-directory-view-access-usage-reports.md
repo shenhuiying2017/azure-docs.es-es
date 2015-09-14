@@ -39,8 +39,8 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 |	------												|	-----																						|
 |	**Informes de actividades anómalas**
 |	[Inicios de sesión desde orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md) |	Puede indicar un intento de iniciar sesión sin realizar ningún seguimiento. |
-|	[Inicios de sesión tras varios errores](active-directory-sign-ins-after-multiple-failures.md) |	Puede indicar un ataque por fuerza bruta realizado con éxito. |
-|	[Inicios de sesión desde varias ubicaciones geográficas](active-directory-sign-ins-from-multiple-geographies.md) |	Puede indicar que varios usuarios inician una sesión con la misma cuenta. |
+|	[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md) |	Puede indicar un ataque por fuerza bruta realizado con éxito. |
+|	[Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md) |	Puede indicar que varios usuarios inician una sesión con la misma cuenta. |
 |	[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |	Puede indicar un inicio de sesión correcto después de un intento de intrusión sostenido. |
 |	[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	Puede indicar un intento de iniciar sesión desde dispositivos posiblemente infectados. |
 |	[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md) |	Puede indicar eventos incorrectos en los patrones de inicio de sesión de los usuarios. |
@@ -76,7 +76,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 |	Usuarios con actividad de inicio de sesión erróneo. | | |	✓ |
 |	Usuarios con credenciales perdidas | | |	✓ |
 |	**Registros de actividad**
-|	Informe de auditoría | | |	✓ |
+|	Informe de auditoría |	✓ | | |
 |	Actividad de restablecimiento de contraseña | | |	✓ |
 |	Actividad de registro de restablecimiento de contraseñas | | |	✓ |
 |	Actividad de los grupos de autoservicio | | |	✓ |
@@ -100,7 +100,9 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 
 ## Informes de actividades anómalas
-Los informes de actividades anómalas de inicio de sesión contienen actividades de inicio de sesión sospechosos en el Portal de administración de Azure, el Panel de acceso de Azure AD, Office365, Sharepoint Online, Dynamics CRM Online y otros servicios en línea de Microsoft, independientemente del proveedor de federación. <p>Están disponibles los siguientes informes: </p><ul> <li>[Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuarios con actividad de inicio de sesión erróneo](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuarios con credenciales perdidas</li></ul>
+<p>Los informes de actividades anómalas de inicio de sesión marcan actividades de inicio de sesión sospechosos en Office365, en el Portal de administración de Azure, el Panel de acceso de Azure AD, Sharepoint Online, Dynamics CRM Online y otros servicios en línea de Microsoft.</p>
+<p>Todos estos informes, excepto el informe "Inicios de sesión tras varios errores", también marcan inicios de sesión <i>federados</i> sospechosos en los servicios mencionados anteriormente, independientemente del proveedor de federación. </p>
+<p>Están disponibles los siguientes informes: </p><ul> <li>[Inicios de sesión de orígenes desconocidos](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Inicios de sesión tras varios errores](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Inicios de sesión desde varias ubicaciones geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Inicios de sesión desde direcciones IP con actividad sospechosa](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Actividad de inicio de sesión irregular](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Inicios de sesión desde dispositivos posiblemente infectados](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Usuarios con actividad de inicio de sesión erróneo](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Usuarios con credenciales perdidas</li></ul>
 
 
 
@@ -274,4 +276,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y del panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

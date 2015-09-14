@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creación de conjuntos de datos" 
-	description="Descripción de los conjuntos de datos de Factoría de datos de Azure y aprenda a crearlos." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Creación de conjuntos de datos"
+	description="Descripción de los conjuntos de datos de Factoría de datos de Azure y aprenda a crearlos."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="spelluru"/>
 
 # Conjuntos de datos
@@ -182,16 +182,34 @@ Los conjuntos de datos externos son los que no son producidos por una canalizaci
 
 | Nombre | Descripción | Obligatorio | Valor predeterminado |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, si se supone que los datos estarán disponibles cada hora, la comprobación de si los datos externos están realmente disponibles y el segmento correspondiente está preparado puede retrasarse mediante dataDelay.<p>Solo se aplica a la hora actual; por ejemplo, si ahora es la 1:00 p.m. y este valor es de 10 minutos, la validación se iniciará en 1:10 p.m.</p><p>Esta configuración no afecta a los segmentos en el pasado (los segmentos con Slice End Time + dataDelay < Nowa) se procesarán sin ningún retraso.</p> | No | 0 |
+| dataDelay | <p>Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, si se supone que los datos estarán disponibles cada hora, la comprobación de si los datos externos están realmente disponibles y el segmento correspondiente está preparado puede retrasarse mediante dataDelay.</p><p>Solo se aplica a la hora actual; por ejemplo, si ahora es la 1:00 p.m. y este valor es de 10 minutos, la validación se iniciará en 1:10 p.m.</p><p>Esta configuración no afecta a los segmentos en el pasado (los segmentos con Slice End Time + dataDelay < Nowa) se procesarán sin ningún retraso.</p> <p>El tiempo superior a 23:59 horas se debe especificar con el formato día.horas:minutos:segundos. Por ejemplo, para especificar 24 horas, no use 24:00:00; en su lugar, use 1.00:00:00. Si usa 24:00:00, se tratará como 24 días (24.00:00:00). Para 1 día y 4 horas, especifique 1:04:00:00. </p>| No | 0 |
 | retryInterval | El tiempo de espera entre un error y el siguiente reintento. Se aplica a la hora actual; si el intento anterior falla, esperamos este tiempo después del último intento. <p>Si ahora es la 1:00 p.m., empezaremos el primer intento. Si la duración para completar la primera comprobación de validación es 1 minuto y la operación falla, el siguiente reintento será a la 1:00 + 1 minuto (duración) + 1 minuto (intervalo de reintento) = 1:02 pm. </p><p>En el caso de los segmentos en el pasado, no habrá ningún retraso. El reintento se realizará inmediatamente.</p> | No | 00:01:00 (1 minuto) | 
 | retryTimeout | El tiempo de espera de cada reintento.<p>Si se establece en 10 minutos, la validación se debe completar en 10 minutos. Si la validación tarda más de 10 minutos en realizarse, el reintento agotará el tiempo de espera.</p><p>Si se agota el tiempo de todos los intentos de validación, el segmento se marcará como TimedOut.</p> | No | 00:10:00 (10 minutos) |
 | maximumRetry | Número de veces que se va a comprobar la disponibilidad de los datos externos. El valor máximo permitido es 10. | No | 3 | 
 
+#### Más ejemplos
 
+Si necesita ejecutar una canalización mensualmente en una fecha y hora específicas (supongamos que el tercer día de cada mes a las 8 de la mañana), podría usar la etiqueta **offset** para establecer la fecha y la hora en que se debería ejecutar.
 
+	{
+	  "name": "MyDataset",
+	  "properties": {
+	    "type": "AzureSqlTable",
+	    "linkedServiceName": "AzureSqlLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "availability": {
+	      "frequency": "Month",
+	      "interval": 1,
+	      "offset": "3.08:10:00",
+	      "style": "StartOfInterval"
+	    }
+	  }
+	}
 
-
-
+## Enviar comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md).
 
 
 
@@ -199,4 +217,4 @@ Los conjuntos de datos externos son los que no son producidos por una canalizaci
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

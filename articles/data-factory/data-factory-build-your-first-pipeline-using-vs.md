@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Compilación de la primera canalización mediante la Factoría de datos de Azure"
-	description="En este tutorial se muestra cómo crear una canalización de datos de ejemplo que transforma los datos con HDInsight de Azure Visual Studio"
+	pageTitle="Compilación de la primera canalización mediante Visual Studio"
+	description="En este tutorial, creará una canalización de la factoría de datos de Azure de ejemplo mediante Visual Studio."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
-# Compilación de la primera canalización mediante la Factoría de datos de Azure
+# Compilación de la primera canalización mediante Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -45,7 +45,7 @@ Este artículo no ofrece información general conceptual sobre el servicio Facto
 
 	![Hoja Nueva Factoría de datos](./media/data-factory-build-your-first-pipeline-using-vs/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] Los nombres de la Factoría de datos de Azure son únicos globalmente. Deberá agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría. 
+	> [AZURE.IMPORTANT]Los nombres de la Factoría de datos de Azure son únicos globalmente. Deberá agregar su nombre como prefijo al nombre de la factoría de datos para permitir la creación correcta de la factoría. 
 3.	Si no creó ningún grupo de recursos, tendrá que crearlo. Para ello, siga estos pasos:
 	1.	Haga clic en **NOMBRE DEL GRUPO DE RECURSOS**.
 	2.	Seleccione **Crear un nuevo grupo de recursos** en la hoja **Grupo de recursos**.
@@ -68,9 +68,7 @@ En los pasos siguientes, aprenderá a crear los servicios vinculados, los conjun
 
 ### Requisitos previos
 
-Debe tener instalado en el equipo lo siguiente:
-- Visual Studio 2013
-- Descargue el SDK de Azure para Visual Studio 2013. Vaya a la [Página de descargas de Azure](http://azure.microsoft.com/downloads/) y haga clic en **Instalación de VS 2013**en la sección **.NET**.
+Debe tener instalado en el equipo lo siguiente: - Visual Studio 2013 - Descargue el SDK de Azure para Visual Studio 2013. Vaya a la [Página de descargas de Azure](http://azure.microsoft.com/downloads/) y haga clic en **Instalación de VS 2013**en la sección **.NET**.
 
 
 ### Creación del proyecto de Visual Studio 
@@ -111,11 +109,11 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight a petició
 		{
 		  "name": "HDInsightOnDemandLinkedService",
 		  "properties": {
-		  "type": "HDInsightOnDemandLinkedService",
-		  "version": "3.1",
-		  "clusterSize": 1,
-		  "timeToLive": "00:05:00",
-		  "linkedServiceName": "AzureStorageLinkedService1"
+	        "type": "HDInsightOnDemandLinkedService",
+            "version": "3.1",
+	        "clusterSize": 1,
+	        "timeToLive": "00:05:00",
+	        "linkedServiceName": "AzureStorageLinkedService1"
 		  }
 		}
 	
@@ -251,5 +249,7 @@ Consulte [Supervisión de los conjuntos de datos y canalización](data-factory-m
 ## Pasos siguientes
 En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un blob de Azure a SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-get-started.md).
   
+## Enviar comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

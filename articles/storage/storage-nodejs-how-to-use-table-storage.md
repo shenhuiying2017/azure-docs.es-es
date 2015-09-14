@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del almacenamiento de tablas de Node.js | Microsoft Azure" 
-	description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos usando la API Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Uso del almacenamiento de tablas de Node.js | Microsoft Azure"
+	description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos usando la API Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -46,17 +46,18 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 
 1.  Utilice una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde ha creado la aplicación.
 
-2.  Escriba **npm install azure-storage** en la ventana de comandos. Esto debería devolver la salida siguiente:
+2.  Escriba **npm install azure-storage** en la ventana de comandos. La salida del comando es similar al ejemplo siguiente.
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de dicha carpeta, encontrará el paquete **azure-storage**, que contiene las bibliotecas necesarias para el acceso al almacenamiento.
 
@@ -184,7 +185,7 @@ El ejemplo siguiente demuestra cómo actualizar una entidad usando **updateEntit
 >    
 > 3. Realice la operación de actualización. Si la entidad se ha modificado desde que recuperara el valor de ETag, por ejemplo, otra instancia de la aplicación, se devolverá un `error` indicando que la condición de actualización especificada en la solicitud no se ha satisfecho.
     
-Con **updateEntity** y **mergeEntity**, si la entidad que se está actualizando no existe, se producirá un error en la operación de actualización. Por lo tanto, si desea almacenar una entidad independientemente de la que ya existe, debe usar **insertOrReplaceEntity** o **insertOrMergeEntity**.
+Con **updateEntity** y **mergeEntity**, si la entidad que se está actualizando no existe, se producirá un error en la operación de actualización. Por lo tanto, si desea almacenar una entidad independientemente de la que ya existe, use **insertOrReplaceEntity** o **insertOrMergeEntity**.
 
 El `result` de operaciones de actualización correctas contendrá la etiqueta **Etag** de la entidad actualizada.
 
@@ -220,7 +221,7 @@ A veces resulta útil enviar varias operaciones juntas en un lote a fin de garan
 
 En las operaciones por lotes realizadas correctamente, `result` contendrá información de cada operación del lote.
 
-### Trabajo con operaciones por lotes
+### Trabajar con operaciones por lotes
 
 Las operaciones agregadas a un lote se pueden inspeccionar mirando la propiedad `operations`. También se pueden usar los siguientes métodos para trabajar con operaciones.
 
@@ -275,9 +276,9 @@ Dado que **select** no se usa, se devolverán todos los campos. Para realizar la
 	  }
 	});
 
-Si la operación se realiza correctamente, `result.entries` contendrá un conjunto de entidades que coinciden con la consulta. Si la consulta no puede devolver todas las entidades, `result.continuationToken` será non-*null* y se puede usar como el tercer parámetro de **queryEntities** para recuperar más resultados. Para la consulta inicial, el tercer parámetro debe ser *null*.
+Si la operación se realiza correctamente, `result.entries` contendrá un conjunto de entidades que coinciden con la consulta. Si la consulta no puede devolver todas las entidades, `result.continuationToken` será non-*null* y se puede usar como el tercer parámetro de **queryEntities** para recuperar más resultados. Para la consulta inicial, use *null* para el tercer parámetro.
 
-### Consulta de un subconjunto de propiedades de las entidades
+### un subconjunto de propiedades de las entidades
 
 Una consulta de tabla puede recuperar solo algunos campos de una entidad. Esto reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. Use la cláusula **select** y pase los nombres de los campos que se van a devolver. Por ejemplo, la siguiente consulta solo devolverá los campos **description** y **dueDate**.
 
@@ -286,7 +287,7 @@ Una consulta de tabla puede recuperar solo algunos campos de una entidad. Esto r
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
-## Eliminación de una entidad
+## una entidad
 
 Puede eliminar una entidad usando sus claves de partición y fila. En este ejemplo, el objeto **task1** contiene los valores **RowKey** y **PartitionKey** de la entidad que se va a eliminar. A continuación, el objeto pasa al método **deleteEntity**.
 
@@ -301,9 +302,9 @@ Puede eliminar una entidad usando sus claves de partición y fila. En este ejemp
 	  }
 	});
 
-> [AZURE.NOTE]Cuando elimine elementos, debería considerar el uso de etiquetas ETag para garantizar que otro proceso no haya modificado el elemento. Vea [Cómo actualizar una entidad][] para obtener información acerca del uso de etiquetas ETag.
+> [AZURE.NOTE]Cuando elimine elementos, debería considerar el uso de etiquetas ETag para garantizar que otro proceso no haya modificado el elemento. Consulte [Actualizar una entidad](#update-an-entity) para obtener información acerca del uso de etiquetas ETag.
 
-## Eliminación de una tabla
+## una tabla
 
 El código siguiente elimina una tabla de la cuenta de almacenamiento.
 
@@ -317,7 +318,7 @@ Si no está seguro de si existe la tabla, use **deleteTableIfExists**.
 
 ## Usar tokens de continuación
 
-Cuando consulta tablas para grandes cantidades de resultados, debería buscar tokens de continuación. Puede haber grandes cantidades de datos disponibles para su consulta de los que podría no darse cuenta si no crear para reconocer cuando hay un token de continuación presente.
+Cuando consulte tablas para grandes cantidades de resultados, busque tokens de continuación. Puede haber grandes cantidades de datos disponibles para su consulta de los que podría no darse cuenta si no crear para reconocer cuando hay un token de continuación presente.
 
 El objeto de resultados devuelto al consultar los conjuntos de entidades establece una propiedad `continuationToken` cuando hay un token de este tipo presente. Entonces, podrá usarlo al realizar una consulta para continuar moviéndose por las entidades de tabla y partición.
 
@@ -344,7 +345,7 @@ Si inspecciona el objeto `continuationToken`, encontrará propiedades como `next
 
 También hay un ejemplo de continuación en el repositorio de Node.js de Almacenamiento de Azure en GitHub, busque `examples/samples/continuationsample.js`.
 
-## Trabajo con firmas de acceso compartido
+## firmas de acceso compartido
 
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a las tablas sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus datos, por ejemplo, para permitir que una aplicación móvil consulte registros.
 
@@ -449,4 +450,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

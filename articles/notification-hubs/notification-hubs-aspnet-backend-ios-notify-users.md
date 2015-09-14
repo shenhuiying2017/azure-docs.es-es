@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Notificación a los usuarios con los Centros de notificaciones de Azure" 
-	description="Aprenda a enviar notificaciones push a los usuarios en Azure. Ejemplos de código escritos en Objective-C con la API de .NET." 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Notificación a los usuarios con los Centros de notificaciones de Azure"
+	description="Aprenda a enviar notificaciones push a los usuarios en Azure. Ejemplos de código escritos en Objective-C con la API de .NET."
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="05/31/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Notificación a los usuarios con los Centros de notificaciones de Azure
@@ -39,15 +39,15 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 2. En Main.storyboard, agregue los componentes mostrados en la captura de pantalla siguiente desde la biblioteca de objetos.
 
     ![][1]
- 
-	+ **Nombre de usuario**: Campo de texto de la interfaz de usuario con texto de marcador de posición, *Escriba el nombre de usuario*, inmediatamente debajo de la etiqueta de resultados de envío y limitado a los márgenes izquierdo y derecho y por debajo de la etiqueta de envío de resultados. 
+
+	+ **Nombre de usuario**: Campo de texto de la interfaz de usuario con texto de marcador de posición, *Escriba el nombre de usuario*, inmediatamente debajo de la etiqueta de resultados de envío y limitado a los márgenes izquierdo y derecho y por debajo de la etiqueta de envío de resultados.
 	+ **Contraseña**: Campo de texto de la interfaz de usuario con texto de marcador de posición, *Escriba la contraseña*, inmediatamente debajo del campo de texto de no nombre de usuario y limitado a los márgenes izquierdo y derecho y por debajo del campo de texto del nombre de usuario. Active la opción **Entrada de texto seguro** en el Inspector de atributos, en *Devolver clave*.
 	+ **Iniciar sesión**: Botón de la interfaz de usuario inmediatamente debajo del campo de texto de contraseña y la opción **Habilitado** del Inspector de atributos, debajo de *Control-Content*
 	+ **WNS**: etiqueta y modificador para habilitar el envío de la notificación del Servicio de notificaciones de Windows si se ha instalado en el concentrador. Consulte el tutorial [introductorio de Windows](notification-hubs-windows-store-dotnet-get-started.md).
 	+ **GCM**: etiqueta y modificador para habilitar el envío de la notificación a Google Cloud Messaging si se ha instalado en el concentrador. Consulte el tutorial [introductorio de Android](notification-hubs-android-get-started.md).
 	+ **APNS**: etiqueta y modificador para habilitar el envío de la notificación al Servicio de notificaciones de la plataforma Apple.
 	+ **Nombre de usuario destinatario**: campo de texto de la interfaz de usuario con texto de marcador de posición, *Etiqueta de nombre de usuario destinatario*, inmediatamente debajo de la etiqueta GCM y limitado a los márgenes izquierdo y derecho y por debajo de la etiqueta GCM.
-	
+
 
 	Algunos componentes se agregaron al tutorial [Introducción a Centros de notificaciones (iOS)](notification-hubs-ios-get-started.md).
 
@@ -67,7 +67,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		@property (weak, nonatomic) IBOutlet UISwitch *GCMSwitch;
 		@property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
 
-		- (IBAction)LogInAction:(id)sender;		
+		- (IBAction)LogInAction:(id)sender;
 
 4. En ViewController.h, agregue el `#define` siguiente justo debajo de las instrucciones de importación. Sustituya el marcador de posición *<Escriba su extremo de back-end>* por la URL de destino utilizada para implementar el back-end de la aplicación en la sección anterior. Por ejemplo, **http://you_backend.azurewebsites.net*.
 
@@ -78,7 +78,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		@interface RegisterClient : NSObject
 
 		@property (strong, nonatomic) NSString* authenticationHeader;
-		
+
 		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags
 			andCompletion:(void(^)(NSError*))completion;
 
@@ -93,11 +93,11 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		@property (strong, nonatomic) NSURLSession* session;
 		@property (strong, nonatomic) NSURLSession* endpoint;
 
-		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry 
+		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry
 					andCompletion:(void(^)(NSError*))completion;
-		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token 
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token
 					completion:(void(^)(NSString*, NSError*))completion;
-		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSString*)token 
+		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSString*)token
 					tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion;
 
 		@end
@@ -108,7 +108,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		@implementation RegisterClient
 
 		// Globals used by RegisterClient
-		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";		
+		NSString *const RegistrationIdLocalStorageKey = @"RegistrationId";
 
 		-(instancetype) initWithEndpoint:(NSString*)Endpoint
 		{
@@ -121,23 +121,23 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		    return self;
 		}
 
-		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags 
+		-(void) registerWithDeviceToken:(NSData*)token tags:(NSSet*)tags
 					andCompletion:(void(^)(NSError*))completion
 		{
 		    [self tryToRegisterWithDeviceToken:token tags:tags retry:YES andCompletion:completion];
 		}
 
-		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry 
+		-(void) tryToRegisterWithDeviceToken:(NSData*)token tags:(NSSet*)tags retry:(BOOL)retry
 					andCompletion:(void(^)(NSError*))completion
 		{
 		    NSSet* tagsSet = tags?tags:[[NSSet alloc] init];
 
-		    NSString *deviceTokenString = [[token description] 
+		    NSString *deviceTokenString = [[token description]
 				stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""] 
+		    deviceTokenString = [[deviceTokenString stringByReplacingOccurrencesOfString:@" " withString:@""]
 									uppercaseString];
 
-		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString 
+		    [self retrieveOrRequestRegistrationIdWithDeviceToken: deviceTokenString
 				completion:^(NSString* registrationId, NSError *error) {
 		        NSLog(@"regId: %@", registrationId);
 		        if (error) {
@@ -145,7 +145,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		            return;
 		        }
 
-		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString 
+		        [self upsertRegistrationWithRegistrationId:registrationId deviceToken:deviceTokenString
 					tags:tagsSet andCompletion:^(NSURLResponse * response, NSError *error) {
 		            if (error) {
 		                completion(error);
@@ -160,7 +160,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		            } else {
 		                NSLog(@"Registration error with response status: %ld", (long)httpResponse.statusCode);
 
-		                completion([NSError errorWithDomain:@"Registration" code:httpResponse.statusCode 
+		                completion([NSError errorWithDomain:@"Registration" code:httpResponse.statusCode
 									userInfo:nil]);
 		            }
 
@@ -168,30 +168,30 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		    }];
 		}
 
-		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSData*)token 
+		-(void) upsertRegistrationWithRegistrationId:(NSString*)registrationId deviceToken:(NSData*)token
 					tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion
 		{
-		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token, 
+		    NSDictionary* deviceRegistration = @{@"Platform" : @"apns", @"Handle": token,
 													@"Tags": [tags allObjects]};
-		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration 
+		    NSData* jsonData = [NSJSONSerialization dataWithJSONObject:deviceRegistration
 								options:NSJSONWritingPrettyPrinted error:nil];
 
-		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData 
+		    NSLog(@"JSON registration: %@", [[NSString alloc] initWithData:jsonData
 												encoding:NSUTF8StringEncoding]);
 
-		    NSString* endpoint = [NSString stringWithFormat:@"%@/api/register/%@", _endpoint, 
+		    NSString* endpoint = [NSString stringWithFormat:@"%@/api/register/%@", _endpoint,
 									registrationId];
 		    NSURL* requestURL = [NSURL URLWithString:endpoint];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"PUT"];
 		    [request setHTTPBody:jsonData];
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
 													self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 		    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
-		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request 
-				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        if (!error)
 		        {
@@ -206,10 +206,10 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		    [dataTask resume];
 		}
 
-		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token 
+		-(void) retrieveOrRequestRegistrationIdWithDeviceToken:(NSString*)token
 					completion:(void(^)(NSString*, NSError*))completion
 		{
-		    NSString* registrationId = [[NSUserDefaults standardUserDefaults] 
+		    NSString* registrationId = [[NSUserDefaults standardUserDefaults]
 										objectForKey:RegistrationIdLocalStorageKey];
 
 		    if (registrationId)
@@ -219,28 +219,28 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		    }
 
 		    // request new one & save
-		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/register?handle=%@", 
+		    NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/api/register?handle=%@",
 									_endpoint, token]];
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
 													self.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request 
-				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+		    NSURLSessionDataTask* dataTask = [self.session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (!error && httpResponse.statusCode == 200)
 		        {
-		            NSString* registrationId = [[NSString alloc] initWithData:data 
+		            NSString* registrationId = [[NSString alloc] initWithData:data
 						encoding:NSUTF8StringEncoding];
 
 		            // remove quotes
-		            registrationId = [registrationId substringWithRange:NSMakeRange(1, 
+		            registrationId = [registrationId substringWithRange:NSMakeRange(1,
 										[registrationId length]-2)];
 
-		            [[NSUserDefaults standardUserDefaults] setObject:registrationId 
+		            [[NSUserDefaults standardUserDefaults] setObject:registrationId
 						forKey:RegistrationIdLocalStorageKey];
 		            [[NSUserDefaults standardUserDefaults] synchronize];
 
@@ -252,7 +252,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		            if (error)
 		                completion(nil, error);
 		            else {
-		                completion(nil, [NSError errorWithDomain:@"Registration" code:httpResponse.statusCode 
+		                completion(nil, [NSError errorWithDomain:@"Registration" code:httpResponse.statusCode
 									userInfo:nil]);
 		            }
 		        }
@@ -278,14 +278,14 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		@interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
 
 		// create the Authorization header to perform Basic authentication with your app back-end
-		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username 
+		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
 						AndPassword:(NSString*)password;
 
 		@end
 
 > [AZURE.NOTE]El siguiente fragmento de código no es un esquema de autenticación seguro; debe sustituir la implementación de **createAndSetAuthenticationHeaderWithUsername:AndPassword:** por el mecanismo de autenticación específico que genera un token de autenticación para ser consumido por la clase de cliente del registro, por ejemplo, OAuth, Active Directory.
 
-9. A continuación, en la sección `@implementation` de ViewController.m agregue el siguiente código que agrega la implementación para establecer el encabezado de autenticación y el token del dispositivo. 
+9. A continuación, en la sección `@implementation` de ViewController.m agregue el siguiente código que agrega la implementación para establecer el encabezado de autenticación y el token del dispositivo.
 
 		-(void) setDeviceToken: (NSData*) deviceToken
 		{
@@ -293,14 +293,14 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		    self.LogInButton.enabled = YES;
 		}
 
-		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username 
+		-(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
 						AndPassword:(NSString*)password;
 		{
 		    NSString* headerValue = [NSString stringWithFormat:@"%@:%@", username, password];
 
 		    NSData* encodedData = [[headerValue dataUsingEncoding:NSUTF8StringEncoding] base64EncodedDataWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
 
-		    self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData 
+		    self.registerClient.authenticationHeader = [[NSString alloc] initWithData:encodedData
 														encoding:NSUTF8StringEncoding];
 		}
 
@@ -322,10 +322,10 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		    [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
 
 		    __weak ViewController* selfie = self;
-		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil 
+		    [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil
 				andCompletion:^(NSError* error) {
 		        if (!error) {
-		            dispatch_async(dispatch_get_main_queue(), 
+		            dispatch_async(dispatch_get_main_queue(),
 					^{
 		                selfie.SendNotificationButton.enabled = YES;
 		                [self MessageBox:@"Success" message:@"Registered successfully!"];
@@ -335,38 +335,38 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		}
 
 
-		- (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag 
+		- (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag
 					Message:(NSString*)message
 		{
 		    NSURLSession* session = [NSURLSession
 		    	sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil
 		        delegateQueue:nil];
-		    
+
 			// Pass the pns and username tag as parameters with the REST URL to the ASP.NET backend
-		    NSURL* requestURL = [NSURL URLWithString:[NSString 
-				stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns, 
+		    NSURL* requestURL = [NSURL URLWithString:[NSString
+				stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns,
 				usernameTag]];
 
 		    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
 		    [request setHTTPMethod:@"POST"];
 
 			// Get the mock authenticationheader from the register client
-		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", 
+		    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",
 				self.registerClient.authenticationHeader];
 		    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
-		    
+
 		    //Add the notification message body
 		    [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 		    [request setHTTPBody:[message dataUsingEncoding:NSUTF8StringEncoding]];
-		    
+
 			// Execute the send notification REST API on the ASP.NET Backend
-		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request 
-				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) 
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
 		        if (error || httpResponse.statusCode != 200)
 		        {
-		            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n", 
+		            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n",
 										pns, httpResponse.statusCode, error];
 		            dispatch_async(dispatch_get_main_queue(),
 		            ^{
@@ -375,13 +375,13 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		            });
 		            NSLog(status);
 		        }
-		        
+
 		        if (data != NULL)
 		        {
 		            xmlParser = [[NSXMLParser alloc] initWithData:data];
 		            [xmlParser setDelegate:self];
 		            [xmlParser parse];
-		        }		    
+		        }
 			}];
 		    [dataTask resume];
 		}
@@ -400,20 +400,20 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		-(void)SendToEnabledPlatforms
 		{
 		    NSString* json = [NSString stringWithFormat:@""%@"",self.notificationMessage.text];
-		    
+
 			[self.sendResults setText:@""];
 
 		    if ([self.WNSSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"wns" UsernameTag:self.RecipientField.text Message:json];
-		
+
 		    if ([self.GCMSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"gcm" UsernameTag:self.RecipientField.text Message:json];
-		
+
 		    if ([self.APNSSwitch isOn])
 		        [self SendNotificationASPNETBackend:@"apns" UsernameTag:self.RecipientField.text Message:json];
 		}
-		
-		
+
+
 
 11. En la función **ViewDidLoad**, agregue el siguiente código para crear una instancia de RegisterClient y establezca el delegado para sus campos de texto.
 
@@ -427,8 +427,8 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 		// Add import to the top of the file
 		#import "ViewController.h"
 
-	    - (void)application:(UIApplication *)application 
-	    			didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken 
+	    - (void)application:(UIApplication *)application
+	    			didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 	    {
 		    ViewController* rvc = (ViewController*) self.window.rootViewController;
 		    rvc.deviceToken = deviceToken;
@@ -464,6 +464,5 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 [2]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-user-pwd.png
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Aplicación de Node.js con Socket.io | Microsoft Azure" 
-	description="Aprenda a usar socket.io en una aplicación node.js hospedada en Azure." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Aplicación de Node.js con Socket.io | Microsoft Azure"
+	description="Aprenda a usar socket.io en una aplicación node.js hospedada en Azure."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -28,6 +28,14 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ![Una ventana del explorador que muestra el servicio hospedado en Azure][completed-app]
 
+## Requisitos previos
+
+Asegúrese de que los siguientes productos y versiones están instalados para completar correctamente el ejemplo de este artículo:
+
+* Instalar [Visual Studio 2013](https://www.visualstudio.com/es-ES/downloads/download-visual-studio-vs.aspx)
+* Instalar [Node.js](https://nodejs.org/download/)
+* Instalar [Python versión 2.7.10](https://www.python.org/)
+
 ## Creación de un proyecto de servicio en la nube
 
 Los siguientes pasos le ayudarán a crear el proyecto de servicio en la nube que hospedará la aplicación de Socket.IO.
@@ -36,11 +44,15 @@ Los siguientes pasos le ayudarán a crear el proyecto de servicio en la nube que
 
 	![Icono de Azure PowerShell][powershell-menu]
 
-	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
+2. Cree un directorio denominado **c:\\node**.
+ 
+		PS C:\> md node
 
+3. Cambiar los directorios al directorio **c:\\node**
+ 
+		PS C:\> cd node
 
-
-2. Cambie los directorios por el directorio **c:\\\\node** y, a continuación, escriba los siguientes comandos para crear una solución nueva llamada **chatapp** y un rol de trabajo con el nombre **WorkerRole1**:
+4. Escriba los siguientes comandos para crear una solución nueva llamada **chatapp** y un rol de trabajo con el nombre **WorkerRole1**:
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -57,19 +69,19 @@ Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO Gi
 
     ![Ventana de explorador con https://github.com/LearnBoost/socket.io/tree/master/examples/chat, y el icono de descarga ZIP resaltado][chat-example-view]
 
-3.  Diríjase a la estructura de directorios del repositorio local hasta que llegue al directorio **examples\\\\chat**. Copie el contenido de este directorio al directorio **C:\\\\node\\\\chatapp\\\\WorkerRole1** creado anteriormente.
+3.  Diríjase a la estructura de directorios del repositorio local hasta que llegue al directorio **examples\\\chat**. Copie el contenido de este directorio al directorio **C:\\\node\\\chatapp\\\WorkerRole1** creado anteriormente.
 
     ![Explorador que muestra el contenido del directorio examples\\chat extraído del archivo][chat-contents]
 
-    Los elementos resaltados en la captura de pantalla anterior son los archivos que se copiaron del directorio **examples\\\\chat**.
+    Los elementos resaltados en la captura de pantalla anterior son los archivos que se copiaron del directorio **examples\\\chat**.
 
-4.  En el directorio **C:\\\\node\\\\chatapp\\\\WorkerRole1**, elimine el archivo **server.js** y, a continuación, cambie el nombre del archivo **app.js** a **server.js**. De esta manera se quita el archivo predeterminado **server.js** que se creó anteriormente a través del cmdlet **Add-AzureNodeWorkerRole** y se reemplaza por el archivo de aplicación del ejemplo de chat.
+4.  En el directorio **C:\\\node\\\chatapp\\\WorkerRole1**, elimine el archivo **server.js** y, a continuación, cambie el nombre del archivo **app.js** a **server.js**. De esta manera se quita el archivo predeterminado **server.js** que se creó anteriormente a través del cmdlet **Add-AzureNodeWorkerRole** y se reemplaza por el archivo de aplicación del ejemplo de chat.
 
 ### Modificar el archivo server.js e instalar los módulos
 
 Antes de probar la aplicación en el emulador de Azure, se deben realizar algunas modificaciones menores. Realice los siguientes pasos en el archivo server.js:
 
-1.  Abra el archivo server.js en el Bloc de notas u otro editor de texto.
+1.  Abra el archivo **server.js** en Visual Studio o en cualquier editor de texto.
 
 2.  Busque la sección **Module dependencies** al comienzo del archivo server.js y cambie la línea que contiene **sio = require('..//..//lib//socket.io')** por **sio = require('socket.io')** como se muestra a continuación:
 
@@ -87,9 +99,9 @@ Antes de probar la aplicación en el emulador de Azure, se deben realizar alguna
 		  console.log('   app listening on http://' + addr.address + ':' + addr.port);
 		});
 
-Después de guardar los cambios en server.js, use los siguientes pasos para instalar los módulos necesarios y, a continuación, pruebe la aplicación en el emulador de Azure:
+Después de guardar los cambios en **server.js**, use los siguientes pasos para instalar los módulos necesarios y, a continuación, pruebe la aplicación en el emulador de Azure:
 
-1.  Mediante **PowerShell de Azure**, cambie los directorios al directorio **C:\\\\node\\\\chatapp\\\\WorkerRole1** y use el siguiente comando para instalar los módulos necesarios para esta aplicación:
+1.  Mediante **PowerShell de Azure**, cambie los directorios al directorio **C:\\\node\\\chatapp\\\WorkerRole1** y use el siguiente comando para instalar los módulos necesarios para esta aplicación:
 
         PS C:\node\chatapp\WorkerRole1> npm install
 
@@ -107,7 +119,9 @@ Después de guardar los cambios en server.js, use los siguientes pasos para inst
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  Cuando se abra la ventana del explorador, escriba un alias y luego presione Entrar. De esta manera podrá publicar mensajes con un alias específico. Para probar la funcionalidad multiusuario, abra ventanas del explorador adicionales con la misma dirección URL y escriba diferentes alias.
+2.  Abra un explorador y navegue a ****http://127.0.0.1**.
+
+3.  Cuando se abra la ventana del explorador, escriba un alias y luego presione Entrar. De esta manera podrá publicar mensajes con un alias específico. Para probar la funcionalidad multiusuario, abra ventanas del explorador adicionales con la misma dirección URL y escriba diferentes alias.
 
     ![Dos ventanas de explorador que muestran mensajes de chat de User1 y User2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 
@@ -158,4 +172,4 @@ En este tutorial aprendió a crear una aplicación de chat básica hospedada en 
   
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

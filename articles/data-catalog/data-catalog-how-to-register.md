@@ -1,20 +1,20 @@
 <properties
    pageTitle="Registro de orígenes de datos"
-   description="Artículo de procedimientos que destaca cómo registrar orígenes de datos con el Catálogo de datos de Azure, incluidos los campos de metadatos que se extraen y los orígenes de datos que se admiten durante la vista previa."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="Artículo de procedimientos que destaca cómo registrar orígenes de datos con el Catálogo de datos de Azure, incluidos los campos de metadatos que se extraen y los orígenes de datos que se admiten durante la vista previa."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="08/19/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/25/2015"
+	ms.author="maroche"/>
 
 
 # Registro de orígenes de datos
@@ -36,6 +36,7 @@ En la vista previa actual, el **Catálogo de datos de Azure** admite el registro
 * Tablas de modo tabular de SQL Server Analysis Services
 * Informes de SQL Server Reporting Services
 * Directorios y los blobs de almacenamiento de Azure
+* Archivos y directorios HDFS
 
 > [AZURE.NOTE]El soporte de SQL Server incluye también Base de datos SQL de Microsoft Azure.
 
@@ -63,4 +64,4 @@ Al volver a registrar un origen de datos ya registrado se realiza una operación
 ## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure** se facilita la detección y comprensión de ese origen de datos, copiando los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Una vez registrado un origen de datos, se puede anotar, administrar y detectar mediante el portal **Catálogo de datos de Azure**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

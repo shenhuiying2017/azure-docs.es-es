@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introducción a Microsoft Azure DocumentDB: prueba gratuita | Microsoft Azure" 
-	description="Obtenga información acerca de Azure DocumentDB, una base de datos de documentos NoSQL y su valor para aplicaciones en la nube y móviles. Aprenda también cómo administra datos y cómo puede usarla en el desarrollo de aplicaciones." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+	pageTitle="Introducción a Microsoft Azure DocumentDB: prueba gratuita | Microsoft Azure"
+	description="Obtenga información acerca de Azure DocumentDB, una base de datos de documentos NoSQL y su valor para aplicaciones en la nube y móviles. Aprenda también cómo administra datos y cómo puede usarla en el desarrollo de aplicaciones."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mimig"/>
 
 # Introducción a DocumentDB de Microsoft Azure
@@ -103,7 +103,6 @@ Si no tiene una cuenta de Azure, puede:
 
 - Si es la primera vez que usa Azure, regístrese para una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/), que le proporciona 30 días y 200 USD para que pruebe todos los servicios de Azure. 
 - Si tiene una suscripción a MSDN, puede recibir [150 USD en créditos gratis de Azure al mes](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) para usarlos en cualquier servicio de Azure. 
-- O bien, si desea probar DocumentDB gratis durante 30 días, sin que sea necesaria una tarjeta de crédito, envíe un mensaje de correo electrónico a askdocdb@microsoft.com con el asunto "Documentation Introduction, Azure Trial" (Introducción a la documentación: prueba de Azure), y le responderemos con un código promocional mientras duren las existencias.
 
 A continuación, cuando esté listo para obtener más información, visite nuestra [ruta de aprendizaje](http://azure.microsoft.com/documentation/learning-paths/documentdb/) para navegar por todos los recursos de aprendizaje disponibles.
 
@@ -111,4 +110,4 @@ A continuación, cuando esté listo para obtener más información, visite nuest
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

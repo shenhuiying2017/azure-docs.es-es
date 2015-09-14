@@ -1,19 +1,19 @@
 <properties 	
-	pageTitle="Factoría de datos de Azure: ejemplos" 
-	description="Proporciona detalles sobre ejemplos que se distribuyen con el servicio Factoría de datos de Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Factoría de datos de Azure: ejemplos"
+	description="Proporciona detalles sobre ejemplos que se distribuyen con el servicio Factoría de datos de Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="spelluru"/>
 
 # Factoría de datos de Azure: ejemplos
@@ -54,6 +54,9 @@ Generación de perfiles de clientes de juegos | Contoso es una empresa de juegos
 ## Ejemplos en GitHub
 El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Factoría de datos de Azure (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\\JSON contiene fragmentos de JSON para escenarios comunes.
 
+## Enviar comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-samples.md).
+
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notas de la versión de Application Insights" 
-	description="Las actualizaciones más recientes." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Notas de la versión de Application Insights para .NET"
+	description="Las actualizaciones más recientes."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/06/2015"
 	ms.author="sergkanz"/>
  
 # Notas de la versión del SDK de Application Insights para .NET
@@ -86,4 +86,4 @@ No existen notas de la versión para versiones anteriores.
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

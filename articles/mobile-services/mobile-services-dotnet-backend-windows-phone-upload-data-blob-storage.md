@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso de Servicios móviles para cargar imágenes en el almacenamiento de blobs (Windows Phone) | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en el almacenamiento de blobs de Azure." 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	services="mobile-services,storage" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso de Servicios móviles para cargar imágenes en el almacenamiento de blobs (Windows Phone) | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en el almacenamiento de blobs de Azure."
+	documentationCenter="windows"
+	authors="ggailey777"
+	services="mobile-services,storage"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
@@ -27,7 +27,7 @@ No puede distribuir de manera segura con la aplicación cliente las credenciales
 
 En este tutorial agrega funcionalidad al [proyecto de aplicación de ejemplo GetStartedWithData](mobile-services-dotnet-backend-windows-phone-get-started-data.md) para tomar fotografías y cargar las imágenes a Azure a través de una SAS generada por Servicios móviles.
 
-##Requisitos previos 
+##Requisitos previos
 
 Este tutorial requiere lo siguiente:
 
@@ -54,7 +54,7 @@ Para poder utilizar una SAS para cargar imágenes de su aplicación en el almace
   	Con esto se agrega la biblioteca de clientes para servicios de almacenamiento de Azure al proyecto.
 
 [AZURE.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
- 
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -78,7 +78,4 @@ Para poder utilizar una SAS para cargar imágenes de su aplicación en el almace
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [SDK de Windows Phone 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Instalación de la actualización 1 en el dispositivo StorSimple | Microsoft Azure"
-   description="Explica cómo instalar la actualización 1 de la serie StorSimple 8000 Series en un dispositivo."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+	description="Explica cómo instalar la actualización 1 de la serie StorSimple 8000 Series en un dispositivo."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Instalar la actualización 1 en el dispositivo StorSimple
 
@@ -100,4 +100,4 @@ Si ha comprobado que existe conectividad y sigue apareciendo este problema, pón
 
 Más información acerca de [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

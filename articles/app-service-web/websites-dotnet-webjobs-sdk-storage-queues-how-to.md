@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del almacenamiento de colas de Azure con el SDK de WebJobs" 
-	description="Obtenga información sobre cómo usar el almacenamiento de colas de Azure con el SDK de WebJobs. Cree y elimine colas; inserte, inspeccione, obtenga y elimine mensajes de la cola y mucho más." 
-	services="app-service\web, storage" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Uso del almacenamiento de colas de Azure con el SDK de WebJobs"
+	description="Obtenga información sobre cómo usar el almacenamiento de colas de Azure con el SDK de WebJobs. Cree y elimine colas; inserte, inspeccione, obtenga y elimine mensajes de la cola y mucho más."
+	services="app-service\web, storage"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/29/2015"
 	ms.author="tdykstra"/>
 
 # Uso del almacenamiento de colas de Azure con el SDK de WebJobs
@@ -538,7 +538,12 @@ Para escribir [registros de seguimiento de aplicación](web-sites-dotnet-trouble
 
 El resultado de la consola aparece en el Panel solo si el programa se ejecuta en un Azure WebJob, no si el programa se ejecuta localmente o en algún otro entorno.
 
-Puede deshabilitar el registro [definiendo la cadena de conexión del panel en Null](#config).
+Deshabilite el registro del panel para escenarios de alto rendimiento. De forma predeterminada, el SDK escribe registros en el almacenamiento y esta actividad puede reducir el rendimiento cuando se procesan muchos mensajes. Para deshabilitar el registro, establezca la cadena de conexión del panel en un valor nulo como se muestra en el ejemplo siguiente.
+
+		JobHostConfiguration config = new JobHostConfiguration();       
+		config.DashboardConnectionString = “”;        
+		JobHost host = new JobHost(config);
+		host.RunAndBlock();
 
 En el ejemplo siguiente se muestran varias maneras de escribir registros:
 
@@ -581,4 +586,4 @@ Y en una tabla de Azure, los registros de `Console.Out` y `Console.Error` tienen
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

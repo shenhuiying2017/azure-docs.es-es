@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -44,7 +44,7 @@ Esta es la aplicación completada:
 
 ## Requisitos previos
 
-Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener instalados los siguientes elementos:
+Antes de seguir las instrucciones del presente artículo, asegúrese de tener instalados los siguientes elementos:
 
 * [node] versión 0.10.24 o superior
 
@@ -86,7 +86,7 @@ En esta sección podrá crear una nueva aplicación Node y usar npm para agregar
 
 		sudo npm install express-generator@4.2.0 -g
 
-    La salida debe ser similar a la siguiente:
+    El resultado es similar al ejemplo siguiente:
 
 		express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
 		├── mkdirp@0.3.5
@@ -98,7 +98,7 @@ En esta sección podrá crear una nueva aplicación Node y usar npm para agregar
 
         express
 
-	El resultado de este comando debe ser similar al siguiente:
+	El resultado de este comando es similar al ejemplo siguiente:
 
 		   create : .
 		   create : ./package.json
@@ -124,7 +124,7 @@ En esta sección podrá crear una nueva aplicación Node y usar npm para agregar
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
-	Debe tener varios directorios y archivos nuevos en el directorio **tasklist**.
+	Ahora debe tener varios directorios y archivos nuevos en el directorio **tasklist**.
 
 ### Instalar módulos adicionales
 
@@ -134,7 +134,7 @@ En la línea de comandos, escriba el siguiente comando para instalar los módulo
 
     npm install
 
-El resultado de este comando debe ser similar al siguiente:
+El resultado de este comando es similar al ejemplo siguiente:
 
 	debug@0.7.4 node_modules\debug
 
@@ -145,13 +145,13 @@ El resultado de este comando debe ser similar al siguiente:
     [...]
 
 
-A continuación, escriba el siguiente comando para instalar los módulos [azure], [node-uuid], [nconf] y [async]:
+A continuación, escriba el siguiente comando para instalar los módulos [azure], [node-uuid], [nconf] y [async]\:
 
 	npm install azure-storage node-uuid async nconf --save
 
 La marca **--save** agrega entradas para estos módulos en el archivo **package.json**.
 
-El resultado de este comando debe ser similar al siguiente:
+El resultado de este comando es similar al ejemplo siguiente:
 
 	async@0.9.0 node_modules\async
 
@@ -409,7 +409,7 @@ Un *controlador* administra las solicitudes HTTP y procesa la respuesta HTML.
 
 El archivo **layout.jade** del directorio **views** es una plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar [Twitter Bootstrap](https://github.com/twbs/bootstrap), un kit de herramientas que facilita el diseño de una aplicación web atractiva.
 
-Descargue y extraiga los archivos para [Twitter Bootstrap](http://getbootstrap.com/). Copie el archivo **bootstrap.min.css** desde la carpeta Bootstrap **css** al directorio **public\stylesheets** de su aplicación.
+Descargue y extraiga los archivos para [Twitter Bootstrap](http://getbootstrap.com/). Copie el archivo **bootstrap.min.css** desde la carpeta Bootstrap **css** al directorio **public\\stylesheets** de su aplicación.
 
 En la carpeta **views**, abra **layout.jade** y reemplace todo el contenido por lo siguiente:
 
@@ -466,16 +466,17 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
 
 3. Abra el explorador web y navegue a http://127.0.0.1:3000.
 
-Debería ver una página web similar a la siguiente:
+	Aparecerá una página web similar a la del ejemplo siguiente.
 
-![Página web que muestra una lista de tareas vacía][node-table-finished]
+	![Página web que muestra una lista de tareas vacía][node-table-finished]
 
-Para crear un nuevo elemento de tarea pendiente, escriba un nombre y una categoría y haga clic en **Agregar elemento**. Para marcar una tarea como completa, marque **Completado** y haga clic en **Actualizar tareas**.
+4. Para crear un nuevo elemento de tarea pendiente, escriba un nombre y una categoría y haga clic en **Agregar elemento**.
 
-![Imagen del elemento nuevo en la lista de tareas][node-table-list-items]
+6. Para marcar una tarea como completa, marque **Completado** y haga clic en **Actualizar tareas**.
+
+	![Imagen del elemento nuevo en la lista de tareas][node-table-list-items]
 
 Aunque la aplicación se ejecuta localmente, almacena los datos en el servicio Tabla de Azure.
-
 
 ## Implementación de su aplicación en Azure
 
@@ -485,7 +486,7 @@ En los pasos de esta sección se usan las herramientas de línea de comandos de 
 >
 > Si esta es la primera aplicación web que crea, debe usar el Portal de Azure para implementarla.
 
-Para empezar, instale la [Interfaz de línea de comandos de Azure] escribiendo el siguiente comando desde la línea de comandos:
+Para empezar, instale la [CLI de Azure] escribiendo el siguiente comando desde la línea de comandos:
 
 	npm install azure-cli -g
 
@@ -509,7 +510,7 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 
 	Especifique la ruta y el nombre de archivo del archivo de configuración de publicación que descargó en el paso anterior.
 
-3. Después de importar la configuración, debe eliminar el archivo de configuración de publicación. Ya no es necesario y contiene información confidencial relacionada con su suscripción de Azure.
+3. Después de importar la configuración, elimine el archivo de configuración de publicación. Ya no es necesario y contiene información confidencial relacionada con su suscripción de Azure.
 
 ### Crear una aplicación web del Servicio de aplicaciones
 
@@ -584,7 +585,7 @@ Para publicar la aplicación, confirme los archivos de código en Git y, a conti
 
 		git push azure master
 
-	Utilice **master** como bifurcación de destino. Al final de la implementación debiera ver una instrucción similar a la siguiente:
+	Utilice **master** como bifurcación de destino. Al final de la implementación se verá una instrucción similar a la siguiente:
 
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
@@ -598,11 +599,11 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 
 ## Recursos adicionales
 
-[Interfaz de línea de comandos de Azure]
+[CLI de Azure]
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [Compilación e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure]: web-sites-nodejs-develop-deploy-mac.md
 [Desarrollo e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure]: web-sites-nodejs-develop-deploy-mac.md
@@ -617,7 +618,7 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [Git remoto]: http://git-scm.com/docs/git-remote
 
 [Aplicación web Node.js con MongoDB]: web-sites-nodejs-store-data-mongodb.md
-[Azure CLI]: ../xplat-cli.md
+[CLI de Azure]: ../xplat-cli.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -644,4 +645,4 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

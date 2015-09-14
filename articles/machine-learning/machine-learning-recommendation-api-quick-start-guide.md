@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Guía de inicio rápido: API de recomendaciones de Aprendizaje automático | Microsoft Azure" 
-	description="Recomendaciones de aprendizaje automática de Azure - Guía de inicio rápido" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Guía de inicio rápido: API de recomendaciones de Aprendizaje automático | Microsoft Azure"
+	description="Recomendaciones de aprendizaje automática de Azure - Guía de inicio rápido"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 # Guía de inicio rápido para la API de recomendaciones de Aprendizaje automático
@@ -40,9 +40,9 @@ Todos los pasos anteriores se realizan a través de la API de recomendaciones de
 
 * El número máximo de modelos por suscripción es 10.
 * El número máximo de elementos que puede contener un catálogo es 100 000.
-* El número máximo de puntos de uso que se mantienen es \~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
+* El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
 * El tamaño máximo de datos que puede enviarse en POST (por ejemplo, importar datos de catálogo, importar datos de uso) es de 200 MB
-* El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es \~ 2TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
+* El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es ~ 2TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
 
 ##Integración
 
@@ -673,4 +673,4 @@ XML de OData
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

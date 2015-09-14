@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="08/28/2015"
 	ms.author="kathydav"/>
 
 # Restablecimiento de una contraseña o de SSH para máquinas virtuales de Linux #
 
-Si no puede conectarse a una máquina virtual Linux debido a una contraseña olvidada, una clave incorrecta de Shell seguro (SSH) o un problema con la configuración de SSH, utilice el Portal de vista previa de Azure o la extensión VMAccessForLinux para restablecer la contraseña o la clave SSH, o para corregir la configuración de SSH.
+Si no puede conectarse a una máquina virtual Linux debido a una contraseña olvidada, una clave incorrecta de Shell seguro (SSH) o un problema con la configuración de SSH, utilice el Portal de vista previa de Azure o la extensión VMAccessForLinux para restablecer la contraseña o la clave SSH, o para corregir la configuración de SSH. Tenga en cuenta que este artículo se aplica a las máquinas virtuales creadas con el modelo de implementación **Clásica**.
 
 ## Portal de vista previa de Azure
 
@@ -261,6 +262,5 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 [Instalación y configuración de Azure PowerShell]: ../install-configure-powershell.md
 [Características y extensiones de máquina virtual de Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conexión a una máquina virtual de Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

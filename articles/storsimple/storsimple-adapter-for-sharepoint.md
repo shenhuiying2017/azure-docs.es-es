@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Adaptador de StorSimple para SharePoint | Microsoft Azure"
-   description="Describe cómo instalar el adaptador de StorSimple para SharePoint en una granja de servidores de SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Describe cómo instalar y configurar el adaptador de StorSimple para SharePoint en una granja de servidores de SharePoint."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# Adaptador de StorSimple para SharePoint
+# Instalar y configurar el adaptador de StorSimple para SharePoint
 
 ## Información general
 
@@ -238,6 +238,6 @@ Utilice el siguiente procedimiento para actualizar el servidor de SharePoint y l
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/es-es/library/ff943565.aspx
+[8]: https://technet.microsoft.com/es-ES/library/ff943565.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Tamaños de los servicios en la nube" 
- description="Enumera los diferentes tamaños para los roles web y de trabajo del servicio en la nube de Azure." 
- services="cloud-services" 
- documentationCenter="" 
- authors="Thraka" 
- manager="timlt" 
- editor=""/>
+ pageTitle="Tamaños de los servicios en la nube"
+	description="Enumera los diferentes tamaños para los roles web y de trabajo del servicio en la nube de Azure."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="cloud-services" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="na" 
- ms.workload="tbd"
- ms.date="06/04/2015" 
- ms.author="adegeo"/>
+ ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="09/01/2015"
+	ms.author="adegeo"/>
  
 # Tamaños de los servicios en la nube
 
@@ -76,4 +76,4 @@ El siguiente es un ejemplo de cómo establecer que el tamaño del rol sea peque�
 
 [Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

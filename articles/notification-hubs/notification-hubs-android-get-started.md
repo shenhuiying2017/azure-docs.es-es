@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2015"
+	ms.date="09/01/2015"
 	ms.author="wesmc"/>
 
 # Introducción a los Centros de notificaciones
@@ -104,6 +104,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 		private NotificationHub hub;
     	private String HubName = "<Enter Your Hub Name>";
 		private String HubListenConnectionString = "<Your default listen connection string>";
+	    private static Boolean isVisible = false;
 
 
 	Asegúrese de actualizar los tres marcadores de posición: * **SENDER\_ID**: defina `SENDER_ID` en el número de proyecto que obtuvo anteriormente desde el proyecto que creó en la [Consola de la nube de Google](http://cloud.google.com/console). * **HubListenConnectionString**: defina `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión con un clic en **Ver cadena de conexión** en la pestaña **Panel** del centro en el [Portal de Azure]. * **HubName**: el nombre del centro de notificaciones que aparece en la parte superior de la página en Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
@@ -139,6 +140,21 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
     	}
 
 
+7. Agregue el método **DialogNotify** a la actividad para mostrar la notificación cuando la aplicación se está ejecutando y visible. Invalide también **onStart** y **onStop** para determinar si la actividad está visible para mostrar el cuadro de diálogo.
+
+	    @Override
+	    protected void onStart() {
+	        super.onStart();
+	        isVisible = true;
+	    }
+	
+	    @Override
+	    protected void onStop() {
+	        super.onStop();
+	        isVisible = false;
+	    }
+
+
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
 		  * when there's an exception or message to report.
@@ -148,6 +164,9 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 		  */
     	public void DialogNotify(final String title,final String message)
     	{
+	        if (isVisible == false)
+	            return;
+
         	final AlertDialog.Builder dlg;
         	dlg = new AlertDialog.Builder(this);
 
@@ -170,7 +189,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
         	});
     	}
 
-7. Puesto que Android no muestra las notificaciones, debe escribir su propio receptor. En **AndroidManifest.xml**, agregue el siguiente elemento dentro del elemento `<application>`.
+8. Puesto que Android no muestra las notificaciones, debe escribir su propio receptor. En **AndroidManifest.xml**, agregue el siguiente elemento dentro del elemento `<application>`.
 
 	> [AZURE.NOTE]Reemplace el marcador de posición por el nombre del paquete.
 
@@ -183,14 +202,14 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
         </receiver>
 
 
-8. En la vista de proyecto, expanda **app** -> **src** -> **main** -> **java**. Haga clic con el botón derecho en la carpeta del paquete en **java**, haga clic en **Nuevo** y, a continuación, haga clic en **Clase Java**.
+9. En la vista de proyecto, expanda **app** > **src** > **main** > **java**. Haga clic con el botón derecho en la carpeta del paquete en **java**, haga clic en **Nuevo** y, a continuación, haga clic en **Clase Java**.
 
 	![][6]
 
-9. En el campo **Nombre** de la nueva clase, escriba **MyHandler** y, luego, haga clic en **Aceptar**.
+10. En el campo **Nombre** de la nueva clase, escriba **MyHandler** y, luego, haga clic en **Aceptar**.
 
 
-10. Agregue las siguientes instrucciones import en la parte superior de **MyHandler.java**:
+11. Agregue las siguientes instrucciones import en la parte superior de **MyHandler.java**:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -201,12 +220,12 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-11. Actualice la declaración de clase de la siguiente manera para hacer de `MyHandler` una subclase de `com.microsoft.windowsazure.notifications.NotificationsHandler`, tal como se muestra a continuación.
+12. Actualice la declaración de clase de la siguiente manera para hacer de `MyHandler` una subclase de `com.microsoft.windowsazure.notifications.NotificationsHandler`, tal como se muestra a continuación.
 
 		public class MyHandler extends NotificationsHandler {
 
 
-12. Agregue el siguiente código para la clase `MyHandler`.
+13. Agregue el siguiente código para la clase `MyHandler`.
 
 	Este código reemplaza al método `OnReceive`, por lo que el controlador generará una ventana emergente con `AlertDialog` para mostrar las notificaciones recibidas. El controlador también envía la notificación al administrador de notificaciones de Android con el método `sendNotification()`.
 
@@ -245,7 +264,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-13. En la barra de menú de Android Studio, haga clic en **Build** (Compilar) -> **Rebuild Project** (Recompilar proyecto) para asegurarse de que no se detectan errores.
+14. En la barra de menú de Android Studio, haga clic en **Build** (Compilar) -> **Rebuild Project** (Recompilar proyecto) para asegurarse de que no se detectan errores.
 
 ##Envío de notificaciones
 
@@ -511,4 +530,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

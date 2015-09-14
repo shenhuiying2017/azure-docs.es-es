@@ -29,7 +29,7 @@ Las tareas de inicio son acciones que se emprenden antes de comenzar los roles y
 
 Las variables de entorno pasan información a una tarea de inicio y el almacenamiento local puede usarse para pasar información de una tarea de inicio. Por ejemplo, una variable de entorno puede especificar la ruta de acceso a un programa que quiera instalar, los archivos pueden escribirse en un almacenamiento local desde donde los roles los pueden leer más tarde.
 
-La tarea de inicio puede registrar información y errores en el directorio especificado por la variable de entorno **TEMP**. Durante la tarea de inicio, la variable de entorno **TEMP** se resuelve en el directorio *C:\\Resources\\temp\[guid]. [ roleName] \\RoleTemp* cuando se ejecutan en la nube.
+La tarea de inicio puede registrar información y errores en el directorio especificado por la variable de entorno **TEMP**. Durante la tarea de inicio, la variable de entorno **TEMP** se resuelve en el directorio *C:\\Resources\\temp\\[guid]. [ roleName] \\RoleTemp* cuando se ejecutan en la nube.
 
 Las tareas de inicio también se puede ejecutar varias veces entre reinicios. Por ejemplo, se ejecutará la tarea de inicio cada vez que el rol se recicla y los reciclajes de rol pueden no incluir siempre un reinicio. Las tareas de inicio deben escribirse de forma que les sea posible ejecutarse varias veces sin problemas.
 
@@ -68,9 +68,9 @@ En este ejemplo, una variable de entorno **MyVersionNumber**, se crea para la ta
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
-    <Environment>
-        <Variable name="MyVersionNumber" value="1.0.0.0" />
-    </Environment>
+        <Environment>
+            <Variable name="MyVersionNumber" value="1.0.0.0" />
+        </Environment>
     </Task>
 </Startup>
 ```
@@ -132,24 +132,24 @@ Por ejemplo, para crear una variable de entorno que sea "**true**" cuando se eje
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple">
-    <Environment>
-
-        <!-- Create the environment variable that informs the startup task whether it is running
-            in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
-            running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
-            in the cloud. -->
-
-        <Variable name="ComputeEmulatorRunning">
-            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
-        </Variable>
-
-    </Environment>
+        <Environment>
+    
+            <!-- Create the environment variable that informs the startup task whether it is running
+                in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
+                running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
+                in the cloud. -->
+    
+            <Variable name="ComputeEmulatorRunning">
+                <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+            </Variable>
+    
+        </Environment>
     </Task>
 </Startup>
 ```
 
 ## Pasos siguientes
-Aprenda a realizar algunas [tareas de inicio comunes](cloud-services-common-startup-tasks.md) con el servicio en la nube.
+Aprenda a realizar algunas [tareas de inicio comunes](cloud-services-startup-tasks-common.md) con el servicio en la nube.
 
 [Empaquete](cloud-services-model-and-package.md) el servicio en la nube.
 
@@ -163,4 +163,4 @@ Aprenda a realizar algunas [tareas de inicio comunes](cloud-services-common-star
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

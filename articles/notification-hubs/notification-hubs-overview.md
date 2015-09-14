@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Centros de notificaciones de Azure" 
-	description="Aprenda a usar las notificaciones de inserción en Azure. Ejemplos de código escritos en C# con la API de .NET." 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
-	services="notification-hubs" 
+<properties
+	pageTitle="Centros de notificaciones de Azure"
+	description="Aprenda a usar las notificaciones de inserción en Azure. Ejemplos de código escritos en C# con la API de .NET."
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
+	services="notification-hubs"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 
@@ -94,7 +94,7 @@ Los Centros de notificaciones eliminan la complejidad: ya no es necesario admini
 
 Los Centros de notificaciones proporcionan una infraestructura de notificaciones push lista para usar con las ventajas siguientes:
 
-- **Varias plataformas.**   
+- **Varias plataformas.**
 	+  Compatibilidad con las principales plataformas móviles. Los centros de notificaciones pueden enviar notificaciones de inserción a aplicaciones de la Tienda Windows, iOS, Android y Windows Phone.
 
 
@@ -140,7 +140,7 @@ Obtenga más información acerca de los Centros de notificaciones en estos temas
 Las referencias pertinentes para la API administrada de .NET referidas a las notificaciones de inserción se pueden encontrar en los siguientes temas:
 
 + [Microsoft.WindowsAzure.Messaging.NotificationHub]
-+ [Microsoft.ServiceBus.Notifications] 
++ [Microsoft.ServiceBus.Notifications]
 
 
   [0]: ./media/notification-hubs-overview/registration-diagram.png
@@ -156,8 +156,5 @@ Las referencias pertinentes para la API administrada de .NET referidas a las not
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

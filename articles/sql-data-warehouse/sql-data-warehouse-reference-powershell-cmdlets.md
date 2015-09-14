@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="06/29/2015"
-	ms.author="sidneyh;barbkess"/>
+	ms.date="08/28/2015"
+	ms.author="twounder;sidneyh;barbkess"/>
 
 # Introducción a los cmdlets de Almacenamiento de datos de Azure y a las API de REST
 
@@ -27,8 +27,8 @@ De forma similar, las API de REST para **Base de datos de SQL Azure** también p
 ## Obtención y ejecución de los cmdlets de Azure PowerShell.
 
 1. Para descargar el módulo Azure PowerShell, ejecute el [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. 2. Para ejecutar el módulo, en la ventana de inicio, escriba **Microsoft Azure PowerShell**.
-3. Si no ha agregado todavía su cuenta a la máquina, ejecute el siguiente cmdlet. (Para obtener más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure/)):
+2. Para ejecutar el módulo, en la ventana de inicio, escriba **Microsoft Azure PowerShell**.
+3. Si no ha agregado todavía su cuenta a la máquina, ejecute el siguiente cmdlet. (Para obtener más información, consulte [Instalación y configuración de Azure PowerShell]():
 
 		Add-AzureAccount
 3. Cambie el modo con este cmdlet:
@@ -101,6 +101,7 @@ Para obtener más información de referencia, vea [Información general de refer
 
 <!--Article references-->
 [Información general de referencia de Almacenamiento de datos SQL]: sql-data-warehouse-overview-reference.md
+[How to install and configure Azure PowerShell]: powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -110,4 +111,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

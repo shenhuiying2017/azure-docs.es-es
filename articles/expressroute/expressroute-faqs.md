@@ -1,19 +1,19 @@
 <properties
    pageTitle="P+F de ExpressRoute"
-   description="P+F de ExpressRoute contiene información sobre servicios de Azure compatibles, costes, datos y conexiones, SLA, proveedores y ubicaciones, ancho de banda e información técnica adicional."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="P+F de ExpressRoute contiene información sobre servicios de Azure compatibles, costes, datos y conexiones, SLA, proveedores y ubicaciones, ancho de banda e información técnica adicional."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/02/2015"
+	ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
 
@@ -48,20 +48,18 @@ Sí. Un circuito ExpressRoute, una vez que el programa de instalación le permit
 ### ¿ExpressRoute ofrece un contrato de nivel de servicio (SLA)?
 Consulte la [página de SLA de ExpressRoute](http://azure.microsoft.com/support/legal/sla/) para obtener más información.
 
-## Servicios de Azure compatibles
+## Servicios admitidos
 La mayoría de los servicios de Azure son compatibles con ExpressRoute.
 
-La conectividad con las máquinas virtuales y servicios en la nube implementados en redes virtuales son compatibles con la ruta de acceso de emparejamiento privado.
+- La conectividad con las máquinas virtuales y servicios en la nube implementados en redes virtuales son compatibles con la ruta de acceso de emparejamiento privado.
+- Sitios web de Azure es compatible con la ruta de acceso de emparejamiento público.
+- Se puede obtener acceso a todos los demás servicios a través de la ruta de acceso de emparejamiento público. Las excepciones son las siguientes:
 
-Sitios web de Azure es compatible con la ruta de acceso de emparejamiento público.
+	**Los siguientes servicios no son compatibles:**
 
-Se puede obtener acceso a todos los demás servicios a través de la ruta de acceso de emparejamiento público. Las excepciones son las siguientes:
-
-**Las siguientes opciones no son compatibles**
-
-- Servicio CDN
-- Prueba de carga de Visual Studio Online
-- Multi-Factor Authentication
+	- Servicio CDN
+	- Prueba de carga de Visual Studio Online
+	- Multi-Factor Authentication
 
 ## Datos y conexiones
 
@@ -91,7 +89,7 @@ Sí. Cada circuito ExpressRoute tiene un par redundante de conexiones cruzadas c
 No perderá conectividad si se produce un error en una de las conexiones cruzadas. Una conexión redundante está disponible para admitir la carga de la red. Asimismo, puede crear varios circuitos en una ubicación de emparejamiento diferente para lograr resistencia frente a errores.
 
 ### ¿Es necesario configurar ambos vínculos para conseguir que el servicio funcione?
-Si se conecta a través de un NSP, este se encarga de configurar vínculos redundantes en su nombre. Si se conecta a través de un EXP, debe configurar ambos vínculos. Nuestro SLA será nulo si el circuito no está configurado para la redundancia.
+Si se conecta a través de un NSP, este se encarga de configurar vínculos redundantes en su nombre. Si ya está colocada en un EXP, debe configurar dos vínculos LAN a la plataforma de intercambio en la nube de EXP. Si se conecta a un EXP a través de un vínculo WAN único desde su centro de datos privado, tendrá que finalizar el vínculo WAN en su propio enrutador en el EXP y luego configurar dos vínculos LAN a la plataforma de intercambio en la nube de EXP.
 
 ### ¿Puedo extender una de mis VLAN a Azure mediante ExpressRoute?
 No. No admitimos ampliaciones de conectividad de la capa 2 en Azure.
@@ -111,8 +109,8 @@ Los pasos básicos se describen a continuación.
 
 Los siguientes tutoriales le ayudarán a:
 
-- [Configurar una conexión ExpressRoute a través de un proveedor de servicios de red](expressroute-configuring-nsps.md)
-- [Configurar una conexión ExpressRoute a través de un proveedor de Exchange](expressroute-configuring-exps.md)
+- [Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red](expressroute-configuring-nsps.md)
+- [Configuración de una conexión ExpressRoute a través de un proveedor de Exchange](expressroute-configuring-exps.md)
 - [Configurar una red virtual y una puerta de enlace para ExpressRoute](expressroute-configuring-vnet-gateway.md)
 
 ### ¿Hay límites de conectividad para mi circuito ExpressRoute?
@@ -130,7 +128,7 @@ Para obtener más información, consulte [Uso compartido de un circuito ExpressR
 No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman parte del mismo dominio de enrutamiento y no están aisladas entre sí desde una perspectiva de enrutamiento. Si necesita aislamiento de rutas, deberá crear un circuito ExpressRoute independiente.
 
 ### ¿Se puede conectar una red virtual a más de un circuito ExpressRoute?
-Sí. Puede vincular una única red virtual única con hasta 4 circuitos ExpressRoute. Todos los circuitos ExpressRoute deben estar en el mismo continente. Pueden solicitarse a través de distintos proveedores de servicio y en distintas ubicaciones.
+Sí. Puede vincular una única red virtual única con hasta 4 circuitos ExpressRoute. Se deben solicitar a través de 4 ubicaciones diferentes.
 
 ### ¿Es posible obtener acceso a Internet desde mis redes virtuales conectadas a circuitos ExpressRoute?
 Sí. Si no ha anunciado rutas predeterminadas (0.0.0.0/0) o prefijos de rutas de Internet a través de la sesión BGP, podrá conectarse a Internet desde una red virtual vinculada a un circuito ExpressRoute.
@@ -160,6 +158,9 @@ Se filtrarán los prefijos privados (RFC1918) en la sesión BGP de interconexió
 
 ### ¿Qué ocurre si supero los límites de BGP?
 Se quitarán las sesiones BGP. Se restablecerán una vez que el recuento del prefijo esté por debajo del límite.
+
+### ¿Cuál es el tiempo de espera de BGP de ExpressRoute? ¿Se puede ajustar?
+El tiempo de espera es 180. Los mensajes de Keep-Alive se envían cada 60 segundos. Hay configuración fija en el lado de Microsoft que no se puede cambiar.
 
 ### Después de anunciar la ruta predeterminada (0.0.0.0/0) a mis redes virtuales, no se puede activar Windows en las máquinas virtuales de Azure. ¿Cómo lo soluciono?
 Los pasos siguientes ayudarán a Azure a reconocer la solicitud de activación:
@@ -247,12 +248,12 @@ Sí. El circuito ExpressRoute existente puede configurarse para admitir conectiv
 
 Los siguientes tutoriales le ayudarán a:
 
-- [Configurar una conexión ExpressRoute a través de un proveedor de servicios de red](expressroute-configuring-nsps.md)
-- [Configurar una conexión ExpressRoute a través de un proveedor de Exchange](expressroute-configuring-exps.md)
+- [Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red](expressroute-configuring-nsps.md)
+- [Configuración de una conexión ExpressRoute a través de un proveedor de Exchange](expressroute-configuring-exps.md)
 
 ### ¿A qué servicios de Office 365 se puede acceder a través de la conexión ExpressRoute?
 
-**Los siguientes servicios de Office 365 son compatibles**
+**Los siguientes servicios de Office 365 son compatibles:**
 
 - Exchange Online y Exchange Online Protection
 - SharePoint Online
@@ -264,7 +265,7 @@ Los siguientes tutoriales le ayudarán a:
 - Delve
 - Project Online
 
-**Los siguientes servicios de Office 365 no son compatibles**
+**Los siguientes servicios de Office 365 no son compatibles:**
 
 - Yammer
 - Descargas de cliente de Office 365 ProPlus
@@ -286,4 +287,4 @@ Se admite la conectividad con los servicios de Office 365 a través de los NSP y
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

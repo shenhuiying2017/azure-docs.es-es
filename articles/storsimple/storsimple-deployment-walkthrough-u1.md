@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Implementar el dispositivo StorSimple local"
-	description="Pasos y procedimientos recomendados para implementar el servicio y el dispositivo de la actualización 1 de StorSimple."
+   pageTitle="Implementación del dispositivo StorSimple (Actualización 1) | Microsoft Azure"
+	description="Describe los pasos y procedimientos recomendados para implementar el servicio y el dispositivo de la actualización 1 de StorSimple."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="alkohli"
-	manager="adinah"
-	editor="tysonn"/>
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
 	ms.devlang="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# Implementar el dispositivo StorSimple local
+# Implementar el dispositivo StorSimple local (Actualización 1)
 
 [AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
@@ -287,4 +287,4 @@ Configure un [dispositivo virtual](storsimple-virtual-device.md).
 Use el [servicio de Administrador de StorSimple](storsimple-manager-service-administration.md) para administrar el dispositivo StorSimple.
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

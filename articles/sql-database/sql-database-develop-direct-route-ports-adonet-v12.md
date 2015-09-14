@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Puertos más allá de 1433 para ADO.NET 4.5, ODBC 11 y Bases de datos SQL V12 | Microsoft Azure"
-	description="En ocasiones, las conexiones de cliente a la base de datos SQL de Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes."
+	pageTitle="Puertos más allá de 1433 para ADO.NET 4.5 y Bases de datos SQL V12 | Microsoft Azure"
+	description="En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor="" />
+	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="genemi"/>
 
 
-# Puertos más allá de 1433 para ADO.NET 4.5, ODBC 11 y Base de datos SQL V12
+# Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12
 
 
 En este tema se describen los cambios que la Base de datos SQL V12 de Azure aporta el comportamiento de conexión de los clientes que usan ADO.NET 4.5 o una versión posterior.
@@ -122,13 +122,17 @@ En este tema se resaltan las diferencias de conexión de cliente entre la Base d
 
 - [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md)
 
-- Consideraciones sobre la lógica de reintento: la sección ["Puerta de enlace ya no proporciona la lógica de reintento en V12" del tema "Conexión a Base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño"](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+- [Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md)
+
 
 - ADO.NET 4.6 se publicó el 20 de julio de 2015. Hay un anuncio de blog del equipo de .NET disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+
 
 - ADO.NET 4.5 se publicó el 15 de julio de 2012. Hay un anuncio de blog del equipo de .NET disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
  - Hay una entrada de blog sobre ADO.NET 4.5.1 disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
+
 - [Lista de versiones del protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

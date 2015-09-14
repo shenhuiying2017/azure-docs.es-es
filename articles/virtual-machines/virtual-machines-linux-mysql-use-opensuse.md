@@ -6,7 +6,7 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor=""
-	tags="mysql"/>
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,32 +14,28 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/22/2015"
+	ms.date="08/31/2015"
 	ms.author="kathydav"/>
 
 # Instalación de MySQL en una máquina virtual que ejecuta OpenSUSE Linux en Azure
 
-[MySQL][MySQL] es una conocida base de datos SQL de código abierto. En este tutorial se explica lo siguiente:
+[MySQL][MySQL] es una conocida base de datos SQL de código abierto. En este tutorial se muestra cómo crear una máquina virtual que disponga de OpenSUSE Linux y, a continuación, instale MySQL.
 
-- Uso del [Portal de administración de Azure][AzurePortal] para crear una imagen de máquina virtual de OpenSUSE Linux a partir de una imagen disponible en Azure.
-- Conectarse a la máquina virtual con SSH o PuTTY
-- Instalar MySQL en la máquina virtual
-
-[AZURE.INCLUDE [antares-iaas-signup-iaas](../../includes/antares-iaas-signup-iaas.md)]
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Creación de una máquina virtual que ejecuta OpenSUSE Linux
 
 [AZURE.INCLUDE [create-and-configure-opensuse-vm-in-portal](../../includes/create-and-configure-opensuse-vm-in-portal.md)]
 
-##Instalación y ejecución de MySQL en la máquina virtual
+## Instalación y ejecución de MySQL en la máquina virtual
 
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
-##Resumen
-En este tutorial ha obtenido información sobre cómo crear una máquina virtual que ejecuta OpenSUSE Linux y conectarse a ella de manera remota mediante SSH o PuTTY. También, ha aprendido a instalar y configurar MySQL en la máquina virtual con Linux. Para obtener más información sobre MySQL, consulte la [Documentación de MySQL][MySQLDocs].
+## Pasos siguientes
+Para obtener más información sobre MySQL, consulte la [Documentación de MySQL][MySQLDocs].
 
-[MySQLDocs]: http://dev.mysql.com/doc/
+[MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

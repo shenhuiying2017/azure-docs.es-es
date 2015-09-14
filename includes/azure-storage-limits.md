@@ -4,9 +4,9 @@ Número máximo de cuentas de almacenamiento por suscripción|100<sup>1</sup>
 TB por cuenta de almacenamiento|500 TB
 Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento|El único límite es los 500 TB de capacidad de la cuenta de almacenamiento
 Tamaño máximo de un contenedor de blobs, una tabla o una cola|500 TB
-Número máximo de bloques en un blob en bloques|50\.000
-Tamaño máximo un bloque en un blob en bloques|4 MB
-Tamaño máximo de un blob en bloques|50 000 x 4 MB (195 GB aproximadamente) 
+Número máximo de bloques en un blob en bloques o blob de anexión|50\.000
+Tamaño máximo de un bloque en un blob en bloques o blob de anexión|4 MB
+Tamaño máximo de un blob en bloques o blob de anexión|50 000 x 4 MB (195 GB aproximadamente) 
 Tamaño máximo de un blob en páginas |1 TB
 Tamaño máximo de una entidad de tabla|1 MB
 Número máximo de propiedades de una entidad de tabla|252
@@ -15,6 +15,7 @@ Tamaño máximo de un recurso compartido de archivos|5 TB
 Tamaño máximo de un recurso compartido de archivos|1 TB
 Número máximo de archivos en un recurso compartido de archivos|El único límite es la capacidad total de 5 TB del recurso compartido de archivos
 Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento|El único límite es los 500 TB de capacidad de la cuenta de almacenamiento
+Número máximo de directivas de acceso almacenadas por contenedor, recurso compartido de archivos, tabla o cola|5
 Máximo de 8 kB de IOPS por disco persistente (máquina virtual de nivel Básico)|300<sup>2</sup>
 Máximo de 8 kB de IOPS por disco persistente (máquina virtual de nivel Estándar)|500<sup>2</sup>
 Velocidad de solicitudes (suponiendo un tamaño de objeto de 1 KB) por cuenta de almacenamiento|Hasta 20.000 IOPS, entidades por segundo o mensajes por segundo
@@ -37,4 +38,4 @@ Puede calcular aproximadamente el número de discos muy usados admitidos por una
 
 <sup>4</sup>GRS hace referencia al almacenamiento con redundancia geográfica. ZRS hace referencia al almacenamiento con redundancia de zona y solo está disponible para los blobs en bloques. LRS hace referencia al almacenamiento con redundancia local.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

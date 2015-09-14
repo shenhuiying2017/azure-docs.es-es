@@ -1,20 +1,20 @@
 <properties
     pageTitle="Herramientas de bases de datos elásticas de Base de datos SQL de Azure"
-    description="Escale fácilmente los recursos de las bases de datos en la nube con las herramientas de bases de datos elásticas."
-    services="sql-database"
-    documentationCenter=""
-    manager="jeffreyg"
-    authors="sidneyh"
-    editor=""/>
+	description="Los desarrolladores de Software como servicio (SaaS) pueden crear bases de datos elásticas y escalables con facilidad en la nube mediante estas herramientas"
+	services="sql-database"
+	documentationCenter=""
+	manager="jeffreyg"
+	authors="ddove"
+	editor=""/>
 
 <tags
     ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2015"
-    ms.author="sidneyh"/>
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/27/2015"
+	ms.author="sidneyh"/>
 
 # Información general de las características de bases de datos elásticas
 
@@ -28,6 +28,8 @@ Las característica de la **base de datos elástica** le permiten usar los recur
 El siguiente gráfico muestra una arquitectura que incluye las **características de base de datos elástica** en relación con una colección de bases de datos.
 
 ![Herramientas de Base de datos elástica][1]
+
+Para obtener una versión imprimible de este gráfico, vaya a [Descarga de información general de la Base de datos elástica](http://aka.ms/axmybc).
 
 En este gráfico, los colores de la base de datos representan esquemas. Las bases de datos con el mismo color comparten los mismos esquemas.
 
@@ -102,4 +104,4 @@ Para ver los detalles del grupo de bases de datos elásticas, consulte [Consider
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

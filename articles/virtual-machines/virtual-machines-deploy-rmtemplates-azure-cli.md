@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Implementación y administración de Máquinas virtuales de Azure mediante plantillas de Administrador de recursos y la CLI de Azure para Mac, Linux y Windows" 
-	description="Implemente fácilmente el conjunto más común de configuraciones para Máquinas virtuales de Azure y administrarlo fácilmente mediante plantillas del Administrador de recursos y la CLI de Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="squillace" 
-	manager="timlt" 
+	pageTitle="Implementación y administración de Máquinas virtuales de Azure mediante plantillas de Administrador de recursos y la CLI de Azure para Mac, Linux y Windows"
+	description="Implemente fácilmente el conjunto más común de configuraciones para Máquinas virtuales de Azure y administrarlo fácilmente mediante plantillas del Administrador de recursos y la CLI de Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="rasquill"/>
 
 # Implementación y administración de Máquinas virtuales con plantillas del Administrador de recursos de Azure y la CLI de Azure
@@ -236,7 +236,7 @@ Siga las instrucciones de estas secciones para implementar una nueva máquina vi
  
 ### Paso 1: Examen en el archivo JSON de los parámetros de plantilla
 
-Este es el contenido del archivo JSON de la plantilla. (La plantilla también se encuentra en GitHub, [aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json)).
+Este es el contenido del archivo JSON de la plantilla. (La plantilla también se encuentra en GitHub, [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json)).
 
 Las plantillas son flexibles, de tal forma que el diseñador pueda haber optado por ofrecer muchos parámetros, o bien haya decidido ofrecer unas pocas para crear una plantilla más específica. Para recopilar la información que se necesita para pasar la plantilla como parámetros, abra el archivo de plantilla (este tema tiene una plantilla insertada, a continuación) y examine los valores de **parameters**.
 
@@ -251,184 +251,180 @@ En este caso, la plantilla siguiente solicitará:
 Una vez haya decidido estos valores, estará preparado para crear un grupo e implementar esta plantilla en la suscripción de Azure.
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "newStorageAccountName": {
-                "type": "string",
-                "metadata": {
-                    "Description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
-                }
-            },
-            "adminUsername": {
-                "type": "string",
-                "metadata": {
-                   "Description": "User name for the Virtual Machine."
-                }
-            },
-            "adminPassword": {
-                "type": "securestring",
-                "metadata": {
-                    "Description": "Password for the Virtual Machine."
-                }
-            },
-            "dnsNameForPublicIP": {
-                "type": "string",
-                "metadata": {
-                      "Description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-                }
-            },
-            "ubuntuOSVersion": {
-                "type": "string",
-                "defaultValue": "14.10",
-                "allowedValues": [
-                    "12.04.2-LTS",
-                    "12.04.3-LTS",
-                    "12.04.4-LTS",
-                    "12.04.5-LTS",
-    				"12.10",
-                    "14.04.2-LTS",
-                    "14.10",
-                    "15.04"
-                ],
-                "metadata": {
-                    "Description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.2-LTS, 12.04.3-LTS, 12.04.4-LTS, 12.04.5-LTS, 12.10, 14.04.2-LTS, 14.10, 15.04."
-                }
-            }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "newStorageAccountName": {
+        "type": "string",
+        "metadata": {
+            "description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
+        }
         },
-        "variables": {
-            "location": "West US",
-            "imagePublisher": "Canonical", 
-            "imageOffer": "UbuntuServer", 
-            "OSDiskName": "osdiskforlinuxsimple",
-            "nicName": "myVMNic",
-            "addressPrefix": "10.0.0.0/16", 
-            "subnetName": "Subnet",
-            "subnetPrefix": "10.0.0.0/24",
-            "storageAccountType": "Standard_LRS",
-            "publicIPAddressName": "myPublicIP",
-            "publicIPAddressType": "Dynamic",
-            "vmStorageAccountContainerName": "vhds",
-            "vmName": "MyUbuntuVM",
-            "vmSize": "Standard_D1",
-            "virtualNetworkName": "MyVNET",        
-            "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-            "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-        },    
-        "resources": [
-            {
-                "type": "Microsoft.Storage/storageAccounts",
-                "name": "[parameters('newStorageAccountName')]",
-                "apiVersion": "2015-05-01-preview",
-                "location": "[variables('location')]",
-                "properties": {
-                    "accountType": "[variables('storageAccountType')]"
-                }
+        "adminUsername": {
+        "type": "string",
+        "metadata": {
+            "description": "User name for the Virtual Machine."
+        }
+        },
+        "adminPassword": {
+        "type": "securestring",
+        "metadata": {
+            "description": "Password for the Virtual Machine."
+        }
+        },
+        "dnsNameForPublicIP": {
+        "type": "string",
+        "metadata": {
+            "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+        }
+        },
+        "ubuntuOSVersion": {
+        "type": "string",
+        "defaultValue": "14.04.2-LTS",
+        "allowedValues": [
+            "12.04.5-LTS",
+            "14.04.2-LTS",
+            "15.04"
+        ],
+        "metadata": {
+            "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.04."
+        }
+        }
+    },
+    "variables": {
+        "location": "West US",
+        "imagePublisher": "Canonical",
+        "imageOffer": "UbuntuServer",
+        "OSDiskName": "osdiskforlinuxsimple",
+        "nicName": "myVMNic",
+        "addressPrefix": "10.0.0.0/16",
+        "subnetName": "Subnet",
+        "subnetPrefix": "10.0.0.0/24",
+        "storageAccountType": "Standard_LRS",
+        "publicIPAddressName": "myPublicIP",
+        "publicIPAddressType": "Dynamic",
+        "vmStorageAccountContainerName": "vhds",
+        "vmName": "MyUbuntuVM",
+        "vmSize": "Standard_D1",
+        "virtualNetworkName": "MyVNET",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
+    },
+    "resources": [
+        {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[parameters('newStorageAccountName')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[variables('location')]",
+        "properties": {
+            "accountType": "[variables('storageAccountType')]"
+        }
+        },
+        {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Network/publicIPAddresses",
+        "name": "[variables('publicIPAddressName')]",
+        "location": "[variables('location')]",
+        "properties": {
+            "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+            "dnsSettings": {
+            "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+            }
+        }
+        },
+        {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "[variables('virtualNetworkName')]",
+        "location": "[variables('location')]",
+        "properties": {
+            "addressSpace": {
+            "addressPrefixes": [
+                "[variables('addressPrefix')]"
+            ]
             },
+            "subnets": [
             {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/publicIPAddresses",
-                "name": "[variables('publicIPAddressName')]",
-                "location": "[variables('location')]",
+                "name": "[variables('subnetName')]",
                 "properties": {
-                    "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-                    "dnsSettings": {
-                        "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
-                    }
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/virtualNetworks",
-                "name": "[variables('virtualNetworkName')]",
-                "location": "[variables('location')]",
-                "properties": {
-                    "addressSpace": {
-                        "addressPrefixes": [
-                            "[variables('addressPrefix')]"
-                        ]
-                    },
-                    "subnets": [
-                        {
-                            "name": "[variables('subnetName')]",
-                            "properties": {
-                                "addressPrefix": "[variables('subnetPrefix')]"
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/networkInterfaces",
-                "name": "[variables('nicName')]",
-                "location": "[variables('location')]",
-                "dependsOn": [
-                    "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-                    "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-                ],
-                "properties": {
-                    "ipConfigurations": [
-                        {
-                            "name": "ipconfig1",
-                            "properties": {
-                                "privateIPAllocationMethod": "Dynamic",
-                                "publicIPAddress": {
-                                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
-                                },
-                                "subnet": {
-                                    "id": "[variables('subnetRef')]"
-                                }
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Compute/virtualMachines",
-                "name": "[variables('vmName')]",
-                "location": "[variables('location')]",
-                "dependsOn": [
-                    "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
-                    "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-                ],
-                "properties": {
-                    "hardwareProfile": {
-                        "vmSize": "[variables('vmSize')]"
-                    },
-                    "osProfile": {
-                        "computername": "[variables('vmName')]",
-                        "adminUsername": "[parameters('adminUsername')]",
-                        "adminPassword": "[parameters('adminPassword')]"
-                    },
-                    "storageProfile": {
-                        "imageReference": {
-                            "publisher": "[variables('imagePublisher')]",
-                            "offer": "[variables('imageOffer')]",
-                            "sku" : "[parameters('ubuntuOSVersion')]",
-                            "version":"latest"
-                        },
-                       "osDisk" : {
-                            "name": "osdisk",
-                            "vhd": {
-                                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
-                            },
-                            "caching": "ReadWrite",
-                            "createOption": "FromImage"
-                        }
-                    },
-                    "networkProfile": {
-                        "networkInterfaces": [
-                            {
-                                "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
-                            }
-                        ]
-                    }
+                "addressPrefix": "[variables('subnetPrefix')]"
                 }
             }
-        ]
-    } 
+            ]
+        }
+        },
+        {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Network/networkInterfaces",
+        "name": "[variables('nicName')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+            "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+            "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        ],
+        "properties": {
+            "ipConfigurations": [
+            {
+                "name": "ipconfig1",
+                "properties": {
+                "privateIPAllocationMethod": "Dynamic",
+                "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+                },
+                "subnet": {
+                    "id": "[variables('subnetRef')]"
+                }
+                }
+            }
+            ]
+        }
+        },
+        {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "[variables('vmName')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+            "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
+            "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+        ],
+        "properties": {
+            "hardwareProfile": {
+            "vmSize": "[variables('vmSize')]"
+            },
+            "osProfile": {
+            "computername": "[variables('vmName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+            },
+            "storageProfile": {
+            "imageReference": {
+                "publisher": "[variables('imagePublisher')]",
+                "offer": "[variables('imageOffer')]",
+                "sku": "[parameters('ubuntuOSVersion')]",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "osdisk",
+                "vhd": {
+                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+                },
+                "caching": "ReadWrite",
+                "createOption": "FromImage"
+            }
+            },
+            "networkProfile": {
+            "networkInterfaces": [
+                {
+                "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+                }
+            ]
+            }
+        }
+        }
+    ]
+    }
+
   
 ### Paso 2: Creación de la máquina virtual con la plantilla
 
@@ -716,7 +712,7 @@ Ahora ya puede crear una máquina virtual nueva basada en .vhd. Cree un grupo pa
 Después cree la implementación mediante la opción `--template-uri` para llamar directamente a la plantilla (o puede utilizar la opción `--template-file` para utilizar un archivo guardado localmente). Tenga en cuenta que como la plantilla tiene valores predeterminados especificados, solo se le pedirán un par de cosas. Si implementa la plantilla en distintos lugares, puede encontrar que tengan lugar algunos conflictos de nomenclatura con los valores predeterminados (especialmente el nombre DNS creado).
 
     azure group deployment create \
-    > --template-uri https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json \
+    > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
     > myResourceGroup \
     > customVhdDeployment
     info:    Executing command group deployment create
@@ -741,7 +737,7 @@ La salida es similar a la siguiente:
     data:    ProvisioningState  : Succeeded
     data:    Timestamp          : 2015-04-28T14:55:48.0963829Z
     data:    Mode               : Incremental
-    data:    TemplateLink       : https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json
+    data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json
     data:    ContentVersion     : 1.0.0.0
     data:    Name                           Type          Value                               
     data:    -----------------------------  ------------  ------------------------------------
@@ -1277,7 +1273,7 @@ Ejecute este comando:
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Utilice este parámetro para mantener la IP virtual (VIP) del servicio de nube en caso de que sea la última máquina virtual en ese servicio en la nube. <br><br> Si utiliza el parámetro StayProvisioned, se le facturará por la máquina virtual.
+>[AZURE.IMPORTANT]Use este parámetro para mantener la IP virtual (VIP) de la vnet en caso de que sea la última máquina virtual de esa vnet. <br><br> Si usa el parámetro `StayProvisioned`, se le facturará por la máquina virtual.
 
 ## <a id="start-a-virtual-machine"></a>TAREA: Inicio de una máquina virtual
 
@@ -1315,4 +1311,4 @@ Para obtener más plantillas que puede utilizar, consulte [Plantillas de inicio 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

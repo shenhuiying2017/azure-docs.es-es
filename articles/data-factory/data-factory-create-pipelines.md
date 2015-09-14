@@ -1,23 +1,16 @@
 <properties 
-	pageTitle="Creación de canalizaciones" 
-	description="Descripción de las canalizaciones de Factoría de datos de Azure y procedimientos para crearlas con el fin mover y transformar datos para generar información que puede usarse para obtener una idea clara" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Creación de canalizaciones"
+	description="Descripción de las canalizaciones de Factoría de datos de Azure y procedimientos para crearlas con el fin mover y transformar datos para generar información que puede usarse para obtener una idea clara"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" y
-	ms.date="07/28/2015" 
-	ms.author="spelluru"/>
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" y" ms.date="07/28/2015" ms.author="spelluru"/>
 
 # Descripción de canalizaciones y actividades
-Este artículo ayuda a comprender las canalizaciones y actividades en Factoría de datos de Azure y cómo aprovecharlas para construir flujos de trabajo de extremo a extremo controlados por datos para su escenario o empresa. En este artículo se considera que ha visto los artículos [Información general](data-factory-introduction.md) y[Creación de conjuntos de datos](data-factory-create-datasets.md) antes.
+Este artículo ayuda a comprender las canalizaciones y actividades en Factoría de datos de Azure y cómo aprovecharlas para construir flujos de trabajo de extremo a extremo controlados por datos para su escenario o empresa. En este artículo se supone que ha visto antes los artículos [Información general](data-factory-introduction.md) y [Creación de conjuntos de datos](data-factory-create-datasets.md).
 
 ## ¿Qué es una canalización?
 **Una canalización es una agrupación lógica de actividades**. Se usan para agrupar actividades en una unidad que realiza una tarea. Para entender mejor las canalizaciones, deberá entender primero qué es una actividad.
@@ -25,7 +18,7 @@ Este artículo ayuda a comprender las canalizaciones y actividades en Factoría 
 ### ¿Qué es una actividad?
 Las actividades definen las acciones que se van a realizar en los datos. Cada actividad tiene cero o más [conjuntos de datos](data-factory-create-datasets.md) como entradas y genera uno o varios conjuntos de datos como salida. **Una actividad es una unidad de orquestación en Factoría de datos de Azure.**
 
-Por ejemplo, puede utilizar una actividad de copia para organizar la copia de datos de un conjunto de datos a otro. De manera similar, puede usar una actividad de Hive que ejecute una consulta de Hive en un clúster de HDInsight de Azure para transformar o analizar los datos. Factoría de datos de Azure ofrece una amplia gama de actividades de [transformación de datos y análisis](data-factory-data-transformation-activities.md) y [movimiento de datos](data-factory-data-movement-activities.md). También puede crear una actividad personalizada de .NET para ejecutar su propio código.
+Por ejemplo, puede utilizar una actividad de copia para organizar la copia de datos de un conjunto de datos a otro. De manera similar, puede usar una actividad de Hive que ejecute una consulta de Hive en un clúster de HDInsight de Azure para transformar o analizar los datos. Factoría de datos de Azure ofrece una amplia variedad de actividades de [movimiento de datos, análisis](data-factory-data-transformation-activities.md) y [transformación de datos](data-factory-data-movement-activities.md). También puede crear una actividad personalizada de .NET para ejecutar su propio código.
 
 Tenga en cuenta los dos conjuntos de datos siguientes:
 
@@ -246,11 +239,11 @@ Las directivas afectan al comportamiento en tiempo de ejecución de una activida
 Propiedad | Valores permitidos | Valor predeterminado | Descripción
 -------- | ----------- | -------------- | ---------------
 simultaneidad | Integer <p>Valor máximo: 10</p> | 1 | Número de ejecuciones simultáneas de la actividad.<p>Determina el número de ejecuciones paralelas de la actividad que pueden tener lugar en distintos segmentos. Por ejemplo, si una actividad tiene que recorrer un gran conjunto de datos disponibles, tener una mayor simultaneidad acelera el procesamiento de datos.</p> 
-executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | Determina el orden de los segmentos de datos que se están procesando.<p>Por ejemplo, si tiene 2 segmentos (que tienen lugar uno a las 4 p.m. y el otro a las 5 p.m.) y ambos están pendientes de ejecución. Si establece que executionPriorityOrder sea NewestFirst, se procesará primero el segmento de las 5 p.m. De forma similar si establece que executionPriorityORder sea OldestFIrst, se procesará el segmento de las 4 p.m.</p> 
+executionPriorityOrder | NewestFirst<p>OldestFirst</p> | OldestFirst | Determina el orden de los segmentos de datos que se están procesando.<p>Por ejemplo, si tiene dos segmentos (que tienen lugar uno a las 4 p.m. y el otro a las 5 p.m.) y ambos están pendientes de ejecución. Si establece que executionPriorityOrder sea NewestFirst, se procesará primero el segmento de las 5 p.m. De forma similar, si establece que executionPriorityORder sea OldestFIrst, se procesará el segmento de las 4 p.m.</p> 
 retry | Integer<p>El valor máximo puede ser 10</p> | 3 | Número de reintentos antes de que el procesamiento de datos del segmento se marque como error. La ejecución de la actividad de un segmento de datos se vuelve a intentar hasta el número de reintentos especificado. El reintento se realiza tan pronto como sea posible después del error.
-timeout | TimeSpan | 00:00:00 | Tiempo de espera para la actividad. Ejemplo: 00:10:00 (implica un tiempo de espera 10 minutos)<p>Si no se especifica ningún valor o es 0, el tiempo de espera es infinito.</p><p>Si el tiempo de procesamiento de los datos en un segmento supera el valor de tiempo de espera, se cancela y el sistema vuelve a intentar el procesamiento. El número de reintentos depende de la propiedad retry. Cuando se excede el tiempo de espera, el estado será TimedOut.</p>
-delay | TimeSpan | 00:00:00 | Especifica el retraso antes de iniciar el procesamiento de los datos del segmento.<p>La ejecución de la actividad de un segmento de datos se inicia después de que transcurra el retraso más allá del tiempo de ejecución esperado.</p><p>Ejemplo: 00:10:00 (implica un retraso de 10 minutos)</p>
-longRetry | Integer<p>Valor máximo: 10</p> | 1 | El número de reintentos largos antes de que falle la ejecución de los segmentos.<p>Los intentos de longRetry se espacian de acuerdo con longRetryInterval. Por tanto, si necesita especificar un tiempo entre reintentos, utilice longRetry. Si se especifican Retry y longRetry, cada intento de longRetry incluirá el número de intentos de Retry y el número máximo de intentos será Retry * longRetry.</p><p>Por ejemplo, si tenemos lo siguiente en la directiva de la actividad:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>Se supone que existe un solo segmento para ejecutar (el estado es PendingExecution) y la ejecución de la actividad falla cada vez. Inicialmente habría tres intentos consecutivos de ejecución. Después de cada intento, el estado del segmento sería Retry. Después de los tres primeros intentos, el estado del segmento sería LongRetry.</p><p>Después de una hora (es decir, el valor de longRetryInteval), se produciría otro conjunto de tres intentos consecutivos de ejecución. Después de eso, el estado del segmento sería Failed y ya no se realizarían más intentos. Por tanto, en total se realizaron seis intentos.</p><p>Nota: Si una ejecución se realiza correctamente, el estado del segmento sería Ready y no se realizaría ningún otro reintento.</p><p>longRetry puede usarse en situaciones donde llegan datos dependientes a horas no deterministas o el entorno general en el que se produce el procesamiento de datos es poco confiable. En esos casos es posible que realizar reintentos uno tras otro no ayude, mientras que hacerlo después de un intervalo de tiempo puede generar el resultado deseado.</p><p>Advertencia: No establezca valores altos para longRetry o longRetryInterval. Normalmente los valores más altos implican otros problemas sistémicos que se eliminan con esto</p> 
+timeout | TimeSpan | 00:00:00 | Tiempo de espera para la actividad. Ejemplo: 00:10:00 (implica un tiempo de espera de 10 minutos)<p>Si no se especifica ningún valor o es 0, el tiempo de espera es infinito.</p><p>Si el tiempo de procesamiento de los datos en un segmento supera el valor de tiempo de espera, se cancela y el sistema vuelve a intentar el procesamiento. El número de reintentos depende de la propiedad retry. Cuando se excede el tiempo de espera, el estado será TimedOut.</p>
+delay | TimeSpan | 00:00:00 | Especifica el retraso antes de iniciar el procesamiento de los datos del segmento.<p>La ejecución de la actividad de un segmento de datos se inicia después de que transcurra el retraso más allá del tiempo de ejecución esperado.</p><p>Ejemplo: 00:10:00 (implica un retraso de 10 minutos).</p>
+longRetry | Integer<p>Valor máximo: 10</p> | 1 | El número de reintentos largos antes de que la ejecución de los segmentos produzca error.<p>Los intentos de longRetry se espacian de acuerdo con longRetryInterval. Por tanto, si necesita especificar un tiempo entre reintentos, utilice longRetry. Si se especifican Retry y longRetry, cada intento de longRetry incluirá el número de intentos de Retry y el número máximo de intentos será Retry * longRetry.</p><p>Por ejemplo, si tenemos lo siguiente en la directiva de la actividad:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/></p><p>Se supone que existe un solo segmento para ejecutar (el estado es PendingExecution) y la ejecución de la actividad produce error cada vez. Inicialmente habría tres intentos consecutivos de ejecución. Después de cada intento, el estado del segmento sería Retry. Después de los tres primeros intentos, el estado del segmento sería LongRetry.</p><p>Después de una hora (es decir, el valor de longRetryInteval), se produciría otro conjunto de tres intentos consecutivos de ejecución. Después de eso, el estado del segmento sería Failed y ya no se realizarían más intentos. Por tanto, en total se realizaron seis intentos.</p><p>Nota: si una ejecución se realiza correctamente, el estado del segmento sería Ready y no se realizaría ningún otro reintento.</p><p>longRetry puede usarse en situaciones donde llegan datos dependientes a horas no deterministas o el entorno general en el que se produce el procesamiento de datos es poco confiable. En esos casos es posible que realizar reintentos uno tras otro no ayude, mientras que hacerlo después de un intervalo de tiempo puede generar el resultado deseado.</p><p>Advertencia: no establezca valores altos para longRetry o longRetryInterval. Normalmente los valores más altos implican otros problemas sistémicos que se eliminan con esto</p> 
 longRetryInterval | TimeSpan | 00:00:00 | El retraso entre reintentos largos 
 
 ## Creación y administración de una canalización
@@ -272,9 +265,9 @@ Factoría de datos de Azure proporciona varios mecanismos para crear e implement
 
 	![Editor de canalizaciones](./media/data-factory-create-pipelines/pipeline-in-editor.png)
 
-6. Una vez finalizada la creación de la canalización, haga clic en **Implementar** en la barra de comandos para implementar la canalización.
+6. Una vez finalizada la creación de la canalización, haga clic en **Implementar** en la barra de comandos para implementarla.
 
-	**Nota:** Durante la implementación, el servicio de Factoría de datos de Azure realiza algunas comprobaciones de validación para ayudar a solucionar algunos problemas comunes. Si se produce un error, se mostrará la información correspondiente. Realice las acciones correctivas y, a continuación, vuelva a implementar la canalización creada. Puede usar el editor para actualizar y eliminar una canalización.
+	**Nota:** durante la implementación, el servicio Factoría de datos de Azure realiza algunas comprobaciones de validación para ayudar a solucionar algunos problemas comunes. Si se produce un error, se mostrará la información correspondiente. Realice las acciones correctivas y, a continuación, vuelva a implementar la canalización creada. Puede usar el editor para actualizar y eliminar una canalización.
 
 ### Uso del complemento Visual Studio
 Puede usar Visual Studio para crear e implementar canalizaciones en Factoría de datos de Azure. Para obtener más información, consulte [Tutorial: Creación y supervisión de una factoría de datos mediante Visual Studio](data-factory-get-started-using-vs.md).
@@ -287,10 +280,10 @@ Puede usar Azure PowerShell para crear canalizaciones en Factoría de datos de A
 Para obtener más información acerca de este cmdlet, consulte [New-AzureDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/dn820227.aspx).
 
 ### Uso de la API de REST
-También puede crear e implementar la canalización mediante las API de REST. Este mecanismo se puede aprovechar para crear canalizaciones mediante programación. Para obtener más información sobre esto, consulte [Creación o actualización de una canalización](https://msdn.microsoft.com/library/azure/dn906741.aspx).
+También puede crear e implementar la canalización mediante las API de REST. Este mecanismo se puede aprovechar para crear canalizaciones mediante programación. Para obtener más información al respecto, vea [Creación o actualización de una canalización](https://msdn.microsoft.com/library/azure/dn906741.aspx).
 
 ### Uso del SDK de .NET
-También puede crear e implementar la canalización mediante el SDK de .NET. Este mecanismo se puede aprovechar para crear canalizaciones mediante programación. Para obtener más información sobre esto consulte [Creación, administración y supervisión de factorías de datos mediante programación](data-factory-create-data-factories-programmatically.md).
+También puede crear e implementar la canalización mediante el SDK de .NET. Este mecanismo se puede aprovechar para crear canalizaciones mediante programación. Para obtener más información al respecto, vea [Creación, administración y supervisión de factorías de datos mediante programación](data-factory-create-data-factories-programmatically.md).
 
 
 ## Programación y ejecución
@@ -307,10 +300,11 @@ Una vez implementada una canalización, puede administrar y supervisar la canali
 
 - Conozca [Programación y ejecución en Factoría de datos de Azure](data-factory-scheduling-and-execution.md).  
 - Obtenga más información sobre las capacidades de [movimiento de datos](data-factory-data-movement-activities.md) y [transformación de datos](data-factory-data-transformation-activities.md) en Factoría de datos de Azure
-- Conozca [Administración y supervisión Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md).
+- Vea cómo funciona la [Administración y supervisión en Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md).
 - [Creación e implementación de su primera canalización](data-factory-build-your-first-pipeline.md). 
 
-
+## Envíe sus comentarios
+Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md).
  
 
    
@@ -335,4 +329,4 @@ Una vez implementada una canalización, puede administrar y supervisar la canali
 
  
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

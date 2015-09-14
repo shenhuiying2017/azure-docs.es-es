@@ -1,27 +1,27 @@
 <properties 
-	pageTitle="Introducción al cifrado del lado cliente para el Almacenamiento de Microsoft Azure | Microsoft Azure" 
-	description="La biblioteca de cliente de Almacenamiento de Azure para .NET ofrece compatibilidad para el cifrado de cliente e integración con el Almacén de claves de Azure. Cifrado de cliente ofrece una seguridad máxima para las aplicaciones de Almacenamiento de Azure, ya que las claves de acceso nunca están disponibles para el servicio. El cifrado del cliente está disponible para blobs, colas y tablas." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
+	pageTitle="Cifrado del lado de cliente para el Almacenamiento de Microsoft Azure | Microsoft Azure"
+	description="La biblioteca de cliente de Almacenamiento de Azure para .NET ofrece compatibilidad para el cifrado de cliente e integración con el Almacén de claves de Azure para obtener una seguridad máxima para sus aplicaciones de Almacenamiento de Azure."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carolz"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="tamram"/>
 
 
-# Introducción al cifrado de cliente para el Almacenamiento de Microsoft Azure
+# Cifrado del lado de cliente y Almacén de claves de Azure para el Almacenamiento de Microsoft Azure
 
 ## Información general
 
-Esta [biblioteca de cliente de almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) contiene funcionalidad para ayudar a los desarrolladores a cifrar los datos de las aplicaciones de cliente antes de cargarlas en el Almacenamiento de Azure y para descifrar los datos mientras se descargan. La biblioteca también admite la integración con el [Almacén de claves](http://azure.microsoft.com/services/key-vault/) de Azure para la administración de claves de cuenta de almacenamiento.
+La [Biblioteca de cliente de almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) admite el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en el Almacenamiento de Azure y el descifrado de los datos mientras se descargan al cliente. La biblioteca también admite la integración con el [Almacén de claves](http://azure.microsoft.com/services/key-vault/) de Azure para la administración de claves de cuenta de almacenamiento.
 
 ## Cifrado y descifrado a través de la técnica de sobres
 
@@ -242,4 +242,4 @@ Tenga en cuenta que el cifrado de sus resultados de datos de almacenamiento da l
 
 Descargue el [paquete de la biblioteca de cliente de almacenamiento de Azure para .NET NuGet](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) Descargue el [código fuente de la biblioteca de almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net) de GitHub Descargue el paquete [principal](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), el de [cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y el de [extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure para NuGet Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

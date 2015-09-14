@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/17/2015"
 	ms.author="jaime.espinosa"/>
 
 
@@ -65,4 +65,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

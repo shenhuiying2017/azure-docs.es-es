@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun" />
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="msolhab;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="msolhab;bradsev"/>
 
 
 # Preparación de los datos para el aprendizaje automático
@@ -44,7 +44,7 @@ Podemos comprobar la calidad general de los datos comprobando:
 * Los tipos de datos de atributo (nominales, ordinales o continuos).
 * El número de valores que faltan.
 * El formato correcto de los datos. Si los datos se encuentran en formato tsv o csv, pregunta sobre si los separadores de columnas y los separadores de líneas siempre separan correctamente líneas y columnas. Si los datos están en formato HTML o XML, compruebe si los datos tienen el formato correcto basándose en los estándares respectivos. El análisis también puede ser necesario para extraer información estructurada de datos semiestructurados o no estructurados.
-* Registros de datos incoherentes. Por ejemplo, si los datos contienen GPA de estudiante, compruebe si el GPA está en el intervalo designado, por ejemplo, 0\~4.
+* Registros de datos incoherentes. Por ejemplo, si los datos contienen GPA de estudiante, compruebe si el GPA está en el intervalo designado, por ejemplo, 0~4.
 
 Cuando encuentre problemas con los datos, serán necesarios los pasos de procesamiento que implican a menudo limpieza de los valores que faltan, normalización de datos, discretización, proceso para quitar o reemplazar caracteres incrustados que puedan afectar a la alineación de datos y tipos de datos mixtos en campos comunes, entre otros.
 
@@ -104,4 +104,4 @@ La **exploración de los datos** ofrece una vista anticipada de los datos. Una s
 >_\_Minería de datos: conceptos y técnicas_, Tercera edición, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber y Jian Pei
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

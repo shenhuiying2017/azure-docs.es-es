@@ -1,0 +1,144 @@
+<properties
+	pageTitle="Uso de Escritorio remoto a través de xrdp para conectarse a una VM Linux de Microsoft Azure."
+	description="Obtenga información acerca de cómo instalar y configurar Escritorio remoto en una VM Linux de Microsoft Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="SuperScottz"
+	manager="timlt"
+	editor=""/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
+	ms.author="mingzhan"/>
+
+
+#Uso de Escritorio remoto a través de xrdp para conectarse a una VM Linux de Microsoft Azure
+
+##Información general
+
+RDP (Protocolo de escritorio remoto) es, sin embargo, un protocolo propietario que se usa para Windows, ¿cómo podemos usar RDP para conectar la VM Linux de forma remota?
+
+Esta guía le proporcionará la respuesta. Le ayudará a instalar y configurar xrdp en su VM (máquina virtual) Linux de Microsoft Azure y puede conectarlo a Escritorio remoto desde un equipo de Windows.
+
+Xrdp es un servidor RDP de código abierto, que le permite conectar su servidor Linux a Escritorio remoto desde un equipo de Windows. Su rendimiento es mucho mejor que VNC (Virtual Network Computing). VNC tiene esta racha de calidad "JPEG" y comportamiento lento, mientras que RDP es rápido y clarísimo.
+ 
+
+> [AZURE.NOTE]Ya debe tener una VM de Microsoft Azure que ejecuta Linux. Para crear y configurar una VM Linux, consulte el [tutorial de máquinas virtuales Linux de Azure](virtual-machines-linux-tutorial.md).
+
+
+##Crear extremo para Escritorio remoto
+Usaremos el extremo predeterminado 3389 para Escritorio remoto en este documento. Por lo tanto, configure el extremo 3389 como Escritorio remoto en su VM Linux como se muestra a continuación:
+
+
+![imagen](./media/virtual-machines-linux-remote-desktop/no1.png)
+
+
+Si no sabe cómo configurar el extremo en su VM, consulte la [guía](virtual-machines-set-up-endpoints.md).
+
+
+##Instalar Gnome Desktop
+
+Conéctese a su VM Linux mediante PuTTY e instale `Gnome Desktop`.
+
+Para Linux de la familia Red Hat, use:
+
+	#sudo yum install gnome* "xorg*" -y
+
+Para Debian y Ubuntu, use:
+
+	#sudo apt-get update
+	#sudo apt-get install ubuntu-desktop
+
+
+Para OpenSUSE, use:
+
+	#sudo zypper -y install gnome-session
+
+
+##Instalación de xrdp
+
+Para Linux de la familia Red Hat, debe agregar el repositorio EPEL en su VM Linux en primer lugar con el fin de instalar el paquete xrdp a través de `yum`, use:
+
+	#sudo rpm -ivh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+	#sudo yum -y install xrdp tigervnc-server tigervnc-server-module xterm
+
+Para Debian y Ubuntu Linux, use:
+
+	#sudo apt-get install xrdp
+
+
+Para OpenSUSE, use:
+
+> [AZURE.NOTE]Actualice la versión OpenSUSE con la versión que usa en el comando siguiente. A continuación, se muestra un comando de ejemplo para `OpenSUSE 13.2`.
+
+	#sudo zypper in http://download.opensuse.org/repositories/X11:/RemoteDesktop/openSUSE_13.2/x86_64/xrdp-0.9.0git.1401423964-2.1.x86_64.rpm
+    #sudo zypper install tigervnc xorg-x11-Xvnc xterm remmina-plugin-vnc
+
+
+##Iniciar xrdp y establecer el servicio xdrp durante el arranque
+
+Para Linux de la familia Red Hat, use:
+
+	#sudo service xrdp start
+	#sudo chkconfig xrdp on
+
+
+Para OpenSUSE, use:
+
+	#sudo systemctl start xrdp
+	#sudo systemctl enable xrdp
+ 
+
+##Deshabilitar iptables si usa Linux de la familia Red Hat 
+
+Uso:
+
+	#sudo service iptables stop
+
+
+##Uso de xfce si usa una versión de Ubuntu posterior a Ubuntu 12.04LTS
+
+Como xrop actual no podría admitir Gnome Desktop en una versión de Ubuntu posterior a Ubuntu 12.04LTS, usaremos `xfce` Desktop en su lugar.
+
+Instale `xfce`, use:
+
+    #sudo apt-get install xubuntu-desktop
+
+A continuación, habilite `xfce`, use:
+    
+    #echo xfce4-session >~/.xsession
+
+Edite el archivo de configuración `/etc/xrdp/startwm.sh`, use:
+
+    #sudo vi /etc/xrdp/startwm.sh   
+
+Agregue la línea `xfce4-session` antes de la línea `/etc/X11/Xsession`.
+
+Reinicie el servicio xrdp, use:
+
+    #sudo service xrdp restart
+
+
+##Conexión de su VM Linux desde un equipo de Windows
+En un equipo de Windows, inicie el cliente de escritorio remoto, escriba el nombre DNS de su VM Linux o vaya a `Dashboard` de su VM en el Portal de Azure y haga clic en `Connect`, verá la siguiente ventana de inicio de sesión:
+
+![imagen](./media/virtual-machines-linux-remote-desktop/no2.png)
+
+Inicie sesión con `user` y `password` para su VM Linux y disfrute de Escritorio remoto en su VM Linux de Microsoft Azure en este momento.
+
+
+##Pasos siguientes
+Para obtener más información sobre el uso de xrdp, puede consultar [aquí](http://www.xrdp.org/).
+
+
+
+
+
+ 
+
+<!---HONumber=September15_HO1-->

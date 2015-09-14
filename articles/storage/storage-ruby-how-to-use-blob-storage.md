@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso del almacenamiento de blobs de Ruby | Microsoft Azure" 
-	description="Aprenda a utilizar el servicio BLOB de Azure para cargar, descargar, incluir en un listado y eliminar contenido de blobs. Los ejemplos están escritos en Ruby." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Uso del almacenamiento de blobs de Ruby | Microsoft Azure"
+	description="Aprenda a utilizar el servicio BLOB de Azure para cargar, descargar, incluir en un listado y eliminar contenido de blobs. Los ejemplos están escritos en Ruby."
+	services="storage"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 
@@ -64,13 +64,13 @@ Para obtener estos valores:
 3. Haga clic en **ADMINISTRAR CLAVES** en la parte inferior del panel de navegación.
 4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede usar la principal o la secundaria.
 
-## Creación de un contenedor
+## Crear un contenedor
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 El objeto **Azure::BlobService** permite trabajar con contenedores y blobs. Para crear un contenedor, use el método**create\_container()**.
 
-En el siguiente ejemplo se crea un contenedor o se imprime el error, si hay alguno.
+En el siguiente ejemplo de código se crea un contenedor o se imprime el error, si hay alguno.
 
 	azure_blob_service = Azure::BlobService.new
 	begin
@@ -81,9 +81,9 @@ En el siguiente ejemplo se crea un contenedor o se imprime el error, si hay algu
 
 Si desea hacer públicos los archivos del contenedor, debe configurar los permisos del contenedor.
 
-Puede modificar solo la llamada <strong>create\\\_container()</strong> para pasar la opción **:public\\\_access\\\_level**:
+Puede modificar solo la llamada <strong>create\\_container()</strong> para pasar la opción **:public\\_access\\_level**:
 
-	container = azure_blob_service.create_container("test-container", 
+	container = azure_blob_service.create_container("test-container",
 	  :public_access_level => "<public access level>")
 
 
@@ -94,23 +94,23 @@ Los valores válidos para la opción **:public\_access\_level** son:
 * **contenedor:** habilita el acceso de lectura público a los blobs. Los datos de blob dentro de este contenedor pueden leerse a través de una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes no pueden enumerar los blobs incluidos en el contenedor mediante una solicitud anónima.
 
 También puede modificar el nivel de acceso público de un contenedor usando el método **set\_container\_acl()** para especificarlo.
- 
-El ejemplo siguiente cambia el nivel de acceso público a **container**:
+
+El ejemplo de código siguiente cambia el nivel de acceso público a **container**:
 
 	azure_blob_service.set_container_acl('test-container', "container")
 
-## Carga de un blob en un contenedor
+## Cargar un blob en un contenedor
 
 Para cargar contenido a un blob, use el método **create\_block\_blob()** para crear el blob y use un archivo o una cadena como contenido del blob.
 
-El siguiente código cargará el archivo **test.png** como un blob nuevo llamado "image-blob" en el contenedor.
+El siguiente código carga el archivo **test.png** como un blob nuevo llamado "image-blob" en el contenedor.
 
 	content = File.open("test.png", "rb") { |file| file.read }
 	blob = azure_blob_service.create_block_blob(container.name,
 	  "image-blob", content)
 	puts blob.name
 
-## Listado de blobs en un contenedor
+## Enumerar los blobs de un contenedor
 
 Para enumerar los contenedores, use el método **list\_containers()**. Para enumerar los blobs de un contenedor, use el método **list\_blobs()**.
 
@@ -124,27 +124,26 @@ Esta acción obtiene como resultado las URL de todos los blobs en todos los cont
 	  end
 	end
 
-## Descarga de blobs
+## Descargar blobs
 
 Para descargar blobs, use el método **get\_blob()** para recuperar el contenido.
 
-El ejemplo siguiente muestra cómo utilizar **get\_blob()** para descargar el contenido de "image-blob" y escribirlo en un archivo local.
+El ejemplo de código siguiente muestra cómo utilizar **get\_blob()** para descargar el contenido de "image-blob" y escribirlo en un archivo local.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
-## Eliminación de un blob
-Finalmente, para eliminar un blob, use el método **delete\_blob()**. En el siguiente ejemplo se muestra cómo eliminar un blob.
+## un blob
+Finalmente, para eliminar un blob, use el método **delete\_blob()**. En el siguiente ejemplo de código se muestra cómo eliminar un blob.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 
 ## Pasos siguientes
 
-Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
+Para obtener información acerca de tareas de almacenamiento más complejas, siga estos vínculos:
 
-- Vea la Referencia MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-- Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
- 
+- Referencia MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- Repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

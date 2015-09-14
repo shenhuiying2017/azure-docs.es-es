@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple | Microsoft Azure"
-   description="Describe cómo quitar, reemplazar y mantener el módulo de baterías de reserva en el dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Reemplazar la batería en el dispositivo StorSimple | Microsoft Azure"
+	description="Describe cómo quitar, reemplazar y mantener el módulo de baterías de reserva en el dispositivo StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple
 
@@ -27,7 +27,7 @@ Este tutorial explica cómo realizar lo siguiente:
 - Instalar un nuevo módulo de baterías de reserva
 - Mantener el módulo de baterías de reserva
 
->[AZURE.IMPORTANT]Antes de quitar y reemplazar un módulo de baterías de reserva, revise la información de seguridad de [Reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT]Antes de quitar y reemplazar un módulo de baterías de reserva, revise la información de seguridad de [Introducción al reemplazo de componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Quitar el módulo de baterías de reserva
 
@@ -115,4 +115,4 @@ Si aparece el estado **DEGRADADO**, se recomienda lo siguiente:
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

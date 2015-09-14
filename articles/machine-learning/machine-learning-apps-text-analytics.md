@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 
@@ -201,4 +201,4 @@ En la respuesta siguiente, obtendrá la lista de las frases clave asociadas a su
 Los identificadores especificados en el sistema son los identificadores que devuelve el sistema. El servicio web no comprueba que los identificadores sean únicos. Es responsabilidad del autor de la llamada hacerlo.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

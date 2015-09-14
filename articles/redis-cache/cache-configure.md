@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/25/2015"
+	ms.date="09/03/2015"
 	ms.author="sdanie"/>
 
 # Configuración de Caché en Redis de Azure
@@ -55,9 +55,15 @@ El acceso no SSL está deshabilitado de forma predeterminada para las nuevas cac
 
 ![Caché en Redis - Puertos de acceso](./media/cache-configure/IC808316.png)
 
+## Nivel de precios
+
+Haga clic en el **Nivel de precios** para ver o cambiar el nivel de precios para su memoria caché. Para obtener más información sobre el escalado, vea [Escalado de Caché en Redis de Azure](cache-how-to-scale.md).
+
+![Nivel de precios de Caché en Redis](./media/cache-configure/pricing-tier.png)
+
 ## Diagnóstico
 
-Haga clic en **Diagnóstico** para configurar la cuenta de almacenamiento que se usa para almacenar diagnósticos de caché.
+Haga clic en **Diagnóstico** para configurar la cuenta de almacenamiento que se usa para almacenar diagnósticos de memoria caché.
 
 ![Caché en Redis - Diagnóstico](./media/cache-configure/IC808317.png)
 
@@ -65,7 +71,7 @@ Para obtener más información, vea [Supervisión de Caché en Redis de Azure](c
 
 ## Maxmemory-policy y maxmemory-reserved
 
-Haga clic en **Directiva Maxmemory** para configurar las directivas de memoria para la caché. La opción **maxmemory-policy** configura la directiva de expulsión para la memoria caché y **maxmemory-reserved** configura la memoria reservada para los procesos no en caché.
+Haga clic en **Directiva Maxmemory** para configurar las directivas de memoria para la memoria caché. La opción **maxmemory-policy** configura la directiva de expulsión para la memoria caché y **maxmemory-reserved** configura la memoria reservada para los procesos no en caché.
 
 ![Caché en Redis - Directiva Maxmemory](./media/cache-configure/IC808318.png)
 
@@ -80,7 +86,7 @@ Haga clic en **Directiva Maxmemory** para configurar las directivas de memoria p
 
 Para obtener más información sobre las directivas maxmemory, vea [Directivas de expulsión](http://redis.io/topics/lru-cache#eviction-policies).
 
-La opción **maxmemory-reserved** configura la cantidad de memoria en MB que se reserva para las operaciones no en caché como, por ejemplo, la replicación durante la conmutación por error. También puede usarse cuando se tiene una alta relación de fragmentación. Esta opción le permite tener una experiencia más coherente de servidor Redis cuando varía la carga. Este valor debe establecerse más alto para cargas de trabajo con muchas operaciones de escritura. Cuando la memoria se reserva para dichas operaciones, no está disponible para el almacenamiento de datos en caché.
+La opción **maxmemory-reserved** configura la cantidad de memoria en MB que se reserva para las operaciones que no son de memoria caché como, por ejemplo, la replicación durante la conmutación por error. También puede usarse cuando se tiene una alta relación de fragmentación. Esta opción le permite tener una experiencia más coherente de servidor Redis cuando varía la carga. Este valor debe establecerse más alto para cargas de trabajo con muchas operaciones de escritura. Cuando la memoria se reserva para dichas operaciones, no está disponible para el almacenamiento de datos en caché.
 
 >[AZURE.IMPORTANT]La opción **maxmemory-reserved** solo está disponible para las memorias caché estándar.
 
@@ -90,7 +96,7 @@ Haga clic en **Configuración avanzada** para configurar las notificaciones de e
 
 ![Caché en Redis - Configuración avanzada](./media/cache-configure/IC808319.png)
 
->[AZURE.IMPORTANT]Las notificaciones de espacio de claves y la opción **notify-keyspace-events** solo están disponibles para las memorias caché estándar.
+>[AZURE.IMPORTANT]Notificaciones de Keyspace y **notificación de eventos de keyspace** configuración sólo están disponibles para las memorias caché estándar.
 
 Para obtener más información, vea [Notificaciones de espacio de claves de Redis](http://redis.io/topics/notifications). Para obtener el código de ejemplo, vea el archivo [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) en el ejemplo [Hola a todos](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
@@ -115,12 +121,22 @@ Las nuevas instancias de Caché en Redis de Azure se configuran con los siguient
 |Configuración|Valor predeterminado|Descripción|
 |---|---|---|
 |bases de datos|16|La base de datos predeterminada es DB 0. Se puede seleccionar una diferente por conexión mediante connection.GetDataBase(dbid), donde dbid es un número entre 0 y 15.|
-|maxclients|10\.000|Se trata del número máximo de clientes conectados que se permiten al mismo tiempo. Una vez alcanzado el límite, Redis cerrará todas las nuevas conexiones y enviará un error de "número máximo de clientes alcanzado".|
-|maxmemory-policy|volatile-lru|Directiva Maxmemory es la opción que configura el modo en que Redis seleccionará lo que se debe quitar cuando se alcanza el valor de maxmemory (el tamaño de la oferta de memoria caché que seleccionó al crear la memoria caché). Con Caché en Redis de Azure la opción predeterminada es volatile-lru, que quita las claves con una fecha de expiración definida mediante un algoritmo LRU. Esta opción puede configurarse en el portal de vista previa. Para obtener más información, vea [Maxmemory-policy y maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
+|maxclients|Depende del nivel de precios<sup>1</sup>.|Se trata del número máximo de clientes conectados que se permiten al mismo tiempo. Una vez alcanzado el límite, Redis cerrará todas las nuevas conexiones y enviará un error de "número máximo de clientes alcanzado".|
+|maxmemory-policy|volatile-lru|Directiva Maxmemory es la opción que configura el modo en que Redis seleccionará lo que se debe quitar cuando se alcanza el valor de maxmemory (el tamaño de la oferta de memoria caché que seleccionó al crear la memoria caché). Con Caché en Redis de Azure la opción predeterminada es volatile-lru, que quita las claves con una fecha de expiración definida mediante un algoritmo LRU. Esta opción puede configurarse en el portal de vista previa. Para obtener más información, consulte [Directiva Maxmemory y reserva maxmemory](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|Los algoritmos LRU y TTL mínimo no son precisos sino aproximados (con el fin de ahorrar memoria), para que también pueda seleccionar el tamaño de muestra para comprobar. Por ejemplo, Redis comprobará de manera predeterminada tres claves y seleccionará la usada menos recientemente.|
 |lua-time-limit|5\.000|Tiempo máximo de ejecución de un script Lua en milisegundos. Si se alcanza el tiempo máximo de ejecución, Redis registrará que un script está aún en ejecución una vez transcurrido el tiempo máximo permitido y empezará a responder a las consultas con un error.|
 |lua-event-limit|500|Se trata del tamaño máximo de la cola de eventos de script.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Los límites de búfer de salida de cliente pueden usarse para forzar la desconexión de clientes que, por algún motivo (un motivo habitual es que un cliente de Pub/Sub no puede consumir mensajes tan rápidamente como el publicador los crea), no leen datos del servidor con suficiente rapidez. Para obtener más información, vea [http://redis.io/topics/clients](http://redis.io/topics/clients).|
+
+<sup>1</sup>`maxclients` es diferente para cada nivel de precios de la Caché en Redis de Azure.
+
+-	Memoria caché C0 (250 MB): hasta 256 conexiones
+-	Memoria caché C1 (1 GB): hasta 1000 conexiones
+-	Memoria caché C2 (2,5 GB): hasta 2000 conexiones
+-	Memoria caché C3 (6 GB): hasta 5000 conexiones
+-	Memoria caché C4 (13 GB): hasta 10 000 conexiones
+-	Memoria caché C5 (26 GB): hasta 15 000 conexiones
+-	Memoria caché C6 (53 GB): hasta 20 000 conexiones
 
 ## No se admiten comandos de Redis en Caché en Redis de Azure
 
@@ -154,4 +170,4 @@ Para obtener una lista de comandos de Redis que están deshabilitados para Cach�
 ## Pasos siguientes
 -	Para obtener más información sobre cómo trabajar con comandos de Redis, vea [Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

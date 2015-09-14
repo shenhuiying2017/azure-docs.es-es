@@ -13,12 +13,19 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/21/2015"
+	ms.date="08/28/2015"
 	ms.author="maroche"/>
 
 # Novedades en el Catálogo de datos de Azure
 
 De forma periódica se publican actualizaciones al **Catálogo de datos de Azure**. No todas las versiones incluirán nuevas características de cara al usuario, algunas se centran en la funcionalidad del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio **Catálogo de datos de Azure** .
+
+## Novedades de la versión correspondiente a la semana del 28 de agosto de 2015
+
+A partir de la semana del 28 de agosto de 2015, se han agregado las siguientes funcionalidades al **Catálogo de datos de Azure**:
+
+- Compatibilidad con la generación de perfiles de datos de orígenes de datos de SQL Server y Oracle. Al registrar vistas y tablas de SQL Server y Oracle, los usuarios puede elegir incluir información de perfil de datos para los objetos que se están registrando. El perfil de datos incluye las estadísticas de nivel de objeto y de nivel de columna.
+- Compatibilidad con orígenes de datos de Hadoop HDFS. Los usuarios pueden registrarse ahora y detectar directorios y archivos HDFS.
 
 ## Novedades de la versión correspondiente a la semana del 21 de agosto de 2015
 
@@ -30,4 +37,4 @@ A partir de la semana del 21 de agosto de 2015, se han agregado las siguientes f
 - Solo en la edición estándar: al agregar propietarios a los activos de datos, el **Catálogo de datos de Azure** ahora admite tanto cuentas de usuario como grupos de seguridad como propietarios. Para agregar un grupo de seguridad como propietario de los activos de datos seleccionados, puede especificar el nombre para mostrar del grupo o la dirección de correo electrónico UPN del grupo, si tiene alguna.
 - Compatibilidad con orígenes de datos de almacenamiento de blobs de Azure. Los usuarios pueden registrarse ahora y detectar el almacenamiento de blobs de Azure y los directorios.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

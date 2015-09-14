@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Conjunto de servicios web de distribución normal | Microsoft Azure" 
-	description="Conjunto de servicios web de distribución normal" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Conjunto de servicios web de distribución normal | Microsoft Azure"
+	description="Conjunto de servicios web de distribución normal"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 #Conjunto de distribución normal
@@ -265,4 +265,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

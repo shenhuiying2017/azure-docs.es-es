@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del almacenamiento de colas de Node.js | Microsoft Azure" 
-	description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Node.js." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Uso del almacenamiento de colas de Node.js | Microsoft Azure"
+	description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Node.js."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -41,17 +41,18 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 
 1.  Utilice una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde ha creado la aplicación de ejemplo.
 
-2.  Escriba **npm install azure-storage** en la ventana de comandos. Esto debería devolver la salida siguiente:
+2.  Escriba **npm install azure-storage** en la ventana de comandos. La salida del comando es similar al ejemplo siguiente.
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de dicha carpeta, encontrará el paquete **azure-storage**, que contiene las bibliotecas necesarias para el acceso al almacenamiento.
 
@@ -116,7 +117,7 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
-		// Messages peeked
+		// Message text is in messages[0].messagetext
 	  }
 	});
 
@@ -132,11 +133,11 @@ El procesamiento de un mensaje es un proceso que consta de dos etapas:
 
 2. Eliminación del mensaje.
 
-Para quitar un mensaje de la cola, use **getMessage**. De esta forma el mensaje se hace invisible en la cola, así que ningún otro cliente puede procesarlo. Después de que la aplicación haya procesado el mensaje, llame a **deleteMessage** para eliminarlo de la cola. En el siguiente ejemplo se obtiene un mensaje y luego se elimina:
+Para quitar un mensaje de la cola, use **getMessages**. De esta forma los mensajes se hacen invisible en la cola, así que ningún otro cliente puede procesarlos. Después de que la aplicación haya procesado un mensaje, llame a **deleteMessage** para eliminarlo de la cola. En el siguiente ejemplo se obtiene un mensaje y luego se elimina:
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
       if(!error){
-	    // message dequed
+	    // Message text is in messages[0].messagetext
         var message = result[0];
         queueSvc.deleteMessage('myqueue', message.messageid, message.popreceipt, function(error, response){
 	      if(!error){
@@ -148,7 +149,7 @@ Para quitar un mensaje de la cola, use **getMessage**. De esta forma el mensaje 
 
 > [AZURE.NOTE]De manera predeterminada, un mensaje solo está oculto durante 30 segundos, después de lo cual es visible para otros clientes. Puede especificar un valor diferente usando `options.visibilityTimeout` con **getMessages**.
 
-> [AZURE.NOTE]Si utiliza <b>getMessages</b> cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
+> [AZURE.NOTE]Si usa **getMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
 
 ## Cambio del contenido de un mensaje en cola
 
@@ -250,7 +251,7 @@ En el siguiente ejemplo se genera una nueva directiva de acceso compartido que p
 
 Tenga en cuenta que también se debe proporcionar la información del host, puesto que es necesaria cuando el titular de la SAS intenta acceder a la cola.
 
-La aplicación cliente usa entonces la SAS con **QueueServiceWithSAS** para realizar operaciones en la cola. En el siguiente ejemplo se realiza la conexión a la cola y se crea un mensaje.
+La aplicación cliente usa entonces la SAS con **QueueServiceWithSAS** para realizar operaciones contra la cola. En el siguiente ejemplo se realiza la conexión a la cola y se crea un mensaje.
 
 	var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
 	sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
@@ -308,11 +309,11 @@ Después de establecer una ACL, puede crear luego una SAS basada en el Id. de un
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
--   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][].
+-   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
 -   Visite el [Blog del equipo de almacenamiento de Azure][].
--   Visite el repositorio del [SDK de almacenamiento de Azure para Node][] en GitHub.
+-   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
 
-  [SDK de almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
+  [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../web-sites-nodejs-develop-deploy-mac.md
@@ -332,4 +333,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
  [Sitio web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

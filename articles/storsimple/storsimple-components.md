@@ -70,11 +70,9 @@ Además del dispositivo virtual y del dispositivo dedicado de StorSimple, Micros
 
 ### Organización automática del almacenamiento en niveles
 
-Microsoft Azure StorSimple ordena automáticamente los datos en niveles lógicos según su uso actual, su antigüedad y la relación con otros datos. Los datos más activos se almacenan de manera local, mientra que los datos menos activos y los datos inactivos se migran automáticamente a la nube. La ilustración 1 muestra este enfoque de almacenamiento.
+Microsoft Azure StorSimple ordena automáticamente los datos en niveles lógicos según su uso actual, su antigüedad y la relación con otros datos. Los datos más activos se almacenan de manera local, mientra que los datos menos activos y los datos inactivos se migran automáticamente a la nube. El siguiente diagrama ilustra este enfoque de almacenamiento.
  
 ![Niveles de almacenamiento de StorSimple](./media/storsimple-components/hcs-data-services-storsimple-components-tiers.png)
-
-**Figura 1: Almacenamiento de StorSimple**
 
 Para habilitar el acceso rápido, StorSimple almacena datos muy activos (datos activos) en SSD en el dispositivo StorSimple. Almacena datos que se usan de manera ocasional (datos semiactivos) en discos duros en el dispositivo o en los servidores del centro de datos. Mueve a la nube datos inactivos, datos de copia de seguridad y datos retenidos para fines de archivo o de cumplimiento.
 
@@ -170,7 +168,7 @@ Antes de implementar la solución Microsoft Azure StorSimple, se recomienda que 
 | registros de control de acceso (ACR) | Un registro asociado a un volumen en el dispositivo de Microsoft Azure StorSimple que determina qué hosts pueden conectarse a él. La determinación está basada en el Nombre calificado iSCSI (IQN) de los hosts (contenidos en el ACR) que se conectan al dispositivo StorSimple.|
 | AES-256 | Un algoritmo Estándar de cifrado avanzado (AES) de 256 bits para cifrar los datos cuando se desplaza hacia y desde la nube. |
 | tamaño de unidad de asignación (AUS) | La menor cantidad de espacio en disco que se puede asignar para contener un archivo en los sistemas de archivos de Windows. Si un tamaño de archivo no es un múltiplo par del tamaño del clúster, debe utilizarse el espacio adicional para almacenar el archivo (hasta el siguiente múltiplo del tamaño del clúster), lo que genera una pérdida de espacio y la fragmentación del disco duro. <br>El AUS recomendado para volúmenes StorSimple de Azure es de 64 KB porque funciona bien con los algoritmos de desduplicación.|
-| organización automática del almacenamiento en niveles | Mover automáticamente los datos menos activos a un nivel en la nube y, a continuación, habilitar la administración de todo el almacenamiento de una interfaz de usuario central.|
+| organización automática del almacenamiento en niveles | Mover automáticamente los datos menos activos de SSD a HDD a un nivel en la nube y, a continuación, habilitar la administración de todo el almacenamiento de una interfaz de usuario central.|
 | catálogo de copias de seguridad | Un conjunto de copias de seguridad, normalmente relacionadas con el tipo de aplicación que se utilizó. Esta colección se muestra en la página Catálogo de copias de seguridad de la interfaz de usuario del servicio StorSimple Manager.|
 | archivo del catálogo de copias de seguridad | Un archivo que contiene una lista de instantáneas disponibles almacenadas actualmente en la base de datos de copias de seguridad de StorSimple Snapshot Manager. |
 | directiva de copia de seguridad | Una selección de volúmenes, tipo de copia de seguridad y un calendario que le permite crear copias de seguridad en un programa definido.|
@@ -228,4 +226,4 @@ Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-secu
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

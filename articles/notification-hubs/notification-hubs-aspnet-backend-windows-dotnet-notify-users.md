@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Notificación a los usuarios con los Centros de notificaciones de Azure" 
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	services="notification-hubs" 
+<properties
+	pageTitle="Notificación a los usuarios con los Centros de notificaciones de Azure"
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	services="notification-hubs"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/31/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Notificación a los usuarios con los Centros de notificaciones de Azure
@@ -28,7 +28,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 Este tutorial también es el requisito previo para el tutorial [Inserción segura]. Después de haber completado los pasos de este tutorial, puede continuar con el tutorial [Inserción segura], que muestra cómo modificar el código de este tutorial para enviar una notificación push de forma segura.
 
 
-##Requisitos previos 
+##Requisitos previos
 
 Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales de Servicios móviles:
 
@@ -100,7 +100,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
                     <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="Password" FontSize="24" Margin="20,0,20,0" />
                     <PasswordBox Name="PasswordTextBox" Grid.Row="3" Grid.ColumnSpan="3" Margin="20,0,20,0"/>
 
-                    <Button Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    <Button Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"
                                 Content="1. Login and register" Click="LoginAndRegisterClick" Margin="0,0,0,20"/>
 
                     <ToggleButton Name="toggleWNS" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Content="WNS" IsChecked="True" />
@@ -137,11 +137,11 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 
 
 13. Agregue el código siguiente a la clase MainPage en **MainPage.xaml.cs** para los proyectos **(Windows 8.1)** y **(Windows Phone 8.1)**.
- 
+
 	El método `PushClick` es el controlador de clics para el botón **Enviar inserción**. Llama al back-end para desencadenar una notificación a todos los dispositivos con una etiqueta de nombre de usuario que coincida con el parámetro `to_tag`. El mensaje de notificación se envía como contenido JSON en el cuerpo de la solicitud.
 
 	El método `LoginAndRegisterClick` es el controlador de clics para el botón **Iniciar sesión y registrarse**. Almacena el token de autenticación básico localmente (tenga en cuenta que esto representa cualquier token que usa el esquema de autenticación) y después usa `RegisterClient` para registrar las notificaciones que usan el back-end.
-	
+
 
         private async void PushClick(object sender, RoutedEventArgs e)
         {
@@ -227,7 +227,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 
 
 15. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **compartido**, a continuación en **Agregar **y, por último, en **Clase**. Asigne un nombre a la clase **RegisterClient.cs** y después haga clic en **Aceptar** para generar la clase.
-	
+
 	Esta clase contendrá las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrar notificaciones push. También almacena localmente los *registrationIds* creados por el Centro de notificaciones tal como se detalla en [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Tenga en cuenta que usa un token de autorización almacenado localmente cuando hace clic en el botón **Iniciar sesión y registrarse**.
 
 
@@ -327,7 +327,7 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
         }
 
 18. Guarde todos los cambios.
-		
+
 
 ## Prueba de la aplicación
 
@@ -341,17 +341,17 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
     ![][14]
 
 4. En la instancia de Windows Phone 8.1, escriba una cadena de nombre de usuario en los campos **Nombre de usuario** y **Contraseña** y después haga clic en **Iniciar sesión y registrarse**.
-5. Después, en el campo **Etiqueta de nombre de usuario destinatario**, especifique el nombre registrado en Windows 8.1. Escriba un mensaje de notificación y haga clic en **Enviar inserción**. 
+5. Después, en el campo **Etiqueta de nombre de usuario destinatario**, especifique el nombre registrado en Windows 8.1. Escriba un mensaje de notificación y haga clic en **Enviar inserción**.
 
     ![][16]
 
 6. Solo los dispositivos que se han registrado con la etiqueta de nombre de usuario coincidente reciben el mensaje de notificación.
-	
+
 	![][15]
- 
+
 ## Pasos siguientes
 
-* Si desea segmentar los usuarios por grupos de interés, consulte [Uso de los Centros de notificaciones para enviar noticias de última hora]. 
+* Si desea segmentar los usuarios por grupos de interés, consulte [Uso de los Centros de notificaciones para enviar noticias de última hora].
 * Para obtener más información sobre el uso de Centros de notificaciones, consulte [Información general acerca de los Centros de notificaciones].
 
 
@@ -373,4 +373,4 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

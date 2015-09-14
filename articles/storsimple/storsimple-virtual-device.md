@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Dispositivo virtual de StorSimple | Microsoft Azure"
-	description="Describe cómo crear, configurar, implementar y administrar el dispositivo virtual de StorSimple."
+   pageTitle="Dispositivo virtual de StorSimple en Azure | Microsoft Azure"
+	description="Obtenga información acerca de cómo crear, implementar y administrar un dispositivo virtual StorSimple en una red virtual de Microsoft Azure. (Se aplica a la versión 3 y anteriores de StorSimple)."
 	services="storsimple"
 	documentationCenter=""
 	authors="alkohli"
@@ -12,18 +12,16 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# Dispositivo virtual de StorSimple
+# Implementar y administrar un dispositivo virtual StorSimple en Azure
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ## Información general
 
 El dispositivo virtual de StorSimple es una capacidad adicional que se incluye con la solución de Microsoft Azure StorSimple. El dispositivo virtual de StorSimple se ejecuta en una máquina virtual en una red virtual de Microsoft Azure y se puede usar para realizar copias de seguridad y clonar los datos de los hosts. Los temas siguientes de este artículo le ayudarán a conocer, configurar y usar el dispositivo virtual de StorSimple.
-
-
 
 - Diferencias entre el dispositivo virtual y el dispositivo físico.
 
@@ -386,4 +384,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 Para administrar el dispositivo virtual, consulte la lista detallada de flujos de trabajo en [Administración del dispositivo StorSimple mediante el servicio Administrador de StorSimple](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

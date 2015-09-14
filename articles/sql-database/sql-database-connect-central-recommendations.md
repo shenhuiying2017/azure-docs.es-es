@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="09/02/2015"
 	ms.author="genemi"/>
 
 
@@ -28,7 +28,7 @@ Este tema es un buen lugar para empezar a trabajar con conectividad de cliente a
 
 
 - [Instrucciones para conectar con Base de datos SQL de Azure mediante programación](http://msdn.microsoft.com/library/azure/ee336282.aspx) - Se incluye lo siguiente:
- - [Puertos y firewalls](https://azure.microsoft.com/es-ES/documentation/articles/sql-database-configure-firewall-settings/)
+ - [Puertos y firewalls](sql-database-configure-firewall-settings.md/)
  - Cadenas de conexión
 - [Administración de recursos de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) - Se incluye lo siguiente:
  - Regulador de recursos
@@ -36,16 +36,34 @@ Este tema es un buen lugar para empezar a trabajar con conectividad de cliente a
  - Limitaciones
 
 
-
-
 ## Recomendaciones para la autenticación
 
 
 - Use la autenticación de Base de datos SQL de Azure, no la autenticación de Windows que no está disponible en la Base de datos de SQL de Azure.
 - Especifique una base de datos determinada, en lugar de utilizar la base de datos *maestra* predeterminada.
-- Conéctese mediante la especificación de un usuario en una [base de datos independiente](http://msdn.microsoft.com/library/ff929071.aspx).
- - Este enfoque ofrece mejor rendimiento y escalabilidad al evitar la necesidad de un inicio de sesión en la base de datos maestra.
- - No puede usar la instrucción **USE NombreDeMiBaseDeDatos;** de Transact-SQL en Base de datos SQL.
+ - No puede usar la instrucción **USE NombreDeMiBaseDeDatos;** de Transact-SQL en Base de datos SQL para cambiar a otra base de datos.
+
+
+### Usuarios contenidos
+
+
+Dispone de opciones al agregar una persona como usuario a Base de datos SQL:
+
+- Agregue un *inicio de sesión* con una contraseña a la base de datos **maestra** y, a continuación, agregue un *usuario* correspondiente a otra o más bases de datos del mismo servidor.
+
+- Agregue un *usuario contenido* con una contraseña a una o más bases de datos y ningún vínculo a cualquier *inicio de sesión* en la base de datos **maestra**.
+
+
+El enfoque del usuario contenido tiene ventajas e inconvenientes:
+
+- Una de las ventajas es que una base de datos puede moverse con facilidad desde un servidor de Base de datos SQL de Azure a otro, cuando todos los usuarios de la base de datos son usuarios contenidos.
+
+- Uno de los inconvenientes es la mayor dificultad en la administración periódica. Por ejemplo:
+ - Es más complicado eliminar varios usuarios contenidos que un inicio de sesión.
+ - Quien sea un usuario contenido en varias bases de datos podría tener más contraseñas para recordar o actualizar.
+
+
+Se proporciona más información en - [Bases de datos independientes](http://msdn.microsoft.com/library/ff929071.aspx).
 
 
 ## Recomendaciones para la conexión
@@ -53,73 +71,75 @@ Este tema es un buen lugar para empezar a trabajar con conectividad de cliente a
 
 - En la lógica de conexión de cliente, reemplace el tiempo de espera predeterminado para que sea de 30 segundos.
  - El valor predeterminado de 15 segundos es demasiado corto para conexiones que dependen de Internet.
-- Asegúrese de que el [firewall de su Base de datos SQL de Azure](http://msdn.microsoft.com/library/ee621782.aspx) permite la comunicación TCP saliente en el puerto 1433.
- - Puede definir la configuración del [firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx) en un servidor de Base de datos SQL o en una base de datos individual.
-- Si está utilizando un [grupo de conexiones](http://msdn.microsoft.com/library/8xx3tyca.aspx), cierre la conexión en el momento en que el programa no la esté usando activamente y no esté solo preparándose para volver a usarla.
- - A menos que el programa vuelva a usar la conexión para otra operación inmediatamente, sin pausas, se recomienda el siguiente patrón: <br/><br/>Abrir una conexión. <br/>Hacer una operación a través de la conexión. <br/>Cerrar la conexión.<br/><br/>
-- Use lógica de reintento con la lógica de conexión, pero solo para los errores transitorios. Cuando se usa la Base de datos SQL, los intentos de abrir una conexión o emitir una consulta pueden producir un error por diversas razones.
- - Un motivo persistente de error podría ser que la cadena de conexión esté mal formada.
- - Un motivo transitorio de error podría ser que el sistema de Base de datos SQL de Azure necesite equilibrar la carga general. El motivo transitorio desaparece por sí mismo, lo que significa que el programa debería volverlo a intentar.
- - Al volver a intentar una consulta, cierre primero la conexión y, después, abra otra.
+
+
+- Asegúrese de que el [firewall de su Base de datos SQL de Azure](sql-database-firewall-configure.md) permite la comunicación TCP saliente en el puerto 1433.
+ - Puede configurar la configuración del firewall en un servidor de Base de datos SQL o a una base de datos individual.
+
+
+- Para controlar los *errores transitorios*, agregue [*lógica de* reintento](#TransientFaultsAndRetryLogicGm) a los programas cliente que interactúan con Base de datos SQL de Azure.
+
+
+### Grupo de conexiones
+
+
+Si está utilizando un [grupo de conexiones](http://msdn.microsoft.com/library/8xx3tyca.aspx), cierre la conexión en el momento en que el programa no la esté usando activamente y no esté preparándose para volver a usarla.
+
+A menos que el programa vuelva a usar la conexión para otra operación inmediatamente y sin pausas, se recomienda el siguiente patrón:
+
+- Abrir una conexión.
+- Hacer una operación a través de la conexión.
+- Cerrar la conexión.
+
+
+#### Se inició una excepción al usarse un grupo
+
+
+Al habilitarse la agrupación de conexiones y producirse un error de tiempo de espera u otro error de inicio de sesión, se iniciará una excepción. Se producirá un error en los intentos de conexión posteriores durante los próximos 5 segundos, lo que se conoce como *período de bloqueo*.
+
+Si la aplicación intenta conectarse durante el período de bloqueo, la primera excepción se iniciará de nuevo. Tras la finalización del período de bloqueo, los errores posteriores dan lugar a un nuevo período de bloqueo que dura el doble que el período de bloqueo anterior.
+
+La duración máxima de un período de bloqueo es de 60 segundos.
 
 
 ### Puertos que no sea simplemente 1433 en V12
 
 
-En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Para obtener información detallada, consulte:<br/> [Puertos diferentes del 1433 para ADO.NET, 4.5, ODBC 11 y Base de datos de SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes. Para obtener información detallada, consulte:<br/> [Puertos diferentes del 1433 para ADO.NET, 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 
 La siguiente sección tiene más que decir sobre el control de errores transitorios y la lógica de reintento.
 
 
+
+<a name="TransientFaultsAndRetryLogicGm" id="TransientFaultsAndRetryLogicGm"></a>
+
+&nbsp;
+
 ## Errores transitorios y lógica de reintento
 
 
-Los servicios en la nube como Azure y su servicio Base de datos SQL tienen el desafío interminable de equilibrar las cargas de trabajo y administrar los recursos. Si dos bases de datos que se sirven desde el mismo equipo participan en un procesamiento excepcionalmente duro simultáneamente, el sistema de administración podría detectar la necesidad de desplazar la carga de trabajo de una base de datos a otro recurso que tenga exceso de capacidad.
+El sistema de Azure tiene la capacidad de volver a configurar dinámicamente servidores cuando surgen pesadas cargas de trabajo en el servicio de Base de datos SQL.
+
+Sin embargo, una reconfiguración podría hacer que su programa cliente perdiera su conexión a Base de datos SQL. Este error se denomina *error transitorio*.
+
+Su programa cliente puede intentar restablecer una conexión después de esperar quizás de 6 a 60 segundos entre reintentos. Debe proporcionar la lógica de reintento en su cliente.
+
+Para los ejemplos de código que ilustran la lógica de reintento, vea: - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
 
-Durante el cambio, la base de datos podría no estar disponible temporalmente. Esto podría bloquear nuevas conexiones o podría provocar que el programa cliente pierda su conexión. Pero el cambio de recursos es transitorio y podría solucionarle por sí solo en un par de minutos o en varios segundos. Una vez completado el cambio, el programa de cliente puede restablecer su conexión y reanudar su trabajo. La pausa en el procesamiento es mejor que un error evitable del programa cliente.
+### Números de error para errores transitorios
 
 
-Cuando se produce cualquier error en Base de datos SQL, se inicia [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx). `SqlException` contiene un código de error numérico en su propiedad **Number**. Si el código de error identifica un error transitorio, el programa debería reintentar la llamada.
+Cuando se produce cualquier error en Base de datos SQL, se inicia [SqlException](http://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx). **SqlException** contiene un código de error numérico en su propiedad **Number**. Si el código de error identifica un error transitorio, el programa debería reintentar la llamada.
 
 
-- [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
+- [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md#bkmk_connection_errors)
  - Su sección **Errores transitorios, los errores de pérdida de conexión** es una lista de los errores transitorios que garantizan un reintento automático.
  - Por ejemplo, inténtelo de nuevo si se produce el número de error 40613, que indica algo similar a<br/>*La base de datos 'MiBaseDeDatos' del servidor 'ElServidor' no está actualmente disponible.*
 
 
-Los *errores* transitorios a veces se denominan *anomalías* transitorias. Este tema considera estos dos términos sinónimos.
-
-
-Para obtener más ayuda si se produce un error de conexión, ya sea permanente o transitorio, consulte:
-
-
-- [Solucionar problemas de conexión con la Base de datos SQL de Azure](http://support.microsoft.com/kb/2980233/)
-
-
-Para obtener vínculos a temas de ejemplo de código que muestran la lógica de reintento, consulte:
-
-
-- [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
-
-
-<a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
-
-
-## Proxy de software intermedio y lógica de reintento
-
-
-El proxy de software intermedio que media entre el cliente de ADO.NET 4.5 y V11 controla un pequeño subconjunto de los errores transitorios correctamente con la lógica de reintento. En los casos en que el proxy se conecta correctamente al segundo intento, su programa cliente no tiene constancia de que el primer intento fracasó.
-
-
-El proxy V12 controla un subconjunto más pequeño de los errores transitorios. En otros casos V12 se omite el proxy para la velocidad superior de conexión directa a Base de datos SQL directamente. Para un programa de cliente ADO.NET 4.5, estos cambios hacen que base de datos de SQL Azure V12 se parezca más a Microsoft SQL Server.
-
-
-Para los ejemplos de código que muestran la lógica de reintento, vea:<br/>[Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md).
-
-
-> [AZURE.TIP]En un entorno de producción, se recomienda que los clientes que se conectan Base de datos de SQL Azure V11 o V12 implemente la lógica de reintento en su código. Esto puede ser código personalizado o puede ser código que aproveche una API como la biblioteca de información empresarial.
+Para obtener más información, consulte: - [Desarrollo de Base de datos SQL de Azure: temas de procedimientos](http://msdn.microsoft.com/library/azure/ee621787.aspx) - [Solucionar problemas de conexión con la Base de datos SQL de Azure](http://support.microsoft.com/kb/2980233/)
 
 
 ## Tecnologías
@@ -131,15 +151,10 @@ Los siguientes temas contienen vínculos a ejemplos de código para varios lengu
 Se proporcionan varios ejemplos de código para clientes que se ejecutan en Windows, Linux y Mac OS X.
 
 
-**Ejemplos generales:** hay ejemplos de código para multitud de lenguajes de programación, como PHP, Python, Node.js y .NET CSharp. Además, se proporcionan ejemplos para clientes que se ejecutan en Windows, Linux y Mac OS X.
-
-
-- [Ejemplos de código de desarrollo de cliente y de inicio rápido para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
-- [Desarrollo de base de datos SQL de Azure: temas de procedimientos](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+**Ejemplos generales:** hay [ejemplos de código](sql-database-develop-quick-start-client-code-samples.md) para multitud de lenguajes de programación, como PHP, Python, Node.js y .NET CSharp. Además, se proporcionan ejemplos para clientes que se ejecutan en Windows, Linux y Mac OS X.
 
 
 **Escalado elástico:** para obtener información acerca de la conectividad a bases de datos de Escalado elástico, consulte:
-
 
 - [Introducción a la vista previa de Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md)
 - [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)
@@ -147,15 +162,6 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 
 **Bibliotecas de controlador:** para obtener información acerca de las bibliotecas de controlador de conexión, incluidas las versiones recomendadas, consulte:
 
-
 - [Bibliotecas de conexiones para la base de datos SQL y SQL Server](sql-database-libraries.md)
 
-
-## Otras referencias
-
-
-- [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md)
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

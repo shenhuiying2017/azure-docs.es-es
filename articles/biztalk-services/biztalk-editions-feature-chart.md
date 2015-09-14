@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Información acerca de las características de las ediciones de Servicios de BizTalk | Microsoft Azure"
-	description="Compare las capacidades de las ediciones de Servicios de BizTalk: Free, Developer, Basic, Standard y Premium. MABS, WABS"
+	description="Compare las capacidades de las ediciones de Servicios de BizTalk: Free, Developer, Basic, Standard y Premium. MABS, WABS."
 	services="biztalk-services"
 	documentationCenter=""
 	authors="MandiOhlinger"
@@ -12,41 +12,41 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="06/23/2015"
 	ms.author="mandia"/>
 
 
 # Servicios de BizTalk: gráfico de ediciones
 
-Servicios de BizTalk de Azure ofrece varias ediciones que puede elegir. Utilice este tema para determinar qué edición es la adecuada para sus escenario y necesidades empresariales.
+Servicios de BizTalk de Azure ofrece varias ediciones. Use este artículo para determinar qué edición es la adecuada para sus escenario y necesidades empresariales.
 
 
-## Descripción de las ediciones
+## Comparar las ediciones
 
-**FREE (vista previa)**
+**Free (Vista previa)**
 
 Permite crear y administrar conexiones híbridas. Una conexión híbrida es una manera sencilla de conectar un sitio web de Azure a un recurso local, como SQL Server.
 
-**DEVELOPER**
+**Developer**
 
 Incluye conexiones híbridas y procesamiento de mensajes de EAI y EDI con un portal de administración fácil de utilizar para socios comerciales, además de compatibilidad con esquemas EDI y procesamiento enriquecido EDI sobre X12 y AS2. Puede crear escenarios comunes de EAI que conectan servicios en la nube con cualquier protocolo HTTP/S, REST, FTP, WCF y SFTP para leer y escribir mensajes. Utilice la conectividad en sistemas locales de LOB con adaptadores SAP, Oracle eBusiness, Oracle DB, Siebel y SQL Server listos para utilizar. Utilice un entorno centrado en el desarrollador con herramientas de Visual Studio para desarrollo e implementación simples. Limitado a fines de desarrollo y prueba solo sin Contrato de nivel de servicio (SLA).
 
-**BASIC**
+**Básica**
 
 Incluye la mayoría de las capacidades de la edición Developer con aumentos en conexiones híbridas, puentes EAI, contratos EDI y conexiones del BizTalk Adapter Pack. También ofrece alta disponibilidad y la opción para escalar con un Contrato de nivel de servicio (SLA).
 
-**STANDARD**
+**Standard**
 
 Incluye la mayoría de las capacidades de la edición Basic con aumentos en conexiones híbridas, puentes EAI, contratos EDI y conexiones del BizTalk Adapter Pack. También ofrece alta disponibilidad y la opción para escalar con un Contrato de nivel de servicio (SLA).
 
-**PREMIUM**
+**Premium**
 
 Incluye la mayoría de las capacidades de la edición Standard con aumentos en conexiones híbridas, puentes EAI, contratos EDI y conexiones del BizTalk Adapter Pack. También incluye el archivado, la alta disponibilidad y la opción para escalar con un Contrato de nivel de servicio (SLA).
 
 
 ## Gráfico de ediciones
-La siguiente tabla muestra las diferencias:
+En la tabla siguiente se muestran las diferencias.
 
 <table border="1">
 <tr bgcolor="FAF9F9">
@@ -201,7 +201,7 @@ Incluye la recepción sin rechazo (NRR) y la descarga de mensajes controlados</t
 </tr>
 </table>
 
-**Nota** <br/>Para la resiliencia frente a los errores de hardware, la Alta disponibilidad implica disponer de varias máquinas virtuales en una sola unidad BizTalk.
+> [AZURE.NOTE]Para la resistencia frente a los errores de hardware, la Alta disponibilidad implica disponer de varias máquinas virtuales en una sola unidad BizTalk.
 
 
 ## Preguntas más frecuentes
@@ -212,16 +212,16 @@ Una "unidad" es el nivel atómico de una implementación de Servicios de BizTalk
 #### ¿Cuál es la diferencia entre Servicios de BizTalk y una máquina virtual de BizTalk de Azure?
 Servicios de BizTalk proporciona una verdadera arquitectura de plataforma como servicio (PaaS) para la creación de soluciones de integración en la nube. Con el modelo de PaaS, se puede centrar por completo en la lógica de la aplicación y dejar toda la administración de la infraestructura a Microsoft, incluyendo lo siguiente:
 
-- No hay necesidad de administrar o revisar máquinas virtuales
-- Microsoft garantiza la disponibilidad
-- Puede controlar la escala a petición simplemente solicitando más o menos capacidad a través del portal de administración de Azure
+- No hay necesidad de administrar o revisar máquinas virtuales.
+- Microsoft garantiza la disponibilidad.
+- Puede controlar la escala a petición simplemente solicitando más o menos capacidad a través del portal de Azure.
 
 BizTalk Server en Máquinas virtuales de Azure proporciona una arquitectura de infraestructura como servicio (IaaS). Puede crear máquinas virtuales y configurarlas exactamente como el entorno local, con lo que se facilita la ejecución de aplicaciones existentes en la nube sin cambiar el código. Con IaaS, sigue siendo su responsabilidad la configuración de las máquinas virtuales, la administración de las máquinas virtuales (por ejemplo, la instalación de software y revisiones de sistema operativo) y el diseño de la aplicación para una alta disponibilidad.
 
 Si busca crear nuevas soluciones de integración que minimicen su esfuerzo de administración de la infraestructura, utilice Servicios de BizTalk. Si busca migrar rápidamente sus soluciones existentes de BizTalk o desea un entorno a petición para desarrollar y probar las aplicaciones de BizTalk Server, utilice BizTalk Server en la Máquina virtual de Azure.
 
 #### ¿Cuál es la diferencia entre el Servicio de adaptador de BizTalk y las conexiones híbridas?
-El Servicio de adaptador de BizTalk se usa por un Servicio de BizTalk de Azure. El servicio de adaptador de BizTalk usa el Pack de adaptador de BizTalk para establecer una conexión con un sistema de línea de negocio (LOB) local. Una conexión híbrida ofrece una manera sencilla y adecuada de conectar aplicaciones de Azure, como Sitios web y Servicios móviles, a un recurso local.
+El Servicio de adaptador de BizTalk se usa por un Servicio de BizTalk de Azure. El servicio de adaptador de BizTalk usa el Pack de adaptador de BizTalk para establecer una conexión con un sistema de línea de negocio (LOB) local. Una conexión híbrida ofrece una manera sencilla y adecuada de conectar aplicaciones de Azure, como la característica de Aplicaciones web en el Servicio de aplicaciones de Azure y Servicios móviles de Azure, a un recurso local.
 
 #### Significado de la transferencia de datos de conexiones híbridas (GB) por unidad ¿Es por minuto/hora/día/semana/mes? ¿Qué ocurre cuando se alcanza el límite?
 
@@ -245,16 +245,15 @@ Sí, el Servicio de adaptador de BizTalk con BizTalk Adapter Pack está incluido
 
 ## Pasos siguientes
 
-Para crear los Servicios de BizTalk de Azure en el Portal de administración de Azure, vaya a [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure](biztalk-provision-services.md). Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para crear los Servicios de BizTalk de Azure en el portal de Azure, vaya a [Servicios de BizTalk: Aprovisionamiento con el portal de Azure](biztalk-provision-services.md). Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## Otras referencias
-- [Servicios de BizTalk: aprovisionamiento con el Portal de administración de Azure](biztalk-provision-services.md)<br/>
+## Recursos adicionales
+- [Servicios de BizTalk: aprovisionamiento con el portal de Azure](biztalk-provision-services.md)<br/>
 - [Servicios de BizTalk: gráfico del estado de aprovisionamiento](biztalk-service-state-chart.md)<br/>
 - [Servicios de BizTalk: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 - [Servicios de BizTalk: copias de seguridad y restauración](biztalk-backup-restore.md)<br/>
 - [Servicios de BizTalk: limitaciones](biztalk-throttling-thresholds.md)<br/>
 - [Servicios de BizTalk: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)<br/>
 - [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="08/28/2015"
 	ms.author="spelluru"/>
 
 # Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
@@ -213,7 +213,9 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 10. Compile el proyecto. Haga clic en **Compilar** en el menú y haga clic en **Compilar solución**.
 11. Inicie el **Explorador de Windows** y vaya a la carpeta **bin\\debug** o **bin\\release** según el tipo de compilación.
 12. Cree un archivo comprimido **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta <project folder>\\bin\\Debug. Puede que desee incluir el archivo MyDotNetActivity.pdb para obtener detalles adicionales, como el número de línea en el código fuente que produjo el problema en caso de error. 
-13. Cargue **MyDotNetActivity.zip** como un blob en el contenedor de blobs: **customactvitycontainer** en el almacenamiento de blobs de Azure que usa el servicio vinculado **StorageLinkedService** en **ADFTutorialDataFactory** Cree el contenedor de blobs **customactivitycontainer** si aún no existe. 
+13. Cargue **MyDotNetActivity.zip** como un blob en el contenedor de blobs: **customactvitycontainer** en el almacenamiento de blobs de Azure que usa el servicio vinculado **StorageLinkedService** en **ADFTutorialDataFactory** Cree el contenedor de blobs **customactivitycontainer** si aún no existe.
+
+> [AZURE.NOTE]Si agrega este proyecto de actividad de .NET a una solución en Visual Studio que contenga un proyecto de la factoría de datos, no tendrá que realizar los dos últimos pasos de creación del archivo zip y que cargarlos manualmente en el almacenamiento de blobs de Azure. Al publicar las entidades de la factoría de datos con Visual Studio el proceso de publicación realizar automáticamente estos pasos. Consulte los artículos [Crear su primera canalización mediante Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) y [Copiar datos del Blob de Azure en SQL de Azure](data-factory-get-started-using-vs.md) para obtener información sobre la creación y publicación de las entidades de la factoría de datos con Visual Studio.
 
 
 ## Paso 2: Uso de la actividad personalizada en una canalización
@@ -369,7 +371,7 @@ Si ya ha ampliado el tutorial [Introducción a Factoría de datos de Azure][adfg
 	![registros de descarga de la actividad personalizada][image-data-factory-download-logs-from-custom-activity]
 	
    
-Consulte [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md)para obtener pasos detallados para realizar la supervisión de conjuntos de datos y las canalizaciones.
+Consulte [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) para obtener pasos detallados para realizar la supervisión de conjuntos de datos y las canalizaciones.
 
 ## Actualización de una actividad personalizada
 Si actualiza el código de la actividad personalizada, compílelo y cargue el archivo comprimido que contiene los nuevos binarios en el almacenamiento de blobs.
@@ -465,4 +467,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

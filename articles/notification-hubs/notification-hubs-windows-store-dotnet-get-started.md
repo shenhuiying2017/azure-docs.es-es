@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introducción a los Centros de notificaciones de Azure"
-	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure para las notificaciones de inserción."
+	pageTitle="Introducción a los Centros de notificaciones de Azure | Microsoft Azure"
+	description="En este tutorial aprende a usar Centros de notificaciones de Azure para enviar notificaciones push a una aplicación de la Tienda Windows o de Windows Phone 8.1 (no Silverlight)."
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -22,7 +22,7 @@
 
 ##Información general
 
-En este tema se muestra cómo se pueden utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación de la Tienda Windows o de Windows Phone 8.1 (no Silverlight). Si su objetivo es Silverlight para Windows Phone 8.1, consulte la versión de [Windows Phone](notification-hubs-windows-phone-get-started.md). En este tutorial puede crear una aplicación de la Tienda Windows vacía que recibe notificaciones de inserción mediante el servicio de notificaciones de inserción de Windows (WNS). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su Centro de notificaciones.
+En este tutorial se muestra cómo se pueden utilizar los Centros de notificaciones de Azure para enviar notificaciones push a una aplicación de la Tienda Windows o de Windows Phone 8.1 (no Silverlight). Si su objetivo es Silverlight para Windows Phone 8.1, consulte la versión de [Windows Phone](notification-hubs-windows-phone-get-started.md). En este tutorial puede crear una aplicación de la Tienda Windows vacía que recibe notificaciones push mediante el Servicios de notificaciones de inserción de Windows (WNS). Cuando haya finalizado, podrá usar el centro de notificaciones para difundir notificaciones push a todos los dispositivos que ejecutan su aplicación.
 
 En este tutorial se demuestra un escenario de difusión sencillo con Centros de notificaciones. Asegúrese de seguirlo junto con el próximo tutorial para aprender a usar los Centros de notificaciones para abordar usuarios y grupos de dispositivos específicos.
 
@@ -35,7 +35,7 @@ Este tutorial requiere lo siguiente:
 
 + Una cuenta de la Tienda Windows activa
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
++ Una cuenta activa de Azure<br/>En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Centros de notificaciones para aplicaciones de la Tienda Windows.
 
@@ -70,9 +70,9 @@ Para enviar notificaciones push a las aplicaciones de la Tienda Windows, debe as
 
    	Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
 
-7. (Opcional) Repita los pasos 4-6 para el proyecto de la aplicación de la Tienda de Windows Phone.
+7. (Opcional) Repita los pasos 4–6 para el proyecto de la aplicación de la Tienda de Windows Phone.
 
-8. De nuevo en la página Centro de desarrollo de Windows, haga clic en **Servicios**, **Notificaciones push**, **Sitio de Servicios Live** en **Servicios de notificaciones de Windows (WNS) y Servicios móviles de Microsoft Azure**.
+8. De nuevo en la página Centro de desarrollo de Windows de su nueva aplicación, haga clic en **Servicios**, **Notificaciones push**, **Sitio de Servicios Live** en **Servicios de notificaciones de inserción de Windows (WNS) y Servicios móviles de Microsoft Azure**.
 
    	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-live-services.png)
 
@@ -80,25 +80,25 @@ Para enviar notificaciones push a las aplicaciones de la Tienda Windows, debe as
 
    	![][6]
 
- 	> [AZURE.NOTE]**Nota de seguridad**El secreto de cliente y el SID del paquete son credenciales de seguridad importantes. No los comparta con nadie ni los distribuya con su aplicación.
+ 	> [AZURE.WARNING]El secreto de cliente y el SID del paquete son credenciales de seguridad importantes. No los comparta con nadie ni los distribuya con su aplicación.
 
-##Configuración del Centro de notificaciones
+##Configuración de su Centro de notificaciones
 
-1. Inicie sesión en el [Portal de administración de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
+1. Inicie sesión en el [Portal de Azure] y, luego, haga clic en **NUEVO** en la parte inferior de la pantalla.
 
-2. Haga clic en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y, a continuación, en **Creación rápida**.
+2. Haga clic en **Servicios de aplicaciones**, haga clic en **Bus de servicio**, haga clic en **Centro de notificaciones** y, luego, haga clic en **Creación rápida**.
 
    	![][7]
 
-3. Escriba un nombre para su centro de notificaciones, seleccione la región deseada y, a continuación, haga clic en **Crear una nueva base de datos central de notificaciones**.
+3. Escriba un nombre para su centro de notificaciones, seleccione la región deseada y, luego, haga clic en **Crear una nueva base de datos central de notificaciones**.
 
    	![][8]
 
-4. Haga clic en el espacio de nombres que acaba de crear (por lo general ***nombre del centro de notificaciones*-ns**) y, a continuación, haga clic en la pestaña **Configurar** en la parte superior.
+4. Haga clic en el espacio de nombres que acaba de crear (por lo general ***notification hub name*-ns**) y, luego, haga clic en la pestaña **Configurar** en la parte superior.
 
    	![][9]
 
-5. Seleccione la pestaña **Bases de datos centrales de notificaciones** en la parte superior y, a continuación, haga clic en el Centro de notificaciones que acaba de crear.
+5. Seleccione la pestaña **Centros de notificaciones** en la parte superior y, luego, haga clic en el centro de notificaciones que acaba de crear.
 
    	![][10]
 
@@ -114,15 +114,15 @@ Su Centro de notificaciones está ahora configurado para funcionar con WNS y tie
 
 ##Conexión de la aplicación al Centro de notificaciones
 
-1. En Visual Studio, haga clic con el botón derecho en la solución y, a continuación, haga clic en **Administrar paquetes de NuGet**.
+1. En Visual Studio, haga clic con el botón derecho en la solución y, luego, haga clic en **Administrar paquetes de NuGet**.
 
-	Esto muestra el cuadro de diálogo Administrar paquetes de NuGet.
+	De este modo aparece el cuadro de diálogo **Administrar paquetes de NuGet**.
 
 2. Busque `WindowsAzure.Messaging.Managed` y haga clic en **Instalar**, seleccione todos los proyectos de la solución y acepte los términos de uso.
 
 	![][20]
 
-	Esta acción descarga, instala y agrega una referencia a todos los proyectos de la biblioteca de Mensajería de Azure para Windows usando el <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">paquete de NuGet WindowsAzure.Messaging.Managed</a>.
+	Esta acción descarga, instala y agrega una referencia a todos los proyectos de la biblioteca de mensajería de Azure para Windows usando el <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">paquete de NuGet WindowsAzure.Messaging.Managed</a>.
 
 3. Abra el archivo de proyecto App.xaml.cs y agregue las siguientes instrucciones `using`. Este proyecto es universal, este archivo se encuentra en la carpeta `<project_name>.Shared`.
 
@@ -130,7 +130,7 @@ Su Centro de notificaciones está ahora configurado para funcionar con WNS y tie
         using Microsoft.WindowsAzure.Messaging;
 		using Windows.UI.Popups;
 
-	
+
 
 4. También en App.xaml.cs, agregue la siguiente definición de método **InitNotificationsAsync** a la clase **App**:
 
@@ -151,7 +151,7 @@ Su Centro de notificaciones está ahora configurado para funcionar con WNS y tie
 
         }
 
-    Este código recupera el valor de ChannelURI de la aplicación desde WNS y, a continuación, lo registra con su Centro de notificaciones.
+    Este código recupera el URI del canal de la aplicación desde WNS y, luego, lo registra en el Centro de notificaciones.
 
     >[AZURE.NOTE]Asegúrese de reemplazar el marcador de posición "hub name" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones** (por ejemplo, **mynotificationhub2** en el ejemplo anterior). Sustituya también el marcador de posición de la cadena de conexión por la cadena de conexión **DefaultListenSharedAccessSignature** que obtuvo en la sección anterior.
 
@@ -159,9 +159,9 @@ Su Centro de notificaciones está ahora configurado para funcionar con WNS y tie
 
         InitNotificationsAsync();
 
-    Esto garantiza que el valor de ChannelURI se registre en su Centro de notificaciones cada vez que se inicia la aplicación.
+    Esto garantiza que el URI del canal se registre en su Centro de notificaciones cada vez que se inicia la aplicación.
 
-6. En el Explorador de soluciones, haga doble clic en **Package.appxmanifest** de la aplicación Tienda Windows y, en **Notificaciones**, establezca **Capacidad de aviso** en **Sí**:
+6. En el Explorador de soluciones, haga doble clic en **Package.appxmanifest** de la aplicación de la Tienda Windows y, en **Notificaciones**, establezca **Capacidad de aviso** en **Sí**:
 
    	![][18]
 
@@ -169,7 +169,7 @@ Su Centro de notificaciones está ahora configurado para funcionar con WNS y tie
 
 7. (Opcional) Repita los pasos anteriores para el proyecto de la aplicación de la Tienda de Windows Phone.
 
-8. Presione la tecla **F5** para ejecutar la aplicación. Se muestra un cuadro de diálogo emergente con la clave de registro.
+8. Presione la tecla **F5** para ejecutar la aplicación. Se muestra un cuadro de diálogo emergente que contiene la clave de registro.
 
    	![][19]
 
@@ -177,17 +177,17 @@ Su Centro de notificaciones está ahora configurado para funcionar con WNS y tie
 
 La carpeta ahora ya está lista para recibir notificaciones.
 
-##Envío de notificaciones desde el back-end
+##Envío de notificaciones desde su back-end
 
-Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz REST</a>. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de los Servicios móviles de Azure integrado en Centros de notificaciones, consulte **Introducción a las notificaciones de inserción en Servicios móviles** ([back-end .NET](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end JavaScript](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte **Uso de los Centros de notificaciones desde Java o PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+Puede enviar notificaciones mediante Centros de notificaciones desde cualquier back-end a través de nuestra <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz REST</a>. En este tutorial enviará notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicios móviles de Azure integrado en Centros de notificaciones, consulte "Introducción a las notificaciones push en Servicios móviles" ([back-end .NET](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end JavaScript](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte "Uso de Centros de notificaciones desde Java o PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. Haga clic con el botón secundario en la solución, seleccione **Agregar** y **Nuevo proyecto...**, a continuación en **Visual C#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**.
+1. Haga clic con el botón derecho en la solución, seleccione **Agregar** y **Nuevo proyecto...**, luego, en **Visual C#** haga clic en **Windows**, **Aplicación de consola** y en **Aceptar**.
 
    	![][13]
 
 	Esta acción agrega una aplicación de consola nueva de Visual C# a la solución. También puede hacer esto en una solución separada.
 
-4. En Visual Studio, haga clic en **Herramientas**, en **Administrador de paquetes de Nuget** y, después, haga clic en **Consola del administrador de paquetes**.
+4. En Visual Studio, haga clic en **Herramientas**, en **Administrador de paquetes de NuGet** y, después, haga clic en **Consola del administrador de paquetes**.
 
 	Esto muestra la Consola del administrador de paquetes en Visual Studio.
 
@@ -195,7 +195,7 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	Esto agrega una referencia al SDK de los centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete NuGet de concentradores Microsoft.Azure.Notification</a>.
+	Esto agrega una referencia al SDK de los Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete de NuGet de concentradores Microsoft.Azure.Notification</a>.
 
 5. Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
@@ -211,16 +211,16 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	Asegúrese de reemplazar el marcador de posición "hub name" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones**. Reemplace también el marcador de posición de la cadena de conexión por la cadena de conexión llamada **DefaultFullSharedAccessSignature** que obtuvo en la sección "Configuración del Centro de notificaciones".
+   	Asegúrese de reemplazar el marcador de posición "hub name" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones**. Reemplace también el marcador de posición de la cadena de conexión por la cadena de conexión llamada **DefaultFullSharedAccessSignature** que obtuvo en la sección "Configuración del centro de notificaciones".
 
-	>[AZURE.NOTE]Asegúrese de usar la cadena de conexión con acceso **Total**, no con acceso **Escuchar**. La cadena de acceso escuchar no tiene permisos para enviar notificaciones.
+	>[AZURE.NOTE]Asegúrese de usar la cadena de conexión con acceso **Total**, no con acceso **Escuchar**. La cadena de acceso de escucha no tiene permisos para enviar notificaciones.
 
 7. Agregue las siguientes líneas al método **Main**:
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-8. Haga clic con el botón secundario en el proyecto de la aplicación de consola en Visual Studio y haga clic en **Establecer como proyecto de inicio** para establecerlo como proyecto de inicio. A continuación, presione la tecla **F5** para ejecutar la aplicación.
+8. Haga clic con el botón derecho en el proyecto de la aplicación de consola en Visual Studio y haga clic en **Establecer como proyecto de inicio** para establecerlo como proyecto de inicio. A continuación, presione la tecla **F5** para ejecutar la aplicación.
 
    	![][14]
 
@@ -230,7 +230,7 @@ Puede encontrar todas las cargas compatibles en los temas de [catálogo de notif
 
 ##Pasos siguientes
 
-En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Windows. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]. Si desea segmentar los usuarios por grupos de interés, consulte [Uso de los Centros de notificaciones para enviar noticias de última hora]. Para obtener más información sobre el uso de Centros de notificaciones, consulte [Información general acerca de los Centros de notificaciones].
+En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos con Windows. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]. Si desea segmentar los usuarios por grupos de interés, consulte [Uso de los Centros de notificaciones para enviar noticias de última hora]. Para obtener más información sobre el uso de Centros de notificaciones, consulte [Información general acerca de los Centros de notificaciones].
 
 
 
@@ -254,7 +254,7 @@ En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Wi
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de Azure]: https://manage.windowsazure.com/
 [Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
@@ -263,6 +263,5 @@ En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Wi
 [catálogo de notificaciones del sistema]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catálogo de iconos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [información general sobre distintivos]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Recuperación de una base de datos SQL tras un desastre" 
-   description="Obtenga información acerca de cómo recuperar una base de datos tras un fallo o error en el centro de datos regional con las capacidades de replicación geográfica y restauración geográfica de bases de datos SQL de Azure." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="Recuperación de una base de datos SQL tras un desastre"
+	description="Obtenga información acerca de cómo recuperar una base de datos tras un fallo o error en el centro de datos regional con las capacidades de replicación geográfica y restauración geográfica de bases de datos SQL de Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 # Recuperación de una base de datos SQL de Azure tras una interrupción
 
@@ -68,6 +68,8 @@ Use REST para realizar la recuperación de la base de datos mediante programaci�
 
 En el caso de una interrupción en una base de datos, es posible recuperar la base de datos desde la última copia de seguridad con redundancia geográfica mediante la restauración geográfica.
 
+> [AZURE.NOTE]Al recuperar una base de datos se crea una nueva base de datos. Es importante asegurarse de que el servidor en el que va a efectuar la recuperación tenga suficiente capacidad DTU para la nueva base de datos. Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+
 ###Portal de Azure
 1. Inicie sesión en el [Portal de Azure](https://portal.Azure.com).
 2. En el lado izquierdo de la pantalla, seleccione **NUEVO** y, a continuación, seleccione **Datos y almacenamiento**. Luego seleccione **Base de datos SQL**.
@@ -101,4 +103,4 @@ Use REST para realizar la recuperación de la base de datos mediante programaci�
 Una vez recuperada la base de datos, podrá configurarla para el uso. Para ello siga los pasos descritos en la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

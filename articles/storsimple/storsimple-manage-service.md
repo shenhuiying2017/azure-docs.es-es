@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Implementación del servicio Administrador de StorSimple | Microsoft Azure"
-   description="Aquí se explica cómo crear y eliminar el servicio StorSimple Manager en el Portal de administración y describe cómo administrar la clave de registro de servicio."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Aquí se explica cómo crear y eliminar el servicio StorSimple Manager en el Portal de administración y describe cómo administrar la clave de registro de servicio."
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/18/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="v-sharos"/>
 
 # Implementar el servicio StorSimple Manager
 
@@ -113,4 +113,4 @@ Realice los pasos siguientes para volver a generar una clave de registro de serv
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->
