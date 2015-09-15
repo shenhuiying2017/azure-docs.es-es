@@ -522,7 +522,7 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 
 
 <!-- URLs. -->
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
+[Introducción a las notificaciones push en Servicios móviles]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portal de Azure]: https://manage.windowsazure.com/
@@ -530,4 +530,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
