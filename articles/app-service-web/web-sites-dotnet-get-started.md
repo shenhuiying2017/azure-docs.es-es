@@ -299,4 +299,4 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!-----HONumber=September15_HO1-->
+<!------HONumber=September15_HO1-->
