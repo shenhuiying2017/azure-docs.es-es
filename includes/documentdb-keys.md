@@ -1,5 +1,5 @@
-       Ahora, vaya a la hoja de claves de su cuenta de DocumentDB, dado que utilizaremos estos valores en la aplicación web que crearemos a continuación.
+Â Â Â Â Â Â Â Ahora, vaya a la hoja de claves de su cuenta de DocumentDB, dado que utilizaremos estos valores en la aplicaciÃ³n web que crearemos a continuaciÃ³n.
 
-       ![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
+Â Â Â Â Â Â Â ![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
 
 <!-----HONumber=August15_HO6-->
