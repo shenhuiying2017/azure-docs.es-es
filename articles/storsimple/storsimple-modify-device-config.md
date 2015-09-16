@@ -83,10 +83,7 @@ Para cada interfaz de red, se muestran los parámetros siguientes:
 
 - **Velocidad**: no es un parámetro configurable por el usuario. DATA 0, DATA 1, DATA 4 y DATA 5 son siempre de 1 GbE, mientras que DATA 2 y DATA 3 son interfaces de 10 GbE.
 
-     >[AZURE.NOTE]
-     >
-     >- Velocidad y dúplex se negocian siempre automáticamente.
-     >- Las Tramas gigantes no son compatibles.
+     >[AZURE.NOTE] Velocidad y dúplex se negocian siempre automáticamente. Las Tramas gigantes no son compatibles.
  
 - **Estado de interfaz**: una interfaz se puede habilitar o deshabilitar. Si está habilitada, el dispositivo intentará usar la interfaz. Es recomendable habilitar tan solo las interfaces que están conectadas a la red y que se usan. Deshabilite las interfaces que no esté usando.
 
@@ -131,4 +128,4 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
  
      
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

@@ -73,7 +73,7 @@ Los recursos creados en el modelo de implementación clásica comparten las sigu
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        O bien, el portal de vista previa y el usuario deben especificar la implementación **clásica** (para cálculo, almacenamiento y redes).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -158,4 +158,4 @@ Para obtener información sobre cómo conectar redes virtuales de diferentes mod
 - Para obtener información sobre cómo crear plantillas de implementación declarativas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 
-<!-----HONumber=August15_HO9-->
+<!------HONumber=August15_HO9-->

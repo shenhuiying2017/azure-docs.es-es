@@ -43,16 +43,16 @@ El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQu
 
 The completed application is provided at the end of this tutorial as well.
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Registrar una aplicación
+Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md).  Asegúrese de que:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Web** platform for your app.
-- Enter the correct **Redirect URI**. The redirect URI indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `http://localhost:3000/auth/openid/return`.
+- Copia el **Id. de aplicación** asignado a la aplicación, lo necesitará pronto.
+- Agrega la plataforma **web** para su aplicación.
+- Escribe el **URI de redireccionamiento** correcto. El uri de redirección indica a Azure AD a dónde se deben dirigir las respuestas de autenticación: el valor predeterminado para este tutorial es `http://localhost:3000/auth/openid/return`.
 
-## 2. Add pre-requisities to your directory
+## 2. Incorporación de requisitos previos al directorio
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+En la línea de comandos, cambie los directorios a la carpeta raíz si aún no está ahí y ejecute los siguientes comandos:
 
 - `npm install express`
 - `npm install ejs`
@@ -417,4 +417,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [Versión preliminar del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [Etiqueta "azure-active-directory" en StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
