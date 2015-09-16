@@ -1,7 +1,7 @@
 1.	Inicie sesión en el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/) en línea.
 2.	En la barra de salto, haga clic en **Nuevo**, en **Datos y almacenamiento** y luego en **Azure DocumentDB**. 
 
-	![Captura de pantalla del Portal de vista previa de Azure en la que está resaltado el botón Nuevo, Datos y almacenamiento en la hoja Crear y Azure DocumentDB en la hoja Datos y almacenamiento][1]   
+	![Captura de pantalla del Portal][1]   
 
 	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
 	
@@ -49,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
