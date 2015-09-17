@@ -18,7 +18,7 @@
 
 # Transferencia de suscripciones de Azure
 
-
+Si tú:
 
 - ¿Necesita transferir la titularidad de la facturación de su suscripción de Azure a otra persona?
 - ¿Desea cambiar la cuenta usada para suscribirse a Azure? ¿Quizás usó su cuenta de Microsoft pero pretendía usar su cuenta profesional o educativa?
@@ -94,4 +94,4 @@ Si su cuenta está en Estados Unidos, puede hacerlo fácilmente en el Centro de 
 
     Sí, y de hecho este mecanismo se puede usar para cambiar el método de pago de la suscripción de factura a tarjeta de crédito. Solo tiene que realizar la transferencia a otra cuenta propia e indicar su tarjeta de crédito al recibir la suscripción. Aquí existen limitaciones: ahora el historial de facturación de la suscripción se divide en dos cuentas. Pero la ventaja es que puede hacerlo sin tener que [ponerse en contacto con el servicio de soporte técnico](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
