@@ -188,10 +188,15 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 7.	En la hoja **Credenciales**, haga clic en la opción **Haga clic aquí para establecer las credenciales**.
 8.	En el cuadro de diálogo **Establecer credenciales**, realice lo siguiente:
 
-	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos. 2. Escriba el nombre del usuario que tiene acceso a la base de datos para la configuración **NOMBRE DE USUARIO**. 3. Escriba la contraseña para el usuario para la configuración **CONTRASEÑA**. 4. Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
+	![Cuadro de diálogo Establecer credenciales](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	Seleccione la **autenticación** que desea que use el servicio Factoría de datos para conectarse a la base de datos.
+	2.	Escriba el nombre del usuario que tiene acceso a la base de datos para la configuración **NOMBRE DE USUARIO**.
+	3.	Escriba la contraseña para el usuario para la configuración **CONTRASEÑA**.
+	4.	Haga clic en **Aceptar** para cerrar el cuadro de diálogo. 
 4. Haga clic en **Aceptar** para cerrar la hoja **Credenciales**. 
 5. Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 	
-6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. Confirme que el estado de **SqlServerLinkedService** está establecido en En línea en la hoja Servicios vinculados.
+	![Estado del servicio vinculado de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 Consulte [Configuración de credenciales y seguridad](#setting-credentials-and-security) para obtener más información acerca de cómo configurar las credenciales.
 
@@ -562,4 +567,4 @@ A continuación se muestra el flujo de datos de alto nivel y el resumen de los p
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

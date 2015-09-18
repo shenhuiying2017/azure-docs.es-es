@@ -45,7 +45,8 @@ Para probar la instalación de Compose, ejecute el siguiente comando.
 $ docker-compose --version
 ```
 
-Verá un resultado similar a ```
+Verá un resultado similar a
+```
 docker-compose 1.3.2
 ```
 
@@ -56,9 +57,18 @@ A continuación, creará un `docker-compose.yml` archivo, que es simplemente un 
 
 Cree un directorio de trabajo en su máquina virtual y utilice el editor de texto para crear `docker-compose.yml`. Para probar un ejemplo sencillo, copie el texto siguiente en el archivo. Esta configuración usa imágenes del [Registro de DockerHub](https://registry.hub.docker.com/_/wordpress/) para instalar WordPress (el sistema de administración de contenido y blog de código abierto) y una base de datos MariaDB SQL de back-end vinculada.
 
- ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
+ ```
+ wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
 
-db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: <your password>
 
 ```
 
@@ -74,7 +84,9 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
+Creating wordpress_db_1...
+Creating wordpress_wordpress_1...
+```
 
 >[AZURE.NOTE]Asegúrese de utilizar la opción **-d** al iniciar para que los contenedores se ejecuten continuamente en segundo plano.
 
@@ -106,10 +118,11 @@ Ahora debería ver la pantalla de inicio de WordPress, donde se puede completar 
 
 * Desproteja la [Referencia de la CLI de Compose](http://docs.docker.com/compose/cli/) y el [Manual del usuario](http://docs.docker.com/compose/) para obtener más ejemplos de creación e implementación de aplicaciones con múltiples contenedores.
 * Use una plantilla del Administrador de recursos de Azure, o bien una propia o una proporcionada por la [comunidad](http://azure.microsoft.com/documentation/templates/), para implementar una VM de Azure con Docker y una aplicación configurada con Compose. Por ejemplo, la plantilla [Implementación de un blog de WordPress con Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) usa Docker y Compose para implementar rápidamente WordPress con un back-end de MySQL en una máquina virtual de Ubuntu.
-* Pruebe a integrar Docker Compose con un clúster de [Docker Swarm](virtual-machines-docker-swarm.md). Consulte [Integración de Docker Compose/Swarm](https://github.com/docker/compose/blob/master/SWARM.md) para ver escenarios.
+* Pruebe a integrar Docker Compose con un clúster de [Docker Swarm](virtual-machines-docker-swarm.md).Consulte
+[Integración de Docker Compose/Swarm](https://github.com/docker/compose/blob/master/SWARM.md) para ver escenarios.
 
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

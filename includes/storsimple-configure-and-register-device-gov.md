@@ -95,7 +95,10 @@
 
      `Get-HcsSystem`
 
-    Debe ver las siguientes versiones: - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
+    Debe ver las siguientes versiones:
+    - HcsSoftwareVersion: 6.3.9600.17491
+    - CisAgentVersion: 1.0.9037.0
+    - MdsAgentVersion: 26.0.4696.1433
  
 9. Ejecute el siguiente cmdlet para confirmar que la actualización de firmware se aplicó correctamente:
 
@@ -150,4 +153,4 @@
      
         
 
-<!-----HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->
