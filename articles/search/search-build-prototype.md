@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Creación de una aplicación de prototipo para Búsqueda de Azure
@@ -80,7 +80,7 @@ De forma predeterminada, estos archivos se encuentran en la carpeta de solucione
 
 Si puede incluir los datos en archivos JSON, puede sobrescribir los archivos existentes con sus datos y luego ejecutar la aplicación para crear y cargar un índice. La distribución de datos en varios archivos ayuda a comprobar cómo se realiza una operación de carga por lotes.
 
-Entre otros métodos para cargar datos se incluye el uso de un indexador (requiere un origen de datos de Azure DocumentDB o un origen de datos de Base de datos SQL de Azure). Se puede encontrar código de ejemplo que muestra formas adicionales de carga de datos en [Búsqueda de Azure: tutoriales, demostraciones de vídeo y muestras](https://msdn.microsoft.com/library/azure/dn818681.aspx) en MSDN.
+Entre otros métodos para cargar datos se incluye el uso de un indexador (requiere un origen de datos de Azure DocumentDB o un origen de datos de Base de datos SQL de Azure). Se puede encontrar código de ejemplo que muestra formas adicionales de cargar los datos en [Búsqueda de Azure: lista de tutoriales y vídeos](search-video-demo-tutorial-list.md) en MSDN.
 
 ### Edición de la consulta
 
@@ -133,4 +133,4 @@ Visite estos vínculos para obtener más información:
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

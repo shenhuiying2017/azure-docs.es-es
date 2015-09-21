@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Microsoft Azure" 
-	description="Paso 4 del tutorial Desarrollo de una solución predictiva: entrenamiento, puntuación y evaluación de múltiples modelos en Estudio de aprendizaje automático de Azure." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Microsoft Azure"
+	description="Paso 4 del tutorial Desarrollo de una solución predictiva: entrenamiento, puntuación y evaluación de múltiples modelos en Estudio de aprendizaje automático de Azure."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Este es el cuarto paso del tutorial [Desarrollo de una solución predictiva con 
 2.	[Carga de los datos existentes](machine-learning-walkthrough-2-upload-data.md)
 3.	[Crear un experimento nuevo](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	**Entrenamiento y evaluación de los modelos**
-5.	[Publicación del servicio web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Implementación del servicio web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Acceso al servicio web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -51,7 +51,7 @@ En primer lugar, vamos a configurar el modelo del árbol de decisión ampliado:
 Esta parte del experimento tiene ahora un aspecto similar al siguiente:
 
 ![Training a model][1]
- 
+
 A continuación, vamos a configurar el modelo SVM.
 
 Los árboles de decisión ampliados funcionan bien con características de todo tipo. Sin embargo, dado que el módulo SVM genera un clasificador lineal, el modelo que genera tiene el mejor error de prueba cuando todas las características numéricas tienen la misma escala. Para convertir todas las características numéricas a la misma escala, utilizamos el módulo [Normalizar datos][normalize-data] con una transformación Tanh, que transforma características en el rango [0,1]. Tenga en cuenta que las características de cadena se convierten por parte del módulo SVM a características categóricas y, a continuación, a características binarias 0/1; así pues, no es necesario transformar manualmente las características de cadena. Además, no queremos transformar la columna Riesgo de crédito (columna 21): es numérica, pero es el valor sobre cuya predicción estamos entrenando al modelo; por tanto, es necesario dejarla tal cual.
@@ -79,7 +79,7 @@ Utilizaremos los datos de puntuación que se separaron mediante el módulo **Div
 
 1.	Busque el módulo [Puntuar modelo][score-model] y arrástrelo al lienzo.
 2.	Conecte el puerto de entrada izquierdo de este módulo al modelo del árbol de decisión ampliado (esto es, conéctelo al puerto de salida del módulo [Entrenar modelo][train-model] que está conectado al módulo [Árbol de decisión ampliado de dos clases][two-class-boosted-decision-tree]).
-3.	Conecte el puerto de entrada derecho del módulo [Puntuar modelo][score-model] a la salida del módulo [Ejecutar script R][execute-r-script] derecho. 
+3.	Conecte el puerto de entrada derecho del módulo [Puntuar modelo][score-model] a la salida del módulo [Ejecutar script R][execute-r-script] derecho.
 4.	Copie y pegue el módulo [Puntuar modelo][score-model] para crear una segunda copia, o arrastre un nuevo módulo al lienzo.
 5.	Conecte el puerto de entrada izquierdo de este módulo al modelo SVM (esto es, conéctelo al puerto de salida del módulo [Entrenar modelo][train-model] que está conectado al módulo [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine]).
 6.	En cuanto al modelo SVM, tenemos que realizar la misma transformación en los datos de prueba que la que realizamos con los datos de entrenamiento. Así pues, copie y pegue el módulo [Normalizar datos][normalize-data] para crear una segunda copia y conéctelo a la salida del módulo [Ejecutar script R][execute-r-script].
@@ -94,7 +94,7 @@ Para evaluar los dos resultados de puntuación, usaremos el módulo [Evaluar mod
 El experimento debería tener ahora un aspecto similar al siguiente:
 
 ![Evaluating both models][3]
- 
+
 Haga clic en el botón **EJECUTAR** bajo el lienzo para ejecutar el experimento. Esto puede tardar unos minutos. Verá un indicador giratorio en cada módulo que indica que está en ejecución; cuando haya acabado, aparecerá una marca de verificación de color verde.
 
 Cuando todos los módulos tengan una marca de verificación, habrá finalizado la ejecución del experimento. Para consultar los resultados, haga clic con el botón derecho en el puerto de salida del módulo [Evaluar modelo][evaluate-model] y seleccione **Ver resultados**.
@@ -104,7 +104,7 @@ El módulo [Evaluar modelo][evaluate-model] produce un par de curvas y métricas
 Haga clic en **Conjunto de datos puntuados** o **Conjunto de datos puntuados para comparar** con el fin de resaltar la curva asociada y mostrar debajo las métricas asociadas. En la leyenda de las curvas, "Conjunto de datos puntuados" corresponde al puerto de entrada izquierdo del módulo [Evaluar modelo][evaluate-model] (en nuestro caso, se trata del modelo del árbol de decisión ampliado). "Conjunto de datos puntuados para comparar" corresponde al puerto de entrada derecho (el modelo SVM en nuestro caso). Al hacer clic en una de estas etiquetas, se destaca la curva de ese modelo y aparecen debajo las métricas correspondientes.
 
 ![ROC curves for models][4]
- 
+
 Al examinar estos valores, puede decidir qué modelo se acerca más a los resultados que busca. Puede volver y repetir el experimento cambiando valores en los diferentes nodos.
 
 > [AZURE.TIP]Cada vez que ejecute el experimento, se guardará un registro de esa iteración en el Historial de ejecuciones. Puede ver estas iteraciones y volver a cualquiera de ellas haciendo clic en **VER HISTORIAL DE EJECUCIÓN** bajo el lienzo. También puede hacer clic en **Anterior ejecución** en el panel **Propiedades** para volver a la iteración inmediatamente anterior a la que ha abierto. Para obtener más información, consulte [Administración de iteraciones de experimentos en Estudio de aprendizaje automático de Azure](machine-learning-manage-experiment-iterations.md).
@@ -116,7 +116,7 @@ Como ayuda adicional para realizar un seguimiento de los cambios realizados en l
 
 ----------
 
-**A continuación: [Publicación del servicio web](machine-learning-walkthrough-5-publish-web-service.md)**
+**A continuación: [Implementación del servicio web](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
@@ -132,6 +132,5 @@ Como ayuda adicional para realizar un seguimiento de los cambios realizados en l
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

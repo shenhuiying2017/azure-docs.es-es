@@ -222,10 +222,10 @@ La principal manera de eliminar temas y suscripciones es usar un objeto **Servic
 
 ## Pasos siguientes
 
-Ahora que ha aprendido los conceptos básicos de las colas de bus de servicio, consulte el tema de MSDN [Colas, temas y suscripciones del Service Bus][] para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas de bus de servicio, vea [Colas, temas y suscripciones de bus de servicio][] para obtener más información.
 
   [SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
-  [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/es-es/library/azure/hh694271.aspx
+  [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/es-ES/library/azure/hh694271.aspx
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -244,7 +244,7 @@ Ahora que ha aprendido los conceptos básicos de las colas de bus de servicio, c
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Colas, temas y suscripciones del Service Bus]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Colas, temas y suscripciones de bus de servicio]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Uso de trabajos de Servicios multimedia de Azure
@@ -60,4 +60,12 @@ Supervise el progreso del trabajo mediante el **Portal de administración de Azu
 [Cuotas y limitaciones](media-services-quotas-and-limitations.md): explica las cuotas usadas y las limitaciones del codificador de Servicios multimedia
  
 
-<!---HONumber=August15_HO7-->
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

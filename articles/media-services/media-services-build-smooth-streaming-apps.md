@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -963,6 +963,15 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
 Ha completado la lección 4. En esta lección ha agregado la funcionalidad para elegir pistas.
 
 
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Otros recursos:
 - [Creación de una aplicación JavaScript de Smooth Streaming para Windows 8 con características avanzadas](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Información técnica sobre Smooth Streaming](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
@@ -971,4 +980,4 @@ Ha completado la lección 4. En esta lección ha agregado la funcionalidad para 
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

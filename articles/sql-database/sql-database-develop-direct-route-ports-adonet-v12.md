@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Puertos más allá de 1433 para ADO.NET 4.5 y Bases de datos SQL V12 | Microsoft Azure"
-	description="En ocasiones, las conexiones de cliente a la base de datos de SQL Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes."
+	pageTitle="Puertos más allá de 1433 para Base de datos SQL | Microsoft Azure"
+	description="Las conexiones de cliente de ADO.NET a Base de datos SQL de Azure V12 omiten al proxy e interactúan directamente con la base de datos. Los puertos que no sean 1433 se convierten en puertos importantes."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor=""/>
+	editor="" />
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -62,37 +62,17 @@ La secuencia es la siguiente:
 
 
 1. ADO.NET 4.5 (o posterior) inicia una breve interacción con la nube de Azure y recibe un número de puerto identificado dinámicamente.
- - El número de puerto identificado dinámicamente se encuentra en el intervalo de 11000 a 11999.
+ - El número de puerto identificado dinámicamente se encuentra en el intervalo de 11000-11999 o 14000-14999.
 
 2. Luego, ADO.NET se conecta al servidor de Base de datos SQL directamente, sin ningún middleware entre ellos.
 
 3. Las consultas se envían directamente a la base de datos y los resultados se devuelven directamente al cliente.
 
 
-Asegúrese de que el intervalo de puertos de 11000 a 11999 en el equipo cliente de Azure queda disponible para las interacciones de cliente de ADO.NET 4.5 con Base de datos SQL V12 .
+Asegúrese de que los intervalos de puertos 11000-11999 y 14000-14999 en el equipo cliente de Azure quedan disponible para las interacciones de cliente de ADO.NET 4.5 con Base de datos SQL V12 .
 
 - En concreto, los puertos del intervalo deben estar libres de cualquier otro bloqueador de salida.
 - El Firewall de Windows en la VM de Azure controla la configuración del puerto.
-
-
-## Lógica de reintento implícita incluida en la ruta de proxy
-
-
-En un entorno de producción, se recomienda que los clientes que se conectan a la Base de datos SQL de Azure V11 o V12 de Azure implementen la lógica de reintento en su código. Esto puede ser código personalizado o puede ser código que aproveche una API como la biblioteca de información empresarial.
-
-
-La ruta de proxy explicada anteriormente en este tema es pertinente para la cuestión de la lógica de reintento:
-
-
-- En V11, el módulo de middleware que actuó como un proxy también ofrecía un modesto grado de lógica de reintento para controlar correctamente algunos errores transitorios.
-
-- En el V12, el proxy no proporciona ninguna lógica de reintento.
-
-
-En ambos escenarios se recomienda que los clientes implementen la lógica de reintento en su propio código. Se puede decir que la necesidad de la lógica de reintento en el cliente aumenta con la última ruta de proxy que no ofrece ninguna lógica de reintento.
-
-
-Para los ejemplos de código que muestran lógica de reintento, vea: [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md).
 
 
 ## Aclaraciones de versiones
@@ -114,16 +94,10 @@ En esta sección se explican los monikers que hacen referencia a las versiones d
 En este tema se resaltan las diferencias de conexión de cliente entre la Base de datos SQL V11 y V12.
 
 
-*Nota:* la instrucción de Transact-SQL `SELECT @@version;` devuelve un valor que comienza por un número como '11.' o '12.', que coinciden con nuestros nombres de versión de V11 y V12 para Base de datos SQL.
+*Nota:* la instrucción de Transact-SQL `SELECT @@version;` devuelve un valor que comienza por un número como '11.' o '12.', que coincide con nuestros nombres de versión de V11 y V12 para Base de datos SQL.
 
 
 ## Vínculos relacionados
-
-
-- [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md)
-
-
-- [Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md)
 
 
 - ADO.NET 4.6 se publicó el 20 de julio de 2015. Hay un anuncio de blog del equipo de .NET disponible [aquí](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
@@ -135,4 +109,7 @@ En este tema se resaltan las diferencias de conexión de cliente entre la Base d
 
 - [Lista de versiones del protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=September15_HO1-->
+
+- [Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md)
+
+<!---HONumber=Sept15_HO2-->

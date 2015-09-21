@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/14/2015"
+   ms.date="09/08/2015"
    ms.author="liviodlc"/>
 
 #Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) permite automatizar la creación, el mantenimi
 **A continuación se muestran algunos ejemplos de lo que esta característica permite hacer:**
 
 - Crear automáticamente nuevas cuentas en las aplicaciones SaaS adecuadas para los usuarios nuevos cuando se unen a su equipo.
-- Eliminar cuentas automáticamente de las aplicaciones SaaS cuando los usuarios abandonan el equipo.
+- Desactivar cuentas automáticamente de las aplicaciones SaaS cuando los usuarios se vean obligados a abandonar el equipo.
 - Garantizar que las identidades se mantienen actualizadas en las aplicaciones SaaS según los cambios en el directorio.
 - Aprovisionar objetos que no son de usuario, como grupos, para aplicaciones SaaS que los admiten.
 
@@ -108,4 +108,4 @@ Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solic
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

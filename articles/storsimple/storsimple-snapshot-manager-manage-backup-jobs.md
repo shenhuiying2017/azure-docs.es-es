@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Uso de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad | Microsoft Azure"
+   pageTitle="Trabajos de copia de seguridad de Administrador de instantáneas StorSimple | Microsoft Azure"
    description="Describe cómo usar el complemento MMC de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad programados, actualmente en ejecución y completados."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/05/2015"
    ms.author="v-sharos" />
 
 
@@ -129,4 +129,4 @@ Utilice el procedimiento siguiente para ver los trabajos que se están ejecutand
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@ documentationCenter=""/>
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Supervisión de las métricas del servicio
@@ -73,4 +73,4 @@ Al igual que con las métricas, puede utilizar la [API de REST](https://msdn.mic
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

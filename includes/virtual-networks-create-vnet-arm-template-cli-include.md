@@ -7,11 +7,16 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 
 		azure config mode arm
 
+	Este es el resultado esperado del comando anterior:
+
 		info:    New mode is arm
 
 3. Si es necesario, ejecute **azure group create** para crear un nuevo grupo de recursos, tal como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
+
+	Este es el resultado esperado del comando anterior:
+
 		info:    Executing command group create
 		+ Getting resource group TestRG
 		+ Creating resource group TestRG
@@ -24,12 +29,14 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		data:
 		info:    group create command OK
 
-	- **-n (or --name)**. Nombre del nuevo grupo de recursos. En este escenario, *TestRG*.
-	- **-l (or --location)**. Región de Azure donde se creará el nuevo grupo de recursos. En este escenario, *centralus*.
+	- **-n (o --name)**. Nombre del nuevo grupo de recursos. En este escenario, *TestRG*.
+	- **-l (o --location)**. Región de Azure donde se creará el nuevo grupo de recursos. En este escenario, *centralus*.
 
 4. Ejecute el cmdlet **azure group deployment create** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que ha descargado y modificado anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+
+	Este es el resultado esperado del comando anterior:
 
 		info:    Executing command group deployment create
 		+ Initializing template configurations and parameters
@@ -54,13 +61,15 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		data:    subnet2Name    String  BackEnd
 		info:    group deployment create command OK
 
-	- **-g (or --resource-group)**. Nombre del grupo de recursos en el que se creará la red virtual.
-	- **-f (or --template-file)**. Ruta de acceso al archivo de plantilla ARM.
-	- **-e (or --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
+	- **-g (o --resource-group)**. Nombre del grupo de recursos en el que se creará la red virtual.
+	- **-f (o --template-file)**. Ruta de acceso al archivo de plantilla ARM.
+	- **-e (o --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
 
 5. Ejecute el comando **azure network vnet show** para ver las propiedades de la nueva red virtual, tal como se muestra a continuación.
 
 		azure network vnet show -g TestRG -n TestVNet
+
+	Este es el resultado esperado del comando anterior:
 
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
@@ -80,4 +89,4 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

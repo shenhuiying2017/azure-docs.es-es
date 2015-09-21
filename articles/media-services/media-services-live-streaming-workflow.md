@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Entrega de transmisión en directo con Servicios multimedia de Azure"
-	description="Este tema ofrece información general de los principales componentes que intervienen en el streaming en vivo."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Entrega de transmisión en directo con Servicios multimedia de Azure" 
+	description="Este tema ofrece información general de los principales componentes que intervienen en el streaming en vivo." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -70,6 +70,13 @@ En el diagrama siguiente se muestran las partes principales de la plataforma AMS
 Para obtener más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-manage-channels-overview.md).
 
 
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##Temas relacionados
 
 [Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
@@ -85,4 +92,4 @@ Para obtener más información, consulte [Uso de canales que reciben streaming e
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

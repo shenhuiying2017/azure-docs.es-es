@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio"
-	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Visual Studio."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio" 
+	description="En este tutorial, creará una canalización de la factoría de datos de Azure con una actividad de copia mediante Visual Studio." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/09/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Creación y supervisión de una factoría de datos mediante Visual Studio
@@ -25,42 +25,12 @@
 
 
 ##Apartados de este tutorial
-En este tutorial va a crear primero un generador de datos de Azure denominado**ADFTutorialDataFactoryVS**mediante el Portal de vista previa de Azure; a continuación, hará lo siguiente con Visual Studio 2013:
+En este tutorial hará lo siguiente mediante Visual Studio 2013:
 
 1. Cree dos servicios vinculados: **AzureStorageLinkedService1** y **AzureSqlinkedService1**. AzureStorageLinkedService1 vincula un almacenamiento de Azure y AzureSqlLinkedService1 vincula una Base de datos SQL de Azure con la factoría de datos: **ADFTutorialDataFactoryVS**. Los datos de entrada para la canalización se encuentran en un contenedor de blob en el almacenamiento de blobs de Azure y los datos de salida se almacenarán en una tabla en la base de datos SQL de Azure. Por lo tanto, agregue estos almacenes de datos como servicios vinculados en la factoría de datos.
 2. Creará dos tablas de factoría de datos: **EmpTableFromBlob** y **EmpSQLTable**, que representan los datos de entrada y salida que se almacenan en los almacenes de datos. Para EmpTableFromBlob, especificará el contenedor de blob que contiene un blob con los datos de origen y para EmpSQLTable, especificará la tabla SQL que se almacenará los datos de salida. También especificará otras propiedades como la estructura de los datos, la disponibilidad de los datos, etc.
-3. Cree una canalización denominada **ADFTutorialPipeline** en ADFTutorialDataFactory. La canalización dispondrá de una opción para la **actividad de copia** que copia datos de entrada del blob de Azure a la tabla de salida de Azure SQL. 
-
-
-## <a name="CreateDataFactory"></a>Cree una Factoría de datos de Azure.
-En este paso, utilice el Portal de vista previa de Azure para crear una Factoría de datos de Azure llamada **ADFTutorialDataFactoryVS**.
-
-1.	Tras iniciar sesión en [Portal de vista previa de Azure](http://portal.azure.com), haga clic en **NUEVO** de la esquina inferior izquierda, seleccione **Análisis de datos** en la hoja **Crear** y haga clic en **Factoría de datos** en la hoja **Análisis de datos**. 
-
-	![New->DataFactory](./media/data-factory-get-started-using-vs/NewDataFactoryMenu.png)
-
-6. En la hoja **Nueva factoría de datos**:
-	1. Escriba **ADFTutorialDataFactory** como **nombre**. 
-	
-  		![Hoja Nueva Factoría de datos](./media/data-factory-get-started-using-vs/getstarted-new-data-factory.png)
-	2. Haga clic en **NOMBRE DE GRUPO DE RECURSOS** y haga lo siguiente:
-		1. Haga clic en **Crear un nuevo grupo de recursos**.
-		2. En la hoja **Crear grupo de recursos**, escriba **ADFTutorialResourceGroup** para el **nombre** del grupo de recursos y haga clic en **Aceptar**. 
-
-			![Crear grupo de recursos](./media/data-factory-get-started-using-vs/CreateNewResourceGroup.png)
-
-		En algunos de los pasos de este tutorial se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](resource-group-overview.md).  
-7. En la hoja **Nueva factoría de datos**, observe que está seleccionada la opción **Agregar al Panel de inicio**.
-8. Haga clic en **Crear** en la hoja **Nueva factoría de datos**.
-
-	El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre de la factoría de datos "ADFTutorialDataFactoryVS" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactoryVS) e intente crearla de nuevo. Use este nombre en lugar de ADFTutorialFactory mientras lleva a cabo los pasos restantes de este tutorial. Consulte el tema [Factoría de datos: reglas de nomenclatura][data-factory-naming-rules] para ver las reglas de nomenclatura para los artefactos de Factoría de datos.
-	 
-	![Nombre de Factoría de datos no disponible](./media/data-factory-get-started-using-vs/getstarted-data-factory-not-available.png)
-
-9. Haga clic en el concentrador **NOTIFICACIONES** de la izquierda y busque las notificaciones del proceso de creación. Haga clic en **X** para cerrar la hoja **NOTIFICACIONES** si está abierta.
-10. Una vez completada la creación, verá la hoja **FACTORÍA DE DATOS** como se muestra a continuación:
-
-    ![Página principal de Factoría de datos](./media/data-factory-get-started-using-vs/getstarted-data-factory-home-page.png)
+3. Cree una canalización denominada **ADFTutorialPipeline** en ADFTutorialDataFactoryVS. La canalización dispondrá de una opción para la **actividad de copia** que copia datos de entrada del blob de Azure a la tabla de salida de Azure SQL.
+4. Cree una factoría de datos e implemente servicios vinculados, tablas y la canalización.    
 
 ## Creación e implementación de las entidades de Factoría de datos con Visual Studio 
 
@@ -115,32 +85,33 @@ En el paso anterior, creó los servicios vinculados **AzureStorageLinkedService1
 10. Reemplace el texto JSON con el texto siguiente y guarde el archivo **AzureBlobLocation1.json**. 
 
 		{
-    		"name": "EmpTableFromBlob",
-        	"properties":
-        	{
-            	"structure":  
-                [ 
-	                { "name": "FirstName", "type": "String"},
-	                { "name": "LastName", "type": "String"}
-	            ],
-	            "location": 
-	            {
-	                "type": "AzureBlobLocation",
-	                "folderPath": "adftutorial/",
-	                "format":
-	                {
-	                    "type": "TextFormat",
-	                    "columnDelimiter": ","
-	                },
-	                "linkedServiceName": "AzureStorageLinkedService1"
-	            },
-	            "availability": 
-	            {
-	                "frequency": "Hour",
-	                "interval": 1,
-	                "waitOnExternal": {}
-                }
-	        }
+		  "name": "EmpTableFromBlob",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureBlob",
+		    "linkedServiceName": "AzureStorageLinkedService1",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
 
 #### Creación de una tabla de salida
@@ -150,26 +121,28 @@ En el paso anterior, creó los servicios vinculados **AzureStorageLinkedService1
 13. Reemplace el texto JSON con el JSON siguiente y guarde el archivo **AzureSqlTableLocation1.json**.
 
 		{
-		    "name": "EmpSQLTable",
-		    "properties":
-		    {
-		        "structure":
-		        [
-		            { "name": "FirstName", "type": "String"},
-		            { "name": "LastName", "type": "String"}
-		        ],
-		        "location":
-		        {
-		            "type": "AzureSqlTableLocation",
-		            "tableName": "emp",
-		            "linkedServiceName": "AzureSqlLinkedService1"
-		        },
-		        "availability": 
-		        {
-		            "frequency": "Hour",
-		            "interval": 1            
-		        }
+		  "name": "EmpSQLTable",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureSqlTable",
+		    "linkedServiceName": "AzureSqlLinkedService1",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
 		    }
+		  }
 		}
 
 #### Creación de la canalización 
@@ -180,60 +153,69 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
 15. Seleccione **Copiar canalización de datos** en el cuadro de diálogo **Agregar nuevo elemento** y haga clic en **Agregar**. 
 16. Reemplace el JSON por el siguiente JSON y guarde el archivo **CopyActivity1.json**.
 			
-		 {
-		    "name": "ADFTutorialPipeline",
-		    "properties":
-		    {   
-		        "description" : "Copy data from a blob to Azure SQL table",
-		        "activities":   
-		        [
-		            {
-		                "name": "CopyFromBlobToSQL",
-		                "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-		                "type": "CopyActivity",
-		                "inputs": [ {"name": "EmpTableFromBlob"} ],
-		                "outputs": [ {"name": "EmpSQLTable"} ],     
-		                "transformation":
-		                {
-		                    "source":
-		                    {                               
-		                        "type": "BlobSource"
-		                    },
-		                    "sink":
-		                    {
-		                        "type": "SqlSink",
-		                        "writeBatchSize": 10000,
-		                        "writeBatchTimeout": "60:00:00"
-		                    }   
-		                },
-		                "Policy":
-		                {
-		                    "concurrency": 1,
-		                    "executionPriorityOrder": "NewestFirst",
-		                    "style": "StartOfInterval",
-		                    "retry": 0,
-		                    "timeout": "01:00:00"
-		                }       
-		            }
+		{
+		  "name": "ADFTutorialPipeline",
+		  "properties": {
+		    "description": "Copy data from a blob to Azure SQL table",
+		    "activities": [
+		      {
+		        "name": "CopyFromBlobToSQL",
+		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpTableFromBlob"
+		          }
 		        ],
-		
-		        "start": "2015-07-12T00:00:00Z",
-		        "end": "2015-07-13T00:00:00Z",
-		        "isPaused": false
-		    }
-		} 
+		        "outputs": [
+		          {
+		            "name": "EmpSQLTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "BlobSource"
+		          },
+		          "sink": {
+		            "type": "SqlSink",
+		            "writeBatchSize": 10000,
+		            "writeBatchTimeout": "60:00:00"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-07-12T00:00:00Z",
+		    "end": "2015-07-13T00:00:00Z",
+		    "isPaused": false
+		  }
+		}
 
 #### Publicación e implementación de las entidades de Factoría de datos
   
-18. En el área de la barra de herramientas, haga clic con el botón derecho y seleccione **Factoría de datos** para habilitar la barra de herramientas de Factoría de datos si aún no está habilitada. 
-19. En la **barra de herramientas Factoría de datos** haga clic en el **cuadro desplegable** para ver todas las factorías de datos de su suscripción de Azure. Si ve el cuadro de diálogo **Iniciar sesión en Visual Studio**: 
-	20. Escriba la **cuenta de correo electrónico** asociada a la suscripción de Azure en la que desea crear la factoría de datos, escriba la **Contraseña** y haga clic en **Iniciar sesión**.
-	21. Una vez iniciada la sesión correctamente, verá todas las factorías de datos de la suscripción de Azure. En este tutorial, creará una nueva factoría de datos.       
-22. En la lista desplegable, seleccione **ADFTutorialFactoryVS** y haga clic en el botón **Publicar** para implementar o publicar los servicios vinculados, los conjuntos de datos y la canalización.    
+18. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y haga clic en **Publicar**. 
+19. Si ve el cuadro de diálogo **Iniciar sesión en tu cuenta Microsoft**, escriba sus credenciales para la cuenta que tiene la suscripción de Azure y haga clic en **Iniciar sesión**.
+20. Debería ver el siguiente cuadro de diálogo:
 
-	![Botón Publicar](./media/data-factory-get-started-using-vs/publish.png)
+	![Cuadro de diálogo Publicar](./media/data-factory-get-started-using-vs/publish.png)
 
-23. Debería ver el estado de la publicación en la ventana Lista de tareas de Factoría de datos que se muestra en la ilustración anterior. Confirme que la publicación se ha realizado correctamente.
+21. En la página Configurar la factoría de datos, haga lo siguiente:
+	1. Seleccione la opción **Crear la nueva factoría de datos**.
+	2. Escriba **VSTutorialFactory** para **Nombre**.
+	3. Seleccione la suscripción correcta para el campo**Suscripción**. 
+	4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear. 
+	5. Seleccione la **región** para la factoría de datos. 
+	6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**. 
+23. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para pasar a la página **Resumen**.     
+24. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
+25. En la página **Estado de implementación**, debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
+
 
 ## Uso del Explorador de servidores para revisar las entidades de Factoría de datos
 
@@ -254,4 +236,4 @@ Consulte [Supervisión de los conjuntos de datos y canalización](data-factory-g
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

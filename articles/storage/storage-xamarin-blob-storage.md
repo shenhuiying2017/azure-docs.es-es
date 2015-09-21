@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Cómo utilizar el almacenamiento de blobs de Xamarin (vista previa)
@@ -179,4 +179,4 @@ Obtenga más información acerca de blobs, tablas y colas mediante la consulta d
 [Cómo utilizar el almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

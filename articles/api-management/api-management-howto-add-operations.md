@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Incorporación de operaciones a una API en Administración de API de Azure
@@ -164,4 +164,4 @@ Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API
 [Creación y publicación de un producto]: api-management-howto-add-products.md
 [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure]: api-management-howto-cache.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

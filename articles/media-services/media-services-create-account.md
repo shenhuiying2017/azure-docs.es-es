@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -67,6 +67,13 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
 	Además, puede ver el código que usa el SDK de Servicios multimedia de Azure para realizar las siguientes tareas: cargar, codificar y publicar vídeos. Puede hacer clic en uno de los vínculos en la sección **WRITE SOME CODE**, copiar el código y usarlo en su aplicación.
 
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ## Pasos siguientes
 
 - [Introducción a la entrega de contenido de vídeo bajo demanda (VoD) mediante el SDK para .NET](media-services-dotnet-get-started.md)
@@ -85,4 +92,4 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
   [portal de Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

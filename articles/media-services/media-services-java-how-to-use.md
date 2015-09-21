@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/07/2015" 
 	ms.author="robmcm"/>
 
 #Uso de Servicios multimedia con Java
@@ -350,6 +350,16 @@ Si necesita cancelar un trabajo que no ha acabado de procesarse, el siguiente c�
 
     mediaService.action(Job.cancel(jobId));
 
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Recursos adicionales
 
 Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Documentación de las bibliotecas de Azure para Java][].
@@ -362,4 +372,4 @@ Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Doc
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

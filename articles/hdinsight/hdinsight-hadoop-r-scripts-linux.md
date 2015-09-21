@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Uso de R en HDInsight para personalizar clústeres | Microsoft Azure"
 	description="Obtenga información acerca de cómo instalar y usar R para personalizar los clústeres de Hadoop."
 	services="hdinsight"
@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -20,7 +20,7 @@
 
 Puede instalar R en cualquier tipo de clúster de Hadoop en HDInsight mediante la personalización de clústeres de **acción de script**. Esto permite que los analistas y los científicos de datos usen R para implementar el eficaz marco de programación MapReduce/YARN para procesar grandes cantidades en datos en clústeres de Hadoop que están implementados en HDInsight.
 
-> [AZURE.NOTE]Para realizar los pasos que se describen en este documento se requiere un clúster de HDInsight basado en Linux. Para obtener información sobre el uso de R con un clúster basado en Windows, vea [Instalación y uso de R en clústeres de Hadoop para HDinsight (Windows)](hdinsight-hadoop-r-scripts.md)
+> [AZURE.NOTE]Para realizar los pasos que se describen en este documento se requiere un clúster de HDInsight basado en Linux. Para obtener información sobre el uso de R con un clúster basado en Windows, vea [Instalación y uso de R en clústeres Hadoop de HDinsight (Windows)](hdinsight-hadoop-r-scripts.md)
 
 ## ¿Qué es R?
 
@@ -84,11 +84,11 @@ Cuando termine de aprovisionar el clúster, siga estos pasos para usar R para re
 1. Conéctese al clúster de HDInsight con SSH:
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
+
 	Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguiente:
-	
+
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-	
+
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. En el símbolo del sistema de `username@headnode1:~$`, escriba el siguiente comando para iniciar una sesión interactiva de R:
@@ -100,24 +100,24 @@ Cuando termine de aprovisionar el clúster, siga estos pasos para usar R para re
 		library(rmr2)
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
-		
+
 
 	La primera línea llama a rmr2 de la biblioteca de RHadoop, que se usa en las operaciones de MapReduce.
-	
+
 	La segunda línea genera valores del 1 al 100 y luego los almacena en el sistema de archivos de Hadoop mediante `to.dfs`.
-	
+
 	La tercera línea crea un proceso de MapReduce mediante la funcionalidad proporcionada por rmr2 y comienza el procesamiento. Debe ver cómo varias líneas se desplazan más allá a medida que comienza el procesamiento.
-	
+
 4. A continuación, use lo siguiente para ver la ruta de acceso temporal en la que se almacenó la salida de MapReduce:
 
 		print(calc())
-		
+
 	Debe ser parecida a la siguiente `/tmp/file5f615d870ad2`. Para ver la salida real, use lo siguiente:
-	
+
 		print(from.dfs(calc))
-	
+
 	El resultado debe ser similar al siguiente:
-	
+
 		[1,]  1 2
 		[2,]  2 4
 		.
@@ -126,7 +126,7 @@ Cuando termine de aprovisionar el clúster, siga estos pasos para usar R para re
 		[98,]  98 196
 		[99,]  99 198
 		[100,] 100 200
-		
+
 5. Para salir de R, escriba lo siguiente:
 
 		q()
@@ -148,6 +148,5 @@ Cuando termine de aprovisionar el clúster, siga estos pasos para usar R para re
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

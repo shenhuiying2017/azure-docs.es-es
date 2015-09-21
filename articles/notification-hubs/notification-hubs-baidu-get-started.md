@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introducción a los Centros de notificaciones de Azure | Microsoft Azure"
-	description="En este tutorial aprenderá a usar los Centros de notificaciones de Azure para enviar notificaciones push a dispositivos Android."
+	pageTitle="Introducción a Centros de notificaciones con Baidu | Microsoft Azure"
+	description="En este tutorial aprenderá a usar los Centros de notificaciones de Azure para enviar notificaciones push a dispositivos Android mediante Baidu."
 	services="notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introducción a los Centros de notificaciones
+# Introducción a Centros de notificaciones con Baidu
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -479,4 +479,4 @@ Para enviar una notificación de prueba con una aplicación de la consola .NET, 
 [Portal de Azure]: https://manage.windowsazure.com/
 [portal de Baidu]: http://www.baidu.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Administración del servicio de búsqueda en Microsoft Azure
@@ -36,7 +36,7 @@ La búsqueda estándar se puede facturar al registrarse para obtener recursos de
 
 Para planificar la capacidad y entender el impacto de facturación, recomendamos estos vínculos:
 
-+	[Límites y restricciones](http://msdn.microsoft.com/library/dn798934.aspx)
++	[Límites y restricciones](search-limits-quotas-capacity.md)
 +	[Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Cuando esté listo para suscribirse, consulte [Creación de un servicio de búsqueda en el portal](search-create-service-portal.md).
@@ -100,7 +100,7 @@ En esta vista previa pública, la supervisión de recursos se limita a la inform
 
 En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación.
 
-Al usar la API del servicio de búsqueda, podrá obtener una recuento de los documentos e índices. Existen límites máximos asociados a estos recuentos basados en el nivel de precio. Consulte [Límites y restricciones para obtener detalles](http://msdn.microsoft.com/library/dn798934.aspx).
+Al usar la API del servicio de búsqueda, podrá obtener una recuento de los documentos e índices. Existen límites máximos asociados a estos recuentos basados en el nivel de precio. Consulte [Límites y restricciones para obtener detalles](search-limits-quotas-capacity.md).
 
 +	[Obtención de estadísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[Recuento de documentos](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -193,4 +193,4 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

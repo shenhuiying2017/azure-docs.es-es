@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/20/2015" 
+	ms.date="09/08/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones de Microsoft
+
+## Notas de la versión de Análisis de transmisiones del 10/09/2015 ##
+
+Esta versión contiene las siguientes actualizaciones.
+
+Título|Descripción
+---|---
+Soporte para grupos de PowerBI|Para habilitar compartir datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir a grupos de su cuenta de Power BI.
 
 ## Notas de la versión de Análisis de transmisiones del 20/08/2015 ##
 
@@ -34,9 +42,9 @@ Esta versión contiene las siguientes actualizaciones.
 
 Título|Descripción
 ---|---
-Identificador de organización de BI energía desacoplado del identificador de Azure|Esta característica habilita la [salida de Power BI](stream-analytics-power-bi-dashboard.md) para trabajos de ASA en cualquier tipo de cuenta de Azure (Live Id o Id. de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.
-Compatibilidad con la salida de Colas del Bus de servicio|Las salidas de [Colas de Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) ahora están disponibles en los trabajos de Análisis de transmisiones.
-Compatibilidad con la salida de Temas del Bus de servicio|Las salidas de [Temas de Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-topics) ahora están disponibles en trabajos de Análisis de transmisiones.
+Identificador de organización de BI energía desacoplado del identificador de Azure|Esta característica habilita la [salida de Power BI](stream-analytics-power-bi-dashboard.md) para trabajos de ASA en cualquier tipo de cuenta de Azure (Live Id. o Id. de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.
+Compatibilidad con la salida de Colas del Bus de servicio|Las salidas de [Colas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-queues) ahora están disponibles en los trabajos de Análisis de transmisiones.
+Compatibilidad con la salida de Temas del Bus de servicio|Las salidas de [Temas del Bus de servicio](stream-analytics-connect-data-event-outputs.md#service-bus-topics) ahora están disponibles en trabajos de Análisis de transmisiones.
 
 ## Notas de la versión de Análisis de transmisiones del 09/07/2015 ##
 
@@ -73,7 +81,7 @@ Limitación del volumen de eventos de Base de datos SQL|Cuando se utiliza la Bas
 Los conjuntos de datos PowerBI solo pueden contener una tabla|PowerBI no admite más de una tabla en un conjunto de datos determinado.
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -84,4 +92,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

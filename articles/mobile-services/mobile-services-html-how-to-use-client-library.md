@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
 
@@ -33,7 +33,7 @@ La manera en que se agrega una referencia para el cliente de Servicios móviles 
 
 - En una aplicación basada en web, abra el archivo HTML y agregue lo siguiente a las referencias de script de la página:
 
-        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js"></script>
 
 - Para una aplicación de la Tienda Windows escrita en JavaScript/HTML, agregue el paquete NuGet **WindowsAzure.MobileServices.WinJS** a su proyecto.
 
@@ -46,7 +46,7 @@ En el editor, abra o cree un archivo JavaScript, agregue el siguiente código qu
 
 Debe sustituir el marcador de posición `AppUrl` por la URL de la aplicación del servicio móvil y `AppKey` por la clave de la aplicación. Para obtener información sobre cómo obtener la dirección URL de la aplicación y la clave de aplicación para el servicio móvil, consulte el tutorial [Agregar servicios móviles a una aplicación existente](mobile-services-html-get-started-data.md).
 
->[AZURE.IMPORTANT]La clave de aplicación está diseñada para filtrar solicitudes aleatorias contra el servicio móvil y se distribuye con la aplicación. Dado que esta clave no está cifrada, no puede considerarse segura. Para proteger verdaderamente los datos de su servicio móvil, los usuarios se deben autenticar antes de permitir el acceso. Para obtener más información, consulte [Autenticación de usuarios](#caching)
+>[AZURE.IMPORTANT]La clave de aplicación está diseñada para filtrar solicitudes aleatorias contra el servicio móvil y se distribuye con la aplicación. Dado que esta clave no está cifrada, no puede considerarse segura. Para proteger verdaderamente los datos de su servicio móvil, los usuarios se deben autenticar antes de permitir el acceso. Para obtener más información, consulte [Autenticación de usuarios](#authentication)
 
 ##<a name="querying"></a>Consulta de datos desde un servicio móvil
 
@@ -385,7 +385,7 @@ Llame a una API personalizada desde el cliente mediante una llamada al método [
  
 Para obtener ejemplos más realistas y un análisis más completo de **invokeApi**, consulte [API personalizada en los SDK del cliente de Servicios móviles de Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
-##<a name="caching"></a>Autenticación de usuarios
+##<a name="authentication"></a>Autenticación de usuarios
 
 Servicios móviles es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externas: Facebook, Google, Microsoft Account y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación].
 
@@ -412,7 +412,7 @@ Si utiliza un proveedor de identidades que no sea Facebook, cambie el valor pasa
 
 En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. La función [login], cuando se completa, devuelve un objeto JSON (**user**) que expone el identificador de usuario y el token de autenticación de Servicios móviles en los campos **userId** y **authenticationToken**, respectivamente. El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación].
 
-> [AZURE.NOTE]**Aplicación de Tienda Windows** Cuando use el proveedor de inicio de sesión de la cuenta de Microsoft para autenticar a los usuarios de la aplicación de la Tienda Windows, también debe registrar el paquete de la aplicación con Servicios móviles. Cuando registre la información del paquete de la aplicación de la Tienda Windows con Servicios móviles, el cliente podrá volver a usar las credenciales de inicio de sesión de la cuenta Microsoft para conseguir una experiencia de inicio de sesión único. Si no realiza este procedimiento, los usuarios de inicio de sesión de la cuenta Microsoft visualizarán una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión. Para saber cómo registrar el paquete de la aplicación de la Tienda Windows, consulte [Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Una vez que se registre la información del paquete con Servicios móviles, llame al método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") proporcionando un valor **true** para el parámetro <em>useSingleSignOn</em> con el fin de volver a usar las credenciales.
+> [AZURE.NOTE]**Aplicación de Tienda Windows** Cuando use el proveedor de inicio de sesión de la cuenta de Microsoft para autenticar a los usuarios de la aplicación de la Tienda Windows, también debe registrar el paquete de la aplicación con Servicios móviles. Cuando registre la información del paquete de la aplicación de la Tienda Windows con Servicios móviles, el cliente podrá volver a usar las credenciales de inicio de sesión de la cuenta Microsoft para conseguir una experiencia de inicio de sesión único. Si no realiza este procedimiento, los usuarios de inicio de sesión de la cuenta Microsoft visualizarán una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión. Para saber cómo registrar el paquete de la aplicación de la Tienda Windows, consulte [Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). Una vez que se registre la información del paquete con Servicios móviles, llame al método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") proporcionando un valor **true** para el parámetro *useSingleSignOn* con el fin de volver a usar las credenciales.
 
 ###Flujo de cliente
 La aplicación también puede ponerse en contacto de manera independiente con el proveedor de identidades y, a continuación, proporcionar el token devuelto a Servicios móviles para la autenticación. Este flujo de cliente le permite proporcionar una experiencia de inicio de sesión único para los usuarios o recuperar datos de usuario adicionales del proveedor de identidades.
@@ -580,7 +580,7 @@ Para controlar a qué sitios web se les permite interactuar con solicitudes y en
 [How to: Insert data into a mobile service]: #inserting
 [How to: Modify data in a mobile service]: #modifying
 [How to: Delete data in a mobile service]: #deleting
-[How to: Authenticate users]: #caching
+[How to: Authenticate users]: #authentication
 [How to: Handle errors]: #errors
 [How to: Use promises]: #promises
 [How to: Customize request headers]: #customizing
@@ -608,4 +608,4 @@ Para controlar a qué sitios web se les permite interactuar con solicitudes y en
 [Llamar a una API personalizada desde el cliente]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

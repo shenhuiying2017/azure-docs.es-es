@@ -290,14 +290,14 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones][]
+-   Vea [Colas, temas y suscripciones][].
 -   Referencia de API para [Clase SqlFilter][].
 -   Visite el repositorio del [SDK de Azure para Node] en GitHub.
 
   [SDK de Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure Management Portal]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
   [Clase SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
@@ -305,4 +305,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
   [Aplicación web de Node.js con almacenamiento]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

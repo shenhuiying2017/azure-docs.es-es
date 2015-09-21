@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Códecs y formatos de Media Encoder Standard"
-	description="En este tema se ofrece información general sobre los códecs y formatos de Azure Media Encoder Standard."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Códecs y formatos de Media Encoder Standard" 
+	description="En este tema se ofrece información general sobre los códecs y formatos de Azure Media Encoder Standard." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015"
 	ms.author="juliako"/>
 
 #Códecs y formatos de Media Encoder Standard
@@ -29,10 +29,10 @@ Formatos de archivo (extensiones de archivo)|Compatible
 FLV (con códecs H.264 y AAC) (.flv) |Sí 
 MXF (.mxf) |Sí 
 GXF (.gxf) |Sí 
-MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp) |Sí 
+MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sí 
 Windows Media Video (WMV)/ASF (.wmv, .asf) |Sí 
 AVI (sin comprimir de 8 bits/10 bits) (.avi)|Sí 
-MP4/ISMV (.ismv)|Sí 
+MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Sí 
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sí 
 Matroska/WebM (.mkv) |Sí 
 WAVE/WAV (.wav) |Sí 
@@ -81,8 +81,16 @@ La siguiente tabla enumera los códecs y los formatos de archivo compatibles par
 
 Formato de archivo|Códec de vídeo|Códec de audio
 ---|---|---
-MP4 (*.mp4)<br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4<br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2 
+
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Consulte también
 
@@ -90,4 +98,4 @@ MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-L
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

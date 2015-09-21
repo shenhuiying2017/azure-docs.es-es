@@ -102,12 +102,12 @@ Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
 
 ### Actualizar el archivo de configuración del servicio
 
-Pegue la huella digital del certificado copiada anteriormente en el atributo de huella digital/valor de esta configuración. Para el rol web:
+Pegue la huella digital del certificado copiada anteriormente en el atributo de huella digital/valor de esta configuración. Para el rol de trabajo:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Para el rol de trabajo:
+Para el rol web:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
@@ -320,7 +320,7 @@ Este error significa que el certificado SSL no está configurado correctamente. 
 
 Si no se pueden enviar solicitudes, verá lo siguiente:
 
- [Exception\] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.
+ [Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.
 
 En este caso, compruebe el archivo de configuración, en particular la configuración de **WorkerRoleSynchronizationStorageAccountConnectionString**. Este error normalmente indica que el rol de trabajo no pudo inicializar correctamente la base de datos de metadatos la primera vez.
 
@@ -334,4 +334,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

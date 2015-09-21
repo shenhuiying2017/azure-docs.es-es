@@ -1,20 +1,20 @@
 
 <properties 
-    pageTitle="Uso de la suscripción de Office 365 con Azure RemoteApp"
+    pageTitle="Uso de la suscripción de Office 365 con Azure RemoteApp | Microsoft Azure"
 	description="Aprenda a usar su suscripción de Office 365 en Azure RemoteApp para compartir aplicaciones de Office."
 	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/09/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -35,6 +35,8 @@ Office 365 ProPlus permite la [activación en equipos compartidos](https://techn
 ## De acuerdo, así que ¿cómo se usan mis licencias de Office 365 ProPlus con Azure RemoteApp?
 
 Cada licencia de usuario de Office 365 ProPlus permite a un usuario activar las aplicaciones de Office hasta en cinco equipos, tabletas y teléfonos. Cada activación se registra con el usuario hasta que este desactiva Office en el dispositivo. (Los usuarios pueden administrar sus dispositivos en el [portal de Office 365](https://portal.office365.com/)).
+
+Con Azure RemoteApp un único usuario podría iniciar sesión en varios equipos el mismo día sin darse cuenta. Esto se debe a que el servicio administra y escala automáticamente los recursos en la nube, mientras que el usuario solo ve las aplicaciones y los programas que se han compartido. En este escenario Office 365 ProPlus ofrece un modo de activación de equipo compartido; esto significa que el usuario no necesita realizar ninguna administración de licencias para tener acceso a esos recursos y que los equipos individuales no cuentan para el límite de activación de cinco equipos.
 
 Mientras el administrador asigne licencias de Office 365 ProPlus a los usuarios, pueden usar Office en sus dispositivos personales, así como a través de la colección de Azure RemoteApp.
 
@@ -65,7 +67,7 @@ Puede crear una imagen personalizada de la colección que incluye Office 365 Pro
 
 ### Uso de la imagen de la galería de Azure
 
-La manera más fácil de implementar Office 365 ProPlus en una colección es [comenzar con una de las imágenes de la galería de Azure](remoteapp-image-on-azurevm.md) incluidas en la suscripción de Azure RemoteApp. Asegúrese de que elige la imagen **Host de sesión de Escritorio remoto de Windows de servidor con Office 365 ProPlus preinstalado**. A continuación, instale las demás aplicaciones que desee en esa imagen y ya está.
+La manera más fácil de implementar Office 365 ProPlus en una colección es [comenzar con una de las imágenes de la galería de Azure](remoteapp-image-on-azurevm.md) incluidas en su suscripción de Azure RemoteApp. Asegúrese de que elige la imagen **Host de sesión de Escritorio remoto de Windows Server con Office 365 ProPlus preinstalado**. A continuación, instale las demás aplicaciones que desee en esa imagen y ya está.
 
 ### Uso de una imagen personalizada
 
@@ -115,4 +117,4 @@ Con esta opción, solo se usan las herramientas estándar de Windows para aplica
 - [Implementación y actualización de Office 365 ProPlus mediante la Herramienta de implementación de Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Configuración de las opciones de actualización de Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

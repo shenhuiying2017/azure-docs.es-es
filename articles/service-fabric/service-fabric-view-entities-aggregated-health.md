@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # Cómo ver los informes de mantenimiento de Service Fabric
@@ -174,7 +174,7 @@ HealthEvents            : None
 El siguiente cmdlet de PowerShell obtiene el mantenimiento del clúster con la directiva de aplicación personalizada. Filtra los resultados para obtener nodos y aplicaciones de solo error o advertencia+. Como resultado, no se devolverá ningún nodo ya que todos son correctos. Solo la aplicación fabric:/WordCount respeta el filtro de aplicaciones. Puesto que la directiva personalizada especifica que hay que tener en cuenta la advertencia como un error para la aplicación fabric:/WordCount, la aplicación se evalúa en Error y de la misma forma el clúster.
 
 ```powershell
-PS C:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -326,7 +326,7 @@ El cmdlet para obtener el mantenimiento de la aplicación es Get-ServiceFabricAp
 El siguiente cmdlet devuelve el mantenimiento de la aplicación fabric:/WordCount.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
@@ -836,4 +836,4 @@ Siempre que haya un problema en el clúster o en una aplicación, consulte el ma
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

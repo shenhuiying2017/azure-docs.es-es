@@ -84,7 +84,7 @@ El servicio de búsqueda a nivel estándar se crea con una réplica y una partic
 
 Las réplicas y las particiones adicionales se cobran en unidades de búsqueda. El total de unidades de búsqueda necesario para admitir una configuración de recursos en particular se muestra en la página, a medida que agrega recursos.
 
-Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Límites y restricciones](http://msdn.microsoft.com/library/azure/dn798934.aspx) para obtener ayuda para decidir cómo configurar las combinaciones de partición y de réplica.
+Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Límites y restricciones](search-limits-quotas-capacity.md) para obtener ayuda para decidir cómo configurar las combinaciones de partición y de réplica.
 
 <a id="sub-4"></a>
 ##Prueba de operaciones del servicio
@@ -120,4 +120,4 @@ El siguiente material adicional muestra cómo compilar y administrar aplicacione
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

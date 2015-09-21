@@ -3,7 +3,7 @@
    description="Sugerencias para migrar el código SQL a Almacenamiento de datos SQL de Azure a fin de desarrollar soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migración del código SQL a Almacenamiento de datos SQL
 
-Para asegurarse de que el código es compatible con Almacenamiento de datos SQL, es bastante probable que tenga que realizar cambios en el código base. Algunas características de Almacenamiento de datos SQL también pueden mejorar significativamente el rendimiento, ya que están diseñadas para trabajar directamente en un modo distribuido. Sin embargo, para mantener el rendimiento y la escala, también hay algunas características que no están disponibles.
+Para asegurarse de que el código es compatible con Almacenamiento de datos SQL, es muy probable que tenga que realizar cambios en el código base. Algunas características de Almacenamiento de datos SQL pueden mejorar significativamente el rendimiento, ya que están diseñadas para trabajar directamente en un modo distribuido. Sin embargo, para mantener el rendimiento y la escala, también hay algunas características que no están disponibles.
 
 ## Cambios de código de Transact-SQL
 
-En la lista siguiente se resumen las principales características que no se admiten en Almacenamiento de datos SQL de Azure. Los vínculos ofrecidos le llevan a soluciones alternativas para la característica no admitida:
+En la lista siguiente se resumen las principales características no admitidas en Almacenamiento de datos SQL de Azure. Los vínculos siguientes le llevan a soluciones alternativas para la característica no admitida:
 
 - [ANSI JOINS en UPDATE][]
 - [ANSI JOINS en DELETE][]
@@ -50,7 +50,7 @@ En la lista siguiente se resumen las principales características que no se admi
 - [uso de SELECT para la asignación de variables][]
 - [No escriba ningún tipo de datos MAX en cadenas de SQL dinámico][]
 
-Afortunadamente la mayoría de estas limitaciones se puede solucionar. Se incluyen explicaciones en los artículos de desarrollo correspondientes antes mencionados.
+Afortunadamente la mayoría de estas limitaciones se puede solucionar. Los artículos de desarrollo correspondientes antes mencionados incluyen explicaciones.
 
 ### Expresiones de tabla común recursivas (CTE)
 
@@ -114,4 +114,4 @@ Para obtener consejos sobre el desarrollo del código, consulte la [información
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

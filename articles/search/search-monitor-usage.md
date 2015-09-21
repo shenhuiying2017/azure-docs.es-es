@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="07/08/2015"
+   ms.date="09/08/2015"
    ms.author="heidist"/>
 
 # Supervisión del uso y estadísticas en un servicio Búsqueda de Azure
@@ -45,7 +45,7 @@ La API de REST de Búsqueda de Azure y el SDK para .NET proporcionan acceso medi
 
 ## Pasos siguientes
 
-Consulte [Límites y capacidad](https://msdn.microsoft.com/library/azure/dn798934.aspx) para determinar la combinación de particiones y réplicas que necesitará si la capacidad existente no es suficiente.
+Consulte [Límites y capacidad](search-limits-quotas-capacity.md) para determinar la combinación de particiones y réplicas que necesitará si la capacidad existente no es suficiente.
 
 Visite [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md) para obtener más información acerca de la administración de servicio.
 
@@ -57,4 +57,4 @@ Visite [Administración del servicio de búsqueda en Microsoft Azure](search-man
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

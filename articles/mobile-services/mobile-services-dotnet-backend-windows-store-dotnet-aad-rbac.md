@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Control de acceso basado en rol en Servicios móviles y Azure Active Directory (Tienda Windows) | Microsoft Azure"
-	description="Obtenga información acerca de cómo controlar el acceso basado en roles de Azure Active Directory en su aplicación de la Tienda Windows."
+	pageTitle="Control de acceso basado en rol en Servicios móviles con .NET y Azure Active Directory (Tienda Windows) | Microsoft Azure"
+	description="Obtenga información sobre cómo controlar el acceso basado en rol de Azure Active Directory en su aplicación de la Tienda Windows mediante un servicio móvil con un back-end .NET."
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -8,15 +8,15 @@
 	services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="mobile-services" 
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Control de acceso basado en roles en Servicios móviles y Azure Active Directory
+# Control de acceso basado en rol en Servicios móviles con JavaScript y Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -36,7 +36,7 @@ Este tutorial requiere lo siguiente:
 * Visual Studio 2013 en Windows 8.1.
 * Realización del tutorial [Incorporación de autenticación a la aplicación] con el proveedor de autenticación de Azure Active Directory.
 
- 
+
 
 
 ##Generación de una clave para la aplicación integrada
@@ -56,7 +56,7 @@ Si ha realizado el tutorial [Acceso a información de Azure Active Directory Gra
 
 
 
-##Creación de un atributo de autorización personalizado en el servicio móvil 
+##Creación de un atributo de autorización personalizado en el servicio móvil
 
 En esta sección, va a crear un nuevo atributo de autorización personalizado que se puede usar para realizar comprobaciones de acceso en operaciones del servicio móvil. El atributo buscará un grupo de Active Directory basándose en el nombre de rol que se le ha pasado. Después realizará comprobaciones de acceso según la pertenencia al grupo.
 
@@ -101,18 +101,18 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
             private bool isInitialized;
             private bool isHosted;
 	        private ApiServices services = null;
-	
+
 	        // Constants used with ADAL and the Graph REST API for AAD
 	        private const string AadInstance = "https://login.windows.net/{0}";
 	        private const string GraphResourceId = "https://graph.windows.net/";
 	        private const string APIVersion = "?api-version=2013-04-05";
-	
+
 	        // App settings pulled from the Mobile Service
 	        private string tenantdomain;
 	        private string clientid;
 	        private string clientkey;
 	        private Dictionary<int, string> groupIds = new Dictionary<int, string>();
-	
+
 	        private string token = null;
 
             public AuthorizeAadRole(AadRoles role)
@@ -128,13 +128,13 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 
             public AadRoles Role { get; private set; }
 
-            // Generate a local dictionary for the role group ids configured as 
+            // Generate a local dictionary for the role group ids configured as
             // Mobile Service app settings
             private void InitGroupIds()
             {
             }
 
-            // Use ADAL and the authentication app settings from the Mobile Service to 
+            // Use ADAL and the authentication app settings from the Mobile Service to
             // get an AAD access token
             private string GetAADToken()
             {
@@ -253,7 +253,7 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 
             services = new ApiServices(actionContext.ControllerContext.Configuration);
 
-            // Check whether we are running in a mode where local host access is allowed 
+            // Check whether we are running in a mode where local host access is allowed
             // through without authentication.
             if (!this.isInitialized)
             {
@@ -392,4 +392,4 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 [Acceso a información de Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

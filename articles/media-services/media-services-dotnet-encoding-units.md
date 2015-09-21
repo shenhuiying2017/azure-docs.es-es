@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
-
-
 
 
 #Escalado de codificación con el SDK de .NET
@@ -72,6 +70,14 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 1. Haga clic en Submit para abrir la incidencia.
  
 
+
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

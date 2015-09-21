@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Escenarios de autenticación para Azure AD"
-	description="Información general de los cinco escenarios de autenticación más comunes para Azure Active Directory (AAD)."
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Información general de los cinco escenarios de autenticación más comunes para Azure Active Directory (AAD)."
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/02/2015"
+   ms.author="mbaldwin"/>
 
 # Escenarios de autenticación para Azure AD
 
@@ -60,13 +60,13 @@ Teniendo en cuenta el diagrama anterior, a continuación se indica qué debe sab
 - Los desarrolladores pueden usar las bibliotecas de autenticación de código abierto de Azure AD para facilitar la autenticación, ya que administran los detalles de los protocolos para el usuario. Consulte [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md) para obtener más información.
 
 
-• Una vez autenticado el usuario, la aplicación debe validar el token de seguridad de este para garantizar que la autenticación se realizó correctamente para las partes implicadas. Los desarrolladores pueden usar las bibliotecas de autenticación proporcionadas para administrar la validación de cualquier token de Azure AD, incluidos los tokens web JSON (JWT) o de SAML 2.0. Si desea realizar la validación manualmente, consulte la documentación del [JWT Token Handler](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
+• Una vez autenticado el usuario, la aplicación debe validar el token de seguridad de este para garantizar que la autenticación se realizó correctamente para las partes implicadas. Los desarrolladores pueden usar las bibliotecas de autenticación proporcionadas para administrar la validación de cualquier token de Azure AD, incluidos los tokens web JSON (JWT) o de SAML 2.0. Si desea realizar la validación manualmente, vea la documentación del [Controlador de tokens JWT](https://msdn.microsoft.com/library/dn205065.aspx).
 
 
 > [AZURE.IMPORTANT]Azure AD usa criptografía de clave pública para firmar los tokens y verificar que son válidos. Consulte [Información importante acerca de la cadencia de sustitución de clave en Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) para obtener más información sobre la lógica necesaria que debe tener en la aplicación para garantizar que siempre está actualizada con las claves más recientes.
 
 
-• El flujo de solicitudes y respuestas del proceso de autenticación lo determina el protocolo de autenticación que se use, como OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Estos protocolos se analizan con más detalle en el tema [Protocolos de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) y en las secciones siguientes.
+• El flujo de solicitudes y respuestas del proceso de autenticación lo determina el protocolo de autenticación que se use, como OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Estos protocolos se analizan con más detalle en el tema [Protocolos de autenticación de Azure Active Directory](active-directory-authentication-protocols.md) y en las secciones siguientes.
 
 > [AZURE.NOTE]Azure AD admite los estándares OAuth 2.0 y OpenID Connect, que hacen un uso generalizado de tokens portadores, incluidos los representados como JWT. Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con Azure AD para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS). Si un token portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrese siempre de que la aplicación transmite y almacena los tokens portadores de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
 
@@ -134,7 +134,7 @@ Cuando se desarrolla una aplicación multiempresa en lugar de una aplicación de
 
 Si actualmente desarrolla una aplicación de un solo inquilino pero quiere ponerla a disposición de varias organizaciones, puede realizar cambios fácilmente en la aplicación y en su configuración en Azure AD para que pueda aceptar varios inquilinos. Además, Azure AD usa la misma clave de firma para todos los tokens en todos los directorios, tanto si se proporciona autenticación para una aplicación de un solo inquilino como para una aplicación multiempresa de varios inquilinos.
 
-Cada uno de los escenarios incluidos en este documento incluye una subsección en donde se describen sus requisitos de aprovisionamiento. Para obtener información más detallada sobre el aprovisionamiento de aplicaciones en Azure AD y las diferencias entre las aplicaciones de un solo inquilino y multiempresa, consulte [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md) para obtener más información. Siga leyendo para comprender los escenarios de aplicación comunes de Azure AD.
+Cada uno de los escenarios incluidos en este documento incluye una subsección en donde se describen sus requisitos de aprovisionamiento. Si desea obtener información más detallada sobre el aprovisionamiento de aplicaciones en Azure AD y las diferencias entre aplicaciones de un solo inquilino y multiempresa, vea [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md). Siga leyendo para comprender los escenarios de aplicación comunes de Azure AD.
 
 ## Tipos de aplicaciones y escenarios
 
@@ -190,7 +190,7 @@ Vea los ejemplos de código para escenarios de explorador web a aplicación web.
 - Un solo inquilino: si compila una aplicación únicamente para la organización, esta debe registrarse en el directorio de la compañía mediante el Portal de administración de Azure.
 
 
-- Multiempresa (varios inquilinos): si compila una aplicación que puede ser utilizada por usuarios ajenos a la organización, esta debe registrarse en el directorio de la compañía, pero también en el directorio de cada organización que vaya a usar la aplicación. Para que la aplicación esté disponible en su directorio, puede incluir un proceso de inicio de sesión para que los clientes puedan dar su consentimiento a la aplicación. Cuando inicien sesión en la aplicación, se les presentará un cuadro de diálogo que muestra los permisos que la aplicación requiere y la opción de consentimiento. Según los permisos necesarios, es posible que se requiera que un administrador de la otra organización dé su consentimiento. Cuando el usuario o el administrador dan su consentimiento, la aplicación queda registrada en el directorio. Para obtener más información, consulte [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md).
+- Multiempresa (varios inquilinos): si compila una aplicación que puede ser utilizada por usuarios ajenos a la organización, esta debe registrarse en el directorio de la compañía, pero también en el directorio de cada organización que vaya a usar la aplicación. Para que la aplicación esté disponible en su directorio, puede incluir un proceso de inicio de sesión para que los clientes puedan dar su consentimiento a la aplicación. Cuando inicien sesión en la aplicación, se les presentará un cuadro de diálogo que muestra los permisos que la aplicación requiere y la opción de consentimiento. Según los permisos necesarios, es posible que se requiera que un administrador de la otra organización dé su consentimiento. Cuando el usuario o el administrador dan su consentimiento, la aplicación queda registrada en el directorio. Para obtener más información, vea [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md).
 
 
 #### Expiración del token
@@ -248,7 +248,7 @@ Consulte los ejemplos de código para escenarios de aplicación de una sola pág
 - Un solo inquilino: si compila una aplicación únicamente para la organización, esta debe registrarse en el directorio de la compañía mediante el Portal de administración de Azure.
 
 
-- Multiempresa (varios inquilinos): si compila una aplicación que puede ser utilizada por usuarios ajenos a la organización, esta debe registrarse en el directorio de la compañía, pero también en el directorio de cada organización que vaya a usar la aplicación. Para que la aplicación esté disponible en su directorio, puede incluir un proceso de inicio de sesión para que los clientes puedan dar su consentimiento a la aplicación. Cuando inicien sesión en la aplicación, se les presentará un cuadro de diálogo que muestra los permisos que la aplicación requiere y la opción de consentimiento. Según los permisos necesarios, es posible que se requiera que un administrador de la otra organización dé su consentimiento. Cuando el usuario o el administrador dan su consentimiento, la aplicación queda registrada en el directorio. Para obtener más información, consulte [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md).
+- Multiempresa (varios inquilinos): si compila una aplicación que puede ser utilizada por usuarios ajenos a la organización, esta debe registrarse en el directorio de la compañía, pero también en el directorio de cada organización que vaya a usar la aplicación. Para que la aplicación esté disponible en su directorio, puede incluir un proceso de inicio de sesión para que los clientes puedan dar su consentimiento a la aplicación. Cuando inicien sesión en la aplicación, se les presentará un cuadro de diálogo que muestra los permisos que la aplicación requiere y la opción de consentimiento. Según los permisos necesarios, es posible que se requiera que un administrador de la otra organización dé su consentimiento. Cuando el usuario o el administrador dan su consentimiento, la aplicación queda registrada en el directorio. Para obtener más información, vea [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md).
 
 Después de registrar la aplicación, esta debe configurarse para usar el protocolo de concesión implícita OAuth 2.0. De forma predeterminada, este protocolo está deshabilitado para las aplicaciones. Para habilitar el protocolo de concesión implícita OAuth2 para su aplicación, descargue el manifiesto de aplicación del Portal de administración de Azure, establezca el valor de "oauth2AllowImplicitFlow" en true y, a continuación, vuelva a cargar el manifiesto en el portal. Para obtener instrucciones detalladas, consulte [Habilitar la concesión implícita de OAuth 2.0 para aplicaciones de una sola página](active-directory-integrating-applications.md).
 
@@ -307,7 +307,7 @@ Vea los ejemplos de código en escenarios de aplicación nativa a API web. Agreg
 - Un solo inquilino: tanto la aplicación nativa como la API web deben estar registradas en el mismo directorio de Azure AD. La API web se puede configurar para que exponga un conjunto de permisos, que se usan para limitar el acceso de la aplicación nativa a sus recursos. A continuación, la aplicación cliente selecciona los permisos deseados en el menú desplegable “Permisos para otras aplicaciones” del Portal de administración de Azure.
 
 
-- Multiempresa (varios inquilinos): en primer lugar, la aplicación nativa siempre se registra en el directorio del desarrollador o del editor. En segundo lugar, la aplicación nativa está configurada para indicar los permisos que requiere para ser funcional. La lista de permisos necesarios se muestra en un cuadro de diálogo cuando un usuario o administrador del directorio de destino da su consentimiento a la aplicación, lo que la pone a disposición de la organización. Algunas aplicaciones solo requieren permisos de nivel de usuario, para los que cualquier usuario de la organización puede dar el consentimiento. Otras aplicaciones requieren permisos de nivel de administrador, para los que un usuario de la organización no puede dar su consentimiento. Solo un administrador de directorio puede dar su consentimiento a las aplicaciones que requieran este nivel de permisos. Cuando el usuario o el administrador dan su consentimiento, solo la API web queda registrada en el directorio. Para obtener más información, consulte [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md).
+- Multiempresa (varios inquilinos): en primer lugar, la aplicación nativa siempre se registra en el directorio del desarrollador o del editor. En segundo lugar, la aplicación nativa está configurada para indicar los permisos que requiere para ser funcional. La lista de permisos necesarios se muestra en un cuadro de diálogo cuando un usuario o administrador del directorio de destino da su consentimiento a la aplicación, lo que la pone a disposición de la organización. Algunas aplicaciones solo requieren permisos de nivel de usuario, para los que cualquier usuario de la organización puede dar el consentimiento. Otras aplicaciones requieren permisos de nivel de administrador, para los que un usuario de la organización no puede dar su consentimiento. Solo un administrador de directorio puede dar su consentimiento a las aplicaciones que requieran este nivel de permisos. Cuando el usuario o el administrador dan su consentimiento, solo la API web queda registrada en el directorio. Para obtener más información, vea [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md).
 
 
 #### Expiración del token
@@ -338,7 +338,7 @@ Los tipos de identidad de aplicación y de identidad de usuario delegado se trat
 
 ##### Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0
 
-1. Un usuario inicia sesión en Azure AD en la aplicación web (vea la sección anterior [Explorador web a aplicación web](#web-browser-to-web-application)).
+1. Un usuario inicia sesión en una aplicación web mediante Azure AD (vea la sección anterior [Explorador web a aplicación web](#web-browser-to-web-application)).
 
 
 2. La aplicación web necesita adquirir un token de acceso para poder autenticarse ante la API web y recuperar el recurso deseado. Realiza una solicitud al extremo de token de Azure AD y proporciona las credenciales, el identificador del cliente y el URI del identificador de aplicación de la API web.
@@ -351,7 +351,7 @@ Los tipos de identidad de aplicación y de identidad de usuario delegado se trat
 
 ##### Identidad de usuario delegado con OpenID Connect
 
-1. Un usuario inicia sesión en una aplicación web mediante Azure AD (consulte la sección anterior [Explorador web a aplicación web](#web-browser-to-web-application)). Si el usuario de la aplicación web todavía no ha dado su consentimiento para permitir que la aplicación web llame a la API web en su nombre, el usuario tendrá que dar su consentimiento. La aplicación mostrará los permisos que requiere y, si alguno de estos permisos es de nivel de administrador, un usuario normal del directorio no podrá dar su consentimiento. Este proceso de consentimiento solo se aplica a las aplicaciones multiempresa (de varios inquilinos), no a las aplicaciones de un solo inquilino, puesto que la aplicación ya tendrá los permisos necesarios. Cuando el usuario inicia sesión, la aplicación web recibe un token de identificador con información sobre el usuario, así como un código de autorización.
+1. Un usuario inicia sesión en una aplicación web mediante Azure AD (vea la sección anterior [Explorador web a aplicación web](#web-browser-to-web-application)). Si el usuario de la aplicación web todavía no ha dado su consentimiento para permitir que la aplicación web llame a la API web en su nombre, el usuario tendrá que dar su consentimiento. La aplicación mostrará los permisos que requiere y, si alguno de estos permisos es de nivel de administrador, un usuario normal del directorio no podrá dar su consentimiento. Este proceso de consentimiento solo se aplica a las aplicaciones multiempresa (de varios inquilinos), no a las aplicaciones de un solo inquilino, puesto que la aplicación ya tendrá los permisos necesarios. Cuando el usuario inicia sesión, la aplicación web recibe un token de identificador con información sobre el usuario, así como un código de autorización.
 
 
 2. Con el código de autorización emitido por Azure AD, la aplicación web envía una solicitud al extremo de token de Azure AD que incluye el código de autorización, detalles sobre la aplicación cliente (URI de redirección e identificador del cliente), además del recurso deseado (URI del identificador de aplicación para la API web).
@@ -459,10 +459,12 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 
 ## Otras referencias
 
+[Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md)
+
 [Ejemplos de código de Azure Active Directory](active-directory-code-samples.md)
 
 [Información importante acerca de la cadencia de sustitución de clave en Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
 
 [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

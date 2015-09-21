@@ -2,7 +2,7 @@
 	pageTitle="Application Insights para aplicaciones de Tienda de Windows Phone | Microsoft Azure"
 	description="Analice el uso y el rendimiento de la aplicación de su dispositivo Windows con Application Insights."
 	services="application-insights"
-	documentationCenter="windows"
+    documentationCenter="windows"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -69,6 +69,7 @@ Si es una aplicación universal de Windows, repita los pasos para el proyecto de
 4. Agregue un archivo ApplicationInsights.config a la raíz del proyecto e inserte la clave de instrumentación que copió del portal. A continuación se muestra un archivo XML de ejemplo para este archivo de configuración.
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -82,6 +83,10 @@ Si es una aplicación universal de Windows, repita los pasos para el proyecto de
 5. Agregue el código de inicialización siguiente. Es más conveniente agregar este código al constructor `App()`. Si lo hace en otro lugar, podría perder la recopilación automática de las primeras vistas de página.
 
 ```C#
+
+    using Microsoft.ApplicationInsights;
+    ...
+
 	public App()
 	{
 	   // Add this initilization line.
@@ -96,7 +101,7 @@ Si es una aplicación universal de Windows, repita los pasos para el proyecto de
 
 ## <a name="network"></a>3. Habilitación del acceso de red para la aplicación
 
-Si la aplicación no [solicita acceso de red saliente](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx) aún, tendrá que agregar esta acción a su manifiesto como una [funcionalidad obligatoria](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
+Si la aplicación no [solicita acceso a Internet](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx) aún, tendrá que agregar esta acción a su manifiesto como una [funcionalidad obligatoria](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
 ## <a name="run"></a>4. Ejecución del proyecto
 
@@ -111,10 +116,7 @@ En modo de depuración, la telemetría se envía tan pronto como se genera. En m
 
 ## <a name="monitor"></a>5. Consulta de los datos del monitor
 
-Abra Application Insights desde un proyecto.
-
-![Haga clic con el botón secundario en el proyecto y abra el Portal de Azure](./media/app-insights-windows-get-started/appinsights-04-openPortal.png)
-
+En el [Portal de Azure](https://portal.azure.com), abra el recurso de Application Insights que creó anteriormente.
 
 Al principio, solo aparecerán uno o dos puntos. Por ejemplo:
 
@@ -143,7 +145,7 @@ El SDK de Application Insights incluye varios recolectores que recopilan diferen
 
 #### Envío de datos de telemetría propios
 
-Use la [API][api] para enviar datos de eventos, métricas y diagnóstico a Application Insights. En resumen:
+Use la [API][api] para enviar eventos, métricas y datos de diagnóstico a Application Insights. En resumen:
 
 ```C#
 
@@ -165,7 +167,7 @@ Use la [API][api] para enviar datos de eventos, métricas y diagnóstico a Appli
 
 ```
 
-Para obtener más información, consulte [Eventos y métricas personalizados][api].
+Para obtener más información, vea [Información general de la API: Eventos y métricas personalizados][api].
 
 ## Pasos siguientes
 
@@ -178,9 +180,9 @@ Para obtener más información, consulte [Eventos y métricas personalizados][ap
 
 Si prefiere usar Visual Studio para completar los pasos de instalación, puede hacerlo con Windows Phone, la Tienda Windows y muchos otros tipos de aplicaciones.
 
-### <a name="new"></a> Si crea un nuevo proyecto de aplicación de Windows...
+### <a name="new"></a> Si crea un proyecto de aplicación de Windows...
 
-Seleccione **Application Insights** en el cuadro de diálogo **Nuevo proyecto**,.
+Seleccione **Application Insights** en el cuadro de diálogo **Nuevo proyecto**.
 
 Si se le pide que inicie sesión, use las credenciales para la cuenta de Azure (que es independiente de su cuenta de Visual Studio Online).
 
@@ -196,7 +198,10 @@ Agregue Application Insights desde el Explorador de soluciones.
 
 ## Actualización a una nueva versión del SDK
 
-Cuando se [lanza una nueva versión de SDK](app-insights-release-notes-windows.md): * Haga clic con el botón derecho en el proyecto y elija Administrar paquetes de NuGet. * Seleccione los paquetes instalados de Application Insights y elija la **acción de actualización**.
+Cuando [se lanza una nueva versión del SDK](app-insights-release-notes-windows.md):
+
+* Haga clic con el botón derecho en el proyecto y elija Administrar paquetes de NuGet.
+* Seleccione los paquetes de Application Insights instalados y elija **Acción: Actualizar**.
 
 
 ## <a name="usage"></a>Pasos siguientes
@@ -227,4 +232,4 @@ Cuando se [lanza una nueva versión de SDK](app-insights-release-notes-windows.m
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/11/2015" 
+ms.date="09/08/2015" 
 ms.author="adegeo"/>
 
 # Personalizar el ciclo de vida de un rol web o de trabajo en .NET
@@ -80,4 +80,4 @@ Puede usar los métodos del ciclo de vida de ASP.NET, además de los proporciona
 ## Pasos siguientes
 Aprenda cómo [crear un paquete de servicio en la nube](cloud-services-model-and-package.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

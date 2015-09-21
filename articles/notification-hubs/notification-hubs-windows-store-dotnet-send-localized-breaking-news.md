@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Tutorial de últimas noticias localizadas sobre los Centros de notificaciones"
-	description="Obtenga información acerca de los Centros de notificaciones del Bus de servicio de Azure para enviar notificaciones de noticias de última hora localizadas."
+	description="Obtenga información sobre cómo usar Centros de notificaciones de Azure para enviar notificaciones de noticias de última hora localizadas."
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="09/08/2015" 
 	ms.author="wesmc"/>
 
 # Uso de los Centros de notificaciones para enviar noticias de última hora localizadas
@@ -231,4 +231,4 @@ Para obtener más información sobre el uso de plantillas, consulte [Notificaci�
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Procedimientos de los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

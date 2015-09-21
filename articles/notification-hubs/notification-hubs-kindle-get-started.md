@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Centros de notificaciones de Azure | Microsoft Azure"
+	pageTitle="Introducción a Centros de notificaciones para aplicaciones Kindle | Microsoft Azure"
 	description="En este tutorial, obtenga información acerca de cómo usar los Centros de notificaciones de Azure para enviar notificaciones push a una aplicación Kindle."
 	services="notification-hubs"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introducción a los Centros de notificaciones
+# Introducción a Centros de notificaciones para aplicaciones Kindle
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -281,4 +281,4 @@ Para enviar un mensaje con .NET:
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

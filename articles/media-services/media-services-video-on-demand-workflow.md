@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Entrega de multimedia a petición con Servicios multimedia de Azure"
-	description="En este tema se describen escenarios comunes de entrega de contenido multimedia con Servicios multimedia de Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Entrega de multimedia a petición con Servicios multimedia de Azure" 
+	description="En este tema se describen escenarios comunes de entrega de contenido multimedia con Servicios multimedia de Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -87,137 +87,17 @@ Este artículo contiene vínculos a temas que muestran cómo configurar su entor
 
 ##Conceptos
 
-Para obtener información sobre los conceptos relacionados con la entrega de su contenido bajo demanda, consulte [Conceptos sobre Servicios multimedia](media-services-concepts.md).
+Para obtener información sobre los conceptos relacionados con la entrega de su contenido bajo demanda, vea [Conceptos sobre Servicios multimedia](media-services-concepts.md).
 
-##Tareas comunes: Entrega de contenido multimedia bajo demanda.
 
-###Creación de una cuenta de Servicios multimedia
+##Pasos siguientes: AMS vías de aprendizaje
 
-Use el **Portal de administración de Azure** para [Creación de una cuenta de Servicios multimedia de Azure](media-services-create-account.md).
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
-###Configuración del entorno de desarrollo  
-
-Elija **.NET** o **API de REST** para el entorno de desarrollo.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###Conexión mediante programación  
-
-Elija **.NET** o **API de REST** para conectarse mediante programación a los Servicios multimedia de Azure.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-
-###Configuración de extremos de streaming
-
-Para obtener información general acerca de los extremos de streaming e información acerca de cómo administrarlos, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md).
-
-###Carga de elementos multimedia 
-
-Cargue los archivos mediante el **Portal de administración de Azure**, **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-###Creación de trabajos y tareas
-
-Un trabajo es una entidad que contiene metadatos sobre un conjunto de tareas (por ejemplo, codificación o indización). Cada tarea realiza una operación atómica en los recursos de entrada. Para ver un ejemplo de cómo crear trabajos de codificación, consulte:
-
-Para obtener información general, consulte [Uso de trabajos de Servicios multimedia de Azure](media-services-jobs.md).
-
-Obtenga un procesador multimedia adecuado para su tarea con **.NET** o la **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
-
-En los siguientes ejemplos se crean trabajos de codificación con el **Portal de administración de Azure**, **.NET** o la **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-####Indización
-
-[AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
-
-####Codificación 
-
-**Información general**:
-
-- [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md)
-- [Codificación de contenido bajo demanda con Servicios multimedia de Azure](media-services-encode-asset.md)
-
-Codifique con **Azure Media Encoder** mediante el **Portal de administración de Azure**, **.NET** o **API de REST**.
- 
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-Codificación avanzada con **Flujo de trabajo del Codificador multimedia Premium** mediante **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-advanced-encoding](../../includes/media-services-selector-advanced-encoding.md)]
-
-####Supervisión del progreso del trabajo
-
-Supervise el progreso del trabajo mediante el **Portal de administración de Azure**, **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
-
-###Protección del contenido 
-
-**Información general**:
-
-[Protección de contenido (PlayReady)](media-services-content-protection-overview.md)
-
-Si desea cifrar un recurso con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) o DRM de PlayReady, debe crear una clave de contenido.
-
-Use **.NET** o **API de REST** para crear claves.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-Una vez creada la clave de contenido, puede configurar la directiva de autorización de claves mediante **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-
-Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-
-####Integración con socios
-
-[Uso de castLabs para entregar licencias de DRM a Servicios multimedia de Azure](media-services-castlabs-integration.md)
-
-###Publicación y entrega de recursos
-
-Información general sobre el empaquetado dinámico
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-dynamic-packaging-overview.md)
-
-
-Información general de entrega de contenido
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-Publique recursos (creando localizadores) mediante el **Portal de administración de Azure**, **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-###Habilitación de CDN de Azure
-
-Servicios multimedia admite la integración con CDN de Azure. Para obtener información sobre cómo habilitar CDN de Azure, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md#enable_cdn).
-
-###Escalado de una cuenta de Servicios multimedia
-
-Puede escalar **Servicios multimedia** mediante la especificación del número de **unidades reservadas de streaming** y **unidades reservadas de codificación** con las que desea aprovisionar la cuenta.
-
-También puede escalar la cuenta de Servicios multimedia agregándole cuentas de almacenamiento. Cada cuenta de almacenamiento está limitada a 500 TB. Para ampliar el almacenamiento más allá del límite predeterminado, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia.
-
-[Este](media-services-how-to-scale.md) tema contiene vínculos a temas relevantes.
-
-###Reproducción de contenido con reproductores existentes
-
-Para obtener más información, consulte [Reproducción de contenido con reproductores existentes](media-services-playback-content-with-existing-players.md).
-
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

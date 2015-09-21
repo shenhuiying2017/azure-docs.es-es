@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Traslado de una máquina virtual o una instancia de rol a una subred diferente
@@ -51,4 +51,4 @@ Para mover una instancia de rol, edite el archivo CSCFG. En este ejemplo, movemo
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
    
 # Introducción a la conexión a Almacenamiento de datos SQL
@@ -188,4 +188,4 @@ Ahora que puede conectarse y consultar, intente [cargar datos de ejemplo][] o [d
 [cargar datos de ejemplo]: ./sql-data-warehouse-get-started-load-samples.md
 [desarrollar código]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

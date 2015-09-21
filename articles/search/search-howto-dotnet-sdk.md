@@ -396,7 +396,7 @@ Este paso finaliza el tutorial, pero no se detenga aquí. Los **pasos siguientes
 
 ## Pasos siguientes ##
 
-- Profundice en sus conocimientos por medio de [vídeos y otros ejemplos y tutoriales](https://msdn.microsoft.com/library/azure/dn818681.aspx).
+- Profundice en sus conocimientos por medio de [vídeos y otros ejemplos y tutoriales](search-video-demo-tutorial-list.md).
 - Obtenga información acerca de las características y capacidades de esta versión del SDK de Búsqueda de Azure: [Introducción a Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798933.aspx)
 - Consulte las [convenciones de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para conocer las reglas que deben seguir los nombres de diversos objetos.
 - Consulte los [tipos de datos admitidos](https://msdn.microsoft.com/library/azure/dn798938.aspx) en Búsqueda de Azure.
@@ -625,4 +625,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

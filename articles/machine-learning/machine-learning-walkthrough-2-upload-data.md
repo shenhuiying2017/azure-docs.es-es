@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Paso 2: Carga de datos en un experimento de Aprendizaje automático | Microsoft Azure" 
-	description="Paso 2 del tutorial Desarrollo de una solución predictiva: carga de datos públicos almacenados en Estudio de aprendizaje automático de Azure." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Paso 2: Carga de datos en un experimento de Aprendizaje automático | Microsoft Azure"
+	description="Paso 2 del tutorial Desarrollo de una solución predictiva: carga de datos públicos almacenados en Estudio de aprendizaje automático de Azure."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@ Este es el segundo paso del tutorial [Desarrollo de una solución predictiva con
 2.	**Carga de los datos existentes**
 3.	[Crear un experimento nuevo](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Entrenamiento y evaluación de los modelos](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Publicación del servicio web](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Implementación del servicio web](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Acceso al servicio web](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -70,7 +70,7 @@ Una vez que los datos se han convertido al formato CSV, debemos cargarlos en el 
 
 ![Carga del conjunto de datos][1]
 
- 
+
 De esta manera los datos se cargan en un módulo de conjunto de datos que podemos usar en un experimento.
 
 Para obtener más información acerca de la importación de diversos tipos de datos a un experimento, consulte [Importar datos de entrenamiento a Estudio de aprendizaje automático de Azure](machine-learning-import-data.md).
@@ -78,6 +78,5 @@ Para obtener más información acerca de la importación de diversos tipos de da
 **Siguiente: [Crear un experimento nuevo](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -2,7 +2,7 @@
 	pageTitle="Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sitio web | Microsoft Azure"
 	description="Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud."
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
@@ -218,7 +218,7 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
 * *¿Puedo llamar el código desde mi prueba web?*
 
-    No. Los pasos de la prueba deben encontrarse en el archivo .webtest.
+    No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Hay varios complementos que pueden resultarle útiles.
 
 ## <a name="video"></a>Vídeo
 
@@ -240,4 +240,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

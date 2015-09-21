@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Uso de Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad | Microsoft Azure"
+   pageTitle="Directivas de copia de seguridad de Administrador de instantáneas StorSimple | Microsoft Azure"
    description="Describe cómo usar el complemento MMC de Administrador de instantáneas StorSimple para crear y administrar las directivas de copia de seguridad que controlan las copias de seguridad programadas."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad
@@ -118,4 +118,4 @@ Use el procedimiento siguiente para eliminar una directiva de copia de seguridad
 
 [Uso del Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Centros de notificaciones de Azure | Microsoft Azure"
+	pageTitle="Introducción a Centros de notificaciones de Azure para aplicaciones de la Tienda Windows | Microsoft Azure"
 	description="En este tutorial aprende a usar Centros de notificaciones de Azure para enviar notificaciones push a una aplicación de la Tienda Windows o de Windows Phone 8.1 (no Silverlight)."
 	services="notification-hubs"
 	documentationCenter="windows"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/24/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introducción a los Centros de notificaciones
+# Introducción a Centros de notificaciones para aplicaciones de la Tienda Windows
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -264,4 +264,4 @@ En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos c
 [catálogo de iconos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [información general sobre distintivos]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

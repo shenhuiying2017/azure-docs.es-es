@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introducción al almacenamiento de colas de Azure y a los servicios conectados de Visual Studio (proyectos de servicio en la nube)" 
-	description="Cómo empezar a usar el almacenamiento de colas de Azure en un proyecto de servicio en la nube en Visual Studio" 
+    pageTitle="Introducción al almacenamiento de colas y los servicios conectados de Visual Studio (servicios en la nube) | Microsoft Azure"
+	description="Cómo empezar a usar el almacenamiento de colas de Azure en un proyecto de servicio en la nube en Visual Studio, después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
 	services="storage" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea123"/>
 
 # Introducción al almacenamiento de colas de Azure y a los servicios conectados de Visual Studio (proyectos de servicios en la nube)
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-cloud-services-getting-started-queues.md)
 > - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
-##Información general
+## Información general
 
 En este artículo se describe cómo empezar a usar el almacenamiento de colas de Azure en Visual Studio después de crear una cuenta de almacenamiento de Azure en un proyecto de servicios en la nube mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio, o después hacer referencia a una.
 
@@ -44,7 +44,7 @@ La operación **Agregar servicios conectados** instala los paquetes de NuGet ade
 El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento.
 
 
-##Acceso a colas en el código
+## Acceso a colas en el código
 
 Para obtener acceso a las colas en los proyectos de Servicios en la nube de Visual Studio, debe incluir los elementos siguientes en los archivos de código fuente de C# que tengan acceso al almacenamiento de colas de Azure.
 
@@ -72,7 +72,7 @@ Para obtener acceso a las colas en los proyectos de Servicios en la nube de Visu
 
 **NOTA:** use todo el código anterior delante del código que aparece en los ejemplos siguientes.
 
-##Creación de una cola en código
+## Creación de una cola en código
 
 Para crear la cola en el código, simplemente agregue una llamada a **CreateIfNotExists**.
 
@@ -82,7 +82,7 @@ Para crear la cola en el código, simplemente agregue una llamada a **CreateIfNo
 	// Create the CloudQueue if it does not exist
 	messageQueue.CreateIfNotExists();
 
-##un mensaje a una cola
+## un mensaje a una cola
 
 Para insertar un mensaje en una cola existente, cree un nuevo objeto **CloudQueueMessage** y luego llame al método **AddMessage**.
 
@@ -97,7 +97,7 @@ Este es un ejemplo que inserta el mensaje "Hello, World".
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	messageQueue.AddMessage(message);
 
-##Leer un mensaje de una cola
+## Leer un mensaje de una cola
 
 Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **PeekMessage**.
 
@@ -107,7 +107,7 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-##Leer y eliminar un mensaje de una cola
+## Leer y eliminar un mensaje de una cola
 
 Su código puede quitar un mensaje de una cola en dos pasos.
 
@@ -128,7 +128,7 @@ Este proceso extracción de un mensaje que consta de dos pasos garantiza que si 
 	await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## Uso de las opciones adicionales para procesar y quitar mensajes de la cola
+## Uso de opciones adicionales para procesar y quitar mensajes de la cola
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola.
 
@@ -197,9 +197,9 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
     // Delete the queue.
     messageQueue.Delete();
 
-##Pasos siguientes
+## Pasos siguientes
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 			
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

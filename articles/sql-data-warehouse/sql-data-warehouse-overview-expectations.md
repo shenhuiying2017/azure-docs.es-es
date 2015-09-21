@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2015"
-   ms.author="lvargas;barbkess"/>
+   ms.date="09/05/2015"
+   ms.author="lvargas;twounder;barbkess"/>
 
 # Expectativas de la versión preliminar de Almacenamiento de datos SQL
 
@@ -29,7 +29,7 @@ Trabajaremos de manera continua en la consecución de estos objetivos antes de p
 
 ## Rendimiento predecible y escalable
 
-Almacenamiento de datos de SQL Azure presenta Unidades de almacenamiento de datos (DWU) como una forma de medir los recursos informáticos (CPU, memoria, E/S de almacenamiento) disponibles para el almacenamiento de datos. Aumentar el número de DWU aumenta los recursos. A medida que aumenta el número de DWU, el Almacenamiento de datos SQL ejecuta operaciones en paralelo (por ejemplo, la carga o la consulta de datos) a través de recursos más distribuidos. Esto reduce la latencia y mejora el rendimiento.
+Almacenamiento de datos SQL de Azure presenta Unidades de almacenamiento de datos (DWU) como una forma de medir los recursos informáticos (CPU, memoria, E/S de almacenamiento) disponibles para el almacenamiento de datos. Aumentar el número de DWU aumenta los recursos. A medida que aumenta el número de DWU, el Almacenamiento de datos SQL ejecuta operaciones en paralelo (por ejemplo, la carga o la consulta de datos) a través de recursos más distribuidos. Esto reduce la latencia y mejora el rendimiento.
 
 Cualquier almacén de datos tiene 2 métricas de rendimiento fundamentales:
 
@@ -78,4 +78,4 @@ Es posible que Almacenamiento de datos SQL de Azure tenga hasta 4 eventos de man
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

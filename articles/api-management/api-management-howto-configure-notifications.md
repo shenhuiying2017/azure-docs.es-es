@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure
@@ -114,4 +114,4 @@ Haga clic en **Vista previa** o en **Enviar una prueba** para ver el aspecto que
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Supervisar el rendimiento de aplicaciones web
@@ -22,23 +22,26 @@
 
 Asegúrese de que la aplicación tendrá un rendimiento correcto y descubra rápidamente los posibles errores. [Application Insights][start] le comunicará todas las excepciones y los problemas de rendimiento y le ayudará a diagnosticar las causas principales.
 
-Application Insights puede supervisar las aplicaciones web ASP.NET y los servicios WCF, hospedados en máquinas virtuales o locales, así como sitios web de Microsoft Azure.
+Application Insights puede supervisar aplicaciones y servicios web Java y ASP.NET y servicios WCF. Pueden estar hospedados localmente, en máquinas virtuales o como sitios web de Microsoft Azure.
+
+En el lado del cliente, Application Insights puede obtener datos de telemetría de páginas web y una amplia variedad de dispositivos, entre los que se incluyen iOS, Android y aplicaciones de la Tienda Windows.
 
 
 ## <a name="setup"></a>Configuración de la supervisión de rendimiento
 
 Si todavía no ha agregado Application Insights a un proyecto (es decir, si no dispone de ApplicationInsights.config), puede comenzar con uno de estos procedimientos:
 
-* [Agregar Application Insights a un proyecto en Visual Studio][greenbrown]\: opción recomendada. Puede realizar una supervisión pasiva del rendimiento, insertar el registro de diagnósticos y seguir el uso.
-* [Supervisar el rendimiento de un sitio web activo ahora][redfield]\: este procedimiento no precisa actualizar el proyecto de aplicación ni volver a implementar el sitio web.
-* [Para un sitio web de Microsoft Azure](../insights-how-to-customize-monitoring.md) ya puede ver las métricas en el modo Supervisión de dicho sitio. 
-
-Con cualquiera de estos métodos puede ver los datos rápidamente en la hoja de información general en Application Insights.
+* [Aplicaciones web ASP.NET](app-insights-asp-net.md)
+* [Aplicaciones web J2EE](app-insights-java-get-started.md)
 
 
-## <a name="view"></a>Exploración de métricas
+## <a name="view"></a>Exploración de las métricas de rendimiento
 
-Haga clic en cualquier elemento para ver su contenido con mayor detalle y los resultados durante más tiempo. Por ejemplo, haga clic en el mosaico Solicitudes y seleccione un intervalo de tiempo:
+En el [Portal de Azure](https://portal.azure.com), busque el recurso de Application Insights que creó para la aplicación. La hoja de información general muestra los datos de rendimiento básicos:
+
+
+
+Haga clic en cualquier gráfico para ver su contenido con mayor detalle y los resultados durante más tiempo. Por ejemplo, haga clic en el mosaico Solicitudes y seleccione un intervalo de tiempo:
 
 
 ![Haga clic en las distintas opciones para obtener más datos y seleccionar un intervalo de tiempo](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
@@ -106,7 +109,7 @@ Si selecciona una métrica, se deshabilitarán las demás que no pueden aparecer
 
 Algunas de las métricas entre las que puede elegir son [contadores de rendimiento](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows proporciona una amplia variedad de ellos, pero también puede definir los suyos propios.
 
-Este ejemplo muestra los contadores de rendimiento que están disponibles de forma predeterminada. Hemos [agregado un gráfico aparte](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador y, para asignar nombres a dichos gráficos, los hemos [guardado como favoritos](app-insights-metrics-explorer.md#editing-charts-and-grids):
+Este ejemplo muestra los contadores de rendimiento que están disponibles de forma predeterminada. [Agregamos un gráfico aparte](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador y, para asignar nombre al gráfico, lo [guardamos como favorito](app-insights-metrics-explorer.md#editing-charts-and-grids):
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
@@ -116,11 +119,11 @@ Si los contadores que desea no están en la lista de propiedades, puede agregarl
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
         <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(electronics)#Items Sold" ReportAs="Item sales"/>
+        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
       </Counters>
     </Add>
 
-El formato es `\Category(instance)\Counter"` o, para las categorías que no tienen instancias, simplemente `\Category\Counter`. Para detectar qué contadores están disponibles en el sistema, lea [esta introducción](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
+El formato es `\Category(instance)\Counter"` o, para las categorías que no tienen instancias, simplemente `\Category\Counter`. Para detectar los contadores que están disponibles en el sistema, lea [esta introducción](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 `ReportAs` se requiere para los nombres de contadores que contengan caracteres que no sean: letras, paréntesis, barras diagonales, guiones, subrayados, espacios y puntos.
 
@@ -131,7 +134,7 @@ Si lo prefiere, puede escribir código que realice la misma acción:
     var perfCollector = new PerformanceCollectorModule();
     perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
-      @"\Sales(electronics)#Items Sold", "Items sold"));
+      @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
@@ -183,4 +186,4 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

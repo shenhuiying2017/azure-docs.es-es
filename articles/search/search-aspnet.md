@@ -20,20 +20,6 @@
 
 ASP.NET es el marco de aplicaciones web predominante en soluciones personalizadas que se integran con Búsqueda de Azure. En este artículo, aprenderá a conectar la aplicación web de ASP.NET con Búsqueda de Azure, a iniciarse en los patrones de diseño para operaciones comunes y a revisar algunas prácticas de codificación que pueden ayudarle a facilitar su experiencia de desarrollo.
 
-##Organización del código
-
-La división de las cargas de trabajo en proyectos independientes en la misma solución de Visual Studio ofrece una mayor flexibilidad para diseñar, mantener y ejecutar cada programa. Lo recomendable son tres:
-
-- Código de creación de índice
-- Código de ingesta de datos
-- Código de interacción del usuario
-
-En Búsqueda de Azure, las operaciones de indexación y las operaciones con documentos, como agregar o actualizar documentos o ejecutar consultas, son completamente independientes entre sí. Esto significa que puede desacoplar la administración de índices del código de interacción del usuario de ASP.NET que formula solicitudes de búsqueda y representa los resultados.
-
-En la mayoría de los códigos de ejemplo, el índice se crea y se carga en un proyecto (conocido como DataIndexer, CatalogIndexer o DataCatalog en diversos ejemplos), mientras que el código que controla las solicitudes y respuestas de búsqueda se coloca en un proyecto de aplicación de ASP.NET MVC. En los códigos de ejemplo, resulta práctico agrupar la creación de índices y la carga de documentos en un proyecto, pero el código de producción probablemente aislará estas operaciones. Una vez que se crea un índice, rara vez se cambia (y si se cambia, debe volver a generarse), mientras que los documentos se actualizarán probablemente de forma periódica.
-
-La separación de las cargas de trabajo proporciona otras ventajas en forma de diferentes niveles de permisos para Búsqueda de Azure (derechos de administración completos frente a derechos de solo consulta), uso de diferentes lenguajes de programación, dependencias más específicas por programa, además de la posibilidad de revisar los programas de forma independiente o de crear varias aplicaciones front-end que funcionan todas en el índice compilado y mantenido por una aplicación de indexación central.
-
 ##Ejemplos y demostraciones con ASP.NET y Búsqueda de Azure
 
 Ya existen varios códigos de ejemplo que muestran cómo se integra el servicio Búsqueda con ASP.NET. Puede pasar directamente al código o a una aplicación de demostración visitando cualquiera de estos vínculos:
@@ -47,7 +33,7 @@ Ya existen varios códigos de ejemplo que muestran cómo se integra el servicio 
 Para establecer una conexión al servicio y emitir solicitudes, la aplicación web solo necesita tres cosas:
 
 - Una dirección URL al servicio Búsqueda de Azure que ha aprovisionado, con el formato https://<service-name>. search.windows.net.
-- Una clave de API (GUID) que autentica la conexión a Búsqueda de Azure.
+- Una clave de API (cadena) que autentica la conexión a Búsqueda de Azure.
 - Un HTTPClient o SearchServiceClient para formular la solicitud de conexión.
 
 ####Direcciones URL y claves de API
@@ -69,7 +55,7 @@ La clave de API es un token de autenticación generado durante el aprovisionamie
 - claves de administración (permisos de lectura y escritura, 2 por servicio)
 - claves de la consulta (solo lectura, hasta 50 por servicio)
 
-Todas las claves de API son GUID. Visualmente, no hay distinción entre las claves de administración y de consulta. Deberá visitar el portal o usar la API de REST de administración para determinar el tipo de clave.
+Las claves de API son cadenas de 32 caracteres de longitud. Visualmente, no hay distinción entre las claves de administración y de consulta. Si pierde qué tipo de clave ha especificado en el código, necesitaría consultar el portal o usar la API de REST de administración para devolver el tipo de clave. Para obtener más información sobre las claves, visite la [API de REST del servicio de búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 > [AZURE.TIP]Una clave de consulta proporciona una experiencia de solo lectura al cliente. Vea [TryAppService + Búsqueda Azure](search-tryappservice.md) para probar las operaciones de Búsqueda de Azure que están disponibles en un servicio de solo lectura. Tenga en cuenta que en TryAppService, el código de aplicación web es totalmente modificable; puede cambiar cualquier parte del código de C# en el proyecto de ASP.NET para modificar el diseño de páginas web, la construcción de consultas de búsqueda o los resultados de búsqueda. Solo las operaciones de índice de servicio y de carga de documentos del servicio Búsqueda de Azure son de solo lectura, por la inclusión de una clave de API de consulta en la conexión del servicio.
 
@@ -95,7 +81,7 @@ Los dos fragmentos de código siguientes establecen una conexión al servicio B�
             }
             catch (Exception e)
             {
-                errorMessage = e.Message.ToString();
+                errorMessage = e.Message;
             }
         }
 
@@ -454,6 +440,19 @@ Se puede encontrar código para la serialización de JSON en varios ejemplos, en
 	    }
 	}
 
+###Organización del código
+
+La división de las cargas de trabajo en proyectos independientes en la misma solución de Visual Studio ofrece una mayor flexibilidad para diseñar, mantener y ejecutar cada programa. Lo recomendable son tres:
+
+- Código de creación de índice
+- Código de ingesta de datos
+- Código de interacción del usuario
+
+En Búsqueda de Azure, las operaciones de indexación y las operaciones con documentos, como agregar o actualizar documentos o ejecutar consultas, son completamente independientes entre sí. Esto significa que puede desacoplar la administración de índices del código de interacción del usuario de ASP.NET que formula solicitudes de búsqueda y representa los resultados.
+
+En la mayoría de los códigos de ejemplo, el índice se crea y se carga en un proyecto (conocido como DataIndexer, CatalogIndexer o DataCatalog en diversos ejemplos), mientras que el código que controla las solicitudes y respuestas de búsqueda se coloca en un proyecto de aplicación de ASP.NET MVC. En los códigos de ejemplo, resulta práctico agrupar la creación de índices y la carga de documentos en un proyecto, pero el código de producción probablemente aislará estas operaciones. Una vez que se crea un índice, rara vez se cambia (y según el cambio, puede que sea necesario que se vuelva a generar), mientras que es probable que los documentos se actualicen de forma periódica.
+
+La separación de las cargas de trabajo proporciona otras ventajas en forma de diferentes niveles de permisos para Búsqueda de Azure (derechos de administración completos frente a derechos de solo consulta), uso de diferentes lenguajes de programación, dependencias más específicas por programa, además de la posibilidad de revisar los programas de forma independiente o de crear varias aplicaciones front-end que funcionan todas en el índice compilado y mantenido por una aplicación de indexación central.
 
 ##Pasos siguientes
 
@@ -463,4 +462,4 @@ Para fomentar el conocimiento de Búsqueda de Azure y la integración con ASP.NE
 - [Caso práctico para desarrolladores de Búsqueda de Azure](search-dev-case-study-whattopedia.md)
 - [Flujo de trabajo de desarrollo típico para Búsqueda de Azure](search-workflow.md) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Desarrollo de Servicios multimedia con .NET 
@@ -98,6 +98,14 @@ También puede obtener los bits más recientes del SDK de Servicios multimedia p
 		using Microsoft.WindowsAzure.MediaServices.Client;
 
 En este punto, está listo para iniciar el desarrollo de una aplicación de Servicios multimedia.
- 
 
-<!---HONumber=August15_HO7-->
+
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

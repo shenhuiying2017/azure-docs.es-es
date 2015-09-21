@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # Administración de las propiedades de la red virtual (VNet)
-Puede ver y modificar la configuración de red virtual mediante el portal de administración.
+Puede ver y modificar la configuración de red virtual mediante el portal de Azure.
 
 ## Visualización de la configuración de redes virtuales
 
@@ -100,4 +100,4 @@ Después de implementar la red virtual, solo se pueden modificar ciertas configu
 
 [Eliminación de una red virtual](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

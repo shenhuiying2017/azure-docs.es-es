@@ -44,13 +44,13 @@ Después de crear el servicio, está listo para crear un índice, empezando con 
 
 La manera más rápida y fácil de crear un índice es a través del Portal de Azure. Como mínimo, cada documento tiene que tener una clave única y al menos un campo que contenga datos que se puedan buscar. Para comenzar, consulte [Creación de un índice de Búsqueda de Azure en el portal](search-create-index-portal.md).
 
-> [AZURE.NOTE]Dentro de un índice de Búsqueda de Azure
+> [AZURE.NOTE]**Dentro de un índice de Búsqueda de Azure**
 >
 > Un *índice* se compone de datos conservados y organizados que actúan como *corpus de búsqueda* para todas las operaciones de búsqueda subsiguientes. El corpus de búsqueda se almacena en la nube como parte de la suscripción al servicio de Búsqueda, lo que permite realizar operaciones de búsqueda de forma rápida y coherente. En terminología de búsqueda, se denomina *documento* a cada elemento en el corpus de búsqueda, y la suma total de todos los documentos es la *colección de documentos*.
 >
 >Un *esquema de índice* define todos los campos dentro de un documento por nombre, tipo de datos y atributos que especifican si el campo se puede buscar, filtrar, utilizar con facetas, etc.
 >
-> Además de la estructura del documento, un esquema de índice también especifica perfiles de puntuación que proporcionan criterios para aumentar una puntuación de búsqueda y opciones de configuración que permiten que las consultas de Autocompletar (proveedores de sugerencias) y CORS para las solicitudes de consultas entre dominios. **Para los prototipos, se recomienda iniciar especificando solo los campos en un documento**, para continuar agregando otras características de forma incremental (vea el Paso 5 para obtener una lista de funcionalidades adicionales que se pueden agregar más adelante).
+> Además de la estructura del documento, un esquema de índice también especifica perfiles de puntuación que proporcionan criterios para aumentar una puntuación de búsqueda y opciones de configuración que permiten que las consultas de Autocompletar (proveedores de sugerencias) y CORS para las solicitudes de consultas entre dominios. *Para los prototipos, se recomienda iniciar especificando solo los campos en un documento*, para continuar agregando otras características de forma incremental (vea el Paso 5 para obtener una lista de funcionalidades adicionales que se pueden agregar más adelante).
 >
 > Para poner un ejemplo del mundo real, piense en una aplicación de comercio electrónico. El índice de búsqueda contendrá todos los productos o servicios que se pueden buscar en la aplicación (cualquier cosa que los resultados de búsqueda puedan devolver). Habrá un documento para cada SKU. Cada documento incluirá el nombre del producto, marca, tamaños, precio, colores e incluso referencias a imágenes u otros archivos de recursos que se desee que aparezcan en los resultados de la búsqueda.
 
@@ -62,7 +62,7 @@ Los datos que se cargan en un índice deben ajustarse al esquema definido en el 
 
 Hay varias formas de cargar documentos, pero ahora mismo, todas ellas requieren una API. Para la mayoría de los prototipos, este paso puede resultar el más lento debido a un requisito de codificación. Las opciones se describen más adelante en este artículo.
 
-> [AZURE.NOTE]Recuerde que el servicio compartido tiene un límite de 10.000 documentos por índice. Asegúrese de reducir el conjunto de datos para que permanezca dentro de los límites. Consulte [Límites y restricciones](https://msdn.microsoft.com/library/dn798934.aspx) para obtener detalles.
+> [AZURE.NOTE]Recuerde que el servicio compartido tiene un límite de 10.000 documentos por índice. Asegúrese de reducir el conjunto de datos para que permanezca dentro de los límites. Consulte [Límites y restricciones](search-limits-quotas-capacity.md) para obtener detalles.
 
 #### Cómo cargar datos en un índice
 
@@ -112,7 +112,7 @@ Ahora que tiene un servicio y un índice, puede experimentar con otras caracter�
 
 **Proveedores de sugerencias:** se refiere a la característica que autocompleta o anticipa la escritura de las consultas, devolviendo sugerencias para los términos de búsqueda a medida que el usuario escribe los primeros caracteres de una frase de búsqueda. Consulte [Sugerencias](https://msdn.microsoft.com/library/dn798936.aspx) o [Suggesters Class](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx) para obtener más información.
 
-**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [Compatibilidad de idioma](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
+**Analizadores de lenguaje:** proporcionan las reglas lingüísticas utilizadas durante el análisis de texto. El analizador de lenguaje predeterminado para Búsqueda de Azure es Lucene para inglés, pero se pueden utilizar otros o incluso varios analizadores especificándolos en el índice. Los analizadores de Lucene están disponibles en todas las API. Los procesadores de lenguaje natural de Microsoft solo están disponibles en [Versión de API de REST 2015-02-28 Preview](search-api-2015-02-28-preview.md). Consulte [￼Compatibilidad de idioma￼ ](https://msdn.microsoft.com/library/dn879793.aspx) para obtener más información.
 
 ### Paso 6: actualización de índices y documentos
 
@@ -190,4 +190,4 @@ Recuerde que solo el nivel de precios estándar se pueden escalar o reducir. Ade
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

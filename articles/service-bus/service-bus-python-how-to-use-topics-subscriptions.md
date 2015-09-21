@@ -149,13 +149,13 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones][].
+-   Vea [Colas, temas y suscripciones][].
 -   Referencia para [SqlFilter.SqlExpression][].
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
-[Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

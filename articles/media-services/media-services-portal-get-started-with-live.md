@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso del Portal de administración para crear canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales"
+	pageTitle="Uso del Portal de Azure para crear canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales | Microsoft Azure"
 	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un canal recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en directo local."
 	services="media-services"
 	documentationCenter=""
@@ -12,29 +12,29 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
-	ms.topic="get-started-article" 
-	ms.date="08/11/2015" 
+	ms.topic="get-started-article"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
-#Uso del Portal de administración para crear canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales
+# Uso del portal de Azure para crear canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un **canal** recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en dircto local. Para obtener información detallada acerca de cómo trabajar con canales y componentes relacionados, consulte [Trabajo con canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
+Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un canal recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en directo local. Para obtener información detallada acerca de cómo trabajar con canales y componentes relacionados, consulte [Trabajo con canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
 
-En este tutorial, se utiliza el Portal de administración de Azure para realizar las tareas siguientes:
+En este tutorial, se utiliza el portal de Azure para realizar las tareas siguientes:
 
-2.  Configurar extremos de streaming
-3.  Crear un canal
-1.  Configurar un codificador en vivo e introducir la secuencia en vivo en el canal (se utiliza Wirecast en este paso)
-1.  Crear un programa (y un recurso)
-1.  Publicar el recurso y obtener las direcciones URL de streaming  
-1.  Reproducir el contenido
-2.  Limpiar
+2.  Configure de extremos de streaming.
+3.  Crear un canal.
+1.  Configurar un codificador en vivo e introducir la secuencia en vivo en el canal (se utiliza Wirecast en este paso).
+1.  Crear un programa (y un recurso).
+1.  Publicar el recurso y obtener las direcciones URL de streaming.  
+1.  Reproduzca el contenido.
+2.  Limpiar.
 
-##Requisitos previos
+## Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
 
 - Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](azure.microsoft.com).
@@ -42,45 +42,44 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 - Una cámara web y un codificador que puede enviar una secuencia en vivo con velocidad de bits múltiple.
 
 
-##Configuración de extremos de streaming con el Portal
+## Configuración de extremos de streaming con el portal de Azure
 
-Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
+Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming con velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor porque el vídeo se muestra según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
 
 Cuando se trabaja con streaming en vivo, un codificador en directo local (en nuestro caso Wirecast) introduce una secuencia en vivo de velocidad de bits múltiple en el canal. Cuando un usuario solicita el stream, Servicios multimedia usa paquetes dinámicos para volver a empaquetar la secuencia de origen en la secuencia de velocidad de bits adaptativa solicitado (HLS, DASH o Smooth).
 
-Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una unidad de streaming para el **extremo de streaming** desde el que va a entregar el contenido.
+Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una unidad de streaming para el *extremo de streaming* desde el que va a entregar el contenido.
 
 Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
-1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios multimedia**. A continuación, haga clic en el nombre del servicio multimedia.
+1. En el [Portal de Azure](https://manage.windowsazure.com/), haga clic en **Servicios multimedia**. A continuación, haga clic en el nombre del servicio multimedia.
 
-2. Seleccione la página EXTREMOS DE STREAMING. Luego, haga clic en el extremo de streaming que desea modificar.
+2. Seleccione la página **EXTREMOS DE STREAMING**. Luego, haga clic en el extremo de streaming que desea modificar.
 
-3. Para especificar el número de unidades de streaming, seleccione la pestaña ESCALA y desplace el control deslizante de **capacidad reservada**.
+3. Para especificar el número de unidades de streaming, seleccione la pestaña **ESCALA** y mueva el control deslizante de capacidad reservada.
 
 	![Página de escala](./media/media-services-portal-get-started-with-live/media-services-origin-scale.png)
 
-4. Presione el botón GUARDAR para guardar los cambios.
+4. Haga clic en el botón **GUARDAR** para guardar los cambios.
 
 	La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse.
-
 
 	>[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
 	>
 	> Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
-##Crear un canal
+## Crear un canal
 
-En el portal de administración de Azure, seleccione la página **CANAL**. A continuación, haga clic en **NUEVO**. En el cuadro de diálogo **Crear un nuevo canal en vivo**, escriba un nombre para el canal.
+En el portal de Azure, seleccione la página **CANALES**. A continuación, haga clic en **NUEVO**. En la página **Crear un nuevo canal en vivo**, escriba un nombre para el canal.
 
 ![createchannel](./media/media-services-portal-get-started-with-live/media-services-create-channel.png)
 
-Presione **Aceptar**.
+En la esquina inferior derecha de la página, haga clic para marcar y guardar posteriormente las actualizaciones.
 
 Tras unos minutos, el canal se crea y se inicia.
 
-##Obtención de direcciones URL de introducción
+## Obtención de direcciones URL de introducción
 
 Una vez creado el canal, obtendrá direcciones URL de introducción que se proporcionarán al codificador en directo. El codificador usa estas direcciones URL para introducir una secuencia en vivo.
 
@@ -91,18 +90,18 @@ Una vez creado el canal, obtendrá direcciones URL de introducción que se propo
 
 Para obtener más información sobre las URL de introducción, consulte [Uso de codificadores locales para enviar secuencias en vivo de velocidad de bits múltiple a un canal](../media-services-channels-overview.md)
 
-##Configuración de un codificador en directo y de una secuencia en vivo de introducción
+## Configuración de un codificador en directo y de una secuencia en vivo de introducción
 
 >[AZURE.NOTE]Este paso requiere la URL de introducción del canal que se mencionó en el paso anterior.
 
 Para obtener información detallada acerca de cómo configurar Wirecast y comenzar la introducción de la secuencia, consulte [Configuración de Wirecast](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
->[AZURE.NOTE]Si por cualquier motivo detiene el codificador y después tiene que reiniciarlo, deberá restablecer el canal haciendo clic en el comando **RESTABLECER** en el Portal de administración de Azure.
+>[AZURE.NOTE]Si por cualquier motivo detiene el codificador y después tiene que reiniciarlo, deberá restablecer el canal haciendo clic en el comando **RESTABLECER** en el portal de Azure.
 
 
-##Creación y administración de un programa
+## Creación y administración de un programa
 
-###Información general
+### Información general
 
 Un canal está asociado a programas que le permiten controlar la publicación y el almacenamiento de segmentos en una secuencia en vivo. Los canales administran los programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal.
 
@@ -112,7 +111,7 @@ Cada programa está asociado a un recurso. Para publicar el programa, debe crear
 
 Un canal es compatible con hasta tres programas en ejecución simultánea, por lo que puede crear varios archivos del mismo flujo entrante. Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Por ejemplo, el requisito de su empresa es solo archivar seis horas de un programa, pero difundir solo los últimos diez minutos. Para lograrlo, necesita crear dos programas en ejecución simultánea. Un programa está definido para archivar seis horas del evento, pero no está publicado. El otro programa está definido para archivar durante diez minutos y este programa sí se publica.
 
-No debe volver a usar programas existentes para eventos nuevos. En su lugar, cree e inicie un programa nuevo para cada evento como se describe en la sección Programación de aplicaciones de streaming en vivo.
+No debe volver a usar programas existentes para eventos nuevos. En su lugar, cree e inicie un programa nuevo para cada evento.
 
 Inicie el programa cuando esté listo para iniciar el streaming y el archivo. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
 
@@ -122,52 +121,51 @@ Incluso después de detener y eliminar el programa, los usuarios podrán transmi
 
 Si desea conservar el contenido archivado, pero no hacerlo disponible para la transmisión, elimine el localizador de streaming.
 
-###Creación/inicio/detención de programas
+### Crear, iniciar y detener programas
 
 Cuando la secuencia fluye en el canal, puede comenzar el evento de streaming mediante la creación de un recurso, un programa y el localizador de streaming. Se archivará la secuencia y estará disponible a los usuarios a través del extremo de streaming.
 
 Existen dos formas de iniciar un evento:
 
-1. En la página **CANAL**, presione **AGREGAR** para agregar un nuevo programa.
+1. En la página **CANALES**, haga clic en **AGREGAR** para agregar un nuevo programa.
 
-	Especifique lo siguiente: nombre del programa, nombre de recurso, ventana de archivo y opción de cifrado.
+	En la página **Crear un programa nuevo**, especifique el nombre del programa, el nombre de recurso, la ventana de archivo y la opción de cifrado.
 
 	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
 
-	Si ha dejado **Publicar este programa ahora** activado, el programa creará las direcciones URL de publicación.
+	Si la opción **Publicar este programa ahora** está seleccionada, se crearán las URL de publicación.
 
-	Puede presionar **INICIO**, cuando esté preparado para transmitir por streaming el programa.
+	Puede hacer clic en **INICIAR** cuando esté preparado para transmitir por streaming el programa.
 
-	Una vez iniciado el programa, puede presionar REPRODUCIR para empezar a reproducir el contenido.
-
+	Una vez iniciado el programa, puede hacer clic en **REPRODUCIR** para empezar a reproducir el contenido.
 
 	![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
 
-2. También, puede utilizar un acceso directo y presionar el botón **INICIAR STREAMING** situado en la página **CANAL**. Se creará un recurso, un programa y el localizador de streaming.
+2. También, puede usar un acceso directo y hacer clic en el botón **INICIAR STREAMING** situado en la página **CANALES**. Se creará un recurso, un programa y el localizador de streaming.
 
 	El programa se denomina DefaultProgram y la ventana de archivo se establece en una hora.
 
-	Puede reproducir el programa publicado desde la página CANAL.
+	Puede reproducir el programa publicado desde la página **CANALES**.
 
 	![channelpublish](./media/media-services-portal-get-started-with-live/media-services-channel-play.png)
 
 
-Si hace clic en **DETENER STREAMING** en la página **CANAL**, el programa predeterminado se detiene y se elimina. El recurso seguirá estando allí y se puede publicar o cancelar su publicación desde la página **CONTENIDO**.
+Si hace clic en **DETENER STREAMING** en la página **CANALES**, el programa predeterminado se detiene y se elimina. El recurso seguirá estando allí y se puede publicar o cancelar su publicación desde la página **CONTENIDO**.
 
 Si cambia a la página **CONTENIDO**, verá los recursos que se crearon para los programas.
 
 ![contentasset](./media/media-services-portal-get-started-with-live/media-services-content-assets.png)
 
 
-##Reproducción de contenido
+## Reproducción de contenido
 
-Para proporcionar al usuario una dirección URL que pueda utilizar para transmitir por streaming el contenido, primero tendrá que "publicar" el recurso (tal como se describió en la sección anterior) mediante la creación de un localizador (cuando se publica un recurso mediante el Portal, los localizadores se crean automáticamente). Los localizadores proporcionan acceso a los archivos contenidos en el recurso.
+Para ofrecer al usuario una dirección URL que se pueda usar para transmitir por streaming el contenido, primero tendrá que *publicar* el recurso (tal como se describió en la sección anterior) mediante la creación de un localizador (cuando se publica un recurso mediante el portal de Azure, los localizadores se crean automáticamente). Los localizadores proporcionan acceso a los archivos contenidos en el recurso.
 
 Dependiendo del protocolo de streaming que desee utilizar para reproducir el contenido, tendrá que modificar la dirección URL que obtiene del vínculo **URL DE PUBLICACIÓN** del canal\\programa.
 
 El empaquetado dinámico se encargará de empaquetar la secuencia en vivo en el protocolo especificado.
 
-De manera predeterminada, una dirección URL de streaming tiene el siguiente formato y se puede usar para reproducir los recursos de Smooth Streaming:
+De manera predeterminada, una dirección URL de streaming tiene el siguiente formato y se puede usar para reproducir los recursos de Smooth Streaming.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
@@ -183,19 +181,28 @@ Para obtener más información acerca de la entrega de contenido, consulte [Entr
 
 Puede reproducir secuencias de Smooth Streaming mediante el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) o usar dispositivos iOS y Android para reproducir HLS versión 3.
 
-##Limpieza
+## Limpieza
 
-Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados anteriormente, siga el procedimiento siguiente.
+Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados anteriormente, realice el procedimiento siguiente.
 
 - Detenga la inserción de la secuencia en el codificador.
-- Detenga el canal. Cuando se detiene el canal, no se incurrirá en ningún cargo. Cuando necesite iniciarlo de nuevo, tendrá la misma URL de introducción, por lo que no necesitará volver a configurar su codificador.
-- Puede detener el extremo de streaming, a menos que desee seguir proporcionando el archivo de su evento en vivo como una secuencia a petición. Cuando el canal está en estado detenido, no se incurrirá en ningún cargo.
+- Detenga el canal. Cuando se detenga el canal, no se incurrirá en ningún cargo. Cuando necesite iniciarlo de nuevo, tendrá la misma URL de introducción, por lo que no necesitará volver a configurar su codificador.
+- Puede detener el extremo de streaming, a menos que desee seguir proporcionando el archivo de su evento en vivo como una secuencia a petición. Cuando el canal está en un estado detenido, no se incurrirá en ningún cargo.
 
 
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver aquí las vías de aprendizaje de AMS:
+
+- [Flujo de trabajo de streaming en vivo de AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+## Recursos adicionales
+- [Introducción a streaming en vivo mediante el Portal de administración de Azure](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
-[Management Portal]: http://manage.windowsazure.com/
+[Azure portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

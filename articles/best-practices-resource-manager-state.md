@@ -13,16 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/04/2015"
 	ms.author="mmercuri"/>
 
 # Uso compartido del estado en las plantillas del Administrador de recursos de Azure
 
 En este tema se muestran prácticas recomendadas para administrar y compartir el estado de una plantilla del Administrador de recursos de Azure y a través de plantillas vinculadas. Los parámetros y variables que se muestran en este tema son ejemplos del tipo de objetos que puede definir para organizar con facilidad sus requisitos de implementación. Desde estos ejemplos, puede implementar sus propios objetos con valores de propiedad que tengan sentido para su entorno.
 
+Este tema forma parte de un artículo más extenso. Si desea leer el artículo completo, descargue [World Class ARM Templates Considerations and Proven Practices] (Consideraciones y prácticas comprobadas sobre plantillas ARM de clase mundial) (http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+
+
 ## Uso de objetos complejos para compartir el estado
 
-Además de los parámetros de valor único, puede usar objetos complejos como parámetros en una plantilla del Administrador de recursos de Azure. Con objetos complejos, puede implementar colecciones de datos y hacer referencia a ellas para un área específica, como el tamaño de una camiseta (para describir una máquina virtual), la configuración de red, la configuración del sistema operativo (SO) y la configuración de disponibilidad.
+En lugar de ofrecer una plantilla que proporcione flexibilidad total e incontables variaciones, un patrón común es proporcionar la posibilidad de seleccionar configuraciones conocidas, de hecho, tamaños de camiseta estándar como pequeña, mediana y grande. Otros ejemplos de tamaños de camiseta son ofertas de productos, como edición para la comunidad o edición para impresa. En otros casos, pueden ser configuraciones de una tecnología específicas de la carga de trabajo, como MapReduce o NoSQL.
+
+Con objetos complejos, puede crear las variables que contengan colecciones de datos, a veces conocidas como "contenedores de propiedades" y usar esos datos para dirigir la declaración de recursos de tu plantilla. Este enfoque proporciona configuraciones bien conocidas de tamaños variables que están preconfiguradas para los clientes. Sin configuraciones conocidas, los clientes finales deben determinar el tamaño del clúster por su cuenta, tener en cuenta las restricciones de recursos de plataforma y realizar cálculos matemáticos para identificar el particionamiento resultante de las cuentas de almacenamiento y otros recursos (debido a restricciones en el tamaño del clúster y los recursos). Las configuraciones conocidas permiten a los clientes seleccionar fácilmente el tamaño correcto de camiseta, es decir, una implementación determinada. Además de crear una experiencia mejor para el cliente, un número pequeño de configuraciones conocidas es más fácil de mantener y puede ayudarle a ofrecer un nivel mayor de densidad.
+
 
 En el ejemplo siguiente se muestra cómo definir variables que contienen objetos complejos para representar colecciones de datos. Las colecciones definen valores que se usan para el tamaño de la máquina virtual, la configuración de red, la configuración del sistema operativo y la configuración de disponibilidad.
 
@@ -205,7 +211,7 @@ En la plantilla principal, esta opción aparece como parámetro, por ejemplo *ts
       }
     }
 
-Dentro de la plantilla principal, las variables se corresponden con cada uno de los tamaños. Por ejemplo, si los tamaños disponibles son pequeña, mediana y grande, la sección de variables incluiría variables denominadas *tshirtSizeSmall**tshirtSizeMedium* y *tshirtSizeLarge*.
+Dentro de la plantilla principal, las variables se corresponden con cada uno de los tamaños. Por ejemplo, si los tamaños disponibles son pequeña, mediana y grande, la sección de variables incluiría variables denominadas *tshirtSizeSmall*, *tshirtSizeMedium* y *tshirtSizeLarge*.
 
 Como se muestra en el siguiente ejemplo, estas variables definen las propiedades de un determinado tamaño de camiseta. Cada uno de ellos identifica el tipo de máquina virtual, el tamaño del disco, la plantilla de recursos de unidad de escalado asociada a la que vincular, el número de instancias, los detalles de la cuenta de almacenamiento y el estado de JumpBox.
 
@@ -381,4 +387,4 @@ Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguient
 - [Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
 - [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

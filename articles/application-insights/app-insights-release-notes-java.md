@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notas de la versión de Application Insights para Java"
-	description="Las actualizaciones más recientes."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Notas de la versión de Application Insights para Java" 
+	description="Las actualizaciones más recientes." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
  
 # Notas de la versión del SDK de Application Insights para Java
@@ -38,11 +38,11 @@ Después de actualizar, necesitará volver combinar todas las personalizaciones 
 Compare los archivos ApplicationInsights.xml antiguo y nuevo. Muchos de los cambios que verá son porque hemos agregado y quitado módulos. Restablezca las personalizaciones que había realizado.
 
 ## Versión 1.0.1
-- El agente Java es compatible con la recopilación de la información de dependencia sobre lo siguiente:
+- El [agente Java](app-insights-java-agent.md) recopila información de dependencia sobre lo siguiente:
 	- Llamadas HTTP realizadas a través de HttpClient, OkHttp y RestTemplate (Spring).
 	- Llamadas a Redis realizadas a través del cliente de Jedis. Cuando se pasa un umbral configurable, el SDK también capturará los argumentos de la llamada.
 	- Llamadas JDBC realizadas con los clientes de bases de datos de Oracle y bases de datos de Apache.
-	- Admitir el tipo de consulta "executeBatch" para instrucciones preparadas: el SDK mostrará la instrucción con el número de lotes.
+	- Admite el tipo de consulta "executeBatch" para instrucciones preparadas: el SDK mostrará la instrucción con el número de lotes.
 	- Ofrecer el plan de consulta para los clientes JDBC que tengan compatibilidad para ello (MySql, PostgreSql): el plan de consulta se captura solo cuando se supere un umbral configurable.
 
 ## Versión 1.0.0
@@ -68,4 +68,4 @@ Compare los archivos ApplicationInsights.xml antiguo y nuevo. Muchos de los camb
 - Posibilidad de etiquetar un elemento de telemetría como sintético agregando una propiedad ```SyntheticSource``` al elemento de informe.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

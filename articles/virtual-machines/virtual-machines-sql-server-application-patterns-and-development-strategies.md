@@ -3,7 +3,7 @@
 	description="Este artículo explica una serie de patrones de aplicación relacionados con la ejecución de SQL Server en Máquinas virtuales de Azure. Proporciona a los desarrolladores y arquitectos de soluciones una base para lograr un diseño y arquitectura adecuados de las aplicaciones."
 	services="virtual-machines"
 	documentationCenter="na"
-	authors="rothja"
+	authors="Selcin"
 	manager="jeffreyg"
 	editor="monicar" />
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/20/2015"
-	ms.author="jroth" />
+	ms.author="selcint" />
 
 # Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure
 
@@ -105,7 +105,7 @@ En este patrón de aplicación, hay solo una máquina virtual (VM) en cada nivel
 
 En el diagrama, los protocolos de Internet puede ser TCP, UDP, HTTP o HTTPS.
 
->[AZURE.NOTE] La configuración de una red virtual en Azure es gratuita. Sin embargo, se cobrará la puerta de enlace de VPN que se conecta a local. Este cargo se basa en la cantidad de tiempo en que la conexión esté aprovisionada y disponible.
+>[AZURE.NOTE]La configuración de una red virtual en Azure es gratuita. Sin embargo, se cobrará la puerta de enlace de VPN que se conecta a local. Este cargo se basa en la cantidad de tiempo en que la conexión esté aprovisionada y disponible.
 
 ## Dos niveles y tres niveles con escalado horizontal del nivel de presentación
 
@@ -322,4 +322,4 @@ Para obtener más información sobre cuál de estos métodos de programación el
 
 Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción al Almacenamiento de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)" 
-	description="Introducción al uso del almacenamiento de tablas de Azure en un proyecto de WebJobs 5 de Azure en Visual Studio"
+<properties
+	pageTitle="Introducción al Almacenamiento de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)"
+	description="Cómo empezar a usar el almacenamiento de tablas de Azure en un proyecto de WebJobs de Azure en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
 	manager="douge"
 	editor="tglee"/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos de WebJobs de Azure)
@@ -35,14 +35,14 @@ En este artículo se proporcionan ejemplos de código C# que muestran cómo usar
 
 El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales. Para obtener más información, consulte [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "Uso del almacenamiento de tablas en .NET").
 
-		
-Algunos de los fragmentos de código muestran el atributo `Table` usado en funciones que se [llaman manualmente](vs-storage-webjobs-getting-started-blobs.md#manual), es decir, sin usar ninguno de los atributos de desencadenador.
 
-##Cómo agregar entidades a una tabla
+Algunos de los fragmentos de código muestran el atributo **Table** usado en funciones que se [llaman manualmente](vs-storage-webjobs-getting-started-blobs.md#manual), es decir, sin usar ninguno de los atributos de desencadenador.
 
-Para agregar entidades a una tabla, utilice el atributo `Table` con un parámetro `ICollector<T>` o `IAsyncCollector<T>` donde `T` especifica el esquema de las entidades que desea agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla.
+## Cómo agregar entidades a una tabla
 
-El ejemplo de código siguiente agrega entidades `Person` a una tabla denominada *Ingress*.
+Para agregar entidades a una tabla, use el atributo **Table** con un parámetro **ICollector<T>** o **IAsyncCollector<T>** donde **T** especifica el esquema de las entidades que desea agregar. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la tabla.
+
+El ejemplo de código siguiente agrega entidades **Person** a una tabla denominada *Ingress*.
 
 		[NoAutomaticTrigger]
 		public static void IngressDemo(
@@ -51,15 +51,15 @@ El ejemplo de código siguiente agrega entidades `Person` a una tabla denominada
 		    for (int i = 0; i < 100000; i++)
 		    {
 		        tableBinding.Add(
-		            new Person() { 
-		                PartitionKey = "Test", 
-		                RowKey = i.ToString(), 
+		            new Person() {
+		                PartitionKey = "Test",
+		                RowKey = i.ToString(),
 		                Name = "Name" }
 		            );
 		    }
 		}
 
-Normalmente, el tipo que usa con `ICollector` deriva de `TableEntity` o implementa `ITableEntity`, pero no es necesario que lo haga. Cualquiera de las siguientes clases `Person` funciona con el código que aparece en el método `Ingress` anterior.
+Normalmente el tipo que se usa con **ICollector** se deriva de **TableEntity** o implementa **ITableEntity**, pero no es necesario. Cualquiera de las siguientes clases **Person** funciona con el código que se muestra en el método **Ingress** anterior.
 
 		public class Person : TableEntity
 		{
@@ -73,9 +73,9 @@ Normalmente, el tipo que usa con `ICollector` deriva de `TableEntity` o implemen
 		    public string Name { get; set; }
 		}
 
-Si desea trabajar directamente con la API de almacenamiento de Azure, puede agregar un parámetro `CloudStorageAccount` a la firma del método.
+Si desea trabajar directamente con la API de almacenamiento de Azure, puede agregar un parámetro **CloudStorageAccount** a la firma del método.
 
-##Supervisión en tiempo real
+## Supervisión en tiempo real
 
 Dado que las funciones de entrada de datos a menudo procesan grandes volúmenes de datos, el panel del SDK de WebJobs proporciona datos de supervisión en tiempo real. La sección **Registro de invocación** indica si la función sigue en ejecución.
 
@@ -89,12 +89,12 @@ Cuando finaliza la función, la página **Detalles de invocación** informa la c
 
 ![Función de entrada finalizada](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
-##Cómo leer varias entidades desde una tabla
+## Cómo leer varias entidades desde una tabla
 
-Para leer una tabla, use el atributo `Table` con un parámetro `IQueryable<T>` donde el tipo `T` se deriva de `TableEntity` o implementa `ITableEntity`.
+Para leer una tabla, use el atributo **Table** con un parámetro **IQueryable<T>** donde el tipo **T** se deriva de **TableEntity** o implementa **ITableEntity**.
 
-El ejemplo de código siguiente lee y registra todas las filas de la tabla `Ingress`:
- 
+El ejemplo de código siguiente lee y registra todas las filas de la tabla **Ingress**:
+
 		public static void ReadTable(
 		    [Table("Ingress")] IQueryable<Person> tableBinding,
 		    TextWriter logger)
@@ -102,16 +102,16 @@ El ejemplo de código siguiente lee y registra todas las filas de la tabla `Ingr
 		    var query = from p in tableBinding select p;
 		    foreach (Person person in query)
 		    {
-		        logger.WriteLine("PK:{0}, RK:{1}, Name:{2}", 
+		        logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
 		            person.PartitionKey, person.RowKey, person.Name);
 		    }
 		}
 
-###Cómo leer una entidad única de una tabla
+### Cómo leer una entidad única de una tabla
 
-Existe un constructor de atributo `Table` con dos parámetros adicionales que le permiten especificar la clave de partición y la clave de fila cuando desea enlazar a una entidad de tabla única.
+Existe un constructor de atributo **Table** con dos parámetros adicionales que le permiten especificar la clave de partición y la clave de fila cuando desea enlazar a una entidad de tabla única.
 
-El siguiente ejemplo de código lee una fila de una tabla de una entidad `Person` según los valores de clave de partición y clave de fila recibidos en un mensaje en cola:
+El siguiente ejemplo de código lee una fila de una tabla de una entidad **Person** según los valores de clave de partición y clave de fila recibidos en un mensaje en cola:
 
 		public static void ReadTableEntity(
 		    [QueueTrigger("inputqueue")] Person personInQueue,
@@ -131,14 +131,14 @@ El siguiente ejemplo de código lee una fila de una tabla de una entidad `Person
 		}
 
 
-La clase `Person` de este ejemplo no debe implementar `ITableEntity`.
+La clase **Person** de este ejemplo no debe implementar **ITableEntity**.
 
-##Cómo usar la API de almacenamiento .NET directamente para trabajar con una tabla
+## Cómo usar la API de almacenamiento .NET directamente para trabajar con una tabla
 
-También puede usar el atributo `Table` con un objeto `CloudTable` para obtener más flexibilidad en el trabajo con una tabla.
+También puede usar el atributo **Table** con un objeto **CloudTable** para obtener más flexibilidad en el trabajo con una tabla.
 
-El siguiente ejemplo de código usa un objeto `CloudTable` para agregar una entidad única a la tabla *Ingress*.
- 
+El siguiente ejemplo de código usa un objeto **CloudTable** para agregar una entidad única a la tabla *Ingress*.
+
 		public static void UseStorageAPI(
 		    [Table("Ingress")] CloudTable tableBinding,
 		    TextWriter logger)
@@ -153,17 +153,16 @@ El siguiente ejemplo de código usa un objeto `CloudTable` para agregar una enti
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para obtener más información acerca de cómo usar el objeto `CloudTable`, consulte [Uso del almacenamiento de tablas de .NET](../storage-dotnet-how-to-use-tables.md)
+Para obtener más información acerca de cómo usar el objeto **CloudTable**, vea [Uso del almacenamiento de tablas de .NET](../storage-dotnet-how-to-use-tables.md)
 
-##Temas relacionados tratados en el artículo de procedimientos de las colas
+## Temas relacionados tratados en el artículo de procedimientos de las colas
 
 Para obtener información sobre cómo controlar el procesamiento de tablas desencadenado por un mensaje de cola o para ver los escenarios de SDK de WebJobs no específicos para el procesamiento de tablas, consulte [Cómo usar el almacenamiento de colas con el SDK de WebJobs](vs-storage-webjobs-getting-started-queues.md).
 
 
 
-##Pasos siguientes
+## Pasos siguientes
 
 En este artículo se han proporcionado ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con tablas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

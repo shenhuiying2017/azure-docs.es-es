@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Información general de DSC de Automatización de Azure"
-	description="Una información general de Configuración de estado deseado (DSC) de Automatización de Azure, sus condiciones y problemas conocidos"
-	services="automation"
-	documentationCenter="dev-center-name"
-	authors="coreyp-at-msft"
-	manager="stevenka"
-	editor="tysonn"/>
+   pageTitle="Información general de DSC de Automatización de Azure" 
+   description="Una información general de Configuración de estado deseado (DSC) de Automatización de Azure, sus condiciones y problemas conocidos" 
+   services="automation" 
+   documentationCenter="dev-center-name" 
+   authors="coreyp-at-msft" 
+   manager="stevenka" 
+   editor="tysonn"/>
 
 <tags
    ms.service="automation"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="TBD"
-	ms.date="08/18/2015"
-	ms.author="coreyp"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="TBD" 
+   ms.date="09/04/2015"
+   ms.author="coreyp"/>
 
 # Información general de DSC de Automatización de Azure #
 
@@ -193,6 +193,12 @@ DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets e
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
 
+
+##Ciclo de vida de DSC de Automatización de Azure##
+Ir desde una cuenta de automatización vacía a un conjunto administrado de nodos configurados correctamente implica un conjunto de procesos para definir las configuraciones, convertir esas configuraciones en configuraciones de nodo e incorporar nodos a DSC de Automatización de Azure y a las configuraciones de nodo. El siguiente diagrama ilustra el ciclo de vida de DSC de Automatización de Azure:
+
+![texto alternativo](./media/automation-dsc-overview/DSCLifecycle.png)
+
 ##Problemas conocidos:##
 
 - Debido a que DSC de Automatización de Azure se encuentra en vista previa, la primera vez que use esta característica, deberá registrarse para obtenerla mediante cmdlets de Azure PowerShell o el Portal de vista previa de Azure. Para registrarse, puede llamar a los dos siguientes cmdlets:
@@ -222,8 +228,8 @@ DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets e
 
 - Cuando se incorpora una máquina virtual de Azure para la administración con DSC de Automatización de Azure mediante el uso de `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el Portal de vista previa de Azure, si el registro muestra el error **No se especificó el nombre del equipo, y el directorio de configuración no tiene ningún archivo de configuración**, se trata de una falsa alarma y el registro de la máquina virtual se realizó correctamente. Para comprobar si el registro se realizó de manera correcta, puede usar el cmdlet `Get-AzureAutomationDscNode`.
 
-- Al incorporar una VM de Azure para la administración con DSC de Automatización de Azure usando `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el portal de vista previa de Azure, la máquina virtual puede tardar hasta una hora en aparecer como nodo DSC en Automatización de Azure. Esto se debe a la instalación de Windows Management Framework 5.0 en la máquina virtual por la extensión de DSC de la máquina virtual de Azure, que es necesario para incorporar la máquina a DSC de Automatización de Azure.
+- Al incorporar una máquina virtual de Azure para la administración con DSC de Automatización de Azure usando `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el Portal de vista previa de Azure, la máquina virtual puede tardar hasta una hora en aparecer como nodo DSC en Automatización de Azure. Esto se debe a la instalación de Windows Management Framework 5.0 en la máquina virtual por la extensión de DSC de la máquina virtual de Azure, que es necesario para incorporar la máquina a DSC de Automatización de Azure.
 
 - Los nodos de DSC incorporados a DSC de Automatización de Azure mostrarán inicialmente el estado ''Conforme'', incluso si no son realmente conformes con la configuración del nodo de DSC que tienen asignada. Después de que un nodo realice su primera extracción y envíe su primer informe de DSC a DSC de Automatización de Azure, el estado del nodo debe ser correcto.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

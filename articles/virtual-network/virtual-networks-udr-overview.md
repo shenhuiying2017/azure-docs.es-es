@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Rutas definidas por el usuario y reenvío IP
@@ -90,4 +90,4 @@ Para obtener más información sobre cómo habilitar el reenvío IP de una máqu
 - Aprenda a [crear rutas](../virtual-networks-udr-how-to#How-to-manage-routes) y asociarlas a las subredes.
 - Aprenda a [habilitar el reenvío IP](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding) de una máquina virtual que ejecuta una aplicación virtual. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Colas de Service Bus y colas de Azure: comparación y diferencias"
-	description="Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure."
-	services="service-bus"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor="tysonn"/>
+   description="Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure."
+   services="service-bus"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="tysonn" />
 <tags 
    ms.service="service-bus"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/25/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="09/09/2015"
+   ms.author="sethm" />
 
 # Colas de Service Bus y colas de Azure: comparación y diferencias
 
@@ -257,7 +257,7 @@ En esta sección se describen las características de autenticación y autorizac
 |Criterios de comparación|Colas de Azure|Colas del Bus de servicio|
 |---|---|---|
 |Autenticación|**Clave simétrica**|**Clave simétrica**|
-|Modelo de control de acceso|Acceso delegado a través de tokens SAS.|RBAC a través de ACS|
+|Modelo de seguridad|Acceso delegado a través de tokens SAS.|SAS|
 |Federación de proveedor de identidad:|**No**|**Sí**|
 
 ### Información adicional
@@ -265,10 +265,6 @@ En esta sección se describen las características de autenticación y autorizac
 - Se debe autenticar cada solicitud a cualquiera de las tecnologías de cola. No se admiten colas públicas con acceso anónimo. Con SAS, puede abordar este escenario publicando un SAS de solo escritura, SAS de solo lectura o incluso un SAS de acceso completo.
 
 - El esquema de autenticación ofrecido por las colas de Azure implica el uso de una clave simétrica, que es un código de autenticación de mensajes basado en hash (HMAC), calculado con el algoritmo SHA-256 y codificado como una cadena **Base64**. Para obtener más información sobre el protocolo respectivo, vea [Autenticar el acceso a la cuenta de almacenamiento](https://msdn.microsoft.com/library/hh225339.aspx). Las colas de Service Bus admiten un modelo similar mediante claves simétricas. Para obtener más información, vea [Autenticación con firma de acceso compartida con Service Bus](https://msdn.microsoft.com/library/dn170477.aspx).
-
-- El Control de acceso de Active Directory de Microsoft Azure (también conocido como Servicio de control de acceso o ACS) compatible con Service Bus ofrece tres roles distintos: **Administrador**, **Remitente** y **Receptor**, que en este momento no se admiten para las colas de Azure.
-
-- Dado que Service Bus ofrece integración con ACS, le permite federar con Active Directory (mediante el uso de ADFS) y otros proveedores de identidades web comunes.
 
 ## Coste
 
@@ -315,4 +311,4 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 - [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

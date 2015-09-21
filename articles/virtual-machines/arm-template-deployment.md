@@ -1,4 +1,4 @@
-<properties pageTitle="Implementación de recursos de Azure con una plantilla" description="Aprenda a usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager"/>
+<properties pageTitle="Implementación de recursos de Azure con una plantilla" description="Aprenda a usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -19,7 +19,7 @@ Para completar este tutorial, también necesita:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Cuenta de Almacenamiento de Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/es-es/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/es-es/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/es-ES/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/es-ES/download/details.aspx?id=40855)
 - [Azure PowerShell](../powershell-install-configure.md)
 
 Tardará unos 30 minutos en realizar estos pasos.
@@ -294,7 +294,7 @@ Para especificar los valores de los parámetros del recurso que se definieron en
           }
         }
 
-    >[AZURE.NOTE]Los nombres de imagen vhd cambian de manera constante en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, consulte [Administrar imágenes con Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx) y, a continuación, reemplace {source-image-name} por el nombre del archivo vhd que desea usar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Reemplace {subscription-id} por el identificador de la suscripción.
+    >[AZURE.NOTE]Los nombres de imagen vhd cambian de manera constante en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, vea [Acerca de las imágenes de máquinas virtuales](https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-images/) y reemplace {source-image-name} por el nombre del archivo vhd que quiere usar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd". Reemplace {subscription-id} por el identificador de la suscripción.
 
 
 4.	Guarde el archivo de parámetros que creó.
@@ -443,4 +443,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Creación de una imagen de Azure RemoteApp basada en una máquina virtual de Azure"
+    pageTitle="Creación de una imagen de Azure RemoteApp basada en una máquina virtual de Azure | Microsoft Azure"
     description="Obtenga información sobre cómo crear una imagen para Azure RemoteApp comenzando con una máquina virtual de Azure." 
     services="remoteapp" 
     documentationCenter="" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="09/02/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Existen dos pasos para crear su propia imagen basada en una máquina virtual de 
 
 Utilice estos pasos para crear una imagen basada en una máquina virtual de Azure.
 
-1. Cree una máquina virtual de Azure. Puede usar la imagen "Host de sesión de Escritorio remoto de Windows Server" desde la galería de imágenes de la máquina virtual de Azure. Esta imagen cumple con todos los requisitos de imagen de plantilla de Azure RemoteApp. 
+1. Cree una máquina virtual de Azure. Puede usar la imagen "Host de sesión de Escritorio remoto de Windows Server" o "Host de sesión de Escritorio remoto de Windows Server con Microsoft Office 365 ProPlus" de la galería de imágenes de máquina virtual de Azure. Esta imagen cumple con todos los requisitos de imagen de plantilla de Azure RemoteApp. 
 
 	Para obtener información detallada, vea [Creación de una máquina virtual que ejecuta Windows](virtual-machines-windows-tutorial.md).
 
@@ -35,7 +35,7 @@ Utilice estos pasos para crear una imagen basada en una máquina virtual de Azur
 
 	Para obtener información detallada, consulte [Cómo iniciar sesión en una máquina virtual que ejecuta Windows Server](virtual-machines-log-on-windows-server.md).
 
-3. Si utiliza la imagen Host de sesión de Escritorio remoto de Windows Server, hay incluido un script de validación que asegurará que la máquina virtual cumple con los requisitos previos de RemoteApp. Para ejecutar el script, haga doble clic en **ValidateRemoteAppImage** en el escritorio. Asegúrese de que todos los errores que el script informó estén corregidos antes de continuar al paso siguiente.
+3. Si usa una de las imágenes de Host de sesión de Escritorio remoto de Windows Server, hay incluido un script de validación que garantizará que la máquina virtual cumple los requisitos previos de RemoteApp. Para ejecutar el script, haga doble clic en **ValidateRemoteAppImage** en el escritorio. Asegúrese de que todos los errores que el script informó estén corregidos antes de continuar al paso siguiente.
 
 4. SYSPREP generalice y capture la imagen. Vea [Cómo capturar una máquina virtual Windows para usarla como plantilla#](../virtual-machines-capture-image-windows-server.md) para obtener instrucciones.
 
@@ -59,4 +59,4 @@ Use estos pasos para importar la imagen nueva en Azure RemoteApp:
 Ahora está listo para crear su colección, ya sea una colección [en la nube](remoteapp-create-cloud-deployment.md) o una colección [híbrida](remoteapp-create-hybrid-deployment.md), según sus necesidades.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

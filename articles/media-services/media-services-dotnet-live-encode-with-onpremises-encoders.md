@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Realización de una codificación en directo con codificadores locales"
-	description="En este tema se muestra cómo se usa .NET para realizar una codificación en directo con codificadores locales."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Realización de una codificación en directo con codificadores locales" 
+	description="En este tema se muestra cómo se usa .NET para realizar una codificación en directo con codificadores locales." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Realización de una codificación en directo con codificadores locales
@@ -375,4 +375,12 @@ Para obtener información sobre cómo configurar un codificador en directo, cons
 		    }
 		}
 
-<!---HONumber=August15_HO9-->
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

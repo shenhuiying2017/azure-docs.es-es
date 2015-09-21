@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Recursos de documentación de WebJobs de Azure
@@ -42,6 +42,7 @@ El panel de WebJobs en el Portal de Azure proporciona capacidades de administrac
 * [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Uso del Bus de servicio de Azure con el SDK de trabajos web](websites-dotnet-webjobs-sdk-service-bus.md)
 * [Referencia rápida del SDK de WebJobs de Azure (descarga de PDF)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
+* [Documentación de configuración de WebJobs en GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * Vídeos
 	* [WebJobs y SDK de WebJobs](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 	* [Serie de vídeos de WebJobs de Azure en Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
@@ -57,6 +58,7 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * [Habilitación de la línea de comandos o entrega continua de WebJobs de Azure](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Implementación de Git de una aplicación de consola .NET en Azure usando WebJobs](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Deploying an F# WebJob to Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx) (Implementación de un WebJob de F# en Azure)
+* [Deploying custom services as Azure Webjobs](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/) (Implementación de servicios personalizados como Webjobs de Azure
 * Vídeos
 	* [Presentación del conjunto de herramientas de WebJobs de Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Herramientas de WebJobs y depuración remota](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
@@ -65,6 +67,8 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 
 * [Cuadro de diálogo Agregar WebJob de Azure](websites-dotnet-deploy-webjobs.md#configure)
 * [Creación de un WebJob programado en el Portal de administración de Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Enlace de un trabajo del programador con un WebJob](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
+* [Programación de WebJobs de Azure con expresiones cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
 ##<a name="debug"></a>Prueba y depuración de WebJobs
 
@@ -90,7 +94,6 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 ##<a name="additional"></a>Recursos adicionales de WebJobs
 
 * [Entrada de blog sobre disponibilidad general de WebJobs de Azure por Magnus Mårtensson](http://magnusmartensson.com/azure-webjobs-ga)
-* [Documentación de configuración de WebJobs en GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * [Ejecución de WebJobs de PowerShell en Sitios web de Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Recepción de notificación cuando se completen los WebJobs desencadenados en Azure](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
 * [Directiva sencilla de retención de copia de seguridad de sitio web con WebJobs](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
@@ -139,4 +142,4 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

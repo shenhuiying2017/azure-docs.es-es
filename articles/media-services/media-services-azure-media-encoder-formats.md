@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Formatos y códecs de Codificador multimedia de Azure"
-	description="Este tema ofrece información general sobre los formatos y códecs de Azure Media Encoder."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Formatos y códecs de Codificador multimedia de Azure" 
+	description="Este tema ofrece información general sobre los formatos y códecs de Azure Media Encoder." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/05/2015" 
 	ms.author="juliako"/>
 
 #Formatos y códecs de Codificador multimedia de Azure
@@ -21,7 +21,7 @@
 Este documento contiene una lista de los formatos de archivo de entrada y salida más comunes y códecs que puede usar con Codificador multimedia de Azure.
 
 
-##Formatos de archivo de vídeo de entrada (contenedores)
+##Formatos de archivo de entrada (contenedores)
  
 Formato de archivo (extensiones de archivo)|Compatible
 ---|---
@@ -33,32 +33,25 @@ Videograbadora digital MPEG-2 (MOD) (.mod) |Sí
 Archivo de secuencia de transporte de DVD (TS) (.ts) |Sí
 Archivo de objeto de vídeo de DVD (VOB) (.vob) |Sí
 Archivo Expression Encoder Screen Capture Codec (.xesc) |Sí
-MP4 (*.mp4) |Sí
+MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Sí
 Secuencia de sistema MPEG-1 (.mpeg, .mpg) |Sí
 Archivo de vídeo MPEG-2 (.m2v) |Sí
-Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3) (.ismv) |Sí
 Windows Media Video (WMV) (.wmv) |Sí
+Audio AC-3 (Dolby Digital) (.ac3)|Sí
+Formato de archivo de intercambio de audio (AIFF) (.aiff)|Sí
+Formato Broadcast Wave (.bwf)|Sí
+MP3 (MPEG-1 Audio Layer 3) (.mp3)|Sí
+Audiolibro MPEG-4 (.m4b)|Sí
+Archivo WAVE (.wav)|Sí
+Windows Media Audio (.wma)|Sí
 Adobe® Flash® F4V |No		
 MXF/SMPTE 377M |Limitado 
 GXF |No		 
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|No
 Matroska/WebM |No
 
-Se admiten algunos formatos no comprimidos. Para obtener más información, consulte [Formatos de vídeo no comprimido admitidos](#uncompressed)
 
-##Formatos de archivo de audio de entrada
-
-Formato de archivo (extensiones de archivo)|Compatible
----|---
-Audio AC-3 (Dolby Digital) (.ac3)|Sí
-Formato de archivo de intercambio de audio (AIFF) (.aiff)|Sí
-Formato Broadcast Wave (.bwf)|Sí
-MP3 (MPEG-1 Audio Layer 3) (.mp3)|Sí
-Audio MP4 (.mp4)|Sí
-Audiolibro MPEG-4 (.m4b)|Sí
-Archivo WAVE (.wav)|Sí
-Windows Media Audio (.wma)|Sí
-
+Se admiten algunos formatos no comprimidos. Para obtener más información, vea [Formatos de vídeo no comprimido admitidos](#uncompressed).
 
 ##Códecs de vídeo de entrada
 
@@ -119,9 +112,9 @@ Formato de archivo|Códec de vídeo|Códec de audio
 ---|---|---
 Windows Media (*.wmv; *.wma)|VC-1 (perfil avanzado, perfil principal y perfil simple)|Windows Media Audio Standard, Windows Media Audio Professional, Windows Media Audio Voice, Windows Media Audio Lossless
 MP4 (*.mp4)|H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus
-Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.1) (*.ismv; *.isma)|VC-1 (perfil avanzado)<p>H.264 (perfil alto, perfil principal y perfil de base de línea) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
+Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.1) (*.ismv; *.isma)|VC-1 (perfil avanzado)<p>H.264 (perfil alto, perfil principal y perfil de línea de base) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
 
-Para conocer códecs y filtros adicionales admitidos en Servicios multimedia, consulte [Filtros de Windows DirectShow](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
+Para obtener información sobre códecs y filtros adicionales admitidos en Servicios multimedia, vea [Filtros de Windows DirectShow](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
 ##<a id="uncompressed"></a>Formatos de vídeo no comprimido admitidos 
 
@@ -141,4 +134,12 @@ Datos en formato YUV 211|Un formato YUV empaquetado. Una muestra Y en cada segun
 Formato YUV 411 de Cirrus Logic Jr|Formato YUV 411 de Cirrus Logic Jr con menos de 8 bits por muestra Y, U y V. Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical.
 Formato YVU9 generado por Indeo|Formato YUV9 generado por Indeo con información adicional sobre las diferencias del último fotograma. 9,5 bits por píxel, pero informado como 9.
 
-<!---HONumber=September15_HO1-->
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

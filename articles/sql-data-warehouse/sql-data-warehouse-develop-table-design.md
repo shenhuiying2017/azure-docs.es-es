@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Diseño de tablas en el Almacenamiento de datos SQL #
-El Almacenamiento de datos SQL es un sistema de base de datos distribuidas de procesamiento masivo en paralelo (MPP). En consecuencia, almacena datos en diferentes ubicaciones conocidas como **distribuciones**. Cada **distribución** es como un depósito; almacenar un único subconjunto de datos en el almacenamiento de datos. Al distribuir los datos y la capacidad de procesamiento entre varios nodos, el Almacenamiento de datos SQL puede ofrecer una gran escalabilidad, mucha más que un único sistema.
+El Almacenamiento de datos SQL es un sistema de base de datos distribuidas de procesamiento masivo en paralelo (MPP). Almacena datos en diferentes ubicaciones conocidas como **distribuciones**. Cada **distribución** es como un depósito; almacenar un único subconjunto de datos en el almacenamiento de datos. Al distribuir los datos y la capacidad de procesamiento entre varios nodos, el Almacenamiento de datos SQL puede ofrecer una gran escalabilidad, mucha más que un único sistema.
 
 Cuando se crea una tabla en el Almacenamiento de datos SQL, en realidad se propaga a todas las distribuciones.
 
@@ -92,9 +92,9 @@ OR  y.[is_user_defined] = 1
 
 ```
 
-La consulta incluye los tipos de datos definidos por el usuario que tampoco se admiten.
+La consulta incluye los tipos de datos definidos por el usuario, que no se admiten.
 
-No se preocupe si tiene tipos no admitidos en la base de datos. A continuación, se proponen algunas alternativas que puede usar en su lugar.
+a continuación se muestran algunas alternativas que puede utilizar en vez de los tipos de datos no admitidos.
 
 En lugar de:
 
@@ -126,7 +126,7 @@ Hay dos opciones para distribuir los datos en el Almacenamiento de datos SQL:
 1. Distribuir datos en función de los valores de hash de una sola columna
 2. Distribuir los datos de manera uniforme, pero aleatoria  
 
-La distribución de datos se decide a nivel de tabla. Todas las tablas se distribuyen, por lo que tendrá la oportunidad de tomar esta decisión para cada tabla en la base de datos del almacenamiento de datos SQL.
+La distribución de datos se decide a nivel de tabla. Todas las tablas se distribuyen. Asignará la distribución a cada tabla de la base de datos de Almacenamiento de datos SQL.
 
 La primera opción se conoce como distribución **round robin**; a veces se conoce como el hash aleatorio. Puede pensar en esto como la opción segura predeterminada o errónea.
 
@@ -134,7 +134,7 @@ La segunda opción se conoce como la distribución **hash**. Puede considerarla 
 
 ## Distribución round robin
 
-La distribución round robin es un método de propagación de datos lo más uniforme posible entre todas las distribuciones. Los búferes que contienen filas de datos se asignan a su vez (de ahí el nombre round robin) a cada distribución. El proceso se repite hasta que se han asignado todos los búferes de datos. En ningún momento los datos se ordenan o clasifican en una tabla con distribución round robin. Una distribución round robin a veces se denomina hash aleatorio por este motivo. Los datos simplemente se propagan lo más uniformemente posible en todas las distribuciones.
+La distribución round robin es un método de propagación de datos lo más uniforme posible entre todas las distribuciones. Los búferes que contienen filas de datos se asignan a su vez (de ahí el nombre round robin) a cada distribución. El proceso se repite hasta que se han asignado todos los búferes de datos. En ningún momento los datos se ordenan o clasifican en una tabla con distribución round robin. Una distribución round robin a veces se denomina hash aleatorio por este motivo. Los datos se propagan lo más uniformemente posible por todas las distribuciones.
 
 A continuación se muestra un ejemplo de tabla con distribución round robin:
 
@@ -306,4 +306,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

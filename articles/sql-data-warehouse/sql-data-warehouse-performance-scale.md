@@ -1,20 +1,20 @@
 <properties
    pageTitle="Rendimiento y escala flexibles con Almacenamiento de datos SQL | Microsoft Azure"
-	description="Comprender la flexibilidad del Almacenamiento de datos SQL mediante las unidades de almacenamiento de datos para escalar los recursos de proceso hacia niveles superiores o inferiores. Ejemplos de código proporcionados."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="TwoUnder"
-	manager="barbkess"
-	editor=""/>
+   description="Comprender la flexibilidad del Almacenamiento de datos SQL mediante las unidades de almacenamiento de datos para escalar los recursos de proceso hacia niveles superiores o inferiores. Ejemplos de código proporcionados."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="TwoUnder"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/25/2015"
-	ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/09/2015"
+   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # Rendimiento y escala flexibles con Almacenamiento de datos SQL
 Para aumentar o reducir de manera elástica la potencia de proceso, solo hay que ajustar el número de unidades de almacenamiento de datos (DWU) asignado a su Almacenamiento de datos SQL. Las unidades de almacenamiento de datos son un concepto nuevo que proporciona el Almacenamiento de datos SQL para que la administración le resulte más sencilla y eficaz. Este tema sirve de introducción a las unidades de almacenamiento de datos; explica cómo puede escalar de manera elástica su potencia de proceso. El artículo también proporciona una orientación inicial sobre cómo establecer un valor de DWU razonable para su entorno.
@@ -23,25 +23,22 @@ Para aumentar o reducir de manera elástica la potencia de proceso, solo hay que
 Microsoft ejecuta en segundo plano una serie de pruebas comparativas de rendimiento para determinar qué cantidad de hardware y con qué configuración nos permitirá proporcionar una oferta competitiva a nuestros clientes. La capacidad de proceso se puede escalar para aumentarla o reducirla en bloques de 100 DWU, pero no se ofrecen todos los múltiplos de 100 DWU.
 
 ## ¿Cuántas DWU debería usar?
-Hay muchas soluciones distintas que Almacenamiento de datos SQL puede desbloquear para los clientes. Por lo tanto, hay una gran variedad de tipos de consultas que pueden ejecutar los clientes y sobre cuántos datos operan, además de la arquitectura de los esquemas, cómo se distribuyen los datos, cuántos usuarios tendrán acceso a los datos, con qué frecuencia, etc.
+En lugar de proporcionar puntos de partida prescriptivos de DWU que pueden ser adecuados para una categoría de clientes, vamos a dar a esta pregunta un enfoque práctico. El rendimiento en el Almacenamiento de datos SQL se amplía de manera lineal y el cambio de una escala de proceso a otra (por ejemplo, de 100 DWU a 2000 DWU) se produce en segundos. Esto ofrece la flexibilidad de probar cosas y de determinar lo mejor para su escenario.
 
-En lugar de proporcionar puntos de partida prescriptivos de DWU que pueden ser adecuados para una categoría de clientes, vamos a dar a esta pregunta un enfoque práctico. El rendimiento en el Almacenamiento de datos SQL se amplía de manera lineal y el cambio de una escala de proceso a otra (por ejemplo, de 100 DWU a 2000 DWU) se produce en segundos. Esto da libertad para hacer pruebas y determinar qué se ajusta mejor a su escenario.
+1. Para un almacenamiento de datos en desarrollo, comience seleccionando un número pequeño de DWU.
+2. Supervise el rendimiento de su aplicación, observando el número de DWU seleccionados en comparación con el rendimiento que observe.
+3. Determine en qué grado debería ser el rendimiento más rápido o más lento para poder alcanzar el nivel óptimo de rendimiento para sus requerimientos suponiendo una escala lineal. 
+4. Aumente o disminuya el número de DWU seleccionado. El servicio responderá rápidamente y ajustará los recursos de proceso para satisfacer los requisitos de DWU.
+5. Continúe realizando ajustes hasta llegar a un nivel de rendimiento adecuado para sus requerimientos empresariales.
 
-
-1. Para un almacenamiento de datos en desarrollo, comience con una cantidad pequeña de DWU.
-2. Supervise el rendimiento de su aplicación para familiarizarse con las DWU asignadas y el rendimiento que observe.
-3. Determine en qué grado debería ser el rendimiento más rápido o más lento para poder alcanzar el nivel óptimo de rendimiento para sus requerimientos empresariales suponiendo una escala lineal. 
-4. Aumente o reduzca la cantidad de DWU usadas en función de sus necesidades. El servicio responderá rápidamente para ajustar los recursos de proceso para satisfacer los requisitos de DWU.
-5. Realice ajustes hasta llegar a un nivel de rendimiento adecuado para sus requerimientos empresariales.
-
-Si tiene una aplicación con una carga de trabajo que varía, puede subir o bajar los niveles de rendimiento para responder a los valores máximos y los puntos más bajos. Por ejemplo, si por lo general la carga de trabajo aumenta considerablemente a final de mes, podría planear agregar más DWU durante esos días de máxima actividad y luego reducir su número cuando termine este período.
+Si su aplicación tiene una carga de trabajo que varía, suba o baje los niveles de rendimiento para responder a los valores máximos y los puntos más bajos. Por ejemplo, si por lo general la carga de trabajo aumenta considerablemente a final de mes, planee agregar más DWU durante esos días de máxima actividad y luego reduzca su número verticalmente cuando termine este período.
  
 ## Escala de los recursos de proceso hacia un nivel superior o inferior
 Independientemente del almacenamiento en la nube, la elasticidad del almacenamiento de datos SQL permite aumentar, reducir o pausar la capacidad de proceso utilizando una escala deslizante de unidades de almacenamiento de datos (DWU). Esto le ofrece la flexibilidad para optimizar la capacidad de proceso con un ajuste óptimo para su empresa.
 
 Para aumentar la capacidad de proceso puede agregar más DWU al servicio mediante el control deslizante de escala en el Portal de Azure. También puede agregar DWU mediante T-SQL, las API de REST o los cmdlets de Powershell. La escala hacia niveles superiores o inferiores cancela todas las actividades que están en ejecución o en cola, pero la operación se completa en segundos, de manera que puede reanudar las actividades con más o menos capacidad de proceso.
 
-En el [Portal Azure][], puede hacer clic en el icono "Escala" en la parte superior de la página de Almacenamiento de datos SQL y, a continuación, use el control deslizante para aumentar o disminuir la cantidad de DWU aplicada a su almacén de datos antes de hacer clic en “Guardar”. Si prefiere cambiar la escala mediante programación, el código de T-SQL siguiente muestra cómo ajustar la asignación de DWU para Almacenamiento de datos SQL:
+En el [Portal de Azure][], puede hacer clic en el icono "Escala" en la parte superior de la página de Almacenamiento de datos SQL y, a continuación, use el control deslizante para aumentar o disminuir la cantidad de DWU aplicada a su almacén de datos antes de hacer clic en "Guardar". Si prefiere cambiar la escala mediante programación, el código de T-SQL siguiente muestra cómo ajustar la asignación de DWU para Almacenamiento de datos SQL:
 
 ```
 ALTER DATABASE MySQLDW 
@@ -94,7 +91,6 @@ Para obtener información general sobre el rendimiento, vea [Introducción al re
 
 <!--Other Web references-->
 
-[Portal Azure]: http://portal.azure.com/
 [Portal de Azure]: http://portal.azure.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

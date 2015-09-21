@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Qué es Almacenamiento de datos SQL | Microsoft Azure"
-   description="Una base de datos distribuida de clase empresarial en la nube de Azure, capaz de procesar volúmenes de petabytes de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube de la industria que aumenta, reduce y hace una pausa en segundos."
+   pageTitle="Qué es Almacenamiento de datos SQL de Azure | Microsoft Azure"
+   description="Base de datos distribuida de clase empresarial, capaz de procesar volúmenes de petabytes de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube de la industria que aumenta, reduce y hace una pausa en segundos."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
+   authors="twounder"
    manager="jhubbard"
    editor=""/>
 
@@ -13,17 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="09/09/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
-# ¿Qué es Almacenamiento de datos SQL?
+# ¿Qué es Almacenamiento de datos SQL de Azure?
 
-Almacenamiento de datos SQL es una base de datos distribuida de clase empresarial en la nube de Azure, capaz de procesar volúmenes de petabytes de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube de la industria que aumenta, reduce y hace una pausa en segundos.
+Almacenamiento de datos SQL de Azure es una base de datos distribuida de clase empresarial, capaz de procesar volúmenes de petabytes de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube de la industria que aumenta, reduce y hace una pausa en segundos con capacidades de SQL demostradas.
 
 Almacenamiento de datos SQL combina la mejor calidad y confiabilidad de las bases de datos relacionales de clase empresarial de SQL Server con informática en la nube. Siga leyendo acerca de los componentes principales del diseño de Almacenamiento de datos SQL.
 
 ## Aumento, reducción o pausa de los recursos de proceso
-Con Almacenamiento de datos SQL, los datos se almacenan a escala en la nube y el proceso se escala de manera independiente, lo que permite pagar por el rendimiento de las consultas en función de las necesidades. Ahora es posible implementar, aumentar, reducir e incluso pausar el proceso dinámicamente. Aproveche al máximo el almacenamiento a escala en la nube y aplique el proceso de las consultas según las necesidades de la temporada. Cuando está en pausa, solo se paga por el almacenamiento.
+El Almacenamiento de datos SQL presenta el proceso y el almacenamiento separado, lo que permite a cada uno escalar de manera independiente. Mediante el almacenamiento de escala de nube y el proceso de Azure, el Almacenamiento de datos SQL le permite pagar por el rendimiento de consultas conforme lo necesita cuando lo necesita. Ahora puede implementar dinámicamente, aumentar, reducir e incluso pausar el proceso en segundos para que pueda comprar la información que su empresa necesita. El cambio de la cantidad del proceso es tan sencillo como mover un control deslizante hacia la izquierda o la derecha.
+
+Con la capacidad para controlar por completo la cantidad del cálculo con independencia del almacenamiento, el Almacenamiento de datos SQL le permite pausar el proceso. Al mantenerlo local, el proceso se vuelve a insertar en el grupo central, lo que le permite ahorrar costos. Cuando sea necesario, solo tendrá que reanudar el proceso y tener los datos y el proceso disponibles para su carga de trabajo.
 
 > [AZURE.NOTE]La unidad de almacenamiento de datos (DWU) es la unidad de escala para los recursos de proceso en Almacenamiento de datos SQL.
 
@@ -76,4 +78,4 @@ Obtenga información sobre [carga de trabajo del almacenamiento de datos]. [Apro
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

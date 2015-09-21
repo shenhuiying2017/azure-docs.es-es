@@ -76,7 +76,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 |	Usuarios con actividad de inicio de sesión erróneo. | | |	✓ |
 |	Usuarios con credenciales perdidas | | |	✓ |
 |	**Registros de actividad**
-|	Informe de auditoría |	✓ | | |
+|	Informe de auditoría |	✓ |	✓ |	✓ |
 |	Actividad de restablecimiento de contraseña | | |	✓ |
 |	Actividad de registro de restablecimiento de contraseñas | | |	✓ |
 |	Actividad de los grupos de autoservicio | | |	✓ |
@@ -276,4 +276,4 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y del panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="09/08/2015" 
 	ms.author="bradsev;garye" />
 
 # Depurar el modelo en Aprendizaje automático de Azure
@@ -69,4 +69,4 @@ Puede ocurrir que, aunque el experimento se realice correctamente, el módulo [P
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

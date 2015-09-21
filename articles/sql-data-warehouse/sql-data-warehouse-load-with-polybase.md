@@ -1,20 +1,20 @@
 <properties
    pageTitle="Tutorial sobre PolyBase en Almacenamiento de datos SQL | Microsoft Azure"
-	description="Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor="jrowlandjones"/>
+   description="Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/09/2015"
-	ms.author="sahajs;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/02/2015"
+   ms.author="sahajs;barbkess"/>
 
 
 # Carga de datos con PolyBase
@@ -137,6 +137,8 @@ La definición de tabla externa es similar a una definición de tabla relacional
 
 La opción LOCATION especifica la ruta de acceso a los datos desde la raíz del origen de datos. En este ejemplo, los datos se encuentran en 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. Todos los archivos de la misma tabla tienen que estar en la misma carpeta lógica de BLOB de Azure.
 
+Opcionalmente, también puede especificar opciones de rechazo (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE) que determinan la manera en que PolyBase controlará registros con modificaciones que recibe del origen de datos externo.
+
 ```
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
@@ -170,7 +172,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Al quitar una tabla externa, debe usar `DROP EXTERNAL TABLE`, **no puede** usar `DROP TABLE`.
+> [AZURE.NOTE]Al quitar una tabla externa, debe usar `DROP EXTERNAL TABLE`. No **puede** usar `DROP TABLE`.
 
 Tema de referencia: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
@@ -197,21 +199,17 @@ Cuando haya migrado todas las tablas externas al nuevo origen de datos externo, 
 ## Consulta de datos en el almacenamiento de blobs de Azure
 Las consultas en tablas externas simplemente usan el nombre de tabla como si fuese una tabla relacional.
 
-Se trata de una consulta ad hoc que combina datos de cliente de seguros almacenados en Almacenamiento de datos SQL con datos de sensor de automóviles almacenados en almacenamiento de blobs de Azure. El resultado muestra los conductores que conducen más rápido que otros.
 
 ```
--- Join SQL Data Warehouse relational data with Azure storage data. 
-SELECT 
-      [Insured_Customers].[FirstName]
-,     [Insured_Customers].[LastName]
-,     [Insured_Customers].[YearlyIncome]
-,     [CarSensor_Data].[Speed]
-FROM  [dbo].[Insured_Customers] 
-JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
-WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] DESC
+
+-- Query Azure storage resident data via external table. 
+SELECT * FROM [ext].[CarSensor_Data]
 ;
+
 ```
+
+> [AZURE.NOTE]Una consulta en una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"*. Esto indica que sus datos externos contienen registros *con modificaciones*. Un registro de datos se considera "con modificaciones" si los tipos de datos reales o el número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado. Para corregirlo, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos estén modificados, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE DDL.
+
 
 ## Carga de datos del almacenamiento de blobs de Azure
 En este ejemplo se cargan datos del almacenamiento de blobs de Azure en la base de datos de Almacenamiento de datos SQL.
@@ -327,4 +325,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-ES/library/ms189450.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

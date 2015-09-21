@@ -109,18 +109,18 @@ En esta sección creará una nueva clase de controlador de mensajes llamada **Au
 
 ## Registro para recibir notificaciones mediante el back-end de WebAPI
 
-En esta sección, agregaremos un controlador nuevo al back-end de WebAPI para manejar las solicitudes para registrar un usuario y un dispositivo para recibir notificaciones mediante el uso de la biblioteca de cliente para centros de notificaciones, es decir, la biblioteca cliente de Bus de servicio de Azure. El controlador agregará una etiqueta de usuario al usuario que el `AuthenticationTestHandler` autenticó y adjuntó al HttpContext. La etiqueta tendrá el formato de cadena, `"username:<actual username>"`.
+En esta sección, agregaremos un nuevo controlador al back-end de WebAPI para gestionar las solicitudes de registro de un usuario y un dispositivo para recibir notificaciones mediante la biblioteca de cliente para centros de notificaciones. El controlador agregará una etiqueta de usuario al usuario que el `AuthenticationTestHandler` autenticó y adjuntó al HttpContext. La etiqueta tendrá el formato de cadena, `"username:<actual username>"`.
 
 
  
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **AppBackend** y, a continuación, seleccione **Administrar paquetes de NuGet**.
 
-2. En el lado izquierdo, haga clic en **En línea** y busque **servicebus** en el cuadro **Búsqueda**.
+2. En el lado izquierdo, haga clic en **En línea** y busque **Microsoft.Azure.NotificationHubs** en el cuadro **Buscar**.
 
-3. En la lista de resultados, haga clic en **Bus de servicio de Microsoft Azure** y, a continuación, haga clic en **Instalar**. Complete la instalación y, a continuación, cierre la ventana del administrador de paquetes de NuGet.
+3. En la lista de resultados, haga clic en **Biblioteca de administración de servicios de Centros de notificaciones de Microsoft Azure** y, luego, haga clic en **Instalar**. Complete la instalación y, a continuación, cierre la ventana del administrador de paquetes de NuGet.
 
-	![][B14]
+	Se agrega una referencia al SDK de Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete de NuGet Microsoft.Azure.Notification Hubs</a>.
 
 4. Ahora crearemos un nuevo archivo de clase que representa las distintas notificaciones seguras que se enviarán. En una implementación completa, las notificaciones se almacenan en una base de datos. Por simplicidad, este tutorial las almacena en memoria. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta **Modelos**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**. Después de asignar el nombre a la nueva clase **Notifications.cs**, haga clic en **Agregar** para generar la clase.
 
@@ -128,7 +128,7 @@ En esta sección, agregaremos un controlador nuevo al back-end de WebAPI para ma
 
 5. En Notifications.cs, agregue la siguiente instrucción `using` en la parte superior del archivo:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. A continuación, reemplace la definición de clase `Notifications` por lo siguiente y asegúrese de reemplazar los dos marcadores de posición con la cadena de conexión (con acceso total) para el centro de notificaciones y el nombre del centro (disponible en el [Portal de administración de Azure](http://manage.windowsazure.com)):
 
@@ -269,7 +269,7 @@ En esta sección, agregaremos un controlador nuevo al back-end de WebAPI para ma
 
 ## Envío de notificaciones desde el back-end de WebAPI
 
-En esta sección agregará un nuevo controlador que expone una forma para que los dispositivos cliente envíen una notificación basándose en la etiqueta de nombre de usuario; para ello, se usará la biblioteca de clientes del Bus de servicio de Azure en el back-end de ASP.NET WebAPI.
+En esta sección agregará un nuevo controlador que expone una forma de que los dispositivos cliente envíen una notificación basándose en la etiqueta de nombre de usuario; para ello, se usará la biblioteca de administración de servicios de Centros de notificaciones de Azure en el back-end WebAPI de ASP.NET.
 
 
 1. Cree otro controlador nuevo llamado **NotificationsController**. Créelo del mismo modo que creó el **RegisterController** en la sección anterior.
@@ -359,4 +359,4 @@ En esta sección agregará un nuevo controlador que expone una forma para que lo
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

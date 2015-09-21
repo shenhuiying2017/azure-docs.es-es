@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Actualización de la colección Azure RemoteApp"
+   pageTitle="Actualización de la colección Azure RemoteApp | Microsoft Azure"
    description="Más información sobre la colección Azure RemoteApp"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="09/03/2015"
    ms.author="elizapo"/>
 
 # Actualización de una colección en Azure RemoteApp
@@ -25,7 +25,7 @@ Sin embargo, si usa una imagen personalizada (creada desde cero o modificando un
 Por lo tanto, ¿cómo tiene que proceder para actualizar la colección? Es bastante sencillo:
 
 1. Actualice la imagen que usó en la colección. Aplique las revisiones o actualizaciones necesarias y guárdela con un otro nombre.
-2. Realice la [carga](remoteapp-uploadimage.md) o [importación](remoteapp-image-on-azurevm) de la imagen en RemoteApp.
+2. Realice la [carga](remoteapp-uploadimage.md) o la [importación](remoteapp-image-on-azurevm.md) de la imagen en RemoteApp.
 3. Ahora, en la página de la colección, haga clic en **Actualizar**.
 4. Elija la nueva imagen de la lista de **imágenes de plantilla**.
 4. Aquí llega la parte complicada, ha de decidir cómo tratar a los usuarios que usan actualmente una aplicación de la colección. Tiene las siguientes opciones:
@@ -36,4 +36,4 @@ Por lo tanto, ¿cómo tiene que proceder para actualizar la colección? Es basta
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

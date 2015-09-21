@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 
@@ -117,4 +117,4 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Asignación del contenido de la red CDN a un dominio personalizado</a>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="API de Application Insights para eventos y métricas personalizados"
-	description="Inserte unas cuantas líneas de código en su aplicación de dispositivo o de escritorio, página o servicio web, para realizar el seguimiento del uso y diagnosticar problemas."
+	pageTitle="API de Application Insights para eventos y métricas personalizados" 
+	description="Inserte unas cuantas líneas de código en su aplicación de dispositivo o de escritorio, página o servicio web, para realizar el seguimiento del uso y diagnosticar problemas." 
 	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+    documentationCenter="" 
+	authors="alancameronwills" 
 	manager="douge"/>
  
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/28/2015" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -82,9 +82,9 @@ TelemetryClient es seguro para subprocesos.
 
 ## Seguimiento de eventos
 
-Los eventos se pueden mostrar en el [Explorador de métricas][metrics] como un recuento agregado y también se pueden mostrar las repeticiones individuales en [Búsqueda de diagnóstico][diagnostic].
+En Application Insights, un *evento personalizado* es un punto de datos que se puede mostrar en el [Explorador de métricas][metrics] como recuento agregado y también como repeticiones individuales en [Búsqueda de diagnóstico][diagnostic]. (No está relacionado con MVC ni con "eventos" de otro marco).
 
-Inserte eventos en el código para contabilizar la frecuencia con que usan una determinada característica, la frecuencia con que consiguen unos determinados objetivos o la frecuencia con que realizan unas determinadas elecciones.
+Inserte llamadas a TrackEvent en el código para contabilizar la frecuencia con la que los usuarios utilizan una determinada característica, la frecuencia con la que logran unos determinados objetivos o la frecuencia con la que cometen determinados tipos de errores.
 
 Por ejemplo, en una aplicación de juego, envíe un evento cada vez que un usuario gane el juego:
 
@@ -105,14 +105,12 @@ Por ejemplo, en una aplicación de juego, envíe un evento cada vez que un usuar
 
     telemetry.trackEvent("WinGame");
 
-
-Haga clic en el icono Eventos personalizados en la hoja de información general:
+En este caso, "WinGame" es el nombre que aparece en el portal de Application Insights. Haga clic en el icono Eventos personalizados en la hoja de información general:
 
 ![Busque el recurso de aplicación en portal.azure.com.](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-Siga haciendo clic hasta ver un gráfico de información general y una lista completa.
 
-Seleccione el gráfico y segméntelo por el nombre de evento con el fin de ver las contribuciones relativas de los eventos más importantes.
+El gráfico se agrupa por nombre de evento para que puedan verse las contribuciones relativas de los eventos más importantes. Para controlar esto, seleccione el gráfico y use el control Agrupación.
 
 ![Seleccione el gráfico y establezca la opción de agrupación.](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -203,7 +201,7 @@ Hay algunos [límites en el número de propiedades, valores de propiedad y métr
 
 ![Abra el Explorador de métricas, seleccione el gráfico y seleccione la métrica.](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*Si no aparece su métrica, cierre la hoja de selección, espere unos instantes y haga clic en Actualizar.*
+*Si la métrica no aparece o el encabezado Personalizada no se encuentra allí, cierre la hoja de selección e inténtelo más tarde. A veces las métricas pueden tardar una hora en agregarse a través de la canalización.*
 
 **Si usó propiedades y métricas**, segmente la métrica por la propiedad:
 
@@ -903,4 +901,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

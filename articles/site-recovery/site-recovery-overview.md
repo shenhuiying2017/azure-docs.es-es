@@ -48,7 +48,20 @@ Centro de datos secundario | Solo servidor VMM | Replique máquinas virtuales en
 
 Las tecnologías de replicación de ASR son compatibles con cualquier aplicación que se ejecuta en una máquina virtual. Hemos llevado a cabo pruebas adicionales en colaboración con los equipos de producto de las aplicaciones para mejorar aún más cada aplicación.
 
-**Carga de trabajo** | <p>**Replicación de máquinas virtuales de Hyper-V**</p> <p>**(para sitio secundario)**</p> | <p>**Replicación de máquinas de Hyper-V virtual**</p> <p>**(para Azure)**</p> | <p>**Replicación de máquinas virtuales de VMware**</p> <p>**(en sitio secundario)**</p> | <p>**Replicación de máquinas virtuales de VMware**</p><p>**(para Azure)****</p> ---|---|---|---|--- Active Directory, DNS | Y | Y | Y |Aplicaciones web próximamente (IIS, SQL) | Y | Y | Y | SCOM próximamente | Y | Y | Y | Sharepoint próximamente | Y | Y | Y | Próximamente <p>SAP</p><p>Replicación del sitio de SAP en Azure para sin clúster</p> | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Exchange próximamente (no DAG) | Y | Próximamente | Y | Escritorio remoto/VDI próximamente | Y | Y | Y | <p>Linux</p> próximamente <p>(aplicaciones y sistema operativo)</p> | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Dynamics AX próximamente | Y | Y | Y | Dynamics CRM próximamente | Próximamente | Próximamente | Y | Oracle Próximamente | Próximamente | Próximamente | Y (probado por Microsoft) | Próximamente
+**Carga de trabajo** | <p>**Replicación de máquinas virtuales de Hyper-V**</p> <p>**(para sitio secundario)**</p> | <p>**Replicación de máquinas de Hyper-V virtual**</p> <p>**(para Azure)**</p> | <p>**Replicación de máquinas virtuales de VMware**</p> <p>**(en sitio secundario)**</p> | <p>**Replicación de máquinas virtuales de VMware**</p><p>**(para Azure)**</p> 
+---|---|---|---|--- 
+Active Directory, DNS | Y | Y | Y | Y 
+Aplicaciones web (IIS, SQL) | Y | Y | Y | Y 
+SCOM | Y | Y | Y | Y 
+Sharepoint | Y | Y | Y |Y 
+<p>SAP</p><p>Replicación del sitio de SAP en Azure para sin clúster</p> | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) 
+Exchange (no DAG) | Y | Próximamente | Y | Y 
+Escritorio remoto/VDI | Y | Y | Y | N/A 
+<p>Linux</p> <p>(aplicaciones y sistema operativo)</p> | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) 
+Dynamics AX | Y | Y | Y | Y 
+Dynamics CRM | Y | Próximamente | Y | Próximamente 
+Oracle | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) | Y (probado por Microsoft) 
+Servidor de archivos de Windows | Y | Y | Y | Y
 
 
 ## Características y requisitos 
@@ -77,4 +90,4 @@ Asignación de almacenamiento|No aplicable|Asigna las clasificaciones de almacen
 Una vez finalizada la esta información general, [lea las prácticas recomendadas](site-recovery-best-practices.md) que le ayudarán a empezar a trabajar con la planeación de la implementación.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

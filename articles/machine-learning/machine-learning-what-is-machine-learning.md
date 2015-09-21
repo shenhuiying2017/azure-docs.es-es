@@ -1,20 +1,21 @@
 <properties
     pageTitle="¿Qué es Aprendizaje automático en Azure? | Microsoft Azure"
-	description="Explica los conceptos básicos del servicio Aprendizaje automático totalmente administrado, una tecnología de nube que puede utilizar para crear, operacionalizar y rentabilizar soluciones."
+    description="Explica los conceptos básicos del servicio Aprendizaje automático totalmente administrado, una tecnología de nube que puede utilizar para crear, operacionalizar y rentabilizar soluciones."
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
-	documentationCenter=""
-	authors="cjgronlund"
-	manager="neerajkh"
-	editor="cgronlun"/>
+    documentationCenter=""
+    authors="cjgronlund"
+    manager="neerajkh"
+    editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="cgronlun;tedway;olgali"/>
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2015"
+    ms.author="cgronlun;tedway;olgali"/>
 
 
 # Introducción al aprendizaje automático en Microsoft Azure
@@ -29,7 +30,7 @@ Estas previsiones o predicciones del aprendizaje automático pueden hacer que la
 
 Aprendizaje automático de Azure es un eficaz servicio de análisis predictivo basado en la nube que permite crear e implementar rápidamente modelos predictivos como soluciones de análisis.
 
-Aprendizaje automático de Azure no solo proporciona herramientas para análisis predictivos de modelos, sino que también proporciona un servicio totalmente administrado que se puede usar para publicar los modelos predictivos como servicios web listos para consumir. Aprendizaje automático de Azure proporciona herramientas para crear completas soluciones de análisis predictivos en la nube: crear, probar, poner operativos y administrar modelos predictivos rápidamente. No es necesario comprar ningún hardware ni administrar manualmente máquinas virtuales.
+Aprendizaje automático de Azure no solo proporciona herramientas para análisis predictivos de modelos, sino que también proporciona un servicio totalmente administrado que se puede usar para implementar los modelos predictivos como servicios web listos para consumir. Aprendizaje automático de Azure proporciona herramientas para crear completas soluciones de análisis predictivos en la nube: crear, probar, poner operativos y administrar modelos predictivos rápidamente. No es necesario comprar ningún hardware ni administrar manualmente máquinas virtuales.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -59,7 +60,7 @@ Para crear modelos predictivos en [Estudio de aprendizaje automático](machine-l
 * Adquiera servicios web listos para consumir en [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), por ejemplo, recomendaciones, análisis de texto y detección de anomalías.
 
 * Operacionalización de los modelos de análisis predictivo:
-    * [Publicación de servicios web](machine-learning-publish-a-machine-learning-web-service.md)
+    * [Implementación de servicios web](machine-learning-publish-a-machine-learning-web-service.md)
     * [Entrenar y volver a entrenar modelos mediante API](machine-learning-retrain-models-programmatically.md)
     * [Administración de extremos de servicios web](machine-learning-create-endpoint.md)
     * [Escala de servicios web](machine-learning-scaling-endpoints.md)
@@ -115,4 +116,4 @@ Puede aprender los conceptos básicos de análisis predictivos y de aprendizaje 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

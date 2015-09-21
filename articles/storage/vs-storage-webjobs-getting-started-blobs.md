@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Introducción al Almacenamiento de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)" 
-	description="Cómo empezar a usar el almacenamiento de blobs en una cuenta de almacenamiento de Azure que se creó mediante el cuadro de diálogo Agregar servicios conectados de Visual Studio en un proyecto de WebJobs."
+<properties
+	pageTitle="Introducción al almacenamiento de blobs y servicios conectados de Visual Studio (proyectos de WebJobs) | Microsoft Azure"
+	description="Cómo empezar a usar el almacenamiento de blobs en un proyecto de WebJob después de conectarse a un almacenamiento de Azure con los servicios conectados de Visual Studio."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
 	manager="douge"
 	editor="tglee"/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="web"
-	ms.tgt_pltfrm="vs-getting-started" 
+	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Introducción a Almacenamiento de Azure (proyectos de WebJobs de Azure)
+# Introducción al almacenamiento de blobs de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-webjobs-getting-started-blobs.md)
@@ -35,9 +35,9 @@ En esta guía se proporcionan muestras de código C# que muestran cómo desencad
 
 ## Cómo desencadenar una función cuando se crea o actualiza un blob
 
-Esta sección muestra cómo usar el atributo `BlobTrigger`.
+En esta sección muestra cómo usar el atributo **BlobTrigger**.
 
- **Nota:** el SDK de WebJobs analiza los archivos de registro para inspeccionar los blobs nuevos o modificados. Este proceso es lento por naturaleza; podría no desencadenarse una función hasta varios minutos o más después de haberse creado el blob. Si su aplicación necesita procesar inmediatamente los blobs, el método recomendado es crear un mensaje en cola al crear el blob y usar el atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) en lugar del atributo `BlobTrigger` en la función que procesa el blob.
+ **Nota:** el SDK de WebJobs analiza los archivos de registro para inspeccionar los blobs nuevos o modificados. Este proceso es lento por naturaleza; podría no desencadenarse una función hasta varios minutos o más después de haberse creado el blob. Si su aplicación necesita procesar inmediatamente los blobs, el método recomendado es crear un mensaje en cola al crear el blob y usar el atributo [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) en lugar del atributo **BlobTrigger** en la función que procesa el blob.
 
 ### Único marcador de posición para el nombre de blob con extensión  
 
@@ -88,24 +88,24 @@ El siguiente ejemplo de código cambia la extensión de archivo cuando copia los
 
 ## Tipos que puede enlazar a blobs
 
-Puede utilizar el atributo `BlobTrigger` en los siguientes tipos:
+Puede utilizar el atributo **BlobTrigger** en los siguientes tipos:
 
-* `string`
-* `TextReader`
-* `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* Otros tipos deserializados por [ICloudBlobStreamBinder](#icbsb) 
+* **cadena**
+* **TextReader**
+* **Stream**
+* **ICloudBlob**
+* **CloudBlockBlob**
+* **CloudPageBlob**
+* Otros tipos deserializados por [ICloudBlobStreamBinder](#icbsb)
 
-Si desea trabajar directamente con la cuenta de almacenamiento de Azure, también puede agregar un parámetro `CloudStorageAccount` a la firma del método.
+Si desea trabajar directamente con la cuenta de almacenamiento de Azure, también puede agregar un parámetro **CloudStorageAccount** a la firma del método.
 
 ## Obtención del contenido del blob de texto enlazando a la cadena
 
-Si se esperan blobs de texto, se puede aplicar `BlobTrigger` a un parámetro `string`. El siguiente ejemplo de código enlaza un blob de texto a un parámetro `string` llamado `logMessage`. La función usa ese parámetro para escribir el contenido del blob en el panel del SDK de WebJobs.
- 
+Si se esperan blobs de texto, se puede aplicar **BlobTrigger** a un parámetro **string**. El siguiente ejemplo de código enlaza un blob de texto a un parámetro **string** llamado **logMessage**. La función usa ese parámetro para escribir el contenido del blob en el panel del SDK de WebJobs.
+
 		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
-		    string name, 
+		    string name,
 		    TextWriter logger)
 		{
 		     logger.WriteLine("Blob name: {0}", name);
@@ -115,13 +115,13 @@ Si se esperan blobs de texto, se puede aplicar `BlobTrigger` a un parámetro `st
 
 ## Obtención del contenido del blob serializado mediante el uso de ICloudBlobStreamBinder
 
-El siguiente ejemplo de código usa una clase que implementa `ICloudBlobStreamBinder` para permitir que el atributo `BlobTrigger` vincule un blob al tipo `WebImage`.
+El siguiente ejemplo de código usa una clase que implementa **ICloudBlobStreamBinder** para permitir que el atributo **BlobTrigger** vincule un blob al tipo **WebImage**.
 
 		public static void WaterMark(
 		    [BlobTrigger("images3/{name}")] WebImage input,
 		    [Blob("images3-watermarked/{name}")] out WebImage output)
 		{
-		    output = input.AddTextWatermark("WebJobs SDK", 
+		    output = input.AddTextWatermark("WebJobs SDK",
 		        horizontalAlign: "Center", verticalAlign: "Middle",
 		        fontSize: 48, opacity: 50);
 		}
@@ -134,11 +134,11 @@ El siguiente ejemplo de código usa una clase que implementa `ICloudBlobStreamBi
 		    output = input.Resize(width, height);
 		}
 
-El código de enlace `WebImage` se proporciona en una clase `WebImageBinder` que deriva de `ICloudBlobStreamBinder`.
+El código de enlace **WebImage** se ofrece en una clase **WebImageBinder** que deriva de **ICloudBlobStreamBinder**.
 
 		public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
 		{
-		    public Task<WebImage> ReadFromStreamAsync(Stream input, 
+		    public Task<WebImage> ReadFromStreamAsync(Stream input,
 		        System.Threading.CancellationToken cancellationToken)
 		    {
 		        return Task.FromResult<WebImage>(new WebImage(input));
@@ -153,7 +153,7 @@ El código de enlace `WebImage` se proporciona en una clase `WebImageBinder` que
 
 ## Cómo administrar los blobs dudosos
 
-Cuando una función `BlobTrigger` presenta un error, el SDK vuelve a llamarla, en caso de que se hubiese producido por un error transitorio. Si el error se produce debido al contenido del blob, la función presentará un error cada vez que intente procesar el blob. De manera predeterminada, el SDK llama una función hasta cinco veces para un blob determinado. Si el quinto intento falla, el SDK agrega un mensaje a una cola llamada *webjobs-blobtrigger-poison*.
+Cuando una función **BlobTrigger** genera un error, el SDK le llama de nuevo en el caso de que se hubiese producido por un error transitorio. Si el error se produce debido al contenido del blob, la función presentará un error cada vez que intente procesar el blob. De manera predeterminada, el SDK llama una función hasta cinco veces para un blob determinado. Si el quinto intento falla, el SDK agrega un mensaje a una cola llamada *webjobs-blobtrigger-poison*.
 
 Es posible configurar el número máximo de reintentos. Se usa la misma configuración [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) para controlar los blobs dudosos y los mensajes de cola dudosos.
 
@@ -165,7 +165,7 @@ El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las sig
 * BlobName
 * ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
 
-En el siguiente ejemplo de código, la función `CopyBlob` tiene un código que hace que presente un error cada vez que se la llama. Una vez que el SDK la llama por el número máximo de reintentos, se crea un mensaje en la cola de blobs dudosos y la función `LogPoisonBlob` procesa ese mensaje.
+En el siguiente ejemplo de código, la función **CopyBlob** tiene un código que hace que presente un error cada vez que se la llama. Una vez que el SDK la llama por el número máximo de reintentos, se crea un mensaje en la cola de blobs dudosos y la función **LogPoisonBlob** procesa ese mensaje.
 
 		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
 		    [Blob("textblobs/output-{name}")] out string output)
@@ -173,7 +173,7 @@ En el siguiente ejemplo de código, la función `CopyBlob` tiene un código que 
 		    throw new Exception("Exception for testing poison blob handling");
 		    output = input.ReadToEnd();
 		}
-		
+
 		public static void LogPoisonBlob(
 		[QueueTrigger("webjobs-blobtrigger-poison")] PoisonBlobMessage message,
 		    TextWriter logger)
@@ -185,7 +185,7 @@ En el siguiente ejemplo de código, la función `CopyBlob` tiene un código que 
 		    logger.WriteLine("ETag: {0}", message.ETag);
 		}
 
-El SDK deserializa automáticamente el mensaje JSON. Esta es la clase `PoisonBlobMessage`:
+El SDK deserializa automáticamente el mensaje JSON. Esta es la clase **PoisonBlobMessage**:
 
 		public class PoisonBlobMessage
 		{
@@ -198,15 +198,15 @@ El SDK deserializa automáticamente el mensaje JSON. Esta es la clase `PoisonBlo
 
 ### Algoritmo de sondeo de blobs
 
-El SDK de WebJobs examina todos los contenedores especificados por los atributos `BlobTrigger` en el inicio de la aplicación. En una cuenta de almacenamiento de gran tamaño, este análisis puede demorar un tiempo, por lo que podría pasar mucho tiempo antes de que se encuentren blobs nuevos y que se ejecuten las funciones `BlobTrigger`.
+El SDK de WebJobs examina todos los contenedores especificados por los atributos **BlobTrigger** en el inicio de la aplicación. En una cuenta de almacenamiento de gran tamaño, este análisis puede demorar un tiempo, por lo que podría pasar mucho tiempo antes de que se encuentren blobs nuevos y que se ejecuten las funciones **BlobTrigger**.
 
-Para detectar blobs nuevos o cambiados después del inicio de la aplicación, el SDK lee de manera periódica de los registros de almacenamiento de blobs. Los registros de blobs se almacenan en búfer y solo se escriben físicamente cada diez minutos aproximadamente, por lo que puede haber un retraso importante una vez que se crea o actualiza un blob antes de que la función `BlobTrigger` correspondiente se ejecute.
+Para detectar blobs nuevos o cambiados después del inicio de la aplicación, el SDK lee de manera periódica de los registros de almacenamiento de blobs. Los registros de blobs se almacenan en búfer y solo se escriben físicamente cada diez minutos aproximadamente, por lo que puede haber un retraso importante una vez que se crea o actualiza un blob antes de que la función **BlobTrigger** correspondiente se ejecute.
 
-Existe una excepción para los blobs que crea mediante el uso del atributo `Blob`. Cuando el SDK de WebJobs crea un blob nuevo, pasa el blob nuevo inmediatamente a cualquier función `BlobTrigger` coincidente. Por tanto, si tiene una cadena de entradas y salidas categorizadas como blob, el SDK puede procesarlas de manera eficaz. Pero si desea baja latencia de ejecución para sus funciones de procesamiento de blobs para blobs que se crean o actualizan mediante otros medios, se recomienda usar `QueueTrigger` en lugar de `BlobTrigger`.
+Existe una excepción para los blobs que crea mediante el uso del atributo **Blob**. Cuando el SDK de WebJobs crea un blob nuevo, pasa el blob nuevo inmediatamente a cualquier función **BlobTrigger** coincidente. Por tanto, si tiene una cadena de entradas y salidas categorizadas como blob, el SDK puede procesarlas de manera eficaz. Pero si desea baja latencia de ejecución para sus funciones de procesamiento de blobs para blobs que se crean o actualizan mediante otros medios, se recomienda usar **QueueTrigger** en lugar de **BlobTrigger**.
 
 ### Recepciones de blobs
 
-El SDK de WebJobs se asegura de que ninguna función `BlobTrigger` se llame más de una vez para el mismo blob nuevo o actualizado. Para hacerlo, mantiene *recepciones de blobs* para determinar si se ha procesado alguna versión de blob determinada.
+El SDK de WebJobs se asegura de que ninguna función **BlobTrigger** se llame más de una vez para el mismo blob nuevo o actualizado. Para hacerlo, mantiene *recepciones de blobs* para determinar si se ha procesado alguna versión de blob determinada.
 
 Las recepciones de blobs se almacenan en un contenedor llamado *azure-webjobs-hosts* en la cuenta de almacenamiento de Azure que especifica la cadena de conexión AzureWebJobsStorage. Una recepción de blobs tiene la información siguiente:
 
@@ -230,13 +230,12 @@ Los temas relacionados tratados en ese artículo incluyen:
 * Utilizar atributos del SDK de WebJobs en el cuerpo de una función
 * Establecer las cadenas de conexión de SDK en el código.
 * Establecer valores para los parámetros del constructor del SDK de WebJobs en el código
-* Configurar `MaxDequeueCount` para el control de blobs dudosos.
+* Configure **MaxDequeueCount** para el control de blobs dudosos.
 * Desencadenar una función manualmente
 * Escribir registros
 
 ## Pasos siguientes
 
 En este artículo se ofrecen ejemplos de código que muestran cómo tratar escenarios comunes para trabajar con blobs de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

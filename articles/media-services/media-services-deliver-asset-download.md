@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Entrega de un recurso mediante descarga
@@ -71,9 +71,18 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 	{
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
+
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
    
 ##Otras referencias 
 
 [contenido por secuencias](media-services-deliver-streaming-content.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

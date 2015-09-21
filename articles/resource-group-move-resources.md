@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Traslado de recursos al nuevo grupo de recursos"
-	description="Use Azure PowerShell o la API de REST para trasladar los recursos a un nuevo grupo de recursos para el Administrador de recursos de Azure."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
+	pageTitle="Traslado de recursos al nuevo grupo de recursos" 
+	description="Use Azure PowerShell o la API de REST para trasladar los recursos a un nuevo grupo de recursos para el Administrador de recursos de Azure." 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tomfitz"/>
 
 # Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
@@ -39,12 +39,13 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 
 - Administración de API
 - Búsqueda de Azure
+- Aplicaciones web de Azure (se aplican algunas [limitaciones](app-service-web/app-service-move-resources.md))
 - Factoría de datos
 - Almacén de claves
 - Mobile Engagement
 - Visión operativa
 - Caché en Redis
-- Aplicaciones web de Azure (se aplican algunas [limitaciones](app-service-web/app-service-move-resources.md))
+- Base de datos SQL
 
 Los servicios que admiten el traslado a un nuevo grupo de recursos, pero no una nueva suscripción son:
 
@@ -101,4 +102,4 @@ En la solicitud, incluya un objeto JSON que define el grupo de recursos de desti
 - [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
 - [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

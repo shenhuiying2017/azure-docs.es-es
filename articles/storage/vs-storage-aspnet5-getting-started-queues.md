@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción al almacenamiento Cola de Azure y los servicios relacionados de Visual Studio"
+	pageTitle="Introducción al almacenamiento de colas y los servicios conectados de Visual Studio (ASP.NET 5) | Microsoft Azure"
 	description="Cómo empezar a usar el almacenamiento en cola de Azure en un proyecto de ASP.NET en Visual Studio"
 	services="storage"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Introducción al almacenamiento Cola de Azure y los servicios relacionados de Visual Studio
+# Introducción al almacenamiento de colas y a los servicios conectados de Visual Studio (ASP.NET 5)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet5-getting-started-queues.md)
@@ -50,7 +50,7 @@ Para comenzar, necesita crear una cola de Azure en la cuenta de almacenamiento. 
 
 Para obtener acceso a las colas en los proyectos de ASP.NET 5, debe incluir los elementos siguientes en los archivos de origen C# que tengan acceso al almacenamiento de colas de Azure.
 
-1. Asegúrese de que las declaraciones de espacio de nombres de la parte superior del archivo C# incluyan estas instrucciones `using`.
+1. Asegúrese de que las declaraciones del espacio de nombres de la parte superior del archivo de C# incluyen estas instrucciones **using**.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -58,17 +58,17 @@ Para obtener acceso a las colas en los proyectos de ASP.NET 5, debe incluir los 
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. Obtenga un objeto `CloudStorageAccount` que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Obtenga un objeto `CloudQueueClient` para hacer referencia a los objetos de cola en la cuenta de almacenamiento.
+3. Obtenga un objeto **CloudQueueClient** para hacer referencia a los objetos de cola en su cuenta de almacenamiento.
 
 	    // Create the table client.
     	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
 
-4. Obtenga un objeto `CloudQueue` para hacer referencia a una cola específica.
+4. Obtenga un objeto **CloudQueue** para hacer referencia a una cola específica.
 
     	// Get a reference to a table named "messageQueue"
 	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
@@ -78,16 +78,16 @@ Para obtener acceso a las colas en los proyectos de ASP.NET 5, debe incluir los 
 
 ###Creación de una cola en código
 
-Para crear la cola de Azure en el código, simplemente agregue una llamada a `CreateIfNotExistsAsync`.
+Para crear la cola de Azure en el código, solo tiene que agregar una llamada a **CreateIfNotExistsAsync**.
 
 	// Create the CloudTable if it does not exist.
 	await messageQueue.CreateIfNotExistsAsync();
 
 ##un mensaje a una cola
 
-Para insertar un mensaje en una cola existente, cree un nuevo objeto `CloudQueueMessage` y luego llame al método `AddMessageAsync`.
+Para insertar un mensaje en una cola existente, cree un nuevo objeto **CloudQueueMessage** y luego llame al método **AddMessageAsync**.
 
-Se puede crear un objeto `CloudQueueMessage` a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
+Se puede crear un objeto **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
 
 Este es un ejemplo que inserta el mensaje "Hello, World".
 
@@ -99,7 +99,7 @@ Este es un ejemplo que inserta el mensaje "Hello, World".
 
 ##Leer un mensaje de una cola
 
-Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método `PeekMessageAsync`.
+Puede inspeccionar el mensaje situado al principio de una cola sin quitarlo de ella, mediante una llamada al método **PeekMessageAsync**.
 
 	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -109,9 +109,9 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
 
 ##Leer y eliminar un mensaje de una cola
 
-Su código puede quitar un mensaje de una cola en dos pasos. 1. Llame a `GetMessageAsync` para obtener el siguiente mensaje en una cola. Un mensaje devuelto desde `GetMessageAsync` se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. 2. Para terminar de quitar el mensaje de la cola, llame a `DeleteMessageAsync`.
+Su código puede quitar un mensaje de una cola en dos pasos. 1. Llame a **GetMessageAsync** para obtener el mensaje siguiente de una cola. Un mensaje devuelto por **GetMessageAsync** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. 2. Para terminar de quitar el mensaje de la cola, llame a **DeleteMessageAsync**.
 
-Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El siguiente código llama a `DeleteMessageAsync` justo después de que se procese el mensaje.
+Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a **DeleteMessageAsync** justo después de procesar el mensaje.
 
 	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -125,7 +125,7 @@ Este proceso extracción de un mensaje que consta de dos pasos garantiza que si 
 
 ## las opciones adicionales de los mensajes quitados de la cola
 
-Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código usa el método `GetMessages` para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle `foreach`. También establece el tiempo de espera de la invisibilidad en 5 minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que, después de pasar los 5 minutos desde la llamada a `GetMessages`, todos los mensajes que no se han eliminado volverán a estar visibles.
+Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **GetMessages** para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **foreach**. También establece el tiempo de espera de la invisibilidad en 5 minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que, después de pasar los 5 minutos desde la llamada a **GetMessages**, todos los mensajes que no se han eliminado volverán a estar visibles.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -137,7 +137,7 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
 
 ## la longitud de la cola
 
-Puede obtener una estimación del número de mensajes existentes en una cola. El método `FetchAttributes` solicita al servicio Cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad `ApproximateMethodCount` devuelve el último valor recuperado por el método `FetchAttributes`, sin llamar al servicio Cola.
+Puede obtener una estimación del número de mensajes existentes en una cola. El método **FetchAttributes** solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad **ApproximateMethodCount** devuelve el último valor recuperado por el método **FetchAttributes**, sin llamar al servicio de cola.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -172,7 +172,7 @@ En este ejemplo se muestra cómo usar el patrón Async-Await con API de cola com
     Console.WriteLine("Deleted message");
 ## Eliminación de una cola
 
-Para eliminar una cola y todos los mensajes que contiene, llame al método `Delete` en el objeto de cola.
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **Delete** en el objeto de cola.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code".
 
@@ -185,4 +185,4 @@ Para eliminar una cola y todos los mensajes que contiene, llame al método `Dele
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

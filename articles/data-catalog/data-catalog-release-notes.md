@@ -1,38 +1,32 @@
 <properties
    pageTitle="Notas de la versión del Catálogo de datos de Azure"
-	description="Notas de la vista previa pública de la versión del 28 de agosto de 2015 del Catálogo de datos de Azure."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Notas de la vista previa pública de la versión del 28 de agosto de 2015 del Catálogo de datos de Azure."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/28/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/04/2015"
+   ms.author="maroche"/>
 
 # Notas de la versión del Catálogo de datos de Azure
 
-## Notas del 28 de agosto de 2015 del Catálogo de datos de Azure
+## Notas de la versión del 4 de septiembre de 2015 del Catálogo de datos de Azure
 
-### Perfil de datos que faltan para algunos activos de datos registrados
+### Es posible que falte el perfil de datos de algunos activos de datos registrados.
 
-Al registrar los orígenes de datos con la opción generación de perfiles de datos seleccionada en la herramienta de registro de origen de datos, la información del perfil de datos no puede incluirse en los siguientes escenarios:
+Cuando se registran orígenes de datos con la opción de generación de perfiles de datos seleccionada en la herramienta de registro de orígenes de datos, es posible que la información del perfil de datos no se incluya al registrar tablas y vistas de Oracle con caracteres multibyte en nombres de columnas.
 
-* Tablas de la Base de datos SQL de Azure
-* Vista y tablas de SQL Server donde hay varios objetos con el mismo nombre en distintos esquemas
-* Vistas y tablas de SQL Server con nombres de columna con más de 118 caracteres
-* Vistas y tablas de Oracle con nombres de columna con más de 20 caracteres
-* Vistas y tablas de Oracle con espacios o caracteres de múltiples bits en nombres de columna
+Estas restricciones se deben a un problema conocido de la versión del 4 de septiembre que se solucionará en una futura actualización para el Catálogo de datos de Azure.
 
-Estas restricciones se deben a un problema conocido de la versión de 28 de agosto y se solucionará en una futura actualización al catálogo de datos de Azure.
-
-## Notas del 13 de julio de 2015 del Catálogo de datos de Azure
+## Notas de la versión del 13 de julio de 2015 del Catálogo de datos de Azure
 
 ### Registro y conexión a Oracle Database
 
@@ -49,9 +43,9 @@ La compatibilidad con orígenes de datos de SQL Server Reporting Services (SSRS)
 
 ### Apertura de recursos de datos en Excel
 
-Al abrir recursos de datos en Microsoft Excel desde el portal del Catálogo de datos de Azure, es posible que a los usuarios se les muestre un cuadro de diálogo de **Aviso de seguridad de Microsoft Excel**. Este es el comportamiento estándar esperado y los usuarios pueden seleccionar **Habilitar** para continuar.
+Al abrir recursos de datos en Microsoft Excel desde el portal Catálogo de datos de Azure, es posible que a los usuarios se les presente un cuadro de diálogo **Aviso de seguridad de Microsoft Excel**. Se trata del comportamiento estándar esperado y los usuarios pueden seleccionar **Habilitar** para continuar.
 
-Para obtener más información, consulte [Habilitar o deshabilitar las alertas de seguridad acerca de vínculos y archivos de sitios web sospechosos](https://support.office.com/es-ES/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Para obtener más información, vea [Habilitación o deshabilitación de alertas de seguridad sobre vínculos y archivos de sitios web sospechosos](https://support.office.com/es-ES/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ### Faltan las columnas BLOB y UDT en las vistas previas
 
@@ -63,11 +57,11 @@ Es posible que los usuarios se encuentren en una situación en la que puedan ini
 
 Hay dos causas posibles para este comportamiento del problema:
 
-**Causa 1: configuración de servicios de federación de Active Directory** La herramienta de registro de origen de datos usa la autenticación de formularios para validar los inicios de sesión de usuario en Active Directory. Para iniciar sesión correctamente, la autenticación de formularios debe ser habilitada en la directiva de autenticación global por un administrador de Active Directory.
+**Causa 1: configuración de Servicios de federación de Active Directory** La herramienta de registro de orígenes de datos usa la autenticación de formularios para validar los inicios de sesión de usuario en Active Directory. Para iniciar sesión correctamente, la autenticación de formularios debe ser habilitada en la directiva de autenticación global por un administrador de Active Directory.
 
 En algunas situaciones, es posible que este comportamiento incorrecto ocurra solamente cuando el usuario está en la red de la compañía o solo cuando el usuario se conecta desde fuera de la red de empresa. La directiva de autenticación global permite habilitar los métodos de autenticación de forma independiente para las conexiones de extranet y de intranet. Es posible que se produzcan errores de inicio de sesión si no está habilitada la autenticación de formularios para la red desde la que se conecta el usuario.
 
-Para obtener más información, consulte [Configuración de la autenticación basada en formularios de intranet para dispositivos que no son compatibles con WIA](https://technet.microsoft.com/library/dn727110.aspx).
+Para obtener más información, vea [Configuración de la autenticación basada en formularios de intranet para dispositivos que no son compatibles con WIA](https://technet.microsoft.com/library/dn727110.aspx).
 
 **Causa 2: configuración del proxy de red** Si la red corporativa usa un servidor proxy, es posible que la herramienta de registro no pueda conectarse a Azure Active Directory a través del proxy. Los usuarios pueden asegurarse de que la herramienta de registro se conecta mediante la edición del archivo de configuración de la herramienta, agregando esta sección al archivo:
 
@@ -83,4 +77,4 @@ Para obtener más información, consulte [Configuración de la autenticación ba
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

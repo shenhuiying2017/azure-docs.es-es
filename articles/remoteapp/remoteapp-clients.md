@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Acceso a sus aplicaciones"
+    pageTitle="Acceso a sus aplicaciones desde cualquier dispositivo | Microsoft Azure"
     description="Obtenga información sobre qué clientes son compatibles con Azure RemoteApp y cómo tener acceso a sus aplicaciones."
     services="remoteapp"
 	documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/09/2015"
     ms.author="elizapo" />
 
 
@@ -41,10 +41,11 @@ Puede acceder a RemoteApp mediante los siguientes pasos si el dispositivo está 
 
  Información acerca de los clientes ligeros. Se admiten los siguientes clientes ligeros de Windows Embedded:
 
- - Windows Embedded Standard 7 con Service Pack 1
- - Windows Embedded POSReady7
- - Windows Embedded Thin PC
- - Windows Embedded 8.1 Industry
+- Windows Embedded Standard 7
+- Windows Embedded 8 Standard
+- Windows Embedded 8.1 Industry Pro
+- Windows 10 IoT Enterprise
+
 
 ## Descarga del cliente
 
@@ -207,4 +208,4 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 	![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

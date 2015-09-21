@@ -49,7 +49,7 @@ Los documentos son los datos detallados que devuelve el motor de búsqueda en lo
 
 ##Véalo en acción
 
-Vea nuestros vídeos para conocer distintos escenarios y capacidades. Visite [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](https://msdn.microsoft.com/library/azure/dn818681.aspx) para obtener vínculos a contenido de vídeo.
+Vea nuestros vídeos para conocer distintos escenarios y capacidades. Visite [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](search-video-demo-tutorial-list.md) para obtener vínculos a contenido de vídeo.
 
 ##Exploración en profundidad de las características
 
@@ -69,7 +69,7 @@ El servicio Búsqueda de Azure extiende automáticamente los índices y los docu
 
 Las particiones y las réplicas son recursos de todo el servicio, y todos los índices se ejecutan en todas las réplicas. Si se necesita aislamiento de índice o si existen requisitos de dispersión geográfica de servicios y recursos en distintos centros de datos, se puede crear un segundo servicio.
 
-Hay límites en el almacenamiento y el número de índices y documentos que se cargan en el servicio. El límite real será lo que suceda primero: se agota el almacenamiento físico o se alcanza el límite máximo de los recuentos de documentos e índices. Consulte [Límites y restricciones (Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798934.aspx) para obtener detalles.
+Hay límites en el almacenamiento y el número de índices y documentos que se cargan en el servicio. El límite real será lo que suceda primero: se agota el almacenamiento físico o se alcanza el límite máximo de los recuentos de documentos e índices. Vea [Límites y restricciones (Búsqueda de Azure)](search-limits-quotas-capacity.md) para obtener detalles.
 
 ###Capacidad de programación
 
@@ -85,7 +85,7 @@ La autenticación desde la aplicación host en Búsqueda de Azure se realiza med
 
 ###Índices y documentos
 
-Es posible tener varios índices (consulte [Límites y restricciones (Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798934.aspx) para límites basados en niveles de precios). Tenga en cuenta que ya no se ofrece compatibilidad para la combinación de índices. Una solicitud de búsqueda puede especificar un índice.
+Es posible tener varios índices (vea [Límites y restricciones (Búsqueda de Azure)](search-limits-quotas-capacity.md) para obtener información sobre los límites basados en niveles de precios). Tenga en cuenta que ya no se ofrece compatibilidad para la combinación de índices. Una solicitud de búsqueda puede especificar un índice.
 
 Los **documentos** contienen campos y atributos asociados. Los campos incluyen texto donde se puede buscar, valores que se utilizan principalmente (o incluso exclusivamente) en filtros y perfiles de puntuación, y muy probablemente: direcciones URL o punteros a contenido, por ejemplo, imágenes, de otros almacenamientos de datos. Muchas aplicaciones de búsqueda usan varias formas de almacenamiento. Se pueden almacenar imágenes o vídeos de manera más económica en otros medios de almacenamiento, como el Almacenamiento de blobs de Azure.
 
@@ -129,6 +129,6 @@ Visite [Creación de un servicio de Búsqueda de Azure](search-create-service-po
 
 También puede consultar estos tutoriales:
 
-[Uso de Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md) [Introducción a Búsqueda de Azure](search-get-started-dotnet.md) [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](https://msdn.microsoft.com/library/azure/dn818681.aspx)
+[Uso de Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md) [Introducción a Búsqueda de Azure](search-get-started-dotnet.md) [Búsqueda de Azure: ejemplos, tutoriales y demostraciones en vídeo](search-video-demo-tutorial-list.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

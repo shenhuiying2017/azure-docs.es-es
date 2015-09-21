@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Recibir notificaciones de alerta
@@ -39,6 +39,8 @@ Puede usar la [API de REST](https://msdn.microsoft.com/library/azure/dn931945.as
 5. Cuando seleccione **Métricas**, elegirá una condición y el valor de umbral para la métrica. Es el período de tiempo que Azure usa para supervisar y trazar actividades de alerta. ![Condición y umbral](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. También puede elegir **Eventos** y obtener una notificación cuando se produzca un evento determinado. ![Eventos](./media/insights-receive-alert-notifications/Insights_Events.png)
+    
+>[AZURE.NOTE]En este momento los eventos solo se admiten para las aplicaciones web.
 
 7. Por último, puede enviar una notificación de correo electrónico a los administradores responsables.
 
@@ -63,4 +65,4 @@ Por supuesto, puede editar esta regla de alerta y elegir **Deshabilitar** o **Ha
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

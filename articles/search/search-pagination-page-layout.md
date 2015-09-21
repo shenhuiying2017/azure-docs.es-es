@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 #Cómo paginar los resultados de la búsqueda en Búsqueda de Azure#
@@ -103,7 +103,7 @@ Consulte [Buscar documentos (API de Búsqueda de Azure)](http://msdn.microsoft.c
 - [API de REST del Servicio Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 - [Operaciones de índice](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 - [Operaciones del documento](http://msdn.microsoft.com/library/azure/dn800962.aspx)
-- [Vídeo y tutoriales acerca de Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn818681.aspx)
+- [Vídeo y tutoriales acerca de Búsqueda de Azure](search-video-demo-tutorial-list.md)
 - [Navegación por facetas en Búsqueda de Azure](search-faceted-navigation.md)
 
 
@@ -114,4 +114,4 @@ Consulte [Buscar documentos (API de Búsqueda de Azure)](http://msdn.microsoft.c
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

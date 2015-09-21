@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # Uso de Factoría de datos de Azure con Almacenamiento de datos SQL
@@ -43,7 +43,7 @@ Para obtener información general sobre la integración, consulte [Información 
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
 [información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop/
 [Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integration/
 
@@ -51,6 +51,6 @@ Para obtener información general sobre la integración, consulte [Información 
 
 <!--Other Web references-->
 [documentación sobre Factoría de datos de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
-[Copia de datos con Factoría de datos de Azure]: https://azure.microsoft.com/es-es/documentation/articles/data-factory-data-movement-activities/
+[Copia de datos con Factoría de datos de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

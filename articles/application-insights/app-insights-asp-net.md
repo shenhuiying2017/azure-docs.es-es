@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
 
 
@@ -154,17 +154,19 @@ Para una aplicación importante, es aconsejable enviar datos de telemetría de d
 
 
 
-## Adición de seguimiento de dependencia
+## Adición de contadores de rendimiento del sistema y seguimiento de dependencia
 
 Las [métricas de dependencia](app-insights-dependencies.md) pueden ser muy valiosas a la hora de ayudarle a diagnosticar problemas de rendimiento. Miden las llamadas desde su aplicación a bases de datos, API de REST y otros componentes externos.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-#### Si la aplicación se ejecuta en el servidor IIS
+Este paso también permite [generar informes de contadores de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters) como ocupación de red, de memoria o de CPU.
+
+#### Si la aplicación se ejecuta en su servidor IIS
 
 Inicie sesión en el servidor con derechos de administrador e instale [Monitor de estado de Application Insights](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(También puede usar el Monitor de estado para [instrumentar una aplicación que ya se está ejecutando](app-insights-monitor-performance-live-website-now.md), incluso si no se ha compilado con el SDK).
+(También puede usar el Monitor de estado para [instrumentar una aplicación que ya está en ejecución](app-insights-monitor-performance-live-website-now.md), aunque no se compilase con el SDK).
 
 #### Si la aplicación es una aplicación web de Azure
 
@@ -172,11 +174,15 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 ![En la aplicación web, Configuración, Extensiones, Agregar, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-(La extensión solo ayuda a una aplicación que se ha compilado con el SDK. A diferencia de Monitor de estado, no puede instrumentar una aplicación existente.)
+(La extensión solo ayuda a una aplicación que se ha compilado con el SDK. A diferencia del Monitor de estado, no puede instrumentar una aplicación existente).
+
+#### Para supervisar roles de servicios en la nube de Azure
+
+Existe un [procedimiento manual para agregar el monitor de estado](app-insights-cloudservices.md).
 
 ## Pruebas web de disponibilidad
 
-[Configure las pruebas web][availability] para probar desde el exterior que la aplicación está activa y responde.
+[Configure pruebas web][availability] para comprobar desde el exterior que la aplicación está activa y responde.
 
 
 ![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
@@ -220,4 +226,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

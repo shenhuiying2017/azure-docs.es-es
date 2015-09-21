@@ -318,7 +318,7 @@ Usando el servicio de solo lectura proporcionado en el sitio [Try Azure App Serv
 
 Para llevar a cabo todas estas tareas, necesitará una suscripción de Azure para poder crear y rellenar los índices de un servicio. Para obtener más información acerca de cómo suscribirse para una prueba gratuita, visite [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Para obtener más información acerca de Búsqueda de Azure, visite nuestra [página de documentación](http://azure.microsoft.com/documentation/services/search/) en [http://azure.microsoft.com](http://azure.microsoft.com) o consulte los [ejemplos y vídeos](https://msdn.microsoft.com/library/dn818681.aspx) que exploran la funcionalidad completa de Búsqueda de Azure.
+Para obtener más información sobre Búsqueda de Azure, visite nuestra [página de documentación](http://azure.microsoft.com/documentation/services/search/) en [http://azure.microsoft.com](http://azure.microsoft.com) o vea los [ejemplos y vídeos](search-video-demo-tutorial-list.md) que exploran la gama completa de funciones de Azure.
 
 <a name="Schema"></a>
 ##Acerca del esquema
@@ -529,4 +529,4 @@ La siguiente captura de pantalla muestra el esquema usado para crear el índice 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -172,10 +172,10 @@ En caso de que la aplicación se bloquee después de procesar el mensaje y antes
 
 ## Pasos siguientes
 
-Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, consulte el tema [Colas, temas y suscripciones][] de MSDN para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas de bus de servicio, vea [Colas, temas y suscripciones][] para obtener más información.
 
   [SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
-  [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/es-es/library/azure/hh694271.aspx
+  [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/es-ES/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -186,7 +186,7 @@ Ahora que ya conoce los aspectos básicos de las colas del Bus de servicio, cons
   [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
   [Next Steps]: #bkmk_NextSteps
   [Azure Management Portal]: http://manage.windowsazure.com/
-  [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

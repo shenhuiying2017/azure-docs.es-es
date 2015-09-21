@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Integración de las identidades locales con Azure Active Directory."
-	description="Aquí se describe qué es Azure AD Connect y por qué debería usarlo."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Integración de las identidades locales con Azure Active Directory." 
+	description="Aquí se describe qué es Azure AD Connect y por qué debería usarlo." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="09/09/2015" 
 	ms.author="billmath"/>
 
 # Integración de las identidades locales con Azure Active Directory
@@ -102,7 +102,7 @@ Antes de instalar Azure AD Connect con Configuración rápida, hay algunas cosas
 - Una cuenta de administrador global de Azure AD para el inquilino de Azure AD con el que desea realizar la integración
 - Azure AD Connect debe instalarse en Windows Server 2008 o en una versión superior. Este servidor puede ser un controlador de dominio o un servidor miembro.
 - El nivel de bosque y la versión del esquema de AD debe ser Windows Server 2003 o una versión posterior. Los controladores de dominio pueden ejecutar cualquier versión siempre que se cumplan los requisitos de nivel de bosque y esquema.
-- Si se va a implementar Servicios de federación de Active Directory, los servidores en los que se va a instalar AD FS deben ser Windows Server 2012 o versiones posteriores.
+- Si se implementa Servicios de federación de Active Directory, los servidores en los que se instale AD FS deben ser Windows Server 2012 R2 o versiones posteriores.
 - Azure AD Connect requiere una base de datos de SQL Server para almacenar datos de identidad. De forma predeterminada se instala SQL Server 2012 Express LocalDB (una versión ligera de SQL Server Express) y se crea la cuenta de servicio para el servicio en el equipo local. SQL Server Express tiene un límite de tamaño de 10 GB que le permite que administre aproximadamente 100.000 objetos.
 - Si tiene que administrar un volumen elevado de objetos de directorio, es preciso que el proceso de instalación apunte a otra versión de SQL Server. Azure AD Connect admite todas las versiones de Microsoft SQL Server de SQL Server 2008 (con Service Pack 4) a SQL Server 2014.
 - Una cuenta de administrador de empresa para su Active Directory local
@@ -273,4 +273,4 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

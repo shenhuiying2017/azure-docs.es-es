@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Consulte Datos de Application Insights en Power BI"
-	description="Use Power BI para supervisar el rendimiento y el uso de la aplicación."
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="Consulte Datos de Application Insights en Power BI" 
+	description="Use Power BI para supervisar el rendimiento y el uso de la aplicación." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Vistas de datos de Application Insights en Power BI
@@ -24,6 +24,9 @@
 En este artículo, le mostraremos cómo exportar datos de Application Insights y utilizar el Análisis de transmisiones para transmitir los datos a Power BI. El [Análisis de transmisiones](http://azure.microsoft.com/services/stream-analytics/) es un servicio de Azure que vamos a usar como un adaptador.
 
 ![Ejemplo de vista en Power BI de los datos de uso de Application Insights](./media/app-insights-export-power-bi/020.png)
+
+
+> [AZURE.NOTE]Necesita una profesional o educativa (cuenta organizativa de MSDN) para enviar datos de análisis de secuencia a Power BI.
 
 ## Vídeo
 
@@ -140,13 +143,15 @@ Confirme el formato de serialización:
 
 Cierre el asistente y espere a que el programa de instalación finalice.
 
+> [AZURE.TIP]Use el comando de ejemplo para descargar algunos datos. Guardarlo como un ejemplo de prueba para depurar la consulta.
+
 ## Establecimiento de la salida
 
 Ahora seleccione el trabajo y establezca la salida.
 
 ![Seleccione el canal nuevo, haga clic en Salidas, Agregar, Power BI](./media/app-insights-export-power-bi/160.png)
 
-Autorice el acceso del Análisis de transmisiones al recurso de Power BI y, a continuación, cree un nombre para la salida y para la tabla y el conjunto de datos de Power BI de destino.
+Proporcione su **cuenta profesional o educativa** para autorizar al análisis de secuencia para que tenga acceso a su recurso de Power BI. Luego invente un nombre para la salida y para la tabla y el conjunto de datos de Power BI de destino.
 
 ![Invente tres nombres](./media/app-insights-export-power-bi/170.png)
 
@@ -155,6 +160,11 @@ Autorice el acceso del Análisis de transmisiones al recurso de Power BI y, a co
 La consulta controla la traducción de la entrada en la salida.
 
 ![Seleccione el trabajo y haga clic en Consultar. Pegue el siguiente ejemplo.](./media/app-insights-export-power-bi/180.png)
+
+
+Use la función de prueba para comprobar que obtiene la salida correcta. Proporciónele los datos de ejemplo que tomó de la página de entradas.
+
+#### Consulta para mostrar recuentos de eventos
 
 Pegue esta consulta:
 
@@ -173,7 +183,29 @@ Pegue esta consulta:
 
 * export-input es el alias que damos a la entrada de transmisiones
 * pbi-output es el alias que hemos definido para la salida
-* Usamos GetElements porque el nombre de evento está en una matriz JSON anidada. A continuación, la opción Select selecciona el nombre de evento, junto con el recuento del número de instancias con dicho nombre en el período de tiempo. La cláusula Group By agrupa los elementos en períodos de tiempo de 1 minuto.
+* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque el nombre de evento está en una matriz JSON anidada. A continuación, la opción Select selecciona el nombre de evento, junto con el recuento del número de instancias con dicho nombre en el período de tiempo. La cláusula [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa los elementos en períodos de tiempo de 1 minuto.
+
+
+#### Consulta para mostrar valores de métrica
+
+
+```SQL
+
+    SELECT
+      A.context.data.eventtime,
+      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
+    INTO
+      [pbi-output]
+    FROM
+      [export-input] A
+    OUTER APPLY GetElements(A.context.custom.metrics) as flat
+    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+
+``` 
+
+* Esta consulta explora la telemetría de métricas para obtener la hora del evento y el valor de métrica. Los valores de métrica están dentro de una matriz, por eso usamos el patrón OUTER APPLY GetElements para extraer las filas. "myMetric" es el nombre de la métrica en este caso. 
+
+
 
 ## Ejecución del trabajo
 
@@ -185,7 +217,7 @@ Espere hasta que el trabajo esté en ejecución.
 
 ## Visualización de resultados en Power BI
 
-Abra Power BI y seleccione el conjunto de datos y la tabla que ha definido como la salida del trabajo del Análisis de transmisiones.
+Abra Power BI con su cuenta profesional o educativa y seleccione el conjunto de datos y la tabla que ha definido como la salida del trabajo del Análisis de transmisiones.
 
 ![En Power BI, seleccione el conjunto de datos y los campos.](./media/app-insights-export-power-bi/200.png)
 
@@ -207,4 +239,4 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

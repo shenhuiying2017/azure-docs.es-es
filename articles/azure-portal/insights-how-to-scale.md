@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Escalación del recuento de instancias de forma manual o automática
@@ -137,4 +137,4 @@ Sin embargo, es posible que desee una escalación más agresiva en el día, o en
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

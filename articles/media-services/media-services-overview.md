@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Información general y escenarios comunes de Servicios multimedia de Azure"
-	description="En este tema se proporciona información general de Servicios multimedia de Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Información general y escenarios comunes de Servicios multimedia de Azure" 
+	description="En este tema se proporciona información general de Servicios multimedia de Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Información general y escenarios comunes de Servicios multimedia de Azure
@@ -36,6 +36,14 @@ Para compilar soluciones de Servicios multimedia, puede usar:
 - Herramientas existentes: [Portal de administración de Azure](http://manage.windowsazure.com/) o [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Requisitos previos
 
 Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
@@ -45,14 +53,14 @@ Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
 3. (Opcional) Configurar el entorno de desarrollo. Elija .NET o API de REST para el entorno de desarrollo. Para obtener más información, consulte [Configuración del entorno](media-services-dotnet-how-to-use.md). 
 
 	Además, aprenda a conectarse mediante programación [Conexión](media-services-dotnet-connect_programmatically.md).
-4. (Recomendado) Asignar una o más unidades de escalado. Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Para obtener más información, consulte [Administración de extremos de streaming](media-services-manage-origins.md).
+4. (Recomendado) Asignar una o más unidades de escalado. Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Para obtener más información, vea [Administración de extremos de streaming](media-services-manage-origins.md).
 
 ##Conceptos
 
-Para obtener más información, consulte [Conceptos](media-services-concepts.md).
+Para obtener más información, vea [Conceptos](media-services-concepts.md).
 
 
-##<a id="vod_scenarios"></a>Entrega de multimedia a petición con Servicios multimedia de Azure: escenarios comunes y tareas
+##<a id="vod_scenarios"></a>Entrega de contenido multimedia a petición con Servicios multimedia de Azure: escenarios comunes y tareas
 
 En esta sección se describe escenarios comunes y se proporcionan vínculos a temas importantes. En el diagrama siguiente se muestran las partes principales de la plataforma de Servicios multimedia que intervienen en la entrega de contenido a petición.
 
@@ -140,11 +148,11 @@ Cuando se trabaja con streaming en vivo, normalmente participan los siguientes c
 	- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución. 
 	
 		
-**Servicios multimedia de Microsoft Azure** (AMS) permite introducir, codificar, mostrar una vista previa, almacenar y entregar el contenido de streaming en vivo.
+Con **Servicios multimedia de Microsoft Azure** (AMS) puede introducir, codificar, almacenar y entregar el contenido de streaming en vivo, así como obtener una vista previa de él.
 
-Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta calidad a diversos dispositivos en condiciones de red diferentes. Para abordar la calidad y las condiciones de la red, use codificadores en directo para codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa). Para abordar el streaming en diferentes dispositivos, use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Servicios multimedia para volver a empaquetar dinámicamente su secuencia para distintos protocolos. Los Servicios multimedia admiten la entrega de las siguientes tecnologías de transmisión de velocidad de bits adaptativa: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
+Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta calidad a diversos dispositivos en condiciones de red diferentes. Para abordar la calidad y las condiciones de la red, use codificadores en directo para codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa). Para abordar el streaming en diferentes dispositivos, use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Servicios multimedia para volver a empaquetar dinámicamente las secuencias para distintos protocolos. Los Servicios multimedia admiten la entrega de las siguientes tecnologías de transmisión de velocidad de bits adaptativa: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
 
-En Servicios multimedia de Microsoft Azure, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la introducción, el formato, DVR, la seguridad, la escalabilidad y la redundancia.
+En Servicios multimedia de Azure, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la introducción, el formato, la grabadora de vídeo digital (DVR), la seguridad, la escalabilidad y la redundancia.
 
 Un **canal** representa una canalización para procesar contenido de streaming en vivo. Actualmente, un canal puede recibir secuencias de entrada en directo de la siguiente manera:
 
@@ -162,7 +170,7 @@ El diagrama siguiente muestra las partes principales de la plataforma AMS que in
 
 ![Flujo de trabajo activo][live-overview1]
 
-Para obtener más información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
+Para obtener más información, vea [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ###Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
@@ -172,7 +180,7 @@ En el diagrama siguiente se muestran las partes principales de la plataforma AMS
 
 ![Flujo de trabajo activo][live-overview2]
 
-Para obtener más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-manage-channels-overview.md).
+Para obtener más información, vea [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-manage-channels-overview.md).
 
 ##Consumo de contenido
 
@@ -209,9 +217,7 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 - Para la protección de contenido, garantizamos que procesaremos correctamente las solicitudes clave como mínimo el 99,9% del tiempo.
 - Para el indizador, atenderemos correctamente las solicitudes de tarea de indizador procesadas con una unidad reservada de codificación el 99,9% del tiempo.
 
-	Para obtener más información, consulte [SLA de Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
-
-
+	Para obtener más información, vea [Contratos de nivel de servicio de Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -220,4 +226,4 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Administración de aplicaciones de API"
-	description="Aprenda a administrar aplicaciones de API del Servicio de aplicaciones de Azure mediante el portal de Azure y el Explorador de servidores de Visual Studio."
-	services="app-service\api"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Administración de aplicaciones de API" 
+	description="Aprenda a administrar aplicaciones de API del Servicio de aplicaciones de Azure mediante el portal de Azure y el Explorador de servidores de Visual Studio." 
+	services="app-service\api" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/17/2015"
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Administración de aplicaciones de API en el Servicio de aplicaciones de Azure
@@ -134,4 +134,4 @@ En este artículo, se muestra cómo usar el portal de Azure para realizar tareas
 
 Para obtener información acerca de cómo administrar aplicaciones de API mediante la línea de comandos, consulte los artículos de la sección **Automatizar** del menú que aparece en el lado izquierdo del artículo (en las ventanas del explorador anchas) o en la parte superior del artículo (en las ventanas del explorador estrechas).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

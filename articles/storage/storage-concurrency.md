@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Administración de la simultaneidad en Almacenamiento de Microsoft Azure
@@ -273,4 +273,4 @@ Para obtener más información acerca de Almacenamiento de Azure, consulte:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

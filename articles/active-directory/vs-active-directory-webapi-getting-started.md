@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="" 
-	description="Información sobre cómo empezar con el Asistente de Active Directory (proyectos Web API) de Azure" 
-	services="active-directory" 
+	pageTitle="Introducción a Azure Active Directory y servicios conectados de Visual Studio (proyectos de WebApi) |Microsoft Azure" 
+	description="Cómo empezar a usar Azure Active Directory en los proyectos de WebApi después de crear un Azure AD usando los servicios conectados de Visual Studio o de conectarse a él" 
+    services="active-directory"
 	documentationCenter="" 
 	authors="patshea123" 
 	manager="douge" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea123"/>
 
-# Introducción a Azure Active Directory (proyectos Web API)
+# Introducción a Azure Active Directory y servicios conectados de Visual Studio (proyectos de WebApi)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
@@ -29,4 +29,4 @@ Todos los controladores de su proyecto cuentan ahora con el atributo **Authorize
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

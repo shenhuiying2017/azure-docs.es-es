@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -621,7 +621,7 @@ El ejemplo siguiente muestra cómo programar un anuncio VAST de enlace en tiempo
         [self logFrameworkError];
     }
          
-   El ejemplo siguiente muestra cómo programar un anuncio VAST de enlace anticipado. //Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"\]\]) { [self logFrameworkError\]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
+   El ejemplo siguiente muestra cómo programar un anuncio VAST de enlace anticipado. //Example:4 Schedule an early binding VAST ad //Download the VAST file if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) { [self logFrameworkError]; } else { adLinearTime.startTime = 7; adLinearTime.duration = 0;
         
 		// Create AdInfo instance
 	    AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
@@ -796,9 +796,18 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 	{
 	    [self logFrameworkError];
 	}
+
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 ##Otras referencias
 
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Creación de API en Administración de API de Azure
@@ -96,4 +96,4 @@ Una vez creada una API y definida la configuración, los pasos siguientes permit
 [Cómo asegurar servicios back-end con la autenticación mutua de certificados en Administración de API de Azure]: api-management-howto-mutual-certificates.md
 [Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="mwasson"/>
 
 
@@ -24,18 +24,15 @@ Se puede implementar una aplicación en paquete en el entorno de ensayo de Azure
 
 > [AZURE.NOTE]Los pasos descritos en este artículo solo se aplican a las aplicaciones Node hospedadas como un servicio en la nube de Azure.
 
-Esta tarea incluye los siguientes pasos:
-
--   [Paso 1: realizar el ensayo de una aplicación]
--   [Paso 2: implementar una aplicación en producción mediante el intercambio de VIP]
-
 ## Paso 1: realizar el ensayo de una aplicación
 
-Esta tarea trata cómo realizar el ensayo de una aplicación con **PowerShell de Microsoft Azure**.
+En esta tarea se aborda cómo realizar el ensayo de una aplicación con **Microsoft Azure PowerShell**.
 
 1.  Para publicar un servicio, simplemente pase el parámetro **-Slot** al cmdlet **Publish-AzureServiceProject**.
 
-    **Publish-AzureServiceProject -Slot staging**
+    ```powershell
+    Publish-AzureServiceProject -Slot staging
+    ```
 
 2.  Inicie sesión en el [Portal de administración de Azure] y seleccione **Servicios en la nube**. Una vez que se crea el servicio en la nube y que el estado de la columna **Ensayo** se actualiza a **En ejecución**, haga clic en el nombre del servicio.
 
@@ -50,8 +47,6 @@ Esta tarea trata cómo realizar el ensayo de una aplicación con **PowerShell de
     ![URL del sitio][cloud-service-staging-url]
 
 Ahora puede comprobar que la aplicación funciona correctamente en el entorno de ensayo mediante la utilización de la URL del sitio de ensayo.
-
-Para un escenario de actualización en el que la aplicación de ensayo es una versión de actualización de una que ya se ha implementado en producción, puede [actualizar la aplicación en el entorno de producción con el intercambio de VIP][Step 2: Deploy an Application to Production by Swapping VIPs].
 
 ## Paso 2: Actualizar una aplicación en producción mediante el intercambio de VIP
 
@@ -72,18 +67,12 @@ Ha realizado correctamente el ensayo de la implementación y la actualización d
 ## Recursos adicionales
 
 - [Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]
-- [Información general de administración de implementaciones en Azure]
 
-  [Paso 1: realizar el ensayo de una aplicación]: #step1
-  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-  [Paso 2: implementar una aplicación en producción mediante el intercambio de VIP]: #step2
-  [Portal de administración de Azure]: http://manage.windowsazure.com
+[Portal de administración de Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-  [Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-  [Información general de administración de implementaciones en Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
- 
+[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+[Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

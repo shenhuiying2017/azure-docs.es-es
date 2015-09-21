@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Importación de la definición de una API con operaciones en Administración de API de Azure
@@ -95,4 +95,4 @@ Una vez creada una API e importadas las operaciones, se pueden revisar y definir
 [Creación de API]: api-management-howto-create-apis.md
 [Definición de la configuración de la API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

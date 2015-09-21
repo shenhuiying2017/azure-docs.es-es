@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exportación continua de telemetría desde Application Insights"
-	description="Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Exportación continua de telemetría desde Application Insights" 
+	description="Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -64,7 +64,9 @@ Los datos también incluyen los resultados de cualquier [prueba web de disponibi
 
 ## <a name="get"></a> Inspección de los datos
 
-Para inspeccionar el almacenamiento de Azure en Visual Studio, abra **Ver**, **Cloud Explorer**. (Si no dispone de ese comando de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo **Nuevo proyecto**, expanda Visual C#/Cloud y elija **Obtener el SDK de Microsoft Azure para. NET**.)
+Puede inspeccionar el almacenamiento directamente en el portal. Haga clic en **Examinar**, seleccione la cuenta de almacenamiento y abra **Contenedores**.
+
+Para inspeccionar el almacenamiento de Azure en Visual Studio, abra **Ver**, **Cloud Explorer**. (Si no dispone de ese comando de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo **Nuevo proyecto**, expanda Visual C#/Cloud y elija **Obtener el SDK de Microsoft Azure para. NET**).
 
 Al abrir el almacén de blobs, verá un contenedor con un conjunto de archivos blob. El URI de cada archivo que se deriva del nombre del recurso de Application Insights, su clave de instrumentación, y el tipo, fecha y hora de telemetría. (El nombre del recurso está todo en minúsculas y la clave de instrumentación omite guiones).
 
@@ -128,7 +130,7 @@ La exportación continua se reiniciará.
 
 ## Exportación a Power BI
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la capacidad de reunir información de varios orígenes. Puede transmitir los datos de telemetría sobre el rendimiento y el uso de las aplicaciones de Application Insights a Power BI.
+[Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la posibilidad de reunir información de varios orígenes. Puede transmitir los datos de telemetría sobre el rendimiento y el uso de las aplicaciones de Application Insights a Power BI.
 
 [Transmisiones de Application Insights a Power BI](app-insights-export-power-bi.md)
 
@@ -202,4 +204,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

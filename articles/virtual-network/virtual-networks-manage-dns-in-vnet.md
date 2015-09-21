@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Administración de servidores DNS usados por una red virtual"
-	description="Obtenga información sobre cómo agregar y quitar servidores DNS en una red virtual"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Obtenga información sobre cómo agregar y quitar servidores DNS en una red virtual"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/08/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/04/2015"
+   ms.author="telmos" />
 
 # Administración de servidores DNS usados por una red virtual
 
@@ -65,4 +65,4 @@ Para editar una lista de servidores DNS mediante el uso de un archivo de configu
 
 [Eliminación de una red virtual](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

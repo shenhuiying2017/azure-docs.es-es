@@ -1,20 +1,20 @@
 <properties
     pageTitle="Uso de colas de Bus de servicio (.NET) | Microsoft Azure"
-	description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en C# con la API de .NET."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en C# con la API de .NET."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # Utilización de las colas del Bus de servicio de Azure
 
@@ -223,9 +223,9 @@ En caso de que la aplicación se bloquee después de procesar el mensaje, pero a
 
 Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la información general de MSDN: [Colas, temas y suscripciones][].
+-   Vea [Colas, temas y suscripciones][].
 -   Compilación de una aplicación que envíe y reciba mensajes desde una cola de Bus de servicio y hacia ella: [Tutorial de .NET de mensajería asíncrona de Bus de servicio].
--   Ejemplos de Bus de servicio: descárguelos desde [Ejemplos de Azure][] o consulte la información general en [MSDN][].
+-   Ejemplos de Bus de servicio: descárguelos desde [Ejemplos de Azure][] o consulte la [información general][].
 
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -239,9 +239,9 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Azure portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
   [Tutorial de .NET de mensajería asíncrona de Bus de servicio]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
+  [información general]: service-bus-samples.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

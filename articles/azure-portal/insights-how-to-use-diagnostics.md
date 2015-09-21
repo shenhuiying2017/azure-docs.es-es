@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Habilitación de supervisión y diagnóstico
@@ -71,4 +71,4 @@ Tenga en cuenta que actualmente no se admiten algunas distribuciones de Linux y 
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento. 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

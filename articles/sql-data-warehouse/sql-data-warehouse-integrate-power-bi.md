@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # Uso de Power BI con Almacenamiento de datos SQL
@@ -51,17 +51,15 @@ Además de utilizar el botón Abrir en Power BI, los usuarios también pueden co
 ## Búsqueda de valores de parámetro
 Puede encontrar el nombre completo del servidor y el nombre de la base de datos en el Portal de Azure. Tenga en cuenta que, por el momento, el Almacenamiento de datos SQL solo está presente en el Portal de vista previa de Azure.
 
-## Pasos siguientes
-Para obtener información general sobre la integración, consulte [Información general de la integración de Almacenamiento de datos SQL][]. Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop/
-[Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integration/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integration/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

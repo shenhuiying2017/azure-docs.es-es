@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes | Microsoft Azure"
+   pageTitle="Administrador de instantáneas StorSimple y volúmenes | Microsoft Azure"
    description="Describe cómo usar el complemento MMC de Administrador de instantáneas StorSimple para ver y administrar volúmenes."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
@@ -270,4 +270,4 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

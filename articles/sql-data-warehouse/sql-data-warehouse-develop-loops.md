@@ -3,7 +3,7 @@
    description="Sugerencias para los bucles de Transact-SQL en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Bucles en Almacenamiento de datos SQL
 Almacenamiento de datos SQL admite el bucle [WHILE][] para ejecutar bloques de instrucciones de forma repetida. Esta acción continuará siempre y cuando las condiciones especificadas se cumplan o hasta que el código termine específicamente el bucle con la palabra clave `BREAK`. Los bucles son especialmente útiles para reemplazar los cursores definidos en código SQL. Afortunadamente, casi todos los cursores que están escritos en código SQL son de la variedad avance rápido y solo lectura. Por lo tanto, los bucles [WHILE] son una buena alternativa si se encuentra con que tiene que reemplazar uno.
 
 ## Aprovechamiento de bucles y sustitución de cursores en Almacenamiento de datos SQL
-Sin embargo, antes de profundizar en el tema, debe hacerse la siguiente pregunta: "¿Se pudo escribir de nuevo este cursor para usar operaciones basadas en conjunto?". En muchos casos, la respuesta es Sí. Con frecuencia, este no es el mejor enfoque para hacer eso. Una operación basada en conjunto a menudo se realizará bastante más rápido que un enfoque iterativo fila por fila.
+Sin embargo, antes de profundizar en el tema, debe hacerse la siguiente pregunta: "¿Se pudo escribir de nuevo este cursor para usar operaciones basadas en conjunto?". En muchos casos, la respuesta será afirmativa y este suele ser el mejor enfoque. Una operación basada en conjunto a menudo se realiza bastante más rápido que un enfoque iterativo, fila a fila.
 
-Los cursores de avance rápido y solo lectura se pueden reemplazar fácilmente por una construcción de bucle. A continuación se muestra un ejemplo sencillo para expresar el enfoque. El código de ejemplo actualiza las estadísticas de todas las tablas de la base de datos. Mediante la iteración a través de las tablas del bucle, podemos ejecutar cada comando en una secuencia.
+Los cursores de avance rápido y solo lectura se pueden reemplazar fácilmente por una construcción de bucle. A continuación se muestra un ejemplo sencillo: Este código de ejemplo actualiza las estadísticas de todas las tablas de la base de datos. Mediante la iteración a través de las tablas del bucle, podemos ejecutar cada comando en una secuencia.
 
 En primer lugar, cree una tabla temporal que contenga un número de fila único usado para identificar las instrucciones individuales:
   
@@ -82,4 +82,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

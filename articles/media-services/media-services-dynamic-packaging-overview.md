@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -95,6 +95,16 @@ Publique recursos (creando localizadores) mediante el **Portal de administració
 El empaquetado dinámico no admite los siguientes formatos de archivo de origen:
 
 - Archivos MP4 Dolby Digital Plus.
-- Archivos Smooth Dolby Digital Plus. 
+- Archivos Smooth Dolby Digital Plus.
 
-<!---HONumber=August15_HO7-->
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+ 
+
+<!---HONumber=Sept15_HO2-->

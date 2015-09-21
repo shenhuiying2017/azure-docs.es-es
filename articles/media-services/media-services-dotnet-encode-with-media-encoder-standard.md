@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Codificación de un recurso mediante Codificador multimedia estándar"
-	description="En este tema se muestra cómo usar .NET para codificar sus recursos con Codificador multimedia estándar."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Codificación de un recurso mediante Codificador multimedia estándar" 
+	description="En este tema se muestra cómo usar .NET para codificar sus recursos con Codificador multimedia estándar." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"    
 	ms.author="juliako"/>
 
 
@@ -116,8 +116,16 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 		    return processor;
 		}
 
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##Otras referencias 
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

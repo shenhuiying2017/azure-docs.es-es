@@ -1,27 +1,28 @@
-<properties 
-	pageTitle="Consumo de un servicio web de Aprendizaje automático de Microsoft Azure" 
-	description="Una vez publicado un servicio de aprendizaje automático, se puede consumir el servicio web RESTFul facilitado como servicio de respuesta de solicitud o como servicio de ejecución por lotes." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Consumo de un servicio web de Aprendizaje automático de Microsoft Azure"
+	description="Una vez implementado un servicio de aprendizaje automático, se puede consumir el servicio web RESTFul facilitado como servicio de respuesta de solicitud o como servicio de ejecución por lotes."
+	services="machine-learning"
+	solutions="big-data"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="tbd" 
-	ms.date="06/29/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="09/09/2015" 
 	ms.author="bradsev" />
 
 
-# Cómo consumir un servicio web de Aprendizaje automático de Azure publicado en un experimento de Aprendizaje automático
+# Cómo consumir un servicio web de Aprendizaje automático de Azure implementado en un experimento de Aprendizaje automático
 
 ## Introducción
 
-Cuando se publica como un servicio web, los experimentos de Aprendizaje automático de Azure proporcionan una API de REST que puede ser consumida por una amplia gama de dispositivos y plataformas. Esto es porque la sencilla API de REST acepta y responde con mensajes de formato JSON. El portal de Aprendizaje automático de Azure proporciona código que se puede utilizar para llamar al servicio web en R, C# y Python. Pero estos servicios se pueden llamar mediante cualquier lenguaje de programación y desde cualquier dispositivo que satisfaga tres criterios:
+Cuando se implementa como servicio web, los experimentos de Aprendizaje automático de Azure proporcionan una API de REST que puede ser consumida por una amplia gama de dispositivos y plataformas. Esto es porque la sencilla API de REST acepta y responde con mensajes de formato JSON. El portal de Aprendizaje automático de Azure proporciona código que se puede utilizar para llamar al servicio web en R, C# y Python. Pero estos servicios se pueden llamar mediante cualquier lenguaje de programación y desde cualquier dispositivo que satisfaga tres criterios:
 
 * Disponer de una conexión de red
 * Disponer de capacidades SSL para ejecutar solicitudes HTTPS
@@ -31,13 +32,13 @@ Esto significa que los servicios se pueden consumir desde aplicaciones web, apli
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Un servicio web de Aprendizaje automático de Azure se puede consumir de dos maneras diferentes, como un servicio de solicitud-respuesta o como un servicio de ejecución por lotes. En cada escenario se proporciona la funcionalidad a través del servicio web RESTFul que se facilita para consumirse una vez que se ha publicado el experimento. Implementando un servicio web de aprendizaje automático en Azure con un punto extremo de servicio web Azure, donde el servicio se escala automáticamente según el uso, puede evitar los costos continuados derivados de los recursos de hardware.
+Un servicio web de Aprendizaje automático de Azure se puede consumir de dos maneras diferentes, como un servicio de solicitud-respuesta o como un servicio de ejecución por lotes. En cada escenario se proporciona la funcionalidad a través del servicio web RESTFul que se facilita para consumirse una vez que se ha implementado el experimento. Implementando un servicio web de aprendizaje automático en Azure con un punto extremo de servicio web Azure, donde el servicio se escala automáticamente según el uso, puede evitar los costos continuados derivados de los recursos de hardware.
 
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
+For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
-Para obtener información acerca de cómo crear y publicar un servicio web de Aprendizaje automático de Azure, consulte [Publicar un servicio web de Aprendizaje automático de Azure][publish]. Para obtener un tutorial paso a paso acerca de la creación de un experimento de Aprendizaje automático y publicarlo, consulte [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure][walkthrough].
+Para obtener información acerca de cómo crear e implementar un servicio web de Aprendizaje automático de Azure, consulte [Implementar un servicio web de Aprendizaje automático de Azure][publish]. Para obtener un tutorial paso a paso acerca de la creación de un experimento de Aprendizaje automático e implementarlo, consulte [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure][walkthrough].
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
@@ -45,15 +46,15 @@ Para obtener información acerca de cómo crear y publicar un servicio web de Ap
 
 ## Servicio de solicitud-respuesta (RRS)
 
-Un Servicio de solicitud-respuesta (RRS) es un servicio web altamente escalable y de baja latencia utilizado para proporcionar una interfaz para los modelos sin estado que se han creado y publicado desde un experimento Azure Machine Learning Studio.
+Un Servicio de solicitud-respuesta (RRS) es un servicio web altamente escalable y de baja latencia utilizado para proporcionar una interfaz para los modelos sin estado que se han creado e implementado desde un experimento de Estudio de aprendizaje automático de Microsoft Azure. Habilita escenarios donde la aplicación consumidora espera una respuesta en tiempo real.
 
-RRS acepta una sola fila de parámetros de entrada y genera una sola fila como resultado. La fila de resultados puede contener varias columnas.
+RRS acepta una sola fila, o varias filas, de parámetros de entrada y puede generar una fila única o varias filas, como salida. Las filas de resultados pueden contener varias columnas.
 
 Un ejemplo de RRS es validar la autenticidad de una aplicación. En este caso, pueden esperarse cientos de millones de instalaciones de una aplicación. Cuando se inicia la aplicación, realiza una llamada al servicio RRS con la entrada correspondiente. A continuación, la aplicación recibe una respuesta de validación desde el servicio que permite o bloquea el funcionamiento de la aplicación.
 
 
 ## Servicio de ejecución de lotes (BES)
- 
+
 Un Servicio de ejecución de lotes (BES) es un servicio que maneja una puntuación de gran volumen asincrónica de un lote de registros de datos. La entrada de BES contiene un lote de registros de una variedad de orígenes, como blobs, tablas de Azure, SQL Azure, HDInsight (resultados de una consulta de Hive, por ejemplo) y orígenes de HTTP. La salida de BES contiene los resultados de la puntuación. Los resultados se transfieren a un archivo del almacenamiento de blobs de Azure y los datos del extremo de almacenamiento se devuelven en la respuesta.
 
 Un BES resultaría útil cuando las respuestas no se necesiten inmediatamente, como para una puntuación programada regularmente de individuos o para dispositivo de Internet de las cosas (IOT).
@@ -61,7 +62,7 @@ Un BES resultaría útil cuando las respuestas no se necesiten inmediatamente, c
 ## Ejemplos
 Para mostrar cómo funcionan RRS y BES, usamos un ejemplo de servicio web de Azure. Este servicio se usaría en un escenario IOT (Internet de las cosas). Para facilitarlo, nuestro dispositivo solo envía un valor, `cog_speed`, y recibe una sola respuesta.
 
-Hay cuatro elementos de información que son necesarios para llamar al servicio RRS o BES. Esta información está disponible en las páginas de servicios de [Páginas de servicios de Aprendizaje automático de Azure](https://studio.azureml.net) una vez que se ha publicado el experimento. Haga clic en el vínculo de SERVICIOS WEB situado a la izquierda de la pantalla y verá los servicios publicados. Para obtener información acerca de un servicio concreto, hay vínculos de páginas de ayuda de API para RRS y BES.
+Hay cuatro elementos de información que son necesarios para llamar al servicio RRS o BES. Esta información está disponible en las páginas de servicios de [Páginas de servicios de Aprendizaje automático de Azure](https://studio.azureml.net) una vez que se ha implementado el experimento. Haga clic en el vínculo de SERVICIOS WEB situado a la izquierda de la pantalla y verá los servicios implementados. Para obtener información acerca de un servicio concreto, hay vínculos de páginas de ayuda de API para RRS y BES.
 
 1.	La **clave de API de servicio**, disponible en la página principal de servicios.
 2.	El **URI de servicio**, disponible en la página de ayuda de la API del servicio seleccionado.
@@ -124,7 +125,7 @@ De forma similar, también se llama a la respuesta de la API, nuevamente para es
 	}
 
 Hacia la parte inferior de la página, encontrará los ejemplos de código. A continuación se muestra el código de ejemplo para la implementación de C#
-                   
+
 **Código de ejemplo**
 
 	using System;
@@ -135,7 +136,7 @@ Hacia la parte inferior de la página, encontrará los ejemplos de código. A co
 	using System.Net.Http.Headers;
 	using System.Text;
 	using System.Threading.Tasks;
-	
+
 	namespace CallRequestResponseService
 	{
 	    public class StringTable
@@ -143,24 +144,24 @@ Hacia la parte inferior de la página, encontrará los ejemplos de código. A co
 	        public string[] ColumnNames { get; set; }
 	        public string[,] Values { get; set; }
 	    }
-	
+
 	    class Program
 	    {
 	        static void Main(string[] args)
 	        {
 	            InvokeRequestResponseService().Wait();
 	        }
-	
+
 	        static async Task InvokeRequestResponseService()
 	        {
 	            using (var client = new HttpClient())
 	            {
 	                var scoreRequest = new
 	                {
-	                    Inputs = new Dictionary<string, StringTable> () { 
-	                        { 
-	                            "input1", 
-	                            new StringTable() 
+	                    Inputs = new Dictionary<string, StringTable> () {
+	                        {
+	                            "input1",
+	                            new StringTable()
 	                            {
 	                                ColumnNames = new string[] {"cog_speed"},
 	                                Values = new string[,] {  { "0"},  { "1"}  }
@@ -168,12 +169,12 @@ Hacia la parte inferior de la página, encontrará los ejemplos de código. A co
 	                        },
 	                    GlobalParameters = new Dictionary<string, string>() { }
 	                };
-	                
+
 	                const string apiKey = "abc123"; // Replace this with the API key for the web service
 	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
-	
+
 	                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/<workspace id>/services/<service id>/execute?api-version=2.0&details=true");
-	                
+
 	                // WARNING: The 'await' statement below can result in a deadlock if you are calling this code from the UI thread of an ASP.Net application.
 	                // One way to address this would be to call ConfigureAwait(false) so that the execution does not attempt to resume on the original context.
 	                // For instance, replace code such as:
@@ -182,7 +183,7 @@ Hacia la parte inferior de la página, encontrará los ejemplos de código. A co
 	                //      result = await DoSomeTask().ConfigureAwait(false)
 
 	                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
-	
+
 	                if (response.IsSuccessStatusCode)
 	                {
 	                    string result = await response.Content.ReadAsStringAsync();
@@ -214,9 +215,9 @@ Al crear un trabajo por lotes para el extremo de servicio de Aprendizaje automá
 * **Outputs**: si el servicio tiene definidas una o varias salidas, permitimos al llamador redirigir cualquiera de ellas a la ubicación del blob de Azure que prefiera. Esto permite guardar las salidas del servicio en la ubicación preferida y con un nombre de predicción, ya que, de lo contrario, el nombre de blob de salida se genera aleatoriamente. **TENGA EN CUENTA** que el servicio espera que el contenido de la salida, según su tipo, se guarde en cualquier de los formatos admitidos:
   - salidas de conjuntos de datos: se pueden guardar como **.csv, .tsv o .arff**
   - salidas de modelos entrenados: se pueden guardar como **.ilearner**
-  
+
   Las invalidaciones de la ubicación de salida se especifican como una colección de *<output name  blob reference>* pares, donde el *nombre de salida* es el nombre definido por el usuario para un nodo de salida específico (que también se muestra en la página de ayuda de la API del servicio) y la *referencia del blob* es una referencia a una ubicación de blobs de Azure a la que se redirigirá a la salida.
-  
+
 Todos estos parámetros de creación de trabajos pueden ser opcionales, en función de la naturaleza del servicio. Por ejemplo, los servicios sin nodos de entrada definidos, no requieren que se use un parámetro *Input* y la característica de invalidación de la ubicación de salida es totalmente opcional. Sin estos elementos, las salidas se guardarán en la cuenta de almacenamiento predeterminada configurada para el área de trabajo de Aprendizaje automático de Azure. A continuación encontrará una carga de solicitudes de ejemplo, tal como se pasan a la API de REST, para un servicio en la que solo se pasa la información de entrada:
 
 **Solicitud de ejemplo**
@@ -234,7 +235,7 @@ Todos estos parámetros de creación de trabajos pueden ser opcionales, en funci
 	}
 
 La respuesta a la API de creación de trabajos por lotes es el Id. de trabajo único que estaba asociado al trabajo. Este identificador es muy importante porque proporciona el único medio para hacer referencia a este trabajo en el sistema para otras operaciones.
-  
+
 **Respuesta de ejemplo**
 
 	"539d0bc2fde945b6ac986b851d0000f0" // The JOB_ID
@@ -242,11 +243,11 @@ La respuesta a la API de creación de trabajos por lotes es el Id. de trabajo ú
 **2. Iniciar un trabajo de ejecución por lotes**
 
 La creación de un trabajo por lotes sólo lo registra en el sistema y lo coloca en el estado *No iniciado*. Para programar realmente el trabajo para su ejecución, es preciso llamar a la API de **inicio** API que se describe en la página de ayuda de la API del extremo de servicio y especificar el identificador de trabajo que se obtuvo al crear el trabajo.
-  
+
 **3. Obtener el estado de un trabajo de ejecución por lotes**
 
 El estado de un trabajo por lotes asincrónico se puede sondear en cualquier momento pasando el identificador del trabajo a la API GetJobStatus. La respuesta de la API contendrá un indicador del estado actual del trabajo, así como los resultados reales del trabajo por lotes si se ha completado correctamente. En caso de error, en la propiedad *Detalles* se puede encontrar más información sobre las razones reales del error.
- 
+
 **Carga de respuesta**
 
 	{
@@ -299,7 +300,7 @@ Los trabajos por lotes en ejecución se pueden cancelar en cualquier momento lla
 
 El [paquete de NuGet SDK de BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) proporciona funciones que simplifican la llamada a BES para su puntuación en el modo por lotes. Para instalar el paquete NuGet, en Visual Studio, vaya a Herramientas, seleccione Administrador de paquetes NuGet y haga clic en Consola del Administrador de paquetes.
 
-Los experimentos de Aprendizaje automático de Azure que se publican como servicios web pueden incluir módulos de entrada de servicios web, lo que significa que esperan que la entrada se realice a través de la llamada del servicio web en forma de referencia a una ubicación de blob. También existe la opción de no usar un módulo de entrada del servicio web y usar en su lugar un módulo lector. En ese caso, el lector normalmente leería de una base de datos SQL mediante una consulta en tiempo de ejecución para obtener los datos. Los parámetros de servicio web pueden utilizarse para apuntar dinámicamente a otros servidores o tablas, etc. El SDK es compatible con ambas plataformas.
+Los experimentos de Aprendizaje automático de Azure que se implementan como servicios web pueden incluir módulos de entrada de servicios web, lo que significa que esperan que la entrada se realice a través de la llamada del servicio web en forma de referencia a una ubicación de blob. También existe la opción de no usar un módulo de entrada del servicio web y usar en su lugar un módulo lector. En ese caso, el lector normalmente leería de una base de datos SQL mediante una consulta en tiempo de ejecución para obtener los datos. Los parámetros de servicio web pueden utilizarse para apuntar dinámicamente a otros servidores o tablas, etc. El SDK es compatible con ambas plataformas.
 
 El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un trabajo por lotes con un extremo de servicio de Aprendizaje automático de Azure mediante el SDK de BES. En los comentarios encontrará más información sobre la configuración y las llamadas.
 
@@ -308,16 +309,16 @@ El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un tr
 	// This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
 	// Instructions for doing this in Visual Studio:
 	// Tools -> Nuget Package Manager -> Package Manager Console
-	// Install-Package Microsoft.Azure.MachineLearning 
-	
+	// Install-Package Microsoft.Azure.MachineLearning
+
 	  using System;
 	  using System.Collections.Generic;
 	  using System.Threading.Tasks;
-	  
+
 	  using Microsoft.Azure.MachineLearning;
 	  using Microsoft.Azure.MachineLearning.Contracts;
 	  using Microsoft.Azure.MachineLearning.Exceptions;
-	
+
 	namespace CallBatchExecutionService
 	{
 	    class Program
@@ -326,73 +327,73 @@ El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un tr
 	        {	            
 	            InvokeBatchExecutionService().Wait();
 	        }
-	
+
 	        static async Task InvokeBatchExecutionService()
 	        {
 	            // First collect and fill in the URI and access key for your web service endpoint.
 	            // These are available on your service's API help page.
 	            var endpointUri = "https://ussouthcentral.services.azureml.net/workspaces/YOUR_WORKSPACE_ID/services/YOUR_SERVICE_ENDPOINT_ID/";
 	            string accessKey = "YOUR_SERVICE_ENDPOINT_ACCESS_KEY";
-	
+
 	            // Create an Azure Machine Learning runtime client for this endpoint
 	            var runtimeClient = new RuntimeClient(endpointUri, accessKey);
-	
+
 	            // Define the request information for your batch job. This information can contain:
 	            // -- A reference to the AzureBlob containing the input for your job run
 	            // -- A set of values for global parameters defined as part of your experiment and service
 	            // -- A set of output blob locations that allow you to redirect the job's results
-	
+
 	            // NOTE: This sample is applicable, as is, for a service with explicit input port and
 	            // potential global parameters. Also, we choose to also demo how you could override the
-	            // location of one of the output blobs that could be generated by your service. You might 
+	            // location of one of the output blobs that could be generated by your service. You might
 	            // need to tweak these features to adjust the sample to your service.
 	            //
 	            // All of these properties of a BatchJobRequest shown below can be optional, depending on
 	            // your service, so it is not required to specify all with any request.  If you do not want to
 	            // use any of the parameters, a null value should be passed in its place.
-	            
+
 	            // Define the reference to the blob containing your input data. You can refer to this blob by its
-                    // connection string / container / blob name values; alternatively, we also support references 
+                    // connection string / container / blob name values; alternatively, we also support references
                     // based on a blob SAS URI
-                    
+
                     BlobReference inputBlob = BlobReference.CreateFromConnectionStringData(connectionString:                                         "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
                         containerName: "YOUR_CONTAINER_NAME",
                         blobName: "YOUR_INPUT_BLOB_NAME");
-                              
+
                     // If desired, one can override the location where the job outputs are to be stored, by passing in
                     // the storage account details and name of the blob where we want the output to be redirected to.
-                    
+
                     var outputLocations = new Dictionary<string, BlobReference>
                         {
                           {
-                           "YOUR_OUTPUT_NODE_NAME", 
+                           "YOUR_OUTPUT_NODE_NAME",
                            BlobReference.CreateFromConnectionStringData(                                     connectionString: "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
                                 containerName: "YOUR_CONTAINER_NAME",
                                 blobName: "YOUR_DESIRED_OUTPUT_BLOB_NAME")
                            }
                         };
-	            
+
 	            // If applicable, you can also set the global parameters for your service
 	            var globalParameters = new Dictionary<string, string>
 	            {
 	                { "YOUR_GLOBAL_PARAMETER", "PARAMETER_VALUE" }
 	            };
-	                
+
 	            var jobRequest = new BatchJobRequest
 	            {
 	                Input = inputBlob,
 	                GlobalParameters = globalParameters,
 	                Outputs = outputLocations
 	            };
-	
+
 	            try
 	            {
 	                // Register the batch job with the system, which will grant you access to a job object
 	                BatchJob job = await runtimeClient.RegisterBatchJobAsync(jobRequest);
-	
+
 	                // Start the job to allow it to be scheduled in the running queue
 	                await job.StartAsync();
-	
+
 	                // Wait for the job's completion and handle the output
 	                BatchJobStatus jobStatus = await job.WaitForCompletionAsync();
 	                if (jobStatus.JobState == JobState.Finished)
@@ -431,6 +432,4 @@ El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un tr
 	    }
 	}
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

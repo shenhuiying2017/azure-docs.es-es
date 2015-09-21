@@ -6,7 +6,7 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
@@ -38,7 +38,7 @@ El Administrador de recursos de Azure se puede usar mediante una [Biblioteca par
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 
-3. Instale ARMClient abriendo un nuevo símbolo del sistema y ejecute el siguiente comando:
+3. Instale ARMClient con el siguiente comando:
 
     ```
     choco install armclient
@@ -66,7 +66,7 @@ El Administrador de recursos de Azure se puede usar mediante una [Biblioteca par
 2. Obtenga las áreas de trabajo del conjunto de aplicaciones de administración de operaciones. Por ejemplo:
 
     ```
-    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
+    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
     Una llamada Get correcta generaría todas las áreas de trabajo vinculadas a la suscripción. Por ejemplo:
@@ -90,12 +90,12 @@ El Administrador de recursos de Azure se puede usar mediante una [Biblioteca par
 3. Cree la variable de búsqueda. Por ejemplo:
 
     ```
-    $mySearch = "{ 'top':150, 'query':'Error'}”;
+    $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. Realice búsquedas con la nueva variable de búsqueda. Por ejemplo:
 
     ```
-    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
+    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
 ## Ejemplos de referencia de la API de búsqueda
@@ -106,7 +106,7 @@ Los siguientes ejemplos muestran cómo se puede usar la API de búsqueda.
 **Dirección Url de ejemplo:**
 
 ```
-	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2014-10-10
+	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2015-03-20
 ```
 
 **Solicitud:**
@@ -123,7 +123,7 @@ Los siguientes ejemplos muestran cómo se puede usar la API de búsqueda.
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 En la tabla siguiente se describen las propiedades que están disponibles.
 
@@ -194,17 +194,17 @@ En la tabla siguiente se describen las propiedades que están disponibles.
 **Solicitar el contenido de una búsqueda guardada:**
 
 ```
-	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
+	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
->[AZURE.NOTE] Si la búsqueda se devuelve con el estado 'Pendiente', el sondeo de los resultados actualizados puede realizarse a través de esta API. Después de seis minutos, el resultado de la búsqueda se eliminará de la caché y se devolverá Http Ya no existe. Si la solicitud de búsqueda inicial devuelve inmediatamente un estado 'Correcto', no se agregará a la caché, lo que provocará que esta API devuelva Http Ya no existe si se consulta. El contenido de un resultado Http 200 estará en el mismo formato que la solicitud de búsqueda inicial, solo que con valores actualizados.
+>[AZURE.NOTE]Si la búsqueda se devuelve con el estado 'Pendiente', el sondeo de los resultados actualizados puede realizarse a través de esta API. Después de seis minutos, el resultado de la búsqueda se eliminará de la caché y se devolverá Http Ya no existe. Si la solicitud de búsqueda inicial devuelve inmediatamente un estado 'Correcto', no se agregará a la caché, lo que provocará que esta API devuelva Http Ya no existe si se consulta. El contenido de un resultado Http 200 estará en el mismo formato que la solicitud de búsqueda inicial, solo que con valores actualizados.
 
 ### Búsquedas guardadas: solo REST
 
 **Solicitar lista de búsquedas guardadas:**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2015-03-20
 ```
 
 Métodos admitidos: GET PUT DELETE
@@ -217,18 +217,18 @@ En la tabla siguiente se describen las propiedades que están disponibles.
 |---|---|
 |Id|Identificador único.|
 |Etag|**Obligatoria para la revisión**. Actualizada por el servidor en cada escritura. El valor debe ser igual al valor actual almacenado o ' *' para actualizar. 409 devuelto para valores antiguos o no válidos.|
-|properties.query|**Obligatorio**. Consulta de la búsqueda.|
-|properties.displayName|**Obligatorio**. El nombre para mostrar definido por el usuario de la consulta. Si se modela como un recurso de Azure, esto sería una etiqueta.|
-|properties.category|**Obligatorio**. Categoría de la consulta definida por el usuario. Si se modela como un recurso de Azure sería una etiqueta.|
+|properties.query|**Obligatoria**. Consulta de la búsqueda.|
+|properties.displayName|**Obligatoria**. El nombre para mostrar definido por el usuario de la consulta. Si se modela como un recurso de Azure, esto sería una etiqueta.|
+|properties.category|**Obligatoria**. Categoría de la consulta definida por el usuario. Si se modela como un recurso de Azure sería una etiqueta.|
 
->[AZURE.NOTE] Actualmente, la API de búsqueda de Visión operativa devuelve las búsquedas guardadas creadas por el usuario cuando se realiza un sondeo de búsquedas guardadas en un área de trabajo.En este momento, la API no devolverá las búsquedas guardadas proporcionadas por soluciones. Esta funcionalidad se agregará en una fecha posterior.
+>[AZURE.NOTE]Actualmente, la API de búsqueda de Visión operativa devuelve las búsquedas guardadas creadas por el usuario cuando se realiza un sondeo de búsquedas guardadas en un área de trabajo. En este momento, la API no devolverá las búsquedas guardadas proporcionadas por soluciones. Esta funcionalidad se agregará en una fecha posterior.
 
 ### Eliminación de búsquedas guardadas
 
 **Solicitud:**
 
 ```
-	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
+	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20
 ```
 
 ### Actualización de búsquedas guardadas
@@ -237,7 +237,7 @@ En la tabla siguiente se describen las propiedades que están disponibles.
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
-	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
+	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20 $savedSearchParametersJson
 ```
 
 ### Metadatos: solo JSON
@@ -247,7 +247,7 @@ Aquí se proporciona una manera de ver los campos de todos los tipos de registro
 **Solicitud de campos:**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2015-03-20
 ```
 
 **Respuesta:**
@@ -317,7 +317,7 @@ Puede especificar los marcadores de inicio y final que se usarán en la búsqued
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 
 **Resultado de ejemplo:**
@@ -346,4 +346,4 @@ Puede especificar los marcadores de inicio y final que se usarán en la búsqued
 
 Observe que el resultado anterior contiene un mensaje de error que se ha incluido como prefijo y se ha anexado.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/09/2015"
 	ms.author="roalexan" />
 
 
@@ -38,7 +38,7 @@ Para completar a esta guía, necesita:
 
 * Una cuenta de Azure. Si no tiene una cuenta de Azure, haga clic [aquí](http://azure.microsoft.com/pricing/free-trial/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
 * Una cuenta de AzureML. Si no dispone de una cuenta de AzureML, haga clic [aquí](https://studio.azureml.net/) para obtener más información sobre cómo crear una cuenta de evaluación gratuita.
-* El área de trabajo, el servicio y api\_key para un experimento de AzureML publicado como un servicio web. Haga clic [aquí](machine-learning/machine-learning-create-experiment.md) para obtener más información sobre cómo crear un experimento de AzureML. Haga clic [aquí](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obtener más información sobre cómo publicar un experimento como servicio web. Además, el apéndice A contiene instrucciones sobre cómo crear y probar un experimento de AzureML sencillo y publicarlo como servicio web.
+* El área de trabajo, el servicio y la api\_key para un experimento de Aprendizaje automático de Azure implementado como un servicio web. Haga clic [aquí](machine-learning/machine-learning-create-experiment.md) para obtener más información sobre cómo crear un experimento de AzureML. Haga clic [aquí](machine-learning/machine-learning-publish-a-machine-learning-web-service.md) para obtener más información sobre cómo implementar un experimento de Aprendizaje automático de Azure como un servicio web. Además, el Apéndice A contiene instrucciones sobre cómo crear y probar un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web.
 
 ##Creación de una instancia de Administración de API
 
@@ -148,7 +148,7 @@ Después de invocar una operación, el portal para desarrolladores mostrará el 
 
 ###Creación del experimento
 
-A continuación se muestran los pasos para crear un experimento de AzureML sencillo y para publicarlo como un servicio web. El servicio web toma como entrada una columna de texto arbitrario de entrada y devuelve un conjunto de características representadas como números enteros. Por ejemplo:
+A continuación se muestran los pasos para crear un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web. El servicio web toma como entrada una columna de texto arbitrario de entrada y devuelve un conjunto de características representadas como números enteros. Por ejemplo:
 
 Texto | Texto con hash
 --- | ---
@@ -384,4 +384,4 @@ Esta guía muestra un ejemplo de Python en funcionamiento. Debe modificarlo con 
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

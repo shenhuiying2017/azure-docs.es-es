@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Envío de notificaciones de inserción a usuarios autenticados"
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos"
+	pageTitle="Envío de notificaciones push a usuarios autenticados en la aplicación Android (back-end .NET)"
+	description="Aprenda a enviar notificaciones push a usuarios autenticados específicos de su aplicación de Android mediante un servicio móvil con un back-end. NET."
 	services="mobile-services,notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="notification-hubs"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# Envío de notificaciones de inserción a usuarios autenticados
+# Envío de notificaciones push a usuarios autenticados en la aplicación Android
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
@@ -25,7 +25,7 @@
 En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado en cualquier dispositivo registrado. A diferencia del tutorial de [notificaciones de inserción][Get started with push notifications] anterior, este tutorial cambia el dispositivo móvil para solicitar que un usuario se autentique antes de que el cliente pueda registrarse con el centro de notificaciones para notificaciones de inserción. El registro también se modifica para agregar una etiqueta basada en el identificador del usuario asignado. Por último, el script de servidor se actualiza para enviar la notificación solamente al usuario autenticado en lugar de a todos los registros.
 
 
-Este tutorial es válido para aplicaciones Android.
+Este tutorial admite las aplicaciones Android mediante un servicio móvil con un back-end. NET.
 
 ##Requisitos previos
 
@@ -63,4 +63,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

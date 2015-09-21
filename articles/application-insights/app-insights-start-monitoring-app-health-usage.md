@@ -2,7 +2,7 @@
 	pageTitle="Incorporación del SDK de Application Insights para supervisar la aplicación de ASP.NET | Microsoft Azure"
 	description="Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights."
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 
@@ -106,12 +106,7 @@ Busque los datos en los gráficos de Información general. Al principio, solo ap
 
 ![Haga clic en las distintas opciones para obtener más datos](./media/app-insights-start-monitoring-app-health-usage/12-first-perf.png)
 
-Haga clic en cualquier gráfico para ver métricas más detalladas. [Más información acerca de las métricas.][perf]
-
-Implemente ahora la aplicación y observe cómo se acumulan los datos.
-
-
-Si se trabaja en modo de depuración, la telemetría se agiliza a través de la canalización y los datos aparecen en cuestión de segundos. Cuando se implementa una aplicación, los datos se acumulan a menor velocidad.
+Haga clic en cualquier gráfico para ver métricas más detalladas. [Más información acerca de las métricas][perf]
 
 #### ¿No hay datos?
 
@@ -120,27 +115,40 @@ Si se trabaja en modo de depuración, la telemetría se agiliza a través de la 
 * Espere unos segundos y haga clic en **Actualizar**. Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente si espera que aparezcan algunos datos.
 * Vea [Solución de problemas][qna].
 
+## Publicación de la aplicación
+
+Implemente ahora la aplicación en IIS o en Azure y observe cómo se acumulan los datos.
+
+Si se trabaja en modo de depuración, la telemetría se agiliza a través de la canalización y los datos aparecen en cuestión de segundos. Cuando se implementa una aplicación, los datos se acumulan a menor velocidad.
+
+
 #### ¿Tiene problemas el servidor de compilación?
 
 Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
-## 5\. Adición del seguimiento de dependencia
+## 5\. Adición de contadores de rendimiento y seguimiento de dependencia
 
 El SDK necesita un poco de ayuda para obtener acceso a algunos datos. En concreto, este paso adicional será necesario para medir automáticamente las llamadas de la aplicación a las bases de datos, las API de REST y otros componentes externos. Estas métricas de dependencia pueden ser inestimables para ayudar a diagnosticar problemas de rendimiento.
+
+Este paso también permite [generar informes de contadores de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters) como ocupación de red, de memoria o de CPU.
 
 #### Si la aplicación se ejecuta en su servidor IIS
 
 Inicie sesión en el servidor con derechos de administrador e instale [Monitor de estado de Application Insights](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(También puede usar el Monitor de estado para [instrumentar una aplicación que ya está en ejecución](app-insights-monitor-performance-live-website-now.md), incluso si no se ha compilado con el SDK).
+(También puede usar el Monitor de estado para [instrumentar una aplicación que ya está en ejecución](app-insights-monitor-performance-live-website-now.md), aunque no se compilase con el SDK).
 
 #### Si la aplicación es una aplicación web de Azure
 
 En el panel de control de la aplicación web de Azure, agregue la extensión Application Insights.
 
-![En la aplicación web, Herramientas Supervisión de rendimiento, Agregar, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![En la aplicación web, Configuración, Extensiones, Agregar, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(La extensión solo ayuda a una aplicación que se ha compilado con el SDK. A diferencia del Monitor de estado, no puede instrumentar una aplicación existente).
+(La extensión solo ayuda a una aplicación compilada con el SDK. A diferencia del Monitor de estado, no puede instrumentar una aplicación existente).
+
+#### Si se trata de un proyecto de servicios en la nube de Azure
+
+[Adición de secuencias de comandos a roles web y de trabajo](app-insights-cloudservices.md)
 
 ## 6\. Adición de la supervisión del lado cliente
 
@@ -152,7 +160,7 @@ También podrá escribir su propio código para realizar un seguimiento de cómo
 
 Si la aplicación muestra páginas web, agregar un fragmento de código de JavaScript en cada página. Obtenga el código del recurso de Application Insights:
 
-![En la aplicación web, abra Inicio rápido y haga clic en 'Obtener código para supervisar mis páginas web'](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![En la aplicación web, abra Inicio rápido y haga clic en ''Obtener código para supervisar mis páginas web''](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
 Observe que el código contiene la clave de instrumentación que identifica al recurso de la aplicación.
 
@@ -160,7 +168,7 @@ Observe que el código contiene la clave de instrumentación que identifica al r
 
 #### Si los clientes son aplicaciones de dispositivos
 
-Si la aplicación atiende a clientes como teléfonos u otros dispositivos, agregue el [SDK adecuado](app-insights-platforms.md) a la aplicación del dispositivo.
+Si la aplicación atiende a clientes como, por ejemplo, teléfonos u otros dispositivos, agregue el [SDK adecuado](app-insights-platforms.md) a la aplicación del dispositivo.
 
 Si configura el SDK del cliente con la misma clave de instrumentación que el SDK del servidor, las dos secuencias se integrarán de modo que podrá verlas juntas.
 
@@ -177,11 +185,11 @@ Para obtener la vista completa de 360 grados de la aplicación, debe realizar al
 
 Al comienzo del presente artículo, indicamos que le mostraríamos la forma manual de crear un recurso de Application Insights y luego instalar el SDK. Creemos que es recomendable comprender las dos partes de ese procedimiento. Sin embargo, para las aplicaciones de ASP.NET (y muchas otras), existen una manera automatizada incluso más rápida.
 
-Necesitará [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 Update 3 o posterior) y una cuenta en [Microsoft Azure](http://azure.com).
+Se requiere [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (2013 Update 3 o posterior) y una cuenta en [Microsoft Azure](http://azure.com).
 
 #### Si se trata de un proyecto nuevo:
 
-Cuando cree un proyecto nuevo en Visual Studio, asegúrese de seleccionar **Agregar Application Insights**.
+Cuando cree un proyecto en Visual Studio, asegúrese de seleccionar **Agregar Application Insights**.
 
 
 ![Crear un proyecto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -192,7 +200,7 @@ Si el proyecto tiene páginas web, también agrega el [SDK de JavaScript][client
 
 #### ....o si se trata de un proyecto existente
 
-Haga clic con el botón derecho en el Explorador de soluciones y seleccione **Agregar Application Insights**.
+Haga clic con el botón derecho en el Explorador de soluciones y elija **Agregar Application Insights**.
 
 ![Elija Agregar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -240,4 +248,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

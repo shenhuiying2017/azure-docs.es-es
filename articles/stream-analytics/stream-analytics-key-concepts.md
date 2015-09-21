@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Obtenga información acerca de los conceptos clave de Análisis de transmisiones | Microsoft Azure" 
 	description="Obtenga información sobre los conceptos clave de Análisis de transmisiones: componentes de un trabajo de Análisis de transmisiones, incluidas entradas y salidas admitidas, configuración del trabajo y métricas." 
+	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2015" 
+	ms.date="09/09/2015" 
 	ms.author="jeffstok" />
 
 
@@ -92,12 +93,12 @@ Según el tipo de entrada usado en el trabajo, se generarán algunos campos adic
 	</tr>
 </table>
 
-###Particiones con datos de entrada lentos o inexistentes.
+### Particiones con datos de entrada lentos o inexistentes.
 Al leer en orígenes de entrada con varias particiones y una o más particiones se quedan atrás o no tienen datos, el trabajo de streaming debe decidir cómo controlar esta situación para que los eventos mantengan un flujo constante a través del sistema. La opción de entrada 'Máximo retraso de llegada permitido' controla ese comportamiento y se establece de forma predeterminada para esperar por los datos indefinidamente, lo que significa que las marcas de tiempo de los eventos no se alterarán, pero también que los eventos fluirán en función de la partición de entrada más lenta y dejarán de fluir si una o más particiones de entrada no tienen datos. Esto resulta útil si los datos se distribuyen uniformemente entre particiones de entrada y la coherencia de la hora entre eventos es fundamental.
 
 También puede optar por esperar solo durante un tiempo limitado; 'Máximo retraso de llegada permitido' determina el retraso tras el cual el trabajo decidirá avanzar, dejando atrás las particiones de entrada atrasadas y actuar en los eventos según la opción 'Acción en eventos con retraso', quitar los eventos o ajustar las marcas de tiempo de los eventos si llegan datos más adelante. Esto resulta útil si la latencia es decisiva y se tolera el cambio de marca de tiempo , pero es posible que la entrada no se distribuya uniformemente.
 
-###Particiones con eventos desordenados
+### Particiones con eventos desordenados
 Cuando la consulta del trabajo de streaming usa la palabra clave TIMESTAMP BY, no hay ninguna garantía sobre el orden en el que llegarán los eventos a la entrada; algunos eventos de la misma partición de entrada pueden quedarse atrás; el parámetro 'máximo desorden permitido dentro de una entrada' hace que el trabajo de streaming actúe en eventos que quedan fuera del margen de tolerancia de orden según el valor de 'Acción en eventos de retraso', quitar los eventos o ajustar las marcas de tiempo de los eventos.
 
 ### Recursos adicionales
@@ -138,7 +139,7 @@ En el destino de salida se escribirán los resultados del trabajo de Análisis d
 - Almacenamiento de tablas de Azure: se trata de un almacén de datos estructurados con menos restricciones en el esquema. Las entidades con un esquema diferente y diferentes tipos pueden almacenarse en la misma tabla de Azure. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz. Para obtener más información, consulte [Introducción al almacenamiento de Azure](../storage/storage-introduction.md) y [Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Base de datos SQL de Azure: este destino de salida es adecuado para datos de carácter relacional o para aplicaciones que dependen del contenido que se hospeda en una base de datos.
 
-## Unidades de streaming ##
+## Unidades de streaming
 Para poder ofrecer una experiencia de rendimiento más predecible a los clientes, Análisis de transmisiones de Azure usa Unidades de streaming (SU) para representar los recursos y la capacidad de ejecutar un trabajo. Las SU proporcionan una forma de describir el evento relativo en función de una medida que combina la CPU, la memoria, la capacidad de procesamiento y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento. Cada trabajo de Análisis de transmisiones de Azure necesita como mínimo una unidad de streaming, que es el valor predeterminado de todos los trabajos. Para más información acerca de cómo seleccionar el número correcto de SU para un trabajo, consulte [Escalar trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 
 ## Trabajos de escala
@@ -167,7 +168,7 @@ Las siguientes métricas están disponibles para supervisar el uso y el rendimie
 - Errores de conversión de datos: número de errores de conversión de datos que produce un trabajo de Análisis de transmisiones.
 
 ### Registros de operaciones
-El mejor método para depurar o solucionar problemas de un trabajo de Análisis de transmisiones lo ofrecen los registros de operaciones de Azure. Para tener acceso a los registros de operaciones, vaya a la sección **Servicios de administración** del portal. Para inspeccionar los registros del trabajo, establezca **Tipo de servicio** en **Análisis de transmisiones** y **Nombre del servicio** en el nombre del trabajo.
+El mejor enfoque para depurar o solucionar los problemas de trabajo de Stream Analytics es a través de los registros de operaciones de Azure. Para acceder a los registros de operaciones, vaya a la sección **Servicios de administración** del portal. Para inspeccionar los registros del trabajo, establezca **Tipo de servicio** en **Análisis de transmisiones** y **Nombre del servicio** en el nombre del trabajo.
 
 
 ## Trabajos de administración 
@@ -181,7 +182,7 @@ Puede ajustar los siguientes valores de nivel superior para un trabajo de Stream
 - **Iniciar salida**: use esta opción para especificar cuándo comenzará el trabajo a producir la salida resultante. Si la consulta asociada incluye una ventana, el trabajo comenzará a seleccionar entradas de los orígenes de entrada al principio de la duración de ventana necesaria con el fin de producir el primer evento de salida en el tiempo especificado. Hay dos opciones: **Hora de inicio del trabajo** y **Personalizada**. El valor predeterminado es la **Hora de inicio del trabajo**. Para la opción **Personalizada**, debe especificar una fecha y una hora. Esta configuración es útil para especificar cuántos datos históricos de los orígenes de entrada se consumirán o para seleccionar la ingesta de datos a partir de una hora específica, por ejemplo, cuándo un trabajo se detuvo por última vez. 
 - **Directiva de fuera de orden**: configuración para gestionar eventos que no llegan de manera secuencial al trabajo de Análisis de transmisiones. Puede designar un umbral de tiempo para reordenar los eventos especificando una ventana de tolerancia y también determinar la acción que se realizará en eventos fuera de esta ventana: **Eliminar** o **Ajustar**. **Eliminar** quitará todos los eventos recibidos sin orden y **Ajustar** cambiará el sistema. Marca de tiempo de eventos fuera de secuencia para la marca de tiempo del evento ordenado recibido más recientemente. 
 - **Directiva de llegadas tarde** : al leer en orígenes de entrada que tienen varias particiones, y una o más particiones se retrasa o no tiene datos, el trabajo de streaming debe determinar cómo gestionar esta situación para que los eventos continúen fluyendo a través del sistema. La opción de entrada 'Máximo retraso de llegada permitido' controla ese comportamiento y se establece de forma predeterminada para esperar por los datos indefinidamente, lo que significa que las marcas de tiempo de los eventos no se alterarán, pero también que los eventos fluirán en función de la partición de entrada más lenta y dejarán de fluir si una o más particiones de entrada no tienen datos. Esto resulta útil si los datos se distribuyen uniformemente entre particiones de entrada y la coherencia de la hora entre eventos es fundamental. El usuario también puede optar por esperar solo durante un tiempo limitado; 'Máximo retraso de llegada permitido' determina el retraso tras el cual el trabajo decidirá avanzar, dejando atrás las particiones de entrada atrasadas y actuar en los eventos según la opción 'Acción en eventos con retraso', quitar los eventos o ajustar las marcas de tiempo de los eventos si llegan datos más adelante. Esto resulta útil si la latencia es decisiva y se tolera el cambio de marca de tiempo , pero es posible que la entrada no se distribuya uniformemente.
-- **Configuración regional**: use este valor para especificar la preferencia de internacionalización para el trabajo de Análisis de transmisiones. Aunque las marcas de tiempo de los datos no dependen de la configuración regional, los valores de esta opción afectan al modo en que el trabajo analizará, comparará y ordenará los datos. En la versión preliminar, solo se admite **en-US**.
+- **Configuración regional**: use este valor para especificar la preferencia de internacionalización para el trabajo de Análisis de transmisiones. Aunque las marcas de tiempo de los datos no dependen de la configuración regional, los valores de esta opción afectan al modo en que el trabajo analizará, comparará y ordenará los datos. En la versión preliminar, solo se admite **es-ES**.
 
 ### Estado
 
@@ -192,7 +193,7 @@ El estado de los trabajos de Análisis de transmisiones se puede inspeccionar en
 
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -206,4 +207,4 @@ Ahora que está familiarizado con los conceptos básicos de Análisis de transmi
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

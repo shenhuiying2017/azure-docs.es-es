@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2015"
+	ms.date="09/03/2015"
 	ms.author="tamram"/>
 
 # Supervisión de una cuenta de almacenamiento en el Portal de Azure
@@ -157,4 +157,4 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a la copia de seguridad de máquina virtual de Azure"
+	pageTitle="Introducción a la copia de seguridad de máquina virtual de Azure | Microsoft Azure"
 	description="Una introducción a la copia de seguridad de máquinas virtuales en Azure mediante el servicio de copia de seguridad de Azure"
 	services="backup"
 	documentationCenter=""
@@ -7,16 +7,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
-# Copia de seguridad de máquinas virtuales de Azure: introducción
+# Copia de seguridad de máquina virtual de Azure
 
 Esta sección proporciona una introducción del uso de copia de seguridad de Microsoft Azure para proteger máquinas virtuales de Azure. Al leerla, aprenderá acerca de:
 
@@ -94,29 +87,31 @@ La siguiente imagen muestra las relaciones entre las diversas entidades de Copia
 
 5. Haga clic en **Crear almacén**. La creación del almacén de credenciales de copia de seguridad puede tardar unos minutos. Supervise las notificaciones de estado en la parte inferior del portal. ![Crear la notificación del sistema del almacén](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. Un mensaje confirma que el almacén se ha creado correctamente y se mostrará en la página de servicios de recuperación como activo. Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Lea más sobre cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad](../backup-azure-backup-create-vault.md#storage-redundancy-options). ![Lista de copias de seguridad](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. Un mensaje confirma que el almacén se ha creado correctamente y se mostrará en la página de servicios de recuperación como activo. Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Obtenga más información sobre cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad](../backup-azure-backup-create-vault.md#storage-redundancy-options). ![Lista de copias de seguridad](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. Al hacer clic en el almacén de copia de seguridad, se dirige a la página **Inicio rápido**, donde se muestran las instrucciones para la copia de seguridad de máquinas virtuales de Azure. ![Instrucciones de copia de seguridad de máquina virtual en la página del panel](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
 
 ### 2\. Agente de máquina virtual de Azure
-Antes de empezar a realizar copias de seguridad de la máquina virtual de Azure, asegúrese de que el agente de VM de Azure está instalado correctamente en la máquina virtual. Para realizar la copia de seguridad de la máquina virtual, el servicio de Copia de seguridad de Azure instala una extensión para el agente de máquina virtual. Puesto que el agente de VM es un componente opcional en el momento que se crea la máquina virtual, deberá asegurarse de que está activada la casilla para el agente de VM antes de que se aprovisione la máquina virtual.
+Antes de empezar a realizar copias de seguridad de la máquina virtual de Azure, asegúrese de que el agente de VM de Azure está instalado correctamente en la máquina virtual. Para realizar la copia de seguridad de la máquina virtual, el servicio Copia de seguridad de Azure instala una extensión para el agente de VM. Puesto que el agente de VM es un componente opcional en el momento que se crea la máquina virtual, deberá asegurarse de que está activada la casilla para el agente de VM antes de que se aprovisione la máquina virtual.
 
 Obtenga información acerca del [Agente de máquina virtual](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) y de [cómo instalarlo](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ## Limitaciones
 
-- No se admite la copia de seguridad de máquinas virtuales de IaaS (V2).
+- No se admite la copia de seguridad de máquinas virtuales basadas en el Administrador de recursos de Azure (también conocido como IaaS V2).
 - No se admite la copia de seguridad de máquinas virtuales con más de 16 discos de datos.
 - No se admite la copia de seguridad de máquinas virtuales con el almacenamiento Premium.
+- No se admite la copia de seguridad de máquinas virtuales con varias direcciones IP reservadas.
+- No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y ningún extremo definido.
 - No se admite la copia de seguridad de máquinas virtuales mediante varios NIC o en una configuración con equilibrio de carga.
 - No se admite el reemplazo de una máquina virtual existente durante la restauración. Primero, elimine la máquina virtual existente y los discos asociados y, a continuación, restaure los datos de copia de seguridad.
 - No se admite la restauración y copia de seguridad entre regiones.
-- La copia de seguridad de máquinas virtuales con el servicio de Copia de seguridad de Azure solo se admite en determinadas regiones. Consulte la lista de [regiones admitidas](http://azure.microsoft.com/regions/#services). Si la región que está buscando hoy en día no es compatible, no aparecerá en la lista desplegable durante la creación del almacén.
+- La copia de seguridad de máquinas virtuales con el servicio Copia de seguridad de Azure se admite en todas las regiones públicas de Azure. Seguidamente se ofrece una [lista de comprobación](http://azure.microsoft.com/regions/#services) de las regiones admitidas. Si la región que está buscando hoy en día no es compatible, no aparecerá en la lista desplegable durante la creación del almacén.
 - La copia de seguridad de máquinas virtuales con el servicio de Copia de seguridad de Azure solo se admite en determinadas versiones de sistemas operativos:
   - **Linux**: la lista de distribuciones aprobadas por Azure está disponible [aquí](../virtual-machines-linux-endorsed-distributions.md). Otras distribuciones con la iniciativa «traiga su propio Linux» también deberían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual.
   - **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
-- La restauración de una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio solo se admite a través de PowerShell. Leer más sobre la [restauración de un controlador de dominio de varios controladores de dominio](backup-azure-restore-vms.md#multiple-dcs)
+- La restauración de una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio solo se admite a través de PowerShell. Más información sobre cómo [restaurar un controlador de dominio de varios controladores de dominio](backup-azure-restore-vms.md#multiple-dcs)
 
 Si hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
 
@@ -124,9 +119,7 @@ Si hay alguna característica que le gustaría que se incluyera, [envíenos sus 
 Para empezar a usar la copia de seguridad de máquina virtual, aprenda cómo:
 
 - [Realizar copia de seguridad de máquinas virtuales](backup-azure-vms.md)
-
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
-
 - [Administrar copia de seguridad de máquina virtual](backup-azure-manage-vms.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

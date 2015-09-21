@@ -1,20 +1,20 @@
 <properties
    pageTitle="Crear plantillas del Administrador de recursos de Azure"
-	description="Cree plantillas del Administrador de recursos de Azure mediante la sintaxis declarativa de JSON para implementar aplicaciones en Azure."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Cree plantillas del Administrador de recursos de Azure mediante la sintaxis declarativa de JSON para implementar aplicaciones en Azure."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/20/2015"
+   ms.author="tomfitz"/>
 
 # Creación de plantillas del Administrador de recursos de Azure
 
@@ -122,6 +122,7 @@ Los valores y tipos permitidos son los siguientes:
 - object o secureObject: cualquier objeto JSON válido
 - array: cualquier matriz JSON válida
 
+Para especificar un parámetro como opcional, establezca su defaultValue en una cadena vacía.
 
 >[AZURE.NOTE]Todas las contraseñas, claves y otros secretos deben utilizar el tipo **secureString**. No se pueden leer los parámetros de plantilla con el tipo secureString después de la implementación de recursos.
 
@@ -220,7 +221,7 @@ Defina recursos con la siguiente estructura:
 
 | Nombre del elemento | Obligatorio | Descripción
 | :----------------------: | :------: | :----------
-| apiVersion | Sí | Versión de la API que admite el recurso. Para ver las versiones y los esquemas disponibles para los recursos, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
+| apiVersion | Sí | Versión de la API que admite el recurso. Para ver las versiones y los esquemas disponibles para los recursos, vea [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 | type | Sí | Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso que admite el proveedor de recursos.
 | name | Sí | Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986.
 | location | No | Ubicaciones geográficas compatibles del recurso proporcionado.
@@ -313,7 +314,7 @@ En el ejemplo siguiente se muestra un valor que se devuelve en la sección de sa
 ## Escenarios más avanzados.
 En este tema se ofrece una visión preliminar de la plantilla. Sin embargo, el escenario puede requerir tareas más avanzadas.
 
-Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para obtener más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
+Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para obtener más información, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 
 Para iterar una cantidad de veces específica al crear un tipo de recurso, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
@@ -402,9 +403,9 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
     }
 
 ## Pasos siguientes
-- Para obtener información detallada sobre las funciones que puede usar desde una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md).
+- Para obtener información detallada sobre las funciones que puede usar desde una plantilla, vea [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md).
 - Para ver cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
-- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/13/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # ¿Qué es Administrador de instantáneas StorSimple?
@@ -148,4 +148,4 @@ Para obtener información acerca de la supervisión de trabajos de copia de segu
 
 [Descarga de Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

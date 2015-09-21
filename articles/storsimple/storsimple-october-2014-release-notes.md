@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Notas de la versión de la actualización 0.1 de la serie StorSimple 8000 - octubre de 2014 | Microsoft Azure"
-    description="Describe las nuevas características, problemas y soluciones alternativas de la versión de StorSimple de octubre de 2014."
+    pageTitle="Notas de la versión de la actualización 0.1 de StorSimple 8000 | Microsoft Azure"
+    description="Describe las nuevas características y soluciones, problemas abiertos y soluciones alternativas de la versión de Microsoft Azure StorSimple de octubre de 2014 (Actualización 0.1)."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/19/2015"
+    ms.date="09/04/2015"
     ms.author="v-sharos" />
 
 # Notas de la versión 0.1 de la actualización de la serie StorSimple 8000: octubre de 2014  
@@ -99,4 +99,4 @@ Esta versión también aplica una actualización de firmware acumulativa que sol
 Esta versión no contiene actualizaciones para el dispositivo virtual. La aplicación de esta actualización no cambiará la versión de software de un dispositivo virtual.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -13,12 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Introducción: aprovisionar un Almacenamiento de datos SQL #
 
-Este artículo es una guía acelerada para ayudarle a aprovisionar una instancia de Almacenamiento de datos SQL en Azure. Si sigue esta guía, realizará las siguientes tareas:
+Este artículo es una guía para ayudarle a aprovisionar una instancia de Almacenamiento de datos SQL en Azure. Si sigue esta guía, realizará las siguientes tareas:
 
 1. Creación de una nueva base de datos de Almacenamiento de datos SQL.
 2. Configuración de un servidor lógico nuevo.
@@ -27,7 +27,7 @@ Este artículo es una guía acelerada para ayudarle a aprovisionar una instancia
 ## Evaluación gratuita de Azure ##
 Para completar las siguientes tareas, debe tener una suscripción a Azure. Si todavía no tiene acceso a una suscripción a Azure, el primer paso debe ser solucionar esto.
 
-Puede obtener acceso a una [evaluación gratuita][] que le permite probar cualquiera de los servicios de Azure, incluido Almacenamiento de datos SQL.
+Puede obtener una [evaluación gratuita][] que le permite probar cualquiera de los servicios de Azure, incluido Almacenamiento de datos SQL.
 
 
 ## Iniciar sesión en el portal de Azure ##
@@ -76,7 +76,7 @@ La primera configuración es poner nombre a la base de datos.
 
 La opción del rendimiento es *importante*. Almacenamiento de datos SQL proporciona su capacidad de escabilidad mediante este control deslizante. Puede aumentar o disminuir el rendimiento en cualquier momento, no solo cuando configure el almacén de datos. Cuanto más se desliza a la derecha, mayor es la cantidad de recursos a su disposición. Si esos recursos ya no son necesarios, puede mover el control deslizante en la otra dirección, para ahorrar costos. Almacenamiento de datos SQL permite cambiar el perfil de rendimiento a petición, sin tener que volver a crear el clúster o mover los datos.
 
-- Use ahora el control deslizante para ver cómo las unidades de almacenamiento de datos aumentan a medida que se desliza a la derecha y disminuyen cuando mueve el control deslizante a la izquierda.
+- Use ahora el control deslizante para ver cómo las unidades de almacenamiento de datos (DWU) aumentan a medida que se desliza a la derecha y disminuyen cuando mueve el control deslizante a la izquierda.
 
 - Antes de dejar este paso, asegúrese de que el control deslizante esté nuevamente a la izquierda. El nuevo almacén de datos es pequeño, por lo que no necesitaremos demasiado; ahorre recursos para el resto de la evaluación.
 
@@ -151,9 +151,7 @@ Ahora que configuró el firewall, podría establecer conexiones desde su escrito
 
 ## Pasos siguientes
 
-Ahora que se aprovisionó correctamente el servicio Almacenamiento de datos SQL, podemos aprender a usarlo.
-
-Por lo tanto, los pasos siguientes sirven para aprender a:
+Ahora que se aprovisionó correctamente el servicio Almacenamiento de datos SQL, podemos aprender a usarlo. Pasos siguientes:
 
 1. [Conectar y consultar][] el almacenamiento de datos.
 2. Cargar [datos de ejemplo].
@@ -166,7 +164,7 @@ Por lo tanto, los pasos siguientes sirven para aprender a:
 [datos de ejemplo]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
-[evaluación gratuita]: https://azure.microsoft.com/es-es/pricing/free-trial/
+[evaluación gratuita]: https://azure.microsoft.com/es-ES/pricing/free-trial/
 [portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

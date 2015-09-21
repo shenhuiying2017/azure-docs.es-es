@@ -146,10 +146,10 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
+-   Información general de [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
 -   Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Colas de Azure y Colas del Bus de servicio de Azure: comparación y diferencias](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
+Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Colas de Azure y Colas del Bus de servicio de Azure: comparación y diferencias](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

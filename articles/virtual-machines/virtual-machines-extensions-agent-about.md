@@ -1,22 +1,25 @@
 <properties
  pageTitle="Acerca de las extensiones y del agente de máquina virtual | Microsoft Azure"
-	description="Proporciona información general de los agentes y las extensiones y sobre cómo instalar el agente."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
+ description="Proporciona información general de los agentes y las extensiones y sobre cómo instalar el agente."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="squillace"
+ manager="timlt"
+ editor=""/>
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="03/10/2015"
-	ms.author="rasquill"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="infrastructure-services"
+ ms.date="03/10/2015"
+ ms.author="rasquill"/>
  
 #Acerca de las extensiones y del agente de máquina virtual
-El Agente de máquina virtual (Agente de VM) de Azure se utiliza para instalar, configurar, administrar y ejecutar Extensiones de máquina virtual (Extensiones de VM) de Azure. Las Extensiones de VM proporcionan características dinámicas que proporcionan Microsoft y otros terceros. El agente y las extensiones se agregan principalmente a través del Portal de administración, pero también puede utilizar los cmdlets de [Powershell](../install-configure-powershell.md) o la [xplat-cli](virtual-machines-command-line-tools.md) para agregar y configurar si desea crear una máquina virtual o con máquinas virtuales existentes. Las Extensiones de VM incluyen compatibilidad con [Depuración remota en Visual Studio](https://msdn.microsoft.com/library/y7f5zaaa.aspx), [System Center 2012](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx), [Diagnósticos de Microsoft Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) y [Docker](virtual-machines-docker-vm-extension.md), por nombrar algunos.
+El Agente de máquina virtual (Agente de VM) de Azure se utiliza para instalar, configurar, administrar y ejecutar Extensiones de máquina virtual (Extensiones de VM) de Azure. Las Extensiones de VM proporcionan características dinámicas que proporcionan Microsoft y otros terceros. El agente y las extensiones se agregan principalmente a través del Portal de administración, pero también puede usar los cmdlets de [Powershell](../install-configure-powershell.md) o la [CLI de Azure](xplat-install.md) para agregar y configurar si desea crear una máquina virtual o con máquinas virtuales existentes.
+
+> [AZURE.NOTE]En este tema se describen PowerShell y la CLI de Azure, pero se hace referencia a las llamadas de implementación que son para el modelo de implementación clásica y no para el modelo de implementación del Administrador de recursos. Consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md) para obtener más información sobre los modelos de implementación.
+
 
 Las extensiones de VM pueden ayudarle a:
 
@@ -25,7 +28,7 @@ Las extensiones de VM pueden ayudarle a:
 -   Restablecer o instalar características de conectividad, como RDP y SSH
 -   Diagnosticar, supervisar y administrar las máquinas virtuales
 
-Además, existen muchas otras características; con frecuencia, se lanzan nuevas características de Extensión de VM. En este artículo, se describen los Agentes de VM de Azure para Windows y Linux y cómo admiten la funcionalidad de Extensión de VM. Si desea obtener un listado de las Extensiones de VM por categoría de característica, consulte [Características y extensiones de VM de Azure](https://msdn.microsoft.com/library/dn606311.aspx).
+Además, existen muchas otras características; con frecuencia, se lanzan nuevas características de Extensión de VM. En este artículo, se describen los Agentes de VM de Azure para Windows y Linux y cómo admiten la funcionalidad de Extensión de VM. Si desea obtener un listado de las Extensiones de VM por categoría de característica, consulte [Características y extensiones de VM de Azure](virtual-machines-extensions-features.md).
 
 ##Agentes de VM de Azure para Windows y Linux
 
@@ -49,7 +52,7 @@ El Agente de VM se habilita en las siguientes situaciones:
         $vm.VM.ProvisionGuestAgent = $TRUE
         Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
--   Mediante la creación de una imagen de máquina virtual que tiene instalado el Agente de VM antes de cargarla a Azure. En el caso de una máquina virtual de Windows, descargue el [archivo .msi del Agente de VM de Windows](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) e instale el Agente de VM. En el caso de una máquina virtual de Linux, lo instalará desde el archivo ubicado en <https://github.com/Azure/WALinuxAgent>. Para obtener más información sobre cómo instalar el Agente de VM en Linux, consulte la [Guía de usuario del Agente de VM de Linux](virtual-machines-linux-agent-user-guide.md).
+-   Mediante la creación de una imagen de máquina virtual que tiene instalado el Agente de VM antes de cargarla a Azure. En el caso de una máquina virtual de Windows, descargue el [archivo .msi del Agente de VM de Windows](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) e instale el Agente de VM. En el caso de una máquina virtual de Linux, lo instalará desde el repositorio de github que se encuentra en <https://github.com/Azure/WALinuxAgent>. Para obtener más información sobre cómo instalar el Agente de VM en Linux, consulte la [Guía de usuario del Agente de VM de Linux](virtual-machines-linux-agent-user-guide.md).
 
 >[AZURE.NOTE]En PaaS, el Agente de VM se denomina **GuestAgent** y siempre está disponible en máquinas virtuales de rol web y rol de trabajo. (Para obtener más información, consulte [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) [Arquitectura de roles de Azure]). El agente de VM para máquinas virtuales de rol ahora puede agregar extensiones a las máquinas virtuales de servicio en la nube, de la misma forma en que lo hace para las máquinas virtuales persistentes. La diferencia principal entre Extensiones de VM en VM de rol y VM persistentes es que, en el caso de las VM de rol, las extensiones se agregan primero al servicio en la nube y luego a las implementaciones dentro de ese servicio en la nube.
 
@@ -57,6 +60,6 @@ El Agente de VM se habilita en las siguientes situaciones:
 
 ##Buscar, agregar, actualizar y quitar extensiones de VM  
 
-Para obtener detalles sobre estas tareas, consulte [Agregar, buscar, actualizar y quitar extensiones de VM de Azure](https://msdn.microsoft.com/library/dn850373.aspx).
+Para obtener detalles sobre estas tareas, consulte [Agregar, buscar, actualizar y quitar extensiones de VM de Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

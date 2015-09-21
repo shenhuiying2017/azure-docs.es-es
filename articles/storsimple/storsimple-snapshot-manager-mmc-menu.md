@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Uso de las acciones del menú de MMC en Administrador de instantáneas StorSimple | Microsoft Azure"
-   description="Describe cómo usar las acciones del menú de Microsoft Management Console (MMC) en Administrador de instantáneas StorSimple."
+   pageTitle="Acciones de menú de MMC en el Administrador de instantáneas StorSimple | Microsoft Azure"
+   description="Describe cómo usar las acciones estándar de menú de Microsoft Management Console (MMC) en Administrador de instantáneas StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Uso de las acciones del menú de MMC en Administrador de instantáneas StorSimple
@@ -127,4 +127,4 @@ Puede usar el menú **Ayuda** para ver la Ayuda en línea disponible para Admini
 
 [Obtenga más información acerca de la interfaz de usuario del Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

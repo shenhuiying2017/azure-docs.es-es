@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Centros de notificaciones de Azure | Microsoft Azure"
+	pageTitle="Introducción a Centros de notificaciones de Azure para aplicaciones iOS | Microsoft Azure"
 	description="En este tutorial aprenderá a usar Centros de notificaciones de Azure para enviar notificaciones push a dispositivos iOS."
 	services="notification-hubs"
 	documentationCenter="ios"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/02/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introducción a los Centros de notificaciones
+# Introducción a Centros de notificaciones para aplicaciones iOS
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -325,7 +325,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 		}
 
 
-7. Presione **Ctrl y arrastre** desde el botón **Send Notification** (Enviar notificación) hasta ViewController.m para agregar una acción para el evento **tocar hacia abajo** que ejecuta la llamada a la API de REST mediante el código siguiente.
+7. Presione Ctrl y arrastre desde el botón **Send Notification** (Enviar notificación) hasta ViewController.m para agregar una acción para el evento **tocar hacia abajo** que ejecuta la llamada a la API de REST mediante el código siguiente.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -503,10 +503,10 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Introducción a las notificaciones push en Servicios móviles]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Uso de los Centros de notificaciones para insertar notificaciones a los usuarios]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-ios-send-breaking-news.md
 
 [guía de programación de notificaciones push y locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

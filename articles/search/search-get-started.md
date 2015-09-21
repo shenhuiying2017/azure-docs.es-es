@@ -98,7 +98,7 @@ La búsqueda estándar comienza con una réplica y una partición, pero se puede
 
 Las réplicas y las particiones adicionales se cobran en unidades de búsqueda. El total de unidades de búsqueda necesario para admitir una configuración de recursos en particular se muestra en la página, a medida que agrega recursos.
 
-Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Límites y restricciones](http://msdn.microsoft.com/library/azure/dn798934.aspx) para obtener ayuda para decidir cómo configurar las combinaciones de partición y de réplica.
+Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Límites y restricciones](search-limits-quotas-capacity.md) para obtener ayuda para decidir cómo configurar las combinaciones de partición y de réplica.
 
  ![][15]
 
@@ -334,7 +334,7 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 
 - [¿Qué es Búsqueda de Azure?](search-what-is-azure-search.md)
 
-- [API de REST de Búsqueda de Azure](http://msdn.microsoft.com/library/dn798935.aspx)
+- [API de REST del Servicio Búsqueda de Azure](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [SDK de .NET de Búsqueda de Azure+](https://msdn.microsoft.com/library/azure/dn951165.aspx)
 
@@ -378,4 +378,4 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Site Recovery: preguntas más frecuentes"
-	description="Este artículo analiza las preguntas más frecuentes acerca del uso de Azure Site Recovery."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery: preguntas más frecuentes" 
+	description="Este artículo analiza las preguntas más frecuentes acerca del uso de Azure Site Recovery." 
+	services="site-recovery" 
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="08/26/2015" 
 	ms.author="lauraa"/>
 
 
@@ -63,6 +63,17 @@ No es una opción admitida. Envíenos sus comentarios a través de [foro de come
 
 ### ¿Es posible poner en marcha los discos iniciales en Azure mediante el mecanismo sin conexión?
 No es una opción admitida. Envíenos sus comentarios a través del [foro de comentarios de Azure Site Recovery - Soporte para la replicación sin conexión](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+### ¿Puedo limitar ancho de banda asignado para el tráfico de replicación cuando uso Hyper-v como origen?
+- Si va a realizar la replicación entre dos sitios locales, puede usar QoS de Windows para ello. A continuación se muestra un script de ejemplo: 
+
+    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+    	gpupdate.exe /force
+
+- Si va a realizar la replicación en Azure, puede configurarla mediante el siguiente cmdlet de powershell de ejemplo:
+
+    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+
 
 ## Compatibilidad de versiones
 
@@ -236,4 +247,4 @@ Para empezar a implementar ASR:
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

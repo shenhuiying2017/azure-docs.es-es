@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure
@@ -196,6 +196,15 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 3. Use instancias de servidor independientes (de codificador) y envíe las secuencias redundantes mencionadas en (1) y (2). 
 
 
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
 [image2]: ./media/media-services-fmp4-live-ingest-overview/media-services-image2.png
 [image3]: ./media/media-services-fmp4-live-ingest-overview/media-services-image3.png
@@ -206,4 +215,4 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

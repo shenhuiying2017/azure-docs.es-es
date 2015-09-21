@@ -13,14 +13,15 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.topic="article" 
+	ms.date="09/04/2015"
 	ms.author="rickbyh"/>
 
 
 # Configuración del firewall en Base de datos SQL
 
- Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexiones con servidores y bases de datos. Puede definir la configuración de firewall de nivel de servidor y de base de datos para el maestro o una base de datos de usuario en el servidor de Base de datos SQL de Azure para permitir el acceso a la base de datos de forma selectiva.
+
+Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexiones con servidores y bases de datos. Puede definir la configuración de firewall de nivel de servidor y de base de datos para el maestro o una base de datos de usuario en el servidor de Base de datos SQL de Azure para permitir el acceso a la base de datos de forma selectiva.
 
 **Importante** Para permitir que las aplicaciones de Azure se conecten al servidor de base de datos, deben habilitarse las conexiones de Azure. Para obtener más información sobre las reglas de firewall y sobre la habilitación de las conexiones de Azure, vea [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
 
@@ -30,25 +31,15 @@
 Pueden crear reglas de firewall de nivel de servidor y administrarlas a través del Portal de administración de Microsoft Azure, Transact-SQL, Azure PowerShell o la API de REST.
 
 ### Administración de reglas de firewall de nivel de servidor a través del nuevo Portal de Azure
-1. Visite el Portal de Azure en https://portal.azure.com e inicie sesión con su cuenta de administrador de Azure o colaborador.
-2. En el banner de la izquierda, haga clic en EXAMINAR TODO, desplácese hacia abajo y, a continuación, haga clic en Servidores SQL Server.
-3. Haga clic en el servidor para el que desee configurar las reglas de firewall en la lista de servidores SQL Server mostrada.
 
-	![firewall][1]
 
-4. En la hoja del servidor, haga clic en Configuración en la parte superior del cuadro y, a continuación, haga clic en Firewall para abrir la hoja Configuración del firewall para el servidor.
-5. Agregue o cambie una regla de firewall.
+[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-	* Para agregar la dirección IP del equipo actual, haga clic en **Agregar dirección IP de cliente** en la parte superior de la hoja.
-	* Para agregar direcciones IP adicionales, escriba el **NOMBRE DE LA REGLA**, la **DIRECCIÓN IP INICIAL** y la **DIRECCIÓN IP FINAL**.
-	* Para modificar una regla existente, haga clic y cambie cualquiera de los campos de la regla.
-	* Para eliminar una regla existente, haga clic en la regla, haga clic en los puntos suspensivos (...) al final de la fila y, a continuación, haga clic en **Eliminar**.
-6. Haga clic en Guardar en la parte superior de la hoja Configuración del firewall para guardar los cambios. ![hoja de firewall][2] 
 
 ## Administración de reglas de firewall de nivel de servidor a través del Portal de administración 
 
 1. En el Portal de administración, haga clic en **Bases de datos SQL**. Aquí se enumeran todas las bases de datos y los servidores correspondientes.
-2. Haga clic en **Servidores** en la parte superior de la página.
+2. Haga clic en **Servers** en la parte superior de la página.
 3. Haga clic en la flecha al lado del servidor para el que desea administrar las reglas de firewall.
 4. Haga clic en **Configurar** en la parte superior de la página.
 
@@ -143,11 +134,11 @@ Pueden crear reglas de firewall de nivel de servidor y administrarlas a través 
  
 ## Pasos siguientes
 
-Para obtener un tutorial sobre la creación de una base de datos, vea [Creación de la primera Base de datos SQL Azure](sql-database-get-started.md). Para obtener ayuda para la conexión a una base de datos SQL de Azure desde código abierto o aplicaciones de terceros, consulte [Instrucciones para conectar con Base de datos SQL de Azure mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para entender cómo navegar a las bases de datos, vea [Administrar bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Para obtener un tutorial sobre la creación de una base de datos, vea [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md). Para obtener ayuda para la conexión a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, vea [Instrucciones para conectar con Base de datos SQL de Azure mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para entender cómo navegar a las bases de datos, vea [Administrar bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 <!--Image references-->
 [1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -33,6 +33,8 @@ El hospedaje de una granja de SharePoint de intranet en Servicios de infraestruc
 
 El siguiente paso es configurar una granja de SharePoint de intranet de desarrollo y pruebas hospedada en Azure.
 
+> [AZURE.NOTE]Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, consulte [Prueba de la vista previa de TI de SharePoint 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Creación de una granja de SharePoint de intranet de desarrollo y pruebas hospedada en Azure
 
 Tiene dos opciones para crear un entorno de desarrollo y pruebas para una granja de SharePoint hospedada en Azure:
@@ -124,4 +126,4 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

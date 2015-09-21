@@ -23,14 +23,9 @@ La herramienta de división y combinación administra la reducción y el escalad
 
 ## Novedades de la División y combinación
 
-Las versiones más recientes de la herramienta de división y combinación ofrecen las siguientes mejoras:
+La versión 1.1.0 de la herramienta de división-combinación ofrece la capacidad de limpiar automáticamente los metadatos de la solicitud completada. Una opción de configuración controla cuánto tiempo se conservan estos metadatos antes de eliminarse.
 
-* Se incluyen API de .NET para la interfaz con el servicio de División y combinación; el rol web ahora es opcional. 
-* Ahora se admiten los tipos de fecha y hora para las claves de particionamiento. 
-* Ahora se admiten los mapas de particiones de lista. 
-* Los límites de intervalo de solicitudes pueden coincidir con mayor facilidad con intervalos almacenados en el mapa de particiones.
-* Ahora se admiten varias instancias de rol de trabajo para mejorar la disponibilidad. 
-* Las credenciales almacenadas como parte de la operación de División y combinación se cifran ahora en reposo.
+La versión 1.0.0 de la herramienta división-combinación ofrece las siguientes mejoras: *Las API de .Net se incluyen para la interfaz con la división-combinación; el rol web es opcional ahora * Los tipos de fecha y ahora se admiten ahora para claves de particionamiento * Se admiten ahora asignaciones de particiones de lista. * Los límites del intervalo en las solicitudes pueden coincidir con mayor facilidad con intervalos almacenados en la asignación de particiones. * Ahora se admiten varias instancias de rol de trabajo para mejorar la disponibilidad. * Las credenciales almacenadas como parte de su operación de división-combinación se cifran ahora en reposo.
 
 ## Procedimiento de actualización
 
@@ -243,4 +238,4 @@ Además, una propiedad de unicidad con la clave de particionamiento como la colu
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

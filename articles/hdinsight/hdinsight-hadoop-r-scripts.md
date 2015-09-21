@@ -23,6 +23,7 @@ Puede instalar R en cualquier tipo de clúster de Hadoop en HDInsight mediante l
 
 La acción de script le permite ejecutar scripts para personalizar un clúster, conforme se crea el clúster. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize].
 
+> [AZURE.NOTE]Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Para obtener información sobre el uso de R con un clúster basado en Linux, vea [Instalación y uso de R en clústeres Hadoop de HDinsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 
 ## ¿Qué es R?
 
@@ -36,8 +37,8 @@ Un [script de ejemplo](https://hdiconfigactions.blob.core.windows.net/rconfigact
 
 > [AZURE.NOTE]El script de ejemplo se introdujo con el clúster de HDInsight versión 3.1. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](../hdinsight-component-versioning/).
 
-1. Cuando aprovisiona un clúster de HDInsight desde el portal de vista previa, haga clic en **Configuración opcional** y luego haga clic en **Acciones de scripts**.
-2. En la página **Acciones de scripts**, escriba los siguientes valores:
+1. Cuando aprovisione un clúster de HDInsight desde el portal de vista previa, haga clic en **Configuración opcional** y luego en **Acciones de script**.
+2. En la página **Acciones de script**, escriba los siguientes valores:
 
 	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Uso de la acción de script para personalizar un clúster")
 
@@ -58,7 +59,7 @@ También puede utilizar el script para instalar R en HDInsight con Azure PowerSh
 ## Ejecutar scripts de R
 En esta sección se describe cómo ejecutar un script de R en el clúster de Hadoop con HDInsight.
 
-1. **Establezca una conexión de Escritorio remoto con el clúster**: en el portal de vista previa de Azure, habilite el Escritorio remoto para el clúster que creó con R instalado y, a continuación, conéctese al clúster. Para obtener instrucciones, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+1. **Establecimiento de una conexión de Escritorio remoto con el clúster**: en el Portal de vista previa de Azure, habilite el Escritorio remoto para el clúster que creó con R instalado y conéctese al clúster. Para obtener instrucciones, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
 
 2. **Abra la consola de R**: la instalación de R coloca un vínculo a la consola de R en el escritorio del nodo principal. Haga clic en él para abrir la consola de R.
 
@@ -283,4 +284,4 @@ Proporcione un nombre de clúster y presione ENTRAR para aprovisionar un clúste
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -27,7 +27,7 @@ En este tema se explica cómo sincronizar los datos y controlar conflictos cuand
 
 Si prefiere ver un vídeo, el clip que aparece a continuación muestra los mismos pasos que este tutorial.
 
-> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
 En este tutorial se descargará una solución universal C# de Windows para una aplicación que admite el control de conflictos de sincronización sin conexión. Integrará un servicio móvil con la aplicación y, a continuación, ejecutará los clientes de Tienda Windows 8.1 y Windows Phone 8.1 para generar un conflicto de sincronización y resolverlo.
 
@@ -164,4 +164,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [ejemplo de Todo sin conexión de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

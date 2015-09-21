@@ -7,6 +7,8 @@ Para crear una red virtual mediante PowerShell, siga estos pasos.
 
 		Switch-AzureMode AzureResourceManager
 	
+	Este es el resultado esperado del comando anterior:
+
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]El cmdlet Switch-AzureMode pronto estará en desuso. Cuando esto suceda, se cambiará el nombre de todos los cmdlets del Administrador de recursos.
@@ -14,6 +16,8 @@ Para crear una red virtual mediante PowerShell, siga estos pasos.
 3. Si es necesario, ejecute el cmdlet **New-AzureResourceGroup** para crear un nuevo grupo de recursos, como se muestra a continuación. En este escenario, cree un grupo de recursos denominado *TestRG*. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md/#resource-groups).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
+
+	Este es el resultado esperado del comando anterior:
 	
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -31,6 +35,8 @@ Para crear una red virtual mediante PowerShell, siga estos pasos.
 		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
+	Este es el resultado esperado del comando anterior:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -60,6 +66,8 @@ Para crear una red virtual mediante PowerShell, siga estos pasos.
 		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
+	Este es el resultado esperado del comando anterior:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -89,7 +97,7 @@ Para crear una red virtual mediante PowerShell, siga estos pasos.
 		                      }
 		                    ]
 
-7. Repita el paso 6 anterior para cada subred que desee crear. El siguiente comando crea la subred *BackEnd* en este escenario.
+7. Repita el paso 6 anterior para cada subred que desee crear. El siguiente comando crea la subred *BackEnd* para nuestro escenario.
 
 		Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
@@ -98,6 +106,8 @@ Para crear una red virtual mediante PowerShell, siga estos pasos.
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
+	Este es el resultado esperado del comando anterior:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -137,4 +147,4 @@ Para crear una red virtual mediante PowerShell, siga estos pasos.
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

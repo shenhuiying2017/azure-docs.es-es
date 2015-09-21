@@ -1,20 +1,20 @@
 <properties
    pageTitle="Carga de trabajo del almacenamiento de datos"
-	description="La elasticidad del servicio Almacenamiento de datos SQL permite aumentar, reducir o pausar la capacidad de proceso mediante el uso de una escala móvil de unidades de almacenamiento de datos (DWU). En este artículo se explican las métricas de almacenamiento de datos y cómo se relacionan con las DWU."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""/>
+   description="La elasticidad del servicio Almacenamiento de datos SQL permite aumentar, reducir o pausar la capacidad de proceso mediante el uso de una escala móvil de unidades de almacenamiento de datos (DWU). En este artículo se explican las métricas de almacenamiento de datos y cómo se relacionan con las DWU."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/23/2015"
-	ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/04/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
 
 # Carga de trabajo del almacenamiento de datos
 Una carga de trabajo de almacenamiento de datos hace referencia a todas las operaciones que tienen lugar en un almacenamiento de datos. La carga de trabajo del almacenamiento de datos abarca todo el proceso de carga de datos en el almacén, la realización de análisis e informes, la administración de los datos y la exportación de los mismos. La profundidad y amplitud de estos componentes suelen ir en paralelo con el nivel de madurez del almacenamiento de datos.
@@ -37,7 +37,7 @@ La carga de datos es una parte importante de la carga de trabajo del almacenamie
 
 - Tradicionalmente, el proceso de carga se denomina ETL (extracción, transformación y carga). Normalmente, los datos deben transformarse para mantener la coherencia con otros datos del almacenamiento de datos. Anteriormente, las empresas usaban servidores dedicados de ETL para estas transformaciones. Ahora, gracias al rápido procesamiento masivo paralelo, es posible cargar datos en Almacenamiento de datos SQL en primer lugar y, a continuación, hacer las transformaciones. Este proceso se denomina extraer, cargar y transformar (ELT) y se está convirtiendo en un nuevo estándar para la carga de trabajo de almacenamiento de datos.
 
-> [NOTA DE AZURE] Con SQL Server CTP2, ahora es posible realizar análisis en tiempo real en una tabla OLTP. Esto no reemplaza la necesidad de un almacenamiento de datos para almacenar y analizar datos, pero ofrece un modo de hacer el análisis en tiempo real.
+> [AZURE.NOTE]Con SQL Server CTP2, ahora es posible realizar análisis en tiempo real en una tabla OLTP. Esto no reemplaza la necesidad de un almacenamiento de datos para almacenar y analizar datos, pero ofrece un modo de hacer el análisis en tiempo real.
  
 ### Consultas de informes y análisis
 Las consultas de informes y análisis a menudo se clasifican como pequeñas, medianas y grandes en función de diversos criterios, pero normalmente están basadas en el tiempo. En la mayoría de los almacenamientos de datos, hay una carga de trabajo mixta de ejecución rápida frente a consultas de larga ejecución. En cada caso, es importante determinar esta mezcla y determinar su frecuencia (cada hora, diariamente, a fin de mes, al final del trimestre, etcétera). Es importante comprender que la carga de trabajo de consulta mixta, junto con la simultaneidad, lleva al planeamiento de un almacenamiento de datos con la capacidad adecuada.
@@ -61,15 +61,15 @@ Un modo de hacer que los datos estén disponibles para la creación de informes 
 Para empezar a desarrollar el almacenamiento de datos, vea [Introducción al desarrollo][].
 
 ## Libros
-[Almacenamiento de Big Data](https://www.manning.com/books/big-data-warehousing) por Karthik Ramachandran, Istvan Szededi y Richard L. Saltzer (Manning Publications). [Capítulo 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) (Almacenamiento de macrodatos) por Karthik Ramachandran, Istvan Szededi y Richard L. Saltzer (Manning Publications). [Capítulo 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
 
 <!--Image references-->
 
 <!--Article references-->
-[Introducción al desarrollo]: sql-data-warehouse-overview-development.md
+[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

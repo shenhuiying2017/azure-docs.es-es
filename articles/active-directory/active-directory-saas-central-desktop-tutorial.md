@@ -1,5 +1,5 @@
 <properties pageTitle="Tutorial: integración de Azure Active Directory con Central Desktop | Microsoft Azure" description="Aprenda cómo usar Central Desktop con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Tutorial: integración de Azure Active Directory con Central Desktop
 >[AZURE.TIP]Para enviar comentarios, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=522411).
 
@@ -53,7 +53,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 Como parte de este procedimiento, se requiere cargar un certificado codificado en base 64 en el inquilino de Central Desktop.  
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-Nase
+
 
 ###Siga estos pasos para configurar el inicio de sesión único:
 
@@ -68,7 +68,7 @@ Nase
 3.  En la página **Configurar dirección URL de la aplicación**, realice los pasos siguientes y luego haga clic en **Siguiente**:
 
     -   En el cuadro de texto **URL de inicio de sesión de Central Desktop**, escriba la dirección URL de su inquilino de Central Desktop (p. ej.: **http://contoso.centraldesktop.com*).
-    -   En el cuadro de texto de la dirección URL de respuesta de Central Desktop, escriba la URL de AssertionConsumerService de Central Desktop (p. ej.:https://contoso.centraldesktop.com/saml2-assertion.php)).
+-   En el cuadro de texto de la dirección URL de respuesta de Central Desktop, escriba la URL de AssertionConsumerService de Central Desktop (p. ej.:https://contoso.centraldesktop.com/saml2-assertion.php)).
 
     >[AZURE.NOTE]Puede obtener el valor de los metadatos de Central Desktop (p. ej.: **http://contoso.centraldesktop.com*).
 
@@ -154,4 +154,4 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

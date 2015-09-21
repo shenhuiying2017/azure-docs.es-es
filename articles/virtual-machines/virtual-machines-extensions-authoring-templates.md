@@ -1,20 +1,20 @@
 <properties
    pageTitle="Creación de plantillas con extensiones de VM de Azure | Microsoft Azure"
-	description="Más información sobre la creación de plantillas con extensiones"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="Más información sobre la creación de plantillas con extensiones"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Cree plantillas del Administrador de recursos de Azure con extensiones de VM.
 
@@ -22,10 +22,10 @@
 
 Las plantillas del Administrador de recursos de Azure le permiten especificar mediante declaración la infraestructura IaaS de Azure en el lenguaje Json definiendo las dependencias entre recursos. Para obtener información más detallada de las plantillas del Administrador de recursos de Azure, consulte los siguientes artículos:
 
-<a href="https://azure.microsoft.com/es-ES/documentation/articles/resource-group-overview/" target="_blank">Información general del grupo de recursos</a>. <br/> <a href="https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Implementación de plantillas con la CLI de Azure</a>. <br/> <a href="https://azure.microsoft.com/es-ES/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Implementación de plantillas con Azure PowerShell</a>.
+[Información general del grupo de recursos](../resource-group-overview.md)
 
 ## Fragmento de plantilla de ejemplo para extensiones de VM.
-El fragmento de plantilla para extensiones de implementación tiene el aspecto siguiente:
+La implementación de extensión de máquinas virtuales como parte de la plantilla de Administrador de recursos de Azure requiere que especifique de forma declarativa la configuración de la extensión en la plantilla. Este es el formato para especificar la configuración de la extensión.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -43,6 +43,11 @@ El fragmento de plantilla para extensiones de implementación tiene el aspecto s
       }
       }
       }
+
+Como se puede ver en lo anterior, la plantilla de extensión contiene dos partes principales:
+
+1. Nombre de extensión, publicador y versión.
+2. Configuración de la extensión.
 
 ## Identificación de publisher, type y typeHandlerVersion para cualquier extensión.
 
@@ -68,14 +73,16 @@ Estas tres propiedades se asignan a "publisher", "type" y "typeHandlerVersion", 
 
 El paso siguiente en la creación de plantillas de extensión es identificar el formato para proporcionar parámetros de configuración. Cada extensión es compatible con su propio conjunto de parámetros.
 
-Para consultar una configuración de ejemplo de las extensiones de Windows, haga clic en la documentación [Ejemplos de extensiones de Windows](virtual-machines-extensions-configuration-samples-windows.md).
+Para ver una configuración de ejemplo de las extensiones de Windows, haga clic en la documentación [Ejemplos de extensiones de Windows](virtual-machines-extensions-configuration-samples-windows.md).
 
 Para consultar una configuración de ejemplo de las extensiones de Linux, haga clic en la documentación [Ejemplos de extensiones de Linux](virtual-machines-extensions-configuration-samples-linux.md).
 
 Consulte lo siguiente en las plantillas de VM para obtener una plantilla totalmente completada con extensiones de VM.
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extensión del script personalizado en una VM de Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extensión del script personalizado en una VM de Windows</a>.
+[Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+[Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 Después de crear la plantilla, puede implementarla con la CLI de Azure o Azure PowerShell.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

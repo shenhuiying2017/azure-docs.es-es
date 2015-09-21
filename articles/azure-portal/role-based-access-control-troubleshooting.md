@@ -4,6 +4,7 @@
 	services="azure-portal"
 	documentationCenter="na" 
 	authors="stepsic-microsoft-com" 
+	writer="" 
 	manager="terrylan" 
 	editor=""/>
 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Solución de problemas del control de acceso basado en roles
@@ -22,7 +23,7 @@
 
 [El control de acceso basado en rol](../role-based-access-control-configure.md) es una función potente que le permite delegar accesos específicos a recursos en Azure. Esto significa que puede tener la seguridad de que concede a una determinada persona el acceso exclusivamente a lo que necesita. No obstante, algunas veces el modelo de recursos para los recursos de Azure puede ser complicado y puede costar entender a qué se están concediendo permisos exactamente.
 
-En este documento explicamos qué puede esperar al usar algunos de los nuevos roles del portal de Azure. En esta versión se incluyen tres roles predefinidos: * Propietario * Colaborador * Lector
+En este documento se explica qué puede esperar al usar algunos de los nuevos roles del Portal de Azure. Se incluyen tres roles comunes que cubren todos los tipos de recursos: * Propietario * Colaborador * Lector
 
 Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. [Consulte este artículo](../role-based-access-control-configure.md) para obtener información detallada sobre cómo conceder acceso exactamente.
 
@@ -82,4 +83,4 @@ Las máquinas virtuales tienen estos recursos relacionados: * nombres de dominio
     
 Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

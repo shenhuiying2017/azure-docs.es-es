@@ -213,9 +213,9 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
--   Referencia de API para [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
--	Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
+-   Vea [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
+-   Referencia de API para [Clase SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
+-	Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

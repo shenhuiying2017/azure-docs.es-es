@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Escalado de un servicio en la nube | Microsoft Azure" 
-	description="Vea cómo escalar un servicio en la nube y recursos vinculados en Azure." 
+	pageTitle="Configuración de escalado automático para un servicio en la nube | Microsoft Azure" 
+	description="Aprenda a usar el portal para configurar reglas de escalado automático de un servicio en la nube y recursos vinculados en Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="adegeo"/>
 
 
 
 
 
-# Escalado de una aplicación
+# Escalado automático de una aplicación
 
 En la página Scale del Portal de administración de Azure, puede escalar su aplicación manualmente o puede establecer parámetros para escalarla automáticamente. Puede escalar aplicaciones que ejecutan roles web, roles de trabajo o máquinas virtuales. Para escalar una aplicación que ejecuta instancias de roles web o roles de trabajo, agregue o quite instancias de roles para acomodar la carga de trabajo.
 
@@ -227,4 +227,4 @@ Puede programar el escalado automático de su aplicación al configurar programa
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

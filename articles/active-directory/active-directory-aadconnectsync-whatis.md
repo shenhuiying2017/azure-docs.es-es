@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="09/08/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -34,7 +34,8 @@ El objetivo de este tema es proporcionarle vínculos a temas relacionados con Az
 - Si desea obtener más información sobre la sincronización de contraseñas, vea [Implementación de la sincronización de contraseña](active-directory-aadconnectsync-implement-password-synchronization.md).
 - Si desea obtener más información sobre los usuarios y contactos en Azure AD Connect Sync, vea [Descripción de usuarios y contactos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 - Si desea cambiar la configuración predeterminada, vea [Procedimientos recomendados para cambiar la configuración predeterminada](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
-- Si desea explorar los atributos que se sincronizan con Azure AD, vea [Atributos sincronizados con Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
+- Si desea obtener más información sobre cómo manejar el servidor de sincronización, vea [Tareas operativas y consideraciones](active-directory-aadconnectsync-operations.md)
+- Si quiere explorar los atributos que se sincronizan con Azure AD, vea [Atributos sincronizados con Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
 - Si desea obtener más información sobre el aprovisionamiento declarativo, vea [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 - Para explorar las funciones de aprovisionamiento declarativo, vea [Referencia de funciones](active-directory-aadconnectsync-functions-reference.md).
 
@@ -48,4 +49,4 @@ El objetivo de este tema es proporcionarle vínculos a temas relacionados con Az
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -35,11 +35,13 @@ Use esta configuración de granja para probar cargas de cliente más altas, la a
 
 Para obtener los detalles de configuración de ambas granjas, consulte [Detalles de configuración de una granja de servidores SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
+> [AZURE.NOTE]Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, consulte [Prueba de la vista previa de TI de SharePoint 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+
 ## Configuración paso a paso
 
 Para crear una granja de SharePoint con la plantilla de la granja de servidores de SharePoint, haga lo siguiente:
 
-1. En el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), haga clic en **Nuevo** > **Proceso** > **Granja de servidores SharePoint**. Si no aparece **Granja de servidores SharePoint**, haga clic en **Nuevo** > **Proceso** > **Marketplace**, escriba **SharePoint** en **Buscar proceso**, y, a continuación, haga clic en **Granja de servidores SharePoint**. En el panel de la **Granja de servidores de SharePoint**, haga clic en **Crear**.
+1. En el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), haga clic en **Nuevo** > **Proceso** > **Granja de servidores SharePoint**. Si no aparece **Granja de servidores SharePoint**, haga clic en **Nuevo** > **Proceso** > **Marketplace**, escriba **SharePoint** en **Buscar proceso**, y, a continuación, haga clic en **Granja de servidores SharePoint**. En el panel **Granja de servidores de SharePoint**, haga clic en **Crear**.
 2. En el panel **Crear una granja de SharePoint**, escriba el nombre de un grupo de recursos.
 3. Escriba un nombre de usuario y una contraseña para una cuenta de administrador local en cada máquina virtual de la granja. Elija un nombre y una contraseña que sea difícil de adivinar, regístrelos y almacénelos en una ubicación segura.
 4. Si desea una granja de alta disponibilidad, haga clic en **Habilitar alta disponibilidad**.
@@ -83,7 +85,7 @@ Notas:
 
 ## Administrador de recursos de Azure
 
-La función de granja de servidores de SharePoint del Portal de vista previa de Azure crea máquinas virtuales en la administración de servicios. Para crear granjas de SharePoint Server 2013 en el Administrador de recursos, consulte [Implementar granjas de SharePoint con plantillas de Administrador de recursos de Azure](virtual-machines-workload-template-sharepoint.md).
+La función Granja de servidores SharePoint del Portal de vista previa de Azure crea máquinas virtuales con el modelo de implementación clásico. Para crear granjas de SharePoint Server 2013 con el modelo de implementación de Administrador de recursos, consulte [Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionales
 
@@ -95,4 +97,4 @@ La función de granja de servidores de SharePoint del Portal de vista previa de 
 
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

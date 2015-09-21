@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Creación de un experimento sencillo en Estudio de aprendizaje automático | Azure"
 	description="Un primer tutorial de Aprendizaje de máquina para la creación de un experimento sencilla para entrenar y probar un modelo de regresión lineal en Estudio de aprendizaje automático de Azure."
+	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/09/2015"
+	ms.date="09/09/2015"
 	ms.author="garye"/>
 
 #Tutorial de Aprendizaje automático: Creación del primer experimento en Estudio de aprendizaje automático de Azure
@@ -197,11 +198,11 @@ Ahora que ha completado un primer tutorial de Aprendizaje automático y que tien
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-Si está satisfecho con su modelo, puede publicarlo como un servicio web a fin de usarlo para predecir precios de automóviles usando nuevos datos. Consulte [Publicación de un servicio web de Aprendizaje automático de Azure][publish] para obtener más detalles.
+Si está satisfecho con su modelo, puede implementarlo como un servicio web a fin de usarlo para predecir precios de automóviles usando nuevos datos. Vea [Implementación de un servicio web de Aprendizaje automático de Azure][publish] para obtener más detalles.
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-Si quiere un tutorial más amplio y detallado de técnicas de modelado predictivo para la creación, entrenamiento, puntuación y publicación de un modelo, consulte [Desarrollo de una solución de predicción mediante Aprendizaje automático de Azure][walkthrough].
+Si quiere un tutorial más amplio y detallado de técnicas de modelado predictivo para la creación, entrenamiento, puntuación e implementación de un modelo, vea [Desarrollo de una solución de predicción mediante Aprendizaje automático de Azure][walkthrough].
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -231,4 +232,4 @@ Si quiere un tutorial más amplio y detallado de técnicas de modelado predictiv
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

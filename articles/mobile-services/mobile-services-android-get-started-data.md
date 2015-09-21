@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introducción a los datos (Android) | Microsoft Azure" 
-	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación Android." 
+	pageTitle="Introducción a los datos en Android (back-end JavaScript) | Microsoft Azure" 
+	description="Obtenga información sobre cómo comenzar a usar Servicios móviles para aprovechar los datos de su aplicación Android (back-end JavaScript)." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="09/04/2015" 
 	ms.author="ricksal"/>
 
-# Incorporación de servicios móviles a una aplicación Android
+# Incorporación de servicios móviles a una aplicación Android existente (back-end JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -35,7 +35,7 @@
 </div>
 
 
-<p>Este tutorial le ayuda a comprender con más detalle cómo los Servicios móviles de Azure pueden almacenar y recuperar datos desde una aplicación Android. De ese modo, este tutorial recorre mucho de los pasos ya completados para usted en el tutorial de inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial <a href="/es-es/develop/mobile/tutorials/get-started-android">Introducción a los Servicios móviles</a>.</p>
+<p>Este tutorial le ayuda a comprender con más detalle cómo los Servicios móviles de Azure pueden almacenar y recuperar datos desde una aplicación Android. De ese modo, este tutorial recorre mucho de los pasos ya completados para usted en el tutorial de inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial <a href="/es-ES/develop/mobile/tutorials/get-started-android">Introducción a los Servicios móviles</a>.</p>
 
 ## Requisitos previos
 
@@ -156,4 +156,4 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Andro
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,24 +1,30 @@
 <properties
    pageTitle="Ejemplo de configuración para las extensiones de la máquina virtual de Azure | Microsoft Azure"
-	description="Configuración de ejemplo para crear plantillas con extensiones"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="Configuración de ejemplo para crear plantillas con extensiones"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Ejemplos de configuración de la extensión de máquina virtual Windows de Azure.
 
-Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Windows de IaaS de Azure. Para obtener más información acerca de estas extensiones, haga clic <a href="https://msdn.microsoft.com/es-ES/library/azure/dn606311.aspx" target="_blank">aquí</a>.
+Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Windows de IaaS de Azure.
+
+Para obtener más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+
+Para obtener más información sobre la creación de plantillas de extensión, haga clic aquí: [Creación de plantillas de extensión.](virtual-machines-extensions-authoring-templates.md)
+
+En este artículo se indican los valores de configuración esperados para algunas de las extensiones de Windows.
 
 ## Fragmento de plantilla de ejemplo para extensiones de VM.
 El fragmento de plantilla para extensiones de implementación tiene el aspecto siguiente:
@@ -268,6 +274,29 @@ Antes de implementar la extensión, compruebe la versión más reciente de la ex
             }
           }
 
+### Diagnóstico de Azure
+
+Haga clic aquí para obtener información general sobre la [Extensión de diagnósticos de Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+
+          {
+            "publisher": "Microsoft.Azure.Diagnostics",
+            "type": "IaaSDiagnostics",
+            "typeHandlerVersion": "1.4",
+            "settings": {
+              "xmlCfg": "[base64(variables('wadcfgx'))]",
+              "storageAccount": "[parameters('diagnosticsStorageAccount')]"
+            },
+            "protectedSettings": {
+            "storageAccountName": "[parameters('diagnosticsStorageAccount')]",
+            "storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+            "storageAccountEndPoint": "https://core.windows.net"
+          }
+          }
+
 En los ejemplos anteriores, reemplace el número de versión por el número de versión más reciente.
 
-<!---HONumber=September15_HO1-->
+Este es un ejemplo de una plantilla de máquina virtual completa con la extensión de script personalizada.
+
+[Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+<!---HONumber=Sept15_HO2-->

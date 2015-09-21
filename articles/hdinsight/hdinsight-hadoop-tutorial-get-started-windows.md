@@ -1,6 +1,7 @@
 <properties
    pageTitle="Tutorial de Hadoop: introducción a Hadoop en Windows | Microsoft Azure"
    description="Introducción a Hadoop en HDInsight. Aprenda a aprovisionar clústeres de Hadoop en Windows, a ejecutar una consulta de Hive en datos y analizar resultados en Excel."
+   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -14,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="09/03/2015"
    ms.author="nitinme"/>
 
 
@@ -104,13 +105,13 @@ Cuando aprovisiona un clúster, aprovisiona recursos de proceso de Azure que con
 	
 	Haga clic en **Seleccionar** para guardar la configuración de los precios del nodo.
 
-9. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que **Anclar a Panel de inicio** está seleccionado y, a continuación, haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el aprovisionamiento.
+9. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que **Anclar a Panel de inicio** está seleccionado y, a continuación, haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
 
 	| Durante el aprovisionamiento | Aprovisionamiento completado |
 	| ------------------ | --------------------- |
 	| ![Indicador de aprovisionamiento en el panel de inicio](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioning.png) | ![Icono de clúster aprovisionado](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioned.png) |
 
-	> [AZURE.NOTE]El clúster tardará algún tiempo en crearse, normalmente unos 15 minutos. Use el icono del panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
+	> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
 
 10. Una vez que termine el aprovisionamiento, haga clic en el icono del clúster desde el panel de inicio para iniciar la hoja del clúster.
 
@@ -144,10 +145,11 @@ Ahora que ha aprovisionado un clúster de HDInsight, el paso siguiente es ejecut
 
 **Para ejecutar un trabajo de Hive desde el panel del clúster**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal].
-2. Haga clic en **HDINSIGHT** en el panel izquierdo. Verá una lista de los clústeres, incluido el que acaba de crear en la sección anterior.
-3. Haga clic en el nombre del clúster que desea usar para ejecutar el trabajo de Hive. Después, haga clic en **Consola de consultas** en la parte inferior de la página.
-4. Se abre una página web en una pestaña de explorador diferente. Escriba la cuenta de usuario y la contraseña de Hadoop. El nombre de usuario predeterminado es **admin** y la contraseña es la que ha escrito durante el proceso de aprovisionamiento del clúster. El panel tiene este aspecto:
+1. Inicie sesión en el [Portal de vista previa de Azure](https://ms.portal.azure.com/).
+2. Haga clic en **EXAMINAR TODO** y luego en **Clústeres de HDInsight** para ver una lista de los clústeres, incluido el que acaba de crear en la sección anterior.
+3. Haga clic en el nombre del clúster que quiere usar para ejecutar el trabajo de Hive y luego en **Panel** en la parte superior de la hoja.
+4. Se abre una página web en una pestaña de explorador diferente. Escriba la cuenta de usuario y la contraseña de Hadoop. El nombre de usuario predeterminado es **admin** y la contraseña es la que ha escrito durante el proceso de aprovisionamiento del clúster.
+5. En el panel, haga clic en la pestaña **Editor Hive**. Se abre la página web siguiente.
 
 	![Pestaña Editor de Hive en el panel del clúster en HDInsight.][img-hdi-dashboard]
 
@@ -220,7 +222,7 @@ En este tutorial de Hadoop, ha aprendido a aprovisionar un clúster de Hadoop en
 - [Uso de Hive con HDInsight][hdinsight-use-hive]
 - [Uso de Pig con HDInsight][hdinsight-use-pig]
 - [Uso de Oozie con HDInsight][hdinsight-use-oozie]
-- [Desarrollo de programas de streaming de Hadoop C#para HDInsight][hdinsight-develop-streaming]
+- [Desarrollo de programas de streaming de Hadoop C# para HDInsight][hdinsight-develop-streaming]
 - [Desarrollo de programas de MapReduce de Java para HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -280,4 +282,4 @@ En este tutorial de Hadoop, ha aprendido a aprovisionar un clúster de Hadoop en
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

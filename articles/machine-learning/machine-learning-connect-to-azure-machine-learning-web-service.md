@@ -1,44 +1,44 @@
-<properties 
-	pageTitle="Conectarse a un servicio web de Aprendizaje automático | Microsoft Azure" 
-	description="Mediante C# o Python, conéctese a un servicio web de Aprendizaje automático de Azure mediante una clave de autorización." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Conectarse a un servicio web de Aprendizaje automático | Microsoft Azure"
+	description="Mediante C# o Python, conéctese a un servicio web de Aprendizaje automático de Azure mediante una clave de autorización."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/17/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/09/2015" 
 	ms.author="derrickv" />
 
 
-# Conectarse a un servicio web de Aprendizaje automático de Azure 
-La experiencia del desarrollador de Aprendizaje automático de Azure es una API de servicio web para realizar predicciones a partir de datos de entrada en tiempo real o en modo por lotes. Utilice Estudio de aprendizaje automático de Azure para crear predicciones y publicar un servicio web de Aprendizaje automático de Azure.
+# Conectarse a un servicio web de Aprendizaje automático de Azure
+La experiencia del desarrollador de Aprendizaje automático de Azure es una API de servicio web para realizar predicciones a partir de datos de entrada en tiempo real o en modo por lotes. Use Estudio de aprendizaje automático de Azure para crear predicciones e implementar un servicio web de Aprendizaje automático de Azure.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Para obtener información acerca de cómo crear y publicar un servicio web de Aprendizaje automático de Azure con Estudio:
+Para obtener información sobre cómo crear e implementar un servicio web de Aprendizaje automático de Azure con Estudio:
 
-- [Publicar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md)
+- [Implementación de un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md)
 - [Introducción a Estudio de aprendizaje automático](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Vista previa de Aprendizaje automático de Azure](https://studio.azureml.net/)
 - [Centro de documentación de Aprendizaje automático](http://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Servicio web de Aprendizaje automático de Azure ##
 
-Con el servicio web de Aprendizaje automático de Azure (ML), una aplicación externa se comunica con un modelo de puntuación de flujo de trabajo ML en tiempo real. Una llamada al servicio web ML devuelve resultados de predicción a una aplicación externa. Para llamar a un servicio web de ML, se pasa una clave de API que se crea cuando se publica una predicción. El servicio web de ML se basa en REST, una opción popular de arquitectura para proyectos de programación web.
+Con el servicio web de Aprendizaje automático de Azure (ML), una aplicación externa se comunica con un modelo de puntuación de flujo de trabajo ML en tiempo real. Una llamada al servicio web ML devuelve resultados de predicción a una aplicación externa. Para llamar a un servicio web de ML, se pasa una clave de API que se crea cuando se implementa una predicción. El servicio web de ML se basa en REST, una opción popular de arquitectura para proyectos de programación web.
 
 Aprendizaje automático de Azure tiene dos tipos de servicios:
 
-- Servicio de solicitud y respuesta (RRS): servicio de latencia baja altamente escalable que proporciona una interfaz para los modelos sin estado creados y publicados desde ML Studio.
+- Servicio de solicitud y respuesta (RRS): servicio de latencia baja altamente escalable que proporciona una interfaz con los modelos sin estado creados e implementados desde el Estudio de aprendizaje automático.
 - Servicio de ejecución por lotes (BES): servicio asincrónico que puntúa un lote de registros de datos.
 
-Para obtener más información sobre los servicios web de Aprendizaje automático de Azure, consulte [Publicar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
+Para obtener más información sobre los servicios web de Aprendizaje automático de Azure, vea [Implementación de un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtener una clave de autorización de Aprendizaje automático de Azure ##
 Obtenga una clave de API de servicio web de un servicio web de ML. Puede obtenerla de Microsoft Azure Machine Learning Studio o del portal de administración de Azure.
@@ -59,7 +59,7 @@ Obtenga una clave de API de servicio web de un servicio web de ML. Puede obtener
 Puede conectarse a un servicio web de Aprendizaje automático de Azure mediante cualquier lenguaje de programación que admita la respuesta y solicitud HTTP. Puede ver ejemplos en C#, Python y R desde una página de ayuda de servicio web de Azure ML.
 
 ### Para ver una página de ayuda de la API de servicios web de Azure ML ###
-Se crea una página de ayuda de la API de Azure ML al publicar un servicio web. Consulte [Tutorial de Aprendizaje automático de Azure: publicar servicio web](machine-learning-walkthrough-5-publish-web-service.md).
+Se crea una página de ayuda de la API de Azure ML al implementar un servicio web. Vea [Tutorial de Aprendizaje automático de Azure: Implementación de un servicio web](machine-learning-walkthrough-5-publish-web-service.md).
 
 
 **Para ver una página de ayuda de la API de Aprendizaje automático de Azure**, en Estudio de aprendizaje automático de Microsoft Azure:
@@ -89,7 +89,7 @@ Para conectarse a un servicio web de Aprendizaje automático, se debe instalar e
 
 1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Aprendizaje automático de Azure.
 2. Asigne una clave de API con la clave de un servicio web. Consulte cómo obtener una clave de autorización de Aprendizaje automático de Azure.
-3. Asigne la URI de servicio a la URI de solicitud. 
+3. Asigne la URI de servicio a la URI de solicitud.
 
 
 ### Ejemplo de Python ###
@@ -103,7 +103,4 @@ Para conectarse a un servicio web de Aprendizaje automático de Azure, use la bi
 2. Asigne una clave de API con la clave de un servicio web. Consulte cómo obtener una clave de autorización de Aprendizaje automático de Azure.
 3. Asigne la URI de servicio a la URI de solicitud. Consulte cómo obtener un URI de solicitud.
 
-	
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

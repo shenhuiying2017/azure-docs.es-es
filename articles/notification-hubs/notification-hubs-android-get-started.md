@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Centros de notificaciones de Azure | Microsoft Azure"
+	pageTitle="Introducción a Centros de notificaciones para aplicaciones Android | Microsoft Azure"
 	description="En este tutorial aprenderá a usar los Centros de notificaciones de Azure para enviar notificaciones push a dispositivos Android."
 	services="notification-hubs"
 	documentationCenter="android"
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Introducción a los Centros de notificaciones
+# Introducción a Centros de notificaciones para aplicaciones Android
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -530,4 +530,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-android-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

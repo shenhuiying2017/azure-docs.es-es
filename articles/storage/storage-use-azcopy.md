@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Introducción a la utilidad de línea de comandos AzCopy
@@ -972,4 +972,4 @@ Para obtener más información acerca de Almacenamiento de Azure y AzCopy, consu
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Implementación del dispositivo StorSimple (Actualización 1) | Microsoft Azure"
-	description="Describe los pasos y procedimientos recomendados para implementar el servicio y el dispositivo de la actualización 1 de StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Describe los pasos y procedimientos recomendados para implementar el servicio y el dispositivo de la actualización 1 de StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="alkohli" />
 
 # Implementar el dispositivo StorSimple local (Actualización 1)
 
@@ -202,7 +202,7 @@ Los siguientes pasos se realizan en el host de Windows Server.
 
 > - Para obtener instrucciones de instalación y configuración de MPIO e iSCSI en el host Windows Server, vaya a [Configurar MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md). También se incluyen los pasos para montar, inicializar y formatear volúmenes StorSimple.
 
-> - Para obtener instrucciones de instalación y configuración de MPIO e iSCSI en el host Linux, vaya a [Configurar MPIO para su host Linux StorSimple](storsimple-configure-mpio-linux.md)
+> - Para obtener instrucciones de instalación y configuración de MPIO e iSCSI en un host Linux, vaya a [Configurar MPIO para el host Linux de StorSimple](storsimple-configure-mpio-on-linux.md)
 
 Si decide no configurar MPIO, realice los pasos siguientes para montar, inicializar y formatear los volúmenes StorSimple en un host Windows Server.
 
@@ -241,7 +241,7 @@ Para conectarse a Windows PowerShell para StorSimple, deberá usar software de e
 La actualización del dispositivo puede tardar varias horas. Realice los pasos siguientes para detectar y aplicar las actualizaciones en el dispositivo.
 <!-- > can take 1-4 hours-->
 
-<!-- > [AZURE.NOTE] Si tiene una puerta de enlace configurada en una interfaz de red que no sea Data 0, deberá deshabilitar las interfaces de red Data 2 y Data 3 antes de instalar la actualización. Vaya a **Dispositivos > Configurar** y deshabilite las interfaces Data 2 y Data 3. Deberá volver a habilitar estas interfaces después de actualiza el dispositivo.-->
+<!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### Para actualizar su dispositivo
 
@@ -255,7 +255,7 @@ La actualización del dispositivo puede tardar varias horas. Realice los pasos s
 
 4.	Después de que el dispositivo se actualiza correctamente, habilite las interfaces de red Data 2 y Data 3 si estaban deshabilitadas.
 
-<!-- Puede que se le pida que deshabilite Data 2 y Data 3 antes de instalar las actualizaciones. Debe deshabilitar estas interfaces de red o las actualizaciones podrían dar error.-->
+<!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
 ## Obtener el IQN de un host de Windows Server
 
@@ -273,7 +273,7 @@ Siga estos pasos en el Portal de administración para crear una copia de segurid
 
 E/S de múltiples rutas (MPIO) es una característica opcional y no está instalada de forma predeterminada en Windows Server. Se debe instalar como una característica a través del Administrador del servidor. Para obtener instrucciones de instalación de MPIO, vaya a [Configurar MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
-Para obtener instrucciones de instalación de MPIO para un dispositivo StorSimple conectado a un host Linux, vaya a [Configurar MPIO para el host Linux](storsimple-configure-mpio-linux.md)
+Para obtener instrucciones de instalación de MPIO para un dispositivo StorSimple conectado a un host Linux, vaya a [Configurar MPIO para el host Linux](storsimple-configure-mpio-on-linux.md)
 
 
 > [AZURE.NOTE]No se admite MPIO en un dispositivo virtual de StorSimple.
@@ -287,4 +287,4 @@ Configure un [dispositivo virtual](storsimple-virtual-device.md).
 Use el [servicio de Administrador de StorSimple](storsimple-manager-service-administration.md) para administrar el dispositivo StorSimple.
  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

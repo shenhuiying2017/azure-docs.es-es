@@ -47,7 +47,7 @@ El agente se instala y se configura automáticamente para el área de trabajo de
 
 ![Imagen de la página de servidores de Vista operativa](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE]El [agente de VM de Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) debe estar instalado para instalar automáticamente el agente de Visión operativa.
+ >[AZURE.NOTE]El [agente de VM de Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) debe estar instalado para instalar automáticamente el agente de Visión operativa. Si tiene una máquina virtual del Administrador de recursos de Azure, no se mostrará en la lista y deberá usar PowerShell o crear una plantilla de ARM para instalar el agente.
 
 
 
@@ -55,7 +55,9 @@ El agente se instala y se configura automáticamente para el área de trabajo de
 
 Si prefiere el scripting para realizar cambios en máquinas virtuales de Azure, puede habilitar al agente de supervisión de Microsoft mediante PowerShell.
 
-Microsoft Monitoring Agent es una [extensión de máquina virtual de Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) y se puede administrar con PowerShell, tal y como se muestra en el ejemplo siguiente.
+Microsoft Monitoring Agent es una [extensión de máquina virtual de Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) y se puede administrar con PowerShell, tal y como se muestra en los ejemplos siguientes.
+
+Para máquinas virtuales de Azure "clásicas", use este PowerShell:
 
 ```powershell
 Add-AzureAccount
@@ -66,6 +68,24 @@ $hostedService="enter hosted service here"
 
 $vm = Get-AzureVM –ServiceName $hostedService
 Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
+```
+Para máquinas virtuales del Administrador de recursos de Azure, use este PowerShell:
+
+```powershell
+Add-AzureAccount
+Switch-AzureMode -Name AzureResourceManager
+
+$workspaceId="enter workspace here"
+$workspaceKey="enter workspace key here"
+
+$resourcegroup = "enter resource group"
+$resourcename = "enter resource group"
+
+$vm = Get-AzureVM -ResourceGroupName $resourcegroup -Name $resourcename
+$location = $vm.Location
+
+Set-AzureVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+
 ```
 
 Al realizar la configuración con PowerShell, es necesario proporcionar el Id. del área de trabajo y la clave principal. Puede encontrar esta información en la página **Configuración** del portal de Visión operativa.
@@ -96,7 +116,7 @@ Registros de eventos de Windows|Información enviada al sistema de registro de e
 Contadores de rendimiento|Sistema operativo y contadores de rendimiento personalizados.
 Volcados de memoria|Información sobre el estado del proceso en caso de bloqueo de una aplicación.
 Registros de errores personalizados|Archivos creados por su aplicación o servicio.
-NET EventSource|Eventos generados por su código mediante [clase EventSource] de .NET (https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
+NET EventSource|Eventos generados por su código mediante la [clase EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx) de .NET
 ETW basado en manifiesto|Eventos de ETW generados por cualquier proceso
 Syslog|Eventos enviados a los demonios Syslog o Rsyslog
 
@@ -249,4 +269,4 @@ En aproximadamente 1 hora comenzará a ver los datos de la cuenta de almacenamie
 
 [Configuración de los ajustes del proxy y del firewall (opcional)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

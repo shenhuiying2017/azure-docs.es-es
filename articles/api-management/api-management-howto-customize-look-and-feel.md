@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Personalización del aspecto del portal para desarrolladores en Administración de API de Azure
@@ -55,4 +55,4 @@ Cuando haya terminado de hacer cambios en los estilos del elemento seleccionado,
 [api-management-customization-toolbar-color-picker]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

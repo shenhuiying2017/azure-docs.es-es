@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/27/2015"
+   ms.date="09/03/2015"
    ms.author="cgronlun"/>
 
 
@@ -59,9 +59,9 @@ Categoría | Hadoop en Linux | Hadoop en Windows
 
 
 
-### Hadoop, HBase, Storm y clústeres personalizados
+### Clústeres Hadoop, HBase, Storm, Spark y personalizados
 
-HDInsight proporciona configuraciones de clúster para Hadoop, HBase o Storm. O bien, puede <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">personalizar clústeres con acciones de scripts</a>.
+HDInsight ofrece configuraciones de clúster para Hadoop, HBase, Storm y Spark. O bien, puede <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">personalizar clústeres con acciones de scripts</a>.
 
 * **Hadoop** (la carga de trabajo "Query"): proporciona almacenamiento de datos confiable con [HDFS](#HDFS) y un modelo de programación de [MapReduce](#mapreduce) simple para procesar y analizar datos en paralelo.
 
@@ -69,6 +69,7 @@ HDInsight proporciona configuraciones de clúster para Hadoop, HBase o Storm. O 
 
 * **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>** (la carga de trabajo "Stream"): un sistema distribuido de cálculo en tiempo real para el procesamiento rápido de grandes secuencias de datos. Storm se ofrece como clúster administrado en HDInsight. Consulte [Análisis de datos de sensor en tiempo real con Storm y Hadoop](hdinsight-storm-sensor-data-analysis.md).
 
+* **<a  target="_blank" href="http://spark.apache.org/">Apache Spark</a>**: marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data. Vea [Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md).
 
 ## ¿Cuáles son los componentes de Hadoop?
 
@@ -178,7 +179,7 @@ Básese en esta introducción a Hadoop en HDInsight y en el análisis de Big Dat
 
 * [Introducción a HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md): un tutorial de inicio rápido sobre el aprovisionamiento de clústeres de Hadoop para HDInsight en Linux y la ejecución de consultas de ejemplo de Hive.
 
-* [Aprovisionamiento de HDInsight en Linux usando opciones personalizadas](hdinsight-hadoop-provision-linux-clusters.md): aprenda a aprovisionar un clúster de Hadoop para HDInsight en Linux mediante el uso de opciones personalizadas a través del Portal de Azure, CLI de Azure o Azure PowerShell.
+* [Aprovisionamiento de HDInsight en Linux con opciones personalizadas](hdinsight-hadoop-provision-linux-clusters.md): aprenda a aprovisionar un clúster Hadoop de HDInsight en Linux mediante opciones personalizadas a través del Portal de Azure, la CLI de Azure o Azure PowerShell.
 
 * [Trabajo con HDInsight en Linux](hdinsight-hadoop-linux-information.md): obtenga algunas sugerencias rápidas sobre cómo trabajar con clústeres de Hadoop en Linux aprovisionados en Azure.
 
@@ -247,4 +248,4 @@ Utilice el análisis de Big Data sobre los datos de su organización para obtene
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

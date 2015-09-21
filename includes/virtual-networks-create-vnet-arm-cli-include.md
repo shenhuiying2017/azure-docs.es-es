@@ -7,11 +7,15 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 
 		azure config mode arm
 
+	Este es el resultado esperado del comando anterior:
+
 		info:    New mode is arm
 
 3. Si es necesario, ejecute **azure group create** para crear un nuevo grupo de recursos, tal como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
+
+	Este es el resultado esperado del comando anterior:
 
 		info:    Executing command group create
 		+ Getting resource group TestRG
@@ -25,12 +29,14 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 		data:
 		info:    group create command OK
 
-	- **-n (or --name)**. Nombre del nuevo grupo de recursos. En este escenario, *TestRG*.
-	- **-l (or --location)**. Región de Azure donde se creará el nuevo grupo de recursos. En este escenario, *centralus*.
+	- **-n (o --name)**. Nombre del nuevo grupo de recursos. En este escenario, *TestRG*.
+	- **-l (o --location)**. Región de Azure donde se creará el nuevo grupo de recursos. En este escenario, *centralus*.
 
-4. Ejecute el comando **azure network vnet create** para crear una red virtual y una subred, como se muestra a continuación. Observe la salida del comando CLI. En la lista que se muestra en la salida se explican los parámetros utilizados.
-5. 
+4. Ejecute el comando **azure network vnet create** para crear una red virtual y una subred, como se muestra a continuación.
+
 		azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
+
+	Este es el resultado esperado del comando anterior:
 
 		info:    Executing command network vnet create
 		+ Looking up virtual network "TestVNet"
@@ -45,14 +51,16 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 		data:      192.168.0.0/16
 		info:    network vnet create command OK
 
-	- **-g (or --resource-group)**. Nombre del grupo de recursos donde se creará la red virtual. En este escenario, *TestRG*.
-	- **-n (or --name)**. Nombre de la red virtual que se va a crear. En este escenario, *TestVNet*.
-	- **-a (or --address-prefixes)**. Lista de bloques CIDR utilizados para el espacio de direcciones de la red virtual. En este escenario, *192.168.0.0/16*.
-	- **-l (or --location)**. Región de Azure donde se creará la red virtual. En este escenario, *centralus*.
+	- **-g (o --resource-group)**. Nombre del grupo de recursos donde se creará la red virtual. En este escenario, *TestRG*.
+	- **-n (o --name)**. Nombre de la red virtual que se va a crear. En este escenario, *TestVNet*.
+	- **-a (o --address-prefixes)**. Lista de bloques CIDR utilizados para el espacio de direcciones de la red virtual. En este escenario, *192.168.0.0/16*.
+	- **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario, *centralus*.
 
-5. Ejecute el comando **azure network vnet create** para crear una subred, como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados.
+5. Ejecute el comando **azure network vnet subnet create** para crear una subred, como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
+
+	Este es el resultado esperado del comando anterior:
 
 		info:    Executing command network vnet subnet create
 		+ Looking up the subnet "FrontEnd"
@@ -66,9 +74,9 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 		data:
 		info:    network vnet subnet create command OK
 
-	- **-e (or --vnet-name**. Nombre de la red virtual donde se creará la subred. En este escenario, *TestVNet*.
-	- **-n (or --name)**. Nombre de la nueva subred. En este escenario, *FrontEnd*.
-	- **-a (or --address-prefix)**. Bloque CIDR de subred. En este escenario, *192.168.1.0/24*.
+	- **-e (o --vnet-name**. Nombre de la red virtual donde se creará la subred. En este escenario, *TestVNet*.
+	- **-n (o --name)**. Nombre de la nueva subred. En este escenario, *FrontEnd*.
+	- **-a (o --address-prefix)**. Bloque CIDR de subred. En este escenario, *192.168.1.0/24*.
 
 6. Repita el paso 5 anterior para crear otras subredes, si es necesario. En este escenario, ejecute el siguiente comando para crear la subred *BackEnd*.
 
@@ -77,6 +85,8 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 4. Ejecute el comando **azure network vnet show** para ver las propiedades de la nueva red virtual, tal como se muestra a continuación.
 
 		azure network vnet show -g TestRG -n TestVNet
+
+	Este es el resultado esperado del comando anterior:
 
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
@@ -96,4 +106,4 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

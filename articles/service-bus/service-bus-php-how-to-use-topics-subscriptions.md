@@ -306,7 +306,7 @@ Si usa el método **deleteSubscription**, puede eliminar una suscripción de man
 
 ## Pasos siguientes
 
-Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones][] de MSDN para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas de bus de servicio, vea [Colas, temas y suscripciones][] para obtener más información.
 
 [What are Service Bus Topics and Subscriptions?]: #bkmk_WhatAreSvcBusTopics
 [Create a Service Namespace]: #bkmk_CreateSvcNamespace
@@ -326,10 +326,10 @@ Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, cons
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
 [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-[Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

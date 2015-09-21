@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes | Microsoft Azure"
+   pageTitle="Grupos de volúmenes de Administrador de instantáneas StorSimple | Microsoft Azure"
    description="Describe cómo usar el complemento MMC para Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes
@@ -142,4 +142,4 @@ Utilice el procedimiento siguiente para eliminar un grupo de volúmenes.
 
 [Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

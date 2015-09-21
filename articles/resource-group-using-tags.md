@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -143,7 +143,7 @@ Tanto el portal como PowerShell usan la [API de REST del Administrador de recurs
 
 Para los servicios compatibles, puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, [las máquinas virtuales integradas con el Administrador de recursos de Azure](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) le permiten definir y aplicar etiquetas para organizar el uso de facturación en las máquinas virtuales. Si va a ejecutar varias máquinas virtuales para organizaciones diferentes, puede usar etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
 
-Puede recuperar información sobre las etiquetas a través de la [API de uso](billing-usage-rate-card-overview.md) o el archivo de valores separados por comas (CSV) de uso que puede descargar en el [portal de cuentas de Azure](https://account.windowsazure.com/) o en el [portal EA](https://ea.azure.com). Para obtener más información sobre el acceso a información de facturación mediante programación, vea [Obtención de información sobre el consumo de recursos de Microsoft Azure](billing-usage-rate-card-overview.md).
+Puede recuperar información sobre las etiquetas a través de las [API de RateCard y de uso de recursos de Azure](billing-usage-rate-card-overview.md), o mediante el archivo de valores separados por coma (CSV) que puede descargar desde el [Portal de cuentas de Azure](https://account.windowsazure.com/) o el [portal de EA](https://ea.azure.com). Para obtener más información sobre el acceso a información de facturación mediante programación, vea [Obtención de información sobre el consumo de recursos de Microsoft Azure](billing-usage-rate-card-overview.md). Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
 
 Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**. Para obtener más información, consulte [Información sobre la factura en Microsoft Azure](billing-understand-your-bill.md).
 
@@ -151,11 +151,11 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo usar Azure PowerShell cuando se implementan recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](./powershell-azure-resource-manager.md).
-- Para obtener información sobre cómo usar la interfaz de línea de comandos de Azure cuando se implementan recursos, consulte [Uso de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
-- Para obtener información sobre cómo usar el Portal de vista previa, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](./resource-group-portal.md)  
+- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](./powershell-azure-resource-manager.md).
+- Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, vea [Uso de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
+- Para obtener información sobre cómo usar el Portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](./resource-group-portal.md).  
   
 
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -451,7 +451,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     La variante local de la aplicación en el cliente. Si no se proporciona explícitamente en el elemento de telemetría, se obtiene mediante el procesamiento del campo de agente de usuario. 
 
-    *Ejemplos*<br/> ru<br/>es-es<br/>de-DE<br/>desconocido
+    *Ejemplos*<br/> ru<br/>es-ES<br/>de-DE<br/>desconocido
 
 **machineName**
 
@@ -680,6 +680,18 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Un identificador único que define una cuenta dentro de la aplicación. Se trata del desarrollador proporcionado. 
 
+### Métricas personalizadas
+
+    context.custom.metrics.<metric-name>
+
+      double value
+      double count
+      double min
+      double max
+      double stdDev
+      double sampledValue
+      double sum
+
 
 ## remotedependency
 
@@ -707,7 +719,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El nombre nf de la dependencia remota 
 
-    *Derivación:* estandariza a &lt;telemetryType.name&gt;
+    *Derivación:* se estandariza en &lt;telemetryType.name&gt;.
 
 **remoteDependencyType**
 
@@ -813,7 +825,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El primer evento de la sesión. Se obtiene a partir de event.name y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* procede de event.name.
+    *Derivación:* con origen en event.name.
 
 **entryUrl**
 
@@ -821,7 +833,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     La primera dirección URL de la sesión. Se obtiene a partir de urlData.base y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* procede de &lt;telemetryType&gt;.Url.
+    *Derivación:* con origen en &lt;telemetryType&gt;.Url.
 
 **eventCount**
 
@@ -841,7 +853,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El último evento de la sesión. Se obtiene a partir de event.name y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* procede de event.name.
+    *Derivación:* con origen en event.name.
 
 **exitUrl**
 
@@ -849,7 +861,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     La última dirección URL de la sesión. Se obtiene a partir de urlData.base y está disponible como una segmentación o agregación para las métricas sessionMetric 
 
-    *Derivación:* procede de &lt;telemetryType&gt;.Url.
+    *Derivación:* con origen en &lt;telemetryType&gt;.Url.
 
 **pageBounceCount**
 
@@ -857,7 +869,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El contador de sesiones de devolución que representa este elemento de telemetría sessionMetric. Una sesión de devolución es una sesión que se crea basada en un elemento de telemetría de una sola vista. 
 
-    *Derivación:* si sessionMetric.viewCount + sessionMetric.requestCount = 1, entonces 1 o 0.
+    *Derivación:* si sessionMetric.viewCount + sessionMetric.requestCount = 1, entonces 1; si no, 0.
 
 **pageCount**
 
@@ -1009,7 +1021,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Una parte de la dirección URL de referencia, excluido el host y los parámetros de consulta. Es el URI raíz. Este valor puede usarse para la segmentación o la agregación. 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
 
 **referrerData.hashTag**
 
@@ -1017,7 +1029,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El texto del hashtag de la dirección URL de referencia 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
 
 **referrerData.host**
 
@@ -1025,7 +1037,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El host de la dirección URL de referencia. Si la dirección URL es un URI local, se representa como vacío 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
 
 **referrerData.port**
 
@@ -1033,7 +1045,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El puerto de la dirección URL de referencia, si se representa en la dirección URL completa. De lo contrario, está vacío. 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
 
 **referrerData.protocol**
 
@@ -1041,7 +1053,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     El protocolo (HTTP, FTP, etc.) de la dirección URL de referencia 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
 
     *Ejemplos*<br/> http<br/>https
 
@@ -1051,7 +1063,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Una matriz de los nombres de los parámetros de consulta de la dirección URL de referencia 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
 
 **referrerData.queryParameters.value**
 
@@ -1059,7 +1071,7 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * 
     Una matriz de valores de los parámetros de consulta analizados desde la dirección URL de referringData. 
 
-    *Derivación:* consulte el apéndice para conocer la transformación de la dirección URL.
+    *Derivación:* vea el apéndice para conocer la transformación de la dirección URL.
 
 
 
@@ -1069,4 +1081,4 @@ El "&lt;telemetryType&gt;" de la primera sección es un marcador de posición pa
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Ejemplos de código](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

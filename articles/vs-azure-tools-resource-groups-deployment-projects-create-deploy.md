@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Creación e implementación de proyectos de implementación de grupo de recursos de Azure"
-	description="Creación e implementación de proyectos de implementación de grupo de recursos de Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Creación e implementación de proyectos de implementación de grupo de recursos de Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="azure-resource-manager"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Creación e implementación de proyectos de implementación de grupo de recursos de Azure
 
 La plantilla del proyecto de implementación **Grupo de recursos de Azure** está disponible en Visual Studio cuando se instala Azure SDK 2.6. Los proyectos de grupo de recursos de Azure permiten agrupar y publicar varios recursos de Azure relacionados en una única operación de implementación. Los proyectos de grupo de recursos de Azure usan una tecnología denominada **Administrador de recursos de Azure** para hacer su trabajo. El **Administrador de recursos de Azure** es un servicio de la API de REST que permite definir grupos de recursos de Azure que contienen varios recursos de Azure que normalmente se usan conjuntamente y tienen un ciclo de vida similar. Mediante el uso de grupos de recursos, puede operar en todos los recursos de un grupo con una sola llamada a función, en lugar de llamar a funciones diferentes para cada recurso individual. Para obtener más información sobre los grupos de recursos de Azure, consulte [Uso de grupos de recursos para administrar los recursos de Azure](./azure-portal/azure-preview-portal-using-resource-groups/).
 
-Los proyectos de grupo de recursos de Azure contienen plantillas de JSON del Administrador de recursos de Azure, que definen los elementos que se implementan en un grupo de recursos. Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Los proyectos de grupo de recursos de Azure contienen plantillas de JSON del Administrador de recursos de Azure, que definen los elementos que se implementan en un grupo de recursos. Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
 El Administrador de recursos de Azure tiene muchos proveedores de recursos diferentes disponibles que se pueden usar para implementar recursos, como Ubuntu Server y Windows Server 2012 R2. En este tema se usa un recurso de **Aplicaciones web**, que implementa un sitio web básico, vacío en Azure.
 
@@ -85,7 +85,7 @@ Al implementar un proyecto de grupo de recursos de Azure, lo implementa en un gr
 
     ![Cuadro de diálogo Implementar en grupo de recursos](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. En el cuadro de lista desplegable **Grupo de recursos**, elija un grupo de recursos existente o cree uno nuevo. Para crear un grupo de recursos, abra la lista desplegable **Grupo de recursos** y elija **<Create New...>**.
+1. En el cuadro desplegable **Grupo de recursos**, elija un grupo de recursos existente o cree uno nuevo. Para crear un grupo de recursos, abra el cuadro desplegable **Grupo de recursos** y elija **<Create New...>**.
 
     Aparece el cuadro de diálogo **Crear grupo de recursos**.
 
@@ -195,4 +195,4 @@ También se realizaron ajustes en algunos nombres de variables y tareas de compi
 
 Para obtener información sobre cómo agregar recursos a su grupo de recursos de Azure en Visual Studio, vea [Adición de recursos a un grupo de recursos de Azure](https://msdn.microsoft.com/library/azure/mt125415.aspx).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

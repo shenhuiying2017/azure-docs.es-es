@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/06/2015"
+	ms.date="09/03/2015"
 	ms.author="bwren"/>
 
 # ¿Qué es Automatización de Azure?
@@ -58,11 +58,11 @@ Hay una amplia gama de recursos disponibles para obtener más información sobre
 
 - La **Biblioteca de Automatización de Azure** es donde está ahora mismo. Los artículos de esta biblioteca proporcionan documentación completa sobre la configuración y administración de Automatización de Azure y para crear sus propios runbooks.
 - Los [cmdlets de Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx) proporcionan información para automatizar operaciones de Azure mediante Windows PowerShell. Los runbooks usan estos cmdlets para trabajar con recursos de Azure.
-- El [blog de Automatización de Azure](http://azure.microsoft.com/blog/tag/azure-automation) proporciona la información más reciente sobre Automatización de Azure de Microsoft. Suscríbase a este blog para mantenerse al día con las novedades del equipo de Automatización de Azure.
+- [Blog de administración](http://azure.microsoft.com/blog/topics/management) ofrece la información más reciente sobre Automatización de Azure y otras tecnologías de administración de Microsoft. Suscríbase a este blog para mantenerse al día con las novedades del equipo de Automatización de Azure.
 - El [foro de automatización](http://go.microsoft.com/fwlink/p/?LinkId=390561) le permite publicar preguntas acerca de Automatización de Azure que serán atendidas por Microsoft y la comunidad de automatización.
 
 ## ¿Puedo proporcionar comentarios?
 
 **Envíenos sus comentarios** Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introducción a Almacenamiento de Azure"
-	description="Describe lo que sucede al crear un almacenamiento de Azure en un proyecto de Visual Studio ASP.NET"
+	pageTitle="¿Qué le ha ocurrido a mi proyecto ASP.NET? | Microsoft Azure | Servicios conectados de Visual Studio"
+	description="Describe lo que sucede después de agregar Almacenamiento de Azure a un proyecto ASP.NET con servicios conectados de Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,33 +13,31 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea"/>
 
-# ¿Qué le ha ocurrido a mi proyecto?
+# ¿Qué le ha ocurrido a mi proyecto ASP.NET (servicio conectado a Almacenamiento de Azure de Visual Studio)?
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What happened](vs-storage-aspnet-what-happened.md)
 
-###¿Qué le ha ocurrido a mi proyecto?
-
-##### Se han agregado referencias
+## Se han agregado referencias
 
 El paquete NuGet de Almacenamiento de Azure se agregó al proyecto de Visual Studio. Este paquete agrega las siguientes referencias. NET:
 
-- `Microsoft.Data.Edm`
-- `Microsoft.Data.OData`
-- `Microsoft.Data.Services.Client`
-- `Microsoft.WindowsAzure.Configuration`
-- `Microsoft.WindowsAzure.Storage`
-- `Newtonsoft.Json`
-- `System.Data`
-- `System.Spatial`
+- **Microsoft.Data.Edm**
+- **Microsoft.Data.OData**
+- **Microsoft.Data.Services.Client**
+- **Microsoft.WindowsAzure.Configuration**
+- **Microsoft.WindowsAzure.Storage**
+- **Newtonsoft.Json**
+- **System.Data**
+- **System.Spatial**
 
-#####Se ha agregado la cadena de conexión para Almacenamiento de Azure.
+##Se ha agregado la cadena de conexión para Almacenamiento de Azure.
 En el archivo web.config de su proyecto, se ha creado un elemento con la cadena y la clave de conexión de la cuenta de almacenamiento seleccionada.
 
 Para obtener más información, consulte [ASP.NET](http://www.asp.net).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

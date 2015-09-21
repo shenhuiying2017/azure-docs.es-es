@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="09/03/2015"
 	ms.author="garye" />
 
 
-#Extender el experimento con R 
+#Extender el experimento con R
 
 Puede extender la funcionalidad de Estudio de aprendizaje automático mediante el lenguaje R con el módulo [Ejecutar script de R][execute-r-script].
 
@@ -501,6 +501,5 @@ Para obtener la lista completa de paquetes actualmente disponibles, consulte la 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Tutorial: exportación de telemetría a Base de datos SQL desde Application Insights"
-	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua."
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="Tutorial: exportación de telemetría a Base de datos SQL desde Application Insights" 
+	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="awills"/>
  
 # Tutorial: exportación a SQL desde Application Insights mediante Análisis de transmisiones
@@ -97,7 +97,7 @@ La exportación continua siempre envía los datos a una cuenta de almacenamiento
 
     Y, además, exportará los datos en el almacenamiento.
 
-4. Inspeccione los datos exportados. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no dispone de esta opción de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener el SDK de Microsoft Azure para. NET.)
+4. Inspeccione los datos exportados, ya sea en el portal (elija **Examinar**, seleccione la cuenta de almacenamiento y luego **Contenedores**) o bien en Visual Studio. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no dispone de esta opción de menú, deberá instalar el SDK de Azure: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener el SDK de Microsoft Azure para. NET.)
 
     ![En Visual Studio, abra Explorador de servidores, Azure, Almacenamiento.](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
@@ -165,7 +165,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-En este ejemplo, usamos datos de vistas de página. Para ver los demás datos disponibles, observe el resultado de JSON y consulte el [modelo de exportación de datos](app-insights-export-data-model.md).
+En este ejemplo, usamos datos de vistas de página. Para ver los demás datos disponibles, inspeccione la salida de JSON y vea el [modelo de exportación de datos](app-insights-export-data-model.md).
 
 ## Creación de una instancia de Análisis de transmisiones de Azure
 
@@ -196,7 +196,7 @@ Ahora, necesitará la clave de acceso principal de la cuenta de almacenamiento, 
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Asegúrese de establecer el formato de fecha como AAAA-MM-DD (con guiones).
+Asegúrese de establecer el formato de fecha como **AAAA-MM-DD** (con **guiones**).
 
 El patrón del prefijo de la ruta de acceso especifica cómo busca el Análisis de transmisiones los archivos de entrada en el almacenamiento. Deberá establecerlo para que coincida con el modo en que la Exportación continua almacena los datos. Configúrelo como este caso que se muestra a continuación:
 
@@ -205,8 +205,8 @@ El patrón del prefijo de la ruta de acceso especifica cómo busca el Análisis 
 En este ejemplo:
 
 * `webapplication27` es el nombre del recurso de Application Insights, **todo en minúsculas**. 
-* `1234...` es la clave de instrumentación que copió del recurso de Application Insights **con guiones quitados**. 
-* `PageViews` es el tipo de datos que se van a analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y consulte el [modelo de exportación de datos](app-insights-export-data-model.md).
+* `1234...` es la clave de instrumentación del recurso de Application Insights **con los guiones quitados**. 
+* `PageViews` es el tipo de datos que se van a analizar. Los tipos disponibles dependen del filtro definido en la Exportación continua. Examine los datos exportados para ver los demás tipos disponibles y vea el [modelo de exportación de datos](app-insights-export-data-model.md).
 * `/{date}/{time}` es un patrón escrito literalmente.
 
 Para obtener el nombre y el valor iKey del recurso de Application Insights, abra Essentials en su página de información general o bien abra la Configuración.
@@ -218,6 +218,8 @@ Confirme el formato de serialización:
 ![Confirme y cierre el asistente.](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
 
 Cierre el asistente y espere a que el programa de instalación finalice.
+
+>[AZURE.TIP]Use la función Sample para comprobar que estableció correctamente la ruta de acceso de entrada. Si se produce un error: compruebe que hay datos en el almacenamiento para el intervalo de tiempo de muestreo que eligió. Modifique la definición de entrada y compruebe que establece correctamente la cuenta de almacenamiento, el prefijo de ruta de acceso y el formato de fecha.
 
 ## Establecimiento de la consulta
 
@@ -263,7 +265,7 @@ Reemplace la consulta predeterminada por lo siguiente:
 
 ```
 
-Observe que las primeras propiedades son específicas de los datos de la vista de página. Las exportaciones de otros tipos de telemetría tendrán diferentes propiedades. Vea la [referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
+Observe que las primeras propiedades son específicas de los datos de la vista de página. Las exportaciones de otros tipos de telemetría tendrán diferentes propiedades. Vea la [referencia detallada del modelo de datos para los tipos y valores de propiedad](app-insights-export-data-model.md).
 
 ## Configuración de la salida a la base de datos
 
@@ -312,4 +314,4 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

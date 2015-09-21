@@ -198,7 +198,7 @@ En caso de que la aplicación se bloquee después de procesar el mensaje y antes
 
 ## Pasos siguientes
 
-Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones][] de MSDN para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas de bus de servicio, vea el tema [Colas, temas y suscripciones][] para obtener más información.
 
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
@@ -208,9 +208,9 @@ Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, cons
 [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
 [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-[Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

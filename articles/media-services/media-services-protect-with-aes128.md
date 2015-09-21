@@ -12,8 +12,8 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.topic="get-started-article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Uso del cifrado dinámico AES-128 y del servicio de entrega de claves
@@ -663,4 +663,12 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega c
 		    }
 		}
 
-<!---HONumber=August15_HO9-->
+
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

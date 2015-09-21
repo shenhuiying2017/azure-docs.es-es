@@ -114,4 +114,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
 [paquete de almacenamiento de Azure para Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

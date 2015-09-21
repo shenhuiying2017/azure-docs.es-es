@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Acceso a la información de gráficos de Azure Active Directory (Tienda Windows) | Microsoft Azure"
-	description="Obtenga información acerca de cómo acceder a la información de Active Directory de Azure con la API Graph en su aplicación de la Tienda Windows."
+	pageTitle="Acceso a información de Graph de Azure Active Directory mediante un servicio móvil con un back-end .NET (Tienda Windows) | Microsoft Azure"
+	description="Obtenga información acerca de cómo acceder a la información de Azure Active Directory en su servicio móvil back-end .NET con la API Graph."
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -9,14 +9,14 @@
 
 <tags
 	ms.service="mobile-services"
-	ms.workload="mobile"
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Acceso a información de Azure Active Directory Graph
+# Acceso a información de Graph de Azure Active Directory mediante un servicio móvil con un back-end .NET
 
 
 
@@ -254,4 +254,4 @@ En el próximo tutorial, [Control de acceso basado en roles con Azure Active Dir
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Control de acceso basado en roles con Azure Active Directory en Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

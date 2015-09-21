@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Instalación personalizada de Azure AD Connect"
-	description="En este documento se explica las opciones de instalación personalizada de Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Instalación personalizada de Azure AD Connect" 
+	description="En este documento se explica las opciones de instalación personalizada de Azure AD Connect." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="active-directory"  
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Instalación personalizada de Azure AD Connect
@@ -184,17 +184,6 @@ Con el modo provisional es posible el proceso de instalación de un nuevo servid
 
 En modo provisional, es posible realizar los cambios necesarios en el motor de sincronización y revisar lo que se va a exportar. Cuando la configuración esté correcta, vuelva a ejecutar al Asistente para la instalación y deshabilite el modo provisional. Esto permitirá que los datos se exporten a Azure AD. Asegúrese de deshabilitar al otro servidor al mismo tiempo para que solo un servidor esté exportando activamente.
 
-### Evitar eliminaciones accidentales
-Al instalar Azure AD Connect, se habilita de forma predeterminada la característica Evitar eliminaciones accidentales y se configura para que no permita ninguna exportación con más de 500 eliminaciones. Este valor de 500 es predeterminado y puede modificarse. Con esta característica habilitada, si hay demasiadas eliminaciones, la exportación no continuará y recibirá un mensaje similar al siguiente:
-
-![Filtrado de sincronización](./media/active-directory-aadconnect-get-started-custom/email.png)
-
-
-Si no es lo esperado, investigue y tome las medidas correctivas oportunas.
-
-Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute: Disable-ADSyncExportDeletionThreshold.
-
-Para volver a habilitar la protección o para cambiar el valor de umbral predeterminado, ejecute: Enable-ADSyncExportDeletionThreshold.
 
 
 ## Configuración de Federación con AD FS
@@ -279,4 +268,4 @@ Puede personalizar la imagen de logotipo y la ilustración para las páginas de 
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

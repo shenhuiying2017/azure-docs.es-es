@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Manipulación de tareas de codificación mediante la personalización de valores preestablecidos de tareas 
@@ -505,8 +505,16 @@ Para evitar la amplificación del ruido de fondo, haga lo siguiente:
 		// Launch the job. 
 		job.Submit();
 
+##Rutas de aprendizaje de Servicios multimedia
+
+Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
+
+- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Otras referencias
 
 [Esquema de Azure Media Encoder XML Schema](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -5,16 +5,20 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 2. Ejecute el cmdlet **Switch-AzureMode** para cambiar al modo del Administrador de recursos, como se muestra a continuación.
 
-	Switch-AzureMode AzureResourceManager
+		Switch-AzureMode AzureResourceManager
 
-	ADVERTENCIA: El cmdlet Switch-AzureMode está en desuso y se quitará en futuras versiones.
+	Este es el resultado esperado del comando anterior:
+
+		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]El cmdlet Switch-AzureMode pronto estará en desuso. Cuando esto suceda, se cambiará el nombre de todos los cmdlets del Administrador de recursos.
 
-3. Si es necesario, ejecute el cmdlet **New-AzureResourceGroup** para crear un nuevo grupo de recursos. El siguiente comando crea un grupo de recursos denominado *TestRG* en la región *Centro de EE. UU.* de Azure. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md/#resource-groups).
+3. Si es necesario, ejecute el cmdlet **New-AzureResourceGroup** para crear un nuevo grupo de recursos. El siguiente comando crea un grupo de recursos denominado *TestRG* en la región *Central US* de Azure. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md/#resource-groups).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
+	Este es el resultado esperado del comando anterior:
+
 		ResourceGroupName : TestRG
 		Location          : centralus
 		ProvisioningState : Succeeded
@@ -29,7 +33,8 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 
 		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-		
+			
+	Este es el resultado esperado del comando anterior:
 		
 		DeploymentName    : TestVNetDeployment
 		ResourceGroupName : TestRG
@@ -55,6 +60,7 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 
 		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
+	Este es el resultado esperado del comando anterior:
 		
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -95,4 +101,4 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -26,7 +26,7 @@ Aunque las máquinas virtuales de Azure son compatibles con diversas cargas de t
 
 Las máquinas virtuales de Azure disminuyen la necesidad de hardware, por lo que las organizaciones pueden dedicar su atención a crear y administrar infraestructura a escala, en lugar de enfrentar la complejidad y el alto coste por adelantado. Esto significa que pueden innovar, experimentar e iterar en horas, en lugar de hacerlo en días y semanas como ocurre con las implementaciones tradicionales.
 
-> [AZURE.NOTE]Para obtener información acerca de cómo implementar SharePoint 2013 en Azure, consulte [Planeación para SharePoint 2013 en los servicios de infraestructura de Azure](https://msdn.microsoft.com/library/dn275958.aspx) y [Granjas de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md).
+> [AZURE.NOTE]Para obtener información sobre la implementación de SharePoint 2013 en Azure, vea [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) y [Granjas de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md).
 
 ## SharePoint en máquinas virtuales de Azure
 
@@ -58,20 +58,24 @@ Las máquinas virtuales de Azure brindan a los desarrolladores la flexibilidad p
 
 La biblioteca de imágenes en Azure proporciona la lista de máquinas virtuales preconfiguradas disponibles. Los usuarios pueden publicar discos duros virtuales o imágenes ISO de SharePoint Server, SQL Server, Windows Server y otros en la biblioteca de imágenes. Para simplificar la creación de máquinas virtuales, las imágenes base se crean y publican en la biblioteca. Los usuarios autorizados pueden utilizar estas imágenes para generar la máquina virtual deseada. Para obtener más información, vaya a [Creación de una máquina virtual que ejecuta Windows en el portal de vista previa de Azure](virtual-machines-windows-tutorial.md). La ilustración 1 muestra los pasos básicos para crear una máquina virtual mediante el portal de Azure.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
+
 **Ilustración 1: Información general de los pasos para crear una máquina virtual**
 
 Los usuarios también pueden cargar una imagen preparada con SysPrep en el Portal de administración de Azure. Para obtener más información, vaya a [Crear y cargar un VHD de Windows Server a Azure](virtual-machines-create-upload-vhd-windows-server.md). La ilustración 2 muestra los pasos básicos para cargar una imagen a fin de crear una máquina virtual.
 
 En el portal de Azure, los usuarios también pueden cargar una imagen en la que ya se haya ejecutado la herramienta SysPrep. Para obtener más información, vaya a [Crear y cargar un VHD de Windows Server a Azure](virtual-machines-create-upload-vhd-windows-server.md). En la ilustración 2 se muestra los pasos básicos para cargar una imagen a fin de crear una máquina virtual.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
+
 **Ilustración 2: Información general de los pasos para cargar una imagen**
 
 ## Implementación de SharePoint 2010 en Azure 
 
-Siga estos pasos para poder implementar SharePoint 2010 en Azure:
+Puede implementar SharePoint 2010 en Azure con el modelo de implementación clásica siguiendo estos pasos:
 
 1. Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/) a través de la cuenta de suscripción de Azure. Si no tiene una cuenta de Azure, [regístrese para obtener una evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
-2. Para crear una máquina virtual con el sistema operativo base, en el portal de Azure, haga clic en **Nuevo > Cálculo > Máquina virtual > Desde galería.**
+2. Para crear una máquina virtual con el sistema operativo base, en el portal de Azure, haga clic en **Nuevo > Cálculo > Máquina virtual > Desde galería**.
 3. Aparecerá el cuadro de diálogo **Elegir una imagen**. Haga clic en la imagen de la plataforma **Windows Server 2008 R2 SP1** y, a continuación, en la flecha derecha.
 4. Aparece el cuadro de diálogo **Configuración de la máquina virtual**. Proporcione la siguiente información:
 	- Escriba un **Nombre de la máquina virtual**.
@@ -143,6 +147,8 @@ Este escenario explica cómo las organizaciones pueden utilizar granjas de Share
 Para utilizar completamente los equipos para prueba de carga, las organizaciones pueden configurar equipos de desarrollo y prueba virtualizadas de SharePoint en Azure con compatibilidad de sistema operativo para Windows Server 2008 R2. Este permite a los equipos de desarrollo crear y probar aplicaciones y migrar con facilidad a entornos de producción locales o en la nube sin cambios en el código. Los mismos marcos y conjuntos de herramientas se pueden utilizar localmente y en la nube, lo que permite que el equipo distribuido tenga acceso al mismo entorno. Los usuarios también pueden tener acceso a datos y aplicaciones locales si se establece una conexión VPN directa.
 
 La ilustración 3 muestra un entorno de desarrollo y prueba de SharePoint en una máquina virtual de Azure. Para crear esta implementación, comience usando el mismo entorno de desarrollo y prueba local de SharePoint que se utiliza para desarrollar aplicaciones. Luego, cargue e implemente las aplicaciones a la máquina virtual de Azure para prueba y desarrollo. Si la organización decide volver a trasladar la aplicación al entorno local, puede hacerlo sin tener que modificarla.
+
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png)
 
 **Ilustración 3: Entorno de desarrollo y prueba de SharePoint en máquinas virtuales de Azure**
 
@@ -271,12 +277,12 @@ La correcta implementación de SharePoint Server en Máquinas virtuales de Azure
 
 ## Recursos adicionales
 
-[SharePoint en máquinas virtuales de Azure](http://msdn.microsoft.com/library/dn275955.aspx)
-
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Carga de trabajo de servicios de infraestructura de Azure: conjunto de servidores de SharePoint de Intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
 [Instrucciones de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO9-->
+[Probar la vista previa de TI de SharePoint Server 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
+
+<!---HONumber=Sept15_HO2-->

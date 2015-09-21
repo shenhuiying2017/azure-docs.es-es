@@ -91,11 +91,11 @@ En caso de que la aplicación sufra un error después de procesar el mensaje per
 
 Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones][].
+-   Vea [Colas, temas y suscripciones][].
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
-[Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carolz"
    editor="" />
-<tags  
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # Encendido o apagado del dispositivo de StorSimple 
@@ -241,4 +241,4 @@ Puede conectarse a Windows PowerShell para StorSimple mediante la consola serie 
 
 Si encuentra problemas al encender o apagar un dispositivo de StorSimple, [póngase en contacto con el soporte técnico de Microsoft Support](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

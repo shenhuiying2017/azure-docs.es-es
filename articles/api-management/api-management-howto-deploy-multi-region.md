@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/10/2015"
 	ms.author="sdanie"/>
 
 # Implementación de una instancia del servicio Administración de API de Azure en varias regiones de Azure
@@ -75,4 +75,4 @@ Una vez que se quiten las regiones deseadas, haga clic en **Guardar**.
 [unidad]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

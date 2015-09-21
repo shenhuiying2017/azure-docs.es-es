@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Análisis de opiniones basado en léxico | Microsoft Azure"
-	description="Análisis de opiniones basado en léxico"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Análisis de opiniones basado en léxico | Microsoft Azure" 
+	description="Análisis de opiniones basado en léxico" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="pengxia" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="pengxia"/>
 
 
 
@@ -153,4 +153,4 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

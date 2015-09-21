@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2015"
+   ms.date="09/03/2015"
    ms.author="alanwar"/>
 
 # Funcionalidad de diagnóstico para servicios fiables con estado
@@ -46,4 +46,4 @@ StatefulRunAsyncFailure se genera cada vez que la tarea RunAsync() del servicio 
 
 StatefulRunAsyncSlowCancellation se genera cada vez que una solicitud de cancelación de la tarea RunAsync tarda más de 4 segundos. Cuando un servicio tarda demasiado en completar la cancelación, afecta a la capacidad del servicio de reiniciarse rápidamente en otro nodo y puede afectar a la disponibilidad general del servicio.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

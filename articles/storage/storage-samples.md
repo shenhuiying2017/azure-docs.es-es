@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Ejemplos de Almacenamiento de Azure | Microsoft Azure"
-	description="Ver, descargar y probar ejemplos de Almacenamiento de Azure. Descubra ejemplos introductorios de blobs, colas, tablas y archivos, utilizando las bibliotecas de cliente de almacenamiento .NET, Java, Node.js y C++."
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="na"
-	editor="na"/>
-<tags 
+   description="Ver, descargar y probar ejemplos de Almacenamiento de Azure. Descubra ejemplos introductorios de blobs, colas, tablas y archivos, utilizando las bibliotecas de cliente de almacenamiento .NET, Java, Node.js y C++."
+   services="storage"
+   documentationCenter="na"
+   authors="tamram"
+   manager="na"
+   editor="na" />
+<tags
    ms.service="storage"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage"
+   ms.date="09/01/2015"
+   ms.author="tamram" />
 
 # Ejemplos de Almacenamiento de Azure
 
@@ -59,7 +59,7 @@ Para explorar los ejemplos de C++, descargue la [biblioteca de cliente de almace
 * [Introducción a las tablas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
 * [Introducción a las colas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## Otras referencias
+## Consulte también
 
 ### Recursos de .NET
 
@@ -79,6 +79,6 @@ Para explorar los ejemplos de C++, descargue la [biblioteca de cliente de almace
 ### Recursos de C++
 
 - [Código fuente de la biblioteca de cliente de almacenamiento de C++](https://github.com/Azure/azure-storage-cpp)
-- [Referencia a la biblioteca de clientes de C++](http://azure.github.io/azure-storage-cpp/) 
+- [Referencia a la biblioteca de clientes de C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

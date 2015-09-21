@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple | Microsoft Azure"
+   pageTitle="Administración de dispositivos con el Administrador de instantáneas StorSimple | Microsoft Azure"
    description="Describe cómo usar el complemento MMC para Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple
@@ -262,4 +262,4 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
 
 [Uso del Administrador de instantáneas StorSimple para ver y administrar volúmenes](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

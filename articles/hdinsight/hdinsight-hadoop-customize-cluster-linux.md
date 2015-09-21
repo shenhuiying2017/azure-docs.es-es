@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Personalizar los clústeres de HDInsight mediante acciones de script | Microsoft Azure"
 	description="Obtenga información acerca de cómo personalizar clústeres de HDInsight mediante la acción de script."
 	services="hdinsight"
@@ -8,7 +8,7 @@
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -21,7 +21,7 @@
 
 HDInsight proporciona una opción de configuración denominada **Acción de script** que invoca scripts personalizados, que definen la personalización que se realizará en el clúster en el proceso de aprovisionamiento. Estos scripts pueden utilizarse para instalar software adicional en un clúster o para cambiar la configuración de las aplicaciones de un clúster.
 
-> [AZURE.NOTE]La información de este artículo es específica de los clústeres de HDInsight basados en Linux. Para obtener una versión de este artículo que es específica de los clústeres basados en Windows, consulte [Personalizar los clústeres de HDInsight mediante la acción de script (Windows)](hdinsight-hadoop-customize-cluster-linux.md)
+> [AZURE.NOTE]La información de este artículo es específica de los clústeres de HDInsight basados en Linux. Para obtener una versión de este artículo específica para clústeres basados en Windows, vea [Personalización de clústeres de HDInsight mediante la acción de script (Windows)](hdinsight-hadoop-customize-cluster.md)
 
 ## Acción de script en el proceso de aprovisionamiento de clústeres
 
@@ -53,12 +53,12 @@ Nombre | Script
 
 ##Use una acción de script desde el Portal de vista previa de Azure
 
-1. Inicie el aprovisionamiento de un clúster tal como se describe en [Aprovisionamiento de clústeres mediante opciones personalizadas](hdinsight-provision-clusters.md#portal). 
+1. Inicie el aprovisionamiento de un clúster tal como se describe en [Aprovisionamiento de clústeres mediante opciones personalizadas](hdinsight-provision-clusters.md#portal).
 
 2. En __Configuración opcional__, para la hoja **Acciones de script**, haga clic en **agregar acción de script** para proporcionar detalles acerca de la acción de script, tal como se muestra a continuación:
 
 	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "Uso de la acción de script para personalizar un clúster")
-	
+
 	| Propiedad | Valor |
 	| -------- | ----- |
 	| Nombre | Especifique un nombre para la acción de script. |
@@ -76,8 +76,8 @@ En esta sección, usamos plantillas de Administrador de recursos de Azure (ARM) 
 
 ### Antes de empezar
 
-* Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). 
-* Para obtener instrucciones sobre cómo crear plantillas ARM, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md). 
+* Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* Para obtener instrucciones sobre cómo crear plantillas ARM, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 * Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](powershell-azure-resource-manager)
 
 ### Aprovisionamiento de clúster mediante acción de script
@@ -113,7 +113,7 @@ En esta sección, usamos plantillas de Administrador de recursos de Azure (ARM) 
 		        "clusterStorageAccountName": {
 		            "type": "string"
 		        },
-		        "clusterStorageAccountResourceGroup": { 
+		        "clusterStorageAccountResourceGroup": {
 		            "type": "string"
 		        },
 		        "clusterStorageType": {
@@ -165,7 +165,7 @@ En esta sección, usamos plantillas de Administrador de recursos de Azure (ARM) 
 		                "osType": "Linux",
 		                "clusterDefinition": {
 		                    "kind": "hadoop",
-		
+
 		                    "configurations": {
 		                        "gateway": {
 		                            "restAuthCredential.isEnabled": true,
@@ -240,14 +240,14 @@ En esta sección, usamos plantillas de Administrador de recursos de Azure (ARM) 
 		}
 
 
-	
+
 2. Inicie Azure PowerShell e inicie sesión en su cuenta de Azure. Después de proporcionar sus credenciales, el comando devuelve información acerca de su cuenta.
 
 		Add-AzureAccount
-	
+
 		Id                             Type       ...
-		--                             ----    
-		someone@example.com            User       ...   
+		--                             ----
+		someone@example.com            User       ...
 
 3. Si tiene varias suscripciones, proporcione el identificador de suscripción que desea usar para la implementación.
 
@@ -287,7 +287,7 @@ En esta sección, usamos plantillas de Administrador de recursos de Azure (ARM) 
 		  ProvisioningState : Succeeded
 		  Timestamp         : 8/17/2015 7:00:27 PM
 		  Mode              : Incremental
-		  ... 
+		  ...
 
 8. Si se produce un error en la implementación, puede usar los cmdlets siguientes para obtener información sobre los errores.
 
@@ -314,7 +314,7 @@ Lleve a cabo los siguiente pasos:
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# The number of nodes in the HDInsight cluster.
 		$version = "<HDInsightClusterVersion>"          # HDInsight version, for example "3.1"
-	
+
 2. Especifique los valores de configuración (como nodos en el clúster) y el almacenamiento predeterminado que se va a usar.
 
 		# SPECIFY THE CONFIGURATION OPTIONS
@@ -323,7 +323,7 @@ Lleve a cabo los siguiente pasos:
 		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
 		$config.DefaultStorageAccount.StorageContainerName=$containerName
-	
+
 3. Use el cmdlet **Add-AzureHDInsightScriptAction** para invocar el script. En el ejemplo siguiente se usa el script para instalar R en el clúster:
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION
@@ -339,10 +339,10 @@ Lleve a cabo los siguiente pasos:
 	| ClusterRoleCollection | Especifica los nodos en los que se ejecuta el script de personalización. Los valores válidos son **HeadNode** (para instalar en el nodo principal), **WorkerNode** (para instalar en todos los nodos de datos) o **ZookeeperNode** (para instalar en el nodo zookeeper). Puede usar uno de los valores o todos. |
 	| Parámetros | Parámetros requeridos por el script. |
 	| URI | Especifica el URI para el script que se ejecuta. |
-	
+
 4. Finalmente, aprovisione el clúster
-	
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
+
+		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
 Cuando el sistema lo pida, escriba las credenciales para el clúster. El clúster puede tardar varios minutos en crearse.
 
@@ -361,7 +361,7 @@ El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el tra
 2. En el menú **Archivo**, haga clic en **Nuevo** y, después, en **Proyecto**.
 
 3. En **Nuevo proyecto**, escriba o seleccione los siguientes valores:
-	
+
 	| Propiedad | Valor |
 	| -------- | ----- |
 	| Categoría | Plantillas/Visual C#/Windows |
@@ -386,9 +386,9 @@ El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el tra
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
 		using Microsoft.WindowsAzure.Management.HDInsight.Framework.Logging;
-	
+
 9. En la función **Main()**, copie y pegue el siguiente código y proporcione valores para las variables:
-		
+
         var clusterName = args[0];
 
         // PROVIDE VALUES FOR THE VARIABLES
@@ -401,7 +401,7 @@ El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el tra
         string password = "<HDInsightUserPassword>";
         int clustersize = <NumberOfNodesInTheCluster>;
 
-        // PROVIDE THE CERTIFICATE THUMBPRINT TO RETRIEVE THE CERTIFICATE FROM THE CERTIFICATE STORE 
+        // PROVIDE THE CERTIFICATE THUMBPRINT TO RETRIEVE THE CERTIFICATE FROM THE CERTIFICATE STORE
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
@@ -423,7 +423,7 @@ El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el tra
             Password = password,
             ClusterSizeInNodes = clustersize,
             Version = "3.1"
-        };        
+        };
 
 10. Anexe el código siguiente a la función **Main()** Este código invoca una acción de script, en este ejemplo se trata del script para instalar R en el clúster:
 
@@ -484,11 +484,11 @@ Puede usar la interfaz de usuario web de Ambari para ver la información registr
 1. Abra el explorador web y navegue a https://CLUSTERNAME.azurehdinsight.net. Reemplace CLUSTERNAME por el nombre del clúster de HDInsight.
 
 	Cuando se le solicite, escriba el nombre de cuenta de administrador (admin) y la contraseña de administrador para el clúster. Tendrá que volver a escribir las credenciales de administrador en un formulario web.
-	
+
 2. En los vínculos de la parte superior de la página, seleccione la entrada __ops__. Esto mostrará una lista de las operaciones actuales y anteriores realizadas en el clúster a través de Ambari.
 
 	![Barra de interfaz de usuario web de Ambari con ops seleccionado](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
-	
+
 3. Busque las entradas que tienen __run\_customscriptaction__ en la columna __Operations__ (operaciones). Estas se crean al ejecutarse las acciones de script.
 
 	![Captura de pantalla de operaciones](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
@@ -508,6 +508,5 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante el aprovisionamiento del clúster"
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

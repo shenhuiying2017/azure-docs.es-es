@@ -1,11 +1,4 @@
-<properties
-	pageTitle=""
-	description="Describe lo que ha cambiado en su proyecto de Visual Studio después de ejecutar al Asistente de Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="patshea123"
-	manager="douge"
-	editor="tglee"/>
+<properties pageTitle="¿Qué le ha ocurrido a mi proyecto de WebApi (servicio conectado de Visual Studio Azure Active Directory) |Microsoft Azure " description="Describe qué ocurre a la WebApi de su proyecto MVC que conecta a Azure AD utilizando los servicios de Visual Studio="active-directory" services="active-directory" documentationCenter="" authors="patshea123" manager="douge" editor="tglee"/>
 
 <tags
 	ms.service="active-directory"
@@ -13,10 +6,10 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea"/>
 
-# ¿Qué le ha ocurrido a mi proyecto?
+# ¿Qué ha ocurrido a mi proyecto de WebApi (servicio conectado de Visual Studio Azure Active Directory)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
@@ -64,7 +57,7 @@ Se han agregado las siguientes entradas de configuración. ```
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` 
+	</appSettings>`
 ```
 
 ###Se ha creado una aplicación de Azure AD.
@@ -108,12 +101,12 @@ Se han agregado las siguientes entradas de configuración adicionales.
 ```
 	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` 
+	</appSettings>`
 ```
 
 ###Se ha actualizado la aplicación Azure Active Directory
-La aplicación Azure Active Directory se actualizó para incluir el permiso *Leer datos de directorio* y se creó una clave adicional que luego se usó como *ida:Password* en el archivo `web.config`.
+Su aplicación de Azure Active Directory se actualizó para incluir el permiso *Leer datos de directorio* y se creó una clave adicional que luego se usó como *ida:Password* en el archivo `web.config`.
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="Copia de seguridad de Azure en 10 minutos | Microsoft Azure"
-	description="Introducción a la Copia de seguridad de Azure en 10 minutos"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Introducción a la Copia de seguridad de Azure en 10 minutos"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
 
-# Pruebe la Copia de seguridad de Azure en 10 minutos
+# Introducción a Copia de seguridad de Azure
 Es muy fácil configurar Copia de seguridad de Azure; los siguientes vídeos de procedimientos le ayudarán a empezar.
 
 ## Paso 1: obtener una suscripción de Azure
-- Si no tiene una suscripción de Azure, puede comenzar con una oferta de prueba gratuita que permite el acceso a cualquier servicio de Azure. Visite el vínculo siguiente [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) para obtener más información.
+- Si no dispone de una suscripción de Azure, puede comenzar con una oferta de evaluación gratuita que permite el acceso a cualquier servicio de Azure. Visite el vínculo siguiente [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial) para obtener más información.
 - Puede omitir este paso si tiene una suscripción de Azure.
 
 ## Paso 2: configurar el servicio de Copia de seguridad de Azure
@@ -46,4 +46,4 @@ Siga los pasos mencionados en el vídeo [Introducción a Copia de seguridad de A
 - [Copia de seguridad de servidores Windows](backup-azure-backup-windows-server.md)
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

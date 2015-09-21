@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 
 
 <tags
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
 	ms.date="08/28/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 
 # Límites de recursos de Base de datos SQL
@@ -49,7 +49,7 @@ Los límites actuales de la base de datos se definen por el nivel de rendimiento
 
 [AZURE.INCLUDE [Tabla de niveles de servicio de datos de la Base de datos SQL](../../includes/sql-database-service-tiers-table.md)]
 
-## Cuota de aprovisionamiento de la Base de datos
+## Cuota de DTU por servidor
 
 La Base de datos SQL de Azure tiene una cuota de DTU por cada servidor lógico que en la actualidad es de 2000 DTU . Esta cuota representa las DTU que puede alojar un servidor lógico, basándose en la suma de las DTU del nivel de rendimiento de cada base de datos en el servidor. Por ejemplo, un servidor con 5 bases de datos Basic (5 X 5 máximo de DTU), 2 bases de datos Standard S1 (2 X 20 máximo de DTU) y 3 Premium P1 (3 X 100 máximo de DTU) han consumido 365 DTU de su cuota DTU de 2000.
 
@@ -63,4 +63,4 @@ La Base de datos SQL de Azure tiene una cuota de DTU por cada servidor lógico q
 
 [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

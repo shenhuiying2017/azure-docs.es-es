@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
@@ -21,11 +21,15 @@
 
 Si ha [instrumentado la aplicación web de Java con Application Insights][java], puede usar el agente de Java para obtener información más clara, sin tener que realizar cambios de código:
 
-* **Dependencias remotas:** datos sobre las llamadas que la aplicación realiza a través de un controlador [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), como MySQL, SQL Server, PostgreSQL y SQLite.
+
+* **Dependencias:** datos sobre las llamadas realizadas por la aplicación a otros componentes, por ejemplo:
+ * **Llamadas REST** realizadas a través de HttpClient, OkHttp y RestTemplate (Spring).
+ * **Redis** llamadas realizadas a través del cliente de Jedis. Si la llamada tarda más de 10 s, el agente capturará también los argumentos de la llamada.
+ * **[Llamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o DB Derby de Apache. Se admiten llamadas "executeBatch". En el caso de MySQL y PostgreSQL, si la llamada tarda más de 10 s, el agente notificará el plan de consulta. 
 * **Excepciones detectadas:** datos sobre las excepciones que controla el código.
 * **Tiempo de ejecución del método:** datos sobre el tiempo necesario para ejecutar métodos específicos.
 
-Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Application Insights para Java][java].
+Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Java de Application Insights][java].
 
 ## Instalación del agente de Application Insights para Java
 
@@ -54,7 +58,14 @@ Establezca el contenido del archivo XML. Edite el ejemplo siguiente para incluir
       <Instrumentation>
         
         <!-- Collect remote dependency data -->
-        <BuiltIn enabled="true"/>
+        <BuiltIn enabled="true">
+           <!-- Disable Redis or alter threshold call duration above which arguments will be sent.
+               Defaults: enabled, 10000 ms -->
+           <Jedis enabled="true" thresholdInMS="1000"/>
+           
+           <!-- Set SQL query duration above which query plan will be reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
+        </BuiltIn>
 
         <!-- Collect data about caught exceptions 
              and method execution times -->
@@ -83,11 +94,13 @@ De forma predeterminada, `reportExecutionTime` es true y `reportCaughtExceptions
 
 ## Visualización de los datos
 
-En el recurso de Application Insights, aparecerán tiempos de ejecución de métodos y dependencias remota agregados [en el icono Rendimiento][metrics].
+En el recurso de Application Insights, aparecerán tiempos de ejecución agregados de métodos y dependencias remotos [en el icono Rendimiento][metrics].
 
 Para buscar instancias individuales de informes de dependencia, excepción y método, abra [Buscar][diagnostic].
 
-[Más de diagnosticar problemas de dependencia -](app-insights-dependencies.md#diagnosis).
+[Más información sobre diagnósticos de problemas de dependencia](app-insights-dependencies.md#diagnosis).
+
+
 
 ## ¿Tiene preguntas? ¿Tiene problemas?
 
@@ -109,4 +122,4 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

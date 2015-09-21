@@ -1,63 +1,33 @@
 <properties
-   pageTitle="Implementación de una aplicación con la plantilla del Administrador de recursos de Azure"
-	services="azure-resource-manager"
-	description="Uso de Administrador de recursos de Azure para implementar una aplicación en Azure Una plantilla es un archivo JSON y puede usarse desde el Portal, PowerShell, la interfaz de la línea de comandos de Azure para Mac, Linux y Windows o REST."
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   pageTitle="Implementación de recursos con la plantilla del Administrador de recursos | Microsoft Azure"
+   services="azure-resource-manager"
+   description="Uso de Administrador de recursos de Azure para implementar recursos en Azure Una plantilla es un archivo JSON y puede usarse desde el Portal, PowerShell, la interfaz de la línea de comandos de Azure para Mac, Linux y Windows o REST."
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/09/2015"
+   ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
 
 En este tema se explica cómo utilizar las plantillas de Administrador de recursos de Azure para implementar su aplicación en Azure. Se muestra cómo implementar la aplicación mediante el uso de PowerShell de Azure, CLI de Azure, API de REST o el Portal de vista previa de Microsoft Azure.
 
-Las plantillas de Administrador de recursos de Azure permiten aprovisionar de manera rápida y fácil las aplicaciones de Azure a través de JSON declarativo. En una sola plantilla JSON, puede implementar varios servicios, como Máquinas virtuales, Redes virtuales, Almacenamiento, Servicios de aplicaciones y bases de datos. Use la misma plantilla para implementar su aplicación de forma repetida y consistente durante cada fase de su ciclo de vida.
-
-Para simplificar la administración de la aplicación, puede organizar todos los recursos que comparten un ciclo de vida comunes en un único grupo de recursos. Los grupos de recursos facilitan la implementación, actualización y eliminación de todos los recursos relacionados de forma conjunta. En la mayoría de los casos, un grupo de recursos se asigna a una única aplicación o a una capa de aplicación (para aplicaciones mayores). El recurso que se implementa a través de una plantilla va a residir dentro de los grupos de un único recurso, pero puede incluir dependencias en otros grupos de recursos.
-
-Dentro de un grupo de recursos, puede realizar un seguimiento de la ejecución de una implementación y ver el estado de la implementación y cualquier resultado de la ejecución de la plantilla.
+Para ver una introducción al Administrador de recursos, vea [Información general del Administrador de recursos de Azure](../resource-group-overview.md). Para obtener más información sobre la creación de plantillas, vea [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
 Al implementar una aplicación con una plantilla, puede proporcionar valores de parámetros para personalizar cómo se crean los recursos. Especifique los valores para estos parámetros, ya sea en línea o en un archivo de parámetros.
-
-## Conceptos
-
-- Grupo de recursos: conjunto de entidades que comparten un ciclo de vida común
-- Plantilla de Administrador de recursos: archivo JSON declarativo que define el estado objetivo de una implementación
-- Implementación: operación que realiza el seguimiento de la ejecución de una plantilla de Administrador de recursos
-- Parámetros: valores proporcionados por el usuario que ejecuta la implementación para personalizar recursos implementados
-- Archivo de parámetros: archivo JSON que almacena los valores y nombres de parámetros 
-
-## Escenarios
-
-Con las plantillas de Administrador de recursos, puede:
-
-- Implementar complejas aplicaciones de varios niveles, como Microsoft SharePoint.
-- Implementar de manera repetida y consistente las aplicaciones.
-- Dar soporte a los entornos de desarrollo, prueba y producción.
-- Vea el estado de las implementaciones.
-- Solucione los problemas de implementación mediante los registros de auditoría de implementación.
-
-## Implementación con el Portal de vista previa
-
-¿Sabe qué? Las aplicaciones que cree mediante el [portal de vista previa](https://portal.azure.com/) están respaldadas por una plantilla del Administrador de recursos de Azure Con solo crear una Máquina virtual, Red virtual, cuenta de almacenamiento, Servicio de aplicaciones o base de datos a través del portal, ya está obteniendo los beneficios del Administrador de recursos de Azure sin esfuerzo adicional. Simplemente, seleccione el icono **Nuevo** y estará en camino a implementar una aplicación mediante el Administrador de recursos de Azure.
-
-![Nuevo](./media/resource-group-template-deploy/new.png)
-
-Para obtener más información sobre el uso del portal con el Administrador de recursos de Azure, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](resource-group-portal.md).
 
 
 ## Implementación con PowerShell
 
-Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
+Puede descargar e instalar los módulos de Azure PowerShell mediante la ejecución del [Instalador de plataforma web de Microsoft](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
 1. Inicie sesión en su cuenta de Azure. Después de proporcionar sus credenciales, el comando devuelve información acerca de su cuenta.
 
@@ -171,13 +141,13 @@ Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte 
    
      Tiene las opciones siguientes para proporcionar valores de parámetro:
 
-     - Use parámetros en línea y una plantilla local.
+     - Use parámetros en línea y una plantilla local. Cada parámetro tiene el formato: `"ParameterName": { "value": "ParameterValue" }`. En el ejemplo siguiente se muestran los parámetros con caracteres de escape.
 
-             azure group deployment create -f <PathToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - Use parámetros en línea y un vínculo a una plantilla.
 
-             azure group deployment create --template-uri <LinkToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - Use un archivo de parámetro. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file).
     
@@ -236,6 +206,15 @@ Si todavía no ha usado la CLI de Azure con Administrador de recursos, consulte 
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## Implementación con el Portal de vista previa
+
+¿Sabe qué? Las aplicaciones que cree mediante el [Portal de vista previa](https://portal.azure.com/) están respaldadas por una plantilla del Administrador de recursos de Azure. Con solo crear una Máquina virtual, Red virtual, cuenta de almacenamiento, Servicio de aplicaciones o base de datos a través del portal, ya está obteniendo los beneficios del Administrador de recursos de Azure sin esfuerzo adicional. Simplemente, seleccione el icono **Nuevo** y estará en vías de implementar una aplicación mediante el Administrador de recursos de Azure.
+
+![Nuevo](./media/resource-group-template-deploy/new.png)
+
+Para obtener más información sobre el uso del portal con el Administrador de recursos de Azure, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](resource-group-portal.md).
+
+
 ## Archivo de parámetros
 
 Si utiliza un archivo de parámetros para pasar los valores de parámetro a la plantilla durante la implementación, tendrá que crear un archivo JSON con un formato similar del ejemplo siguiente.
@@ -259,11 +238,11 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro a la p
 El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 
 ## Pasos siguientes
-- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca de clientes de .NET, consulte [Implementación de recursos mediante bibliotecas de .NET y una plantilla](../arm-template-deployment.md).
-- Para obtener un ejemplo detallado de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
-- Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, consulte [Creación de plantillas](../resource-group-authoring-templates.md).
-- Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, consulte [Funciones de plantillas](../resource-group-template-functions.md).
+- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas .NET y una plantilla](../arm-template-deployment.md).
+- Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, vea [Creación de plantillas](../resource-group-authoring-templates.md).
+- Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, vea [Funciones de plantillas](../resource-group-template-functions.md).
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

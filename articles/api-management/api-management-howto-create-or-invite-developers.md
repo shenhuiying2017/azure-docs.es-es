@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Administración de cuentas de usuario en Administración de API de Azure
@@ -26,7 +26,7 @@ Para crear un desarrollador, haga clic en **Administrar** en el Portal de Azure 
 
 ![Portal del publicador][api-management-management-console]
 
-Haga clic en **Desarrolladores** en el menú **Administración de API** de la izquierda y, a continuación, haga clic en **Agregar usuario**.
+Haga clic en **Usuarios** en el menú **Administración de API** de la izquierda y haga clic en **Agregar usuario**.
 
 ![Create developer][api-management-create-developer]
 
@@ -42,7 +42,7 @@ Las cuentas de desarrollador que se encuentran en estado **activo** se pueden us
 
 ## <a name="invite-developer"> </a>Invitación a un desarrollador
 
-Para invitar a un desarrollador, haga clic en **Desarrolladores** en el menú **Administración de API** de la izquierda y haga clic en **Invitar a usuario**.
+Para invitar a un desarrollador, haga clic en **Usuarios** en el menú **Administración de API** de la izquierda y haga clic en **Invitar a usuario**.
 
 ![Invite developer][api-management-invite-developer]
 
@@ -50,7 +50,7 @@ Especifique el nombre y la dirección de correo electrónico del desarrollador y
 
 ![Invite developer][api-management-invite-developer-window]
 
-Se mostrará un mensaje de confirmación, pero el desarrollador recién invitado no aparecerá en la lista hasta que haya aceptado la invitación.
+Se mostrará un mensaje de confirmación, pero el desarrollador recién invitado no aparecerá en la lista hasta que acepte la invitación.
 
 ![Invite confirmation][api-management-invite-developer-confirmation]
 
@@ -91,4 +91,4 @@ Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribir
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [Configuración de plantillas de correo electrónico]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

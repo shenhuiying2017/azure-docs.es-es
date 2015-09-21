@@ -19,7 +19,7 @@
 
 #Configuración de Azure AD para la administración del acceso a la aplicación de autoservicio
 
-La administración de grupos de autoservicio permite a los usuarios crear y administrar grupos de seguridad en Microsoft Azure Active Directory (AD) y les ofrece la posibilidad de emitir solicitudes de pertenencia a grupos de seguridad, que posteriormente pueden ser aprobadas o rechazadas por el propietario del grupo. Mediante el uso de características de administración de grupos de autoservicio, el control cotidiano de la pertenencia a grupos puede delegarse a personas que comprenden el contexto empresarial de dicha pertenencia.
+La administración de grupos de autoservicio permite a los usuarios crear y administrar grupos de seguridad en Microsoft Azure Active Directory (AD) y les ofrece la posibilidad de emitir solicitudes de pertenencia a grupos de seguridad, que posteriormente pueden ser aprobadas o rechazadas por el propietario del grupo. Mediante el uso de características de administración de grupos de autoservicio, el control cotidiano de la pertenencia a grupos puede delegarse a personas que comprenden el contexto empresarial de dicha pertenencia. Tenga en cuenta que las características de administración de grupo de autoservicio solo están disponibles para grupos de seguridad y de Office 365, no para grupos de seguridad habilitados para correo ni listas de distribución.
 
 La administración de grupos de autoservicio actualmente está formada por dos escenarios esenciales: la administración de grupos delegada y la administración de grupos de autoservicio.
 
@@ -49,4 +49,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Habilitar las Métricas de almacenamiento y las Métricas de visualización
@@ -192,4 +192,4 @@ La capacidad de las tablas de métricas también es facturable: puede usar las o
 [Habilitar el registro de almacenamiento y acceso a los datos del registro](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

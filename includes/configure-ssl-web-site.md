@@ -7,13 +7,13 @@ Puede proteger la comunicación entre la aplicación web y el explorador con HTT
 
 ##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio \\*.azurewebsites.net
 
-Si en lugar de usar un nombre de dominio personalizado tiene previsto usar el dominio *.azurewebsites.net que Azure ha asignado a su aplicación web (por ejemplo, contoso.azurewebsites.net), HTTPS ya está habilitado en el sitio con un certificado de Microsoft. Puede usar **https://mywebsite.azurewebsites.net** para acceder a la aplicación. Sin embargo, *.azurewebsites.net es un dominio comodín. Al igual que [todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), no es tan seguro como utilizar un dominio personalizado con su propio certificado.
+Si en lugar de usar un nombre de dominio personalizado tiene previsto usar el dominio *.azurewebsites.net que Azure ha asignado a su aplicación web (por ejemplo, contoso.azurewebsites.net), HTTPS ya está habilitado en el sitio con un certificado de Microsoft. Puede usar ****https://mywebsite.azurewebsites.net** para acceder a la aplicación. Sin embargo, *.azurewebsites.net es un dominio comodín. Al igual que [todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), no es tan seguro como usar un dominio personalizado con su propio certificado
 
 En el resto del documento se proporcionan detalles acerca de cómo habilitar HTTPS para dominios personalizados, como **contoso.com**, **www.contoso.com** o ***.contoso.com**
 
 ##<a name="bkmk_domainname"></a>Habilitación de SSL en un dominio personalizado
 
-Para habilitar HTTPS para un dominio personalizado, como **contoso.com**, antes es preciso registrar un nombre de dominio personalizado en un registrador de nombres de dominio. Para obtener más información acerca de la configuración del nombre de dominio de una aplicación web, consulte [Configuración de un nombre de dominio personalizado en un sitio web de Azure](/es-es/develop/net/common-tasks/custom-dns-web-site/). Una vez que haya registrado un nombre de dominio personalizado y configurado su aplicación web para que se corresponda con el nombre personalizado, debe solicitar un certificado SSL para el dominio.
+Para habilitar HTTPS para un dominio personalizado, como **contoso.com**, antes es preciso registrar un nombre de dominio personalizado en un registrador de nombres de dominio. Para obtener más información acerca de la configuración del nombre de dominio de una aplicación web, consulte [Configuración de un nombre de dominio personalizado en un sitio web de Azure](/es-ES/develop/net/common-tasks/custom-dns-web-site/). Una vez que haya registrado un nombre de dominio personalizado y configurado su aplicación web para que se corresponda con el nombre personalizado, debe solicitar un certificado SSL para el dominio.
 
 > [AZURE.NOTE]Para habilitar HTTPS para nombres de dominios personalizados, es preciso configurar la aplicación web para el modo **Estándar**. Si actualmente usa un modo gratuito o compartido, es posible que el cambio de modo suponga costes adicionales. Para obtener más información sobre los precios de los modos compartido y **Estándar**, consulte [Información sobre el precio][pricing].
 
@@ -61,12 +61,11 @@ Certreq.exe es una utilidad de Windows para crear solicitudes de certificado. Ha
 		MachineKeySet = True
 		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
 		ProviderType = 12
-		RequestType = CMC
 
 		[EnhancedKeyUsageExtension]
 		OID=1.3.6.1.5.5.7.3.1
 
-	Para obtener más información acerca de las opciones especificadas anteriormente, así como otras opciones disponibles, consulte la [Documentación de referencia de Certreq](http://technet.microsoft.com/library/cc725793.aspx).
+	Para obtener más información sobre las opciones especificadas anteriormente, así como otras opciones disponibles, vea la [Documentación de referencia de Certreq](http://technet.microsoft.com/library/cc725793.aspx).
 
 2. Guarde el archivo de texto como **myrequest.txt**.
 
@@ -546,4 +545,4 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->
