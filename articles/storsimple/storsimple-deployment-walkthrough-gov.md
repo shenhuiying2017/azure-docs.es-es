@@ -277,4 +277,4 @@ Configure un [dispositivo virtual](storsimple-virtual-device.md).
 Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
  
 
-<!----HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

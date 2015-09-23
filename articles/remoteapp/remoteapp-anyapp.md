@@ -55,7 +55,6 @@ Una vez que la colección se ha creado correctamente, es el momento de publicar 
 
 Si se ha desplazado fuera del nodo Azure RemoteApp mientras se creaba la colección, lo primero que debe hacer es volver a él desde la página principal de Azure.
 
-1. Haga clic en **RemoteApp** en la barra de navegación de la izquierda.
 2. Haga clic en la colección que creó anteriormente para tener acceso a opciones adicionales y configure la colección.
 ![Una nueva colección en la nube de RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
 3. En la pestaña **Publicación**, haga clic en **Publicar** en la parte inferior de la pantalla y, a continuación, haga clic en **Publicar programas del menú Inicio**.
@@ -84,7 +83,6 @@ La primera parte la tiene que hacer usted como administrador. Luego, tenemos alg
 3. Ahora tiene que crear una [cuenta de almacenamiento](../storage-create-storage-account.md) de Azure. Hemos llamado a la nuestra "accessstorage", así que elija un nombre que sea significativo para usted (solo puede haber una con el nombre "accessstorage").
 ![Nuestra cuenta de almacenamiento de Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Ahora vuelva al panel para poder obtener la ruta de acceso al sistema de almacenamiento (ubicación del extremo). La usará en seguida, así que asegúrese de copiarla en alguna parte.
-
 ![La ruta de acceso de la cuenta de almacenamiento](./media/remoteapp-anyapp/ra-anyappstoragelocation.png) 
 5. A continuación, una vez creada la cuenta de almacenamiento, necesitará la clave de acceso principal. Haga clic en **Administrar claves de acceso** y, a continuación, copie la clave de acceso principal.
 6. Ahora, establezca el contexto de la cuenta de almacenamiento y cree un nuevo recurso compartido de archivos para Access. En una ventana de Windows PowerShell con privilegios elevados, ejecute los siguientes cmdlets:
@@ -106,10 +104,8 @@ Ahora, es el turno del usuario. En primer lugar, pida a los usuarios que instale
 		net use z: \<accountname>.file.core.windows.net<share name> /u:<user name> <account key>
 
 	Si establece el parámetro **/persistent** en Sí, la unidad asignada se conservará en todas las sesiones.
-1. Ahora, inicie la aplicación Explorador de archivos desde RemoteApp. Copie los archivos de Access que desee utilizar en la aplicación compartida al recurso compartido de archivos.
-![Colocación de los archivos de Access en un recurso compartido de Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
-1. Por último, abra Access y, a continuación, abra la base de datos que acaba de compartir. Debería ver los datos de Access ejecutándose desde la nube.
-![Una base de datos de Access real ejecutándose desde la nube](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
+1. Ahora, inicie la aplicación Explorador de archivos desde RemoteApp. Copie los archivos de Access que desee utilizar en la aplicación compartida al recurso compartido de archivos. ![Colocación de los archivos de Access en un recurso compartido de Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
+1. Por último, abra Access y, a continuación, abra la base de datos que acaba de compartir. Debería ver los datos de Access ejecutándose desde la nube. ![Una base de datos de Access real ejecutándose desde la nube](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
 
 Ahora puede utilizar Access en cualquiera de sus dispositivos, solo asegúrese de instalar un cliente de RemoteApp.
 
@@ -120,4 +116,4 @@ Ahora que ha aprendido a crear una colección, intente crear una [colección que
 
 <!--Image references-->
 
-<!----HONumber=Sept15_HO2-->
+<!-----HONumber=Sept15_HO2-->
