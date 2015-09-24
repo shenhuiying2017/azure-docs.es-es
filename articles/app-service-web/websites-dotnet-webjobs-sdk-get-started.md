@@ -44,7 +44,7 @@ Si no tiene uno de estos productos, Visual Studio 2013 Express para Web se insta
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## <a id="learn"></a>Temas que se abordarán
 
@@ -93,13 +93,10 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 1. Abra la ventana **Explorador de servidores** de Visual Studio.
 
 2. Haga clic en el nodo **Azure** y, a continuación, haga clic en **Conectar con Microsoft Azure**.
-
 ![Conexión a Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Inicie sesión con sus credenciales de Azure.
-
 5. Haga clic en **Almacenamiento** en el nodo de Azure y, a continuación, haga clic en **Crear cuenta de almacenamiento**.
-
 ![Crear una cuenta de almacenamiento](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. En el cuadro de diálogo **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta de almacenamiento.
@@ -370,7 +367,7 @@ En esta sección se usa el **Explorador de servidores** para definir los valores
 
 	El botón de **función de reproducción** de esta página sirve para que el marco de trabajo del SDK de WebJobs llame de nuevo a la función y le permite cambiar los datos que se pasan primero a la función.
 
->[AZURE.NOTE]Cuando finalice las pruebas, elimine la aplicación web y la instancia de Base de datos SQL. La aplicación web es gratuita, pero la instancia de Base de datos SQL y la cuenta de almacenamiento tienen un costo (mínimo dado su pequeño tamaño). Asimismo, si deja la aplicación ejecutándose, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el Portal de Azure, vaya a la pestaña **Panel** correspondiente a la aplicación web y, a continuación, haga clic en el botón **Eliminar** en la parte inferior de la página. A continuación, puede activar una casilla para eliminar la instancia de la Base de datos SQL al mismo tiempo. Si lo que desea es evitar temporalmente que otros tengan acceso a la aplicación, haga clic en **Detener**. En ese caso, se seguirán acumulando cargos para la cuenta de almacenamiento y la base de datos SQL. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
+>[AZURE.NOTE] Cuando finalice las pruebas, elimine la aplicación web y la instancia de Base de datos SQL. La aplicación web es gratuita, pero la instancia de Base de datos SQL y la cuenta de almacenamiento tienen un costo (mínimo dado su pequeño tamaño). Asimismo, si deja la aplicación ejecutándose, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el Portal de Azure, vaya a la pestaña **Panel** correspondiente a la aplicación web y, a continuación, haga clic en el botón **Eliminar** en la parte inferior de la página. A continuación, puede activar una casilla para eliminar la instancia de la Base de datos SQL al mismo tiempo. Si lo que desea es evitar temporalmente que otros tengan acceso a la aplicación, haga clic en **Detener**. En ese caso, se seguirán acumulando cargos para la cuenta de almacenamiento y la base de datos SQL. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
 
 ### Habilitación de AlwaysOn para procesos de larga ejecución
 
@@ -506,7 +503,7 @@ Ahora puede generar, ejecutar e implementar la aplicación como se indicó anter
 
 En la siguiente sección se explica el código relacionado para trabajar con el SDK de WebJobs y los blobs y las colas de Azure.
 
-> [AZURE.NOTE]Para obtener el código específico del SDK de WebJobs, consulte [Program.cs y Functions.cs](#programcs).
+> [AZURE.NOTE] Para obtener el código específico del SDK de WebJobs, consulte [Program.cs y Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -830,4 +827,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, vea [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

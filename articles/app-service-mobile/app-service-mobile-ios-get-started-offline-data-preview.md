@@ -231,7 +231,7 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 
 * [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]
 
-* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] (nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
+* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure] \(nota: el vídeo trata sobre Servicios móviles, pero la sincronización sin conexión funciona de forma similar en Aplicaciones móviles de Azure)
 
 <!-- URLs. -->
 
@@ -248,4 +248,4 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
