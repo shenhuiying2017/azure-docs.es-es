@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/06/2015"
+   ms.date="09/10/2015"
    ms.author="lauracr"/>
 
 # Conexión a Vista operativa desde System Center Operations Manager
@@ -46,4 +46,4 @@ Si usa Operations Manager para supervisar cualquiera de las siguientes cargas de
 
 [Configuración de los ajustes del proxy y del firewall (opcional)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

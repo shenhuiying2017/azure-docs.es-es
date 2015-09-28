@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para agregar una nueva cuenta de almacenamiento en la versión de lanzamiento de StorSimple (GA)
 
@@ -17,4 +18,4 @@
 
 4. La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. Haga clic en **Guardar** para guardar la cuenta de almacenamiento recién creada. Haga clic en **Aceptar** cuando se le pida confirmación.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

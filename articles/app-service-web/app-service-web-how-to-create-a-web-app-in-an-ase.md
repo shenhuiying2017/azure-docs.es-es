@@ -5,20 +5,22 @@
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015"
+	ms.date="09/15/2015"
 	ms.author="ccompy"/>
 
 # Creación de una aplicación web en un entorno del Servicio de aplicaciones #
 
 Crear aplicaciones web es prácticamente lo mismo en entornos del Servicio de aplicaciones (ASE) que normalmente. Si está familiarizado con la funcionalidad del entorno del Servicio de aplicaciones, lea el documento [¿Qué es un entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Para crear una aplicación web en un ASE deberá comenzar por tener un ASE. Para obtener detalles sobre la creación de un ASE, lea aquí el documento: [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -91,4 +93,4 @@ Después de crear la aplicación web y el ASP, es una buena idea para escalarla 
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

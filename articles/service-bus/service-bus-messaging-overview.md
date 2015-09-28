@@ -50,9 +50,10 @@ Al igual que con la infraestructura de mensajería retransmitida, se ofrece la c
 Para obtener más información sobre la mensajería de Bus de servicio, consulte los siguientes temas:
 
 - [Colas, temas y suscripciones del bus de servicio](service-bus-queues-topics-subscriptions.md)
-- [Información general sobre la arquitectura de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
+- [Arquitectura del Bus de servicio](service-bus-architecture.md)
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
 - [Cómo usar temas de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

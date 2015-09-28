@@ -114,7 +114,7 @@ Las siguientes características están actualmente en versión de vista previa p
 - Administración de identidad con privilegios: la administración de identidad con privilegios proporciona una supervisión mejorada para ayudar a cumplir los acuerdos de nivel de servicio y los requisitos de cumplimiento de normativas.
 - Solicitudes de aplicación de autoservicio: los administradores pueden proporcionar una lista de aplicaciones SaaS a los usuarios para que puedan elegir las que deseen usar; las aplicaciones estarán disponibles de inmediato o bien tras su aprobación.
 - API de informes de Azure: los datos de cada informe de seguridad de Azure Active Directory estarán disponibles para otras herramientas de supervisión o SIEM.
-
+- [Azure Active Directory B2C](http://azure.microsoft.com/services/active-directory-b2c/): un nuevo y completo servicio de administración de identidad y acceso y directorios de consumidor, a gran escala y basado en la nube, concebido para satisfacer las necesidades cada vez mayores que tienen las empresas de conectar directamente con sus clientes.
 
 ## Pasos siguientes
 
@@ -122,4 +122,4 @@ Las siguientes características están actualmente en versión de vista previa p
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

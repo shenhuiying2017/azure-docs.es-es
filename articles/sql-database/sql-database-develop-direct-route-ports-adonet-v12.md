@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -69,10 +69,12 @@ La secuencia es la siguiente:
 3. Las consultas se envían directamente a la base de datos y los resultados se devuelven directamente al cliente.
 
 
-Asegúrese de que los intervalos de puertos 11000-11999 y 14000-14999 en el equipo cliente de Azure quedan disponible para las interacciones de cliente de ADO.NET 4.5 con Base de datos SQL V12 .
+Asegúrese de que los intervalos de puertos 11000 a 11999 y 14000 a 14999 en la máquina cliente de Azure quedan disponible para las interacciones de cliente de ADO.NET 4.5 con Base de datos SQL V12.
 
 - En concreto, los puertos del intervalo deben estar libres de cualquier otro bloqueador de salida.
-- El Firewall de Windows en la VM de Azure controla la configuración del puerto.
+
+- En la máquina virtual de Azure, **Firewall de Windows con seguridad avanzada** controla la configuración de puertos.
+ - Puede usar la [interfaz de usuario del firewall](http://msdn.microsoft.com/library/cc646023.aspx) para agregar una regla para la que se especifique el protocolo **TCP** junto con un intervalo de puertos con una sintaxis similar a **11000-11999**.
 
 
 ## Aclaraciones de versiones
@@ -94,7 +96,7 @@ En esta sección se explican los monikers que hacen referencia a las versiones d
 En este tema se resaltan las diferencias de conexión de cliente entre la Base de datos SQL V11 y V12.
 
 
-*Nota:* la instrucción de Transact-SQL `SELECT @@version;` devuelve un valor que comienza por un número como '11.' o '12.', que coincide con nuestros nombres de versión de V11 y V12 para Base de datos SQL.
+*Nota:* La instrucción Transact-SQL `SELECT @@version;` devuelve un valor que comienza por un número como '11.' o '12.', que coinciden con los nombres de nuestra versión V11 y V12 para Base de datos SQL.
 
 
 ## Vínculos relacionados
@@ -112,4 +114,4 @@ En este tema se resaltan las diferencias de conexión de cliente entre la Base d
 
 - [Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

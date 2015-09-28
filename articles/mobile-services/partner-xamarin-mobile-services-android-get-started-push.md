@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="09/16/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
@@ -87,4 +87,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

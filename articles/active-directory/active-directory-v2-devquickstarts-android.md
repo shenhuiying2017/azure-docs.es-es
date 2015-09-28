@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicaciones v2.0 | Microsoft Azure"
+	pageTitle="Aplicación Android del modelo de aplicación v2.0 | Microsoft Azure"
 	description="Cómo crear una aplicación Android con la que los usuarios pueden iniciar sesión utilizando tanto la cuenta personal de Microsoft como sus cuentas profesionales o educativas."
 	services="active-directory"
 	documentationCenter=""
@@ -13,13 +13,13 @@
   ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="brandwe"/>
 
 # Vista previa del modelo de aplicaciones v2.0: agregar inicio de sesión a una aplicación Android
 
 El tutorial de inicio rápido para Android aún no está listo... Compruébelo de nuevo pronto y busque actualizaciones de @AzureAD en Twitter.
 
-> [AZURE.NOTE]Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrar con el servicio de Azure AD disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrar con el servicio de Azure AD disponible con carácter general, consulta la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

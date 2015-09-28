@@ -1,4 +1,4 @@
-
+<!--author=SharS last changed: 9/16/15-->
 
 #### Para eliminar un contenedor de volúmenes
 
@@ -10,4 +10,4 @@
 
 Si el contenedor de volúmenes tiene volúmenes asociados, primero deberá desconectar estos volúmenes siguiendo los pasos descritos en [Desconectar un volumen](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Una vez que los volúmenes estén desconectados, puede eliminarlos. Cuando el contenedor de volúmenes no tenga volúmenes asociados, elimine el contenedor de volúmenes tal como se describió anteriormente.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

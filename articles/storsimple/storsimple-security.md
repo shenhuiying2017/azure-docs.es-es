@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Seguridad de StorSimple | Microsoft Azure"
-	description="Describe las características de seguridad y privacidad que protegen el servicio y el dispositivo StorSimple y los datos locales y en la nube."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="Carolz"
-	editor=""/>
+   pageTitle="Seguridad de StorSimple | Microsoft Azure" 
+   description="Describe las características de seguridad y privacidad que protegen el servicio y el dispositivo StorSimple y los datos locales y en la nube." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="Carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/10/2015"
+   ms.author="v-sharos"/>
 
 # Protección de datos y seguridad de StorSimple
 
@@ -56,6 +56,7 @@ Para autorizar un dispositivo, debe registrarlo con el servicio StorSimple Manag
 > 
 > * Si se pierde la clave de registro del servicio una vez que registra el primer dispositivo, puede generar una clave nueva desde el servicio StorSimple Manager. Esto no afectará la operación de los dispositivos existentes. 
 > * Una vez que se registra un dispositivo, usa tokens para comunicarse con Microsoft Azure. La clave de registro del servicio no se usa después del registro del dispositivo.
+> * Se recomienda que regenere la clave de registro del servicio después de cada uso.
 
 ## Protección de la solución de StorSimple mediante contraseñas
 
@@ -83,7 +84,7 @@ Después de que use Windows PowerShell para StorSimple para conectarse al dispos
 
 ### Contraseñas para iniciador y destino del Protocolo de autenticación por desafío mutuo (CHAP)
 
-CHAP es un esquema de autenticación que el dispositivo de StorSimple utiliza para validar la identidad de los clientes remotos. La comprobación se basa en una contraseña compartida. CHAP puede ser unidireccional o mutuo (bidireccional). Con CHAP unidireccional, el destino (el dispositivo de StorSimple) autentica un iniciador (host). El protocolo CHAP mutuo requiere que el destino autentique al iniciador y, a continuación, que el iniciador autentique al destino. Azure StorSimple se puede configurar para que utilice cualquiera de estos métodos.
+CHAP es un esquema de autenticación que el dispositivo de StorSimple utiliza para validar la identidad de los clientes remotos. La comprobación se basa en una contraseña compartida. CHAP puede ser unidireccional o mutuo (bidireccional). Con CHAP unidireccional, el destino (el dispositivo de StorSimple) autentica un iniciador (host). El protocolo CHAP mutuo o inverso requiere que el destino autentique al iniciador y después que este autentique a aquel. StorSimple se puede configurar para que utilice cualquiera de estos métodos.
 
 > [AZURE.IMPORTANT]
 > 
@@ -92,7 +93,7 @@ CHAP es un esquema de autenticación que el dispositivo de StorSimple utiliza pa
 > * No puede usar la misma contraseña para el iniciador de CHAP y el destino de CHAP.
 > * Después de establecer la contraseña, es posible cambiarla pero no se puede recuperar. Si se cambia la contraseña, asegúrese de notificar a todos los usuarios de acceso remoto para que puedan conectarse correctamente al dispositivo de StorSimple.
 
-Para obtener más información y configurar CHAP, vaya a [Configurar CHAP para el dispositivo StorSimple](storsimple-configure-chap.md)
+Para obtener más información y configurar CHAP, vaya a [Configurar CHAP para el dispositivo StorSimple](storsimple-configure-chap.md).
 
 ### Contraseña para StorSimple Snapshot Manager
 
@@ -107,8 +108,8 @@ Cuando configure un dispositivo para que utilice StorSimple Snapshot Manager, de
 
 Se recomienda utilizar las siguientes instrucciones para asegurarse de que las contraseñas de Azure StorSimple sean seguras y estén bien protegidas:
 
-- Cambie las contraseñas cada tres meses.
-- Use contraseñas seguras. Para obtener más información, vaya a [Create stronger passwords and protect them](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/) (Crear contraseñas más seguras y protegerlas).
+- Cambie las contraseñas cada tres meses. Es obligatorio cambiar de contraseña todos los años.
+- Use contraseñas seguras. Para obtener más información, vaya a [Crear contraseñas más seguras y protegerlas](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 - Utilice siempre contraseñas distintas para los diferentes mecanismos de acceso; cada una de las contraseñas que especifique debe ser única.
 - No comparta las contraseñas con nadie que no esté autorizado a tener acceso al dispositivo de StorSimple.
 - No hable de una contraseña frente a otras personas ni revele ninguna indicación respecto del formato de una contraseña.
@@ -135,10 +136,10 @@ El propósito principal del servicio StorSimple Manager es administrar y configu
 > [AZURE.IMPORTANT]
 > 
 > * La clave de cifrado de datos de servicio se genera solo en el primer dispositivo registrado con el servicio. Todos los dispositivos subsiguientes que se registran con el servicio deben usar la misma clave de cifrado de datos de servicio. Es muy importante crear una copia de esta clave y guardarla en una ubicación segura. Una copia de la clave de cifrado de datos de servicio se debe almacenar de manera tal para que una persona autorizada pueda tener acceso a ella y se pueda comunicar fácilmente al administrador del dispositivo.
-> * Puede cambiar la clave de cifrado de datos de servicio y el certificado de cifrado de datos correspondiente si selecciona la opción **Cambiar clave de cifrado de datos de servicio** en el panel del servicio. Cambiar las claves de cifrado requiere que todos los dispositivos se actualicen con la clave nueva. Por lo tanto, se recomienda cambiar la clave cuando todos los dispositivos estén en línea. Si los dispositivos están sin conexión, es posible que las claves cambien en momentos distintos. Los dispositivos con claves obsoletas de todos modos podrán ejecutar copias de seguridad, pero no podrán restaurar datos hasta que se actualice la clave. Para obtener más información, vaya a [Uso del panel del servicio Administrador de StorSimple](storsimple-service-dashboard.md).
+> * Puede cambiar la clave de cifrado de datos de servicio y el certificado de cifrado de datos correspondiente si selecciona la opción **Cambiar clave de cifrado de datos de servicio** en el panel del servicio. Cambiar las claves de cifrado requiere que todos los dispositivos se actualicen con la clave nueva. Por lo tanto, se recomienda cambiar la clave cuando todos los dispositivos estén en línea. Si los dispositivos están sin conexión, es posible que las claves cambien en momentos distintos. Los dispositivos con claves obsoletas de todos modos podrán ejecutar copias de seguridad, pero no podrán restaurar datos hasta que se actualice la clave. Para obtener más información, vaya a [Uso del panel del servicio StorSimple Manager](storsimple-service-dashboard.md).
 > * Para asegurarse de que la seguridad de los datos no está comprometida, debe usar un dispositivo de StorSimple físico para cambiar la clave de cifrado de datos de servicio.
 > * Si se pierde la clave de cifrado de datos de servicio, una persona del soporte técnico de Microsoft puede ayudarle a recuperarla siempre que tenga al menos un dispositivo en línea. Se recomienda cambiar la clave de cifrado de datos de servicio después de recuperarla. Para obtener instrucciones, vaya a [Cambiar la clave de cifrado de datos de servicio](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
-> * La clave de cifrado de datos de servicio y el certificado de cifrado de datos no expiran. Sin embargo, se recomienda cambiar la clave de cifrado de datos de servicio de manera regular para evitar comprometer la seguridad de la clave.</li></ul>
+> * La clave de cifrado de datos de servicio y el certificado de cifrado de datos no expiran. Sin embargo, se recomienda cambiar la clave de cifrado de datos de servicio de anualmente para evitar comprometer la seguridad de la clave.</li></ul>
 
 
 ## Protección de los datos en reposo
@@ -150,10 +151,9 @@ El dispositivo de StorSimple administra los datos a través de su almacenamiento
 - Cuando ingrese la clave de cifrado de almacenamiento en la nube en el servicio StorSimple Manager, la clave se cifra con la parte pública de la clave de cifrado de datos de servicio y luego se envía al dispositivo.
 - La clave de cifrado de almacenamiento en la nube no se almacena en ningún lugar del servicio y solo la conoce el dispositivo.
 - Especificar una clave de cifrado de almacenamiento en la nube es opcional. Puede enviar datos cifrados en el host al dispositivo.
+- Se recomienda cambiar la clave de cifrado de almacenamiento en la nube trimestralmente. El cambio de estas claves no será obligatorio.
 
 ### Prácticas recomendadas de seguridad adicionales
-
-- Para implementar la redundancia, utilice múltiples rutas (MPIO) para prevenir un único punto de error en SAN iSCSI. Para obtener instrucciones detalladas, consulte [Configurar MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 
 - División de tráfico: aísle la SAN iSCSI del tráfico de usuario en una LAN corporativa mediante la implementación de una red totalmente separada y a través de VLAN donde el aislamiento físico no es opción. Una red dedicada para almacenamiento de iSCSI garantizará la seguridad y el rendimiento de los datos críticos para la empresa. No se recomienda combinar el tráfico de usuario y almacenamiento en una LAN corporativa y puede aumentar la latencia y provocar errores en la red.
 
@@ -253,4 +253,4 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 [Implementación del dispositivo StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

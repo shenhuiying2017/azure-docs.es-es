@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicaciones v2.0 | Microsoft Azure"
+	pageTitle="Aplicación nativa .NET del modelo de aplicación v2.0 | Microsoft Azure"
 	description="Cómo crear una aplicación nativa .NET con la que los usuarios pueden iniciar sesión utilizando tanto la cuenta personal de Microsoft como sus cuentas profesionales o educativas."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Vista previa del modelo de aplicaciones v2.0: agregar inicio de sesión a una aplicación de escritorio de Windows
@@ -50,7 +50,7 @@ Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsof
 ## 2. Instalar y configurar ADAL
 Ahora que ya tiene una aplicación registrada con Microsoft, instale ADAL y escribe su código relacionado con la identidad.  Para que ADAL pueda comunicarse con el extremo v2.0, debe proporcionar cierta información sobre el registro de la aplicación.
 
--	Comience agregando ADAL al proyecto TodoListClient con la Consola del Administrador de paquetes.
+-    Comience agregando ADAL al proyecto TodoListClient con la Consola del Administrador de paquetes.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
@@ -247,4 +247,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!-------HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

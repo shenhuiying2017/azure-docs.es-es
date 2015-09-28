@@ -1,20 +1,20 @@
 <properties
    pageTitle="Funciones de la plantilla del Administrador de recursos de Azure"
-	description="Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, cadenas de formato e información de implementación."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, cadenas de formato e información de implementación."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/21/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
 
@@ -108,6 +108,25 @@ Devuelve la división de enteros de los dos enteros especificados.
 | operand1 | Sí | Número que se va a dividir.
 | operand2 | Sí | Número que se usa para dividir, tiene que ser distinto de 0.
 
+## int
+
+**int(valueToConvert)**
+
+Convierte el valor especificado en entero.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Sí | Valor que se convierte en entero. Solo puede ser de tipo cadena o entero.
+
+En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario en entero.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
 ## length
 
 **length(array)**
@@ -116,7 +135,7 @@ Devuelve el número de elementos de una matriz. Normalmente, sirve para especifi
 
 ## listKeys
 
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
+**listKeys (resourceName o resourceIdentifier, apiVersion)**
 
 Devuelve las claves de una cuenta de almacenamiento. El valor de resourceId puede especificarse mediante la [función resourceId](./#resourceid) o mediante el formato **providerNamespace/resourceType/resourceName**. Puede utilizar la función para obtener los valores de primaryKey y secondaryKey.
   
@@ -129,7 +148,7 @@ En el ejemplo siguiente se muestra cómo se devuelven las claves de una cuenta d
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
@@ -206,9 +225,9 @@ En el ejemplo siguiente se muestra un uso simplificado de la función de los par
        }
     ]
 
-## provider
+## providers
 
-**provider (providerNamespace, [resourceType])**
+**providers (providerNamespace, [resourceType])**
 
 Se devuelve información acerca de un proveedor de recursos y sus tipos de recursos admitidos. Si no se proporciona el tipo, se devuelven todos los tipos admitidos.
 
@@ -247,7 +266,7 @@ Permite que una expresión derive su valor del estado de tiempo de ejecución de
 
 La función **reference** deriva su valor desde un estado de tiempo de ejecución y, por tanto, no se puede utilizar en la sección de variables. Se puede utilizar en la sección de salidas de una plantilla.
 
-Mediante el uso de la expresión de referencia, se declara implícitamente que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla. No es necesario usar también la propiedad **dependsOn**. La expresión no se evalúa hasta que el recurso al que se hace referencia complete la implementación.
+Mediante el uso de la expresión de referencia, se declara implícitamente que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla. No tiene que usar también la propiedad **dependsOn**. La expresión no se evalúa hasta que el recurso al que se hace referencia complete la implementación.
 
     "outputs": {
       "siteUri": {
@@ -384,6 +403,25 @@ En el ejemplo siguiente la cadena de entrada se divide con una coma.
         "stringPieces": "[split(parameters('inputString'), ',')]"
     }
 
+## cadena
+
+**string(valueToConvert)**
+
+Convierte el valor especificado en cadena.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| valueToConvert | Sí | Valor que se convierte en cadena. Solo puede ser de tipo booleano, entero o cadena.
+
+En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario en cadena.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
+    }
+
 ## sub
 
 **sub(operand1, operand2)**
@@ -469,7 +507,7 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 ## Pasos siguientes
 - Para obtener una descripción de las secciones de una plantilla del Administrador de recursos de Azure, vea [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 - Para combinar varias plantillas, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
-- Para iterar una cantidad de veces específica al crear un tipo de recurso, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
-- Para ver cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
+- Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+- Para saber cómo implementar la plantilla que creó, vea [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

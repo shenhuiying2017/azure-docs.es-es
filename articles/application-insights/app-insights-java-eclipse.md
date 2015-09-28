@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Introducción a Application Insights con Java en Eclipse
@@ -116,6 +116,104 @@ Las métricas de vistas de página, usuarios y sesiones aparecerán en la hoja d
 
 [Más información acerca de la configuración de la telemetría de cliente.][usage]
 
+## Publicación de la aplicación
+
+Ahora puede publicar la aplicación en el servidor, dejar que la utilicen los usuarios y ver la telemetría en el portal.
+
+* Asegúrese de que el firewall permite que la aplicación envíe datos de telemetría a estos puertos:
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* En los servidores de Windows, instale:
+
+ * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (Esto habilita los contadores de rendimiento.)
+
+## Excepciones y errores de solicitud
+
+Las excepciones no controladas se recopilan automáticamente:
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+Para recopilar datos de otras excepciones, tiene dos opciones:
+
+* [Insertar llamadas a TrackException en el código](app-insights-api-custom-events-metrics.md#track-exception). 
+* [Instalar el agente de Java en el servidor](app-insights-java-agent.md). Debe especificar los métodos que desee ver.
+
+
+## Supervisión de llamadas a métodos y dependencias externas
+
+[Instale el agente de Java](app-insights-java-agent.md) para registrar los métodos internos especificados y las llamadas realizadas a través de JDBC, con datos de tiempo.
+
+
+## Contadores de rendimiento
+
+Haga clic en el icono **Servidores** y verá una variedad de contadores de rendimiento.
+
+
+![](./media/app-insights-java-get-started/11-perf-counters.png)
+
+### Personalizar la recopilación de contadores de rendimiento
+
+Para deshabilitar la recopilación del conjunto estándar de contadores de rendimiento, agregue el siguiente código bajo el nodo raíz del archivo ApplicationInsights.xml:
+
+    <PerformanceCounters>
+       <UseBuiltIn>False</UseBuiltIn>
+    </PerformanceCounters>
+
+### Recopilar contadores de rendimiento adicionales
+
+Puede especificar contadores de rendimiento adicionales que se van a recopilar.
+
+#### Contadores JMX (expuestos por la máquina virtual de Java)
+
+    <PerformanceCounters>
+      <Jmx>
+        <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
+        <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
+      </Jmx>
+    </PerformanceCounters>
+
+*	`displayName`: el nombre mostrado en el portal de Application Insights.
+*	`objectName`: el nombre del objeto JMX.
+*	`attribute`: el atributo del nombre del objeto JMX que se va a capturar
+*	`type` (opcional): el tipo de atributo del objeto JMX:
+ *	Valor predeterminado: un tipo simple como int o long.
+ *	`composite`: los datos del contador de rendimiento tienen el formato 'Attribute.Data'
+ *	`tabular`: los datos del contador de rendimiento tienen el formato de una fila de tabla
+
+
+
+#### Contadores de rendimiento de Windows
+
+Cada [contador de rendimiento de Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) es un miembro de una categoría (de la misma manera que un campo es un miembro de una clase). Las categorías puede ser globales, o pueden tener instancias con nombre o numeradas.
+
+    <PerformanceCounters>
+      <Windows>
+        <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
+        <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
+      </Windows>
+    </PerformanceCounters>
+
+*	displayName: el nombre mostrado en el portal de Application Insights.
+*	categoryName: la categoría de contador de rendimiento (objeto de rendimiento) con la que está asociada este contador de rendimiento.
+*	counterName: el nombre del contador de rendimiento.
+*	instanceName: el nombre de la instancia de categoría del contador de rendimiento o una cadena vacía (""), si la categoría contiene una sola instancia. Si categoryName es Proceso, y el contador de rendimiento que desea recopilar está en el proceso de JVM actual en que se ejecuta la aplicación, especifique `"__SELF__"`.
+
+Los contadores de rendimiento están visibles como métricas personalizadas en el [Explorador de métricas][metrics].
+
+![](./media/app-insights-java-get-started/12-custom-perfs.png)
+
+
+### Contadores de rendimiento de Unix
+
+* [Instale collectd con el complemento de Application Insights](app-insights-java-collectd.md) para obtener una amplia variedad de datos de red y del sistema.
+
 ## Pruebas web de disponibilidad
 
 Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. Para configurarlo, haga clic en el gráfico de pruebas web vacío en la hoja de información general y especifique la dirección URL pública.
@@ -169,4 +267,4 @@ Puede insertar código en el JavaScript de la página web y en Java del servidor
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders"/>
 # Análisis de datos de servidores en Microsoft Azure
 
@@ -269,4 +269,4 @@ En aproximadamente 1 hora comenzará a ver los datos de la cuenta de almacenamie
 
 [Configuración de los ajustes del proxy y del firewall (opcional)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

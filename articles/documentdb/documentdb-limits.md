@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Límites y cuotas de DocumentDB | Microsoft Azure" 
-	description="Obtenga información acerca de los límites y las aplicaciones de cuota de DocumentDB." 
+	description="Obtenga información acerca de los límites y las aplicaciones de cuota de DocumentDB. Revise las cuotas para usar los servicios de base de datos de Azure."
+	keywords="Quotas, database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -17,10 +18,10 @@
 	ms.author="mimig"/>
 
 
-#Límites y cuotas de DocumentDB
+# Límites y cuotas de DocumentDB
 
 La siguiente tabla describe los límites y aplicaciones de cuota de DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

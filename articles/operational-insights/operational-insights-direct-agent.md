@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/02/2015" 
+	ms.date="09/10/2015" 
 	ms.author="banders"/>
 # Conexión de equipos directamente en Vista operativa
 
@@ -76,4 +76,4 @@ Si dispone de servidores proxy o firewalls en el entorno que restrinjan el acces
 
 - [Configuración de los ajustes del proxy y del firewall (opcional)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

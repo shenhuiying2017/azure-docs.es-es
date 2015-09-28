@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Fase 5 de la aplicación de línea de negocio | Microsoft Azure"
-	description="Cree un grupo de disponibilidad y agréguele las bases de datos de la aplicación en la fase 5 de la aplicación de línea de negocio en Azure."
+	pageTitle="Fase 5 de la aplicación de línea de negocio | Microsoft Azure" 
+	description="Cree un grupo de disponibilidad y agréguele las bases de datos de la aplicación en la fase 5 de la aplicación de línea de negocio en Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Fase 5 de la carga de trabajo de aplicación de línea de negocio: Creación del grupo de disponibilidad y adición de las bases de datos de la aplicación
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
 
 En esta fase final de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, creará un nuevo grupo de disponibilidad AlwaysOn de SQL Server y agregará las bases de datos de la aplicación.
 
@@ -56,7 +58,7 @@ Siga estos pasos para hacer una copia de seguridad de una base de datos.
 3.	En el panel izquierdo, amplíe el nodo **Base de datos**.
 4.	Haga clic con el botón derecho en una base de datos para realizar una copia de seguridad, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 5.	En la sección **Destino**, haga clic en **Quitar** para quitar la ruta de acceso del archivo predeterminado para el archivo de copia de seguridad.
-6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde **nombreDeEquipo** es el nombre del **equipo servidor** SQL principal y **nombreDeBaseDeDatos** es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
+6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde **nombreDeEquipo** es el nombre del **equipo del servidor** SQL principal y **nombreDeBaseDeDatos** es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
 7.	En el panel izquierdo, haga clic con el botón derecho en **[nombreDeBaseDeDatos]**, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 8.	En **Tipo de copia de seguridad**, seleccione **Registro de transacciones** y, a continuación, haga clic en **Aceptar** dos veces.
 9.	Mantenga esta sesión de Escritorio remoto abierta.
@@ -69,7 +71,7 @@ Use estos pasos para reiniciar una base de datos.
 4.	En el panel izquierdo, haga clic con el botón derecho en **Bases de datos** y, a continuación, haga clic en **Restaurar base de datos**.
 5.	En la sección **Origen**, seleccione **Dispositivo** y haga clic en el botón de puntos suspensivos (...).
 6.	En **Seleccionar dispositivos de copia de seguridad**, haga clic en **Agregar**.
-7.	En **Ubicación de archivo de copia de seguridad**, escriba **\[nombreDeEquipo]\\backup**, presione **Entrar**, seleccione **[nombreDeBaseDeDatos].bak** y después haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
+7.	En **Ubicación de archivo de copia de seguridad**, escriba **\\[nombreDeEquipo]\\backup**, presione **Entrar**, seleccione **[nombreDeBaseDeDatos].bak** y después haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
 8.	En **Seleccionar una página**, haga clic en **Opciones**. En la sección **Opciones de restauración** en **Estado de recuperación**, seleccione **RESTAURAR CON NORECOVERY** y, a continuación, haga clic en **Aceptar**. 
 9.	Cuando se le solicite, haga clic en **Aceptar**.
 
@@ -80,7 +82,7 @@ Después de preparar al menos una base de datos (mediante el método de copia de
 1.	Vuelva a la sesión de Escritorio remoto del servidor de base de datos principal.
 2.	En **SQL Server Management Studio**, en el panel izquierdo, haga clic en **Alta disponibilidad AlwaysOn** y, a continuación, haga clic en **Asistente para nuevo grupo de disponibilidad**.
 3.	En la página **Introducción**, haga clic en **Siguiente**. 
-4.	En la página **Especificar nombre de grupo de disponibilidad**, escriba el nombre del grupo de disponibilidad en **Nombre de grupo de disponibilidad** (ejemplo: AG1) y haga clic en **Siguiente**.
+4.	En la página **Especificar nombre de grupo de disponibilidad**, escriba el nombre del grupo de disponibilidad en **Nombre de grupo de disponibilidad** (ejemplo: AG1) y después haga clic en **Siguiente**.
 5.	En la página **Seleccionar bases de datos**, seleccione las bases de datos para la aplicación de la que se realizó la copia de seguridad y haga clic en **Siguiente**. Estas bases de datos cumplen los requisitos previos para un grupo de disponibilidad porque se ha realizado al menos una copia de seguridad completa en la réplica principal pretendida.
 6.	En la página **Especificar réplicas**, haga clic en **Agregar réplica**.
 7.	En **Conectar al servidor**, escriba el nombre del servidor de base de datos secundario y haga clic en **Conectar**. 
@@ -96,7 +98,7 @@ Principal | Secundaria legible | Sí
 Secundario | Secundaria legible | Sí
 		
 9.	Haga clic en **Siguiente**.
-10.	En la página **Seleccionar sincronización de datos iniciales**, haga clic en **Solo unirse** y después en **Siguiente**. La sincronización de datos se ejecuta manualmente realizando copias de seguridad completas y de transacciones en el servidor principal y restaurándola en la copia de seguridad.  
+10.	En la página **Seleccionar sincronización de datos iniciales**, haga clic en **Solo unirse** y después haga clic en **Siguiente**. La sincronización de datos se ejecuta manualmente realizando copias de seguridad completas y de transacciones en el servidor principal y restaurándola en la copia de seguridad.  
 En su lugar, puede seleccionar **Completo** para permitir que el Asistente de nuevo grupo de disponibilidad realice la sincronización de datos por usted. Sin embargo, no se recomienda la sincronización para bases de datos de gran tamaño que se encuentran en algunas empresas.
 11.	En la página **Validación**, haga clic en **Siguiente**. Hay una advertencia para una configuración de agente de escucha ausente porque no hay configurado un agente de escucha del grupo de disponibilidad. 
 12.	En la página **Resumen**, haga clic en **Finalizar**. Una vez que el asistente haya finalizado, inspeccione la página **Resultados** para comprobar que se ha creado correctamente el grupo de disponibilidad. Si es así, haga clic en **Cerrar** para salir del asistente. 
@@ -126,4 +128,4 @@ Una vez configurado el agente de escucha, tendrá que configurar todas las máqu
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

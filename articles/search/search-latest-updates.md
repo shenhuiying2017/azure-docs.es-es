@@ -94,10 +94,20 @@ Esta versión era la versión preliminar pública de Búsqueda de Azure y ofrec�
 
 - Aprovisionamiento en la versión preliminar del [portal de administración de Azure](https://portal.azure.com). Búsqueda de Azure fue uno de los pocos servicios que solo estaba disponible en el nuevo portal.
 
+##Api-version de administración 2015-08-19
+**Publicado: 11 de septiembre de 2015**
+
+La [API de REST de administración](https://msdn.microsoft.com/library/azure/dn832684.aspx) incluye las siguientes actualizaciones.
+
+- checkNameAvailability comprueba si un nombre de servicio determinado ya está en uso.
+- El intervalo de réplica era anteriormente de 1 a 6 y ahora es de 1 a 12.
+- La propiedad SKU se movió del contenedor de propiedades al nivel superior de la carga del servicio.
+- El cuerpo de respuesta de la operación de creación del servicio Búsqueda se actualizó para dar cabida a la reubicación de la opción SKU.
+
 ##Versión de API de administración 2015-02-28
 **Publicado: 5 de marzo de 2015**
 
-La [API de REST de administración](https://msdn.microsoft.com/library/azure/dn832684.aspx) marca la primera versión de la API de administración que pertenece a la versión disponible con carácter general de Búsqueda de Azure. No hay ninguna diferencia entre la versión preliminar anterior y esta.
+La [API de REST de administración](search-management-api-2014-02-28.md) marca la primera versión de la API de administración que pertenece a la versión disponible con carácter general de Búsqueda de Azure. No hay ninguna diferencia entre la versión preliminar anterior y esta.
 
 ##Versión de API de administración 2014-07-31
 **Publicado: octubre de 2014**
@@ -107,4 +117,4 @@ La versión preliminar de [API de REST de administración](search-management-api
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

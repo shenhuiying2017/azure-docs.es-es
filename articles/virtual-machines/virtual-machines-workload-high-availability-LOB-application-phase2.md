@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Fase 2 de la aplicación de línea de negocio | Microsoft Azure"
-	description="Cree y configure los dos controladores de dominio de réplica de Active Directory en la fase 2 de la aplicación de línea de negocio en Azure."
+	pageTitle="Fase 2 de la aplicación de línea de negocio | Microsoft Azure" 
+	description="Cree y configure los dos controladores de dominio de réplica de Active Directory en la fase 2 de la aplicación de línea de negocio en Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Fase 2 de la carga de trabajo de aplicación de línea de negocio: Configuración de controladores de dominio
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
 
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, configurará dos controladores de dominio de réplica en la red virtual de Azure para que las solicitudes web de cliente de recursos web se puedan autenticar localmente en la red virtual de Azure, en lugar de enviar ese tráfico de autenticación a través de la conexión con la red local.
 
@@ -109,6 +111,8 @@ Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en 
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]Dado que estas máquinas virtuales son para una aplicación de intranet, no se les asigna una dirección IP pública o una etiqueta de nombre de dominio DNS ni se exponen a Internet. Sin embargo, esto significa también que no se puede conectar a ellas desde el Portal de vista previa de Azure. El botón **Conectar** no estará disponible cuando vea las propiedades de la máquina virtual. Utilice el accesorio de conexión a Escritorio remoto u otra herramienta de Escritorio remoto para conectarse a la máquina virtual usando el nombre DNS de intranet o la dirección IP privada.
+
 ## Configuración del primer controlador de dominio
 
 Use el cliente de Escritorio remoto que prefiera y cree una conexión de Escritorio remoto para la primera máquina virtual de controlador de dominio. Use el DNS de la intranet o el nombre del equipo y las credenciales de la cuenta de administrador local.
@@ -133,7 +137,7 @@ A continuación, pruebe la conectividad del primer controlador de dominio en ubi
 ### <a id="testconn"></a>Para probar la conectividad
 
 1.	En el escritorio, abra un símbolo del sistema de Windows PowerShell.
-2.	Use el comando **ping** para hacer ping en nombres y direcciones IP de recursos en la red de la organización.
+2.	Use el comando **ping** para hacer ping en nombres y direcciones IP de los recursos en la red de la organización.
 
 Este procedimiento garantiza que la resolución de nombres DNS funciona correctamente (que la máquina virtual está configurada correctamente con los servidores DNS locales) y que se pueden enviar paquetes a la red virtual entre locales y desde ella. Si se produce un error en esta prueba básica, póngase en contacto con el departamento de TI para solucionar los problemas de entrega de paquetes y de resolución de nombres DNS.
 
@@ -206,4 +210,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/27/2015"
+   ms.date="09/15/2015"
    ms.author="alkohli" />
 
 # Usar el servicio StorSimple Manager para clonar un volumen
@@ -80,14 +80,20 @@ Las secciones siguientes describen situaciones de ejemplo en las que pueden usar
 
 Necesita recuperar un archivo de presentación de Microsoft PowerPoint de un año de antigüedad. El administrador de TI identifica la copia de seguridad específica de ese período de tiempo y, a continuación, filtra el volumen. El administrador clona el volumen, busca el archivo que necesita y se lo proporciona. En este escenario, se usa un clon transitorio.
  
+![Vídeo disponible](./media/storsimple-clone-volume/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que muestra cómo puede utilizar la copia y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+
 ### Pruebas en el entorno de producción con un clon permanente
 
 Necesita comprobar un error de prueba en el entorno de producción. Crear un clon del volumen en el entorno de producción. Para aumentar el rendimiento, deberá tomar una instantánea en la nube de este clon. El volumen clonado es ahora independiente, lo que conlleva un rendimiento más rápido. En este escenario, se usa un clon permanente.
 
-## Pasos siguientes
-Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
+## Pasos siguientes
+- Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
+
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

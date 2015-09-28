@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -27,12 +27,12 @@ Si se producen errores al obtener acceso a una aplicación publicada o al public
 
 - Abra la consola de Servicios de Windows y compruebe que el servicio “conector del proxy de aplicación de Microsoft AAD” está habilitado y en ejecución. Puede que también desee consultar la página de propiedades del servicio Proxy de aplicación, como se muestra en la imagen siguiente:
 
-![Captura de pantalla de propiedades del conector del proxy de aplicación de Microsoft AAD][1]
+[Captura de pantalla de propiedades del conector de proxy de la aplicación de Microsoft AAD][connectorproperties.png]
 
 - Abra el Visor de eventos y busque eventos relacionados con el conector del proxy de aplicación ubicado en **Registros de aplicaciones y servicios** > **Microsoft** > **AadApplicationProxy** > **Conector** > **Administrador**.
 - Si es necesario, hay disponibles registros más detallados activando registros de análisis y depuración, así como el registro de sesiones del conector del proxy de aplicación, como se muestra en la imagen siguiente:
 
-![Captura de pantalla de registro de sesiones del conector del proxy de aplicación][2]
+[Captura de pantalla de registro de sesión del conector del proxy de la aplicación][sessionlog.png]
 
 
 ## Errores generales
@@ -87,7 +87,7 @@ Si se produce un error en el registro durante la instalación del asistente del 
 [Habilitar servicios de Proxy de aplicación](active-directory-application-proxy-enable.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-application-proxy-troubleshoot/ConnectorProperties.jpg
-[2]: ./media/active-directory-application-proxy-troubleshoot/SessionLog.jpg
+[1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
+[2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

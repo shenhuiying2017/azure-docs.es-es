@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Incorporación de autenticación a una aplicación de Servicios móviles de Azure existente (iOS) | Microsoft Azure"
+	pageTitle="Incorporación de autenticación a una aplicación de Servicios móviles de Azure existente (iOS) | Back-end de JavaScript | Microsoft Azure"
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación iOS a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -84,4 +84,4 @@ A continuación, sepa [cómo utilizar el valor de identificador de usuario para 
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

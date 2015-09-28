@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/06/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Guía de características de Visión operativa
@@ -47,7 +47,7 @@ También puede:
 	- [Conexión de equipos directamente en Visión operativa](operational-insights-direct-agent.md)
 	- [Análisis de datos de servidores en Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Hacer todo lo anterior sobre la marcha con la aplicación móvil**
-	- Para obtener más información acerca de la aplicación de Windows Phone, vea [Aplicación móvil de Visión operativa](http://www.windowsphone.com/es-es/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+	- Para obtener más información acerca de la aplicación de Windows Phone, vea [Aplicación móvil de Visión operativa](http://www.windowsphone.com/es-ES/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 
 ## Entorno de Visión operativa
 
@@ -72,4 +72,4 @@ Los datos de cada solución se analizan y se presentan en el portal de Visión o
 ### ¿Dónde está disponible Visión operativa?
 Visión operativa de Microsoft Azure se hospeda en Estados Unidos. Aunque el idioma de Visión operativa es el inglés, el servicio está disponible en otros mercados. Para obtener información, consulte [Disponibilidad internacional](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

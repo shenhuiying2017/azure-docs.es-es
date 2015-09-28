@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creación de una imagen de plantilla personalizada para Azure RemoteApp"
+	pageTitle="Creación de una imagen de plantilla personalizada para Azure RemoteApp | Microsoft Azure"
 	description="Aprenda a crear una imagen de plantilla personalizada para Azure RemoteApp. Puede usar esta plantilla con una colección híbrida o en la nube."
 	services="remoteapp"
 	documentationCenter=""
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015" 
+	ms.date="09/12/2015" 
 	ms.author="elizapo"/>
 
 # Creación de una imagen de plantilla personalizada para Azure RemoteApp
-RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con sus usuarios. Para crear una imagen de plantilla de RemoteApp, puede comenzar a usar una imagen existente o crear una nueva. Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de Azure son:
+RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con sus usuarios. Para crear una imagen de plantilla de RemoteApp, puede comenzar a usar una imagen existente o crear una nueva.
+
+
+> [AZURE.TIP]¿Sabía que ahora puede crear una imagen a partir de una máquina virtual de Azure? Verídico, y esto reduce la cantidad de tiempo que se tarda en importar la imagen. Consulte los pasos [aquí](remoteapp-image-on-azurevm.md).
+
+Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de Azure son:
 
 
 - El tamaño de la imagen debe ser un múltiplo de MB. Si se intenta cargar una imagen que no es un múltiplo exacto, la carga no se realizará.
@@ -33,7 +38,6 @@ RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para ho
 - La imagen debe estar preparada con sysprep con los parámetros **/oobe /generalize /shutdown** (No USE el parámetro **/mode:vm**).
 - No se admite la carga de su VHD desde una cadena de instantáneas.
 
-> [AZURE.TIP]¿Sabía que ahora puede crear una imagen a partir de una máquina virtual de Azure? Verídico, y esto reduce la cantidad de tiempo que se tarda en importar la imagen. Consulte los pasos [aquí](remoteapp-image-on-azurevm.md).
 
 **Antes de empezar**
 
@@ -56,7 +60,7 @@ Estos son los pasos de alto nivel para crear una nueva imagen de plantilla desde
 4.	Instale Windows Server 2012 R2.
 5.	Instale el rol Host de sesión de Escritorio remoto (RDSH, Remote Desktop Session Host) y la característica Experiencia de escritorio.
 6.	Instale las características adicionales que necesitan sus aplicaciones.
-7.	Instale y configure sus aplicaciones.
+7.	Instale y configure sus aplicaciones. Para que le resulte más fácil compartir aplicaciones, agregue las aplicaciones o los programas que quiera compartir al menú **Inicio** de la imagen, específicamente en **%systemdrive%\\ProgramData\\Microsoft\\Windows\\Menú Inicio\\Programas.
 8.	Realice cualquier configuración adicional de Windows que requieran sus aplicaciones.
 9.	Deshabilite el Sistema de cifrado de archivos (EFS).
 10.	**REQERIDO:** vaya a Windows Update e instale todas las actualizaciones importantes.
@@ -106,11 +110,12 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
 1.	Instale las características adicionales que necesiten sus aplicaciones, como por ejemplo .NET Framework 3.5. Para instalar las características, ejecute el Asistente para agregar roles y características.
 7.	Instale y configure los programas y aplicaciones que desee publicar a través de RemoteApp.
 
- 	**Importante:**
+>[AZURE.IMPORTANT]
+>
+>Instale el rol RDSH antes de instalar las aplicaciones para garantizar que se detecta cualquier problema con la compatibilidad de aplicaciones antes de que la imagen se cargue en RemoteApp.
+>
+>Asegúrese de que aparece un acceso directo a la aplicación (archivo **.lnk**) en el menú **Inicio** para todos los usuarios (%systemdrive%\\ProgramData\\Microsoft\\Windows\\Menú Inicio\\Programas). Asegúrese también de que el icono que ve en el menú **Inicio** es lo que quiere que vean los usuarios. Si no es así, cámbielo. (No *tiene* que agregar la aplicación al menú Inicio, pero resulta mucho más fácil publicar la aplicación en RemoteApp. De lo contrario, debe proporcionar la ruta de instalación de la aplicación cuando publique la aplicación.)
 
-
-	- Instale el rol RDSH antes de instalar las aplicaciones para garantizar que se detecta cualquier problema con la compatibilidad de aplicaciones antes de que la imagen se cargue en RemoteApp.
-	- Asegúrese de que la aplicación aparece en el menú **Inicio**. Asegúrese también de que el icono que ve en el menú **Inicio** es lo que quiere que vean los usuarios. Si no es así, cámbielo. (No *tiene* que agregar la aplicación al menú Inicio, pero resulta mucho más fácil publicar la aplicación en RemoteApp. De lo contrario, debe proporcionar la ruta de instalación de la aplicación cuando publique la aplicación.)
 
 8.	Realice cualquier configuración adicional de Windows que requieran sus aplicaciones.
 9.	Deshabilite el Sistema de cifrado de archivos (EFS). Ejecute el comando siguiente en una ventana de comandos con privilegios elevados:
@@ -137,4 +142,4 @@ Ahora que ya tiene su imagen de plantilla personalizada, es necesario que la car
 - [Creación de una colección en la nube de RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

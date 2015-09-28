@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Provisión de acceso remoto seguro a aplicaciones locales
@@ -46,14 +46,14 @@ La configuración del proxy de la aplicación se realiza en dos pasos:
 Hay mucho más que puede hacer con el proxy de la aplicación:
 
 
-- [Publicar aplicaciones mediante su propio nombre de dominio](https://msdn.microsoft.com/library/azure/mt210927.aspx)
-- [Habilitar el inicio de sesión único](https://msdn.microsoft.com/library/azure/dn879065.aspx)
-- [Trabajar con las aplicaciones para notificaciones](https://msdn.microsoft.com/library/azure/mt210926.aspx)
-- [Habilitar el acceso condicional](https://msdn.microsoft.com/library/azure/dn931796.aspx)
+- [Publicar aplicaciones mediante su propio nombre de dominio](active-directory-application-proxy-custom-domains.md)
+- [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
+- [Trabajar con las aplicaciones para notificaciones](active-directory-application-proxy-claims-aware-apps.md)
+- [Habilitar el acceso condicional](active-directory-application-proxy-conditional-access.md)
 
 
 ### Obtenga más información acerca del proxy de la aplicación
-- [Eche un vistazo aquí para ver nuestra ayuda en línea](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+- [Eche un vistazo aquí para ver nuestra ayuda en línea](active-directory-application-proxy-enable.md)
 - [Consulte el blog del proxy de la aplicación](http://blogs.technet.com/b/applicationproxyblog/)
 - [Vea nuestros vídeos de Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
@@ -61,4 +61,4 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 * [Registro en Azure como una organización](../sign-up-organization.md)
 * [Identidad de Azure](../fundamentals-identity.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Fase 5 de carga de trabajo de granja de intranet de SharePoint: Creación del grupo de disponibilidad y adición de las bases de datos de SharePoint
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
 
 En esta fase final de la implementación de una granja solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, creará un nuevo grupo de disponibilidad AlwaysOn y agregará las bases de datos de la granja de SharePoint.
 
@@ -56,7 +58,7 @@ Siga estos pasos para hacer una copia de seguridad de una base de datos:
 3.	En el panel izquierdo, amplíe el nodo **Base de datos**.
 4.	Haga clic con el botón derecho en una base de datos para realizar una copia de seguridad, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 5.	En la sección **Destino**, haga clic en **Quitar** para quitar la ruta de acceso del archivo predeterminado para el archivo de copia de seguridad.
-6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde nombreDeEquipo es el nombre del equipo del servidor SQL principal y nombreDeBaseDeDatos es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
+6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\\[nombreDeEquipo]\\backup[nombreDeBaseDeDatos].bak**, donde nombreDeEquipo es el nombre del equipo del servidor SQL principal y nombreDeBaseDeDatos es el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
 7.	En el panel izquierdo, haga clic con el botón derecho en **[nombreDeBaseDeDatos]**, seleccione **Tareas** y después haga clic en **Copia de seguridad**.
 8.	En **Tipo de copia de seguridad**, seleccione **Registro de transacciones** y, a continuación, haga clic en **Aceptar** dos veces.
 9.	Mantenga esta sesión de Escritorio remoto abierta.
@@ -69,7 +71,7 @@ Use estos pasos para restaurar una base de datos:
 4.	En el panel izquierdo, haga clic con el botón derecho en **Bases de datos** y, a continuación, haga clic en **Restaurar base de datos**.
 5.	En la sección **Origen**, seleccione **Dispositivo** y haga clic en el botón de puntos suspensivos (...).
 6.	En **Seleccionar dispositivos de copia de seguridad**, haga clic en **Agregar**.
-7.	En **Ubicación de archivo de copia de seguridad**, escriba **\[nombreDeEquipo]\\backup**, presione Entrar, seleccione **[nombreDeBaseDeDatos].bak** y después haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
+7.	En **Ubicación de archivo de copia de seguridad**, escriba **\\[nombreDeEquipo]\\backup**, presione Entrar, seleccione **[nombreDeBaseDeDatos].bak** y después haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
 8.	En **Seleccionar una página**, haga clic en **Opciones**. En la sección **Opciones de restauración** en **Estado de recuperación**, seleccione **RESTAURAR CON NORECOVERY** y, a continuación, haga clic en **Aceptar**.
 9.	Cuando se le solicite, haga clic en **Aceptar**.
 
@@ -127,4 +129,4 @@ Para obtener información adicional acerca de SharePoint con grupos de disponibi
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

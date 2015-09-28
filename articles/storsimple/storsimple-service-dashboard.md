@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Panel del servicio del Administrador de StorSimple | Microsoft Azure"
-	description="Describe el panel del servicio del Administrador de StorSimple y explica cómo se usa para supervisar el estado de la solución de StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Describe el panel del servicio del Administrador de StorSimple y explica cómo se usa para supervisar el estado de la solución de StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/17/2015"
+   ms.author="v-sharos" />
 
 # Uso del panel del servicio StorSimple Manager
 
@@ -74,6 +74,8 @@ Para ver los registros de operaciones, haga clic en el vínculo de registros de 
 
 ## Pasos siguientes
 
-[Obtenga más información acerca de cómo solucionar problemas de un dispositivo StorSimple](storsimple-troubleshoot-operational-device.md).
+- Aprenda cómo [solucionar problemas de un dispositivo de StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=September15_HO1-->
+- Obtenga más información sobre cómo [usar el servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

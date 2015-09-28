@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Configuraciones admitidas para Visión operativa
@@ -29,13 +29,13 @@ Puede usar Visión operativa como un servicio adjunto en Operations Manager en S
 El uso de Visión operativa como un servicio adjunto tiene los siguientes requisitos previos:
 
 
-- La integración entre System Center 2012 SP1 Operations Manager y Visión operativa requiere los módulos de administración actualizados que se incluyen en el [Conector de Visión operativa para Operations Manager](https://www.microsoft.com/es-es/download/details.aspx?id=38199). Puede descargar e instalar los módulos de administración del [Conector de Visión operativa para Operations Manager](https://www.microsoft.com/es-es/download/details.aspx?id=38199).
+- La integración entre System Center 2012 SP1 Operations Manager y Visión operativa requiere los módulos de administración actualizados que se incluyen en el [Conector de Visión operativa para Operations Manager](https://www.microsoft.com/es-ES/download/details.aspx?id=38199). Puede descargar e instalar los módulos de administración del [Conector de Visión operativa para Operations Manager](https://www.microsoft.com/es-ES/download/details.aspx?id=38199).
 
 - System Center 2012 SP1: paquete acumulativo de actualizaciones 6 de Operations Manager, aunque es preferible el paquete acumulativo de actualizaciones 7. Esta actualización debe aplicarse al servidor de administración, a los agentes y a la consola de Operations para Visión operativa como un escenario de servicio adjunto.
 
 - System Center 2012 R2: paquete acumulativo de actualizaciones 2 de Operations Manager, aunque es preferible el paquete acumulativo de actualizaciones 3. Esta actualización debe aplicarse al servidor de administración, a los agentes y a la consola de Operations para Visión operativa como un escenario de servicio adjunto.
 
-- Para ver los datos de administración de capacidad, debe habilitar la conectividad de Operations Manager con Virtual Machine Manager (VMM). Para obtener información adicional acerca de la conexión de los sistemas, consulte [Conexión de VMM con Operations Manager](https://technet.microsoft.com/es-es/library/hh882396.aspx).
+- Para ver los datos de administración de capacidad, debe habilitar la conectividad de Operations Manager con Virtual Machine Manager (VMM). Para obtener información adicional acerca de la conexión de los sistemas, consulte [Conexión de VMM con Operations Manager](https://technet.microsoft.com/es-ES/library/hh882396.aspx).
 
 Consulte [Visualización de alertas de Visión operativa](http://go.microsoft.com/fwlink/?LinkID=293793) para obtener instrucciones de instalación y configuración.
 
@@ -48,11 +48,11 @@ Los agentes de Operations Manager se admiten en diversos equipos. Consulte [Requ
 
 ### Software necesario para Operations Manager
 
-Para ver los datos de administración de capacidad, debe habilitar la conectividad de Operations Manager con VMM. Para obtener información adicional acerca de la conexión de los sistemas, consulte [Conexión de VMM con Operations Manager](https://technet.microsoft.com/es-es/library/hh882396.aspx).
+Para ver los datos de administración de capacidad, debe habilitar la conectividad de Operations Manager con VMM. Para obtener información adicional acerca de la conexión de los sistemas, consulte [Conexión de VMM con Operations Manager](https://technet.microsoft.com/es-ES/library/hh882396.aspx).
 
 ## Agentes conectados directamente a Visión operativa
 
-El agente usado para conectar directamente con el servicio es el agente de Microsoft Monitoring. Los requisitos del sistema se muestran en la página [Centro de descarga de Microsoft](https://www.microsoft.com/es-es/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
+El agente usado para conectar directamente con el servicio es el agente de Microsoft Monitoring. Los requisitos del sistema se muestran en la página [Centro de descarga de Microsoft](https://www.microsoft.com/es-ES/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
 
 ## Exploradores
 
@@ -100,4 +100,4 @@ Para SQL Server, se admiten las siguientes ediciones de 32 bits y 64 bits para e
 
 Además, se admite la edición de 32 bits de SQL Server cuando se ejecuta en la implementación de WOW64.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

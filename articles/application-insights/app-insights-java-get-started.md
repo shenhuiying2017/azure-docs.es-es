@@ -2,7 +2,7 @@
 	pageTitle="Introducción a Application Insights en un proyecto web de Java | Microsoft Azure"
 	description="Supervisión del rendimiento y del uso del sitio web de Java con Application Insights"
 	services="application-insights"
-	documentationCenter="java"
+    documentationCenter="java"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/30/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 # Introducción a Application Insights en un proyecto web de Java
@@ -206,19 +206,13 @@ Agregue este elemento al archivo de configuración Struts (denominado normalment
 
 (Si tiene interceptores definidos en una pila predeterminada, el interceptor puede agregarse simplemente a dicha pila).
 
-## 5\. Instalación en el servidor
 
-En los servidores de Windows, instale:
 
-* [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
-
-(Esto habilita los contadores de rendimiento.)
-
-## 6\. Ejecución de la aplicación
+## 5\. Ejecución de la aplicación
 
 Ejecútela en modo de depuración en el equipo de desarrollo o bien publíquela en el servidor.
 
-## 7\. Visualización de la telemetría en Application Insights
+## 6\. Visualización de la telemetría en Application Insights
 
 Vuelva al recurso Application Insights en el [Portal de Microsoft Azure](https://portal.azure.com).
 
@@ -250,21 +244,40 @@ Por ejemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` y `GET Hom
 
 Esto permite agregaciones significativas de solicitudes, como el número de solicitudes y el tiempo de ejecución promedio para las solicitudes.
 
+
+## 5\. Instalación de la aplicación en el servidor
+
+Ahora puede publicar la aplicación en el servidor, dejar que la utilicen los usuarios y ver la telemetría en el portal.
+
+* Asegúrese de que el firewall permite que la aplicación envíe datos de telemetría a estos puertos:
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* En los servidores de Windows, instale:
+
+ * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (Esto habilita los contadores de rendimiento.)
+
 ## Excepciones y errores de solicitud
 
-Las excepciones no controladas se recopilan:
+Las excepciones no controladas se recopilan automáticamente:
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
 Para recopilar datos de otras excepciones, tiene dos opciones:
 
-* [Insertar llamadas a TrackException en el código][apiexceptions].
+* [Insertar llamadas a TrackException en el código][apiexceptions]. 
 * [Instalar el agente de Java en el servidor](app-insights-java-agent.md). Debe especificar los métodos que desee ver.
 
 
 ## Supervisión de llamadas a métodos y dependencias externas
 
-[Instale el agente de Java](app-insights-java-agent.md) para registrar los métodos internos especificados y las llamadas realizadas a través de JDBC, con datos de intervalos.
+[Instale el agente de Java](app-insights-java-agent.md) para registrar los métodos internos especificados y las llamadas realizadas a través de JDBC, con datos de tiempo.
 
 
 ## Contadores de rendimiento
@@ -349,6 +362,17 @@ Ahora que ha instalado el SDK, puede utilizar la API para enviar su propia telem
 * [Busque eventos y registros][diagnostic] para ayudar a diagnosticar problemas.
 
 
+## Pruebas web de disponibilidad
+
+Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. Para configurarlo, haga clic en el gráfico de pruebas web vacío en la hoja de información general y especifique la dirección URL pública.
+
+Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo electrónico si su sitio deja de funcionar.
+
+![Ejemplo de prueba web](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+
+[Más información acerca de las pruebas web de disponibilidad][availability]
+
+
 
 
 
@@ -370,4 +394,4 @@ Ahora que ha instalado el SDK, puede utilizar la API para enviar su propia telem
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

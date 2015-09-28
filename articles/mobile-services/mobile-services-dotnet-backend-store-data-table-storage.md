@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de un servicio móvil que usa almacenamiento de tabla en lugar de una base de datos SQL | Microsoft Azure" 
+	pageTitle="Creación de un servicio móvil back-end de .NET que usa almacenamiento de tablas | Azure Mobile Services" 
 	description="Obtenga información sobre cómo usar el almacenamiento de tabla de Azure con su servicio móvil de back-end de .NET." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# Creación de servicio móvil de back-end de .NET que usa almacenamiento de tabla en lugar de una base de datos SQL
+# Creación de un servicio móvil back-end de .NET que usa almacenamiento de tablas
 
 Este tema muestra cómo usar un almacén de datos no relacional para su servicio móvil de back-end de .NET. En este tutorial, modificará el proyecto de inicio rápido de Servicios móviles de Azure para usar el almacenamiento de tabla de Azure en lugar de la base de datos de Azure SQL Server predeterminada.
 
@@ -158,4 +158,4 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

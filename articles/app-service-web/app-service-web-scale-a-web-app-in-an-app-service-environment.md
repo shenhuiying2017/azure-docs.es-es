@@ -5,20 +5,22 @@
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="09/16/2015" 
 	ms.author="ccompy"/>
 
 # Escalado de aplicaciones web en un entorno del Servicio de aplicaciones #
 
 A alto nivel, los entornos del Servicio de aplicaciones son esencialmente implementaciones personales del Servicio de aplicaciones de Azure en la red virtual y solo puede se pueden administrar mediante su suscripción. Ofrecen nuevas capacidades de red porque se encuentran en la red virtual y también se pueden escalar más allá de lo que normalmente está disponible en los entornos del Servicio de aplicaciones de Azure. Si necesita obtener más información sobre lo que es un entorno del Servicio de aplicaciones (ASE), vea [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE]. Para ver detalles sobre la creación de un entorno del Servicio de aplicaciones o una aplicación web en un entorno del Servicio de aplicaciones, vea [Creación de un entorno del Servicio de aplicaciones][HowtoCreateASE] y [Creación de una aplicación web en un entorno del Servicio de aplicaciones][CreateWebappinASE].
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Como recordatorio rápido, al cambiar un atributo de escala para una aplicación web, normalmente lo está cambiando en el nivel del plan del Servicio de aplicaciones. Para obtener detalles sobre el escalado planes del Servicio de aplicaciones o solamente detalles sobre planes del Servicio de aplicaciones fuera de los entornos del Servicio de aplicaciones, vea [Escalado de una aplicación web en el Servicio de aplicaciones de Azure][ScaleWebapp] e [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure][Appserviceplans].
 
@@ -84,4 +86,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

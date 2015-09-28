@@ -1,23 +1,26 @@
 <properties 
-	pageTitle="Fase 1 de la aplicación de línea de negocio | Microsoft Azure"
-	description="Cree la red virtual y otros elementos de la infraestructura de Azure en la fase 1 de la aplicación de línea de negocio en Azure."
+	pageTitle="Fase 1 de la aplicación de línea de negocio | Microsoft Azure" 
+	description="Cree la red virtual y otros elementos de la infraestructura de Azure en la fase 1 de la aplicación de línea de negocio en Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""/>
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Fase 1 de la carga de trabajo de aplicación de línea de negocio: Configuración de Azure
-
+ 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
+ 
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad solo de intranet en los servicios de infraestructura de Azure, creará la infraestructura de red y almacenamiento de Azure. Debe completar esta fase antes de pasar a la [fase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). Vea [Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) en todas las fases.
 
 Azure debe contar con los siguientes componentes de red básicos:
@@ -87,7 +90,7 @@ Debe tener instalada Azure PowerShell versión 0.9.5 o posterior. Para comprobar
 
 	Get-Module azure | format-table version
 
-Si tiene que instalar la versión más reciente de Azure PowerShell, use**Panel de Control - Programas y características** para quitar la versión actual. Luego siga las instrucciones dadas en [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md) para instalar Azure PowerShell en el equipo local. Abra un símbolo del sistema de Azure PowerShell.
+Si tiene que instalar la versión más reciente de Azure PowerShell, use **Panel de Control - Programas y características** para quitar la versión actual. Luego siga las instrucciones dadas en [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md) para instalar Azure PowerShell en el equipo local. Abra un símbolo del sistema de Azure PowerShell.
 
 En primer lugar, seleccione la suscripción de Azure correcta con estos comandos. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por los nombres correctos.
 
@@ -248,4 +251,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 2: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

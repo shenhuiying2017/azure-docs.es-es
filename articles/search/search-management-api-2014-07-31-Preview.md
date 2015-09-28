@@ -4,7 +4,7 @@
 
 # API de administración: versión 2014-07-31-Preview
 
-En este documento se describe la versión **2014-07-31-Preview** de la API de REST de administración de Búsqueda de Azure. Se ha reemplazado por la versión disponible con carácter general, [API de REST de administración de Búsqueda de Azure](https://msdn.microsoft.com/library/dn832684.aspx) en MSDN.
+En este documento se describe la versión **2014-07-31-Preview** de la API de REST de administración de Búsqueda de Azure. Desde entonces se reemplazó por versiones más recientes. Para la versión más reciente, vea [API de REST de administración de Búsqueda de Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) en MSDN.
 
 ## Operaciones de administración de servicio
 
@@ -26,7 +26,7 @@ Tenga en cuenta que todas las llamadas a la API de administración deben incluir
 
 ### Versiones
 
-La versión actual de la API de REST de administración de Búsqueda de Azure es `api-version=2014-07-31-Preview`. Es la única versión de esta API.
+`api-version=2014-07-31-Preview` se introdujo durante la vista previa pública de Búsqueda de Azure. Para obtener más información sobre los cambios de una versión a la siguiente, vea [Novedades de Búsqueda de Azure](search-latest-updates.md).
 
 ### Autenticación y control de acceso
 
@@ -815,4 +815,4 @@ Ninguno.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="08/28/2015"
+	ms.date="09/11/2015"
 	ms.author="jroth" />
 
 
@@ -45,15 +45,27 @@ Por ejemplo, el número de conexiones a una base de datos SQL, así como el núm
 
 ## Niveles de servicio y niveles de rendimiento
 
-Los límites actuales de la base de datos se definen por el nivel de rendimiento de la base de datos. Para obtener una información más detallada, consulte [Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx).
+Para una base de datos única, los límites de una base de datos se definen mediante el nivel de servicio de base de datos el nivel de rendimiento. En la tabla siguiente se describen las características de las bases de datos de nivel Básico, Estándar y Premium en distintos niveles de rendimiento.
 
 [AZURE.INCLUDE [Tabla de niveles de servicio de datos de la Base de datos SQL](../../includes/sql-database-service-tiers-table.md)]
+
+Los [grupos de bases de datos elásticas](sql-database-elastic-pool.md) comparten recursos entre bases de datos del grupo. En la tabla siguiente se describen las características de los grupos de bases de datos elásticas de nivel Básico, Estándar y Premium.
+
+[AZURE.INCLUDE [Tabla de niveles de servicio de Base de datos SQL para bases de datos elásticas](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+
+Para obtener información detallada de los niveles de servicio, vea [Niveles de servicio y niveles de rendimiento de Base de datos SQL de Azure](sql-database-service-tiers.md).
 
 ## Cuota de DTU por servidor
 
 La Base de datos SQL de Azure tiene una cuota de DTU por cada servidor lógico que en la actualidad es de 2000 DTU . Esta cuota representa las DTU que puede alojar un servidor lógico, basándose en la suma de las DTU del nivel de rendimiento de cada base de datos en el servidor. Por ejemplo, un servidor con 5 bases de datos Basic (5 X 5 máximo de DTU), 2 bases de datos Standard S1 (2 X 20 máximo de DTU) y 3 Premium P1 (3 X 100 máximo de DTU) han consumido 365 DTU de su cuota DTU de 2000.
 
 >[AZURE.NOTE]Puede solicitar un aumento de esta cuota [contactando con el soporte técnico](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+
+## Otros límites de Base de datos SQL
+
+| Ámbito | Límite | Descripción |
+|---|---|---|
+| Bases de datos que usan exportación automatizada por suscripción | 10 | La exportación automatizada le permite crear una programación personalizada para realizar copias de seguridad de las bases de datos SQL. Para obtener más información, vea [Bases de datos SQL: compatibilidad con exportaciones automatizadas de Base de datos SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 
 ## Recursos
 
@@ -63,4 +75,4 @@ La Base de datos SQL de Azure tiene una cuota de DTU por cada servidor lógico q
 
 [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

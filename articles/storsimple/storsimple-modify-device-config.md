@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Modificar la configuración del dispositivo StorSimple | Microsoft Azure"
-	description="Describe cómo usar el servicio StorSimple Manager para volver a configurar un dispositivo StorSimple que ya se ha implementado."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Modificar la configuración del dispositivo StorSimple | Microsoft Azure" 
+   description="Describe cómo usar el servicio StorSimple Manager para volver a configurar un dispositivo StorSimple que ya se ha implementado." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/14/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # Uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple
 
@@ -83,7 +83,7 @@ Para cada interfaz de red, se muestran los parámetros siguientes:
 
 - **Velocidad**: no es un parámetro configurable por el usuario. DATA 0, DATA 1, DATA 4 y DATA 5 son siempre de 1 GbE, mientras que DATA 2 y DATA 3 son interfaces de 10 GbE.
 
-     >[AZURE.NOTE] Velocidad y dúplex se negocian siempre automáticamente. Las Tramas gigantes no son compatibles.
+     >[AZURE.NOTE]La velocidad y el dúplex siempre se negocian automáticamente. Las tramas gigantes no son compatibles.
  
 - **Estado de interfaz**: una interfaz se puede habilitar o deshabilitar. Si está habilitada, el dispositivo intentará usar la interfaz. Es recomendable habilitar tan solo las interfaces que están conectadas a la red y que se usan. Deshabilite las interfaces que no esté usando.
 
@@ -124,8 +124,9 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
 
 ## Pasos siguientes
 
-[Configure MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
- 
+- Obtenga información sobre cómo [configurar MPIO para el dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
+
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
      
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

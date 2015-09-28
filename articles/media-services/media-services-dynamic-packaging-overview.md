@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Información general sobre el empaquetado dinámico" 
-	description="El tema proporciona información general sobre el empaquetado dinámico." 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
+<properties
+	pageTitle="Información general sobre el empaquetado dinámico"
+	description="El tema proporciona información general sobre el empaquetado dinámico."
+	authors="Juliako"
+	manager="dwrede"
+	editor=""
+	services="media-services"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
-#Empaquetado dinámico 
+#Empaquetado dinámico
 
 ##Información general
 
@@ -38,14 +38,14 @@ El diagrama siguiente muestra el flujo de trabajo de empaquetado dinámico.
 
 ##Escenario común
 
-1. Cargar un archivo de entrada (llamado archivo intermedio). Por ejemplo, H.264, MP4 o WMV (para obtener la lista de formatos compatibles, consulte Formatos admitidos por el Codificador de Servicios multimedia).
- 
+1. Cargar un archivo de entrada (llamado archivo intermedio). Por ejemplo, H.264, MP4 o WMV (para obtener la lista de formatos compatibles, vea[ Formatos admitidos por el Codificador de Servicios multimedia](media-services-azure-media-encoder-formats)).
+
 1. Codificar el archivo intermedio en conjuntos MP4 de velocidad de bits adaptable H.264.
- 
+
 1. Publicar el recurso que contiene el conjunto MP4 de velocidad de bits adaptable mediante la creación del localizador a petición.
- 
+
 1. Compilar las direcciones URL de streaming para obtener acceso al contenido y hacer streaming de este.
- 
+
 >[AZURE.NOTE]No todos los formatos de archivo MP4 son compatibles con el empaquetado dinámico. Para obtener más información, consulte [Formatos no compatibles con el empaquetado dinámico](media-services-dynamic-packaging-overview.md#unsupported_formats).
 
 ##Preparación de recursos para el streaming dinámico
@@ -65,7 +65,7 @@ Cargar los archivos mediante el **Portal de administración de Azure**, **.NET**
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 Codificar con el **Codificador multimedia de Azure** mediante el **Portal de administración de Azure**, **.NET** o la **API de REST**.
- 
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 
@@ -85,7 +85,7 @@ Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publique recursos (creando localizadores) mediante el **Portal de administración de Azure** o **.NET**.
+Publique activos (creando localizadores) mediante el **Portal de administración de Azure** o **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -105,6 +105,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

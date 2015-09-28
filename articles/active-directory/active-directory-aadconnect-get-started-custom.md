@@ -24,7 +24,6 @@ La documentación siguiente proporciona información acerca del uso de la opció
 Para obtener información sobre una instalación rápida, consulte [Instalación rápida](active-directory-aadconnect.md#getting-started-with-azure-ad-connect). Para obtener información sobre la actualización de DirSync a Azure AD Connect, consulte [Actualizar DirSync a Azure Active Directory Connect.](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 
 
-
 ## Instalación de los componentes necesarios
 
 Al instalar los servicios de sincronización, puede dejar desactivada la sección de configuración opcional y Azure AD Connect configurará todo automáticamente. Esto incluye la configuración de una instancia de SQL Server 2012 Express y la creación de los grupos adecuados y asignación de permisos a los mismos. Si desea cambiar los valores predeterminados, puede utilizar la tabla siguiente para conocer las opciones de configuración opcionales que están disponibles.
@@ -174,7 +173,7 @@ Debe importar el cmdlet de PowerShell para poder ejecutarlo.
 
 Para ello, deberá tener instalados localmente Active Directory y MSOnline PowerShell.
 
-
+Para obtener más información, vea [Habilitación de reescritura de dispositivos en Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md)
 
 ## Modo provisional
 Con el modo provisional es posible el proceso de instalación de un nuevo servidor de sincronización en paralelo con un servidor existente. Solo se admite para tener un servidor de sincronización conectado a un directorio en la nube. Pero si deseamos mover desde otro servidor, por ejemplo, un servidor que esté ejecutando la sincronización de directorios, podemos habilitar Azure AD Connect en modo provisional. Cuando se habilita el motor de sincronización, se importarán y sincronizarán los datos de la forma habitual, pero no se exportará nada a Azure AD y se desactivará la sincronización de contraseñas y la reescritura de contraseñas.
@@ -268,4 +267,4 @@ Puede personalizar la imagen de logotipo y la ilustración para las páginas de 
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

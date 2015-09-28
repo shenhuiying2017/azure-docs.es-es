@@ -75,7 +75,7 @@ Las máquinas virtuales con una configuración de una sola instancia se actualiz
 Este evento de mantenimiento planeado afectará a la disponibilidad de la aplicación para este tipo de configuración de máquina virtual. Azure ofrece una notificación de mantenimiento planeado para máquinas virtuales con 1 semana de antelación en la configuración de una instancia.
 
 ### Notificación por correo electrónico
-Solo en el caso de las configuraciones de máquinas virtuales de una instancia o de instancias múltiples, Azure envía con antelación una comunicación por correo electrónico para avisarle del próximo mantenimiento planeado (1 semana de antelación para una instancia y 48 horas de antelación para instancias múltiples). Este correo electrónico se enviará a la cuenta de correo electrónico principal proporcionada por la suscripción. A continuación se muestra un ejemplo de este tipo de correo electrónico:
+Solo en el caso de las configuraciones de máquinas virtuales de una instancia o de instancias múltiples, Azure envía con antelación una comunicación por correo electrónico para avisarle del próximo mantenimiento planeado (1 semana de antelación para una instancia y 48 horas de antelación para instancias múltiples). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador y coadministrador de cuenta proporcionadas en la suscripción. A continuación se muestra un ejemplo de este tipo de correo electrónico:
 
 <!--Image reference-->
 ![][image1]
@@ -110,4 +110,4 @@ Por ejemplo, durante un mantenimiento planeado, Azure no implementará ninguna a
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

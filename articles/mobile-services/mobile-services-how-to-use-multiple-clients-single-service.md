@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Uso de varios clientes con un back-end de Servicios móviles | Microsoft Azure"
-	description="Obtenga información acerca de cómo usar un solo back-end de servicio móvil de varias aplicaciones de cliente destinadas a distintas plataformas móviles, incluida la Tienda Windows y Windows Phone."
+	pageTitle="Uso de varios clientes con un solo back-end de servicio móvil | Servicios móviles de Azure"
+	description="Obtenga información sobre cómo usar un solo back-end de servicio móvil en varias aplicaciones cliente destinadas a distintas plataformas móviles."
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
 	manager="dwrede"
 	editor="mollybos"/>
 <tags
-	ms.service="mobile-services"
+	ms.service="mobile-services" 
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/16/2015"
 	ms.author="glenga"/>
 
 # Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil
@@ -28,8 +28,6 @@ La solución Servicios móviles usa Centros de notificaciones de Azure para envi
 + Windows Notification Service (WNS) para la Tienda Windows, la Tienda de Windows Phone 8.1 y las aplicaciones universales de Windows
 + Servicio de notificaciones de inserción de Microsoft (MPNS) para las aplicaciones Silverlight de Windows Phone
 
->[AZURE.NOTE]Actualmente, Centros de notificaciones no admite el uso de WNS para enviar notificaciones de inserción a las aplicaciones Silverlight de Windows Phone 8.1. Debe usar MPNS para enviar notificaciones a aplicaciones Silverlight y de Windows Phone 8.0 y 7.0.
-
 Para obtener más información, consulte [Centros de notificaciones de Azure].
 
 Los registros de cliente se crean al usar la función de registro de la biblioteca de clientes de Servicios móviles específica de la plataforma o al usar las API de REST de Servicios móviles. Centros de notificaciones admite dos tipos de registros de dispositivo:
@@ -37,8 +35,6 @@ Los registros de cliente se crean al usar la función de registro de la bibliote
 + **Registro nativo**<br/>Los registros nativos se adaptan al servicio de inserción específico de la plataforma. Al enviar notificaciones a dispositivos registrados mediante registros nativos, deberá llamar a API específicas de la plataforma en el servicio móvil. Para enviar una notificación a dispositivos en varias plataformas, se requieren varias llamadas específicas de la plataforma.
 
 + **Registro de plantilla**<br/>Centros de notificaciones también admite registros de plantilla específicos de la plataforma. Al usar registros de plantillas puede emplear una llamada de la API para enviar una notificación a la aplicación que se ejecuta en cualquier plataforma registrada. Para obtener más información, vea [Envío de notificaciones entre plataformas a los usuarios].
-
->[AZURE.NOTE]Se produce un error cuando se intenta enviar un mensaje a una plataforma de dispositivos nativa para la que no existe ningún registro de dispositivo. Este error no se produce cuando se envían notificaciones de plantilla.
 
 Las tablas en las siguientes secciones se vinculan a los tutoriales de cliente específicos en los que se muestra cómo implementar notificaciones de inserción desde servicios móviles back-end de .NET y JavaScript.
 
@@ -147,43 +143,9 @@ Hay herramientas multiplataforma disponibles que ofrecen una experiencia nativa 
 
 + [**Xamarin**](https://go.microsoft.com/fwLink/p/?LinkID=330242)<br/>Xamarin le permite crear aplicaciones completamente nativas para dispositivos iOS y Android, con una interfaz de usuario completamente nativa y acceso a todos los recursos de dispositivo. Las aplicaciones Xamarin se codifican en C# en lugar de Objective-C y Java. De este modo, los desarrolladores de .NET pueden publicar aplicaciones en iOS y Android, y compartir código desde los proyectos de Windows. Xamarin ofrece una experiencia de usuario completamente nativa en dispositivos iOS y Android a partir del código C#. Esto permite reutilizar parte del código de Servicios móviles desde las aplicaciones de Windows en dispositivos iOS y Android. Para obtener más información, consulte [Desarrollo de Xamarin](#xamarin) a continuación.
 
-	Puede crear aplicaciones de Xamarin usando Xamarin Studio o Visual Studio 2013. Para obtener más información, vea [Desarrollo multiplataforma en Visual Studio](http://msdn.microsoft.com/library/dn771552.aspx).
-
-
-##<a id="shared-vs"></a>Uso compartido y reutilización de código en proyectos de Visual Studio
-
-La solución Servicios móviles incluye una biblioteca de clientes de .NET, que es una biblioteca de clases portable de .NET Framework (PCL) que admite el desarrollo en todas las plataformas Windows. Para obtener más información, consulte [Cómo usar un cliente de .NET con Servicios móviles]. Esto facilita la reutilización del mismo código de Servicios móviles, tal como el código para el acceso o la autenticación, en varios proyectos de C#.
-
-Un método general para el uso compartido y la reutilización del código C# entre proyectos es implementar el patrón modelo-vista-vista-modelo (MVVM) y compartir ensamblados entre plataformas. Puede implementar las clases de modelo de visualización y modelo en un proyecto de biblioteca de clases portable en Visual Studio y, a continuación, crear vistas que estén personalizadas para distintas plataformas. El código de modelo, común entre plataformas, puede (como ejemplo) recuperar los datos desde un origen, tal como un servicio móvil, independientemente de la plataforma. MSDN Library proporciona un <a href="http://msdn.microsoft.com/library/gg597391(v=vs.110)">análisis general y ejemplos</a> de las <a href="http://msdn.microsoft.com/library/gg597392(v=vs.110)">diferencias entre API</a>, un ejemplo de mediante el <a href="http://msdn.microsoft.com/library/hh563947(v=vs.110)">uso de bibliotecas de clases portables para implementar el patrón MVVM</a>, una <a href="http://msdn.microsoft.com/library/windowsphone/develop/jj714086(v=vs.105).aspx">orientación prescriptiva</a> adicional e información sobre la <a href="http://msdn.microsoft.com/library/hh871422(v=vs.110)">administración de recursos</a> en proyectos de biblioteca de clases portable.
-
-Además de esta asistencia general, Visual Studio también proporciona funciones específicas para reutilizar el código de servicios móviles entre varios proyectos de aplicaciones cliente y que se describen en las secciones siguientes. Para obtener más información general sobre cómo utilizar Visual Studio 2013 para crear aplicaciones multiplataforma, vea [Desarrollo multiplataforma en Visual Studio](http://msdn.microsoft.com/library/dn771552.aspx).
-
-### Aplicaciones universales de Windows
-
-La actualización 2 de Visual Studio 2013 agrega compatibilidad con los proyectos de aplicación universal de Windows. Las aplicaciones universales son soluciones que incluyen proyectos de aplicaciones de la Tienda Windows 8.1 y la Tienda de Windows Phone 8.1, junto con un proyecto de código compartido. En este tipo de proyecto, el código compartido se trata como si fuera parte de los proyectos tanto de la Tienda Windows y como de Windows Phone. Para obtener más información, consulte [Creación de aplicaciones universales de Windows para cualquier dispositivo de Windows]. Las aplicaciones universales de Windows pueden escribirse tanto en C#/XAML como en JavaScript/HTML.
-
-De manera predeterminada, para que pueda comenzar la pestaña de inicio rápido de Servicios móviles en el [portal de administración de Azure] genera una versión de la aplicación universal de Windows de la aplicación de ejemplo TodoList. Tiene la opción de descargar una versión C#/XAML o una versión JavaScript/HTML del proyecto. Para obtener más información, consulte [Introducción a los Servicios móviles](../mobile-services-windows-store-get-started.md).
-
->[AZURE.NOTE]La versión en C# del proyecto de aplicación de inicio rápido disponible en el portal comparte la página de código subyacente MainPage.xaml.cs, pero no usa un modelo de vista. Para obtener un ejemplo de la aplicación TodoList como proyecto de aplicación universal de Windows en C# que usa MVVM, vea [Proyecto de aplicación universal de Windows para Servicios móviles de Azure mediante MVVMM].
-
-###<a id="xamarin"></a>Desarrollo en Xamarin
-
-Puede sacar provecho de su experiencia de desarrollo en Visual Studio y C# mediante el uso de Xamarin y Visual Studio o Xamarin Studio con el fin de desarrollar aplicaciones para iOS y Android. Xamarin usa una implementación multiplataforma de .NET Framework que le permite usar código C# para desarrollar aplicaciones iOS y Android. Al usar Xamarin, puede aprovechar el código existente de los proyectos Windows y que usa la biblioteca de clientes de .NET de Servicios móviles para acceder al servicio móvil. Para obtener más información, vea [Desarrollo multiplataforma en Visual Studio](http://msdn.microsoft.com/library/dn771552.aspx).
-
-Para comenzar a crear aplicaciones Xamarin que usan Servicios móviles, consulte los tutoriales de inicio rápido de Xamarin ([iOS](mobile-services-ios-get-started.md) / [Android](mobile-services-android-get-started.md)).
-
-
-### Aplicaciones Silverlight de la Tienda Windows y Windows Phone
-
-En Windows Phone 8.1, tiene la opción de usar XAML anterior basado en Silverlight o XAML basado en Windows en tiempo de ejecución, que permite el desarrollo de aplicaciones universales de Windows. Para obtener más información sobre las aplicaciones Silverlight de Windows Phone 8.1 y las aplicaciones de la Tienda de Windows Phone 8.1, vea [Pasos siguientes para los desarrolladores de Windows Phone 8].
-
-La biblioteca de clientes de .NET de Servicios móviles admite aplicaciones de la Tienda de Windows Phone 8.1 y aplicaciones Silverlight de Windows Phone 8.1. Dado que no es posible crear aplicaciones de Windows en tiempo de ejecución y aplicaciones Silverlight de Windows Phone a partir del mismo proyecto, debería considerar el empleo de una estrategia de reutilización de código, tal como PCL y MVVM que se describen anteriormente.
-
->[AZURE.NOTE]A fin de usar la autenticación de cliente de inicio de sesión único con la cuenta Microsoft en aplicaciones de Windows en tiempo de ejecución y aplicaciones Silverlight de Windows Phone, primero debe registrar la aplicación de Windows en tiempo de ejecución el panel de la Tienda Windows. Esto se debe a que una vez que crea un registro de Live Connect para Windows Phone, no puede crear uno para la Tienda Windows. Si desea obtener más información acerca de cómo hacerlo, lea el tema **Autenticación de una aplicación de la Tienda Windows con el inicio de sesión único de Live Connect** ([Tienda Windows][SSO Windows Store]/[Windows Phone][SSO Windows Phone]).
-
 
 <!-- URLs -->
-[portal de administración de Azure]: https://manage.windowsazure.com
+[Azure Management portal]: https://manage.windowsazure.com
 [Centros de notificaciones de Azure]: /develop/net/how-to-guides/service-bus-notification-hubs/
 [SSO Windows Store]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [SSO Windows Phone]: /develop/mobile/tutorials/single-sign-on-wp8/
@@ -196,15 +158,15 @@ La biblioteca de clientes de .NET de Servicios móviles admite aplicaciones de l
 [Get started with push iOS]: /develop/mobile/tutorials/get-started-with-push-ios/
 [Get started with push Android]: /develop/mobile/tutorials/get-started-with-push-android/
 [Dynamic schema]: http://msdn.microsoft.com/library/windowsazure/jj193175.aspx
-[Cómo usar un cliente de .NET con Servicios móviles]: documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[How to use a .NET client with Mobile Services]: documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 [objeto de inserción]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
 [TemplatePushMessage]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
 [PhoneGap]: mobile-services-javascript-backend-phonegap-get-started.md
 [Sencha]: partner-sencha-mobile-services-get-started.md
 [Appcelerator]: ../partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
-[Pasos siguientes para los desarrolladores de Windows Phone 8]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
-[Creación de aplicaciones universales de Windows para cualquier dispositivo de Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
-[Proyecto de aplicación universal de Windows para Servicios móviles de Azure mediante MVVMM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
+[What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
+[Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
+[Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

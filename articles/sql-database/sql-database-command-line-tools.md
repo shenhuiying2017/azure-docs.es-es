@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administración de recursos de bases de datos SQL de Azure con PowerShell" 
+	pageTitle="Administración de Base de datos SQL de Azure con PowerShell" 
 	description="Administración de Base de datos SQL de Azure con PowerShell." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="09/11/2015" 
 	ms.author="vinsonyu"/>
 
-# Administración de recursos de bases de datos SQL de Azure con PowerShell
+# Administración de Base de datos SQL de Azure con PowerShell
 
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 Este tema proporciona los comandos de PowerShell para realizar muchas tareas de Base de datos SQL de Azure mediante los cmdlets del Administrador de recursos de Azure.
 
@@ -49,7 +54,7 @@ Después de iniciar sesión correctamente, se mostrará información en la panta
 
 ## Selección de su suscripción a Azure
 
-Para seleccionar la suscripción con la que quiere trabajar, necesita el identificador de suscripción (**-SubscriptionId**) o el nombre de suscripción (**-SubscriptionName**). Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción deseada del conjunto de resultados.
+Para seleccionar la suscripción con la que quiera trabajar, necesita el identificador de la suscripción (**-SubscriptionId**) o el nombre de la suscripción (**-SubscriptionName**). Puede copiar el nombre o el identificador del paso anterior, o bien, si dispone de varias suscripciones, puede ejecutar el cmdlet **Get-AzureSubscription** y copiar la información de suscripción deseada del conjunto de resultados.
 
 Ejecute el siguiente cmdlet con la información de suscripción para establecer la suscripción actual:
 
@@ -80,7 +85,7 @@ Al ejecutar este comando, se abrirá una ventana para especificar el **Nombre de
 
 ## Creación de una regla de firewall del servidor
 
-Para crear una regla de firewall para obtener acceso al servidor, use el comando [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx). Ejecute el comando siguiente, reemplazando las direcciones IP inicial y final con los valores válidos para el cliente.
+Si desea crear una regla de firewall para obtener acceso al servidor, use el comando [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx). Ejecute el comando siguiente, reemplazando las direcciones IP inicial y final con los valores válidos para el cliente.
 
 Si el servidor necesita permitir el acceso a otros servicios de Azure, agregue el conmutador **- AllowAllAzureIPs** que agregará una regla de firewall especial y permitirá todo el acceso de tráfico de Azure al servidor.
 
@@ -97,14 +102,14 @@ Para crear una base de datos, use el comando [New-AzureSqlDatabase](https://msdn
 
 ## Cambio del nivel de rendimiento de una base de datos SQL
 
-Puede escalar hacia arriba o hacia abajo la base de datos con el comando [Set-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125814.aspx). En el ejemplo siguiente se escala verticalmente una Base de datos SQL denominada TestDB12 a partir de su nivel de rendimiento actual a un nivel Standard S3.
+Puede escalar o reducir verticalmente la base de datos con el comando [Set-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125814.aspx). En el ejemplo siguiente se escala verticalmente una Base de datos SQL denominada TestDB12 a partir de su nivel de rendimiento actual a un nivel Standard S3.
 
 	Set-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
 
 
 ## Eliminación de una Base de datos SQL
 
-Puede eliminar una Base de datos SQL con el comando [Remove-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125977.aspx). En el ejemplo siguiente se elimina una Base de datos SQL denominada TestDB12.
+Puede eliminar una base de datos SQL con el comando [Remove-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125977.aspx). En el ejemplo siguiente se elimina una Base de datos SQL denominada TestDB12.
 
 	Remove-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12"
 
@@ -123,7 +128,7 @@ Si va a volver a crear estos recursos de SQL de Azure o unos recursos similares,
 
 ## Pasos siguientes
 
-Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre comillas, incluidos los caracteres < and > por los valores para crear un servidor, regla de firewall y base de datos:
+Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre comillas, incluidos los caracteres < and >, por los valores para crear un servidor, la regla de firewall y la base de datos:
 
 
     New-AzureResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -137,4 +142,4 @@ Combine comandos y automatización. Por ejemplo, reemplace todo lo que hay entre
 - [Cmdlets de Administración de servicios de Base de datos SQL de Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

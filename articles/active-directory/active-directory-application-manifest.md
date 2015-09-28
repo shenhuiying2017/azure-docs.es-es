@@ -17,7 +17,8 @@
    ms.author="dkershaw;bryanla"/>
 
 # Descripción del manifiesto de aplicación de Azure Active Directory
-Las aplicaciones que se integran con Azure Active Directory (AD) deben estar registradas con un inquilino de Azure AD y proporcionar una configuración persistente de identidad para la aplicación. Esta configuración se consulta en tiempo de ejecución, lo que habilita los escenarios que permiten una aplicación para externalizar y negociar la autenticación/autorización mediante Azure AD. Para obtener más información sobre el modelo de aplicación de Azure AD, consulte el artículo sobre [Adición, Actualización y Eliminación de una aplicación][ADD-UPD-RMV-APP].
+
+Las aplicaciones que se integran con Azure Active Directory (AD) deben estar registradas con un inquilino de Azure AD y proporcionar una configuración persistente de identidad para la aplicación. Esta configuración se consulta en tiempo de ejecución, lo que habilita los escenarios que permiten una aplicación para externalizar y negociar la autenticación/autorización mediante Azure AD. Para obtener más información sobre el modelo de aplicación de Azure AD, vea el artículo [Adición, actualización y eliminación de una aplicación][ADD-UPD-RMV-APP].
 
 ## Actualización de la configuración de identidad de una aplicación
 
@@ -25,7 +26,7 @@ Hay en realidad varias opciones disponibles para actualizar las propiedades de l
 
 - La **interfaz de usuario web del [Portal de Azure][AZURE-PORTAL]** le permite actualizar las propiedades más comunes de una aplicación. Esta es la forma más rápida y menos propensa a errores de actualizar las propiedades de la aplicación pero no le otorga acceso completo a todas las propiedades, como sí lo hacen los dos métodos siguientes.
 - Para escenarios más avanzados donde necesita actualizar las propiedades que no se exponen en el Portal de Azure, puede modificar el **manifiesto de aplicación**. Este es el punto importante de este artículo y se explica con más detalle a partir de la siguiente sección.
-- También es posible **escribir una aplicación que use [API Graph][GRAPH-API]** para actualizar la aplicación, lo que requiere un mayor esfuerzo. Esto puede ser una opción atractiva, no obstante, si está escribiendo software de administración o si necesita actualizar las propiedades de la aplicación periódicamente de forma automática.
+- También es posible **escribir una aplicación que use la [API Graph][GRAPH-API]** para actualizarla, lo que requiere un mayor esfuerzo. Esto puede ser una opción atractiva, no obstante, si está escribiendo software de administración o si necesita actualizar las propiedades de la aplicación periódicamente de forma automática.
 
 ## Uso del manifiesto de aplicación para actualizar la configuración de identidad de una aplicación
 A través del [Portal de Azure][AZURE-PORTAL], puede administrar la configuración de identidad de la aplicación, mediante la descarga y carga de la representación de un archivo JSON, que se denomina un manifiesto de aplicación. No se almacena ningún archivo real en el directorio: el manifiesto de aplicación es simplemente una operación GET de HTTP en la entidad de aplicación de API Graph de Azure AD y la carga es una operación PATCH de HTTP en la entidad de aplicación.
@@ -37,7 +38,7 @@ Por lo tanto, para comprender el formato y las propiedades del manifiesto de apl
 - Declarar aplicaciones de cliente conocidas.
 - Solicitar a Azure AD que emita una notificación de pertenencia a grupos para el usuario que inició sesión. NOTA: esto puede configurarse para emitir además notificaciones sobre pertenencias a roles de directorio del usuario. Consulte el artículo [Authorization in Cloud Applications using AD Groups][AAD-GROUPS-FOR-AUTHORIZATION] (Autorización en aplicaciones en la nube con grupos de AD) para obtener un ejemplo de implementación.
 - Permitir que la aplicación admita flujos de concesión implícita de OAuth 2.0 (para páginas web de JavaScript insertadas o aplicaciones de página única (SPA))
-- Habilitar el uso de certificados X 509 como la clave secreta. Consulte el artículo [Build service and daemon apps in Office 365][O365-SERVICE-DAEMON-APPS] (Compilación de aplicaciones de servicio y demonio en Office 365) para obtener un ejemplo de implementación. 
+- Habilitar el uso de certificados X 509 como la clave secreta. Consulte el artículo [Build service and daemon apps in Office 365][O365-SERVICE-DAEMON-APPS] (Compilación de aplicaciones de servicio y demonio en Office 365) para obtener un ejemplo de implementación.
 
 El manifiesto de aplicación también proporciona una forma adecuada de realizar un seguimiento del estado del registro de la aplicación. Como está disponible en formato JSON, la representación del archivo se puede proteger en el control de código fuente, junto con el código fuente de la aplicación.
 
@@ -94,14 +95,14 @@ Use la siguiente sección de comentarios DISQUS para proporcionar comentarios y 
 
 <!--article references -->
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
-[ADD-UPD-RMV-APP]: https://msdn.microsoft.com/library/azure/dn132599.aspx
+[ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
 [AZURE-PORTAL]: https://manage.windowsazure.com
-[GRAPH-API]: https://msdn.microsoft.com/library/azure/hh974476.aspx
+[GRAPH-API]: active-directory-graph-api.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

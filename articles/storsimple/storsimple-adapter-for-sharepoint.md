@@ -274,19 +274,19 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 1. Use una cuenta con privilegios de administrador para iniciar sesión en el servidor front-end web (WFE).
 2. Haga doble clic en el adaptador de StorSimple para el instalador de SharePoint. Se inicia el Asistente para la instalación.
 
-![Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+    ![Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
 3. Haga clic en **Siguiente**. Aparece la siguiente página.
 
-![Página de eliminación del Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+    ![Página de eliminación del Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
 4. Haga clic en **Quitar** para seleccionar el proceso de eliminación. Aparece la siguiente página.
 
-![Página de confirmación del Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+    ![Página de confirmación del Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp4.png)
 
 5. Haga clic en **Quitar** para confirmar la eliminación. Aparece la siguiente página de progreso.
 
-![Página de progreso del Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+    ![Página de progreso del Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp5.png)
 
 6. Cuando se completa la desinstalación, aparece la página de finalización. Haga clic en **Finalizar** para cerrar el Asistente para la instalación.
 
@@ -298,7 +298,7 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 
 ## Pasos siguientes
 
-Obtenga más información sobre [StorSimple](storsimple-overview.md).
+[Obtenga más información sobre StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
@@ -308,4 +308,4 @@ Obtenga más información sobre [StorSimple](storsimple-overview.md).
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/es-ES/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

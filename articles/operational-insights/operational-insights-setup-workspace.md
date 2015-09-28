@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/05/2015"
+    ms.date="09/10/2015"
     ms.author="banders"/>
 
 # Configurar el área de trabajo y administrar la configuración
@@ -184,7 +184,7 @@ Es posible crear un área de trabajo desde [microsoft.com/oms](https://microsoft
 
 ## Actualización del área de trabajo a un plan de datos de pago
 
-Existen tres planes de datos diferentes para el área de trabajo de Visión operativa: **Gratis**, **Estándar** y **Premium**. Si dispone de una plan *gratis*, puede haber alcanzado su límite de datos de 500 MB. Necesitará actualizar el área de trabajo a un '**plan de pago por uso**' para recopilar datos una vez alcanzado el límite. Puede convertir el tipo de plan en cualquier momento. Para obtener más información acerca de Visión operativa, consulte [Detalles de precios](http://azure.microsoft.com/pricing/operational-insights/).
+Existen tres planes de datos diferentes para el área de trabajo de Visión operativa: **Gratis**, **Estándar** y **Premium**. Si dispone de una plan *gratis*, puede haber alcanzado su límite de datos de 500 MB. Necesitará actualizar el área de trabajo a un '**plan de pago por uso**' para recopilar datos una vez alcanzado el límite. Puede convertir el tipo de plan en cualquier momento. Para obtener más información acerca de Visión operativa, consulte [Detalles de precios](https://azure.microsoft.com/es-ES/pricing/details/operational-insights/).
 
 >[AZURE.IMPORTANT]Los planes de área de trabajo solo pueden cambiarse si están *vinculados* a una suscripción de Azure. Si creó el área de trabajo en Azure o si *ya* vinculó el área de trabajo, puede ignorar este mensaje. Si creó el área de trabajo desde [opinsights.azure.com](http://opinsights.azure.com), deberá seguir los pasos descritos en [Vincular un área de trabajo existente a una suscripción de Azure](#link-an-existing-workspace-to-an-Azure-subscription).
 
@@ -253,4 +253,4 @@ Si es administrador, y hay varios usuarios asociados con el área de trabajo, se
 - [Requisitos de formato de registro de IIS en Azure Operational Insights](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - Vea qué otros orígenes de datos y tipos de registros nos pide la comunidad que implementemos en nuestro [foro de comentarios](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

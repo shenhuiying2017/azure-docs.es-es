@@ -1,4 +1,6 @@
 
+<!--author=SharS last changed: 9/15/15-->
+
 #### Para eliminar una directiva de copia de seguridad de StorSimple
 
 1. En la página **Inicio rápido** del dispositivo, haga clic en la pestaña **Directivas de copia de seguridad**. Esto le llevará a la página **Directivas de copia de seguridad**.
@@ -10,4 +12,4 @@
 La página **Directivas de copia de seguridad** se actualizará para mostrar la nueva lista de directivas.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

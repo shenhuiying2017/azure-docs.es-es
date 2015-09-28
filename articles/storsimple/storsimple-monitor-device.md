@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Supervisión del dispositivo StorSimple | Microsoft Azure"
-	description="Se describe cómo usar el servicio StorSimple Manager para supervisar el rendimiento de E/S, la utilización de la capacidad, la capacidad de proceso de la red y rendimiento del dispositivo."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Se describe cómo usar el servicio StorSimple Manager para supervisar el rendimiento de E/S, la utilización de la capacidad, la capacidad de proceso de la red y rendimiento del dispositivo."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Uso del servicio StorSimple Manager para supervisar el dispositivo StorSimple. 
 
@@ -91,6 +91,8 @@ Los gráficos siguientes muestran el rendimiento de la red para Data 0 y Data 4,
 
 ## Pasos siguientes
 
-[Obtenga información sobre cómo usar el panel de dispositivos del servicio StorSimple Manager](storsimple-device-dashboard.md).
+- Obtenga información sobre cómo [usar el panel de dispositivos del servicio StorSimple Manager](storsimple-device-dashboard.md).
 
-<!---HONumber=September15_HO1-->
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

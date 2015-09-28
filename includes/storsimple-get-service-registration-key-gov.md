@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/17/15-->
+
 
 #### Para obtener la clave de registro del servicio de StorSimple
 
@@ -19,4 +21,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

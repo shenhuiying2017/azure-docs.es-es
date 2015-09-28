@@ -3,7 +3,7 @@
 	description="Aprenda a configurar extremos en el portal para permitir la comunicación con una máquina virtual en Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Configuración de extremos en una máquina virtual
 
@@ -96,4 +96,4 @@ Para usar un cmdlet de Azure PowerShell para configurar esto, consulte [Administ
 
 [Equilibrio de carga para servicios de infraestructura de Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

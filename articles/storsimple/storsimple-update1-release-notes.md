@@ -79,7 +79,7 @@ En las tablas siguientes se ofrece un resumen de los problemas corregidos en las
 | 9 | Interfaces de red | En las versiones anteriores, los dispositivos de StorSimple configurados con una puerta de enlace no enrutable podían quedarse sin conexión. En esta versión, la métrica de enrutamiento para Data 0 se ha realizado en los valores más bajos; por lo tanto, aunque otras interfaces de red están habilitadas para la nube, todo el tráfico de nube del dispositivo se enrutará a través de Data 0. | Actualización 1 | Sí | Sí | 
 | 10 | Copias de seguridad | Se ha corregido un error que se daba en la actualización 1 que causaba el fallo de las copias de seguridad a los 24 días en la versión de revisión de la actualización 1.1. | Actualización 1.1 | Sí | Sí |
 | 11 | Copias de seguridad | Un error en las versiones anteriores tuvo como resultado un rendimiento deficiente de las instantáneas en la nube con frecuencias de cambio bajas. Este error se ha corregido en esta versión de revisión.| Actualización 1.2 | Sí | Sí |
-| 12 | Copias de seguridad | En esta versión de revisión se ha corregido un error en la actualización 1 que notificó una actualización con error y que hizo que los controladores entraran en modo de recuperación.| Actualización 1.2 | Sí | Sí |
+| 12 | Actualizaciones | En esta versión de revisión se ha corregido un error en la actualización 1 que notificó una actualización con error y que hizo que los controladores entraran en modo de recuperación.| Actualización 1.2 | Sí | Sí |
 
 
 ## Problemas conocidos de la actualización 1.2
@@ -124,4 +124,4 @@ No se puede aplicar esta actualización al dispositivo virtual. Deben crearse nu
 - [Instalación de la actualización 1.2 en el dispositivo](storsimple-install-update-1.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

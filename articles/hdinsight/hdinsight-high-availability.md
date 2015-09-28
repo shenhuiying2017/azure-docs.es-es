@@ -44,7 +44,7 @@ Las implementaciones estándar de clústeres de Hadoop normalmente tienen un sol
 
 Se han agregado nodos de [ZooKeeper](http://zookeeper.apache.org/) (ZK) que se usan para la elección de líder de nodos principales y para asegurar que los nodos de trabajo y las puertas de enlace (GW) saben cuándo conmutar por error al nodo principal secundario (Nodo principal1) cuando el nodo principal activo (Nodo principal0) pasa a estar inactivo.
 
-![Diagrama de los nodos principales de gran confiabilidad en la implementación de Hadoop en HDInsight.](http://i.imgur.com/jrUmrH4.png)
+![Diagrama de los nodos principales de gran confiabilidad en la implementación de Hadoop en HDInsight.](./media/hdinsight-high-availability/hadoop.high.availability.architecture.diagram.png)
 
 
 
@@ -98,4 +98,4 @@ Para el SDK, la historia es similar. La creación y aprovisionamiento de un clú
 - [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Uso del SDK .NET de HDInsight](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

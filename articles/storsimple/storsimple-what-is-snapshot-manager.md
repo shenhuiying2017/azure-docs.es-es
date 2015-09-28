@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # ¿Qué es Administrador de instantáneas StorSimple?
@@ -144,8 +144,8 @@ Para obtener información acerca de la supervisión de trabajos de copia de segu
 
 ## Pasos siguientes
 
-[Más información acerca de las tareas y flujos de trabajo de Administrador de instantáneas StorSimple](storsimple-snapshot-manager-admin.md)
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 
-[Descarga de Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
+- Descarga de [Snapshot Manager de StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

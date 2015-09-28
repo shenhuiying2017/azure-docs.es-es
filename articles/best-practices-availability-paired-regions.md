@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/07/2015"
+    ms.date="09/16/2015"
     ms.author="robb"/>
 
 # Mejora de la disponibilidad mediante parejas regionales de Azure
@@ -84,4 +84,4 @@ Como se indica en la ilustración 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Residencia de datos**: una región reside dentro de la misma ubicación geográfica que su pareja (a excepción del Sur de Brasil) con el objeto de cumplir los requisitos de residencia de datos para fines de jurisdicción de impuestos y aplicación de la ley.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

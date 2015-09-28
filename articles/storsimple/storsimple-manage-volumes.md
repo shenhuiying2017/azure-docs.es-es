@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar volúmenes
@@ -88,7 +88,10 @@ El nuevo volumen ya está listo para usarse.
 
 Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen acceso al volumen.
 
-> [AZURE.IMPORTANT]Si modifica el tamaño del volumen en el dispositivo, también deberá cambiar el tamaño del volumen en el host. Los pasos del lado host que se describen aquí son para Windows Server 2012 (2012R2). Los procedimientos para Linux u otros sistemas operativos de host serán diferentes. Consulte las instrucciones del sistema operativo del host cuando modifique el volumen del host que esté ejecutando otro sistema operativo.
+> [AZURE.IMPORTANT]
+>
+> - Si modifica el tamaño del volumen en el dispositivo, también deberá cambiar el tamaño del volumen en el host. 
+> - Los pasos del lado host que se describen aquí son para Windows Server 2012 (2012R2). Los procedimientos para Linux u otros sistemas operativos de host serán diferentes. Consulte las instrucciones del sistema operativo del host cuando modifique el volumen del host que esté ejecutando otro sistema operativo. 
 
 ### Para modificar un volumen
 
@@ -116,10 +119,14 @@ Modifique un volumen cuando necesite expandirlo o cambiar los hosts que tienen a
 
 7. Si se va a expandir un volumen, realice los pasos siguientes en el equipo host Windows:
 
-   1. Vaya a **Administración de equipos** ->**Administración de discos**.
+   1. Vaya a **Administración de equipos** -> **Administración de discos**.
    2. Haga clic con el botón derecho en **Administración de discos** y seleccione **Volver a examinar los discos**.
    3. En la lista de discos, seleccione el volumen que actualizó, haga clic en él con el botón derecho y seleccione **Extender volumen**. Se iniciará el Asistente para extender volúmenes. Haga clic en **Siguiente**.
    4. Complete el asistente aceptando los valores predeterminados que se proporcionan. Cuando el asistente haya finalizado, el volumen debería mostrar el aumento de tamaño.
+
+![Vídeo disponible](./media/storsimple-manage-volumes/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que muestra cómo expandir un volumen, haga clic [aquí](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
 
 ## Desconectar un volumen
 
@@ -180,13 +187,12 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 
     ![Modificar la configuración básica de un volumen](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
+
 ## Pasos siguientes
 
-Vea un vídeo que muestra cómo [expandir un volumen de StorSimple](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
-
-Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
-
+- Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

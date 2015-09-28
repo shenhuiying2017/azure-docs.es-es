@@ -3,7 +3,7 @@
 	description="Indica los pasos para configurar un conjunto de disponibilidad para una máquina virtual nueva o existente en Azure con el Portal de Azure y con comandos de Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,9 +15,9 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-#Configuración de un conjunto de disponibilidad para máquinas virtuales#
+# Configuración de un conjunto de disponibilidad para máquinas virtuales
 
 Un conjunto de disponibilidad ayuda a mantener las máquinas virtuales disponibles durante períodos de inactividad, como por ejemplo mientras se realiza mantenimiento. Colocar dos o más máquinas virtuales similarmente configuradas en un conjunto de disponibilidad crea la redundancia necesaria para mantener la disponibilidad de las aplicaciones o servicios que ejecuta su máquina virtual. Para obtener información detallada sobre cómo funciona esto, vea [Administración de la disponibilidad de las máquinas virtuales][].
 
@@ -95,9 +95,9 @@ Para utilizar los comandos de Azure PowerShell, abra una sesión de Azure PowerS
 
 >[AZURE.NOTE]Es posible que haya que reiniciar la máquina virtual para terminar de agregarla al conjunto de disponibilidad.
 
-##Recursos adicionales
+## Recursos adicionales
 
-[Ajustes de configuración de máquinas virtuales en Azure]
+[Artículos para máquinas virtuales en la administración de servicios]
 
 <!-- LINKS -->
 [Opción 1: Creación de una máquina virtual y de un conjunto de disponibilidad simultáneamente]: #createset
@@ -107,6 +107,6 @@ Para utilizar los comandos de Azure PowerShell, abra una sesión de Azure PowerS
 [Administración de la disponibilidad de las máquinas virtuales]: virtual-machines-manage-availability.md
 [Creación de una máquina virtual que ejecuta Windows]: virtual-machines-windows-tutorial.md
 [Información general sobre redes virtuales de Azure]: virtual-networks-overview.md
-[Ajustes de configuración de máquinas virtuales en Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+[Artículos para máquinas virtuales en la administración de servicios]: virtual-machines-service-management-articles.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

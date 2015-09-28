@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Obtenga información acerca de los últimos lanzamientos de SO invitado de Azure | Microsoft Azure"
-	description="Noticias sobre los lanzamientos más recientes y compatibilidad con el SO invitado de Servicios en la nube de Azure."
-	services="cloud-services"
-	documentationCenter="na"
-	authors="yuemlu"
-	manager="markkie"
-	editor=""/>
+   pageTitle="Obtenga información acerca de los últimos lanzamientos de SO invitado de Azure | Microsoft Azure" 
+   description="Noticias sobre los lanzamientos más recientes y compatibilidad con el SO invitado de Servicios en la nube de Azure." 
+   services="cloud-services" 
+   documentationCenter="na" 
+   authors="yuemlu" 
+   manager="markkie" 
+   editor=""/>
 
 <tags
    ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/19/2015"
-	ms.author="yuemlu"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd" 
+   ms.date="09/09/2015"
+   ms.author="yuemlu"/>
 
 # Matriz de compatibilidad del SDK y lanzamientos del SO invitado de Azure.
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Servicios en la nube. Esta información le ayudará a planear su ruta de actualización antes de que se deshabilite un SO invitado.
@@ -29,8 +29,13 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 
 ## Actualizaciones de noticias
 
+###### **9 de septiembre de 2015**
+La implementación del SO invitado de septiembre comienza hoy, 9 de septiembre de 2015, y está previsto que se lance el 8 de octubre de 2015.
+
+Las versiones del SO invitado 4.23, 3.30 y 2.42 se lanzaron el 9 de septiembre de 2015.
+
 ###### **14 de agosto de 2015**
-La implementación del SO invitado de agosto comienza hoy, 14 de agosot de 2015, y está previsto que se lance el 11 de septiembre de 2015.
+La implementación del SO invitado de agosto comienza hoy, 14 de agosto de 2015, y está previsto que se lance el 11 de septiembre de 2015.
 
 ###### **7 de agosto de 2015**
 Las versiones del SO invitado 4.22, 3.29 y 2.41 se lanzaron el 7 de agosto de 2015.
@@ -122,9 +127,10 @@ Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4\.23 | WA-GUEST-OS-4.23\_201508-01 | Proyectado para el 11 de septiembre de 2015 | Se actualizará cuando se lance 4.25 | TBD |
+| 4\.24 | WA-GUEST-OS-4.24\_201509-01 | Proyectado para el 8 de octubre de 2015 | Se actualizará cuando se lance la versión 4.26 | TBD |
+| 4\.23 | WA-GUEST-OS-4.23\_201508-02 | 9 de septiembre de 2015 | Se actualizará cuando se lance 4.25 | TBD |
 | 4\.22 | WA-GUEST-OS-4.22\_201507-02 | 7 de agosto de 2015 | Se actualizará cuando se lance la versión 4.24 | TBD |
-| 4\.21 | WA-GUEST-OS-4.21\_201506-01 | 9 de julio de 2015 | Se actualizará cuando se lance 4.23 | TBD |
+| 4\.21 | WA-GUEST-OS-4.21\_201506-01 | 9 de julio de 2015 | 9 de octubre de 2015 | TBD |
 | 4\.20 | WA-GUEST-OS-4.20\_201505-02 | 12 de junio de 2015 | 7 de septiembre de 2015 | TBD |
 | 4\.19 | WA-GUEST-OS-4.19\_201504-01 | 17 de abril de 2015 | 9 de agosto de 2015 | TBD |
 | 4\.18 | WA-GUEST-OS-4.18\_201503-01 | 2 de abril de 2015 | 12 de julio de 2015 | TBD |
@@ -147,9 +153,10 @@ Admite .NET 4.0, 4.5
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3\.30 | WA-GUEST-OS-3.30\_201508-01 | Proyectado para el 11 de septiembre de 2015 | Se actualizará cuando se lance 3.32 | TBD |
+| 3\.31 | WA-GUEST-OS-3.31\_201509-01 | Proyectado para el 8 de octubre de 2015 | Se actualizará cuando se lance la versión 3.33 | TBD |
+| 3\.30 | WA-GUEST-OS-3.30\_201508-02 | 9 de septiembre de 2015 | Se actualizará cuando se lance 3.32 | TBD |
 | 3\.29 | WA-GUEST-OS-3.29\_201507-02 | 7 de agosto de 2015 | Se actualizará cuando se lance la versión 3.31 | TBD |
-| 3\.28 | WA-GUEST-OS-3.28\_201506-01 | 9 de julio de 2015 | Se actualizará cuando se lance 3.30 | TBD |
+| 3\.28 | WA-GUEST-OS-3.28\_201506-01 | 9 de julio de 2015 | 9 de octubre de 2015 | TBD |
 | 3\.27 | WA-GUEST-OS-3.27\_201505-02 | 12 de junio de 2015 | 7 de septiembre de 2015 | TBD |
 | 3\.26 | WA-GUEST-OS-3.26\_201504-01 | 17 de abril de 2015 | 9 de agosto de 2015 | TBD |
 | 3\.25 | WA-GUEST-OS-3.25\_201503-01 | 2 de abril de 2015 | 12 de julio de 2015 | TBD |
@@ -173,9 +180,10 @@ Admite .NET 3.5, 4.0
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2\.42 | WA-GUEST-OS-2.42\_201508-01 | Proyectado para el 11 de septiembre de 2015 | Se actualizará cuando se lance 2.44 | TBD |
+| 2\.43 | WA-GUEST-OS-2.43\_201509-01 | Proyectado para el 8 de octubre de 2015 | Se actualizará cuando se lance la versión 2.45 | TBD |
+| 2\.42 | WA-GUEST-OS-2.42\_201508-02 | 9 de septiembre de 2015 | Se actualizará cuando se lance 2.44 | TBD |
 | 2\.41 | WA-GUEST-OS-2.41\_201507-02 | 7 de agosto de 2015 | Se actualizará cuando se lance la versión 2.43 | TBD |
-| 2\.40 | WA-GUEST-OS-2.40\_201506-01 | 9 de julio de 2015 | Se actualizará cuando se lance 2.42 | TBD |
+| 2\.40 | WA-GUEST-OS-2.40\_201506-01 | 9 de julio de 2015 | 9 de octubre de 2015 | TBD |
 | 2\.39 | WA-GUEST-OS-2.39\_201505-02 | 12 de junio de 2015 | 7 de septiembre de 2015 | TBD |
 | 2\.38 | WA-GUEST-OS-2.38\_201504-01 | 17 de abril de 2015 | 9 de agosto de 2015 | TBD |
 | 2\.37 | WA-GUEST-OS-2.37\_201503-01 | 2 de abril de 2015 | 12 de julio de 2015 | TBD |
@@ -336,4 +344,4 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

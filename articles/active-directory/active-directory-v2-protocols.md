@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicaciones v2.0 | Microsoft Azure"
+	pageTitle="Protocolos del modelo de aplicación v2.0 | Microsoft Azure"
 	description="Los protocolos admitidos por la vista previa pública del modelo de aplicaciones v2.0 de Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -23,7 +23,7 @@ El modelo de aplicaciones v2.0 proporciona identidad como servicio para sus apli
 > [AZURE.NOTE]Esta información se aplica a la vista previa pública del modelo de aplicaciones v2.0. Para obtener instrucciones sobre cómo integrarse en el servicio de Azure AD, disponible con carácter general, consulte la [Guía para desarrolladores de Azure Active Directory](active-directory-developers-guide.md).
 
 ## Tokens
-La implementación de OAuth 2.0 y OpenID Connect en el modelo de aplicaciones v2.0 hacen un uso generalizado de tokens de portador, incluidos los representados como JWT. Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con Azure AD para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS). Si un token portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrese siempre de que la aplicación transmite y almacena los tokens de portador de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
+La implementación de OAuth 2.0 y OpenID Connect en el modelo de aplicaciones v2.0 hacen un uso generalizado de tokens de portador, incluidos los representados como JWT. Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con Azure AD para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS). Si un token portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrate siempre de que la aplicación transmite y almacena los tokens de portador de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
 
 Más detalles sobre los diferentes tipos de token que se usan en el modelo de aplicaciones v2.0 disponibles en [la referencia de token del modelo de aplicaciones v2.0](active-directory-v2-tokens.md).
 
@@ -475,4 +475,4 @@ Se describe la concesión de credenciales en nombre del flujo o del portador JWT
 
 La vista previa del modelo de aplicaciones v2.0 no admite actualmente este flujo. Para ver cómo funciona en el servicio Azure AD, disponible con carácter general, consulte [este ejemplo de código de Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

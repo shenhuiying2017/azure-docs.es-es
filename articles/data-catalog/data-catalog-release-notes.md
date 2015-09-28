@@ -61,7 +61,7 @@ Hay dos causas posibles para este comportamiento del problema:
 
 En algunas situaciones, es posible que este comportamiento incorrecto ocurra solamente cuando el usuario está en la red de la compañía o solo cuando el usuario se conecta desde fuera de la red de empresa. La directiva de autenticación global permite habilitar los métodos de autenticación de forma independiente para las conexiones de extranet y de intranet. Es posible que se produzcan errores de inicio de sesión si no está habilitada la autenticación de formularios para la red desde la que se conecta el usuario.
 
-Para obtener más información, vea [Configuración de la autenticación basada en formularios de intranet para dispositivos que no son compatibles con WIA](https://technet.microsoft.com/library/dn727110.aspx).
+Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/es-ES/library/dn486781.aspx).
 
 **Causa 2: configuración del proxy de red** Si la red corporativa usa un servidor proxy, es posible que la herramienta de registro no pueda conectarse a Azure Active Directory a través del proxy. Los usuarios pueden asegurarse de que la herramienta de registro se conecta mediante la edición del archivo de configuración de la herramienta, agregando esta sección al archivo:
 
@@ -77,4 +77,4 @@ Para obtener más información, vea [Configuración de la autenticación basada 
 
 Para localizar el archivo RegistrationTool.exe.config, inicie la herramienta de registro y, a continuación, abra la utilidad Administrador de tareas de Windows. En la pestaña Detalles del Administrador de tareas, haga clic con el botón derecho en RegistrationTool.exe y elija Abrir ubicación de archivo en el menú emergente.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

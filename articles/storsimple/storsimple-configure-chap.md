@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configurar CHAP para su dispositivo StorSimple | Microsoft Azure"
-	description="Describe cómo configurar el protocolo de autenticación por desafío mutuo (CHAP) en un dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Describe cómo configurar el protocolo de autenticación por desafío mutuo (CHAP) en un dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Configurar CHAP para el dispositivo StorSimple
 
@@ -188,6 +188,7 @@ Puede verificar que CHAP esté en uso mediante los siguientes pasos.
 
 ## Pasos siguientes
 
-Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
+- Obtenga más información sobre la [seguridad de StorSimple](storsimple-security.md).
+- Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

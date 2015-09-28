@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 
@@ -31,14 +31,13 @@ El Administrador de recursos de Azure se puede usar mediante una [Biblioteca par
 
 ### Para usar ARMClient
 
-1. Instale [Chocolatey](https://chocolatey.org/), que es un administrador de paquetes de máquina de origen abierto para Windows.
-2. Abra una ventana de PowerShell como administrador y luego ejecute el siguiente comando:
+1. Instale [Chocolatey](https://chocolatey.org/), que es un administrador de paquetes de máquina de origen abierto para Windows. Abra una ventana de símbolo del sistema como administrador y luego ejecute el siguiente comando:
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 
-3. Instale ARMClient con el siguiente comando:
+2. Instale ARMClient con el siguiente comando:
 
     ```
     choco install armclient
@@ -346,4 +345,4 @@ Puede especificar los marcadores de inicio y final que se usarán en la búsqued
 
 Observe que el resultado anterior contiene un mensaje de error que se ha incluido como prefijo y se ha anexado.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

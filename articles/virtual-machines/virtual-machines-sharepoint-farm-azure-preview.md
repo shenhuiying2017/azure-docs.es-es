@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # Granja de servidores SharePoint
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
 
 Con Granja de servidores SharePoint, el portal de Microsoft Azure en vista previa crea automáticamente una granja de servidores SharePoint Server 2013 preconfigurados. Esto puede suponer un importante ahorro de tiempo si necesita una granja de SharePoint básica o de alta disponibilidad para un entorno de desarrollo y pruebas, o si va a evaluar SharePoint Server 2013 como solución de colaboración para su organización.
 
@@ -33,9 +35,9 @@ La granja de servidores de SharePoint de alta disponibilidad consta de nueve má
 
 Use esta configuración de granja para probar cargas de cliente más altas, la alta disponibilidad del sitio externo de SharePoint y la característica AlwaysOn de SQL Server para una granja de SharePoint. También puede usar esta configuración para el desarrollo de aplicaciones de SharePoint en un entorno de alta disponibilidad.
 
-Para obtener los detalles de configuración de ambas granjas, consulte [Detalles de configuración de una granja de servidores SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md).
+Para obtener los detalles de configuración de ambas granjas, vea [Detalles de configuración de una granja de servidores de SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
-> [AZURE.NOTE]Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, consulte [Prueba de la vista previa de TI de SharePoint 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
+> [AZURE.NOTE]Microsoft ha publicado la versión de vista previa de TI de SharePoint Server 2016. Para facilitar la instalación y prueba de esta vista previa, puede utilizar una imagen de la galería de máquinas virtuales de Azure con la vista previa de TI de SharePoint Server 2016 y sus requisitos previos preinstalados. Para obtener más información, vea [Prueba de la vista previa de TI de SharePoint Server 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
 ## Configuración paso a paso
 
@@ -62,7 +64,7 @@ Las granjas de SharePoint tienen un extremo previamente configurado para permiti
 2.	En la lista de grupos de recursos, haga clic en el nombre del grupo de recursos de su granja de SharePoint.
 3.	En el panel del grupo de recursos de su granja de SharePoint, haga clic en **Historial de implementaciones**.
 4.	En el panel **Historial de implementaciones**, haga clic en **Microsoft.SharePointFarm**.
-5.	En el panel **Microsoft.SharePointFarm**, seleccione la URL del campo **SHAREPOINTSITEURL** y cópiela.
+5.	En el panel **Microsoft.SharePointFarm**, seleccione la dirección URL del campo **SHAREPOINTSITEURL** y cópiela.
 6.	Desde su explorador de Internet, pegue la URL en el campo de direcciones.
 7.	Cuando el sistema lo solicite, escriba las credenciales de cuenta de usuario que especificó cuando creó la granja.
 
@@ -72,7 +74,7 @@ En el sitio de Administración central de SharePoint, puede configurar Mis sitio
 2.	En la lista de grupos de recursos, haga clic en el nombre del grupo de recursos de su granja de SharePoint.
 3.	En el panel del grupo de recursos de su granja de SharePoint, haga clic en **Historial de implementaciones**.
 4.	En el panel **Historial de implementaciones**, haga clic en **Microsoft.SharePointFarm**.
-5.	En el panel **Microsoft.SharePointFarm**, seleccione la URL del campo **SHAREPOINTCENTRALADMINURL** y cópiela.
+5.	En el panel **Microsoft.SharePointFarm**, seleccione la dirección URL del campo **SHAREPOINTCENTRALADMINURL** y cópiela.
 6.	Desde su explorador de Internet, pegue la URL en el campo de direcciones.
 7.	Cuando el sistema lo solicite, escriba las credenciales de cuenta de usuario que especificó cuando creó la granja.
 
@@ -85,7 +87,7 @@ Notas:
 
 ## Administrador de recursos de Azure
 
-La función Granja de servidores SharePoint del Portal de vista previa de Azure crea máquinas virtuales con el modelo de implementación clásico. Para crear granjas de SharePoint Server 2013 con el modelo de implementación de Administrador de recursos, consulte [Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure](virtual-machines-workload-template-sharepoint.md).
+La función Granja de servidores SharePoint del Portal de vista previa de Azure crea máquinas virtuales con el modelo de implementación clásico. Para crear granjas de SharePoint Server 2013 con el modelo de implementación de Administrador de recursos, vea [Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionales
 
@@ -97,4 +99,4 @@ La función Granja de servidores SharePoint del Portal de vista previa de Azure 
 
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

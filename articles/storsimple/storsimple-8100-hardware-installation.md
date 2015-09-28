@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Instalación del dispositivo StorSimple 8100 | Microsoft Azure"
-	description="Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100 antes de implementar y configurar el software."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100 antes de implementar y configurar el software."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100.
 
@@ -275,4 +275,4 @@ Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la r
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

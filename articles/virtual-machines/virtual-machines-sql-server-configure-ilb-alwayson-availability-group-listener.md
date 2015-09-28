@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/11/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure
 
@@ -35,8 +35,6 @@ Tenga en cuenta las siguientes limitaciones en el agente de escucha del grupo de
 
 - Solo se admite un agente de escucha de grupo de disponibilidad para cada servicio en la nube porque el agente de escucha se configura para que use bien la dirección VIP del servicio en la nube o bien la dirección VIP del equilibrador de carga interno. Tenga en cuenta que esta limitación aún está en efecto aunque Azure ahora es compatible con la creación de varias direcciones VIP en un servicio en la nube determinado.
 
->[AZURE.NOTE]En este tutorial la atención se centra en usar PowerShell para crear un agente de escucha para un grupo de disponibilidad que incluya réplicas de Azure. Para obtener más información sobre cómo configurar agentes de escucha con SSMS o Transact-SQL, vea [Creación o configuración de un agente de escucha de grupo de disponibilidad](https://msdn.microsoft.com/library/hh213080.aspx).
-
 ## Determinación de la accesibilidad del agente de escucha
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
@@ -53,9 +51,9 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 		(Get-AzureVNetConfig).XMLConfiguration
 
-1. Tome nota del nombre de **Subnet** de la subred que contiene las máquinas virtuales que hospedan las réplicas. Este se usará en el parámetro **$SubnetName** en el script.
+1. Tome nota del nombre de **Subnet** de la subred que contiene las VM que hospedan las réplicas. Este se usará en el parámetro **$SubnetName** en el script.
 
-1. Luego tome nota del nombre de **VirtualNetworkSite** y el **AddressPrefix** inicial de la subred que contiene las máquinas virtuales que hospedan las réplicas. Busque una dirección IP disponible pasando ambos valores al comando **Test-AzureStaticVNetIP** y examinando el parámetro **AvailableAddresses**. Por ejemplo, si el nombre de la red virtual fuera *MyVNet* y tuviera un intervalo de direcciones de subred que se empezase por *172.16.0.128*, el siguiente comando mostraría las direcciones disponibles:
+1. Luego tome nota del nombre de **VirtualNetworkSite** y el **AddressPrefix** inicial de la subred que contiene las VM que hospedan las réplicas. Busque una dirección IP disponible pasando ambos valores al comando **Test-AzureStaticVNetIP** y examinando el parámetro **AvailableAddresses**. Por ejemplo, si el nombre de la red virtual fuera *MyVNet* y tuviera un intervalo de direcciones de subred que se empezase por *172.16.0.128*, el siguiente comando mostraría las direcciones disponibles:
 
 		(Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 
@@ -135,4 +133,4 @@ En ILB, debe crear primero el equilibrador de carga interno. Esto se hace en el 
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

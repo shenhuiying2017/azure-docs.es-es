@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Conmutación por error y recuperación ante desastres de StorSimple | Microsoft Azure"
-	description="Aprenda cómo conmutar por error el dispositivo StorSimple a sí mismo, a otro dispositivo físico o a un dispositivo virtual."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="Aprenda cómo conmutar por error el dispositivo StorSimple a sí mismo, a otro dispositivo físico o a un dispositivo virtual."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="alkohli" />
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
 
@@ -129,11 +129,16 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 	
 	b. Vaya a la página **Contenedores de volúmenes**. Deberían aparecer todos los contenedores de volúmenes, junto con los volúmenes del dispositivo antiguo.
 
+![Vídeo disponible](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que muestra cómo se puede restaurar un dispositivo físico con conmutación por error en un dispositivo virtual en la nube, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+
 ## Recuperación ante desastres y continuidad empresarial (BCDR)
 
 Un escenario de recuperación ante desastres y continuidad empresarial (BCDR) se produce cuando todo el centro de datos de Azure deja de funcionar. Esto puede afectar al servicio de Administrador de StorSimple y a los dispositivos StorSimple asociados.
 
 Si hay dispositivos StorSimple que se registraron justo antes de que ocurra un desastre, es posible que estos dispositivos deban restablecerse a valores de fábrica. Después del desastre, el dispositivo StorSimple se mostrará como desconectado. El dispositivo StorSimple debe eliminarse del portal, restablecerse a valores de fábrica y volver a registrarse.
+
 
 ## Pasos siguientes
 
@@ -142,7 +147,7 @@ Después de realizar la conmutación por error, puede que deba:
 - [Desactivar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [Eliminar el dispositivo StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-Para obtener información sobre cómo administrar el dispositivo mediante el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -7,21 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2015" ms.author="trinadhk";"aashishr" />
 
 
 # Implementación y administración de copia de seguridad de VM de Azure mediante PowerShell
 En este artículo se muestra cómo usar Azure PowerShell para realizar y recuperar copias de seguridad de máquinas virtuales IaaS de Azure.
 
 ## Conceptos
-Consulte [Copia de seguridad de máquinas virtuales de Azure: introducción](backup-azure-vms-introduction.md) en la documentación de Copia de seguridad de Azure. Ahí se explican los motivos básicos por los qué se deben realizar copias de seguridad de las máquinas virtuales, los requisitos previos para hacerlas y sus limitaciones.
+Vea [Copia de seguridad de máquinas virtuales de Azure: introducción](backup-azure-vms-introduction.md) en la documentación de Copia de seguridad de Azure. Ahí se explican los motivos básicos por los qué se deben realizar copias de seguridad de las máquinas virtuales, los requisitos previos para hacerlas y sus limitaciones.
 
 Para usar PowerShell de forma eficaz, es preciso conocer la jerarquía de objetos y desde dónde empezar.
 
@@ -31,7 +24,11 @@ Los 2 flujos más importantes son habilitar la protección de una máquina virtu
 
 
 ## Instalación y registro
-Para empezar, habilite los cmdlets de Azure Backup, para lo que debe cambiar al modo *AzureResourceManager* con el cmdlet el **Switch-AzureMode**:
+Para empezar:
+
+1. [Descargue el PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la mínima versión necesaria es: 0.9.8)
+
+2. Para empezar, habilite los commandlets de Copia de seguridad de Azure, para lo que debe cambiar al modo *AzureResourceManager* usando el commandlet **Switch-AzureMode**:
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -46,20 +43,20 @@ Las siguientes tareas de instalación y registro se pueden automatizar con Power
 
 > [AZURE.WARNING]La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
 
-Puede crear un nuevo almacén de copia de seguridad con el cmdlet **New-AzureRMBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
+Puede crear un nuevo almacén de copia de seguridad con el commandlet **New-AzureRMBackupVault**. El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
 
 ```
-PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Puede obtener una lista de todos los almacenes de copia de seguridad de una suscripción dada con el cmdlet **Get-AzureRMBackupVault**.
+Puede obtener una lista de todos los almacenes de copia de seguridad de una suscripción dada usando el commandlet **Get-AzureRMBackupVault**.
 
 > [AZURE.NOTE]Es conveniente almacenar el objeto de almacén de copia de seguridad en una variable. Dicho objeto se necesita como entrada en muchos de los cmdlets de Azure Backup.
 
 
 ### Registro de las máquinas virtuales
-El primer paso para configurar la copia de seguridad con Azure Backup es registrar un equipo o una máquina virtual en un almacén de Azure Backup. El commandlet **Register-AzureRMBackupContainer** toma la información de entrada de una máquina virtual IaaS de Azure y la registra en el almacén especificado. La operación de registro asocia la máquina virtual de Azure con el almacén de copia de seguridad y realiza el seguimiento de la máquina virtual a través del ciclo de vida de la copia de seguridad.
+El primer paso para configurar la copia de seguridad con Azure Backup es registrar un equipo o una máquina virtual en un almacén de Azure Backup. El commandlet **Register-AzureRMBackupContainer** toma la información de entrada de una máquina virtual de IaaS de Azure y la registra en el almacén especificado. La operación de registro asocia la máquina virtual de Azure con el almacén de copia de seguridad y realiza el seguimiento de la máquina virtual a través del ciclo de vida de la copia de seguridad.
 
 Al registrar una máquina virtual en el servicio Azure Backup, se crea un objeto contenedor de nivel superior. Normalmente, un contenedor contiene varios elementos de los que se puede realizar una copia de seguridad, pero en el caso de las máquinas virtuales, solo habrá un elemento de copia de seguridad para el contenedor.
 
@@ -116,7 +113,7 @@ testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01
 ### Supervisión de trabajos de copia de seguridad
 La mayor parte de las operaciones de ejecución prolongada en Azure Backup se modelan como un trabajo. Esto facilita el seguimiento del progreso sin tener que mantener el Portal de Azure abierto constantemente.
 
-Para obtener el estado más reciente de un trabajo en curso, use el cmdlet **AzureRMBackupJob Get**.
+Para obtener el estado más reciente de un trabajo en curso, use el commandlet **AzureRMBackupJob Get**.
 
 ```
 PS C:\> $joblist = Get-AzureRMBackupJob -Vault $backupvault -Status InProgress
@@ -127,7 +124,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Backup          InProgress      01-Sep-15 12:24:01 PM  01-Jan-01 12:00:00 AM
 ```
 
-En lugar de sondear si estos trabajos finalizaron (lo que supone un código adicional innecesario), es más fácil usar el commandlet **Wait-AzureRMBackupJob** . Si se usa en un script, el commandlet pausará la ejecución hasta que el trabajo se complete o se alcance el valor de tiempo de espera especificado.
+En lugar de sondear si finalizaron estos trabajos (lo que supone un código adicional innecesario), es más fácil usar el commandlet **Wait-AzureRMBackupJob** . Si se usa en un script, el commandlet pausará la ejecución hasta que el trabajo se complete o se alcance el valor de tiempo de espera especificado.
 
 ```
 PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
@@ -140,7 +137,7 @@ Para restaurar los datos de una copia de seguridad, es preciso identificar el el
 
 ### Selección de la máquina virtual
 
-Para obtener el objeto de PowerShell que identifica el elemento de copia de seguridad adecuada, es preciso que empiece en el contenedor del almacén y avance hacia abajo por la jerarquía de objetos. Para seleccionar el contenedor que representa la máquina virtual, use el cmdlet **Get-AzureRMBackupContainer** y canalícelo al cmdlet **Get-AzureRMBackupItem**.
+Para obtener el objeto de PowerShell que identifica el elemento de copia de seguridad adecuada, es preciso que empiece en el contenedor del almacén y avance hacia abajo por la jerarquía de objetos. Para seleccionar el contenedor que representa la máquina virtual, use el commandlet **Get-AzureRMBackupContainer** y canalícelo al commandlet **Get-AzureRMBackupItem**.
 
 ```
 PS C:\> $backupitem = Get-AzureBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
@@ -148,7 +145,7 @@ PS C:\> $backupitem = Get-AzureBackupContainer -Vault $backupvault -Type AzureVM
 
 ### Elección de un punto de recuperación
 
-Ahora puede enumerar todos los puntos de recuperación del elemento de copia de seguridad con el commandlet **Get-AzureRMBackupRecoveryPoint** y elija el punto de recuperación para la restauración. Normalmente los usuarios eligen el último punto *AppConsistent* de la lista.
+Ahora puede enumerar todos los puntos de recuperación del elemento de copia de seguridad con el commandlet **Get-AzureRMBackupRecoveryPoint** y elegir el punto de recuperación para la restauración. Normalmente los usuarios eligen el punto *AppConsistent* más reciente de la lista.
 
 ```
 PS C:\> $rp =  Get-AzureRMBackupRecoveryPoint -Item $backupitem
@@ -174,7 +171,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
 ```
 
-Los detalles de la operación de restauración se pueden obtener con el cmdlet **AzureRMBackupJobDetails Get** cuando se complete el trabajo de restauración. La propiedad *ErrorDetails* tendrá la información necesaria para volver a compilar la máquina virtual.
+Los detalles de la operación de restauración se pueden obtener con el commandlet **AzureRMBackupJobDetails Get** una vez finalizado el trabajo de restauración. La propiedad *ErrorDetails* tendrá la información necesaria para volver a compilar la máquina virtual.
 
 ```
 PS C:\> $restorejob = Get-AzureRMBackupJob -Job $restorejob
@@ -234,4 +231,4 @@ Para obtener más información sobre cómo compilar una máquina virtual a parti
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

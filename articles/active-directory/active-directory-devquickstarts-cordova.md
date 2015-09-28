@@ -255,6 +255,5 @@ Como referencia, aquí puede ver el ejemplo finalizado (sin sus valores de confi
 [Protección de una API Web Node.js con Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

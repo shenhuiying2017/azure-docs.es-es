@@ -8,24 +8,26 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # Creación de un entorno del Servicio de aplicaciones #
 
 Los entornos del Servicio de aplicaciones (ASE) son una opción del servicio Premium del Servicio de aplicaciones de Azure que se encuentra actualmente en vista previa. Ofrece una capacidad de configuración mejorada que no está disponible en las marcas multiempresa. Para comprender mejor las capacidades ofrecidas por los entornos del Servicio de aplicaciones lea la [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE].
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ### Información general ###
 
 La característica de ASE esencialmente implementa el Servicio de aplicaciones de Azure en la red virtual de un cliente. Para ello, el cliente necesita:
 
-- Una red virtual regional con 512 (/23) direcciones o más
-- Una subred en esta red virtual con 256 (/ 24) direcciones o más
+- Una red virtual regional clásica "v1" con 512 (/23) direcciones o más
+- Una subred de esta red virtual con 8 (/ 29) direcciones o más
 - La subred ** no debe contener otros recursos informáticos**. Solo se puede implementar un entorno del Servicio de aplicaciones en una subred. El intento de creación dará error si hay otros recursos informáticos que ya residan en la subred.
 
 Si aún no tiene una red virtual que desea usar para hospedar el entorno del Servicio de aplicaciones, puede crear una durante la creación del entorno del Servicio de aplicaciones.
@@ -72,7 +74,7 @@ El precio de los entornos del Servicio de aplicaciones está en contra de los re
 
 
 ### Creación de una red virtual ###
-Aunque existe la capacidad de creación rápida que creará automáticamente una nueva red virtual, la característica también admite la selección de una red virtual existente y la creación manual de una red virtual. Puede seleccionar una red virtual existente si es lo suficientemente grande como para admitir la implementación de un entorno del Servicio de aplicaciones. La red virtual debe tener 512 direcciones o más. Si selecciona una red virtual que ya existía también tendrá que especificar una subred para usar o crear una nuevo. La subred debe tener 256 direcciones o más.
+Aunque existe la capacidad de creación rápida que creará automáticamente una nueva red virtual, la característica también admite la selección de una red virtual existente y la creación manual de una red virtual. Puede seleccionar una red virtual existente (por el momento solo se admiten redes virtuales "v1") si es lo suficientemente grande como para admitir la implementación de un entorno del Servicio de aplicaciones. La red virtual debe tener 512 direcciones o más. Si selecciona una red virtual que ya existía también tendrá que especificar una subred para usar o crear una nuevo. La subred debe tener 8 direcciones o más.
 
 Si usa la IU de creación de red virtual, tiene que proporcionar lo siguiente:
 
@@ -143,4 +145,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

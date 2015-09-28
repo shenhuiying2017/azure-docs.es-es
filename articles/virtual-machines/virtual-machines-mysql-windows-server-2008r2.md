@@ -3,7 +3,7 @@
 	description="Cree una máquina virtual de Azure que ejecute Windows Server 2012 R2 y, a continuación, instale y configure la base de datos MySQL en ella."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 # Instalación de MySQL en una máquina virtual que ejecuta Windows Server 2012 R2 en Azure
@@ -34,7 +34,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 ## Creación de una máquina virtual que ejecuta Windows Server
 
-[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowsvm.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Acoplamiento de un disco de datos
 
@@ -128,4 +128,4 @@ Para probar la conexión remota con el servicio de MySQL Server que se ejecuta e
 
 Para obtener más información sobre MySQL, consulte la [Documentación de MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

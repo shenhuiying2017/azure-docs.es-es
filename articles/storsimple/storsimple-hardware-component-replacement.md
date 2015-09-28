@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Reemplazo de los componentes de hardware de StorSimple | Microsoft Azure"
-	description="Describe cómo reemplazar de forma segura los PCM, la batería, los módulos de controladores, los controladores EBOD, las unidades de disco y el chasis de un dispositivo de StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Describe cómo reemplazar de forma segura los PCM, la batería, los módulos de controladores, los controladores EBOD, las unidades de disco y el chasis de un dispositivo de StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Reemplazo de los componentes de hardware de StorSimple
 
@@ -142,4 +142,4 @@ Las siguientes unidades reemplazables en campo (FRU) están disponibles para el 
 
 Revise toda [la información de seguridad](storsimple-safety.md) antes de intentar reemplazar un componente de hardware de StorSimple.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,30 +1,34 @@
 <properties 
-	pageTitle="Introducción al entorno del Servicio de aplicaciones"
-	description="Obtenga información sobre la característica de entorno del Servicio de aplicaciones que proporciona unidades de escalado dedicadas y seguras unidas en redes virtuales para ejecutar todas sus aplicaciones."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Introducción al entorno del Servicio de aplicaciones" 
+	description="Obtenga información sobre la característica de entorno del Servicio de aplicaciones que proporciona unidades de escalado dedicadas y seguras unidas en redes virtuales para ejecutar todas sus aplicaciones." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # Introducción al entorno del Servicio de aplicaciones
 
 ## Información general ##
 Un entorno del Servicio de aplicaciones es una opción de plan de servicio [Premium][PremiumTier] del Servicio de aplicaciones de Azure que proporciona un entorno plenamente aislado y dedicado para ejecutar de forma segura todas las aplicaciones. Esto incluye las [Aplicaciones web][WebApps], [Aplicaciones móviles][MobileApps], [Aplicaciones de API][APIApps] y [Aplicaciones lógicas][LogicApps] con opciones de escalado ampliadas.
 
-Los recursos de proceso de un entorno del Servicio de aplicaciones se dedican exclusivamente a ejecutar sus aplicaciones. Un entorno de este tipo se crea siempre en una red virtual regional, lo que ofrece a las aplicaciones nuevas opciones para el aislamiento de red. Además, un entorno del Servicio de aplicaciones admite opciones de escalado adicionales, con hasta cincuenta (50) recursos de proceso disponibles para ejecutar las aplicaciones. Fuera de un entorno del Servicio de aplicaciones hay un límite de 20 recursos de proceso para hospedar las aplicaciones.
+Los recursos de proceso de un entorno del Servicio de aplicaciones se dedican exclusivamente a ejecutar sus aplicaciones. Un entorno de este tipo se crea siempre en una red virtual regional clásica "v1", lo que ofrece a las aplicaciones nuevas opciones para el aislamiento de red. Además, un entorno del Servicio de aplicaciones admite opciones de escalado adicionales, con hasta cincuenta (50) recursos de proceso disponibles para ejecutar las aplicaciones. Fuera de un entorno del Servicio de aplicaciones hay un límite de 20 recursos de proceso para hospedar las aplicaciones.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Compatibilidad con redes virtuales ##
-Un entorno del Servicio de aplicaciones puede crearse en una red virtual regional existente o bien en una nueva ([más información sobre redes virtuales][MoreInfoOnVirtualNetworks]). Puesto que los entornos de este tipo residen siempre en una red virtual regional y, más concretamente, en una subred de una red virtual regional, puede aprovechar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes.
+Un entorno del Servicio de aplicaciones puede crearse en una red virtual regional clásica "v1" existente o bien en una nueva red virtual regional clásica "v1" ([más información sobre redes virtuales][MoreInfoOnVirtualNetworks]). Puesto que los entornos de este tipo residen siempre en una red virtual regional y, más concretamente, en una subred de una red virtual regional, puede aprovechar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes.
+
+**Nota:** no se puede crear un entorno del Servicio de aplicaciones en una red virtual "v2".
 
 Puede usar [grupos de seguridad de red][NetworkSecurityGroups] para restringir las comunicaciones de red entrantes a la subred donde reside el entorno del Servicio de aplicaciones. Esto le permite ejecutar aplicaciones tras dispositivos y servicios ascendentes, como firewalls de aplicaciones web y proveedores de SaaS de red.
 
@@ -50,9 +54,9 @@ Para empezar a trabajar con los entornos del Servicio de aplicaciones, vea [Crea
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure][AzureAppService].
 
-Para obtener información general sobre la arquitectura de red del Entorno del Servicio de aplicaciones, consulte el artículo [Información general sobre la arquitectura de red][NetworkArchitectureOverview].
+Para obtener información general sobre la arquitectura de red del Entorno del Servicio de aplicaciones, vea el artículo [Información general sobre la arquitectura de red][NetworkArchitectureOverview].
 
-Para obtener información detallada sobre el uso de un entorno del Servicio de aplicaciones con ExpressRoute, consulte el siguiente artículo sobre [ExpressRoute y los entornos del Servicio de aplicaciones][NetworkConfigDetailsForExpressRoute].
+Para obtener información detallada sobre el uso de un entorno del Servicio de aplicaciones con ExpressRoute, vea el siguiente artículo sobre [ExpressRoute y los entornos del Servicio de aplicaciones][NetworkConfigDetailsForExpressRoute].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -79,4 +83,4 @@ Para obtener información detallada sobre el uso de un entorno del Servicio de a
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

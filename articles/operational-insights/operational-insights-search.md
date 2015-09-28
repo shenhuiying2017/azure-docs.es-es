@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Búsqueda de datos en Visión operativa
@@ -451,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 Si está familiarizado con Microsoft System Center Operations Manager, puede considerar el comando where en términos de módulo de administración. Si el ejemplo fuera una regla, la primera parte de la consulta sería el origen de datos y el comando where sería la detección de condición.
 
-Puede usar la consulta como icono en **Mi panel**, como monitor de ordenaciones, para ver cuándo las CPU de equipo se sobreutilizan. Para obtener más información sobre los panales, consulte [Paneles de Visión operativa](operational-insights-use-dashboards). También puede crear y usar paneles mediante la aplicación móvil. Para obtener más información, consulte [Aplicación móvil de Visión operativa de Azure ](http://www.windowsphone.com/es-es/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). En los dos iconos inferiores de la siguiente imagen, puede ver que el monitor se muestra como una lista y como un número. Básicamente, desea siempre que el número sea cero y la lista esté vacía. De lo contrario, indica una condición de alerta. Si es necesario, puede usarlo para ver qué máquinas están bajo presión.
+Puede usar la consulta como icono en **Mi panel**, como monitor de ordenaciones, para ver cuándo las CPU de equipo se sobreutilizan. Para obtener más información sobre los panales, consulte [Paneles de Visión operativa](operational-insights-use-dashboards). También puede crear y usar paneles mediante la aplicación móvil. Para obtener más información, consulte [Aplicación móvil de Visión operativa de Azure ](http://www.windowsphone.com/es-ES/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). En los dos iconos inferiores de la siguiente imagen, puede ver que el monitor se muestra como una lista y como un número. Básicamente, desea siempre que el número sea cero y la lista esté vacía. De lo contrario, indica una condición de alerta. Si es necesario, puede usarlo para ver qué máquinas están bajo presión.
 
 ![mobile dashboard](./media/operational-insights-search/search-mobile.png)
 
@@ -615,7 +615,7 @@ Puede encadenar los operadores matemáticos Date/Time juntos, por ejemplo:
 En la tabla siguiente se enumeran las unidades de fecha y hora compatibles.
 
 Unidad Date/Time|Descripción
----|--- 
+---|---
 AÑO, AÑOS|Redondea al año actual, o desplaza el número especificado de años.
 MES, MESES|Redondea al mes actual, o desplaza el número especificado de meses.
 DÍA, DÍAS, FECHA|Redondea al día actual del mes, o desplaza el número especificado de días.
@@ -2049,4 +2049,4 @@ Al usar Buscar para buscar datos, los resultados muestran varios campos y faceta
 ## Otros recursos:
 Stefan Roth creó una práctica hoja de referencia sobre búsqueda. Visite su [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) para obtener más información y descargar su hoja de referencia.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

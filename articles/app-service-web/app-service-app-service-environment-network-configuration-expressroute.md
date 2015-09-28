@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Detalles de configuración de red para trabajar con ExpressRoute"
-	description="Detalles de configuración de red para ejecutar entornos del Servicio de aplicaciones en las redes virtuales conectadas a un circuito de ExpressRoute."
-	services="app-service\web"
-	documentationCenter=""
-	authors="stefsch"
-	manager="nirma"
+	pageTitle="Detalles de configuración de red para trabajar con ExpressRoute" 
+	description="Detalles de configuración de red para ejecutar entornos del Servicio de aplicaciones en las redes virtuales conectadas a un circuito de ExpressRoute." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="stefsch" 
+	manager="nirma" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="stefsch"/>
 
 # Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute 
@@ -21,20 +21,25 @@
 ## Información general ##
 Los clientes pueden conectar un circuito de [Azure ExpressRoute][ExpressRoute] a su infraestructura de red virtual, lo que permite ampliar la red local a Azure. Se puede crear un entorno del Servicio de aplicaciones en una subred de esta infraestructura de [red virtual][virtualnetwork]. Las aplicaciones que se ejecutan en el entorno del Servicio de aplicaciones pueden establecer conexiones seguras con los recursos backend a los que solo se puede tener acceso través de la conexión ExpressRoute.
 
+**Nota:** no se puede crear un entorno del Servicio de aplicaciones en una red virtual "v2". Sin embargo, los entornos del Servicio de aplicaciones solo funcionan actualmente con las redes virtuales clásicas "v1".
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Conectividad de red necesaria ##
 Existen requisitos de conectividad de red para entornos del Servicio de aplicaciones que no pueden cumplirse inicialmente en una red virtual conectada a ExpressRoute.
 
 Los entornos del Servicio de aplicaciones requieren todas las opciones siguientes para funcionar correctamente:
 
 
--  Conectividad de red saliente a los recursos de Almacenamiento de Azure y Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Esta ruta de acceso de red no puede atravesar servidores proxy corporativos internos porque, al hacerlo, probablemente cambiará la dirección NAT efectiva del tráfico de red de salida. Al cambiar la dirección NAT del tráfico de red de salida de un entorno del Servicio de aplicaciones dirigido a los extremos de Almacenamiento de Azure y Base de datos SQL, se producirán errores de conectividad.
+-  Conectividad de red saliente a los recursos de Almacenamiento de Azure en todo el mundo y Base de datos SQL ubicados en la misma región que el entorno del Servicio de aplicaciones. Esta ruta de acceso de red no puede atravesar servidores proxy corporativos internos porque, al hacerlo, probablemente cambiará la dirección NAT efectiva del tráfico de red de salida. Al cambiar la dirección NAT del tráfico de red de salida de un entorno del Servicio de aplicaciones dirigido a los extremos de Almacenamiento de Azure y Base de datos SQL, se producirán errores de conectividad.
 -  La configuración DNS para la red virtual debe ser capaz de resolver extremos en los siguientes dominios controlados de Azure: **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*.
 -  La configuración DNS para la red virtual debe permanecer estable siempre que se creen entornos del Servicio de aplicaciones, así como durante la reconfiguración y los cambios de escala de los entornos del Servicio de aplicaciones.   
--  El acceso de red entrante a los puertos necesarios para los entornos del Servicio de aplicaciones debe permitirse, tal como se describe en este [artículo][requiredports].
+-  Si existe un servidor DNS personalizado en el otro extremo de una puerta de enlace de VPN, el servidor DNS debe estar accesible y disponible. 
+-  El acceso de red entrante a los puertos necesarios para los entornos del Servicio de aplicaciones debe estar permitido, como se describe en este [artículo][requiredports].
 
 El requisito de DNS puede cumplirse al garantizar una configuración DNS válida para la red virtual.
 
-Se pueden cumplir los requisitos de acceso de red entrante mediante la configuración de un [grupo de seguridad de red][NetworkSecurityGroups] en la subred del entorno de Servicio de aplicaciones, tal como se describe en este [artículo][requiredports].
+Se pueden cumplir los requisitos de acceso de red entrante mediante la configuración de un [grupo de seguridad de red][NetworkSecurityGroups] en la subred del entorno del Servicio de aplicaciones, como se describe en este [artículo][requiredports].
 
 ## Habilitar la conectividad de red saliente para un entorno del Servicio de aplicaciones##
 De forma predeterminada, un circuito de ExpressRoute recién creado anuncia una ruta predeterminada que permite la conectividad saliente de Internet. Con esta configuración, un entorno del Servicio de aplicaciones podrá conectarse a otros extremos de Azure.
@@ -51,7 +56,7 @@ Los detalles sobre cómo crear y configurar las rutas definidas por el usuario e
 
 **Requisitos previos**
 
-1. Instale la versión más reciente de Azure PowerShell desde la página [Descargas de Azure][AzureDownloads] (fecha: junio de 2015 o posterior). En "Herramientas de línea de comandos" hay un vínculo "Instalar" en "Windows Powershell" que instalará los cmdlets más recientes de PowerShell.
+1. Instale la versión más reciente de Azure PowerShell desde la [página Descargas de Azure][AzureDownloads] (fecha: junio de 2015 o posterior). En "Herramientas de línea de comandos" hay un vínculo "Instalar" en "Windows Powershell" que instalará los cmdlets más recientes de PowerShell.
 
 2. Se recomienda crear una única subred para que el entorno del Servicio de aplicaciones lo utilice de manera exclusiva. Esto garantiza que las rutas definidas por el usuario aplicadas a la subred solo abrirán el tráfico saliente para el entorno del Servicio de aplicaciones.
 3. **Importante**: no implemente el entorno del Servicio de aplicaciones hasta **después** de haber completado los siguientes pasos de configuración. Esto garantiza que la conectividad de red saliente esté disponible antes de intentar implementar un entorno del Servicio de aplicaciones.
@@ -77,9 +82,9 @@ Necesitará agregar una o varias rutas a la tabla de ruta para habilitar el acce
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
 
 
-Para obtener una lista completa y actualizada de los intervalos CIDR que Azure usa, puede descargar un archivo XML que contiene todos los intervalos en el [Centro de descarga de Microsoft][DownloadCenterAddressRanges]
+Para obtener una lista completa y actualizada de los intervalos CIDR que usa Azure, puede descargar un archivo XML que contiene todos los intervalos en el [Centro de descarga de Microsoft][DownloadCenterAddressRanges].
 
-**Nota:** en algún momento, un intervalo CIDR abreviado de 0.0.0.0/0 estará disponible para utilizarse en el parámetro *AddressPrefix*. Esta forma abreviada equivale a "todas las direcciones de Internet". Por ahora, los desarrolladores necesitarán usar un amplio conjunto de intervalos CIDR suficientes para cubrir todos los intervalos de direcciones de Azure posibles utilizados en la región en que se ha implementado el entorno del Servicio de aplicaciones.
+**Nota:** en un momento dado, estará disponible un intervalo CIDR abreviado de 0.0.0.0/0 utilizarse en el parámetro *AddressPrefix*. Esta forma abreviada equivale a "todas las direcciones de Internet". Por ahora, los desarrolladores necesitarán usar un amplio conjunto de intervalos CIDR suficientes para cubrir todos los intervalos de direcciones posibles de Azure.
 
 **Paso 3: Asociar la tabla de ruta a la subred que contiene el entorno del Servicio de aplicaciones**
 
@@ -96,11 +101,11 @@ Una vez que la tabla de ruta está enlazada a la subred, se recomienda que prime
 - El tráfico saliente a los extremos de Azure no fluye hacia abajo en el circuito de ExpressRoute.
 - Las búsquedas DNS para los extremos de Azure se resuelven correctamente. 
 
-Tras haber confirmado los pasos anteriores, puede continuar con la creación de un entorno del Servicio de aplicaciones.
+Tras haber confirmado los pasos anteriores, puede eliminar la máquina virtual y después continuar con la creación de un entorno del Servicio de aplicaciones.
 
 ## Introducción
 
-Para empezar a trabajar con los entornos del Servicio de aplicaciones, consulte [Introducción al entorno del Servicio de aplicaciones][IntroToAppServiceEnvironment]
+Para empezar a trabajar con los entornos del Servicio de aplicaciones, vea [Introducción al entorno del Servicio de aplicaciones][IntroToAppServiceEnvironment].
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure][AzureAppService].
 
@@ -121,4 +126,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

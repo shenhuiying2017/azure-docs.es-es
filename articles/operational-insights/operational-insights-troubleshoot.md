@@ -12,58 +12,116 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
-#Solución de problemas de Operational Insights
+# Solución de problemas de Operational Insights
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
 Puede usar la información de las siguientes secciones para ayudarle a resolver problemas. Si el problema que tiene no se describe en este artículo, puede probar con el [blog del equipo de Visión operativa](http://blogs.technet.com/b/momteam/archive/2014/05/29/advisor-error-3000-unable-to-register-to-the-advisor-service-amp-onboarding-troubleshooting-steps.aspx).
 
-## Diagnóstico de problemas de conexión en Operational Insights
+## Solucionar problemas de permisos con la evaluación de SQL
+Operations Management Suite (OMS) usa los grupos de administración de Microsoft Monitoring Agent y Operations Manager para recopilar y enviar datos al servicio OMS. Determinadas cargas de trabajo requieren privilegios específicos de carga de trabajo para ejecutar colecciones de datos en un contexto de seguridad diferente como, por ejemplo, una cuenta de dominio. Si Microsoft Monitoring Agent se conecta a través de System Center Operations Manager y se experimentan problemas con los permisos al recopilar datos, habrá que proporcionar información de credenciales mediante la configuración de una cuenta de ejecución.
 
-Como Microsoft Azure Operational Insights se basa en los datos que se mueven a y desde la nube, los problemas de conexión pueden ser enormes. Use la siguiente información para comprender y resolver los problemas de conexión.
+Si ya usa el módulo de administración de SQL Server, debe utilizar esa cuenta de Windows como cuenta de ejecución.
 
+### Para configurar la cuenta de ejecución de SQL en la consola de Operations, siga estos pasos:
 
-**Mensaje de error:** se comprobó la conectividad de Internet, pero no se pudo establecer conexión con el servicio Visión operativa. Inténtelo de nuevo más tarde.
+1. En Operations Manager, abra la Consola del operador y haga clic en **Administración**.
 
-**Causas posibles:** -El servicio Visión operativa está en mantenimiento. Espere a que termine el mantenimiento de Visión operativa. -La red bloqueó el servicio Visión operativa. Póngase en contacto con su administrador de red y solicite acceso a Operational Insights, o use otro servidor como puerta de enlace.
+2. En **Configuración de ejecución**, haga clic en **Perfiles** y abra el **Perfil de identificación de Microsoft System Center Advisor**.
 
-**Mensaje de error:** no se pudo establecer la conexión a Internet. Compruebe la configuración de proxy.
+3. En la página **Cuentas de ejecución**, haga clic en **Agregar**.
 
-**Causas posibles:** - Este servidor no está conectado a Internet. Compruebe el estado de conectividad de Internet y conecte el servidor a Internet. - La configuración del proxy no es correcta. Vea [Configuración del proxy y el firewall](operational-insights-proxy-firewall.md) para obtener información sobre cómo configurar o cambiar la configuración del proxy. - El servidor proxy requiere autenticación. Consulte [Configuración del proxy y el firewall](operational-insights-proxy-firewall.md) para obtener información sobre cómo configurar Operations Manager para usar un servidor proxy.
+4. Seleccione una cuenta de ejecución de Windows que contenga las credenciales necesarias para SQL Server o haga clic en **Nuevo** para crear una.
 
+    >[AZURE.NOTE]El tipo de cuenta de ejecución debe ser Windows. La cuenta de ejecución también debe ser parte del grupo de administradores locales en todos los servidores de Windows que hospedan instancias de SQL Server.
 
-## Solución de problemas de detección de SQL Server
+5. Haga clic en **Guardar**.
 
-Si ejecuta Microsoft SQL Server 2008 R2 y, a pesar de implementar el agente Operations Manager, no ve alertas para este servidor, puede que tenga un problema de detección.
+6. Modifique y luego ejecute el siguiente ejemplo de T-SQL en cada instancia de SQL Server para conceder los permisos mínimos que necesita la cuenta de ejecución para realizar la evaluación de SQL. Sin embargo, este paso no es necesario si una cuenta de ejecución ya forma parte del rol de servidor sysadmin en las instancias de SQL Server.
 
-Para confirmar si este es el origen de su problema, compruebe los dos siguientes problemas:
+```
+---
+    -- Replace <UserName> with the actual user name being used as Run As Account.
+    USE master
 
-- En el registro de eventos de Operations Manager, se muestra el Id. de evento 4001. Este evento indica que hay una clase no válida.
+    -- Create login for the user, comment this line if login is already created.
+    CREATE LOGIN [<UserName>] FROM WINDOWS
 
-- En el Administrador de configuración de SQL Server, cuando ve los servicios de SQL Server, se muestra el mensaje de error: “Error en la llamada a procedimiento remoto. [0x0800706be]”
+    -- Grant permissions to user.
+    GRANT VIEW SERVER STATE TO [<UserName>]
+    GRANT VIEW ANY DEFINITION TO [<UserName>]
+    GRANT VIEW ANY DATABASE TO [<UserName>]
 
-Si ambos problemas se dan, deberá instalar SQL Server 2008 R2 Service Pack 2. Para descargar este Service Pack, vea [SQL Server 2008 R2 Service Pack 2](http://go.microsoft.com/fwlink/?LinkId=271310) en el Centro de descarga de Microsoft.
+    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
+    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
+    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
 
-Después de instalar el Service Pack, debería ver datos de Operational Insights para el servidor al cabo de 24 horas.
-
-## Solucione problemas de flujo de Operations Manager o agentes a Visión operativa
-
-El siguiente conjunto de procedimientos sirve como guía para ayudar a solucionar problemas con las implementaciones de Operations Manager o los agentes con conexión directa configuradas para informar datos a Visión operativa de Azure.
-
-### Procedimiento 1: Validar que los módulos de administración correctos se descargaron en el entorno de Operations Manager
->[AZURE.NOTE]Si solo usa Direct Agent, puede pasar al siguiente procedimiento.
-
-En función de las soluciones (anteriormente llamadas paquetes de inteligencia) que habilite en el Portal de OpInsights verá mayor o menor cantidad de estos módulos de administración. Busque la palabra clave "Advisor" o "Intelligence" en el nombre. Puede buscar estos módulos de administración con PowerShell de Operations Manager:
-
-```Powershell
-Get-SCOMManagementPack | where {$_.DisplayName -match 'Advisor'} | Select Name,Sealed,Version
-Get-SCOMManagementPack | where {$_.Name -match 'IntelligencePacks'} | Select Name,Sealed,Version
 ```
 
->[AZURE.NOTE]Si soluciona problemas con la solución de capacidad, compruebe *cuántos* módulos de administración tiene con la palabra ’capacity’ en el nombre: existen dos módulos de administración con el mismo nombre para mostrar (pero con un identificador interno distinto) que vienen en el mismo paquete de módulos de administración; si no es posible importar alguno de los dos (a menudo debido a una dependencia de VMM que falta), el otro módulo de administración no se importa y la operación no se vuelve a intentar.
+### To configure the SQL Run As account using Windows PowerShell
+Alternatively, you can use the following PowerShell script to set the SQL Run As account. Open a PowerShell window and run the following script after you’ve updated it with your information:
+
+```
+
+    import-module OperationsManager
+    New-SCOMManagementGroupConnection "<your management group name>"
+     
+    $profile = Get-SCOMRunAsProfile -DisplayName "Operational Insights SQL Assessment Run As Profile"
+    $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
+    Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
+```
+After the PowerShell Script finishes executing, perform the T-SQL commands provided above.
+
+## Diagnose connection issues for Operational Insights
+
+Because Microsoft Azure Operational Insights relies on data that is moved to and from the cloud, connection issues can be crippling. Use the following information to understand and solve your connection issues.
+
+
+**Error message:** The Internet connectivity was verified, but connection to Operational Insights service could not be established. Please try again later.
+
+**Possible causes:**
+- The Operational Insights service is under maintenance. Wait until the Operational Insights maintenance is done.
+- Your network has blocked Operational Insights. Contact your network administrator and request access to Operational Insights, or use another server as your gateway.
+
+**Error message:** Internet connection could not be established. Please check your proxy settings.
+
+**Possible causes:**
+- This server is not connected to the Internet. Check the Internet connectivity status, and connect the server to the Internet.
+- The proxy setting is not correct. See [Configure proxy and firewall settings](operational-insights-proxy-firewall.md) for information about how to set or change your proxy settings.
+- The proxy server requires authentication. See [Configure proxy and firewall settings](operational-insights-proxy-firewall.md) to learn about how to configure Operations Manager to use a proxy server.
+
+
+## Troubleshoot SQL Server discovery
+
+If you are running Microsoft SQL Server 2008 R2, and despite deploying the Operations Manager agent, you do not see alerts for this server, you might have a discovery issue.
+
+To confirm if this is the source of your trouble, check for the following two issues:
+
+- In the Operations Manager event log, you see Event ID 4001. This event indicates that there is an invalid class.
+
+- In SQL Server Configuration Manager, when you view SQL Server Services, you see the error message, “The remote procedure call failed. [0x0800706be]”
+
+If both issues are true, you need to install SQL Server 2008 R2 Service Pack 2. To download this service pack, see [SQL Server 2008 R2 Service Pack 2](http://go.microsoft.com/fwlink/?LinkId=271310) in the Microsoft Download Center.
+
+After you install the service pack, you should see Operational Insights data for the server within 24 hours.
+
+## Troubleshoot agents or Operations Manager data flow to Operational Insights
+
+The following set of procedures is meant as a guide to help you troubleshoot your directly-connected agents or Operations Manager deployments configured to report data to Azure Operational Insights.
+
+### Procedure 1: Validate if the right Management Packs get downloaded to your Operations Manager Environment
+>[AZURE.NOTE] If you only use Direct Agent, you can skip to the next procedure.
+
+Depending on which solutions (previously called intelligence packs) you have enabled from the OpInsights Portal will you see more or less of these MPs. Search for keyword ‘Advisor’ or ‘Intelligence’ in their name.
+You can check for these MPs using OpsMgr PowerShell:
+
+```Powershell
+Get-SCOMManagementPack | donde {$\_.DisplayName -match 'Advisor'} | Seleccionar Name,Sealed,Version Obtener -SCOMManagementPack | donde {$\_.Name -match 'IntelligencePacks'} | Seleccionar Name,Sealed,Version ```
+
+>[AZURE.NOTE]Si soluciona problemas con la solución de capacidad, compruebe *cuántos* módulos de administración tiene con la palabra ’capacity’ en el nombre: existen dos módulos de administración con el mismo nombre para mostrar (pero con distintos identificadores internos) que vienen en el mismo paquete de módulos de administración; si no es posible importar alguno de los dos (a menudo debido a una dependencia de VMM que falta), el otro módulo de administración no se importa y la operación no se vuelve a intentar.
 
 Debe ver los tres módulos de administración siguientes relacionados con 'capacity' - Microsoft System Center Advisor Capacity Intelligence Pack - Microsoft System Center Advisor Capacity Intelligence Pack - Microsoft System Center Advisor Capacity Storage Data
 
@@ -72,7 +130,7 @@ Si solo ve uno o dos de ellos, pero no los tres, quítelo y espere entre cinco y
 ### Procedimiento 2: Validar que las soluciones correctas se descargaron en Direct Agent
 >[AZURE.NOTE]Si solo usa Operations Manager, puede omitir este procedimiento.
 
-En Direct Agent, debe ver la directiva de colección de soluciones que se almacenan en caché en **C:\\Archivos de programa\\Microsoft Monitoring Agent\\Agent\\Health Service State\\Management Packs**
+En Direct Agent, debe ver la directiva de colección de soluciones que se almacena en caché en **C:\\Archivos de programa\\Microsoft Monitoring Agent\\Agent\\Health Service State\\Management Packs**
 
 
 ### Procedimiento 3: Validar que se enviaron datos al servicio Advisor (o que se intentó hacerlo)
@@ -85,9 +143,9 @@ Dependiendo de si usa Operations Manager o agentes con conexión directa, puede 
 Si todo está configurado correctamente, debe ver actividad en estos contadores, a medida que se cargan eventos y otros elementos de datos (según las soluciones incorporadas al portal y la directiva de colección de registros configurada). Esos contadores no necesariamente deben estar continuamente ocupados: si ve poca o nula actividad, es posible que no esté incorporado a muchas soluciones o que tenga una directiva de colección ligera.
 
 ### Procedimiento 4: Comprobar si hay errores en los registros de eventos del servidor de administración o de Direct Agent
-Como paso final si ninguno de los pasos anteriores se ejecuta correctamente y sigue sin ver datos recibidos por el servicio, compruebe si ve algún error en el **Visor de eventos**.
+Como paso final, si ninguno de los pasos anteriores funciona y sigue sin ver datos recibidos por el servicio, revise si ve algún error en el **Visor de eventos**.
 
-Abra **Visor de eventos** –> **Aplicaciones y servicios** –> **Operations Manager** y filtre por orígenes de eventos: **Advisor**, **Módulos de servicio de mantenimiento **, **HealthService** y **Conector de servicios** (esta última solo se aplica Direct Agent).
+Abra **Visor de eventos** –> **Aplicaciones y servicios** –> **Operations Manager** y filtre por orígenes de eventos: **Advisor**, **Módulos de servicio de mantenimiento **, **HealthService** y **Conector de servicios** (este último solo se aplica a Direct Agent).
 
 La mayoría de estos eventos sería similar en Operations Manager y en Direct Agent y los pasos para solucionar problemas también serían similares. Lo único que difiere entre Operations Manager y Direct Agent es el proceso de registro (GUI en Operations Manager, combinación de identificador/clave de área de trabajo en Direct Agent) pero, después del registro inicial, los certificados que se intercambian y usan y todo lo relacionado con la comunicación con el servicio es igual.
 
@@ -104,7 +162,7 @@ Operations Manager no puede leer el certificado de autenticación. Volver a ejec
 Significa **No autorizado**. Podría tratarse de un problema con el certificado y/o el registro en el servicio; intente volver a ejecutar el asistente de registro que corregirá los certificados y las cuentas RunAs. Además, compruebe que el proxy está definido para permitir exclusiones. Para obtener más información, vea [Configuración de servidores proxy](https://msdn.microsoft.com/library/azure/dn884643.aspx).
 
 ##### Id. de evento 2129
-Esta es una conexión con errores debido a una negociación SSL errónea. Compruebe que los sistemas están configurados para usar TLS y no SSL. Podría haber algunos ajustes SSL extraños en este servidor respecto de los cifrados, ya sea en las opciones **Avanzadas** de Internet Explorer o en el Registro de Windows bajo la clave.
+Esta es una conexión con errores debido a una negociación SSL errónea. Compruebe que los sistemas están configurados para usar TLS y no SSL. Puede que haya algunos ajustes SSL extraños en este servidor con respecto a los cifrados, ya sea en las opciones **Avanzadas** de Internet Explorer o en la clave del Registro de Windows.
 
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL
 
@@ -127,22 +185,22 @@ Tiempo de espera. Al igual que ocurre con el evento anterior, podría indicar qu
 No se puede cargar el módulo "System.PublishDataToEndPoint": no se encuentra el archivo. Error de inicialización de un módulo de tipo "System.PublishDataToEndPoint" (CLSID "{D407D659-65E4-4476-BF40-924E56841465}") con el código de error El sistema no encuentra el archivo especificado. Este error indica que tiene DLL antiguas en su equipo, las que no contienen los módulos requeridos. Para corregir este error, actualice los servidores de administración al paquete acumulativo de actualizaciones más reciente.
 
 ##### Id. de evento 4502
-Bloqueo de módulo. Si ve este error en flujos de trabajo con nombres como **CollectInstanceSpace** o **CollectTypeSpace**, puede indicar que el servidor tiene problemas para enviar ciertos datos de configuración. Podría indicar que se trata de un problema o no, dependiendo de la frecuencia con que se produce: de manera constante o "de vez en cuando". Si se produce con una frecuencia mayor a una hora, definitivamente se trata de un problema. Si esta operación presenta un error solo una o dos veces al día, no existen problemas para que se realice una recuperación. Según la manera en que el módulo realmente presenta el error (la descripción mostrará más detalles), podría tratarse de un problema local (es decir, para coleccionar en la base de datos) o un problema en el envío a la nube. Compruebe la configuración de la red y del proxy y, en el peor de los casos, intente reiniciar el Servicio de mantenimiento.
+Bloqueo de módulo. Si este error aparece en flujos de trabajo con nombres tales como **CollectInstanceSpace** o **CollectTypeSpace**, puede indicar que el servidor tiene problemas para enviar algunos datos de configuración. Podría indicar que se trata de un problema o no, dependiendo de la frecuencia con que se produce: de manera constante o "de vez en cuando". Si se produce con una frecuencia mayor a una hora, definitivamente se trata de un problema. Si esta operación presenta un error solo una o dos veces al día, no existen problemas para que se realice una recuperación. Según la manera en que el módulo realmente presenta el error (la descripción mostrará más detalles), podría tratarse de un problema local (es decir, para coleccionar en la base de datos) o un problema en el envío a la nube. Compruebe la configuración de la red y del proxy y, en el peor de los casos, intente reiniciar el Servicio de mantenimiento.
 
 ##### Id. de evento 4501
-Bloqueo del módulo "System.PublishDataToEndPoint". Un módulo del tipo "System.PublishDataToEndPoint" informó de un error 87L que se ejecutaba como parte de la regla "Microsoft.SystemCenter.CollectAlertChangeDataToCloud" en ejecución para la instancia "Grupo de administración de Operations Manager" con el identificador:"{6B1D1BE8-EBB4-B425-08DC-2385C5930B04}" en el grupo de administración "SCOMTEST". Ya *no* debería ver esto con este flujo de trabajo, módulo y error exactos; era un [error que *ahora está corregido*](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6714689-alert-management-intelligence-pack-not-sending-ale). Si vuelve a verlo, infórmelo a través del canal de soporte técnico de Microsoft de su preferencia.
+Bloqueo del módulo "System.PublishDataToEndPoint". Un módulo del tipo "System.PublishDataToEndPoint" informó de un error 87L que se ejecutaba como parte de la regla "Microsoft.SystemCenter.CollectAlertChangeDataToCloud" en ejecución para la instancia "Grupo de administración de Operations Manager" con el identificador:"{6B1D1BE8-EBB4-B425-08DC-2385C5930B04}" en el grupo de administración "SCOMTEST". Ya *no* debería verlo con este flujo de trabajo, módulo y error exactos; era un [error que *ahora está corregido*](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6714689-alert-management-intelligence-pack-not-sending-ale). Si vuelve a verlo, infórmelo a través del canal de soporte técnico de Microsoft de su preferencia.
 
 
 ### Evento del "Conector de servicios" de origen
 ##### Id. de evento 4002
-El servicio devolvió un código de estado HTTP 403 en respuesta a una consulta. Compruebe el estado del servicio con el administrador de servicios. La consulta se volverá a intentar más tarde. Puede obtener un código 403 durante la fase de registro inicial del agente, verá una dirección URL como https://<YourWorkspaceID>.oms.opinsights.azure.com/ AgentService.svc/AgentTopologyRequest. El código de error 403 significa "prohibido": normalmente se trata de un WorkspaceId o una clave copiada erróneamente o de que el reloj del equipo no está sincronizado. Intente sincronizar con un origen de hora confiable y use la comprobación de conectividad en el applet del Panel de control para que Microsoft Monitoring Agent compruebe que posee la clave y el identificador de área de trabajo correctos.
+El servicio devolvió un código de estado HTTP 403 en respuesta a una consulta. Compruebe el estado del servicio con el administrador de servicios. La consulta se volverá a intentar más tarde. Puede recibir un código 403 durante la fase de registro inicial del agente; verá una dirección URL como, por ejemplo, https://<YourWorkspaceID>.oms.opinsights.azure.com/ AgentService.svc/AgentTopologyRequest. El código de error 403 significa "Prohibido". Normalmente se trata de una clave o identificador de área de trabajo que se copió de manera incorrecta, o bien el reloj no se encuentra sincronizado con la máquina. Intente sincronizar con un origen de hora confiable y use la comprobación de conectividad en el applet del Panel de control para que Microsoft Monitoring Agent compruebe que posee la clave y el identificador de área de trabajo correctos.
 
 
 ### Procedimiento 5: Comprobar que los agentes envían sus datos y están indexados en el Portal
-Regístrese en el Portal de OpInsights, desde la página Información general, navegue hasta el icono pequeño **Servidores y uso**; este mostrará si los grupos de administración (y sus agentes) y los agentes directos notifican datos en la búsqueda de registros. El número de agentes que aparece en el mosaico deriva de los datos: si las máquinas no informan durante dos semanas, dejarán el radar.
+Regístrese en el Portal de OpInsights, desde la página Información general, navegue hasta el icono pequeño **Servidores y uso**; esto mostrará si los grupos de administración (y sus agentes) y los agentes directos notifican datos en la búsqueda de registros. El número de agentes que aparece en el mosaico deriva de los datos: si las máquinas no informan durante dos semanas, dejarán el radar.
 
 Las exploraciones en profundidad le llevarán a la búsqueda de registros y le mostrarán la marca de tiempo de los últimos datos indexados para cada máquina. Desde ahí puede explorar cuáles son los datos. Dependiendo de la cantidad configurada de recopilaciones de datos y de cuáles sean las soluciones, la programación de carga de datos y la velocidad pueden variar.
 
 Esta página también presenta información de medición (esta no usa el índice de búsqueda de registros, sino el sistema de facturación y se actualiza cada dos horas) sobre las cantidades de datos enviados al servicio desglosado por la solución.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

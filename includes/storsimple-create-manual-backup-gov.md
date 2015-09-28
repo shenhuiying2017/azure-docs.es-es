@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Creación de una copia de seguridad manual
 
@@ -21,4 +22,4 @@
 
   La copia de seguridad debe aparecer en la lista de conjuntos de copia de seguridad que se muestra en el catálogo.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

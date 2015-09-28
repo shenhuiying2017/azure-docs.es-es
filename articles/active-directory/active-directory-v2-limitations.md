@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicaciones v2.0 | Microsoft Azure"
+	pageTitle="Restricciones y limitaciones del modelo de aplicación v2.0 | Microsoft Azure"
 	description="Una lista de limitaciones y restricciones con el modelo de aplicaciones v2.0 de Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Vista previa del modelo de aplicaciones v2.0: limitaciones y restricciones
@@ -29,7 +29,7 @@ Las aplicaciones que se integran con el modelo de aplicaciones v2.0 no se deber�
 Los siguientes tipos de aplicaciones no se admiten actualmente en la vista previa pública del modelo de aplicaciones v2.0. Para obtener una descripción de los tipos de aplicaciones admitidos, consulte [este artículo](active-directory-v2-flows.md).
 
 ##### Aplicaciones de una página (Javascript)
-Muchas aplicaciones modernas tienen una aplicación de una página escrita en front-end, principalmente en javascript, y que usan a menudo marcos SPA como AngularJS, Ember.js, Durandal, etc. El servicio Azure AD, disponible con carácter general, admite estas aplicaciones mediante el [flujo implícito de OAuth 2.0](active-directory-v2-protocols.md#oauth2-implicit-flow); sin embargo, este flujo no está disponible aún en el modelo de aplicaciones v2.0. Lo estará en el corto plazo.
+Muchas aplicaciones modernas tienen una aplicación de una página escrita en front-end, principalmente en javascript, que usa a menudo marcos SPA como AngularJS, Ember.js, Durandal, etc. El servicio Azure AD, disponible con carácter general, admite estas aplicaciones mediante el [flujo implícito de OAuth 2.0](active-directory-v2-protocols.md#oauth2-implicit-flow); sin embargo, este flujo no está disponible aún en el modelo de aplicaciones v2.0. Lo estará en el corto plazo.
 
 Si está impaciente por tener un SPA que funcione con el modelo de aplicaciones v2.0, puede implementar la autenticación mediante el [flujo de la aplicación de servidor web](active-directory-v2-flows.md#web-apps) descrito anteriormente. Sin embargo, este no es el enfoque recomendado y la documentación para este escenario será limitada. Si desea hacerse una idea del escenario SPA, puede consultar el [ejemplo de código SPA de Azure AD, disponible con carácter general](active-directory-devquickstarts-angular.md).
 
@@ -85,4 +85,4 @@ El modelo de aplicaciones v2.0 es compatible con Open ID Connect y OAuth 2.0. Si
 
 Para comprender mejor el alcance de la funcionalidad del protocolo compatible con el modelo de aplicaciones v2.0, lea nuestra [referencia de protocolo OpenID Connect y OAuth 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

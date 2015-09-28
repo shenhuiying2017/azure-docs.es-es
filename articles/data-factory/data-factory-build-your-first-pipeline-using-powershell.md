@@ -103,7 +103,7 @@ Ahora, va a crear un servicio vinculado para un clúster de HDInsight de Azure a
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
@@ -266,4 +266,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Seguridad de Visión operativa
@@ -107,4 +107,4 @@ El servicio de OMS procesa los datos sin procesar y los datos procesados agregad
 
 Puede iniciar sesión en OMS con la cuenta que configuró anteriormente. Todo el tráfico entre OMS y el servicio de OMS se envía por un canal HTTPS seguro.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

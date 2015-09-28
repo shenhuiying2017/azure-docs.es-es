@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Fase 4 de la aplicación de línea de negocio | Microsoft Azure"
-	description="Cree los servidores web y cargue la aplicación de línea de negocio en ellos en la fase 4 de la aplicación de línea de negocio en Azure."
+	pageTitle="Fase 4 de la aplicación de línea de negocio | Microsoft Azure" 
+	description="Cree los servidores web y cargue la aplicación de línea de negocio en ellos en la fase 4 de la aplicación de línea de negocio en Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Fase 4 de la carga de trabajo de aplicación de línea de negocio: Configuración de servidores web
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
 
 En esta fase de la implementación de una aplicación de línea de negocio de alta disponibilidad en servicios de infraestructura de Azure, creará los servidores web y cargará la aplicación de línea de negocio en ellos.
 
@@ -34,7 +36,7 @@ En primer lugar, configure el equilibrio de carga interno para que Azure distrib
 	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
-Si el campo **IsAvailable** en la visualización del comando Test-AzureStaticVNetIP es **True**, puede usar la dirección IP.
+Si el campo **IsAvailable** en la visualización del comando Test-AzureStaticVNetIP es **True**, puede utilizar la dirección IP.
 
 Vuelva a cambiar al modo de Administrador de recursos de PowerShell con este comando.
 
@@ -116,6 +118,8 @@ Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en 
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]Dado que estas máquinas virtuales son para una aplicación de intranet, no se les asigna una dirección IP pública o una etiqueta de nombre de dominio DNS ni se exponen a Internet. Sin embargo, esto significa también que no se puede conectar a ellas desde el Portal de vista previa de Azure. El botón **Conectar** no estará disponible cuando vea las propiedades de la máquina virtual.
+
 Use el cliente de Escritorio remoto que prefiera y cree una conexión de Escritorio remoto para cada máquina virtual de servidor web. Use el DNS de la intranet o el nombre del equipo y las credenciales de la cuenta de administrador local.
 
 Para cada máquina virtual que ejecute SQL Server, únala al dominio de Active Directory adecuado con estos comandos en el símbolo del sistema de Windows PowerShell.
@@ -132,11 +136,11 @@ En cada servidor web, instale y configure IIS.
 
 1. Ejecute el Administrador del servidor y haga clic en **Agregar roles y características**.
 2. En la página Antes de comenzar, haga clic en **Siguiente**.
-3. En la página Seleccionar tipo de instalación, haga clic en **Siguiente**.
-4. En la página Seleccionar servidor de destino, haga clic en **Siguiente**.
+3. En la página Selección del tipo de instalación, haga clic en **Siguiente**.
+4. En la página Selección del servidor de destino, haga clic en **Siguiente**.
 5. En la página Roles de servidor, haga clic en **Servidor web (IIS)** en la lista de **Roles**.
-6. Cuando se le pida, haga clic en **Agregar características** y después en **Siguiente**.
-7. En la página Seleccionar características, haga clic en **Siguiente**.
+6. Cuando se le solicite, haga clic en **Agregar características** y después en **Siguiente**.
+7. En la página Selección de características, haga clic en **Siguiente**.
 8. En la página Servidor web (IIS), haga clic en **Siguiente**.
 9. En la página Seleccionar servicios de rol, seleccione o desactive las casillas de los servicios que necesita para la aplicación de línea de negocio y haga clic en **Siguiente**. 10. En la página Confirmar selecciones de instalación, haga clic en **Instalar**.
 
@@ -168,4 +172,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

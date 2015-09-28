@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad
@@ -205,6 +205,7 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 
 ## Pasos siguientes
 
-Obtenga más información acerca de las [tareas y flujos de trabajo del Administrador de instantáneas StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
+- Obtenga más información sobre las [tareas y flujos de trabajo de Snapshot Manager de StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

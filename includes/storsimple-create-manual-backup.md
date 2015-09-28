@@ -1,3 +1,7 @@
+
+<!--author=SharS last changed: 9/15/15-->
+
+
 #### Creación de una copia de seguridad manual
 
 1. En la página **Dispositivos**, vaya a la pestaña **Directivas de copia de seguridad**. En esta pestaña se enumeran todas las directivas de copia de seguridad en formato tabular, incluida la directiva para el volumen del que desea realizar copias de seguridad.
@@ -20,4 +24,4 @@
 
   La copia de seguridad debe aparecer en la lista de conjuntos de copia de seguridad que se muestra en el catálogo.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

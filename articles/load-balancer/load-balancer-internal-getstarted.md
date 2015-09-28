@@ -1,43 +1,41 @@
 <properties
-   pageTitle="Introducción al equilibrador de carga interno | Microsoft Azure"
-	description="Configuración del equilibrador de carga interno y cómo implementarlo para máquinas virtuales e implementaciones en la nube"
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   pageTitle="Introducción al Equilibrador de carga interno | Microsoft Azure"
+   description="Configuración del Equilibrador de carga interno y cómo implementarlo para máquinas virtuales e implementaciones en la nube"
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="joaoma" />
 
 # Introducción a la configuración de un equilibrador de carga interno
 
 > [AZURE.SELECTOR]
 - [Azure Classic steps](load-balancer-internal-getstarted.md)
-- [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
+- [Resource Manager PowerShell steps](load-balancer-internal-arm-powershell.md)
 
-El equilibrio de carga interno (ILB) de Azure proporciona equilibrio de carga entre las máquinas virtuales que residen dentro de un servicio en la nube o en una red virtual con un ámbito regional. Para obtener información sobre el uso y la configuración de redes virtuales con un ámbito regional, consulte [Redes virtuales regionales](virtual-networks-migrate-to-regional-vnet.md) en el blog de Azure. Las redes virtuales existentes que se han configurado para un grupo de afinidad no pueden usar ILB.
+El Equilibrio de carga interno (ILB) de Azure proporciona un equilibrio de carga entre las máquinas virtuales que residen dentro de un servicio en la nube o en una red virtual con un ámbito regional. Para obtener información sobre el uso y la configuración de redes virtuales con un ámbito regional, consulta [Redes virtuales regionales](virtual-networks-migrate-to-regional-vnet.md). Las redes virtuales existentes que se han configurado para un grupo de afinidad no pueden usar ILB.
 
-
-
-## Creación de un equilibrio de carga interno establecido para máquinas virtuales
+## Para crear un equilibrador de carga interno establecido para máquinas virtuales
 
 Para crear un conjunto con equilibrio de carga interno de Azure y los servidores que enviarán su tráfico a él, debe hacer lo siguiente:
 
-1. Cree una instancia de ILB que será el extremo del tráfico entrante cuya carga se va a equilibrar entre los servidores de un conjunto con equilibrio de carga.
+1. Crea una instancia de Equilibrio de carga interno que será el extremo del tráfico entrante que su carga se va a equilibrar entre los servidores de un conjunto con equilibrio de carga.
 
 1. Agregue extremos correspondientes a las máquinas virtuales que van a recibir el tráfico entrante.
 
-1. Configure los servidores que van a enviar el tráfico cuya carga se va a equilibrar para que lo hagan a la dirección IP virtual (VIP) de la instancia de ILB.
+1. Configura los servidores que van a enviar el tráfico cuya carga se va a equilibrar para que lo hagan a la dirección IP virtual (VIP) de la instancia de Equilibrio de carga interno.
 
-### Paso 1: Crear una instancia de ILB
+### Paso 1: crear una instancia de Equilibrio de carga interno
 
-Para un servicio en la nube existente o un servicio en la nube implementado en una red virtual regional, puede crear una instancia de ILB con los siguientes comandos de Windows PowerShell:
+Para un servicio en la nube existente o un servicio en la nube implementado en una red virtual regional, puedes crear una instancia de Equilibrio de carga interno con los siguientes comandos de Windows PowerShell:
 
 	$svc="<Cloud Service Name>"
 	$ilb="<Name of your ILB instance>"
@@ -47,7 +45,7 @@ Para un servicio en la nube existente o un servicio en la nube implementado en u
 	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 
 
-Para usar estos comandos, rellene los valores y quite el elemento < and >. Aquí tiene un ejemplo:
+Para usar estos comandos, rellene los valores y quite el elemento < and >. Este es un ejemplo:
 
 	$svc="WebCloud-NY"
 	$ilb="SQL-BE"
@@ -56,9 +54,9 @@ Para usar estos comandos, rellene los valores y quite el elemento < and >. Aquí
 	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 
 
-### Paso 2: Agregar extremos a la instancia de ILB
+### Paso 2: agregar extremos a la instancia de Equilibrio de carga interno
 
-Para las máquinas virtuales existentes, puede agregar extremos a la instancia de ILB con los siguientes comandos:
+Para las máquinas virtuales existentes, puedes agregar extremos a la instancia de Equilibrio de carga interno con los comandos siguientes:
 
 	$svc="<Cloud service name>"
 	$vmname="<Name of the VM>"
@@ -74,7 +72,7 @@ Para usar estos comandos, rellene los valores y quite el elemento < and >.
 
 Tenga en cuenta que en este cmdlet [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) de Windows PowerShell, se usa el conjunto de parámetros DefaultProbe. Para obtener más información sobre conjuntos de parámetros adicionales, consulte [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 	$svc="AZ-LOB1"
 	$vmname="SQL-LOBAZ1"
@@ -87,11 +85,11 @@ Aquí tiene un ejemplo:
 	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
-### Paso 3: Configurar los servidores para que envíen su tráfico al nuevo extremo ILB
+### Paso 3: configurar los servidores para que envíen su tráfico al nuevo extremo Equilibrio de carga interno
 
-Los servidores para los que se va a realizar el equilibrio de carga del tráfico se deben configurar para usar la nueva dirección IP (VIP) de la instancia ILB. Esta es la dirección en la que escuchará la instancia de ILB. En la mayoría de los casos, basta con agregar o modificar un registro DNS de la dirección VIP de la instancia de ILB.
+Tienes que configurar los servidores para los que se va a realizar el equilibrio de carga del tráfico para usar la nueva dirección IP (VIP) de la instancia de Equilibrio de carga interno. Esta es la dirección en la que se escuchará la instancia de Equilibrio de carga interno. En la mayoría de los casos, solo tienes que agregar o modificar un registro DNS de la dirección VIP de la instancia de Equilibrio de carga interno.
 
-Si ha especificado la dirección IP durante la creación de la instancia de ILB, ya tiene la dirección VIP. De lo contrario, puede ver a la dirección VIP con los siguientes comandos:
+Si especificaste la dirección IP durante la creación de la instancia de Equilibrio de carga interno, ya tienes la dirección VIP. De lo contrario, puede ver a la dirección VIP con los siguientes comandos:
 
 	$svc="<Cloud Service Name>"
 	Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
@@ -106,7 +104,7 @@ Para usar estos comandos, rellene los valores y quite el elemento < and >. Aquí
 
 En la pantalla del comando Get-AzureInternalLoadBalancer, anote la dirección IP y realice los cambios necesarios en los servidores o registros DNS para asegurarse de que el tráfico se envía a la dirección VIP.
 
->[AZURE.NOTE]La Plataforma Microsoft Azure utiliza una dirección IPv4 estática enrutable públicamente para una variedad de escenarios de administración. La dirección IP es 168.63.129.16. Esta dirección IP no debe bloquearse por ningún firewall, ya que puede causar un comportamiento inesperado. Con respecto a la ILB de Azure, esta dirección IP la usan las sondas de supervisión del equilibrador de carga para determinar el estado de mantenimiento de las máquinas virtuales en un conjunto con equilibrio de carga. Si se usa un grupo de seguridad de red se utiliza para restringir el tráfico a Máquinas virtuales de Azure en un conjunto de carga equilibrada internamente o se aplica a una subred de Red virtual, asegúrese de agregar una regla de seguridad de red para permitir el tráfico desde 168.63.129.16.
+>[AZURE.NOTE]La Plataforma Microsoft Azure utiliza una dirección IPv4 estática enrutable públicamente para una variedad de escenarios de administración. La dirección IP es 168.63.129.16. Ningún firewall debe bloquear esta dirección IP, ya que puede causar un comportamiento inesperado. Con respecto al Equilibrio de carga interno de Azure, esta dirección IP la usan las sondas de supervisión del equilibrador de carga para determinar el estado de mantenimiento de las máquinas virtuales en un conjunto con equilibrio de carga. Si se usa un grupo de seguridad de red para restringir el tráfico a máquinas virtuales de Azure en un conjunto de carga equilibrada internamente o se aplica a una subred de Red virtual, asegúrate de agregar una regla de seguridad de red para permitir el tráfico desde 168.63.129.16.
 
 
 
@@ -128,9 +126,9 @@ La configuración es la siguiente:
 
 - Los tres servidores de base de datos existentes se denominan PARTNER-SQL-1, PARTNER-SQL-2 y PARTNER-SQL-3.
 
-- Los servidores web en el nivel web conectan con los servidores de base de datos en el nivel de base de datos mediante el nombre DNS partner-sql.external.contoso.com.
+- Los servidores web del nivel web se conectan con los servidores de base de datos en el nivel de base de datos con el nombre DNS partner-sql.external.contoso.com.
 
-Los siguientes comandos configuran una nueva instancia de ILB denominada PARTNER-DBTIER y agregan extremos a las máquinas virtuales correspondientes a los tres servidores de base de datos:
+Los comandos siguientes configuran una nueva instancia de Equilibrio de carga interno denominada PARTNER-DBTIER y agregan extremos a las máquinas virtuales correspondientes a los tres servidores de base de datos:
 
 	$svc="Contoso-PartnerSite"
 	$ilb="PARTNER-DBTIER"
@@ -152,7 +150,7 @@ Los siguientes comandos configuran una nueva instancia de ILB denominada PARTNER
 	$vmname="PARTNER-SQL-3"
 	Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
-Luego, Contoso determina la dirección VIP de la instancia de ILB PARTNER-DBTIER con el siguiente comando:
+Luego, Contoso determina la dirección VIP de la instancia de Equilibrio de carga interno PARTNER-DBTIER con el siguiente comando:
 
 	Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
@@ -170,13 +168,13 @@ La configuración es la siguiente:
 
 - El servicio en la nube existente que hospeda las máquinas virtuales se denomina Contoso-PartnerSite.
 
-- La subred en la que se encuentran los servidores LOB se denomina LOB-LEGAL y Contoso ha elegido la dirección 198.168.99.145 como dirección VIP del equilibrador de carga interno.
+- La subred en la que se encuentran los servidores LOB se denomina LOB-LEGAL y Contoso eligió la dirección 198.168.99.145 como dirección VIP del Equilibrador de carga interno.
 
 - Los tres servidores LOB existentes se denominan LEGAL-1, LEGAL-2 y LEGAL-3.
 
-- Los clientes web de intranet se conectan a ellos con el nombre DNS legalnet.corp.contoso.com.
+- Los clientes web de intranet se conectan a los servidores LOB con el nombre DNS legalnet.corp.contoso.com.
 
-Los siguientes comandos crean una nueva instancia de ILB denominada PARTNER-DBTIER y agregan extremos a las máquinas virtuales correspondientes a los tres servidores LOB:
+Los comandos siguientes crean una nueva instancia de Equilibrio de carga interno denominada LEGAL-ILB y agregan extremos a las máquinas virtuales correspondientes a los tres servidores LOB:
 
 
 	$svc="Contoso-Legal"
@@ -204,11 +202,11 @@ Los siguientes comandos crean una nueva instancia de ILB denominada PARTNER-DBTI
 
 A continuación, Contoso configura el registro DNS A para que el nombre legalnet.corp.contoso.com use 198.168.99.145.
 
-## Agregar una máquina virtual a ILB
+## Agregar una máquina virtual al Equilibrio de carga interno
 
-Para agregar una máquina virtual a una instancia de ILB que se crea, puede usar los cmdlets New-AzureInternalLoadBalancerConfig y New-AzureVMConfig.
+Para agregar una máquina virtual a una instancia de Equilibrio de carga interno que se crea, puedes usar los cmdlets New-AzureInternalLoadBalancerConfig y New-AzureVMConfig.
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 	$svc="AZ-LOB1"
 	$ilb="LOB-ILB"
@@ -223,18 +221,18 @@ Aquí tiene un ejemplo:
 	$images = Get-AzureVMImage
 	New-AzureVMConfig -Name $vmname -InstanceSize Small -ImageName $images[50].ImageName | Add-AzureProvisioningConfig -Windows -AdminUsername $adminuser -Password $adminpw | New-AzureVM -ServiceName $svc -InternalLoadBalancerConfig $myilbconfig -Location $regionname –VNetName $vnet
 
-## Configuración de ILB para servicios en la nube
+## Para configurar el Equilibrio de carga interno para los servicios en la nube
 
 
-ILB se admite para máquinas virtuales y servicios en la nube. Un extremo ILB creado en un servicio en la nube que está fuera de una red virtual regional solo será accesible dentro del servicio en la nube.
+El Equilibrio de carga interno es compatible tanto con las máquinas virtuales como con los servicios en la nube. Un extremo de Equilibrio de carga interno creado en un servicio en la nube que está fuera de una red virtual regional solo será accesible dentro del servicio en la nube.
 
-La configuración de ILB debe establecerse durante la creación de la primera implementación en el servicio en la nube, como se muestra en el siguiente ejemplo.
+La configuración del Equilibrio de carga interno se debe establecer durante la creación de la primera implementación en el servicio en la nube, como se muestra en el ejemplo siguiente.
 
->[AZURE.IMPORTANT]Un requisito previo para ejecutar los siguientes pasos es tener una red virtual creada anteriormente para la implementación en la nube. Necesitará el nombre de red virtual y el nombre de la subred para crear ILB.
+>[AZURE.IMPORTANT]Un requisito previo para ejecutar los pasos siguientes es tener ya creada una red virtual para la implementación en la nube. Necesitarás el nombre de red virtual y el nombre de la subred para crear el Equilibrio de carga interno.
 
 ### Paso 1
 
-Abra el archivo de configuración de servicio (.cscfg) para la implementación en la nube en Visual Studio y agregue la siguiente sección para crear ILB en el último elemento "`</Role>`" para la configuración de red.
+Abre el archivo de configuración de servicio (.cscfg) para la implementación en la nube en Visual Studio y agrega la siguiente sección para crear el Equilibrio de carga interno en el último elemento «`</Role>`» para la configuración de red.
 
 
 
@@ -246,7 +244,7 @@ Abra el archivo de configuración de servicio (.cscfg) para la implementación e
 	    </LoadBalancer>
 	  </LoadBalancers>
 	</NetworkConfiguration>
- 
+
 
 Vamos a agregar los valores para que el archivo de configuración de red muestre su aspecto. En el ejemplo, supongamos que creó una subred que se llama "test\_vnet" con una subred 10.0.0.0/24 denominada test\_subnet y una dirección IP estática 10.0.0.4. El equilibrador de carga se denominará testLB.
 
@@ -258,12 +256,12 @@ Vamos a agregar los valores para que el archivo de configuración de red muestre
 	  </LoadBalancers>
 	</NetworkConfiguration>
 
-Para obtener más información acerca del esquema del equilibrador de carga, consulte [Incorporación del equilibrador de carga](https://msdn.microsoft.com/library/azure/dn722411.aspx)
+Para obtener más información sobre el esquema del equilibrador de carga, consulta [Agregar equilibrador de carga](https://msdn.microsoft.com/library/azure/dn722411.aspx)
 
 ### Paso 2
 
 
-Cambie los archivos de definición (.csdef) para agregar extremos a ILB. Cuando se crea una instancia de rol, el archivo de definición de servicio agregará las instancias de rol a ILB.
+Cambia los archivos de definición (.csdef) para agregar extremos al Equilibrio de carga interno. Cuando se crea una instancia de rol, el archivo de definición de servicio agregará las instancias de rol al Equilibrio de carga interno.
 
 
 	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -272,7 +270,7 @@ Cambie los archivos de definición (.csdef) para agregar extremos a ILB. Cuando 
 	  </Endpoints>
 	</WorkerRole>
 
-Siguiendo los mismos valores del ejemplo anterior, vamos a agregar los valores del archivo de definición de servicio
+Vamos a agregar los valores del archivo de definición de servicio siguiendo los mismos valores del ejemplo anterior.
 
 	<WorkerRole name=WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
 	  <Endpoints>
@@ -280,12 +278,12 @@ Siguiendo los mismos valores del ejemplo anterior, vamos a agregar los valores d
 	  </Endpoints>
 	</WorkerRole>
 
-la carga del tráfico de red se equilibrará mediante el equilibrador de carga testLB, en el que se usa el puerto 80 para las solicitudes entrantes y se envía a instancias de rol de trabajo también en el puerto 80.
+La carga del tráfico de red se equilibrará mediante el equilibrador de carga testLB, en el que se usa el puerto 80 para las solicitudes entrantes y se envía a instancias de rol de trabajo también en el puerto 80.
 
 
-## Eliminación de la configuración de ILB
+## Quitar una configuración de Equilibrio de carga interno
 
-Para quitar una máquina virtual como extremo de una instancia de ILB, use los comandos siguientes:
+Para quitar una máquina virtual como extremo de una instancia de Equilibrio de carga interno, usa los comandos siguientes:
 
 	$svc="<Cloud service name>"
 	$vmname="<Name of the VM>"
@@ -294,31 +292,31 @@ Para quitar una máquina virtual como extremo de una instancia de ILB, use los c
 
 Para usar estos comandos, rellene los valores y quite el elemento < and >.
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 	$svc="AZ-LOB1"
 	$vmname="SQL-LOBAZ1"
 	$epname="SQL1"
 	Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 
-Para quitar una instancia de ILB de un servicio en la nube, use los comandos siguientes:
+Para quitar una instancia de Equilibrio de carga interno de un servicio en la nube, usa los comandos siguientes:
 
 	$svc="<Cloud service name>"
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 Para usar estos comandos, rellene el valor y quite el elemento < and >.
 
-Aquí tiene un ejemplo:
+Este es un ejemplo:
 
 	$svc="AZ-LOB1"
 	Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 
 
-## Información adicional sobre los cmdlets de ILB
+## Información adicional sobre los cmdlets de Equilibrio de carga interno
 
 
-Para obtener información adicional sobre los cmdlets de ILB, ejecute los siguientes comandos en un símbolo del sistema de Azure Windows PowerShell:
+Para obtener información adicional sobre los cmdlets de Equilibrio de carga interno, ejecuta los comandos siguientes en un símbolo del sistema de Windows PowerShell:
 
 - Get-help New-AzureInternalLoadBalancerConfig -full
 
@@ -328,11 +326,10 @@ Para obtener información adicional sobre los cmdlets de ILB, ejecute los siguie
 
 - Get-help Remove-AzureInternalLoadBalancer -full
 
-## Otras referencias
+## Consulte también
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

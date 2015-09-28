@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/14/2015" 
 	ms.author="antonba"/>
 
 # Delegación de registros de usuario y suscripciones a producto
@@ -90,7 +90,7 @@ La delegación de una suscripción a productos funciona de forma similar a la de
 1. El desarrollador selecciona un producto en el portal para desarrolladores de Administración de API y hace clic en el botón Suscribir.
 2. El explorador se redirige al extremo de delegación.
 3. El extremo de delegación realiza los pasos necesarios para la suscripción al producto: esto depende de usted, y puede que implique la redirección a otra página para solicitar información de facturación, la formulación de otras preguntas o simplemente el almacenamiento de la información sin que se requiera ninguna acción del usuario.
-4. Una vez conseguido, se redirige de nuevo al usuario a la página del portal para desarrolladores de Administración de API de la que partió.
+
 
 Para habilitar la funcionalidad, en la página **Delegación**, haga clic en **Delegar suscripción de productos**.
 
@@ -114,8 +114,6 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 3. Realice cualquier procesamiento de la suscripción a producto en función del tipo de operación solicitada en **operation**; por ejemplo, facturación, preguntas adicionales, etc.
 
 4. Tras la correcta suscripción del usuario al producto por su parte, suscriba al usuario al producto de Administración de API [llamando a la API de REST para la suscripción del producto].
-
-5. Redirija de nuevo al usuario a la **returnUrl** especificada al recibir la solicitud.
 
 ## <a name="delegate-example-code"> </a> Ejemplo de código ##
 
@@ -168,4 +166,4 @@ Para obtener más información acerca de la delegación, vea el siguiente vídeo
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

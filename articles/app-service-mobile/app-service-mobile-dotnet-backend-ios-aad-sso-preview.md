@@ -1,18 +1,18 @@
 <properties
         pageTitle="Autenticación de usuarios de la aplicación iOS con el inicio de sesión único de Azure Active Directory"
-	description="Obtenga información acerca de cómo registrar usuarios en la aplicación iOS con la biblioteca de autenticación de Active Directory."
-	documentationCenter="Mobile"
-	authors="mattchenderson"
-	services="app-service\mobile"
-	manager="dwrede"/>
+        description="Obtenga información acerca de cómo registrar usuarios en la aplicación iOS con la biblioteca de autenticación de Active Directory."
+        documentationCenter="Mobile"
+        authors="mattchenderson"
+        services="app-service\mobile"
+        manager="dwrede" />
 
 <tags ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="05/19/2015"
-	ms.author="mahender"/>
+ms.workload="mobile"
+ms.tgt_pltfrm="mobile-ios"
+ms.devlang="objective-c"
+ms.topic="article"
+ms.date="09/14/2015"
+ms.author="mahender" />
 
 # Incorporación del inicio de sesión único de Azure Active Directory a la aplicación iOS
 
@@ -123,4 +123,4 @@ Ahora podrá hacer referencia a la biblioteca de autenticación de Active Direct
  [Introducción a las aplicaciones móviles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [Incorporación de autenticación a la aplicación]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

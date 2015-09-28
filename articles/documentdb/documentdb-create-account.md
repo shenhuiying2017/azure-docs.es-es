@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Crear una cuenta de base de datos - versión de prueba gratuita | Microsoft Azure" 
-	description="Aprenda a crear cuentas de base de datos mediante el portal de servicios en línea para DocumentDB de Azure, una base de datos de documentos NoSQL administrada para JSON. Obtenga una versión de evaluación gratuita hoy mismo."
+	description="Aprenda a crear cuentas de base de datos mediante el creador de bases de datos en línea para DocumentDB de Azure, una base de datos de documentos NoSQL administrada para JSON. Obtenga una versión de evaluación gratuita hoy mismo."
+	keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -45,4 +46,4 @@ Para obtener más información acerca de DocumentDB, explore estos recursos:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

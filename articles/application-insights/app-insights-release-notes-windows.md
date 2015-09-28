@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notas de la versión de Application Insights para Windows"
-	description="Las actualizaciones más recientes."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Notas de la versión de Application Insights para Windows" 
+	description="Las actualizaciones más recientes." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
 # Notas de la versión del SDK de Application Insights para la Tienda Windows Phone
@@ -32,14 +32,31 @@ Consulte [Introducción a Application Insights para aplicaciones de la Tienda Wi
 * Compare las versiones antigua y nueva de ApplicationInsights.config. Vuelva a combinar las personalizaciones realizadas en la versión anterior.
 * Vuelva a generar la solución.
 
+## Versión 1.2
+
+### SDK para aplicaciones de Windows
+
+- Corregida una excepción FileNotFound que impedía que se enviaran telemetrías persistentes después de volver a abrir la aplicación.
+
+### SDK básico
+
+- Primera versión del SDK de Application Insights enviado desde [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+
+## Versión 1.1
+
+### SDK básico
+
+- El SDK ahora incluye el nuevo tipo de telemetría ```DependencyTelemetry```, que contiene información sobre la llamada de dependencia de la aplicación
+- El nuevo método ```TelemetryClient.TrackDependency``` permite enviar información sobre las llamadas de dependencia de aplicación
+
 ## Versión 1.0.0
 
 ### SDK para aplicaciones de Windows
 
-- Nueva inicialización para aplicaciones de Windows. La nueva clase `WindowsAppInitializer` con el método `InitializeAsync()` permite la inicialización de arranque de la colección de SDK. Este cambio permite un control más preciso y mejoras considerables del rendimiento de la inicialización de aplicaciones respecto a la técnica de ApplicationInsights.config anterior.
+- Nueva inicialización para aplicaciones de Windows. La nueva clase `WindowsAppInitializer`, con el método `InitializeAsync()`, permite la inicialización de arranque de la colección de SDK. Este cambio permite un control más preciso y mejoras considerables del rendimiento de la inicialización de aplicaciones respecto a la técnica de ApplicationInsights.config anterior.
 - DeveloperMode ya no se establece automáticamente. Para cambiar el comportamiento de DeveloperMode, debe especificarlo en el código.
 - El paquete de NuGet ya no inyecta ApplicationInsights.config. Se recomienda usar el nuevo WindowsAppInitializer al agregar manualmente el paquete de NuGet.
-- ApplicationInsights.config solo lee `<InstrumentationKey>`; el resto de opciones de configuración se ignoran en detrimento de la configuración de WindowsAppInitializer.
+- ApplicationInsights.config solo lee `<InstrumentationKey>`; el resto de opciones de configuración se ignoran y se da prioridad a la configuración de WindowsAppInitializer.
 - El SDK recopilará automáticamente Store Market.
 - Muchas correcciones de errores, mejoras de estabilidad y mejoras de rendimiento.
 
@@ -77,4 +94,4 @@ Vista previa del 28-04-2015
 
 No existen notas de la versión para versiones anteriores.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

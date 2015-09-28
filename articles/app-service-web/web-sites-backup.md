@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Hacer copia de seguridad de una aplicación web en el servicio de aplicaciones de Azure
@@ -22,6 +22,8 @@
 La característica Copia de seguridad y restauración de las [Aplicaciones web del servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) le permite crear fácilmente las copias de seguridad de la aplicación web manualmente o automáticamente. Puede restaurar su aplicación web a un estado anterior o crear una nueva aplicación web basada en una de las copias de seguridad de la aplicación original.
 
 Para obtener información sobre cómo restaurar una aplicación web de Azure desde la copia de seguridad, consulte [Restauración de una aplicación web](web-sites-restore.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="whatsbackedup"></a>
 ## ¿Qué se incluye en la copia de seguridad? 
@@ -220,4 +222,4 @@ Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

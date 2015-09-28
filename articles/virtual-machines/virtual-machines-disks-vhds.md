@@ -3,7 +3,7 @@
 	description="Conozca los aspectos básicos de los discos y los discos duros virtuales para las máquinas virtuales en Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Acerca de los discos y los discos duros virtuales para máquinas virtuales
 
@@ -65,4 +65,4 @@ Máquinas virtuales de Windows:
 -  [Captura de una máquina virtual de Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desacople un disco](storage-windows-detach-disk.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

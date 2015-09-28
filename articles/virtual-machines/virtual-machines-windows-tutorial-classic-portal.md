@@ -3,7 +3,7 @@
 	description="Cree una máquina virtual de Windows en el Portal de Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Creación de una máquina virtual que ejecuta Windows en el Portal de Azure
 
@@ -52,8 +52,4 @@ En esta sección se muestra cómo usar la opción **De la galería** del Portal 
 
 - Acople un disco para almacenar los datos. Puede acoplar tanto discos vacíos como discos que contienen datos. Para obtener instrucciones, consulte el [tutorial Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md).
 
-## Recursos adicionales
-
-Para obtener más información sobre lo que se puede configurar para una máquina virtual y cuándo se puede hacer, vea [Ajustes de configuración de máquinas virtuales en Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

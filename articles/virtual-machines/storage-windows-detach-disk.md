@@ -3,7 +3,7 @@
 	description="Aprenda a desacoplar un disco de una máquina virtual en Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 
@@ -29,4 +29,4 @@
 
 [Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

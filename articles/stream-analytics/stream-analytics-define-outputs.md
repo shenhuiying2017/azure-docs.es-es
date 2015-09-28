@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/17/2015" 
 	ms.author="jeffstok"/>
 
 # Descripción de salidas de Análisis de transmisiones
@@ -47,8 +47,8 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 <table>
 <tbody>
 <tr>
-<td>Nombre de propiedad</td>
-<td>Descripción</td>
+<td>NOMBRE DE PROPIEDAD</td>
+<td>DESCRIPCIÓN</td>
 </tr>
 <tr>
 <td>Alias de salida</td>
@@ -232,4 +232,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

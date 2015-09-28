@@ -1,17 +1,5 @@
-<properties
-	pageTitle="Creación de una máquina virtual de Base de datos de Oracle en Azure"
-	description="Revise paso a paso un ejemplo de creación de una máquina virtual de Oracle en Microsoft Azure y, a continuación, cree una Base de datos de Oracle en ella."
-	services="virtual-machines"
-	authors="bbenz"
-	documentationCenter=""/>
-
-<tags
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz"/>
-
+<properties pageTitle="Creación de una máquina virtual de Base de datos de Oracle en Azure" description="Revise paso a paso un ejemplo de creación de una máquina virtual de Oracle en Microsoft Azure y, a continuación, cree una Base de datos de Oracle en ella." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Creación de una máquina virtual de Base de datos de Oracle en Azure
 En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada en una imagen de Base de datos de Oracle proporcionada por Microsoft que se ejecuta en Windows Server 2012 en Azure. Hay dos pasos. En primer lugar, cree la máquina virtual y luego cree la base de datos de Oracle dentro de la máquina virtual. El ejemplo mostrado es la versión de la Base de datos de Oracle 12c, pero los pasos son prácticamente idénticos para la versión 11g.
 
@@ -31,7 +19,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 7.	Elija un **Nivel de precios**. Tenga en cuenta que los niveles de precios recomendados se muestran de forma predeterminada. Para ver todas las opciones de configuración, haga clic en **Ver todo** en la parte superior derecha.
 
-8.	Establezca [Configuración opcional](https://msdn.microsoft.com/library/azure/dn763935.aspx) según sea necesario, con estas consideraciones:
+8.	Establezca la configuración opcional según sea necesario, con estas consideraciones:
 
 	a. Deje **Cuenta de almacenamiento** tal y como se encuentra para crear una nueva cuenta de almacenamiento con el nombre de la máquina virtual.
 
@@ -41,11 +29,11 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 9.	Elija o cree un grupo de recursos.
 
-10. Seleccione una **suscripción**.
+10. Elija una **suscripción**.
 
-11. Elija una **ubicación**
+11. Elija una **ubicación**.
 
-12. Haga clic en **Crear** y se iniciará el proceso de creación de una máquina virtual. En cuanto la máquina virtual tenga el estado **En ejecución**, continúe con el siguiente procedimiento.
+12. Haga clic en **Crear** y se iniciará el proceso de creación de una VM. En cuanto la VM tenga el estado **En ejecución**, continúe con el siguiente procedimiento.
 
 
 ##Para crear su base de datos mediante la máquina virtual de Base de datos de Oracle en Azure
@@ -60,15 +48,15 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 5.	Siga las indicaciones, según sea necesario, para conectarse a la máquina virtual. Cuando se le pida el nombre y la contraseña del administrador, utilice los valores que proporcionó cuando creó la máquina virtual.
 
-6.	Cree una variable de entorno denominada **ORACLE\_HOSTNAME** con su valor establecido en el nombre del equipo de la máquina virtual. Puede crear una variable de entorno mediante los siguientes pasos:
+6.	Cree una variable de entorno denominada **ORACLE\_HOSTNAME** con su valor establecido en el nombre del equipo de la VM. Puede crear una variable de entorno mediante los siguientes pasos:
 
-	a. En Windows, haga clic en **Inicio**, escriba **Panel de control**, haga clic en el icono del **Panel de control**, haga clic en **Sistema y seguridad**, en **Sistema** y luego haga clic en **Configuración avanzada del sistema**.
+	a. En Windows, haga clic en **Inicio**, escriba **Panel de control** y haga clic en el icono del **Panel de control**, en **Sistema y seguridad**, en **Sistema** y luego en **Configuración avanzada del sistema**.
 
-	b. Haga clic en la pestaña **Avanzado** y luego en **Variables de entorno**.
+	b. Haga clic en la pestaña **Avanzado** y, a continuación, en **Variables de entorno**.
 
 	c. En la sección **Variables del sistema**, haga clic en **Nuevo** para crear la variable.
 
-	d. En el cuadro de diálogo **Nueva variable del sistema**, escriba **ORACLE\_HOSTNAME** para el nombre de la variable y luego escriba el nombre del equipo de la máquina virtual como el valor. Para determinar el nombre del equipo, abra un símbolo del sistema y ejecute **ESTABLECER NOMBRE DE EQUIPO** (el resultado de ese comando contendrá el nombre del equipo).
+	d. En el cuadro de diálogo **Nueva variable del sistema**, escriba **ORACLE\_HOSTNAME** para el nombre de la variable y, a continuación, el nombre del equipo de la VM como valor. Para determinar el nombre del equipo, abra un símbolo del sistema y ejecute **ESTABLECER NOMBRE DE EQUIPO** (el resultado de ese comando contendrá el nombre del equipo).
 
 	e. Haga clic en **Aceptar** para guardar la nueva variable de entorno y cierre el cuadro de diálogo **Nueva variable del sistema**.
 
@@ -76,7 +64,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 7.	En Windows, haga clic en **Inicio** y luego escriba **Asistente de configuración de base de datos**. Haga clic en el icono **Asistente de configuración de base de datos**.
 
-8.	Dentro del **Asistente para configuración de bases de datos**, proporcionar los valores necesarios para cada paso del cuadro de diálogo:
+8.	Dentro del **Asistente de configuración de base de datos**, proporcione los valores necesarios para cada paso del cuadro de diálogo:
 
 	a. **Paso 1:** haga clic en **Crear base de datos** y luego en **Siguiente**.
 
@@ -91,7 +79,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 	d. **Paso 4:** revise las opciones **Crear base de datos: resumen** y luego haga clic en **Finalizar**.
 
 		![](media/virtual-machines-creating-oracle-database-virtual-machine/image7.png)
-	e. **Paso 5:** la **Página de progreso** informará del estado de la creación de la base de datos.
+	e. **Paso 5:** en la **Página de progreso** se informará del estado de la creación de la base de datos.
 
 		![](media/virtual-machines-creating-oracle-database-virtual-machine/image8.png)
 	f. Después de crear la base de datos, tendrá la opción de usar el cuadro de diálogo **Administración de contraseñas**. Modifique la configuración de la contraseña si es necesario para sus requisitos y, a continuación, cierre los cuadros de diálogo para salir del **Asistente para configuración de bases de datos**.
@@ -132,13 +120,13 @@ Para permitir el acceso remoto a la base de datos (por ejemplo, desde un equipo 
 
 3.	En **Tipo de regla**, seleccione **Puerto** y luego haga clic en **Siguiente**.
 
-4.	Para **Protocolo y puerto**, seleccione **TCP**, **Puertos locales específicos**, escriba **1521** para el puerto y luego haga clic en **Siguiente**.
+4.	Para **Protocolo y puerto**, seleccione **TCP**, **Puertos locales específicos**, escriba **1521** para el puerto y, a continuación, haga clic en **Siguiente**.
 
 5.	Seleccione **Permitir la conexión** y haga clic en **Siguiente**.
 
-6.	Acepte los valores predeterminados para los perfiles a los que se aplica la regla y luego haga clic en **Siguiente**.
+6.	Acepte los valores predeterminados para los perfiles para los que se aplica la regla y luego haga clic en **Siguiente**.
 
-7.	Especifique un nombre para la regla y, opcionalmente, una descripción y luego haga clic en **Finalizar**.
+7.	Especifique un nombre para la regla y, opcionalmente, una descripción y, a continuación, haga clic en **Finalizar**.
 
 ### Crear un extremo público para el puerto 1521
 
@@ -171,14 +159,14 @@ Para permitir el acceso remoto a la base de datos (por ejemplo, desde un equipo 
 ##Habilitar el acceso remoto al Administrador corporativo de la Base de datos de Oracle
 Si desea habilitar el acceso remoto al Administrador corporativo de la Base de datos de Oracle, abra el puerto 5500 de del firewall y cree un extremo de máquina virtual para 5500 en el portal de Azure (mediante los pasos indicados anteriormente para abrir el puerto 1521 y crear un extremo para 1521). A continuación, para ejecutar el Administrador corporativo de Oracle desde el equipo remoto, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE] \(Puede determinar el valor de *\<\<unique\_domain\_name>\>* dentro del [Portal de Azure](https://ms.portal.azure.com/) haciendo clic en **Máquinas virtuales** y, a continuación, seleccionando la máquina virtual que está usando para ejecutar la Base de datos de Oracle).
+> [AZURE.NOTE](Puede determinar el valor de *<<unique\_domain\_name>>* dentro del [Portal de Azure](https://ms.portal.azure.com/) haciendo clic en **Máquinas virtuales** y, a continuación, seleccionando la máquina virtual que está usando para ejecutar la Base de datos de Oracle).
 
 ##Configuración de opciones conocidas y paquetes de opciones avanzadas
 Si eligió la **Base de datos de Oracle con opciones conocidas** o la **Base de datos de Oracle con paquetes de opciones avanzadas**, el paso siguiente consiste en configurar las características de complemento en su instalación de Oracle. Consulte la documentación de Oracle para obtener instrucciones acerca de cómo configurarlas en Windows, ya que las configuraciones pueden variar ampliamente en función de sus necesidades para cada componente individual.
 
 La **Base de datos de Oracle con el paquete de opciones conocidas** incluye Oracle Database Enterprise Edition e instancias con licencia incluida de [Creación de particiones](http://www.oracle.com/us/products/database/options/partitioning/overview/index.html), [Protección de datos activa](http://www.oracle.com/us/products/database/options/active-data-guard/overview/index.html), [Oracle Tuning Pack para base de datos](http://docs.oracle.com/html/A86647_01/tun_ovw.htm), [Oracle Diagnostics Pack para base de datos](http://docs.oracle.com/cd/B28359_01/license.111/b28287/options.htm#CIHIHDDJ) y [Oracle Lifecycle Management Pack para base de datos](http://www.oracle.com/technetwork/oem/lifecycle-mgmt-495331.html).
 
-La **Base de datos de Oracle con paquete de opciones avanzadas** incluye instancias incluye con licencias de todas las opciones en el paquete de opciones populares, además de [Compresión avanzada](http://www.oracle.com/us/products/database/options/advanced-compression/overview/index.html), [Seguridad avanzada](http://www.oracle.com/us/products/database/options/advanced-security/overview/index.html), [Seguridad de etiquetas](http://www.oracle.com/us/products/database/options/label-security/overview/index.html), [Almacén de base de datos](http://www.oracle.com/us/products/database/options/database-vault/overview/index.html), [Análisis avanzado](http://www.oracle.com/us/products/database/options/advanced-analytics/overview/index.html), [OLAP](http://docs.oracle.com/cd/E11882_01/license.112/e47877/options.htm#CIHGDEEF), [Espacial y gráfico](http://docs.oracle.com/cd/E11882_01/license.112/e47877/options.htm#CIHGDEEF), [Memoria caché de base de datos en la memoria](http://www.oracle.com/technetwork/products/timesten/overview/timesten-imdb-cache-101293.html), [Paquete de enmascaramiento de datos](http://docs.oracle.com/cd/E11882_01/license.112/e47877/options.htm#CHDGEEBB) y el paquete de administración de datos de prueba de Oracle (como parte del paquete de enmascaramiento de datos).
+La **Base de datos de Oracle con paquetes de opciones avanzadas** incluye instancias con licencia incluida de todas las opciones en el paquete de opciones conocidas, además de [Compresión avanzada](http://www.oracle.com/us/products/database/options/advanced-compression/overview/index.html), [Seguridad avanzada](http://www.oracle.com/us/products/database/options/advanced-security/overview/index.html), [Seguridad de etiquetas](http://www.oracle.com/us/products/database/options/label-security/overview/index.html), [Almacén de base de datos](http://www.oracle.com/us/products/database/options/database-vault/overview/index.html), [Análisis avanzado](http://www.oracle.com/us/products/database/options/advanced-analytics/overview/index.html), [OLAP](http://docs.oracle.com/cd/E11882_01/license.112/e47877/options.htm#CIHGDEEF), [Espacial y gráfico](http://docs.oracle.com/cd/E11882_01/license.112/e47877/options.htm#CIHGDEEF), [Memoria caché de base de datos en la memoria](http://www.oracle.com/technetwork/products/timesten/overview/timesten-imdb-cache-101293.html), [Paquete de enmascaramiento de datos](http://docs.oracle.com/cd/E11882_01/license.112/e47877/options.htm#CHDGEEBB) y el paquete de administración de datos de prueba de Oracle (como parte del paquete de enmascaramiento de datos).
 
 ##Recursos adicionales
 Ahora que ha configurado la máquina virtual y que ha creado su base de datos, consulte los temas siguientes para obtener información adicional.
@@ -193,4 +181,4 @@ Ahora que ha configurado la máquina virtual y que ha creado su base de datos, c
 
 -	[Oracle Database DBA 12c versión 1 de dos días](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

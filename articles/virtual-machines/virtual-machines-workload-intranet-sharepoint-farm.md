@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint de intranet
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
 
 Configure la primera o siguiente granja de SharePoint en Microsoft Azure y aprovéchese de la facilidad de configuración y de la capacidad ampliar rápidamente la granja de servidores para incluir la nueva capacidad o la optimización de funcionalidad clave. Muchas de las granjas de SharePoint aumentan a partir de una configuración estándar, de alta disponibilidad y de tres niveles para una granja con posiblemente una docena o más servidores optimizados para rendimiento o roles independientes, como almacenamiento en caché distribuido o búsqueda.
 
@@ -126,4 +128,4 @@ Una vez configurada, puede expandir esta granja de SharePoint con ayuda de [Arqu
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

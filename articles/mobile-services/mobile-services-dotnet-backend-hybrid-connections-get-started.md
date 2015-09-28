@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas - Servicios móviles de Azure" 
-	description="Obtenga información acerca de cómo conectarse a un SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas" 
+	pageTitle="Conexión a un servidor SQL Server local desde un servicio móvil back-end de .NET mediante conexiones híbridas | Servicios móviles de Azure" 
+	description="Más información sobre cómo conectarse a un SQL Server local desde un servicio móvil back-end de .NET mediante conexiones híbridas" 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/15/2015" 
 	ms.author="glenga"/>
 
   
@@ -133,4 +133,4 @@ Ahora que ha comprobado la conexión de base de datos, deberá agregar una confi
 [Portal de administración de Azure]: http://manage.windowsazure.com
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

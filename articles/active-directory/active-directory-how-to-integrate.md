@@ -1,20 +1,20 @@
 <properties
    pageTitle="Integración con Azure Active Directory"
-	description="Una guía de los beneficios y los recursos para la integración con Azure Active Directory."
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Una guía de los beneficios y los recursos para la integración con Azure Active Directory."
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin"/>
 
 # Integración con Azure Active Directory
 
@@ -34,9 +34,9 @@ Hay varias maneras de integrar la aplicación con Azure AD. Aprovechar muchos o 
 
 ### Búsqueda de usuarios, administración del el aprovisionamiento de usuarios y control del acceso a la aplicación
 
-**Busque usuarios en el directorio.** Utilice Graph API para ayudar a los usuarios a buscar y examinar otras personas en su organización cuando inviten a otras o concedan acceso, en lugar de solicitarles que escriban direcciones de correo electrónico. Los usuarios pueden examinar con una interfaz de estilo agenda familiar, incluida la visualización de información de la jerarquía organizacional. Obtenga más información acerca de [API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx).
+**Busque usuarios en el directorio.** Utilice Graph API para ayudar a los usuarios a buscar y examinar otras personas en su organización cuando inviten a otras o concedan acceso, en lugar de solicitarles que escriban direcciones de correo electrónico. Los usuarios pueden examinar con una interfaz de estilo agenda familiar, incluida la visualización de información de la jerarquía organizacional. Obtenga más información acerca de [API Graph](active-directory-graph-api.md).
 
-**Vuelva a usar las listas de distribución y grupos de Active Directory que el cliente ya está administrando.** Azure AD contiene los grupos que el cliente ya está usando para la distribución de correo electrónico y la administración de acceso. Utilice Graph API para volver a utilizar estos grupos en lugar de solicitar al cliente que cree y administre un conjunto independiente de grupos en su aplicación. La información de grupo también puede enviarse a la aplicación en tokens de inicio de sesión. Obtenga más información acerca de [API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx).
+**Vuelva a usar las listas de distribución y grupos de Active Directory que el cliente ya está administrando.** Azure AD contiene los grupos que el cliente ya está usando para la distribución de correo electrónico y la administración de acceso. Utilice Graph API para volver a utilizar estos grupos en lugar de solicitar al cliente que cree y administre un conjunto independiente de grupos en su aplicación. La información de grupo también puede enviarse a la aplicación en tokens de inicio de sesión. Obtenga más información acerca de [API Graph](active-directory-graph-api.md).
 
 **Use Azure AD para controlar quién tiene acceso a la aplicación.** Los administradores y propietarios de aplicaciones en Azure AD pueden asignar acceso a las aplicaciones para usuarios y grupos específicos. Con Graph API, puede leer esta lista y usarla para controlar el aprovisionamiento y la cancelación de aprovisionamiento de recursos y obtener acceso dentro de la aplicación.
 
@@ -72,7 +72,7 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 
 **Detección de inicio de sesión erróneo.** Azure AD procesa más de mil millones de inicios de sesión al día, y además usa algoritmos de aprendizaje automático para detectar actividades sospechosas e informar a los administradores de TI de posibles problemas. Al admitir el inicio de sesión de Azure AD, la aplicación obtiene la ventaja de esta protección. Obtenga más información sobre [visualización del informe de acceso de Azure Active Directory](active-directory-view-access-usage-reports.md).
 
-**Acceso condicional.** Además de Multi-factor Authentication, los administradores pueden solicitar que se cumplan condiciones específicas para que los usuarios puedan iniciar sesión en la aplicación. Las condiciones que se pueden establecer incluyen el intervalo de direcciones IP de los dispositivos cliente, la pertenencia a grupos especificados y el estado del dispositivo que se utiliza para el acceso. Obtenga más información sobre el [acceso condicional de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn906873.aspx).
+**Acceso condicional.** Además de Multi-factor Authentication, los administradores pueden solicitar que se cumplan condiciones específicas para que los usuarios puedan iniciar sesión en la aplicación. Las condiciones que se pueden establecer incluyen el intervalo de direcciones IP de los dispositivos cliente, la pertenencia a grupos especificados y el estado del dispositivo que se utiliza para el acceso. Obtenga más información sobre el [acceso condicional de Azure Active Directory](active-directory-conditional-access.md).
 
 ### Desarrollo sencillo
 
@@ -90,4 +90,4 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 
 [Inicio de sesión de usuario con Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

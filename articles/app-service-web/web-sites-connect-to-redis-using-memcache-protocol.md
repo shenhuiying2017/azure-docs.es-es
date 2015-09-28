@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Conexión de una aplicación web en Servicio de aplicaciones de Azure a Caché en Redis a través del protocolo Memcache | Microsoft Azure"
+	pageTitle="Conexión de una aplicación web en Servicio de aplicaciones de Azure a Caché en Redis a través del protocolo Memcache | Microsoft Azure"
 	description="Conexión de una aplicación web en Servicio de aplicaciones de Azure a Caché en Redis mediante el protocolo Memcache"
 	services="app-service\web"
 	documentationCenter="php"
@@ -8,12 +8,12 @@
 	editor="riande"/>
 
 <tags
-   ms.service="app-service-web"
+	ms.service="app-service"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="web"
-	ms.date="06/30/2015"
+	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
 # Conexión de una aplicación web en Servicio de aplicaciones de Azure a Caché en Redis a través del protocolo Memcache
@@ -21,6 +21,8 @@
 En este artículo, aprenderá a conectar una aplicación web de WordPress en [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) a [Caché en Redis de Azure][12] mediante el protocolo [Memcache][13]. Si tiene una aplicación web existente que usa un servidor de Memcache para almacenamiento en caché en memoria, puede migrarla a Servicio de aplicaciones de Azure y usar la solución de almacenamiento en caché de origen en Microsoft Azure con pocos o ningún cambio en el código de aplicación. Además, puede usar su experiencia existente en Memcache para crear aplicaciones distribuidas y altamente escalables en Servicio de aplicaciones de Azure con Caché en Redis de Azure para almacenamiento en caché en memoria, mientras usa marcos de aplicaciones conocidos como .NET, PHP, Node.js, Java y Python.
 
 Aplicaciones web del Servicio de aplicaciones habilita este escenario de aplicación con las correcciones de compatibilidad (shim) de Memcache de Aplicaciones web, que es un servidor local con Memcache que actúa como proxy de Memcache para almacenar en caché las llamadas a Caché en Redis de Azure. Esto permite que toda aplicación que se comunica mediante el uso del protocolo Memcache almacene en caché datos con Caché en Redis. Estas correcciones de compatibilidad (shim) de Memcache funcionan en el nivel de protocolo, por tanto, cualquier aplicación o marco de aplicaciones puede utilizarlas siempre que se comunique mediante el uso del protocolo Memcache.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Requisitos previos
 
@@ -138,7 +140,7 @@ Todos los pasos para habilitar las correcciones de compatibilidad (shim) de Memc
 
 >[AZURE.NOTE]En el momento de la redacción del presente artículo, la CLI de Redis no es compatible con la conectividad SSL, por lo que los siguientes pasos resultan necesarios.
 
-En el Portal de Azure, vaya a la instancia de Caché en Redis que creó para esta aplicación web. Una vez abierta la hoja de la caché, haga clic en el icono **Configuración**.
+En el Portal de Azure, vaya a la instancia de Caché en Redis que creó para esta aplicación web. Una vez abierta la hoja de la memoria caché, haga clic en el icono **Configuración**.
 
 ![Botón Configuración de Caché en Redis de Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/15-azure-redis-cache-settings-button.png)
 
@@ -177,7 +179,7 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, vea: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
@@ -196,4 +198,4 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -131,7 +131,7 @@ Tenga en cuenta que no puede usar funciones codificadas en las pruebas: los paso
 
 #### 1\. Grabar un escenario
 
-Utilice Visual Studio Ultimate para grabar una sesión web.
+Utilice Visual Studio Enterprise o Ultimate para grabar una sesión web.
 
 1. Cree un proyecto de prueba de rendimiento web.
 
@@ -147,14 +147,18 @@ Utilice Visual Studio Ultimate para grabar una sesión web.
 
     No cree un escenario largo. Existe un límite de 100 pasos y 2 minutos.
 
-4. Ejecute la prueba en Visual Studio para asegurarse de que funciona.
+4. Edite la prueba para:
+ - Agregar validaciones que comprueben el texto recibido y los códigos de respuesta.
+ - Quite las interacciones que sean superfluas. También puede quitar las solicitudes dependientes relacionadas con imágenes o con sitios de anuncios o de seguimiento.
+
+    Recuerde que solo se puede editar el script de prueba: no se puede agregar código personalizado ni llamar a otras pruebas web. No inserte bucles en la prueba. Puede utilizar complementos de prueba web estándar.
+
+5. Ejecute la prueba en Visual Studio para asegurarse de que funciona.
 
     El ejecutor de pruebas web abre un explorador web y repite las acciones grabadas. Asegúrese de que funciona como se esperaba.
 
     ![En Visual Studio, abra el archivo .webtest y haga clic en Ejecutar.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
 
-
-(No inserte bucles en la prueba web).
 
 #### 2\. Cargar la prueba web en Application Insights
 
@@ -218,7 +222,7 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
 * *¿Puedo llamar el código desde mi prueba web?*
 
-    No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Hay varios complementos que pueden resultarle útiles.
+    No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
 
 ## <a name="video"></a>Vídeo
 
@@ -240,4 +244,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

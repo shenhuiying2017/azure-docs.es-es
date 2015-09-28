@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicaciones v2.0 | Microsoft Azure"
+	pageTitle="Modelo de aplicación v2.0 &gt;API web .Net| Microsoft Azure"
 	description="Cómo crear una API web MVC de .NET que acepta los token de las cuentas de Microsoft y de las cuentas profesionales o educativas."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Vista previa del modelo de aplicaciones v2.0: proteger una API web MVC
@@ -55,7 +55,8 @@ Ahora que ha registrado una aplicación, debe configurarla para comunicarse con 
 -	Para comenzar, abra la solución y agregue los paquetes de NuGet del middleware OWIN al proyecto TodoListService desde la Consola del Administrador de paquetes.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService ```
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
+```
 
 -	Agregue una Clase de inicio OWIN al proyecto de ServicioListaTodo llamado `Startup.cs`. Haga clic con el botón derecho en el proyecto --> **Agregar** --> **Nuevo elemento** --> Busque "OWIN". El middleware OWIN invocará el método `Configuration(…)` al iniciarse la aplicación.
 -	Cambie la declaración de clase a `public partial class Startup` (ya hemos implementado parte de esta clase para usted en otro archivo). En el método `Configuration(…)`, realice una llamada a ConfigureAuth(...) para configurar la autenticación para la aplicación web.
@@ -155,4 +156,4 @@ Ahora puede pasar a otros temas adicionales. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [la etiqueta "azure-active-directory" StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

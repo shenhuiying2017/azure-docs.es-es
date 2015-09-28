@@ -3,7 +3,8 @@
 	description="Describe cómo reasignar el disco temporal en una máquina virtual basada en Windows en Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn
+"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Cambio de la letra de unidad del disco temporal de Windows
 
@@ -65,4 +66,4 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

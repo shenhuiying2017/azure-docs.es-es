@@ -3,7 +3,7 @@
    description="Información general de la configuración de las descripciones del servicio para su uso por parte del equilibrador de recursos"
    services="service-fabric"
    documentationCenter=".net"
-   authors="GaugeField"
+   authors="masnider"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="09/15/2015"
    ms.author="masnider"/>
 
 # Descripción general del servicio
@@ -202,7 +202,9 @@ El ejemplo de código muestra las definiciones de ServiceTypes mediante el manif
    </StatefulService>
  </ServiceTemplates>
 ```
-El ejemplo de código muestra las definiciones de ServiceTypes mediante el manifiesto de la aplicación. ``` xml
+El ejemplo de código muestra las definiciones de DefaultServices a través del manifiesto de la aplicación.
+
+``` xml
 <DefaultServices>
   <Service Name="QueueServiceInstance">
     <StatefulService MinReplicaSetSize="3" ServiceTypeName="QueueService" TargetReplicaSetSize="3">
@@ -229,4 +231,4 @@ Para obtener más información: [Arquitectura de equilibrador de recursos](servi
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

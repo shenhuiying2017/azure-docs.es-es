@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple
@@ -260,6 +260,7 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
 
 ## Pasos siguientes
 
-[Uso del Administrador de instantáneas StorSimple para ver y administrar volúmenes](storsimple-snapshot-manager-manage-volumes.md).
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para ver y administrar volúmenes de copia de seguridad](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

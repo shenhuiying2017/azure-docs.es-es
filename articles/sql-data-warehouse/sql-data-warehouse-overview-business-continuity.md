@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/15/2015"
    ms.author="sahajs"/>
 
 
 # Planificación de continuidad del negocio en Almacenamiento de datos SQL
 
-En este artículo se describen los conceptos básicos de planificación de continuidad del negocio y recuperación ante desastres con el Almacenamiento de datos SQL. Los almacenamientos de datos constituyen el repositorio central de información para empresas y desempeñan un papel fundamental en las operaciones diarias de análisis e inteligencia empresarial en todos los niveles de la organización. Por lo tanto, es esencial que el almacenamiento de datos sea confiable y permita la recuperación y la operación continua. En concreto, este artículo le mostrará cómo Almacenamiento de datos SQL permite recuperarse ante desastres y errores del usuario con Restauración a un momento dado y Restauración geográfica.
+En este artículo se describen los conceptos básicos de planificación de continuidad del negocio y recuperación ante desastres con el Almacenamiento de datos SQL. Los almacenamientos de datos constituyen el repositorio central de información para empresas y desempeñan un papel fundamental en las operaciones diarias de análisis e inteligencia empresarial en todos los niveles de la organización. Por lo tanto, es esencial que el almacenamiento de datos sea confiable y permita la recuperación y la operación continua. En concreto, este artículo le mostrará cómo Almacenamiento de datos SQL le permite recuperarse ante desastres y errores del usuario con Restaurar base de datos y Restauración geográfica.
 
 ## Conceptos
 
@@ -78,4 +78,4 @@ Para obtener información sobre las características de continuidad del negocio 
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

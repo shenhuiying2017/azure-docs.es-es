@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso de la red CDN de Azure del Servicio de aplicaciones de Azure"
-	description="Un tutorial que le enseña cómo implementar una aplicación web en el Servicio de aplicaciones de Azure que ofrece contenido de un extremo de la red CDN de Azure integrado"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Uso de la red CDN de Azure del Servicio de aplicaciones de Azure" 
+	description="Un tutorial que le enseña cómo implementar una aplicación web en el Servicio de aplicaciones de Azure que ofrece contenido de un extremo de la red CDN de Azure integrado" 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.service="app-service" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 
@@ -27,6 +27,8 @@ La integración de Aplicaciones web con la red CDN de Azure le ofrece las siguie
 - Actualización sencilla de los paquetes de NuGet de la aplicación web en el Servicio de aplicaciones de Azure, como versiones de jQuery o Bootstrap 
 - Administración de la aplicación web y del contenido servido por CDN desde la misma interfaz de Visual Studio
 - Integración de unión y minificación de ASP.NET con CDN de Azure
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Lo que va a crear ##
 
@@ -123,9 +125,9 @@ Tenga en cuenta que puede que no siempre sea una buena idea (o por lo general un
 
 -	Este enfoque requiere que el sitio entero sea público, dado que CDN de Azure no puede servir contenido privado.
 -	Si por algún motivo el extremo de red CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, la aplicación web entera se desconecta, a menos que los clientes se puedan redirigir a la dirección URL de origen **http://*&lt;sitename>*.azurewebsites.net/**.. 
--	Incluso con la configuración personalizada del control de la memoria caché (consulte [Configuración de las opciones de almacenamiento en caché para los archivos estáticos en la aplicación web de Azure](#configure-caching-options-for-static-files-in-your-azure-web-app)), un extremo de red CDN no mejora el rendimiento del contenido extremadamente dinámico. Si ha intentado cargar la página principal desde el extremo de red CDN como se ha mostrado anteriormente, tenga en cuenta que al menos tardará cinco segundos en cargarse la página principal predeterminada la primera vez, pese a ser una página bastante simple. Imagine entonces cómo sería la experiencia del cliente si esta página incluyera contenido dinámico que se debe actualizar cada minuto. Servir contenido dinámico desde un extremo de red CDN requiere una corta caducidad de la caché, lo que se traduce en errores frecuentes de la caché en el extremo de red CDN. Esto afecta al rendimiento de la aplicación web de Azure y frustra el propósito de una red CDN.
+-	Incluso con la configuración personalizada del control de la memoria caché (consulte [Configuración de las opciones de almacenamiento en caché para los archivos estáticos en la aplicación web de Azure](#caching)), un extremo de red CDN no mejora el rendimiento del contenido extremadamente dinámico. Si ha intentado cargar la página principal desde el extremo de red CDN como se ha mostrado anteriormente, tenga en cuenta que al menos tardará cinco segundos en cargarse la página principal predeterminada la primera vez, pese a ser una página bastante simple. Imagine entonces cómo sería la experiencia del cliente si esta página incluyera contenido dinámico que se debe actualizar cada minuto. Servir contenido dinámico desde un extremo de red CDN requiere una corta caducidad de la caché, lo que se traduce en errores frecuentes de la caché en el extremo de red CDN. Esto afecta al rendimiento de la aplicación web de Azure y frustra el propósito de una red CDN.
 
-La alternativa es determinar caso por caso qué contenido se va a servir desde CDN de Azure en la aplicación web de Azure. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de red CDN. Le mostraremos cómo servir una acción de controlador específica a través del extremo de red CDN en [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#serve-content-from-controller-actions-through-azure-cdn).
+La alternativa es determinar caso por caso qué contenido se va a servir desde CDN de Azure en la aplicación web de Azure. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de red CDN. Le mostraremos cómo servir una acción de controlador específica a través del extremo de red CDN en [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#controller).
 
 ## Configuración de las opciones de almacenamiento en caché para los archivos estáticos de la aplicación web de Azure ##
 
@@ -153,11 +155,11 @@ Esta configuración hace que todos los archivos estáticos de la carpeta *\Conte
 
 Para obtener más información sobre cómo configurar el elemento `<clientCache>`, vea [Caché de cliente clientCache>](http://www.iis.net/configreference/system.webserver/staticcontent/clientcache).
 
-E esta sección , le mostraremos cómo puede configurar los valores de la caché para los resultados de las acciones de controlador en la memoria caché de red CDN.
+En [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](#controller) también le mostraremos cómo configurar los valores de caché para los resultados de las acciones de controlador en la memoria caché de CDN.
 
 ## Suministro de contenido de acciones de controlador a través de la red CDN de Azure ##
 
-Al integrar Aplicaciones Web con la red CDN de Azure, es relativamente fácil servir el contenido desde las acciones de controlador a través de la red CDN de Azure. Sin embargo, si decide suministrar la aplicación web de Azure completa a través de la red CDN, no será necesario hacerlo, puesto que todas las acciones de controlador están accesibles a través de dicha red. No obstante, debido a los motivos indicados en [Implementación de una aplicación web de Azure con un extremo de red CDN integrado](#deploy-a-web-app-to-azure-with-an-integrated-cdn-endpoint), puede que decida no adoptar esta opción y optar por seleccionar la acción de controlador que desea servir desde la red CDN de Azure. [Maarten Balliauw](https://twitter.com/maartenballiauw) muestra cómo hacerlo con un divertido controlador MemeGenerator en [Reducción de la latencia en Web con la red CDN de Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Aquí simplemente lo vamos a reproducir.
+Al integrar Aplicaciones Web con la red CDN de Azure, es relativamente fácil servir el contenido desde las acciones de controlador a través de la red CDN de Azure. Sin embargo, si decide suministrar la aplicación web de Azure completa a través de la red CDN, no será necesario hacerlo, puesto que todas las acciones de controlador están accesibles a través de dicha red. No obstante, debido a los motivos indicados en [Implementación de una aplicación web de Azure con un extremo de red CDN integrado](#deploy), puede que decida no adoptar esta opción y optar por seleccionar la acción de controlador que desea servir desde la red CDN de Azure. [Maarten Balliauw](https://twitter.com/maartenballiauw) muestra cómo hacerlo con un divertido controlador MemeGenerator en [Reducción de la latencia en Web con la red CDN de Azure](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). Aquí simplemente lo vamos a reproducir.
 
 Suponga que desea generar en la aplicación web memes basados en una imagen de Chuck Norris de joven (foto de [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) como esta:
 
@@ -445,7 +447,7 @@ Cuando el extremo de red CDN de Azure no funcione por cualquier motivo, querrá 
 
 La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una propiedad llamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que le permite configurar el mecanismo de reserva en caso de error de red CDN. Para usar esta propiedad, siga estos pasos:
 
-1. En el proyecto ASP.NET, abra *App\_Start\\BundleConfig.cs*, donde agregó una dirección URL de la red CDN a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) y agregue el código `CdnFallbackExpression` en cuatro lugares, como se muestra, para agregar el mecanismo de reserva a los paquetes predeterminados.  
+1. En el proyecto ASP.NET, abra *App\_Start\\BundleConfig.cs*, donde agregó una dirección URL de la red CDN a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) y agregue el código `CdnFallbackExpression` en cuatro lugares, como se muestra, para agregar un mecanismo de reserva a los paquetes predeterminados.  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -494,7 +496,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 4. En *App\_Start\\StyleFundleExtensions.cs*, cambie el nombre del espacio de nombres al espacio de nombres de la aplicación ASP.NET (por ejemplo **cdnwebapp**).
 
-3. Vuelva a `App_Start\BundleConfig.cs` y reemplace la última instrucción `bundles.Add` por el código siguiente:
+3. Vuelva a `App_Start\BundleConfig.cs` y reemplace la última instrucción `bundles.Add` con el código siguiente:
 
         bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
           .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
@@ -507,27 +509,8 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 4. Vuelva a publicar en la aplicación web de Azure y obtenga acceso a la página principal.
 5. Vea el código HTML de la página. Debería encontrar scripts inyectados simulares a los siguientes:    
 	
-	```
-	...
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -542,7 +525,7 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 
 	Observe que el script inyectado para el paquete de CSS contiene aún el residuo errante de la propiedad `CdnFallbackExpression` en la línea:
 
-		}())||document.write('<script src="/Content/css"><\/script>');</script>
+        }())||document.write('<script src="/Content/css"></script>');</script>
 
 	Pero como la primera parte de la expresión || siempre devolverá true (en la línea directamente encima de esa), la función document.write() nunca se ejecutará.
 
@@ -564,4 +547,4 @@ La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bund
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

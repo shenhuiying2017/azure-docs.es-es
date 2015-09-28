@@ -3,11 +3,11 @@
 Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el símbolo del sistema de cualquier equipo que ejecute Windows, Linux o bien OSX. Para crear una red virtual mediante la CLI de Azure, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalar y configurar la CLI de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
-2. Ejecute el comando **azure network vnet create** para crear una red virtual y una subred, como se muestra a continuación. Observe la salida del comando CLI. En la lista que se muestra en la salida se explican los parámetros utilizados.
+2. Ejecute el comando **azure network vnet create** para crear una red virtual y una subred, como se muestra a continuación. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
-	Este es el resultado esperado del comando anterior:
+	Resultado esperado:
 
 			info:    Executing command network vnet create
 			+ Looking up network configuration
@@ -23,7 +23,7 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 	- **-r (o --subnet-cidr)**. Máscara de red en formato CIDR para subred. En este escenario, *24*.
 	- **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario, *Central US*.
 
-3. Ejecute el comando **azure network vnet subnet create** para crear una subred, como se muestra a continuación. Observe la salida del comando. En la lista que se muestra en la salida se explican los parámetros utilizados.
+3. Ejecute el comando **azure network vnet subnet create** para crear una subred, como se muestra a continuación. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
@@ -65,4 +65,4 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 			data:
 			info:    network vnet show command OK
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

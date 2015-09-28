@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones de Microsoft
@@ -24,7 +24,7 @@ Esta versión contiene las siguientes actualizaciones.
 
 Título|Descripción
 ---|---
-Soporte para grupos de PowerBI|Para habilitar compartir datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir a grupos de su cuenta de Power BI.
+Soporte para grupos de PowerBI|Para habilitar compartir datos con otros usuarios de Power BI, los trabajos de Análisis de transmisiones ahora pueden escribir a [grupos de PowerBI](stream-analytics-define-outputs.md#power-bi) dentro de su cuenta de Power BI.
 
 ## Notas de la versión de Análisis de transmisiones del 20/08/2015 ##
 
@@ -92,4 +92,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

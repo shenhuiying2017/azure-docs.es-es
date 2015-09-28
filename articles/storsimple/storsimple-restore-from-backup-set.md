@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Restaurar un volumen de StorSimple de una copia de seguridad | Microsoft Azure"
-	description="Explica cómo usar la página del catálogo de copias de seguridad del Administrador de StorSimple para restaurar un volumen de StorSimple desde un conjunto de copias de seguridad."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica cómo usar la página del catálogo de copias de seguridad del Administrador de StorSimple para restaurar un volumen de StorSimple desde un conjunto de copias de seguridad."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
 
@@ -78,8 +78,14 @@ Puede usar la página **Catálogo de copias de seguridad** para restaurar el vol
 
 8. Una vez completada la restauración, puede comprobar que los volúmenes de la copia de seguridad sustituyeron el contenido de los volúmenes.
 
+![Vídeo disponible](./media/storsimple-restore-from-backup-set/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que muestra cómo puede utilizar la copia y restaurar las características de StorSimple para recuperar archivos eliminados, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+
 ## Pasos siguientes
 
-Aprenda cómo [Administrar volúmenes de StorSimple](storsimple-manage-volumes.md)
+- Aprenda cómo [Administrar volúmenes de StorSimple](storsimple-manage-volumes.md).
 
-<!---HONumber=September15_HO1-->
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

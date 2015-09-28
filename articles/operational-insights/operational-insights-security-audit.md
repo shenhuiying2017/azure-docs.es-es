@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Explorar datos de seguridad y auditoría de Visión operativa
@@ -100,4 +100,4 @@ Los datos de auditoría que quiere recopilar y enviar a Visión operativa se adm
 
 Además de la configuración de la directiva local, si usa AppLocker para recopilar datos de auditoría, Visión operativa recopilará los datos y, luego, podrá verlos.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

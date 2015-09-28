@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configuración de un proxy web de un dispositivo StorSimple | Microsoft Azure"
-	description="Obtenga información acerca de cómo usar Windows PowerShell para StorSimple para configurar opciones de proxy web para el dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Obtenga información acerca de cómo usar Windows PowerShell para StorSimple para configurar opciones de proxy web para el dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Configurar el proxy web para el dispositivo StorSimple
 
@@ -146,6 +146,9 @@ Si el proxy web se configuró de manera incorrecta, se mostrarán mensajes de er
 > - Los errores relacionados con la configuración de proxy web no se muestran en el Portal de administración del servicio de Administrador de StorSimple. Si hay un problema con el proxy web una vez completada la configuración, el estado del dispositivo cambiará a **Sin conexión** en el Portal de administración.
 
 ## Pasos siguientes
-Si experimenta problemas durante la implementación del dispositivo o la configuración de los valores de proxy web, consulte [Solución de problemas de implementación del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=September15_HO1-->
+- Si experimenta problemas durante la implementación del dispositivo o la configuración de los valores de proxy web, vea [Solución de problemas de implementación del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
+
+- Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

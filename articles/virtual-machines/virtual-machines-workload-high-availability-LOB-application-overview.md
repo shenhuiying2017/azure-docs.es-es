@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Implementación de una aplicación de línea de negocio | Microsoft Azure"
-	description="Implemente una aplicación de línea de negocio de alta disponibilidad basada en web con grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases."
+	pageTitle="Implementación de una aplicación de línea de negocio | Microsoft Azure" 
+	description="Implemente una aplicación de línea de negocio de alta disponibilidad basada en web con grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Implementación de una aplicación de línea de negocio de alta disponibilidad en Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
 
 Este artículo contiene vínculos a las instrucciones detalladas para implementar una aplicación de línea de negocio basada en web solo de intranet con grupos de disponibilidad AlwaysOn de SQL Server en servicios de infraestructura de Azure. La aplicación se hospeda en estos equipos:
 
@@ -35,7 +37,7 @@ Dos equipos como mínimo para cada rol garantizan la alta disponibilidad. Todas 
 Esta configuración se implementa en las siguientes fases:
 
 - [Fase 1: Configuración de Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md). Cree una red virtual entre locales, conjuntos de disponibilidad y cuentas de almacenamiento.
-- [Fase 2: Configuración de controladores de dominio](virtual-machines-workload-high-availability-LOB-application-phase2.md). Cree y configure los controladores de dominio de los Servicios de dominio de Active Directory (AD DS) de réplica.
+- [Fase 2: Configuración de los controladores de dominio](virtual-machines-workload-high-availability-LOB-application-phase2.md). Cree y configure los controladores de dominio de los Servicios de dominio de Active Directory (AD DS) de réplica.
 - [Fase 3: Configuración de la infraestructura de SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md). Cree y configure las máquinas virtuales que ejecutan SQL Server, cree el clúster y habilite los grupos de disponibilidad AlwaysOn de SQL Server.
 - [Fase 4: Configuración de servidores web](virtual-machines-workload-high-availability-LOB-application-phase4.md). Cree y configure las dos máquinas virtuales de servidor web.
 - [Fase 5: Adición de las bases de datos de la aplicación a un grupo de disponibilidad AlwaysOn de SQL Server](virtual-machines-workload-high-availability-LOB-application-phase5.md). Prepare las bases de datos de la aplicación de línea de negocio y agréguelas a un grupo de disponibilidad AlwaysOn de SQL Server.
@@ -66,4 +68,4 @@ Para iniciar la configuración de esta carga de trabajo, vaya a [Fase 1: Configu
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

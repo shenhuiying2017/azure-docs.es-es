@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure (vista previa)
@@ -41,22 +41,13 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde 
 
 ![Flujo de trabajo activo][live-overview]
 
->[AZURE.NOTE]No todos los centros de datos admiten la codificación en directo con Servicios multimedia de Azure.
->
->Si usa el Portal de administración de Azure para crear canales, tendrá dos opciones de tipo de codificación de canal disponibles: **Ninguno** y **Estándar**. Si solo ve la opción **Ninguno**, significa que su centro de datos no admite la codificación en directo con AMS.
->
->Si usa .NET SDK o API de REST, haga lo siguiente para comprobar:
->
->1. Intente crear un canal con el tipo de codificación establecido en Estándar. 
->2. Si el valor devuelto es Código de error HTTP 412 (error de condición previa) con el siguiente mensaje: *"Esta región no admite la codificación en directo; EncodingType debe establecerse en 'Ninguno'."*, su centro de datos no admite la codificación en directo.
-
 
 ##En este tema
 
 - Información general de un [escenario común de streaming en vivo](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Descripción de un canal y sus componentes relacionados](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [Consideraciones](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [Tareas relacionadas con el streaming en vivo](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [Consideraciones](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>Escenario común de streaming en vivo
 
@@ -333,11 +324,11 @@ La duración de la pizarra en segundos. Para iniciar la pizarra, este debe ser u
 
 Cuando está establecido en true, este valor configura el codificador en directo para insertar una imagen de pizarra durante una pausa de anuncio. El valor predeterminado es true.
 
-###<a id="default_slate"></a>Id. del recurso de careta predeterminado
+###<a id="default_slate"></a>Identificador de activo de la careta predeterminada
 
 Opcional. Especifica el identificador del recurso de Servicios multimedia que contiene la imagen de pizarra. El valor predeterminado es null.
 
-**Nota**: antes de crear el canal, la imagen de careta debe cargarse con las siguientes restricciones como recurso dedicado (no debe haber ningún otro archivo en este recurso).
+**Nota**: antes de crear el canal, la imagen de careta debe cargarse con las siguientes restricciones como activo dedicado (no debe haber ningún otro archivo en este activo).
 
 - Máximo 1920x1080 de resolución.
 - Al menos 3 MB de tamaño.
@@ -397,6 +388,7 @@ Detenido|Detenido|No
 
 ##<a id="Considerations"></a>Consideraciones
 
+- Cuando un canal de tipo de codificación **estándar** experimenta una pérdida de origen de entrada/fuente de contribución, la compensa, reemplazando el audio y vídeo de origen por una careta de error y silencio. El canal continuará emitiendo una careta hasta que se reanude la fuente de contribución/entrada. Se recomienda no dejar un canal en directo en este estado durante más de dos horas. A partir de este momento, no se garantiza el comportamiento del canal en la reconexión de entrada, ni su comportamiento en respuesta a un comando de restablecimiento. Tendrá que detener el canal, eliminarlo y crear uno nuevo.
 - No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada. 
 - Cada vez que vuelva a configurar el codificador en directo, llame al método **Restablecer** en el canal. Antes de restablecer el canal, debe detener el programa. Después de restablecer el canal, reinicie el programa. 
 - Un canal se puede detener solo cuando está en el estado En ejecución y se han detenido todos los programas en el canal.
@@ -412,7 +404,7 @@ Detenido|Detenido|No
 
 ###Creación de canales que realizan la codificación en directo desde una secuencia de una sola velocidad de bits a una secuencia de velocidad de bits adaptable 
 
-Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar los canales y programas.
+Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar canales y programas.
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -438,4 +430,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

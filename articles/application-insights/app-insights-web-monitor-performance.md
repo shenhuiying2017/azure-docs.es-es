@@ -32,12 +32,15 @@ En el lado del cliente, Application Insights puede obtener datos de telemetría 
 Si todavía no ha agregado Application Insights a un proyecto (es decir, si no dispone de ApplicationInsights.config), puede comenzar con uno de estos procedimientos:
 
 * [Aplicaciones web ASP.NET](app-insights-asp-net.md)
+ * [Agregar supervisión de excepciones](app-insights-asp-net-exceptions.md)
+ * [Agregar supervisión de dependencias](app-insights-monitor-performance-live-website-now.md)
 * [Aplicaciones web J2EE](app-insights-java-get-started.md)
+ * [Agregar supervisión de dependencias](app-insights-java-agent.md)
 
 
 ## <a name="view"></a>Exploración de las métricas de rendimiento
 
-En el [Portal de Azure](https://portal.azure.com), busque el recurso de Application Insights que creó para la aplicación. La hoja de información general muestra los datos de rendimiento básicos:
+En el [Portal de Azure](https://portal.azure.com), busque el recurso de Application Insights que configuró para la aplicación. La hoja de información general muestra los datos de rendimiento básicos:
 
 
 
@@ -109,7 +112,7 @@ Si selecciona una métrica, se deshabilitarán las demás que no pueden aparecer
 
 Algunas de las métricas entre las que puede elegir son [contadores de rendimiento](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows proporciona una amplia variedad de ellos, pero también puede definir los suyos propios.
 
-Este ejemplo muestra los contadores de rendimiento que están disponibles de forma predeterminada. [Agregamos un gráfico aparte](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador y, para asignar nombre al gráfico, lo [guardamos como favorito](app-insights-metrics-explorer.md#editing-charts-and-grids):
+Este ejemplo muestra los contadores de rendimiento que están disponibles de forma predeterminada. [Agregamos un gráfico aparte](app-insights-metrics-explorer.md#editing-charts-and-grids) para cada contador y asignamos nombre al gráfico [guardándolo como favorito](app-insights-metrics-explorer.md#editing-charts-and-grids):
 
 ![](./media/app-insights-web-monitor-performance/sys-perf.png)
 
@@ -123,7 +126,7 @@ Si los contadores que desea no están en la lista de propiedades, puede agregarl
       </Counters>
     </Add>
 
-El formato es `\Category(instance)\Counter"` o, para las categorías que no tienen instancias, simplemente `\Category\Counter`. Para detectar los contadores que están disponibles en el sistema, lea [esta introducción](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
+El formato es `\Category(instance)\Counter"` o, para las categorías que no tienen instancias, simplemente `\Category\Counter`. Para detectar qué contadores están disponibles en el sistema, lea [esta introducción](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 `ReportAs` se requiere para los nombres de contadores que contengan caracteres que no sean: letras, paréntesis, barras diagonales, guiones, subrayados, espacios y puntos.
 
@@ -138,7 +141,12 @@ Si lo prefiere, puede escribir código que realice la misma acción:
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
+### Recuentos de excepciones
 
+*¿En qué se diferencian la tasa de excepciones y las métricas de excepciones?*
+
+* La *tasa de excepciones* es un contador de rendimiento del sistema. El CLR cuenta todas las excepciones controladas y no controladas que se producen, y divide el total de un intervalo de muestreo entre la duración del intervalo. El SDK de Application Insights recopila este resultado y lo envía al portal.
+* *Excepciones* es un recuento de los informes de TrackException recibidos por el portal en el intervalo de muestreo del gráfico. Solo incluye las excepciones controladas para las que ha escrito llamadas a TrackException en el código y no incluye todas las [excepciones no controladas](app-insights-asp-net-exceptions.md). 
 
 ## Establecer alertas
 
@@ -186,4 +194,4 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

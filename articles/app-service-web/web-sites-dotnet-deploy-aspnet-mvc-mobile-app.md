@@ -5,21 +5,22 @@
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/01/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin;riande"/>
 
 
 # Implementar una aplicación web móvil de ASP.NET MVC 5 en el servicio de aplicaciones de Azure
 
 Este tutorial le enseñará los conceptos básicos para crear una aplicación web ASP.NET MVC 5 adecuada para móviles y e implementarla en Microsoft Azure. Para este tutorial, debe disponer de [Visual Studio Express 2013 para Web][Visual Studio Express 2013] o la edición profesional de Visual Studio si ya dispone de él.
+Puede usar [Visual Studio 2015], pero las capturas de pantalla serán distintas y deberá utilizar las plantillas de ASP.NET 4.x.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -617,4 +618,4 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

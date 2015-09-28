@@ -1,6 +1,7 @@
 <properties 
     pageTitle="Directivas de indexación de DocumentDB | Microsoft Azure" 
-    description="Obtenga información acerca de cómo funciona la indexación en DocumentDB y sobre cómo configurar y cambiar la directiva de indexación." 
+    description="Obtenga información acerca de cómo funciona la indexación en DocumentDB y sobre cómo configurar y cambiar la directiva de indexación. Configurar la directiva de indexación dentro de DocumentDB para una indexación automática y un mayor rendimiento." 
+	keywords="how indexing works, automatic indexing, indexing database, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="" 
     authors="arramac" 
@@ -19,7 +20,7 @@
 
 # Directivas de indexación de DocumentDB
 
-Aunque muchos clientes prefieren dejar que DocumentDB controle automáticamente [todos los aspectos de la indexación ](documentdb-indexing.md), DocumentDB también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en DocumentDB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de base de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.
+Aunque muchos clientes prefieren dejar que DocumentDB controle automáticamente [todos los aspectos de la indexación ](documentdb-indexing.md), DocumentDB también permite especificar una **directiva de indexación** personalizada para las colecciones durante la creación. Las directivas de indexación en DocumentDB son más flexibles y potentes que los índices secundarios que se ofrecen en otras plataformas de indexación de bases de datos, ya que le permiten diseñar y personalizar la forma del índice sin sacrificar la flexibilidad del esquema. Para entender cómo funciona la indexación en DocumentDB, debe comprender que, mediante la administración de una directiva de indexación, puede lograr un equilibrio específico entre la sobrecarga de almacenamiento, el rendimiento de escritura y de consulta, y la coherencia de consultas del índice.
 
 En este artículo, echamos un vistazo más detenido a las directivas de indexación de DocumentDB, la personalización de la directiva de indexación y las ventajas y desventajas asociadas.
 
@@ -62,7 +63,7 @@ En el siguiente fragmento de código de .NET se muestra cómo establecer una dir
 >
 >De forma predeterminada, DocumentDB indexa todas las propiedades de cadena en los documentos de forma coherente con un índice Hash y las propiedades numéricas con un índice de intervalo.
 
-### Modos de indexación
+### Modos de indexación de bases de datos
 
 DocumentDB admite tres modos de indexación que se pueden configurar mediante la directiva de indexación en una colección de DocumentDB: Coherente, Diferida y Ninguna.
 
@@ -600,7 +601,7 @@ DocumentDB le permite realizar cambios sobre la marcha en la directiva de indexa
 
 **Transformaciones de índice en línea**
 
-![Transformaciones de índice en línea](media/documentdb-indexing-policies/index-transformations.png)
+![Cómo funciona la indexación: transformaciones de índice en línea de DocumentDB](media/documentdb-indexing-policies/index-transformations.png)
 
 Las transformaciones de índice se realizan en línea, lo que significa que los documentos indexados por la directiva antigua se transforman eficazmente según la nueva directiva **sin afectar a la disponibilidad de escritura ni al rendimiento aprovisionado** de la colección. La coherencia de las operaciones de lectura y escritura realizadas con la interfaz API de REST, SDK o desde procedimientos almacenados y desencadenadores no se ve afectada durante la transformación de índice. Esto significa que no hay ninguna degradación del rendimiento ni tiempo de inactividad en las aplicaciones al realizar un cambio de directiva de indexación.
 
@@ -766,4 +767,4 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

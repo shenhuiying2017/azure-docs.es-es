@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -22,6 +22,8 @@
 Uno de los retos que plantea el desarrollo de una aplicación web es cómo proporcionar un servicio seguro y protegido para sus clientes. En este artículo conocerá las características del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) que pueden proteger su aplicación web.
 
 > [AZURE.NOTE]No es el objetivo de este documento abarcar una completa exposición de las consideraciones de seguridad para las aplicaciones basadas en web. Como punto de inicio para conocer más en profundidad la cuestión de la protección de las aplicaciones web, consulte el [Proyecto de código abierto sobre seguridad en aplicaciones web (OWASP)](https://www.owasp.org/index.php/Main_Page), concretamente el proyecto de los [10 principales](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), que enumera los 10 principales errores de seguridad en aplicaciones web de acuerdo con los miembros de OWASP.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a name="https"></a> Protección de comunicaciones
 
@@ -45,7 +47,7 @@ Al desarrollar aplicaciones, realizar tareas de mantenimiento o automatizar tare
 
 Si utiliza una herramienta que emplea configuración de publicación o perfil de publicación, importe el archivo que contiene la configuración o el perfil de publicación en dicha herramienta y, a continuación, **elimine** el archivo. Si debe conservar el archivo, por ejemplo para compartirlo con otros que trabajan en el proyecto, almacénelo en una ubicación segura, como un directorio **cifrado** con permisos restringidos.
 
-Además, debería asegurarse de que se protegen las credenciales importadas. Por ejemplo, tanto **Azure PowerShell** como la **Interfaz de la línea de comandos de Azure (CLI de Azure)** almacenan la información importada en su **directorio particular** (*\~* en Linux o sistemas OS X y */usuarios/sunombredeusuario* en sistemas Windows). Para conseguir una seguridad adicional, **cifre** estas ubicaciones mediante herramientas de cifrado disponibles para su sistema operativo.
+Además, debería asegurarse de que se protegen las credenciales importadas. Por ejemplo, tanto **Azure PowerShell** como la **Interfaz de la línea de comandos de Azure (CLI de Azure)** almacenan la información importada en su **directorio particular** (*~* en Linux o sistemas OS X y */usuarios/sunombredeusuario* en sistemas Windows). Para conseguir una seguridad adicional, **cifre** estas ubicaciones mediante herramientas de cifrado disponibles para su sistema operativo.
 
 ### Valores de configuración y cadenas de conexión
 Es habitual almacenar cadenas de conexión, credenciales de autenticación y otra información de tipo confidencial en archivos de configuración. Lamentablemente, estos archivos pueden resultar expuestos en su sitio web o podrían aparecer en búsquedas de un repositorio público, con lo que la información podría quedar al descubierto.
@@ -86,4 +88,4 @@ Para obtener información sobre información de registro para aplicaciones web, 
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

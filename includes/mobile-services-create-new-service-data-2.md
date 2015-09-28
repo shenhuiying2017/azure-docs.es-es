@@ -51,4 +51,4 @@ Para poder almacenar datos de aplicaciones en el nuevo servicio móvil, primero 
 
 Ahora ya está listo para utilizar el nuevo servicio móvil como almacenamiento de datos para la aplicación.
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

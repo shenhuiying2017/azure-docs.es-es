@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Aplicación de línea de negocio de Azure | Microsoft Azure"
-	description="Obtenga información sobre el valor de una aplicación de línea de negocio de Azure, configure un entorno de prueba e implemente una configuración de alta disponibilidad."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Aplicación de línea de negocio de Azure | Microsoft Azure" 
+	description="Obtenga información sobre el valor de una aplicación de línea de negocio de Azure, configure un entorno de prueba e implemente una configuración de alta disponibilidad." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
 
 Configure la primera o siguiente aplicación de línea de negocio basada en web solo de intranet en Microsoft Azure y aprovéchese de la facilidad de configuración y de la posibilidad de ampliar rápidamente la aplicación para que incluya una nueva capacidad.
  
@@ -103,4 +105,4 @@ Una vez configurada, puede ampliar fácilmente esta aplicación de línea de neg
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

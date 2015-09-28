@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/16/15-->
+
 #### Instalación de los cables de alimentación
 
 1. Asegúrate de que el interruptor de alimentación de todos los módulos de alimentación y refrigeración (PCM) se encuentra en la posición de apagado.
@@ -22,4 +24,4 @@
 
 4. Para encender el sistema gira el interruptor de alimentación de ambos PCM a la posición de encendido.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

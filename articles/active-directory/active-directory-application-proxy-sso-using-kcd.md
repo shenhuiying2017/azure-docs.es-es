@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -54,14 +54,20 @@ La configuración de Active Directory varía, dependiendo de si su conector del 
 
 ### Conector y servidor publicado en el mismo dominio
 
-En Active Directory, vaya a **Herramientas** > **Usuarios y equipos**. Seleccione el servidor que ejecuta el conector. Haga clic con el botón derecho y seleccione **Propiedades** > **Delegación**. Seleccione **Confiar en este equipo para la delegación solo a los servicios especificados** y en **Servicios a los que esta cuenta puede presentar credenciales delegadas**, agregue el valor para el nombre de entidad de seguridad de servicio (SPN) del servidor de aplicaciones. Esto permite al conector del proxy de aplicación suplantar a los usuarios en AD en las aplicaciones definidas en la lista.
+
+
+1. En Active Directory, vaya a **Herramientas** > **Usuarios y equipos**. 
+2. Seleccione el servidor que ejecuta el conector. 
+3. Haga clic con el botón derecho y seleccione **Propiedades** > **Delegación**. 
+4. Seleccione **Confiar en este equipo para la delegación solo a los servicios especificados** y en **Servicios a los que esta cuenta puede presentar credenciales delegadas**, agregue el valor de la identidad del nombre de entidad de servicio (SPN) del servidor de aplicaciones. 
+5. Esto permite al conector del proxy de aplicación suplantar a los usuarios en AD en las aplicaciones definidas en la lista.
 
 ![Captura de pantalla de ventana Conector-Propiedades SVR](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
 
 ### Conector y servidor publicado en dominios distintos
 
-1. Para obtener una lista de requisitos previos para trabajar con KCD en los dominios, consulte [Delegación limitada Kerberos entre dominios](https://technet.microsoft.com/library/hh831477.aspx).
-2. En Windows 2012 R2, utilice la propiedad `principalsallowedtodelegateto` en el servidor de Conector para permitir a Proxy de aplicación delegar para el servidor de Conector, donde el servidor publicado es `sharepointserviceaccount` y, el servidor de delegación, `connectormachineaccount`.
+1. Para obtener una lista de requisitos previos para trabajar con KCD entre dominios, vea [Delegación limitada Kerberos entre dominios](https://technet.microsoft.com/library/hh831477.aspx).
+2. En Windows 2012 R2, use la propiedad `principalsallowedtodelegateto` en el servidor de conector para permitir que el proxy de la aplicación delegue en este, donde el servidor publicado es `sharepointserviceaccount` y el servidor de delegación es `connectormachineaccount`.
 
 		$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
 
@@ -70,12 +76,12 @@ En Active Directory, vaya a **Herramientas** > **Usuarios y equipos**. Seleccion
 		Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 
->[AZURE.NOTE]`sharepointserviceaccount` puede ser la cuenta del equipo SPS o una cuenta de servicio bajo la que se ejecuta el grupo de aplicaciones SPS.
+>[AZURE.NOTE]`sharepointserviceaccount` puede ser la cuenta del equipo SPS o una cuenta de servicio con la que se ejecuta el grupo de aplicaciones SPS.
 
 
 ## Configuración del Portal de Azure
 
-1. Publique la aplicación según las instrucciones de [Publicar aplicaciones con el proxy de aplicación](active-directory-application-proxy-publish.md). Asegúrese de seleccionar **Azure Active Directory** como **Método de autenticación previa**.
+1. Publique la aplicación según las instrucciones que se describen en [Publicación de aplicaciones con el proxy de la aplicación](active-directory-application-proxy-publish.md). Asegúrese de seleccionar **Azure Active Directory** como **Método de autenticación previa**.
 2. Cuando su aplicación aparezca en la lista de aplicaciones, selecciónela y haga clic en **Configurar**.
 3. En **Propiedades**, establezca **Método de autenticación interno** en **Autenticación de Windows integrada**.
 
@@ -87,11 +93,11 @@ En Active Directory, vaya a **Herramientas** > **Usuarios y equipos**. Seleccion
 
 | | |
 | --- | --- |
-| Método de autenticación interno | Si utiliza Azure AD para la autenticación previa, puede establecer un método de autenticación interno para permitir a los usuarios beneficiarse de inicio de sesión único (SSO) para esta aplicación. <br><br>Seleccione **Autenticación de Windows integrada (IWA)** si su aplicación utiliza IWA y podrá configurar la delegación limitada de Kerberos (KCD) para habilitar SSO para esta aplicación. Las aplicaciones que usan IWA deben configurarse mediante KCD; en caso contrario, Proxy de aplicación no podrá publicar estas aplicaciones. <br><br> Seleccione **Ninguno** si su aplicación no utiliza IWA. |
+| Método de autenticación interno | Si utiliza Azure AD para la autenticación previa, puede establecer un método de autenticación interno para permitir a los usuarios beneficiarse de inicio de sesión único (SSO) para esta aplicación. <br><br> Seleccione **Autenticación integrada de Windows** (IWA) si su aplicación usa IWA y podrá configurar la delegación limitada de Kerberos (KCD) para habilitar SSO en esta aplicación. Las aplicaciones que usan IWA deben configurarse mediante KCD; en caso contrario, Proxy de aplicación no podrá publicar estas aplicaciones. <br><br> Seleccione **Ninguno** si su aplicación no usa IWA. |
 | SPN de la aplicación interno | Este es el nombre principal del servicio (SPN) de la aplicación interna como está configurado en Azure AD local. El conector del proxy de aplicación utiliza el SPN para obtener los tokens de Kerberos para la aplicación que usa KCD. |
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

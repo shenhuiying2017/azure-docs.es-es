@@ -1,24 +1,38 @@
 <properties 
-   pageTitle="Lista de actualizaciones aplicadas al SO invitado de Azure | Microsoft Azure"
-	description="Lista de las actualizaciones aplicadas a las versiones del SO invitado."
-	services="cloud-services"
-	documentationCenter="na"
-	authors="yuemlu"
-	manager="markkie"
-	editor=""/>
+   pageTitle="Lista de actualizaciones aplicadas al SO invitado de Azure | Microsoft Azure" 
+   description="Lista de las actualizaciones aplicadas a las versiones del SO invitado." 
+   services="cloud-services" 
+   documentationCenter="na" 
+   authors="yuemlu" 
+   manager="markkie" 
+   editor=""/>
 
 <tags
    ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/24/2015"
-	ms.author="yuemlu"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd" 
+   ms.date="09/14/2015"
+   ms.author="yuemlu"/>
 
 # SO invitado de Azure 
 
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## SO invitado de septiembre
+
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-093 | [3088903] | Actualización de seguridad para Internet Explorer | 4\.24, 3.31, 2.43 | 8 de septiembre de 2015 |
+| MS15-094 | [3089548] | Actualización de seguridad acumulativa para Internet Explorer | 4\.24, 3.31, 2.43 | 8 de septiembre de 2015 |
+| MS15-096 | [3072595] | Una vulnerabilidad en el servicio de Active Directory podría permitir la denegación de servicio | 4\.24, 3.31, 2.43 | 8 de septiembre de 2015 |
+| MS15-097 | [3089656] | Vulnerabilidades en un componente de gráficos de Microsoft podrían permitir la elevación de privilegios | 4\.24, 3.31, 2.43 | 8 de septiembre de 2015 |
+| MS15-098 | [3089669] | Vulnerabilidades en Windows Journal podrían permitir la ejecución remota de código | 4\.24, 3.31, 2.43 | 8 de septiembre de 2015 |
+| MS15-101 | [3089662] | Vulnerabilidades en .NET Framework podrían permitir la elevación de privilegios | 4\.24, 3.31, 2.43 | 8 de septiembre de 2015 |
+| MS15-102 | [3089657] | Vulnerabilidades en la Administración de tareas de Windows podrían permitir la elevación de privilegios | 4\.24, 3.31, 2.43 | 8 de septiembre de 2015 |
+| MS15-105 | [3091287] | Una vulnerabilidad en Windows Hyper-V podría permitir la omisión de la característica de seguridad | 4\.24 | 8 de septiembre de 2015 |
+
 
 ## SO invitado de agosto
 
@@ -157,6 +171,16 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [2999802][2999802] | Se imprimen líneas sólidas en lugar de líneas de puntos en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 | N/D | [2896881][2896881] | Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows | 4,15; 3,22; 2,34 | 13 de enero de 2015 |
 
+
+[3088903]: http://support.microsoft.com/kb/3088903
+[3089548]: http://support.microsoft.com/kb/3089548
+[3072595]: http://support.microsoft.com/kb/3072595
+[3089656]: http://support.microsoft.com/kb/3089656
+[3089669]: http://support.microsoft.com/kb/3089669
+[3089657]: http://support.microsoft.com/kb/3089657
+[3091287]: http://support.microsoft.com/kb/3091287
+[3089662]: http://support.microsoft.com/kb/3089662
+
 [3082442]: http://support.microsoft.com/kb/3082442
 [3078662]: http://support.microsoft.com/kb/3078662
 [3080348]: http://support.microsoft.com/kb/3080348
@@ -184,7 +208,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/es-es/kb/3042553/
+[3042553]: https://support.microsoft.com/es-ES/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -264,4 +288,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

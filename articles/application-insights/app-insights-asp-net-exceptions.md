@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="09/10/2015" 
 	ms.author="awills"/>
  
 # Diagnóstico de errores y excepciones en aplicaciones de ASP.NET con Application Insights  
@@ -50,7 +50,7 @@ Desde ahí, puede examinar el seguimiento de pila y las propiedades detalladas d
 
 Una *dependencia* es un servicio al que llama su aplicación, normalmente a través de una API de REST o una conexión de base de datos. El [Monitor de estado de Application Insights][redfield] supervisa automáticamente diversos tipos de llamadas de dependencia, y mide la duración de la llamada y el acierto o error.
 
-Para obtener datos de dependencia, debe [instalar el Monitor de estado][redfield] en el servidor IIS; o bien, si la aplicación es una aplicación web de Azure, use la [extensión de Application Insights][azure]. Puede realizar esta acción de las dos maneras.
+Para obtener datos de dependencia, debe [instalar el Monitor de estado][redfield] en el servidor IIS; o bien, si la aplicación es una aplicación web de Azure, use la [extensión de Application Insights][azure].
 
 Las llamadas con error a las dependencias se muestran en la hoja Problemas, pero también puede encontrarlas en Elementos relacionados en los detalles de la solicitud y en los detalles de la excepción.
 
@@ -426,7 +426,15 @@ Agregue el atributo a las implementaciones de servicio:
 
 [Ejemplo](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
+## Contadores de rendimiento de excepciones
 
+Si tiene [instalado el Monitor de estado][redfield] en el servidor, puede obtener un gráfico de la tasa de excepciones, medida por. NET. Esto incluye las excepciones de .NET, tanto controladas como no controladas.
+
+Abra una hoja del Explorador de métricas, agregue un nuevo gráfico y seleccione **Tasa de excepciones**, que aparece debajo de Contadores de rendimiento.
+
+.NET framework calcula la tasa contando el número de excepciones producidas en un intervalo y dividiéndolo por la duración del intervalo de tiempo.
+
+Tenga en cuenta que será diferente del recuento de "Excepciones" calculado por el portal de Application Insights contando los informes de TrackException. Los intervalos de muestreo son diferentes y el SDK no envía informes de TrackException para todas las excepciones, controladas y no controladas.
 
 <!--Link references-->
 
@@ -441,4 +449,4 @@ Agregue el atributo a las implementaciones de servicio:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

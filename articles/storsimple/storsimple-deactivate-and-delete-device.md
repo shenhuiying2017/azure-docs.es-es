@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Desactivación y eliminación de un dispositivo de StorSimple | Microsoft Azure"
-	description="Describe cómo desactivar y eliminar en primer lugar el dispositivo de StorSimple para quitarlo del servicio."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Describe cómo desactivar y eliminar en primer lugar el dispositivo de StorSimple para quitarlo del servicio."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Desactivación y eliminación de un dispositivo de StorSimple
 
@@ -87,8 +87,10 @@ Solo puede eliminar los dispositivos que se han desactivado. Al eliminar un disp
 Es posible que el servicio tarde unos minutos en eliminarse.
 
 ## Pasos siguientes
-Para restaurar los valores predeterminados de fábrica del dispositivo desactivado, vaya a [Restablecimiento del dispositivo a la configuración predeterminada de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+- Para restaurar los valores predeterminados de fábrica del dispositivo desactivado, vaya a [Restablecimiento del dispositivo a la configuración predeterminada de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-Para obtener asistencia técnica, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
+- Para obtener asistencia técnica, [póngase en contacto con el soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+- Para obtener información sobre cómo usar el servicio StorSimple Manager, vaya a [Uso del servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

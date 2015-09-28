@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Administración del catálogo de copias de seguridad de StorSimple | Microsoft Azure"
-	description="Explica cómo usar la página del catálogo de copias de seguridad del servicio de Administrador de StorSimple para enumerar, seleccionar y eliminar conjuntos de copias de seguridad de un volumen."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica cómo usar la página del catálogo de copias de seguridad del servicio de Administrador de StorSimple para enumerar, seleccionar y eliminar conjuntos de copias de seguridad de un volumen."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar su catálogo de copia de seguridad
 
@@ -113,6 +113,8 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 
 ## Pasos siguientes
 
-Obtenga información acerca de cómo usar el catálogo de copias de seguridad para [ restaurar el dispositivo desde un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
+- Obtenga información sobre cómo usar el catálogo de copias de seguridad para [ restaurar el dispositivo desde un conjunto de copias de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=September15_HO1-->
+- Obtenga información sobre cómo [usar el servicio StorSimple Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

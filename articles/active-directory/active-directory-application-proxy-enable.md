@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Habilitación del proxy de la aplicación de Azure AD
-> [AZURE.NOTE] Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE]Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 Proxy de aplicación de Microsoft Azure AD permite publicar aplicaciones (como sitios de SharePoint y aplicaciones basadas en Outlook Web Access o IIS) en la red privada y proporciona un acceso seguro a los usuarios externos a la red. Los empleados pueden iniciar sesión desde casa, en sus propios dispositivos, y autenticarse a través de este proxy basado en la nube.
 
@@ -72,5 +72,6 @@ Si desea desinstalar el conector, después de desinstalar el servicio de conecto
 
 * [Registro en Azure como una organización](..sign-up-organization.md)
 * [Identidad de Azure](..fundamentals-identity.md)
+* [Publicación de aplicaciones con el proxy de la aplicación](active-directory-application-proxy-publish.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

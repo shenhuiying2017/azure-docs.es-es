@@ -1,20 +1,20 @@
 <properties
    pageTitle="Catálogo de datos de Azure Introducción al catálogo de datos de Azure"
-	description="Tutorial integral de los escenarios y las capacidades del Catálogo de datos de Azure."
-	documentationCenter=""
-	services="data-catalog"
-	authors="dvana"
-	manager="mblythe"
-	editor=""
-	tags=""/>
+   description="Tutorial integral de los escenarios y las capacidades del Catálogo de datos de Azure."
+   documentationCenter=""
+   services="data-catalog"
+   authors="dvana"
+   manager="mblythe"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/11/2015"
+   ms.author="derrickv"/>
 
 # Introducción al Catálogo de datos de Azure
 
@@ -148,9 +148,18 @@ En este ejercicio trabajará con otro usuario para agregar metadatos a los recur
 
 Solicite a un compañero que repita el ejercicio **Anotación de los orígenes de datos registrados** anterior. Una vez que su colega agregue una descripción a un recurso de datos, como ProductPhoto, verá varias anotaciones.
 
-En este ejercicio se han explorado las capacidades del Catálogo de datos de Azure para los metadatos de micromecenazgo, donde cualquier usuario del catálogo puede anotar los recursos de datos que detecta. Ejercicio: conexión a orígenes de datos En este ejercicio usará el portal **Catálogo de datos de Azure** para conectarse a orígenes de datos con Microsoft Excel.
 
-> [AZURE.NOTE]Es importante recordar que **Catálogo de datos de Azure** no da a los usuarios acceso al origen de datos real: simplemente facilita a los usuarios detectarlos y comprenderlos. Cuando los usuarios se conectan a un origen de datos, la aplicación cliente que eligen usará sus credenciales de Windows o les pedirán las credenciales según sea necesario. Si no se ha concedido acceso al origen de datos previamente al usuario, deberá concederse acceso a este para que pueda conectarse.
+![crowdsourcing][13]
+
+En este ejercicio se han explorado las capacidades del Catálogo de datos de Azure para los metadatos de micromecenazgo, donde cualquier usuario del catálogo puede anotar los recursos de datos que detecta.
+
+
+## Ejercicio 6: Conectarse a orígenes de datos
+
+En este ejercicio usará el portal **Catálogo de datos de Azure** para conectarse a orígenes de datos con Microsoft Excel.
+
+
+> [AZURE.NOTE]Es importante recordar que **Catálogo de datos de Azure** no da a los usuarios acceso al origen de datos en sí: simplemente facilita a los usuarios detectarlos y comprenderlos. Cuando los usuarios se conectan a un origen de datos, la aplicación cliente que eligen usará sus credenciales de Windows o les pedirán las credenciales según sea necesario. Si no se ha concedido acceso al origen de datos previamente al usuario, deberá concederse acceso a este para que pueda conectarse.
 
 ### A continuación se indica cómo conectarse a un origen de datos desde Excel
 
@@ -168,13 +177,13 @@ En este ejercicio se han explorado las capacidades del Catálogo de datos de Azu
 
 En este ejercicio, se ha conectado a orígenes de datos detectados mediante el Catálogo de datos de Azure. El portal **Catálogo de datos de Azure** permite a los usuarios conectarse directamente con las aplicaciones de cliente integradas en su menú **Abrir en...**, y permite a los usuarios conectarse con cualquier aplicación que elijan usando la información de ubicación de conexión incluida en los metadatos de los recursos.
 
-## Ejercicio 6: Quitar los metadatos del origen de datos
+## Ejercicio 7: Quitar los metadatos del origen de datos
 
 En este ejercicio usará el portal del **Catálogo de datos de Azure** para quitar los datos de vista previa de los recursos de datos registrados y para eliminar los recursos de datos del catálogo.
 
-> [AZURE.NOTE]El comportamiento predeterminado del catálogo es permitir que cualquier usuario registre cualquier origen de datos y permitir que cualquier usuario elimine cualquier recurso de datos que se haya registrado. Las capacidades de administración incluidas en la **edición Standard del Catálogo de datos de Azure** proporcionan opciones adicionales para la toma de posesión de los recursos, la restricción de quién puede detectar los recursos y eliminar los activos.
+> [AZURE.NOTE]El comportamiento predeterminado del catálogo es permitir que cualquier usuario registre cualquier origen de datos y permitir que cualquier usuario elimine cualquier recurso de datos que se haya registrado. Las capacidades de administración incluidas en la **edición Standard del Catálogo de datos de Azure** proporcionan opciones adicionales para la toma de posesión de los recursos y la restricción de quién puede detectar y eliminar los recursos.
 
-En el **Catálogo de datos de Azure** puede quitar la vista previa de Eliminar recurso individual o Eliminar varios recursos.
+En el **Catálogo de datos de Azure** puede quitar la vista previa de la eliminación del recurso individual o la eliminación de varios recursos.
 
 ### A continuación se muestra cómo eliminar varios recursos de datos
 
@@ -185,7 +194,7 @@ En el **Catálogo de datos de Azure** puede quitar la vista previa de Eliminar r
 
 En este ejercicio ha eliminado recursos de datos registrados del catálogo.
 
-## Ejercicio 7: Administración de orígenes de datos registrados
+## Ejercicio 8: Administración de orígenes de datos registrados
 
 En este ejercicio usará las capacidades de administración del **Catálogo de datos de Azure** para tomar posesión de los recursos de datos y para controlar qué usuarios pueden detectar y administrar esos recursos.
 
@@ -205,7 +214,7 @@ En este ejercicio exploró las capacidades de administración del catálogo y re
 
 ## Resumen
 
-En este tutorial exploró capacidades esenciales de la vista previa del **Catálogo de datos de Azure**, incluido el registro, la anotación, la detección y la administración orígenes de datos empresariales. Ahora que ha completado el tutorial, ha llegado el momento de comenzar. Puede empezar hoy mismo por registrar los orígenes de datos en los que confían usted y su equipo, e invitando a compañeros a usar el catálogo.
+En este tutorial exploró capacidades esenciales de la vista previa del **Catálogo de datos de Azure**, incluido el registro, la anotación, la detección y la administración de orígenes de datos empresariales. Ahora que ha completado el tutorial, ha llegado el momento de comenzar. Puede empezar hoy mismo por registrar los orígenes de datos en los que confían usted y su equipo, e invitando a compañeros a usar el catálogo.
 
 
 <!--Image references-->
@@ -221,5 +230,6 @@ En este tutorial exploró capacidades esenciales de la vista previa del **Catál
 [10]: ./media/data-catalog-get-started/connect1.png
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
+[13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

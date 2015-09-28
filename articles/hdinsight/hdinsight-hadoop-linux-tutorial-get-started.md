@@ -75,43 +75,47 @@ Cuando aprovisiona un clúster, aprovisiona recursos de proceso de Azure que con
 
 	![Proporcione las credenciales del clúster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Proporcione las credenciales del clúster")
 
-	Para obtener más información sobre el uso de SSH con HDInsight, vea uno de los siguientes artículos:
+    > [AZURE.NOTE]SSH sirve para tener acceso remoto a un clúster de HDInsight mediante una línea de comandos. El nombre de usuario y la contraseña o la clave pública que se use aquí se usará al conectarse al clúster a través de SSH. Además, el nombre de usuario SSH debe ser único, ya que crea una cuenta de usuario en todos los nodos del clúster de HDInsight. A continuación se indican algunos de los nombres de cuenta reservados para su uso en los servicios que se ejecutan en el clúster y no pueden usarse como nombre de usuario SSH:
+    >
+    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+
+	Para obtener más información sobre el uso de SSH con HDInsight, vea uno de los siguientes documentos:
 
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-7. Haga clic en **Origen de datos** para elegir un origen de datos existente para el clúster o cree uno nuevo. Cuando aprovisiona un clúster de Hadoop en HDInsight, especifica una cuenta de Almacenamiento de Azure. Se designa un contenedor de almacenamiento de blobs desde esa cuenta como el sistema de archivos predeterminado, como en el sistema de archivos distribuido de Hadoop (HDFS). De forma predeterminada, el clúster de HDInsight se aprovisiona en el mismo centro de datos que la cuenta de almacenamiento que especifica. Para obtener más información, vea [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md)
+7. Haga clic en **Origen de datos** para elegir un origen de datos existente para el clúster, o bien, cree uno nuevo. Cuando aprovisiona un clúster de Hadoop en HDInsight, especifica una cuenta de Almacenamiento de Azure. Se designa un contenedor de almacenamiento de blobs desde esa cuenta como el sistema de archivos predeterminado, como en el sistema de archivos distribuido de Hadoop (HDFS). De forma predeterminada, el clúster de HDInsight se aprovisiona en el mismo centro de datos que la cuenta de almacenamiento que especifica. Para obtener más información, vea [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md)
 
 	![Hoja Origen de datos](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "Proporcione la configuración del origen de datos")
 
 	Actualmente puede seleccionar una cuenta de almacenamiento de Azure como origen de datos para un clúster de HDInsight. Use lo siguiente para comprender las entradas de la hoja **Origen de datos**.
 
-	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establezca esto en **Tecla de acceso** si desea especificar el **Nombre de almacenamiento** y la **Tecla de acceso** de una cuenta de almacenamiento existente.
+	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si desea especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
 
-	- **Seleccionar cuenta de almacenamiento / Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para examinar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
+	- **Seleccionar cuenta de almacenamiento/Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para examinar y seleccionar una cuenta de almacenamiento existente que desee asociar al clúster. O bien, haga clic en **Crear nueva** para crear otra cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
 
 	- **Elegir contenedor predeterminado**: use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
 
-	- **Ubicación**: región geográfica en la que se encuentra o donde se creará la cuenta de almacenamiento.
+	- **Ubicación**: región geográfica en la que se encuentra o en la que se creará la cuenta de almacenamiento.
 
 		> [AZURE.IMPORTANT]Seleccionar la ubicación del origen de datos predeterminado también establecerá la ubicación del clúster de HDInsight. El origen de datos del clúster y predeterminado deben encontrarse en la misma región.
 
 	Haga clic en **Seleccionar** para guardar la configuración del origen de datos.
 
-8. Haga clic en **Niveles de precios de nodo** para mostrar información acerca de los nodos que se crearán para este clúster. Establezca el número de nodos de trabajo que necesita para el clúster. El costo estimado del clúster se mostrará en la hoja.
+8. Haga clic en **Niveles de precios de nodo** para mostrar información sobre los nodos que se crearán para este clúster. Establezca el número de nodos de trabajo que necesita para el clúster. El costo estimado del clúster se mostrará en la hoja.
 
 	![Hoja Niveles de precios de nodo](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Especifique el número de nodos de clúster")
 
 	Haga clic en **Seleccionar** para guardar la configuración de los precios del nodo.
 
-9. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que **Anclar a Panel de inicio** está seleccionado y, a continuación, haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el aprovisionamiento.
+9. En la hoja **Nuevo clúster de HDInsight**, asegúrese de que **Anclar a Panel de inicio** está seleccionado y luego haga clic en **Crear**. Esto creará el clúster y agregará un icono para él en el panel de inicio de su Portal de Azure. El icono indicará que el clúster está aprovisionando y cambiará para mostrar el icono de HDInsight cuando se haya completado el proceso.
 
 Durante el aprovisionamiento|Aprovisionamiento completado
 ------------------|---------------------
 	![Indicador de aprovisionamiento en el panel de inicio](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Icono de clúster aprovisionado](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE] El clúster tardará algún tiempo en crearse, normalmente unos 15 minutos. Use el icono del panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
+> [AZURE.NOTE]El clúster tardará algo de tiempo en crearse, normalmente unos 15 minutos. Use el icono del Panel de inicio o la entrada **Notificaciones** de la izquierda de la página para comprobar el proceso de aprovisionamiento.
 
 Una vez que termine el aprovisionamiento, haga clic en el icono del clúster desde el panel de inicio para iniciar la hoja del clúster.
 
@@ -239,16 +243,16 @@ Una vez que se conecte al clúster con SSH, use los siguientes comandos para eje
 ## <a name="nextsteps"></a>Pasos siguientes
 En este tutorial de Linux, aprendió a aprovisionar un clúster de Hadoop en Linux con HDInsight y a ejecutar una consulta de Hive en él mediante SSH. Para obtener más información, consulte los artículos siguientes:
 
-- [Administrar clústeres HDInsight mediante Ambari](hdinsight-hadoop-manage-ambari.md): los clústeres de HDInsight basados en Linux usan Ambari para la administración y supervisión de servicios de Hadoop. La interfaz de usuario web Ambari está disponible en cada clúster en https://CLUSTERNAME.azurehdinsight.net.
+- [Administración de clústeres de HDInsight con Ambari](hdinsight-hadoop-manage-ambari.md): los clústeres de HDInsight basado en Linux usan Ambari para la administración y supervisión de servicios de Hadoop. La interfaz de usuario web Ambari está disponible en cada clúster en https://CLUSTERNAME.azurehdinsight.net.
 
-	> [AZURE.IMPORTANT] Si bien es posible acceder a muchas secciones de la web de Ambari directamente a través de Internet, la interfaz de usuario web de los servicios de Hadoop como el Administrador de recursos o el Historial de trabajos requieren el uso de un túnel SSH. Para obtener más información sobre el uso de túneles SSH con HDInsight, consulte los siguientes artículos:
+	> [AZURE.IMPORTANT]Si bien es posible acceder a muchas secciones de la web de Ambari directamente a través de Internet, la interfaz de usuario web de los servicios de Hadoop como el Administrador de recursos o el Historial de trabajos requieren el uso de un túnel SSH. Para obtener más información sobre el uso de túneles SSH con HDInsight, consulte los siguientes artículos:
 	>
 	> * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
 	> * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
 
 - [Aprovisionamiento de HDInsight en Linux mediante opciones personalizadas](hdinsight-hadoop-provision-linux-clusters.md): obtenga más información detallada sobre cómo aprovisionar clústeres de HDInsight.
 
-- [Trabajar con HDInsight en Linux](hdinsight-hadoop-linux-information.md): si ya está familiarizado con Hadoop en las plataformas Linux, este documento ofrece orientación sobre información específica de Azure, como:
+- [Trabajo con HDInsight en Linux](hdinsight-hadoop-linux-information.md): si ya está familiarizado con Hadoop en plataformas Linux, este documento ofrece orientación sobre información específica de Azure, como por ejemplo:
 
 	* Direcciones URL para los servicios hospedados en el clúster, por ejemplo, Ambari y WebHCat
 	* La ubicación de los archivos y ejemplos de Hadoop en el sistema de archivos local
@@ -288,4 +292,4 @@ En este tutorial de Linux, aprendió a aprovisionar un clúster de Hadoop en Lin
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

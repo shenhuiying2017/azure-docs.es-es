@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Códecs y formatos de Media Encoder Standard
@@ -36,7 +36,20 @@ MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv)|Sí
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sí 
 Matroska/WebM (.mkv) |Sí 
 WAVE/WAV (.wav) |Sí 
+QuickTime (.mov) |Sí
  
+###Formatos de audio en contenedores de entrada 
+
+Media Encoder Standard admite el transporte de los siguientes formatos de audio en contenedores de entrada:
+
+- Archivos MXF, GXF y QuickTime que tengan pistas de audio con muestras de estéreo entrelazado o 5.1
+
+o
+
+- Archivos MXF, GXF y QuickTime donde el audio se transporte como pistas PCM independientes, pero la asignación de canal (a estéreo o 5.1) se pueda deducir de los metadatos del archivo
+
+Tenga en cuenta que la compatibilidad con la asignación de canal explícita o proporcionada por el usuario se incluirá en un futuro próximo.
+
 
 ##Códecs de vídeo de entrada
 
@@ -53,6 +66,13 @@ Canopus HQ/HQX |No
 MPEG-4, parte 2 |Sí 
 [Theora](https://en.wikipedia.org/wiki/Theora) |Sí 
 YUV420 sin comprimir o intermedio |Sí
+Apple ProRes 422 |Sí
+Apple ProRes 422 LT |Sí
+Apple ProRes 422 HQ |Sí
+Apple ProRes Proxy|Sí
+Apple ProRes 4444 |Sí
+Apple ProRes 4444 XQ |Sí
+
 
 
 ##Códecs de audio de entrada
@@ -81,7 +101,7 @@ La siguiente tabla enumera los códecs y los formatos de archivo compatibles par
 
 Formato de archivo|Códec de vídeo|Códec de audio
 ---|---|---
-MP4<br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4 <br/><br/>(incluidos los contenedores de MP4 de velocidad de bits múltiple) |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 
@@ -89,7 +109,7 @@ MPEG2-TS |H.264 (perfil alto, perfil principal y perfil de base de línea)|AAC-L
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
-- [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Flujo de trabajo de streaming en vivo de AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Consulte también
@@ -98,4 +118,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -38,6 +38,7 @@ No todos los servicios admiten actualmente la capacidad de traslado de recursos.
 Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
 
 - Administración de API
+- DocumentDB de Azure
 - Búsqueda de Azure
 - Aplicaciones web de Azure (se aplican algunas [limitaciones](app-service-web/app-service-move-resources.md))
 - Factoría de datos
@@ -83,7 +84,7 @@ Para trasladar recursos existentes a otro grupo de recursos o a una suscripción
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Reemplace **{source-subscription-id}** y **{source-resource-group-name}** por la suscripción y el grupo de recursos que actualmente contienen los recursos que desea trasladar. Use **2015-01-01** para {api-version}.
+Reemplace **{source-subscription-id}** y **{source-resource-group-name}** por la suscripción y el grupo de recursos que actualmente contienen los recursos que quiere trasladar. Use **2015-01-01** para {api-version}.
 
 En la solicitud, incluya un objeto JSON que define el grupo de recursos de destino y los recursos que desea mover.
 
@@ -102,4 +103,4 @@ En la solicitud, incluya un objeto JSON que define el grupo de recursos de desti
 - [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
 - [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

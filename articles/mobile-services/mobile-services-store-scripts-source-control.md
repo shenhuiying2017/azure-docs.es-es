@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Almacenamiento del código del proyecto en control de código fuente | Microsoft Azure"
+	pageTitle="Almacenamiento del código del proyecto back-end de JavaScript en el control de código fuente | Servicios móviles de Azure"
 	description="Obtenga información acerca de cómo almacenar los módulos y los archivos de script de servidor en un repositorio Git local del equipo."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="09/15/2015" 
 	ms.author="ggailey777"/>
 
-# Almacenamiento del código del proyecto en control de código fuente
+# Almacenamiento del código del proyecto de Servicios móviles en el control de código fuente
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 Este tema le muestra cómo usar el control del código fuente proporcionado por Servicios móviles de Azure para almacenar los scripts del servidor. Los scripts y otros archivos de código de back-end de JavaScript pueden promoverse desde el repositorio local al servicio móvil de producción. También se muestra cómo definir código compartido que pueden requerir varios scripts y cómo usar el archivo package.json para agregar módulos Node.js al servicio móvil.
 
@@ -161,4 +161,4 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

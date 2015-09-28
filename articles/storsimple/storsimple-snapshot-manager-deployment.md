@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Implementación de Administrador de instantáneas StorSimple | Microsoft Azure"
-	description="Obtenga información acerca de cómo descargar e instalar el Administrador de instantáneas StorSimple, un complemento de MMC para administrar las características de copia de seguridad y protección de datos de StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Obtenga información acerca de cómo descargar e instalar el Administrador de instantáneas StorSimple, un complemento de MMC para administrar las características de copia de seguridad y protección de datos de StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Implementar el complemento MMC del Administrador de instantáneas StorSimple
 
@@ -35,7 +35,9 @@ Antes de instalar o actualizar el complemento Administrador de instantáneas Sto
 
 Los pasos siguientes proporcionan una descripción general de las tareas de configuración que debe completar antes de instalar Administrador de instantáneas de StorSimple. Para completar la configuración de Microsoft Azure StorSimple y la información de configuración, incluidos los requisitos del sistema y obtener instrucciones detalladas, consulte [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Antes de comenzar, revise la [lista de comprobación de la configuración de implementación](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) y los [requisitos previos de implementación](storsimple-deployment-walkthrough.md#deployment-prerequisites) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).<br>
+>[AZURE.IMPORTANT]Antes de comenzar, revise la [lista de comprobación previa a la instalación](storsimple-deployment-walkthrough.md#pre-installation-checklist)
+> y los [requisitos previos de implementación](storsimple-deployment-walkthrough.md#deployment-prerequisites) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+<br>
  
 ### Antes de instalar Administrador de instantáneas StorSimple
 
@@ -201,7 +203,7 @@ Use los pasos siguientes para crear y guardar una copia de la base de datos de A
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. Vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+2. Vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog.
 
     >[AZURE.NOTE]ProgramData es una carpeta oculta.
 
@@ -233,7 +235,7 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 
     4. En el panel derecho, en **Servicio de administración de Microsoft StorSimple**, haga clic en **Detener el servicio**.
 
-2. Vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
+2. Vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog.
 
      >[AZURE.NOTE]ProgramData es una carpeta oculta.
 
@@ -249,8 +251,10 @@ Para reinstalar Administrador de instantáneas StorSimple, siga los pasos descri
 
 ## Pasos siguientes
 
-Para obtener más información sobre Administrador de instantáneas StorSimple, vaya a [¿Qué es Administrador de instantáneas StorSimple?](storsimple-what-is-snapshot-manager.md)
+- Para obtener más información sobre Snapshot Manager de StorSimple, vaya a [¿Qué es Snapshot Manager de StorSimple?](storsimple-what-is-snapshot-manager.md)
 
-Para obtener más información acerca de la interfaz de usuario de Administrador de instantáneas StorSimple, vaya a [Interfaz de usuario de Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md)
+- Para obtener más información acerca de la interfaz de usuario de Snapshot Manager de StorSimple, vaya a [Interfaz de usuario de Snapshot Manager de StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=September15_HO1-->
+- Para obtener más información acerca de Snapshot Manager de StorSimple, vaya a [Use Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
+
+<!---HONumber=Sept15_HO3-->

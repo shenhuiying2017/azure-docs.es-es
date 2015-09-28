@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Agile Software Development con el Servicio de aplicaciones de Azure"
 	description="Aprenda a crear aplicaciones complejas de gran escala con el Servicio de aplicaciones de Azure de forma que admita Agile Software Development."
-	services="app-service\web"
+	services="app-service\web,app-service\api,app-service\mobile"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -33,6 +33,8 @@ La tabla siguiente es una breve lista de los requisitos asociados al desarrollo 
 | - Fácil visualización de los resultados de la última compilación | La implementación continua en Azure desde un repositorio significa que se puede probar el nuevo código en una aplicación en directo inmediatamente después de confirmar los cambios. |
 | -Confirmación en la rama principal cada día<br>- Automatización de la implementación | La integración continua de una aplicación de producción con la rama principal de un repositorio implementa automáticamente cada confirmación/combinación en la rama principal para producción. |
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Lo que hará ##
 
 Recorrerá un flujo de trabajo típico de desarrollo-prueba-ensayo-producción para publicar los nuevos cambios en la aplicación de ejemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), que consta de dos [aplicaciones web](/services/app-service/web/), una que es un front-end (FE) y la otra que es un back-end (BE) de API web, y una [base de datos SQL](/services/sql-database/). Trabajará con la arquitectura de implementación que se muestra a continuación:
@@ -46,7 +48,7 @@ Para traducir la imagen en palabras:
 -	El ensayo y la producción se implementan como dos ranuras de la misma aplicación de Servicio de aplicaciones. La rama principal se configura para la integración continua con la ranura de ensayo.
 -	Cuando una confirmación en la rama principal se comprueba en la ranura de ensayo (con datos de producción), la aplicación de ensayo comprobada se cambia a la ranura de producción [sin tiempo de inactividad](web-sites-staged-publishing.md).
 
-El entorno de producción y ensayo se define mediante la plantilla que se encuentra en[*&lt;raíz\_repositorio>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
+El entorno de producción y ensayo se define mediante la plantilla que se encuentra en [*&lt;raíz\_repositorio>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
 
 Los entornos de desarrollo y pruebas se definen mediante la plantilla que se encuentra en [*&lt;raíz\_repositorio>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
 
@@ -58,10 +60,10 @@ También usará la estrategia de ramas típica, donde el código se mueve de la 
 
 -	Una cuenta de Azure
 -	Una cuenta [GitHub](https://github.com/)
--	Shell de Git (instalado con[GitHub para Windows](https://windows.github.com/)): esto le permite ejecutar comandos de PowerShell y Git en la misma sesión 
+-	Shell de Git (instalado con [GitHub para Windows](https://windows.github.com/)): esto le permite ejecutar comandos de PowerShell y Git en la misma sesión 
 -	Bits más recientes de [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/download/0.9.4-June2015/azure-powershell.0.9.4.msi)
 -	Conocimientos básicos de lo siguiente:
-	-	Implementación de plantillas de [Administrador de recursos de Azure](resource-group-overview.md) (vea también [Implementación de aplicaciones complejas con criterio previsible en Azure](app-service-deploy-complex-application-predictably.md))
+	-	Implementación de plantillas de [Administrador de recursos de Azure](resource-group-overview.md) (vea también [Implementación predecible de una aplicación compleja en Azure](app-service-deploy-complex-application-predictably.md))
 	-	[Git](http://git-scm.com/documentation)
 	-	[PowerShell](https://technet.microsoft.com/library/bb978526.aspx)
 
@@ -73,7 +75,7 @@ También usará la estrategia de ramas típica, donde el código se mueve de la 
 
 >[AZURE.NOTE]El script que se emplea en este tutorial configurará automáticamente la publicación continua desde el repositorio de GitHub. Esto requiere que las credenciales de GitHub ya estén almacenadas en Azure; en caso contrario, no se realizará la implementación con script al intentar definir la configuración del control de código fuente para las aplicaciones web.
 >
->Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de vista previa de Azure](https://portal.azure.com) y [defina la implementación de GitHub](web-sites-publish-source-control.md#Step7). Solo tiene que hacer esto una vez.
+>Para almacenar sus credenciales de GitHub en Azure, cree una aplicación web en el [Portal de vista previa de Azure](https://portal.azure.com) y [configure la implementación de GitHub](web-sites-publish-source-control.md#Step7). Solo tiene que hacer esto una vez.
 
 En un escenario típico de DevOps, tiene una aplicación que se ejecuta directamente en Azure y quiere realizar cambios en ella mediante publicación continua. En este escenario, tiene una plantilla que ya desarrolló, probó y usó para implementar el entorno de producción. La configurará en esta sección.
 
@@ -119,7 +121,7 @@ Ya tiene configurado el entorno de producción. Luego, iniciará una nueva actua
 
 Ahora que tiene una aplicación compleja en ejecución en producción en Azure, realizará una actualización a la aplicación de acuerdo con la metodología ágil. En esta sección, creará las ramas de desarrollo y prueba que necesitará para realizar las actualizaciones necesarias.
 
-1.	En primer lugar, cree el entorno de prueba. En la sesión del Shell de Git, ejecute los siguientes comandos para crear el entorno para una nueva rama denominada**NewUpdate**. 
+1.	En primer lugar, cree el entorno de prueba. En la sesión del Shell de Git, ejecute los siguientes comandos para crear el entorno para una nueva rama denominada **NewUpdate**. 
 
 		git checkout -b NewUpdate
 		git push origin NewUpdate 
@@ -132,7 +134,7 @@ Ahora que tiene una aplicación compleja en ejecución en producción en Azure, 
 	-	Puede crearlo en cualquier suscripción de Azure. Esto significa que el entorno de producción se puede administrar independientemente del entorno de prueba.
 	-	El entorno de prueba se ejecuta en directo en Azure.
 	-	El entorno de prueba es idéntico al entorno de producción, excepto en la configuración de escalado y las ranuras de ensayo. Puede saberlo porque son las únicas diferencias entre ProdandStage.json y Dev.json.
-	-	Puede administrar su entorno de prueba en su propio plan de Servicio de aplicaciones de la aplicación, con un nivel de precio diferente (como **Gratis**).
+	-	Puede administrar su entorno de prueba en su propio plan de Servicio de aplicaciones, con un nivel de precio diferente (como **Gratis**).
 	-	Eliminar este entorno de prueba será tan sencillo como eliminar el grupo de recursos. Encontrará información sobre cómo hacerlo [más adelante](#delete).
 
 2.	Continúe con la creación de una rama de desarrollo ejecutando los comandos siguientes:
@@ -174,7 +176,7 @@ Los archivos de plantilla ProdAndStage.json y Dev.json ya especifican los parám
 
 		git checkout Dev
 
-2.	Realice un simple cambio en la capa de interfaz de usuario de la aplicación cambiando el código para que use listas de [arranque](http://getbootstrap.com/components/). Abra *&lt;raíz\_repositorio>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml y realice el cambio resaltado a continuación:
+2.	Realice un simple cambio en la capa de interfaz de usuario de la aplicación cambiando el código para que use listas de [arranque](http://getbootstrap.com/components/). Abra *&lt;raíz\_repositorio>*\\src\\MultiChannelToDo.Web\\index.cshtml y realice el cambio resaltado a continuación:
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
@@ -236,7 +238,7 @@ En el Shell de Git, ejecute los siguientes comandos:
 	git merge NewUpdate
 	git push origin master
 
-Recuerde que, en función del modo en que el entorno de ensayo y producción se configure en ProdandStage.json, se inserta el nuevo código en la ranura de **ensayo** y se ejecuta allí. Si se navega a la dirección URL de la ranura de ensayo, verá que el nuevo código se ejecuta allí. Para ello, ejecute el cmdlet `Show-AzureWebsite` en el Shell de Git.
+Recuerde que, en función del modo en que se configure el entorno de ensayo y producción en ProdandStage.json, se inserta el nuevo código en la ranura de **ensayo** y se ejecuta allí. Si se navega a la dirección URL de la ranura de ensayo, verá que el nuevo código se ejecuta allí. Para ello, ejecute el cmdlet `Show-AzureWebsite` en el Shell de Git.
 
 	Show-AzureWebsite -Name ToDoApp<unique_string>master -Slot Staging
  
@@ -279,4 +281,4 @@ Agile Software Development es un componente indispensable para muchas empresas q
 -	[Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

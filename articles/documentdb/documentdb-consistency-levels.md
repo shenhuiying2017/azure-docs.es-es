@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Niveles de coherencia en DocumentDB | Microsoft Azure" 
-	description="DocumentDB tiene cuatro niveles de coherencia con niveles de rendimiento asociados para ayudar a los desarrolladores de aplicaciones a crear ventajas predecibles de coherencia-disponibilidad-latencia." 
+	description="DocumentDB tiene cuatro niveles de coherencia con niveles de rendimiento asociados para ayudar a equilibrar las ventajas finales de coherencia, disponibilidad y latencia." 
+	keywords="eventual consistency, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -22,10 +23,10 @@ Los desarrolladores con frecuencia se enfrentan al desafío de elegir entre los 
  
 Todos los recursos del sistema, como cuentas de base de datos, bases de datos, colecciones, usuarios y permisos son siempre absolutamente coherentes para lecturas y consultas. Los niveles de coherencia se aplican únicamente a los recursos definidos por el usuario. En lo relativo a consultas y operaciones de lectura sobre recursos definidos por el usuario, como documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF, DocumentDB ofrece cuatro niveles distintos de coherencia:
 
- - Alta
- - Uso vinculado 
- - Sesión
- - Ocasional 
+ - Fuerte coherencia
+ - Coherencia de uso vinculado
+ - Coherencia de la sesión
+ - Coherencia final
 
 Estos niveles de coherencia granulares y bien definidos le permiten realizar sólidos equilibrios entre la coherencia, la disponibilidad y el rendimiento. Estos niveles de coherencia están respaldados por niveles de rendimiento predecibles que garantizan unos resultados coherentes para su aplicación.
 
@@ -89,4 +90,4 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
 -	Werner Vogels. Coherencia ocasional - Revisitado. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

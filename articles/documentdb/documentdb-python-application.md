@@ -1,6 +1,7 @@
 <properties
-    pageTitle="Generación de una aplicación web con Python y Flask mediante DocumentDB | Microsoft Azure"
-    description="Obtenga información acerca de cómo usar DocumentDB para almacenar y acceder a los datos de una aplicación web de Python y Flask (MVC) hospedada en Azure."
+    pageTitle="Desarrollo de aplicaciones web de Python Flask con DocumentDB | Microsoft Azure"
+    description="Vea un tutorial de base de datos sobre el uso de DocumentDB para almacenar datos y acceder a ellos desde una aplicación web de Python Flask hospedada en Azure. Encuentre soluciones de desarrollo de aplicaciones." 
+	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
     authors="ryancrawcour"
@@ -16,13 +17,13 @@
     ms.date="09/03/2015"
     ms.author="ryancraw"/>
 
-# Generación de una aplicación web con Python y Flask (MVC) mediante la Base de datos de documentos
+# Desarrollo de aplicaciones web de Python Flask con DocumentDB
 
-Para destacar la forma en que los clientes pueden aprovechar eficazmente Azure DocumentDB para almacenar y consultar documentos JSON, este documento proporciona un tutorial integral sobre la compilación de una aplicación web para votaciones mediante Azure DocumentDB.
+Para destacar la forma en que los clientes pueden aprovechar eficazmente Azure DocumentDB para almacenar y consultar documentos JSON, este documento ofrece un tutorial completo sobre aplicaciones web de Python que muestra cómo compilar una aplicación web para votaciones mediante Azure DocumentDB.
 
 En este tutorial aprenderá a usar el servicio DocumentDB que proporciona Azure para almacenar datos y obtener acceso a ellos desde cualquier aplicación web Phyton hospedada en Azure. En él se presupone que tiene experiencia previa en el uso de los sitios web de Phyton y Azure.
 
-Esta tutorial abarca lo siguiente:
+En este tutorial de base de datos se trata lo siguiente:
 
 1. Crear y aprovisionar una cuenta de DocumentDB.
 2. Crear una aplicación Phyton MVC.
@@ -31,10 +32,10 @@ Esta tutorial abarca lo siguiente:
 
 Siguiendo este tutorial, podrá compilar una aplicación de votación simple que le permita votar en un sondeo.
 
-![Captura de pantalla de la aplicación web todo list creada por este tutorial](./media/documentdb-python-application/image1.png)
+![Captura de pantalla de la aplicación web de Lista de tareas pendientes creada con este tutorial](./media/documentdb-python-application/image1.png)
 
 
-## Requisitos previos
+## Requisitos previos del tutorial de base de datos
 
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener instalados los siguientes elementos:
 
@@ -58,18 +59,18 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 1. Abra Visual Studio, haga clic en **Archivo** -> **Nuevo proyecto** -> **Python** -> **Proyecto web de Flask** y cree un nuevo proyecto llamado **tutorial**.
 
-	Para aquellos que desconozcan Flask: se trata de un marco web que nos ayuda a crear aplicaciones web en Python más rápido. [Haga clic aquí para obtener acceso a los tutoriales de Flask][].
+	Para aquellos que desconozcan Python Flask, se trata de un marco de desarrollo de aplicaciones web que nos ayuda a compilar aplicaciones web en Python más rápidamente. [Haga clic aquí para obtener acceso a los tutoriales de Flask][].
 
-	![Captura de pantalla de la ventana Nuevo proyecto en Visual Studio con Python resaltado a la izquierda, el proyecto web de Flask seleccionado en el centro y el tutorial del nombre en el cuadro Nombre](./media/documentdb-python-application/image9.png)
+	![Captura de pantalla de la ventana Nuevo proyecto en Visual Studio con Python resaltado a la izquierda, el proyecto web de Python Flask seleccionado en el centro y el nombre tutorial en el cuadro Nombre](./media/documentdb-python-application/image9.png)
 
 2. Se le preguntará si desea instalar paquetes externos. Haga clic en **Instalar en un entorno virtual**. Use Python 2.7 como entorno de base, ya que PyDocumentDB no admite actualmente Python 3.x. Esto configurará el entorno virtual de Python requerido para el proyecto.
 
-	![Captura de pantalla del tutorial: herramientas de Python para la ventana de Visual Studio](./media/documentdb-python-application/image10.png)
+	![Captura de pantalla del tutorial de base de datos: ventana Herramientas de Python para Visual Studio](./media/documentdb-python-application/image10.png)
 
 
 ## Paso 3: Modificación de la aplicación web de Python Flask
 
-### Adición de paquetes Flask a un proyecto
+### Incorporación de paquetes de Python Flask al proyecto
 
 Después de que el proyecto esté configurado, es preciso agregar varios paquetes Flask que serán necesarios para el proyecto, entre los que se incluye pydocumentdb, el paquete de Python para DocumentDB.
 
@@ -100,7 +101,7 @@ Asegurémonos de que todo esté instalado correctamente.
 
 - Inicie el sitio web, para lo que debe presionar **F5**. De este modo se ejecutará el servidor de desarrollo de Flask y el explorador web. Debe ver la página siguiente.
 
-	![El proyecto de Flask vacío mostrado en un explorador](./media/documentdb-python-application/image12.png)
+	![Proyecto de desarrollo web de Python Flask vacío en un explorador](./media/documentdb-python-application/image12.png)
 
 ### Creación de definiciones de base de datos, colección y documento
 
@@ -301,7 +302,7 @@ En la carpeta de plantillas, agregue los siguientes archivos html: create.html, 
 	![Captura de pantalla de la ventana del explorador de soluciones de Visual Studio](./media/documentdb-python-application/image15.png)
 
 
-## Paso 4: Ejecución de la aplicación de forma local
+## Paso 4: Ejecución local de la aplicación web
 
 1. Presione F5 o haga clic en el botón **Ejecutar** de Visual Studio. Debería ver lo siguiente en la pantalla.
 
@@ -309,7 +310,7 @@ En la carpeta de plantillas, agregue los siguientes archivos html: create.html, 
 
 2. Haga clic en **Create/Clear the Voting Database** (Crear/borrar la base de datos de votos) para generar la base de datos.
 
-	![Captura de pantalla de la opción Crear página de la aplicación web](./media/documentdb-python-application/image17.png)
+	![Captura de pantalla de la página de creación de la aplicación web: detalles sobre el desarrollo](./media/documentdb-python-application/image17.png)
 
 3. A continuación, haga clic en **Vote** (Votar) y seleccione su opción.
 
@@ -336,7 +337,7 @@ Ahora que toda la aplicación funciona correctamente con DocumentDB, vamos a imp
 
 ## Pasos siguientes
 
-¡Enhorabuena! Acaba de compilar su primera aplicación Phyton mediante Azure DocumentDB y la ha publicado en Sitios web Azure.
+¡Enhorabuena! Acaba de completar su primera aplicación web de Phyton con Azure DocumentDB y de publicarla en Sitios web Azure.
 
 Actualizamos y mejoramos este tema con frecuencia en función de los comentarios que recibimos. Una vez completado el tutorial, no olvide incluir sus comentarios sobre las mejoras que quiera que se hagan. Para ello, use los botones de voto de la parte superior e inferior de esta página. Si quiere que nos pongamos en contacto directamente con usted, puede incluir su dirección de correo electrónico en los comentarios.
 
@@ -351,4 +352,4 @@ Para agregar funcionalidad adicional a la aplicación, revise las API disponible
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

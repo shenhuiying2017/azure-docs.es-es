@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Actualización de proyectos a la versión actual de Azure Tools"
-	description="Aprenda a actualizar proyectos de Azure en Visual Studio a la versión actual de Azure Tools"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Aprenda a actualizar proyectos de Azure en Visual Studio a la versión actual de Azure Tools"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Actualización de proyectos a la versión actual de Azure Tools para Visual Studio
 
-##Información general
+## Información general
 
 Después de instalar la versión actual de Azure Tools (o una versión anterior que sea posterior a la 1.6), todos los proyectos que se crearon con una versión de Azure Tools anterior a la 1.6 (noviembre de 2011) se actualizarán automáticamente en cuanto se abran. Si creó proyectos con la versión de 1.6 (noviembre de 2011) de las herramientas y sigue teniendo esa versión instalada, puede abrir dichos proyectos en la versión anterior y decidir más tarde si desea actualizarlos.
 
@@ -55,4 +55,4 @@ Si un proyecto se actualiza automáticamente o se especifica que se desea actual
 
 [Historial de versiones de Azure Tools](http://go.microsoft.com/fwlink/p/?LinkId=623548)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

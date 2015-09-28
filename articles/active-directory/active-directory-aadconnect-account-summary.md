@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Más información sobre las credenciales y los permisos de Azure AD Connect"
-	description="Descripción de la configuración personalizada de credenciales y permisos de Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Más información sobre las credenciales y los permisos de Azure AD Connect" 
+	description="Descripción de la configuración personalizada de credenciales y permisos de Azure AD Connect." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 
@@ -48,7 +48,7 @@ N/A|Credenciales de inicio de sesión del usuario que ejecuta el asistente|Admin
 Instalar la página del servicios de sincronización, la opción de cuenta de servicio | Credenciales de cuenta de usuario local o de AD | Usuario local|Si el administrador especifica una cuenta, esta se usa como cuenta de inicio de sesión para el servicio de sincronización.
 Conectarse a Azure|Credenciales de directorio de Azure AD| Rol de administrador global en Azure AD|El asistente crea la cuenta de AD que se usará como cuenta de inicio de sesión del servicio de sincronización en el equipo local.
 Conectar sus directorios|En Active Directory local, las credenciales de cada bosque que se conectará a Azure AD |<li>El nivel mínimo de permisos requerido por el asistente es usuario de dominio.</li> <li>Sin embargo, la cuenta especificada debe tener los permisos necesarios para el escenario deseado.</li><li>Si desea configurar la sincronización de contraseñas con  
-Azure AD, asegúrese de que esta cuenta tenga asignados los siguientes permisos: replicación de cambios de directorio y replicación de todos los cambios de directorio</li> <li>Si su intención es configurar la sincronización para 'reescribir' la información de Azure AD en AD local, asegúrese de que la cuenta tenga permisos de escritura en los objetos de directorio y los atributos que desea reescribir.</li> <li>Si pretende configurar AD FS para el inicio de sesión, asegúrese de que las credenciales de AD que proporcione para el bosque en el que residen los servidores de AD FS tengan privilegios de administrador de dominio.</li><li>Consulte la tabla siguiente para ver una lista de requisitos adicionales para su escenario.</li>|<li>Esta es la cuenta que se utilizará para la cuenta del Agente de administración de AD (MA) local. Se usará para leer y escribir objetos y atributos en AD local para la operación de sincronización continua.</li><li>Asignación de los permisos adecuados y la configuración de control de acceso para las opciones de sincronización elegidas a la cuenta anterior y a AD.</li>
+Azure AD, asegúrese de que esta cuenta tenga asignados los siguientes permisos: replicación de cambios de directorio y replicación de todos los cambios de directorio</li> <li>Si su intención es configurar la sincronización para 'reescribir' la información de Azure AD en AD local, asegúrese de que la cuenta tenga permisos de escritura en los objetos de directorio y los atributos que desea reescribir.</li> <li>Si pretende configurar AD FS para el inicio de sesión, asegúrese de que las credenciales de AD que proporcione para el bosque en el que residen los servidores de AD FS tengan privilegios de administrador de dominio.</li><li>Consulte la tabla siguiente para ver una lista de requisitos adicionales para su escenario.</li>|<li>Esta es la cuenta que se utilizará para la cuenta del Agente de administración de AD (MA) local. Se usará para leer y escribir objetos y atributos en AD local para la operación de sincronización continua.</li>
 Servidores de AD FS|Para cada servidor de la lista, el asistente recopila credenciales si las credenciales de inicio de sesión del usuario que ejecuta el asistente no son suficientes para conectarse|Administrador de dominio|Instalación y configuración del rol de servidor de AD FS.|
 Servidores proxy de aplicación web |Para cada servidor de la lista, el asistente recopila credenciales si las credenciales de inicio de sesión del usuario que ejecuta el asistente no son suficientes para conectarse|Administrador local en el equipo de destino.|Instalación y configuración del rol de servidor de WAP.
 Credenciales de confianza del proxy |Credenciales de confianza del servicio de federación (las credenciales que el proxy usará para inscribirse para obtener un certificado de confianza de FS) |Cuenta de dominio que es un administrador local del servidor de AD FS|Inscripción inicial de certificados de confianza de FS WAP
@@ -66,6 +66,7 @@ Implementación híbrida de Exchange|Consulte [Permisos y atributos de reescritu
 Escritura diferida de contraseñas | <li>Cambiar contraseña</li><li>Restablecer contraseña</li>
 Reescritura de usuario, grupo y dispositivo|Permisos de escritura en los objetos y atributos de directorio que desea 'reescribir'
 Inicio de sesión único y AD FS| Permisos de administrador de dominio en el dominio en el que están ubicados los servidores federados.
+Permisos de SQL Server|La cuenta de servicio de Azure AD Connect Sync requiere permisos de dbo en SQL. Estos permisos se establecen durante la instalación de Azure AD Connect y no se admite la realización de cambios.
 
 <br> <br>
 ## Resumen de las cuentas que se crean mediante Azure AD Connect
@@ -74,7 +75,7 @@ Inicio de sesión único y AD FS| Permisos de administrador de dominio en el dom
 
 Cuenta creada |Permisos asignados | Usado para
 ------------- | ------------- |------------- |
-Cuenta de Azure AD para sincronizar| Administrador global|Operaciones de sincronización continua (cuenta de Azure AD MA)
+Cuenta de Azure AD para sincronizar|Rol dedicado de sincronización de directorios|Operaciones de sincronización continua (cuenta de Azure AD MA)
 Configuración rápida: cuenta de AD usada para sincronizar|Permisos de lectura y escritura en el directorio según sea necesario para la sincronización + sincronización de contraseñas|Operaciones de sincronización continua (cuenta de Azure AD MA)
 Configuración rápida: cuenta de inicio de sesión del servicio de sincronización | Credenciales de inicio de sesión del usuario que ejecuta el asistente|Cuenta de inicio de sesión del servicio de sincronización
 Configuración rápida: cuenta de inicio de sesión del servicio de sincronización |N/A|Cuenta de inicio de sesión del servicio de sincronización
@@ -92,4 +93,4 @@ Cuenta de AD FS:GMSA (aadcsvc$)|Usuario de dominio|Cuenta de inicio de sesión d
 * [Azure AD Connect en MSDN](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

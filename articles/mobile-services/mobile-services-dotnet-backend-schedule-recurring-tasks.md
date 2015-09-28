@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Programación de trabajos periódicos en Servicios móviles de Azure" 
-	description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." 
+	pageTitle="Programación de tareas back-end en un servicio móvil back-end de .NET | Microsoft Azure"
+	description="Use el programador de Servicios móviles de Azure para definir trabajos back-end de .NET que se ejecutan según una programación."
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 # Programación de trabajos periódicos en Servicios móviles 
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
  
 Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
@@ -300,4 +300,4 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

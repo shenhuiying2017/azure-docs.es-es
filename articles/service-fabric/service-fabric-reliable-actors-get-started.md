@@ -146,7 +146,9 @@ Las herramientas de Service Fabric para Visual Studio admiten la depuración en 
 
 ## Pasos siguientes
 
-[Introducción a Actores confiables de Service Fabric](service-fabric-reliable-actors-introduction.md) [Documentación de referencia de las API de actores](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
+- [Introducción a Actores confiables de Service Fabric.](service-fabric-reliable-actors-introduction.md)
+- [Documentación de referencia de API de Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+- [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +158,4 @@ Las herramientas de Service Fabric para Visual Studio admiten la depuración en 
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

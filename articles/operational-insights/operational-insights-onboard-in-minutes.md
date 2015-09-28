@@ -1,20 +1,20 @@
 <properties
     pageTitle="Incorporación a Visión operativa en minutos | Microsoft Azure"
-	description="Obtenga información acerca de empezar a trabajar con Visión operativa de Azure en minutos"
-	services="operational-insights"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    description="Obtenga información acerca de empezar a trabajar con Visión operativa de Azure en minutos"
+    services="operational-insights"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
     ms.service="operational-insights"
-	ms.workload="operational-insights"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/27/2015"
-	ms.author="banders"/>
+    ms.workload="operational-insights"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/10/2015"
+    ms.author="banders"/>
 
 # Incorporación a Visión operativa de Azure en minutos
 
@@ -101,4 +101,4 @@ Con Operations Management Suite puede buscar rápidamente registros de IIS y eve
 - Familiarizarse con la [búsqueda](operational-insights-search.md).
 - Use [paneles](operational-insights-use-dashboards.md) para guardar y mostrar las búsquedas personalizadas.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

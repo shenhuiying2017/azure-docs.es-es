@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Publicación de WebApplicationWebSite (script de Windows PowerShell)"
-	description="Aprenda a publicar un proyecto web en un sitio web de Azure. Este script crea los recursos necesarios en su suscripción de Azure si no existen."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Aprenda a publicar un proyecto web en un sitio web de Azure. Este script crea los recursos necesarios en su suscripción de Azure si no existen."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Publicación de WebApplicationWebSite (script de Windows PowerShell)
 
@@ -22,13 +22,13 @@
 Publica un proyecto web en un sitio web de Azure. El script crea los recursos necesarios en su suscripción de Azure si no existen.
 
 	Publish-WebApplicationWebSite
-	–Configuration <configuration> 
+	–Configuration <configuration>
 	-SubscriptionName <subscriptionName>
 	-WebDeployPackage <packageName>
 	-DatabaseServerPassword @{Name = "name"; Password = "password"}
 	-SendHostMessagesToOutput
 	-Verbose
-	
+
 
 ## Configuración
 
@@ -68,14 +68,14 @@ La ruta de acceso al paquete de implementación web para publicar en el sitio we
 |Valor predeterminado|Ninguna|
 |¿Aceptar la entrada de la canalización?|false|
 |¿Aceptar caracteres comodín?|false|
-	
+
 ## DatabaseServerPassword
 
 El nombre de usuario y la contraseña de la base de datos SQL en Azure.
 
 |Parámetro|Valor predeterminado|
-|Alias|Ninguna|
 |---|---|
+|Alias|Ninguna|
 |¿Necesario?|false|
 |Posición|con nombre|
 |Valor predeterminado|Ninguna|
@@ -129,4 +129,4 @@ Puede editar el archivo de configuración de JSON para cambiar lo que se impleme
 
 [Publish-WebApplicationVM (script de Windows PowerShell)](https://msdn.microsoft.com/library/azure/dn689112.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

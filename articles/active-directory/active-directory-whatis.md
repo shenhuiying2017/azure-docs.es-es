@@ -1,19 +1,19 @@
-<properties 
-                pageTitle="¿Qué es Azure Active Directory?" 
-                description="Usar Azure Active Directory para ampliar sus identidades locales existentes en la nube o desarrollar aplicaciones integradas de Azure AD." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="swadhwa" 
+<properties
+                pageTitle="¿Qué es Azure Active Directory?"
+                description="Usar Azure Active Directory para ampliar sus identidades locales existentes en la nube o desarrollar aplicaciones integradas de Azure AD."
+                services="active-directory"
+                documentationCenter=""
+                authors="markusvi"
+                manager="swadhwa"
                 editor=""/>
 
-<tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="08/10/2015" 
+<tags
+                ms.service="active-directory"
+                ms.workload="identity"
+                ms.tgt_pltfrm="na"
+                ms.devlang="na"
+                ms.topic="article"
+                ms.date="08/10/2015"
                 ms.author="markusvi"/>
 
 
@@ -56,7 +56,7 @@ Su organización puede usar Azure AD para mejorar la productividad de los emplea
 
 -	Adopte rápidamente servicios en la nube, proporcionando a los empleados y asociados una sencilla experiencia de inicio de sesión único gracias a las capacidades automatizadas de aprovisionamiento de servicios y administración del acceso a aplicaciones SaaS de Azure AD.
 -	Proporcione a los empleados acceso a aplicaciones en la nube de clase mundial y a capacidades de servicio y autoservicio desde dondequiera que necesiten para trabajar en los dispositivos que les encanta usar.
--	Administre fácilmente y de forma segura el acceso de los empleados y proveedores a sus cuentas de medios sociales corporativas. 
+-	Administre fácilmente y de forma segura el acceso de los empleados y proveedores a sus cuentas de medios sociales corporativas.
 -	Mejore la seguridad de las aplicaciones con la autenticación multifactor y acceso condicional de Azure AD.
 -	Implemente una administración de acceso a las aplicaciones constante y de autoservicio, proporcionando a los propietarios de empresas los medios para avanzar rápidamente, reduciendo al mismo tiempo los costos de TI y la sobrecarga.
 -	Supervise el uso de las aplicaciones y proteja su empresa contra amenazas avanzadas con informes y supervisión de seguridad.
@@ -73,7 +73,7 @@ Su organización puede usar Azure AD para mejorar la productividad de los emplea
  - Lea nuestra "Introducción a Azure AD" para obtener sugerencias y trucos sobre cómo preparar un inquilino de Azure AD y tenerlo en funcionamiento rápidamente.
 -	Si es un desarrollador:
  - Consulta las [Instrucciones para desarrolladores](https://msdn.microsoft.com/library/azure/ff800682.aspx) de Azure Active Directory <need link>
- - [Haz una prueba](https://azure.microsoft.com/trial/get-started-active-directory/): Suscríbete a una prueba de evaluación gratuita de 30 días hoy mismo y comienza a integrar tu aplicación con Azure AD 
+ - [Haz una prueba](https://azure.microsoft.com/trial/get-started-active-directory/): Suscríbete a una prueba de evaluación gratuita de 30 días hoy mismo y comienza a integrar tu aplicación con Azure AD
 
 
 
@@ -104,4 +104,4 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 
 - [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -84,12 +84,16 @@ Cuando ejecute este comando, comenzará el proceso de actualización. Puede pers
     # Adding the account
     #
     Add-AzureAccount
+    
+    # Switch mode
+    #
     Switch-AzureMode -Name AzureResourceManager
 
     # Setting the variables
     #
     $SubscriptionName = 'YOUR_SUBSCRIPTION' 
-    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' $ServerName = 'YOUR_SERVER' 
+    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' 
+    $ServerName = 'YOUR_SERVER' 
     
     # Selecting the right subscription 
     # 
@@ -101,8 +105,7 @@ Cuando ejecute este comando, comenzará el proceso de actualización. Puede pers
     
     # Starting the upgrade process 
     #
-    Start-AzureSqlServerUpgrade -ResourceGroupName 
-    $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 ## Asignación de actualización personalizada
@@ -122,7 +125,8 @@ Actualizar bases de datos en un grupo de bases de datos elásticas:
 
 Actualizar bases de datos en bases de datos elásticas:
 
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  $databaseMap.Name = "DB2"
+    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  
+    $databaseMap.Name = "DB2"
     $databaseMap.TargetEdition = "Standard"
     $databaseMap.TargetServiceLevelObjective = "S0"
     Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
@@ -137,4 +141,4 @@ Actualizar bases de datos en bases de datos elásticas:
 - [Cmdlets de Administración de servicios de Base de datos SQL de Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

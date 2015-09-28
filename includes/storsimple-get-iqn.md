@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para obtener el IQN de un host de Windows
 
@@ -9,4 +10,4 @@
 
 3. Guarde esta cadena.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

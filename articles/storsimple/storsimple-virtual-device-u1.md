@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Actualización 1 del dispositivo virtual de StorSimple | Microsoft Azure"
-	description="Obtenga información acerca de cómo crear, implementar y administrar un dispositivo virtual StorSimple en una red virtual de Microsoft Azure. (Se aplica a la actualización 1 de StorSimple)."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Obtenga información acerca de cómo crear, implementar y administrar un dispositivo virtual StorSimple en una red virtual de Microsoft Azure. (Se aplica a la actualización 1 de StorSimple)."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Implementar y administrar un dispositivo virtual StorSimple en Azure
 
@@ -122,27 +122,28 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
 
 2. Vaya a la página **Dispositivos**. Haga clic en **Crear dispositivo virtual** en la parte inferior de la página **Dispositivos**.
 
-3. En el **cuadro de diálogo Crear dispositivo virtual**, especifique lo siguiente:
+3. En el **cuadro de diálogo Crear un dispositivo virtual**, especifique lo siguiente:
+
+     ![Crear dispositivo virtual de StorSimple](./media/storsimple-virtual-device-u1/StorSimple_CreateVirtualDevice1.png)
 
 	1. **Nombre**: un nombre único para el dispositivo virtual.
-
 
 	2. **Versión**: elija la versión del dispositivo virtual. Esta opción estará ausente si solo dispone de dispositivos físicos Update 1 (o posteriores) registrados con este servicio. Este campo se muestra solo si tiene una combinación de dispositivos físicos Update 1 y anteriores registrados con el servicio. Dado que la versión del dispositivo virtual determinará desde qué dispositivo físico puede efectuar la conmutación por error o la clonación, es importante que cree una versión adecuada del dispositivo virtual. Seleccione:
 
 	   - Actualización de versión 0.3 si conmuta por error o efectúa una recuperación ante desastres desde un dispositivo físico con el lanzamiento de GA o las actualizaciones de 0.1 a 0.3. 
 	   - Actualización de versión 1 si conmuta por error o efectúa una clonación desde un dispositivo físico con la actualización 1 (o versiones posteriores). 
-
  
 	3. **Red virtual**: el nombre de la red virtual que desea usar con este dispositivo virtual.
 
 	4. **Subred**: la subred de la red virtual que se usa con el dispositivo virtual.
 
 	5. **Cuenta de almacenamiento para crear un dispositivo virtual**: la cuenta de almacenamiento que se usará para almacenar la imagen del dispositivo virtual durante el aprovisionamiento. Esta cuenta de almacenamiento debe estar en la misma región que el dispositivo virtual y la red virtual. No debe utilizarse para el almacenamiento de datos por el dispositivo físico o el dispositivo virtual. De forma predeterminada, para ello se creará una nueva cuenta de almacenamiento. Sin embargo, si sabe que ya tiene una cuenta de almacenamiento que es adecuada para este uso, puede seleccionarla en la lista.
-	
 
     >[AZURE.NOTE]El dispositivo virtual solo puede funcionar con las cuentas de almacenamiento de Azure. Otros proveedores de servicios en la nube como Amazon, HP y OpenStack (que son compatibles con el dispositivo físico) no se admiten para el dispositivo virtual StorSimple.
 	
-4. Haga clic en la marca de verificación para indicar que sabe que los datos almacenados en el dispositivo virtual estarán hospedados en un centro de datos de Microsoft. Cuando se utiliza solo un dispositivo físico, la clave de cifrado se mantiene con el dispositivo; por lo tanto, Microsoft no podrá descifrarla. Cuando se utiliza un dispositivo virtual, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para obtener más información, consulte [Consideraciones de seguridad para utilizar un dispositivo virtual](#security-considerations-for-using-a-virtual-device).
+4. Haga clic en la marca de verificación para indicar que sabe que los datos almacenados en el dispositivo virtual estarán hospedados en un centro de datos de Microsoft. Cuando se utiliza solo un dispositivo físico, la clave de cifrado se mantiene con el dispositivo; por lo tanto, Microsoft no podrá descifrarla. ![Fase de creación de dispositivo virtual de StorSimple](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
+
+    Cuando se utiliza un dispositivo virtual, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para obtener más información, consulte [Consideraciones de seguridad para utilizar un dispositivo virtual](#security-considerations-for-using-a-virtual-device).
 
 ### Configuración y registro del dispositivo virtual
 
@@ -150,16 +151,24 @@ Antes de comenzar este procedimiento, asegúrese de que tiene una copia de la cl
 
 Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.
 
-
-1. Seleccione el **Dispositivo virtual StorSimple** que acaba de crear en la página Dispositivos. 
+1. Seleccione el **dispositivo virtual StorSimple** que acaba de crear en la página Dispositivos. 
 
 2. Haga clic en **Completar la instalación del dispositivo**. Esto inicia al Asistente para configurar dispositivos.
+
+    ![Completar configuración de dispositivo de StorSimple en la página Dispositivos](./media/storsimple-virtual-device-u1/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 3. Escriba la **Clave de cifrado de datos de servicio** en el espacio proporcionado.
 
 4. Escriba las contraseñas del administrador de dispositivos y de instantáneas de la longitud y la configuración especificadas.
 
 5. Haga clic en la marca de verificación para finalizar la configuración inicial y el registro del dispositivo virtual.
+
+    ![Configuración de dispositivo virtual de StorSimple](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceSettings1.png)
+
+Una vez que complete la configuración y el registro, el dispositivo se conectará. (Esto puede demorar varios minutos).
+
+![Fase en línea de dispositivo virtual de StorSimple](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceOnline1M.png)
+
 
 ### Modificación de la configuración del dispositivo
 
@@ -361,7 +370,7 @@ Comenzará el proceso de conmutación por error. Cuando finalice la conmutación
 
 Si ha configurado y usado previamente un dispositivo virtual de StorSimple, pero ahora desea detener la acumulación de cargos para su uso por el proceso, puede apagar el dispositivo virtual. Apagar el dispositivo virtual no elimina su sistema operativo ni los discos de datos del almacenamiento. Detiene el cargo acumulado en su suscripción, pero seguirán los cargos de almacenamiento del sistema operativo y los discos de datos.
 
-Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivarlo o eliminarlo como un dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para obtener más información, consulte [Desactivar un dispositivo](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivarlo o eliminarlo como un dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para obtener más información, vea [Desactivación de un dispositivo](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
 
 ### Para apagar el dispositivo virtual de StorSimple
 
@@ -383,4 +392,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

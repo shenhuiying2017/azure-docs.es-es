@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/15/2015"
 	ms.author="klam"/>
 
 # Uso de las plantillas de aplicaciones lógicas
 
 Las plantillas de aplicaciones lógicas son un conjunto de aplicaciones lógicas preintegradas protegidas para ayudarle a comenzar rápidamente en la creación de su propia aplicación de integración.
 
-Estas plantillas muestran cómo utilizar algunos de los muchos conectores disponibles en Marketplace, así como ser una buena forma de detectar patrones distintos que se pueden crear con aplicaciones lógicas. Puede usarlas tal cual o modificarlas y adaptarlas a su escenario. Para comenzar a usar la plantilla de aplicaciones lógicas, vaya a Marketplace y seleccione Aplicaciones lógicas. Seleccione una de las plantillas de aplicaciones lógicas de la lista protegida.
+Estas plantillas muestran cómo utilizar algunos de los muchos conectores disponibles en Marketplace, así como ser una buena forma de detectar patrones distintos que se pueden crear con aplicaciones lógicas. Puede usarlas tal cual o modificarlas y adaptarlas a su escenario. Para empezar a usar una plantilla de aplicación lógica, puede ir al Marketplace, buscar "Plantilla de aplicación lógica" y elegir en la lista protegida una de las plantillas de aplicación lógica, o bien, cuando se cree una nueva aplicación lógica, puede seleccionar "Desencadenadores y acciones" y elegir una en el conjunto de plantillas de aplicación lógica del diseñador.
 
 ### Plantillas en la nube y SaaS
 Ejemplos de cómo realizar la integración en diferentes conectores de SaaS. Aquí puede encontrar varios ejemplos de integración de Salesforce, Box, SharePoint y otros servicios.
@@ -40,4 +40,4 @@ Las plantillas simples que se integran con los servicios de redes sociales como 
 Después de seleccionar una de las plantillas, complete la implementación como lo haría si creara su propia aplicación lógica. Consulte [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

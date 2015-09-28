@@ -1,32 +1,35 @@
 <properties
    pageTitle="Integración de aplicaciones con Azure Active Directory | Microsoft Azure"
-	description="Información detallada sobre cómo agregar, actualizar o quitar una aplicación en Azure Active Directory (Azure AD)."
-	services="active-directory"
-	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="Información detallada sobre cómo agregar, actualizar o quitar una aplicación en Azure Active Directory (Azure AD)."
+   services="active-directory"
+   documentationCenter=""
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin" />
 
 # Integración de aplicaciones con Azure Active Directory
+
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
 Los desarrolladores de la empresa y los proveedores de software como servicio (SaaS) pueden desarrollar aplicaciones de línea de negocio o servicios comerciales en la nube que se pueden integrar con Azure Active Directory (Azure AD) para ofrecer inicio de sesión seguro y autorización en sus servicios. Para integrar una aplicación o un servicio con Azure AD, un desarrollador debe registrar primero los detalles de la aplicación con Azure AD mediante el Portal de administración de Azure.
 
 En este artículo se muestra cómo agregar, actualizar o quitar una aplicación en Azure AD. Aprenderá sobre los diferentes tipos de aplicaciones que se pueden integrar con Azure AD, cómo configurar las aplicaciones para que tengan acceso a otros recursos como las API web y mucho más.
 
-Para obtener más información sobre las propiedades de la aplicación, vea [Objetos de aplicación y objetos de entidad de servicio](active-directory-application-objects.md); para obtener las directrices de personalización de marca que debe usar al desarrollar aplicaciones con Azure Active Directory, vea [Directrices de personalización de marca para aplicaciones integradas](active-directory-branding-guidelines.md).
+Para obtener más información sobre las propiedades de la aplicación, vea [Objetos de aplicación y objetos de entidad de servicio](active-directory-application-objects.md); para conocer las directrices de personalización de marca que debe usar al desarrollar aplicaciones con Azure Active Directory, vea [Directrices de personalización de marca para aplicaciones integradas](active-directory-branding-guidelines.md); los manifiestos de la aplicación se explican en [Descripción del manifiesto de la aplicación de Azure Active Directory](active-directory-application-manifest.md).
 
 ## Adición de una aplicación
 
 Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse primero en un directorio. Este proceso de registro implica proporcionar los detalles de Azure AD sobre la aplicación, como la dirección URL donde se encuentra, la dirección URL para enviar respuestas cuando un usuario está autenticado, el URI que identifica la aplicación y así sucesivamente.
 
-Si está creando una aplicación web que solo necesita inicio de sesión para usuarios en Azure AD, basta con que siga las instrucciones siguientes. Si la aplicación necesita acceso a una API web, se está creando una aplicación nativa que necesita tener acceso a una API web o se quiere que la aplicación sea multiempresa, deberá continuar con la lectura de la sección [Actualización de una aplicación](#updating-an-application) para seguir configurando la aplicación.
+Si está creando una aplicación web que solo necesita inicio de sesión para usuarios en Azure AD, basta con que siga las instrucciones siguientes. Si la aplicación necesita acceso a una API web, va a crear una aplicación nativa que necesita tener acceso a una API web o quiere que la aplicación sea multiempresa, deberá seguir leyendo la sección [Actualización de una aplicación](#updating-an-application) para continuar con la configuración de la aplicación.
 
 Si desea que su aplicación esté disponible para otras organizaciones, también necesitará habilitar el acceso externo una vez agregada la aplicación.
 
@@ -106,7 +109,7 @@ Mediante el marco de consentimiento descrito anteriormente, puede configurar la 
 
 ### Exposición de las API web a otras aplicaciones
 
-Puede desarrollar una API web y ponerla a disposición de otras organizaciones mediante la exposición de los ámbitos de permiso a los desarrolladores de otras aplicaciones. Una API web configurada correctamente se pone a disposición de otras aplicaciones del mismo modo que otras API web de Microsoft, incluidas la API Graph y las API de Office 365. La API web se pone a disposición de otras aplicaciones configurando un manifiesto de aplicación, que es un archivo JSON que representa la configuración de identidad de la aplicación. Puede exponer los ámbitos de permiso navegando a la aplicación en el Portal de administración de Azure y haciendo clic en el botón Manifiesto de aplicación de la barra de comandos.
+Puede desarrollar una API web y ponerla a disposición de otras organizaciones mediante la exposición de los ámbitos de permiso a los desarrolladores de otras aplicaciones. Una API web configurada correctamente se pone a disposición de otras aplicaciones del mismo modo que otras API web de Microsoft, incluidas la API Graph y las API de Office 365. La API web se pone a disposición de otras aplicaciones configurando un [manifiesto de aplicación](active-directory-application-manifest.md), que es un archivo JSON que representa la configuración de identidad de la aplicación. Puede exponer los ámbitos de permiso navegando a la aplicación en el Portal de administración de Azure y haciendo clic en el botón Manifiesto de aplicación de la barra de comandos. Para obtener más información, vea [Descripción del manifiesto de aplicación de Azure Active Directory](active-directory-application-manifest.md).
 
 #### Para exponer una API web a otras aplicaciones
 
@@ -215,13 +218,13 @@ Como alternativa, también es posible que la aplicación web ofrezca una experie
 
 #### Habilitación de la concesión implícita de OAuth 2.0 para aplicaciones de una sola página
 
-Las aplicaciones de una sola página (SPA) normalmente tienen una estructura con un front-end de JavaScript que se ejecuta en el explorador, que llama al back-end de la API web de la aplicación para llevar a cabo su lógica empresarial. Para las SPA hospedadas en Azure AD, se usa la concesión implícita de OAuth 2.0 para autenticar al usuario en Azure AD y obtener un token que puede usar para proteger las llamadas desde el cliente JavaScript de la aplicación hasta su API web de back-end. Después de que el usuario haya dado su consentimiento, este mismo protocolo de autenticación se puede usar para obtener tokens para proteger las llamadas entre el cliente y otros recursos de API web configurados para la aplicación. De forma predeterminada, la concesión implícita de OAuth 2.0 está deshabilitada para las aplicaciones. Puede habilitarla para su aplicación si configura el valor `oauth2AllowImplicitFlow`" en su manifiesto de aplicación, que es un archivo JSON que representa la configuración de identidad de la aplicación.
+Las aplicaciones de una sola página (SPA) normalmente tienen una estructura con un front-end de JavaScript que se ejecuta en el explorador, que llama al back-end de la API web de la aplicación para llevar a cabo su lógica empresarial. Para las SPA hospedadas en Azure AD, se usa la concesión implícita de OAuth 2.0 para autenticar al usuario en Azure AD y obtener un token que puede usar para proteger las llamadas desde el cliente JavaScript de la aplicación hasta su API web de back-end. Después de que el usuario haya dado su consentimiento, este mismo protocolo de autenticación se puede usar para obtener tokens para proteger las llamadas entre el cliente y otros recursos de API web configurados para la aplicación. De forma predeterminada, la concesión implícita de OAuth 2.0 está deshabilitada para las aplicaciones. Puede habilitarla para su aplicación si configura el valor `oauth2AllowImplicitFlow`" en su [manifiesto de aplicación](active-directory-application-manifest.md), que es un archivo JSON que representa la configuración de identidad de la aplicación.
 
 ##### Para habilitar la concesión implícita de OAuth 2.0
 
 1. Inicie sesión en el Portal de administración de Azure.
 1. Haga clic en el icono de **Active Directory** en el menú de la izquierda y, luego, en el directorio que quiera.
-1. En el menú superior, haga clic en **Aplicaciones** y, luego, en la aplicación que quiera configurar. Aparecerá la página Inicio rápido con el inicio de sesión único y otra información de configuración.
+1. En el menú superior, haga clic en **Aplicaciones** y luego en la aplicación que quiera configurar. Aparecerá la página Inicio rápido con el inicio de sesión único y otra información de configuración.
 1. Haga clic en el botón **Administrar manifiesto** de la barra de comandos y seleccione **Descargar manifiesto**. Abra el archivo de manifiesto de la aplicación JSON y establezca el valor "oauth2AllowImplicitFlow" en "true". De forma predeterminada, es "false".
 
        "oauth2AllowImplicitFlow": true,
@@ -239,7 +242,7 @@ En esta sección se describe la experiencia de consentimiento heredada antes del
 
 - Iniciar sesión de usuarios y leer y escribir los datos del directorio de su organización (solo como la aplicación)
 
-Puede seguir los pasos indicados en [Desarrollo de aplicaciones web multiempresa con Azure AD](https://msdn.microsoft.com/library/azure/dn151789.aspx) para conceder acceso a nuevas aplicaciones registradas en Azure AD. Es importante tener en cuenta que el nuevo marco de consentimiento permite que las aplicaciones sean mucho más eficaces y, además, habilita a los usuarios y no solo a los administradores para que den su consentimiento a estas aplicaciones.
+Puede seguir los pasos indicados en [Desarrollo de aplicaciones web multiempresa con Azure AD](https://msdn.microsoft.com/library/azure/dn151789.aspx) para conceder acceso a las nuevas aplicaciones registradas en Azure AD. Es importante tener en cuenta que el nuevo marco de consentimiento permite que las aplicaciones sean mucho más eficaces y, además, habilita a los usuarios y no solo a los administradores para que den su consentimiento a estas aplicaciones.
 
 #### Creación del vínculo que concede acceso a usuarios externos (heredado)
 
@@ -278,7 +281,7 @@ Después de que el cliente conceda acceso a una aplicación haciendo clic en Con
 |TenantId|Identificador único de la organización en Azure AD que concedió acceso a la aplicación. Este parámetro solo se especificará si el cliente concedió acceso.|
 |Consentimiento|Este valor se establecerá en Concedido si se concedió acceso a la aplicación o en Denegado si se rechazó la solicitud.|
 
-Se devolverán parámetros adicionales a la aplicación si se especificaron como parte de la dirección URL codificada de ConsentReturnUrl. El siguiente es un ejemplo de respuesta a una solicitud de concesión de acceso que indica que la aplicación se autorizó e incluye un ContextID que se suministró en la solicitud de concesión de acceso: `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Granted&TenantId=f03dcba3-d693-47ad-9983-011650e64134`.
+Se devolverán parámetros adicionales a la aplicación si se especificaron como parte de la dirección URL codificada de ConsentReturnUrl. El siguiente es un ejemplo de respuesta a una solicitud de concesión de acceso que indica que la aplicación se autorizó; incluye un ContextID que se suministró en la solicitud de concesión de acceso: `https://adatum.com/ExpenseReport.aspx?ContextID=123456&Consent=Granted&TenantId=f03dcba3-d693-47ad-9983-011650e64134`.
 
 >[AZURE.NOTE]La respuesta de concesión de acceso no contendrá un token de seguridad para el usuario; la aplicación debe iniciar sesión del usuario por separado.
 
@@ -344,6 +347,8 @@ Para que un administrador de la compañía quite el acceso de una aplicación a 
 
 - Más información sobre [Objetos de aplicación y objetos de entidad de servicio](active-directory-application-objects.md)
 
+- Descripción del [manifiesto de aplicación de Azure Active Directory](active-directory-application-manifest.md)
+
 - Visite la [Guía del desarrollador de Active Directory](active-directory-developer's guide.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

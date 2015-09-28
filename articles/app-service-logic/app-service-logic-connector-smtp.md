@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Uso del conector de SMTP en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
-	description="Creación y configuración del conector de SMTP o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Uso del conector de SMTP en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+   description="Creación y configuración del conector de SMTP o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+   ms.service="app-service-logic"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="andalmia"/>
 
 
 # Introducción al conector de SMTP y su incorporación a su aplicación lógica
@@ -54,17 +54,16 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 6. Seleccione **Crear**.
 
+> [AZURE.IMPORTANT] Algunos servidores SMTP pueden tener problemas con el funcionamiento de este conector (SendGrid y Gmail). Si desea enviar correo desde SendGrid, nuestro [repositorio de GitHub](https://github.com/logicappsio/SendGridAPI) tiene una API personalizada que interactuará directamente con las API de SendGrid.
+
 ## Uso del conector de SMTP en la aplicación lógica
 Una vez creado el conector, ahora puede usar el conector de SMTP como acción para la aplicación lógica. Para ello, siga estos pasos:
 
-1.	Cree una nueva aplicación lógica.
-
+1.	Creación de una nueva aplicación lógica: 
 	![][2]
-2.	Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas y configurar el flujo de trabajo.
-
+2.	Abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configurar el flujo de trabajo: 
 	![][3]
-3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo:
-
+3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo: 
 	![][4]
 4.	Seleccione el conector de SMTP para agregarlo automáticamente al diseñador de flujo de trabajo.
 
@@ -81,7 +80,7 @@ Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. S
 	Importancia | Especifique la importancia del correo electrónico. Las opciones son Normal, Baja y Alta.
 	Datos adjuntos | Datos adjuntos que se deben enviar con el correo electrónico. Contiene los campos siguientes: Contiene los campos siguientes:<ul><li>Contenido (String)</li><li>Codificación de trasferencia de contenido (Enum) (“none”|”base64”)</li><li>Tipo de contenido (String)</li><li>ID de contenido (String)</li><li>Nombre de archivo (String)</li></ul>
 
-![][5]
+![][5] 
 ![][6]
 
 ## Aplicaciones adicionales del conector
@@ -99,4 +98,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!-------HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -8,12 +8,12 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tdykstra"/>
 
 # Ejecutar tareas en segundo plano con trabajos web
@@ -25,6 +25,8 @@ Puede ejecutar programas o scripts en trabajos web en su aplicación web del [Se
 En este artículo se muestra cómo implementar Webjobs con el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Para obtener información sobre cómo implementar con Visual Studio o con un proceso de entrega continua, consulte [Implementación de Webjobs de Azure en aplicaciones web](websites-dotnet-deploy-webjobs.md).
 
 El SDK de trabajos web de Azure simplifica muchas de las tareas de programación de trabajos web. Para obtener más información, consulte [¿Qué es el SDK de Webjobs?](websites-dotnet-webjobs-sdk.md)
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="acceptablefiles"></a>Tipos de archivo válidos para scripts o programas
 
@@ -70,7 +72,7 @@ Se aceptan los siguientes tipos de archivo:
 	
 > [AZURE.NOTE]Si la aplicación web se ejecuta en más de una instancia, se ejecutará un trabajo web continuamente en todas las instancias. Los Trabajos web a petición o programados se ejecutan en una única instancia seleccionada por Microsoft Azure para el equilibrio de carga.
 	
-> Para que los WebJobs continuos sigan ejecutándose en todas las instancias y de forma confiable, habilite la configuración Siempre activado\* de la aplicación web, en caso contrario, es posible que dejen de funcionar cuando el sitio host SCM esté inactivo durante demasiado tiempo.
+> Para que los WebJobs continuos sigan ejecutándose en todas las instancias y de forma confiable, habilite la configuración Siempre activado* de la aplicación web, en caso contrario, es posible que dejen de funcionar cuando el sitio host SCM esté inactivo durante demasiado tiempo.
 
 ## <a name="CreateScheduled"></a>Creación de un trabajo web programado
 
@@ -209,4 +211,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

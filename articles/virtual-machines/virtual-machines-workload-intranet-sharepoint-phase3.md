@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,9 +19,13 @@
 
 # Fase 3 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de la infraestructura de servidor SQL
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+
 En esta fase de la implementación de una granja de servidores de SharePoint 2013 de solo de intranet con grupos de disponibilidad AlwaysOn de SQL Server en servicios de infraestructura de Azure, cree y configure los dos equipos de SQL Server y el equipo de nodo de la mayoría de clúster en Administración de servicios y, a continuación, combínelos en un clúster de Windows Server.
 
 Debe completar esta fase antes de pasar a la [fase 4](virtual-machines-workload-intranet-sharepoint-phase4.md). Consulte [Implementación de SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure](virtual-machines-workload-intranet-sharepoint-overview.md) para ver todas las fases.
+
+> [AZURE.NOTE]Estas instrucciones usan una imagen de SQL Server de la galería de imágenes de Azure y se le cargarán costes periódicos por el uso de la licencia de SQL Server. También es posible crear máquinas virtuales en Azure e instalar sus propias licencias de SQL Server, pero debe tener Software Assurance y License Mobility para usar su licencia de SQL Server en una máquina virtual, incluyendo una máquina virtual de Azure. Para obtener más información acerca de cómo instalar SQL Server en una máquina virtual, consulte [Instalación de SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Creación de máquinas virtuales de clúster de SQL Server en Azure
 
@@ -173,7 +177,7 @@ Debido al comportamiento compatible que no es RFC actual por DHCP en Azure, pued
 4.	En la página Antes de comenzar, haga clic en **Siguiente**.
 5.	En la página Seleccionar servidores, escriba el nombre de la máquina principal de SQL Server, haga clic en **Agregar** y, a continuación, haga clic en **Siguiente**.
 6.	En la página de advertencia de validación, haga clic en **No. No necesito compatibilidad con Microsoft para este clúster y por tanto no deseo ejecutar las pruebas de validación. Al hacer clic en Siguiente, continúe con la creación del clúster** y, a continuación, haga clic en **Siguiente**.
-7.	En el punto de acceso para la administración de la página de clúster en el cuadro de texto **Nombre del clúster**, escriba el nombre para el clúster y, a continuación, haga clic en **Siguiente**.
+7.	En la página Punto de acceso para la administración del clúster, en el cuadro de texto **Nombre del clúster**, escriba el nombre para el clúster y, a continuación, haga clic en **Siguiente**.
 8.	En la página de confirmación, haga clic en **Siguiente** para iniciar la creación del clúster.
 9.	En la página de resumen, haga clic en **Finalizar**.
 10.	En el panel izquierdo, haga clic en el nuevo clúster. En la sección **Recursos principales de clúster** del panel de contenido, abra el nombre del clúster de servidor. El recurso **Dirección IP** aparece en el estado **Error**. No se puede poner en conexión el recurso de dirección IP porque el clúster tiene asignada la misma dirección IP que el de la propia máquina. El resultado es una dirección duplicada.
@@ -228,4 +232,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 4: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

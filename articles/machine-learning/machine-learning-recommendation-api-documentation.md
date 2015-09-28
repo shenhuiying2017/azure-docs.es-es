@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Documentación de la API de recomendaciones de Aprendizaje automático | Microsoft Azure"
-	description="Documentación de la API de recomendaciones de Aprendizaje automático de Azure para un motor de recomendaciones disponible en Microsoft Azure Marketplace."
-	services="machine-learning"
-	documentationCenter=""
-	authors="AharonGumnik"
-	manager="paulettm"
+	pageTitle="Documentación de la API de recomendaciones de Aprendizaje automático | Microsoft Azure" 
+	description="Documentación de la API de recomendaciones de Aprendizaje automático de Azure para un motor de recomendaciones disponible en Microsoft Azure Marketplace." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2015" 
 	ms.author="LuisCa"/>
 
 #Documentación de la API de recomendación de Aprendizaje automático de Azure
@@ -57,9 +57,9 @@ El razonamiento de la recomendación es otro aspecto del uso de características
 
 - El número máximo de modelos por suscripción es 10.
 - El número máximo de elementos que puede contener un catálogo es 100 000.
-- El número máximo de puntos de uso que se mantienen es \~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
+- El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
 - El tamaño máximo de datos que puede enviarse en POST (por ejemplo, importar datos de catálogo, importar datos de uso) es de 200 MB
-- El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es \~ 2TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
+- El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es ~ 2TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
 
 ##4\. API: información general
 
@@ -357,7 +357,7 @@ En la tabla siguiente se muestra el valor que representa cada clave.
 | MaxUserLength | Número máximo de elementos distintos para un usuario. |
 | MinItemLength | Número máximo de usuarios distintos para un elemento. |
 | MinUserLength | Número mínimo de elementos distintos para un usuario. |
-| RawNumberOfItems | Número de elementos antes de eliminar elementos que no se pueden modelar. |
+| RawNumberOfItems | Número de elementos en los archivos de uso. |
 | RawNumberOfUsers | Número de puntos de uso antes de cualquier eliminación. |
 | RawNumberOfRecords | Número de puntos de uso antes de cualquier eliminación. |
 | SamplingNumberOfItems | N/D |
@@ -853,6 +853,7 @@ OData XML
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|ENCABEZADO |`"Content-Type", "text/xml"`|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -954,6 +955,7 @@ Nota: el tamaño máximo de archivo es de 200 MB.
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|ENCABEZADO |`"Content-Type", "text/xml"`|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -1203,6 +1205,7 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
+|ENCABEZADO |`"Content-Type", "text/xml"`|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -1750,6 +1753,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de solicitud)|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -1823,6 +1827,7 @@ XML de OData
 | Método HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
+|ENCABEZADO |`"Content-Type", "text/xml"` (Si se envía el cuerpo de solicitud)|
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
@@ -2510,7 +2515,7 @@ Obtenga recomendaciones de la compilación activa de tipo o "Fbt" basadas en las
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id1` id. de elemento recomendado. - `Feed\entry\content\properties\Name1` nombre del elemento. - `Feed\entry\content\properties\Id2` id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1`: id. de elemento recomendado. - `Feed\entry\content\properties\Name1`: nombre del elemento. - `Feed\entry\content\properties\Id2`. id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
 
 En la respuesta de ejemplo siguiente se incluyen 3 elementos recomendados.
 
@@ -2596,7 +2601,7 @@ Obtenga recomendaciones de una compilación concreta de tipo "Fbt".
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id1` id. de elemento recomendado. - `Feed\entry\content\properties\Name1` nombre del elemento. - `Feed\entry\content\properties\Id2` id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2` – nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating` – clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning` – razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+La respuesta incluye una entrada por cada elemento recomendado (un conjunto de elementos que normalmente se compran junto con el elemento de entrada/inicialización). Cada entrada tiene los datos siguientes: - `Feed\entry\content\properties\Id1`: id. de elemento recomendado. - `Feed\entry\content\properties\Name1`: nombre del elemento. - `Feed\entry\content\properties\Id2`. id. del segundo elemento recomendado (opcional). - `Feed\entry\content\properties\Name2`: nombre del segundo elemento (opcional). - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; cuanto más alto el número, mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de la recomendación).
 
 Vea un ejemplo de respuesta en 12.3
 
@@ -2735,7 +2740,7 @@ Recupere la lista de elementos usados en la compilación activa o en la compilac
 
 | Método HTTP | URI |
 |:--------|:--------|
-|GET | Obtenga el historial del usuario para la compilación activa.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Obtenga el historial del usuario para la compilación indicada `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Ejemplo:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
+|GET | Obtenga el historial del usuario para la compilación activa.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Obtener el historial del usuario para la compilación indicada `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Ejemplo:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
 
 
 |	Nombre de parámetro |	Valores válidos |
@@ -2879,4 +2884,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

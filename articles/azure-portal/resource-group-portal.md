@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del Portal de vista previa de Azure para administrar los recursos de Azure" 
+	pageTitle="Uso del Portal de vista previa de Azure para administrar los recursos de Azure | Microsoft Azure" 
 	description="Agrupe varios recursos como grupo lógico que se convierte en el límite del ciclo de vida de los recursos que contiene." 
-	services="azure-portal" 
+	services="azure-resource-manager,azure-portal" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="azure-portal" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -21,58 +21,137 @@
 
 ## Introducción
 
-Históricamente, la administración de un recurso (una entidad administrada por un usuario, como un servidor de base de datos, base de datos o sitio web) en Microsoft Azure precisaba realizar operaciones en un recurso al mismo tiempo Si contaba con una aplicación compleja compuesta de varios recursos, la administración de esta aplicación se convertía en una tarea compleja. En el Portal de vista previa de Azure puede crear grupos de recursos para administrar juntos todos los recursos en una aplicación. El grupo de recursos es un nuevo concepto en Azure que sirve como límite del ciclo de vida para cada recurso contenido en él.
+Históricamente, la administración de un recurso (como un servidor de base de datos, base de datos o sitio web) en Microsoft Azure precisaba realizar operaciones en un recurso al mismo tiempo. Si tenía una aplicación compleja compuesta de varios recursos, había que coordinar manualmente los cambios en la infraestructura de aplicaciones. En el Portal de vista previa de Azure puede usar el Administrador de recursos de Azure para crear grupos de recursos y administrar juntos todos los recursos en una aplicación.
 
-Los grupos de recursos le permiten administrar juntos todos los recursos en una aplicación. La nueva funcionalidad de administración, Resource Manager de Azure, permite el uso de grupos de recursos. Resource Manager de Azure permite agrupar varios recursos como grupo lógico que sirve como límite del ciclo de vida para cada recurso contenido en él. Normalmente, un grupo contenderá recursos relacionados con una aplicación específica. Por ejemplo, un grupo puede contener un recurso de sitio web que hospeda el sitio web público, una Base de datos SQL que almacena datos relacionales que usa el sitio y una cuenta de almacenamiento que conserva recursos no relacionales.
+Normalmente, un grupo de recursos contiene recursos relacionados con una aplicación específica. Por ejemplo, un grupo puede contener una aplicación web que hospeda el sitio web público, una Base de datos SQL que almacena datos relacionales que usa el sitio y una cuenta de almacenamiento que conserva recursos no relacionales. Todos los recursos de un grupo de recursos deben compartir el mismo ciclo de vida. Para obtener más información sobre el Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
-Aquí tiene una introducción concisa de cómo usar grupos de recursos en el Portal de Azure.
+Este tema proporciona una introducción general de cómo usar grupos de recursos en el Portal de vista previa de Microsoft Azure.
 
-## Creación de grupos de recursos
+## Creación de recursos y de un grupo de recursos
 
-Cuando se crea un recurso en el portal, siempre se crea dentro de un grupo de recursos. Puede elegir crear un nuevo grupo de recursos o usar un grupo de recursos existente en el flujo de creación.<br><br />
+Si tiene que crear un grupo de recursos vacío, seleccione **Nuevo**, **Administración** y **Grupo de recursos**.
 
-![crear grupo de recursos](./media/resource-group-portal/1_createWebsite.png)
+![crear un grupo de recursos vacío](./media/resource-group-portal/create-empty-group.png)
 
-Cuando se crea una aplicación que consta de algunos recursos que funcionan juntos (por ejemplo, sitio web + base de datos), siempre se crea en su propio grupo de recursos, por lo que puede administrar el ciclo de vida de todos los recursos relacionados utilizando dicho grupo de recursos. Puede agregar o quitar recursos adicionales del grupo de recursos a medida que evoluciona la aplicación.
+Asígnele un nombre y una ubicación y, si es necesario, seleccione una suscripción.
 
-![crear grupo de recursos](./media/resource-group-portal/2_createWSandDB.png)
+![establecer valores de grupo](./media/resource-group-portal/set-group-properties.png)
 
-## Exploración de grupos de recursos
+Sin embargo, no es necesario crear explícitamente un grupo de recursos vacío. Al crear un nuevo recurso, puede elegir entre crear un nuevo grupo de recursos o usar un grupo de recursos existente. La imagen siguiente muestra cómo crear una nueva aplicación web con la opción de seleccionar un grupo de recursos existente o de crear uno nuevo.
 
-Puede explorar todos los grupos de recursos haciendo clic en la barra de salto a la izquierda de la pantalla. Un grupo de recursos cuenta con un cuadro que proporciona toda la información sobre un grupo de recursos determinado. El cuadro del grupo de recursos también proporcionará una vista unificada de la información de supervisión y facturación para todos los recursos del grupo.
+![crear grupo de recursos](./media/resource-group-portal/select-existing-group.png)
 
-La sección de resumen muestra una asignación visual de todos los recursos del grupo en cuestión. También muestra los recursos de otros grupos que están vinculados a este grupo de recursos. La asignación de recursos también muestra el estado de cada uno de ellos.![resumen del grupo de recursos](./media/resource-group-portal/3_1BrowseRGs.png)
+## buscar grupos de recursos
 
-La parte de asignación de recursos puede personalizarse para mostrar un tamaño mayor en el que aparecerán todos los recursos contenidos en el grupo y los recursos de otros grupos que se encuentran vinculados. Esta parte puede anclarse al panel de inicio, que copiará la parte del panel de inicio.
+Puede buscar todos los grupos de recursos haciendo clic en **Examinar todos** y **Grupos de recursos**.
 
-![pin](./media/resource-group-portal/3_2BrowseRGs.png)
+![buscar grupos de recursos](./media/resource-group-portal/browse-groups.png)
 
-Si hace clic en la asignación de recursos, se inicia la vista de lista de todos los recursos en la asignación de recursos. Esta vista mostrará todos los recursos dentro de un grupo de recursos o que se encuentren vinculados a él. Si hace clic en estos recursos, se iniciarán los cuadros.
+Al seleccionar un grupo de recursos determinado, verá una hoja del grupo de recursos que ofrece información acerca de dicho grupo de recursos, incluida una lista de todos los recursos del grupo.
 
-![ver recursos](./media/resource-group-portal/3_3BrowseRGs.png)
+![resumen del grupo de recursos](./media/resource-group-portal/group-summary.png)
+
+La hoja del grupo de recursos también proporciona una vista unificada de la información de supervisión y facturación para todos los recursos del grupo de recursos.
+
+![supervisión y facturación](./media/resource-group-portal/monitoring-billing.png)
+
+## Personalización de la interfaz
+
+Para obtener un acceso rápido al resumen del grupo de recursos, puede anclar la hoja en el Panel de inicio.
+
+![anclar un grupo de recursos](./media/resource-group-portal/pin-group.png)
+
+O bien, puede anclar una sección de la hoja en el Panel de inicio seleccionando el botón de puntos suspensivos (...) que se encuentra sobre la sección. Asimismo puede personalizar el tamaño de la sección en la hoja o quitarlo. La siguiente imagen muestra cómo anclar, personalizar o quitar la sección Eventos.
+
+![anclar sección](./media/resource-group-portal/pin-section.png)
+
+Después de anclar la sección Eventos en el Panel de inicio, verá un resumen de eventos en el Panel de inicio.
+
+![Panel de inicio de eventos](./media/resource-group-portal/events-startboard.png)
+
+Y, si lo selecciona inmediatamente, obtendrá más detalles de los eventos.
+
+## Visualización de implementaciones anteriores
+
+Desde la hoja del grupo de recursos, puede ver la fecha y el estado de la última implementación para este grupo de recursos. Si selecciona el vínculo, se mostrará un historial de implementaciones del grupo.
+
+![última implementación](./media/resource-group-portal/last-deployment.png)
+
+Al seleccionar cualquier implementación del historial, se mostrarán los detalles de dicha implementación.
+
+![resumen de implementación](./media/resource-group-portal/deployment-summary.png)
+
+Puede ver las operaciones individuales que se ejecutaron durante la implementación. La imagen siguiente muestra una operación que se realizó correctamente y otra que produjo un error.
+
+![detalles de la operación](./media/resource-group-portal/operation-details.png)
+
+Si se selecciona cualquiera de las operaciones, se mostrarán más detalles sobre la operación. Lo que puede resultar especialmente útil cuando se produce un error en una operación, tal como se muestra a continuación. Puede ayudarle a averiguar por qué no se pudo realizar la implementación. En la siguiente imagen, puede ver que el sitio web no se implementó porque el nombre no era único.
+
+![mensaje de la operación](./media/resource-group-portal/operation-message.png)
+
+## Visualización de registros de auditoría
+
+El registro de auditoría incluye no solo las operaciones de implementación sino todas las operaciones de administración realizadas en los recursos de la suscripción. Por ejemplo, en los registros de auditoría puede ver cuando alguien de su organización detiene una aplicación. Para ver los registros de auditoría, seleccione **Examinar todos** y **Registros de auditoría**.
+
+![examinar registros de auditoría](./media/resource-group-portal/browse-audit-logs.png)
+
+En la sección de operaciones, puede ver las operaciones individuales que se han realizado a través de su suscripción.
+
+![ver registro de auditoría](./media/resource-group-portal/view-audit-log.png)
+
+Al seleccionar cualquiera de las operaciones, verá más detalles, como el usuario que ejecutó la operación.
+
+Puede filtrar lo que se muestra en el registro de auditoría seleccionando **Filtro**.
+
+![filtrar registro](./media/resource-group-portal/filter-logs.png)
+
+Puede seleccionar qué tipo de operaciones se van a mostrar, como las que pertenecen a un recurso o a un grupo de recursos, las que se encuentran dentro de un intervalo de tiempo especificado, las iniciadas por un autor de la llamada concreto o los niveles de la operación.
+
+![opciones de filtro](./media/resource-group-portal/filter-options.png)
 
 ## Incorporación de recursos a grupos de recursos
 
-Puede agregar recursos a un grupo de recursos con el comando **Add** en el cuadro de grupo de recursos. Siga los pasos del flujo para agregar otros recursos al grupo.
+Puede agregar recursos a un grupo de recursos con el comando **Add** en el cuadro de grupo de recursos.
 
-![agregar recurso](./media/resource-group-portal/4_AddResource.png)
+![agregar recurso](./media/resource-group-portal/add-resource.png)
 
-Nota: no es recomendable poner el proyecto de equipo en el mismo grupo de recursos que otros recursos de Azure. Si crea un proyecto de equipo en una nueva cuenta y grupo, cree un sitio web. El grupo de sitio se establecerá de forma predeterminada en el último grupo usado (grupo VSO) y finalizará los recursos de desarrollador/tiempo de ejecución en el mismo grupo.
+Puede seleccionar el recurso que quiera en la lista disponible.
 
 ## Eliminación de grupos de recursos
 
-Puesto que los grupos de recursos le permiten administrar el ciclo de vida de todos los recursos contenidos, la eliminación de un grupo de recursos provocará que se eliminen todos los recursos que alberga. También puede eliminar recursos individuales de un grupo de recursos. Debe prestar atención cuando elimine un grupo de recursos, ya que puede haber otros recursos vinculados a él. Puede ver los recursos vinculados en la asignación de recursos y seguir los pasos necesarios para evitar consecuencias no deseadas cuando elimine los grupos de recursos.
+Puesto que los grupos de recursos le permiten administrar el ciclo de vida de todos los recursos contenidos, la eliminación de un grupo de recursos provocará que se eliminen todos los recursos que alberga. También puede eliminar recursos individuales de un grupo de recursos. Debe prestar atención cuando elimine un grupo de recursos, ya que puede haber otros recursos vinculados a él. Puede ver los recursos vinculados en la asignación de recursos y seguir los pasos necesarios para evitar consecuencias no deseadas cuando elimine los grupos de recursos. No se eliminarán los recursos vinculados aunque no funcionen según lo esperado.
+
+![eliminar grupo](./media/resource-group-portal/delete-group.png)
+
+## Etiquetado de recursos
+
+Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de manera lógica los recursos. Para obtener información sobre cómo trabajar con etiquetas a través del Portal de vista previa, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
+
+## Implementación de una plantilla personalizada
+
+Si desea ejecutar una implementación sin usar las plantillas de Marketplace, puede crear una plantilla personalizada que defina la infraestructura para la solución. Para obtener más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+
+Para implementar una plantilla personalizada a través del Portal de vista previa, seleccione **Nuevo**, **Marketplace** y **Todo**.
+
+![encontrar implementación de plantilla](./media/resource-group-portal/launch-template.png)
+
+Busque la **Implementación de plantilla** y seleccione una en la lista devuelta.
+
+![buscar implementación de plantilla](./media/resource-group-portal/search-template.png)
+
+Después de iniciar la implementación de la plantilla, puede crear la plantilla personalizada y establecer los valores para la implementación.
+
+![crear plantilla](./media/resource-group-portal/show-custom-template.png)
 
 ## Pasos siguientes
 Introducción
 
 - Para ver una introducción a los conceptos del Administrador de recursos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).  
-- Para obtener información sobre cómo usar Azure PowerShell cuando se implementan recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
-- Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure cuando se implementan recursos, consulte [Uso de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md). 
-- Para saber cómo organizar de manera lógica los recursos, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
+- Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
+- Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, consulte [Uso de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md). 
   
 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

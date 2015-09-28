@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/22/2015"
+	ms.date="09/11/2015"
 	ms.author="cabailey"/>
 #Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure
 
@@ -105,8 +105,9 @@ Vaya al Centro de descarga de Microsoft y [descargue el conjunto de herramientas
 |Europa|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
 |Asia|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
 |América Latina|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
+|Japón|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 
-Para validar la integridad de su conjunto de herramientas BYOK descargado, en la sesión de Azure PowerShell, use el cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
+Para validar la integridad del conjunto de herramientas BYOK que descargó, use el cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) en la sesión de Azure PowerShell.
 
 	Get-FileHash KeyVault-BYOK-Tools-*.zip
 
@@ -210,7 +211,7 @@ Cuando ejecute este comando, siga estas instrucciones:
 
 - En este ejemplo, pubexp se deja en blanco (valor predeterminado), pero puede especificar valores concretos. Para obtener más información, consulte la documentación de Thales.
 
-Este comando crea un archivo de clave tokenizada en la carpeta %NFAST\_KMDATA%\\local cuyo nombre comienza por **key\_simple\_**, seguido del valor ident que se especificó en el comando. Por ejemplo: **key\_simple\_contosokey**. Este archivo contiene una clave cifrada.
+Este comando crea un archivo de clave con tokens en la carpeta %NFAST\_KMDATA%\\local cuyo nombre comienza por **key\_simple\_**, seguido del valor ident que se especificó en el comando. Por ejemplo: **key\_simple\_contosokey**. Este archivo contiene una clave cifrada.
 
 Realice una copia del archivo tokenizado en una ubicación segura.
 
@@ -242,11 +243,11 @@ Para reducir los permisos en una clave, desde un símbolo del sistema, ejecute u
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
 
-Cuando ejecute este comando, reemplace *contosokey* por el valor que especificó en el **Paso 3.3: creación de una nueva clave** en el paso [Generación de la clave](#step-3-generate-your-key).
+Cuando ejecute este comando, reemplace *contosokey* por el valor que especificó en el **Paso 3.3: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
 
 Se le pedirá que conectar sus tarjetas de administrador del espacio de seguridad.
 
-Cuando se complete el comando, verá **Result: SUCCESS** y la copia de la clave con menores permisos estará en el archivo denominado key\_xferacId\_<contosokey>.
+Cuando se complete el comando, verá **Result: SUCCESS** y la copia de la clave con menos permisos estará en el archivo denominado key\_xferacId\_<contosokey>.
 
 ###Paso 4.2: inspección de la nueva copia de la clave
 
@@ -258,7 +259,7 @@ Opcionalmente, ejecute las utilidades de Thales para confirmar los permisos mín
 - kmfile-dump.exe:
 
 		"%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-Cuando ejecute estos comandos, reemplace contosokey por el mismo valor que especificó en el **Paso 3.3: creación de una nueva clave** en el paso [Generación de la clave](#step-3-generate-your-key).
+Cuando ejecute estos comandos, reemplace contosokey por el mismo valor que especificó en el **Paso 3.3: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
 
 ###Paso 4.3: cifrado de la clave mediante la clave de intercambio de claves de Microsoft
 
@@ -282,9 +283,9 @@ Ejecute uno de los comandos siguientes, en función de su región:
 
 Cuando ejecute este comando, siga estas instrucciones:
 
-- Reemplace *contosokey* por el identificador que usó para generar la clave en el **Paso 3.3: creación de una nueva clave** en el paso [Generación de la clave](#step-3-generate-your-key).
+- Reemplace *contosokey* por el identificador que usó para generar la clave en el **Paso 3.3: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
 
-- Reemplace *SubscriptionID* por el Id. de la suscripción de Azure que contiene el almacén de claves. Este valor lo recuperó anteriormente, en el **Paso 1.2: obtención del Id. de suscripción de Azure** en el paso [Preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation).
+- Reemplace *SubscriptionID* por el identificador de la suscripción de Azure que contiene el almacén de claves. Este valor lo recuperó anteriormente, en el **Paso 1.2: Obtención del Id. de suscripción de Azure** del paso [Preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation).
 
 - Reemplace *ContosoFirstHSMKey* por una etiqueta que se usará para el nombre del archivo de salida.
 
@@ -296,7 +297,7 @@ Utilice una unidad USB u otro dispositivo de almacenamiento portátil para copia
 
 ##Paso 5: transferencia de la clave al Almacén de claves de Azure
 
-En este paso final, en la estación de trabajo conectada a Internet, use el cmdlet [AzureKeyVaultKey agregar](https://msdn.microsoft.com/library/azure/dn868048.aspx) para cargar el paquete de transferencia de claves que copió de la estación de trabajo desconectada en el HSM del Almacén de claves de Azure:
+En este paso final, en la estación de trabajo conectada a Internet, use el cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) para cargar el paquete de transferencia de claves que copió de la estación de trabajo desconectada en el HSM del Almacén de claves de Azure:
 
 	Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
@@ -304,6 +305,6 @@ Si la carga se realiza correctamente, verá que se muestran las propiedades de l
 
 ##Pasos siguientes
 
-Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
+Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, vea la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

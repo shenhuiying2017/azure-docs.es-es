@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Software Oracle hospedado en máquinas virtuales de Azure"
-	description="Obtenga acceso a los temas clave que describen cómo configurar software Oracle en máquinas virtuales de Azure basadas con Windows o Linux."
+	pageTitle="Oracle en VM de Azure | Microsoft Azure"
+	description="Busque los artículos en los cuales se describe cómo configurar software Oracle en máquinas virtuales de Azure basadas en Windows o Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -11,23 +11,25 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="index-page"
 	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Software Oracle hospedado en máquinas virtuales de Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
+
 Configure la primera o siguiente base de datos Oracle de desarrollo o prueba, o producción en una máquina virtual en servicios de infraestructura de Azure. Aproveche la facilidad de configuración y la capacidad para ampliar rápidamente la carga de trabajo de la base de datos de Oracle para incluir nueva capacidad.
 
 ## Imágenes de máquinas virtuales de Oracle
 
-Consulte [Lista de imágenes de máquina virtual de Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md) para ver el último conjunto de imágenes de máquinas virtuales basadas en Windows y Linux.
+Vea [Lista de imágenes de máquinas virtuales de Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md) para ver el último conjunto de imágenes de máquinas virtuales basadas en Windows y Linux.
 
 ## Consideraciones para máquinas virtuales basadas en Windows
 
-Consulte [Consideraciones variadas sobre las imágenes de máquina virtual de Oracle](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md) para conocer las limitaciones del software Oracle en máquinas virtuales de Azure con Windows Server.
+Vea [Consideraciones variadas sobre las imágenes de máquina virtual de Oracle](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md) para conocer las limitaciones del software Oracle en máquinas virtuales de Azure con Windows Server.
 
 ## Máquina virtual de base de datos de Oracle
 
@@ -43,11 +45,11 @@ Consulte [Consideraciones variadas sobre las imágenes de máquina virtual de Or
 
 ## Clúster de Oracle WebLogic Server 12c
 
-[Crear un clúster de Oracle WebLogic 12c en Azure](virtual-machines-creating-oracle-weblogic-server-12c-cluster.md) sirve de guía por la implementación de la creación y aplicación de clústeres.
+[Creación de un clúster Oracle WebLogic 12c en Azure](virtual-machines-creating-oracle-weblogic-server-12c-cluster.md) sirve de guía para la creación de clústeres y la implementación de aplicaciones.
 
 ## Oracle WebLogic Server 11g
 
-[Creación de una máquina Virtual Oracle WebLogic Server 11g en Azure](virtual-machines-creating-oracle-weblogic-server-11g-virtual-machine.md) sirve de guía para la creación y configuración de máquinas virtuales, y para la instalación de aplicaciones.
+[Creación de una máquina Virtual Oracle WebLogic Server 11g en Azure](virtual-machines-creating-oracle-weblogic-server-11g-virtual-machine.md) sirve de guía para la creación de máquinas virtuales, configuración e instalación de aplicaciones.
 
 ## Preparación de una máquina virtual Oracle Linux
 
@@ -55,10 +57,10 @@ Consulte [Consideraciones variadas sobre las imágenes de máquina virtual de Or
 
 ## Protección de datos de Oracle
 
-[Configuración de la protección de datos de Oracle para Azure](virtual-machines-configuring-oracle-data-guard.md) le guiará por la configuración del entorno en espera y del agente de escucha.
+[Configuración de la protección de datos de Oracle para Azure](virtual-machines-configuring-oracle-data-guard.md) sirve de guía para la configuración del entorno en espera y del agente de escucha.
 
 ## Oracle GoldenGate
 
-[Configurar Oracle GoldenGate para Azure](virtual-machines-configuring-oracle-goldengate.md) sirve de guía de configuración de bases de datos y replicación.
+[Configuración de Oracle GoldenGate para Azure](virtual-machines-configuring-oracle-goldengate.md) sirve de guía para la configuración de bases de datos y replicación.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

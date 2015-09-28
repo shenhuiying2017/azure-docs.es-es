@@ -26,6 +26,8 @@ Este tutorial requiere lo siguiente:
 * Una suscripción activa a [SharePoint Online]
 * Realización del tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]. Debería utilizar el inquilino que le suministra su suscripción a SharePoint.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## <a name="configure-permissions"></a>Configuración de la aplicación para acceso delegado a SharePoint
 De manera predeterminada, el token que recibe de AAD tiene permisos limitados. Para acceder a una aplicación SaaS o a un recurso de terceros, como SharePoint Online, debe permitirlo explícitamente.
 
@@ -186,4 +188,4 @@ Para crear un documento de Word, usará el paquete de NuGet OpenXML. Instale est
 [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Extensión de servicio de aplicación de back-end de .NET de Aplicaciones móviles]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

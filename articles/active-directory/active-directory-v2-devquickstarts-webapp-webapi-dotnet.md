@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicaciones v2.0 | Microsoft Azure"
+	pageTitle="Aplicación web .NET del modelo de aplicación v2.0 | Microsoft Azure"
 	description="Cómo crear una aplicación web de MVC de .NET que llame a los servicios web mediante cuentas personales de Microsoft y cuentas profesionales o educativas para iniciar sesión."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Vista previa del modelo de aplicaciones v2.0: llamar a una API web desde una aplicación web de .NET
@@ -42,7 +42,7 @@ Para poder continuar, puede [descargar el esqueleto de la aplicación como .zip]
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-Asimismo, puede [descargar la aplicación completa en formato .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) o clonar toda la aplicación
+Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
@@ -120,8 +120,8 @@ Queremos usar [OAuth 2.0 conjuntamente con OpenID Connect](active-directory-v2-p
 - En primer lugar, instale la versión preliminar de ADAL:
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- Y agregue otra instrucción `using` al archivo `App_Start\Startup.Auth.cs` para ADAL.
-- Agregue ahora un nuevo método, el controlador de eventos `OnAuthorizationCodeReceived`. Este controlador usará ADAL para obtener un token de acceso a la API de la lista de tareas pendientes y almacenará el token en la caché de tokens de ADAL para su uso posterior:
+- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
+- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -207,4 +207,4 @@ Para obtener recursos adicionales, consulte:
 - [la vista previa del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md)
 - [la etiqueta "adal" StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!--------HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

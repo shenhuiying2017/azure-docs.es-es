@@ -74,10 +74,9 @@ Construya una instancia de TelemetryClient (excepto en JavaScript en páginas we
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-Se recomienda usar una instancia de `TelemetryClient` para cada solicitud en una aplicación web o para cada sesión en otras aplicaciones. Puede establecer propiedades tales como `TelemetryClient.Context.User.Id` para realizar el seguimiento de los usuarios y de las sesiones. Esta información se adjunta a todos los eventos enviados por la instancia.
-
 TelemetryClient es seguro para subprocesos.
 
+Recomendamos utilizar una instancia de `TelemetryClient` por cada módulo de la aplicación. Por ejemplo, puede tener un `TelemetryClient` en el servicio web para informar de las solicitudes http entrantes y otro en una clase de middleware para notificar eventos de la lógica de negocios. Puede establecer propiedades tales como `TelemetryClient.Context.User.Id` para realizar el seguimiento de los usuarios y de las sesiones, o bien `TelemetryClient.Context.Device.Id` para identificar el equipo. Esta información se adjunta a todos los eventos enviados por la instancia.
 
 
 ## Seguimiento de eventos
@@ -201,7 +200,7 @@ Hay algunos [límites en el número de propiedades, valores de propiedad y métr
 
 ![Abra el Explorador de métricas, seleccione el gráfico y seleccione la métrica.](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*Si la métrica no aparece o el encabezado Personalizada no se encuentra allí, cierre la hoja de selección e inténtelo más tarde. A veces las métricas pueden tardar una hora en agregarse a través de la canalización.*
+*Si no aparece la métrica o el encabezado Personalizada no se encuentra allí, cierre la hoja de selección e inténtelo más tarde. A veces las métricas pueden tardar una hora en agregarse a través de la canalización.*
 
 **Si usó propiedades y métricas**, segmente la métrica por la propiedad:
 
@@ -392,7 +391,7 @@ Envíe excepciones a Application Insights para [contabilizarlas][metrics], como 
 
 Los SDK capturan muchas excepciones automáticamente, por lo que no siempre es necesario llamar explícitamente a TrackException.
 
-* ASP.NET: [Escribir código para detectar excepciones](app-insights-asp-net-exceptions.md)
+* ASP.NET: [Escritura de código para detectar excepciones](app-insights-asp-net-exceptions.md)
 * J2EE: [Las excepciones se detectan automáticamente](app-insights-java-get-started.md#exceptions-and-request-failures)
 * Aplicaciones de Windows: [Los bloqueos se detectan automáticamente](app-insights-windows-crashes.md)
 * JavaScript: Detectado automáticamente. Si desea deshabilitar la colección automática, agregue una línea al fragmento de código que se inserta en las páginas web:
@@ -471,7 +470,7 @@ Si su aplicación agrupa a los usuarios en cuentas, también puede pasar un iden
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-En el [explorador de métricas](app-insights-metrics-explorer.md), puede crear un gráfico de **Usuarios autenticados** y **Cuentas**.
+En el [Explorador de métricas](app-insights-metrics-explorer.md), puede crear un gráfico de **Usuarios autenticados** y **Cuentas**.
 
 
 ## <a name="defaults"></a>Establecimiento de valores predeterminados para los datos de telemetría personalizados seleccionados
@@ -647,7 +646,7 @@ Inserte un inicializador de telemetría inmediatamente después del código de i
     </script>
 ```
 
-Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, consulte el [modelo de datos](app-insights-export-data-model.md/#lttelemetrytypegt).
+Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, vea el [modelo de datos](app-insights-export-data-model.md/#lttelemetrytypegt).
 
 Puede agregar tantos inicializadores como desee.
 
@@ -735,11 +734,11 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 * **Location** Identifica la ubicación geográfica del dispositivo.
 * **Operation** En las aplicaciones web, es la solicitud HTTP actual. En otros tipos de aplicaciones, puede establecer este valor para agrupar los eventos juntos.
  * **Id**: valor generado que correlaciona distintos eventos, de modo que cuando usted inspeccione cualquier evento en Búsqueda de diagnóstico, puede encontrar "Elementos relacionados".
- * **Nombre**: un identificador, generalmente la dirección URL de la solicitud HTTP. 
+ * **Name**: un identificador, generalmente la dirección URL de la solicitud HTTP. 
  * **SyntheticSource**: si no es null o no está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada se excluirá de cálculos en el Explorador de métricas.
 * **Properties** Propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
 * **Session** Identifica la sesión del usuario. El id. se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
-* **Usuario** Información del usuario. 
+* **User** Información del usuario. 
 
 
 ## <a name="default-properties"></a>Inicializadores de contexto: establecimiento de las propiedades predeterminadas para todos los datos de telemetría
@@ -901,4 +900,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

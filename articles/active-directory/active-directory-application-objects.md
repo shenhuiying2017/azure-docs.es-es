@@ -74,7 +74,7 @@ Propiedad | Descripción
 | ------------- | -----------
 | Id. de cliente | El identificador único para la aplicación. Deberá utilizar este identificador en las llamadas a la API Graph u otras API web registradas en Azure AD. Azure AD genera automáticamente este valor durante el registro de la aplicación y no se puede cambiar.<BR><BR>Para permitir que la aplicación tenga acceso al directorio (acceso de lectura y escritura) a través de la API Graph, necesita un identificador de cliente y una clave (conocidos en OAuth 2.0 como un secreto de cliente). La aplicación utiliza el identificador de cliente y la clave para solicitar un token de acceso desde el extremo del token de OAuth 2.0 de Azure AD. (Para ver todos los extremos de Azure AD, en la barra de comandos, haga clic en **Ver extremos**). Al usar la API Graph para obtener o establecer (cambiar) datos de directorio, la aplicación usa este token de acceso en el encabezado de autorización de la solicitud a la API Graph.
 | Claves | Si la aplicación lee o escribe datos en Azure AD, como los datos que pasan a estar disponibles a través de la API Graph, la aplicación necesita una clave. Cuando se solicita un token de acceso para llamar a la API Graph, la aplicación proporciona el **identificador de cliente** y la **clave**. El extremo de token utiliza el identificador y la clave para autenticar la aplicación antes de emitir el token de acceso. Puede crear varias claves para tratar los escenarios de sustitución de claves. Y puede eliminar las claves que han caducado, están en riesgo o ya no se utilizan.
-| Administración del acceso | Elija uno de los tres diferentes niveles de acceso: inicio de sesión único (SSO), SSO y lectura de datos de directorio o SSO y lectura/escritura de datos de directorio. También puede quitar el acceso. Para obtener más información acerca del acceso de directorio, consulte [Niveles de acceso de la aplicación](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_AccessLevels).<br><BR>**Nota**: los cambios realizados en el nivel de acceso del directorio de la aplicación solo se aplican a su directorio. Los cambios no se aplican a los clientes a los que se haya concedido acceso a la aplicación.
+| Administración del acceso | Elija uno de los tres diferentes niveles de acceso: inicio de sesión único (SSO), SSO y lectura de datos de directorio o SSO y lectura/escritura de datos de directorio. También puede quitar el acceso. <br><BR>** Nota **: los cambios realizados en el nivel de acceso de directorio de la aplicación solo se aplican a su directorio. Los cambios no se aplican a los clientes a los que se haya concedido acceso a la aplicación.
 
 
 ### Clientes nativos
@@ -85,4 +85,4 @@ Propiedad | Descripción
 
 ##
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

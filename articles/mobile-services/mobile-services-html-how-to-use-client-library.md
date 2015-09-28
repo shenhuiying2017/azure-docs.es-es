@@ -16,7 +16,6 @@
 	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
-
 # Uso de un cliente HTML/JavaScript para Servicios móviles de Azure
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
@@ -367,7 +366,7 @@ En una aplicación de la Tienda Windows, los resultados de una consulta se puede
 
 ##<a name="#custom-api"></a>Llamada a una API personalizada
 
-Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON. Para obtener un ejemplo completo, incluso cómo crear una API personalizada en el servicio móvil, consulte [Llamar a una API personalizada desde el cliente].
+Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON. Para obtener un ejemplo de cómo crear una API personalizada en el servicio móvil, vea [Definición de un extremo de API personalizada](mobile-services-dotnet-backend-define-custom-api.md).
 
 Llame a una API personalizada desde el cliente mediante una llamada al método [invokeApi](https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L337) en **MobileServiceClient**. Por ejemplo, la siguiente línea de código envía una solicitud POST a la API **completeAll** del servicio móvil:
 
@@ -605,7 +604,7 @@ Para controlar a qué sitios web se les permite interactuar con solicitudes y en
 [Autenticación de la aplicación con el inicio de sesión único]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referencia de opciones de consulta del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[Llamar a una API personalizada desde el cliente]: mobile-services-html-call-custom-api.md
+[Call a custom API from the client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

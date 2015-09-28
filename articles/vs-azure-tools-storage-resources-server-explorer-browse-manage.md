@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Exploración y administración de recursos de almacenamiento con el Explorador de servidores"
-	description="Exploración y administración de recursos de almacenamiento con el Explorador de servidores"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Exploración y administración de recursos de almacenamiento con el Explorador de servidores"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Exploración y administración de recursos de almacenamiento con el Explorador de servidores
 
@@ -42,19 +42,21 @@ Para ver los recursos en una cuenta de almacenamiento, expanda el nodo de la cue
 
 El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento seleccionada. Los contenedores de blobs incluyen archivos de blob, y puede organizar estos blobs en carpetas y subcarpetas. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](..storage/storage-dotnet-how-to-use-blobs/).
 
-###Para crear un contenedor de blobs
+### Para crear un contenedor de blobs
 
 1. Abra el menú contextual del nodo **Blobs** y elija **Crear contenedor de blobs**.
 
-1. Escriba el nombre del contenedor nuevo en el cuadro de diálogo **Crear contenedor de blobs** y después elija **Aceptar**. ![Agregar un nuevo contenedor de blobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
+1. Escriba el nombre del contenedor nuevo en el cuadro de diálogo **Crear contenedor de blobs** y después elija **Aceptar**.
+
+    ![Agregar un nuevo contenedor de blobs](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744153.bmp)
 
     >[AZURE.NOTE]El nombre del contenedor de blobs debe comenzar con una letra minúscula (a–z) o un número (0-9).
 
-###Para eliminar un contenedor de blobs
+### Para eliminar un contenedor de blobs
 
 - Abra el menú contextual del contenedor de blobs que desee quitar y elija **Eliminar**.
 
-###Para mostrar una lista de los elementos contenidos en un contenedor de blobs
+### Para mostrar una lista de los elementos contenidos en un contenedor de blobs
 
 - Abra el menú contextual para un nombre de contenedor de blobs de la lista y elija **Ver contenedor de blob**.
 
@@ -64,7 +66,6 @@ El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento
 
     Puede realizar las siguientes operaciones en blobs mediante los botones en la esquina superior derecha de la vista del contenedor de blobs:
 
-
     - Escribir un valor de filtro y aplicarlo
 
     - Actualizar la lista de blobs del contenedor
@@ -73,15 +74,13 @@ El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento
 
     - Eliminar un blob
 
-
-        >[AZURE.NOTE]Cuando elimina un archivo de un contenedor de blobs, no se elimina el archivo subyacente; solo se quita del contenedor de blobs.
-
+      >[AZURE.NOTE]Cuando elimina un archivo de un contenedor de blobs, no se elimina el archivo subyacente; solo se quita del contenedor de blobs.
 
     - Abrir un blob
 
     - Guardar un blob en el equipo local
 
-###Para crear una carpeta o una subcarpeta en un contenedor de blobs 
+### Para crear una carpeta o una subcarpeta en un contenedor de blobs
 
 1. Elija el contenedor de blobs en el Explorador de servidores. En la ventana del contenedor, elija el botón **Cargar blob**.
 
@@ -95,9 +94,9 @@ El nodo Blobs muestra una lista de contenedores para la cuenta de almacenamiento
 
 1. Haga doble clic en la carpeta o presione ENTRAR para ver el contenido de la carpeta. Cuando esté en la carpeta del contenedor, puede navegar hasta la raíz del contenedor eligiendo el botón **Abrir directorio primario** (flecha arriba).
 
-###Para eliminar una carpeta de contenedor
+### Para eliminar una carpeta de contenedor
 
- - Elimine todos los archivos de la carpeta 
+ - Elimine todos los archivos de la carpeta
 
     >[AZURE.NOTE]Dado que las carpetas en los contenedores de blob son virtuales, no puede crear una carpeta vacía ni eliminar una carpeta para eliminar los archivos que contiene. Primero debe eliminar todo el contenido de una carpeta para eliminar la carpeta.
 
@@ -114,7 +113,7 @@ Por ejemplo, si escribe el prefijo `hello` en el cuadro de texto del filtro y de
 
 ### Para descargar datos de blob
 
-- En el Explorador de servidores, abra el menú contextual para uno o más blobs y después elija **Abrir**, o bien elija el nombre del blob y después el botón **Abrir** o haga doble clic en el nombre del blob.
+- En el **Explorador de servidores**, abra el menú contextual para uno o más blobs y después elija **Abrir**, o bien elija el nombre del blob y después el botón **Abrir** o haga doble clic en el nombre del blob.
 
     Puede ver el progreso de la descarga del blob en la ventana **Registro de actividad de Microsoft Azure**.
 
@@ -126,11 +125,11 @@ Por ejemplo, si escribe el prefijo `hello` en el cuadro de texto del filtro y de
 
 - Elija el botón **Cargar blob** cuando el contenedor esté abierto para su visualización en la vista del contenedor de blobs.
 
-    Puede elegir uno o varios archivos para cargar, así como cargar archivos de cualquier tipo. Puede ver el progreso de la carga en la ventana **Registro de actividad de Microsoft Azure**. Para obtener más información acerca de cómo trabajar con datos de blob, consulte [Uso del almacenamiento de blobs de .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
+    Puede elegir uno o varios archivos para cargar, así como cargar archivos de cualquier tipo. Puede ver el progreso de la carga en la ventana **Registro de actividad de Microsoft Azure**. Para obtener más información acerca de cómo trabajar con datos de blob, vea [Uso del almacenamiento de blobs de .NET](http://go.microsoft.com/fwlink/p/?LinkId=267911).
 
 ### Para ver los registros transferidos a blobs
 
-- Si usa Diagnósticos de Azure para registrar los datos de la aplicación de Azure y ha transferido los registros a la cuenta de almacenamiento, verá los contenedores creados por Azure para estos registros. Ver estos registros en el Explorador de servidores es una manera fácil de identificar los problemas de la aplicación, especialmente si se ha implementado en Azure. Para obtener más información sobre Diagnósticos de Azure, consulte [Recopilar datos de registro mediante Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx).
+- Si usa Diagnósticos de Azure para registrar los datos de la aplicación de Azure y ha transferido los registros a la cuenta de almacenamiento, verá los contenedores creados por Azure para estos registros. Ver estos registros en el Explorador de servidores es una manera fácil de identificar los problemas de la aplicación, especialmente si se ha implementado en Azure. Para obtener más información sobre Diagnósticos de Azure, vea [Recopilar datos de registro mediante Diagnósticos de Azure](https://msdn.microsoft.com/library/azure/gg433048.aspx).
 
 ### Para obtener la dirección URL de un blob
 
@@ -162,7 +161,7 @@ En la siguiente imagen se muestra una cola que contiene dos mensajes.
 
 ![Ver una cola](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Para obtener más información acerca de las colas de servicios de almacenamiento, consulte [Uso del almacenamiento de colas de .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obtener información sobre el servicio web para colas de servicios de almacenamiento, consulte [Conceptos del servicio Cola](http://go.microsoft.com/fwlink/?LinkId=264788). Para obtener información acerca de cómo enviar mensajes a una cola de servicios de almacenamiento mediante Visual Studio, consulte [Enviar mensajes a una cola de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+Para obtener más información acerca de las colas de servicios de almacenamiento, vea [Uso del almacenamiento de colas de .NET](http://go.microsoft.com/fwlink/?LinkID=264702). Para obtener información sobre el servicio web para colas de servicios de almacenamiento, vea [Conceptos del servicio Cola](http://go.microsoft.com/fwlink/?LinkId=264788). Para obtener información acerca de cómo enviar mensajes a una cola de servicios de almacenamiento mediante Visual Studio, vea [Enviar mensajes a una cola de servicios de almacenamiento](https://msdn.microsoft.com/library/azure/jj649344.aspx).
 
 >[AZURE.NOTE]Las colas de servicios de almacenamiento son distintas de las colas del Bus de servicio. Para obtener más información sobre las colas del Bus de servicio, consulte Colas, temas y suscripciones del Bus de servicio.
 
@@ -184,11 +183,9 @@ El servicio de almacenamiento de tablas de Azure permite almacenar una gran cant
 
 1. Abra el menú contextual para una tabla y después elija **Ver tabla**.
 
-    
     ![Una tabla de Azure en el Explorador de soluciones](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744165.png)
 
 La tabla se organiza por entidades (mostradas en filas) y propiedades (mostradas en columnas). Por ejemplo, en la siguiente ilustración se muestran las entidades que aparecen en el **Diseñador de tablas**:
-
 
 ### Para editar los datos de tabla
 
@@ -196,16 +193,13 @@ La tabla se organiza por entidades (mostradas en filas) y propiedades (mostradas
 
     ![Agregar o editar una entidad de tabla](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC656238.png)
 
-    No es necesario que las entidades de una sola tabla compartan el mismo conjunto de propiedades (columnas). Tenga en cuenta las siguientes restricciones de visualización y edición de datos de la tabla.
-
-
-    - No se pueden ver ni editar datos binarios (tipo byte), pero se pueden almacenar en una tabla.
+    No es necesario que las entidades de una sola tabla compartan el mismo conjunto de propiedades (columnas). Tenga en cuenta las siguientes restricciones de visualización y edición de datos de la tabla. -No puede ver o editar datos binarios (tipo byte), pero se puede almacenar en una tabla.
 
     - No se pueden editar los valores **PartitionKey** ni **RowKey**, porque el almacenamiento de tablas en Azure no admite esa operación.
 
     - No se puede crear una propiedad denominada Timestamp; los servicios de Almacenamiento de Azure usan una propiedad con ese nombre.
 
-    - Si escribe un valor DateTime, debe seguir un formato adecuado para la configuración regional y de idioma del equipo (por ejemplo, MM/DD/AAAA HH:MM:SS [AM|PM] para Inglés de EE.UU.).
+    - Si escribe un valor DateTime, debe seguir un formato adecuado para la configuración regional y de idioma del equipo (por ejemplo, MM/DD/AAAA HH:MM:SS [AM|PM] para Inglés de Estados Unidos).
 
 ### Para agregar entidades
 
@@ -253,7 +247,7 @@ Cuando el Explorador de servidores se conecta a una cuenta de almacenamiento u o
 
 ### Para actualizar los datos de tabla
 
-- Seleccione el nodo **Tablas** bajo **Almacenamiento** y elija el botón **Actualizar**. 
+- Seleccione el nodo **Tablas** bajo **Almacenamiento** y elija el botón **Actualizar**.
 
 - Para actualizar la lista de entidades que se muestra en el **Diseñador de tablas**, elija el botón **Ejecutar** en el **Diseñador de tablas**.
 
@@ -303,7 +297,7 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
     - El protocolo que se va a usar para conectarse a la cuenta de almacenamiento, como HTTP, HTTPS o un extremo personalizado. Consulte [Configurar las cadenas de conexión de Azure](https://msdn.microsoft.com/library/azure/ee758697.aspx) para obtener más información acerca de los extremos personalizados.
 
-### Para ver los extremos secundarios 
+### Para ver los extremos secundarios
 
 - Si ha creado una cuenta de almacenamiento con la opción de replicación **Redundancia geográfica con acceso de lectura**, puede ver sus extremos secundarios. Abra el menú contextual del nombre de cuenta y elija **Propiedades**.
 
@@ -313,10 +307,10 @@ Existen dos formas de agregar cuentas de almacenamiento mediante el Explorador d
 
 - En el Explorador de servidores, abra el menú contextual del nombre de cuenta y elija **Eliminar**. Si elimina una cuenta de almacenamiento, también se quita cualquier información de clave guardada para esa cuenta.
 
->[AZURE.NOTE]Si elimina una cuenta de almacenamiento del Explorador de servidores, esto no afecta a la cuenta de almacenamiento ni a ningún dato que contenga; simplemente se quita la referencia del Explorador de servidores. Para eliminar de forma permanente una cuenta de almacenamiento, use el Portal de administración de Azure.
+    >[AZURE.NOTE]Si elimina una cuenta de almacenamiento del Explorador de servidores, esto no afecta a la cuenta de almacenamiento ni a ningún dato que contenga; simplemente se quita la referencia del Explorador de servidores. Para eliminar de forma permanente una cuenta de almacenamiento, use el Portal de administración de Azure.
 
-## Otras referencias
+## Pasos siguientes
 
-[Obtener acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx)
+Para obtener más información sobre cómo usar los servicios de almacenamiento de Azure, vea [Acceso a los servicios de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

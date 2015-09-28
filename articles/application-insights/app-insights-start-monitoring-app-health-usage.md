@@ -121,6 +121,13 @@ Implemente ahora la aplicación en IIS o en Azure y observe cómo se acumulan lo
 
 Si se trabaja en modo de depuración, la telemetría se agiliza a través de la canalización y los datos aparecen en cuestión de segundos. Cuando se implementa una aplicación, los datos se acumulan a menor velocidad.
 
+#### ¿No hay datos después de publicar en el servidor?
+
+Abra estos puertos para el tráfico de salida en el firewall del servidor:
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 
 #### ¿Tiene problemas el servidor de compilación?
 
@@ -130,13 +137,13 @@ Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-
 
 El SDK necesita un poco de ayuda para obtener acceso a algunos datos. En concreto, este paso adicional será necesario para medir automáticamente las llamadas de la aplicación a las bases de datos, las API de REST y otros componentes externos. Estas métricas de dependencia pueden ser inestimables para ayudar a diagnosticar problemas de rendimiento.
 
-Este paso también permite [generar informes de contadores de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters) como ocupación de red, de memoria o de CPU.
-
 #### Si la aplicación se ejecuta en su servidor IIS
 
 Inicie sesión en el servidor con derechos de administrador e instale [Monitor de estado de Application Insights](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(También puede usar el Monitor de estado para [instrumentar una aplicación que ya está en ejecución](app-insights-monitor-performance-live-website-now.md), aunque no se compilase con el SDK).
+Puede que tenga que [abrir otros puertos de salida en el firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
+
+Este paso también permite [generar informes de contadores de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters) como ocupación de red, de memoria o de CPU.
 
 #### Si la aplicación es una aplicación web de Azure
 
@@ -168,7 +175,7 @@ Observe que el código contiene la clave de instrumentación que identifica al r
 
 #### Si los clientes son aplicaciones de dispositivos
 
-Si la aplicación atiende a clientes como, por ejemplo, teléfonos u otros dispositivos, agregue el [SDK adecuado](app-insights-platforms.md) a la aplicación del dispositivo.
+Si la aplicación da servicio a clientes como, por ejemplo, teléfonos u otros dispositivos, agregue el [SDK adecuado](app-insights-platforms.md) a la aplicación de dispositivos.
 
 Si configura el SDK del cliente con la misma clave de instrumentación que el SDK del servidor, las dos secuencias se integrarán de modo que podrá verlas juntas.
 
@@ -189,7 +196,7 @@ Se requiere [Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=
 
 #### Si se trata de un proyecto nuevo:
 
-Cuando cree un proyecto en Visual Studio, asegúrese de seleccionar **Agregar Application Insights**.
+Cuando cree un proyecto en Visual Studio, asegúrese de que la opción **Agregar Application Insights** está seleccionada.
 
 
 ![Crear un proyecto ASP.NET](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -248,4 +255,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

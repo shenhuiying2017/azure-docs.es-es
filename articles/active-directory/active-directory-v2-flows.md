@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicaciones v2.0 | Microsoft Azure"
+	pageTitle="Tipos de aplicaciones del modelo de aplicación v2.0 | Microsoft Azure"
 	description="Los tipos de aplicaciones y escenarios admitidos por la vista previa pública del modelo de aplicaciones v2.0 de Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Vista previa del modelo de aplicaciones v2.0: tipos de aplicaciones
@@ -125,4 +125,4 @@ Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de 
 
 Este escenario de API web encadenada puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como el [flujo "en nombre de"](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Sin embargo, el flujo "en nombre de" no está implementado actualmente en la vista previa del modelo de aplicaciones v2.0. Para ver cómo funciona este flujo en el servicio Azure AD, disponible con carácter general, consulte el [ejemplo de código "en nombre de" en GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

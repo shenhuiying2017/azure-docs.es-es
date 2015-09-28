@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Configurar y registrar el dispositivo"
-   description="Explica cómo usar Windows PowerShell para StorSimple para configurar y registrar su dispositivo ejecutando la Actualización 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="alkohli" />
+<!--author=alkohli last changed: 9/17/15-->
 
 
 ### Para configurar y registrar el dispositivo
@@ -42,7 +27,7 @@
    - Puerta de enlace
    - Dirección IP para el servidor DNS principal
     
-		Note that the system is validating network settings after each step in the process.
+		Tenga en cuenta que el sistema valida la configuración de red después de cada paso del proceso.
    
       >[AZURE.NOTE]Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «Compruebe la conectividad de red para Data 0», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
 
@@ -83,4 +68,4 @@
      
        
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -8,17 +8,19 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Escalación de una aplicación web en el Servicio de aplicaciones de Azure #
 
 Para aumentar el rendimiento y la capacidad de las aplicaciones web de Microsoft Azure, puede usar el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) para escalar el plan del [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) del modo **Gratis** al modo **Compartido**, **Básico**, **Estándar** o **Premium**.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 El escalado de las aplicaciones web de Azure implica dos acciones relacionadas: cambiar el modo del plan del Servicio de aplicaciones a un nivel de servicio más alto y configurar ciertas opciones de configuración después de pasar al nivel de servicio superior. En este artículo se incluyen ambos temas. Los niveles de servicio superiores, como los modos **Estándar** y **Premium**, ofrecen una mayor robustez y flexibilidad a la hora de determinar cómo se utilizan los recursos en Azure.
 
@@ -199,4 +201,4 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

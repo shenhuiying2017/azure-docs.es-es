@@ -3,7 +3,7 @@
 	description="Use Azure PowerShell para crear una nueva máquina virtual basada en Windows rápidamente en la administración de servicios y realizar funciones de administración."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Creación y administración de una máquina virtual basada en Windows en Administración de servicios mediante Azure PowerShell
 
@@ -209,4 +209,4 @@ Para adjuntar discos de datos desde un archivo .vhd existente en el almacenamien
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -5,15 +5,15 @@
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure
@@ -22,7 +22,9 @@
 
 Azure integra diagnósticos para ayudar a depurar [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnósticos, agregar instrumentación a la aplicación y obtener acceso a la información registrada por Azure.
 
-> [AZURE.NOTE]En este artículo se usa el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+En este artículo se usa el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="whatisdiag"></a>Diagnóstico del servidor web y diagnóstico de aplicaciones
 
@@ -68,7 +70,7 @@ La pestaña [Portal de Azure](https://manage.windowsazure.com) Aplicación web *
 
 Al mismo tiempo se puede habilitar cualquier combinación de sistema de archivos, almacenamiento de tablas o almacenamiento de blobs, y estas opciones tiene configuraciones de nivel de registro individuales. Por ejemplo, puede registrar errores y advertencias en el almacenamiento de blobs como una solución de registro a largo plazo, mientras habilita el registro en el sistema de archivos con un nivel detallado.
 
-Si bien las tres ubicaciones de almacenamiento ofrecen la misma información básica de los eventos registrados, **almacenamiento de tablas** y **almacenamiento de blobs** registran información como el identificador de instancia, el identificador de subproceso y una marca de tiempo más pormenorizada (formato de marca de graduación) que se registra en el **sistema de archivos**.
+Si bien las tres ubicaciones de almacenamiento ofrecen la misma información básica de los eventos registrados, **table storage** y **blob storage** registran información adicional como el identificador de instancia, el identificador de subproceso y una marca de tiempo más pormenorizada (formato de marca de graduación) que el registro en **file system**.
 
 > [AZURE.NOTE]Solo se puede obtener acceso a la información almacenada en **almacenamiento de tablas** o **almacenamiento de blobs** mediante una aplicación o un cliente de almacenamiento que puedan trabajar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al almacenamiento de Azure mediante algunos de los [SDK de Azure](/downloads/#).
 
@@ -82,7 +84,7 @@ La estructura de directorios en que se almacenan los registros es la siguiente:
 
 * **Registros de aplicaciones**: /LogFiles/Application/. Esta carpeta contiene uno o varios archivos de texto con información generada por el registro de aplicaciones.
 
-* **Seguimientos de solicitudes con error**: /LogFiles/W3SVC\#\#\#\#\#\#\#\#\#/. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL en el mismo directorio de los archivos XML, porque el archivo XSL proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML cuando se visualizan en Internet Explorer.
+* **Seguimientos de solicitudes con error**: /LogFiles/W3SVC#########/. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL en el mismo directorio de los archivos XML, porque el archivo XSL proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML cuando se visualizan en Internet Explorer.
 
 * **Registros detallados de errores**: /LogFiles/DetailedErrors/. Esta carpeta contiene uno o varios archivos .htm con información amplia de todos los errores HTTP que se han producido.
 
@@ -236,7 +238,7 @@ Los datos almacenados en un blob serían similares a los siguientes:
 
 ### Seguimiento de solicitudes con error
 
-El seguimiento de solicitudes con error se almacena en archivos XML con nombre __fr\#\#\#\#\#\#.xml__. Para facilitar la visualización de la información registrada, se proporciona una hoja de estilo XSL con nombre __freb.xsl__ en el mismo directorio que los archivos XML. Al abrir uno de los archivos XML en Internet Explorer, se usará la hoja de estilo XSL para ofrecer una visualización con formato de la información de seguimiento. El formato será similar al siguiente:
+El seguimiento de solicitudes con error se almacena en archivos XML con nombre __fr######.xml__. Para facilitar la visualización de la información registrada, se proporciona una hoja de estilo XSL con nombre __freb.xsl__ en el mismo directorio que los archivos XML. Al abrir uno de los archivos XML en Internet Explorer, se usará la hoja de estilo XSL para ofrecer una visualización con formato de la información de seguimiento. El formato será similar al siguiente:
 
 ![solicitud con error visualizada en el explorador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -252,7 +254,7 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 
 ##<a name="nextsteps"></a> Pasos siguientes
 
-- [Supervisión de aplicaciones web](/es-es/manage/services/web-sites/how-to-monitor-websites/)
+- [Supervisión de aplicaciones web](/es-ES/manage/services/web-sites/how-to-monitor-websites/)
 - [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [Análisis de registros de aplicación web en HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -263,4 +265,4 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

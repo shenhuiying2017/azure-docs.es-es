@@ -1,13 +1,13 @@
 <properties
    pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
-	description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Copia de seguridad de Azure - Preguntas más frecuentes
 A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre Copia de seguridad de Azure, vaya al [foro de discusión](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) y publique sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -40,7 +40,7 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P6. ¿Debo considerar el almacén como una entidad de facturación?** <br/> R6. Aunque es posible obtener una factura detallada de cada almacén, es muy recomendable que considere una suscripción de Azure como entidad de facturación. Es coherente en todos los servicios y es más fácil de administrar.
 
-**P7. ¿Hay algún límite en el número de servidores o máquinas que se puede registrar en cada almacén?** <br/> R7. Sí, puede registrar hasta 50 máquinas por almacén. Si necesita registrar más máquinas, cree un nuevo almacén.
+**P7. ¿Hay algún límite en el número de servidores o máquinas que se puede registrar en cada almacén?** <br/> R7. Sí, puede registrar hasta 50 máquinas por almacén. Para las máquinas virtuales de IaaS de Azure, el límite es de 100 máquinas virtuales por almacén. Si necesita registrar más máquinas, cree un nuevo almacén.
 
 **P8. ¿Hay algún límite en la cantidad de datos de los que se puede hacer una copia de seguridad desde un servidor o cliente de Windows o un servidor de SCDPM?** <br/> R8. Nº
 
@@ -114,7 +114,7 @@ El tamaño de origen de datos se mide según se menciona a continuación
 |Microsoft Exchange|Suma de todas las bases de datos de un servidor de Exchange de las que se hace copia de seguridad|
 |Estado del sistema y BMR|Cada copia individual del estado del sistema o BMR del equipo del que se hace copia de seguridad|
 
-**P2. ¿Hay algún límite en el número de veces que se puede programar la copia de seguridad al día?**<br/> R2. Sí, la Copia de seguridad de Azure permite 3 copias de seguridad diarias a través del servidor/cliente de Windows, y 2 copias de seguridad diarias a través de SCDPM.
+**P2. ¿Hay algún límite en el número de veces que se puede programar la copia de seguridad al día?**<br/> R2. Sí, la Copia de seguridad de Azure permite realizar 3 copias de seguridad diarias a través del servidor/cliente de Windows, 2 copias de seguridad diarias a través de SCDPM y una copia al día para las máquinas virtuales de IaaS.
 
 **P3. ¿Hay alguna diferencia entre la directiva de programación de copia de seguridad de DPM y la de Azure (es decir, en Windows Server sin DPM)?** <br/> R3. Sí. Con DPM, puede especificar la programación diaria, semanal, mensual y anual, mientras que desde un servidor de Windows (sin DPM), puede especificar solo programaciones diarias o semanales.
 
@@ -132,16 +132,12 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 **P9. Si cada punto de recuperación es como un punto completo, ¿afecta esto al almacenamiento de copia de seguridad facturable total?**<br/> R9. Los productos de retención a largo plazo típicos almacenan los datos de copia de seguridad como puntos completos. Sin embargo, son ineficaces en cuanto a almacenamiento, pero resultan más fáciles y rápidos de restaurar. Las copias incrementales se almacenan con eficacia pero requieren que restaure una cadena de datos que influye en el tiempo de recuperación. La arquitectura de almacenamiento único de la Copia de seguridad de Azure ofrece lo mejor de ambas opciones, al almacenar datos de forma óptima para restauraciones más rápidas e incurrir en costes de almacenamiento bajo. Este enfoque le asegura que su ancho de banda (de entrada y salida) se use de forma eficaz, el almacenamiento se conserve al mínimo y el tiempo dedicado a la recuperación se reduzca al mínimo.
 
-**P10. ¿Hay un límite en el número de puntos de recuperación que se pueden crear?**<br/> R10. Desde abril de 2015, puede tener hasta 366 puntos de recuperación. Puede utilizar cualquier permutación para llegar a un número inferior a 366. P. ej.: los puntos de retención de la siguiente imagen se agregan a 354. <br/>
+**P10. ¿Hay un límite en el número de puntos de recuperación que se pueden crear?**<br/> R10. No. Hemos eliminado los límites a los puntos de recuperación. Puede crear tantos puntos de recuperación como desee.
 
-![Pantalla de retención](./media/backup-azure-backup-faq/RetentionScreen1.png)
-
-**P11. Una vez que Microsoft mejore el límite de 366, ¿tendré que actualizar el agente o volver a propagar la copia de seguridad inicial?** <br/> R11. No. Una vez que se realice el cambio en nuestro servicio, se le notificará a través de nuestros distribuidores de medios sociales (blogs, anuncios de Azure, portal, etc.). Según sus necesidades, necesitaría cambiar únicamente la directiva de retención.
-
-**P12. ¿Por qué la cantidad de datos transferida en la copia de seguridad es distinta a la cantidad de datos de los que realizo la copia de seguridad?**<br/> R12. Todos los datos de los que se realiza una copia de seguridad se comprimen y se cifran antes de ser transferidos. Puede esperar unas ventajas de compresión de entre el 30 y el 40 % en función del tipo de datos de los cuales se realiza la copia de seguridad.
+**P11. ¿Por qué la cantidad de datos transferida en la copia de seguridad es distinta a la cantidad de datos de los que realizo la copia de seguridad?**<br/> R11. Todos los datos de los que se realiza una copia de seguridad se comprimen y se cifran antes de ser transferidos. Puede esperar unas ventajas de compresión de entre el 30 y el 40 % en función del tipo de datos de los cuales se realiza la copia de seguridad.
 
 ## Recuperación
-**P1. ¿Cuántas recuperaciones puedo realizar en los datos cuya copia de seguridad se crea en Azure?**<br/> R1. No hay ningún límite en cuanto al número de recuperaciones de la Copia de seguridad de Azure.
+**P1. ¿Cuántas recuperaciones puedo realizar en los datos que tienen copia de seguridad en Azure?**<br/> R1. No hay ningún límite en cuanto al número de recuperaciones de la Copia de seguridad de Azure.
 
 **P2. ¿Tengo que pagar por el tráfico de salida desde el centro de datos de Azure durante las recuperaciones?**<br/> R2. No. Sus recuperaciones son gratuitas y no se cobra por el tráfico de salida.
 
@@ -169,8 +165,8 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 	| Ruta de acceso del Registro | Clave del Registro | Valor |
 	| ------ | ------- | ------ |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Nueva ubicación de la carpeta de la memoria caché</i> |
 
 
 + Para iniciar OBEngine, ejecute el siguiente comando en un símbolo del sistema con privilegios elevados:
@@ -179,4 +175,4 @@ El tamaño de origen de datos se mide según se menciona a continuación
 
 Una vez que las copias de seguridad se realizan correctamente con la nueva ubicación de caché, puede quitar la carpeta de la memoria caché original.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

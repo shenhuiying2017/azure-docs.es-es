@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Solución de problemas y preguntas sobre Application Insights"
-	description="¿Hay algo que no entienda o que no funcione en Visual Studio Application Insights? Pruebe aquí."
-	services="application-insights"
-	documentationCenter=".net"
-	authors="alancameronwills"
+	pageTitle="Solución de problemas y preguntas sobre Application Insights" 
+	description="¿Hay algo que no entienda o que no funcione en Visual Studio Application Insights? Pruebe aquí." 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="application-insights" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Solución de problemas y preguntas - Application Insights para ASP.NET
@@ -136,6 +136,9 @@ Consulte las [notas de la versión](app-insights-release-notes.md) del SDK adecu
 + Haga clic en el botón Actualizar. La hoja se actualiza periódicamente, pero también puede hacerlo manualmente. El intervalo de actualización es mayor para intervalos de tiempo mayores.
 + En el panel de inicio de Microsoft Azure, observe el mapa de estado del servicio. Si hay algunas indicaciones de alerta, espere hasta que hayan vuelto a su estado correcto y después cierre y vuelva a abrir el cuadro de la aplicación de Application Insights.
 + Compruebe también [nuestro blog de estado](http://blogs.msdn.com/b/applicationinsights-status/).
+
+#### No hay datos desde que se publicó la aplicación en el servidor
+
 + En el firewall, tendrá que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com y f5.services.visualstudio.com.
 + Si tiene que usar un servidor proxy para enviar fuera de la red corporativa, establezca el valor [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) en el archivo Web.config.
 + Windows Server 2008: asegúrese de haber instalado las siguientes actualizaciones: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523) y [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -148,7 +151,7 @@ Consulte las [notas de la versión](app-insights-release-notes.md) del SDK adecu
 
 #### <a name="q08"></a>¿Puedo usar Application Insights para supervisar un servidor web de intranet?
 
-Sí, puede supervisar el estado y el uso si el servidor puede enviar datos a la red pública de Internet.
+Sí, puede supervisar el estado y el uso si el servidor puede enviar datos a la red pública de Internet. En el firewall, abra los puertos TCP 80 y 443 para el tráfico saliente a dc.services.visualstudio.com y f5.services.visualstudio.com.
 
 Pero si desea ejecutar pruebas web para su servicio, debe estar accesible desde la red pública de Internet en el puerto 80.
 
@@ -161,7 +164,9 @@ Debe organizar un proxy que pueda retransmitir llamadas POST https a dc.services
 * Compruebe el [blog de estado](http://blogs.msdn.com/b/applicationinsights-status/).
 * ¿Ha alcanzado su cuota mensual de puntos de datos? Abra Configuración/Cuotas y Precios para averiguarlo. Si es así, puede actualizar el plan o pagar para obtener capacidad adicional. Consulte el [esquema de precios](http://azure.microsoft.com/pricing/details/application-insights/).
 
+## Monitor de estado no funciona
 
+Vea [Solución de problemas del Monitor de estado](app-insights-monitor-performance-live-website-now.md#troubleshooting). Los puertos del firewall son el problema más común.
 
 ## El Portal
 
@@ -228,6 +233,10 @@ Si el servicio web se ejecuta en una máquina virtual de Azure, también puede [
 
 Puede [escribir un script de PowerShell](app-insights-powershell-script-create-resource.md) para crear un recurso de Application Insights.
 
+## Más respuestas
+
+* [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/es-ES/home?forum=ApplicationInsights)
+
 
 <!--Link references-->
 
@@ -239,4 +248,4 @@ Puede [escribir un script de PowerShell](app-insights-powershell-script-create-r
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

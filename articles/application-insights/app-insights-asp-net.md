@@ -148,15 +148,24 @@ Cuando ha entregado un nuevo caso de usuario, le gustaría saber cuánto lo est�
 
 Si aún no ha publicado la aplicación (desde que agregó Application Insights), hágalo ahora. Vea el crecimiento de los datos en los gráficos a medida que las personas usan la aplicación.
 
+
+#### ¿No hay datos después de publicar en el servidor?
+
+Abra estos puertos para el tráfico de salida en el firewall del servidor:
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 ### Mantenimiento de recursos independientes para desarrollo, prueba y lanzamiento
 
-Para una aplicación importante, es aconsejable enviar datos de telemetría de depuración, pruebas y producción en [recursos independientes](app-insights-separate-resources.md).
+Para una aplicación importante, es aconsejable enviar los datos de telemetría de depuración, pruebas y producción a [recursos independientes](app-insights-separate-resources.md).
+
 
 
 
 ## Adición de contadores de rendimiento del sistema y seguimiento de dependencia
 
-Las [métricas de dependencia](app-insights-dependencies.md) pueden ser muy valiosas a la hora de ayudarle a diagnosticar problemas de rendimiento. Miden las llamadas desde su aplicación a bases de datos, API de REST y otros componentes externos.
+Las [métricas de dependencia](app-insights-dependencies.md) pueden ser muy valiosas a la hora de ayudar a diagnosticar problemas de rendimiento. Miden las llamadas desde su aplicación a bases de datos, API de REST y otros componentes externos.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
@@ -166,7 +175,7 @@ Este paso también permite [generar informes de contadores de rendimiento](app-i
 
 Inicie sesión en el servidor con derechos de administrador e instale [Monitor de estado de Application Insights](http://go.microsoft.com/fwlink/?LinkId=506648).
 
-(También puede usar el Monitor de estado para [instrumentar una aplicación que ya está en ejecución](app-insights-monitor-performance-live-website-now.md), aunque no se compilase con el SDK).
+Debe asegurarse de que hay algunos [puertos adicionales abiertos en el firewall de su servidor](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
 #### Si la aplicación es una aplicación web de Azure
 
@@ -226,4 +235,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

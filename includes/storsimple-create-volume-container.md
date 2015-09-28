@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Crear un contenedor de volúmenes"
-   description="Se describe cómo crear un contenedor de volúmenes en un dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para crear un contenedor de volúmenes
 
@@ -31,4 +16,8 @@
 
   El contenedor de volúmenes recién creado se mostrará en la página **Contenedores de volúmenes**.
 
-<!---HONumber=Sept15_HO2-->
+![Vídeo disponible](./media/storsimple-create-volume-container/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que muestra cómo crear un contenedor de volúmenes en la solución de StorSimple, haga clic [aquí](http://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+
+<!---HONumber=Sept15_HO3-->

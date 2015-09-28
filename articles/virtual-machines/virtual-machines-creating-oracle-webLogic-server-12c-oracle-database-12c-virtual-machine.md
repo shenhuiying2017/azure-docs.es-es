@@ -1,4 +1,4 @@
-<properties title="Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure" pageTitle="Creación de una máquina virtual Oracle WebLogic Server 12c y Oracle Database 12C en Azure" description="Revise paso a paso un ejemplo de cómo crear una imagen de Oracle WebLogic Server 12c y de Oracle Database 12c que se ejecuta en Windows Server 2012 en Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Creación de una máquina virtual Oracle WebLogic Server 12c y Oracle Database 12C en Azure" description="Revise paso a paso un ejemplo de cómo crear una imagen de Oracle WebLogic Server 12c y de Oracle Database 12c que se ejecuta en Windows Server 2012 en Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 
 #Creación de una máquina virtual Oracle WebLogic Server 12c y Oracle Database 12c en Azure
@@ -21,7 +21,7 @@ En este artículo se muestra cómo crear una máquina virtual basada en una imag
 
 7.	Elija un **Nivel de precios**. Tenga en cuenta que los niveles de precios recomendados se muestran de forma predeterminada. Para ver todas las opciones de configuración, haga clic en **Ver todas** en la parte superior derecha.
 
-8. Establezca las configuraciones opcionales según sea necesario (consulte [Acerca de las opciones de configuración de máquina virtual de Azure](https://msdn.microsoft.com/library/azure/dn763935.aspx)). Siga estas consideraciones:
+8. Establezca las configuraciones opcionales según sea necesario. Siga estas consideraciones:
 
 	a. No modifique **Cuenta de almacenamiento** para crear una nueva cuenta de almacenamiento con el nombre de la máquina virtual.
 
@@ -29,11 +29,11 @@ En este artículo se muestra cómo crear una máquina virtual basada en una imag
 
 	c. No agregue ningún extremo en este momento.
 
-9.	Elija o cree un grupo de recursos. Para obtener más información, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](resource-group-portal.md).
+9.	Elija o cree un grupo de recursos. Para obtener más información, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](resource-group-portal.md).
 
-10. Elija una **Suscripción**.
+10. Elija una **suscripción**.
 
-11. Elija una **Ubicación**.
+11. Elija una **ubicación**.
 
 
 ##Para crear la base de datos hospedada en esta máquina virtual
@@ -41,7 +41,7 @@ En este artículo se muestra cómo crear una máquina virtual basada en una imag
 Siga las instrucciones de [Creación de una máquina virtual de Oracle Database 12c en Azure](virtual-machines-creating-oracle-database-virtual-machine.md), empezando por la sección **Para crear la base de datos con la máquina virtual de Oracle Database 12c en Azure**.
 
 ##Para configurar su Oracle WebLogic Server 12c hospedado en esta máquina virtual
-Siga las instrucciones de [Creación de una máquina virtual de Oracle WebLogic Server 12c en Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md), empezando por la sección **Para configurar la máquina virtual de Oracle WebLogic Server 12c en Azure**. Si desea configurar un clúster de WebLogic Server, consulte también [Creación de un clúster Oracle WebLogic Server 12c en Azure](virtual-machines-creating-oracle-webLogic-server-12c-cluster.md).
+Siga las instrucciones de [Creación de una máquina virtual de Oracle WebLogic Server 12c en Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md), empezando por la sección **Para configurar la máquina virtual de Oracle WebLogic Server 12c en Azure**. Si desea configurar un clúster de WebLogic Server, vea también [Creación de un clúster Oracle WebLogic Server 12c en Azure](virtual-machines-creating-oracle-webLogic-server-12c-cluster.md).
 
 ##Recursos adicionales
 [Consideraciones variadas sobre las imágenes de máquina virtual de Oracle](miscellaneous-considerations-for-oracle-virtual-machine-images-new-article.md)
@@ -54,4 +54,4 @@ Siga las instrucciones de [Creación de una máquina virtual de Oracle WebLogic 
 
 [Oracle Database DBA 12c versión 1 de dos días](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

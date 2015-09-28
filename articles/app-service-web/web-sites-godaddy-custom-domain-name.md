@@ -5,27 +5,26 @@
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="09/16/2015"
 	ms.author="erikre"/>
 
 # Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure (adquirido directamente de GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
+[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
+
+Si ha adquirido el dominio a través de las aplicaciones web del Servicio de aplicaciones de Azure, consulte el paso final del artículo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar dominio para Aplicaciones web</a>.
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
-> [AZURE.NOTE]Si ha adquirido el dominio a través de las aplicaciones web del Servicio de aplicaciones de Azure, consulte el paso final del artículo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar dominio para Aplicaciones web</a>.
-
-[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
 Este artículo ofrece instrucciones acerca del uso de un nombre de dominio personalizado adquirido directamente en [Go Daddy](https://godaddy.com) con [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -35,7 +34,6 @@ Este artículo ofrece instrucciones acerca del uso de un nombre de dominio perso
 ##Descripción de los registros DNS
 
 [AZURE.INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-raw.md)]
-
 
 <a name="bkmk_configurecname"></a>
 ## Incorporación de un registro DNS al dominio personalizado
@@ -64,7 +62,7 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 
 	![agregue un registro de zona.](./media/web-sites-godaddy-custom-domain-name/godaddy-addzonerecord.png)
 
-	* Al agregar un **registro A (host)**, se debe establecer el campo **Host** en **@** (esto representa el nombre de dominio raíz, como **contoso.com**), \* (un comodín para que se corresponda con varios subdominios) o el subdominio que desea usar (por ejemplo, **www**). Debe establecer el campo **Points to** (Apunta a) en la dirección IP de aplicación web de Azure.
+	* Al agregar un **registro A (host)**, se debe establecer el campo **Host** en **@** (esto representa el nombre de dominio raíz, como **contoso.com**), * (un comodín para que se corresponda con varios subdominios) o el subdominio que desea usar (por ejemplo, **www**). Debe establecer el campo **Points to** (Apunta a) en la dirección IP de aplicación web de Azure.
 
 		> [AZURE.NOTE]Si utiliza registros A (host), tiene que agregar también un registro CNAME con una de las configuraciones siguientes:
 		>
@@ -89,4 +87,4 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure"
-	description="Información general conceptual de proveedores de recursos de procesos, redes y almacenamiento (PRC, NRP y SRP)"
-	services="virtual-machines"
-	documentationCenter="dev-center-name"
-	authors="mahthi"
-	manager="timlt"
-	editor=""
+   description="Información general conceptual de proveedores de recursos de procesos, redes y almacenamiento (PRC, NRP y SRP)"
+   services="virtual-machines"
+   documentationCenter="dev-center-name"
+   authors="mahthi"
+   manager="timlt"
+   editor=""
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="04/29/2015"
-	ms.author="mahthi"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="04/29/2015"
+   ms.author="mahthi"/>
 
 # Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure
 
@@ -108,6 +108,9 @@ Toda la automatización y los scripts que ha creado continuarán funcionando par
 **¿Las redes virtuales creadas mediante las nuevas API del Administrador de recursos de Azure se pueden conectar a mi circuito de Express Route?**
 
 Esto no se admite en este momento. No se pueden conectar las redes virtuales creadas mediante las nuevas API del Administrador de recursos de Azure con un circuito Route Express. Se admitirán en el futuro.
- 
 
-<!---HONumber=August15_HO9-->
+**¿Dónde puedo encontrar ejemplos de plantillas del Administrador de recursos de Azure?**
+
+Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido del Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
+
+<!---HONumber=Sept15_HO3-->

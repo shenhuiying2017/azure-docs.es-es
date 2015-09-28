@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creación de una colección en la nube de Azure RemoteApp"
-	description="Aprenda a crear una implementación de Azure RemoteApp que guarda datos en la nube de Azure."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
+	pageTitle="Creación de una colección en la nube de Azure RemoteApp | Microsoft Azure" 
+	description="Aprenda a crear una implementación de Azure RemoteApp que guarda datos en la nube de Azure." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # Creación de una colección en la nube de Azure RemoteApp
@@ -41,13 +41,13 @@ Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 - En este procedimiento se supone que va a usar una de las imágenes de plantilla que se proporcionan con la suscripción o que ya ha cargado la imagen de plantilla que quiere usar. Si tiene que cargar una imagen de plantilla diferente, puede hacerlo desde la página Imágenes de plantilla. Haga clic en **cargar una imagen de plantilla** y siga los pasos del asistente. 
 - ¿Desea usar la imagen de Office 365 ProPlus? Consulte la información [aquí](remoteapp-officesubscription.md).
 - ¿Desea proporcionar aplicaciones personalizadas o programas LOB? Cree una nueva [imagen](remoteapp-imageoptions.md) y úsela en su colección en la nube.
-- Averigüe si tiene que conectarse a una red virtual. Si opta por conectarse a una red virtual, asegúrese de que cumple las directrices de ajuste de tamaño y que puede conectarse a RemoteApp.
+- Averigüe si tiene que conectarse a una red virtual. Si opta por conectarse a una red virtual, asegúrese de que cumple las [directrices de ajuste de tamaño](remoteapp-vnetsizing.md) y que [puede conectarse a RemoteApp](remoteapp-vnet.md). Consulte el [artículo sobre planeación de la red virtual](remoteapp-planvpn.md) para obtener más información.
 - Si usa una red virtual, decida si quiere unirla al dominio de Active Directory local.
 
 ## Paso 1: Creación de una colección en la nube (con o sin red virtual)##
 
 
-Siga estos pasos para crear una **colección de solo nube**:
+Siga los pasos que se indican a continuación para crear una **colección de solo nube**:
 
 1. En el Portal de administración, vaya a la página RemoteApp.
 2. Haga clic en **Nuevo > Creación rápida**.
@@ -64,14 +64,14 @@ Siga estos pasos para crear una **colección de solo nube**:
 
 Una vez creada la colección de RemoteApp, haga doble clic en el nombre de la colección. Se abrirá la página **Inicio rápido**, donde terminará de configurar la colección.
 
-Siga estos pasos para crear una **colección en la nube con red virtual**:
+Siga los pasos que se indican a continuación para crear una **colección en la nube con red virtual**:
 
 1. En el Portal de administración, vaya a la página RemoteApp.
-2. Haga clic en **Nuevo** > **Crear con red virtual**.
+2. Haga clic en **Nuevo** > **Crear con VPN**.
 3. Escriba un nombre para la colección.
 4. Seleccione el plan que quiere usar: Standard o Basic.
 5. Elija la red virtual que ya creó. ¿No sabe cómo hacerlo? Por ahora, los pasos se encuentran en el tema [Híbrida](remoteapp-create-hybrid-deployment.md).
-6. Decida si quiere unir la colección a su dominio. En caso afirmativo, deberá usar AD Connect para integrar Azure AD y su entorno de Active Directory. Esto es lo que se trata más adelante en el **paso 2**.
+6. Decida si quiere unir la colección a su dominio. En caso afirmativo, deberá usar AD Connect para integrar Azure AD y su entorno de Active Directory. Esto se trata más adelante en el **paso 2**.
 6. Haga clic en **Crear colección de RemoteApp**.
 
 
@@ -109,4 +109,4 @@ Eso es todo, ha creado e implementado correctamente su colección en la nube de 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

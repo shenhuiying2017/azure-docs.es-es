@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Configuración de proxy y firewall para Visión operativa
@@ -174,4 +174,4 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 3. Agregue todos los contadores que comienzan con **HTTP**.![agregar contadores](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Si la configuración de Operations Manager es correcta, verá actividad para los contadores de Administración de Servicio de mantenimiento para eventos y otros elementos de datos, según los módulos de administración que agregó en Visión operativa y la directiva de recopilación de registros configurada.![Monitor rendimiento mostrando actividad](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

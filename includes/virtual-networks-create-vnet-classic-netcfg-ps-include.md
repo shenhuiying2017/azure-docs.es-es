@@ -9,7 +9,7 @@ Para crear una red virtual mediante un archivo netcfg desde PowerShell, siga est
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
 
-	Este es el resultado esperado del comando anterior:
+	Resultado esperado:
 
 		XMLConfiguration                                                                                                     
 		----------------                                                                                                     
@@ -65,4 +65,4 @@ Para crear una red virtual mediante un archivo netcfg desde PowerShell, siga est
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

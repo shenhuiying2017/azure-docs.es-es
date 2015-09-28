@@ -61,10 +61,10 @@ Puede recuperar la credencial en un runbook mediante el uso de la actividad [Get
 	Add-AzureAccount –Credential $cred
 	Select-AzureSubscription –SubscriptionName "My Subscription"
 
-Deberá repetir estas líneas después de cada [punto de control](automation-runbook-execution#checkpoints) de su runbook. Si el runbook se suspende y luego se reanuda en otro trabajo, se deberá volver a realizar la autenticación.
+Deberá repetir estas líneas después de cada [punto de control](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) de su runbook. Si el runbook se suspende y luego se reanuda en otro trabajo, se deberá volver a realizar la autenticación.
 
 ## Artículos relacionados
 - [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) (Automatización de Azure: autenticación en Azure mediante Azure Active Directory)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

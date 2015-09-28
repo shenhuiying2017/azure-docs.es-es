@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="Preguntas más frecuentes sobre DocumentDB | Microsoft Azure"
-	description="Respuestas a las preguntas más frecuentes sobre Azure DocumentDB, un servicio de base de datos de documentos no SQL."
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="Preguntas de base de datos DocumentDB - Preguntas más frecuentes| Microsoft Azure" 
+	description="Respuestas a las preguntas frecuentes acerca del servicio de base de datos de documentos NoSql de Azure DocumentDB. Responda a preguntas de base de datos acerca de la capacidad, los niveles de rendimiento y escalado." 
+	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mimig"/>
 
 
 #Preguntas más frecuentes sobre DocumentDB
 
-## Fundamentos de Azure DocumentDB
+## Preguntas de bases de datos sobre los Fundamentos de Microsoft Azure DocumentDB
 
 ### ¿Qué es Azure DocumentDB? 
 DocumentDB de Microsoft Azure es un servicio de base de datos de documentos NoSQL muy escalable que ofrece consultas enriquecidas a través de datos sin esquemas, ayuda a proporcionar un rendimiento configurable y confiable y favorece el desarrollo rápido, y todo gracias a una plataforma administrada respaldada por la potencia y el alcance de Microsoft Azure. DocumentDB es la solución adecuada para aplicaciones web y móviles cuando un rendimiento predecible, una baja latencia y un modelo de datos sin esquemas son requisitos clave. Ofrece flexibilidad de esquemas e indexación enriquecida a través de un modelo de datos JSON nativo, e incluye compatibilidad transaccional de varios documentos con JavaScript integrado.
   
-Para obtener instrucciones sobre la implementación y uso de este servicio, consulte la [página de documentación de Base de datos de documentos](http://azure.microsoft.com/documentation/services/documentdb/).
+Para consultar más preguntas, respuestas, e instrucciones de bases de datos sobre la implementación y uso de este servicio, vea la [página de documentación de Base de datos de documentos](http://azure.microsoft.com/documentation/services/documentdb/).
 
 ### ¿Qué clase de base de datos es Base de datos de documentos?
 DocumentDB es una base de datos orientada a documentos NoSQL que almacena datos en formato JSON. Es compatible con estructuras de datos independientes anidados que se pueden consultar mediante una [gramática de consultas SQL](documentdb-sql-query.md) enriquecida para DocumentDB. DocumentDB ofrece un procesamiento de transacciones de alto rendimiento del servidor JavaScript a través de[ procedimientos almacenados, desencadenadores y funciones definidas por el usuario](documentdb-programming.md). La base de datos admite también niveles de coherencia ajustables por el desarrollador con [niveles de rendimiento](documentdb-performance-levels.md) asociados.
@@ -75,7 +76,7 @@ Cada colección viene con una asignación de almacenamiento de base de datos y r
 ### ¿Cómo se configuran los usuarios y los permisos?
 Puede crear usuarios y permisos mediante uno de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) o a través de las [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
-## Desarrollo con DocumentDB de Microsoft Azure
+## Preguntas de bases de datos sobre el desarrollo con Microsoft Azure DocumentDB
 
 ### ¿Cómo se empieza a desarrollar con DocumentDB?
 Los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) están disponibles para NET, Python, Node.js, JavaScript y Java. Los desarrolladores pueden aprovechar también las [API de HTTP RESTful](https://msdn.microsoft.com/library/azure/dn781481.aspx) para interactuar con recursos de DocumentDB desde una variedad de plataformas y lenguajes.
@@ -111,4 +112,4 @@ Sí. Como Base de datos de documentos es un servicio RESTful, los vínculos de r
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

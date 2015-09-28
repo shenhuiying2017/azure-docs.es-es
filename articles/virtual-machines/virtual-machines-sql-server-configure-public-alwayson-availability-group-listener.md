@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="mo	nicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure
 
@@ -34,8 +34,6 @@ Tenga en cuenta las siguientes limitaciones en el agente de escucha del grupo de
 - Solo se admite un agente de escucha de grupo de disponibilidad para cada servicio en la nube porque el agente de escucha se configura para que use bien la dirección VIP del servicio en la nube o bien la dirección VIP del equilibrador de carga interno. Tenga en cuenta que esta limitación aún está en efecto aunque Azure ahora es compatible con la creación de varias direcciones VIP en un servicio en la nube determinado.
 
 - Si crea un agente de escucha para un entorno híbrido, la red local debe tener conectividad a Internet pública así como a la VPN de sitio a sitio con la red virtual de Azure. Cuando se encuentra en la subred de Azure, el agente de escucha del grupo de disponibilidad solo está disponible con la dirección IP pública del servicio en la nube respectivo.
-
->[AZURE.NOTE]En este tutorial la atención se centra en usar PowerShell para crear un agente de escucha para un grupo de disponibilidad que incluya réplicas de Azure. Para obtener más información sobre cómo configurar agentes de escucha con SSMS o Transact-SQL, vea [Creación o configuración de un agente de escucha de grupo de disponibilidad](https://msdn.microsoft.com/library/hh213080.aspx).
 
 ## Determinación de la accesibilidad del agente de escucha
 
@@ -118,10 +116,10 @@ Para obtener acceso al agente de escucha desde el exterior de la red virtual, de
 
 A diferencia del ejemplo anterior, se debe usar autenticación de SQL, ya que el autor de la llamada no puede usar la autenticación de Windows por Internet. Para obtener más información, vea [Grupo de disponibilidad AlwaysOn en VM de Azure: escenarios de conectividad de cliente](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). Al usar la autenticación de SQL, asegúrese de que crea el mismo inicio de sesión en ambas réplicas. Para obtener más información sobre cómo solucionar problemas de inicio de sesión con grupos de disponibilidad, vea [Asignación de inicios de sesión o utilización de un usuario contenido de base de datos SQL para conectar con otras réplicas y asignarlas a las bases de datos de disponibilidad](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
-Si las réplicas AlwaysOn están en subredes diferentes, los clientes deberán especificar **MultisubnetFailover = True** en la cadena de conexión. Esto se traduce en intentos de conexión en paralelo con las réplicas de las diferentes subredes. Tenga en cuenta que este escenario incluye una implementación de grupo de disponibilidad AlwaysOn entre regiones.
+Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán que especificar **MultisubnetFailover=True** en la cadena de conexión. Esto se traduce en intentos de conexión en paralelo con las réplicas de las diferentes subredes. Tenga en cuenta que este escenario incluye una implementación de grupo de disponibilidad AlwaysOn entre regiones.
 
 ## Pasos siguientes
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

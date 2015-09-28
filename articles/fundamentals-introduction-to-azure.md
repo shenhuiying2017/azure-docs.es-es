@@ -132,7 +132,6 @@ Antes llamada SQL Azure, Base de datos SQL de Azure ofrece todas las caracterís
 
 Pero Base de datos SQL no es simplemente un DBMS en la nube, es un servicio PaaS. En este sentido, sigue teniendo el control sobre sus datos y sobre quién puede tener acceso a ellos, pero Base de datos SQL se ocupa del repetitivo trabajo administrativo, como administrar la infraestructura de hardware y mantener actualizado el software de base de datos y del sistema operativo. Base de datos SQL ofrece también una alta disponibilidad, copias de seguridad automática y capacidad de restauración en el momento, y puede replicar copias entre regiones geográficas.
 
-Existe también una opción Premium por la que paga un poco más para disponer de su propio servidor dedicado. Con la opción Estándar, la base de datos se ejecuta en un hardware compartido, lo cual podría limitar las consultas de base de datos si se encontrara en un servidor especialmente ocupado.
 
 **Escenarios para Base de datos SQL**
 
@@ -612,4 +611,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

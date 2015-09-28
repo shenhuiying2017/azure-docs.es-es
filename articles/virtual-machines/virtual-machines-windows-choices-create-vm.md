@@ -3,7 +3,7 @@
 	description="Enumera las distintas formas de crear una máquina virtual de Windows y proporciona vínculos a instrucciones."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.topic="index-page"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/15/2015"
-	ms.author="kathydav"/>
+	ms.date="09/15/2015"
+	ms.author="cynthn"/>
 
 # Diferentes formas de crear una máquina virtual de Windows
 
@@ -67,8 +67,6 @@ Para usar una imagen basada en una máquina virtual de Azure existente *capture*
 [Acoplamiento de un disco de datos][]
 
 ## Recursos adicionales
-[Ajustes de configuración de máquinas virtuales en Azure][]
-
 [Entorno de prueba de la configuración base][]
 
 [Entornos de prueba de nube híbrida de Azure][]
@@ -98,10 +96,8 @@ Para usar una imagen basada en una máquina virtual de Azure existente *capture*
 
 [Acoplamiento de un disco de datos]: storage-windows-attach-disk.md
 
-[Ajustes de configuración de máquinas virtuales en Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
-
 [Entorno de prueba de la configuración base]: virtual-machines-base-configuration-test-environment.md
 
 [Entornos de prueba de nube híbrida de Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

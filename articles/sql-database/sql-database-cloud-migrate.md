@@ -1,20 +1,20 @@
 <properties
    pageTitle="Migrar una base de datos a bases de datos SQL de Azure"
-	description="Base de datos SQL de Microsoft Azure, implementación de base de datos, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="Base de datos SQL de Microsoft Azure, implementación de base de datos, migración de base de datos, importación de base de datos, exportación de base de datos, asistente para migración"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="09/02/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="09/02/2015"
+   ms.author="carlrab"/>
 
 # Migrar una base de datos a bases de datos SQL de Azure
 
@@ -49,7 +49,7 @@ Si la base de datos de SQL Server local no es compatible o para determinar si es
 ## Herramientas de migración
 Entre las herramientas que se usan para realizar la migración se incluyen SQL Server Management Studio (SSMS) y las herramientas de SQL Server de Visual Studio (VS, SSDT), así como el portal de Azure.
 
-> Asegúrese de instalar las versiones más recientes de las herramientas cliente, ya que las versiones anteriores no son compatibles con la Base de datos SQL de Azure V12.
+> [AZURE.IMPORTANT]Asegúrese de instalar las versiones más recientes de las herramientas cliente, ya que las versiones anteriores no son compatibles con la Base de datos SQL de Azure V12.
 
 ### SQL Server Management Studio (SSMS)
 SSMS puede usarse para implementar una base de datos compatible directamente en la base de datos SQL de Azure o para exportar una copia de seguridad lógica de la base de datos como BACPAC, que podrá importarse, a continuación, mediante SSMS para crear una nueva base de datos SQL de Azure.
@@ -72,4 +72,4 @@ Use las [SQL Server Data Tools para Visual Studio más recientes](https://msdn.m
 | No permite cambiar el resultado si hay errores, por lo que el esquema de origen debe ser compatible. | Estarán disponibles todas las características de SSDT para Visual Studio. El esquema se cambia sin conexión. | La validación de la aplicación se produce en Azure. Debe ser mínima, ya que el esquema se migra sin cambios. | La validación de la aplicación puede realizarse en SQL Server antes de implementar la base de datos en Azure. |
 | Proceso de uno o dos pasos de configuración sencilla. | Proceso de varios pasos más complejo (más sencillo si solo se implementa el esquema). |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

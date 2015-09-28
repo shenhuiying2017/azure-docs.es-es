@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Fase 2 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configuración de controladores de dominio
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
 
 En esta fase de la implementación de una granja de servidores solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, configurará dos controladores de dominio en la red virtual de Azure en la administración de servicios. Las solicitudes web de cliente para recursos de granja de servidores de SharePoint pueden autenticarse en la red virtual de Azure, en lugar de enviar ese tráfico de autenticación a través de la conexión VPN o Azure ExpressRoute a la red local.
 
@@ -113,7 +115,7 @@ Inicie sesión en el primer equipo de controlador de dominio mediante las creden
 5.	Aparecerá el cuadro de diálogo de explorador que mostrará el mensaje: "¿Desea abrir o guardar ComputerName.rdp desde manage.windowsazure.com?" Haga clic en **Abrir**.
 6.	Seleccione el cuadro de diálogo **Conexión de escritorio remoto** y haga clic en **Conectar**.
 7.	En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
-8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Use el siguiente formato: *nombreDeEquipo**nombreDeCuentaDeAdministradorLocal*
+8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Use el siguiente formato: *nombreDeEquipo*\*nombreDeCuentaDeAdministradorLocal*
 9.	En **Contraseña**, escriba la contraseña para la cuenta de administrador local.
 10.	Haga clic en **Aceptar**.
 11.	En el cuadro de diálogo **Conexión a Escritorio remoto**, haga clic en **Sí**. El escritorio de la nueva máquina aparece en una ventana de sesión de Escritorio remoto.
@@ -125,12 +127,12 @@ A continuación, deberá agregar el disco de datos adicionales al primer control
 1.	En el panel izquierdo del Administrador de servidores, haga clic en **Servicios de archivos y almacenamiento** y, a continuación, haga clic en **Discos**.
 2.	En el panel de contenido, en el grupo **Discos**, haga clic en **disco 2** (con la **partición** establecida en **Desconocida**).
 3.	Haga clic en **Tareas** y, a continuación, haga clic en **Nuevo volumen**.
-4.	En la página **Antes de empezar** del Asistente para nuevo volumen, haga clic en **Siguiente**.
-5.	En la página **Seleccionar el servidor y el disco**, haga clic en **Disco 2** y después en **Siguiente**. Cuando se le solicite, haga clic en **Aceptar**.
-6.	En la página **Especificar el tamaño del volumen**, haga clic en **Siguiente**.
-7.	En la página **Asignar a letra de unidad o carpeta**, haga clic en **Siguiente**.
-8.	En la página S**Seleccionar configuración del sistema de archivos**, haga clic en **Siguiente**.
-9.	En la página **Confirmar selecciones**, haga clic en **Crear**.
+4.	En la página **Antes de empezar del Asistente para volumen nuevo**, haga clic en **Siguiente**.
+5.	En la página **Selección del servidor y del disco**, haga clic en **Disco 2** y, a continuación, haga clic en **Siguiente**. Cuando se le solicite, haga clic en **Aceptar**.
+6.	En la página **Especificación del tamaño de la página de volumen**, haga clic en **Siguiente**.
+7.	En la página **Asignación a una letra de unidad o carpeta**, haga clic en **Siguiente**.
+8.	En la página **Selección de la configuración del sistema de archivos**, haga clic en **Siguiente**.
+9.	En la página **Confirmación de las selecciones**, haga clic en **Crear**.
 10.	Una vez completada la inicialización, haga clic en **Cerrar**.
 
 A continuación, pruebe la conectividad del primer controlador de dominio en ubicaciones de red de su organización.
@@ -246,4 +248,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

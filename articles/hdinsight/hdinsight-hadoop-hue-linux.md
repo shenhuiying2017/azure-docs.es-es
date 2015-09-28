@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso de Hue con Hadoop en clústeres de HDInsight Linux | Microsoft Azure"
-	description="Aprenda a instalar y usar Hue con clústeres de Hadoop en HDInsight Linux."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
+	pageTitle="Uso de Hue con Hadoop en clústeres de HDInsight Linux | Microsoft Azure" 
+	description="Aprenda a instalar y usar Hue con clústeres de Hadoop en HDInsight Linux." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="nitinme"/>
 
 # Instalación y uso de Hue en clústeres de Hadoop para HDInsight
@@ -38,60 +38,62 @@ La acción de script [https://hdiconfigactions.blob.core.windows.net/linuxhuecon
 
 > [AZURE.NOTE]También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, consulte [Personalización de clústeres de HDInsight mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Inicie el aprovisionamiento de un clúster siguiendo los pasos que se describen en [Aprovisionamiento de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal), pero no complete la operación.
+1. Inicie el aprovisionamiento de un clúster siguiendo los pasos que se describen en [Aprovisionamiento de clústeres de HDInsight en Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), pero no complete la operación.
 
-2. En la hoja **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
+	> [AZURE.NOTE]Para instalar Hue en clústeres de HDInsight, el tamaño recomendado de nodo principal es como mínimo A4 (8 núcleos, 14 gigabytes de memoria).
+
+2. En la hoja **Configuración opcional**, seleccione **Acciones de script** y especifique la información siguiente:
 
 	* __NOMBRE__: escriba un nombre descriptivo para la acción de script.
 	* __URI DE SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
 	* __PRINCIPAL__: active esta opción.
 	* __TRABAJO__: déjelo en blanco.
 	* __ZOOKEEPER__: déjelo en blanco.
-	* __PARÁMETROS__: el script espera la contraseña de administrador del clúster como un parámetro. Especifique la contraseña entre comillas simples.
+	* __PARÁMETROS__: el script espera la **contraseña de administrador del clúster** como un parámetro. Se trata de la contraseña que especificó al aprovisionar el clúster. Debe especificar la contraseña entre comillas simples.
 
 
 3. En la parte inferior de **Acciones de script**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
 
-4. Continúe aprovisionando el clúster tal como se describe en [Aprovisionamiento de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continúe aprovisionando el clúster tal como se describe en [Aprovisionamiento de clústeres de HDInsight n Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
 ## Use Hue con clústeres de HDInsight
 
 La tunelización de SSH es la única forma de obtener acceso a Hue en el clúster cuando se está ejecutando. La tunelización a través de SSH permite al tráfico ir directamente al nodo principal del clúster en el que se ejecuta Hue. Cuando termine de aprovisionar el clúster, siga estos pasos para usar Hue en un clúster de HDInsight Linux.
 
-> [AZURE.NOTE]Las siguientes instrucciones suponen que tiene un explorador Firefox con la extensión [FoxyProxy](https://addons.mozilla.org/es-ES/firefox/addon/foxyproxy-standard/) instalada.
+> [AZURE.NOTE]Las siguientes instrucciones suponen que tiene un explorador web Firefox con la extensión [FoxyProxy](https://addons.mozilla.org/es-ES/firefox/addon/foxyproxy-standard/) instalada.
 
 1. Habilite la tunelización de SSH desde el equipo de escritorio y configure su explorador Firefox para usar el túnel SSH. Durante la configuración de la tunelización, use un puerto que no sea el puerto 8888.
 
-	* Para obtener instrucciones acerca de cómo habilitar la tunelización de SSH desde un equipo Linux, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-linux-ambari-ssh-tunnel.md#usessh).
-	* Para obtener instrucciones acerca de cómo habilitar la tunelización de SSH desde un equipo Windows, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-linux-ambari-ssh-tunnel.md#useputty).
+	* Para obtener instrucciones sobre cómo habilitar la tunelización de SSH desde un equipo Linux, vea [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-linux-ambari-ssh-tunnel.md#usessh).
+	* Para obtener instrucciones sobre cómo habilitar la tunelización de SSH desde un equipo Windows, vea [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-linux-ambari-ssh-tunnel.md#useputty).
 
 	Mantenga la sesión de PuTTY ejecutándose.
  
-2. Desde el equipo, utilice el explorador Firefox con FoxyProxy configurado para iniciar el portal de Hue en http://headnode0:8888. Al iniciar sesión por primera vez, se le pedirá que cree una cuenta para iniciar sesión en el portal de Hue. Las credenciales que especifique aquí se limitarán al portal y no están relacionadas con las credenciales de administrador o de usuario SSH que especificó al aprovisionar el clúster.
+2. Desde el equipo, utilice el explorador web Firefox con FoxyProxy configurado para iniciar el portal de Hue en http://headnode0:8888. Al iniciar sesión por primera vez, se le pedirá que cree una cuenta para iniciar sesión en el portal de Hue. Las credenciales que especifique aquí se limitarán al portal y no están relacionadas con las credenciales de administrador o de usuario SSH que especificó al aprovisionar el clúster.
 
 	![Inicio de sesión en el portal de Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Especifique las credenciales para el portal de Hue")
 
 ### Ejecución de una consulta de Hive
 
-1. En el portal de Hue, haga clic en **Query Editors** (editores de consultas), y, a continuación, haga clic en **Hive** para abrir el editor de Hive.
+1. En el portal de Hue, haga clic en **Query Editors** y luego en **Hive** para abrir el editor de Hive.
 
 	![Uso de Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Uso de Hive")
 
-2. En la pestaña **Assist** (asistencia) , en **Database** (base de datos), debería de ver **hivesampletable**. Se trata de una tabla de ejemplo que se incluye con todos los clústeres de Hadoop en HDInsight. Escriba una consulta de ejemplo en el panel derecho y vea el resultado en la pestaña **Results** (resultados) en el panel debajo, como se muestra en la captura de pantalla.
+2. En la pestaña **Assist**, en **Database**, debe verse **hivesampletable**. Se trata de una tabla de ejemplo que se incluye con todos los clústeres de Hadoop en HDInsight. Escriba una consulta de ejemplo en el panel derecho y vea el resultado en la pestaña **Results** en el panel que hay debajo, tal y como se muestra en la captura de pantalla.
 
 	![Ejecución de consultas de Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Ejecución de consultas de Hive")
 
-	También puede usar la pestaña **Chart** (gráfico) para ver una representación visual del resultado.
+	También puede usar la pestaña **Chart** para ver una representación visual del resultado.
 
 ### Examinar el almacenamiento del clúster
 
-1. En el portal de Hue, haga clic en **File Browser** (explorador de archivos) en la esquina superior derecha de la barra de menús.
+1. En el portal de Hue, haga clic en **File Browser** en la esquina superior derecha de la barra de menús.
 
-2. De forma predeterminada se abre el explorador de archivos en el directorio **/user/myuser**. Haga clic en la barra oblicua que se encuentra antes del directorio del usuario en la ruta de acceso para ir a la raíz del contenedor de Almacenamiento de Azure asociado con el clúster.
+2. El explorador de archivos se abre de forma predeterminada en el directorio **/user/myuser**. Haga clic en la barra oblicua que se encuentra antes del directorio del usuario en la ruta de acceso para ir a la raíz del contenedor de Almacenamiento de Azure asociado con el clúster.
 
 	![Uso del explorador de archivos](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Uso del explorador de archivos")
 
-3. Haga clic con el botón derecho en un archivo o carpeta para ver las operaciones disponibles. Use el botón **Cargar** situado en la esquina derecha para cargar archivos en el directorio actual. Use el botón **Nuevo** para crear nuevos archivos o directorios.
+3. Haga clic con el botón derecho en un archivo o carpeta para ver las operaciones disponibles. Use el botón **Cargar** situado en la esquina derecha para cargar archivos en el directorio actual. Use el botón **Nuevo** para crear otros archivos o directorios.
 
 > [AZURE.NOTE]El explorador de archivos de Hue solo puede mostrar el contenido del contenedor predeterminado asociado con el clúster de HDInsight. Cualquier cuenta o contenedor de almacenamiento adicional asociados con el clúster no serán accesibles mediante el explorador de archivos. Sin embargo, los contenedores adicionales asociados con el clúster siempre serán accesibles para los trabajos de Hive. Por ejemplo, si escribe el comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` en el editor de Hive, también podrá ver el contenido de los contenedores adicionales. En este comando, **newcontainer** no es el contenedor predeterminado asociado a un clúster.
 
@@ -131,4 +133,4 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

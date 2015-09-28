@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Reemplazar un controladores de dispositivo StorSimple | Microsoft Azure"
-	description="Explica cómo quitar y reemplazar módulos de uno o dos controladores en su dispositivo StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Explica cómo quitar y reemplazar módulos de uno o dos controladores en su dispositivo StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/10/2015"
+   ms.author="alkohli" />
 
 # Reemplazar un módulos de controladores en el dispositivo StorSimple
 
@@ -32,14 +32,14 @@ En la tabla siguiente se muestran los escenarios de reemplazo de controladores c
 
 |Caso|Escenario de reemplazo|Procedimiento aplicable|
 |:---|:-------------------|:-------------------|
-|1|Un controlador está en estado de error, el otro controlador funciona y está activo.|[Reemplazo de controlador único](#replace-a-single-controller)|
-|2|Ambos controladores están defectuosos y requieren reemplazo. El chasis, los discos y el gabinete de discos funcionan.|[Reemplazo de dos controladores](#replace-both-controllers)|
+|1|Un controlador está en estado de error, el otro controlador funciona y está activo.|[Reemplazo de un único controlador](#replace-a-single-controller), que describe la [lógica existente detrás del reemplazo de un único controlador](#single-controller-replacement-logic), así como los [pasos del reemplazo](#single-controller-replacement-steps).|
+|2|Ambos controladores están defectuosos y requieren reemplazo. El chasis, los discos y el gabinete de discos funcionan.|[Reemplazo de dos controladores](#replace-both-controllers), que describe la [lógica existente detrás del reemplazo de dos controladores](#dual-controller-replacement-logic), así como los [pasos del reemplazo](#dual-controller-replacement-steps). |
 |3|Se intercambian los controladores del mismo dispositivo o de dispositivos diferentes. El chasis, los discos y los gabinetes de discos funcionan.|Aparecerá un mensaje de alerta de error de falta de coincidencia de ranura.|
-|4|Falta un controlador y se produce un error en el otro controlador.|[Reemplazo de dos controladores](#replace-both-controllers)|
+|4|Falta un controlador y se produce un error en el otro controlador.|[Reemplazo de dos controladores](#replace-both-controllers), que describe la [lógica existente detrás del reemplazo de dos controladores](#dual-controller-replacement-logic), así como los [pasos del reemplazo](#dual-controller-replacement-steps).|
 |5|Error de uno o ambos controladores. No se puede acceder al dispositivo a través de la consola en serie o la conexión remota de Windows PowerShell.|[Póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md) para un procedimiento de reemplazo manual de los controladores.|
 |6|Los controladores tienen una versión de compilación diferente, que puede deberse a:<ul><li>Los controladores tienen una versión de software diferente.</li><li>Los controladores tienen una versión de firmware distinta.</li></ul>|Si las versiones de software del controlador son diferentes, la lógica de sustitución detecta y actualiza la versión del software en el controlador de reemplazo.<br><br>Si las versiones de firmware del controlador son diferentes y la versión de firmware anterior **no** puede actualizarse automáticamente, aparecerá un mensaje de alerta en el Portal de administración. Debe buscar actualizaciones e instalar las actualizaciones de firmware.</br></br>Si las versiones de firmware del controlador son diferentes y la antigua versión de firmware puede actualizarse automáticamente, la lógica de reemplazo de controladores lo detectará y después de iniciar el controlador, el firmware se actualizará automáticamente.|
 
-Debe quitar un módulo del controladores si se ha producido un error. Uno o ambos módulos de controladores pueden producir un error, lo que puede dar lugar a un reemplazo de uno o dos controladores. Para los procedimientos de reemplazo, vea lo siguiente:
+Debe quitar un módulo del controladores si se ha producido un error. Uno o ambos módulos de controladores pueden producir un error, lo que puede dar lugar a un reemplazo de uno o dos controladores. Para obtener información sobre los procedimientos de reemplazo y la lógica existente detrás de ellos, vea lo siguiente:
 
 - [Reemplazar un único controlador](#replace-a-single-controller)
 - [Reemplazar ambos controladores](#replace-both-controllers)
@@ -98,13 +98,13 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
 
 5. Siga los pasos en [Quitar un controlador](#remove-a-controller) para quitar el controlador defectuoso.
 
-6. Instale el reemplazo de fábrica en la misma ranura de la que se quitó el controlador defectuoso. Esto desencadena la lógica de reemplazo de un único controlador. Para obtener más información, consulte [Lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
+6. Instale el reemplazo de fábrica en la misma ranura de la que se quitó el controlador defectuoso. Esto desencadena la lógica de reemplazo de un único controlador. Para obtener más información, vea [Lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
 
 7. Mientras que la lógica de reemplazo de un único controlador progrese en segundo plano, vuelva a conectar los cables. Preste atención y conecte todos los cables exactamente del mismo modo en que estaban conectados antes del reemplazo.
 
-8. Una vez reiniciado el controlador, compruebe el **Estado del controlador** y **Estado del clúster** en el Portal de administración para comprobar que el controlador esté en un estado correcto y en modo de espera.
+8. Una vez reiniciado el controlador, compruebe el **Estado del controlador** y el **Estado del clúster** en el Portal de administración para comprobar que el controlador esté en un estado correcto y en modo de espera.
 
->[AZURE.NOTE]Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando se presente el menú de la consola enserie, sabrá que el reemplazo está completo. Si el menú no aparece en un plazo de dos horas de iniciado el reemplazo del controlador, [póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
+>[AZURE.NOTE]Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando se presente el menú de la consola enserie, sabrá que el reemplazo está completo. Si el menú no aparece en un plazo de dos horas de iniciado el reemplazo del controlador, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Reemplazar ambos controladores
 
@@ -122,17 +122,17 @@ En un reemplazo de dos controladores, primero extraiga ambos controladores defec
 
    3. ¿Se está ejecutando el controlador del mismo nivel y está en el clúster?
 							
-    Si ninguna de estas condiciones se cumple, el controlador busca la última copia de seguridad diaria más reciente (ubicado en **nonDOMstorage** de la unidad S). El controlador copia la instantánea más reciente del VHD de la copia de seguridad.
+    Si ninguna de estas condiciones se cumple, el controlador busca la última copia de seguridad diaria más reciente (ubicada en **nonDOMstorage** de la unidad S). El controlador copia la instantánea más reciente del VHD de la copia de seguridad.
 
 2. El controlador en la ranura 0 utiliza la instantánea para crear una imagen propia.
 
 3. Mientras tanto, el controlador en la ranura 1 espera el controlador 0 para completar la creación de imágenes e iniciarse.
 
-4. Una vez que se inicia el controlador 0, el controlador 1 detecta el clúster creado por el controlador 0, que activa la lógica de reemplazo de un único controlador. Para obtener más información, consulte [Lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
+4. Una vez que se inicia el controlador 0, el controlador 1 detecta el clúster creado por el controlador 0, que activa la lógica de reemplazo de un único controlador. Para obtener más información, vea [Lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
 
 5. Después, se ejecutarán ambos controladores y el clúster se conectará.
 
->[AZURE.IMPORTANT]Después de un reemplazo de dos controladores, después de configurar el dispositivo StorSimple, es esencial que realice una copia de seguridad manual del dispositivo. Las copias de seguridad de configuración de dispositivo diarias no se producen hasta después de que hayan transcurrido 24 horas. Trabaje con [Servicio técnico de Microsoft](storsimple-contact-microsoft-support.md) para hacer copia de seguridad manual del dispositivo.
+>[AZURE.IMPORTANT]Después de un reemplazo de dos controladores, después de configurar el dispositivo StorSimple, es esencial que realice una copia de seguridad manual del dispositivo. Las copias de seguridad de configuración de dispositivo diarias no se producen hasta después de que hayan transcurrido 24 horas. Trabaje con [Servicio técnico de Microsoft](storsimple-contact-microsoft-support.md) para hacer una copia de seguridad manual del dispositivo.
 
 ### Pasos de reemplazo de dos controladores
 
@@ -150,11 +150,11 @@ Este flujo de trabajo es necesario cuando los dos controladores del dispositivo 
 
 2. Quite todos los cables de red que están conectados a los puertos de datos. Si utiliza un modelo 8600, quite también los cables SAS que conectan el gabinete principal al gabinete EBOD.
 
-3. Quite ambos controladores del dispositivo StorSimple. Para obtener más información, consulte [Quitar un controlador](#remove-a-controller).
+3. Quite ambos controladores del dispositivo StorSimple. Para obtener más información, vea [Quitar un controlador](#remove-a-controller).
 
-4. Inserte primero el reemplazo de fábrica del Controlador 0 y, a continuación, instale el Controlador 1. Para obtener más información, consulte [Insertar un controlador](#insert-a-controller). Esto desencadena la lógica de reemplazo de dos controladores. Para obtener más información, consulte [Lógica de reemplazo de dos controladores](#dual-controller-replacement-logic).
+4. Inserte primero el reemplazo de fábrica del Controlador 0 y, a continuación, instale el Controlador 1. Para obtener más información, vea [Insertar un controlador](#insert-a-controller). Esto desencadena la lógica de reemplazo de dos controladores. Para obtener más información, vea [Lógica de reemplazo de dos controladores](#dual-controller-replacement-logic).
 
-5. Mientras que la lógica de reemplazo del controlador progrese en segundo plano, vuelva a conectar los cables. Preste atención y conecte todos los cables exactamente del mismo modo en que estaban conectados antes del reemplazo. Consulte las instrucciones detalladas para el modelo en la sección Cableado del dispositivo de [Instalar el dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [Instalar el dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+5. Mientras que la lógica de reemplazo del controlador progrese en segundo plano, vuelva a conectar los cables. Preste atención y conecte todos los cables exactamente del mismo modo en que estaban conectados antes del reemplazo. Vea las instrucciones detalladas para el modelo en la sección Cableado del dispositivo de [Instalar el dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [Instalar el dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
 6. Encienda el dispositivo StorSimple. Si está usando un modelo 8600:
 
@@ -166,7 +166,7 @@ Este flujo de trabajo es necesario cuando los dos controladores del dispositivo 
 
     4. Después de que el primer controlador se reinicie y se encuentraeen un estado correcto, el sistema estará en ejecución.
 
-    >[AZURE.NOTE]Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando aparezca el menú de la consola en serie, sabrá que el reemplazo está completo. Si el menú no aparece en 2,5 horas de haber iniciado el reemplazo del controlador, [póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
+    >[AZURE.NOTE]Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando aparezca el menú de la consola en serie, sabrá que el reemplazo está completo. Si el menú no aparece en 2,5 horas después de haber iniciado el reemplazo del controlador, [póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 ## Quitar un controlador
 
@@ -194,7 +194,7 @@ Utilice el siguiente procedimiento para quitar un módulo defectuoso del control
 
 Utilice el siguiente procedimiento para instalar un módulo del controlador suministrado de fábrica después de quitar un módulo defectuoso del dispositivo StorSimple.
 
-### Para instalar un módulo del controlador
+#### Para instalar un módulo del controlador
 
 1. Compruebe si hay algún daño en los conectores de la interfaz. No instale el módulo si cualquiera de las clavijas del conector están dañadas o dobladas.
 
@@ -266,4 +266,4 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

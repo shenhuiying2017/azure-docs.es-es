@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Configuración de Grupos de disponibilidad AlwaysOn en Azure (PowerShell)"
+	pageTitle="Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (PowerShell)"
 	description="Use PowerShell para crear un grupo de disponibilidad AlwaysOn en Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
-# Configuración de Grupos de disponibilidad AlwaysOn en Azure (PowerShell)
+# Configuración de Grupos de disponibilidad AlwaysOn en la máquina virtual de Azure (PowerShell)
 
 >[AZURE.NOTE]Para el tutorial basado en GUI del mismo escenario, consulte [Configurar grupos de disponibilidad AlwaysOn en Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).
 
@@ -623,4 +623,4 @@ Ha implementado correctamente SQL Server AlwaysOn creando un grupo de disponibil
 
 Para más información sobre el uso de SQL Server en Azure, consulte [SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

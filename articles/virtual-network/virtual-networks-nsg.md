@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Qué es un grupo de seguridad de red"
-	description="Información acerca de los grupos de seguridad de red"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Información acerca de los grupos de seguridad de red"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/13/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/13/2015"
+   ms.author="telmos" />
 
 # ¿Qué es un grupo de seguridad de red?
 
-Puede usar un grupo de seguridad de red para controlar el tráfico a una o más instancias de máquina virtual en la red virtual. Un grupo de seguridad de red es un objeto de nivel superior que está asociado a la suscripción. Un grupo de seguridad de red contiene reglas de control de acceso que permiten o deniegan el tráfico a las instancias de máquina virtual. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para utilizar un grupo de seguridad de red debe tener una red virtual asociada a una región (ubicación).
+Puede usar un grupo de seguridad de red para controlar el tráfico a una o más instancias de máquina virtual en la red virtual. Un grupo de seguridad de red contiene reglas de control de acceso que permitan o denieguen el tráfico según la dirección del tráfico, el protocolo, la dirección de origen y el puerto, y la dirección de destino y el puerto. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para utilizar un grupo de seguridad de red, debe tener una red virtual regional.
 
 >[AZURE.WARNING]Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no tiene una red virtual regional y desea controlar el tráfico a los extremos, consulte [¿Qué es una lista de control de acceso (ACL) de red?](./virtual-networks-acl.md). También puede [migrar la red virtual a una red virtual regional](./virtual-networks-migrate-to-regional-vnet.md).
 
@@ -249,4 +249,4 @@ De momento, solo puede configurar y modificar los grupos de seguridad de red med
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

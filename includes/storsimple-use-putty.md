@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para conectarse a través de la consola serie
 
@@ -29,4 +30,4 @@
 7. Haga clic en **Abrir** para iniciar una sesión en serie.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Modelo de aplicaciones v2.0 | Microsoft Azure"
+	pageTitle="Ámbitos, permisos y consentimiento del modelo de aplicación v2.0 | Microsoft Azure"
 	description="Descripción de la autorización del modelo de aplicaciones de Azure AD versión 2.0, que incluye los ámbitos, los permisos y el consentimiento."
 	services="active-directory"
 	documentationCenter=""
@@ -116,4 +116,4 @@ Si tu aplicación no solicita el ámbito `offline_access`, no recibirá tokens d
 
 Para más información sobre cómo obtener y usar tokens de actualización, consulta la [referencia del protocolo de la versión 2.0 del modelo de aplicaciones](active-directory-v2-protocols.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

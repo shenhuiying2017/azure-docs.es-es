@@ -23,6 +23,8 @@ Es posible que al realizar la transición a la nube, su empresa no pueda migrar 
 
 En este tutorial, aprenderá a modificar un back-end de aplicación móvil .NET para usar una base de datos SQL Server local en lugar de la base de datos SQL de Azure predeterminada aprovisionada con su servicio.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## Requisitos previos ##
 
 Para realizar este tutorial se requiere lo siguiente:
@@ -163,4 +165,4 @@ Por último, deberá publicar el back-end de aplicación móvil en Azure y compr
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

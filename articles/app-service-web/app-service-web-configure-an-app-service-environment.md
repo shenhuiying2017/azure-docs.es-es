@@ -1,38 +1,40 @@
 <properties 
-	pageTitle="Configuración de un entorno del Servicio de aplicaciones"
-	description="Configuración, administración y supervisión de entornos del Servicio de aplicaciones"
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="stefsch"
+	pageTitle="Configuración de un entorno del Servicio de aplicaciones" 
+	description="Configuración, administración y supervisión de entornos del Servicio de aplicaciones" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="ccompy"/>
 
 # Configuración de un entorno del Servicio de aplicaciones #
 
 ## Información general ##
 
-Los entornos del Servicio de aplicaciones son una nueva funcionalidad de nivel Premium que se ofrece en vista previa. Ofrece nuevas funcionalidades de acceso de red y de escalado. Esta nueva funcionalidad de escalado permite colocar una instancia del Servicio de aplicaciones de Azure en la red virtual. Si no está familiarizado con la funcionalidad del entorno del Servicio de aplicaciones (ASE), lea aquí el documento [¿Qué es un entorno del Servicio de aplicaciones?](app-service-app-service-environment-intro.md). Para obtener información sobre la creación de un ASE lea el documento [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md).
+Los entornos del Servicio de aplicaciones son una nueva funcionalidad de nivel Premium que se ofrece en vista previa. Ofrece nuevas funcionalidades de acceso de red y de escalado. Esta nueva funcionalidad de escalado permite colocar una instancia del Servicio de aplicaciones de Azure en la red virtual. Si no está familiarizado con la funcionalidad del entorno del Servicio de aplicaciones (ASE), lea aquí el documento [¿Qué es un entorno del Servicio de aplicaciones?]/app-service-app-service-environment-intro.md). Para obtener información sobre la creación de un ASE lea el documento [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md).
 
 A un alto nivel, un entorno del Servicio de aplicaciones consta de varios componentes principales:
 
 - Recursos de proceso que se ejecutan en el servicio hospedado del entorno del Servicio de aplicaciones de Azure
 - Almacenamiento
 - Base de datos
-- Red virtual con al menos una subred
+- Una red virtual clásica "v1" con al menos una subred
 - Subred con el servicio hospedado del entorno del Servicio de aplicaciones de Azure que se ejecuta en él
 
 Para ayudar a administrar y supervisar sus entornos del Servicio de aplicaciones, puede obtener acceso a la IU para ese fin seleccionando Examinar -> Entornos del Servicio de aplicaciones en el Portal de vista previa de Azure. La versión inicial tiene lo necesario para administrar el sistema y seguirá mejorando con funcionalidades adicionales en las próximas semanas.
 
 ![][1]
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Supervisión ##
 
@@ -90,8 +92,8 @@ Esto es mucho menos problemático para las aplicaciones que se encuentran en eje
 
 La [red virtual][virtualnetwork] y la subred están bajo el control del usuario. Los entornos del Servicio de aplicaciones tienen unos cuantos requisitos de red, pero el resto depende del usuario. Esos requisitos de ASE son:
 
-- una red virtual con al menos 512 direcciones
-- una subred con al menos 256 direcciones 
+- una red virtual clásica "v1" con al menos 512 direcciones
+- una subred con al menos 8 direcciones 
 - la red virtual debe ser una red virtual regional  
  
 La administración de la red virtual se realiza a través de la IU de la red virtual normal.
@@ -131,4 +133,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

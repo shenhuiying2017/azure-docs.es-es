@@ -4,7 +4,7 @@
 	description="Aprenda a usar su suscripción de Office 365 en Azure RemoteApp para compartir aplicaciones de Office."
 	services="remoteapp"
 	documentationCenter="" 
-	authors="lizap" 
+	authors="piotrci" 
 	manager="mbaldwin" />
 
 <tags 
@@ -117,4 +117,4 @@ Con esta opción, solo se usan las herramientas estándar de Windows para aplica
 - [Implementación y actualización de Office 365 ProPlus mediante la Herramienta de implementación de Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Configuración de las opciones de actualización de Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

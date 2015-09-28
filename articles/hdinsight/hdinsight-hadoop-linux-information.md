@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
-# Información sobre el uso de HDInsight en Linux (vista previa)
+# Información sobre el uso de HDInsight en Linux
 
 Los clústeres de HDInsight de Azure basado en Linux proporcionan Hadoop en un entorno conocido de Linux, que se ejecuta en la nube de Azure. En la mayoría de los casos, debiera funcionar exactamente como cualquier otra instalación de Hadoop en Linux. Este documento detalla las diferencias específicas que debe tener en cuenta.
 
@@ -29,17 +29,13 @@ El nombre de dominio completo (FQDN) que se usa al conectarse con el clúster es
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
-	> [AZURE.NOTE]Realice la autenticación con el usuario y la contraseña del administrador de clúster y, a continuación, inicie sesión en Ambari. Aquí también se usa el usuario y la contraseña del administrador de clúster.
+	Realice la autenticación con el usuario y la contraseña del administrador de clúster y, a continuación, inicie sesión en Ambari. Aquí también se usa el usuario y la contraseña del administrador de clúster.
+
+	La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
+
+	> [AZURE.IMPORTANT]A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, cierta funcionalidad se basa en tener acceso a nodos a través del nombre de dominio interno que usa el clúster. Debido a que se trata de un nombre de dominio interno y no público, recibirá errores de "servidor no encontrado" al intentar tener acceso a algunas características a través de Internet.
 	>
-	> La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
-
-	A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, cierta funcionalidad se basa en tener acceso a nodos a través del nombre de dominio interno que usa el clúster. Debido a que se trata de un nombre de dominio interno y no público, recibirá errores de "servidor no encontrado" al intentar tener acceso a algunas características a través de Internet.
-
-	Para solucionar este problema, use un túnel SSH para autorizar el tráfico web al nodo principal del clúster. Use la sección **Tunelización de SSH** de los siguientes artículos para crear un túnel SSH desde un puerto en la máquina local al clúster:
-
-	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md): pasos para crear un túnel SSH con el comando `ssh`.
-
-	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows): pasos para usar PuTTY con el fin de crear un túnel SSH.
+	> Para usar la funcionalidad completa de la interfaz de usuario de la web Ambari, usa un túnel SSH para delegar el tráfico web al nodo principal del clúster. Consulta [Usa la tunelización SSH para tener acceso a la interfaz de usuario de la web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -53,7 +49,7 @@ El nombre de dominio completo (FQDN) que se usa al conectarse con el clúster es
 	>
 	> La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-* **SSH**: &lt;nombre del clúster>-ssh.azurehdinsight.net en el puerto 22 o 23. El puerto 22 se usa para conectarse a headnode0, mientras que el 23 se usa para conectarse a headnode1. Para obtener más información sobre los nodos principales, vea [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net en el puerto 22 o 23. El puerto 22 se usa para conectarse a headnode0, mientras que el 23 se usa para conectarse a headnode1. Para obtener más información sobre los nodos principales, consulta [Disponibilidad y confiabilidad de clústeres Hadoop en HDInsight](hdinsight-high-availability-linux.md).
 
 	> [AZURE.NOTE]Solo puede tener acceso a los nodos principales del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede tener acceso a los nodos de trabajo mediante el uso de SSH desde el nodo principal.
 
@@ -61,8 +57,8 @@ El nombre de dominio completo (FQDN) que se usa al conectarse con el clúster es
 
 Puede encontrar los archivos relacionados con Hadoop en los nodos de clúster en `/usr/hdp`. Este directorio raíz contiene los siguientes subdirectorios:
 
-* __2.2.4.9-1__: este directorio se denomina con el nombre de la versión de Hortonworks Data Platform usada por HDInsight, por lo que el número de su clúster puede ser diferente del que aparece aquí.
-* __current__: este directorio contiene vínculos a los directorios que se encuentran en el directorio __2.2.4.9-1__ y existe para que no tenga que escribir un número de versión (que puede cambiar) cada vez que quiera tener acceso a un archivo.
+* __2.2.4.9-1__: este directorio se denomina con el nombre de la versión de Hortonworks Data Platform que usó HDInsight, por lo que el número de tu clúster puede ser diferente al que aparece aquí.
+* __current__: este directorio contiene vínculos a los directorios que se encuentran en el directorio __2.2.4.9-1__ y existe para que no tengas que escribir un número de versión (que puede cambiar) cada vez que quieras acceder a un archivo.
 
 Es posible encontrar los archivos JAR y datos de ejemplo en el Sistema de archivos distribuido de Hadoop (HDFS) o en el almacenamiento de blobs de Azure en "/example" o "wasb:///example".
 
@@ -80,7 +76,7 @@ Debido a que es el almacén predeterminado para HDInsight, normalmente no tiene 
 
 	hadoop fs -ls /example/data
 
-Es posible que algunos comandos requieran que especifique que usa almacenamiento de blobs. En estos casos, puede usar el prefijo ****WASB://** en el comando.
+Es posible que algunos comandos requieran que especifique que usa almacenamiento de blobs. En estos casos, puedes usar el prefijo ****WASB://** en el comando.
 
 HDInsight también le permite asociar varias cuentas de almacenamiento de blobs a un clúster. Para tener acceso a los datos ubicados en una cuenta de almacenamiento de blobs no predeterminada, puede usar el formato **WASB://&lt;container-name>@&lt;nombre de la cuenta>.blob.core.windows.net/**. Por ejemplo, lo siguiente enumerará los contenidos del directorio **/example/data** para la cuenta de almacenamiento de blobs y el contenedor especificados:
 
@@ -101,17 +97,28 @@ Durante la creación del clúster, seleccionó usar un contenedor y una cuenta d
 	> [AZURE.TIP]Si instaló [jq](http://stedolan.github.io/jq/), puede utilizar lo siguiente para devolver solo la entrada `fs.defaultFS`:
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
-	
+
 3. Para buscar la clave usada para autenticar a la cuenta de almacenamiento, o para encontrar las cuentas de almacenamiento secundarias asociadas al clúster, use lo siguiente:
 
 		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
-		
+
 4. En los datos de JSON devueltos, encuentre la entrada que empieza por `fs.azure.account.key`. El resto del nombre de la entrada es el nombre de la cuenta de almacenamiento. Por ejemplo: `fs.azure.account.key.mystorage.blob.core.windows.net`. El valor almacenado en esta entrada es la clave utilizada para autenticar a la cuenta de almacenamiento.
 
 	> [AZURE.TIP]Si instaló [jq](http://stedolan.github.io/jq/), puede usar lo siguiente para devolver una lista de las claves y los valores:
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
+También puedes encontrar la información de almacenamiento mediante el portal de vista previa de Azure:
+
+1. Selecciona el clúster de HDInsight en el [Portal de vista previa de Azure](https://portal.azure.com/).
+
+2. En la sección __Esenciales__, haz clic en __Toda la configuración__.
+
+3. En __Configuración__, selecciona __Claves de almacenamiento de Azure__.
+
+4. En __Claves de almacenamiento de Azure__, selecciona una de las cuentas de almacenamiento que aparecen en la lista. Entonces, se mostrará información sobre la cuenta de almacenamiento.
+
+5. Selecciona el icono de la llave. Esto mostrará las claves para esta cuenta de almacenamiento.
 
 ### ¿Cómo obtengo acceso al almacenamiento de blobs?
 
@@ -137,10 +144,80 @@ Además de mediante el comando Hadoop desde el clúster, existe una variedad de 
 
 * [API de REST de almacenamiento](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
+##<a name="scaling"></a>Escalar el clúster
+
+La característica de escalado de clúster permite cambiar la cantidad de nodos de datos que usa un clúster en ejecución en HDInsight de Azure sin necesidad de eliminar el clúster y volver a crearlo.
+
+Puedes realizar operaciones de escala mientras se están ejecutando otros trabajos o procesos en un clúster.
+
+Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
+
+* __Hadoop__: al reducir verticalmente el número de nodos en un clúster, se reinician algunos de los servicios del clúster. Esto puede provocar que los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puedes volver a enviar los trabajos una vez finalizada la operación.
+
+* __HBase__: los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Para equilibrar manualmente servidores regionales, sigue estos pasos:
+
+	1. Conéctate al clúster de HDInsight con SSH: Para obtener más información sobre el uso de SSH con HDInsight, consulta uno de los siguientes documentos:
+
+		* [Uso de SSH con HDInsight de Linux, Unix y Mac OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+		* [Uso de SSH con HDInsight de Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+	1. Usa lo siguiente para iniciar el shell de HBase:
+
+			hbase shell
+
+	2. Una vez que se haya cargado el shell de HBase, usa lo siguiente para equilibrar manualmente los servidores regionales:
+
+			balancer
+
+* __Storm__: debes volver a equilibrar alguna topología Storm en ejecución después de haber realizado una operación de escalado. Esto permite la topología volver a ajustar la configuración de paralelismo en función del nuevo número de nodos del clúster. Para volver a equilibrar las topologías en ejecución, usa una de las siguientes opciones:
+
+	* __SSH__: conéctate al servidor y usa el siguiente comando para volver a equilibrar una topología:
+
+			storm rebalance TOPOLOGYNAME
+
+		También puedes especificar parámetros para reemplazar las sugerencias de paralelismo que proporcionó originalmente la topología. Por ejemplo, `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` volverá a configurar la topología a 5 procesos de trabajo, 3 ejecutores para el componente blue-spout y 10 ejecutores para el componente yellow-bolt.
+
+	* __Interfaz de usuario de Storm__: sigue estos pasos para volver a equilibrar una topología mediante la interfaz de usuario de Storm.
+
+		1. [Crear un túnel SSH hasta el clúster y abrir la interfaz de usuario web de Ambari](hdinsight-linux-ambari-ssh-tunnel.md).
+
+		2. En la lista de servicios de la izquierda de la página, selecciona __Storm__. Después, selecciona __Interfaz de usuario de Storm__ de __Vínculos rápidos__.
+
+			![Entrada de la interfaz de usuario de Storm en vínculos rápidos](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
+
+			Esta acción mostrará la página web de la interfaz de usuario de Storm:
+
+			![la interfaz de usuario de storm](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+
+		3. Selecciona la topología que quieres equilibrar y después selecciona el botón __Reequilibrar__. Especifica el retraso antes de realizar la operación de reequilibrio.
+
+Para obtener información específica sobre cómo ampliar tu clúster de HDInsight, consulta:
+
+* [Administración de clústeres de Hadoop en HDInsight mediante el portal de vista previa de Azure](hdinsight-administer-use-portal-linux.md#scaling)
+
+* [Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure](hdinsight-administer-use-command-line.md#scaling)
+
+## ¿Cómo puedo instalar Hue (u otro componente de Hadoop)?
+
+HDInsight es un servicio administrado, lo que significa que Azure puede destruir y volver a aprovisionar automáticamente los nodos de un clúster si se detecta un problema. Por este motivo, no se recomienda instalar manualmente los componentes en los nodos del clúster.
+
+En su lugar, usa [Acciones de script de HDInsight](hdinsight-hadoop-customize-cluster.md).
+
+Las acciones de script son scripts de Bash que se ejecutan durante el aprovisionamiento del clúster y que se pueden usar para instalar componentes adicionales en el clúster. Se proporcionan scripts de ejemplo para instalar los componentes siguientes:
+
+* [Hue](hdinsight-hadoop-hue-linux.md)
+* [Giraph.](hdinsight-hadoop-giraph-install-linux.md)
+* [R](hdinsight-hadoop-r-scripts-linux.md)
+* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Spark](hdinsight-hadoop-spark-install-linux.md)
+
+Para obtener información sobre el desarrollo de tus propias acciones de script, consulta [Desarrollo de acciones de script con HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
 ## Pasos siguientes
 
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

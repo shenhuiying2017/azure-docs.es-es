@@ -21,18 +21,18 @@ En esta sección responde a algunas preguntas frecuentes acerca de la estructura
 
 >[AZURE.NOTE]La estructura de precios para los Centros de eventos en el tema [Preguntas más frecuentes sobre la disponibilidad y el soporte técnico de los Centros de eventos](event-hubs-availability-and-support-faq.md), con más información en el tema [Precios de los Centros de eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
 
-- [¿Cómo se cobra el Bus de servicio?](#How-do-you-charge-for-Service-Bus?)
-- [¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?)
-- [¿Qué es exactamente una "retransmisión" del Bus de servicio?](#What-exactly-is-a-Service-Bus-"relay"?)
-- [¿Cómo se calcula el contador de horas de retransmisión?](#How-is-the-Relay-Hours-meter-calculated?)
-- [¿Qué ocurre si tengo más de un agente de escucha conectado a una retransmisión determinada?](#What-if-I-have-more-than-one-listener-connected-to-a-given-relay?)
-- [¿Cómo se calcula el contador de mensajes para retransmisiones?](#How-is-the-Messages-meter-calculated-for-relays?)
-- [¿El Bus de servicio cobra por almacenamiento?](#Does-Service-Bus-charge-for-storage?)
-- [¿El Bus de servicio tiene alguna cuota de uso?](#Does-Service-Bus-have-any-usage-quotas?)
+- [¿Cómo se cobra el Bus de servicio?](#how-do-you-charge-for-service-bus)
+- [¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
+- [¿Qué es exactamente una "retransmisión" del Bus de servicio?](#what-exactly-is-a-service-bus-quotrelayquot)
+- [¿Cómo se calcula el contador de horas de retransmisión?](#how-is-the-relay-hours-meter-calculated)
+- [¿Qué ocurre si tengo más de un agente de escucha conectado a una retransmisión determinada?](#what-if-i-have-more-than-one-listener-connected-to-a-given-relay)
+- [¿Cómo se calcula el contador de mensajes para retransmisiones?](#how-is-the-messages-meter-calculated-for-relays)
+- [¿El Bus de servicio cobra por almacenamiento?](#does-service-bus-charge-for-storage)
+- [¿El Bus de servicio tiene alguna cuota de uso?](#does-service-bus-have-any-usage-quotas)
 
 ## ¿Cómo se cobra el Bus de servicio?
 
-Para obtener información acerca de los precios del Bus de servicio, consulte [Precios y facturación del Bus de servicio](https://msdn.microsoft.com/library/dn831889.aspx) y [Precios del Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/). Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación. Puede encontrar más detalles en la sección [¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?), a continuación.
+Para obtener información acerca de los precios del Bus de servicio, consulte [Precios y facturación del Bus de servicio](https://msdn.microsoft.com/library/dn831889.aspx) y [Precios del Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/). Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación. Puede encontrar más detalles en la sección [¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not), a continuación.
 
 ## ¿Qué uso del Bus de servicio está sujeto a la transferencia de datos? ¿Cuál no lo está?
 
@@ -114,4 +114,4 @@ Para obtener más información sobre la mensajería de Bus de servicio, consulte
 - [Información general sobre la arquitectura de Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

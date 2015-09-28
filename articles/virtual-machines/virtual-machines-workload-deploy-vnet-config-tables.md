@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Creación de una red virtual entre locales usando tablas de configuración
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
 
 Este tema le guiará en el proceso de creación de una red virtual entre locales usando la configuración previamente especificada en el siguiente conjunto de tablas de configuración:
 
@@ -67,4 +69,4 @@ El procedimiento siguiente hace referencia a la información contenida en dichas
 
 [Configurar una conexión sitio a sitio entre entornos a una red virtual de Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

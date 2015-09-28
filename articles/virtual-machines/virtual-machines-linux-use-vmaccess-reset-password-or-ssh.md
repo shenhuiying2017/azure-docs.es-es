@@ -3,7 +3,7 @@
 	description="Cómo usar el Portal de vista previa de Azure o la extensión VMAccess de Linux para restablecer las contraseñas y claves de SSH, para volver a enviar las configuraciones de SSH y para eliminar los usuarios de Linux"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Restablecimiento de una contraseña o de SSH para máquinas virtuales de Linux #
 
@@ -263,4 +263,4 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 [Características y extensiones de máquina virtual de Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conexión a una máquina virtual de Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Crear una cuenta de Visión operativa e iniciar sesión
@@ -40,4 +40,4 @@ Para obtener más información acerca de cómo empezar a usar Visión operativa,
 
 - [Instalación y configuración del área de trabajo](operational-insights-setup-workspace.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,25 +1,27 @@
 <properties 
-	pageTitle="Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones"
-	description="Obtenga información acerca de cómo conectarse de forma segura a los recursos de back-end desde un entorno del Servicio de aplicaciones."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones" 
+	description="Obtenga información acerca de cómo conectarse de forma segura a los recursos de back-end desde un entorno del Servicio de aplicaciones." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones #
 
 ## Información general ##
-Dado que un entorno del Servicio de aplicaciones siempre se crea en una subred de una [red virtual][virtualnetwork] regional, las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.
+Dado que siempre se crea un entorno del Servicio de aplicaciones en una subred de una [red virtual][virtualnetwork] regional clásica "v1", las conexiones salientes de dicho entorno a otros recursos de back-end solo pueden fluir a través de la red virtual.
+
+**Nota:** no se puede crear un entorno del Servicio de aplicaciones en una red virtual "v2".
 
 Por ejemplo, puede haber un servidor SQL Server que se ejecute en un clúster de máquinas virtuales con el puerto 1433 bloqueado. En el extremo puede incluirse una lista de control de acceso para permitir únicamente el acceso de otros recursos de la misma red virtual.
 
@@ -27,12 +29,14 @@ Otro ejemplo: los extremos con información confidencial pueden ejecutarse local
 
 En todos estos escenarios, las aplicaciones que se ejecutan en un entorno del Servicio de aplicaciones podrán conectarse de forma segura a los distintos servidores y recursos. El tráfico saliente de las aplicaciones que se ejecutan en un entorno del Servicio de aplicaciones hacia extremos privados de la misma red virtual (o conectadas a la misma red virtual) solamente fluirá a través de la red virtual. El tráfico saliente hacia extremos privados no fluirá a través de la red pública de Internet.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## Requisitos de DNS y conectividad saliente ##
-Tenga en cuenta que, para que un entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida al Almacenamiento de Azure, así como a la base de datos SQL en la misma región de Azure. Si se bloquea el acceso de salida a Internet en la red virtual, los entornos del Servicio de aplicaciones no podrán tener acceso a estos extremos de Azure.
+Tenga en cuenta que, para que un entorno del Servicio de aplicaciones funcione correctamente, necesita acceso de salida al Almacenamiento de Azure en todo el mundo, así como conectividad a la base de datos SQL en la misma región de Azure. Si se bloquea el acceso de salida a Internet en la red virtual, los entornos del Servicio de aplicaciones no podrán tener acceso a estos extremos de Azure.
 
 El cliente también puede tener los servidores DNS personalizados configurados en la red virtual. Los entornos del Servicio de aplicaciones necesitan poder resolver los extremos de Azure en *.database.windows.net, *.file.core.windows.net y *.blob.core.windows.net.
 
-También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno del Servicio de aplicaciones. Si se cambia la configuración de DNS de una red virtual al crear un entorno del Servicio de aplicaciones, se generará un error en el proceso de creación de dicho entorno.
+También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno del Servicio de aplicaciones. Si se cambia la configuración de DNS de una red virtual al crear un entorno del Servicio de aplicaciones, se generará un error en el proceso de creación de dicho entorno. Si existe un servidor DNS personalizado en el otro extremo de una puerta de enlace de VPN y el servidor DNS es inaccesible o no está disponible, el proceso de creación del entorno de servicio de aplicaciones también producirá un error.
 
 ## Conexión a un servidor SQL Server
 Una configuración común de SQL Server tiene un extremo que escucha en el puerto 1433:
@@ -110,4 +114,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

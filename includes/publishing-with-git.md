@@ -1,5 +1,3 @@
-# Implementación continua mediante GIT en el Servicio de aplicaciones de Azure
-
 El [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) admite la implementación continua en Aplicaciones web de herramientas de control de código fuente y de repositorio como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial y TFS. Estas herramientas se pueden utilizar para mantener el contenido y el código de una aplicación y, a continuación, aplicar rápida y fácilmente los cambios realizados en la aplicación web de Azure en el momento que se desee.
 
 En este artículo, aprenderá a utilizar Git para publicar directamente desde su equipo local en Aplicaciones web (en Azure, este método de publicación se denomina **Git local**). También aprenderá a habilitar la implementación continua desde sitios repositorio como BitBucket, CodePlex, Dropbox, GitHub o Mercurial. Para obtener información acerca de la utilización de TFS para la implementación continua, consulte [Entrega continua a Azure con Visual Studio Online].
@@ -18,7 +16,7 @@ Realice las tareas siguientes al crear un nuevo repositorio Git.
 
 1. Crear un directorio llamado MyGitRepository que contenga el repositorio de Git y los archivos de la aplicación web.
 
-2. Abra una herramienta de la línea de comandos, como **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal**.
+2. Abra una herramienta de línea de comandos como, por ejemplo, **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal**.
 
 3. Desde la línea de comandos, cambie al directorio MyGitRepository.
 
@@ -66,7 +64,7 @@ Lleve a cabo los pasos siguientes para habilitar un repositorio de Git para su a
 
 	![Repositorio de Git local](./media/publishing-with-git/azure1-local-git.png)
 
-4. Si esta es la primera vez que configura un repositorio en Azure, tendrá que crear unas credenciales de inicio de sesión para él. Las usará para iniciar sesión en el repositorio de Azure y aplicar cambios desde su repositorio Git local. En la hoja de la aplicación web, haga clic en **Configuración > Credenciales de implementación** y luego configure el nombre de usuario y la contraseña para la implementación. Cuando haya terminado, haga clic en **Aceptar**.
+4. Si esta es la primera vez que configura un repositorio en Azure, tendrá que crear unas credenciales de inicio de sesión para él. Las usará para iniciar sesión en el repositorio de Azure y aplicar cambios desde su repositorio Git local. En la hoja de la aplicación web, haga clic en **Configuración > Credenciales de implementación** y configure el nombre de usuario y la contraseña para la implementación. Cuando haya terminado, haga clic en **Aceptar**.
 
 	![](./media/publishing-with-git/azure2-credentials.png)
 
@@ -86,7 +84,7 @@ Siga los pasos que se indican a continuación para publicar una aplicación web 
 
 1. Utilizando la línea de comandos, compruebe que está en la raíz de su repositorio Git que contiene el archivo index.html creado anteriormente.
 
-2. Use `git remote` para agregar la referencia remota enumerada en **Dirección URL de Git** desde el paso 1. El comando será similar al siguiente:
+2. Use `git remote` para agregar la referencia remota que aparecía en **Dirección URL de Git** en el paso 1. El comando será similar al siguiente:
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
@@ -243,7 +241,7 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 
 ****
 
-**Síntoma**: Error: los cambios se han confirmado en el repositorio remoto, pero la aplicación web no se ha actualizado.
+**Síntoma**: Error: los cambios se confirmaron en el repositorio remoto, pero la aplicación web no se actualizó.
 
 **Causa**: este error puede ocurrir si está implementando una aplicación Node.js que contiene un archivo package.json que especifica módulos requeridos adicionales.
 
@@ -300,4 +298,4 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Uso de Dropbox para compartir repositorios de Git]: https://gist.github.com/trey/2722927
 [Entrega continua a Azure con Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

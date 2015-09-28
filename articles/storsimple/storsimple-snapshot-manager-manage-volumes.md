@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
@@ -265,9 +265,10 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 
 ## Pasos siguientes
 
-[Uso del Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes](storsimple-snapshot-manager-manage-volume-groups.md).
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para crear y administrar grupos de volúmenes](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

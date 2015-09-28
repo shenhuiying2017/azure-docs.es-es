@@ -200,6 +200,15 @@ Al utilizar la replicación basada en matriz (SAN) para habilitar la replicació
 
 Las matrices también deben detectarse por SCVMM mediante un proveedor de SMI-S actualizado puesto a disposición por los proveedores de almacenamiento respectivos.
 
+## Implementación entre VMware y Azure
+
+### Tengo una máquina virtual de VMware clonada. ¿Puedo proteger la máquina virtual clonada en Azure?
+No se puede clonar una máquina virtual protegida. Puede proteger una máquina virtual de VMware clonada en Azure siempre que la máquina virtual clonada no tenga instalado el servicio de movilidad. Puede clonar la máquina virtual antes de instalar el servicio de movilidad para evitar duplicar la entrada, ya que ambas máquinas virtuales se presentarán con el mismo GUID, lo que afectará a la replicación.
+
+### ¿Puedo clonar máquinas virtuales de Servidor de procesos?
+No, el Servidor de procesos no se debe clonar. El Servidor de procesos crea su propio identificador único cuando se implementa. Si se clona, los dos servidores de procesos tendrán el mismo GUID, lo que afectará a la replicación existente.
+
+
 ## Implementación entre servidores físicos y Azure
 
 ### ¿Puedo proteger mi servidor local físico en Azure?
@@ -247,4 +256,4 @@ Para empezar a implementar ASR:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

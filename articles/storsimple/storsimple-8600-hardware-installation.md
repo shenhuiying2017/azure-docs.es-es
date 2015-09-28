@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Instalación del dispositivo StorSimple 8600 | Microsoft Azure"
-	description="Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600 antes de implementar y configurar el software."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600 antes de implementar y configurar el software."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/06/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
 
@@ -196,7 +196,7 @@ Antes de comenzar a pasar los cables del dispositivo, necesitará:
 - Cables serie suministrados
 - Convertidor USB serie con el controlador apropiado instalado en su equipo (si es necesario)
 - Los adaptadores QSFP a SFP + para su uso con interfaces de red de 10 GbE
-- [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
+- [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### SAS y cables de alimentación
 
@@ -289,4 +289,4 @@ Ha completado el cableado de alimentación, acceso a la red y conexión en serie
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

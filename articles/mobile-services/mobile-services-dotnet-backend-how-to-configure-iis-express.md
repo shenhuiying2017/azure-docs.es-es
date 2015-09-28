@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configuración de IIS Express para la prueba local del servicio móvil"
+	pageTitle="Configuración de IIS Express para pruebas del servicio móvil local | Servicios móviles de Azure"
 	description="Obtenga información acerca de cómo configurar IIS Express para permitir conexiones a un proyecto de servicio móvil local para pruebas."
 	authors="ggailey777"
 	manager="dwrede"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/16/2015"
 	ms.author="glenga"/>
 
 # Configuración del servidor web local para permitir conexiones a un servicio móvil local
@@ -24,4 +24,4 @@ Para realizar una prueba de un servicio móvil localmente con los clientes que s
 
 [AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

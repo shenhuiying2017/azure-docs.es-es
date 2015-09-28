@@ -3,7 +3,7 @@
    description="Aprovisione una instancia de Almacenamiento de datos SQL con estos pasos e instrucciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -25,7 +25,7 @@ Este artículo es una guía para ayudarle a aprovisionar una instancia de Almace
 3. Definición de una regla del firewall de Azure para habilitar el acceso de cliente externo.
 
 ## Evaluación gratuita de Azure ##
-Para completar las siguientes tareas, debe tener una suscripción a Azure. Si todavía no tiene acceso a una suscripción a Azure, el primer paso debe ser solucionar esto.
+Debe tener una suscripción de Azure y la aprobación a la vista previa de Almacenamiento de datos SQL para completar las tareas siguientes. Si todavía no tiene acceso a una suscripción a Azure, el primer paso debe ser solucionar esto.
 
 Puede obtener una [evaluación gratuita][] que le permite probar cualquiera de los servicios de Azure, incluido Almacenamiento de datos SQL.
 
@@ -40,13 +40,13 @@ En la siguiente serie de pasos, estableceremos rápidamente un servidor lógico 
 
 Lo primero que debemos hacer es ubicar el servicio de Almacenamiento de datos SQL en el portal de Azure.
 
-El botón Nuevo está en la esquina inferior izquierda del Portal de Azure. El botón Nuevo es el punto de partida para crear cualquier servicio en Azure.
+El botón Nuevo está en la esquina superior izquierda del Portal de Azure. El botón Nuevo es el punto de partida para crear cualquier servicio en Azure.
 
 - Haga clic en el botón Nuevo ahora.
 
 ### Datos + almacenamiento
 
-Cuando hizo clic en el botón Nuevo se abrieron todas las categorías de servicio dentro de Azure. Almacenamiento de datos SQL reside en la categoría "Datos + almacenamiento".
+Al hacer clic en el botón Nuevo se abren todas las categorías de servicio de Azure. Almacenamiento de datos SQL reside en la categoría "Datos + almacenamiento".
 
 - Haga clic en **Datos + almacenamiento** para obtener detalles sobre los servicios que Azure ofrece en esta categoría.
 
@@ -54,7 +54,12 @@ Cuando hizo clic en el botón Nuevo se abrieron todas las categorías de servici
 
 Como puede ver, Azure ofrece grandes cantidades de datos y motores de almacenamiento. Sin embargo, esta guía de introducción es para Almacenamiento de datos SQL.
 
-- Continúe y seleccione **Almacenamiento de datos SQL**.
+- Continúe y seleccione **Almacenamiento de datos SQL**. 
+
+##Admisión a la vista previa
+Para poder iniciar el proceso de configuración debe ser admitido en el programa de vista previa. Haga clic en la suscripción para la vista previa y envíe. Se le notificará por correo electrónico cuando la suscripción se haya aprobado.
+
+Cuando reciba la aprobación, puede continuar con los pasos siguientes. Nota: la aprobación puede tardar varios días en procesarse.
 
 ## Configuración de Almacenamiento de datos SQL
 
@@ -167,4 +172,4 @@ Ahora que se aprovisionó correctamente el servicio Almacenamiento de datos SQL,
 [evaluación gratuita]: https://azure.microsoft.com/es-ES/pricing/free-trial/
 [portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

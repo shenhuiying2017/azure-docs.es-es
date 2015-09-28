@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Planeación y preparación para actualizar a SQL Database V12"
+	pageTitle="Planificación de la actualización a Base de datos SQL V12 | Microsoft Azure"
 	description="Describe los preparativos y las limitaciones que conlleva la actualización a la versión V12 de Base de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter=""
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/16/2015"
 	ms.author="genemi"/>
 
 
 # Planeación y preparación para actualizar a SQL Database V12
 
 
-En este tema se describen la planificación y los preparativos que deben realizarse para actualizar las bases de datos SQL de Azure de la versión V11 a la versión V12 ([en vista previa en algunas regiones](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+En este tema se describen la planificación y los preparativos que deben realizarse para actualizar las bases de datos de SQL de Azure de la versión V11 a la versión V12.
 
 
 Hay un nuevo [Portal de vista previa de Azure](http://portal.azure.com/) disponible que admite la actualización a V12.
@@ -107,6 +107,18 @@ No se puede ejecutar la actualización a V12 si la replicación geográfica est�
 Una vez completada la actualización puede configurar la base de datos para volver a usar la replicación geográfica.
 
 
+### Cliente en una VM de Azure
+
+
+Si su programa cliente se conecta a Base de datos SQL V12, mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir los siguientes intervalos de puerto en dicha VM:
+
+- 11000-11999
+- 14000-14999
+
+
+Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información acerca de los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
+
+
 ##<a id="limitations"></a>Limitaciones durante la actualización a V12 y después de ella
 
 
@@ -138,7 +150,7 @@ Se recomienda conectarse a las bases de datos SQL de Azure con Visual Studio 201
 - Para desarrollar una base de datos, en línea o sin conexión.
 
 
-En su lugar, puede conectarse con [Visual Studio Community 2013](https://www.visualstudio.com/es-es/news/vs2013-community-vs.aspx/), que es una versión gratuita y completa de VS2013.
+En su lugar, puede conectarse con [Visual Studio Community 2013](https://www.visualstudio.com/es-ES/news/vs2013-community-vs.aspx/), que es una versión gratuita y completa de VS2013.
 
 
 En el Portal de Azure anterior, en la página de la base de datos, puede hacer clic en **Abrir en Visual Studio** para iniciar VS2013 en el equipo para conectarse a Base de datos SQL de Azure.
@@ -166,7 +178,7 @@ La base de datos V11 sigue estando disponible para el acceso a los datos durante
 | :--- | :--- |
 | No se puede revertir a V11 | Después de una actualización local, el resultado no se puede revertir o deshacer. |
 | Nivel Web o Business | Cuando se inicia la actualización, el servidor para la nueva base de datos V12 ya no puede reconocer ni aceptar el nivel de servicio Web o Business. |
-| 50 % de descuento no reflejado en las tarjetas de nivel de precios en el portal de Azure | Durante el período de vista previa, hay un descuento de vista previa del 50 %* en las bases de datos inscritas en la última actualización de vista previa de la base de datos SQL de Azure (V12). Aunque el descuento no se muestre en el portal de vista previa de la hoja del nivel de precios de servicio, el descuento está en vigor.<br/><br/> El 50% de descuento permanece en vigor en todas las regiones geográficas hasta el **31 de marzo de 2015**, cuando expira en todas las regiones. El descuento se aplica también en las regiones que se han anunciado como de disponibilidad general (GA).<br/><br/> (*El uso de características de la versión más reciente de SQL Database Update V12 de Azure está sujeto a los términos de la versión de vista previa incluidos en su contrato de licencia (por ejemplo, el contrato Enterprise, el de Microsoft Azure o el contrato Microsoft Online Subscription), así como cualquier [término adicional para usarlo en las versiones de vista previa de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mientras que dure la versión de vista previa, Microsoft le facturará a usted (o a su revendedor, según corresponda) todas las bases de datos inscritas en esta versión de vista previa a la mitad de la tarifa de disponibilidad general (GA) para conseguir un descuento del 50 % en dicha versión de vista previa. Microsoft avisará con 30 días de antelación a través de correo electrónico antes de la expiración del período de la versión de vista previa y de la correspondiente tarifa con descuento. |
+
 
 
 ### Exportación e importación *después de* la actualización a V12
@@ -244,4 +256,4 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

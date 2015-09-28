@@ -9,12 +9,12 @@
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure
@@ -34,9 +34,10 @@ Cada modo del plan del Servicio de aplicaciones admite un número distinto de es
 
 - El escalado no está disponible para los espacios que no son de producción.
 
-- No se admite la administración de recursos vinculados en los espacios que no sean de producción.
+- No se admite la administración de recursos vinculados en los espacios que no sean de producción. Solo en el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) puede evitar este impacto potencial en una ranura de producción si mueve temporalmente la ranura de no producción a un modo del plan del Servicio de aplicaciones diferente. Tenga en cuenta que el espacio de no producción debe compartir una vez más el mismo modo con el espacio de producción antes de que pueda intercambiar los dos espacios.
 
-	> [AZURE.NOTE]Solo en el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) puede evitar este impacto potencial en una ranura de producción si mueve temporalmente la ranura de no producción a un modo del plan del Servicio de aplicaciones diferente. Tenga en cuenta que el espacio de no producción debe compartir una vez más el mismo modo con el espacio de producción antes de que pueda intercambiar los dos espacios.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="Add"></a>
 ## Incorporación de una ranura de implementación a una aplicación web ##
@@ -260,4 +261,4 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

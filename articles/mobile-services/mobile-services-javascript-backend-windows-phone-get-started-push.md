@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Incorporación de notificaciones push a la aplicación de Servicios móviles (Tienda Windows) | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación de la Tienda Windows." 
+	pageTitle="Incorporación de notificaciones de inserción a la aplicación Servicios móviles (Tienda Windows) | Microsoft Azure" 
+	description="Obtenga información sobre cómo usar Servicios móviles de Azure y Centros de notificaciones para enviar notificaciones de inserción a la aplicación de Windows Phone." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 
@@ -180,4 +180,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

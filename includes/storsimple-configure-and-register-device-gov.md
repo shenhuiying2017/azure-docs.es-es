@@ -1,20 +1,4 @@
-<properties 
-   pageTitle="Configurar y registrar el dispositivo"
-   description="Se explica cómo usar Windows PowerShell para StorSimple para configurar y registrar un dispositivo de StorSimple que ejecuta la Actualización 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
-
+<!--author=SharS last changed: 9/17/15-->
 
 ### Para configurar y registrar el dispositivo
 
@@ -52,7 +36,7 @@
 
       4. De manera opcional, configure el servidor proxy web.
 
-      >[AZURE.IMPORTANT]Aunque la configuración del proxy web es opcional, tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+      >[AZURE.IMPORTANT]Aunque la configuración del proxy web es opcional, tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md).
 
 6. Presione Ctrl + C para salir del asistente de configuración.
  
@@ -95,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    Debe ver las siguientes versiones:
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
+    Debe ver las siguientes versiones: - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
  
 9. Ejecute el siguiente cmdlet para confirmar que la actualización de firmware se aplicó correctamente:
 
@@ -147,10 +128,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Si el dispositivo continúa desconectado pasados unos minutos, necesitará asegurarse de que configuró la red de Firewall tal y como se describe en los [requisitos de red del dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Si es incompatible con HTTP 1.1, asegúrese de que el puerto 9354 está abierto para las comunicaciones de salida. Este puerto se usa para que el administrador StorSimple y su dispositivo StorSimple puedan comunicarse.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

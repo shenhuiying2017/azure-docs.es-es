@@ -1,19 +1,19 @@
 <properties
    pageTitle="Dispositivo virtual de StorSimple en Azure | Microsoft Azure"
-	description="Obtenga información acerca de cómo crear, implementar y administrar un dispositivo virtual StorSimple en una red virtual de Microsoft Azure. (Se aplica a la versión 3 y anteriores de StorSimple)."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Obtenga información acerca de cómo crear, implementar y administrar un dispositivo virtual StorSimple en una red virtual de Microsoft Azure. (Se aplica a la versión 3 y anteriores de StorSimple)."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Implementar y administrar un dispositivo virtual StorSimple en Azure
 
@@ -114,8 +114,6 @@ Después de completar estos procedimientos, está listo para [trabajar con el di
 Después de haber creado una red virtual, configurado un servicio de StorSimple Manager y registrado el dispositivo físico de StorSimple con el servicio, puede utilizar los siguientes pasos para crear un dispositivo virtual de StorSimple.
 
 Realice los pasos siguientes para crear el dispositivo virtual de StorSimple.
-
-
 
 1.  En el Portal de Azure, vaya al servicio **Administrador de StorSimple**.
 
@@ -219,7 +217,6 @@ Puede conectarse a través de HTTP o HTTPS. Por motivos de seguridad, se recomie
 
 Realice los pasos siguientes para configurar la administración remota para el dispositivo virtual de StorSimple.
 
-
 1. En el dispositivo virtual, vaya a **Dispositivos > Configurar**.
 
 2. Desplácese hacia abajo a la sección **Administración remota**.
@@ -232,6 +229,9 @@ Realice los pasos siguientes para configurar la administración remota para el d
 
 6. Haga clic en **Guardar** en la parte inferior de la página.
 
+![Vídeo disponible](./media/storsimple-virtual-device/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que describe cómo crear un dispositivo StorSimple virtual en la nube, haga clic [aquí](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-device/).
 
 ## Trabajo con el dispositivo virtual de StorSimple
 
@@ -345,7 +345,7 @@ La recuperación ante desastres (DR) es uno de los escenarios clave para los que
 
 - Repita el paso anterior para todos los contenedores de volúmenes que desee conmutar por error en el dispositivo virtual.
 
-- En la página **Dispositivo**, seleccione el dispositivo que necesita conmutar por error y, a continuación, haga clic en **Conmutación por error** para abrir el asistente **Dispositivo de conmutación por error**.
+- En la página **Dispositivo**, seleccione el dispositivo que necesita conmutar por error y después haga clic en **Conmutación por error** para abrir el asistente Dispositivo de conmutación por error.
 
 - En **Elegir el contenedor de volúmenes para la conmutación por error**, seleccione los contenedores de volumen que le gustaría conmutar por error. Para aparecer en esta lista, el contenedor de volúmenes debe contener una instantánea en la nube y desconectado. Si un contenedor de volúmenes que esperaba ver no está presente, cancele al asistente y compruebe que está desconectado.
 
@@ -353,15 +353,19 @@ La recuperación ante desastres (DR) es uno de los escenarios clave para los que
 
 - Revise la configuración de conmutación por error en la página **Confirmar conmutación por error**. Si son correctos, haga clic en el icono de verificación.
 
-Comenzará el proceso de conmutación por error. Cuando finalice la conmutación por error, vaya a la página de dispositivos y seleccione el dispositivo virtual que se utiliza como destino para el proceso de conmutación por error. Vaya a la página Contenedores de volúmenes. Deben aparecer todos los contenedores de volúmenes, junto con los volúmenes del dispositivo antiguo.
+Comenzará el proceso de conmutación por error. Cuando finalice la conmutación por error, vaya a la página **Dispositivos** y seleccione el dispositivo virtual que se utiliza como destino para el proceso de conmutación por error. Vaya a la página Contenedores de volúmenes. Deben aparecer todos los contenedores de volúmenes, junto con los volúmenes del dispositivo antiguo.
 
 >[AZURE.NOTE]La cantidad de almacenamiento admitida en el dispositivo virtual es de 30 TB.
+
+![Vídeo disponible](./media/storsimple-virtual-device/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que describe cómo se puede restaurar un dispositivo físico con conmutación por error en un dispositivo virtual en la nube, haga clic [aquí](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
 
 ## Cerrar o eliminar el dispositivo virtual
 
 Si ha configurado y usado previamente un dispositivo virtual de StorSimple, pero ahora desea detener la acumulación de cargos para su uso por el proceso, puede apagar el dispositivo virtual. Apagar el dispositivo virtual no elimina su sistema operativo ni los discos de datos del almacenamiento. Detiene el cargo acumulado en su suscripción, pero seguirán los cargos de almacenamiento del sistema operativo y los discos de datos.
 
-Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivarlo o eliminarlo como un dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para obtener más información, consulte [Desactivar un dispositivo](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en la página de dispositivos del servicio StorSimple Manager. Puede desactivarlo o eliminarlo como un dispositivo si desea eliminar las copias de seguridad creadas por el dispositivo virtual. Para obtener más información, vea [Desactivación de un dispositivo](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
 
 ### Para apagar el dispositivo virtual de StorSimple
 
@@ -382,6 +386,6 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 ## Pasos siguientes
 
-Para administrar el dispositivo virtual, consulte la lista detallada de flujos de trabajo en [Administración del dispositivo StorSimple mediante el servicio Administrador de StorSimple](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
+Para administrar el dispositivo virtual, vea la lista detallada de flujos de trabajo en [Administración del dispositivo StorSimple mediante el servicio StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

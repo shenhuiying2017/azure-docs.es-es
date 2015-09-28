@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="09/14/2015"
    ms.author="telmos" />
 
 # Información general sobre redes virtuales
@@ -85,7 +85,7 @@ Los dispositivos virtuales dependen de las [rutas definidas por el usuario y ree
 
 ## Pasos siguientes
 
-- [Creación de una red virtual](../virtual-networks-create-a-vnet.md) y subredes
+- [Creación de una red virtual](../virtual-networks-create-vnet-arm-pportal.md) y subredes
 - [Creación de una máquina virtual en una red virtual](../virtual-machines-windows-tutorial.md)
 - Más información sobre [NSG](../virtual-networks-nsg.md)
 - Más información sobre [equilibradores de carga](../load-balancer-overview.md)
@@ -93,4 +93,4 @@ Los dispositivos virtuales dependen de las [rutas definidas por el usuario y ree
 - [Reserva de una dirección IP pública](../virtual-networks-reserved-public-ip.md).
 - Obtención de más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

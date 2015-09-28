@@ -5,23 +5,26 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Integración de su aplicación web con una red virtual de Azure #
+
 Este documento describe la característica en vista previa de la integración de redes virtuales y muestra cómo configurarla con Aplicaciones web en [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Si no conoce las redes virtuales de Azure, sepa que esta es una capacidad que le permite compilar soluciones híbridas con sus recursos locales y de Azure.
 
 Esta integración le da a su aplicación web acceso a los recursos de su red virtual, pero no concede acceso a su aplicación web desde la red virtual. Algunos escenarios estándar se dan cuando la aplicación web necesita obtener acceso a una base de datos o a un servicio web que se ejecutan en máquinas virtual de su red virtual o en su propio centro de datos. No le permite montar una unidad de disco. Tampoco permite habilitar la integración con sistemas de autenticación en su red virtual. La característica está en vista previa todavía y seguiremos mejorándola antes de ponerla a disposición de los usuarios.
 
 Si quiere más detalles sobre las redes virtuales de Azure, vea la información general sobre redes virtuales referente a los casos de uso y las ventajas de tener una red virtual de Azure.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Introducción ##
 Le recordamos algunas cosas que debe tener en cuenta antes de conectar su aplicación a una red virtual.
@@ -106,4 +109,4 @@ Actualmente, también hay diferencias en los niveles de precios entre las dos fu
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

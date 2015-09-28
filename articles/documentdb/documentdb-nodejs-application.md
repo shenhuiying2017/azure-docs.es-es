@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Compilación de una aplicación web Node.js mediante DocumentDB | Microsoft Azure" 
-	description="Obtenga información acerca de cómo usar DocumentDB de Microsoft Azure para almacenar datos desde una aplicación web Node.js Express hospedada en sitios web de Azure y cómo obtener acceso a dichos datos." 
+	pageTitle="Aprendizaje de Node.js - Tutorial de Node.js de DocumentDB | Microsoft Azure" 
+	description="Aprenda Node.js. El tutorial explora cómo usar DocumentDB de Microsoft Azure para almacenar datos desde una aplicación web Node.js Express hospedada en sitios web de Azure y cómo obtener acceso a dichos datos." 
+	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -18,26 +19,26 @@
 
 # <a name="_Toc395783175"></a>Compilación de una aplicación web Node.js mediante DocumentDB
 
-En este tutorial, aprenderá a usar el servicio de Azure DocumentDB para almacenar datos desde una aplicación Node.js Express hospedada en sitios web de Azure y obtener acceso a ellos.
+En este tutorial de Node.js aprenderá a usar el servicio de Azure DocumentDB para almacenar datos desde una aplicación Node.js Express hospedada en sitios web de Azure y obtener acceso a ellos.
 
-Se recomienda comenzar por ver el vídeo siguiente, donde le mostramos cómo aprovisionar una cuenta de base de datos de Azure DocumentDB y almacenar documentos JSON en su aplicación Node.js.
+Se recomienda comenzar por ver el vídeo siguiente, donde aprenderá a aprovisionar una cuenta de base de datos de Azure DocumentDB y almacenar documentos JSON en su aplicación Node.js.
 
 > [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
 
-A continuación, vuelva a este artículo, donde conocerá las respuestas a las preguntas siguientes:
+A continuación, vuelva a este tutorial de Node.js, donde conocerá las respuestas a las preguntas siguientes:
 
 - ¿Cómo se trabaja con DocumentDB usando el módulo npm de documentdb?
 - ¿Cómo se implementa la aplicación web en los sitios web de Azure?
 
-Al seguir este tutorial, podrá crear una aplicación de administración de tareas basadas en web sencilla que permite crear, recuperar y completar tareas. Las tareas se almacenarán como documentos JSON en Azure DocumentDB.
+Al seguir este tutorial de base de datos, podrá crear una aplicación de administración de tareas basadas en web sencilla que permite crear, recuperar y completar tareas. Las tareas se almacenarán como documentos JSON en Azure DocumentDB.
 
-![Captura de pantalla de la aplicación My Todo List creada en este tutorial](./media/documentdb-nodejs-application/image1.png)
+![Captura de pantalla de la aplicación My Todo List creada en este tutorial de Node.js](./media/documentdb-nodejs-application/image1.png)
 
 ¿No tiene tiempo para completar el tutorial y solo desea obtener la solución completa de GitHub? Sin problema, [aquí está](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
 ## <a name="_Toc395783176"></a>Requisitos previos
 
-> [AZURE.TIP]En este tutorial se asume que tiene experiencia previa con el uso de Node.js y los sitios web de Azure.
+> [AZURE.TIP]En este tutorial de Node.js se presupone que tiene experiencia previa con el uso de Node.js y los sitios web de Azure.
 
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener lo siguiente:
 
@@ -54,9 +55,9 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>Paso 2: Creación de una nueva aplicación Node.js.
+## <a name="_Toc395783178"></a>Paso 2: Creación de una nueva aplicación Node.js
 
-Ahora vamos a crear un proyecto Node.js básico de Hello World usando el marco [Express](http://expressjs.com/).
+Ahora aprendamos a crear un proyecto Node.js básico de Hello World usando el marco [Express](http://expressjs.com/).
 
 1. Abra su terminal favorito.
 
@@ -75,7 +76,7 @@ Ahora vamos a crear un proyecto Node.js básico de Hello World usando el marco [
 
 5. Para ver la nueva aplicación, obtenga acceso con el explorador a [http://localhost:3000](http://localhost:3000).
 
-	![Captura de pantalla de la aplicación Hello World en una ventana del explorador](./media/documentdb-nodejs-application/image12.png)
+	![Aprendizaje de Node.js - Captura de pantalla de la aplicación Hello World en una ventana del explorador](./media/documentdb-nodejs-application/image12.png)
 
 ## <a name="_Toc395783179"></a>Paso 3: Instalación de módulos adicionales
 
@@ -535,7 +536,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 4. Para completar una tarea, simplemente marque la casilla en la columna Complete y, a continuación, haga clic en **Actualizar tareas**.
 
-## <a name="_Toc395783182"></a>Paso 7: Implementación de su aplicación en sitios web de Azure
+## <a name="_Toc395783182"></a>Paso 7: Implementación de su proyecto de desarrollo de aplicación en sitios web de Azure
 
 1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. Encontrará información sobre cómo hacerlo [aquí](../web-sites-publish-source-control-git.md#step4).
 
@@ -559,4 +560,4 @@ El código fuente de la aplicación de referencia completa se puede descargar [a
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

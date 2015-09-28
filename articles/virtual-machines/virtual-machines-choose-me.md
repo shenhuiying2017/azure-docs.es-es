@@ -1,20 +1,22 @@
-<properties 
-	pageTitle="¿Son las máquinas virtuales de Azure la opción de proceso que deseo?" 
-	description="Obtenga información sobre las opciones de hospedaje de procesos de Azure y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales" 
+<properties
+	pageTitle="¿Son las máquinas virtuales de Azure la opción de proceso que deseo?"
+	description="Obtenga información sobre las opciones de hospedaje de procesos de Azure y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales"
+	headerExpose=""
+	footerExpose=""
 	services="virtual-machines"
-	authors="KBDAzure" 
+	authors="cynthn"
 	documentationCenter=""
 	manager="timlt"
 	tags=azure-resource-manager, azure-service-management/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/19/2015"
+	ms.author="cynthn"/>
 
 # ¿Debo seleccionar máquinas virtuales de Azure?
 
@@ -29,4 +31,4 @@ Más información sobre [Máquinas virtuales](https://msdn.microsoft.com/library
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

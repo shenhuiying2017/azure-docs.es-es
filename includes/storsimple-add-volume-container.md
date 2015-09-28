@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/16/15-->
+
 #### Para agregar un contenedor de volúmenes
 
 1. En la página **Dispositivos**, seleccione el dispositivo, haga doble clic en él y, a continuación, haga clic en la pestaña **Contenedores de volúmenes**.
@@ -20,4 +22,4 @@
 El contenedor de volúmenes se guardará y el contenedor de volúmenes recién creado se mostrará en la página **Contenedor de volúmenes**.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

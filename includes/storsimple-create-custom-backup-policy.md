@@ -1,4 +1,7 @@
 
+<!--author=SharS last changed: 9/15/15-->
+
+
 #### Para crear una directiva de copia de seguridad personalizada
 
 1. En la página **Dispositivos**, haga clic en **Directivas de copia de seguridad** y luego haga clic en **Agregar**.
@@ -39,4 +42,4 @@
 
     ![Directiva de copia de seguridad personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

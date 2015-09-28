@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Construcción de cadenas de filtro para el diseñador de tablas"
-	description="Construcción de cadenas de filtro para el diseñador de tablas"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Construcción de cadenas de filtro para el diseñador de tablas"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Construcción de cadenas de filtro para el Diseñador de tablas
 
-##Información general
+## Información general
 
 Para filtrar los datos de una tabla de Azure que se muestra en el **Diseñador de tablas** de Visual Studio, es preciso construir una cadena de filtro y especificar en el campo de filtro. La sintaxis de la cadena de filtro la define WCF Data Services y es similar a una cláusula WHERE de SQL, pero se envía al servicio Tabla a través de una solicitud HTTP. El **Diseñador de tablas** administra la codificación adecuada para el usuario, por lo que para filtrar por un valor de propiedad deseado, solo necesita escribir el nombre de la propiedad, el operador de comparación, los valores de los criterios y opcionalmente, el operador booleano en el campo de filtro. No es preciso incluir la opción de consulta $filter como lo haría si fuera a construir una dirección URL para realizar consultas en la tabla a través de la [referencia de la API REST de servicios de almacenamiento](http://go.microsoft.com/fwlink/p/?LinkId=400447).
 
@@ -55,11 +55,9 @@ En el ejemplo siguiente se filtra por las propiedades **PartitionKey** y **RowKe
 
     PartitionKey eq 'Partition1' and RowKey eq '00001'
 
-
 Las expresiones de filtro se pueden escribir entre paréntesis, aunque no es obligatorio:
 
     (PartitionKey eq 'Partition1') and (RowKey eq '00001')
-
 
 Tenga en cuenta que el servicio Tabla no admite consultas con caracteres comodín y que tampoco se admiten en el Diseñador de tablas. Sin embargo, puede realizar que los prefijos coincidan mediante el uso de operadores de comparación en el prefijo deseado. El ejemplo siguiente devuelve las entidades cuya propiedad LastName empieza por la letra "A":
 
@@ -72,7 +70,6 @@ Para filtrar por un entero o un número de punto flotante, especifique el númer
 Este ejemplo devuelve todas las entidades con una propiedad Age cuyo valor es mayor que 30:
 
     Age gt 30
-
 
 Este ejemplo devuelve todas las entidades con una propiedad AmountDue cuyo valor es menor o igual que 100,25:
 
@@ -88,11 +85,11 @@ El ejemplo siguiente devuelve todas las entidades en las que la propiedad IsActi
 
 Esta expresión de filtro también se puede escribir sin el operador lógico. En el ejemplo siguiente, el servicio Tabla también devolverá todas las entidades en las que el valor de IsActive sea **true**:
 
-[Copy](javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode\_3d6a191e-f389-447a-bbbb-ef8b163bc645');)
+    IsActive
 
 Para devolver todas las entidades en las que el valor de IsActive sea false, puede usar el no operador:
 
-    IsActive
+    not IsActive
 
 ## Filtro por propiedades de fecha y hora
 
@@ -102,4 +99,4 @@ El siguiente ejemplo devuelve las entidades en las que la propiedad CustomerSinc
 
     CustomerSince eq datetime'2008-07-10T00:00:00Z'
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

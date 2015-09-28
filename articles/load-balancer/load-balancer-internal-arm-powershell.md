@@ -93,11 +93,11 @@ En el ejemplo anterior, creamos un grupo de recursos llamado "NRP-RG" en la ubic
 
 ### Paso 1
 
-Cree una red virtual:
+Crea una subred para la red virtual y la asigna a la variable $backendSubnet
 
 	$backendSubnet = New-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 
-Crea una subred para la red virtual y la asigna a la variable $backendSubnet
+Cree una red virtual:
 
 	$vnet= New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
@@ -111,7 +111,7 @@ Configure un grupo de IP front-end para el tráfico de red entrante del equilibr
 
 ### Paso 1 
 
-Cree un grupo de IP front-end mediante la dirección IP privada 10.0.2.6 para la subred 10.0.2.0/24 que será el extremo de tráfico de red entrante.
+Cree un grupo de direcciones IP front-end con la dirección IP privada 10.0.2.5 para la subred 10.0.2.0/24 que será el extremo de tráfico de red entrante.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
 
@@ -245,4 +245,4 @@ Encontrará instrucciones paso a paso para crear una máquina virtual y asignarl
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

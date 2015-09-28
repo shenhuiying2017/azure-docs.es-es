@@ -13,15 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/11/2015" 
 	ms.author="jeffreyg"/>
 
 
 # Administración de Base de datos SQL de Azure con el uso de SQL Server Management Studio 
 
-Puede usar SQL Server Management Studio (SSMS) para administrar las bases de datos y los servidores lógicos de Base de datos SQL de Azure. Este tema le guía a través de las tareas comunes con SSMS. Ya debería tener una base de datos y un servidor lógico creados en la Base de datos SQL de Azure antes de comenzar. Para empezar, lea [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md) y vuelva luego.
 
-Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure. Visite la página de [descarga de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtenerlo.
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
+
+Puede usar SQL Server Management Studio (SSMS) para administrar las bases de datos y los servidores lógicos de Base de datos SQL de Azure. Este tema le guía a través de las tareas comunes con SSMS. Ya debería tener una base de datos y un servidor lógico creados en la Base de datos SQL de Azure antes de comenzar. Para empezar, lea [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md) y luego regrese.
+
+Se recomienda usar la versión más reciente de SSMS siempre que trabaje con la Base de datos SQL de Azure. Visite [Descargar SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) para obtenerla.
 
 
 ## Conectarse a un servidor lógico de Base de datos SQL
@@ -30,7 +36,7 @@ Para conectarse a Base de datos SQL, debe saber el nombre del servidor de Azure.
 
 1.  Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
 
-2.  En el panel izquierdo, haga clic en **Bases de datos SQL**.
+2.  En el panel izquierdo, haga clic en **Base de datos SQL**.
 
 3.  En la página principal Bases de datos SQL, haga clic en **SERVIDORES**, en la parte superior de la página, para ver todos los servidores asociados con la suscripción. Encuentre el nombre del servidor con el que desea establecer la conexión y cópielo en el Portapapeles.
 
@@ -121,7 +127,7 @@ La base de datos **maestra** realiza un seguimiento de los inicios de sesión y 
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Use el procedimiento almacenado **sp\_addrolemember** para conceder a la cuenta de usuario el nivel apropiado de permisos para la base de datos. Para obtener más información, consulte[ sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). La instrucción siguiente concede a **login1User** permisos de solo lectura a la base de datos mediante la adición de **login1User** al rol **db\\\_datareader**.
+-   Use el procedimiento almacenado **sp\_addrolemember** para conceder a la cuenta de usuario el nivel apropiado de permisos para la base de datos. Para obtener más información, consulte[ sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). La instrucción siguiente concede a **login1User** permisos de solo lectura a la base de datos mediante la adición de **login1User** al rol **db\\_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -137,7 +143,7 @@ La base de datos **maestra** realiza un seguimiento de los inicios de sesión y 
 
         DROP LOGIN login1;
 
--   La base de datos maestra tiene la vista **sys.sql\\\_logins**, que puede usar para ver los inicios de sesión. Para ver todos los inicios de sesión existentes, ejecute la siguiente instrucción:
+-   La base de datos maestra tiene la vista **sys.sql\\_logins**, que puede usar para ver los inicios de sesión. Para ver todos los inicios de sesión existentes, ejecute la siguiente instrucción:
 
         SELECT * FROM sys.sql_logins;
 
@@ -186,4 +192,4 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
  
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

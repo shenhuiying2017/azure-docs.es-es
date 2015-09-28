@@ -3,7 +3,7 @@
 	description="Aprenda a capturar una imagen de una máquina virtual de Azure que ejecuta Windows Server."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,13 +15,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Cómo capturar una máquina virtual Windows para usarla como imagen#
 
 En este artículo se muestra cómo puede capturar una máquina virtual de Azure con Windows para usarla como imagen en la creación de otras máquinas virtuales. Esta imagen incluye el disco del sistema operativo y los discos de datos que están conectados a la máquina virtual. No incluye configuraciones de red, por lo que deberá configurarlas usted mismo cuando cree las otras máquinas virtuales que utilicen la plantilla.
 
-Azure almacena la imagen en **Mis imágenes**. Este es el mismo lugar donde se almacenan las imágenes que se han cargado. Para obtener más información acerca de las imágenes, consulte [Acerca de las imágenes de máquina virtual de Azure][].
+Azure almacena la imagen en **Mis imágenes**. Este es el mismo lugar donde se almacenan las imágenes que se han cargado. Para obtener más información acerca de las imágenes, vea [Acerca de las imágenes para las máquinas virtuales](virtual-machines-images.md).
 
 ##Antes de empezar##
 
@@ -71,8 +71,6 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 ##Pasos siguientes##
 La imagen está lista para usarse para crear máquinas virtuales. Para ello, creará una máquina virtual mediante el elemento del menú **Desde la galería** y seleccionando la imagen que acaba de crear. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada que ejecute Windows][].
 
-
-[Acerca de las imágenes de máquina virtual de Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Creación de una máquina virtual personalizada que ejecute Windows]: virtual-machines-windows-create-custom.md
 [Cree una máquina virtual personalizada que ejecute Windows]: virtual-machines-windows-create-custom.md
 [Acoplamiento de un disco de datos a una máquina virtual]: storage-windows-attach-disk.md
@@ -86,4 +84,4 @@ La imagen está lista para usarse para crear máquinas virtuales. Para ello, cre
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

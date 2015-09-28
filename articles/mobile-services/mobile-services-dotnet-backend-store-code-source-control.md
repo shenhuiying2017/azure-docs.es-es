@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Almacenamiento del código del proyecto en control de código fuente | Microsoft Azure"
+	pageTitle="Almacenamiento del código del proyecto back-end de .NET en el control de código fuente | Servicios móviles de Azure"
 	description="Aprenda a almacenar el proyecto de back-end de .NET en el equipo y a publicar desde un repositorio Git local en el equipo."
 	services="mobile-services"
 	documentationCenter=""
@@ -10,17 +10,17 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/15/2015"
 	ms.author="glenga"/>
 
-# Almacenamiento del código del proyecto en control de código fuente
+# Almacenamiento del código del proyecto de Servicios móviles en el control de código fuente
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 En este tema se muestra cómo utilizar el control de código fuente que proporcionan los servicios móviles de Azure para almacenar el proyecto de servicio de back-end. NET. Para publicar el proyecto, basta con cargarlo desde el repositorio Git local al servicio móvil de producción.
 
@@ -32,12 +32,11 @@ Para completar este tutorial, debe haber creado un servicio móvil tras completa
 
 ##<a name="clone-repo"></a>Instalación de Git y creación del repositorio local
 
-1. Instale Git en su equipo local. 
+1. Instale Git en su equipo local.
 
 	Los pasos requeridos para instalar Git varían según los sistemas operativos. Consulte [Installing Git] para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo.
 
-	> [AZURE.NOTE]
-	> Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
+	> [AZURE.NOTE]Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
 
 2. Abra una línea de comandos, como **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal**.
 
@@ -67,11 +66,11 @@ Ahora que ha creado el repositorio local, puede publicar el proyecto de servicio
 2. Quite las carpetas de paquetes de NuGet y deje el archivo packages.config.
 
 	Los Servicios móviles restaurarán automáticamente los paquetes de NuGet según el archivo packages.confign. También puede definir un archivo .gitignore para evitar que se agreguen los directorios de paquete.
- 
+
 3. En el símbolo del sistema de Git, escriba el comando siguiente para empezar a realizar un seguimiento del nuevo archivo de scripts:
 
 		$ git add .
-	
+
 4. Escriba el comando siguiente para confirmar los cambios:
 
 		$ git commit -m "adding the .NET backend service project"
@@ -79,7 +78,7 @@ Ahora que ha creado el repositorio local, puede publicar el proyecto de servicio
 5. Escriba el comando siguiente para cargar los cambios en el repositorio remoto y proporcione sus credenciales:
 
 		$ git push origin master
-	
+
 	Debería ver una serie de comandos que indican que el proyecto está implementado en los servicios móviles, que se han agregado los paquetes y que se reinició el servicio.
 
 6. Vaya a la dirección URL de su servicio móvil de back-end de .NET y verá lo siguiente:
@@ -102,4 +101,4 @@ Ahora, el proyecto de servicio móvil se mantiene en el control de código fuent
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Modificación del modelo de datos de un servicio móvil back-end de .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

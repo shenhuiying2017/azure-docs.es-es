@@ -1,11 +1,12 @@
 <properties
    pageTitle="Creación de una red virtual con una conexión VPN de sitio a sitio mediante el portal de administración de Azure | Microsoft Azure"
-   description="Cree una red virtual con una conexión VPN de sitio a sitio para configuraciones entre entornos e híbridas."
+   description="Cree una red virtual con una conexión VPN de sitio a sitio para configuraciones entre entornos e híbridas con el modelo de implementación clásico."
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
    manager="carolz"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,27 +14,29 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
+   ms.date="09/10/2015"
    ms.author="cherylmc"/>
 
 # Crear una red virtual con una conexión VPN de sitio a sitio mediante el portal de Azure
 
 > [AZURE.SELECTOR]
 - [Azure portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Azure Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Este artículo le guiará a través de la creación de una red virtual clásica y una conexión VPN de sitio a sitio con la red local.
+Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio con la red local. Este artículo se aplica al modelo de implementación clásico.
 
-Actualmente, Azure tiene dos modelos de implementación: el modelo de implementación clásica y el modelo de implementación Administrador de recursos de Azure. Los pasos de configuración difieren en función del modelo que se usó para implementar la red virtual.
+>[AZURE.IMPORTANT]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrese de que comprende los modelos de implementación y las herramientas. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
 
-Estas instrucciones se aplican al modelo de implementación clásica. Si desea crear una conexión de puerta de enlace de VPN de sitio a sitio mediante el modelo del Administrador de recursos de Azure, consulte [Crear una conexión VPN de sitio a sitio mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
+Puede seleccionar el artículo para el modelo de implementación y la herramienta de implementación mediante las pestañas situadas encima. Por ejemplo, si desea crear una conexión de puerta de enlace de VPN de sitio a sitio mediante el modelo del Administrador de recursos de Azure en lugar de usar el modelo clásico, haga clic en la pestaña **PowerShell - Administrador de recursos** (anterior) para ir a [Crear una conexión VPN de sitio a sitio mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
+ 
+## Antes de comenzar
 
-## Antes de empezar
+Antes de comenzar con la configuración, compruebe que dispone de lo siguientes elementos:
 
-- Compruebe que el dispositivo VPN que desea usar cumple los requisitos necesarios para crear una conexión de red virtual entre entornos. Consulte [Información acerca de los dispositivos VPN para conexiones de red virtual](vpn-gateway-about-vpn-devices.md) para obtener más información.
-
-- Obtenga una dirección IP IPv4 con orientación externa para el dispositivo VPN. Esta dirección IP es necesaria para una configuración de sitio a sitio y se usa para el dispositivo VPN, que no se encuentra detrás de un NAT.
+- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
+- Una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
+- Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 >[AZURE.IMPORTANT]Si no está familiarizado con la configuración de su dispositivo VPN o con los intervalos de direcciones IP, ubicados en la configuración de la red local, necesitará trabajar con alguien que pueda proporcionar estos detalles.
 
@@ -94,8 +97,6 @@ Si desea configurar una conexión VPN de punto a sitio, consulte [Configurar una
 
 Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Si desea configurar una conexión VNet mediante RRAS, consulte [Conexión VPN sitio a sitio en la Red virtual de Azure mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
-
 Si desea configurar una conexión entre una red virtual clásica y una red virtual creada con el modo de Administrador de recursos de Azure, consulte [Conectar redes virtuales clásicas con redes virtuales del Administrador de recursos de Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Administración de directivas de copia de seguridad de StorSimple | Microsoft Azure"
-	description="Explica cómo se puede usar el servicio Administrador de StorSimple para crear y administrar copias de seguridad manuales, programaciones de copia de seguridad y retención de copia de seguridad."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica cómo se puede usar el servicio Administrador de StorSimple para crear y administrar copias de seguridad manuales, programaciones de copia de seguridad y retención de copia de seguridad."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos"/>
 
 # Usar el servicio de Administrador de StorSimple para administrar directivas de copia de seguridad
 
@@ -49,9 +49,13 @@ Estas son las operaciones utilizadas con frecuencia que se pueden realizar desde
 
 ## Incorporación de una directiva de copia de seguridad
 
-Agregue una directiva de copia de seguridad para programar automáticamente sus copias de seguridad. Realice los pasos siguientes en el Portal de administración para agregar una directiva de copia de seguridad para el dispositivo StorSimple. Después de agregar la directiva, puede definir una programación (consulte [Incorporación o modificación de una programación](#add-or-modify-a-schedule).
+Agregue una directiva de copia de seguridad para programar automáticamente sus copias de seguridad. Realice los pasos siguientes en el Portal de administración para agregar una directiva de copia de seguridad para el dispositivo StorSimple. Después de agregar la directiva, puede definir una programación (vea [Incorporación o modificación de una programación](#add-or-modify-a-schedule)).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
+
+![Vídeo disponible](./media/storsimple-manage-backup-policies/Video_icon.png) **Vídeo disponible**
+
+Para ver un vídeo que muestra cómo crear una directiva de copia de seguridad local o en la nube, haga clic [aquí](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Incorporación o modificación de una programación
@@ -82,6 +86,6 @@ Realice los pasos siguientes en el Portal de administración para crear una dire
 
 ## Pasos siguientes
 
-Obtenga más información acerca de [Uso del Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad](storsimple-snapshot-manager-manage-backup-jobs.md).
+- Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

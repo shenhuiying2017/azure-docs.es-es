@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/10/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -41,8 +41,8 @@ Un objetivo fundamental de Base de datos SQL V12 era mejorar la compatibilidad c
 
 
 - [Ensamblados de Common Language Runtime (CLR)](http://msdn.microsoft.com/library/ms189524.aspx)
-- [Funciones de ventana](https://msdn.microsoft.com/library/bb934097.aspx), con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
-- [Índices XML](https://msdn.microsoft.com/library/bb934097.aspx) e [Índices XML selectivos](http://msdn.microsoft.com/library/jj670104.aspx)
+- [Funciones de ventana](http://msdn.microsoft.com/library/bb934097.aspx), con [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Índices XML](http://msdn.microsoft.com/library/bb934097.aspx) e [Índices XML selectivos](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Seguimiento de cambios](http://msdn.microsoft.com/library/bb933875.aspx)
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 - [Búsqueda de texto completo](http://msdn.microsoft.com/library/ms142571.aspx)
@@ -59,7 +59,19 @@ En V12, aumentamos las unidades de rendimiento de base de datos (DTU) asignadas 
 
 - Compatibilidad para [índices de almacén de columnas](http://msdn.microsoft.com/library/gg492153.aspx) en memoria.
 - [Particiones de tablas por filas](http://msdn.microsoft.com/library/ms187802.aspx) gracias a mejoras relacionadas con [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- Disponibilidad de vistas de administración dinámica [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) y eventos extendidos[(XEvents)](https://msdn.microsoft.com/library/bb630282.aspx) para ayudar a supervisar y optimizar el rendimiento.
+- Disponibilidad de vistas de administración dinámica [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) para ayudar a supervisar y optimizar el rendimiento.
+
+
+### Rendimiento confiable
+
+
+Si su programa cliente se conecta a Base de datos SQL V12, mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir los siguientes intervalos de puerto en dicha VM:
+
+- 11000-11999
+- 14000-14999
+
+
+Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información acerca de los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
 
 
 ## Mejor compatibilidad para proveedores de SaaS en la nube
@@ -83,6 +95,8 @@ La seguridad es una cuestión prioritaria para cualquiera que dirija su negocio 
 - [Bases de datos independientes](http://msdn.microsoft.com/library/azure/ff394108.aspx)
 - [Roles de aplicación](http://msdn.microsoft.com/library/ms190998.aspx) administrados con GRANT, DENY, REVOKE
 - [Cifrado de datos transparente](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
+- [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md)
+ - Base de datos SQL ahora admite la autenticación de Azure Active Directory, un mecanismo de conexión a Base de datos SQL utilizando identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure Active Directory puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central.
 
 
 ## Mayor continuidad del negocio cuando se necesita recuperación
@@ -98,7 +112,7 @@ V12 ofrece una mejora significativa en lo que a objetivos de puntos de recuperac
 | Replicación geográfica activa | • RPO < 5 minutos.<br/>• ERT < 1 hora. | • RPO < 5 segundos.<br/>• ERT < 30 segundos. |
 
 
-Para obtener más información, consulte [Continuidad del negocio en Base de datos SQL](https://msdn.microsoft.com/library/azure/hh852669.aspx).
+Para obtener más información, consulte [Continuidad del negocio en Base de datos SQL](http://msdn.microsoft.com/library/azure/hh852669.aspx).
 
 
 ## Más razones para actualizar ahora
@@ -147,4 +161,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

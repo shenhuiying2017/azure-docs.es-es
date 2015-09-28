@@ -1,3 +1,6 @@
+<!--author=alkohli last changed: 9/16/15-->
+
+
 #### Cableado del dispositivo para tener alimentación
 
 >[AZURE.NOTE]Los dos alojamientos del dispositivo StorSimple incluyen PCM redundantes. Para los dos alojamientos, los PCM tienen que estar instalados y conectados a diferentes fuentes de alimentación para garantizar una alta disponibilidad.
@@ -40,4 +43,4 @@
     |8|Receptáculo EBOD|
     |9|PDU|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -2,23 +2,26 @@
 	pageTitle="Configuración avanzada y extensiones de aplicación web del Servicio de aplicaciones de Azure"
 	description="Las declaraciones de XML Document Transformation (XDT) se usan para transformar el archivo ApplicationHost.config en su aplicación web del Servicio de aplicaciones de Azure y agregar extensiones privadas para habilitar acciones de administración personalizadas."
 	authors="cephalin"
+	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Configuración avanzada y extensiones de aplicación web del Servicio de aplicaciones de Azure
 
 Con las declaraciones de [XML Document Transformation](http://msdn.microsoft.com/library/dd465326.aspx) (XDT), puede transformar el archivo [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) en su aplicación web del Servicio de aplicaciones de Azure. También puede usar las declaraciones XDT a fin de agregar extensiones privadas para habilitar acciones de administración de la aplicación web personalizada. Este artículo incluye una extensión de aplicación web del administrador PHP de ejemplo que habilita la administración de la configuración de PHP a través de una interfaz web.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a id="transform"></a>Configuración avanzada mediante ApplicationHost.config
 La plataforma del Servicio de aplicaciones proporciona flexibilidad y control para la configuración de la aplicación web. Aunque el archivo de configuración ApplicationHost.config de IIS estándar no está disponible para la edición directa en el Servicio de aplicaciones, la plataforma es compatible con un modelo de transformación ApplicationHost.config declarativo basado en XML Document Transformation (XDT).
@@ -179,4 +182,4 @@ Es posible deshabilitar todas las extensiones (no preinstaladas) privadas para s
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

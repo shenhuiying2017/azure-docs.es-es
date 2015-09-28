@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Configuración de los servicios necesarios para publicar un servicio en la nube desde Visual Studio"
-	description="Más información sobre los procedimientos para configurar los servicios de cuenta de almacenamiento y en la nube y establecer la configuración de la aplicación de Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Más información sobre los procedimientos para configurar los servicios de cuenta de almacenamiento y en la nube y establecer la configuración de la aplicación de Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="09/08/2015"
+   ms.author="kempb" />
 
 # Configuración de los servicios necesarios para publicar un servicio en la nube desde Visual Studio
 
-##Información general
+## Información general
 
 Para poder publicar un proyecto de servicio en la nube, debe configurar los siguientes servicios:
 
@@ -80,7 +80,7 @@ Una cuenta de almacenamiento proporciona acceso a los servicios Blob, Cola y Tab
     - La región o el grupo de afinidad (por ejemplo, Oeste de EE. UU. o Asia oriental).
     - Tipo de replicación que quiere usar para la cuenta de almacenamiento, por ejemplo, Redundancia geográfica.
 
-1. Cuando termine, seleccione **Crear**. La nueva cuenta de almacenamiento aparecerá en la lista **￼Almacenamiento￼** del Explorador de soluciones.
+1. Cuando finalice, elija **Crear**. La nueva cuenta de almacenamiento aparecerá en la lista **Almacenamiento** del Explorador de servidores.
 
 ### Para crear una cuenta de almacenamiento mediante el Portal de administración de Azure
 
@@ -143,7 +143,7 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
     1. Debe seleccionar una de las siguientes opciones para determinar cómo tendrá acceso el servicio a la cuenta de almacenamiento:
         - **Usar HTTP**. Se trata de la opción estándar. Por ejemplo: `http://<account name>.blob.core.windows.net`.
         - **Usar HTTPS** para una conexión segura. Por ejemplo: `https://<accountname>.blob.core.windows.net`.
-        - **Especificar extremos personalizados** para cada uno de los tres servicios. Luego puede escribir estos extremos en el campo para el servicio específico. 
+        - **Especificar extremos personalizados** para cada uno de los tres servicios. Luego puede escribir estos extremos en el campo para el servicio específico.
 
         >[AZURE.NOTE]Si crea extremos personalizados, puede crear una cadena de conexión más compleja. Cuando se usa este formato de cadena, se pueden especificar extremos de servicio de almacenamiento que incluyan el nombre de dominio personalizado que se registre para la cuenta de almacenamiento con el servicio Blob. También puede conceder acceso solo a los recursos de blob en un contenedor único a través de una firma de acceso compartido. Para obtener más información sobre cómo crear extremos personalizados, consulte [Configuración de las cadenas de conexión de Almacenamiento de Azure](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/).
 
@@ -153,4 +153,4 @@ Debe configurar cualquier rol que tenga acceso a los servicios de almacenamiento
 
 [Publicación en un servicio en la nube de Azure desde Visual Studio](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Administración de la cuenta de almacenamiento de StorSimple | Microsoft Azure"
-	description="Explica cómo usar la página Configurar el Administrador de StorSimple para agregar, editar, eliminar o rotar las claves de seguridad de una cuenta de almacenamiento."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Explica cómo usar la página Configurar el Administrador de StorSimple para agregar, editar, eliminar o rotar las claves de seguridad de una cuenta de almacenamiento."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Usar el servicio de Administrador de StorSimple para administrar su cuenta de almacenamiento
 
@@ -148,6 +148,7 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 
 ## Pasos siguientes
 
-Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
+- Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-security.md).
+- Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

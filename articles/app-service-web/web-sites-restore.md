@@ -8,21 +8,23 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Restauración de una aplicación web en el Servicio de aplicaciones de Azure
 
 En este artículo se muestra cómo restaurar una aplicación web de la que haya hecho previamente una copia de seguridad usando la característica de copias de seguridad de [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). Para obtener más información, consulte [Copias de seguridad de Aplicaciones web del Servicio de aplicaciones](web-sites-backup.md).
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 La característica de restauración de aplicaciones web le permite restaurar, siempre que lo desee, la aplicación web a un estado anterior, o bien crear una nueva aplicación web en función de una de las copias de seguridad de la aplicación web original. La creación de una nueva aplicación web que se ejecuta en paralelo con la versión más reciente puede resultar útil para la prueba A/B.
 
-La característica de restauración de aplicaciones web, disponible en la hoja **Copias de seguridad** del [Portal de vista previa de Azure](http://portal.azure.com), solo está disponible en los modos Estándar y Premium. Para obtener información acerca de cómo escala la aplicación con el modo Estándar o Premium, consulte [Escalado de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el modo Premium permite realizar un mayor número de copias de seguridad diarias que el modo Estándar.
+La característica de restauración de aplicaciones web, disponible en la hoja **Copias de seguridad** del [Portal de vista previa de Azure](http://portal.azure.com), solo está disponible en los modos Estándar y Premium. Para obtener información acerca de cómo escala la aplicación con el modo Estándar o Premium, vea [Escalado de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el modo Premium permite realizar un mayor número de copias de seguridad diarias que el modo Estándar.
 
 <a name="PreviousBackup"></a>
 ## Para restaurar una aplicación web desde una copia de seguridad realizada anteriormente
@@ -96,4 +98,4 @@ La hoja de detalles mostrará la información disponible relacionada con la oper
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

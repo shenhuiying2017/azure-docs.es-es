@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Incorporación del almacenamiento en caché para mejorar el rendimiento en Administración de API de Azure"
+	pageTitle="Incorporación del almacenamiento en caché para mejorar el rendimiento en Administración de API de Azure | Microsoft Azure"
 	description="Obtenga información acerca de cómo mejorar la latencia, el consumo de ancho de banda y la carga de servicios web para las llamadas de servicio de Administración de API."
 	services="api-management"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
@@ -20,24 +20,23 @@
 
 En Administración de API, las operaciones se pueden configurar para el almacenamiento en caché de respuestas. El almacenamiento en caché de respuestas puede reducir significativamente la latencia de la API, el consumo de ancho de banda y la carga del servicio web en cuanto a datos que no cambian con frecuencia.
 
-En esta guía se muestra cómo agregar el almacenamiento en caché de respuestas para la API y cómo configurar directivas para las operaciones de Api eco de ejemplo. Después, puede llamar a la operación desde el portal para desarrolladores para comprobar el almacenamiento en caché en acción.
-
+En esta guía se muestra cómo agregar el almacenamiento en caché de respuestas de la API y cómo configurar directivas para las operaciones de la API Eco de ejemplo. Después, puede llamar a la operación desde el portal para desarrolladores para comprobar el almacenamiento en caché en acción.
 
 ## Requisitos previos
 
-Para seguir los pasos de esta guía, debe tener una instancia del servicio Administración de API con una API y un producto configurados. Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia de Administración de API][] en el tutorial [Introducción a Administración de API de Azure][].
+Antes de seguir los pasos de esta guía, debe tener una instancia del servicio Administración de API con una API y un producto configurados. Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
 
 ## <a name="configure-caching"> </a>Configuración de una operación para almacenamiento en caché
 
-En este paso, se revisará la configuración de almacenamiento en caché de la operación **Recurso GET (en caché)** de la API eco de ejemplo.
+En este paso, se revisará la configuración de almacenamiento en caché de la operación **Recurso GET (en caché)** de la API Eco de ejemplo.
 
->[AZURE.NOTE]Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender de esta. Para obtener más información, consulte [Introducción a Administración de API de Azure][].
+>[AZURE.NOTE]Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender a usarlo. Para obtener más información, consulte [Introducción a Administración de API de Azure][].
 
 Para comenzar, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
-Haga clic en **API** en el menú **Administración de API** de la izquierda y, después, haga clic en **API eco**.
+Haga clic en **API** en el menú **Administración de API** de la izquierda y, luego, haga clic en **API Eco**.
 
 ![API Eco][api-management-echo-api]
 
@@ -45,21 +44,21 @@ Seleccione la pestaña **Operaciones** y haga clic en la operación **Recurso GE
 
 ![Echo API operations][api-management-echo-api-operations]
 
-Seleccione la pestaña **Caching** para ver la configuración de almacenamiento en caché para esta operación.
+Haga clic en la pestaña **Almacenamiento en caché** para ver la configuración de almacenamiento en caché de esta operación.
 
 ![Caching tab][api-management-caching-tab]
 
-Para habilitar el almacenamiento en caché para una operación, active la casilla **Habilitar**. En este ejemplo el almacenamiento en caché está habilitado.
+Para habilitar el almacenamiento en caché para una operación, active la casilla **Habilitar**. En este ejemplo, el almacenamiento en caché está habilitado.
 
-Cada respuesta de operación incluye una clave basada en los valores de los campos **Variar por parámetros de cadena de consulta** y **Variar por encabezados**. Si desea almacenar en caché varias respuestas basadas en parámetros de la cadena de consulta o encabezados, puede configurarlas en estos dos campos.
+Cada respuesta de la operación está codificada, según los valores de los campos **Variar por parámetros de cadena de consulta** y **Variar por encabezados**. Si desea almacenar en caché varias respuestas basadas en parámetros de la cadena de consulta o encabezados, puede configurarlas en estos dos campos.
 
-**Duración** especifica el intervalo de expiración de las respuestas almacenadas en caché. En este ejemplo el intervalo es **3600** segundos, que equivale a una hora.
+**Duración** especifica el intervalo de expiración de las respuestas almacenadas en caché. En este ejemplo, el intervalo es **3600** segundos, que equivale a una hora.
 
-Con la configuración de almacenamiento en caché de este ejemplo, la primera solicitud para la operación **Recurso GET (en caché)** devolverá una respuesta del servicio back-end. Esta respuesta se almacenará en caché, con clave especificada mediante encabezados y parámetros de la cadena de consulta. Las siguientes llamadas a la operación, con parámetros coincidentes, devolverán la respuesta almacenada en caché hasta que el intervalo de duración en la caché haya expirado.
+Con la configuración de almacenamiento en caché de este ejemplo, la primera solicitud de la operación **Recurso GET (en caché)** devolverá una respuesta del servicio back-end. Esta respuesta se almacenará en caché, con clave especificada mediante encabezados y parámetros de la cadena de consulta. Las siguientes llamadas a la operación, con parámetros coincidentes, devolverán la respuesta almacenada en caché hasta que el intervalo de duración en la caché haya expirado.
 
 ## <a name="caching-policies"> </a>Revisión de las directivas de almacenamiento en caché
 
-En este paso, revisará la configuración de almacenamiento en caché de la operación **Recurso GET (en caché)** de la API eco de ejemplo.
+En este paso, revisará la configuración de almacenamiento en caché de la operación **Recurso GET (en caché)** de la API Eco de ejemplo.
 
 Cuando se haya definido la configuración de almacenamiento en caché para una operación en la pestaña **Caching**, se agregarán las directivas de almacenamiento en caché para la operación. Estas directivas se pueden ver y editar en el editor de directivas.
 
@@ -88,7 +87,7 @@ La definición de directiva para esta operación incluye las directivas que defi
 		</outbound>
 	</policies>
 
->Los cambios efectuados en las directivas de almacenamiento en caché en el editor de directivas se reflejarán en la pestaña **Caching** de una operación, y viceversa.
+>[AZURE.NOTE]Los cambios efectuados en las directivas de almacenamiento en caché en el editor de directivas se reflejarán en la pestaña **Almacenamiento en caché** de una operación, y viceversa.
 
 ## <a name="test-operation"> </a>Llamada a una operación y prueba del almacenamiento en caché
 
@@ -96,13 +95,13 @@ Para ver cómo funciona el almacenamiento en caché, podemos llamar a la operaci
 
 ![Portal para desarrolladores][api-management-developer-portal-menu]
 
-Haga clic en **API** en el menú superior y seleccione **API eco**.
+Haga clic en **API** en el menú superior y seleccione **API Eco**.
 
 ![API Eco][api-management-apis-echo-api]
 
 >Si solamente tiene una API configurada o visible en su cuenta, al hacer clic en API irá directamente a las operaciones de dicha API.
 
-Seleccione la operación **Recurso GET (en caché)** y haga clic en **Abrir consola**.
+Seleccione la operación **Recurso GET (en caché)** y, luego, haga clic en **Abrir consola**.
 
 ![Open console][api-management-open-console]
 
@@ -122,14 +121,14 @@ Escriba **sampleheader:value2** en el cuadro de texto **Encabezados de solicitud
 
 Observe que el valor de **sampleheader** sigue siendo **value1** en la respuesta. Pruebe algunos valores distintos y observe que se devuelve la respuesta almacenada en caché.
 
-Escriba **25** en el campo **param2** y haga clic en **HTTP Get**.
+Escriba **25** en el campo **param2** y, luego, haga clic en **HTTP Get**.
 
 Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. Debido a que los resultados de la operación incluyen una clave especificada mediante la cadena de consulta, no se devolvió la anterior respuesta almacenada en caché.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
 -	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
--	Para obtener más información sobre las directivas de almacenamiento en caché, consulte [Directivas de almacenamiento en caché][] en la [Referencia de la directiva de Administración de API][].
+-	Para obtener más información sobre las directivas de almacenamiento en caché, vea [Directivas de almacenamiento en caché][] en la [Referencia de la directiva de Administración de API][].
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png
@@ -149,16 +148,17 @@ Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. De
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Introducción a Administración de API de Azure]: api-management-get-started.md
+[Introducción a la Administración de API de Azure]: api-management-get-started.md
 [Introducción a la configuración de API avanzada]: api-management-get-started-advanced.md
 
 [Referencia de la directiva de Administración de API]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Directivas de almacenamiento en caché]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Creación de una instancia de Administración de API]: api-management-get-started.md#create-service-instance
+[Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 
 [Configure an operation for caching]: #configure-caching
 [Review the caching policies]: #caching-policies
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

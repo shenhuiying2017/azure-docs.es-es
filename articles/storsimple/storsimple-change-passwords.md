@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Cambio de sus contraseñas de StorSimple | Microsoft Azure"
-	description="Describe cómo usar el servicio StorSimple Manager para cambiar sus contraseñas de administrador de dispositivos y de StorSimple Snapshot Manager."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Cambio de sus contraseñas de StorSimple | Microsoft Azure" 
+   description="Describe cómo usar el servicio StorSimple Manager para cambiar sus contraseñas de administrador de dispositivos y de StorSimple Snapshot Manager." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # Use el servicio de Administrador de StorSimple para cambiar las contraseñas de StorSimple
 
@@ -62,8 +62,10 @@ Ahora debe actualizarse la contraseña del administrador de dispositivos. Puede 
 
 ## Pasos siguientes
 
-[Obtenga más información acerca de la seguridad de StorSimple](storsimple-security.md).
+- Obtenga más información sobre la [seguridad de StorSimple](storsimple-security.md).
 
-[Obtenga más información acerca de la modificación de la configuración del dispositivo](storsimple-modify-device-config.md).
+- Obtenga más información sobre la [modificación de la configuración del dispositivo](storsimple-modify-device-config.md).
 
-<!---HONumber=September15_HO1-->
+- Obtenga más información sobre el [uso del servicio StorSimple Manager para administrar su dispositivo StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

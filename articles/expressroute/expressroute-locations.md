@@ -1,19 +1,19 @@
 <properties
    pageTitle="Ubicaciones de ExpressRoute | Microsoft Azure"
-	description="Este artículo ofrece una introducción detallada de ubicaciones en la que se ofrecen los servicios e información sobre cómo conectarse a regiones de Azure."
-	services="expressroute"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Este artículo ofrece una introducción detallada de ubicaciones en la que se ofrecen los servicios e información sobre cómo conectarse a regiones de Azure."
+   services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="tysonn" />
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="cherylmc" />
 
 # Asociados de ExpressRoute de Azure y ubicaciones de emparejamiento
 Las tablas de este artículo proporcionan información acerca de los proveedores de conectividad ExpressRoute (EXP y NSP), la cobertura geográfica de ExpressRoute, los servicios en la nube de Microsoft compatibles a través de ExpressRoute y los integradores de sistemas de ExpressRoute (SI).
@@ -77,7 +77,7 @@ Consulte [Configuración de la conexión de EXP](expressroute-configuring-exps.m
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Compatible | No compatible | Singapur |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Compatible | Próximamente | Ámsterdam, Chennai+, Hong Kong, Londres, Mumbai+, Singapur |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Compatible | No compatible | Melbourne+, Sidney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | No compatible | Londres, Hong Kong, Dallas, Silicon Valley, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Compatible | Próximamente | Londres, Hong Kong, Dallas, Silicon Valley, Washington DC |
 
  **+** indica próximamente
 
@@ -115,4 +115,4 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 - Si desea configurar una conexión de ExpressRoute, consulte [Configuración de la conexión de EXP](expressroute-configuring-exps.md) o [Configuración de la conexión NSP](expressroute-configuring-nsps.md).
 - Si desea configurar una conexión VPN sitio a sitio y ExpressRoute para la misma red virtual, consulte [Configuración de conexiones de ExpressRoute y VPN sitio a sitio coexistentes](expressroute-coexist.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

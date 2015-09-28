@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Interfaz de usuario de Administrador de instantáneas StorSimple
@@ -538,6 +538,7 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
  
 ## Pasos siguientes
 
-[Aprenda cómo usar Administrador de instantáneas StorSimple para conectarse y administrar dispositivos](storsimple-snapshot-manager-manage-devices.md).
+- Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
+- Aprenda a [usar StorSimple Snapshot Manager para conectarse y administrar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

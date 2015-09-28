@@ -3,7 +3,7 @@
 	description="Una introducción a la copia de seguridad de máquinas virtuales en Azure mediante el servicio de copia de seguridad de Azure"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -122,4 +122,4 @@ Para empezar a usar la copia de seguridad de máquina virtual, aprenda cómo:
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Administrar copia de seguridad de máquina virtual](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

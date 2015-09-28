@@ -2,9 +2,9 @@
 	pageTitle="Diagnóstico de problemas de rendimiento en un sitio web en ejecución | Microsoft Azure"
 	description="Supervise el rendimiento de un sitio web sin volver a implementarlo. Úselo de forma independiente o con el SDK de Application Insights para obtener la telemetría de dependencia."
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/27/2015"
+	ms.date="09/10/2015"
 	ms.author="awills"/>
 
 
@@ -56,13 +56,15 @@ Puede optar entre tres formas de aplicar Application Insights a sus aplicaciones
 
     ![Inicie sesión en Azure con las credenciales de la cuenta Microsoft.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
 
+    *¿Errores de conexión? Consulte [Solución de problemas](#troubleshooting).*
+
 5. Seleccione la aplicación web instalada o el sitio web que desea supervisar y, a continuación, configure el recurso en el cual desea ver los resultados del portal Application Insights.
 
     ![Elija una aplicación y un recurso.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
     Normalmente, debe optar por configurar un nuevo recurso y un [grupo de recursos][roles].
 
-    De lo contrario, usará un recurso existente si ya ha configurado [pruebas web][availability] para su sitio, o la [supervisión de cliente web][client].
+    De lo contrario, usará un recurso existente si ya ha configurado [pruebas web][availability] para su sitio, o bien, la [supervisión de cliente web][client].
 
 6. Reinicie IIS.
 
@@ -114,16 +116,42 @@ Haga clic en cualquier gráfico del contador de rendimiento para cambiar lo que 
 Puede profundizar en las excepciones específicas (de los últimos siete días) y obtener seguimientos de la pila y datos de contexto.
 
 
+## Solución de problemas
+
+### Errores de conexión
+
+Deberá abrir algunos puertos de salida en el firewall del servidor para permitir que el Monitor de estado funcione:
+
++ Telemetría; estos puertos son necesarios todo el tiempo:
+ +	`dc.services.visualstudio.com:80`
+ +	`f5.services.visualstudio.com:80`
+ +	`dc.services.visualstudio.com:443`
+ +	`f5.services.visualstudio.com:443`
+ +	`dc.services.vsallin.net:443`
++ Configuración; solo son necesarios cuando se realizan cambios:
+ -	`management.core.windows.net:443`
+ -	`management.azure.com:443`
+ -	`login.windows.net:443`
+ -	`login.microsoftonline.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
+ -	`auth.gfx.ms:443`
+ -	`login.live.com:443`
++ Instalación:
+ +	`packages.nuget.org:443`
+ +	`appinsightsstatusmonitor.blob.core.windows.net:80`
+
+Esta lista puede cambiar de forma esporádica.
+
 ### ¿No hay telemetría?
 
   * Utilice su sitio para generar algunos datos.
-  * Espere unos minutos para permitir que los datos lleguen y, a continuación, haga clic en **Actualizar**.
+  * Espere unos minutos para dejar que lleguen los datos y, a continuación, haga clic en **Actualizar**.
   * Abra la Búsqueda de diagnóstico (icono Buscar) para ver los eventos individuales. Los eventos suelen estar visibles en la Búsqueda de diagnóstico antes de que los datos agregados aparezcan en los gráficos.
   * Abrir el Monitor de estado y seleccione la aplicación en el panel izquierdo. Compruebe si hay algún mensaje de diagnóstico para esta aplicación en la sección "Notificaciones de configuración":
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * Asegúrese de que el firewall del servidor permite el tráfico saliente en el puerto 443 a dc.services.visualstudio.com.
+  * Asegúrese de que el firewall del servidor permite el tráfico de saliente en los puertos indicados más arriba.
   * En el servidor, si ve en un mensaje acerca de "permisos insuficientes", intente lo siguiente:
     * En el Administrador de IIS, seleccione el grupo de aplicaciones, abra **Configuración avanzada** y en **Modelo de proceso**, observe la identidad.
     * En el panel de control de administración del equipo, agregue esta identidad al grupo Usuarios del monitor de sistema.
@@ -168,4 +196,4 @@ La compatibilidad de IIS es: IIS 7, 7.5, 8 y 8.5 (se requiere IIS)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->
