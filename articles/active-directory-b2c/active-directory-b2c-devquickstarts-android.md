@@ -15,9 +15,13 @@ Con Azure AD B2C, puede agregar unas características de administración de iden
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
-> [AZURE.NOTE]Este inicio rápido presenta un requisito previo de que hay que tener una API web protegida por Azure AD con B2C para poder funcionar completamente. Hemos creado uno para que lo pueda usar tanto para .Net como para node.js. Este tutorial supone que está configurado el ejemplo de API web de node.js. Consulte el [tutorial de la API de Azure AD B2C para node.js](active-directory-b2c-devquickstarts-api-node.md).
+> [AZURE.NOTE]
+	Este inicio rápido presenta un requisito previo de que hay que tener una API web protegida por Azure AD con B2C para poder funcionar completamente. 
+	Hemos creado uno para que lo pueda usar tanto para .Net como para node.js. Este tutorial supone que está configurado el ejemplo de API web de node.js. Consulte el [tutorial de la API de Azure AD B2C para node.js](active-directory-b2c-devquickstarts-api-node.md).
 
-> [AZURE.NOTE]Este artículo no trata de la implementación de registros, inicios de sesión y administración de perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado. Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
+> [AZURE.NOTE]
+	Este artículo no trata de la implementación de registros, inicios de sesión y administración de perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado.
+    Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
 
 Para los clientes de Android que necesitan tener acceso a recursos protegidos, Azure AD proporciona la Biblioteca de autenticación de Active Directory (ADAL). El único propósito de ADAL es facilitar a su aplicación la obtención de tokens de acceso. Para demostrar lo fácil que es, crearemos aquí una aplicación de lista de tareas pendientes de Android que permita realizar las siguientes acciones:
 
@@ -62,7 +66,8 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 > [AZURE.NOTE]**Es necesaria la descarga del esqueleto para completar este tutorial.** Debido a la complejidad de la implementación de una aplicación totalmente funcional en Android, el **esqueleto** tiene el código de experiencia de usuario que se ejecutará una vez completado el tutorial siguiente. Se trata de una medida de ahorro de tiempo para los desarrolladores. El código de experiencia de usuario no es relevante para el tema de cómo agregar B2C a una aplicación Android.
 
-La aplicación completada también estará [disponible como .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) o en la rama `complete` del mismo repositorio.
+La aplicación completada también estará [disponible como .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) o en la rama
+`complete` del mismo repositorio.
 
 
 Para compilar con Maven, puede utilizar pom.xml en el nivel superior.
@@ -377,7 +382,14 @@ private void getTasks() { if (Constants.CURRENT\_RESULT == null || Constants.CUR
  
  Vamos a escribir también un método que inicializará las tablas en la primera ejecución:
  
- ``` private void initAppTables() { try { // Get the Mobile Service Table instance to use // mToDoTable = mClient.getTable(WorkItem.class); // mToDoTable.TABvLES\_URL = "/api/"; //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
+ ```
+     private void initAppTables() {
+        try {
+            // Get the Mobile Service Table instance to use
+//            mToDoTable = mClient.getTable(WorkItem.class);
+//            mToDoTable.TABvLES_URL = "/api/";
+            //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
+
 
             // Create an adapter to bind the items with the view
             //mAdapter = new WorkItemAdapter(ToDoActivity.this, R.layout.listViewToDo);
@@ -492,7 +504,12 @@ ADAL encrypts the tokens and store in SharedPreferences by default. You can look
 
 Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 ```java
-CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync(); ``` More about cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+CookieSyncManager.createInstance(getApplicationContext());
+CookieManager cookieManager = CookieManager.getInstance();
+cookieManager.removeSessionCookie();
+CookieSyncManager.getInstance().sync();
+```
+More about cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=Sept15_HO3-->
