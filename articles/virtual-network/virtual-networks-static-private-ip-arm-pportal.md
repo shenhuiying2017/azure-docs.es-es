@@ -54,7 +54,9 @@ Para crear una VM denominada *DNS01* en la subred de *front-end* de una red virt
 
 6. En la hoja **Configuración** de teh, asegúrese de que se establecen las siguientes propiedades con los siguientes valores y, a continuación, haga clic en **Aceptar**.
 
-	-**Cuenta de almacenamiento**: *vnetstorage* - **Red**: *TestVNet* - **Subred**: *front-end*
+	-**Cuenta de almacenamiento**: *vnetstorage*
+	- **Red**: *TestVNet*
+	- **Subred**: *front-end*
 
 	![Selección de una hoja de tamaño](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 
@@ -95,4 +97,4 @@ Para quitar la dirección IP privada estática de la VM creada anteriormente, si
 - Obtenga más información acerca de las [direcciones IP públicas a nivel de instancia (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

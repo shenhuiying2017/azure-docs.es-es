@@ -41,7 +41,7 @@ El código de este tutorial se mantiene [en GitHub](https://github.com/AzureADQu
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+La aplicación completa se ofrece también al final de este tutorial.
 
 ## 1. Registrar una aplicación
 Crea una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md).  Asegúrese de que:
@@ -72,23 +72,24 @@ En la línea de comandos, cambie los directorios a la carpeta raíz si aún no e
 - `npm install passport-azure-ad`
 
 
-This will install the libraries that passport-azure-ad depend on.
+Esto instalará las bibliotecas de las que depende passport-azure-ad.
 
-## 3. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 3. Configuración de la aplicación para que use la estrategia passport-node-js
+Aquí configuraremos el middleware Express para usar el protocolo de autenticación OpenID Connect.  Passport se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect URI** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal.
+-	Para comenzar, abra el archivo `config.js` en la raíz del proyecto e introduzca los valores de configuración de la aplicación en la sección `exports.creds`.
+    -	El `clientID:` es el **Id. de aplicación** asignado a lsu aplicación en el portal de registro.
+    -	El `returnURL` es el **uri de redireccionamiento** que escribió en el portal.
+    - `clientSecret` es el secreto generado en el portal.
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- Abra `app.js` en la raíz del proyecto y agregue la llamada siguiente para invocar la estrategia `OIDCStrategy` que viene con `passport-azure-ad`.
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Agregar registro var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); ```
+// Agregar registro var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); 
+```
 
 - Después, use la estrategia a la que acabamos de hacer referencia para administrar las solicitudes de inicio de sesión
 
@@ -417,4 +418,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [Versión preliminar del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [Etiqueta "azure-active-directory" en StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

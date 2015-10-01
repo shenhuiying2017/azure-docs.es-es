@@ -33,7 +33,7 @@ Existen varios métodos para migrar una base de datos de SQL Server local a Base
 - En las bases de datos grandes, obtendrá el mejor rendimiento posible si migra el esquema y los datos por separado. Puede extraer el esquema en un proyecto de base de datos mediante SQL Server Management Studio o Visual Studio y, a continuación, implementar el esquema para crear la Base de datos SQL de Azure. A continuación, puede extraer los datos mediante BCP y, a continuación, usar BCP para importar los datos mediante secuencias paralelas a la Base de datos SQL de Azure. Migrar una base de datos grande y compleja llevará muchas horas independientemente del método que elija.
 
 ### Opción n.º 1:
-******Migración de una base de datos compatible mediante SQL Server Management Studio ***
+***Migración de una base de datos compatible mediante SQL Server Management Studio ***
 
 SQL Server Management Studio proporciona dos métodos para migrar la base de datos de SQL Server local compatible a una Base de datos SQL de Azure. Puede usar el asistente de implementación de bases de datos a Base de datos SQL de Microsoft Azure o exportar la base de datos a un archivo BACPAC, que puede importarse después para crear una nueva Base de datos SQL de Azure. El asistente valida la compatibilidad con la Base de datos SQL de Azure V12, extrae el esquema y los datos a un archivo BACPAC y, a continuación, la importa a la instancia de Base de datos SQL de Azure especificada. Para usar esta opción, consulte [Usar SSMS](sql-database-migrate-ssms.md).
 
@@ -72,4 +72,4 @@ Use las [SQL Server Data Tools para Visual Studio más recientes](https://msdn.m
 | No permite cambiar el resultado si hay errores, por lo que el esquema de origen debe ser compatible. | Estarán disponibles todas las características de SSDT para Visual Studio. El esquema se cambia sin conexión. | La validación de la aplicación se produce en Azure. Debe ser mínima, ya que el esquema se migra sin cambios. | La validación de la aplicación puede realizarse en SQL Server antes de implementar la base de datos en Azure. |
 | Proceso de uno o dos pasos de configuración sencilla. | Proceso de varios pasos más complejo (más sencillo si solo se implementa el esquema). |
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
