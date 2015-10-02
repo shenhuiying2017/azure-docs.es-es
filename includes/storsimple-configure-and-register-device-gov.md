@@ -128,10 +128,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte.
       
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+        Si el dispositivo sigue estando sin conexión después de unos minutos, tendrá que asegurarse de que la red de firewall se configuró como se describe en los [requisitos de red para el dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Si no es compatible con HTTP 1.1, compruebe el puerto 9354 para asegurarse de que está abierto para la comunicación saliente. Este puerto se usa para la comunicación entre el servicio StorSimple Manager y su dispositivo de StorSimple
      
         
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
