@@ -88,7 +88,10 @@ Aquí configuraremos el middleware Express para usar el protocolo de autenticaci
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Agregar registro var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); 
+// Agregar registro 
+var log = bunyan.createLogger({ 
+	name: 'Microsoft OIDC Example Web Application' 
+}); 
 ```
 
 - Después, use la estrategia a la que acabamos de hacer referencia para administrar las solicitudes de inicio de sesión
@@ -418,4 +421,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 Para obtener recursos adicionales, consulte: - [Versión preliminar del modelo de aplicaciones v2.0 >>](active-directory-appmodel-v2-overview.md) - [Etiqueta "azure-active-directory" en StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->

@@ -43,4 +43,4 @@ Puertas de enlace de aplicaciones | 10
 
 Si necesita aumentar estos límites, póngase en contacto con soporte técnico.
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->
