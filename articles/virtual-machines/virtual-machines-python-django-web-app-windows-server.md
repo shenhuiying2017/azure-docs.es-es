@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Aplicación web Python con Django | Microsoft Azure"
-	description="Un tutorial que le enseña cómo hospedar un sitio web basado en Django en Azure con una máquina virtual de Windows Server 2012 R2 Datacenter."
+	description="En este tutorial se enseña cómo hospedar un sitio web basado en Django en Azure con una máquina virtual de Windows Server 2012 R2 Datacenter mediante el modelo de implementación clásica."
 	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 
 <tags 
@@ -18,11 +19,15 @@
 	ms.author="huvalo"/>
 
 
+# Aplicación web Django Hello World en una máquina virtual de Windows Server
 
+> [AZURE.SELECTOR]
+- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
 
-# Aplicación web Django Hello World
+<br>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
 
 En este tutorial se describe cómo hospedar un sitio web basado en Django en Microsoft Azure utilizando una máquina virtual de Windows Server. En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Al terminar este tutorial, tendrá una aplicación basada en Django que funcionará en la nube.
 
@@ -178,4 +183,4 @@ Cuando finalice este tutorial, apague o quite la máquina virtual de Azure reci�
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

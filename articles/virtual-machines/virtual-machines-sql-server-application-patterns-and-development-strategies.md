@@ -1,12 +1,13 @@
-<properties 
-	pageTitle="Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure"
-	description="Este artículo explica una serie de patrones de aplicación relacionados con la ejecución de SQL Server en Máquinas virtuales de Azure. Proporciona a los desarrolladores y arquitectos de soluciones una base para lograr un diseño y arquitectura adecuados de las aplicaciones."
+<properties
+	pageTitle="Patrones de aplicaciones de SQL Server en máquinas virtuales | Microsoft Azure"
+	description="En este artículo se tratan los patrones de aplicaciones para SQL Server en máquinas virtuales de Azure. Proporciona a los desarrolladores y arquitectos de soluciones una base para lograr un diseño y arquitectura adecuados de las aplicaciones."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="Selcin"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management,azure-resource-manager" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -17,7 +18,7 @@
 
 # Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure
 
-## Resumen: 
+## Resumen:
 La determinación de qué patrón, o patrones, de aplicación se deben usar para las aplicaciones basadas en SQL Server en un entorno de Azure es una decisión de diseño importante y requiere una comprensión perfecta del funcionamiento conjunto de SQL Server y cada uno de los componentes de la infraestructura de Azure. Con SQL Server en los servicios de infraestructura de Azure, es posible migrar, mantener y supervisar fácilmente las aplicaciones existentes de SQL Server compiladas en Windows Server en máquinas virtuales de Azure.
 
 El objetivo de este artículo es proporcionar a los desarrolladores y arquitectos de soluciones una base para la buena arquitectura y diseño de aplicaciones, que pueden seguir al migrar las aplicaciones existentes a Azure, así como al desarrollar nuevas aplicaciones en Azure.
@@ -276,13 +277,13 @@ En el patrón de aplicación híbrido de n niveles, se puede implementar el sigu
 1. Planee los recursos y la configuración necesarios en la plataforma Azure, como cuentas de almacenamiento y máquinas virtuales.
 
 1. Configure la conectividad de red entre la red corporativa local y [Red virtual de Azure](../virtual-network/virtual-networks-overview.md). Para configurar la conexión entre la red corporativa local y una máquina virtual de Azure, use uno de los dos métodos siguientes:
-									
+
 	1. Establezca una conexión entre local y Azure a través de extremos públicos en una máquina virtual de Azure. Este método ofrece una configuración sencilla y permite usar autenticación de SQL Server en la máquina virtual. Además, configure la lista de control de acceso (ACL) a la red en los puertos públicos para permitir el acceso a determinadas direcciones IP. Para obtener más información, consulte [Administración de la ACL en un extremo](virtual-machines-set-up-endpoints.md/#manage-the-acl-on-an-endpoint).
-	
+
 	1. Establezca una conexión entre local y Azure a través de un túnel de la red privada virtual (VPN) de Azure. Este método permite extender las directivas del dominio a una máquina virtual de Azure. Además, puede configurar las reglas del firewall y usar la autenticación de Windows en la máquina virtual. En la actualidad, Azure admite VPN segura de sitio a sitio y conexiones VPN de punto a sitio:
-	
+
 		- Con una conexión segura de sitio a sitio puede establecer conectividad de red entre una red local y una red virtual de Azure. Se recomienda para conectar un entorno de centro de datos local a Azure.
-		
+
 		- Con una conexión segura de punto a sitio puede establecer conectividad de red entre una red virtual de Azure y los equipos individuales, independientemente de dónde se encuentren. Se recomienda principalmente para desarrollo y pruebas.
 
 	Para obtener información sobre cómo conectarse a SQL Server en Azure, consulte [Conexión a una máquina virtual con SQL Server en Azure](virtual-machines-sql-server-connectivity.md).
@@ -292,9 +293,9 @@ En el patrón de aplicación híbrido de n niveles, se puede implementar el sigu
 1. Según las necesidades de la aplicación, puede implementar uno de los tres escenarios comunes siguientes:
 
 	1. Puede mantener el servidor web, el servidor de aplicaciones e información no confidencial en un servidor de bases de datos de Azure, pero mantener la información confidencial de forma local.
-	
+
 	1. Puede mantener el servidor web y el servidor de aplicaciones de forma local, pero el servidor de bases de datos en una máquina virtual de Azure.
-	
+
 	1. Puede mantener el servidor de bases de datos, el servidor web y el servidor de aplicaciones de forma local, pero las réplicas de las bases de datos en una máquina virtual de Azure. Esta configuración permite a los servidores de web o a las aplicaciones de informes locales obtener acceso a las réplicas de las bases de datos de Azure. Por consiguiente, se puede conseguir reducir la carga de trabajo de una base de datos local. Se recomienda implementar este escenario tanto para cargas de trabajo en que se realiza mucha lectura como para fines de desarrollo. Para obtener información sobre la creación de réplicas de bases de datos en Azure, consulte la información sobre los grupos de disponibilidad AlwaysOn en [Alta disponibilidad y recuperación ante desastres para SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## Comparación de las estrategias de desarrollo web de Azure
@@ -322,4 +323,4 @@ Para obtener más información sobre cuál de estos métodos de programación el
 
 Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

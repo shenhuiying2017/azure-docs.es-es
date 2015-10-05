@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Introducción a Puerta de enlace de aplicaciones | Microsoft Azure"
-	description="Esta página proporciona información general sobre el servicio Puerta de enlace de aplicaciones para equilibrio de carga de nivel 7, incluidos los tamaños de puerta de enlace, el equilibrio de carga HTTP, la afinidad de sesión basada en cookies y la descarga SSL."
-	documentationCenter="na"
-	services="application-gateway"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Esta página proporciona información general sobre el servicio Puerta de enlace de aplicaciones para equilibrio de carga de nivel 7, incluidos los tamaños de puerta de enlace, el equilibrio de carga HTTP, la afinidad de sesión basada en cookies y la descarga SSL."
+   documentationCenter="na"
+   services="application-gateway"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # ¿Qué es una Puerta de enlace de aplicaciones?
 
@@ -36,7 +36,10 @@ Azure ofrece equilibrio de carga de nivel 4 a través del equilibrador de carga 
 
 La Puerta de enlace de aplicaciones enrutará el tráfico HTTP en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube, una aplicación web o una dirección IP externa.
 
-En el diagrama siguiente se explica cómo fluye el tráfico para la Puerta de enlace de aplicaciones: ![Puerta de enlace de aplicaciones2](./media/application-gateway-introduction/appgateway2.png)
+En el diagrama siguiente se explica cómo fluye el tráfico para la Puerta de enlace de aplicaciones:
+
+ 
+![Puerta de enlace de aplicaciones2](./media/application-gateway-introduction/appgateway2.png)
 
 El equilibrio de carga de nivel 7 HTTP es útil para:
 
@@ -61,4 +64,4 @@ Creación de una puerta de enlace de aplicaciones. Consulte [Creación de una pu
 
 Configuración de la descarga SSL. Consulte [Configuración de la descarga SSL con Puerta de enlace de aplicaciones](application-gateway-ssl.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

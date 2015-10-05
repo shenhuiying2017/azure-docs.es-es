@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Adaptador de StorSimple para SharePoint - recolección de elementos no utilizados | Microsoft Azure"
-   description="Describe cómo eliminar blobs inmediatamente cuando se usa el adaptador de StorSimple para SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/10/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 En este procedimiento, hará lo siguiente:
 
@@ -79,4 +64,4 @@ En este procedimiento, hará lo siguiente:
 
 2. En el servidor web front-end, en**Administración central**, edite la **Configuración general de la aplicación web**para la base de datos de contenido deseada para volver a habilitar la papelera de reciclaje. Para ello, haga clic en **Administración central** -> **Administración de aplicaciones** -> **Aplicaciones web (Administrar aplicaciones web)** -> **SharePoint - 80** -> **Configuración de aplicación general**. Establezca el estado de la Papelera de reciclaje en **Activado**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle=""
+	pageTitle="Introducción a un proyecto de servicios móviles de Visual Studio .NET (Connected Services) | Microsoft Azure"
 	description="Uso de Servicios móviles de Azure en un proyecto de Visual Studio .NET"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="patshea123"/>
+	ms.date="09/17/2015" 
+	ms.author="patshea"/>
 
 # Introducción a Servicios móviles (proyectos .NET)
 
@@ -85,4 +85,4 @@ Elimine una fila en la base de datos. El elemento de parámetro es el objeto Tod
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

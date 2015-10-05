@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Qué es: Administración de contraseñas de Azure AD | Microsoft Azure"
-	description="Descripción de las capacidades de administración de contraseñas en Azure AD, incluido el restablecimiento de contraseña, el cambio, la creación de informes de administración de contraseñas y la escritura diferida en Active Directory local." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+	description="Descripción de las capacidades de administración de contraseñas en Azure AD, incluido el restablecimiento de contraseña, el cambio, la creación de informes de administración de contraseñas y la escritura diferida en Active Directory local."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Administración de contraseñas desde cualquier lugar
@@ -40,7 +40,7 @@ Estas son algunas de las cosas que puede hacer con las capacidades de administra
 - El **cambio de la contraseña de autoservicio** permite a los usuarios finales o administradores cambiar sus contraseñas expiradas o no expiradas sin llamar a un administrador o departamento de soporte técnico para obtener soporte técnico.
 - El **restablecimiento de la contraseña de autoservicio** permite a los usuarios finales o administradores restablecer sus contraseñas automáticamente sin llamar a un administrador o departamento de soporte técnico para obtener soporte técnico. El restablecimiento de la contraseña de autoservicio requiere Azure AD Premium o Básico. Para obtener más información, consulte Ediciones de Azure Active Directory.
 - El **restablecimiento de la contraseña iniciado por el administrador** permite a un administrador restablecer la contraseña de un usuario final o de otro administrador desde dentro del [Portal de administración de Azure](https://manage.windowsazure.com).
-- Los **informes de actividad de administración de contraseñas** proporcionan a los administradores perspectivas sobre una actividad de registro y restablecimiento de contraseña en su organización. 
+- Los **informes de actividad de administración de contraseñas** proporcionan a los administradores perspectivas sobre una actividad de registro y restablecimiento de contraseña en su organización.
 - La **escritura diferida de la contraseña** permite la administración de contraseñas locales desde la nube, por lo que todos los escenarios anteriores pueden realizarse por los usuarios sincronizados con contraseña o federados, o en nombre de ellos. La escritura diferida de la contraseña requiere Azure AD Premium. Para obtener más información, consulte Introducción a Azure AD Premium.
 
 ## ¿Por qué usar la Administración de contraseñas de Azure AD?
@@ -77,6 +77,6 @@ Estas son algunas de las razones por las que se debe usar las capacidades de adm
 * [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
 * [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
 * [Más información](active-directory-passwords-learn-more.md)
-* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

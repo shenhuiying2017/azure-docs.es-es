@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Operaciones en zonas DNS | Microsoft Azure"
-	description="Puede administrar zonas DNS mediante cmdlets de Azure PowerShell o la CLI. Actualización, eliminación y creación de zonas DNS en DNS de Azure"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Operaciones en zonas DNS con CLI | Microsoft Azure" 
+   description="Puede administrar zonas DNS con CLI de Azure. Actualización, eliminación y creación de zonas DNS en DNS de Azure" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/02/2015"
+   ms.author="joaoma"/>
 
-# Administración de zonas DNS
+# Cómo administrar zonas DNS con CLI
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-dnszones-cli.md)
@@ -76,4 +76,4 @@ Esta operación tiene un modificador opcional “-q” que suprime el mensaje pa
 
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

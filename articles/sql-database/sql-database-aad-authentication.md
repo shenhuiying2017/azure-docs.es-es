@@ -252,7 +252,7 @@ Para crear un usuario de base de datos independiente basada en Azure AD (que no 
 	FROM EXTERNAL PROVIDER;
 
 
-*Azure\_AD\_principal\_name* puede ser el nombre de la entidad de seguridad de usuario de un usuario de Azure AD o el nombre para mostrar de un grupo o una aplicación de Azure AD.
+*Azure\_AD\_principal\_name* puede ser el nombre de la entidad de seguridad de usuario de un usuario de Azure AD o el nombre para mostrar de un grupo de Azure AD.
 
 **Ejemplos:** para crear un usuario de base de datos independiente que represente un usuario de dominio administrado o federado de Azure AD:
 
@@ -268,7 +268,7 @@ Para más información sobre la creación de usuarios de base de datos independi
 
 Cuando se crea un usuario de base de datos, dicho usuario recibe el permiso **CONNECT** y puede conectarse a esa base de datos como un miembro del rol **PUBLIC**. Inicialmente, los únicos permisos disponibles para el usuario son los permisos que se conceden al rol **PUBLIC** o cualquier otro permiso que se conceda a los grupos de los que es miembro. Cuando se aprovisiona un usuario de base de datos de independiente basada en AD Azure, se pueden conceder permisos adicionales al usuario, del mismo modo que se conceden permisos a cualquier otro tipo de usuario. Normalmente, se conceden permisos a roles de base de datos y después se agregan usuarios a los roles. Para más información, consulte [Conceptos básicos de los permisos de los motores de las bases de datos](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Para más información sobre los roles especiales de Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md). Un usuario de dominio federado que se importa en un dominio de administración debe usar la identidad de dominio administrado.
 
-> [AZURE.NOTE]Los usuarios de Azure AD se marcan en los metadatos de la base de datos con el tipo E (EXTERNAL\_USER) y en las aplicaciones o grupos con el tipo X (EXTERNAL\_GROUPS). Para más información, consulte [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> [AZURE.NOTE]Los usuarios de Azure AD se marcan en los metadatos de la base de datos con el tipo E (EXTERNAL\_USER) y en los grupos con el tipo X (EXTERNAL\_GROUPS). Para más información, consulte [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 
 ## 7\. Conectarse a la base de datos mediante identidades de Azure Active Directory
@@ -310,6 +310,7 @@ Para obtener ejemplos de código específico relacionados con la autenticación 
 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 <!--Image references-->
+
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
 [2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
 [3]: ./media/sql-database-aad-authentication/3admin-structure.png
@@ -320,6 +321,5 @@ Para obtener ejemplos de código específico relacionados con la autenticación 
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
-<!--anchors-->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -5,7 +5,8 @@
 	documentationCenter="python"
 	authors="szarkos"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -15,7 +16,10 @@
 	ms.topic="article"
 	ms.date="06/11/2015"
 	ms.author="szark"/>
+
 #Introducción a Linux en Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 En este tema se ofrece información general acerca de algunos aspectos relacionados con el uso de las máquinas virtuales con Linux en la nube de Azure. La implementación de una máquina virtual con Linux es un proceso sencillo cuando se usa una imagen de la galería.
 
@@ -94,6 +98,5 @@ En Linux, el disco de recursos se administra generalmente mediante el Agente de 
 En Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuarios tendrán que particionar ese recurso, darle formato y montarlo. Esto se trata paso a paso en el tutorial: [Acoplamiento de un disco de datos a una máquina virtual](virtual-machines-linux-how-to-attach-disk.md).
 
  - **Consulte también:** [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

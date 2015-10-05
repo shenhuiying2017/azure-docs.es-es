@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/23/2015"  
 	ms.author="juliako"/>
 
 #Información general y comparación de codificadores multimedia a petición de Azure
@@ -70,13 +70,13 @@ Codificador multimedia estándar se configura mediante uno de los valores preest
 
 ###Metadatos de entrada y salida
 
-[Aquí](http://msdn.microsoft.com/library/azure/dn783120.aspx) se describen los metadatos de entrada de codificadores (igual que Codificador multimedia de Azure).
+[Aquí](http://msdn.microsoft.com/library/azure/dn783120.aspx) se describen los metadatos de entrada de los codificadores.
 
-[Aquí](http://msdn.microsoft.com/library/azure/dn783217.aspx) se describen los metadatos de salida de codificadores (igual que Codificador multimedia de Azure).
+[Aquí](http://msdn.microsoft.com/library/azure/dn783217.aspx) se describen los metadatos de salida de los codificadores.
 
 ###Miniatura
 
-Actualmente, no se admite.
+Para obtener información sobre cómo generar vistas en miniatura, vea [Cómo generar vistas en miniatura con Media Encoder Estándar](media-services-dotnet-generate-thumbnail-with-mes.md).
 
 ###Superposiciones de vídeos y audio
 
@@ -90,7 +90,7 @@ Actualmente, no se admite.
 
 ###Información general
 
-Codificador multimedia de Azure es uno de los codificadores compatibles con Servicios multimedia. A partir de julio de 2015, se recomienda usar [Codificador multimedia estándar](media-services-encode-asset.md#media_encoder_standard).
+Codificador multimedia de Azure es uno de los codificadores compatibles con Servicios multimedia. A partir de julio de 2015, se recomienda usar [Media Encoder Estándar](media-services-encode-asset.md#media_encoder_standard).
 
 ###Modo de uso
 
@@ -102,7 +102,7 @@ Codificador multimedia de Azure es uno de los codificadores compatibles con Serv
 
 ###Valores preestablecidos
 
-Codificador multimedia de Azure se configura con uno de los valores preestablecidos de codificador descritos [aquí](https://msdn.microsoft.com/library/azure/dn619392.aspx). También puede obtener los verdaderos archivos preestablecidos de Codificador multimedia de Azure [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
+El Codificador multimedia de Azure se configura con uno de los valores preestablecidos de codificador descritos [aquí](https://msdn.microsoft.com/library/azure/dn619392.aspx). También puede obtener los verdaderos archivos preestablecidos de Codificador multimedia de Azure [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
 ###Metadatos de entrada y salida
 
@@ -112,7 +112,7 @@ Codificador multimedia de Azure se configura con uno de los valores preestableci
 
 ###Miniatura
 
-[Creación de una miniatura](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+[Creación de una miniatura](https://msdn.microsoft.com/library/hh973624.aspx)
 
 ###Superposiciones de vídeos y audio
 
@@ -128,14 +128,16 @@ archivo de salida](media-services-azure-media-customize-ame-presets.md#controlli
 [Codificación de elementos multimedia con Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md)
 
 ##Flujo de trabajo del Codificador multimedia
-	
+
+###Información general
+
+[Introducción de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+
+###Modo de uso
+
 El flujo de trabajo del Codificador multimedia Premium se configura mediante flujos de trabajo complejos. Los archivos de flujo de trabajo pueden crearse y actualizarse con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md).
 
-Para más información, consulte:
-
-- [Introducción de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [Uso de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-
+[Uso de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 ##<a id="compare_encoders"></a>Comparación de codificadores
 
@@ -255,4 +257,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

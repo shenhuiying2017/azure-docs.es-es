@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Directrices de personalización de marca para aplicaciones"
-	description="Una guía completa sobre recursos orientados al desarrollador para Azure Active Directory"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   pageTitle="Directrices de personalización de marca para aplicaciones | Microsoft Azure"
+   description="Una guía completa sobre recursos orientados al desarrollador para Azure Active Directory"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/17/2015"
+   ms.author="mbaldwin"/>
 
 
 # Directrices de personalización de marca para aplicaciones
@@ -94,4 +94,4 @@ También puede proporcionar una explicación adicional para ayudar a los usuario
 
 Si la aplicación admite tanto Azure AD como cuentas de Microsoft, deberá incluir dos botones de inicio de sesión independientes en su aplicación. Estamos trabajando activamente en una actualización que permitirá realizar la integración una sola vez y admitirá cuentas profesionales y personales de Microsoft. Cuando esté disponible, solo tendrá que incluir un botón "Iniciar sesión con Microsoft" en la aplicación.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

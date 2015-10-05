@@ -3,18 +3,16 @@
 	description="Aprenda a implementar fácilmente un nuevo clúster de DataStax Enterprise en máquinas virtuales de Ubuntu con Azure PowerShell o CLI de Azure y una plantilla del Administrador de recursos."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
-<tags
+	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+	ms.author="scoriani"/>
 
 # DataStax Enterprise en Ubuntu con una plantilla del Administrador de recursos
 
@@ -458,7 +456,7 @@ Se da formato a los discos conectados como parte de las actividades de preparaci
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh forma parte de la carpeta shared_scripts\ubuntu, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
+vm-disk-utils-0.1.sh forma parte de la carpeta shared\_scripts\\ubuntu, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
 
 Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de CustomScriptForLinux. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster (y la instancia OpsCenter). Aprovechan el mismo mecanismo de bucle de recursos descrito para las máquinas virtuales.
 
@@ -500,4 +498,4 @@ Este enfoque sugiere:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

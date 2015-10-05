@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Plantilla del Administrador de recursos de la granja de SharePoint de tres servidores"
+	pageTitle="Plantilla ARM de granja de servidores SharePoint de 3 servidores | Microsoft Azure"
 	description="Siga los pasos de la estructura de la plantilla del Administrador de recursos de Azure para la granja de servidores SharePoint de tres servidores."
 	services="virtual-machines"
 	documentationCenter=""
@@ -10,13 +10,15 @@
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.workload="infrastructure-services"                                                                             ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Plantilla del Administrador de recursos de la granja de SharePoint de tres servidores
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. No puede crear este recurso con el modelo de implementación clásica.
 
 Este tema le guiará por la estructura del archivo de plantilla azuredeploy.json para la granja de servidores SharePoint de tres servidores. Puede ver el contenido de esta plantilla en el explorador desde [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
@@ -374,4 +376,4 @@ Para obtener más información, consulte [Idioma de la plantilla del Administrad
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

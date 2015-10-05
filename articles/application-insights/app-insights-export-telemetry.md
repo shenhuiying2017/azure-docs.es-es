@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -22,6 +22,19 @@
 La Exportación continua está disponible durante el período de evaluación gratuita y en los [planes de precios Estándar y Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
 (Si desea hacer una [exportación puntual](app-insights-metrics-explorer.md#export-to-excel) de lo que ve en una hoja de búsqueda o de métricas, haga clic en Exportar en la parte superior de la hoja).
+
+## Crear una cuenta de almacenamiento
+
+Si aún no tiene una cuenta de almacenamiento "clásica", cree una ahora.
+
+
+1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure](https://portal.azure.com).
+
+    ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-telemetry/030.png)
+
+2. Crear un contenedor
+
+    ![En el nuevo almacenamiento, seleccione Contenedores, haga clic en el icono Contenedores y luego, en Agregar.](./media/app-insights-export-telemetry/040.png)
 
 ## <a name="setup"></a> Configuración de la Exportación continua
 
@@ -130,7 +143,7 @@ La exportación continua se reiniciará.
 
 ## Exportación a Power BI
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la posibilidad de reunir información de varios orígenes. Puede transmitir los datos de telemetría sobre el rendimiento y el uso de las aplicaciones de Application Insights a Power BI.
+[Microsoft Power BI](https://powerbi.microsoft.com/) presenta los datos en objetos visuales enriquecidos y variados, con la capacidad de reunir información de varios orígenes. Puede transmitir los datos de telemetría sobre el rendimiento y el uso de las aplicaciones de Application Insights a Power BI.
 
 [Transmisiones de Application Insights a Power BI](app-insights-export-power-bi.md)
 
@@ -204,4 +217,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

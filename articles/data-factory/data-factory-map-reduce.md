@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Invocar programa MapReduce desde la factoría de datos de Azure"
-	description="Obtenga información sobre cómo procesar datos mediante la ejecución de programas MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Invocar programa MapReduce desde la factoría de datos de Azure" 
+	description="Obtenga información sobre cómo procesar datos mediante la ejecución de programas MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Invocar programas MapReduce desde la factoría de datos de Azure
@@ -32,7 +32,7 @@ En la definición de JSON para la actividad de HDInsight:
 3. Especifique el nombre de la clase para la propiedad **className**.
 4. Especifique la ruta de acceso al archivo JAR incluyendo el nombre de archivo de la propiedad **jarFilePath**.
 5. Especifique el servicio vinculado que hace referencia al almacenamiento de blobs de Azure que contiene el archivo JAR de la propiedad **jarLinkedService**.   
-6. Especifique los argumentos para el programa de MapReduce en la sección **argumentos**. 
+6. Especifique los argumentos para el programa de MapReduce en la sección **argumentos**. En tiempo de ejecución, verá unos argumentos adicionales (por ejemplo, mapreduce.job.tags) desde el marco de trabajo MapReduce. Para diferenciar sus argumentos con los argumentos de MapReduce, considere el uso tanto de opción como valor como argumentos tal como se muestra en el siguiente ejemplo (-s, --input, --output etc... son opciones seguidas inmediatamente por sus valores).
 
  
 
@@ -102,4 +102,4 @@ Puede descargar un ejemplo para usar la actividad de HDInsight con la transforma
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

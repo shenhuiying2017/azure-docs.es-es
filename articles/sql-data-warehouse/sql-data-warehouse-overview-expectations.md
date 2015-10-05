@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/05/2015"
+   ms.date="09/22/2015"
    ms.author="lvargas;twounder;barbkess"/>
 
 # Expectativas de la versión preliminar de Almacenamiento de datos SQL
@@ -49,7 +49,7 @@ Almacenamiento de datos SQL almacena todos los datos en el Almacenamiento de Azu
 
 ### Copias de seguridad
 
-Almacenamiento de datos SQL de Azure realiza una copia de seguridad de todos los datos cada 4 horas mediante instantáneas de Almacenamiento de Azure. Estas instantáneas se mantienen durante 7 días. Esto permite restaurar los datos en un máximo de 42 momentos anteriores en los últimos 7 días hasta la hora en que se tomó la última instantánea. Mediante GA, le indicaremos que especifique el período de retención. Puede restaurar datos desde una instantánea mediante las API de PowerShell o REST.
+Almacenamiento de datos SQL de Azure realiza una copia de seguridad de todos los datos cada 8 horas como mínimo mediante instantáneas de Almacenamiento de Azure. Estas instantáneas se mantienen durante 7 días. Esto permite restaurar los datos en un mínimo de 21 momentos anteriores en los últimos 7 días hasta la hora en que se tomó la última instantánea. Puede restaurar datos desde una instantánea mediante las API de PowerShell o REST.
 
 Las instantáneas se copian de forma asincrónica en una región de Azure remota para aumentar la capacidad de recuperación en caso de errores regionales (recuperación ante desastres).
 
@@ -78,4 +78,4 @@ Es posible que Almacenamiento de datos SQL de Azure tenga hasta 4 eventos de man
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

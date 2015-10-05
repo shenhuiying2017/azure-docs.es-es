@@ -1,47 +1,74 @@
 <properties
    pageTitle="Requisitos previos para la adopción de ExpressRoute | Microsoft Azure"
-	description="Esta página proporciona una lista de requisitos que deben cumplirse para poder solicitar un circuito ExpressRoute de Azure."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Esta página proporciona una lista de requisitos que deben cumplirse para poder solicitar un circuito ExpressRoute de Azure."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""/>
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/28/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/21/2015"
+   ms.author="cherylmc"/>
 
 
-# Requisitos previos de ExpressRoute de Azure  
+# Requisitos previos de ExpressRoute   
 
-Para conectarse a Servicios en la nube de Microsoft con ExpressRoute, deberá comprobar que se han cumplido los requisitos previos siguientes.
+Para conectarse a Servicios en la nube de Microsoft con ExpressRoute, deberá comprobar que se han cumplido los requisitos enumerados en las secciones siguientes.
 
-## Requisitos previos para la conectividad
+## Requisitos de cuenta
 
-- Una cuenta de Microsoft Azure válida y activa
-- Una relación con un proveedor de servicios de red (NSP) o un proveedor de Exchange (EXP) en la [lista de compatibilidad](expressroute-locations.md) a través de la que debe facilitarse la conectividad. Debe tener una relación comercial existente con el proveedor de servicio de red o el proveedor de Exchange. Deberá asegurarse de que el servicio que utiliza es compatible con ExpressRoute.
-- Si desea usar un proveedor de servicios de red y su proveedor de servicios de red no está en la lista admitida, puede crear una conexión a Azure.
-	- Consulte con su proveedor de red para ver si están presentes en cualquiera de las ubicaciones de Exchange que aparecen en la lista admitida.
-	- Haga que el proveedor de red amplíe su red a la ubicación de Exchange que elija.
-	- Solicite un circuito ExpressRoute a través del proveedor de Exchange para conectarse a Azure.
-- Conectividad con la infraestructura del proveedor de servicio. Debe cumplir los criterios para al menos uno de los elementos siguientes:
-	- Es un cliente VPN del proveedor de servicios de red y tiene al menos un sitio local conectado a la infraestructura VPN del proveedor de servicio de red. Compruebe con el proveedor de servicios de red si su servicio VPN cumple los requisitos de ExpressRoute.
-	- La infraestructura cuenta con una coubicación en el centro de datos del proveedor de Exchange.
-	- Dispone de una conectividad Ethernet para la infraestructura de Exchange de Ethernet del proveedor de Exchange.
-- Las direcciones IP y los números de AS para configuración de enrutamiento.
-	- Puede usar números de AS privados para conectarse al dominio de enrutamiento de emparejamiento privado de Azure. Si decide hacerlo, debe ser > 65.000. Para obtener más información acerca de los números de AS, consulte [Números de sistema autónomo (AS)](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml).
-	- Direcciones IP para configurar rutas. Es necesaria una subred /28. Esto no debe solaparse con los intervalos de direcciones IP en Azure o de forma local.
-	- Debe utilizar sus propios números de AS públicos para la configuración de sesiones de BGP con servicios públicos de Azure.
+- Una cuenta de Microsoft Azure válida y activa Esto es necesario para configurar el circuito ExpressRoute. Los circuitos ExpressRoute son recursos dentro de suscripciones de Azure. Una suscripción de Azure es un requisito incluso si la conectividad está limitada a Servicios en la nube de Microsoft que no son de Azure, como los servicios de Office 365 y CRM Online.
+- Una suscripción activa de Office 365 (si usa los servicios de Office 365). Vea la sección [Requisitos específicos de Office 365](#office-365-specific-requirements) de este artículo para obtener más información.
+
+## Relación del proveedor de conectividad
+
+- Una relación con un proveedor de conectividad de la lista de compatibilidad a través de la que debe facilitarse la conectividad. Debe tener una relación de negocios existente con el proveedor de conectividad. Deberá asegurarse de que el servicio que tiene con el proveedor de conectividad es compatible con ExpressRoute.
+- Si desea utilizar un proveedor de conectividad que no está en la lista admitida, todavía puede crear una conexión con Servicios en la nube de Microsoft a través de un intercambio.
+	- Consulte con su proveedor de conectividad para ver si están presentes en cualquiera de las ubicaciones de intercambio que aparecen en la lista admitida.
+	- Haga que el proveedor de conectividad amplíe su red a la ubicación de intercambio que elija.
+	- Solicite un circuito ExpressRoute con el intercambio como proveedor de conectividad.
+
+## Conectividad física entre la red y el proveedor de conectividad
+
+Consulte la sección de modelos de conectividad para obtener detalles sobre los modelos de conectividad. Los clientes deben asegurarse de que su infraestructura local está conectada físicamente a la infraestructura del proveedor de servicio a través de uno de los modelos descritos.
+
+## Requisitos de redundancia para la conectividad
+
+No hay ningún requisito de redundancia sobre la conectividad física entre la infraestructura de cliente y la infraestructura del proveedor de servicio. Microsoft requiere redundancia en el nivel 3. Microsoft requiere la configuración del enrutamiento redundante entre el borde de Microsoft y la red del cliente a través del proveedor de servicio para cada uno de los emparejamientos que se van a habilitar. Si las sesiones de enrutamiento no se configuran de forma redundante, el contrato de nivel de servicio de disponibilidad de servicio se anulará.
+
+## Consideraciones sobre las direcciones IP y el enrutamiento
+
+Los clientes y los proveedores de conectividad son responsables de configurar sesiones BGP redundantes con la infraestructura de Microsoft Edge. Los clientes que optan por conectarse a través de proveedores VPN IP normalmente confiarán en los proveedores de conectividad para administrar configuraciones de enrutamiento. Los clientes coubicados con un intercambio o que se conecten a Microsoft a través de un proveedor de Ethernet punto a punto tendrán que configurar sesiones BGP redundantes por emparejamiento para cumplir los requisitos del contrato de nivel de servicio de disponibilidad. Los proveedores de conectividad pueden ofrecer esto como un servicio de valor de añadido. Consulte la tabla de dominios de enrutamiento en el artículo [Dominios de enrutamiento y circuitos ExpressRoute](expressroute-circuit-peerings.md) para obtener más información sobre los límites.
+
+## Seguridad y firewalls
+
+Consulte el documento [Servicios en la nube de Microsoft y seguridad de red](../best-practices-network-security.md) obtener para información sobre la seguridad y el uso de firewalls.
+
+## Configuración NAT para emparejamientos de Microsoft y públicos de Azure
+
+Consulte [Requisitos NAT de ExpressRoute](expressroute-nat.md) para obtener instrucciones detalladas sobre los requisitos y las configuraciones. Consulte con su proveedor de conectividad para ver si va a administrar la configuración NAT y la realizar la administración para usted. Normalmente, los proveedores de conectividad de nivel 3 administrarán NAT para usted.
+
+## Requisitos específicos de Office 365
+
+Revise los siguientes recursos para obtener más información acerca de los requisitos de Office 365.
+
+- [Planificación de la red y ajuste del rendimiento para Office 365](http://aka.ms/tune)
+- [Administración del tráfico de red de Office 365](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx)
+- Consulte el artículo [Requisitos de calidad de servicio (QoS) de ExpressRoute ](expressroute-qos.md) para obtener instrucciones detalladas sobre los requisitos y configuraciones de QoS. Consulte a su proveedor de conectividad para saber si ofrece varias clases de servicio para su VPN. 
 
 ## Pasos siguientes
 
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
-- Para obtener información acerca de cómo configurar la conexión ExpressRoute, consulte:
-	- [Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red](expressroute-configuring-nsps.md)
-	- [Configuración de una conexión ExpressRoute a través de un proveedor de Exchange](expressroute-configuring-exps.md)
+- Busque un proveedor de servicios. Vea [Asociados de ExpressRoute y ubicaciones de emparejamiento](expressroute-locations.md).
+- Consulte los requisitos de [enrutamiento](expressroute-routing.md), [NAT](expressroute-nat.md) y [QoS](expressroute-qos.md).
+- Configure su conexión ExpressRoute.
+	- [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
+	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
+	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

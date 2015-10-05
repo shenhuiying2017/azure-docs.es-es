@@ -1,11 +1,11 @@
 
 <properties
 	pageTitle="Uso de atributos para crear reglas avanzadas| Microsoft Azure"
-	description="Procedimientos avanzados para administrar grupos de seguridad y uso de estos grupos para administrar el acceso a un recurso."
+	description="Procedimientos para crear reglas avanzadas para un grupo, entre los que se incluyen parámetros y operadores de reglas de expresiones."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 
@@ -124,7 +124,7 @@ Operadores permitidos
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Cualquier valor de cadena o $null. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | Cualquier valor de cadena o $null. | (user.postalCode -eq "value") |
-| preferredLanguage | Código ISO 639-1 | (user.preferredLanguage -eq "es-es") |
+| preferredLanguage | Código ISO 639-1 | (user.preferredLanguage -eq "es-ES") |
 | sipProxyAddress | Cualquier valor de cadena o $null. | (user.sipProxyAddress -eq "value") |
 | state | Cualquier valor de cadena o $null. | (user.state -eq "value") |
 | streetAddress | Cualquier valor de cadena o $null. | (user.streetAddress -eq "value") |
@@ -168,4 +168,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

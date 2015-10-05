@@ -19,6 +19,8 @@
 
 # Implementación de recursos de Azure mediante bibliotecas .NET de proceso, red y almacenamiento
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de un recurso con el modelo de implementación del Administrador de recursos.
+
 Este tutorial muestra cómo utilizar algunos de los clientes disponibles en las bibliotecas .NET de proceso, red y almacenamiento para crear y eliminar recursos de Microsoft Azure. También muestra cómo autenticar las solicitudes al Administrador de recursos de Azure con Azure Active Directory.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -27,7 +29,7 @@ Para completar este tutorial, también necesita:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Cuenta de Almacenamiento de Azure](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/es-es/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/es-es/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/es-ES/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/es-ES/download/details.aspx?id=40855)
 - [Azure PowerShell](../install-configure-powershell.md)
 
 Tardará unos 30 minutos en realizar estos pasos.
@@ -109,7 +111,7 @@ Ahora que la aplicación Azure Active Directory se crea y se instala la bibliote
           ClientCredential cc = new ClientCredential("{application-id}", "{password}");
             var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
             var result = context.AcquireToken("https://management.azure.com/", cc);
-          
+
           if (result == null)
           {
             throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -142,7 +144,7 @@ Los recursos siempre se implementan en un grupo de recursos. Utilice las clases 
 		public async static void CreateResourceGroup(TokenCloudCredentials credential)
 		{
 		  Console.WriteLine("Creating the resource group...");
-		  
+
           using (var resourceManagementClient = new ResourceManagementClient(credential))
 		  {
 		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
@@ -170,7 +172,7 @@ Se necesita una cuenta de almacenamiento para almacenar el archivo de disco duro
 		public async static void CreateStorageAccount(TokenCloudCredentials credential)
         {
           Console.WriteLine("Creating the storage account...");
-          
+
           using (var storageManagementClient = new StorageManagementClient(credential))
           {
             var saResult = await storageManagementClient.StorageAccounts.CreateAsync(
@@ -183,7 +185,7 @@ Se necesita una cuenta de almacenamiento para almacenar el archivo de disco duro
         }
 
 3.	Agregue el código siguiente al método Main para llamar al método que acaba de agregar:
-		
+
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
@@ -286,7 +288,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
                 Location = "West US"
               } );
             Console.WriteLine(avSetResponse.StatusCode);
-                
+
             var networkClient = new NetworkResourceProviderClient(credential);
             var nicResponse = await networkClient.NetworkInterfaces.GetAsync("mytestrg1", "mytestnic1");
 
@@ -346,7 +348,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
           }
         }
 
-	>[AZURE.NOTE]Los nombres de imagen vhd cambiarán regularmente en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, consulte [Administrar imágenes de Windows con Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), y, a continuación, reemplace {source-image-name} por el nombre del archivo vhd que desea utilizar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
+	>[AZURE.NOTE]Los nombres de imagen vhd cambiarán regularmente en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, consulte [Administrar imágenes de Windows con Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), y, a continuación, reemplace {source-image-name} por el nombre del archivo vhd que desea utilizar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
 
 	Reemplace {subscription-id} por el identificador de su suscripción.
 
@@ -388,4 +390,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Configuración del firewall | Microsoft Azure"
-	description="Configure el firewall para direcciones IP que accedan a Bases de datos SQL de Azure."
+	description="Aprenda a configurar el firewall para direcciones IP que obtengan acceso a bases de datos SQL de Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
@@ -23,7 +23,7 @@
 
 Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexiones con servidores y bases de datos. Puede definir la configuración de firewall de nivel de servidor y de base de datos para el maestro o una base de datos de usuario en el servidor de Base de datos SQL de Azure para permitir el acceso a la base de datos de forma selectiva.
 
-**Importante** Para permitir que las aplicaciones de Azure se conecten al servidor de base de datos, deben habilitarse las conexiones de Azure. Para obtener más información sobre las reglas de firewall y sobre la habilitación de las conexiones de Azure, vea [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md).
+> [AZURE.IMPORTANT]Para permitir que las aplicaciones de Azure se conecten al servidor de base de datos, deben habilitarse las conexiones de Azure. Para obtener más información sobre las reglas de firewall y sobre la habilitación de las conexiones de Azure, vea [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md). Es posible que tenga que abrir algunos puertos TCP adicionales si está realizando conexiones dentro del límite de la nube de Azure. Para obtener más información, vea la sección **V12 de Base de datos SQL: fuera frente a dentro** de [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
 ## Reglas de firewall de nivel de servidor
@@ -141,4 +141,4 @@ Para obtener un tutorial sobre la creación de una base de datos, vea [Creación
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

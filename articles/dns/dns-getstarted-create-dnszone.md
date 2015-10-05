@@ -1,6 +1,6 @@
 <properties
    pageTitle="Introducción a DNS de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo crear zonas DNS para DNS de Azure. Se trata de instrucciones detalladas para crear la primera zona DNS para empezar a hospedar dominios DNS."
+   description="Obtenga información sobre cómo crear zonas DNS para DNS de Azure. Se trata de instrucciones paso a paso para crear la primera zona DNS para empezar a hospedar sus dominios de DNS con PowerShell."
    services="dns"
    documentationCenter="na"
    authors="joaoma"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Introducción a DNS de Azure
+# Introducción a DNS de Azure con PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -155,4 +155,4 @@ Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesita
 [Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset.md)<BR> [Administración de zonas DNS](dns-operations-dnszones.md)<BR> [Administración de registros DNS](dns-operations-recordsets.md)<BR> [Automatización de operaciones de Azure con .NET SDK](dns-sdk.md)<BR> [Referencia de la API de REST del DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

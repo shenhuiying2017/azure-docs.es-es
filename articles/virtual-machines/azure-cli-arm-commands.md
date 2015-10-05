@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Uso de la CLI de Azure para Mac, Linux y Windows con administración de recursos de Azure | Microsoft Azure"
-	description="Obtenga información sobre cómo utilizar la CLI de Azure para Mac, Linux y Windows para administrar recursos de Azure mediante el modo arm de la CLI de Azure."
+	pageTitle="Uso de la CLI de Azure con el Administrador de recursos | Microsoft Azure"
+	description="Obtenga información sobre cómo usar la CLI de Azure para Mac, Linux y Windows para administrar recursos de Azure mediante el modo de implementación del Administrador de recursos."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-mangaer"/>
 
 <tags
 	ms.service="multiple"
@@ -17,6 +18,9 @@
 	ms.author="danlep"/>
 
 # Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. También puede crear un recurso con el [modelo de implementación clásica](virtual-machines-command-line-tools.md).
+
 
 Este tema describe cómo utilizar la interfaz de línea de comandos (CLI de Azure) de Azure en modo **arme cli** para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Puede realizar las mismas tareas usando las diversas bibliotecas de los SDK de Azure, con PowerShell y mediante el Portal de Azure.
 
@@ -1735,6 +1739,5 @@ Opciones de parámetro:
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

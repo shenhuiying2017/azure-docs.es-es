@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aplicación de Node.js con Socket.io | Microsoft Azure"
-	description="Aprenda a usar socket.io en una aplicación node.js hospedada en Azure."
-	services="cloud-services"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
+	pageTitle="Aplicación de Node.js con Socket.io | Microsoft Azure" 
+	description="Aprenda a usar socket.io en una aplicación node.js hospedada en Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="TomArcher" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tarcher"/>
 
 
@@ -149,6 +149,8 @@ Su aplicación se está ejecutando ahora en Azure y puede retransmitir los mensa
 
 En este tutorial aprendió a crear una aplicación de chat básica hospedada en un Servicio en la nube de Azure. Para aprender a hospedar esta aplicación en un sitio web de Azure, vea [Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure][chatwebsite].
 
+Para obtener más información, consulte también el [Centro para desarrolladores de Node.js](/develop/nodejs/).
+
   [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
   [Azure SLA]: http://www.windowsazure.com/support/sla/
@@ -172,4 +174,4 @@ En este tutorial aprendió a crear una aplicación de chat básica hospedada en 
   
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

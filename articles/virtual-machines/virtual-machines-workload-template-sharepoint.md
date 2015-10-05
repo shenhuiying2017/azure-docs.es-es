@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Implementar granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure | Microsoft Azure"
-	description="Implemente fácilmente una granja de SharePoint de tres o nueve servidores con plantillas del Administrador de recursos y el portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
+	pageTitle="Implementación de granjas de servidores SharePoint con plantillas del ARM | Microsoft Azure"
+	description="Implemente fácilmente una granja de SharePoint de tres o nueve servidores con plantillas del Administrador de recursos y el portal de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. No puede crear este recurso con el modelo de implementación clásica.
 
 Siga las instrucciones de este artículo para implementar una granja de servidores SharePoint Server 2013 de tres o nueve servidores mediante plantillas de administrador de recursos.
 
@@ -111,7 +113,7 @@ Para implementar esta carga de trabajo mediante una plantilla del Administrador 
 3.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
 4.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
 5.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
-6.	Si es necesario, haga clic en **Condiciones legales** para revisar las condiciones y el contrato para usar la plantilla.
+6.	Si es necesario, haga clic en **Condiciones legales** para revisar los términos y el contrato para usar la plantilla.
 7.	Haga clic en **Crear**.
 
 Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar la carga de trabajo. Cuando haya finalizado, tendrá una nueva granja SharePoint de nueve servidores en el grupo de recursos nuevo o existente.
@@ -180,4 +182,4 @@ Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja S
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

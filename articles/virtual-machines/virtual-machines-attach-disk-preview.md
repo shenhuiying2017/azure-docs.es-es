@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cómo conectar un disco de datos en el Portal de vista previa de Azure"
-	description="Cómo conectar discos de datos nuevos y existentes en el Portal de vista previa de Azure | Microsoft Azure"
+	pageTitle="Conectar un disco de datos | Microsoft Azure"
+	description="Cómo conectar un disco de datos nuevo o existente a una máquina virtual en el portal de vista previa de Azure con el modelo de implementación del Administrador de recursos."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/14/2015"
 	ms.author="cynthn"/>
 
 # Cómo conectar un disco de datos en el Portal de vista previa de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. También puede crear un recurso con el [modelo de implementación clásica](storage-windows-attach-disk.md).
 
 En este artículo se muestra cómo conectar discos nuevos y existentes a una máquina virtual a través del Portal de vista previa de Azure. Antes de hacerlo, revise estas sugerencias:
 
@@ -88,4 +90,4 @@ Una vez que se agrega el disco, debe prepararlo para su uso en el sistema operat
 
 [Acerca de las cuentas de almacenamiento de Azure]: ../storage-whatis-account/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

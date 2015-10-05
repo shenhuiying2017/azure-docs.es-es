@@ -61,6 +61,9 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 El ejemplo de código crea un objeto `Connection` mediante el uso de una cadena de conexión. Puede encontrar la cadena de conexión mediante el [Portal de vista previa de Azure](http://portal.azure.com/). Para obtener más información acerca de cómo encontrar la cadena de conexión, vea [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md).
 
 
+> [AZURE.NOTE]Controlador de JDBC de JTDS Si está utilizando el controlador JDBC de JTDS, deberá agregar "ssl=require" a la dirección URL de la cadena de conexión y tiene que establecer la siguiente opción para JVM "-Djsse.enableCBCProtection=false". Esta opción de JVM deshabilita una revisión para una vulnerabilidad de seguridad; por tanto, asegúrese de entender qué riesgo implica antes de establecer esta opción.
+
+
 ## Ejemplo de código Java
 
 
@@ -223,6 +226,8 @@ Copie y pegue este segmento Java breve en el ejemplo de código principal donde 
 			+ resultSet.getString(3));
 	}
 
- 
+## Pasos siguientes
 
-<!---HONumber=August15_HO6-->
+Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
+
+<!---HONumber=Sept15_HO4-->

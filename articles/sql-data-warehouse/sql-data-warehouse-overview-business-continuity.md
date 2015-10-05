@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/15/2015"
+   ms.date="09/22/2015"
    ms.author="sahajs"/>
 
 
@@ -51,7 +51,7 @@ Puesto que Almacenamiento de datos SQL separa el proceso y el almacenamiento, to
 
 ### Restauración de base de datos
 
-La restauración de base de datos está diseñada para restablecer la base de datos a un punto anterior en el tiempo. El servicio Almacenamiento de datos SQL de Azure protege todas las bases de datos con instantáneas de almacenamiento automáticas cada 8 horas y las conserva durante 7 días para ofrecerle un conjunto discreto de puntos de restauración. Estas copias de seguridad se almacenan en el Almacenamiento de Azure RA-GRS y, por tanto, tienen redundancia geográfica de forma predeterminada. Las características de copia de seguridad y restauración automáticas se incluyen sin cargos adicionales y permiten proteger las bases de datos de daños o eliminaciones accidentales sin costos ni esfuerzos de administración. Para obtener más información sobre la restauración de bases de datos, consulte [Recuperación de errores de usuario][].
+La restauración de base de datos está diseñada para restablecer la base de datos a un punto anterior en el tiempo. El servicio Almacenamiento de datos SQL de Azure protege todas las bases de datos con instantáneas de almacenamiento automáticas cada 4 horas como mínimo y las conserva durante 7 días para ofrecerle un conjunto discreto de puntos de restauración. Estas copias de seguridad se almacenan en el Almacenamiento de Azure RA-GRS y, por tanto, tienen redundancia geográfica de forma predeterminada. Las características de copia de seguridad y restauración automáticas se incluyen sin cargos adicionales y permiten proteger las bases de datos de daños o eliminaciones accidentales sin costos ni esfuerzos de administración. Para obtener más información sobre la restauración de bases de datos, consulte [Recuperación de errores de usuario][].
 
 ### Restauración geográfica
 
@@ -78,4 +78,4 @@ Para obtener información sobre las características de continuidad del negocio 
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -101,6 +101,9 @@ Los límites siguientes se aplican al usar el Administrador de recursos de Azure
 
 
 ### Límites de red
+
+[AZURE.INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
 #### Límites de red
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
@@ -256,4 +259,4 @@ Para conocer los límites de Base de datos SQL, vea [Límites de recursos de Bas
 
 [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

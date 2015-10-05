@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux"
-	description="Aprenda a usar Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux en Azure."
+	pageTitle="Creación de una máquina virtual de Linux mediante Azure PowerShell | Microsoft Azure"
+	description="Obtenga información acerca de cómo crear y preconfigurar una máquina virtual Linux con Azure Powershell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,19 +11,23 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux
+# Creación y preconfiguración de una máquina virtual Linux con Azure Powershell
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-En estos pasos se muestra cómo personalizar un conjunto de comandos de Azure PowerShell que creen y configuren de forma previa una máquina virtual de Azure basada en Linux en Administración de servicios mediante un enfoque de bloque de creación. Puede utilizar este proceso para crear un conjunto de comandos para una nueva máquina virtual basada en Linux rápidamente y expandir una implementación existente, o para crear varios conjuntos de comandos que creen rápidamente un entorno de profesionales de TI, o de desarrollo o pruebas.
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+
+Estos pasos muestran cómo usar un conjunto de comandos de Azure PowerShell para crear y preconfigurar una máquina virtual con Linux con el modelo clásico de administración. Puede utilizar este proceso para crear un conjunto de comandos para una nueva máquina virtual basada en Linux rápidamente y expandir una implementación existente, o para crear varios conjuntos de comandos que creen rápidamente un entorno de profesionales de TI, o de desarrollo o pruebas.
 
 En estos pasos se sigue un enfoque consistente en atar cabos para crear conjuntos de comandos de Azure PowerShell. Este enfoque puede ser útil si está familiarizado con Azure PowerShell o desea conocer los valores que debe especificar para una configuración correcta. Los usuarios avanzados de Azure PowerShell pueden tomar los comandos y sustituir sus propios valores para las variables (las líneas que comienzan con "$").
 
@@ -260,4 +264,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

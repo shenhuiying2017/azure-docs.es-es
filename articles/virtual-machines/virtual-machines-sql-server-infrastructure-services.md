@@ -1,22 +1,25 @@
 <properties 
-	pageTitle="Información general de SQL Server en máquinas virtuales de Azure"
-	description="Este artículo proporciona una descripción general de SQL Server que hospeda las Máquinas virtuales IaaS de Azure. Esto incluye vínculos a contenido en profundidad."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="rothja"
+	pageTitle="Información general de SQL Server en máquinas virtuales | Microsoft Azure"
+	description="Este artículo proporciona una descripción general de SQL Server hospedado en máquinas virtuales de Azure. Esto incluye vínculos a contenido en profundidad." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="rothja" 
 	manager="jeffreyg"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
+	ms.workload="infrastructure-services" 
 	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # Información general sobre SQL Server en máquinas virtuales de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
 
 ## Introducción
 Puede hospedar [SQL Server en Máquinas virtuales Azure](http://azure.microsoft.com/services/virtual-machines/sql-server/) en una variedad de configuraciones, que van desde un servidor de base de datos única para una configuración de varios equipo mediante grupos de disponibilidad AlwaysOn y red Virtual de Azure.
@@ -144,4 +147,4 @@ Si crea una máquina virtual mediante una imagen de SQL Server ofrecida por la p
 - [Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Máquinas virtuales de Azure](virtual-machines-about.md) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Diferentes formas de crear una máquina virtual Linux"
-	description="Enumera las distintas formas de crear una máquina virtual Linux y proporciona vínculos a instrucciones."
+	pageTitle="Diferentes formas de crear una máquina virtual Linux | Microsoft Azure"
+	description="Enumera las distintas formas de crear una máquina virtual Linux en Azure y proporciona vínculos a instrucciones adicionales."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -101,4 +101,4 @@ Para usar una imagen basada en una máquina virtual de Azure existente *capture*
 [Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
 [Crear una máquina virtual personalizada]: virtual-machines-create-custom.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

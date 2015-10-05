@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del almacenamiento de colas de Azure con el SDK de WebJobs"
-	description="Obtenga información sobre cómo usar el almacenamiento de colas de Azure con el SDK de WebJobs. Cree y elimine colas; inserte, inspeccione, obtenga y elimine mensajes de la cola y mucho más."
-	services="app-service\web, storage"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Uso del almacenamiento de colas de Azure con el SDK de WebJobs" 
+	description="Obtenga información sobre cómo usar el almacenamiento de colas de Azure con el SDK de WebJobs. Cree y elimine colas; inserte, inspeccione, obtenga y elimine mensajes de la cola y mucho más." 
+	services="app-service\web, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Uso del almacenamiento de colas de Azure con el SDK de WebJobs
@@ -586,4 +586,4 @@ Y en una tabla de Azure, los registros de `Console.Out` y `Console.Error` tienen
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con colas de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

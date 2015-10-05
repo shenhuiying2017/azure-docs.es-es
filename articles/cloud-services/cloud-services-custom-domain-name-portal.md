@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configuración de un nombre de dominio personalizado en Servicios en la nube"
-	description="Aprenda a exponer su aplicación o sus datos de Azure en un dominio personalizado mediante la configuración de sus valores DNS."
+	pageTitle="Configuración de un nombre de dominio personalizado en Servicios en la nube (portal de vista previa) | Microsoft Azure"
+	description="Aprenda a exponer su aplicación o sus datos de Azure en Internet en un dominio personalizado mediante la configuración de sus valores DNS. Estos ejemplos usan el portal de vista previa de Azure."
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
@@ -22,7 +22,7 @@
 - [Azure Portal](cloud-services-custom-domain-name.md)
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
-Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrá tener acceso a la aplicación en una dirección URL como http://*contoso*.cloudapp.net. Azure también asigna una dirección IP virtual.
+Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrá tener acceso a la aplicación en una dirección URL como http://contoso.cloudapp.net. Azure también asigna una dirección IP virtual.
 
 Sin embargo, también puede exponer su aplicación en su propio nombre de dominio, como **contoso.com**. En este artículo se explica cómo reservar o configurar un nombre de dominio personalizado para los roles web de servicio en la nube.
 
@@ -140,8 +140,11 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 
 ## Pasos siguientes
 
--   [Administración de servicios en la nube](cloud-services-how-to-manage.md)
--   [Asignación del contenido de la red CDN a un dominio personalizado](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [Administración de servicios en la nube](cloud-services-how-to-manage.md)
+* [Asignación del contenido de la red CDN a un dominio personalizado](cdn-map-content-to-custom-domain.md)
+* [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
+* Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
+* Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -153,4 +156,4 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

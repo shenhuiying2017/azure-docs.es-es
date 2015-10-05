@@ -13,7 +13,7 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 
 	>[AZURE.WARNING]El cmdlet Switch-AzureMode pronto estará en desuso. Cuando esto suceda, se cambiará el nombre de todos los cmdlets del Administrador de recursos.
 
-3. Si es necesario, ejecute el cmdlet **New-AzureResourceGroup** para crear un nuevo grupo de recursos. El siguiente comando crea un grupo de recursos denominado *TestRG* en la región *Central US* de Azure. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md/#resource-groups).
+3. Si es necesario, ejecute el cmdlet **New-AzureResourceGroup** para crear un nuevo grupo de recursos. El siguiente comando crea un grupo de recursos denominado *TestRG* en la región *Central US* de Azure. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
@@ -101,4 +101,4 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

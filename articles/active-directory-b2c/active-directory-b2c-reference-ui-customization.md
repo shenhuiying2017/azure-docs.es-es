@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: cómo personalizar la interfaz de usuario de Azure AD B2C
@@ -43,11 +43,11 @@ Use nuestra herramienta de aplicación auxiliar (que estará disponible próxima
 
 ## Los elementos de interfaz de usuario principales en cada tipo de página
 
-En esta sección encontrará los fragmentos de HTML5 (para cada tipo de página) que Azure AD B2C combina en el elemento `<div id="api"></div>` que se encuentra en el contenido. Puede usar hojas de estilos para personalizar estos elementos de interfaz de usuario. Estas hojas de estilos pueden invalidar las hojas de estilos predeterminadas que agregamos a estos tipos de páginas en los fragmentos `<head>`.
+En las secciones siguientes encontrará ejemplos de fragmentos HTML5 (para cada tipo de página) que Azure AD B2C combina en el elemento <div id="api"></div> que se encuentra en el contenido. Puede usar sus propias hojas de estilos para personalizar estos elementos de interfaz de usuario. Estas hojas de estilos tendrán que invalidar las hojas de estilos predeterminadas que agregamos en estas páginas en los fragmentos <head>.
 
-> [AZURE.IMPORTANT]Durante la vista previa, tenga en cuenta que cambiarán los elementos exactos de la interfaz de usuario a medida que recibimos sus comentarios y los adaptamos. Inspeccione el código fuente de las páginas predeterminadas para obtener detalles sobre lo siguiente.
+> [AZURE.IMPORTANT]Durante la vista previa, tenga en cuenta que cambiarán los elementos exactos de la interfaz de usuario a medida que recibimos sus comentarios y los adaptamos. Consulte siempre el código fuente de páginas predeterminadas para las actualizaciones más recientes. De hecho, el primer cambio que se va a considerar es la eliminación de nuestras hojas de estilos predeterminadas; esto significa que siempre debe suministrar sus propias hojas de estilos para estos elementos de interfaz de usuario en su contenido.
 
-### Página de selección de proveedores de identidades
+## Página de selección de proveedores de identidades
 
 Esta página contiene una lista de proveedores de identidades que el usuario puede elegir durante el registro o inicio de sesión. Estos son los proveedores de identidades sociales como Facebook y Google+ o cuentas locales (basados en dirección de correo electrónico o nombre de usuario).
 
@@ -75,7 +75,7 @@ Esta página contiene una lista de proveedores de identidades que el usuario pue
 
 ```
 
-### Página de suscripción de la cuenta local
+## Página de suscripción de la cuenta local
 
 Esta página contiene un formulario de registro que el usuario tiene que rellenar al registrarse con una cuenta local basada en dirección de correo electrónico o nombre de usuario. El formulario puede contener diferentes controles de entrada, como cuadro de entrada de texto, cuadro de entrada de contraseña, botón de radio, menús desplegables de selección única y casillas de verificación de selección múltiple.
 
@@ -192,11 +192,11 @@ Esta página contiene un formulario de registro que el usuario tiene que rellena
 
 ```
 
-### Página de suscripción de cuentas sociales
+## Página de suscripción de cuentas sociales
 
 Esta página contiene un formulario de registro que el consumidor tiene que rellenar al registrarse con una cuenta existente de un proveedor de identidades social como Facebook o Google+. Esta página es similar a la página de registro de cuenta local (que se muestra en la sección anterior) con la excepción de los campos de entrada de contraseña.
 
-### Página Multi-factor Authentication
+## Página Multi-factor Authentication
 
 Esta página permite a los usuarios comprobar sus números de teléfono (mediante texto o voz) durante el registro o el inicio de sesión.
 
@@ -242,7 +242,7 @@ Esta página permite a los usuarios comprobar sus números de teléfono (mediant
 
 ```
 
-### Página de error
+## Página de error
 
 
 ```HTML
@@ -276,4 +276,4 @@ Si piensa usar la característica de personalización de la interfaz de usuario 
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

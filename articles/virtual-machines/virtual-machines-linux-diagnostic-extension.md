@@ -1,25 +1,25 @@
 
 <properties
-		pageTitle="Uso de la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de la máquina virtual Linux | Microsoft Azure"
-	description="Aprenda a usar la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de la máquina virtual Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="NingKuang"
-	manager="timlt"
-	editor=""
-	tags=""/>
+		pageTitle="Supervisión de una máquina virtual Linux con una extensión de máquina virtual | Microsoft Azure"
+		description="Obtenga información acerca de cómo usar la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de una máquina virtual Linux en Azure."
+		services="virtual-machines"
+		documentationCenter=""
+  		authors="NingKuang"
+		manager="timlt"
+		editor=""
+  		tags="azure-service-management"/>
 
 <tags
 		ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/20/2015"
-	ms.author="Ning"/>
+		ms.workload="infrastructure-services"
+		ms.tgt_pltfrm="vm-linux"
+		ms.devlang="na"
+		ms.topic="article"
+		ms.date="07/20/2015"
+		ms.author="Ning"/>
 
 
-# Uso de la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de la máquina virtual Linux
+# Uso de la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de una máquina virtual Linux
 
 ## Introducción
 
@@ -34,6 +34,8 @@ Para la versión 2.0, los datos incluyen:
 - Todos los registros de Linux Rsyslog, incluidos los registros del sistema, seguridad y aplicaciones.
 - Todos los datos de sistema especificados en este [documento](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - Archivos de registro especificados por el usuario.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de un recurso con el modelo de implementación clásica.
 
 ## Habilitación de la extensión
 La extensión puede habilitarse a través del [portal de Azure](https://ms.portal.azure.com/#), Azure PowerShell o scripts de la CLI de Azure.
@@ -141,4 +143,4 @@ Si ha habilitado el archivo fileCfg o perfCfg especificado en los escenarios 2 y
 - En la versión 2.0, solo puede tener acceso a la información de Rsyslog y el archivo de registro del cliente especificado a través de scripts.
 - En la versión 2.0, si ha habilitado la extensión de diagnóstico de Linux mediante un script en primer lugar, después no podrá ver los datos desde el portal de Azure. Si habilita primero la extensión desde el portal, los scripts seguirán funcionando.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

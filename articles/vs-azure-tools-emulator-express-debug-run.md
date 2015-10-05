@@ -1,24 +1,24 @@
-<properties 
+<properties
    pageTitle="Uso de Emulator Express para ejecutar y depurar un servicio en la nube en un sistema local | Microsoft Azure"
-	description="Uso de Emulator Express para ejecutar y depurar un servicio en la nube en un sistema local"
-	services="visual-studio-online"
-	documentationCenter="n/a"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Uso de Emulator Express para ejecutar y depurar un servicio en la nube en un sistema local"
+   services="visual-studio-online"
+   documentationCenter="n/a"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 
 # Uso de Emulator Express para ejecutar y depurar un servicio en la nube en un sistema local
 
-Con Emulator Express, puede probar y depurar un servicio en la nube sin ejecutar Visual Studio como administrador. Puede establecer la configuración del proyecto para usar Emulator Express o el emulador completo, según los requisitos de su servicio en la nube. Para obtener más información sobre el emulador completo, consulte [Ejecutar una aplicación de Azure en el emulador de proceso](https://msdn.microsoft.com/library/azure/hh403990.aspx). Emulator Express se incluyó primero en el SDK de Azure 2.1 y, a partir del SDK de Azure 2.3, se ha convertido en el emulador predeterminado.
+Con Emulator Express, puede probar y depurar un servicio en la nube sin ejecutar Visual Studio como administrador. Puede establecer la configuración del proyecto para usar Emulator Express o el emulador completo, según los requisitos de su servicio en la nube. Para obtener más información sobre el emulador completo, consulte [Ejecutar una aplicación de Azure en el emulador de proceso](../storage/storage-use-emulator.md). Emulator Express se incluyó primero en el SDK de Azure 2.1 y, a partir del SDK de Azure 2.3, se ha convertido en el emulador predeterminado.
 
 ## Uso de Emulator Express en el IDE de Visual Studio
 
@@ -54,4 +54,4 @@ Antes de usar Emulator Express, debe tener en cuenta algunas limitaciones:
 
 [Depuración de Servicios en la nube](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

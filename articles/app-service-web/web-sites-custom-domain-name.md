@@ -130,7 +130,7 @@ Los visitantes de su aplicación web no verán el subdominio awverify, este solo
 
 ## Pasos siguientes
 
-Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/dns-getstarted-create-dnszone) y [Delegación de dominios en DNS de Azure](../dns/dns-domain-delegation)
+Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/dns-getstarted-create-dnszone.md) y [Delegación de dominios en DNS de Azure](../dns/dns-domain-delegation.md)
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -147,4 +147,4 @@ Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

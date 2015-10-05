@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Introducción: aprovisionar un Almacenamiento de datos SQL #
@@ -161,6 +161,8 @@ Ahora que se aprovisionó correctamente el servicio Almacenamiento de datos SQL,
 1. [Conectar y consultar][] el almacenamiento de datos.
 2. Cargar [datos de ejemplo].
 
+	> [AZURE.NOTE]Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
+
 <!--Image references-->
 
 
@@ -172,4 +174,4 @@ Ahora que se aprovisionó correctamente el servicio Almacenamiento de datos SQL,
 [evaluación gratuita]: https://azure.microsoft.com/es-ES/pricing/free-trial/
 [portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

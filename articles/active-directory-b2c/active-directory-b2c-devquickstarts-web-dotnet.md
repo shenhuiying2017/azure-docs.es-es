@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: crear una aplicación web de .NET
@@ -24,7 +24,7 @@ Con Azure AD B2C, puede agregar las características de administración de ident
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## 1\. Obtener un directorio B2C de Azure AD
+## 1\. Obtener un directorio de Azure AD B2C
 
 Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, aplicaciones, grupos, etc. Si no tiene uno todavía, vaya a [crear un directorio de B2C](active-directory-b2c-get-started.md) antes de continuar.
 
@@ -36,14 +36,16 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 - Escriba `https://localhost:44316/` como **dirección URL de respuesta**: es la dirección URL predeterminada para este ejemplo de código.
 - Copie el **Id. de aplicación** asignado a la aplicación. Lo necesitará en breve.
 
+    > [AZURE.IMPORTANT]No puede usar aplicaciones registradas en la pestaña **Aplicaciones** del [Portal de Azure](https://manage.windowsazure.com/) con este fin.
+
 ## 3\. Crear sus directivas
 
 En Azure AD B2C, cada experiencia del usuario se define mediante una [**directiva**](active-directory-b2c-reference-policies.md). Este ejemplo de código contiene tres experiencias de identidad: registro, inicio de sesión y editar perfil. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Al crear sus tres directivas, asegúrese de:
 
-- Elija **Registro de id. de usuario** o **Registro de correo electrónico** en la hoja de proveedores de identidad.
-- Elija **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
+- Elegir **Registro de id. de usuario** o **Registro de correo electrónico** en la hoja de proveedores de identidades.
+- Seleccionar **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
 - Elija la notificación de **Nombre para mostrar** como una notificación de aplicación en cada directiva. Puede elegir también otras notificaciones.
-- Copie el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
+- Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
 
 Cuando tenga tres directivas creadas correctamente, estará listo para crear su aplicación.
 
@@ -89,7 +91,7 @@ Luego abra el archivo `web.config` en la raíz del proyecto y escriba los valore
 ...
 ```
 
-Ahora, agregue una "Clase de inicio de OWIN" al proyecto llamado `Startup.cs`. Haga clic con el botón derecho en el proyecto --> **Agregar** --> **Nuevo elemento** --> Buscar "OWIN". Cambie la declaración de clase a `public partial class Startup` (ya hemos implementado parte de esta clase para usted en otro archivo). El middleware de OWIN invocará el método `Configuration(...)` cuando se inicie la aplicación: en este método, realice una llamada a ConfigureAuth(...), donde configuraremos la autenticación para la aplicación.
+Ahora, agregue una "Clase de inicio de OWIN" al proyecto llamado `Startup.cs`. Haga clic con el botón derecho en el proyecto --> **Agregar** --> **Nuevo elemento** --> Busque "OWIN". Cambie la declaración de clase a `public partial class Startup` (ya hemos implementado parte de esta clase para usted en otro archivo). El middleware de OWIN invocará el método `Configuration(...)` cuando se inicie la aplicación: en este método, realice una llamada a ConfigureAuth(...), donde configuraremos la autenticación para la aplicación.
 
 ```C#
 // Startup.cs
@@ -304,9 +306,9 @@ Por último, compile y ejecute su aplicación. Regístrese para la aplicación c
 
 ## 8\. Agregar IDP sociales
 
-Actualmente, la aplicación solo admite la suscripción y el inicio de sesión usuario con lo que se denominan **cuentas locales** (cuentas almacenadas en el directorio de B2C con un nombre de usuario y contraseña). Con Azure AD B2C, puede agregar compatibilidad para otros **proveedores de identidades**, o IDP, sin cambiar nada del código.
+Actualmente, la aplicación solo admite el registro y el inicio de sesión de usuario con lo que se denominan **cuentas locales** (cuentas almacenadas en el directorio de B2C con un nombre de usuario y contraseña). Con Azure AD B2C, puede agregar compatibilidad para otros **proveedores de identidades**, o IDP, sin cambiar nada del código.
 
-Para agregar IDP sociales a su aplicación, comience siguiendo las instrucciones detalladas en uno o dos de estos artículos. Para cada IDP que quiere admitir, necesitará registrar una aplicación en su sistema y obtener un id. de cliente.
+Para agregar IDP sociales a su aplicación, comience siguiendo las instrucciones detalladas en uno o dos de estos artículos. Para cada IDP que quiere admitir, necesitará registrar una aplicación en su sistema y obtener un Id. de cliente.
 
 - [Configurar Facebook como una IDP](active-directory-b2c-setup-fb-app.md)
 - [Configurar Google como una IDP](active-directory-b2c-setup-goog-app.md)
@@ -335,4 +337,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

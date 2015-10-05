@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn en Azure"
+	pageTitle="Configuración de un agente de escucha externo para grupos de disponibilidad AlwaysOn | Microsoft Azure"
 	description="Este tutorial le guiará a través de los pasos necesarios para crear un agente de escucha de grupo de disponibilidad AlwaysOn en Azure que sea accesible desde el exterior usando la dirección IP virtual pública del servicio en la nube asociado."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"
+	tags="azure-service-management" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -22,6 +23,8 @@
 - [External Listener](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 En este tema se muestra cómo configurar un agente de escucha para un grupo de disponibilidad AlwaysOn al que se tiene acceso externo en Internet. Esto se hace posible asociando la dirección **IP Virtual pública (VIP)** del servicio en la nube al agente de escucha.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
 
 El grupo de disponibilidad puede contener réplicas que son solo locales, solo de Azure o abarcan ambas, locales y de Azure, para configuraciones híbridas. Las réplicas de Azure pueden residir en la misma región o en varias regiones mediante varias redes virtuales (VNet). En los pasos siguientes se supone que ya tiene [configurado un grupo de disponibilidad](virtual-machines-sql-server-alwayson-availability-groups-gui.md) pero no un agente de escucha.
 
@@ -122,4 +125,4 @@ Si las réplicas AlwaysOn están en subredes diferentes, los clientes tendrán q
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

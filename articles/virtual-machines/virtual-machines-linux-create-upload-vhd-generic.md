@@ -1,11 +1,12 @@
-<properties 
+<properties
 	pageTitle="Creación y carga de un VHD de Linux en Azure"
 	description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,8 +17,9 @@
 	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
-
 # <a id="nonendorsed"> </a>Información para las distribuciones no aprobadas #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 **Importante**: el contrato de nivel de servicio de la plataforma Azure se aplica a máquinas virtuales que ejecutan el SO Linux solo cuando se usa una de las [distribuciones aprobadas](virtual-machines-../linux-endorsed-distributions.md). Todas las distribuciones de Linux que se ofrezcan en la galería de imágenes de Azure son distribuciones aprobadas con la configuración requerida.
 
@@ -189,4 +191,4 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) (waage
 
 - A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

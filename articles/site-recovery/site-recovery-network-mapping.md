@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Asignación de redes de Site Recovery"
-	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales ubicadas localmente en Azure o en un sitio local secundario."
+	pageTitle="Asignación de redes de Azure Site Recovery | Microsoft Azure"
+	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos ubicados localmente en Azure o en un sitio local secundario."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -17,7 +17,7 @@
 	ms.author="raynew"/>
 
 
-# Asignación de redes de Site Recovery
+# Asignación de redes de Azure Site Recovery
 
 
 Azure Site Recovery contribuye a su estrategia de continuidad de negocio y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores virtuales. Obtenga información acerca de los escenarios de implementación posibles en [Información general sobre Site Recovery](site-recovery-overview.md).
@@ -49,7 +49,7 @@ La manera en que se establece la asignación de redes depende de su escenario de
 
 ## Redes de máquinas virtuales
 
-La red lógica de VMM proporciona una panorámica de la infraestructura de la red física. Las redes de máquinas virtuales proporcionan una interfaz de red para que las máquinas virtuales puedan conectarse a redes lógicas. Una red lógica necesita al menos una red de máquina virtual. Cuando se coloca una máquina virtual en una nube para su protección, debe estar conectado a redes de máquinas virtuales que se vincula a una red lógica asociada a la nube. Obtenga más información en:
+Una red lógica de VMM proporciona una panorámica de la infraestructura de la red física. Las redes de máquinas virtuales proporcionan una interfaz de red para que las máquinas virtuales puedan conectarse a redes lógicas. Una red lógica necesita al menos una red de máquina virtual. Cuando se coloca una máquina virtual en una nube para su protección, debe estar conectado a una red de máquinas virtuales que se vincula a una red lógica asociada a la nube. Obtenga más información en:
 
 - [Redes lógicas (parte 1)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
 - [Redes virtuales en VMM 2012 SP1](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
@@ -121,19 +121,18 @@ Para ver lo que ocurre en el caso de conmutación por recuperación (replicació
 VM1 | VMNetwork1-Network
 VM2 (réplica de VM1) | VMNetwork1-Chicago
 
-Con esta configuración revisemos lo que ocurre en un par de escenarios posibles.
+Con esta configuración, revisemos lo que ocurre en un par de escenarios posibles.
 
 **Escenario** | **Resultado**
 ---|---
-Sin cambios en las propiedades de red de VM-2 después de la conmutación por error | VM-1 sigue estando conectada a la red de origen
-Las propiedades de red de VM-2 cambian después de la conmutación por error y está desconectada | VM-1 se desconecta
-Las propiedades de red de VM-2 cambian después de la conmutación por error y está conectada a VMNetwork2-Chicago | Si no está asignada VMNetwork2-Chicago, se desconectará VM-1
-Se cambia la asignación de redes de VMNetwork1-Chicago | VM-1 se conectará a la red ahora asignada a VMNetwork1-Chicago
+Sin cambios en las propiedades de red de VM-2 después de la conmutación por error. | VM-1 sigue estando conectada a la red de origen
+Las propiedades de red de VM-2 cambian después de la conmutación por error y está desconectada. | VM-1 se desconecta.
+Las propiedades de red de VM-2 cambian después de la conmutación por error y está conectada a VMNetwork2-Chicago. | Si no está asignada VMNetwork2-Chicago, se desconectará VM-1.
+Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a la red ahora asignada a VMNetwork1-Chicago.
 
 
 ## Pasos siguientes
 
 Ahora que tiene una mejor comprensión de la asignación de redes, lea las [prácticas recomendadas](site-recovery-best-practices.md) para preparar la implementación.
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

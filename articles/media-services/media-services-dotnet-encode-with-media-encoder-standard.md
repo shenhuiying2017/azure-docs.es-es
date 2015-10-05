@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"    
+	ms.date="09/20/2015"    
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,6 @@
 Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace.
 
 En este tema se muestra cómo usar .NET para codificar sus recursos con Codificador multimedia estándar. Codificador multimedia estándar se configura mediante uno de los valores preestablecidos descritos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
-
->[AZURE.NOTE]La versión actual del procesador multimedia requiere que se pase una cadena completa XML o JSON como el valor preestablecido de codificación. En breve se dispondrá de soporte técnico para pasar una cadena con nombre como "H264 Multiple Bitrate 720p" a través de una actualización de servicio.
 
 Se recomienda codificar siempre los archivos intermedios en un conjunto de archivos MP4 de velocidad de bits adaptable y, a continuación, convertirlo al formato deseado con el [empaquetado dinámico](media-services-dynamic-packaging-overview.md). Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de Servicios multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
 
@@ -35,7 +33,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 - Crear un trabajo de codificación.
 - Obtener una referencia al codificador Codificador multimedia estándar.
-- Cargar el código XML preestablecido desde uno de los valores preestablecidos mostrados [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+- Especifique que se use el valor preestablecido "H264 Multiple Bitrate 720p". Puede ver todos los valores preestablecidos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). También puede examinar el esquema con el que se deben cumplir estos valores preestablecidos [aquí](https://msdn.microsoft.com/library/mt269962.aspx).
 - Agregar una única tarea de codificación al trabajo. 
 - Especificar el recurso de entrada que se va a codificar.
 - Crear un recurso de salida que contendrá el recurso codificado.
@@ -50,13 +48,12 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 		    // processor to use for the specific task.
 		    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
-		    // Load the XML (or JSON) from the local file
-		    string configuration = File.ReadAllText(pathToLocalPresetFile);
-		
-		    // Create a task
-		    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+
+		    // Create a task with the encoding details, using a string preset.
+		    // In this case "H264 Multiple Bitrate 720p" preset is used.
+		    ITask task = job.Tasks.AddNew("My encoding task",
 		        processor,
-		        configuration,
+		        "H264 Multiple Bitrate 720p",
 		        TaskOptions.None);
 		
 		    // Specify the input asset to be encoded.
@@ -126,6 +123,6 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 ##Otras referencias 
 
-[Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
+[Cómo generar la miniatura mediante Media Encoder Estándar con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Información general de la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

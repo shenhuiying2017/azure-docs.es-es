@@ -1,11 +1,13 @@
 <properties
- pageTitle="Acerca de las características y extensiones de las máquinas virtuales | Microsoft Azure"
- description="Describe muchas de las extensiones de las máquinas virtuales, agrupadas por la función que proporcionan o mejora, como la administración básica y de conectividad."
+ pageTitle="Características y extensiones de las máquinas virtuales | Microsoft Azure"
+ description="Obtenga información acerca de qué extensiones están disponibles para máquinas virtuales de Azure, agrupadas por lo que proporcionan o mejoran."
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management,azure-resource-manager"/>
+
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -16,6 +18,9 @@
  ms.author="rasquill"/>
 #Acerca de las características y extensiones de las máquinas virtuales
 Microsoft Azure proporciona extensiones de máquina virtual creadas por Microsoft y proveedores de terceros de confianza para habilitar seguridad, tiempo de ejecución, administración y otras características que puede aprovechar con el fin de aumentar su productividad con Máquinas virtuales de Azure. En este tema, se describen varias características que las extensiones de máquina virtual de Azure brindan a las máquinas virtuales de Windows y Linux para su uso y apunta a documentación correspondiente a cada una de ellas.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se tratan los recursos creados con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
+
 
 Si desea obtener detalles sobre los agentes de máquina virtual y cómo funcionan para admitir las extensiones de máquina virtual, consulte [Información general sobre el agente de máquina virtual y las extensiones de máquina virtual](https://msdn.microsoft.com/library/dn832621.aspx).
 
@@ -69,7 +74,7 @@ Admite comportamiento y características de administración de operaciones comun
 
 |**Nombre de la extensión de máquina virtual**|Descripción de la característica|Más información|
 |---|---|---|
-|**AzureVmLogCollector**|Puede utilizar la extensión **AzureVMLogCollector** a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del Servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales. |[AzureLogCollector Extension](https://msdn.microsoft.com/library/dn927183.aspx)|
+|**AzureVmLogCollector**|Puede usar la extensión **AzureVMLogCollector** a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del Servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales. |[AzureLogCollector Extension](https://msdn.microsoft.com/library/dn927183.aspx)|
 |**IaaSDiagnostics**|Habilita, deshabilita y configura Diagnósticos de Azure y también la utiliza **AzureCATExtensionHandler** para admitir la supervisión de SAP.|[Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) (Supervisión de máquinas virtuales de Microsoft Azure con la extensión de Diagnósticos de Azure)|
 |**OSPatchingForLinux**|Permite que los administradores de máquinas virtuales de Azure automaticen las actualizaciones del SO de las máquinas virtuales con las configuraciones personalizadas. Puede utilizar la extensión OSPatching para configurar las actualizaciones de SO de las máquinas virtuales, las que incluyen especificar la frecuencia y el momento de instalar las revisiones del SO, especificar las revisiones que se instalarán y configurar el comportamiento de reinicio después de las actualizaciones.|[Entrada de blog sobre las extensiones de revisiones de SO](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Consulte también el archivo Léame y el código fuente en GitHub en [OS Patching Extension](https://github.com/Azure/azure-linux-extensions) (extensión de revisiones de SO).|
 
@@ -96,4 +101,4 @@ Estas extensiones brindan la compatibilidad para otras características de máqu
 |**BGInfo**|Presenta una imagen consolidada de la información útil del servidor en el escritorio cuando se utiliza el protocolo de Escritorio remoto.|[Extensión de BGInfo](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Instala, configura y mantiene los controladores de dispositivos de red para el acceso directo a memoria remota (RDMA) en una máquina virtual de tamaño A8 o A9 que ejecute Windows Server 2012 R2 o Windows Server 2012. Permite que las máquinas virtuales A8 o A9 agrupadas utilicen la red RDMA cuando ejecuten aplicaciones MPI en paralelo.|[Sobre las instancias de proceso intensivo A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Implementación de SQL Server AlwaysOn con una plantilla del Administrador de recursos de Azure | Microsoft Azure"
+	pageTitle="SQL Server AlwaysOn con una plantilla del Administrador de recursos de Azure | Microsoft Azure"
 	description="Implemente fácilmente cinco servidores que admitan SQL Server AlwaysOn con una plantilla del Administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Implementar SQL Server AlwaysOn con una plantilla de Administrador de recursos de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. No puede crear este recurso con el modelo de implementación clásica.
 
 Siga las instrucciones de esta sección para implementar SQL Server AlwaysOn mediante una plantilla del Administrador de recursos de Azure. Esta plantilla crea cinco máquinas virtuales en una nueva red virtual en dos subredes diferentes.
 
@@ -105,4 +107,4 @@ Una vez completada la ejecución de la plantilla, tendrá una nueva configuraci�
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: llamar a una API web desde una aplicación web de .NET
@@ -24,9 +24,9 @@ Con Azure AD B2C, puede agregar las características de administración de ident
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-En este artículo no se trata la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API de web después de que el usuario ya está autenticado. Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
+Este artículo no trata de la implementación de la administración de registros, inicios de sesión y perfiles con Azure AD B2C. Se centra en la llamada a las API web después de que el usuario ya está autenticado. Si no lo ha hecho ya, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) para obtener información sobre los conceptos básicos de Azure AD B2C.
 
-## 1\. Obtener un directorio B2C de Azure AD
+## 1\. Obtener un directorio de Azure AD B2C
 
 Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, aplicaciones, grupos, etc. Si no tiene uno todavía, vaya a [crear un directorio de B2C](active-directory-b2c-get-started.md) antes de continuar.
 
@@ -39,17 +39,19 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 - Cree un **Secreto de aplicación ** para la aplicación y cópielo. Lo necesitará en breve.
 - Copie el **Id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
+    > [AZURE.IMPORTANT]No puede usar aplicaciones registradas en la pestaña **Aplicaciones** del [Portal de Azure](https://manage.windowsazure.com/) con este fin.
+
 ## 3\. Crear sus directivas
 
 En Azure AD B2C, cada experiencia del usuario se define mediante una [**directiva**](active-directory-b2c-reference-policies.md). Esta aplicación web contiene tres experiencias de identidad: registro, inicio de sesión y editar perfil. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Al crear sus tres directivas, asegúrese de:
 
-- Elija **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
-- Elija las notificaciones de aplicación **Nombre para mostrar** e **Id. de objeto** en todas las directivas. Puede elegir también otras notificaciones.
-- Copie el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
+- Seleccionar **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
+- Elegir las notificaciones de aplicación **Nombre para mostrar** e **Id. de objeto** en todas las directivas. Puede elegir también otras notificaciones.
+- Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
 
 Cuando tenga tres directivas creadas correctamente, estará listo para crear su aplicación.
 
-Tenga en cuenta que este artículo no trata cómo usar las directivas que acaba de crear. Si quiere aprender sobre cómo funcionan las directivas en Azure AD B2C, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Tenga en cuenta que este artículo no trata de cómo usar las directivas que acaba de crear. Si quiere aprender cómo funcionan las directivas en Azure AD B2C, debe comenzar con el [tutorial de introducción a las aplicaciones web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## 4\. Descargar el código
 
@@ -61,11 +63,11 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
 
 La aplicación completada también estará [disponible como .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
 
-Cuando haya descargado el código de ejemplo, abra el archivo `.sln` de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskWebApp` y un proyecto `TaskService`. La `TaskWebApp` es el front-end de la aplicación web WPF en la que interactúa el usuario. El `TaskService` es la API web de back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario.
+Una vez descargado el código de ejemplo, abra el archivo `.sln` de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskWebApp` y un proyecto `TaskService`. `TaskWebApp` es el front-end de la aplicación web WPF con la que el usuario interactúa. `TaskService` es la API web de back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario.
 
 ## 5\. Configurar el servicio de tarea
 
-Cuando el `TaskService` recibe solicitudes de la `TaskWebApp`, busca un token de acceso válido para autenticar la solicitud. Para validar el token de acceso, debe proporcionar al `TaskService` algo de información sobre la aplicación. En el proyecto `TaskService`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`:
+Cuando el `TaskService` recibe solicitudes del `TaskWebApp`, busca un token de acceso válido para autenticar la solicitud. Para validar el token de acceso, debe proporcionar al `TaskService` algo de información sobre la aplicación. En el proyecto `TaskService`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`:
 
 ```
 <appSettings>
@@ -106,7 +108,7 @@ In order for the `TaskWebApp` to communicate with Azure AD B2C, there are a few 
 </appSettings>
 ```     
 
-Hay dos decoradores `[PolicyAuthorize]` en los que debe ofrecer su nombre de la directiva de inicio de sesión. El atributo `[PolicyAuthorize]` se usa para invocar una directiva concreta cuando el usuario intenta obtener acceso a una página en la aplicación que requiere autenticación.
+Hay también dos decoradores `[PolicyAuthorize]` en los que tiene que indicar el nombre de la directiva de inicio de sesión. El atributo `[PolicyAuthorize]` se usa para invocar una directiva concreta cuando el usuario intenta acceder a una página en la aplicación que requiere autenticación.
 
 ```C#
 // Controllers\HomeController.cs
@@ -206,15 +208,15 @@ public partial class Startup
 
 La aplicación web está configurada ahora para autenticar al usuario con su directorio de B2C y para recibir un código de autorización de Azure AD. El siguiente paso es intercambiar este código de autorización para un token de acceso desde Azure AD.
 
-Siempre que sus aplicaciones web de .NET tengan que obtener tokens de acceso de Azure AD, puede usar la **biblioteca de autenticación de Active Directory (ADAL)**. No tiene que usar ADAL para este proceso, pero ADAL lo facilita al encargarse de muchos detalles, como el envío de mensajes de autenticación de OAuth 2.0, el almacenamiento en caché y la actualización de los tokens.
+Siempre que sus aplicaciones web de .NET tengan que obtener tokens de acceso de Azure AD, puede usar la **Biblioteca de autenticación de Active Directory (ADAL)**. No tiene que usar ADAL para este proceso, pero ADAL lo facilita al encargarse de muchos detalles, como el envío de mensajes de autenticación de OAuth 2.0, el almacenamiento en caché y la actualización de los tokens.
 
-En primer lugar, instale AAL en el proyecto de `TaskWebApp` mediante la Consola del administrador de paquetes una vez más:
+En primer lugar, instale ADAL en el proyecto de `TaskWebApp` mediante la Consola del Administrador de paquetes una vez más:
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskWebApp -IncludePrerelease
 ```
 
-Ahora debe pasar el código de autorización a ADAL para que pueda enviarle tokens. El middleware de OpenID Connect de OWIN ofrece una notificación para que pueda usar este código de autorización; la notificación se desencadenará cada vez que la aplicación reciba un código de autorización de Azure AD. En `App_Start\Startup.Auth.cs`, implemente el controlador de notificaciones `OnAuthorizationCodeReceived` mediante AAL:
+Ahora debe pasar el código de autorización a ADAL para que pueda enviarle tokens. El middleware de OpenID Connect de OWIN ofrece una notificación para que pueda usar este código de autorización; la notificación se desencadenará cada vez que la aplicación reciba un código de autorización de Azure AD. En `App_Start\Startup.Auth.cs`, implemente el controlador de notificaciones `OnAuthorizationCodeReceived` mediante ADAL:
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -243,7 +245,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 #### Obtener un token de acceso en los controladores
 
-Ahora que hemos adquirido un token de acceso para el back-end de `TaskService` y lo hemos almacenado en la caché de tokens de ADAL, necesitamos usarla realmente. El `TasksController` es responsable de comunicarse con la API de `TaskService` y envía solicitudes HTTP a la API para que lea, cree y elimine tareas. Antes de enviar una solicitud HTTP, obtenga un token de acceso de ADAL:
+Ahora que tenemos un token de acceso para el back-end de `TaskService` y ya lo almacenamos en la caché de tokens de ADAL, hemos de usarlo realmente. El `TasksController` es responsable de comunicarse con la API de `TaskService` y envía solicitudes HTTP a la API para que lea, cree y elimine tareas. Antes de enviar una solicitud HTTP, obtenga un token de acceso de ADAL:
 
 ```C#
 // Controllers\TasksController.cs
@@ -276,11 +278,11 @@ public async Task<ActionResult> Index()
 }
 ``` 
 
-ADAL se encargará del almacenamiento en caché de los tokens, de su actualización cuando expiren y de indicarle cuándo debe el usuario iniciar sesión de nuevo generando excepciones. Todo lo que necesita hacer es llamar a `AuthenticationContext.AcquireTokenSilentAsync(...)` cada vez que necesite un token en la aplicación.
+ADAL se encargará del almacenamiento en caché de los tokens, de su actualización cuando expiren y de indicarle cuándo debe el usuario iniciar sesión de nuevo generando excepciones. Todo lo que tiene que hacer es llamar a `AuthenticationContext.AcquireTokenSilentAsync(...)` cada vez que necesite un token en la aplicación.
 
 #### Leer tareas de la API web
 
-Ahora que tiene un token, puede adjuntarlo en la solicitud HTTP GET en el encabezado `Authorization` para llamar de forma segura al `TaskService`:
+Ahora que tiene un token, puede asociarlo a la solicitud HTTP GET en el encabezado de `Authorization` para llamar de forma segura al `TaskService`:
 
 ```C#
 // Controllers\TasksController.cs
@@ -331,7 +333,7 @@ public async Task<ActionResult> Index()
 
 #### Crear y eliminar tareas de la API web
 
-Puede seguir el mismo patrón exacto en el envío de solicitudes POST y DELETE al `TaskService`. Solo tiene que llamar a `AuthenticationContext.AcquireTokenSilentAsync(...)` y adjuntar el token resultante a la solicitud en el encabezado de `Authorization`. Hemos implementado la acción `Create` automáticamente. Intente finalizar la acción `Delete` en `TasksController.cs` usted mismo.
+Puede seguir exactamente el mismo patrón en el envío de solicitudes POST y DELETE al `TaskService`. Solo tiene que llamar a `AuthenticationContext.AcquireTokenSilentAsync(...)` y asociar el token resultante a la solicitud en el encabezado de `Authorization`. La acción `Create` se implementó automáticamente. Intente finalizar usted mismo la acción `Delete` en `TasksController.cs`.
 
 ## 8\. Cerrar la sesión del usuario
 
@@ -362,9 +364,9 @@ public void SignOut()
 
 ## 9\. Ejecutar la aplicación de ejemplo
 
-Por último, compile y ejecute tanto el `TaskClient` como el `TaskService`. Regístrese o inicie sesión en la aplicación y cree tareas para el usuario que ha iniciado sesión. Cierre sesión y vuelva a iniciarla como otro usuario, creando tareas para ese usuario. Observe cómo se almacenan las tareas por usuario en la API, puesto que la API extrae la identidad del usuario del token de acceso que recibe.
+Por último, compile y ejecute tanto el `TaskClient` como el `TaskService`. Regístrese o inicie sesión en la aplicación y cree tareas para el usuario que ha iniciado sesión. Cierre sesión y vuelva a iniciarla como otro usuario, y cree tareas para ese usuario. Observe cómo se almacenan las tareas por usuario en la API, puesto que la API extrae la identidad del usuario del token de acceso que recibe.
 
-Como referencia, el ejemplo finalizado [se proporciona en forma de archivo .zip aquí](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip), aunque también puede clonarlo desde GitHub:
+Como referencia, el ejemplo completado [se ofrece aquí en forma de archivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip), aunque también puede clonarlo desde GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
 
@@ -380,4 +382,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

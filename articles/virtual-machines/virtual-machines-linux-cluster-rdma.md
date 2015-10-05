@@ -1,25 +1,28 @@
 <properties
- pageTitle="Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI | Microsoft Azure"
-	description="Obtenga información acerca de cómo crear un clúster de máquinas virtuales de tamaño A8 o A9 para usar RDMA para ejecutar aplicaciones MPI."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+ pageTitle="Clúster de Linux RDMA para ejecutar aplicaciones MPI | Microsoft Azure"
+ description="Cree un clúster de máquinas virtuales de tamaño A8 o A9 para usar RDMA para ejecutar aplicaciones MPI."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="07/17/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-linux"
+ ms.workload="infrastructure-services"
+ ms.date="09/21/2015"
+ ms.author="danlep"/>
 
 # Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la configuración de recursos con el modelo de implementación clásica.
+
 En este artículo se muestra cómo configurar un clúster de Linux RDMA en Azure con [máquinas virtuales de tamaño A8 y A9](virtual-machines-a8-a9-a10-a11-specs.md) para ejecutar aplicaciones de interfaz de paso de mensajes (MPI) paralelas. Al configurar máquinas virtuales de tamaño A8 y A9 basadas en Linux para ejecutar una implementación de MPI compatible, las aplicaciones de MPI se comunican eficazmente a través de una red de latencia baja y alto rendimiento en Azure basada en tecnología de acceso directo a memoria remota (RDMA).
 
->[AZURE.NOTE]Actualmente Azure Linux RDMA es compatible la versión 5.0 de la biblioteca de MPI Intel que se ejecuta en SUSE Linux Enterprise Server 12 (SLES 12).
+>[AZURE.NOTE]Actualmente Azure Linux RDMA es compatible con la versión 5 de la biblioteca de MPI Intel que se ejecuta en SUSE Linux Enterprise Server 12 (SLES 12). Este artículo se basa en Intel MPI versión 5.0.3.048.
 >
 > Azure también ofrece instancias de cálculo intensivas A10 y A11, con capacidades de procesamiento idénticas a las de las instancias A8 y A9, pero sin una conexión a una red back-end RDMA. Para ejecutar cargas de trabajo MPI en Azure, por lo general, obtendrá mejor rendimiento con las instancias A8 y A9.
 
@@ -28,11 +31,11 @@ En este artículo se muestra cómo configurar un clúster de Linux RDMA en Azure
 
 A continuación se facilitan métodos que puede usar para crear un clúster de Linux RDMA con o sin un programador de trabajos.
 
-* **HPC Pack**: puede crear un clúster de Microsoft HPC Pack en Azure y agregar nodos de proceso que ejecuten distribuciones de Linux compatibles (compatibles a partir de la HPC Pack 2012 R2 Update 2). Algunos nodos de Linux pueden configurarse para tener acceso a la red RDMA. Consulte la [Documentación de HPC Pack](http://go.microsoft.com/fwlink/?LinkId=617894) para comenzar.
+* **HPC Pack**: cree un clúster de Microsoft HPC Pack en Azure y agregue nodos de proceso que ejecuten distribuciones de Linux compatibles (el nodo de proceso de Linux se inicia en la HPC Pack 2012 R2 Update 2). Algunos nodos de Linux pueden configurarse para tener acceso a la red RDMA. Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster.md)
 
-* **Scripts de CLI de Azure**: puede usar la [Interfaz de línea de comandos de Azure](../xplat-cli.md) (CLI) para Mac, Linux y Windows para crear sus propios scripts para implementar una red virtual y los demás componentes necesarios para crear un clúster de Linux. La CLI en modo Administración de servicios de Azure (asm) implementará los nodos del clúster en serie, por lo que si va a implementar muchos nodos de proceso, es posible que se tarden varios minutos en completar la implementación. Consulte los pasos del resto de este artículo para obtener un ejemplo.
+* **Scripts de CLI de Azure**: como se muestra en los pasos del resto del artículo, use la [Interfaz de línea de comandos de Azure](../xplat-cli.md) (CLI) para Mac, Linux y Windows para crear los scripts para implementar una red virtual y los demás componentes necesarios para crear un clúster de Linux. La CLI en modo de implementación (Administración de servicios) clásico crea los nodos del clúster en serie, por lo que si va a implementar muchos nodos de proceso, es posible que se tarden varios minutos en completar la implementación.
 
-* **Plantillas de Administrador de recursos de Azure**: mediante la creación de un archivo de plantilla JSON sencilla de Administrador de recursos de Azure y la ejecución de comandos en modo arm de la CLI de Azure o mediante el uso del Portal de vista previa de Azure, puede implementar varias máquinas virtuales Linux A8 y A9 y definir redes virtuales, direcciones IP estáticas, configuraciones DNS y otros recursos para crear un clúster de proceso que pueda aprovechar la red RDMA y ejecutar cargas de trabajo MPI. También puede [crear su propia plantilla](../resource-group-authoring-templates.md) o consultar la [página de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para obtener plantillas proporcionadas por Microsoft o la comunidad para implementar la solución que desee. Las plantillas del Administrador de recursos generalmente proporcionan la manera más rápida y confiable de implementar un clúster de Linux.
+* **Plantillas de Administrador de recursos de Azure**: mediante la creación de un archivo de plantilla JSON sencilla de Administrador de recursos de Azure y la ejecución de comandos de la CLI de Azure para el Administrador de recursos o mediante el uso del Portal de vista previa de Azure, implementa varias máquinas virtuales Linux A8 y A9 y define redes virtuales, direcciones IP estáticas, configuraciones DNS y otros recursos para crear un clúster de proceso que pueda aprovechar la red RDMA y ejecutar cargas de trabajo MPI. También puede [crear su propia plantilla](../resource-group-authoring-templates.md) o consultar la [página de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para obtener plantillas proporcionadas por Microsoft o la comunidad para implementar la solución que desee. Las plantillas del Administrador de recursos generalmente proporcionan la manera más rápida y confiable de implementar un clúster de Linux.
 
 ## Implementación en Administración de servicios de Azure con scripts de CLI de Azure
 
@@ -40,18 +43,19 @@ Los pasos siguientes le ayudarán a la CLI de Azure a implementar una máquina v
 
 ### Requisitos previos
 
-* **Equipo cliente**: necesitará un equipo cliente basado en Mac, Linux o Windows para comunicarse con Azure.
+*   **Equipo cliente**: necesitará un equipo cliente basado en Mac, Linux o Windows para comunicarse con Azure. Estos pasos se supone que está usado un cliente Linux.
 
-* **Suscripción a Azure:** si no tiene ninguna cuenta, puede crear una cuenta de evaluación gratuita en un par de minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+*   **Suscripción a Azure:** si no tiene ninguna cuenta, puede crear una cuenta de evaluación gratuita en un par de minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-* **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos para implementar un clúster de máquinas virtuales A8 o A9. Por ejemplo, necesitará al menos 128 núcleos si desea implementar máquinas virtuales A8 o A9 tal y como se muestra en este artículo. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
+*   **Cuota de núcleos**: es posible que tenga que aumentar la cuota de núcleos para implementar un clúster de máquinas virtuales A8 o A9. Por ejemplo, necesitará al menos 128 núcleos si desea implementar máquinas virtuales A8 o A9 tal y como se muestra en este artículo. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
-* **CLI de Azure** - [Instale](../xplat-cli-install.md) el CLI de Azure y [configúrelo](../xplat-cli-connect.md) para usar su suscripción de Azure en el equipo cliente.
+*   **CLI de Azure**: [instale](../xplat-cli-install.md) la CLI de Azure y [configúrela](../xplat-cli-connect.md) para conectarse a su suscripción de Azure en el equipo cliente.
 
+*   **Intel MPI**: como parte de la personalización de una imagen de máquina virtual de Linux para el clúster (consulte los detalles más adelante en este artículo), descargue e instale el tiempo de ejecución de la biblioteca de MPI Intel 5.0 desde el sitio [Intel.com](https://software.intel.com/es-ES/intel-mpi-library/) en una máquina virtual de Azure que haya aprovisionado. Para prepararse, después de registrarse con Intel, siga el vínculo del correo electrónico de confirmación a la página web relacionada y copie el vínculo de descarga para el archivo .tgz para obtener la versión adecuada de Intel MPI. Este artículo se basa en Intel MPI versión 5.0.3.048.
 
 ### Aprovisionar una máquina virtual SLES 12
 
-Después de iniciar sesión en Azure con la CLI de Azure, ejecute el comando `azure config list` para confirmar que la CLI está en modo de Administración de servicios de Azure (asm). Si no es así, ejecute este comando para establecer el modo:
+Después de iniciar sesión en Azure con la CLI de Azure, ejecute `azure config list` para confirmar que la salida muestra el modo **asm**, lo que indica que la CLI está en modo de Administración de servicios de Azure. Si no es así, ejecute este comando para establecer el modo:
 
 ```
 azure config mode asm
@@ -65,11 +69,11 @@ azure account list
 
 La suscripción activa actual se identificará con `Current` establecido en `true`. Si esta no es la suscripción que desea usar para crear el clúster, establezca el número de suscripción adecuado como la suscripción activa:
 
-```he
+```
 azure account set <subscription-number>
 ```
 
-Para ver las imágenes de SLES 12 HPC disponibles públicamente en Azure, ejecute un comando similar al siguiente, si el entorno de shell admite **grep**:
+Para ver las imágenes de SLES 12 HPC disponibles públicamente en Azure, ejecute un comando similar al siguiente, asumiendo que el entorno de shell admite **grep**:
 
 ```
 azure vm image list | grep "suse.*hpc"
@@ -80,91 +84,95 @@ azure vm image list | grep "suse.*hpc"
 Ahora aprovisione una máquina virtual de tamaño A9 con una imagen de SLES 12 HPC disponible mediante la ejecución de un comando similar al siguiente:
 
 ```
-azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 10004 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
+azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
 ```
 
 donde
 
 * el tamaño (A9 en este ejemplo) puede ser A8 o A9
 
-* el número de puerto externo de SSH (10004 en este ejemplo) es cualquier número de puerto válido; el número de puerto interno de SSH se establecerá en 22
+* el número de puerto externo de SSH (22 en este ejemplo, que es el valor predeterminado de SSH) es cualquier número de puerto válido; el número de puerto interno de SSH se establecerá en 22
 
 * se creará un nuevo servicio en la nube en la región de Azure especificada por la ubicación; especifique una ubicación como "Oeste de EE. UU." en la que estén disponibles las instancias A8 y A9
 
-* el nombre de la imagen actualmente puede ser `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` (de forma gratuita) o `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` para que disponga de compatibilidad con SUSE (se aplicarán cargos)
+* el nombre de la imagen actualmente puede ser `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` (de forma gratuita) o `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` para que disponga de compatibilidad con SUSE (se aplican cargos)
 
 ### Personalización de la máquina virtual
 
-Después de que la máquina virtual complete el aprovisionamiento, SSH a la máquina virtual con la dirección IP externa de la máquina virtual (o el nombre DNS) y el número de puerto externo que ha configurado y personalícelo. Para obtener detalles de la conexión, consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md).
+Después de que la máquina virtual complete el aprovisionamiento, SSH a la máquina virtual con la dirección IP externa de la máquina virtual (o el nombre DNS) y el número de puerto externo que ha configurado y personalícelo. Para obtener detalles de la conexión, consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md). Debe ejecutar los comandos como usuario que haya configurado en la máquina virtual, a menos que se requiera el acceso a la raíz para completar un paso.
 
->[AZURE.NOTE]Microsoft Azure no proporciona acceso a la raíz a máquinas virtuales de Linux. Para obtener acceso administrativo al conectarse como un usuario puede usar `sudo –s`.
+>[AZURE.IMPORTANT]Microsoft Azure no proporciona acceso a la raíz a máquinas virtuales de Linux. Para obtener acceso administrativo al conectarse como un usuario a la máquina virtual, ejecute los comandos mediante `sudo`.
 
-**Actualizaciones**: puede instalar actualizaciones mediante **zypper** y también utilidades NFS.
+*   **Actualizaciones**: instale las actualizaciones mediante **zypper**. También puede instalar utilidades NFS.  
 
->[AZURE.IMPORTANT]En este momento es recomendable no aplicar actualizaciones de kernel, que pueden causar problemas con los controladores de RDMA de Linux.
+    >[AZURE.IMPORTANT]En este momento es recomendable no aplicar actualizaciones de kernel, que pueden causar problemas con los controladores de RDMA de Linux.
 
-**Intel MPI**: descargue e instale el tiempo de ejecución de la biblioteca de MPI Intel 5.0 desde el [sitio Intel.com](https://software.intel.com/es-ES/intel-mpi-library/). Después de registrarse con Intel, siga el vínculo del correo electrónico de confirmación a la página web relacionada y copie el vínculo de descarga para el archivo .tgz para obtener la versión adecuada de Intel MPI.
+*   **Intel MPI**: descargue e instale el tiempo de ejecución de la biblioteca de MPI Intel 5 desde el sitio Intel.com mediante la ejecución de comandos similar a la siguiente.
 
-Ejecute comandos similares al siguiente para instalar Intel MPI en la máquina virtual:
+    ```
+    sudo wget <download link for your registration>
 
-```
+    sudo tar xvzf <tar-file>
 
-$ wget <download link for your registration>
-$ tar xvzf <tar-file>
-$ cd <mpi-directory>
-$ sudo ./install.sh
-```
+    cd <mpi-directory>
 
-**Bloquear memoria**: para que los códigos de MPI bloqueen la memoria disponible para RDMA, necesitará agregar o cambiar la configuración siguiente en el archivo /etc/security/limits.conf:
+    sudo ./install.sh
 
-```
-<User or group name> hard    memlock <memory required for your application in KB>
-<User or group name> soft    memlock <memory required for your application in KB>
-```
+    ```
 
->[AZURE.NOTE]Para realizar pruebas, también puede establecer memlock en ilimitado. Por ejemplo: `<User or group name>    hard    memlock unlimited`.
+    Acepte la configuración predeterminada para instalar Intel MPI en la máquina virtual.
+
+*   **Bloquear memoria**: para que los códigos de MPI bloqueen la memoria disponible para RDMA, necesitará agregar o cambiar la configuración siguiente en el archivo /etc/security/limits.conf: (Necesitará acceso de raíz para editar este archivo).
+
+    ```
+    <User or group name> hard    memlock <memory required for your application in KB>
+
+    <User or group name> soft    memlock <memory required for your application in KB>
+    ```
+
+    >[AZURE.NOTE]Para realizar pruebas, también puede establecer memlock en ilimitado. Por ejemplo: `<User or group name>    hard    memlock unlimited`.
 
 
-**Claves SSH**: establecer la confianza para el nombre de usuario y la contraseña que usó para crear esta máquina virtual entre todos los nodos de proceso en el clúster. Use el comando siguiente para crear claves SSH:
+*   **Claves SSH**: generar claves SSH para establecer la confianza para la cuenta de usuario entre todos los nodos de proceso del clúster al ejecutar trabajos MPI. Ejecute el comando siguiente para crear claves SSH. Presione Entrar para generar las claves en la ubicación predeterminada sin tener que establecer una frase de contraseña.
 
-```
-$ ssh-keygen
-```
+    ```
+    ssh-keygen
+    ```
 
-Guarde la clave pública en una ubicación predeterminada y recuerde la frase de contraseña especificada.
+    Agregue la clave pública al archivo authorized\_keys para las claves públicas conocidas.
 
-```
-$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-```
+    ```
+    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    ```
 
-En el directorio ~/.ssh, edite o cree el archivo ssh\_config. Proporcione el intervalo de direcciones IP de la red privada que va a usar en Azure:
+    En el directorio ~/.ssh, edite o cree el archivo ssh\_config. Proporcione el intervalo de direcciones IP de la red privada que va a usar en Azure (10.32.0.0/16 en este ejemplo):
 
-```
-host 10.32.0.*
-StrictHostKeyChecking no
-```
+    ```
+    host 10.32.0.*
+    StrictHostKeyChecking no
+    ```
 
-O bien, puede especificar la dirección IP de red privada de cada máquina virtual en el clúster como sigue:
+    O bien, especifique la dirección IP de red privada de cada máquina virtual en el clúster como sigue:
 
-```
-host 10.32.0.1
- StrictHostKeyChecking no
-host 10.32.0.2
- StrictHostKeyChecking no
-host 10.32.0.3
- StrictHostKeyChecking no
-```
+    ```
+    host 10.32.0.1
+     StrictHostKeyChecking no
+    host 10.32.0.2
+     StrictHostKeyChecking no
+    host 10.32.0.3
+     StrictHostKeyChecking no
+    ```
 
->[AZURE.NOTE]Configurar `StrictHostKeyChecking no` puede crear un riesgo de seguridad si no se especifica una dirección IP específica o un intervalo como se mostró anteriormente.
+    >[AZURE.NOTE]Configurar `StrictHostKeyChecking no` puede crear un riesgo de seguridad si no se especifica una dirección IP específica o un intervalo como se mostró en estos ejemplos.
 
-**Aplicaciones**: copie todas las aplicaciones que necesite en esta máquina virtual o realice otras personalizaciones antes de capturar la imagen.
+* **Aplicaciones**: instale todas las aplicaciones que necesite en esta máquina virtual o realice otras personalizaciones antes de capturar la imagen.
 
 ### Capturar la imagen
 
-Para capturar la imagen, primero ejecute el comando siguiente en la máquina virtual de Linux:
+Para capturar la imagen, primero ejecute el comando siguiente en la máquina virtual de Linux: Esto desaprovisiona la máquina virtual, pero mantiene las cuentas de usuario y las claves SSH que configure.
 
 ```
-$ sudo waagent -deprovision
+sudo waagent -deprovision
 ```
 
 A continuación, desde el equipo cliente, ejecute los siguientes comandos de CLI de Azure para capturar la imagen. Consulte [Captura de una máquina virtual de Linux para usar como plantilla](virtual-machines-linux-capture-image.md) para obtener detalles.
@@ -176,55 +184,56 @@ azure vm capture -t <vm-name> <image-name>
 
 ```
 
-Después de ejecutar estos comandos, se capturará la imagen de máquina virtual para su uso y se eliminará la máquina virtual. Ahora tiene la imagen personalizada lista para implementar un clúster.
+Después de ejecutar estos comandos, se captura la imagen de máquina virtual para su uso y se elimina la máquina virtual. Ahora tiene la imagen personalizada lista para implementar un clúster.
 
 ### Implementar un clúster con la imagen
 
-Modifique el script siguiente con los valores apropiados para su entorno y ejecútelo desde el equipo cliente. Debido a que el método de implementación de ASM implementa las máquinas virtuales en serie, tardará unos minutos en implementar las máquinas virtuales A8 y A9 sugeridas en este script.
+Modifique el script Bash siguiente con los valores apropiados para su entorno y ejecútelo desde el equipo cliente. Debido a que el método de implementación de Service Management implementa las máquinas virtuales en serie, tardará unos minutos en implementar las máquinas virtuales A8 y A9 sugeridas en este script.
 
 ```
-### Script to create a compute cluster without a scheduler in a VNet in Azure
-### Create a custom private network in Azure
-### Replace 10.32.0.0 with your virtual network address space
-### Replace <network-name> with your network identifier
-### Select a region where A8 and A9 VMs are available, such as West US
-### See Azure Pricing pages for prices and availability of A8 and A9 VMs
+#!/bin/bash -x
+# Script to create a compute cluster without a scheduler in a VNet in Azure
+# Create a custom private network in Azure
+# Replace 10.32.0.0 with your virtual network address space
+# Replace <network-name> with your network identifier
+# Select a region where A8 and A9 VMs are available, such as West US
+# See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
 azure network vnet create -l "West US" -e 10.32.0.0 -i 16 <network-name>
 
-### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
-### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
+# Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
+# Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
 
 azure service create <cloud-service-name> --location "West US" –s <subscription-ID>
 
-### Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
+# Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
 
 vmname=cluster
 
-### Define a prefix for external port numbers. If you want to turn off external ports and use only internal ports to communicate between compute nodes via port 22, don’t use this option. Since port numbers up to 10000 are reserved, use numbers after 10000. Leave external port on for rank 0 and head node.
+# Define a prefix for external port numbers. If you want to turn off external ports and use only internal ports to communicate between compute nodes via port 22, don’t use this option. Since port numbers up to 10000 are reserved, use numbers after 10000. Leave external port on for rank 0 and head node.
 
 portnumber=101
 
-### In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>.
+# In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>. Specify the username and password you used when creating the SSH keys.
 
 for (( i=11; i<19; i++ )); do
         azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
-### Save this script and run it at the CLI prompt to provision your cluster
+# Save this script with a name like makecluster.sh and run it in your shell environnment to provision your cluster
 ```
-
 ## Configurar y ejecutar Intel MPI
 
-Para ejecutar aplicaciones de MPI en Azure Linux RDMA, necesitará configurar ciertas variables de entorno específicas de Intel MPI. A continuación se muestra un script de ejemplo para configurar las variables y ejecutar una aplicación.
+Para ejecutar aplicaciones de MPI en Azure Linux RDMA, necesitará configurar ciertas variables de entorno específicas de Intel MPI. A continuación se muestra un script Bash de ejemplo para configurar las variables y ejecutar una aplicación.
 
 ```
 #!/bin/bash -x
+
 source /opt/intel/impi_latest/bin64/mpivars.sh
 
 export I_MPI_FABRICS=shm:dapl
 
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+# THIS IS A MANDATORY ENVIRONMENT VARIABLEAND MUST BE SET BEFORE RUNNING ANY JOB
 # Setting the variable to shm:dapl gives best performance for some applications
 # If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
 
@@ -243,23 +252,44 @@ mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path
 #end
 ```
 
-El formato del archivo host es el siguiente. Agregue una línea para cada nodo del clúster. Especifique las direcciones IP privadas de la red virtual definida anteriormente, no los nombres DNS.
+El formato del archivo host es el siguiente. Agregue una línea para cada nodo del clúster. Especifique las direcciones IP privadas de la red virtual definida anteriormente, no los nombres DNS. Por ejemplo, para dos hosts con direcciones IP 10.32.0.1 y 10.32.0.2, el archivo contiene lo siguiente:
 
 ```
-private ip address1:16 [e.g. 10.32.0.1:16]
-private ip address2:16
-...
+10.32.0.1:16
+10.32.0.2:16
 ```
 
 ## Comprobar un clúster de dos nodos básico después de instalar Intel MPI
 
-Puede ejecutar los siguientes comandos de MPI Intel para comprobar la configuración del clúster mediante una prueba comparativa de pingpong.
+Si aún no lo hizo, configure primero el entorno para Intel MPI.
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+source /opt/intel/impi_latest/bin64/mpivars.sh
 ```
 
-Debería ver un resultado similar al siguiente en un clúster de trabajo con dos nodos:
+### Ejecución de un comando simple de MPI
+
+Ejecute un comando simple de MPI en uno de los nodos de proceso para mostrar que MPI se instaló correctamente y puede comunicarse entre al menos dos nodos de proceso. El siguiente comando **mpirun** ejecuta el comando **hostname** en los dos nodos.
+
+```
+/opt/intel/impi_latest/bin64/mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
+```
+La salida debe enumerar los nombres de todos los nodos que se pasaron como entrada para `-hosts`. Por ejemplo, un comando **mpirun** con dos nodos devolverá un resultado similar al siguiente:
+
+```
+cluster11
+cluster12
+```
+
+### Ejecución de una prueba comparativa de MPI
+
+El siguiente comando de Intel MPI comprueba la configuración del clúster y la conexión a la red RDMA mediante el uso de un banco de pruebas de pinpón.
+
+```
+/opt/intel/impi_latest/bin64/mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+```
+
+Debería ver un resultado similar al siguiente en un clúster de trabajo con dos nodos: En la red RDMA de Azure, se espera una latencia igual o inferior a 3 microsegundos para los tamaños de mensaje de hasta 512 bytes.
 
 ```
 #------------------------------------------------------------
@@ -339,4 +369,4 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/es-ES/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

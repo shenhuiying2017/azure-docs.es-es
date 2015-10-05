@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Desasociación de un disco de una máquina virtual con Linux en Azure"
+	pageTitle="Desacoplamiento de un disco desde una máquina virtual de Linux | Microsoft Azure"
 	description="Obtenga información acerca de cómo desconectar un disco de datos de una máquina virtual de Azure creada mediante el modelo de implementación clásica."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,7 @@
 
 # Desacoplamiento de un disco de una máquina virtual de Linux
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la desconexión de un VHD con el modelo de implementación clásica.
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -28,4 +29,4 @@
 
 [Uso de la CLI de Azure con la API de administración de servicios](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

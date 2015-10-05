@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell"
-	description="Creación y administración de un grupo de bases de datos SQL elásticas de Azure mediante PowerShell"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell" 
+   description="Creación y administración de un grupo de bases de datos SQL elásticas de Azure mediante PowerShell" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="adamkr; sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/23/2015"
+   ms.author="adamkr; sstein"/>
 
 # Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell
 
@@ -240,4 +240,4 @@ Tras la creación de un grupo de bases de datos elásticas, puede administrar la
 
 Para obtener información detallada acerca de los grupos y las bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

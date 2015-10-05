@@ -1,38 +1,24 @@
 <properties
    pageTitle="Supervisión de la carga de trabajo mediante DMV | Microsoft Azure"
-	description="Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/06/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="sahajs"/>
 
 # Supervisión de la carga de trabajo mediante DMV
 
 En este artículo se describe cómo usar las vistas de administración dinámica (DMV) para supervisar la carga de trabajo e investigar la ejecución de la consulta en Almacenamiento de datos SQL de Azure.
-
-
-
-
-## Permisos
-
-En Almacenamiento de datos SQL, para consultar una vista de administración dinámica, es necesario disponer del permiso **VER ESTADO DE BASE DE DATOS**. El permiso **VER ESTADO DE BASE DE DATOS** devuelve información sobre todos los objetos de la base de datos actual. Para conceder el permiso **VER ESTADO DE BASE DE DATOS** a un usuario de una base de datos específica, ejecute la consulta siguiente:
-
-```
-
-GRANT VIEW DATABASE STATE TO database_user;
-
-```
-
 
 
 
@@ -217,4 +203,4 @@ Para obtener más sugerencias sobre cómo administrar el Almacenamiento de datos
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

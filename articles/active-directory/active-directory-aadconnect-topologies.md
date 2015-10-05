@@ -162,4 +162,4 @@ Se admite el uso de FIM2010/MIM2016 local para los usuarios de GALsync entre dos
 ## Pasos siguientes
 Para obtener información sobre cómo instalar Azure AD Connect en estos escenarios, vea [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Para obtener más información sobre la configuración de sincronización de Azure AD Connect, vea [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

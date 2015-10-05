@@ -1,25 +1,28 @@
 <properties 
-   pageTitle="Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure"
-	description="Describe los diversos tipos de estrategias HADR de SQL Server que se ejecutan en máquinas virtuales de Azure."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Alta disponibilidad y recuperación ante desastres para SQL Server | Microsoft Azure"
+   description="Este tutorial utiliza los recursos creados con el modelo de implementación clásica y describe los diversos tipos de estrategias HADR para SQL Server cuando se ejecuta en máquinas virtuales de Azure."
+   services="virtual-machines"
+   documentationCenter="na"
+   authors="rothja"
+   manager="jeffreyg"
+   editor="monicar" 
+   tags="azure-service-management"/>
 <tags 
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="08/17/2015"
-	ms.author="jroth"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows-sql-server"
+   ms.workload="infrastructure-services"
+   ms.date="08/17/2015"
+   ms.author="jroth" />
 
 # Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure
 
 ## Información general
 
 Las máquinas virtuales de Microsoft Azure con SQL Server pueden ayudar a reducir el costo de una solución de base de datos de alta disponibilidad y recuperación ante desastres (HADR). La mayoría de las soluciones HADR de SQL Server son compatibles con las máquinas virtuales de Azure, bien como soluciones exclusivas de Azure o híbridas. En una solución exclusiva de Azure, todo el sistema HADR se ejecuta en Azure. En una configuración híbrida, una parte de la solución se ejecuta en Azure y la otra parte se ejecuta localmente en su organización. La flexibilidad del entorno Azure permite migrar total o parcialmente a Azure a fin de satisfacer los requisitos de presupuesto y HADR de sus sistemas de bases de datos de SQL Server.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
 
 ## Descripción de la necesidad de una solución HADR
 
@@ -64,7 +67,7 @@ Puede tener una solución de recuperación ante desastres para las bases de dato
 |Technology|Arquitecturas de ejemplo|
 |---|---|
 |**Grupos de disponibilidad AlwaysOn**|Algunas réplicas de disponibilidad se ejecutan en máquinas virtuales de Azure y réplicas se ejecutan localmente para la recuperación ante desastres a través de sitios. El sitio de producción puede ser local o encontrarse en un centro de datos de Azure.<br/>![Grupos de disponibilidad AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_alwayson.gif)<br/>Dado que todas las réplicas de disponibilidad deben estar en el mismo clúster WSFC, este debe abarcar ambas redes (un clúster WSFC de varias subredes). Esta configuración requiere una conexión VPN entre Azure y la red local.<br/><br/>Para una recuperación ante desastres correcta de las bases de datos, también debe instalar un controlador de dominio de réplica en el sitio de recuperación ante desastres.<br/><br/>Es posible usar el Asistente para agregar una réplica en SSMS para agregar una réplica de Azure a un grupo de disponibilidad AlwaysOn existente. Para obtener más información, consulte Tutorial: Ampliación del grupo de disponibilidad AlwaysOn a Azure.|
-|**Creación de reflejo de la base de datos**|Un asociado se ejecuta en una máquina virtual de Azure y otro localmente para la recuperación ante desastres a través de sitios con certificados de servidor. Los asociados no necesitan estar en el mismo dominio de Active Directory y no se requiere ninguna conexión VPN.<br/>![Creación de reflejo de la base de datos](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_dbmirroring.gif)<br/>Otra escenario de creación de reflejo de la base de datos implica a un asociado que se ejecuta en una máquina virtual de Azure y los demás que se ejecutan localmente en el mismo dominio de Active Directory para la recuperación ante desastres entre sitios. Se requiere una [conexión VPN entre la red virtual y la red local](../vpn-gateway/vpn-gateway-site-to-site-create.md).<br/><br/>Para que se produzca una recuperación ante desastres correcta de las bases de datos, también debe instalar un controlador de dominio de réplica en el sitio de recuperación ante desastres.|
+|**Creación de reflejo de la base de datos**|Un asociado se ejecuta en una máquina virtual de Azure y otro localmente para la recuperación ante desastres a través de sitios con certificados de servidor. Los asociados no necesitan estar en el mismo dominio de Active Directory y no se requiere ninguna conexión VPN.<br/>![Creación de reflejo de la base de datos](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_dbmirroring.gif)<br/>Otro escenario de creación de reflejo de la base de datos implica a un asociado que se ejecuta en una máquina virtual de Azure y los demás que se ejecutan localmente en el mismo dominio de Active Directory para la recuperación ante desastres entre sitios. Se requiere una [conexión VPN entre la red virtual y la red local](../vpn-gateway/vpn-gateway-site-to-site-create.md).<br/><br/>Para que se produzca una recuperación ante desastres correcta de las bases de datos, también debe instalar un controlador de dominio de réplica en el sitio de recuperación ante desastres.|
 |**Trasvase de registros**|Un servidor se ejecuta en una máquina virtual de Azure y otro localmente para la recuperación ante desastres a través de sitios. El trasvase de registros depende del uso compartido de archivos de Windows, de modo que se requiere una conexión VPN entre la red virtual de Azure y la red local.<br/>![Trasvase de registros](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_log_shipping.gif)<br/>Para que se produzca una recuperación ante desastres correcta de las bases de datos, también debe instalar un controlador de dominio de réplica en el sitio de recuperación ante desastres.|
 |**Copia de seguridad y restauración con el servicio Almacenamiento de blobs de Azure**|Bases de datos de producción locales con copia de seguridad directa en el almacenamiento de blobs de Azure para la recuperación ante desastres.<br/>![Copia de seguridad y restauración](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/hybrid_dr_backup_restore.gif)<br/>Para obtener más información, consulte [Copias de seguridad y restauración para SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-backup-and-restore.md).|
 
@@ -94,7 +97,7 @@ Considere un escenario en el que se crea un clúster de dos nodos y se pone en c
 
 1. Mientras tanto, NODE1 puede enviar paquetes a NODE2 pero NODE2 no puede responder. Node1 pierde el cuórum y cierra el clúster.
 
-Puede evitar esta situación asignando una dirección IP estática no usada, por ejemplo una dirección IP de vínculo local como 169.254.1.1, al nombre de red del clúster a fin de poner dicho nombre de red en línea. Para simplificar este proceso, consulte [Configurar el clúster de conmutación por error de Windows en Azure para grupos de disponibilidad AlwaysOn](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
+Puede evitar esta situación asignando una dirección IP estática no usada, por ejemplo una dirección IP de vínculo local como 169.254.1.1, al nombre de red del clúster a fin de poner dicho nombre de red en línea. Para simplificar este proceso, consulte [Configuración del clúster de conmutación por error de Windows en Azure para grupos de disponibilidad AlwaysOn](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
 Para obtener más información, consulte [Configuración de los grupos de disponibilidad AlwaysOn en Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).
 
@@ -143,4 +146,4 @@ Para ver otros temas sobre la ejecución de SQL Server en máquinas virtuales de
 - [Instalación de un nuevo bosque de Active Directory en Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Crear el clúster WSFC para grupos de disponibilidad AlwaysOn en la VM de Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

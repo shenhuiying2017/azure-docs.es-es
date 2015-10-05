@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Implementar un servidor de WordPress en Ubuntu con una plantilla de Administrador de recursos de Azure"
+	pageTitle="WordPress en Ubuntu con la plantilla ARM | Microsoft Azure"
 	description="Implemente fácilmente un único servidor WordPress con Ubuntu con una plantilla de administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="davidmu"/>
 
 # Implementar un servidor de WordPress en Ubuntu con una plantilla de Administrador de recursos de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. No puede crear este recurso con el modelo de implementación clásica.
 
 Siga las instrucciones de este artículo para implementar un servidor WordPress que se ejecute en Ubuntu mediante una plantilla de administrador de recursos. Esta plantilla crea una única máquina virtual en una red virtual nueva.
 
@@ -27,7 +29,7 @@ Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerS
 
 ## Portal de vista previa de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla de Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 
@@ -104,4 +106,4 @@ Una vez completada la ejecución de la plantilla, ahora dispondrá del servidor 
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

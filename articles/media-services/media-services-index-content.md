@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/21/2015"   
 	ms.author="juliako"/>
 
 
@@ -29,12 +29,11 @@ El Indizador multimedia de Azure permite que el contenido de los archivos multim
 >[AZURE.IMPORTANT]Al indizar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
 
 
-Un trabajo de indización genera cuatro salidas en cada archivo de indización:
+Un trabajo de indización genera las siguientes salidas.
 
-- Archivo de subtítulos en formato SAMI.
-- Archivo de subtítulos en formato de lenguaje de marcado de texto sincronizado(TTML).
+- Archivos de subtítulos en los siguientes formatos: **SAMI**, **TTML** y **WebVTT**.
 
-	SAMI y TTML incluyen una etiqueta denominada Recognizability que puntúa un trabajo de indización en función de lo reconocible que resulta la voz en el vídeo de origen. Puede usar el valor de Recognizability para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.
+	Entre los archivos de subtítulos se incluye una etiqueta denominada Recognizability que puntúa un trabajo de indización en función de lo reconocible que resulta la voz en el vídeo de origen. Puede usar el valor de Recognizability para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.
 - Archivo de palabras clave (XML).
 - Archivo blob de indización de audio (AIB) para usar con SQL Server.
 	
@@ -164,11 +163,11 @@ Para descargar el complemento, haga clic en <a href="http://aka.ms/indexersql">C
 <br/><br/>
 También es posible usar otros motores de búsqueda, como Apache Lucene/Solr para indizar simplemente el vídeo en función de los subtítulos y los archivos XML de palabras clave, pero esto generará unos resultados de búsqueda menos precisos.</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
-<td>Archivos de subtítulos (CC) en formatos SAMI y TTML.
+<td>Archivos de subtítulos (CC) en formatos SAMI, TTML y WebVTT.
 <br/><br/>
 Se pueden usar para crear archivos de audio y vídeo accesibles para personas con discapacidades auditivas.
 <br/><br/>
-SAMI y TTML incluyen una etiqueta denominada <b>Recognizability</b> que puntúa un trabajo de indización en función de lo reconocible que resulta la voz en el vídeo de origen. Puede usar el valor de <b>Recognizability</b> para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.</td></tr>
+Entre los archivos de subtítulos se incluye una etiqueta denominada <b>Recognizability</b> que puntúa un trabajo de indización en función de lo reconocible que resulta la voz en el vídeo de origen. Puede usar el valor de <b>Recognizability</b> para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.</td></tr>
 <tr><td>InputFileName.kw.xml</td>
 <td>Archivo de palabras clave.
 <br/><br/>
@@ -261,7 +260,7 @@ Un archivo de manifiesto con la extensión .lst se crea y se carga en el recurso
 
 ###Archivos de salida
 
-Cuando haya más de un archivo multimedia de entrada, WAMI generará un archivo de manifiesto para las salidas del trabajo denominado 'JobResult.txt'. Para cada archivo multimedia de entrada, los archivos de palabraas clave AIB, SAMI y TTML resultantes se numeran secuencialmente, como se muestra a continuación.
+Cuando haya más de un archivo multimedia de entrada, WAMI generará un archivo de manifiesto para las salidas del trabajo denominado 'JobResult.txt'. Para cada archivo multimedia de entrada, los archivos de palabras clave y AIB, SAMI, TTML y WebVTT resultantes se numeran secuencialmente, como se muestra a continuación.
 
 Para obtener descripciones de los archivos de salida, consulte [Archivos de salida](#output_files).
 
@@ -292,7 +291,7 @@ Error: indica si el archivo multimedia se ha indizado correctamente. 0 si se rea
 <tr><td>Media_1.aib </td>
 <td>File #0: archivo de blob de indización de audio.</td></tr>
 <tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>File #0: archivos de subtítulos (CC) en formatos SAMI y TTML.</td></tr>
+<td>File #0: archivos de subtítulos (CC) en formatos SAMI, TTML y WebVTT.</td></tr>
 <tr><td>Media_1.kw.xml</td>
 <td>File #0: archivo de palabras clave.</td></tr>
 <tr><td>Media_2.aib </td>
@@ -306,7 +305,7 @@ Si no se indizan correctamente todos los archivos multimedia de entrada, el trab
 Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
 
 
-Se generan las mismas salidas (como trabajos realizados correctamente). Puede consultar el archivo de manifiesto de salida para ver qué archivos de entrada son erróneos, según los valores de columna Error. En el caso de los archivos de entrada erróneos, no se generarán los archivos de palabras clave AIB, SAMI y TTML resultantes.
+Se generan las mismas salidas (como trabajos realizados correctamente). Puede consultar el archivo de manifiesto de salida para ver qué archivos de entrada son erróneos, según los valores de columna Error. En el caso de los archivos de entrada erróneos, no se generarán los archivos de palabras clave y AIB, SAMI, TTML y WebVTT resultantes.
 
 
 ### <a id="error_codes"></a>Códigos de error
@@ -334,7 +333,7 @@ No hay ninguna secuencia de audio en el archivo multimedia de entrada.</td></tr>
 
 ##<a id="supported_languages"></a>Idiomas admitidos
 
-Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [Azure Media Indexer en español](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [Azure Media Indexer en español](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)
 
 
 ##Rutas de aprendizaje de Servicios multimedia
@@ -355,4 +354,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 <!-- URLs. -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

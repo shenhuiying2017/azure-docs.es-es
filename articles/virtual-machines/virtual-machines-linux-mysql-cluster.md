@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Uso de conjuntos de carga equilibrada para crear clústeres en MySQL en Linux"
-	description="Un artículo que ilustra los modelos para configurar un clúster de Linux de alta disponibilidad y carga equilibrada en Azure utilizando MySQL como ejemplo."
+	pageTitle="Clusterice MySQL con conjuntos con equilibrio de carga | Microsoft Azure"
+	description="Configuración de un clúster MySQL Linux con equilibrio de carga y alta disponibilidad creado con el modelo de implementación clásica en Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="bureado"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,16 +19,7 @@
 
 # Uso de conjuntos de carga equilibrada para crear clústeres en MySQL en Linux
 
-* [Preparación](#getting-ready)
-* [Configuración del clúster](#setting-up-the-cluster)
-* [Configuración de MySQL](#setting-up-mysql)
-* [Configuración de Corosync](#setting-up-corosync)
-* [Configuración de Pacemaker](#setting-up-pacemaker)
-* [Prueba](#testing)
-* [STONITH](#stonith)
-* [Limitaciones](#limitations)
-
-## Introducción
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica.
 
 La finalidad de este artículo es explorar e ilustrar los diferentes enfoques disponibles para implementar servicios basados en Linux altamente disponibles en Microsoft Azure, explorando la alta disponibilidad de MySQL Server como base. En [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL) hay un vídeo disponible que ilustra este enfoque.
 
@@ -346,6 +338,5 @@ Se aplican las siguientes limitaciones:
 - El equilibrador de carga necesita al menos 5 segundos para responder, por lo que las aplicaciones deben ser compatibles con clústeres y ser más tolerantes en lo que al tiempo de espera se refiere; otras arquitecturas también pueden ser útiles, como por ejemplo colas en aplicación, middleware de consulta, etc.
 - El ajuste de MySQL es necesario para garantizar que la escritura se realiza a un ritmo apropiado y las memorias caché se vacían en disco con la máxima frecuencia posible para minimizar la pérdida de memoria.
 - El rendimiento de escritura dependerá de la interconexión de las máquinas virtuales en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

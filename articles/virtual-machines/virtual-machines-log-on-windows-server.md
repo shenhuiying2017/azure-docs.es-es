@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Inicio de sesión en una máquina virtual que ejecuta Windows Server"
-	description="Obtenga información acerca de cómo usar el portal de Azure para iniciar sesión en una máquina virtual con Windows Server."
+	pageTitle="Inicio de sesión en una máquina virtual | Microsoft Azure"
+	description="Use el portal para iniciar sesión en una máquina virtual de Windows creada con el modelo de implementación clásica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,11 +18,13 @@
 	ms.author="cynthn"/>
 
 
-# Inicio de sesión en una máquina virtual con Windows Server#
+# Inicie sesión en una máquina virtual de Windows creada con el modelo de implementación clásica
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación clásica.
 
 Usará el botón **Conectar** en el Portal de vista previa de Azure para iniciar una sesión de Escritorio remoto. En primer lugar, se conectará a la máquina virtual y, a continuación, iniciará sesión.
 
-¿Desea conectarse a una VM Linux? Consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md).
+¿Desea conectarse a una máquina virtual Linux? Consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md).
 
 ## Conexión a la máquina virtual
 
@@ -51,4 +53,4 @@ Existen algunas acciones que se pueden intentar rápidamente en el portal:
 
 Si esas sugerencias no funcionan o no son lo que necesita, vea [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

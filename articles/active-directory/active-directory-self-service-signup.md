@@ -1,11 +1,11 @@
 <properties
-	pageTitle="¿Qué es la suscripción de autoservicio de Azure?"
+	pageTitle="¿Qué es la suscripción de autoservicio de Azure? | Microsoft Azure"
 	description="Información general de la suscripción de autoservicio de Azure: cómo administrar el proceso de suscripción."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="08/14/2015" 
+	ms.date="09/21/2015"
 	ms.author="stevenpo"/>
 
 
@@ -30,43 +30,41 @@ En este tema se explica el proceso de suscripción de autoservicio (conocido tam
 
 ## Términos y definiciones
 
-+ **Suscripción de autoservicio**: método por el que un usuario se suscribe a un servicio en la nube y por el que se le crea automáticamente una identidad en Azure Active Directory basado en su dominio de correo electrónico.
++ **Suscripción de autoservicio**: método por el que un usuario se suscribe a un servicio en la nube y por el que se le crea automáticamente una identidad en Azure Active Directory (AD) basado en su dominio de correo electrónico.
 + **Inquilino de Azure no administrado**: directorio donde se crea la identidad. Un inquilino no administrado es un directorio que no tiene administrador global.
 + **Usuario comprobado por correo electrónico**: tipo de cuenta de usuario en Azure AD. Un usuario que tiene una identidad que se crean automáticamente después de suscribirse a una oferta de autoservicio se conoce como usuario comprobado por correo electrónico. Un usuario comprobado por correo electrónico es un miembro regular de un directorio etiquetado con creationmethod = EmailVerified.
 
-## Experiencia del cliente
-
-### Experiencia del usuario
+## Experiencia del usuario
 
 Por ejemplo, supongamos que un usuario cuyo correo electrónico es Dan@BellowsCollege.com recibe archivos confidenciales por correo electrónico. Los archivos se han protegido con Azure Rights Management (Azure RMS). Pero la organización de Dan, Bellows College, no se ha suscrito a Azure RMS ni ha implementado Active Directory RMS. En este caso, Dan puede suscribirse a una suscripción gratuita de RMS para usuarios a fin de leer los archivos protegidos.
 
 Si Dan es el primer usuario con una dirección de correo electrónico de BellowsCollege.com en suscribirse a esta oferta de autoservicio, se creará un inquilino no administrado para BellowsCollege.com en Azure AD. Si otros usuarios del dominio BellowsCollege.com se suscriben a esta oferta o a una oferta de autoservicio similar, también se crearán para ellos cuentas de usuario comprobado por correo electrónico en el mismo inquilino no administrado en Azure.
 
-### Experiencia del administrador
+## Experiencia del administrador
 
 Un administrador que posee el nombre de dominio DNS de un inquilino de Azure no administrado puede adquirir o fusionar el inquilino después de demostrar la propiedad. En las secciones siguientes se explica con más detalle la experiencia del administrador, pero a continuación se incluye un resumen:
 
 - Al adquirir un inquilino de Azure no administrado, se convierte en administrador global del inquilino no administrado. Esto se denomina a veces adquisición interna.
 - Al fusionar un inquilino de Azure no administrado, agregue el nombre de dominio DNS del inquilino no administrado a su inquilino de Azure administrado. Se creará una asignación de usuarios a recursos para que los usuarios puedan seguir teniendo acceso a los servicios sin interrupción. Esto se denomina a veces adquisición externa.
 
-### ¿Qué se crea en Microsoft Azure Directory?
+## ¿Qué se crea en Azure Active Directory?
 
 #### Inquilino
 
-- Se crea un inquilino de Azure para el dominio, un inquilino por dominio.
-- El directorio del inquilino de Azure no tiene administrador global.
+- Se crea un inquilino de Azure Active Directory para el dominio, un inquilino por dominio.
+- El directorio del inquilino de Azure AD no tiene administrador global.
 
 #### Usuarios
 
-- Para cada usuario que se suscribe , se crea un objeto en el inquilino de Azure.
+- Para cada usuario que se suscribe , se crea un objeto en el inquilino de Azure AD.
 - Cada objeto de usuario se marca como viral.
 - Cada usuario tiene acceso al servicio al que se ha suscrito.
 
-### ¿Cómo puedo reclamar un inquilino de Azure de autoservicio para un dominio de mi propiedad?
+### ¿Cómo puedo reclamar un inquilino de Azure AD de autoservicio para un dominio de mi propiedad?
 
-Puede reclamar un inquilino de Azure de autoservicio realizando la validación del dominio. La validación del dominio demuestra que es el propietario del dominio mediante la creación de registros DNS.
+Puede reclamar un inquilino de Azure AD de autoservicio realizando la validación del dominio. La validación del dominio demuestra que es el propietario del dominio mediante la creación de registros DNS.
 
-Hay dos formas de realizar una adquisición de DNS de un inquilino de Azure:
+Hay dos formas de realizar una adquisición de DNS de un inquilino de Azure AD:
 
 - adquisición interna (el administrador detecta a un inquilino de Azure no administrado y desea convertirlo en un inquilino administrado)
 - adquisición externa (el administrador intenta agregar un nuevo dominio a su inquilino de Azure administrado).
@@ -234,4 +232,4 @@ Para obtener más información y ejemplos de cómo usar estos parámetros, consu
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

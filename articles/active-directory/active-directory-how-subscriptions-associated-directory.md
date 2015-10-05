@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Cómo se asocian las suscripciones a Azure con Azure AD"
+	pageTitle="Cómo se asocian las suscripciones a Azure con Azure AD | Microsoft Azure"
 	description="Un tema acerca del inicio de sesión en Microsoft Azure y temas relacionados, como la relación entre una suscripción de Azure y Azure AD."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Cómo se asocian las suscripciones a Azure con Azure AD
@@ -67,7 +67,7 @@ Sin embargo, lo importante aquí es que los administradores de suscripciones de 
 
 Una persona puede tener ambos roles, pero no es obligatorio. Un usuario puede asignarse al rol de administrador global de directorios, pero no asignarlo como administrador de servicios o coadministrador de una suscripción de Azure. Sin ser un administrador de la suscripción, este usuario no puede iniciar sesión en el Portal de administración. Sin embargo, el usuario podría realizar tareas de administración de directorio mediante otras herramientas como Azure AD PowerShell o Centro de administración de Office 365.
 
-### ¿Por qué no puedo administrar el directorio con mi cuenta de usuario actual?
+## ¿Por qué no puedo administrar el directorio con mi cuenta de usuario actual?
 
 A veces, un usuario puede intentar iniciar sesión en el Portal de administración mediante una cuenta profesional o educativa antes de registrarse para una suscripción de Azure. En este caso, el usuario recibirá un mensaje que indicará que no hay ninguna suscripción para esa cuenta. El mensaje incluirá un vínculo para iniciar una suscripción de prueba gratuita.
 
@@ -124,4 +124,4 @@ Para administrar ambos directorios en el Portal de administración, siga estos p
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

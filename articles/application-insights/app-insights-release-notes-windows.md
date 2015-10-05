@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/18/2015" 
 	ms.author="sergkanz"/>
  
 # Notas de la versión del SDK de Application Insights para la Tienda Windows Phone
@@ -94,4 +94,4 @@ Vista previa del 28-04-2015
 
 No existen notas de la versión para versiones anteriores.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

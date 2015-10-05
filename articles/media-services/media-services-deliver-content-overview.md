@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/22/2015" 
 	ms.author="juliako"/>
 
 
@@ -28,30 +28,27 @@ Para lograr este objetivo:
 - codifique la secuencia a secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa) (esto se encargará de las condiciones de calidad y red) y 
 - use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Servicios multimedia dinámicamente para volver a empaquetar dinámicamente su secuencia en distintos protocolos (esto se encargará de la transmisión por secuencias en dispositivos diferentes). Los Servicios multimedia admiten la entrega de las siguientes tecnologías de transmisión de velocidad de bits adaptativa: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
 
-Este tema proporciona información general de los [conceptos de entrega de contenido](media-services-deliver-content-overview.md#concepts) y vínculos a temas que muestran cómo realizar la entrega de contenido relacionado con [tareas](media-services-deliver-content-overview.md#tasks).
+En este tema se ofrece información general sobre importantes conceptos de entrega de contenido.
 
-##<a id="concepts"></a>Conceptos
 
-La lista siguiente describe los conceptos y terminología útiles cuando se entrega contenido multimedia.
-
-###Empaquetado dinámico
+##Empaquetado dinámico
 
 Se recomienda utilizar el empaquetado dinámico para entregar el contenido. Para obtener más información, consulte [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
-Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de Servicios multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
+Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de un Servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
 
-###Filtros y manifiestos dinámicos
+##Filtros y manifiestos dinámicos
 
 Servicios multimedia permite definir filtros para los recursos. Estos filtros son reglas del lado servidor que permitirán a los clientes elegir realizar acciones como: reproducir solo una sección de un vídeo (en lugar de reproducir el vídeo completo), o especificar solo un subconjunto de las representaciones de audio y vídeo que el dispositivo de su cliente puede controlar (en lugar de todas las copias asociadas al activo). Este filtrado de sus activos se logra a través de los **manifiestos dinámicos** que se crean tras la solicitud del cliente para transmitir un vídeo en función de los filtros especificados.
 
 Para obtener más información, consulte [Filtros y manifiestos dinámicos](media-services-dynamic-manifest-overview.md).
 
-###Localizadores
+##Localizadores
 
 Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar su contenido, primero necesitará "publicar" su recurso mediante la creación de un localizador. Los localizadores proporcionan un punto de entrada para tener acceso a los archivos que se encuentran en un recurso. Servicios multimedia admite dos tipos de localizadores:
 
 - Los localizadores **OnDemandOrigin**, que se usan para transmitir archivos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o archivos de descarga progresiva.
--  Los localizadores de direcciones URL (firma de acceso) de **SAS** que se utilizan para descargar archivos multimedia en el equipo local. 
+-  Los localizadores de direcciones URL (firma de acceso) de **SAS**, que se usan para descargar archivos multimedia en el equipo local. 
 
 Se usa una **directiva de acceso** para definir los permisos (como lectura, escritura y lista) y la duración del acceso del cliente a un recurso determinado. Observe que el permiso de lista (AccessPermissions.List) no se debe usar al crear un localizador OnDemandOrigin.
 
@@ -66,7 +63,7 @@ Los localizadores no están diseñados para administrar el control de acceso por
 Tenga en cuenta que al crear un localizador, puede haber un retraso de 30 segundos debido a los procesos de almacenamiento y propagación requeridos en Almacenamiento de Azure.
 
 
-###Streaming adaptativo 
+##Streaming adaptativo 
 
 Las tecnologías de velocidad de bits adaptable permiten a las aplicaciones para reproductor de vídeo determinar las condiciones de red y seleccionar entre varias velocidades de bits. Cuando se degrada la comunicación de red, el cliente puede seleccionar una velocidad de bits más baja que permita al reproductor seguir reproduciendo el vídeo con una calidad inferior. A medida que mejoren las condiciones de red, el cliente puede cambiar a una velocidad de bits superior con calidad de vídeo mejorada. Servicios multimedia de Azure admite las siguientes tecnologías de velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS.
 
@@ -77,7 +74,7 @@ Para proporcionar direcciones URL de streaming a los usuarios, primero debe crea
 Tenga en cuenta que solo puede transmitir por SSL si se creó el extremo de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los extremos de streaming creados después del 10 de septiembre, la dirección URL contendrá "streaming.mediaservices.windows.net" (el formato nuevo). Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo extremo de streaming para transmitir el contenido a través de SSL.
 
 
-####Formatos de la dirección URL de streaming:
+##Formatos de la dirección URL de streaming
 
 **Formato MPEG DASH**
 
@@ -123,7 +120,7 @@ De forma predeterminada el formato de manifiesto Smooth Streaming contiene la et
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
 
-###Empaquetado dinámico
+##Empaquetado dinámico
 
 Servicios multimedia proporciona paquetes dinámicos que permiten entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos de streaming.
 
@@ -136,7 +133,7 @@ Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en
 
 Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámico, las unidades reservadas de streaming a petición con capacidad de salida dedicada pueden adquirirse en incrementos de 200 Mbps. De manera predeterminada, el streaming a petición está configurado en un modelo de instancias compartidas para el que se comparten recursos de servidor (por ejemplo, proceso, capacidad de salida, entre otros) con los demás usuarios. Para mejorar el resultado del streaming a petición, se recomienda adquirir unidades reservadas de streaming a petición.
 
-###Descarga progresiva 
+##Descarga progresiva 
 
 La descarga progresiva le permite comenzar a reproducir archivos multimedia antes de haber descargado todo el archivo. No se puede descargar progresivamente archivos .ism * (ismv, isma, ismt e ismc).
 
@@ -149,7 +146,7 @@ Se aplican las siguientes consideraciones:
 - Debe descifrar los recursos cifrados en almacenamiento que desee transmitir desde el servicio de origen para la descarga progresiva.
 
 
-###Descargar
+##Descargar
 
 Para descargar el contenido en un dispositivo cliente, debe crear un localizador de SAS. El localizador de SAS da acceso al contenedor de Almacenamiento Azure donde se encuentra el archivo. Para generar la dirección URL de descarga, tiene que insertar el nombre de archivo entre el host y la firma de SAS.
 
@@ -164,40 +161,9 @@ Se aplican las siguientes consideraciones:
 
 
 
-###Extremos de streaming
+##Extremos de streaming
 
 Un **extremo de streaming** representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red de entrega de contenido (CDN) para su posterior distribución. La secuencia de salida del servicio de extremo de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Servicios multimedia. Además, puede controlar la capacidad del servicio de extremo de streaming para administrar las necesidades crecientes de ancho de banda mediante el ajuste de unidades reservadas de streaming. Debe asignar al menos una unidad reservada para las aplicaciones en un entorno de producción. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
-
-##<a id="tasks"></a>Tareas relacionadas con la entrega de activos
-
-
-###Configuración de extremos de streaming
-
-Para obtener información general acerca de los extremos de streaming e información acerca de cómo administrarlos, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md).
-
-###Carga de elementos multimedia 
-
-Cargue los archivos mediante el **Portal de administración de Azure**, **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-###Codificación de recursos
-
-Codifique con el **Codificador de Servicios multimedia** mediante el **Portal de administración de Azure**, **.NET** o **API de REST**.
- 
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-###Configuración de la directiva de entrega de recursos
-
-Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-###Publicación de recursos
-
-Publique activos (creando localizadores) mediante el **Portal de administración de Azure** o **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
 
 ##Rutas de aprendizaje de Servicios multimedia
@@ -213,4 +179,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [Actualización de los localizadores de Servicios multimedia después de revertir las claves de almacenamiento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

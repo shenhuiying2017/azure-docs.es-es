@@ -1,10 +1,10 @@
 <properties
    pageTitle="Informes de Azure AD: Introducción"
-   description="Informes de Azure AD: Introducción"
+   description="Enumera los distintos informes disponibles en los informes de Azure Active Directory."
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/30/2015"
+   ms.date="09/21/2015"
    ms.author="curtand;kenhoff"/>
 
 # Introducción a los informes de Azure AD
@@ -156,4 +156,4 @@ Envíe un correo electrónico a [aadreportinghelp@microsoft.com](mailto:aadrepor
 
 > [AZURE.TIP]Para obtener más documentación sobre informes de Azure AD, vea [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

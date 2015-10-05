@@ -1,21 +1,21 @@
 <properties
    pageTitle="Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure | Microsoft Azure"
-	description="Obtenga más información acerca de las instrucciones y limitaciones de la Base de datos SQL de Microsoft Azure relacionadas con la seguridad."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""
-	tags=""/>
+   description="Obtenga más información acerca de las instrucciones y limitaciones de la Base de datos SQL de Microsoft Azure relacionadas con la seguridad."
+   services="sql-database"
+   documentationCenter=""
+   authors="BYHAM"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="08/20/2015"
-	ms.author="rickbyh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="08/20/2015"
+   ms.author="rickbyh"/>
 
 # Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure
 
@@ -45,9 +45,9 @@ Para obtener información técnica complementaria, consulte el artículo [Seguri
 
 ## Autenticación
 
-Base de datos SQL solamente admite la autenticación de SQL Server. No se admite la autenticación Windows (seguridad integrada). Los usuarios deben proporcionar credenciales (nombre de usuario y contraseña) cada vez que se conectan a una Base de datos SQL. Para obtener más información acerca de la autenticación de SQL Server, consulte [Elegir un modo de autenticación](https://msdn.microsoft.com/library/ms144284.aspx) en los Libros en pantalla de SQL Server.
+La autenticación de Active Directory (seguridad integrada) está disponible como versión preliminar en Base de datos SQL V12. Para obtener más información sobre cómo configurar la autenticación de AD, vea [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md). Cuando no utilizan la versión preliminar, los usuarios deben proporcionar credenciales (nombre de usuario y contraseña) cada vez que se conectan a una Base de datos SQL. Para obtener más información acerca de la autenticación de SQL Server, consulte [Elegir un modo de autenticación](https://msdn.microsoft.com/library/ms144284.aspx) en los Libros en pantalla de SQL Server.
 
-[Base de datos SQL V12](sql-database-v12-whats-new.md) permite a los usuarios autenticarse en la base de datos mediante el uso de los usuarios de la base de datos independiente. Para obtener más información, consulte [Usuarios de bases de datos independientes - Conversión de su base de datos en portátil](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) y [Bases de datos independientes](https://technet.microsoft.com/library/ff929071.aspx).
+[Base de datos SQL V12](sql-database-v12-whats-new.md) permite a los usuarios autenticarse en la base de datos con los usuarios de la base de datos independiente. Para obtener más información, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER (Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) y [Bases de datos independientes](https://technet.microsoft.com/library/ff929071.aspx).
 
 > [AZURE.NOTE]Microsoft recomienda usar los usuarios de la base de datos independiente para mejorar la escalabilidad.
 
@@ -62,7 +62,7 @@ Al administrar los inicios de sesión y los usuarios de la Base de datos SQL, ha
 Para el inicio de sesión de entidad de seguridad de nivel de servidor, se aplican las siguientes restricciones:
 
 - El usuario de la base de datos principal correspondiente al inicio de sesión principal de nivel de servidor no se puede alterar ni quitar. 
-- Aunque el inicio de sesión principal de nivel de servidor no es miembro de los dos roles de base de datos de dos **dbmanager** y **loginmanager** de la base de datos **maestra**, concede todos los permisos a estos dos roles.
+- Aunque el inicio de sesión principal del nivel de servidor no es miembro de los dos roles de base de datos **dbmanager** y **loginmanager** de la base de datos **maestra**, concede todos los permisos a estos dos roles.
 
 > [AZURE.NOTE]Este inicio de sesión se crea durante el aprovisionamiento de servidores y es similar al inicio de sesión **sa** de una instancia de SQL Server.
 
@@ -73,7 +73,7 @@ Para todos los inicios de sesión, se aplican las siguientes restricciones:
 - Si no especifica una base de datos en la cadena de conexión, se conectará a la base de datos **maestra** de forma predeterminada.
 - Debe estar conectado a la base de datos **maestra** al ejecutar las instrucciones ``CREATE/ALTER/DROP LOGIN`` y ``CREATE/ALTER/DROP DATABASE``. 
 - Al ejecutar las instrucciones ``CREATE/ALTER/DROP LOGIN`` y ``CREATE/ALTER/DROP DATABASE`` en una aplicación ADO.NET, no se permite el uso de comandos con parámetros. Para obtener más información, consulte [Comandos y parámetros](https://msdn.microsoft.com/library/ms254953.aspx).
-- Al ejecutar las instrucciones ``CREATE/ALTER/DROP DATABASE`` y ``CREATE/ALTER/DROP LOGIN``, cada una de estas instrucciones deben ser la única instrucción de un lote de Transact-SQL. De lo contrario, se produce un error. Por ejemplo, la instrucción Transact-SQL siguiente comprueba si existe la base de datos. Si existe, se llama a una instrucción ``DROP DATABASE`` para quitar la base de datos. Dado que la instrucción ``DROP DATABASE`` no es la única instrucción del lote, la ejecución de la siguiente instrucción Transact-SQL producirá un error.
+- Al ejecutar las instrucciones ``CREATE/ALTER/DROP DATABASE`` y ``CREATE/ALTER/DROP LOGIN``, cada una de ellas deben ser la única instrucción de un lote de Transact-SQL. De lo contrario, se produce un error. Por ejemplo, la instrucción Transact-SQL siguiente comprueba si existe la base de datos. Si existe, se llama a una instrucción ``DROP DATABASE`` para quitar la base de datos. Dado que la instrucción ``DROP DATABASE`` no es la única instrucción del lote, la ejecución de la siguiente instrucción Transact-SQL producirá un error.
 
 ```
 IF EXISTS (SELECT [name]
@@ -83,20 +83,20 @@ IF EXISTS (SELECT [name]
 GO
 ```
 
-- Cuando se ejecuta la instrucción ``CREATE USER`` con la opción ``FOR/FROM LOGIN``, deben ser la única instrucción de un lote de Transact-SQL.
-- Cuando se ejecuta la instrucción ``ALTER USER`` con la opción ``WITH LOGIN``, deben ser la única instrucción de un lote de Transact-SQL.
-- Solamente el inicio de sesión principal y los miembros del nivel de servidor del rol de la base de datos **dbmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones ``CREATE DATABASE`` y ``DROP DATABASE``.
-- Solamente el inicio de sesión principal y los miembros del nivel de servidor del rol de la base de datos **loginmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones ``CREATE LOGIN``, ``ALTER LOGIN`` y ``DROP LOGIN``.
-- Para ``CREATE/ALTER/DROP`` un usuario requiere el permiso ``ALTER ANY USER`` de la base de datos.
-- Cuando el propietario de un rol de base de datos intenta agregar o quitar otro usuario de base de datos a o de ese rol de base de datos, puede producirse el siguiente error: **El usuario o el rol 'Name' no existe en esta base de datos.** Este error se produce porque el usuario no es visible para el propietario. Para resolver este problema, conceda al propietario del rol el permiso ``VIEW DEFINITION`` del usuario. 
+- Cuando se ejecuta la instrucción ``CREATE USER`` con la opción ``FOR/FROM LOGIN``, debe ser la única instrucción de un lote de Transact-SQL.
+- Cuando se ejecuta la instrucción ``ALTER USER`` con la opción ``WITH LOGIN``, debe ser la única instrucción de un lote de Transact-SQL.
+- Solamente el inicio de sesión principal del nivel de servidor y los miembros del rol de base de datos **dbmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones ``CREATE DATABASE`` y ``DROP DATABASE``.
+- Solamente el inicio de sesión principal del nivel de servidor y los miembros del rol de base de datos **loginmanager** de la base de datos **maestra** tienen permiso para ejecutar las instrucciones ``CREATE LOGIN``, ``ALTER LOGIN`` y ``DROP LOGIN``.
+- Para realizar una tarea ``CREATE/ALTER/DROP`` el usuario debe tener el permiso ``ALTER ANY USER`` en la base de datos.
+- Cuando el propietario de un rol de base de datos intenta agregar otro usuario de base de datos a ese rol o bien quitarlo, puede producirse el siguiente error: **El usuario o el rol “Nombre” no existe en la base de datos.** Este error se produce porque el usuario no es visible para el propietario. Para resolver este problema, conceda al propietario del rol el permiso ``VIEW DEFINITION`` para el usuario. 
 
-Para obtener más información sobre los inicios de sesión y los usuarios, consulte [Administración de bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md).
+Para obtener más información sobre los inicios de sesión y los usuarios, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md).
 
 ## Prácticas recomendadas de seguridad
 
 Tenga en cuenta los siguientes puntos para que las aplicaciones de Base de datos SQL de Azure resulten menos vulnerables a amenazas de seguridad:
 
-- Use siempre las actualizaciones más recientes: cuando se conecte a la Base de datos SQL, use siempre la versión más reciente de las herramientas y las bibliotecas para evitar vulnerabilidades de seguridad. Para obtener más información acerca de qué herramientas y bibliotecas se admiten, consulte [Instrucciones y limitaciones generales de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx).
+- Use siempre las actualizaciones más recientes: cuando se conecte a la Base de datos SQL, use siempre la versión más reciente de las herramientas y las bibliotecas para evitar vulnerabilidades de seguridad. Para obtener más información acerca de qué herramientas y bibliotecas se admiten, consulte [Instrucciones y limitaciones generales de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx).
 - Bloquee las conexiones entrantes en el puerto TCP 1433: solo se necesitan las conexiones salientes del puerto TCP 1433 para que las aplicaciones se comuniquen con la Base de datos SQL. Si las demás aplicaciones de ese equipo no necesitan comunicaciones entrantes, asegúrese de que el firewall continúa bloqueando las conexiones entrantes en el puerto TCP 1433.
 - Evitar vulnerabilidades por inyección: para asegurarse de que las aplicaciones no tienen vulnerabilidades por inyección de SQL, use consultas parametrizadas siempre que sea posible. Asimismo, asegúrese de revisar el código detenidamente y de ejecutar una prueba de penetración antes de implementar su aplicación.
 
@@ -111,4 +111,4 @@ Tenga en cuenta los siguientes puntos para que las aplicaciones de Base de datos
 
 [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

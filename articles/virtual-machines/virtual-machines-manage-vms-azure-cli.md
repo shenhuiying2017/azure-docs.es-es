@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Administración de las máquinas virtuales de Azure con la CLI de Azure para Mac, Linux y Windows | Microsoft Azure"
-   description="Describe cómo crear, administrar y eliminar las máquinas virtuales de Azure con la CLI de Azure para Mac, Linux y Windows."
+   pageTitle="Administración de las máquinas virtuales de Azure con la CLI de Azure | Microsoft Azure"
+   description="Describe cómo administrar las máquinas virtuales de Azure con la CLI de Azure para Mac, Linux y Windows"
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="danlep"/>
 
 # Administración de Máquinas virtuales mediante la CLI de Azure para Mac, Linux y Windows
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la administración de un recurso creado con el modelo de implementación clásico. También puede administrar un recurso creado con el [modelo de implementación del Administrador de recursos](virtual-machines-how-to-automate-azure-resource-manager.md).
 
 Con la CLI de Azure se pueden automatizar muchas de las tareas cotidianas para administrar las máquinas virtuales. En este artículo se proporcionan comandos de ejemplo para las tareas más sencillas, así como vínculos a artículos que muestran los comandos para tareas más complejas.
 
@@ -79,6 +82,5 @@ Por supuesto, si ya dispone de esos valores, puede encontrar los modificadores a
 ## Pasos siguientes
 
 Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, consulte [Uso de la CLI de Microsoft Azure para Mac, Linux y Windows con administración de recursos de Azure](../xplat-cli-resource-manager.md). Para obtener más información acerca de los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

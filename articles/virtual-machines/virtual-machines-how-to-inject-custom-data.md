@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Inyección de datos personalizados en máquinas virtuales de Azure"
+	pageTitle="Inyección de datos personalizados en máquinas virtuales | Microsoft Azure"
 	description="Este tema describe cómo inyectar datos personalizados en una máquina virtual de Azure cuando se crea la instancia y cómo localizar dichos datos en Windows o Linux."
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,7 +20,11 @@
 
 #Inyección de datos personalizados en una máquina virtual de Azure
 
-La inyección de un script o de otros datos en una máquina virtual de Azure cuando se está aprovisionando es un escenario muy común, independientemente de si el sistema operativo es Windows o una distribución de Linux. En este tema se describe cómo:
+La inyección de un script o de otros datos en una máquina virtual de Azure cuando se está aprovisionando es un escenario muy común, independientemente de si el sistema operativo es Windows o una distribución de Linux.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+
+En este tema se describe cómo:
 
 - Inyectar datos en una máquina virtual de Azure cuando se está aprovisionando.
 
@@ -78,4 +82,4 @@ Para obtener más información, consulte la [documentación de cloud-init para U
 
 [Interfaz de línea de comandos de Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

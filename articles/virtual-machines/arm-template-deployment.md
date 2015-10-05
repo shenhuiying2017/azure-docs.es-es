@@ -1,4 +1,12 @@
-<properties pageTitle="Implementación de recursos de Azure con una plantilla" description="Aprenda a usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties
+	pageTitle="Implementación de recursos de Azure con una plantilla | Microsoft Azure"
+	description="Aprenda a usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento."
+	services="virtual-machines,virtual-networks,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -10,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos.
 
 Mediante el uso de plantillas y grupos de recursos, tendrá la posibilidad de administrar en conjunto todos los recursos que admiten su aplicación. Este tutorial muestra cómo usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure y cómo crear una plantilla para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento.
 
@@ -443,4 +453,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure"
+	pageTitle="Solución de problemas de acceso de aplicaciones de una máquina virtual | Microsoft Azure"
 	description="Si no puede acceder a una aplicación que se ejecuta en una máquina virtual de Azure, siga estos pasos para aislar la causa del problema."
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata la solución de problemas del acceso de aplicaciones de una máquina virtual creada con el modelo de implementación clásica o el modelo de implementación del Administrador de recursos.
 
 Si no tiene acceso a una aplicación que se ejecuta en una máquina virtual de Azure, en este artículo se describe un enfoque metódico para aislar la causa del problema y corregirlo.
 
@@ -42,7 +44,7 @@ Intente acceder a la aplicación con el programa de cliente apropiado de la máq
 
 Por ejemplo, si la aplicación es un servidor web, ejecute un explorador en la máquina virtual e intente obtener acceso a una página web hospedada en la máquina virtual.
 
-Si puede tener acceso a la aplicación, vaya a [paso 2](#step2).
+Si puede tener acceso a la aplicación, vaya al [paso 2](#step2).
 
 Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 
@@ -83,7 +85,7 @@ Si no se puede obtener acceso a la aplicación, compruebe lo siguiente:
 - En las máquinas virtuales creadas con la API de administración de servicios, en las que la configuración del extremo de la máquina virtual permita el tráfico entrante, especialmente el protocolo (TCP o UDP) y los números de puerto público y privado. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
 - Para las máquinas virtuales creadas con la API de administración de servicios que tienen acceso a las listas de control (ACL) del extremo no impidan el tráfico entrante desde Internet. Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
 - En las máquinas virtuales creadas en la Administrador de recursos, que la configuración de la regla NAT entrante de la máquina virtual esté permitiendo el tráfico entrante, especialmente el protocolo (TCP o UDP) y los números de puerto público y privado.
-- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente. Para obtener más información, consulte [¿Qué es un grupo de seguridad de red (NSG)?](virtual-networks-nsg.md).
+- Que los grupos de seguridad de red permitan la solicitud entrante y el tráfico de respuesta saliente. Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](virtual-networks-nsg.md)
 
 Si la máquina virtual o el extremo es un miembro de un conjunto con equilibrio de carga:
 
@@ -110,4 +112,4 @@ Si ha efectuado los pasos del 1 al 3 de este artículo y necesita ayuda adiciona
 
 [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

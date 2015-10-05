@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Implementación de una aplicación de Linux mediante la extensión CustomScript de Azure"
-	description="Aprenda a usar la extensión CustomScript de Azure para implementar aplicaciones en máquinas virtuales de Linux."
+	pageTitle="Use la extensión CustomScript en una máquina virtual Linux | Microsoft Azure"
+	description="Obtenga información acerca de cómo usar la extensión CustomScript para implementar aplicaciones en máquinas virtuales de Linux en Azure creadas mediante el modelo de implementación clásica."
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
 	services="virtual-machines"
-	authors="gbowerman"/>
+	authors="gbowerman"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,15 +19,17 @@
 
 #Implementación de una aplicación LAMP con la extensión CustomScript de Azure para Linux#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata la solución de problemas del acceso de aplicaciones de una máquina virtual creada con el modelo de implementación clásica.
+
 La extensión CustomScript de Microsoft Azure para Linux ofrece una manera de personalizar sus máquinas virtuales mediante la ejecución de código arbitrario escrito en cualquier lenguaje de scripting compatible con la máquina virtual (por ejemplo, Python y Bash). Esto proporciona una forma muy flexible de automatizar la implementación de aplicaciones en varios equipos.
 
 Puede implementar la extensión CustomScript mediante el Portal de Azure, Windows PowerShell o la interfaz de la línea de comandos de Azure (CLI de Azure).
 
-En este artículo, implementaremos una simple aplicación LAMP para Ubuntu usando la CLI de Azure.
+En este artículo usaremos la CLI de Azure para implementar una aplicación LAMP sencilla en una máquina virtual Ubuntu creada mediante el modelo de implementación clásica.
 
 ## Requisitos previos
 
-En el ejemplo siguiente, cree primero dos máquinas virtuales de Azure con Ubuntu 14.04. Las máquinas virtuales se denominan *script-vm* y *lamp-vm*. Use nombres únicos cuando cree las máquinas virtuales. Una se usa para ejecutar los comandos de CLI y la otra, para implementar la aplicación LAMP.
+Para este ejemplo, cree primero dos máquinas virtuales de Azure con Ubuntu 14.04 o una versión posterior. Las máquinas virtuales se denominan *script-vm* y *lamp-vm*. Use nombres únicos cuando cree las máquinas virtuales. Una se usa para ejecutar los comandos de CLI y la otra, para implementar la aplicación LAMP.
 
 También necesita una cuenta de Almacenamiento de Azure y una clave para tener acceso a ella (se puede obtener desde el Portal de Azure).
 
@@ -38,11 +41,11 @@ La máquina virtual script-vm debe tener instalada la CLI de Azure, con una cone
 
 ## Cargar un script
 
-En este ejemplo, la extensión CustomScript ejecuta un script en una máquina virtual remota para instalar la pila LAMP y crear una página PHP. Para tener acceso a la secuencia de comandos desde cualquier lugar, la cargaremos como un blob de Azure.
+Usaremos la extensión CustomScript para ejecutar un script en una máquina virtual remota para instalar la pila LAMP y crear una página PHP. Para tener acceso a la secuencia de comandos desde cualquier lugar, la cargaremos como un blob de Azure.
 
 ### Información general del script
 
-Este ejemplo de script instala una pila LAMP en Ubuntu (incluida la configuración de una instalación silenciosa de MySQL), escribe un simple archivo PHP e inicia Apache:
+El ejemplo de script instala una pila LAMP en Ubuntu (incluida la configuración de una instalación silenciosa de MySQL), escribe un simple archivo PHP e inicia Apache:
 
 	#!/bin/bash
 	# set up a silent install of MySQL
@@ -106,4 +109,4 @@ A continuación, se ofrecen algunos recursos adicionales para la CLI de Azure, L
 
 [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

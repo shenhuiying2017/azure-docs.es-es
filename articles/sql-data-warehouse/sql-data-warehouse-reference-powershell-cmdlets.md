@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introducción a los cmdlets de Almacenamiento de datos SQL"
-	description="Suspender y reiniciar el Almacenamiento de datos SQL mediante cmdlets de PowerShell"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sidneyh"
-	manager="jhubbard"
-	editor=""/>
+   description="Suspender y reiniciar el Almacenamiento de datos SQL mediante cmdlets de PowerShell"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sidneyh"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/28/2015"
-	ms.author="twounder;sidneyh;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="twounder;sidneyh;barbkess"/>
 
 # Introducción a los cmdlets de Almacenamiento de datos de Azure y a las API de REST
 
@@ -111,4 +111,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

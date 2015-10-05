@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor
@@ -53,4 +53,4 @@ Puede usar la característica "Ejecutar ahora" en la directiva para comprobar la
 
 Cuando el consumidor inicia la sesión (mediante una cuenta local o social), si un número de teléfono comprobado está asociado a su cuenta, se le pide que lo compruebe. Si no hay ningún número de teléfono adjunto, se pide al consumidor que proporcione uno y que lo compruebe; tras una correcta comprobación, el número de teléfono se adjunta a la cuenta de consumidor para su uso posterior.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

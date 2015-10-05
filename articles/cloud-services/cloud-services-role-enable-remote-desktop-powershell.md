@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure"
-	description="Configuración de la aplicación de servicios en la nube de Azure para permitir conexiones a Escritorio remoto"
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell" 
+description="Configuración de la aplicación de servicios en la nube de Azure con PowerShell para permitir conexiones a Escritorio remoto" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="09/17/2015" 
+ms.author="saurabh"/>
 
 # Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Configuración de servicios en la nube](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

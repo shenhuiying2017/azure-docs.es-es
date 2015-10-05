@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Tutorial: exportación a SQL desde Application Insights mediante Análisis de transmisiones
@@ -59,13 +59,13 @@ Primeros pasos:
 
 La exportación continua siempre envía los datos a una cuenta de almacenamiento de Azure, por lo que necesitará crear primero el almacenamiento.
 
-1. Cree una cuenta de almacenamiento en su suscripción en el [portal de Azure][portal].
+1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure][portal].
 
-    ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento. Seleccione Clásico y elija Crear. Proporcione un nombre de almacenamiento.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
 2. Crear un contenedor
 
-    ![En el nuevo almacenamiento, seleccione Contenedores y, a continuación, Agregar.](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![En el nuevo almacenamiento, seleccione Contenedores, haga clic en el icono Contenedores y luego, en Agregar.](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
 3. Copie la clave de acceso de almacenamiento.
 
@@ -314,4 +314,4 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

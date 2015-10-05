@@ -92,7 +92,9 @@ Hay dos tipos de componentes de código abierto que están disponibles en el ser
 
 Los componentes integrados son totalmente compatibles, y el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
 
-Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden utilizar, por ejemplo, el <a href ="https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight" target="_blank">foro de MSDN para HDInsight</a> y <a href="http://stackoverflow.com" target="_blank">Stack Overflow</a>. Además, los proyectos de Apache tienen sitios del proyecto en <a href="http://apache.org" target="_blank">Apache.org</a>; por ejemplo, <a href="http://hadoop.apache.org/" target="_blank">Hadoop</a> y <a href="http://spark.apache.org/" target="_blank">Spark</a>.
+> [AZURE.WARNING]Los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
+>
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Además, los proyectos de Apache tienen sitios del proyecto en [http://apache.org](http://apache.org), por ejemplo, [Hadoop](http://hadoop.apache.org/) y [Spark](http://spark.apache.org/).
 
 El servicio HDInsight proporciona varias maneras de utilizar los componentes personalizados. Independientemente de cómo se use el componente o cómo se instale en el clúster, se aplica el mismo nivel de soporte técnico. A continuación, se muestra una lista de las maneras más comunes que se pueden usar los componentes personalizados en los clústeres de HDInsight:
 
@@ -111,8 +113,8 @@ Vea [Desarrollo de scripts de acción de script con HDInsight][hdinsight-write-s
 - [Desarrollo de la acción de script con HDInsight][hdinsight-write-script]
 - [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]
 - [Instalación y uso de R en clústeres de Hadoop de HDInsight][hdinsight-install-r]
-- [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md).
-- [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
+- [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md)
+- [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md)
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
@@ -123,4 +125,4 @@ Vea [Desarrollo de scripts de acción de script con HDInsight][hdinsight-write-s
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Fases durante el aprovisionamiento del clúster"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

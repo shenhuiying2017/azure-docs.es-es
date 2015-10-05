@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Diseño de tablas en el Almacenamiento de datos SQL #
@@ -123,8 +123,8 @@ Compatibilidad parcial:
 
 Hay dos opciones para distribuir los datos en el Almacenamiento de datos SQL:
 
-1. Distribuir datos en función de los valores de hash de una sola columna
-2. Distribuir los datos de manera uniforme, pero aleatoria  
+1. Distribuir los datos de manera uniforme, pero aleatoria 
+2. Distribuir datos en función de los valores de hash de una sola columna
 
 La distribución de datos se decide a nivel de tabla. Todas las tablas se distribuyen. Asignará la distribución a cada tabla de la base de datos de Almacenamiento de datos SQL.
 
@@ -306,4 +306,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -3,30 +3,27 @@
 1. Abra el archivo `info.plist` del proyecto
 2. Haga clic con el botón derecho en el elemento superior de la lista (`Information Property List`) y agregue una nueva fila
 
-	![][1]
+	![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png)
 
 3. En la nueva fila, escriba `Required background modes`
 
-	![][2]
+	![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png)
 
 4. Haga clic en la flecha izquierda para expandir la fila
 5. Agregue el siguiente valor al elemento 0 `App downloads content in response to push notifications`
 
-	![][3]
+	![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png)
 
-Una vez realizado el cambio, info.plist XML debe contener la clave y el valor siguientes:
+6. Una vez realizado el cambio, info.plist XML debe contener la clave y el valor siguientes:
 
-    <key>UIBackgroundModes</key>
-        <array>
-            <string>remote-notification</string>
-        </array>
-    ...
+	    <key>UIBackgroundModes</key>
+	    <array>
+	    <string>remote-notification</string>
+	    </array>
+	    ...
     
-6. Si usa Xcode 7 e iOS 9, tendrá que realizar los siguientes pasos adicionales: • Establezca **Enable Bitcode** en **No** en Targets > Build Settings > establezca Enable Bitcode en Yes o No. (asegúrese de seleccionar ALL en la barra superior.) • Habilite **Push Notifications** en Your Target Name > Capabilities.
+7. Si usa **Xcode 7** e **iOS 9**, debe realizar los siguientes pasos adicionales:
+	- Establezca **Habilitar Bitcode** en **No** en Destinos > Configuración de compilación. Asegúrese de seleccionar TODO lo de la barra superior. 
+	- Habilitar **Notificaciones de inserción** en Destinos > Su nombre de destino > Capacidades.
 
-<!-- Images. -->
-[1]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png
-[2]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png
-[3]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

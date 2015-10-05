@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuración de SSL para un servicio en la nube | Microsoft Azure" 
-	description="Aprenda a especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación." 
+	pageTitle="Configuración de SSL para un servicio en la nube (portal de vista previa) | Microsoft Azure" 
+	description="Aprenda a especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación. Estos ejemplos usan el portal de vista previa de Azure." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -43,7 +43,7 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL en Azu
 
 -   El certificado debe contener una clave privada.
 -   El certificado debe crearse para el intercambio de claves, que se puedan exportar a un archivo Personal Information Exchange (.pfx).
--   El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al servicio en la nube. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio cloudapp.net. Debe adquirir un nombre de dominio personalizado para usarlo cuando obtenga acceso a su servicio. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usó para tener acceso a su aplicación. Por ejemplo, si su nombre de dominio personalizado es **contoso.com** debe solicitar un certificado de su CA para **\*.contoso.com** o **www.contoso.com**.
+-   El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al servicio en la nube. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio cloudapp.net. Debe adquirir un nombre de dominio personalizado para usarlo cuando obtenga acceso a su servicio. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usó para tener acceso a su aplicación. Por ejemplo, si su nombre de dominio personalizado es **contoso.com** debe solicitar un certificado de su CA para ****.contoso.com** o **www.contoso.com**.
 -   Este certificado debe usar un cifrado de 2048 bits como mínimo.
 
 Para propósitos de prueba, puede [crear](cloud-services-certs-create.md) y usar un certificado autofirmado. Un certificado autofirmado no está autenticado por una CA y puede usar el dominio cloudapp.net como la dirección URL del sitio web. Por ejemplo, la tarea siguiente usa un certificado autofirmado en el que el nombre común (CN) usado en el certificado es **sslexample.cloudapp.net**.
@@ -155,4 +155,11 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 
 [Azure Portal]: http://portal.azure.com/
 
-<!-----HONumber=August15_HO7-->
+## Pasos siguientes
+
+* [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
+* Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
+* Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
+* [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
+
+<!---HONumber=Sept15_HO4-->

@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
+
 
 # ¿Qué es Almacenamiento de datos SQL de Azure?
 
@@ -78,4 +79,4 @@ Obtenga información sobre [carga de trabajo del almacenamiento de datos]. [Apro
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

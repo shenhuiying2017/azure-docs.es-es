@@ -36,7 +36,7 @@ En la siguiente ilustración se muestra un extremo con equilibrio de carga para 
 
 
 
-Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública del servicio en la nube y el puerto TCP 443, el equilibrador de carga realiza un equilibrio aleatorio de esas solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga.
+Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública del servicio en la nube y el puerto TCP 443, el equilibrador de carga realiza un equilibrio de carga basado en hash de esas solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga. Puede obtener más información sobre el algoritmo del equilibrador de carga en [Página de información general del equilibrador de carga](load-balancer-overview#load-balancer-features).
 
 
 ## Pasos siguientes
@@ -52,4 +52,4 @@ Cuando los clientes de Internet envían solicitudes de página web a la direcci�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

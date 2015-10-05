@@ -17,6 +17,14 @@
 
 # Creación de una aplicación web de Java en el Servicio de aplicaciones de Azure
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 En este tutorial se muestra cómo crear una aplicación web en Microsoft Azure mediante Java a través de Azure Marketplace o la interfaz de usuario de configuración en la [Característica de aplicaciones web del Servicio de aplicaciones de Azure][].
 
 Si no desea usar ninguna de estas técnicas y, por ejemplo, desea personalizar el contenedor de aplicaciones, consulte [Carga de una aplicación web de Java personalizada en Azure](web-sites-java-custom-upload.md).
@@ -46,7 +54,7 @@ A continuación se muestra cuál sería el aspecto de una aplicación web creada
 4. Haga clic en el servidor de aplicaciones Java deseado.
 5. Haga clic en **Crear**.
 6. Especifique el nombre de la dirección URL.
-6. Seleccione una región. Por ejemplo, seleccione **Oeste de EE. UU.**.
+6. Seleccione una región. Por ejemplo, seleccione **Oeste de EE. UU.**
 7. Haga clic en **Crear**.
 
 Se creará la aplicación web en un momento. Para ver la aplicación web, en el Portal de Azure, en la hoja **Aplicaciones web**, haga clic en la aplicación web y, a continuación, haga clic en la dirección URL de esta.
@@ -65,7 +73,7 @@ Esta información muestra cómo usar la interfaz de usuario de configuración de
 6. Haga clic en **Aplicación web**.
 7. Haga clic en **Crear**.
 8. Especifique el nombre de la dirección URL.
-9. Seleccione una región. Por ejemplo, seleccione **Oeste de EE. UU.**.
+9. Seleccione una región. Por ejemplo, seleccione **Oeste de EE. UU.**
 10. Haga clic en **Crear**.
 11. Cuando se ha creado la aplicación web, haga clic en **Toda la configuración**.
 12. Haga clic en **Configuración de la aplicación**.
@@ -81,6 +89,8 @@ Ahora que ha creado la aplicación web con un contenedor de aplicaciones, consul
 
 En este momento, dispone de un servidor de aplicaciones Java ejecutándose como aplicación web de Java en Azure. Para agregar su propia aplicación o página web, consulte [Incorporación de una aplicación o página web a la aplicación web de Java](web-sites-java-add-app.md).
 
+Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
+
 ## Lo que ha cambiado
 
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y servicios de Azure existentes][].
@@ -94,4 +104,4 @@ En este momento, dispone de un servidor de aplicaciones Java ejecutándose como 
 [Servicio de aplicaciones de Azure y servicios de Azure existentes]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Referencia para navegar en el portal de Azure]: http://go.microsoft.com/fwlink/?LinkId=529715
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

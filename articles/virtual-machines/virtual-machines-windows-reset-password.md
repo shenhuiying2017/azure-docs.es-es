@@ -1,17 +1,17 @@
 <properties
-	pageTitle="Cómo restablecer una contraseña o el servicio de Escritorio remoto para máquinas virtuales de Windows"
-	description="Restablezca rápidamente una contraseña de administrador local o el servicio de Escritorio remoto para máquinas virtuales de Windows con el Portal de vista previa de Azure o los comandos de PowerShell."
+	pageTitle="Restablecimiento de la contraseña o el escritorio remoto en una máquina virtual Windows | Microsoft Azure"
+	description="Restablezca la contraseña de administrador o los servicios de escritorio remoto en una máquina virtual Windows creada con el modelo de implementación del Administrador de recursos."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,9 +19,9 @@
 
 # Cómo restablecer una contraseña o el servicio de Escritorio remoto para máquinas virtuales de Windows
 
-Si no puede conectarse a una máquina virtual Windows debido a que se olvidó la contraseña o por un problema con la configuración de servicio del Escritorio remoto, use el Portal de vista previa de Azure o la extensión VMAccess para restablecer la contraseña de administrador local o restablezca la configuración de servicio de Escritorio remoto.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se tratan las máquinas virtuales creadas con el modelo de implementación del Administrador de recursos.
 
-> [AZURE.NOTE]Este artículo no se aplica a las máquinas virtuales creadas en el Administrador de recursos de Azure.
+Si no puede conectarse a una máquina virtual Windows debido a que se olvidó la contraseña o por un problema con la configuración de servicio del Escritorio remoto, use el Portal de vista previa de Azure o la extensión VMAccess para restablecer la contraseña de administrador local o restablezca la configuración de servicio de Escritorio remoto.
 
 ## Portal de vista previa
 
@@ -60,7 +60,7 @@ Si ha creado la máquina virtual con el Portal de Azure, ejecute el siguiente co
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
-Este comando impedirá el error "El Agente del invitado de aprovisionamiento debe estar habilitado en el objeto de la máquina virtual antes de establecer la extensión de acceso a máquinas virtuales IaaS" cuando se ejecuta el comando **Set-AzureVMExtension** en las secciones siguientes.
+Este comando impedirá el error "El agente de invitado de aprovisionamiento debe estar habilitado en el objeto de máquina virtual antes de establecer la extensión de acceso de máquina virtual IaaS" cuando se ejecuta el comando **Set-AzureVMExtension** en las secciones siguientes.
 
 Ahora puede realizar estas tareas:
 
@@ -113,4 +113,4 @@ Si no fue posible ejecutar el paquete de diagnóstico de Azure IaaS (Windows) o 
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

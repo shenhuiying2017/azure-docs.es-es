@@ -1,26 +1,32 @@
 <properties
    pageTitle="Ejecución de un runbook en Automatización de Azure"
-	description="Describe los detalles de cómo se procesa un runbook en Automatización de Azure."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Describe los detalles de cómo se procesa un runbook en Automatización de Azure."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/17/2015"
+   ms.author="bwren" />
 
 # Ejecución de un runbook en Automatización de Azure
 
 
 Cuando se inicia un runbook en Automatización de Azure, se crea un trabajo. Un trabajo es una instancia única de ejecución de un runbook. Un trabajador de Automatización de Azure está asignado para ejecutar cada trabajo. Aunque los trabajadores se comparten por varias cuentas de Azure, los trabajos de diferentes cuentas de Automatización están aislados entre sí. No tiene el control sobre qué trabajador prestará servicio a la solicitud para el trabajo. Un único runbook puede tener varios trabajos que se ejecutan al mismo tiempo. Al ver la lista de runbooks en el portal de Azure, se mostrará el estado del última trabajo iniciado por cada runbook. Puede ver la lista de trabajos para cada runbook para hacer un seguimiento del estado de cada uno. Para obtener una descripción de los distintos estados de trabajo, consulte [ Estados del trabajo](#job-statuses).
 
-![Estados del trabajo](./media/automation-runbook-execution/job-statuses.png)
+En el siguiente diagrama se muestra el ciclo de vida de un trabajo de runbook para [Runbooks gráficos](automation-runbook-types.md#graphical-runbooks) y [Runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
+
+![Estados de trabajo: flujo de trabajo de PowerShell](./media/automation-runbook-execution/job-statuses.png)
+
+En el siguiente diagrama se muestra el ciclo de vida de un trabajo de runbook para [runbooks de PowerShell](automation-runbook-types.md#powershell-runbooks).
+
+![Estados de trabajo: script de PowerShell](./media/automation-runbook-execution/job-statuses-script.png)
 
 
 Los trabajos tendrán acceso a los recursos de Azure mediante una conexión a la suscripción de Azure. Solo tendrán acceso a los recursos de su centro de datos si estos recursos están accesibles desde la nube pública.
@@ -32,7 +38,7 @@ En la tabla siguiente se describen los diferentes estados posibles para un traba
 | Status| Descripción|
 |:---|:---|
 |Completed|El trabajo se completó correctamente.|
-|Failed|El trabajo finalizó con un error.|
+|Con error| Para [Runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md), no se pudo compilar el runbook. Para [Runbooks de script de PowerShell](automation-runbook-types.md), no se pudo iniciar el runbook o el trabajo encontró una excepción. |
 |Error, esperando recursos|Se produjo un error en el trabajo porque ha alcanzado el límite de [distribución equilibrada](#fairshare) tres veces y se ha iniciado en el mismo punto de control o en el inicio del runbook cada vez.|
 |En cola|El trabajo espera que los recursos en un trabajador de Automatización estén disponible para que se puede iniciar.|
 |Iniciando|El trabajo se ha asignado a un trabajador y el sistema está en proceso de iniciarse.|
@@ -41,8 +47,8 @@ En la tabla siguiente se describen los diferentes estados posibles para un traba
 |En ejecución, esperando recursos|El trabajo se ha descargado porque ha alcanzado el límite de [distribución equilibrada](#fairshare). Se reanudará en breve desde su último punto de control.|
 |Stopped|El trabajo lo detuvo el usuario antes de completarse.|
 |Deteniéndose|El sistema está en proceso de detener el trabajo.|
-|Suspended|El trabajo lo ha suspendido el usuario, el sistema o un comando en el runbook. Un trabajo suspendido se puede iniciar de nuevo y se reanudará desde su último punto de control o desde el principio del runbook si no tiene ningún punto de control. El runbook solo lo suspenderá el sistema en el caso de una excepción. De forma predeterminada, se establece ErrorActionPreference en **Continuar**, lo que significa que el trabajo seguirá ejecutándose en un error. Si se establece esta variable de preferencia en **Detener**, se suspenderá el trabajo en un error.|
-|Suspendiendo|El sistema está intentando suspender el trabajo a petición del usuario. El runbook debe alcanzar su siguiente punto de control antes de que se pueda suspender. Si ya ha pasado su último punto de comprobación, se completará antes de que se pueda suspender.|
+|Suspended|El trabajo lo ha suspendido el usuario, el sistema o un comando en el runbook. Un trabajo suspendido se puede iniciar de nuevo y se reanudará desde su último punto de control o desde el principio del runbook si no tiene ningún punto de control. El runbook solo lo suspenderá el sistema en el caso de una excepción. De forma predeterminada, se establece ErrorActionPreference en **Continuar**, lo que significa que el trabajo seguirá ejecutándose en un error. Si se establece esta variable de preferencia en **Detener**, se suspenderá el trabajo en un error. Solo se aplica a [Runbooks de flujo de trabajo de PowerShell y gráficos](automation-runbook-types.md).|
+|Suspendiendo|El sistema está intentando suspender el trabajo a petición del usuario. El runbook debe alcanzar su siguiente punto de control antes de que se pueda suspender. Si ya ha pasado su último punto de comprobación, se completará antes de que se pueda suspender. Solo se aplica a [Runbooks de flujo de trabajo de PowerShell y gráficos](automation-runbook-types.md).|
 
 ## Visualización de un estado de trabajo con el Portal de administración de Azure
 
@@ -103,4 +109,4 @@ Cuando se crea un runbook, debe asegurarse de que el tiempo para ejecutar las ac
 
 - [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

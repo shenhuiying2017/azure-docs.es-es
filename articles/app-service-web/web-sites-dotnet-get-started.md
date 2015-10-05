@@ -18,6 +18,14 @@
 
 # Creación de una aplicación web ASP.NET en el Servicio de aplicaciones de Azure
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 ## Información general
 
 Este tutorial muestra cómo crear una aplicación web ASP.NET e implementarla en una [aplicación web del Servicio de aplicaciones de Azure](app-service-web-overview.md) con Visual Studio 2015 o Visual Studio 2013. En este tutorial se supone que no tiene ninguna experiencia previa con Azure o ASP.NET. Cuando acabe, tendrá una sencilla aplicación web que se ejecutará en la nube.
@@ -40,7 +48,7 @@ Para completar este tutorial, deberá tener una cuenta de Azure. Puede:
 * [Abrir una cuenta de Azure de forma gratuita](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica de Aplicaciones web del Servicio de aplicaciones de Azure.
 * [Activar los beneficios de suscriptores de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
 
-> [AZURE.NOTE]Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita de Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
+> [AZURE.NOTE]Si desea empezar a usar Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita de Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación web de corta duración para iniciarse en Servicio de aplicaciones, no se requiere tarjeta de crédito y no se establece ningún compromiso.
 
 En este vídeo, Scott Hanselman presenta lo sencillo que resulta suscribirse para una prueba gratuita de Microsoft Azure. (Duración: 1:58)
 
@@ -48,7 +56,7 @@ En este vídeo, Scott Hanselman presenta lo sencillo que resulta suscribirse par
 
 [AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-## Creación de una aplicación web ASP.NET
+## Crear un proyecto y una aplicación web
 
 El primer paso es crear un proyecto web en Visual Studio y una aplicación web en el Servicio de aplicaciones de Azure. Cuando esté listo, implemente el proyecto a la aplicación web para que esté disponible en Internet.
 
@@ -62,7 +70,7 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 2. En el menú **Archivo**, haga clic en **Nuevo > Proyecto**.
 
-3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **C#** > Web > Aplicación Web ASP.NET. Si lo prefiere, puede elegir **Visual Basic**.
+3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **C# > Web > Aplicación Web ASP.NET**. Si lo prefiere, puede elegir **Visual Basic**.
 
 3. Asegúrese de que **.NET Framework 4.5.2** es el marco de destino seleccionado.
 
@@ -86,7 +94,7 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 	![Sin autenticación](./media/web-sites-dotnet-get-started/GS13noauth.png)
 
-	La aplicación de ejemplo que va a crear no permitirá a los usuarios iniciar sesión. La sección [Pasos siguientes](#next-steps) vincula a un tutorial que implementa la autenticación y autorización.
+	La aplicación de ejemplo que va a crear no permitirá a los usuarios iniciar sesión. La sección [Pasos siguientes](#next-steps) vincula a un tutorial que implementa la autenticación y la autorización.
 
 5. En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, no altere la configuración en **Microsoft Azure** y después haga clic en **Aceptar**.
 
@@ -144,7 +152,11 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 	![Aplicación web creada](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Implementación de la aplicación en Azure
+## Implementación del proyecto en la aplicación web
+
+En esta sección implementará el proyecto web en la aplicación web, como se muestra en el paso 2 del diagrama.
+
+![Creación e implementación](./media/web-sites-dotnet-get-started/Create_App.png)
 
 7. En la ventana **Actividad del Servicio de aplicaciones de Azure**, haga clic en **Publicar MyExample en esta aplicación web ahora**.
 
@@ -154,7 +166,7 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 	La configuración que Visual Studio necesita para implementar el proyecto en Azure se ha guardado en un *perfil de publicación*. Puede usar el asistente para revisar y cambiar esta configuración.
 
-8. En la pestaña **Conexión** del asistente para **publicación web**, haga clic en **Siguiente**.
+8. En la pestaña **Conexión** del Asistente para **publicación web**, haga clic en **Siguiente**.
 
 	Visual Studio proporciona toda la configuración que hay que implementar en la aplicación web de Azure.
 
@@ -208,7 +220,7 @@ Esta sección del tutorial es opcional. Lo que hará es cambiar el título **h1*
 
 	![Elija Publicar](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	Aparecerá la pestaña **Vista previa** del asistente para **publicación web**. Si tuviera que cambiar cualquier configuración de publicación podría elegir otra pestaña; sin embargo, ahora todo lo que desea es repetir la implementación con la misma configuración.
+	Aparecerá la pestaña **Vista previa** del Asistente para **publicación web**. Si tuviera que cambiar cualquier configuración de publicación podría elegir otra pestaña; sin embargo, ahora todo lo que desea es repetir la implementación con la misma configuración.
 
 2. En el Asistente para **publicación web**, haga clic en **Publicar**.
 
@@ -218,13 +230,13 @@ Esta sección del tutorial es opcional. Lo que hará es cambiar el título **h1*
 
 	![Aplicación web modificada implementada](./media/web-sites-dotnet-get-started/deployedandazure.png)
 
-**Sugerencia:** puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para que la implementación sea aún más rápida. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Puede usar la barra de herramientas para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el asistente para **publicación web**.
+**Sugerencia:** puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para que la implementación sea aún más rápida. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Puede usar la barra de herramientas para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el Asistente para **publicación web**.
 
 ![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## Supervisión y administración de la aplicación web en el Portal de Azure
 
-El [Portal de Azure](/services/management-portal/) es una interfaz web que puede usar para administrar y supervisar los servicios de Azure, por ejemplo, la aplicación web que acaba de crear. En esta sección del tutorial podrá ver algo de lo que puede hacer en el portal.
+El [Portal de Azure](/services/management-portal/) es una interfaz web que puede usar para administrar y supervisar los servicios de Azure; por ejemplo, la aplicación web que acaba de crear. En esta sección del tutorial podrá ver algo de lo que puede hacer en el portal.
 
 1. En el explorador, vaya a [https://portal.azure.com](https://portal.azure.com) e inicie sesión con sus credenciales de Azure.
 
@@ -289,14 +301,14 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 * Selección entre Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales de Azure para aplicaciones web
 
-	En Azure puede ejecutar aplicaciones web en Aplicaciones web del Servicio de aplicaciones, como se muestra en este tutorial, o bien en Servicios en la nube o en Máquinas virtuales. Para obtener más información, consulte [Aplicaciones web de Azure, Servicios en la nube y Máquinas virtuales: ¿cuándo se usa cada opción?](/manage/services/web-sites/choose-web-app-service/).
+	En Azure puede ejecutar aplicaciones web en Aplicaciones web del Servicio de aplicaciones, como se muestra en este tutorial, o bien en Servicios en la nube o en Máquinas virtuales. Para obtener más información, consulte [Aplicaciones web, Servicios en la nube y Máquinas virtuales de Azure: ¿cuándo usarlos?](/manage/services/web-sites/choose-web-app-service/).
 
 * [Cómo elegir o crear un plan del Servicio de aplicaciones](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 * [Cómo elegir o crear un grupo de recursos](../azure-preview-portal-using-resource-groups.md)
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte [Servicio de aplicaciones de Azure y los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obtener una guía del cambio del portal anterior al nuevo, consulte la [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!------HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

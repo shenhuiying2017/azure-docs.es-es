@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-	manager=""
-	editor=""/>
+  manager="" 
+  editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -17,6 +17,12 @@
 	ms.author="pakefali"/>
 
 # Compilación e implementación de una aplicación de API de Node.js en el Servicio de aplicaciones de Azure
+
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 Este tutorial muestra la forma de crear una aplicación de [Node.js](http://nodejs.org) e implementarla en aplicaciones web del Servicio de aplicaciones de Azure con [Git](http://git-scm.com). Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.
 
@@ -243,4 +249,4 @@ Ha implementado una aplicación web de Node.js que usa el back-end de una aplica
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

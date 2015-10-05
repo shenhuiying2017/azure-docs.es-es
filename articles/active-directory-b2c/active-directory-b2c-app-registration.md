@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Registro de la aplicación
@@ -23,6 +23,9 @@
 ## Requisito previo
 
 Para crear una aplicación que acepte registro e inicio de sesión de consumidores, primero deberá registrarla en un directorio de Azure Active Directory B2C. Obtenga su propio directorio siguiendo los pasos descritos [aquí](active-directory-b2c-get-started.md). Si ha seguido todos los pasos de este artículo, debe tener la hoja de características B2C anclada en el panel de inicio.
+
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
 
 ## Navegación a la hoja Características B2C
 
@@ -59,4 +62,4 @@ Ahora que tiene una aplicación de Microsoft registrada en Azure AD B2C, puede r
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Ejemplo de código: exportar a SQL desde Application Insights mediante un rol de trabajo"
-	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="Ejemplo de código: exportar a SQL desde Application Insights mediante un rol de trabajo" 
+	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Ejemplo de código: exportar a SQL desde Application Insights mediante un rol de trabajo
@@ -51,13 +51,13 @@ Primeros pasos:
 
 ## Creación de almacenamiento en Azure
 
-1. Cree una cuenta de almacenamiento en su suscripción en el [portal de Azure][portal].
+1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure][portal].
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. Crear un contenedor
 
-    ![En el nuevo almacenamiento, seleccione Contenedores y, a continuación, Agregar.](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+    ![En el nuevo almacenamiento, seleccione Contenedores, haga clic en el icono Contenedores y luego, en Agregar.](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## Inicio de la exportación continua al almacenamiento de Azure
@@ -539,4 +539,4 @@ Para ver este ejemplo en acción, [descargue](https://sesitai.codeplex.com/) el 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -258,6 +258,8 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 - [API de REST de almacenamiento de Azure][]
 - [Blog del equipo de almacenamiento de Azure][]
 
+Para obtener más información, consulte también el [Centro para desarrolladores de Java](/develop/java/).
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
 [SDK de almacenamiento de Azure para Android]: https://github.com/azure/azure-storage-android
@@ -267,4 +269,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 [API de REST de almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

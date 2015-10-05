@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Instalación de la actualización 1.2 desde el Portal de administración de Azure"
-   description="Explica cómo usar el Portal de administración para instalar StorSimple 8000 Series Update 1.2."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar la Actualización 1.2 desde el Portal de administración
 
@@ -80,4 +65,4 @@
 
 > [AZURE.NOTE]En determinados casos, el mensaje que indica que las actualizaciones del modo de mantenimiento están disponibles pueden mostrarse hasta 24 horas después de que las actualizaciones del modo de mantenimiento se apliquen correctamente en el dispositivo.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux"
+	pageTitle="Solución de problemas de conexiones SSH a una máquina virtual Linux | Microsoft Azure"
 	description="Si no se puede conectar la máquina virtual de Azure basada en Linux, siga estos pasos para aislar la causa del problema."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,8 @@
 	ms.author="dkshir"/>
 
 # Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata la solución de problemas de las conexiones SSH de una máquina virtual creada con el modelo de implementación clásica o el modelo de implementación del Administrador de recursos.
 
 Si no puede conectarse a máquinas virtuales Azure basadas en Linux, este artículo describe un enfoque metódico para aislar y corregir el problema.
 
@@ -54,7 +56,7 @@ En el Portal de vista previa de Azure:
 
 Para comprobar la conectividad de red, analice los extremos configurados y determine si puede llegar a la máquina virtual a través de otro protocolo, como HTTP o de otro servicio conocido.
 
-Si es necesario, [reinicie la máquina virtual](https://msdn.microsoft.com/library/azure/dn763934.aspx) o [cambie el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+Si es necesario, reinicie la máquina virtual o [cambie el tamaño de la máquina virtual](virtual-machines-size-specs.md).
 
 Después de realizar estos pasos, vuelva a intentar la conexión a SSH.
 
@@ -165,4 +167,4 @@ Para obtener información sobre el uso del soporte técnico de Azure, consulte l
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

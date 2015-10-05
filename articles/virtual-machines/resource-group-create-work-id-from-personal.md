@@ -1,24 +1,28 @@
 <properties
-   pageTitle="Crear una identidad profesional o educativa en Azure Active Directory"
-	description="Describe cómo crear una identidad de profesional o educativa desde su identidad personal para usarla con plantillas de grupo de recursos o acceso basado en roles, entre otras características."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Crear una identidad profesional o educativa en AAD | Microsoft Azure"
+   description="Aprenda a crear una identidad profesional o educativa en Azure Active Directory para usar con el Administrador de recursos y los modelos de implementación clásica."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure"
-	ms.date="09/01/2015"
-	ms.author="rasquill"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure"
+   ms.date="09/01/2015"
+   ms.author="rasquill"/>
 
 # Crear una identidad profesional o educativa en Azure Active Directory
 
 Si creó una cuenta de Azure personal o tiene una suscripción a MSDN personal y creó la cuenta de Azure para beneficiarse de los créditos de Azure de MSDN, usó una identidad de *cuenta Microsoft* para crearla. Muchas características excelentes de Azure (las [plantillas de grupo de recursos](../resource-group-overview.md) son un ejemplo) requieren una cuenta profesional o educativa (una identidad administrada por Azure Active Directory) para que funcione.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de una entidad de AAD que se necesitará tanto para el modelo de implementación del Administrador de recursos como para el modelo de implementación clásica.
+
 
 Afortunadamente, una de las ventajas de su cuenta de Azure personal es que se incluye con un dominio de Azure Active Directory predeterminado que se puede usar para crear una nueva cuenta profesional o educativa que puede usar con las características de Azure que lo requieran.
 
@@ -140,4 +144,4 @@ Ahora puede usar su nueva identidad de Azure Active Directory para usar [plantil
     data:
     info:    group create command OK
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar revisiones regulares a través de Windows PowerShell para StorSimple
 
@@ -18,4 +19,4 @@
 
 5. Se le pedirá confirmación. Escriba **Y** para continuar con la instalación de la revisión.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

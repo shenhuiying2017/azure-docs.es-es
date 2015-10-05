@@ -3,7 +3,7 @@
    description="Información general de la función del porcentaje de búfer de nodo en el equilibrador de recursos"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Información general sobre el porcentaje de búfer de nodo
 
@@ -47,4 +47,4 @@ Si no se especifica el valor en esta sección, se usará 0 como valor predetermi
 Para obtener más información: [Arquitectura de equilibrador de recursos](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

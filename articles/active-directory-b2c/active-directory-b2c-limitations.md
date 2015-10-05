@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: limitaciones y restricciones
@@ -26,13 +26,9 @@ Hay varias características y funcionalidades de Azure Active Directory (AD) B2C
 
 Se conocen varios problemas que puedan surgir durante la [creación de un directorio de Azure AD B2C](active-directory-b2c-get-started). Consulte este [artículo](active-directory-b2c-support-create-directory.md) para obtener instrucciones.
 
-## Problema de personalización de marca en la página de inicio de sesión de la cuenta local
+## Problemas de personalización de marca en mensajes de correo de verificación y páginas de autoservicio de restablecimiento de contraseña
 
-La plantilla predeterminada de la página de inicio de sesión de cuenta local contendrá elementos de personalización de marca "Microsoft Azure". Estamos trabajando activamente para resolver este problema. Puede cambiar la personalización de marca en esta página mediante la [característica de personalización de marca de la empresa](./active-directory/active-directory-add-company-branding.md).
-
-## Problemas con el cierre de sesión de la cuenta local
-
-En la actualidad no funciona el cierre de sesión de la cuenta local. Estamos trabajando activamente para resolver este problema. La solución consiste en cerrar el explorador o borrar las cookies.
+Los mensaje de correo electrónico de verificación predeterminados y las páginas de autoservicio de restablecimiento de contraseña contienen los elementos de personalización de marca "Microsoft" y "Azure". Los eliminaremos a partir de ahora. Podemos cambiar la personalización de marca en estas páginas con la [característica de personalización de marca de compañía](./active-directory/active-directory-add-company-branding.md), tras la cual no aparecerán estos elementos de personalización de marca.
 
 ## Compatibilidad para las aplicaciones de producción
 
@@ -82,4 +78,4 @@ Las características de B2C son accesibles en el portal de vista previa de Azure
 
 No podrá eliminar un directorio de Azure AD B2C en el portal de Azure.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->
