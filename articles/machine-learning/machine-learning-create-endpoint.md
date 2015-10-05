@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="04/21/2015"
+	ms.date="09/17/2015"
 	ms.author="himad"/>
 
 
@@ -38,7 +38,7 @@ Esto permite a los usuarios de Aprendizaje automático de Azure crear servicios 
 - Haga clic en el botón de **Agregar extremo** en la parte inferior. Introduzca un nombre y una descripción, asegúrese de que no hay ningún otro extremo con el mismo nombre eneste servicio web. Deje el nivel de limitación con su valor predeterminado, a menos que tenga requisitos especiales. Para obtener más información acerca de las limitaciones, consulte [Escalado de extremos de API](machine-learning-scaling-endpoints.md).![Crear extremo](./media/machine-learning-create-endpoint/figure-4.png)
 
 
-Una vez creado el extremo, puede consumirlo a través de API sincrónicas, API de lotes y hojas de cálculo de Excel. Para obtener más información sobre el uso de servicios web de Aprendizaje automático, consulte [Cómo consumir un servicio web de Aprendizaje automático de Azure publicado](machine-learning-consume-web-services.md).
+Una vez creado el extremo, puede consumirlo a través de API sincrónicas, API de lotes y hojas de cálculo de Excel. Además de agregar extremos a través de esta interfaz de usuario, también puede usar las API de administración de extremos para agregar extremos mediante programación. Para obtener más información sobre el uso de servicios web de Aprendizaje automático, consulte [Cómo consumir un servicio web de Aprendizaje automático de Azure publicado](machine-learning-consume-web-services.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

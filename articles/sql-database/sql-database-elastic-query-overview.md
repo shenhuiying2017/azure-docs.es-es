@@ -96,7 +96,7 @@ Una credencial representa el identificador y la contraseña de usuario que usar�
      [;]
 Asegúrese de que &lt; shard\_map\_username > no incluye ningún sufijo "@servername".
 
-La información sobre las credenciales está visible en la vista de catálogo de sys.database\_scoped.credentials.
+La información sobre las credenciales está visible en la vista de catálogo de sys.database\_scoped\_credentials.
 
 Puede usar la siguiente sintaxis para quitar la clave maestra y las credenciales:
 
@@ -267,4 +267,4 @@ Para comenzar a explorar la consulta de Base de datos elástica, pruebe nuestro 
 
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

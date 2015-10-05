@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Funcionamiento de la administración de contraseñas de Azure AD | Microsoft Azure" 
-	description="Obtenga información sobre los distintos componentes de la administración de contraseñas de Azure AD, entre ellos, dónde los usuarios registran, restablecen y cambian sus contraseñas y dónde los administradores configurar y habilitan la administración de contraseñas de Active Directory locales, además de generar informes sobre ellas." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Funcionamiento de la administración de contraseñas de Azure AD | Microsoft Azure"
+	description="Obtenga información sobre los distintos componentes de la administración de contraseñas de Azure AD, entre ellos, dónde los usuarios registran, restablecen y cambian sus contraseñas y dónde los administradores configurar y habilitan la administración de contraseñas de Active Directory locales, además de generar informes sobre ellas."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Funcionamiento de la administración de contraseñas
@@ -120,6 +120,5 @@ Para obtener más información sobre Azure AD Connect, consulte [Introducción a
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

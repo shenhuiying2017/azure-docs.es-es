@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="" 
-	description="Describe los primeros pasos que puede seguir para comenzar con Servicios móviles de Azure en un proyecto Cordova" 
+	pageTitle="Introducción a un proyecto de servicios móviles Cordova (Visual Studio Connected Services)" 
+	description="Describe los primeros pasos que puede llevar a cabo tras la conexión del proyecto Cordova a servicios móviles de Azure mediante Visual Studio Connected Services." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
 # Introducción a Servicios móviles (proyectos Cordova)
@@ -94,4 +94,4 @@ Elimine una fila en la tabla de datos utilizando el método **del**. Llame al m�
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

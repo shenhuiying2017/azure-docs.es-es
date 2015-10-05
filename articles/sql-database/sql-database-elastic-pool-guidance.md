@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/12/2015" 
+	ms.date="09/23/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -40,7 +40,7 @@ Los grupos de bases de datos elásticas en Base de datos SQL de Azure permiten a
 
 Los grupos de bases de datos elásticas son apropiados para un amplio número de bases de datos con patrones de utilización específicos. Para una base de datos determinada, este patrón está caracterizado por una utilización media baja con picos de utilización relativamente poco frecuentes.
 
-Conforme más bases de datos pueda agregar a un grupo, más ahorros supondrá, pero según el patrón de utilización de la aplicación, es posible que se produzcan ahorros tan solo en 4 bases de datos S3.
+Cuantas más bases de datos se puedan agregar a un grupo, mayor será el ahorro obtenido, aunque a veces este también puede percibirse con tan solo 2 bases de datos S3 en función del patrón de uso de la aplicación.
 
 Las siguientes secciones le ayudarán a comprender cómo evaluar si la recopilación específica de bases de datos se beneficiará del uso de un grupo de bases de datos elásticas. Los ejemplos usan grupos de bases de datos elásticas Estándar, pero también se aplican los mismos principios a grupos Básico y Premium.
 
@@ -60,7 +60,7 @@ Según el ejemplo anterior, suponga que existen bases de datos adicionales con p
 
    ![veinte bases de datos][3]
 
-La utilización de la DTU agregada en las 20 bases de datos se muestra con la línea negra en la ilustración anterior. Esto muestra que la utilización de DTU agregada nunca supera las 100 DTU e indica que las 20 bases de datos pueden compartir 100 eDTU en este período. Esto produce una reducción multiplicada por 20 en las DTU y una reducción del precio 6 veces menor en comparación con la colocación de cada base de datos en los niveles de rendimiento S3 para bases de datos únicas.
+La utilización de la DTU agregada en las 20 bases de datos se muestra con la línea negra en la ilustración anterior. Esto muestra que la utilización de DTU agregada nunca supera las 100 DTU e indica que las 20 bases de datos pueden compartir 100 eDTU en este período. El resultado es una reducción multiplicada por 20 en las DTU y una reducción del precio 13 veces menor en comparación con la colocación de cada base de datos en los niveles de rendimiento S3 para bases de datos únicas.
 
 
 Este ejemplo es ideal por las siguientes razones:
@@ -70,38 +70,38 @@ Este ejemplo es ideal por las siguientes razones:
 - Las eDTU se comparten entre un gran número de base de datos.
 
 
-El precio para un grupo de bases de datos elásticas se establece en función de las eDTU del grupo y el número de bases de datos que contiene. Aunque en los precios de disponibilidad general el precio unitario de eDTU para un grupo es tres veces mayor que el precio unitario de DTU para una base de datos única, **las eDTU de grupo pueden compartirse con muchas bases de datos y en muchos casos reducir el número total de eDTU que se necesitan**. Estas distinciones de precio y uso compartido de la eDTU son la base de la posibilidad de ahorro en el precio que pueden proporcionar los grupos.
+El precio de un grupo de bases de datos elásticas es una función de las eDTU del grupo. Aunque el precio unitario de una eDTU para un grupo es 1,5 veces mayor que el de una DTU para una base de datos única, **las eDTU de grupo pueden compartirse entre varias bases de datos por lo que, en muchos casos, el número total de eDTU que se necesitan es menor**. Estas distinciones de precio y uso compartido de la eDTU son la base de la posibilidad de ahorro en el precio que pueden proporcionar los grupos.
 
 <br>
 
-Las siguientes reglas generales relacionadas con el número de bases de datos y la utilización de bases de datos ayudan a garantizar que un grupo de bases de datos elásticas ofrece costes reducidos en comparación con el uso de niveles de rendimiento de las bases de datos únicas. La guía se basa en los precios de disponibilidad general (GA). Tenga en cuenta que los precios de GA tienen un descuento del 50 % durante la vista previa, por lo que debe tener en cuenta que estas reglas generales están sujetas a cambio.
+Las siguientes reglas generales relacionadas con el número de bases de datos y la utilización de bases de datos ayudan a garantizar que un grupo de bases de datos elásticas ofrece costes reducidos en comparación con el uso de niveles de rendimiento de las bases de datos únicas.
 
 
 ### Número mínimo de bases de datos
 
-Con los precios de disponibilidad general, un grupo de bases de datos elásticas se convierte en una opción de rendimiento rentable si una eDTU se puede compartir entre más de tres bases de datos. Esto significa que la suma de las DTU de niveles de rendimiento para base de datos únicas es tres veces superior a las eDTU del grupo. Para saber los tamaños disponibles, vea [Límites de almacenamiento y de eDTU para grupos de bases de datos elásticas y bases de datos elásticas](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Si la suma de las DTU de los niveles de rendimiento de las bases de datos únicas supera en más de 1,5 al de las eDTU necesarias para el grupo, es más rentable usar un grupo elástico. Para saber los tamaños disponibles, vea [Límites de almacenamiento y de eDTU para grupos de bases de datos elásticas y bases de datos elásticas](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
-***Ejemplo***<br> Se requieren 4 bases de datos S3 o 36 bases de datos S0 como mínimo para que un grupo de bases de datos elásticas de 100 eDTU sea más rentable que usar niveles de rendimiento para bases de datos únicas. (Tenga en cuenta que con los precios de vista previa, el punto del umbral de precios basado en el recuento de base de datos se reduce a 2 bases de datos S3 o 17 bases de datos S0).
+***Ejemplo***<br> Se requieren 2 bases de datos S3 o 15 bases de datos S0 como mínimo para que un grupo de bases de datos elásticas de 100 eDTU sea más rentable que usar niveles de rendimiento para bases de datos únicas.
 
 
 
 ### Número máximo de bases de datos de picos simultáneamente
 
-Cuando se comparten eDTU, no todas las bases de datos de un grupo pueden usar simultáneamente las eDTU hasta el límite disponible al usar niveles de rendimiento para bases de datos únicas. Cuantas menos bases de datos con un pico simultáneo haya, más bajo puede establecerse el número de eDTU de grupo y más rentable resulta. En general, no más de un 1/3 de las bases de datos del grupo deben establecer su pico simultáneo en el límite de eDTU.
+Cuando se comparten eDTU, no todas las bases de datos de un grupo pueden usar simultáneamente las eDTU hasta el límite disponible al usar niveles de rendimiento para bases de datos únicas. Cuantas menos bases de datos con un pico simultáneo haya, más bajo puede establecerse el número de eDTU de grupo y más rentable resulta. En general, no más de los 2/3 (o el 67%) de las bases de datos del grupo deben alcanzar el límite de eDTU establecido como pico de forma simultánea.
 
-***Ejemplo***<br> Para reducir los costes de 4 bases de datos S3 de un grupo de 200 eDTU, como máximo 2 de estas bases de datos pueden establecer simultáneamente el pico en su utilización. De lo contrario, si más de 2 de estas 4 bases de datos S3 establecen simultáneamente el pico, tendría que establecerse un tamaño del grupo en más de 200 eDTU. Además, si el tamaño del grupo se cambia a más de 200 eDTU, sería necesario agregar más bases de datos S3 al grupo para que los costes siguieran siendo inferiores a los niveles de rendimiento para bases de datos únicas.
+***Ejemplo***<br> Para reducir los costos de 3 bases de datos S3 de un grupo de 200 eDTU, como mucho 2 de estas bases de datos pueden alcanzar simultáneamente el pico de uso máximo. De lo contrario, si más de 2 de estas 4 bases de datos S3 establecen simultáneamente el pico, tendría que establecerse un tamaño del grupo en más de 200 eDTU. Además, si el tamaño del grupo se cambia a más de 200 eDTU, sería necesario agregar más bases de datos S3 al grupo para que los costes siguieran siendo inferiores a los niveles de rendimiento para bases de datos únicas.
 
 
-Tenga en cuenta que este ejemplo no tiene en cuenta la utilización de otras bases de datos en el grupo. Si todas las bases de datos tienen una utilización en un punto determinado en el tiempo, menos de 1/3 de las bases de datos podrán establecer un pico de forma simultánea.
+Tenga en cuenta que este ejemplo no tiene en cuenta la utilización de otras bases de datos en el grupo. Si en un momento determinado se están usando todas las bases de datos, menos de los 2/3 (o el 67%) de las bases de datos podrán alcanzar simultáneamente el pico de uso.
 
 
 ### Utilización de DTU por base de datos
 
-Una gran diferencia entre el pico y la utilización media de una base de datos indica largos períodos de poca utilización y breves períodos de uso intenso. Este patrón de uso es ideal para compartir recursos entre bases de datos. Debe considerarse una base de datos para un grupo cuando la utilización pico es aproximadamente 3 veces mayor que su utilización media.
+Una gran diferencia entre el pico y la utilización media de una base de datos indica largos períodos de poca utilización y breves períodos de uso intenso. Este patrón de uso es ideal para compartir recursos entre bases de datos. Debe considerarse utilizar una base de datos para un grupo cuando su uso máximo es aproximadamente 1,5 veces mayor que su uso medio.
 
     
-***Ejemplo***<br> Una base de datos S3 que establece un pico en 100 DTU y de media usa 30 DTU o menos es una buena candidata para compartir eDTU en un grupo de bases de datos elásticas. O bien, una base de datos S1 con un pico de hasta 20 DTU y que de media usa 7 DTU o menos es una buena candidata para un grupo de bases de datos elásticas.
+***Ejemplo***<br> Una base de datos S3 con un pico de 100 DTU que de media usa 67 DTU o menos es una buena candidata para compartir eDTU en un grupo de bases de datos elásticas. También una base de datos S1 con un pico de 20 DTU que de media usa 13 DTU o menos es una buena candidata para un grupo de bases de datos elásticas.
     
 
 ## Heurística para comparar la diferencia de precio entre un grupo de bases de datos elásticas y bases de datos únicas 
@@ -117,9 +117,9 @@ La siguiente heurística puede ayudar a estimar si un grupo de bases de datos el
 
 3. Cálculo del precio del grupo de la siguiente forma:
 
-    precio del grupo = (*eDTU de grupo* * *precio unitario de eDTU de grupo*) + (*número total de BD* * *precio unitario de BD de grupo*)
+    precio del grupo = *nº de eDTU del grupo* * *precio unitario de eDTU del grupo*
 
-    Vea [Precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/) para obtener información sobre precios.
+    Vea [Base de datos SQL Precios](http://azure.microsoft.com/pricing/details/sql-database/) para obtener información sobre los precios.
 
 
 4. Compare el precio del grupo del paso 3 con el precio de uso de los niveles de rendimiento adecuados para bases de datos únicas.
@@ -133,24 +133,16 @@ El mejor tamaño para un grupo de bases de datos elásticas depende de las eDTU 
 * Número máximo de DTU utilizado por todas las bases de datos en el grupo.
 * Número máximo de bytes de almacenamiento utilizado por todas las bases de datos en el grupo. 
 
-Tenga en cuenta que para el nivel de servicio Standard, se permite 1 GB de almacenamiento para cada 1 eDTU configurada en el grupo. Por ejemplo, si se ha configurado un grupo con 200 DTU, el límite de almacenamiento es de 200 GB.
-
-En la tabla siguiente se muestra la cantidad de almacenamiento por eDTU para cada nivel de precio:
-
-| Nivel: | eDTU | Almacenamiento |
-| :--- | :--- | :--- |
-| Básica | 1 | 100 MB |
-| Estándar | 1 | 1 GB |
-| Premium | 1 | 0,5 GB |
+Para saber los tamaños disponibles, vea [Límites de almacenamiento y de eDTU para grupos de bases de datos elásticas y bases de datos elásticas](sql-database-elastic-pool-reference.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 
 ### Use Service Tier Advisor (STA) y Vistas de administración dinámica (DMV) para ver las recomendaciones de tamaño   
 
 El STA y las DMV ofrecen distintas opciones de herramientas y capacidades para determinar el tamaño de un grupo de bases de datos elásticas. Independientemente de la opción de herramienta usada, la estimación del tamaño solo debe usarse para la evaluación inicial y la creación de grupos de bases de datos elásticas. Una vez que se crea un grupo, el uso de recursos debe supervisarse con precisión y la configuración de rendimiento del grupo debe aumentarse o reducirse según sea necesario.
 
-**STA**<br>STA es una herramienta integrada en el [Portal de vista previa](https://portal.azure.com) que evalúa automáticamente el uso histórico de recursos de bases de datos en un servidor de Base de datos SQL existente y recomienda una configuración de grupo de bases de datos elásticas apropiada. Para obtener más información, vea [Recomendaciones de nivel de precios de grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+**STA**<br>STA es una herramienta integrada en el [Portal de vista previa](https://portal.azure.com) que evalúa automáticamente el historial de uso de los recursos de bases de datos en un servidor de Base de datos SQL existente y recomienda una configuración apropiada para el grupo de bases de datos elásticas. Para obtener más información, vea [Recomendaciones de plan de tarifas de grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
-**Herramienta de determinación de tamaño de DMV**<br>La herramienta de determinación de tamaño de DMV se ofrece en forma de script de PowerShell y habilita la personalización de las estimaciones del tamaño de un grupo de bases de datos elásticas para bases de datos existentes en un servidor.
+**Herramienta de determinación de tamaño de DMV**<br>La herramienta de determinación de tamaño de DMV se ofrece como script de PowerShell y permite personalizar las estimaciones del tamaño de un grupo de bases de datos elásticas para las bases de datos existentes de un servidor.
 
 ### Elección entre la herramienta DMV y STA 
 
@@ -170,7 +162,7 @@ STA evalúa el historial de uso de las bases de datos y recomienda un grupo de b
 
 STA está disponible en el Portal de vista previa cuando se agrega un grupo de bases de datos elásticas a un servidor existente. Si las recomendaciones para un grupo de bases de datos elásticas están disponibles para ese servidor, se muestran en la hoja de creación Grupo de bases de datos elásticas. Los clientes siempre pueden cambiar las configuraciones recomendadas para crear sus propios grupos de bases de datos elásticas.
 
-Para obtener más información, vea [Recomendaciones de nivel de precios de grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+Para obtener más información, vea [Recomendaciones de plan de tarifas de grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
 ### Estimación del tamaño de grupos elásticos con vista de administración dinámica (DMV) 
 
@@ -191,13 +183,13 @@ El script solo recopila datos cuando está en ejecución. Para una carga de trab
 Instale lo siguientes antes de ejecutar el script:
 
 - Las últimas [herramientas de línea de comandos de Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
-- El [paquete de características de SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
+- El paquete [SQL Server 2014 Feature Pack](https://www.microsoft.com/download/details.aspx?id=42295).
 
 
 ### Detalles del script
 
 
-Puede ejecutar el script desde la máquina local o una máquina virtual en la nube. Cuando lo ejecute desde la máquina local, es posible que se produzcan cargos de salida de datos porque el script tiene que descargar datos de las bases de datos de destino. A continuación se muestra la estimación de volumen de datos según el número de bases de datos de destino y la duración de la ejecución del script. Para ver los costes de transferencia de datos de Azure, consulte [Detalles de precios de transferencia de datos](http://azure.microsoft.com/pricing/details/data-transfers/).
+Puede ejecutar el script desde la máquina local o una máquina virtual en la nube. Cuando lo ejecute desde la máquina local, es posible que se produzcan cargos de salida de datos porque el script tiene que descargar datos de las bases de datos de destino. A continuación se muestra la estimación de volumen de datos según el número de bases de datos de destino y la duración de la ejecución del script. Para ver los costos de transferencia de datos de Azure, consulte [Detalles de precios de Transferencias de datos](http://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     1 base de datos por hora = 38 KB
  -     1 base de datos por día = 900 KB
@@ -443,4 +435,4 @@ No todas las bases de datos únicas son candidatas óptimas para los grupos de b
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

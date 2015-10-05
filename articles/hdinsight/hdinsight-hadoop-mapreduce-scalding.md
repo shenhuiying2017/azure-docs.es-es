@@ -7,13 +7,13 @@
  manager="paulettm"
  editor="cgronlun"
 	tags="azure-portal"/>
-<tags 
+<tags
  ms.service="hdinsight"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/06/2015"
+ ms.date="09/23/2015"
  ms.author="larryfr"/>
 
 # Desarrollo de trabajos de MapReduce de Scalding con Hadoop Apache en HDInsight
@@ -290,4 +290,4 @@ Ahora que sabe usar Scalding para crear trabajos de MapReduce para HDInsight, us
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

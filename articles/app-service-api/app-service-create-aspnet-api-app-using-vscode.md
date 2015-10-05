@@ -1,26 +1,28 @@
 <properties
    pageTitle="Creación de una aplicación de API ASP.NET 5 en Visual Studio Code"
-	description="En este tutorial se explica cómo crear una aplicación de API ASP.NET 5 con Visual Studio Code."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="erikre"
-	manager="wpickett"
-	editor="jimbe"/>
+   description="En este tutorial se explica cómo crear una aplicación de API ASP.NET 5 con Visual Studio Code."
+   services="app-service\api"
+   documentationCenter=".net"
+   authors="erikre"
+   manager="wpickett"
+   editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="erikre"/>
 
 # Creación de una aplicación de API ASP.NET 5 en Visual Studio Code
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 ## Información general
 
@@ -160,7 +162,7 @@ Ahora modificará la aplicación **ContactsList**; para ello, agregará una clas
 	    {
 	        // GET: api/Contacts
 	        [HttpGet]
-	        public IEnumerable&lt;Contact> Get()
+	        public IEnumerable&lt;Contact&gt; Get()
 	        {
 	            return new Contact[]{
 	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
@@ -462,4 +464,4 @@ En el portal de vista previa de Azure, vaya a la hoja **HOST DE APLICACIÓN DE A
 En este tutorial a aprendido crear una aplicación de API en Visual Studio Code. Para obtener más información sobre Visual Studio Code, consulte [Visual Studio Code.](https://code.visualstudio.com/Docs/). Para obtener información sobre las aplicaciones de API, consulte [¿Qué son las Aplicaciones de API?](app-service-api-apps-why-best-platform.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

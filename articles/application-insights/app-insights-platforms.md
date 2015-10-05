@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/17/2015"
 	ms.author="awills"/>
 
 # Application Insights: lenguajes y plataformas
@@ -42,6 +42,7 @@
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Aplicaciones y máquinas virtuales web de Azure](../insights-perf-analytics.md)
 + [Servicios en la nube de Azure](app-insights-cloudservices.md): incluidos los roles web y de trabajo
++ [CRM Online desde Microsoft Dynamics](app-insights-sample-mscrm.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE, ya activo](app-insights-java-live.md)
@@ -62,7 +63,7 @@
 
 +	[Log4Net, NLog o System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J o Logback](app-insights-java-trace-logs.md)
-+   [Registro semántico](https://github.com/fidmor89/SLAB_AppInsights) se integra con [Bloque de aplicación de registro semántico](https://msdn.microsoft.com/library/dn440729.aspx)
++   [Registro semántico](https://github.com/fidmor89/SLAB_AppInsights)&#151; se integra con [Bloque de aplicación de registro semántico](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Pruebas de carga en la nube](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> Creación de su propio SDK
@@ -78,4 +79,4 @@ Si no hay todavía un SDK para el lenguaje o plataforma, quizás desee crear uno
 
 <!--Link references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar revisiones regulares a través de Windows PowerShell para StorSimple
 
@@ -9,13 +10,10 @@
 
     `Start-HcsHotfix`
 
-       >[AZURE.IMPORTANT]
-       >
-       >- Este comando solo se aplica a las revisiones regulares. Este comando se ejecuta en un solo controlador, pero se actualizarán ambos controladores.
-       >- Es posible que observe una conmutación por error del controlador durante el proceso de actualización. Sin embargo, la conmutación por error no afectará a la disponibilidad o el funcionamiento del sistema.
+       >[AZURE.IMPORTANT]> >- Este comando solo se aplica a las revisiones regulares. Este comando se ejecuta en un solo controlador, pero se actualizarán ambos controladores. >- Es posible que observe una conmutación por error del controlador durante el proceso de actualización. Sin embargo, la conmutación por error no afectará a la disponibilidad o el funcionamiento del sistema.
 
 4. Cuando se le solicite, proporcione la ruta de acceso a la carpeta compartida de red que contiene los archivos de la revisión.
 
 5. Se le pedirá confirmación. Escriba **Y** para continuar con la instalación de la revisión.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/22/2015" ms.author="sammehta"; "jimpark"/>
 
 
 # Copia de seguridad de una granja de SharePoint en Azure
@@ -226,4 +226,4 @@ P: ¿Puedo recuperar una base de datos de SharePoint en la ubicación original s
 - Consulte las [Notas de la versión de System Center 2012: Data Protection Manager versión](https://technet.microsoft.com/library/jj860415.aspx)
 - Consulte las [Notas de la versión de Data Protection Manager en System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

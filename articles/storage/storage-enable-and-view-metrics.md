@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Análisis de almacenamiento" 
-	description="Administración de la simultaneidad para los servicios BLOB, Cola, Tabla y Archivo" 
+	pageTitle="Habilitar las métricas de almacenamiento en el portal de Azure | Microsoft Azure" 
+	description="Cómo habilitar las métricas de almacenamiento para los servicios BLOB, Cola, Tabla y Archivo" 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tamram"/>
 
 # Habilitar las Métricas de almacenamiento y las Métricas de visualización
@@ -192,4 +192,4 @@ La capacidad de las tablas de métricas también es facturable: puede usar las o
 [Habilitar el registro de almacenamiento y acceso a los datos del registro](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

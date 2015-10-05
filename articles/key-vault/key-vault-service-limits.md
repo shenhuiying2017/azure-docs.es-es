@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Límites de servicio del Almacén de claves de Azure" 
-   description="Obtenga información acerca de los límites de servicio del Almacén de claves de Azure" 
+<properties
+   pageTitle="Límites de servicio del Almacén de claves de Azure | Microsoft Azure"
+   description="Obtenga información sobre los límites de servicio del Almacén de claves de Azure."
    documentationCenter="dev-center-name"
    services="key-vault"  
    authors="msmbaldwin" 
-   manager="mbaldwin" 
+   manager="mbaldwin"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="07/06/2015"
+   ms.workload="identity"
+   ms.date="09/22/2015"
    ms.author="mbaldwin"/>
 
 # Límites de servicio del Almacén de claves de Azure
@@ -22,4 +22,4 @@ Estos son los límites de servicio para el Almacén de claves de Azure.
 
 [AZURE.INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

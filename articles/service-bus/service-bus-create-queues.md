@@ -160,4 +160,4 @@ catch (Exception e)
 
 Ahora que ha aprendido los conceptos básicos de las colas, consulte [Creación de aplicaciones que usan temas y suscripciones del Bus de servicio](service-bus-create-topics-subscriptions.md) para continuar este tema sobre las capacidades de publicación/suscripción de la mensajería asincrónica de Bus de servicio.
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

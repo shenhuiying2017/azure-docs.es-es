@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Supervisión y administración de canalizaciones de la Factoría de datos de Azure"
-	description="Obtenga información sobre el uso del Portal de administración de Azure y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que cree."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Supervisión y administración de canalizaciones de la Factoría de datos de Azure" 
+	description="Obtenga información sobre el uso del Portal de administración de Azure y Azure PowerShell para supervisar y administrar las factorías de datos y las canalizaciones de Azure que cree." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Supervisión y administración de canalizaciones de la Factoría de datos de Azure
@@ -287,6 +287,10 @@ Para especificar una definición de alerta, cree un archivo JSON que describa la
 
 En la definición anterior de JSON, **subStatus** se puede quitar si no desea recibir alertas sobre un error específico.
 
+En el ejemplo anterior se configura la alerta para todas las factoría de datos de la suscripción. Si quiere que la alerta esté configurada para una factoría de datos concreta, puede especificar la factoría de datos **resourceUri** en el bloque **dataSource** de la siguiente manera:
+
+	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+
 En la tabla siguiente se ofrece una lista de las operaciones y los estados (y subestados) disponibles.
 
 Nombre de la operación | Estado | Subestado
@@ -382,7 +386,7 @@ Una vez guardadas, las métricas pueden tardar hasta una hora en estar visibles 
 
 Para configurar alertas en métricas, haga clic en la secuencia siguiente de la hoja Factoría de datos: **Supervisión** -> **Métrica** -> **Agregar alerta** -> **Agregar una regla de alerta**.
 
-Rellene los detalles de la regla de alerta, especifique los correos electrónicos y haga clic en**Aceptar**.
+Rellene los detalles de la regla de alerta, especifique los correos electrónicos y haga clic en **Aceptar**.
 
 
 ![Configuración de alerta en métricas](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -443,7 +447,7 @@ Puede implementar alertas para las métricas de la misma manera que lo hace para
  
 Reemplace subscriptionId, resourceGroupName y dataFactoryName en el ejemplo anterior con los valores adecuados.
 
-*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns
+*metricName* a partir de ahora admite dos valores: - FailedRuns - SuccessfulRuns.
 
 **Implementación de alertas:**
 
@@ -471,4 +475,4 @@ Debería ver el siguiente mensaje después de la implementación correcta:
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

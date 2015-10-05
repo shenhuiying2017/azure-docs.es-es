@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Configuración de Azure AD para la administración del acceso a la aplicación de autoservicio | Microsoft Azure"
-	description="Un tema que explica cómo administrar grupos en Azure AD."
+	description="La información general de la administración de grupos de autoservicio permite a los usuarios crear y administrar grupos de seguridad en Microsoft Azure Active Directory (AD) y les ofrece la posibilidad de emitir solicitudes de pertenencia a grupos de seguridad."
 	services="active-directory"
 	documentationCenter=""
     authors="femila"
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 #Configuración de Azure AD para la administración del acceso a la aplicación de autoservicio
@@ -49,4 +49,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

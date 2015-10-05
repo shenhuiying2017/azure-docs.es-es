@@ -1,24 +1,27 @@
 <properties
-   pageTitle="Ejemplo de configuración para las extensiones de la máquina virtual de Azure | Microsoft Azure"
+   pageTitle="Ejemplo de configuración para las extensiones de la máquina virtual de Windows | Microsoft Azure"
    description="Configuración de ejemplo para crear plantillas con extensiones"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
 # Ejemplos de configuración de la extensión de máquina virtual Windows de Azure.
 
-Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Windows de IaaS de Azure.
+Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Windows.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Para obtener más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
@@ -302,4 +305,4 @@ Este es un ejemplo de una plantilla de máquina virtual completa con la extensi�
 
 [Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

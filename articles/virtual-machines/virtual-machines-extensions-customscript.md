@@ -1,27 +1,30 @@
 <properties
-   pageTitle="Extensión de script personalizada en Windows | Microsoft Azure"
-	description="Automatización de las tareas de configuración de máquina virtual de Azure mediante la extensión de la secuencia de comandos personalizada en Windows"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Extensión de script personalizada en una máquina virtual Windows | Microsoft Azure"
+   description="Automatizar tareas de configuración de máquina virtual de Azure mediante la extensión de script personalizada para ejecutar scripts de PowerShell en una máquina virtual remota de Windows"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="kundanap"/>
 
-# Extensión de la secuencia de comandos personalizada para Windows
+# Extensión de script personalizada para máquinas virtuales Windows
 
-Este artículo ofrece información general del uso de la extensión de script personalizada en Windows mediante los cmdlets de Azure PowerShell.
+Este artículo ofrece información general del uso de la extensión de script personalizada en máquinas virtuales Windows mediante los cmdlets de Azure PowerShell.
 
+Las extensiones de máquina virtual (VM) se crean por Microsoft y editores de confianza de terceros para extender la funcionalidad de la máquina virtual. Para obtener información general de las extensiones de máquina virtual, vea [Características y extensiones de máquina virtual de Azure](virtual-machines-extensions-features.md).
 
-Las extensiones de máquina virtual (VM) se crean por Microsoft y editores de confianza de terceros para extender la funcionalidad de la máquina virtual. Para obtener información general de las extensiones de máquina virtual, vea <a href="https://msdn.microsoft.com/library/azure/dn606311.aspx" target="_blank">Características y extensiones de máquina virtual de Azure</a>.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica. También puede crear un recurso con el [modelo de implementación del Administrador de recursos](virtual-machines-extensions-customscript%20-with%20template.md).
+
 
 ## Introducción a la extensión de script personalizada
 
@@ -88,4 +91,4 @@ Para obtener información sobre cómo usar la extensión de scripts personalizad
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del almacenamiento de tablas de Java | Microsoft Azure"
-	description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos en código Java."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Uso del almacenamiento de tablas de Java | Microsoft Azure" 
+	description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos en código Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 
@@ -552,6 +552,9 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 - [API de REST de almacenamiento de Azure][]
 - [Blog del equipo de almacenamiento de Azure][]
 
+Para obtener más información, consulte también el [Centro para desarrolladores de Java](/develop/java/).
+
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
 [SDK de almacenamiento de Azure para Android]: https://github.com/azure/azure-storage-android
@@ -563,4 +566,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 [publicación de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

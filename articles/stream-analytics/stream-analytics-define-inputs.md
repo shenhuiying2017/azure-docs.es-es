@@ -60,17 +60,17 @@ Cuando los datos proceden de un origen de Centro de eventos, puede acceder a alg
 
 | Propiedad | Descripción |
 |------------------------------|--------------------------------------------------------------------|
-| System.EventProcessedUtcTime | Fecha y hora en que se procesó el evento por Análisis de transmisiones. |
-| System.EventEnqueuedUtcTime | Fecha y hora en que el Centro de eventos recibió el evento. |
-| System.PartitionId | El identificador de partición basado en cero para el adaptador de entrada |
+| EventProcessedUtcTime | Fecha y hora en que se procesó el evento por Análisis de transmisiones. |
+| EventEnqueuedUtcTime | Fecha y hora en que el Centro de eventos recibió el evento. |
+| PartitionId | El identificador de partición basado en cero para el adaptador de entrada |
 
 Por ejemplo, puede escribir una consulta como la siguiente:
 
 
     SELECT
-    	System. EventProcessedUtcTime,
-    	System. EventEnqueuedUtcTime,
-    	System.PartitionId
+    	EventProcessedUtcTime,
+    	EventEnqueuedUtcTime,
+    	PartitionId
     FROM Input
 
 ## Creación de una entrada de flujo de datos de Almacenamiento de blobs
@@ -136,23 +136,23 @@ Cuando los datos proceden de un origen de almacenamiento de blobs, puede acceder
 
 | Propiedad | Descripción |
 |--------------------------------|--------------------------------------------------------------------|
-| System.BlobName | Nombre del blob de entrada de donde procede el evento. |
-| System.EventProcessedUtcTime | Fecha y hora en que se procesó el evento por Análisis de transmisiones. |
-| System.BlobLastModifiedUtcTime | La fecha y la hora en que se modificó por última vez el blob |
-| System.PartitionId | El identificador de partición basado en cero para el adaptador de entrada |
+| BlobName | Nombre del blob de entrada de donde procede el evento. |
+| EventProcessedUtcTime | Fecha y hora en que se procesó el evento por Análisis de transmisiones. |
+| BlobLastModifiedUtcTime | La fecha y la hora en que se modificó por última vez el blob |
+| PartitionId | El identificador de partición basado en cero para el adaptador de entrada |
 
 Por ejemplo, puede escribir una consulta como la siguiente:
 
 
     SELECT
-    	System.BlobName,
-    	System.EventProcessedUtcTime,
-    	System.BlobLastModifiedUtcTime
+    	BlobName,
+    	EventProcessedUtcTime,
+    	BlobLastModifiedUtcTime
     FROM Input
 
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 Ya conoce Análisis de transmisiones, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
@@ -170,4 +170,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Qué es el SDK de WebJobs de Azure
@@ -104,4 +104,4 @@ El SDK de Trabajos web proporciona varias ventajas, incluso si no necesita traba
 Para obtener información acerca del SDK de WebJobs, consulte [Recursos recomendados de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -157,6 +157,12 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 > [AZURE.NOTE]Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información acerca de dónde buscar las tablas de métricas, vea "Acceso a datos de supervisión detallada fuera del Portal de administración" en <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Supervisión de servicios en la nube</a>.
 
- 
 
-<!---HONumber=August15_HO7-->
+## Pasos siguientes
+
+ * [Configuración general de su servicio en la nube](cloud-services-how-to-configure.md).
+* Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy.md).
+* Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
+* Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
+
+<!---HONumber=Sept15_HO4-->

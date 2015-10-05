@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Escenarios de uso y consideraciones de implementación de Azure AD Join | Microsoft Azure" 
-	description="Un tema que explica cómo los administradores pueden configurar Azure AD Join para sus usuarios finales (empleados, estudiantes, otros usuarios)." 
+	description="Enumera y explica los diferentes escenarios de implementación disponibles para Azure AD Join." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Escenarios de uso y consideraciones de implementación de Azure AD Join 
@@ -82,7 +82,7 @@ Puede configurar a los usuarios y empleados para que usen sus dispositivos perso
 
 
 ## Información adicional
-* [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

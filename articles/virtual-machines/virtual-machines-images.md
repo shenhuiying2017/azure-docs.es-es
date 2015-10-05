@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Acerca de las imágenes para las máquinas virtuales"
+	pageTitle="Acerca de las imágenes para las máquinas virtuales | Microsoft Azure"
 	description="Obtenga información acerca de cómo se usan las imágenes con máquinas virtuales en Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/13/2015"
@@ -57,4 +57,4 @@ Para obtener ejemplos del uso de las herramientas en una implementación clásic
 
 [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

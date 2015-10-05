@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Crear y cargar un VHD de Windows Server a Azure"
-	description="Aprenda a crear y cargar un disco duro virtual (VHD) en Azure que tiene el sistema operativo Windows Server."
+	pageTitle="Crear y cargar un VHD de Windows Server a Azure mediante Powershell"
+	description="Obtenga información acerca de cómo crear y cargar un disco duro virtual (VHD) basado en Windows Server mediante el modelo de implementación clásica y Azure Powershell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -198,4 +198,4 @@ Después de crear una máquina virtual, intente crear una máquina virtual de SQ
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

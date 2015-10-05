@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Movimiento de datos hacia y desde el sistema de archivos | Factoría de datos de Azure"
-	description="Aprenda a mover datos hacia y desde el sistema de archivos local con Factoría de datos de Azure"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Movimiento de datos hacia y desde el sistema de archivos | Factoría de datos de Azure" 
+	description="Aprenda a mover datos hacia y desde el sistema de archivos local con Factoría de datos de Azure" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde el sistema de archivos local con Factoría de datos de Azure
@@ -561,7 +561,18 @@ Para usar el formato Avro en una tabla de Hive posterior, consulte [Tutorial de 
 
 ## Propiedades de tipo de actividad de copia de recurso compartido de archivos
 
-**FileSystemSource** y **FileSystemSink** no admiten propiedades en la actualidad.
+**FileSystemSource** admite las siguientes propiedades:
+
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| -------- | ----------- | -------------- | -------- |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. | True, False (predeterminada)| No | 
+
+**FileSystemSink** admite las siguientes propiedades:
+
+| Propiedad | Descripción | Valores permitidos | Obligatorio |
+| -------- | ----------- | -------------- | -------- |
+| copyBehavior | Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. | <p>Hay tres valores posibles para la propiedad copyBehavior. </p><ul><li>**PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino, es decir, la ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino a la carpeta de destino.</li><li>**FlattenHierarchy:** todos los archivos de la carpeta de origen estarán en el primer nivel de la carpeta de destino. Los archivos de destino tendrán un nombre generado automáticamente. </li><li>**MergeFiles:** combina todos los archivos de la carpeta de origen a un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente.</li></ul> | No |
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -576,4 +587,4 @@ Para usar el formato Avro en una tabla de Hive posterior, consulte [Tutorial de 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

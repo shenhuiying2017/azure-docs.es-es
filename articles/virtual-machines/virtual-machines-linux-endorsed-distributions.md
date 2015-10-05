@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Distribuciones aprobadas de Linux en Azure" 
-	description="Obtenga información acerca de Linux en distribuciones aprobadas de Azure, incluyendo instrucciones para Ubuntu, OpenLogic y SUSE." 
+	pageTitle="Distribuciones aprobadas de Linux | Microsoft Azure" 
+	description="Obtenga información acerca de Linux en distribuciones aprobadas de Azure, incluyendo instrucciones para Ubuntu, OpenLogic, Oracle y SUSE." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" 
+	/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -77,4 +79,4 @@ SUSE Linux Enterprise Server en Azure es una plataforma probada que brinda confi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

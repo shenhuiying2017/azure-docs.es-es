@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción a los datos en Android (back-end JavaScript) | Microsoft Azure" 
-	description="Obtenga información sobre cómo comenzar a usar Servicios móviles para aprovechar los datos de su aplicación Android (back-end JavaScript)." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introducción a los datos en Android (back-end JavaScript) | Microsoft Azure"
+	description="Obtenga información sobre cómo comenzar a usar Servicios móviles para aprovechar los datos de su aplicación Android (back-end JavaScript)."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/23/2015"
 	ms.author="ricksal"/>
 
 # Incorporación de servicios móviles a una aplicación Android existente (back-end JavaScript)
@@ -46,6 +46,10 @@ Para completar este tutorial, necesitará lo siguiente:
 
 - el [SDK de Android para Servicios móviles]
 - el <a  href="https://developer.android.com/sdk/index.html" target="_blank">entorno de desarrollo integrado de Android Studio</a>, que incluye el SDK de Android y Android 4.2 o una versión más reciente. El proyecto GetStartedWithData descargado requiere Android 4.2 o una versión más reciente. No obstante, el SDK para Servicios móviles solo requiere Android 2.2 o una versión más reciente.
+
+## Código de ejemplo
+
+Para ver el código fuente completo, vaya <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">aquí</a>.
 
 ## Descarga del proyecto GetStartedWithData
 
@@ -87,25 +91,18 @@ Ahora que la aplicación se ha actualizado para usar los Servicios móviles para
 4. Haga clic en la pestaña **Datos** y, a continuación, en **Examinar**.
 
    	![][9]
-  
+
    	Observe que la tabla **TodoItem** ahora contiene datos con valores de identificador generados por Servicios móviles y que se agregaron automáticamente columnas a la tabla para que coincida con la clase TodoItem de la aplicación.
 
 Así concluye el tutorial **Introducción a los datos** para Android.
 
 ## Solución de problemas
 
-###Comprobación de la versión del SDK de Android
+### Comprobación de la versión del SDK de Android
 
 [AZURE.INCLUDE [Comprobar el SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-## Versiones anteriores del código
-
-Si desea ver la versión de Eclipse de este tutorial, vaya a [Introducción a los datos mediante Eclipse](mobile-services-android-get-started-data-ec.md):
-
-Para obtener una versión completa del código fuente de un proyecto de Eclipse, haga clic <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">aquí</a>.
-
-Si desea obtener el archivo de ejemplo que se usa en la versión anterior del SDK de Android para Servicios móviles, puede obtenerlo [aquí](http://go.microsoft.com/fwlink/p/?LinkID=282122).
 
 ## Pasos siguientes
 
@@ -145,7 +142,6 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Andro
 [Limitación de consultas con paginación]: /develop/mobile/tutorials/add-paging-to-data-android
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with data (Eclipse)]: /documentation/articles/mobile-services-android-get-started-data-EC/
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-android
 [Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-android
 
@@ -154,6 +150,5 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Andro
 [SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
- 
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

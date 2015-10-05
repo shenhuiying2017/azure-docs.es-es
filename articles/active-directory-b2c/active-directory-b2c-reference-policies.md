@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: marco de directiva extensible
@@ -71,7 +71,7 @@ Para habilitar el registro en su aplicación, deberá crear una directiva de reg
 3. Haga clic en **+ Agregar** en la parte superior de la hoja.
 4. El **Nombre** determina el nombre de la directiva de registro usado por su aplicación. Por ejemplo, escriba "SiUp".
 5. Haga clic en **Proveedores de identidades** y seleccione "Dirección de correo electrónico". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
-6. Haga clic en **Atributos de registro**. Aquí elige atributos que quiere recopilar del consumidor durante el registro. Por ejemplo, seleccione "Ciudad", "Nombre para mostrar" y "Código postal". Haga clic en **OK**.
+6. Haga clic en **Atributos de registro**. Aquí elige atributos que quiere recopilar del consumidor durante el registro. Por ejemplo, seleccione "Ciudad o región", "Nombre para mostrar" y "Código postal". Haga clic en **OK**.
 7. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de registro correcta. Por ejemplo, seleccione "Nombre para mostrar", "Proveedor de identidades", "Código Postal", "El usuario es nuevo" e "Id. de objeto del usuario".
 8. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SiUp**" (el fragmento **B2C\_1\_** está previamente pendiente automáticamente) en la hoja **Directivas de registro**.
 9. Para abrir la directiva, haga clic en "**B2C\_1\_SiUp**".
@@ -104,7 +104,7 @@ Para habilitar la edición de perfiles en su aplicación, deberá crear una dire
 3. Haga clic en **+ Agregar** en la parte superior de la hoja.
 4. El **Nombre** determina el nombre de la directiva de edición de perfiles usada por su aplicación. Por ejemplo, escriba "SiPe".
 5. Haga clic en **Proveedores de identidades** y seleccione "Dirección de correo electrónico". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
-6. Haga clic en **Atributos de perfil**. Aquí se eligen los atributos que el consumidor puede ver y editar. Por ejemplo, seleccione "Ciudad", "Nombre para mostrar" y "Código postal". Haga clic en **OK**.
+6. Haga clic en **Atributos de perfil**. Aquí se eligen los atributos que el consumidor puede ver y editar. Por ejemplo, seleccione "Ciudad o región", "Nombre para mostrar" y "Código postal". Haga clic en **OK**.
 7. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de edición de perfiles correcta. Por ejemplo, seleccione "Nombre para mostrar" y "Código postal".
 8. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SiPe**" (el fragmento **B2C\_1\_** está previamente pendiente automáticamente) en la hoja **Directivas de edición de perfiles**.
 9. Para abrir la directiva, haga clic en "**B2C\_1\_SiPe**".
@@ -112,4 +112,4 @@ Para habilitar la edición de perfiles en su aplicación, deberá crear una dire
 
     > [AZURE.NOTE]Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

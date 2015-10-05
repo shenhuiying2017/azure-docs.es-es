@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL
@@ -139,19 +139,49 @@ A continuación se muestra una lista de instrucciones y operaciones que **se** r
 - INSERT-SELECT
 - UPDATE
 - DELETE
-- SELECT (cuando no se consultan DMV de manera exclusiva)
+- SELECT (al consultar las tablas de usuario)
 - ALTER INDEX REBUILD
 - ALTER INDEX REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE CLUSTERED INDEX
+- CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT 
 - Carga de datos 
+- Operaciones de movimiento de datos llevadas a cabo por el servicio de movimiento de datos (DMS)
+
+Las siguientes instrucciones **no** respetan las clases de recursos:
+
+- CREATE TABLE
+- ALTER TABLE ... SWITCH PARTITION 
+- ALTER TABLE ... SPLIT PARTITION 
+- ALTER TABLE ... MERGE PARTITION 
+- DROP TABLE
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE STATISTICS
+- UPDATE STATISTICS
+- DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE USER
+- ALTER USER
+- DROP USER
+- CREATE PROCEDURE
+- ALTER PROCEDURE
+- DROP PROCEDURE
+- CREATE VIEW
+- DROP VIEW
+- INSERT VALUES
+- SELECT (desde vistas del sistema y DMV)
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
-- CREATE EXTERNAL TABLE AS SELECT 
+- CREATE EXTERNAL TABLE AS SELECT
+- REDISTRIBUTE 
 -->
 > [AZURE.NOTE]Merece la pena resaltar que las consultas de `SELECT` que se ejecutan exclusivamente contra vistas de catálogo y vistas de administración dinámicas **no** se rigen por las clases de recursos.
 
@@ -418,8 +448,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Administrar bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure]: https://msdn.microsoft.com/es-es/library/azure/ee336235.aspx
+[Administrar bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure]: https://msdn.microsoft.com/es-ES/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

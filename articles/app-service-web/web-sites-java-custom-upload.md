@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Carga de una aplicación web de Java personalizada en Azure"
-	description="En este tutorial se muestra cómo cargar una aplicación web de Java personalizada en Aplicaciones web del Servicio de aplicaciones de Azure."
-	services="app-service\web"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Carga de una aplicación web de Java personalizada en Azure" 
+	description="En este tutorial se muestra cómo cargar una aplicación web de Java personalizada en Aplicaciones web del Servicio de aplicaciones de Azure." 
+	services="app-service\web" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Carga de una aplicación web de Java personalizada en Azure
@@ -227,7 +227,11 @@ Vale la pena señalar que la variable de entorno JRE\_HOME se especifica en web.
 
 Después de que realice estos cambios, reinicie la aplicación web que ejecuta Liferay y, a continuación, abra http://yourwebapp. El portal de Liferay está disponible en la raíz de la aplicación web.
 
+## Pasos siguientes
+
 Para obtener más información sobre Liferay, consulte [http://www.liferay.com](http://www.liferay.com).
+
+Para obtener más información sobre Java, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -237,4 +241,4 @@ Para obtener más información sobre Liferay, consulte [http://www.liferay.com](
 <!-- External Links -->
 [Servicio de aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

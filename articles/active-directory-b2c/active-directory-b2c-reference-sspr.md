@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Configuración del autoservicio de restablecimiento de contraseña para los consumidores
@@ -36,4 +36,4 @@ Para probar, use la característica "Ejecutar ahora" en cualquier directiva de i
 
 > [AZURE.NOTE]Las páginas de autoservicio de restablecimiento de contraseña se pueden personalizar con la [característica de personalización de marca de la empresa](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

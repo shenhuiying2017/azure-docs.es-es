@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Configuración de un nuevo dispositivo con Azure AD mediante la configuración rápida| Microsoft Azure" 
-	description="Un tema que explica cómo los usuarios pueden configurar Azure AD Join durante su configuración rápida." 
+	pageTitle="Información general de Microsoft Passport y detalles sobre esta nueva autenticación basada en certificados. | Microsoft Azure" 
+	description="Un tema que explica cómo los usuarios pueden configurar Azure AD Join durante la Primera vista de Windows." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Autenticación de identidades sin contraseñas a través de Microsoft Passport
@@ -66,7 +66,7 @@ En el nivel de usuario
 
 ## Información adicional
 
-* [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

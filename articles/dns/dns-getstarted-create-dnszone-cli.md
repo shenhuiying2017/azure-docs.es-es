@@ -1,22 +1,22 @@
 <properties
-   pageTitle="Introducción a DNS de Azure | Microsoft Azure"
-	description="Aprenda a crear zonas DNS en DNS de Azure paso a paso para empezar a hospedar el dominio DNS usando PowerShell o la CLI"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="Introducción a DNS de Azure con CLI | Microsoft Azure"
+   description="Aprenda a crear zonas DNS para DNS de Azure paso a paso para empezar a hospedar el dominio DNS con la CLI."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# Introducción a DNS de Azure
+# Introducción a DNS de Azure con CLI
 
 
 
@@ -173,4 +173,4 @@ En el ejemplo siguiente se usa DIG para consultar el dominio contoso.com con los
 
 [Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset-cli.md)<BR> [Administración de zonas DNS](dns-operations-dnszones-cli.md)<BR> [Administración de registros DNS](dns-operations-recordsets-cli.md)<BR> [Automatización de operaciones de Azure con .NET SDK](dns-sdk.md)<BR> [Referencia de la API de REST del DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure | Microsoft Azure"
-	description="Obtenga información sobre cómo utilizar las herramientas de línea de comandos para Mac, Linux y Windows para administrar Azure utilizando el modo arm de la CLI de Azure."
+	pageTitle="Usar de la interfaz de la línea de comandos de Azure con Administración de servicios | Microsoft Azure"
+	description="Obtenga información sobre cómo usar las herramientas de línea de comandos para Mac, Linux y Windows para administrar Azure usando la CLI de Azure en el modo de implementación clásico (administración de servicios)."
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,6 +18,8 @@
 	ms.author="danlep"/>
 
 # Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica. También puede crear un recurso con el [modelo de implementación del Administrador de recursos](virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 Este tema describe cómo utilizar la CLI de Azure en modo **asm** para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Su funcionalidad es parecida a la proporcionada por los cmdlets de Administración del servicio de Windows PowerShell que se instalan con los SDK de Azure para .NET, Node.JS y PHP.
 
@@ -65,7 +67,7 @@ Este comando permite importar un archivo publishsettings o un certificado de man
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]Este archivo publishsettings puede contener información (es decir, el nombre de suscripción y el identificador) sobre más de una suscripción. Cuando importa el archivo publishsettings, la primera suscripción se usa como descripción predeterminada. Para usar una suscripción diferente, ejecute el siguiente comando <code>\~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> [AZURE.NOTE]Este archivo publishsettings puede contener información (es decir, el nombre de suscripción y el identificador) sobre más de una suscripción. Cuando importa el archivo publishsettings, la primera suscripción se usa como descripción predeterminada. Para usar una suscripción diferente, ejecute el siguiente comando <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
 
@@ -208,7 +210,7 @@ Los siguientes parámetros opcionales son compatibles con este comando:
 
 **-c, --connect** permite crear la máquina virtual dentro de una implementación ya creada en un servicio de hospedaje. Si no se usa -vmname con esta opción, el nombre de la nueva máquina virtual se generará automáticamentey.<br /> **-n, --vm-name** Especifique el nombre de la máquina virtual. Este parámetro toma el servicio de hospedaje de forma predeterminada. Si no se especifica -vmname, el nombre de la nueva máquina virtual se genera como &lt;service-name>&lt;id>, where &lt;id>, donde &lt;id> es el número de máquinas virtuales existentes en el servicio más 1. Por ejemplo, si usa este comando para agregar una nueva máquina virtual a un servicio de hospedaje MyService que cuente con una máquina virtual existente, el nombre de la nueva máquina virtual será MyService2.<br /> **-u, --blob-url** Especifique la URL de almacenamiento de blobs desde la cual se creará el disco del sistema de la máquina virtual. <br /> **-z, --vm-size** Especifique el tamaño de la máquina virtual. Los valores válidos son: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". El valor predeterminado es "Small". <br /> **- r** permite agregar conectividad RDP a una máquina virtual Windows. <br /> **-e,--ssh** permite agregar conectividad SSH a una máquina virtual Windows. <br /> **-t,--ssh-cert**permite especificar el certificado SSH. La suscripción <br /> **-s** <br /> **-o,--community** la imagen especificada es una imagen de la comunidad <br /> **-w** el nombre de red virtual <br/> **-l,--location** especifica la ubicación (por ejemplo, "Centro y Norte de EE. UU."). <br /> **- a,--affinity-group** especifica el grupo de afinidad.<br /> **-w,--nombre de red virtual** especifica la red virtual a la que se agrega la nueva máquina virtual. Las redes virtuales pueden configurarse y administrarse desde el portal de Azure..<br /> **-b, --subnet-names** permite especificar los nombres de subred que asignar a la máquina virtual.
 
-En este ejemplo, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-es-es-30GB es una imagen proporcionada por la plataforma. Para obtener más información sobre las imágenes del sistema operativo, consulte vm image list.
+En este ejemplo, MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-es-ES-30GB es una imagen proporcionada por la plataforma. Para obtener más información sobre las imágenes del sistema operativo, consulte vm image list.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -420,15 +422,15 @@ Este comando permite obtener una lista de imágenes de máquina virtual. Hay tre
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-es-es-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-es-ES-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.es-es.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.es-ES.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.es-es.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-es-es-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-es-es-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-es-es-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.es-ES.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-es-ES-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-es-ES-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-es-ES-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -499,7 +501,7 @@ Este comando muestra información sobre un disco de Azure.
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-es-es-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-es-ES-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [options] [vm-name]**
@@ -787,7 +789,7 @@ Este comando intercambia entre dos espacios de aplicaciones web.
 
 Este comando es compatible con la siguiente opción adicional:
 
-****-q o **--quiet**: No solicita confirmación. Use esta opción en los scripts automáticos.
+****-q o **--quiet**: no solicita confirmación. Use esta opción en los scripts automáticos.
 
 
 **site start [options] [name]**
@@ -2346,4 +2348,4 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

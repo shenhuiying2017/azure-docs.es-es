@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Implementar un dominio de Servicios de Dominio de Active Directory de alta disponibilidad con una plantilla de Administrador de recursos de Azure"
+	pageTitle="Plantilla ARM de servicios de dominio de Active Directory de alta disponibilidad | Microsoft Azure"
 	description="Implemente fácilmente dos servidores que actúan como controladores de dominio de Dominio de Active Directory con una plantilla de administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,6 +20,8 @@
 
 # Implementar un dominio de Servicios de Dominio de Active Directory de alta disponibilidad con una plantilla de Administrador de recursos de Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. No puede crear este recurso con el modelo de implementación clásica.
+
 Siga las instrucciones de este artículo para implementar un dominio de Active Directory de alta disponibilidad mediante una plantilla de administrador de recursos. Esta plantilla crea dos máquinas virtuales en una nueva red virtual en la misma subred.
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
@@ -28,7 +30,7 @@ Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerS
 
 ## Portal de vista previa de Azure
 
-Para implementar esta carga de trabajo mediante una plantilla de Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
+Para implementar esta carga de trabajo mediante una plantilla del Administrador de recursos y el portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
@@ -106,4 +108,4 @@ Una vez completada la ejecución de la plantilla, tendrá una nueva configuraci�
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

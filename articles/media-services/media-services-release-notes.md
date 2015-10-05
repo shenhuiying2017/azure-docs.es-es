@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/20/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 - [Problemas actualmente conocidos](#issues)
 - [Historial de versiones de API de REST](#rest_version_history)
+- [Versión de septiembre de 2015](#september_changes_15)
 - [Versión de agosto de 2015](#august_changes_15)
 - [Versión de julio de 2015](#july_changes_15)
 - [Versión de junio de 2015](#june_changes_15)
@@ -73,6 +74,16 @@ Los objetos de Servicios multimedia del SDK no se pueden serializar y, como resu
 
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
 
+##<a id="september_changes_15"></a>Versión de septiembre de 2015 
+
+- AMS ofrece ahora la capacidad de proteger tanto vídeo bajo demanda (VOD) como secuencias activas con la tecnología DRM modular de Widevine. Puede usar los siguientes partners de servicios de entrega para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+
+	Puede usar el [SDK de .NET de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar su AssetDeliveryConfiguration para usar Widevine.
+
+- AMS agregó compatibilidad para vídeos ProRes de Apple. Ahora puede cargar sus archivos de vídeos de origen QuickTime que usan ProRes de Apple u otros códecs. Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+
+- Ahora puede usar Media Encoder Estándar para realizar recortes secundarios y extracción de archivos directas. Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+
 ##<a id="august_changes_15"></a>Versión de agosto de 2015
 
 - Ya están disponibles el SDK de Servicios multimedia de Azure para la versión de Java V0.8.0 y nuevos ejemplos. Para más información, consulte:
@@ -86,7 +97,7 @@ Para obtener información sobre el historial de versiones de la API de REST de S
 
 - Anuncia la disponibilidad general de Media Encoder estándar. Para obtener más información, consulte [esta publicación del blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	Codificador multimedia Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalado de codificación](media-services-portal-encoding-units).
+	Media Encoder Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalado de codificación](media-services-portal-encoding-units).
 - Subtítulos en tiempo real con Servicios multimedia de Azure y el Reproductor. Para obtener más información, consulte [esta publicación del blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###Actualizaciones del SDK .NET de Servicios multimedia
@@ -580,4 +591,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

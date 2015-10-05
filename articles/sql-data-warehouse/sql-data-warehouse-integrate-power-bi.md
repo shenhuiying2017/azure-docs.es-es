@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # Uso de Power BI con Almacenamiento de datos SQL
@@ -42,11 +42,12 @@ La manera más fácil de trasladarse entre la instancia de Almacenamiento de dat
 ## Conexión a través del Portal de Power BI
 Además de utilizar el botón Abrir en Power BI, los usuarios también pueden conectarse a su instancia de Almacenamiento de datos SQL a través del Portal de Power BI.
 
-1.   En la parte inferior del panel de navegación, haga clic en Obtener datos.
-2.  Seleccione Big Data y más.
-3.  Cuando esté en la página Big Data y más, seleccione la instancia de Almacenamiento de datos SQL.
-4.  Escriba la información de conexión necesaria. La sección Búsqueda de parámetros que aparece a continuación muestra dónde se pueden encontrar estos datos.  
-5.	Mediante el desglose del conjunto de datos, puede explorar todas las tablas y columnas de su base de datos. Al seleccionar una columna se enviará una consulta de vuelta al origen, creando dinámicamente su objeto visual. Estos objetos visuales se pueden guardar en un informe nuevo y se vuelven a anclar en el panel.
+1.  En la parte inferior del panel de navegación, haga clic en Obtener datos.
+2.  Seleccione "Bases de datos".
+3.  En la página Bases de datos, seleccione "Almacenamiento de datos SQL de Azure" y luego haga clic en "Conectar".
+4.  Escriba la información de conexión necesaria. La sección Búsqueda de parámetros que aparece a continuación muestra dónde se pueden encontrar estos datos. 
+5.  Se le dirigirá a la página principal de Power BI y después de que se realice su conexión, aparecerá una nueva entrada en "Conjuntos de datos" con el nombre de la instancia.  
+6.	 Puede hacer clic en el nuevo conjunto de datos para explorar todas las tablas y vistas de la base de datos. Al seleccionar una columna se enviará una consulta de vuelta al origen, creando dinámicamente su objeto visual. Estos objetos visuales se pueden guardar en un informe nuevo y se vuelven a anclar en el panel.
 
 ## Búsqueda de valores de parámetro
 Puede encontrar el nombre completo del servidor y el nombre de la base de datos en el Portal de Azure. Tenga en cuenta que, por el momento, el Almacenamiento de datos SQL solo está presente en el Portal de vista previa de Azure.
@@ -62,4 +63,4 @@ Puede encontrar el nombre completo del servidor y el nombre de la base de datos 
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

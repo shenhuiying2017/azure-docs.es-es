@@ -1,6 +1,7 @@
 <properties
 	pageTitle="¿Qué es HBase en HDInsight? | Microsoft Azure"
 	description="Una introducción a Apache HBase en HDInsight, una base de datos NoSQL basada en Hadoop. Obtenga información acerca de los casos de uso y compare HBase con otros clústeres de Hadoop."
+	keywords="bigtable,nosql,what is hbase"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/17/2015"
 	ms.author="jgao"/>
 
 
@@ -93,4 +94,4 @@ El caso de uso canónico para el que se creó BigTable y, por extensión, HBase,
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

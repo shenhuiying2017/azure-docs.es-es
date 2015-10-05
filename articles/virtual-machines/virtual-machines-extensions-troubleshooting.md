@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Solución de problemas de los errores de las extensiones de máquina virtual de Azure"
-   description="Aprender sobre la solución de problemas de los errores de la extensión de máquina virtual de Azure"
+   pageTitle="Solución de problemas de los errores de las extensiones de máquina virtual de Azure | Microsoft Azure"
+   description="Obtenga información sobre la solución de problemas de los errores de la extensión de máquina virtual de Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -18,9 +19,12 @@
 
 # Solución de problemas de los errores de la extensión de máquina virtual de Azure.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
+
 ## Información general de las plantillas del Administrador de recursos de Azure
 
 Las plantillas del Administrador de recursos de Azure le permiten especificar mediante declaración la infraestructura IaaS de Azure en el lenguaje Json definiendo las dependencias entre recursos.
+
 
 Haga clic en el artículo [Creación de plantillas de extensión](virtual-machines-extensions-authoring-templates.md) para obtener más información sobre la creación de plantillas para el uso de extensiones.
 
@@ -80,4 +84,4 @@ Donde "publisher-name" se corresponde con el tipo de extensión de la salida de 
 
 Cuando se ha quitado la extensión, la plantilla puede volver a ejecutarse para ejecutar los scripts en la máquina virtual.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

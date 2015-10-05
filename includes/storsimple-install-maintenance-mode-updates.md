@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar actualizaciones en el modo de mantenimiento a través de Windows PowerShell para StorSimple
 
@@ -25,4 +26,4 @@
 
 8. Una vez actualizados ambos controladores, salga del modo de mantenimiento. Consulte [Paso 4: Salida del modo de mantenimiento](storsimple-update-device.md#step4) para obtener instrucciones.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

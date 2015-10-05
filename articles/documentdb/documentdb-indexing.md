@@ -34,7 +34,7 @@ Con el objetivo de eliminar la discordancia de impedancia entre la base de datos
 
 La indexación en DocumentDB aprovecha el hecho de que la gramática de JSON permite que los documentos se **representen en forma de árboles**. Para representar un documento JSON como un árbol, es necesario crear un nodo raíz ficticio que actúe como elemento primario para el resto de nodos reales del documento que dependen de dicho nodo ficticio. Cada etiqueta, que incluye los índices de la matriz en un documento JSON, se convierte en un nodo del árbol. La ilustración siguiente muestra un ejemplo de documento JSON y de su representación de árbol correspondiente.
 
->[AZURE.NOTE]Dado que JSON es autodescriptivo, es decir, cada documento incluye el esquema (metadatos) y los datos, por ejemplo, `{"locationId", 5, "city": "Moscow"}`, revela que hay dos propiedades `locationId` y `city`, y que tienen valores de propiedad de cadena y numéricos. DocumentDB puede deducir el esquema de los documentos e indexarlos cuando se insertan o reemplazan, sin que se tenga que definir ningún esquema ni índice secundario.
+>[AZURE.NOTE]Dado que JSON es autodescriptivo, es decir, cada documento incluye el esquema (metadatos) y los datos, por ejemplo, `{"locationId": 5, "city": "Moscow"}`, revela que hay dos propiedades `locationId` y `city`, y que tienen valores de propiedad de cadena y numéricos. DocumentDB puede deducir el esquema de los documentos e indexarlos cuando se insertan o reemplazan, sin que se tenga que definir ningún esquema ni índice secundario.
 
 
 **Documentos JSON en forma de árboles:**
@@ -67,4 +67,4 @@ La indexación de DocumentDB está diseñada en función de la eficacia de almac
 - Más información sobre cómo personalizar el índice de DocumentDB [aquí](documentdb-indexing-policies.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

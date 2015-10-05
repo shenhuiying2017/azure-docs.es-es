@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Automatización de la implementación de la máquina virtual de Azure con Chef"
-	description="Obtenga información acerca del arte de la automatización de la máquina virtual de Azure con Chef"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="diegoviso"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Implementación de la máquina virtual de Azure con Chef | Microsoft Azure"
+   description="Obtenga información acerca de cómo usar chef para realizar la implementación y configuración de máquinas virtuales automatizada en Microsoft Azure"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="diegoviso"
+   manager="timlt"
+   tags="azure-service-management,azure-resource-manager"
+   editor=""/>
 
-<tags ms.service="virtual-machines" 
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/19/2015"
-	ms.author="diviso"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services"
+ms.tgt_pltfrm="vm-multiple"
+ms.devlang="na"
+ms.topic="article"
+ms.date="05/19/2015"
+ms.author="diviso"/>
 
 # Automatización de la implementación de la máquina virtual de Azure con Chef
 
@@ -237,4 +237,4 @@ Espero que esto les haya resultado útil. Empiece hoy su viaje de su infraestruc
 
 <!--Link references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

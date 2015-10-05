@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="Actualización a la última biblioteca de clientes de base de datos elástica" 
-	description="Instrucciones de actualización con PowerShell y C#" 
+<properties
+	
+	pageTitle="Upgrade to the latest elastic database client library" 
+	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -12,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh" />
 
 # Actualización a la última biblioteca de clientes de base de datos elástica
 
 Hay nuevas versiones disponibles de la biblioteca de clientes de base de datos elástica a través de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) y de la interfaz del Administrador de NuGetPackage en Visual Studio. Las actualizaciones contienen correcciones de errores y compatibilidad para nuevas capacidades de la biblioteca de clientes.
 
+Vuelve a generar la aplicación con la nueva biblioteca, así como cambiar los metadatos de administrador de asignación de particiones existentes almacenados en sus bases de datos SQL de Azure para admitir nuevas características.
+
+Al realizar estos pasos de actualización en orden se asegura de que las versiones anteriores de la biblioteca de cliente ya no está presentes en el entorno cuando se actualizan los objetos de metadatos, lo que significa que no se crearán objetos de metadatos de la antigua versión después de la actualización.
+
 ## Pasos de actualización
-
-La actualización requiere volver a generar la aplicación con la nueva biblioteca, así como cambiar los metadatos de administrador de asignación de particiones existentes almacenados en sus bases de datos SQL de Azure para admitir nuevas características.
-
-Siga la secuencia que se indica a continuación para actualizar las aplicaciones, la base de datos de administrador de asignación de particiones y los metadatos del administrador de asignación de particiones local de cada partición. Al realizar pasos de actualización en este orden se asegura de que las versiones anteriores de la biblioteca de cliente ya no está presentes en el entorno cuando se actualizan los objetos de metadatos, lo que significa que no se crearán objetos de metadatos de la antigua versión después de la actualización.
 
 **1. Actualice sus aplicaciones.** En Visual Studio, descargue y haga referencia a la versión más reciente de la biblioteca de clientes en todos los proyectos de desarrollo que usan la biblioteca; a continuación, vuelva a compilar e implementar.
 
  * En la solución de Visual Studio, seleccione **Herramientas** --> **Administrador de paquetes de NuGet** --> **Administrar paquetes de NuGet para solución**. 
- * En el panel izquierdo, seleccione **Actualizaciones** y, a continuación, seleccione el botón **Actualizar** en el paquete **Biblioteca de clientes de escala elástica de Base de datos SQL de Azure** que aparece en la ventana. ![Actualización de paquetes de NuGet][1]
+ * (Visual Studio 2013) En el panel izquierdo, seleccione **Actualizaciones** y, a continuación, seleccione el botón **Actualizar** en el paquete **Biblioteca de clientes de escala elástica de Base de datos SQL de Azure** que aparece en la ventana.
+ * (Visual Studio 2015) Establezca el cuadro de filtro en **Actualización disponible**. Seleccione el paquete que quiera actualizar y haga clic en el botón **Actualizar**.
+	
  
  * Genere e implemente.
 
@@ -94,4 +97,4 @@ Versión inicial de vista previa
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

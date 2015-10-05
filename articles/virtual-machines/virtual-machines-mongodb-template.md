@@ -1,22 +1,25 @@
 <properties
-  pageTitle="Crear un clúster de MongoDB en Ubuntu mediante una plantilla del Administrador de recursos de Azure"
-	description="Crear un clúster de MongoDB en Ubuntu mediante una plantilla de Administrador de recursos de Azure a través de Azure PowerShell o CLI de Azure"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="karthmut"
-	manager="timlt"
-	editor="tysonn"/>
+  pageTitle="Creación de un clúster de MongoDB en Ubuntu | Microsoft Azure"
+  description="Crear un clúster de MongoDB en Ubuntu mediante una plantilla de Administrador de recursos de Azure a través de Azure PowerShell o CLI de Azure"
+  services="virtual-machines"
+  documentationCenter=""
+  authors="scoriani"
+  manager="timlt"
+  editor="tysonn"
+  tags="azure-resource-manager"/>
 
 <tags
   ms.service="virtual-machines"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+  ms.workload="multiple"
+  ms.tgt_pltfrm="vm-windows"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.date="04/29/2015"
+  ms.author="scoriani"/>
 
 # Crear un clúster de MongoDB en Ubuntu mediante una plantilla del Administrador de recursos de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación del Administrador de recursos.
 
 MongoDB es una base de datos de documentos de código abierto que ofrece alto rendimiento, alta disponibilidad y escalado automático. MongoDB puede instalarse como una base de datos independiente o en un clúster, aprovechando las capacidades integradas de réplica. En algunos casos, puede usar la replicación para aumentar la capacidad de lectura. Los clientes tienen la capacidad de enviar operaciones de lectura y escritura a diferentes servidores. También es posible mantener copias en diferentes centros de datos para aumentar la localidad y la disponibilidad de los datos de las aplicaciones distribuidas. Con MongoDB, la replicación también proporciona redundancia y aumenta la disponibilidad de los datos. Con varias copias de los datos en servidores de bases de datos diferentes, la replicación protege una base de datos de la pérdida de un único servidor. La replicación también permite la recuperación tras errores de hardware e interrupciones del servicio. Con las copias adicionales de los datos, puede dedicar una recuperación ante desastres, creación de informes o copia de seguridad.
 
@@ -582,7 +585,7 @@ A partir del ejemplo anterior está claro que azuredeploy.json se organizó en e
 
 En particular, las siguientes plantillas vinculadas se usarán para esta implementación:
 
--	**Shared-resource.json**: contiene la definición de todos los recursos que se van a compartir en toda la implementación. Algunos ejemplos son las cuentas de almacenamiento que se usan para almacenar discos del sistema operativo de la máquina virtual y redes virtuales.
+-	**shared-resource.json**: contiene la definición de todos los recursos que se van a compartir en toda la implementación. Algunos ejemplos son las cuentas de almacenamiento que se usan para almacenar discos del sistema operativo de la máquina virtual y redes virtuales.
 -	**Jumpbox-resources.json**: cuando se habilita, es responsable de la implementación de todos los recursos relacionados con la máquina virtual de JumpBox, tiene una dirección IP pública que puede usarse para acceder al clúster de MongoDB desde la red pública.
 -	**Arbiter-resources.json**: cuando se habilita, esta plantilla implementa un miembro de árbitro en el clúster de MongoDB. Un árbitro no contiene datos, pero se usa cuando un conjunto de réplicas contiene un número par de nodos para administrar las elecciones principales.
 -	**Member-resources-Dx.json**: especifica las plantillas de recursos que implementan eficazmente los nodos de MongoDB. Se usará un archivo específico según la definición del “tamaño de camiseta” seleccionado, donde cada archivo solo diferirá en el número de discos conectados para cada nodo.
@@ -690,4 +693,4 @@ Básicamente, este enfoque sugiere:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

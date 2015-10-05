@@ -271,7 +271,7 @@ Las excepciones no controladas se recopilan automáticamente:
 
 Para recopilar datos de otras excepciones, tiene dos opciones:
 
-* [Insertar llamadas a TrackException en el código][apiexceptions]. 
+* [Insertar llamadas a trackException() en el código][apiexceptions]. 
 * [Instalar el agente de Java en el servidor](app-insights-java-agent.md). Debe especificar los métodos que desee ver.
 
 
@@ -381,7 +381,9 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 
 [Solución de problemas de Java](app-insights-java-troubleshoot.md)
 
+## Pasos siguientes
 
+Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
 <!--Link references-->
 
@@ -394,4 +396,4 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

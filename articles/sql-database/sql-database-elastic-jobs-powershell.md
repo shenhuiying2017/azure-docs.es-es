@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Información general de los trabajos de bases de datos elásticas" 
-	description="Muestra el servicio de trabajo de base de datos elástica"  
-	services="sql-database" 
-	documentationCenter=""  
+	pageTitle="Creación y administración de trabajos de base de datos elástica mediante PowerShell" 
+	description="PowerShell usada para administrar grupos de Base de datos SQL de Azure" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="ddove"/>
 
@@ -12,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/17/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell
@@ -674,4 +673,4 @@ Una vez creada una DACPAC en Trabajos de base de datos elástica, puede crearse 
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

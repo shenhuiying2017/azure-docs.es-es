@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 
@@ -156,10 +156,23 @@ Abra estos puertos para el tráfico de salida en el firewall del servidor:
 + `dc.services.visualstudio.com:443`
 + `f5.services.visualstudio.com:443`
 
-### Mantenimiento de recursos independientes para desarrollo, prueba y lanzamiento
 
-Para una aplicación importante, es aconsejable enviar los datos de telemetría de depuración, pruebas y producción a [recursos independientes](app-insights-separate-resources.md).
+## Desarrollo, prueba y lanzamiento
 
+Para una aplicación importante, es aconsejable enviar los datos de telemetría de diferentes marcas (versiones de depuración, pruebas y producción) a [recursos independientes](app-insights-separate-resources.md).
+
+## Versión de la aplicación de seguimiento
+
+Asegúrese de que el proceso de compilación genera `buildinfo.config`. En su archivo .csproj, agregue:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Cuando tenga la información de la versión, el módulo web de Application Insights agrega automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Eso le permite filtrar por versión al realizar [búsquedas de diagnósticos][diagnostic] o al [explorar métricas][metrics].
 
 
 
@@ -235,4 +248,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

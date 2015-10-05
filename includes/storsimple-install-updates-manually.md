@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar actualizaciones periódicas a través del Portal de administración
 
@@ -11,4 +12,4 @@
 
     Recibirá una notificación cuando la actualización esté correctamente instalada.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación e implementación de un servicio en la nube | Microsoft Azure"
-	description="Aprenda a crear e implementar un servicio en la nube con el método Creación rápida en Azure."
+	pageTitle="Creación e implementación de un servicio en la nube (portal de vista previa) | Microsoft Azure"
+	description="Aprenda a crear e implementar un servicio en la nube con el método Creación rápida en Azure. Estos ejemplos usan el portal de vista previa de Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -107,4 +107,11 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
-<!---HONumber=August15_HO8-->
+## Pasos siguientes
+
+* [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
+* Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
+* [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).
+* Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

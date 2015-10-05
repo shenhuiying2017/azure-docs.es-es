@@ -97,6 +97,8 @@ Más adelante, modificará esta página al agregar una sección para mostrar inf
 	* Use la aplicación de AAD que ya creó en lugar de crear una nueva.
  
 	* Conserve el mismo **URI de id. de aplicación** que ya tiene para la aplicación de AAD. (No lo cambie al formato que se especifica en el archivo Léame).
+	
+	* Cambie otras configuración de la aplicación de AAD según se le indique; en concreto, establezca el inicio de sesión y las URL de respuesta en la URL base para la aplicación de ejemplo.
 
 Como conserva el mismo URI del id. de la aplicación que creó para la aplicación de ID, puede usar el mismo token de acceso de AAD para la aplicación web y la aplicación de API. Si cambió el URI de id. de aplicación al formato indicado en el archivo Léame, podría funcionar para el acceso a la aplicación web, pero no para la aplicación de API. No sería posible pasar el token de AAD a la puerta de enlace de la aplicación de API para obtener un token de Zumo, debido a que la puerta de enlace espera un token para un URI de id. de aplicación compuesto de la dirección URL de la puerta de enlace más "/login/aad".
 
@@ -109,8 +111,6 @@ En esta sección, agregará automáticamente código generado para una interfaz 
 9.	En el cuadro de diálogo **Agregar cliente de aplicación de API de Microsoft Azure**, seleccione la aplicación de API que protegió con AAD.
 
 	Una vez completada la generación de código, verá una nueva carpeta en el **Explorador de soluciones**, con el nombre de la aplicación de API. Esta carpeta contiene el código que implementa las clases y los modelos de datos de cliente.
-
-	![](./media/app-service-api-authentication-client-flow/aboutpagestart.png)
 
 10. Corrija las referencias ambiguas que provoca el código generado en *ContactsList/ContactsExtensions.cs*: cambie las dos instancias de `Task.Factory.StartNew` a `System.Threading.Tasks.Task.Factory.StartNew`.
  
@@ -227,4 +227,4 @@ Aprendió a realizar la autenticación de flujo de cliente para aplicaciones de 
 [Portal de Azure]: https://manage.windowsazure.com/
 [Portal de vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

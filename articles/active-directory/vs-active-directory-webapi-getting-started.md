@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Introducción a Azure Active Directory y servicios conectados de Visual Studio (proyectos de WebApi)
 
@@ -29,4 +29,4 @@ Todos los controladores de su proyecto cuentan ahora con el atributo **Authorize
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

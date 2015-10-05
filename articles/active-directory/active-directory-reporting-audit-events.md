@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/18/2015"
+   ms.date="09/21/2015"
    ms.author="kenhoff"/>
 
 # Eventos del Informe de auditoría de Azure Active Directory
@@ -48,11 +48,11 @@ Cambiar la licencia de usuario | Cambió la licencia asignada a un usuario en el
 Actualizar usuario | Actualizó un usuario en el directorio.
 Establecer el cambio forzado de la contraseña de usuario | Estableció la propiedad que fuerza a un usuario a cambiar su contraseña en el inicio de sesión.
 **Eventos de grupo** |
-Crear grupo | Se crea un grupo en el directorio
-Actualizar grupo | Se actualiza un grupo del directorio
-Eliminar grupo | Se elimina un grupo del directorio
-Agregar miembro a grupo | Se agrega un miembro a un grupo del directorio
-Quitar miembro de grupo | Se quita un miembro de un grupo del directorio
+Crear grupo | Se crea un grupo en el directorio.
+Actualizar grupo | Se actualiza un grupo del directorio.
+Eliminar grupo | Se elimina un grupo del directorio.
+Agregar miembro a grupo | Se agrega un miembro a un grupo del directorio.
+Quitar miembro de grupo | Se quita un miembro de un grupo del directorio.
 **Eventos de aplicación** |
 Agregar entidad de servicio | Agregó una entidad de servicio al directorio.
 Quitar entidad de servicio | Quitó una entidad de servicio del directorio.
@@ -71,7 +71,7 @@ Quitar asociado de la compañía | Quitó un asociado del directorio.
 Agregar dominio a la compañía | Agregó un dominio al directorio.
 Quitar dominio de la compañía | Quitó un dominio del directorio.
 Actualizar dominio | Actualizó un dominio en el directorio.
-Establecer la autenticación de dominio | Cambió la configuración de dominio predeterminada para la compañía.
+Establecer la autenticación de dominio | Se cambió la configuración de dominio predeterminada para la compañía.
 Establecer la configuración de la federación en el dominio | Actualizó la configuración de la federación para un dominio.
 Comprobar dominio | Comprobó un dominio en el directorio.
 Comprobar dominio verificado por correo electrónico | Comprobó un dominio en el directorio mediante la verificación por correo electrónico.
@@ -108,4 +108,4 @@ TelephoneNumber | Número de teléfono del usuario.
 
 Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](http://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

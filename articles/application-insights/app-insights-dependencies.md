@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/17/2015" 
 	ms.author="awills"/>
  
 # Diagnóstico de problemas con dependencias en Application Insights
@@ -48,7 +48,7 @@ Instale al agente adecuado para el servidor host.
 Plataforma | Instalación
 ---|---
 Servidor IIS | [Monitor de estado](app-insights-monitor-performance-live-website-now.md)
-Aplicación web de Azure | [Extensión de Application Insights](../insights-perf-analytics.md)
+Aplicación web de Azure | [Extensión de Application Insights](../azure-portal/insights-perf-analytics.md)
 Servidor web de Java | [Aplicaciones web de Java](app-insights-java-agent.md)
 
 El Monitor de estado para los servidores de IIS no precisa que vuelva a generar el proyecto de origen con el SDK de Application Insights.
@@ -129,4 +129,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Depuración de Hadoop en HDInsight: mensajes de error | Microsoft Azure"
+	pageTitle="Depuración de Hadoop en HDInsight: ver registros e interpretar mensajes de error | Microsoft Azure"
 	description="Conozca los mensajes de error que puede recibir cuando administre HDInsight con PowerShell, así como los pasos que debe seguir para la recuperación."
 	services="hdinsight"
 	tags="azure-portal"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
-# Depuración de Hadoop en HDInsight: interpretación de mensajes de error
+# Depuración de Hadoop en HDInsight: ver registros e interpretar mensajes de error
 
 Con los mensajes de error incluidos en este tema pretendemos ayudar a los usuarios de Hadoop en HDInsight de Azure a comprender algunas situaciones de error con las que se pueden encontrar al administrar el servicio con Azure PowerShell, así como asesorarlos sobre los pasos que pueden seguir para recuperarse del error.
 
@@ -25,12 +25,40 @@ Algunos de estos mensajes de error también podrían aparecer en el portal de vi
 
 ![Mensaje de error en el portal de vista previa de HDInsight][image-hdi-debugging-error-messages-portal]
 
-En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los errores que un usuario puede encontrarse en Azure PowerShell o en el portal de vista previa, ordenados alfabéticamente según el nombre y vinculados a una entrada de la sección [Descripción y mitigación de los errores](#discription-mitigation-errors), donde se facilita la siguiente información sobre dichos errores:
+En situaciones donde el error es específico de HDInsight de Azure, sería una buena idea entender de lo que trata el error. Consulte [Códigos de error de HDInsight](#hdi-error-codes) para entender los distintos códigos de error y cómo corregirlos. En algunas situaciones, podría querer acceder a los propios registros de Hadoop. Puede hacerlo directamente desde el Portal de vista previa de Azure.
+
+## Visualización de los registros de trabajo y del estado del clúster
+
+* **Acceder a la IU de Hadoop**. En el Portal de vista previa de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**.
+
+	![Inicie el panel del clúster](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
+  
+	Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **IU de Hadoop**.
+
+	![Inicie la IU de Hadoop](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
+
+* **Acceder a IU de Yarn**. En el Portal de vista previa de Azure, haga clic en un nombre de clúster de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consulta que se abre, haga clic en **IU de YARN**.
+
+	Puede utilizar la IU de YARN para hacer lo siguiente:
+
+	* **Obtener el estado del clúster**. En el panel izquierdo, expanda **Clúster** y haga clic en **Acerca de**. Esto presenta detalles del estado del clúster, como memoria total asignada, núcleos usados, estado del administrador de recursos de clúster, versión del clúster, etc.
+
+		![Inicie el panel del clúster](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+
+	* **Obtener el estado del nodo**. En el panel izquierdo, expanda **Clúster** y haga clic en **Nodos**. Esto enumera todos los nodos del clúster, la dirección HTTP de cada nodo, los recursos asignados a cada nodo, etc.
+
+	* **Supervisar el estado de los trabajos**. En el panel izquierdo, expanda **Clúster** y haga clic en **Aplicaciones** para enumerar todos los trabajos del clúster. Si desea ver los trabajos que se encuentran en un estado específico (como nuevo, enviado, en ejecución, etc.), haga clic en el vínculo apropiado en **Aplicaciones**. Además, puede hacer clic en el nombre del trabajo para obtener más información sobre el trabajo, incluyendo la salida, los registros, etc.
+
+* **Acceder a la IU de HBase**. En el Portal de vista previa de Azure, haga clic en un nombre de clúster de HBase de HDInsight para abrir la hoja del clúster. En la hoja del clúster, haga clic en **Panel de inicio**. Cuando se le pida, escriba las credenciales de administrador para el clúster. En la consola de consultas que se abre, haga clic en **IU de HBase**.
+
+## <a id="hdi-error-codes"></a>Códigos de error de HDInsight
+
+Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de vista previa se muestran a continuación ordenados alfabéticamente por nombre. A su vez, los errores están vinculados a una entrada en la sección [Descripción y mitigación de los errores](#discription-mitigation-errors) que proporciona la siguiente información del error:
 
 - **Descripción**: el mensaje de error que ven los usuarios.
 - **Mitigación**: pasos que se pueden seguir para recuperarse del error.
 
-###Códigos de error de HDInsight
+
 
 - [AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
 - [AzureRegionNotSupported](#AzureRegionNotSupported)
@@ -242,11 +270,11 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Descripción**: no se puede resolver el DNS *URLdelDNS*. Asegúrese de facilitar la dirección URL completa del extremo del blob.  
-- **Mitigación**: proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida, entre otras cosas debe empezar por **http://* y terminar en *.com*.
+- **Mitigación**: proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida; entre otras cosas, debe empezar por **http://* y terminar en *.com*.
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Descripción**: no se puede comprobar la ubicación del recurso *URLdeDNS*. Asegúrese de facilitar la dirección URL completa del extremo del blob.  
-- **Mitigación**: proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida, entre otras cosas debe empezar por **http://* y terminar en *.com*.
+- **Mitigación**: proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida; entre otras cosas, debe empezar por **http://* y terminar en *.com*.
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **Descripción**: la funcionalidad de versión no está disponible para la versión *versiónespecificada* y el identificador de suscripción *identificadordelasuscripción*.  
@@ -272,4 +300,4 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

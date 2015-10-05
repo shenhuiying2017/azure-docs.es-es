@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Descripción general de la configuración KVSActorStateProvider de los actores confiables de Service Fabric"
-	description="Obtenga información sobre cómo configurar los actores con estado de Service Fabric de tipo KVSActorStateProvider"
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   pageTitle="Descripción general de la configuración ";KVSActorStateProvider"; de los actores confiables de Service Fabric"
+   description="Obtenga información sobre cómo configurar los actores con estado de Service Fabric de tipo ";KVSActorStateProvider";"
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # Actores confiables de configuración: KVSActorStateProvider
 La configuración predeterminada de KVSActorStateProvider puede modificarse cambiando el archivo "settings.xml" generado en la raíz del paquete de Visual Studio en la carpeta "Config" del actor en cuestión especificado.
@@ -27,8 +27,6 @@ El tiempo de ejecución de Service-Fabric busca los nombres de sección predefin
 Las configuraciones de seguridad del replicador se utilizan para proteger el canal de comunicación que se usa durante la replicación. Esto significa que los servicios no podrán ver el tráfico de replicación del otro, con lo que se garantiza que los datos que se ofrecen también están seguros. De forma predeterminada, una sección de configuración de seguridad vacía no permite la seguridad de replicación.
 ### Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
-### Nombres de configuración
-Consulte [Seguridad de replicación](../service-fabric/service-fabric-replication-security.md)
 
 ## Configuración de replicador
 Las configuraciones de replicador se usan para configurar el replicador que es responsable de hacer que el proveedor de estado del actor resulte altamente confiable. La plantilla de Visual Studio genera la configuración predeterminada y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el replicador.
@@ -82,6 +80,5 @@ Las configuraciones de almacén se usan para configurar el almacén local que se
 ## Comentarios
 
 BatchAcknowledgementInterval controla la latencia de replicación. Un valor de "0" ofrecerá la menor latencia posible, a costa del rendimiento (como deben enviarse y procesarse más mensajes de confirmación, cada uno con menos confirmaciones). Cuanto mayor sea el valor de BatchAcknowledgementInterval, mayor será el rendimiento general de la replicación a costa de una mayor latencia de la operación. Esto se traduce directamente en la latencia de transacciones confirmadas.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="brandwe"/>
 
 # Vista previa de B2C: Protección de una API web mediante node.js
@@ -58,15 +58,18 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Create an **Application Secret** for your application and copy it down.  You will need it shortly.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+
 ## 3. Create your policies
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three 
-identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the 
+In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three
+identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
 
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly.
 
 Once you have your three policies successfully created, you're ready to build your app.
 
@@ -264,7 +267,7 @@ var bunyan = require('bunyan');
 var restify = require('restify');
 var config = require('./config');
 var passport = require('passport');
-var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
+var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
 ```
 
 Guarde el archivo . Volveremos a él en breve.
@@ -284,11 +287,10 @@ Cree un archivo `config.js` en nuestro editor favorito y agregue la siguiente in
 // Don't commit this file to your public repos. This config is for first-run
 exports.creds = {
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
-issuer: 'https://sts.windows.net/**<your application id>**/',
-audience: '<your redirect URI>',
+audience: '<your audience URI>',
 identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration' // For using Microsoft you should never need to change this.
 tenantName:'<tenant name>',
-policyName:'<policy>',
+policyName:'b2c_1_<sign in policy name>',
 };
 
 ```
@@ -297,16 +299,16 @@ policyName:'<policy>',
 
 *IdentityMetadata*: es donde passport-azure-ad buscará los datos de configuración para IdP, así como las claves para validar los tokens JWT. Probablemente no debería cambiarlo si usa Azure Active Directory.
 
-*audience*: el URI de redirección desde el portal. En nuestro ejemplo se usa: `http://localhost/TodoListService`
+*audience*: el URI del portal que identifica el servicio. En nuestro ejemplo se usa: `http://localhost/TodoListService`
 
-*tenantName*: el nombre del inquilino (por ejemplo, contoso.microsoftonline.com).
+*tenantName*: su nombre de inquilino (por ejemplo, contoso.onmicrosoft.com).
 
-*policyName*: la directiva con la que desea validar los tokens que entran en el servidor. Debe ser la misma directiva que usaría en la aplicación cliente.
+*policyName*: la directiva con la que desea validar los tokens que entran en el servidor. Debe ser la misma directiva que usaría en la aplicación cliente para iniciar sesión.
 
-> [AZURE.NOTE]Distribuimos nuestras claves con frecuencia. Asegúrese de extraer siempre de la dirección URL "openid\_keys" y de que la aplicación pueda tener acceso a Internet.
+> [AZURE.NOTE]En nuestra vista previa de B2C, use las mismas directivas en las instalaciones de cliente y de servidor. Si ya realizó un tutorial y creó estas directivas, no tiene que volver a crearlas. Puesto que ha realizado este tutorial, no debería tener que configurar nuevas políticas cuando realice cualquier tutorial en este sitio.
 
 
-## 11: Agregar configuración a su archivo server.js
+## 13: Agregar configuración a su archivo server.js
 
 Debemos leer estos valores del archivo de configuración que acaba de crear en nuestra aplicación. Para ello, basta con que agreguemos el archivo .config como recurso necesario en nuestra aplicación y, a continuación, establezcamos las variables globales en las del documento config.js
 
@@ -341,7 +343,7 @@ name: 'Microsoft Azure Active Directory Sample'
 });
 ```
 
-## 12: Agregar el modelo MongoDB y la información del esquema mediante Mongoose
+## Paso 14: agregar el modelo MongoDB y la información del esquema mediante Mongoose
 
 Ahora toda esta preparación va a empezar a dar sus frutos al incluir juntos estos tres archivos en un servicio API REST.
 
@@ -402,7 +404,7 @@ var Task = mongoose.model('Task');
 ```
 Como se deduce del código, creamos nuestro esquema y, a continuación, creamos un objeto de modelo que usaremos para almacenar nuestros datos en todo el código cuando definamos nuestras ***rutas***.
 
-## 13: Agregar nuestras rutas para el servidor de API de REST de nuestra tarea
+## Paso 15: agregar nuestras rutas para el servidor de API de REST de nuestra tarea
 
 Ahora que tenemos un modelo de base de datos con el que trabajar, agreguemos las rutas que usaremos para nuestro servidor de API de REST.
 
@@ -579,7 +581,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ```
 
 
-## Paso 14: Crear su servidor
+## Paso 16: crear su servidor
 
 Tenemos nuestra base de datos definida, nuestras rutas preparadas y lo último que se debe hacer es agregar la instancia de nuestro servidor que administrará nuestras llamadas.
 
@@ -616,7 +618,7 @@ server.use(restify.bodyParser({
 mapParams: true
 }));
 ```
-## 15: Agregar las rutas (sin autenticación por ahora)
+## PASO 17: Agregar las rutas al servidor (sin autenticación por ahora)
 
 ```Javascript
 /// Now the real handlers. Here we just CRUD
@@ -667,7 +669,7 @@ consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? 
 consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 });
 ```
-## 16: Antes de incorporar la compatibilidad con OAuth, ejecutemos el servidor
+## 18: Antes de incorporar la compatibilidad con OAuth, ejecutemos el servidor
 
 Prueba del servidor antes de agregar la autenticación
 
@@ -728,7 +730,7 @@ Si todo esto funciona, estamos listos para agregar OAuth al servidor de API de R
 
 **Tiene un servidor de API de REST con MongoDB**
 
-## 17: Agregar autenticación al servidor de API de REST
+## 19: Agregar autenticación al servidor de API de REST
 
 Ahora que tenemos una API de REST en ejecución (enhorabuena, por cierto), hagamos que funcione en Azure AD.
 
@@ -736,7 +738,7 @@ Desde la línea de comandos, cambie los directorios por la carpeta **azuread** s
 
 `cd azuread`
 
-### 1: Use la oidcbearerstrategy que se incluye con passport-azure-ad
+### 1: Use la OIDCBearerStrategy que se incluye con passport-azure-ad
 
 Hasta ahora hemos creado un servidor típico de TODO de REST sin ningún tipo de autorización. Finalmente, empezamos a prepararlo.
 
@@ -749,9 +751,9 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]Al escribir las API, siempre debería vincular los datos a un elemento único del token cuya identidad el usuario no pueda suplantar. Cuando este servidor almacena elementos TODO, los almacena en función del Id. de suscripción del usuario en el token (llamado a través de token.sub) que se coloca en el campo "owner". Esto garantiza que ese usuario sea el único que pueda acceder a sus TODO y nadie más tenga acceso a los TODO especificados. En la API "owner" no queda expuesto, así que un usuario externo puede solicitar los TODO de los demás, incluso si se autentican.
+> [AZURE.TIP]Al escribir las API, siempre debería vincular los datos a un elemento único del token cuya identidad el usuario no pueda suplantar. Cuando este servidor almacena elementos TODO, los almacena en función del Id. de objeto del usuario en el token (llamado a través de token.oid) que se coloca en el campo "owner". Esto garantiza que ese usuario sea el único que pueda acceder a sus TODO y nadie más tenga acceso a los TODO especificados. En la API "owner" no queda expuesto, así que un usuario externo puede solicitar los TODO de los demás, incluso si se autentican.
 
-A continuación, vamos a usar la estrategia de portador de OpenID Connect que se incluye con passport-azure-ad. Por ahora veamos el código y lo explicaré en breve. Incluya esto después de lo anterior:
+A continuación, vamos a usar la estrategia de portador que se incluye con passport-azure-ad. Por ahora veamos el código y lo explicaré en breve. Incluya esto después de lo anterior:
 
 ```Javascript
 /**
@@ -807,34 +809,34 @@ Protege extremos mediante la especificación de la llamada passport.authenticate
 Editemos nuestra ruta en el código de servidor para que haga algo más interesante:
 
 ```Javascript
-server.get('/tasks', passport.authenticate('oidc-bearer', {
+server.get('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), listTasks);
-server.get('/tasks', passport.authenticate('oidc-bearer', {
+server.get('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), listTasks);
-server.get('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.get('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), getTask);
-server.head('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.head('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), getTask);
-server.post('/tasks/:owner/:task', passport.authenticate('oidc-bearer', {
+server.post('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
 session: false
 }), createTask);
-server.post('/tasks', passport.authenticate('oidc-bearer', {
+server.post('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), createTask);
-server.del('/tasks/:owner/:task', passport.authenticate('oidc-bearer', {
+server.del('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.del('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks', passport.authenticate('oidc-bearer', {
+server.del('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks', passport.authenticate('oidc-bearer', {
+server.del('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), removeAll, function respond(req, res, next) {
 res.send(204);
@@ -846,7 +848,7 @@ next();
 
 Usemos `curl` nuevamente para ver si ahora tenemos protección de OAuth2 contra nuestros extremos. Haremos esto antes de ejecutar cualquiera de nuestros SDK de cliente en este extremo. Los encabezados devueltos deben bastar para indicarnos si estamos en la ruta de acceso correcta.
 
-En primer lugar, asegúrese de que se ejecute la instancia de MongoDB...
+En primer lugar, asegúrese de que se ejecute la instancia de monogoDB:
 
 	$sudo mongod
 
@@ -887,4 +889,4 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [Conexión a una API web mediante iOS con B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

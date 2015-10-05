@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/03/2015"
+	ms.date="09/21/2015"
 	ms.author="jgao"/>
 
 # Introducción al uso de herramientas de Hadoop en Visual Studio para HDInsight para ejecutar una consulta de Hive
@@ -35,7 +35,6 @@ Para completar este tutorial y utilizar las herramientas de Hadoop en Visual Stu
 
 	- Windows 8.1, Windows 8 o Windows 7
 	- Visual Studio (una de las siguientes versiones):
-		- Visual Studio 2012 Professional/Premium/Ultimate con [actualización 4](http://www.microsoft.com/download/details.aspx?id=39305)
 		- Visual Studio 2013 Comunidad/Professional/Premium/Ultimate con [actualización 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 (Community/Enterprise)
 
@@ -44,12 +43,14 @@ Para completar este tutorial y utilizar las herramientas de Hadoop en Visual Stu
 
 ## Instalación de las herramientas de Hadoop para Visual Studio
 
-Las herramientas de HDInsight para Visual Studio se incluyen en el SDK de Microsoft Azure para la versión 2.5.1, o posterior, de .NET. Se pueden instalar mediante el [Instalador de plataforma web](http://go.microsoft.com/fwlink/?LinkId=255386). Debe elegir el que coincida con su versión de Visual Studio. El paquete con las herramientas de Hadoop también instala el controlador ODBC de Microsoft Hive (32 bits y 64 bits).
+Las herramientas de HDInsight para Visual Studio y el controlador ODBC de Microsoft Hive se incluyen en el SDK de Microsoft Azure para la versión 2.5.1, o posterior, de .NET. Puede instalarlo utilizando el [Instalador de plataforma web](http://go.microsoft.com/fwlink/?LinkId=255386). Debe elegir el que coincida con su versión de Visual Studio. Si no tiene instalado Visual Studio, puede instalar el SDK de Azure y la Visual Studio Community más recientes utilizando el [Instalador de plataforma web](http://go.microsoft.com/fwlink/?LinkId=255386) o mediante los siguientes vínculos:
+
+- [Visual Studio Community 2015 con el SDK de Microsoft Azure](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
+- [Visual Studio Community 2013 con el SDK de Microsoft Azure](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
+- [SDK de Microsoft Azure para .NET (VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids) 
+- [SDK de Microsoft Azure para .NET (VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids) 
 
 ![Herramientas de Hadoop: herramientas de HDInsight para el Instalador de plataforma web de Visual Studio.][1]
-
-
->[AZURE.NOTE]Si tiene Visual Studio 2015 o 2012 y ha instalado el SDK 2.5 de Azure, debe quitar manualmente la versión anterior antes de instalar la versión más reciente. Visual Studio 2013 admite una actualización directa.
 
 ## Conexión a suscripciones de Azure
 Las herramientas de HDInsight para Visual Studio permiten conectarse a los clústeres de HDInsight, realizar algunas operaciones básicas de administración y ejecutar consultas de Hive.
@@ -174,7 +175,7 @@ La versión más reciente de la herramienta permite ver el contenido de los trab
 **Para ver los trabajos de Hive, siga estos pasos:**
 
 1. En el **Explorador de servidores**, expanda **Azure** y, a continuación, expanda **HDInsight**.
-2. Haga clic con el botón derecho en un clúster de HDInsight y luego haga clic en **Ver trabajos**. Se mostrará una lista de los trabajos de Hive que se ejecutaron en el clúster.
+2. Haga clic con el botón secundario en un clúster de HDInsight y luego haga clic en **Ver trabajos**. Se mostrará una lista de los trabajos de Hive que se ejecutaron en el clúster.
 3. Haga clic en un trabajo de la lista de trabajos para seleccionarlo y después utilice la ventana **Resumen de trabajo de Hive** para abrir la **consulta del trabajo**, la **salida del trabajo**, el **registro de trabajo** o el **registro Yarn**.
 
 	![Herramientas de Hadoop: herramientas de Visual Studio en HDInsight ver trabajos de Hive][12]
@@ -236,4 +237,4 @@ En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

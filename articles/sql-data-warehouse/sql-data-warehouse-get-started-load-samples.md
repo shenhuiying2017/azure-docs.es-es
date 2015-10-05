@@ -1,48 +1,53 @@
 <properties
    pageTitle="Carga de datos de ejemplo en Almacenamiento de datos SQL | Microsoft Azure"
-	description="Carga de datos de ejemplo en Almacenamiento de datos SQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""/>
+   description="Carga de datos de ejemplo en Almacenamiento de datos SQL"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/05/2015"
-	ms.author="lodipalm;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/23/2015"
+   ms.author="lodipalm;barbkess"/>
 
 #Carga de datos de ejemplo en Almacenamiento de datos SQL
 
-Ahora que ha configurado una instancia del Almacenamiento de datos SQL puede cargar fácilmente datos de ejemplo en ella. Lo siguiente le ayudará a crear un conjunto de datos denominado AdventureWorksPDW2012 en la base de datos. Este conjunto de datos modela una estructura de almacenamiento de datos de ejemplo para una compañía ficticia llamada AdventureWorks. Tenga en cuenta que necesitará tener instalado BCP para los siguientes pasos. Si no tiene actualmente BCP instalado, instale las [Utilidades de la línea de comandos de Microsoft para SQL Server][].
+Mientras crea una instancia de Almacenamiento de datos SQL, también puede cargar fácilmente algunos datos de ejemplo en ella. Si se saltó este paso durante el aprovisionamiento, también puede [cargar manualmente los datos de ejemplo][].
 
-1. Para empezar, haga clic para descargar nuestros [Scripts de datos de ejemplo][].
+A continuación se proporciona una vista resumida de cómo se puede cargar AdventureWorksDW en la base de datos. Este conjunto de datos modela una estructura de almacenamiento de datos de ejemplo para una compañía ficticia llamada AdventureWorks con datos que representan las ventas y los clientes de la compañía.
 
-2. Cuando se haya descargado el archivo, extraiga el contenido del archivo AdventureWorksPDW2012.zip y abra la nueva carpeta AdventureWorksPDW2012.
+## Agregar datos de ejemplo durante la creación
+Para garantizar que los datos de ejemplo se cargan en Almacenamiento de datos SQL durante la implementación, siga estos pasos:
 
-3. Edite el archivo aw\_create.bat y establezca los siguientes valores en la parte superior del archivo:
+1. Inicie el proceso de creación; para ello, vaya al [Portal de Azure][], haga clic en "+ Nuevo", luego en "Datos y almacenamiento" y busque Almacenamiento de datos SQL. También puede buscar "Almacenamiento de datos SQL" en Marketplace. 
+ 
+2. Una vez iniciado el proceso, asegúrese de hacer clic en la opción "Seleccionar origen" y configurarla como "Ejemplo". Si no va a crear un nuevo servidor, también se le pedirá que proporcione el inicio de sesión del servidor que se usará para la creación.
 
-   a. **Servidor**: el nombre completo del servidor en el que se encuentra el Almacenamiento de datos SQL
 
-   b. **Usuario**: el usuario para el servidor anterior
-   
-   c. **Contraseña**: la contraseña para el inicio de sesión del servidor suministrado
-   
-   d. **Base de datos**: el nombre de la instancia del Almacenamiento de datos SQL en el que quiera cargar datos
-   
-   Asegúrese de que no haya ningún espacio en blanco entre el “=” y estos parámetros.
-   
+> [AZURE.NOTE]Para cargar datos de ejemplo en la instancia, debe permitir que los servicios de Azure tengan acceso al servidor (esta opción debe estar activada de forma predeterminada al crear un nuevo servidor). En caso contrario, la carga dará error, pero puede [cargar datos de ejemplo manualmente][].
 
-4. Ejecute aw\_create.bat desde el directorio en el que se encuentra. Esto creará el esquema y cargará datos en todas las tablas mediante BCP.
 
+##Uso de Power BI para analizar Adventureworks
+
+El uso del conjunto de datos de ejemplo puede ser una buena manera de comenzar con Power BI. Después de cargar los datos de ejemplo, puede abrir una conexión a Almacenamiento de datos SQL; para ello, puede hacer clic en el botón "Abrir en Power BI" en el Portal de Azure o ir a [Power BI][] y [conectarse a Almacenamiento de datos SQL][]. Después de conectarse, se debe crear un nuevo conjunto de datos con el mismo nombre que el del almacenamiento de datos. Para facilitar el análisis, se ha creado una vista denominada "AggregateSales" con algunas de las métricas que son clave para analizar las ventas de la compañía. Puede hacer clic en el nombre de esta vista para expandirla y ver las columnas que contiene, y puede crear algunas visualizaciones rápidas siguiendo estos pasos:
+
+1. Para empezar, podemos crear fácilmente un mapa de todas nuestras ventas; para ello, hacemos clic en las columnas "PostalCode" y "SalesAmount". Power BI reconoce incluso automáticamente estos datos como geográficos y los coloca en un mapa. 
+
+2. Ahora, si quisiera crear un gráfico de barras de ventas simplemente puede hacer clic en la columna "SalesAmount" y Power BI lo creará automáticamente. Puede agregar profundidad adicional arrastrando el gráfico "CustomerIncome" al campo "Axis" a la izquierda de "AggregateSales" para mostrar los ingresos de ventas por cliente entre corchetes.
+
+3. Por último, si desea crear una escala de tiempo de ventas, todo lo que tiene que hacer es clic en "SalesAmount", "OrderDate" y "Line Chart" (el primer icono de la segunda línea debajo de "Visualizations" (Visualizaciones)).
+
+En cualquier momento puede guardar el progreso haciendo clic en el botón SAVE (GUARDAR) en la esquina superior izquierda y guardar las visualizaciones como un informe.
 
 ## Conexión a su ejemplo y consulta
 
-Como se describe la documentación de [conexión y consulta][], puede conectarse a esta base de datos mediante Visual Studio y SSDT. Ahora que ha cargado algunos datos de ejemplo en el Almacenamiento de datos SQL, puede ejecutar rápidamente algunas consultas para empezar.
+También puede analizar los datos de ejemplo con los medios tradicionales. Como se describe en la documentación de [conexión y consulta][], puede conectarse a esta base de datos mediante SQL Server Data Tools en Visual Studio. Ahora que ha cargado algunos datos de ejemplo en el Almacenamiento de datos SQL, puede ejecutar rápidamente algunas consultas para empezar.
 
 Podemos ejecutar una instrucción select simple para obtener toda la información de los empleados:
 
@@ -63,10 +68,12 @@ Incluso podemos usar la cláusula WHERE para filtrar órdenes desde antes de una
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-De hecho, el Almacenamiento de datos SQL admite casi todas las construcciones de T-SQL que SQL Server realiza, y se pueden encontrar algunas de las diferencias en nuestra documentación para [migrar código][].
+De hecho, Almacenamiento de datos SQL admite casi todas las construcciones de T-SQL que SQL Server realiza, y se pueden encontrar algunas de las diferencias en nuestra documentación para [migrar código][].
+
+
 
 ## Pasos siguientes
-Ahora que le hemos dado algún tiempo para */*entusiasmarse con los datos de ejemplo, consulte como [desarrollar][], [cargar][] o [migrar][].
+Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemplo, consulte como [desarrollar][], [cargar][] o [migrar][].
 
 <!--Image references-->
 
@@ -76,11 +83,16 @@ Ahora que le hemos dado algún tiempo para */*entusiasmarse con los datos de eje
 [cargar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-load/
 [conexión y consulta]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-connect-query/
 [migrar código]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-migrate-code/
+[cargar datos de ejemplo manualmente]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
+[cargar manualmente los datos de ejemplo]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
+[Portal de Azure]: portal.azure.com
+[Power BI]: www.powerbi.com
+[conectarse a Almacenamiento de datos SQL]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-integrate-power-bi/
 
 <!--MSDN references-->
-[Utilidades de la línea de comandos de Microsoft para SQL Server]: http://www.microsoft.com/es-ES/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/es-ES/download/details.aspx?id=36433
 
 <!--Other Web references-->
-[Scripts de datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

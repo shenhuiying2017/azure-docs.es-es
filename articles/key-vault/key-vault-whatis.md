@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="¿Qué es el Almacén de claves de Azure? | Microsoft Azure" 
-	description="El Almacén de claves de Azure ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Mediante el uso de Almacén de claves de Azure, los clientes pueden cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través de claves que están protegidas por módulos de seguridad de hardware (HSM)." 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="cabailey" 
+<properties
+	pageTitle="¿Qué es el Almacén de claves de Azure? | Microsoft Azure"
+	description="El Almacén de claves de Azure ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Mediante el uso de Almacén de claves de Azure, los clientes pueden cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través de claves que están protegidas por módulos de seguridad de hardware (HSM)."
+	services="key-vault"
+	documentationCenter=""
+	authors="cabailey"
 	manager="mbaldwin"
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 
 
-# ¿Qué es el Almacén de claves de Azure? 
+# ¿Qué es el Almacén de claves de Azure?
 
 Almacén de claves de Azure está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios del Almacén de claves](../../../../pricing/details/key-vault/).
 
@@ -43,7 +43,7 @@ Utilice la tabla siguiente para comprender mejor cómo Almacén de claves puede 
 
 Cualquier persona que tenga una suscripción de Azure puede crear y usar almacenes de claves. Aunque el Almacén de claves beneficia a los desarrolladores y los administradores de seguridad, el administrador de una organización que administra otros servicios de Azure, podría implementarlo y administrarlo. Por ejemplo, este administrador iniciaría sesión con una suscripción de Azure, crearía un almacén para la organización en el que almacenar las claves y, a continuación, asumiría la responsabilidad de las tareas operativas, como:
 
-+ Crear o importar una clave o un secreto 
++ Crear o importar una clave o un secreto
 + Revocar o eliminar una clave o un secreto
 + Autorizar a usuarios o aplicaciones a administrar o usar claves y secretos
 + Configurar el uso de claves (por ejemplo, para firmar o cifrar)
@@ -53,7 +53,7 @@ Este administrador podría ofrecer después a los desarrolladores los URI para l
 
    ![Información general del Almacén de claves de Azure][1]
 
-Los desarrolladores también pueden administrar las claves directamente mediante API. Para obtener más información, consulte [Almacén de claves](https://msdn.microsoft.com/library/azure/dn903625.aspx) en la biblioteca de documentación de Microsoft Azure en MSDN.
+Los desarrolladores también pueden administrar las claves directamente mediante API. Para obtener más información, consulte la [guía para desarrolladores del Almacén de claves](key-vault-developers-guide.md).
 
 ## Pasos siguientes
 
@@ -65,7 +65,4 @@ Para obtener más información acerca del uso de claves y secretos con el Almac�
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-
- 
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

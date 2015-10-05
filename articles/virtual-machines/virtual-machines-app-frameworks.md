@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Marcos de aplicaciones"
+   pageTitle="Marcos de aplicaciones | Microsoft Azure"
    description="Describe cómo crear marcos de aplicaciones populares mediante el uso de plantillas con Administrador de recursos de Azure. Los ejemplos incluyen la pila LAMP, SharePoint y SQL Server."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager" />
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # Creación de marcos de aplicaciones mediante el uso de plantillas
 
 Utilice este material para crear grandes cosas rápidamente.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos.
 
 | Plantilla | Descripción | Ver la plantilla | Implementarla ahora |
 |:---|:---|:---:|:---:|
@@ -49,4 +52,4 @@ Descubra todas las plantillas que están a su disposición en [GitHub](https://g
 
 Obtenga más información sobre [Administrador de recursos de Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

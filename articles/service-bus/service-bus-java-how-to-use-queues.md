@@ -174,6 +174,9 @@ En caso de que la aplicación se bloquee después de procesar el mensaje y antes
 
 Ahora que ya conoce los aspectos básicos de las colas de bus de servicio, vea [Colas, temas y suscripciones][] para obtener más información.
 
+Para obtener más información, consulte también el [Centro para desarrolladores de Java](/develop/java/).
+
+
   [SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
   [Kit de herramientas de Azure para Eclipse]: https://msdn.microsoft.com/es-ES/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
@@ -189,4 +192,4 @@ Ahora que ya conoce los aspectos básicos de las colas de bus de servicio, vea [
   [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Recomendaciones sobre el nivel de precios de Base de datos SQL de Azure" 
-   description="Si se cambian los niveles de precios en el Portal de Azure, se recomienda el nivel más apropiado para ejecutar la carga de trabajo de una Base de datos SQL de Azure existente." 
+   description="Si se cambian los niveles de precios en el Portal de Azure, se recomienda el nivel más apropiado para ejecutar la carga de trabajo de una Base de datos SQL de Azure existente. Los niveles de precios describen el nivel de servicio y el nivel de rendimiento de una base de datos SQL." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,19 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="06/30/2015"
+   ms.date="09/22/2015"
    ms.author="sstein"/>
 
 # Recomendaciones sobre el nivel de precios de Base de datos SQL
 
- Si se cambian los niveles de precios en el Portal de Azure, se recomienda el nivel más apropiado para ejecutar la carga de trabajo de una Base de datos SQL de Azure existente.
+ Se ofrecen recomendaciones del plan de tarifa en el sentido del nivel de servicio y el nivel de rendimiento más apropiados para ejecutar la carga de trabajo de una Base de datos SQL de Azure existente.
 
-> [AZURE.NOTE]Las recomendaciones sobre el nivel de precios solo están disponibles para las bases de datos Web y Business, y solo en el [Portal de Azure](https://portal.azure.com/).
+> [AZURE.NOTE]Las recomendaciones sobre el plan de tarifa solo están disponibles para las bases de datos Web y Business y los grupos de bases de datos elásticas, y solo en el [Portal de vista previa de Azure](https://portal.azure.com/).
+
+
+Obtenga recomendaciones del plan de tarifa durante las siguientes tareas:
+
+- [Cambio del nivel de servicio y del nivel de rendimiento (nivel de precios) de una base de datos SQL](sql-database-scale-up.md)
+- [Actualizar un servidor SQL de Azure a V12](sql-database-v12-upgrade.md)
+- [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
 
 
 ## Información general
 
-Azure analiza el rendimiento actual y los requisitos de características mediante la evaluación del uso de recursos históricos para Base de datos SQL. Además, el nivel de servicio mínimo aceptable se determina en función del tamaño de la base de datos y las características de [continuidad del negocio](https://msdn.microsoft.com/library/azure/hh852669.aspx) habilitadas.
+El servicio de Base de datos de SQL analiza el rendimiento actual y los requisitos de características mediante la evaluación del uso de recursos históricos para una base de datos SQL. Además, el nivel de servicio mínimo aceptable se determina en función del tamaño de la base de datos y las características de [continuidad del negocio](https://msdn.microsoft.com/library/azure/hh852669.aspx) habilitadas.
 
 Esta información se analiza y se recomienda el nivel de servicio y el nivel de rendimiento que mejor se adapte para ejecutar la carga de trabajo típica de la base de datos y para mantener el conjunto de características actual.
 
@@ -45,9 +52,9 @@ Según el uso de la base de datos, se pueden encontrar dos categorías de recome
 
 ## Obtención de recomendaciones de nivel de precios
 
-Para obtener recomendaciones sobre los niveles de precios, seleccione una base de datos Web o Business existente y haga clic en el icono **Nivel de precios**.
+Para obtener recomendaciones sobre los niveles de precios, seleccione una base de datos Web o Business existente y haga clic en el icono **Nivel de precios**. (Las recomendaciones del plan de tarifa también están disponibles al [Actualizar SQL Server de Azure a V12](sql-database-v12-upgrade.md).)
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
 2. Haga clic en **EXAMINAR** en el menú de la izquierda.
 3. Haga clic en **Bases de datos SQL** en la hoja **Examinar**.
 4. En la hoja **Bases de datos SQL**, haga clic en la base de datos en la que desea que se analice el servicio.
@@ -90,4 +97,4 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

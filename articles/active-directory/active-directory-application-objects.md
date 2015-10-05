@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Objetos Application y objetos ServicePrincipal"
+   pageTitle="Objetos Application y objetos ServicePrincipal | Microsoft Azure"
    description="Una descripción de la relación entre los objetos Application y ServicePrincipal de Azure Active Directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -85,4 +85,4 @@ Propiedad | Descripción
 
 ##
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

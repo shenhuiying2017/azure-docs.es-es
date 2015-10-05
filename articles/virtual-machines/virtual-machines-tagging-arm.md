@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Etiquetado de una máquina virtual en Azure"
-   description="Aprenda a etiquetar una máquina virtual en Azure"
+   pageTitle="Cómo etiquetar una máquina virtual | Microsoft Azure"
+   description="Obtenga información acerca del etiquetado de una máquina virtual Azure creada con el modelo de implementación del Administrador de recursos."
    services="virtual-machines"
    documentationCenter=""
    authors="mmccrory"
@@ -18,6 +18,8 @@
    ms.author="dkshir;memccror"/>
 
 # Etiquetado de una máquina virtual en Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata el etiquetado de una máquina virtual creada con el modelo de implementación del Administrador de recursos.
 
 En este artículo se describen diferentes maneras de etiquetar una máquina virtual en Azure por medio del Administrador de recursos de Azure. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 15 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solamente son compatibles para los recursos creados mediante el Administrador de recursos de Azure.
 
@@ -180,11 +182,11 @@ Mediante el análisis de estas junto con el uso, las organizaciones podrán obte
 
 
 [entorno de PowerShell con Administrador de recursos de Azure]: ../powershell-azure-resource-manager.md
-[Cmdlets de recursos de Azure]: https://msdn.microsoft.com/es-es/library/azure/dn757692.aspx
+[Cmdlets de recursos de Azure]: https://msdn.microsoft.com/es-ES/library/azure/dn757692.aspx
 [entorno de la CLI de Azure]: ./xplat-cli-azure-resource-manager.md
 [Información general del Administrador de recursos de Azure]: ../resource-group-overview.md
 [Uso de etiquetas para organizar los recursos de Azure]: ../resource-group-using-tags.md
 [Comprender la factura de Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory"
-   description="Una guía completa sobre recursos orientados al desarrollador para Azure Active Directory"
+   description="Cómo mostrar una aplicación que admite el inicio de sesión único en la galería de Azure Active Directory | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -56,6 +56,5 @@ Una vez completada la prueba, la aplicación puede anunciarse en la galería de 
 > Adjunte un icono grande de la aplicación (archivo PNG, 215 px por 215 px, color de fondo sólido):
 >
 > Adjunte el logotipo de la aplicación (archivo PNG, 150 px por 122 px, color de fondo transparente):
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

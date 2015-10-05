@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/18/2015"
 	ms.author="glenga"/>
 
 # Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure
@@ -30,10 +30,25 @@ Para instalar el SDK, haga doble clic en el proyecto de servidor en Visual Studi
 
 ###Inicialización del proyecto de servidor
 
-Un proyecto de servidor back-end de .NET se inicializa en el método **Register** de la clase **WebApiConfig**, que normalmente se encuentra en la carpeta App\_Start. Un objeto **HttpConfiguration**, que representa las opciones de configuración para el servicio, se usa para inicializar el proyecto de servidor. En el ejemplo siguiente se inicializa el proyecto de servidor, sin características agregadas:
+Un proyecto de servidor backend de .NET se inicializa de manera similar a otros proyectos ASP.NET mediante la inclusión de una clase de inicio OWIN. Para agregar esta clase en Visual Studio, haga clic con el botón derecho en el proyecto de servidor y seleccione **Agregar** -> **Nuevo elemento** y después en **Web** -> **General** -> **Clase de inicio OWIN**.
 
-    new MobileAppConfiguration()
-        .ApplyTo(config);
+Esto generará una clase con el atributo siguiente:
+
+    [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
+
+En el método `Configuration()` de la clase de inicio OWIN, configure el proyecto de servidor mediante un objeto **HttpConfiguration** que representa las opciones de configuración para el servicio. En el ejemplo siguiente se inicializa el proyecto de servidor, sin características agregadas:
+
+	// in OWIN startup class
+	public void Configuration(IAppBuilder app)
+	{
+	    HttpConfiguration config = new HttpConfiguration();
+	   
+	    new MobileAppConfiguration()
+	        // no added features
+	        .ApplyTo(config);  
+	    
+	    app.UseWebApi(config);
+	}
 
 Para habilitar características individuales, debe llamar a los métodos de extensión del objeto **MobileAppConfiguration** antes de llamar a **ApplyTo**. Por ejemplo, el siguiente código agrega las rutas predeterminadas a todos los controladores de API durante la inicialización:
 
@@ -41,7 +56,20 @@ Para habilitar características individuales, debe llamar a los métodos de exte
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Muchos de los métodos de extensión de características están disponibles a través de paquetes de NuGet adicionales que puede incluir, que se describen en la sección siguiente.
+Muchos de los métodos de extensión de características están disponibles a través de paquetes de NuGet adicionales que puede incluir, que se describen en la sección siguiente. El inicio rápido de servidor desde el Portal de Azure llama a **UseDefaultConfiguration()**. Es equivalente a la siguiente configuración:
+    
+		new MobileAppConfiguration()
+			.AddMobileAppHomeController()             // from the Home package
+			.MapApiControllers()
+			.AddTables(                               // from the Tables package
+				new MobileAppTableConfiguration()
+					.MapTableControllers()
+					.AddEntityFramework()             // from the Entity package
+				)
+			.AddPushNotifications()                   // from the Notifications package
+			.MapLegacyCrossDomainController()         // from the CrossDomain package
+			.ApplyTo(config);
+
 
 ### Extensiones de SDK
 
@@ -81,12 +109,12 @@ El controlador de API personalizada proporciona la funcionalidad más básica al
 		      //...
 		}
 
-4. Vaya a la carpeta App\_Startup, abra el archivo de proyecto WebApiConfig.cs y agregue una llamada al método de extensión **MapApiControllers**, como en el ejemplo siguiente:
+4. En el archivo App\_Start/Startup.MobileApp.cs, agregue una llamada al método de extensión **MapApiControllers**, como en el ejemplo siguiente:
 
 		new MobileAppConfiguration()
 		    .MapApiControllers()
 		    .ApplyTo(config);
-
+    
 	Tenga en cuenta que no es necesario llamar a **MapApiControllers** cuando se llama a **UseDefaultConfiguration**, ya que se inicializan todas las características.
 
 Los clientes pueden acceder a un controlador aunque este no tenga **MobileAppControllerAttribute** aplicado, pero no lo consumirán correctamente si usan un SDK de cliente de aplicación móvil.
@@ -107,28 +135,21 @@ Los controladores de tabla se inicializan mediante el método de extensión **Ad
         .MapTableControllers()
         .AddEntityFramework()).ApplyTo(config);
  
-Para obtener un ejemplo de un controlador de tabla que use Entity Framework para tener acceso a los datos desde una base de datos SQL de Azure, consulte la clase **TodoItemController** en la descarga del proyecto de servidor de inicio rápido del Portal de Azure.
+Para obtener un ejemplo de un controlador de tabla que usa Entity Framework para tener acceso a los datos desde una base de datos SQL de Azure, consulte la clase **TodoItemController** en la descarga del proyecto de servidor de inicio rápido del Portal de Azure.
 
 ## Cómo agregar autenticación a un proyecto de servidor
 
-Para agregar autenticación al proyecto de servidor, extienda el objeto **MobileAppConfiguration** y la configure el middleware OWIN. Cuando instala el paquete [Microsoft.Azure.Mobile.Server.Quickstart] y llama al método de extensión **UseDefaultConfiguration**, puede continuar desde el paso 4.
+Para agregar autenticación al proyecto de servidor, extienda el objeto **MobileAppConfiguration** y configure el middleware OWIN. Cuando instala el paquete [Microsoft.Azure.Mobile.Server.Quickstart] y llama al método de extensión **UseDefaultConfiguration**, puede continuar desde el paso 3.
 
 1. En Visual Studio, instale el paquete [Microsoft.Azure.Mobile.Server.Authentication]. 
 
-2. Vaya a la carpeta App\_Startup, abra el archivo de proyecto WebApiConfig.cs y agregue una llamada al método de extensión **AddAppServiceAuthentication** durante la inicialización, que tiene el siguiente aspecto:
-
-		new MobileAppConfiguration()
-			// other features...
-			.AddAppServiceAuthentication()
-			.ApplyTo(config);
-
-3. En el archivo de proyecto Startup.cs, agregue la siguiente línea de código al principio del método **Configuration**:
+2. En el archivo de proyecto Startup.cs, agregue la siguiente línea de código al principio del método **Configuration**:
 
 		app.UseMobileAppAuthentication(config);
 
 	Esto agrega el componente middleware OWIN que permite que su aplicación móvil de Azure valide los tokens que emite la puerta de enlace asociada del Servicio de aplicaciones.
 
-4. Agregue el atributo `[Authorize]` a cualquier controlador o método que requiera autenticación. Ahora, los usuarios deben autenticarse para tener acceso a ese extremo o a aquellas API específicas.
+3. Agregue el atributo `[Authorize]` a cualquier controlador o método que requiera autenticación. Ahora, los usuarios deben autenticarse para tener acceso a ese extremo o a aquellas API específicas.
 
 Para obtener información sobre cómo autenticar a los clientes en el back-end de Aplicaciones móviles, consulte [Incorporación de autenticación a la aplicación](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md).
 
@@ -158,7 +179,7 @@ Para agregar notificaciones push al proyecto de servidor, extienda el objeto **M
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
-        ServiceSettingsDictionary settings = 
+        MobileAppSettingsDictionary settings = 
             config.GetMobileAppSettingsProvider().GetMobileAppSettings();
         
         // Get the Notification Hubs credentials for the Mobile App.
@@ -170,7 +191,7 @@ Para agregar notificaciones push al proyecto de servidor, extienda el objeto **M
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para obtener más información, consulte [Incorporación de notificaciones push a la aplicación](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). Para obtener más información acerca de todo lo que puede hacer con los Centros de notificaciones, consulte [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
+En este momento, puede usar el cliente de Centros de notificaciones para enviar notificaciones push a dispositivos registrados. Para obtener más información, consulte [Incorporación de notificaciones de inserción a la aplicación](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md) Para obtener más información acerca de todo lo que puede hacer con los Centros de notificaciones, consulte [Información general de los Centros de notificaciones](../notification-hubs/notification-hubs-overview.md).
 
 ## Cómo publicar el proyecto de servidor
 
@@ -184,4 +205,4 @@ Siga los pasos que se indican a continuación para publicar el proyecto de servi
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

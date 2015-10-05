@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Instalación y configuración de Endpoint Protection en una máquina virtual de Azure"
-	description="Describe la instalación y la configuración de la extensión de seguridad de Symantec Endpoint Protection en una VM nueva o existente en Azure"
+	pageTitle="Instalación de Symantec Endpoint Protection en una máquina virtual | Microsoft Azure"
+	description="Obtenga información acerca de cómo instalar y configurar la extensión de seguridad de Symantec Endpoint Protection en una máquina virtual de Azure nueva o existente creada con el modelo de implementación clásica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,7 +19,9 @@
 
 # Instalación y configuración de Endpoint Protection en una máquina virtual de Azure
 
-En este artículo se muestra cómo instalar y configurar el cliente Symantec Endpoint Protection en una máquina virtual nueva o existente con Windows Server. Este es el cliente completo, que incluye servicios como protección contra virus y spyware, firewall y prevención de intrusiones. Tenga en cuenta que este artículo se refiere a máquinas virtuales creadas con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo trata la instalación de aplicaciones en una máquina virtual creada con el modelo de implementación clásica.
+
+En este artículo se muestra cómo instalar y configurar el cliente Symantec Endpoint Protection en una máquina virtual nueva o existente con Windows Server. Este es el cliente completo, que incluye servicios como protección contra virus y spyware, firewall y prevención de intrusiones.
 
 El cliente se instala como una extensión de seguridad usando el Agente de máquina virtual. En una nueva máquina virtual, instalará el agente junto con el cliente del extremo. En una máquina virtual existente sin el agente, primero necesitará descargar e instalar dicho agente. Este artículo trata ambas situaciones.
 
@@ -95,4 +97,4 @@ Para comprobar que la extensión de seguridad de Symantec se ha instalado y est�
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

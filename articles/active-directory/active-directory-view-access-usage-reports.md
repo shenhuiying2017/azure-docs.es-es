@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Visualización de los informes de acceso y uso"
-	description="Tema que explica cómo ver informes de acceso y uso para proporcionar visibilidad sobre la integridad y la seguridad del directorio de su organización."
+	pageTitle="Visualización de los informes de acceso y uso | Microsoft Azure"
+	description="Explica cómo ver informes de acceso y uso para proporcionar visibilidad sobre la integridad y la seguridad del directorio de su organización."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"
-	manager="TerryLan"
-	editor="LisaToft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff;Justinha"/>
+	ms.date="09/21/2015"
+	ms.author="kenhoff;Justinha;curtand"/>
 
 # Visualización de los informes de acceso y uso
 
@@ -90,12 +90,6 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 |	Usuarios de RMS más activos | | |	Solo RMS |
 |	Uso de dispositivos RMS | | |	Solo RMS |
 |	Uso de aplicaciones habilitadas para RMS | | |	Solo RMS |
-
-
-
-
-
-
 
 
 
@@ -274,6 +268,6 @@ Para obtener más información sobre las notificaciones de informes de Azure AD,
 ## Pasos siguientes
 
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
-- [Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y del panel de acceso](active-directory-add-company-branding.md)
+- [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

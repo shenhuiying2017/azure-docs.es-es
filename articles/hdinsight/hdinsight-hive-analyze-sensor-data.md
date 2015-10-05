@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015" 
+	ms.date="09/23/2015" 
 	ms.author="larryfr"/>
 
 #Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight
@@ -54,4 +54,4 @@ En este ejemplo, usará Hive para procesar datos de historial producidos por sis
 
 3. Siga las instrucciones que se proporcionan en la página web para finalizar el ejemplo.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -183,7 +183,7 @@ Al usar un valor diferente para cada configuración de servicio, no tendrá que 
 
 ## Administrar el almacenamiento local para cada instancia de rol
 
-Puede agregar almacenamiento del sistema de archivos local para cada instancia de un rol. Puede almacenar los datos locales aquí a los que no necesitan obtener acceso otros roles. Los datos que no tenga que guardar en tabla, blob o almacenamiento de base de datos SQL pueden almacenarse aquí. Por ejemplo, podría usar este almacenamiento local para almacenar datos en caché que deben volver a usarse. No se puede tener acceso a estos datos almacenados por otras instancias de un rol. Para obtener más información sobre los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](https://msdn.microsoft.com/library/azure/ee758708).
+Puede agregar almacenamiento del sistema de archivos local para cada instancia de un rol. Puede almacenar los datos locales aquí a los que no necesitan obtener acceso otros roles. Los datos que no tenga que guardar en tabla, blob o almacenamiento de base de datos SQL pueden almacenarse aquí. Por ejemplo, podría usar este almacenamiento local para almacenar datos en caché que deben volver a usarse. No se puede tener acceso a estos datos almacenados por otras instancias de un rol. Para obtener más información sobre los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 Los valores de almacenamiento local se aplican a todas las configuraciones de servicio. Solo puede agregar, quitar o modificar el almacenamiento local para todas las configuraciones de servicio.
 
@@ -376,4 +376,4 @@ Cualquier certificado de administración que asocie a sus configuraciones de ser
 ## Pasos siguientes
 Para obtener más información sobre los proyectos de Azure en Visual Studio, consulte [Configurar un proyecto de Azure](vs-azure-tools-configuring-an-azure-project.md). Para obtener más información sobre el esquema del servicio en la nube, consulte [Referencia de esquema](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

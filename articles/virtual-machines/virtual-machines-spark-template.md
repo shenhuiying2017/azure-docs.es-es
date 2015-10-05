@@ -1,17 +1,18 @@
 <properties
-	pageTitle="Spark en la plantilla del Administrador de recursos de Ubuntu"
-	description="Aprenda a implementar fácilmente un nuevo clúster de Spark en máquinas virtuales de Ubuntu con Azure PowerShell o CLI de Azure y una plantilla del Administrador de recursos"
+	pageTitle="Spark en la plantilla del Administrador de recursos de Ubuntu | Microsoft Azure"
+	description="Implementación de un nuevo clúster de Spark en máquinas virtuales de Ubuntu con Azure PowerShell o la CLI de Azure y una plantilla del Administrador de recursos"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="paolosalvatori"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="multiple"
 	ms.date="05/16/2015"
 	ms.author="paolosalvatori"/>
@@ -20,7 +21,10 @@
 
 Apache Spark es un motor rápido para el procesamiento de datos a gran escala. Spark tiene un motor de ejecución DAG avanzado que admite el flujo de datos cíclico y capacidades de informática en memoria, y pueden acceder a diversos orígenes de datos incluyendo HDFS, Spark, HBase y S3.
 
-Además de ejecutar en los administradores de clústeres de Mesos o YARN, Spark proporciona un modo de implementación independiente simple. Este tutorial le explicará cómo utilizar una plantilla de Administrador de recursos de Azure de ejemplo para implementar un clúster Spark en máquinas virtuales de Ubuntu a través de [Azure PowerShell](../powershell-install-configure.md) o [Azure CLI](../xplat-cli.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la implementación de un recurso con el modelo de implementación del Administrador de recursos. También puede implementar este recurso con el modelo de implementación clásica.
+
+
+Además de ejecutar en los administradores de clústeres de Mesos o YARN, Spark proporciona un modo de implementación independiente simple. Este tutorial le explicará cómo usar una plantilla de ejemplo del Administrador de recursos de Azure para implementar un clúster Spark en máquinas virtuales de Ubuntu mediante [Azure PowerShell](../powershell-install-configure.md) o la [CLI de Azure](../xplat-cli.md).
 
 Esta plantilla implementa un clúster Spark en máquinas virtuales de Ubuntu. Esta plantilla proporciona también una cuenta de almacenamiento, red virtual, conjuntos de disponibilidad, las direcciones IP públicas y las interfaces de red requeridas por la instalación. El clúster Spark se crea detrás de una subred, de modo que no hay acceso de IP pública al clúster. Como parte de la implementación, puede implementar un “JumpBox” opcional. Este “JumpBox” es una máquina virtual de Ubuntu que también se implementa en la subred, pero que *expone* una dirección IP pública con un puerto SSH abierto al que se puede conectar. A continuación, desde el “JumpBox”, puede conectarse mediante SSH a todas las máquinas virtuales de Spark de la subred.
 
@@ -43,7 +47,7 @@ Como se muestra en la imagen anterior, la topología de implementación consta d
 -	Cuatro nodos subordinados que se ejecutan en la misma subred virtual y en el conjunto de disponibilidad como nodo maestro.
 -	Una máquina virtual JumpBox que se encuentra en la misma red virtual y la subred que puede utilizarse para acceder al clúster.
 
-Spark versión 3.0.0 es la versión predeterminada y puede cambiarse a cualquier binario precompilado disponible en el repositorio de Spark. También hay una disposición en el script para quitar el comentario de la compilación en el código fuente. Se asignará una dirección IP estática a cada nodo maestro Spark: 10.0.0.10. Se asignará una dirección IP estática a cada nodo de esclavo Spark para solucionar la limitación actual de no poder crear dinámicamente una lista de direcciones IP desde dentro de la plantilla. (De forma predeterminada, al primer nodo se le asignará la dirección IP privada de 10.0.0.30, al segundo nodo se le asignará 10.0.0.31, y así sucesivamente). Para comprobar los errores de implementación, vaya al nuevo Portal de Azure y busque en **Grupo de recursos** > **Última implementación** > **Detalles de la operación de comprobación**.
+Spark versión 3.0.0 es la versión predeterminada y puede cambiarse a cualquier binario precompilado disponible en el repositorio de Spark. También hay una disposición en el script para quitar el comentario de la compilación en el código fuente. Se asignará una dirección IP estática a cada nodo maestro Spark: 10.0.0.10. Se asignará una dirección IP estática a cada nodo de esclavo Spark para solucionar la limitación actual de no poder crear dinámicamente una lista de direcciones IP desde dentro de la plantilla. (De forma predeterminada, al primer nodo se le asignará la dirección IP privada de 10.0.0.30, al segundo nodo se le asignará 10.0.0.31, y así sucesivamente). Para comprobar los errores de implementación, vaya al nuevo Portal de Azure y busque en **Grupo de recursos** > **Última implementación** > **Comprobar detalles de la operación**.
 
 Antes de entrar en más detalles relacionados con el Administrador de recursos de Azure y la plantilla que usaremos para esta implementación, asegúrese de que tiene Azure PowerShell o CLI de Azure configurados correctamente.
 
@@ -379,9 +383,9 @@ Durante la implementación y después de ella, puede comprobar todas las solicit
 
 Para ello, vaya al [Portal de Azure](https://portal.azure.com) y haga lo siguiente:
 
-- Haga clic en **Examinar** en la barra de navegación de la izquierda y, a continuación, desplácese hacia abajo y haga clic en **Grupos de recursos**.
+- Haga clic en **Examinar** en la barra de navegación de la izquierda y, luego, desplácese hacia abajo y haga clic en **Grupos de recursos**.
 - Haga clic en el grupo de recursos que acaba de crear para abrir la hoja “Grupo de recursos”.
-- Al hacer clic en el gráfico de barras **Eventos** en la parte **Supervisión** de la hoja “Grupo de recursos”, puede ver los eventos para la implementación.
+- Al hacer clic en el gráfico de barras **Eventos** en la parte **Supervisión** de la hoja "Grupo de recursos", puede ver los eventos para la implementación.
 - Al hacer clic en eventos individuales, puede profundizar más en los detalles de cada operación individual que se realiza en nombre de la plantilla
 
 ![portal-events](media/virtual-machines-spark-template/portal-events.png)
@@ -449,7 +453,7 @@ Este es un ejemplo de un parámetro para el “tamaño de camiseta”:
 },
 ```
 
-> [AZURE.NOTE]Observe que se puede especificar un **defaultValue**, así como **allowedValues**.
+> [AZURE.NOTE]Observe que se puede especificar **defaultValue**, así como **allowedValues**.
 
 ### Sección "variables"
 
@@ -486,7 +490,7 @@ La sección “variables” especifica las variables que se pueden usar en esta 
 },
 ```
 
-**vmStorageAccountContainerName** es un ejemplo de un nombre/variable de nombre sencillo. **vnetID** es un ejemplo de una variable que se calcula en tiempo de ejecución mediante las funciones **resourceId** y **parameters**. El valor de las variables **numberOfMasterInstances** y **vmSize** se calculan en tiempo de ejecución mediante las funciones **concat**, **variables** y **parameters**.
+**vmStorageAccountContainerName** es un ejemplo de un nombre/variable de nombre sencillo. **vnetID** es un ejemplo de una variable que se calcula en tiempo de ejecución mediante las funciones **resourceId** y **parameters**. El valor de las variables **numberOfMasterInstances** y **vmSize** se calcula en tiempo de ejecución mediante las funciones **concat**, **variables** y **parameters**.
 
 Si desea personalizar el tamaño de la implementación del clúster de Spark, puede cambiar las propiedades de las variables **tshirtSizeS**, **tshirtSizeM** y **tshirtSizeL** en la plantilla azuredeploy.json.
 
@@ -817,7 +821,7 @@ Otro fragmento interesante es el relacionado con las extensiones de máquinas vi
 }
 ```
 
-Observe que la extensión de los recursos del nodo maestro y secundario ejecuta los comandos diferentes, definidos en la propiedad **commandToExecute**, como parte del proceso de aprovisionamiento.
+Observe que la extensión de los recursos del nodo maestro y secundario ejecuta comandos diferentes, definidos en la propiedad **commandToExecute**, como parte del proceso de aprovisionamiento.
 
 Si observa el fragmento JSON de la última extensión de máquina virtual, puede ver que este recurso depende del recurso de máquina virtual y su interfaz de red. Esto indica que estos dos recursos ya deben estar implementados antes de aprovisionar y ejecutar esta extensión de máquina virtual. Tenga en cuenta también el uso de la función **copyindex()** para repetir este paso para cada máquina virtual esclava.
 
@@ -841,6 +845,6 @@ Obtenga más información sobre cómo [implementar una plantilla](../resource-gr
 
 Descubra más [marcos de aplicaciones](virtual-machines-app-frameworks.md).
 
-[Solucionar problemas de las implementaciones de plantillas](resource-group-deploy-debug.md).
+[Solución de problemas de las implementaciones de plantillas](resource-group-deploy-debug.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Métodos abreviados de teclado del Portal de Azure"
+   pageTitle="Métodos abreviados de teclado del portal de Azure | Microsoft Azure"
    description="Este artículo será siempre una lista actualizada de los métodos abreviados de teclado que funcionan en el Portal de Azure. Los servicios individuales podrían tener sus propios métodos abreviados de teclado especializados."
    services="cloud-services"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="curtand"
    manager="msStevenPo"
    editor=""/>
@@ -50,4 +50,4 @@
 
 Conocer mejor el Portal de Azure: http://azure.microsoft.com
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

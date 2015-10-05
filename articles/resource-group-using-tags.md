@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso de etiquetas para organizar los recursos de Azure" 
-	description="Muestra cómo aplicar etiquetas para organizar los recursos para la facturación y administración." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
+<properties
+	pageTitle="Uso de etiquetas para organizar los recursos de Azure"
+	description="Muestra cómo aplicar etiquetas para organizar los recursos para la facturación y administración."
+	services="azure-resource-manager"
+	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett" 
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="AzurePortal" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/04/2015" 
+<tags
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="AzurePortal"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/04/2015"
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Cuando consulta los recursos con una etiqueta determinada, puede ver recursos de
 
 Cada etiqueta que agrega a un recurso o a un grupo de recursos se agrega automáticamente a la taxonomía en toda la suscripción. También puede rellenar previamente la taxonomía de la suscripción con los nombres y los valores de etiquetas que desearía usar cuando los recursos se etiqueten en un futuro.
 
-> [AZURE.NOTE]Solo puede aplicar etiquetas a recursos que admiten operaciones del Administrador de recursos. Si creó una máquina virtual, una red virtual o un almacenamiento a través del modelo de implementación clásica (por ejemplo, a través del Portal de Azure o la [API de administración de servicios](https://msdn.microsoft.com/library/azure/dn948465.aspx)), no puede aplicar una etiqueta a ese recurso. Debe volver a implementar estos recursos mediante el Administrador de recursos para admitir el etiquetado. Todos los demás recursos admiten el etiquetado.
+> [AZURE.NOTE]Solo puede aplicar etiquetas a recursos que admiten operaciones del Administrador de recursos. Si creó una máquina virtual, una red virtual o un almacenamiento a través del modelo de implementación clásica (por ejemplo, a través del Portal de Azure o la [API de administración de servicios](../services/api-management/)), no puede aplicar una etiqueta a ese recurso. Debe volver a implementar estos recursos mediante el Administrador de recursos para admitir el etiquetado. Todos los demás recursos admiten el etiquetado.
 
 
 ## Etiquetas del Portal de vista previa
@@ -154,8 +154,5 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 - Para obtener información sobre cómo usar Azure PowerShell al implementar recursos, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](./powershell-azure-resource-manager.md).
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, vea [Uso de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
 - Para obtener información sobre cómo usar el Portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](./resource-group-portal.md).  
-  
 
-  
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

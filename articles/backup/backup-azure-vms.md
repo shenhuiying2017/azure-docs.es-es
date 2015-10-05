@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/14/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/24/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
 # Copia de seguridad de máquinas virtuales de Azure
@@ -194,7 +194,7 @@ Con ello puede calcular la cantidad de tiempo que tarda en realizarse una copia 
 Aunque la mayoría del tiempo se dedica a leer y copiar los datos, hay otras operaciones que contribuyen al tiempo total necesario para la copia de seguridad de una máquina virtual:
 
 1. Tiempo necesario para [instalar o actualizar la extensión de copia de seguridad](backup-azure-vms.md#offline-vms)
-2. Tiempo de espera de cola: puesto que el servicio está procesando las copias de seguridad de varios clientes, la operación de copia de seguridad podría no iniciarse inmediatamente. El tiempo de espera promedio para una máquina virtual es de 15 a 30 minutos.
+2. Tiempo de espera de cola: puesto que el servicio de copia de seguridad está procesando las copias de seguridad de varios clientes, la operación de copia de seguridad podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta 8 horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
 
 ## Solución de errores
 Obtenga una lista exhaustiva de soluciones para los errores que pueden producirse durante la copia de seguridad de la máquina virtual:
@@ -207,4 +207,4 @@ Para obtener más información acerca de cómo empezar a usar Copia de seguridad
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

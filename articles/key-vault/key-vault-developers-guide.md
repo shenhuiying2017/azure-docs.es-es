@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/11/2015"
+   ms.date="09/22/2015"
    ms.author="mbaldwin" />
 
 # Guía del desarrollador del Almacén de claves de Azure
@@ -43,7 +43,7 @@ Almacén de claves tiene su propio extremo REST que se describe en la [Referenci
 
 ### .NET
 
-La API de .NET es un conjunto de contenedores que permite la implementación a través del modelo de programación de C#sin necesidad de interactuar directamente con el extremo REST. Aquí se puede encontrar la [referencia de la API de cliente de .NET del almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn903301.aspx).
+La API de .NET es un conjunto de contenedores que permite la implementación a través del modelo de programación de C# sin necesidad de interactuar directamente con el extremo REST. Aquí se puede encontrar la [referencia de la API de cliente de .NET del almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn903301.aspx).
 
 ### Node.js
 
@@ -55,11 +55,11 @@ Las claves y secretos del almacén de claves de Azure también puede administrar
 
 - [Crear y administrar almacenes claves con PowerShell](key-vault-get-started.md)
 - [Crear y administrar almacenes claves con CLI](key-vault-manage-with-cli.md)
-- [Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx)
+- [Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure](key-vault-hsm-protected-keys.md)
 - [Acerca de las claves y secretos](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ## Consulte también
 
 - [Ejemplos de código de almacén de claves de Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

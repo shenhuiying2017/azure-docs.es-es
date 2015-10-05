@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 
@@ -343,4 +343,4 @@ Puede usar el nombre completo, por ejemplo `extension_55dc0861f9a44eb999e0a8a872
 
 Si tiene alguna pregunta o solicitud para las acciones que desea realizar con la API Graph en el directorio de B2C, ¡somos todo oídos! Deje un comentario sobre el artículo o genere un caso en el repositorio de GitHub de ejemplo de código.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

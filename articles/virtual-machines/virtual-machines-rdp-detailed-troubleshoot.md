@@ -53,8 +53,8 @@ Las secciones siguientes indican los pasos para aislar y determinar las distinta
 Realice estos pasos antes de continuar con la solución de problemas detallada.
 
 - Comprobar el estado de la máquina virtual en el Portal de Azure o el Portal de vista previa de Azure
-- [Reiniciar la máquina virtual](https://msdn.microsoft.com/library/azure/dn763934.aspx)
-- [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx)
+- Reiniciar la máquina virtual
+- [Cambiar el tamaño de la máquina virtual](virtual-machines-size-specs.md)
 
 Después de realizar estos pasos, vuelva a intentar la conexión a Escritorio remoto.
 
@@ -205,4 +205,4 @@ Compruebe que el extremo de Escritorio remoto para la máquina virtual de Azure 
 
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->
