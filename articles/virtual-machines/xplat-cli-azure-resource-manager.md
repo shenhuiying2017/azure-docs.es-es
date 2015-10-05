@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Uso de la CLI de Microsoft Azure para Mac, Linux y Windows con administración de recursos de Azure | Microsoft Azure"
+	pageTitle="CLI para Windows, Linux y Mac | Microsoft Azure"
 	description="Uso de la CLI de Microsoft Azure para Mac, Linux y Windows con el Administrador de recursos de Azure"
 	editor="tysonn"
 	manager="timlt"
@@ -13,8 +13,10 @@
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
-- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación del Administrador de recursos.
 
 Este artículo describe cómo crear, administrar y eliminar los recursos y las máquinas virtuales de Azure con la CLI de Azure para Mac, Linux y Windows con el modo Administrador de recursos de Azure.
 
@@ -90,21 +92,21 @@ Necesitará crear una IP pública para que pueda ejecutar SSH en la nueva máqui
 
 #### Creación de un recurso de tarjeta de interfaz de red
 
-Para la tarjeta de interfaz de red o NIC, es necesario crear primero una subred y una red virtual. Cree una red virtual en una determinada ubicación y grupo de recursos mediante **network vnet create**.
+Para la tarjeta de interfaz de red o NIC, es necesario crear primero una subred y una red virtual. Cree una red virtual en una determinada ubicación y un grupo de recursos mediante el comando **network vnet create**.
 
 	azure network vnet create "testrg" "testvnet" "westus"
 
-A continuación, puede crear una subred en esta red virtual mediante el comando **network vnet subnet create**.
+Luego puede crear una subred en esta red virtual mediante el comando **network vnet subnet create**.
 
 	azure network vnet subnet create "testrg" "testvnet" "testsubnet"
 
-Debe poder crear una NIC mediante estos recursos mediante el comando **network nic create**.
+Debe poder crear una NIC usando estos recursos mediante el comando **network nic create**.
 
 	azure network nic create "testrg" "testnic" "westus" -k "testsubnet" -m "testvnet" -p "testip"
 
 >[AZURE.NOTE]Aunque es opcional, es muy importante pasar el nombre IP público como un parámetro al comando **network nic create** ya que esto enlaza la NIC a esta dirección IP, que se utilizará más adelante para SSH en la máquina virtual creada mediante esta NIC.
 
-Para obtener más información sobre los comandos **network**, consulte la Ayuda de línea de comandos o [Uso de CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
+Para obtener más información sobre los comandos **network**, consulte la ayuda de línea de comandos o [Uso de la CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
 
 #### Búsqueda de una imagen del sistema operativo
 
@@ -131,7 +133,7 @@ Anote el nombre URN de la imagen que desea cargar en la máquina virtual. Lo usa
 
 #### Creación de una máquina virtual
 
-Ya está listo para crear una máquina virtual mediante el comando **vm create** y la información necesaria. Es opcional pasar la dirección IP pública en esta etapa, porque la NIC ya tiene esta información. Su comando puede ser similar al siguiente ejemplo, donde _testvm_ es el nombre de la máquina virtual creada en el grupo de recursos _testrg_.
+Ya está listo para crear una máquina virtual ejecutando el comando **vm create** y pasando la información necesaria. Es opcional pasar la dirección IP pública en esta etapa, porque la NIC ya tiene esta información. Su comando puede ser similar al siguiente ejemplo, donde _testvm_ es el nombre de la máquina virtual creada en el grupo de recursos _testrg_.
 
 	azure-cli@0.8.0:/# azure vm create "testrg" "testvm" "westus" "Linux" -Q "CoreOS:CoreOS:Alpha:660.0.0" -u "azureuser" -p "Pass1234!" -N "testnic"
 	info:    Executing command vm create
@@ -150,11 +152,11 @@ Debe poder iniciar esta máquina virtual mediante la ejecución del siguiente co
 
 	azure vm start "testrg" "testvm"
 
-A continuación, SSH en él mediante el comando **ssh username@ipaddress**. Para buscar rápidamente la dirección IP de su recurso de IP pública, use el siguiente comando.
+A continuación, aplíquele SSH mediante el comando **ssh username@ipaddress**. Para buscar rápidamente la dirección IP de su recurso de IP pública, use el siguiente comando.
 
 	azure network public-ip show "testrg" "testip"
 
-La administración de esta máquina virtual es fácil con comandos **vm**. Para obtener más información, consulte [Uso de CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
+La administración de esta máquina virtual es fácil con comandos **vm**. Para obtener más información, consulte [Uso de la CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
 
 ### Método abreviado vm quick-create
 
@@ -208,7 +210,7 @@ La CLI de Azure creará una máquina virtual con el tamaño de máquina virtual 
 
 	Cuando utiliza una plantilla, puede suministrar parámetros como parte de los parámetros de la línea de comandos o bien especificar un archivo que contenga los valores de parámetro. También puede escribir sus campos **valor** directamente dentro de la sección **parámetros** en la plantilla, aunque eso haría que la plantilla estuviera estrechamente enlazada a una implementación determinada y no sería reutilizable fácilmente. En cualquier caso, los parámetros deben estar en formato JSON y debe proporcionar sus propios valores para las claves que no tienen valores predeterminados.
 
-	Por ejemplo, para crear un archivo que contiene parámetros para la plantilla CoreOS.CoreOSStable.0.2.40-preview template, use los siguientes datos para crear un archivo denominado params.json. Reemplace los valores utilizados en este ejemplo por sus propios valores. El valor **Location** debe especificar una región de Azure cercana, como **Europa del Norte** o **Centro-Sur de EE. UU**. (Este ejemplo usa **Oeste de EE. UU.**).
+	Por ejemplo, para crear un archivo que contiene parámetros para la plantilla CoreOS.CoreOSStable.0.2.40-preview template, use los siguientes datos para crear un archivo denominado params.json. Reemplace los valores utilizados en este ejemplo por sus propios valores. El valor **Location** debe especificar una región de Azure cercana, como **Europa del Norte** o **Centro-Sur de EE. UU**. (En este ejemplo se usa **Oeste de EE. UU.**).
 
 		{
 		  "newStorageAccountName": {
@@ -289,7 +291,7 @@ La CLI de Azure creará una máquina virtual con el tamaño de máquina virtual 
 
 		azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
 
-	> [AZURE.NOTE]Es importante abrir la plantilla de json en modo _sin procesar_. La dirección URL que aparece en la barra de direcciones del explorador es diferente de la que aparece en el modo normal. Para abrir el archivo en modo _sin procesar_ mientras lo ve en GitHub, haga clic en **Sin procesar** en la esquina superior derecha.
+	> [AZURE.NOTE]Es importante abrir la plantilla de json en modo _sin procesar_. La dirección URL que aparece en la barra de direcciones del explorador es diferente de la que aparece en el modo normal. Para abrir el archivo en modo _sin procesar_ mientras lo ve en GitHub, haga clic en **Raw** (Sin procesar) en la esquina superior derecha.
 
 #### Trabajo con recursos
 
@@ -329,7 +331,7 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 
 ## Pasos siguientes
 
-* Para obtener más información acerca del uso de la interfaz de la línea de comandos de Azure (CLI de Azure), consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure][clisetup].
+* Para obtener más información acerca del uso de la interfaz de la línea de comandos de Azure (CLI de Azure), consulte [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure][clisetup].
 * Para obtener información sobre el trabajo con el Administrador de recursos de Azure con Azure PowerShell, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
 * Para obtener información sobre cómo trabajar con el Administrador de recursos de Azure desde el Portal de Azure, consulte [Uso de grupos de recursos para administrar los recursos de Azure][psrm].
 
@@ -339,4 +341,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

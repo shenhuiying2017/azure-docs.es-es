@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Configuración de un servicio en la nube | Microsoft Azure"
-	description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
+	pageTitle="Configuración de un servicio en la nube | Microsoft Azure" 
+	description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -78,8 +78,12 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
     4. Haga clic en **Aceptar** (marca de verificación).
 
 
-## Recursos adicionales
+## Pasos siguientes
 
-[Habilitar la conexión a Escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md)
+* Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy.md).
+* Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
+* [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
+* [Habilitar la conexión a Escritorio remoto para un rol de servicios en la nube de Azure](cloud-services-role-enable-remote-desktop.md)
+* Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

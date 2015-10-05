@@ -1,5 +1,5 @@
 <properties
-   pageTitle="API Graph de Azure Active Directory"
+   pageTitle="Graph API de Azure Active Directory | Microsoft Azure"
    description="Una guía de información general e inicio rápido para la API Graph que permite el acceso mediante programación a Azure AD a través de los extremos de la API de REST."
    services="active-directory"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin" />
 
 # API Graph de Azure Active Directory
@@ -66,4 +66,4 @@ La API Graph admite muchos escenarios de aplicación. Los siguientes escenarios 
 
 [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

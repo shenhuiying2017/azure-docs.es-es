@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="¿Qué sucede cuando agrega servicios móviles a una aplicación Javascript mediante Visual Studio Connected Services?" 
 	description="Describe lo que le ha ocurrido al proyecto de Servicios móviles de Azure en Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="07/02/2015" 
 	ms.author="patshea"/>
 
-# ¿Qué le ha ocurrido a mi proyecto?
+# ¿Qué sucede con mi proyecto Visual Studio Azure Javascript al agregar servicios para dispositivos móviles mediante Connected Services?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -46,4 +46,4 @@ En la carpeta servicios, se han agregado los archivos de configuración de servi
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

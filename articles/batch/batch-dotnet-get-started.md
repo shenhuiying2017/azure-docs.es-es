@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="07/21/2015"
+	ms.date="09/23/2015"
 	ms.author="yidingz"/>
 
 # Introducción a la biblioteca de proceso por lotes de Azure para .NET  
@@ -205,14 +205,14 @@ Un grupo de nodos de ejecución es el primer conjunto de recursos que debe crear
 
 2. Agregue este código a Main, que configura las credenciales para realizar llamadas al servicio de Lote de Azure:
 
-			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("https://[account-name].[region].batch.azure.com", "[account-name]", "[account-key]");
+			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	Reemplace estos valores:
+	Reemplace los valores entre corchetes por aquellos asociados con la cuenta de Lote, cada uno de los cuales puede encontrarse en el [portal de vista previa de Azure](https://portal.azure.com). Para encontrar estos valores, inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y:
 
-	- **[account-name]** por el nombre de la cuenta de Lote que creó anteriormente.
-	- **[region]** por la región en la que se encuentra la cuenta. Consulte [Regiones de Azure](http://azure.microsoft.com/regions/) para conocer las regiones disponibles.
-	- **[account-key]** por la clave principal de la cuenta de Lote.
+	- **[account-name]**: haga clic en **Cuentas de Lote**, seleccione la cuenta de Lote que creó anteriormente
+	- **[account-url]**: en la hoja de cuenta de Lote, haga clic en **Propiedades** > **URL**
+	- **[account-key]**: en la hoja de cuenta de Lote, haga clic en **Propiedades** > **Claves** > **Clave de acceso primaria**
 
 3.	Agregue este método a la clase Program que crea el grupo:
 
@@ -491,8 +491,8 @@ Dado que se le cobrará por los recursos en Azure, siempre es conveniente elimin
 
 ## Pasos siguientes
 
-1. Ahora que conoce los aspectos básicos de la ejecución de tareas, puede aprender a realizar el escalado automático de nodos de ejecución cuando cambie la demanda de la aplicación. Para ello, consulte [Escalado automático de nodos de ejecución en un grupo de Lote de Azure](batch-automatic-scaling.md)
+1. Ahora que conoce los aspectos básicos de la ejecución de tareas, puede aprender a realizar el escalado automático de nodos de ejecución cuando cambie la demanda de la aplicación. Para ello, consulte [Escalado automático de nodos de ejecución en un grupo de Lote de Azure](batch-automatic-scaling.md).
 
 2. Algunas aplicaciones generan grandes cantidades de datos que pueden ser difíciles de procesar. Una manera de resolver esto es a través de una [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

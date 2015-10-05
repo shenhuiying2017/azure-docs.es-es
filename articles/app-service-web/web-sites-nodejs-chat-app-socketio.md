@@ -268,6 +268,8 @@ Si los exploradores de los clientes siguen recurriendo al sondeo largo en lugar 
 
 En este tutorial aprendió a crear una aplicación de chat hospedada en una aplicación web de Azure. También puede hospedar esta aplicación como un servicio en la nube de Azure. Para conocer los pasos para lograr esto, consulte [Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure][cloudservice].
 
+Para obtener más información, consulte también el [Centro para desarrolladores de Node.js](/develop/nodejs/).
+
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
@@ -283,4 +285,4 @@ En este tutorial aprendió a crear una aplicación de chat hospedada en una apli
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

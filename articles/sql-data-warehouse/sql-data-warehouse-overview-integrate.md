@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="lodipalm"/>
 
 #Aprovechamiento de otros servicios con Almacenamiento de datos SQL
@@ -71,4 +71,4 @@ Consulte [Integración con Análisis de transmisiones de Azure](../sql-data-ware
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

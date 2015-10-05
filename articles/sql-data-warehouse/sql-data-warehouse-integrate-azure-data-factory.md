@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # Uso de Factoría de datos de Azure con Almacenamiento de datos SQL
@@ -30,8 +30,6 @@ Factoría de datos de Azure permite el movimiento entre orígenes locales y los 
 + SQL Server en IaaS
 
 Para obtener información sobre cómo configurar una actividad de copia de datos, consulte [Copia de datos con Factoría de datos de Azure][].
-
-> [AZURE.NOTE]En este momento, Factoría de datos de Azure no se puede usar para transferir datos a columnas que no aceptan valores NULL en Almacenamiento de datos SQL.
 
 ## Procedimientos almacenados
  De la misma manera en que se puede programar la transferencia de datos, Factoría de datos de Azure también se puede usar para organizar la ejecución de procedimientos almacenados. Esto permite que se creen canalizaciones más complejas y extiende la capacidad de Factoría de datos de Azure para aprovechar la potencia de cálculo de Almacenamiento de datos SQL.
@@ -51,6 +49,6 @@ Para obtener información general sobre la integración, consulte [Información 
 
 <!--Other Web references-->
 [documentación sobre Factoría de datos de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
-[Copia de datos con Factoría de datos de Azure]: https://azure.microsoft.com/es-ES/documentation/articles/data-factory-data-movement-activities/
+[Copia de datos con Factoría de datos de Azure]: https://azure.microsoft.com/es-es/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

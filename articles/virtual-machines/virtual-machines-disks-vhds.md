@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Acerca de los discos y los discos duros virtuales para máquinas virtuales"
+	pageTitle="Acerca de los discos y los discos duros virtuales | Microsoft Azure"
 	description="Conozca los aspectos básicos de los discos y los discos duros virtuales para las máquinas virtuales en Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,9 @@
 	ms.date="06/30/2015"
 	ms.author="cynthn"/>
 
-# Acerca de los discos y los discos duros virtuales para máquinas virtuales
+# Acerca de los discos y los discos duros virtuales para máquinas virtuales de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se tratan los recursos creados con el modelo de implementación del Administrador de recursos y el modelo de implementación clásica.
 
 Todas las máquinas virtuales en Azure se configuran con al menos dos discos cuando se crea la máquina virtual: uno es un disco de sistema operativo y el otro es un disco local temporal, a veces denominado disco de recursos. El disco del sistema operativo se crea a partir de una imagen y el disco del sistema operativo y la imagen son discos duros en realidad virtuales (VHD) almacenados en una cuenta de almacenamiento de Azure. Las máquinas virtuales también pueden tener discos de datos y estos también se almacenan en discos duros virtuales.
 
@@ -65,4 +67,4 @@ Máquinas virtuales de Windows:
 -  [Captura de una máquina virtual de Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desacople un disco](storage-windows-detach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

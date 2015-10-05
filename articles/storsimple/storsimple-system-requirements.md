@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Requisitos del sistema StorSimple | Microsoft Azure"
-	description="Describe los requisitos del sistema y procedimientos recomendados para software, alta disponibilidad y conexión a la de red de una solución Azure StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Requisitos del sistema StorSimple | Microsoft Azure" 
+   description="Describe los requisitos del sistema y procedimientos recomendados para software, alta disponibilidad y conexión a la de red de una solución Azure StorSimple." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="alkohli" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/21/2015"
+   ms.author="alkohli"/>
 
 # Software de StorSimple, alta disponibilidad y requisitos de red
 
@@ -154,7 +154,8 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 | UDP 123 (NTP) | Fuera | WAN | En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet. |
 | TCP 9354 | Fuera | WAN | En algunos casos; consulte las notas. |El puerto de salida es utilizado por el servicio StorSimple Manager para comunicarse con el dispositivo. Este puerto es necesario si la red actual no admite el uso de HTTP 1.1 para conectarse a Internet; por ejemplo, si utiliza un servidor proxy basado en HTTP 1.0.<br> Si se conecta a través de un servidor proxy, consulte [requisitos del bus de servicio](https://msdn.microsoft.com/library/azure/ee706729.aspx) para obtener información detallada. |
 | 3260 (iSCSI) | En el | LAN | No | Este puerto se utiliza para tener acceso a datos a través de iSCSI.|
-| 5985 | En el | LAN | No | El puerto de entrada es usado por el StorSimple Snapshot Manager para comunicarse con el dispositivo StorSimple.<br>También se utiliza cuando se conecta de forma remota a Windows PowerShell for StorSimple a través de HTTP o HTTPS. |
+| 5985 | En el | LAN | No | El puerto de entrada es usado por el StorSimple Snapshot Manager para comunicarse con el dispositivo StorSimple.<br>También se utiliza cuando se conecta de forma remota a Windows PowerShell for StorSimple a través de HTTP. |
+| 5986 | En el | LAN | No | Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
@@ -194,4 +195,4 @@ Además de los requisitos de redes anteriores, para obtener un rendimiento ópti
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

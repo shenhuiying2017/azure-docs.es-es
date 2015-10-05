@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="09/04/2015"
    ms.author="bwren" />
 
 # Creación gráfica en Automatización de Azure
@@ -61,6 +61,17 @@ El control de Configuración es donde se proporcionan los detalles de un objeto 
 El control de Prueba no aparece cuando se inicia por primera vez el editor de gráficos. Se abre cuando [prueba un runbook gráfico](#graphical-runbook-procedures) de manera interactiva.
 
 ## Procedimientos de runbook gráficos 
+
+### Exportación e importación de un runbook gráfico
+
+Solo puede exportar la versión publicada de un runbook gráfico. Si el runbook no se ha publicado todavía, se deshabilitará el botón **Exportar publicados**. Al hacer clic en el **Exportar publicados**, el runbook se descargará en el equipo local. El nombre del archivo coincide con el nombre del runbook con una extensión *graphrunbook*.
+
+![Exportar publicados](media/automation-graphical-authoring-intro/runbook-export.png)
+
+Par importar un archivo de runbook gráfico, seleccione la opción **Importar** al agregar un runbook. Al seleccionar el archivo para importar, puede mantener el mismo **Nombre** o proporcionar otro nuevo.
+
+![Importar runbook](media/automation-graphical-authoring-intro/runbook-import.png)
+
 
 ### Prueba de un runbook gráfico
 
@@ -280,4 +291,4 @@ Los datos que crea alguna actividad que no tienen un vínculo saliente se agrega
 - [Recursos de automatización](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,25 @@
-<properties pageTitle="Preparación de una máquina virtual Oracle Linux para Azure" description="Lleve a cabo la configuración de una máquina virtual de Oracle con Linux en Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+pageTitle="Preparación de una máquina virtual Oracle Linux para Azure | Microsoft Azure" 
+description="Configuración paso a paso de una máquina virtual de Oracle con Linux en Microsoft Azure." 
+services="virtual-machines" 
+authors="bbenz" 
+documentationCenter="virtual-machines"
+tags="azure-service-management,azure-resource-manager"
+/>
+
+<tags 
+ms.service="virtual-machines" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.tgt_pltfrm="vm-linux" 
+ms.workload="infrastructure-services" 
+ms.date="06/22/2015" 
+ms.author="bbenz" />
+
 #Preparación de una máquina virtual Oracle Linux para Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo se aplica a las máquinas virtuales creadas con el modelo de implementación del Administrador de recursos o el modelo de implementación clásico.
+
 -   [Preparación de una máquina virtual Oracle Linux 6.4+ para Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
 -   [Preparación de una máquina virtual Oracle Linux 7.0+ para Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
@@ -202,4 +221,4 @@ Preparar una máquina virtual de Oracle Linux 7 para Azure es muy similar al pro
 
 15.  Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

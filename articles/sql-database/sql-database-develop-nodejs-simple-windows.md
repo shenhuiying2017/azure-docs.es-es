@@ -220,5 +220,8 @@ Para que este ejemplo de código funcione, primero debe tener o crear un procedi
 	});
 
  
+## Pasos siguientes
 
-<!---HONumber=August15_HO6-->
+Para obtener más información, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
+
+<!---HONumber=Sept15_HO4-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Modos de implementación Administrador de recursos y Clásico (administración de servicios) | Azure"
-	description="Comprenda las diferencias entre los modelos de implementación Administrador de recursos y Clásico."
-	services="virtual-network"
-	documentationCenter=""
-	authors="telmosampaio"
-	manager="carolz"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   description="Comprenda las diferencias entre los modelos de implementación Administrador de recursos y Clásico."
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmosampaio"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/14/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/14/2015"
+   ms.author="telmos"/>
 
 # Modelos de implementación de Azure
 
@@ -65,7 +65,7 @@ Puede crear y configurar recursos de Azure desde equipos Windows, OS X o Linux m
 ## Pasos siguientes
 
 - Obtenga más información sobre el [Administrador de recursos de Azure](/resource-group-overview.md).
-- Aprenda a [diseñar plantillas](/best-practices-resource-manager-design-templates/md).
-- Uso de [Prácticas recomendadas](best-practices-resource-manager-examples.md)
+- Aprenda a [diseñar plantillas](/best-practices-resource-manager-design-templates.md).
+- Uso de [prácticas recomendadas](/best-practices-resource-manager-examples.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

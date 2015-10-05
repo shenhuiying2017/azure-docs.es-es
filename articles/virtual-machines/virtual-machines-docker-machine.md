@@ -13,12 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/25/2015"
+   ms.date="09/22/2015"
    ms.author="rasquill"/>
 
 # Cómo usar una máquina docker con Azure
 
 En este tema se describe cómo usar [Docker](https://www.docker.com/) con una [máquina](https://github.com/docker/machine) y la [CLI de Azure](https://github.com/Azure/azure-xplat-cli) para crear una máquina virtual de Azure que administre rápida y fácilmente los contenedores de Linux desde un equipo en el que se ejecute Ubuntu. Para mostrarle esto, el tutorial le indicará cómo implementar tanto la imagen de [busybox del concentrador de Docker](https://registry.hub.docker.com/_/busybox/) como la [imagen de nginx del concentrador de Docke ](https://registry.hub.docker.com/_/nginx/) y configurar el contenedor para enrutar las solicitudes web al contenedor de nginx. (La documentación de la **máquina** Docker indica cómo modificar esas instrucciones para adaptarlas a otras plataformas).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+
 
 Existen algunos requisitos previos para completar el tutorial. Necesitará instalar lo siguiente:
 
@@ -210,4 +213,4 @@ Vaya a la [guía de usuario de Docker](https://docs.docker.com/userguide/) y cre
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

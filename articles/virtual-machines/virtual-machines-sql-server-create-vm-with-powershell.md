@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Crear una máquina virtual de SQL Server en Azure (PowerShell)"
+	pageTitle="Creación de una máquina virtual de SQL Server en PowerShell | Microsoft Azure"
 	description="Ofrece pasos y scripts de PowerShell para crear una máquina virtual de Azure con imágenes de la galería de máquinas virtuales de SQL Server."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management"
+	 />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/26/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Crear una máquina virtual de SQL Server en Azure (PowerShell)
 
@@ -25,7 +27,7 @@
 
 En este artículo se ofrecen los pasos para crear una máquina virtual de SQL Server en Azure mediante los cmdlets de PowerShell.
 
->[AZURE.NOTE]Este artículo está pensado para una máquina virtual creada en Administración de servicios y es una expansión específica de SQL Server sobre los pasos más generales encontrados en el tema [Usar Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). En lugar de la Administración de servicios, si quiere crear una máquina virtual de SQL Server con el Administrador de recursos en PowerShell, vea las instrucciones generales para las máquinas virtuales del Administrador de recursos en el siguiente tema: [Crear y preconfigurar una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica. Si quiere crear una máquina virtual de SQL Server con el Administrador de recursos en PowerShell, vea las instrucciones generales para las máquinas virtuales del Administrador de recursos en el siguiente tema: [Crear y preconfigurar una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
 
 ## Instalar y configurar PowerShell
 
@@ -171,4 +173,4 @@ Si también está interesado en ver cómo llevar a cabo estos pasos desde el Por
 
 Además de estos recursos, se recomienda que revise [Otros temas relacionados con la ejecución de SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

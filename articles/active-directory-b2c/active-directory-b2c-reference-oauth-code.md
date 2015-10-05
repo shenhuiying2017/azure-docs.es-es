@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: Flujo de código de autorización de OAuth 2.0
@@ -272,4 +272,4 @@ Si desea probar estas solicitudes por sí mismo, primero debe realizar estos tre
 - [Crear una aplicación](active-directory-b2c-app-registration.md) para obtener un Id. de aplicación y un redirect\_uri. Es posible que desee incluir un **cliente nativo** en la aplicación.
 - [Crear directivas](active-directory-b2c-reference-policies.md) para obtener los nombres de las directivas.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

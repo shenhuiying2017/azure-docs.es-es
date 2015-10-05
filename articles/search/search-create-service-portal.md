@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de un servicio de Búsqueda de Azure en el portal"
-	description="Agregar un servicio de Búsqueda de Azure gratuito o estándar a una suscripción existente mediante el portal de administración"
+	pageTitle="Creación de un servicio Búsqueda de Azure en el portal | Microsoft Azure"
+	description="Agregar un servicio Búsqueda de Azure gratuito o estándar a una suscripción existente mediante el portal de Azure"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -12,37 +12,37 @@
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
-# Creación de un servicio de Búsqueda de Azure en el portal
+# Creación de un servicio Búsqueda de Azure en el portal de Azure
 
-Búsqueda de Microsoft Azure es un nuevo servicio que le permite incrustar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para sus datos de búsqueda, a los que accede y administra mediante el portal, un SDK de .NET o una API de REST. Entre las funciones clave se incluyen consultas de Autocompletar, la coincidencia aproximada, la navegación con facetas, el resaltado de resultados y la compatibilidad con varios idiomas. Para obtener más información acerca de lo que hace la búsqueda, consulte [Introducción a Búsqueda de Azure](fundamentals-azure-search-chappell/).
+Búsqueda de Microsoft Azure es un nuevo servicio que le permite incrustar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para sus datos de búsqueda, cuyo acceso y administración se gestionan mediante el portal de Azure, un SDK de .NET o una API de REST. Entre las funciones clave se incluyen consultas de Autocompletar, la coincidencia aproximada, la navegación con facetas, el resaltado de resultados y la compatibilidad con varios idiomas. Para obtener más información acerca del funcionamiento de Búsqueda de Azure, consulte [Introducción a Búsqueda de Azure](fundamentals-azure-search-chappell/).
 
-##Adición de la búsqueda a su suscripción  
+## Adición de Búsqueda de Azure a una suscripción  
 
-Como administrador, puede agregar Búsqueda a una suscripción existente sin coste alguno al seleccionar el servicio compartido o a un estándar cuando se opta por recursos específicos.
+Como administrador, puede agregar Búsqueda de Azure a una suscripción existente sin costo alguno al seleccionar el servicio compartido (o a una tarifa estándar cuando se opta por recursos específicos).
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
-2. En la barra de salto, haga clic en **Nuevo** | **Datos + Almacenamiento** | **Búsqueda**.
+2. En la barra de salto, haga clic en **Nuevo** > **Datos + almacenamiento** > **Búsqueda**.
 
      ![][1]
 
-3. Configure el nombre del servicio, el nivel de precios, el grupo de recursos, la suscripción y la ubicación. Estos valores son necesarios y no se puede cambiar una vez que se aprovisiona el servicio.
+3. Configure el nombre del servicio, el plan de tarifas, el grupo de recursos, la suscripción y la ubicación. Estos valores son necesarios y no se puede cambiar una vez que se aprovisiona el servicio.
 
      ![][2]
 
-	- **Nombre de servicio** debe ser único, en minúsculas, con un máximo de 15 caracteres y sin espacios. Este nombre se convierte en parte del extremo del servicio Búsqueda de Azure. Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información acerca de las convenciones de nomenclatura.
+	- El **Nombre de servicio** debe ser único, estar en minúscula, tener un máximo de 15 caracteres y no incluir espacios. Este nombre se convierte en parte del extremo del servicio Búsqueda de Azure. Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información acerca de las convenciones de nomenclatura.
 
 	- **Nivel de precios** determina la capacidad y la facturación. Los dos niveles proporcionan las mismas características, pero con niveles de recursos distintos.
 
 		- **Gratuito** se ejecuta en clústeres que se comparten con otros suscriptores. Ofrece suficiente capacidad para probar tutoriales y escribir código de prueba de concepto, pero no está destinado a aplicaciones de producción. Implementar un servicio gratuito suele llevar pocos minutos.
-		- **Estándar** se ejecuta en recursos dedicados y es altamente escalable. Inicialmente, se aprovisiona un servicio estándar con una réplica y una partición, pero se puede ajustar la capacidad una vez creado el servicio. Implementar un servicio estándar lleva más tiempo, normalmente unos quince minutos.
+		- **Estándar** se ejecuta en recursos dedicados y es altamente escalable. Inicialmente, se aprovisiona un servicio estándar con una réplica y una partición, pero se puede ajustar la capacidad una vez creado el servicio. Implementar un servicio estándar lleva más tiempo, normalmente unos 15 minutos.
 
-	- Los **grupos de recursos** son contenedores para servicios y recursos que se usan para un objetivo común. Por ejemplo, si va a compilar una aplicación de búsqueda personalizada basada en Búsqueda de Azure, Sitios web Azure, almacenamiento de blobs de Azure, puede crear un grupo de recursos que mantenga estos servicios juntos en las páginas de administración del portal.
+	- Los **grupos de recursos** son contenedores para servicios y recursos que se usan para un objetivo común. Por ejemplo, si va a compilar una aplicación de búsqueda personalizada basada en Búsqueda de Azure, la función Aplicaciones web en Servicio de aplicaciones de Azure y el almacenamiento de blobs de Azure, puede crear un grupo de recursos que mantenga estos servicios juntos en las páginas de administración del portal.
 
 	- **Suscripción** permite elegir entre varias suscripciones, si tiene más de una.
 
@@ -53,11 +53,11 @@ Como administrador, puede agregar Búsqueda a una suscripción existente sin cos
 Preste atención a las notificaciones de la barra de salto. Cuando el servicio esté listo para su uso, aparecerá un aviso.
 
 <a id="sub-2"></a>
-##Buscar el nombre del servicio y las claves de API del servicio Búsqueda de Azure
+## Buscar el nombre del servicio y las claves de API del servicio Búsqueda de Azure
 
-Después de crear el servicio, puede volver al portal para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
+Después de crear el servicio, puede volver al portal de Azure para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de Búsqueda de Azure requieren que tenga la URL y una `api-key` para autenticar la llamada.
 
-1. En la barra de salto, haga clic en **Inicio** y, después, haga clic en el servicio de búsqueda para abrir el panel del servicio.
+1. En la barra de salto, haga clic en **Inicio** y, a continuación, haga clic en el servicio Búsqueda de Azure para abrir el panel del servicio.
 
 2. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
 
@@ -66,15 +66,15 @@ Después de crear el servicio, puede volver al portal para obtener la dirección
 3. Copie la dirección URL del servicio y una clave de administración. Los necesitará para la tarea siguiente, [Probar las operaciones de servicio](#sub-4).
 
 <a id="sub-3"></a>
-##Actualización al nivel estándar
+## Actualización al nivel estándar
 
-Muchos clientes comienzan con el servicio gratuito y, a continuación, actualizan al nivel estándar cuando el rendimiento de las consultas o el almacenamiento es suficiente para las cargas de trabajo que debe ejecutar. El nivel estándar ofrece recursos dedicados en un centro de datos de Azure que solo usted puede usar. Las operaciones de búsqueda requieren réplicas de almacenamiento y servicio. Al registrarse para una búsqueda estándar, puede optimizar la configuración del servicio para usar más de cualquier recurso que sea el más importante para su escenario.
+Muchos clientes comienzan con el servicio gratuito y posteriormente actualizan al nivel estándar cuando el rendimiento de las consultas o el almacenamiento no es suficiente para las cargas de trabajo que deben ejecutar. El nivel estándar ofrece recursos dedicados en un centro de datos de Azure que solo usted puede usar. Las operaciones de Búsqueda de Azure requieren réplicas de almacenamiento y servicio. Al registrarse para una búsqueda estándar, puede optimizar la configuración del servicio para usar más de cualquier recurso que sea el más importante para su escenario.
 
-Para usar el nivel estándar, repita los pasos anteriores de este artículo para crear un nuevo servicio de búsqueda, eligiendo el nivel de precios estándar. Tenga en cuenta que la configuración de recursos dedicados puede tardar unos minutos (hasta 15 minutos o más).
+Para usar el nivel estándar, repita los pasos anteriores de este artículo para crear un nuevo servicio de Búsqueda de Azure y elija el plan de tarifas estándar. Tenga en cuenta que la configuración de recursos dedicados puede tardar unos minutos (hasta 15 minutos o más).
 
 No hay ninguna actualización de la versión gratuita. Cambiar al modo estándar, con su potencial de escalación, requiere un servicio nuevo. Tendrá que volver a cargar los índices y documentos usados por su aplicación de búsqueda.
 
-El servicio de búsqueda a nivel estándar se crea con una réplica y una partición, pero se puede volver a escalar fácilmente a niveles de recursos más altos.
+El servicio Búsqueda de Azure a nivel estándar se crea con una réplica y una partición, pero se puede escalar fácilmente a niveles de recursos más altos.
 
 1.	Después de que se haya creado el servicio, vuelva al panel del servicio.
 
@@ -87,18 +87,18 @@ Las réplicas y las particiones adicionales se cobran en unidades de búsqueda. 
 Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Límites y restricciones](search-limits-quotas-capacity.md) para obtener ayuda para decidir cómo configurar las combinaciones de partición y de réplica.
 
 <a id="sub-4"></a>
-##Prueba de operaciones del servicio
+## Prueba de operaciones del servicio
 
-La confirmación de que su servicio está operativo y que puede obtenerse acceso a él desde una aplicación cliente es el paso final en la configuración de la búsqueda. Puede usar cualquiera de los siguientes vínculos para un enfoque sin código para comprobar la disponibilidad del servicio.
+La confirmación de que su servicio está operativo y que puede obtener acceso a él desde una aplicación cliente es el paso final en la configuración de la Búsqueda de Azure. Puede usar cualquiera de los siguientes vínculos para un enfoque sin código para comprobar la disponibilidad del servicio.
 
-- [Cómo usar a Chrome Postman con Búsqueda de Azure](search-chrome-postman.md)
+- [Cómo usar Chrome Postman con Búsqueda de Azure](search-chrome-postman.md)
 - [Cómo usar Telerik Fiddler con Búsqueda de Azure](search-fiddler.md)
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
-##Pasos siguientes
+## Pasos siguientes
 
-El siguiente material adicional muestra cómo compilar y administrar aplicaciones de búsqueda que usan Búsqueda de Azure.
+En la siguiente información adicional, se explica cómo compilar y administrar las aplicaciones de búsqueda que usan Búsqueda de Azure.
 
 - [Cómo usar la Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md)
 
@@ -111,7 +111,7 @@ El siguiente material adicional muestra cómo compilar y administrar aplicacione
 
 <!--Anchors-->
 [Find the service name and api-keys of your Azure Search service]: #sub-2
-[Upgrade to standard tier]: #sub-3
+[Upgrade to the standard tier]: #sub-3
 [Test service operations]: #sub-4
 [Next steps]: #next-steps
 
@@ -120,4 +120,4 @@ El siguiente material adicional muestra cómo compilar y administrar aplicacione
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

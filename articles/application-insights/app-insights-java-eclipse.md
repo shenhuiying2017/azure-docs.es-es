@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/16/2015" 
 	ms.author="awills"/>
  
 # Introducción a Application Insights con Java en Eclipse
@@ -22,7 +22,7 @@ El SDK de Application Insights envía telemetría desde la aplicación web de Ja
 
 ## Requisitos previos
 
-Actualmente el complemento funciona para proyectos web dinámicos en Eclipse. ([Agregue Application Insights a otros tipos de proyectos de Java][java]).
+Actualmente el complemento funciona para proyectos Maven y proyectos web dinámicos en Eclipse. ([Agregue Application Insights a otros tipos de proyectos de Java][java]).
 
 Necesitará:
 
@@ -46,29 +46,20 @@ Basta con hacerlo una vez por equipo. Este paso instala un kit de herramientas q
 
 Siga los pasos restantes para cada proyecto de Java.
 
-## Obtención de una clave de instrumentación de Application Insights
+## Creación de un recurso de Application Insights en Azure
 
-El análisis de uso y de rendimiento se mostrará en un recurso de Azure en el portal web de Azure. En este paso, va a configurar un recurso de Azure para la aplicación.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. 
 
-1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com). (Necesitará una [suscripción de Azure](http://azure.microsoft.com/)).
-2. Creación de un recurso de Application Insights
+## Agregar Application Insights a un proyecto
 
-    ![Haga clic en + y elija Application Insights](./media/app-insights-java-eclipse/01-create.png)
-3. Establezca el tipo de aplicación a una aplicación web de Java.
+1. Agregue Application Insights en el menú contextual del proyecto web de Java.
 
-    ![Rellene un nombre, elija la aplicación web de Java y haga clic en Crear.](./media/app-insights-java-eclipse/02-create.png)
-4. Busque la clave de instrumentación del nuevo recurso. Tendrá que pegarla en el proyecto en Eclipse.
+    ![En la información general de nuevos recursos, haga clic en Propiedades y copie la clave de instrumentación.](./media/app-insights-java-eclipse/02-context-menu.png)
 
-    ![En la información general de nuevos recursos, haga clic en Propiedades y copie la clave de instrumentación.](./media/app-insights-java-eclipse/03-key.png)
-
-## Incorporación del SDK al proyecto de Java
-
-1. Agregue Application Insights en el menú contextual del proyecto web.
-
-    ![En la información general de nuevos recursos, haga clic en Propiedades y copie la clave de instrumentación.](./media/app-insights-java-eclipse/4-addai.png)
 2. Pegue la clave de instrumentación que obtuvo en el portal de Azure.
 
-    ![En la información general de nuevos recursos, haga clic en Propiedades y copie la clave de instrumentación.](./media/app-insights-java-eclipse/5-config.png)
+    ![En la información general de nuevos recursos, haga clic en Propiedades y copie la clave de instrumentación.](./media/app-insights-java-eclipse/03-ikey.png)
 
 
 La clave se envía junto con todos los elementos de telemetría e indica a Application Insights que se muestre en el recurso.
@@ -267,4 +258,4 @@ Puede insertar código en el JavaScript de la página web y en Java del servidor
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

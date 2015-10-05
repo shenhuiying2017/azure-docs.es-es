@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Desarrollo de soluciones para Almacenamiento de datos SQL | Microsoft Azure"
-   description="Técnicas de desarrollo y procedimientos recomendados para la creación de soluciones con Almacenamiento de datos SQL de Azure."
+   pageTitle="Diseñar decisiones y técnicas de codificación para el desarrollo del Almacenamiento de datos SQL | Microsoft Azure"
+   description="Conceptos de desarrollo, decisiones de diseño, recomendaciones y técnicas de codificación para el Almacenamiento de datos SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-# Desarrollo de soluciones para Almacenamiento de datos SQL
+# Decisiones de diseño y técnicas de codificación para el Almacenamiento de datos SQL
 
-Eche un vistazo a los artículos de desarrollo para comprender mejor los principios de desarrollo, las prácticas recomendadas y las técnicas de codificación para Almacenamiento de datos SQL.
+Eche un vistazo a estos artículos de desarrollo para comprender mejor las decisiones de diseño clave, las recomendaciones y las técnicas de codificación para el Almacenamiento de datos SQL.
 
-## Conceptos clave
+## Decisiones de diseño clave
 En los artículos siguientes se abordan algunos de los conceptos y las decisiones de diseño clave que es preciso comprender para el desarrollo de un almacenamiento de datos distribuido con Almacenamiento de datos SQL:
 
 - [conexiones][]
@@ -33,8 +33,8 @@ En los artículos siguientes se abordan algunos de los conceptos y las decisione
 - [CTAS][]
 - [estadísticas][]
 
-## Técnicas de desarrollo
-En estos artículos se abordan técnicas de codificación, sugerencias y prácticas recomendadas específicas para el desarrollo de soluciones de Almacenamiento de datos SQL:
+## Recomendaciones de desarrollo y técnicas de codificación
+En estos artículos se abordan técnicas de codificación, sugerencias y recomendaciones específicas para el desarrollo de su Almacenamiento de datos SQL:
 
 - [procedimientos almacenados][]
 - [etiquetas][]
@@ -79,4 +79,4 @@ Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [R
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

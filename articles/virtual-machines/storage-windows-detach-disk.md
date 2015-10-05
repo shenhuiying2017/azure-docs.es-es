@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Acoplamiento de un disco desde una máquina virtual de Windows | Microsoft Azure"
-	description="Aprenda a desacoplar un disco de una máquina virtual en Azure."
-	services="virtual-machines, storage"
+	pageTitle="Desacoplamiento de un disco desde una máquina virtual de Windows | Microsoft Azure"
+	description="Obtenga información acerca de cómo desconectar un disco de una máquina virtual de Azure creada mediante el modelo de implementación clásica."
+	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -21,6 +21,9 @@
 
 # Desacoplamiento de un disco de una máquina virtual de Windows
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se explica cómo desconectar un disco mediante el modelo de implementación clásica.
+
+
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
 ## Recursos adicionales
@@ -29,4 +32,4 @@
 
 [Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

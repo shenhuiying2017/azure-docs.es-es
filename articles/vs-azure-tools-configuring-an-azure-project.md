@@ -83,7 +83,7 @@ Un rol de trabajador puede tener un número indeterminado de extremos HTTP, HTTP
 
 ### Pagina Almacenamiento local
 
-Puede usar la página de propiedades Almacenamiento local para reservar uno o más recursos de almacenamiento local para un rol. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual de Azure donde se ejecuta una instancia de un rol. Para obtener más información acerca de cómo trabajar con los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+Puede usar la página de propiedades Almacenamiento local para reservar uno o más recursos de almacenamiento local para un rol. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual de Azure donde se ejecuta una instancia de un rol. Para obtener más información acerca de cómo trabajar con los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ### Página Certificados
 
@@ -112,4 +112,4 @@ Para configurar los valores que se aplican a todo un proyecto de servicio en la 
 
 Para obtener más información acerca de la configuración de proyectos de servicios en la nube de Azure, vea [Administración de roles en los proyectos de servicios en la nube de Azure con Visual Studio](vs-azure-tools-cloud-service-project-managing-roles.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

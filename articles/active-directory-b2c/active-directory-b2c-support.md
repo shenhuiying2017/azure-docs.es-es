@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Presentación de solicitudes de soporte técnico para Azure Active Directory B2C
@@ -50,4 +50,4 @@ Si el paso 2 descrito anteriormente no le ha salido e intenta crear una solicitu
 
 ![Soporte técnico - sin suscripción](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

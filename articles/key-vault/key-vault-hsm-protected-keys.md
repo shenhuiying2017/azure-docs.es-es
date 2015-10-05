@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/11/2015"
+	ms.date="09/18/2015"
 	ms.author="cabailey"/>
 #Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure
 
@@ -106,6 +106,7 @@ Vaya al Centro de descarga de Microsoft y [descargue el conjunto de herramientas
 |Asia|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
 |América Latina|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
 |Japón|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
+|Australia|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
 
 Para validar la integridad del conjunto de herramientas BYOK que descargó, use el cmdlet [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) en la sesión de Azure PowerShell.
 
@@ -130,7 +131,7 @@ En este segundo paso, realice los siguientes procedimientos en la estación de t
 
 Instale el software nCipher (Thales) en un equipo de Windows y, a continuación, adjunte un HSM de Thales a dicho equipo.
 
-Asegúrese de que las herramientas de Thales están en su ruta de acceso (**%nfast\_home%\\bin** y **%nfast\_home%\\python\\bin**). Por ejemplo, escriba lo siguiente:
+Asegúrese de que las herramientas de Thales estén en su ruta de acceso (**%nfast\_home%\\bin** y **%nfast\_home%\\python\\bin**). Por ejemplo, escriba lo siguiente:
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
@@ -188,12 +189,15 @@ Para validar el paquete descargado:
 	- Japón:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
+	- Para Australia:
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 
 	>[AZURE.TIP]El software de Thales incluye Python en %NFAST\_HOME%\\python\\bin
 	
-2.	Confirme que ve lo siguiente, que indica que el resultado de la validación ha sido satisfactorio: **Result: SUCCESS**
+2.	Si ve lo siguiente, significa que el resultado de la validación ha sido satisfactorio: **Result: SUCCESS**
 
-Este script valida la cadena del firmante hasta la clave raíz de Thales. El hash de esta clave raíz está insertado en el script y su valor debe ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Este valor también se puede confirmar por separado. Para ello, es preciso visitar el [sitio web de Thales](http://www.thalesesec.com/).
+Este script valida la cadena del firmante hasta la clave raíz de Thales. El hash de esta clave raíz está insertado en el script y su valor debe ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Este valor también se puede confirmar por separado. Para ello, debe visitar el [sitio web de Thales](http://www.thalesesec.com/).
 
 Ya está listo para crear una nueva clave.
 
@@ -242,6 +246,9 @@ Para reducir los permisos en una clave, desde un símbolo del sistema, ejecute u
 - Japón:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
+- Para Australia:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
 
 Cuando ejecute este comando, reemplace *contosokey* por el valor que especificó en el **Paso 3.3: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
 
@@ -280,6 +287,9 @@ Ejecute uno de los comandos siguientes, en función de su región:
 - Japón:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- Para Australia:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 Cuando ejecute este comando, siga estas instrucciones:
 
@@ -289,7 +299,7 @@ Cuando ejecute este comando, siga estas instrucciones:
 
 - Reemplace *ContosoFirstHSMKey* por una etiqueta que se usará para el nombre del archivo de salida.
 
-Cuando la operación se complete correctamente, mostrará **Result: SUCCESS** y habrá un nuevo archivo en la carpeta actual que tendrá el siguiente nombre: TransferPackage-*ContosoFirstHSMkey*.byok
+Cuando la operación se complete correctamente, se mostrará **Result: SUCCESS** y habrá un nuevo archivo en la carpeta actual que tendrá el siguiente nombre: TransferPackage-*ContosoFirstHSMkey*.byok.
 
 ###Paso 4.4: copiar del paquete de transferencia de claves a la estación de trabajo conectada a Internet 
 
@@ -305,6 +315,6 @@ Si la carga se realiza correctamente, verá que se muestran las propiedades de l
 
 ##Pasos siguientes
 
-Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, vea la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
+Ahora puede usar esta clave protegida con HSM en el almacén de claves. Para obtener más información, consulte la sección **Si desea usar un módulo de seguridad de hardware (HSM)** del tutorial[ Introducción al Almacén de claves de Azure](key-vault-get-started.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

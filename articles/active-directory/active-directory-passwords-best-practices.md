@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Procedimientos recomendados: Administración de contraseñas de Azure AD | Microsoft Azure" 
-	description="Procedimientos recomendados de implementación y uso, ejemplo de documentación de usuario final y guías de formación para Administración de contraseñas en Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Procedimientos recomendados: Administración de contraseñas de Azure AD | Microsoft Azure"
+	description="Procedimientos recomendados de implementación y uso, ejemplo de documentación de usuario final y guías de formación para Administración de contraseñas en Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen
@@ -98,12 +98,12 @@ Puede cargar los datos de autenticación a través del [Portal de administració
 1.	Diríjase a su directorio en la **extensión de Active Directory** en el [Portal de administración de Azure](https://manage.windowsazure.com).
 2.	Haga clic en la pestaña **Usuarios**.
 3.	Seleccione en la lista el usuario que le interese.
-4.	En la primera pestaña, verá **Correo electrónico alternativo**, que puede utilizarse como una propiedad para habilitar el restablecimiento de contraseña. 
+4.	En la primera pestaña, verá **Correo electrónico alternativo**, que puede utilizarse como una propiedad para habilitar el restablecimiento de contraseña.
 
     ![][005]
 
 5.	Haga clic en la pestaña **Información laboral**.
-6.	En esta página, encontrará el **Teléfono de la oficina**, el **Teléfono móvil**, el **Teléfono de autenticación** y el **Correo electrónico de autenticación**. Estas propiedades también se pueden establecer para permitir a un usuario restablecer su contraseña. 
+6.	En esta página, encontrará el **Teléfono de la oficina**, el **Teléfono móvil**, el **Teléfono de autenticación** y el **Correo electrónico de autenticación**. Estas propiedades también se pueden establecer para permitir a un usuario restablecer su contraseña.
 
     ![][006]
 
@@ -136,6 +136,5 @@ Estamos trabajando en materiales de formación de ejemplo que puede utilizar par
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

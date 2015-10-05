@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
@@ -133,6 +133,21 @@ Abra estos puertos para el tráfico de salida en el firewall del servidor:
 
 Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+
+## Versión de la aplicación de seguimiento
+
+Asegúrese de que el proceso de compilación genera `buildinfo.config`. En su archivo .csproj, agregue:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Cuando tenga la información de la versión, el módulo web de Application Insights agrega automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Eso le permite filtrar por versión al realizar [búsquedas de diagnósticos][diagnostic] o al [explorar métricas][metrics].
+
+
 ## 5\. Adición de contadores de rendimiento y seguimiento de dependencia
 
 El SDK necesita un poco de ayuda para obtener acceso a algunos datos. En concreto, este paso adicional será necesario para medir automáticamente las llamadas de la aplicación a las bases de datos, las API de REST y otros componentes externos. Estas métricas de dependencia pueden ser inestimables para ayudar a diagnosticar problemas de rendimiento.
@@ -157,6 +172,8 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 [Adición de secuencias de comandos a roles web y de trabajo](app-insights-cloudservices.md)
 
+
+
 ## 6\. Adición de la supervisión del lado cliente
 
 Instaló el SDK que envía datos de telemetría desde el servidor (back-end) de la aplicación. Ahora puede agregar la supervisión del lado cliente. Esto proporciona datos de los usuarios, sesiones, vistas de página y excepciones o bloqueos que se producen en el cliente.
@@ -175,7 +192,7 @@ Observe que el código contiene la clave de instrumentación que identifica al r
 
 #### Si los clientes son aplicaciones de dispositivos
 
-Si la aplicación da servicio a clientes como, por ejemplo, teléfonos u otros dispositivos, agregue el [SDK adecuado](app-insights-platforms.md) a la aplicación de dispositivos.
+Si la aplicación atiende a clientes como teléfonos u otros dispositivos, agregue el [SDK adecuado](app-insights-platforms.md) a la aplicación del dispositivo.
 
 Si configura el SDK del cliente con la misma clave de instrumentación que el SDK del servidor, las dos secuencias se integrarán de modo que podrá verlas juntas.
 
@@ -207,7 +224,7 @@ Si el proyecto tiene páginas web, también agrega el [SDK de JavaScript][client
 
 #### ....o si se trata de un proyecto existente
 
-Haga clic con el botón derecho en el Explorador de soluciones y elija **Agregar Application Insights**.
+Haga clic con el botón secundario en el Explorador de soluciones y seleccione **Agregar Application Insights**.
 
 ![Elija Agregar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -255,4 +272,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

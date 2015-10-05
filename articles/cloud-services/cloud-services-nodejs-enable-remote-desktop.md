@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Habilite el Escritorio remoto para el acceso remoto de (Node.js)"
-	description="Vea cómo habilitar el acceso mediante Escritorio remoto para las máquinas virtuales que hospedan su aplicación Node.js de Azure."
-	services="cloud-services"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	pageTitle="Habilite el Escritorio remoto para el acceso remoto de (Node.js)" 
+	description="Vea cómo habilitar el acceso mediante Escritorio remoto para las máquinas virtuales que hospedan su aplicación Node.js de Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mwasson"/>
 
 
@@ -98,7 +98,7 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
 
 - [Acceso remoto a las instancias de rol de Azure] 
 - [Uso de Escritorio de remoto con los roles de Azure]
-
+- [Centro para desarrolladores de Node.js](/develop/nodejs/)
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
@@ -116,4 +116,4 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
   [Uso de Escritorio de remoto con los roles de Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,24 +1,27 @@
 <properties
-   pageTitle="Ejemplo de configuración para las extensiones de la máquina virtual de Azure | Microsoft Azure"
-   description="Configuración de ejemplo para crear plantillas con extensiones"
+   pageTitle="Ejemplo de configuración para las extensiones de la máquina virtual de Linux | Microsoft Azure"
+   description="Configuración de ejemplo para crear plantillas con extensiones para máquinas virtuales de Linux"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Ejemplos de configuración de la extensión de máquina virtual Linux de Azure.
+# Ejemplos de configuración de la extensión de máquina virtual Linux
 
-Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Linux de IaaS de Azure.
+Este artículo proporciona un ejemplo de configuración para configurar las extensiones de máquina virtual de Azure para máquinas virtuales Linux.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Para obtener más información sobre estas extensiones, haga clic aquí: [Información general de las extensiones de máquinas virtuales de Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
@@ -186,4 +189,4 @@ Esta es una plantilla de máquina virtual completa para la creación de una VM d
 
 [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Aplicación web de Ruby on Rails en Azure con una máquina virtual de Linux" 
-	description="Hospede un sitio web basado en Ruby on Rails en Azure usando una máquina virtual de Linux." 
-	services="virtual-machines" 
-	documentationCenter="ruby" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="Hospedar un sitio web Ruby on Rails en una máquina virtual Linux | Microsoft Azure"
+	description="Configure y hospede un sitio web basado en Ruby on Rails en Azure usando una máquina virtual de Linux."
+	services="virtual-machines"
+	documentationCenter="ruby"
+	authors="MikeWasson"
+	manager="wpickett"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="web"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="06/09/2015"
 	ms.author="mwasson"/>
 
 
@@ -25,6 +26,8 @@
 En este tutorial se muestra cómo hospedar un sitio web Ruby on Rails en Azure usando una máquina virtual de Linux.
 
 Este tutorial se validó con Ubuntu Server 14.04 LTS. Si utiliza una distribución de Linux diferente, es posible que tenga que modificar los pasos para instalar Rails.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
 
 ## Creación de una máquina virtual de Azure
 
@@ -50,8 +53,8 @@ Después de aprovisionar la máquina virtual, puede obtener el extremo de SSH ej
 
 ## Instalación de Ruby on Rails
 
-1. Use SSH para conectarse a la máquina virtual. 
-	
+1. Use SSH para conectarse a la máquina virtual.
+
 2. En la sesión de SSH, use los siguientes comandos para instalar Ruby en la máquina virtual:
 
 		sudo apt-get update -y
@@ -170,6 +173,5 @@ Para utilizar servicios de Azure desde su aplicación de Ruby, consulte:
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

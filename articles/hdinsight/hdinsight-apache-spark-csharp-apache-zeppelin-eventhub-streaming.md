@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="nitinme"/>
 
 
@@ -22,7 +22,7 @@
 
 La transmisión de Spark amplía la API de Spark de núcleo para crear aplicaciones escalables de procesamiento de transmisión de alto rendimiento y tolerantes a errores. Los datos pueden ser introducidos desde varios orígenes. En este artículo usamos los Centros de eventos para introducir datos. Los Centros de eventos son un sistema de introducción altamente escalable que introduce millones de eventos por segundo.
 
-En este tutorial, obtendrá información sobre cómo crear un Centro de eventos de Azure, cómo introducir mensajes en un Centro de eventos mediante una aplicación de consola en C#y cómo recuperarlos en paralelo mediante un notebook Zeppelin configurado para Apache Spark en HDInsight.
+En este tutorial, obtendrá información sobre cómo crear un Centro de eventos de Azure, cómo introducir mensajes en un Centro de eventos mediante una aplicación de consola en C# y cómo recuperarlos en paralelo mediante un notebook Zeppelin configurado para Apache Spark en HDInsight.
 
 > [AZURE.NOTE]Para seguir las instrucciones de este artículo, tendrá que usar las dos versiones del portal de Azure. Para crear un Centro de eventos, deberá usar el [Portal de Azure](https://manage.windowsazure.com). Para trabajar con el clúster de HDInsight Spark, deberá usar el [Portal de vista previa de Azure](https://ms.portal.azure.com/).
 
@@ -74,9 +74,25 @@ Debe tener lo siguiente:
 
 En esta sección, deberá crear un notebook [Zeppelin](https://zeppelin.incubator.apache.org) para recibir mensajes desde el centro de eventos en el clúster Spark en HDInsight.
 
-1. Desde el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ha fijado en el panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+### Asignación de recursos a Zeppelin para aplicaciones de streaming
 
-2. Inicie el cuaderno de Zeppelin. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, a continuación, desde la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Zeppelin**. Cuando se le pida, escriba las credenciales de administrador para el clúster. Siga las instrucciones de la página que se abre para iniciar el cuaderno.
+Debe realizar las siguientes consideraciones al crear una aplicación de streaming mediante Zeppelin:
+
+* **Núcleos y particiones del Centro de eventos asignados a Zeppelin**. En los pasos anteriores, creó un Centro de eventos con algunas particiones. En la aplicación de streaming de Zeppelin que creará a continuación, especificará el mismo número de particiones de nuevo. Para hacer streaming de los datos del Centro de eventos mediante Zeppelin, el número de núcleos que se asignan a Zeppelin debe ser el doble del número de particiones del Centro de eventos.
+* **Número mínimo de núcleos que se asignarán a Zeppelin**. En la aplicación de streaming que creará a continuación, creará una tabla temporal donde se almacenarán los mensajes de los que la aplicación hará streaming. Después utilizará una instrucción SQL Spark para leer mensajes de esta tabla temporal. Para ejecutar correctamente la instrucción SQL Spark, debe asegurarse de que tiene al menos dos núcleos asignados a Zeppelin.
+
+Si combina los dos requisitos anteriores, esto es lo que obtendrá:
+
+* El número mínimo de núcleos que debe asignar a Zeppelin es 2.
+* El número de núcleos asignados siempre debe ser el doble que el número de particiones del Centro de eventos. 
+
+Para obtener instrucciones sobre cómo asignar recursos en un clúster Spark, vea [Administración de recursos para el clúster de Apache Spark en HDInsight](hdinsight-apache-spark-resource-manager.md).
+
+### Creación de una aplicación de streaming mediante Zeppelin
+
+1. En el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+
+2. Inicie el cuaderno de Zeppelin. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y después, en la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Zeppelin**. Cuando se le pida, escriba las credenciales de administrador para el clúster. Siga las instrucciones de la página que se abre para iniciar el cuaderno.
 
 2. Cree un nuevo notebook. En el panel de encabezado, haga clic en **Notebook** y, en la lista desplegable, haga clic en **Crear una nueva nota**.
 
@@ -84,11 +100,13 @@ En esta sección, deberá crear un notebook [Zeppelin](https://zeppelin.incubato
 
 	En la misma página, en el encabezado **Notebook**, debería ver un nuevo cuaderno con un nombre que empiece por **Note XXXXXXXXX** (Nota XXXXXXXXX). Haga clic en el nuevo cuaderno.
 
-3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado del cuaderno muestre el estado **Connected** (Conectado) en la esquina superior derecha.
+3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado de cuaderno muestre el estado **Connected** (Conectado) en la esquina superior derecha.
 
 	![Estado del cuaderno de Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Estado del notebook Zeppelin")
 
-4. En el párrafo vacío que se crea de forma predeterminada en el nuevo notebook, pegue el siguiente fragmento de código y reemplace los marcadores de posición para usar la configuración del centro de eventos. En este fragmento de código, recibe la secuencia del centro de eventos y registra la secuencia en una tabla temporal, denominada **mytemptable**. En la siguiente sección, se iniciará la aplicación remitente. A continuación, puede leer los datos directamente de la tabla.
+4. En el párrafo vacío que se crea de forma predeterminada en el nuevo notebook, pegue el siguiente fragmento de código y reemplace los marcadores de posición para usar la configuración del centro de eventos. En este fragmento de código, recibe la secuencia del Centro de eventos y la registra en una tabla temporal llamada **mytemptable**. En la siguiente sección, se iniciará la aplicación remitente. A continuación, puede leer los datos directamente de la tabla.
+
+	> [AZURE.NOTE]En el fragmento de código siguiente, **eventhubs.checkpoint.dir** debe establecerse en un directorio en el contenedor de almacenamiento predeterminado. Si el directorio no existe, la aplicación de streaming lo crea. Puede especificar la ruta de acceso completa al directorio como "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**" o simplemente la ruta de acceso relativa al directorio, como "**/mycheckpointdir**".
 
 		import org.apache.spark.streaming.{Seconds, StreamingContext}
 		import org.apache.spark.streaming.eventhubs.EventHubsUtils
@@ -123,7 +141,7 @@ En esta sección, deberá crear un notebook [Zeppelin](https://zeppelin.incubato
 
 	![Salida del fragmento de código](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Code.Output.png "Salida del fragmento de código")
 
-2. Ejecute el proyecto de **remitente** y presione **Intro** en la ventana de la consola para iniciar el envío de mensajes al Centro de eventos.
+2. Ejecute el proyecto de **Remitente** y presione **Intro** en la ventana de la consola para iniciar el envío de mensajes al Centro de eventos.
 
 3. En el notebook Zeppelin, en un nuevo párrafo, escriba el siguiente fragmento de código para leer los mensajes recibidos en Spark.
 
@@ -138,7 +156,7 @@ En esta sección, deberá crear un notebook [Zeppelin](https://zeppelin.incubato
 
 	![Reinicie el intepretador Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "Reinicie el intepretador Zeppelin")
 
-##<a name="sparkstreamingha"></a>Ejecute la aplicación de transmisión por secuencias con alta disponibilidad
+##<a name="sparkstreamingha"></a>Ejecute la aplicación de streaming con alta disponibilidad
 
 Usar Zeppelin para recibir datos de transmisión por secuencias en el clúster Spark en HDInsight es un buen enfoque para diseñar un prototipo de su aplicación. Sin embargo, para ejecutar la aplicación de transmisión por secuencias en una instalación de producción con alta disponibilidad y resistencia, deberá hacer lo siguiente:
 
@@ -147,7 +165,7 @@ Usar Zeppelin para recibir datos de transmisión por secuencias en el clúster S
 3. RDP en el clúster y copie el jar de aplicación en el nodo principal del clúster.
 3. RDP en el clúster y ejecute la aplicación en el nodo del clúster.
 
-Puede descargar instrucciones sobre cómo realizar estos pasos y un ejemplo de aplicación de transmisión desde GitHub en [https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples).
+Puede descargar instrucciones sobre cómo realizar estos pasos y un ejemplo de aplicación de streaming desde GitHub en [https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples).
 
 
 ##<a name="seealso"></a>Otras referencias
@@ -170,4 +188,4 @@ Puede descargar instrucciones sobre cómo realizar estos pasos y un ejemplo de a
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

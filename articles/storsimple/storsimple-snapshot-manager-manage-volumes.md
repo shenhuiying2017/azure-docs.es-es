@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Administrador de instantáneas StorSimple y volúmenes | Microsoft Azure"
-   description="Describe cómo usar el complemento MMC de Administrador de instantáneas StorSimple para ver y administrar volúmenes."
+   description="Describe cómo usar el complemento MMC de Snapshot Manager de StorSimple para ver y administrar volúmenes y configurar copias de seguridad."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="09/21/2015"
    ms.author="v-sharos" />
 
 # Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
@@ -25,9 +25,7 @@ Para obtener más información sobre los volúmenes admitidos, vaya a[Compatibil
 
 ![Lista de volúmenes en el panel Resultados](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
-**Ilustración 1: Nodo Volúmenes de Administrador de instantáneas StorSimple**
-
-El nodo **Volúmenes** también permite volver a examinar o eliminar volúmenes después de que los detecte Administrador de instantáneas StorSimple.
+El nodo **Volúmenes** también permite volver a examinar o eliminar volúmenes después de que los detecte Snapshot Manager de StorSimple.
 
 Este tutorial explica cómo puede montar, inicializar y dar formato a volúmenes y usar luego Administrador de instantáneas StorSimple para:
 
@@ -47,15 +45,15 @@ Utilice el procedimiento siguiente para montar, inicializar y dar formato a vol�
 
 1. En el equipo host, inicie el iniciador iSCSI de Microsoft.
 
-2. Proporcione una de las direcciones IP de interfaz como el portal de destino o la dirección IP de detección y conéctese al dispositivo. Una vez conectado el dispositivo, los volúmenes estarán accesibles para el sistema Windows. Para obtener más información acerca del uso del iniciador iSCSI de Microsoft, vaya a la sección "Conectar a un dispositivo de destino iSCSI" en [Instalar y configurar el iniciador iSCSI de Microsoft][1].
+2. Proporcione una de las direcciones IP de interfaz como el portal de destino o la dirección IP de detección y conéctese al dispositivo. Una vez conectado el dispositivo, los volúmenes estarán accesibles para el sistema Windows. Para obtener más información sobre el uso del iniciador iSCSI de Microsoft, vaya a la sección "Conectar a un dispositivo de destino iSCSI" en [Instalar y configurar el iniciador iSCSI de Microsoft][1].
 
 3. Utilice cualquiera de las siguientes opciones para iniciar el complemento Administración de discos:
 
     - Escriba Diskmgmt.msc en el cuadro **Ejecutar**.
 
-    - Inicie el Administrador del servidor, expanda el nodo **Almacenamiento** y, a continuación, seleccione **Administración de discos**.
+    - Inicie el Administrador del servidor, expanda el nodo **Almacenamiento** y, luego, seleccione **Administración de discos**.
 
-    - Inicie **Herramientas administrativas**, expanda el nodo **Administración de equipos** y, a continuación, seleccione **Administración de discos**.
+    - Inicie **Herramientas administrativas**, expanda el nodo **Administración de equipos** y, luego, seleccione **Administración de discos**.
 
     >[AZURE.NOTE]Debe usar privilegios de administrador para ejecutar Administración de discos.
  
@@ -63,7 +61,7 @@ Utilice el procedimiento siguiente para montar, inicializar y dar formato a vol�
 
    1. En Administración de discos, haga clic con el botón derecho en cualquier volumen marcado **Sin conexión**.
 
-   2. Haga clic en **Reactivar disco**. El disco debería estar marcado como **En línea** después de que se vuelva a activar el disco.
+   2. Haga clic en **Reactivar disco**. El disco debería estar marcado como **En línea** después de que se vuelva a activar.
 
 5. Inicialice el volumen:
 
@@ -71,7 +69,7 @@ Utilice el procedimiento siguiente para montar, inicializar y dar formato a vol�
 
    2. En el menú, seleccione **Inicializar disco**.
 
-   3. En el cuadro de diálogo **Inicializar disco**, seleccione los discos que desea inicializar y, a continuación, haga clic en **Aceptar**.
+   3. En el cuadro de diálogo **Inicializar disco**, seleccione los discos que quiera inicializar y, luego, haga clic en **Aceptar**.
 
 6. Dé formato a volúmenes simples:
 
@@ -97,7 +95,7 @@ Utilice el procedimiento siguiente para ver información acerca de volúmenes lo
 
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
 
-2. En el panel **Ámbito**, haga clic en el nodo **Volúmenes**. Aparecerá una lista de los volúmenes locales y montados, incluidos todos los volúmenes de Azure StorSimple, en el panel **Resultados**. Las columnas del panel **Resultados** son configurables. (Haga clic con el botón derecho en el nodo **Volúmenes**, seleccione **Ver** y, a continuación, seleccione **Agregar o quitar columnas**.)
+2. En el panel **Ámbito**, haga clic en el nodo **Volúmenes**. Aparecerá una lista de los volúmenes locales y montados, incluidos todos los volúmenes de Azure StorSimple, en el panel **Resultados**. Las columnas del panel **Resultados** son configurables. (Haga clic con el botón derecho en el nodo **Volúmenes**, seleccione **Ver** y, luego, seleccione **Agregar o quitar columnas**).
 
     ![Configurar las columnas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
 
@@ -119,15 +117,15 @@ Utilice el procedimiento siguiente para eliminar un volumen en Administrador de 
 
 2. En el panel **Ámbito**, haga clic en el nodo **Volúmenes**.
 
-3. En el panel **Resultados**, haga clic con el botón derecho en el volumen que desee eliminar.
+3. En el panel **Resultados**, haga clic con el botón derecho en el volumen que quiera eliminar.
 
 4. En el menú, haga clic en **Eliminar**.
 
     ![Eliminar un volumen](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png)
 
-5. Aparece el cuadro de diálogo **Eliminar volumen**. Escriba **Confirmar** en el cuadro de texto y, a continuación, haga clic en **Aceptar**.
+5. Aparece el cuadro de diálogo **Eliminar volumen**. Escriba **Confirmar** en el cuadro de texto y, luego, haga clic en **Aceptar**.
 
-6. De forma predeterminada, Administrador de instantáneas StorSimple realiza una copia de seguridad de un volumen antes de eliminarlo. Esta precaución puede protegerle frente a pérdidas de datos si la eliminación es accidental. Administrador de instantáneas StorSimple muestra un mensaje de progreso de una **Instantánea automática** mientras hace una copia de seguridad del volumen.
+6. De forma predeterminada, Administrador de instantáneas StorSimple realiza una copia de seguridad de un volumen antes de eliminarlo. Esta precaución puede protegerle frente a pérdidas de datos si la eliminación es accidental. Snapshot Manager de StorSimple muestra un mensaje de progreso de una **Instantánea automática** mientras hace una copia de seguridad del volumen.
 
     ![Mensaje de instantánea automático](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png)
 
@@ -139,7 +137,7 @@ Use el procedimiento siguiente para volver a examinar los volúmenes conectados 
 
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
 
-2. En el panel **Ámbito**, haga clic con el botón derecho en **Volúmenes** y, a continuación, haga clic en **Volver a examinar volúmenes**.
+2. En el panel **Ámbito**, haga clic con el botón derecho en **Volúmenes** y, luego, haga clic en **Volver a examinar volúmenes**.
 
     ![Volver a examinar volúmenes](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
  
@@ -153,9 +151,9 @@ Utilice el siguiente procedimiento para configurar una copia de seguridad de un 
 
 Antes de empezar:
 
-- Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+- Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-- Instalación y configuración de Administrador de instantáneas StorSimple Para obtener más información, vaya a [Implementación de Administrador de instantáneas StorSimple](storsimple-snapshot-manager-deployment.md).
+- Instalación y configuración de Administrador de instantáneas StorSimple Para obtener más información, vaya a [Implementación de Snapshot Manager de StorSimple](storsimple-snapshot-manager-deployment.md).
 
 #### Para configurar la copia de seguridad de un volumen básico
 
@@ -165,13 +163,13 @@ Antes de empezar:
 
 3. Haga clic en el icono Administrador de instantáneas StorSimple en su escritorio. Aparecerá el cuadro de diálogo Administrador de instantáneas StorSimple.
 
-4. En el panel **Ámbito**, haga clic con el botón derecho en el nodo **Volúmenes** y, a continuación, seleccione **Volver a examinar volúmenes**. Cuando termine el examen, debe aparecer una lista de volúmenes en el panel **Resultados**.
+4. En el panel **Ámbito**, haga clic con el botón derecho en el nodo **Volúmenes** y, luego, seleccione **Volver a examinar volúmenes**. Cuando termine el examen, debe aparecer una lista de volúmenes en el panel **Resultados**.
 
-5. En el panel **Resultados**, haga clic con el botón derecho en el volumen y, a continuación, seleccione **Crear grupo de volúmenes**.
+5. En el panel **Resultados**, haga clic con el botón derecho en el volumen y, luego, seleccione **Crear grupo de volúmenes**.
 
     ![Crear grupo de volúmenes](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png)
 
-6. En el cuadro de diálogo **Crear grupo de volúmenes**, escriba un nombre para el grupo de volúmenes, asígnele volúmenes y, a continuación, haga clic en**Aceptar**.
+6. En el cuadro de diálogo **Crear grupo de volúmenes**, escriba un nombre para el grupo de volúmenes, asígnele volúmenes y, luego, haga clic en **Aceptar**.
 
 7. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**. El nuevo grupo de volúmenes debe aparecer bajo el nodo **Grupos de volúmenes**.
 
@@ -181,29 +179,29 @@ Antes de empezar:
 
     - Para programar una copia de seguridad automática, haga clic en **Crear directiva de copia de seguridad**. En la página **General**, seleccione un grupo de volúmenes de la lista. En la página **Programación**, escriba los detalles de la programación. Cuando haya terminado, haga clic en **Aceptar**.
 
-9. Para confirmar que se ha iniciado el trabajo de copia de seguridad, expanda el nodo **Trabajos** en el panel **Ámbito** y, a continuación, haga clic en el nodo **En ejecución**. Aparece la lista de trabajos actualmente en ejecución en el panel **Resultados**.
+9. Para confirmar que se ha iniciado el trabajo de copia de seguridad, expanda el nodo **Trabajos** en el panel **Ámbito** y, luego, haga clic en el nodo **En ejecución**. Aparece la lista de trabajos actualmente en ejecución en el panel **Resultados**.
 
 ## Configuración y copia de seguridad de un volumen reflejado dinámico
 
 Complete los pasos siguientes para configurar la copia de seguridad de un volumen reflejado dinámico:
 
-- Paso 1: Uso del Administración de discos para crear un volumen reflejado dinámico 
+- Paso 1: Uso de Administración de discos para crear un volumen reflejado dinámico. 
 
-- Paso 2: Uso de Administrador de instantáneas StorSimple para configurar la copia de seguridad
+- Paso 2: Uso de Snapshot Manager de StorSimple para configurar la copia de seguridad.
 
 ### Requisitos previos
 
 Antes de empezar:
 
-- Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+- Asegúrese de que el equipo host y el dispositivo StorSimple están configurados correctamente. Para obtener más información, vaya a [Implementación del dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
-- Instalación y configuración de Administrador de instantáneas StorSimple Para obtener más información, vaya a [Implementación de Administrador de instantáneas StorSimple](storsimple-snapshot-manager-deployment.md).
+- Instalación y configuración de Administrador de instantáneas StorSimple Para obtener más información, vaya a [Implementación de Snapshot Manager de StorSimple](storsimple-snapshot-manager-deployment.md).
 
-- Configure dos volúmenes en el dispositivo StorSimple. (En los ejemplos, los volúmenes disponibles son **Disco 1** y **Disco 2**.)
+- Configure dos volúmenes en el dispositivo StorSimple. (En los ejemplos, los volúmenes disponibles son **Disco 1** y **Disco 2**).
 
 ### Paso 1: Uso del Administración de discos para crear un volumen reflejado dinámico
 
-Administración de discos es una utilidad del sistema para administrar discos duros y los volúmenes o particiones que contienen. Para obtener más información acerca de Administración de discos, vaya a [Administración de discos](https://technet.microsoft.com/library/cc770943.aspx) en el sitio web de Microsoft TechNet.
+Administración de discos es una utilidad del sistema para administrar discos duros y los volúmenes o particiones que contienen. Para obtener más información sobre Administración de discos, vaya a [Administración de discos](https://technet.microsoft.com/library/cc770943.aspx) en el sitio web de Microsoft TechNet.
 
 #### Para crear un volumen reflejado dinámico
 
@@ -211,25 +209,25 @@ Administración de discos es una utilidad del sistema para administrar discos du
 
    - Abra el cuadro **Ejecutar**, escriba **Diskmgmt.msc** y presione Entrar.
 
-   - Inicie el Administrador del servidor, expanda el nodo **Almacenamiento** y, a continuación, seleccione **Administración de discos**.
+   - Inicie el Administrador del servidor, expanda el nodo **Almacenamiento** y, luego, seleccione **Administración de discos**.
 
-   - Inicie **Herramientas administrativas**, expanda el nodo **Administración de equipos** y, a continuación, seleccione **Administración de discos**.
+   - Inicie **Herramientas administrativas**, expanda el nodo **Administración de equipos** y, luego, seleccione **Administración de discos**.
 
-2. Asegúrese de que dispone de dos volúmenes en el dispositivo StorSimple. (En el ejemplo, los volúmenes disponibles son **Disco 1** y **Disco 2**.) 
+2. Asegúrese de que dispone de dos volúmenes en el dispositivo StorSimple. (En el ejemplo, los volúmenes disponibles son **Disco 1** y **Disco 2**). 
 
-3. En la ventana Administración de discos, en la columna derecha de la parte inferior, haga clic con el botón derecho en**Disco 1** y seleccione **Nuevo volumen reflejado**.
+3. En la ventana Administración de discos, en la columna derecha de la parte inferior, haga clic con el botón derecho en **Disco 1** y seleccione **Nuevo volumen reflejado**.
 
     ![Nuevo volumen reflejado](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png)
 
 4. En la página **Nuevo volumen reflejado** del asistente, haga clic en **Siguiente**.
 
-5. En la página **Seleccionar discos**, seleccione **Disco 2** en el panel **Seleccionados**, haga clic en **Agregar** y, a continuación, en **Siguiente**.
+5. En la página **Seleccionar discos**, seleccione **Disco 2** en el panel **Seleccionados**, haga clic en **Agregar** y, luego, en **Siguiente**.
 
-6. En la página **Asignar letra de unidad o ruta de acceso**, acepte los valores predeterminados y, a continuación, haga clic en **Siguiente**.
+6. En la página **Asignar letra de unidad o ruta de acceso**, acepte los valores predeterminados y, luego, haga clic en **Siguiente**.
 
-7. En la página **Formatear volumen**, en el cuadro **Tamaño de unidad de asignación**, seleccione **64K**. Seleccione la casilla **Dar formato rápido** y, a continuación, haga clic en **Siguiente**.
+7. En la página **Formatear volumen**, en el cuadro **Tamaño de unidad de asignación**, seleccione **64K**. Active la casilla **Dar formato rápido** y, luego, haga clic en **Siguiente**.
 
-8. En la página **Finalización del nuevo volumen reflejado**, revise la configuración y, a continuación, haga clic en **Finalizar**.
+8. En la página **Finalización del nuevo volumen reflejado**, revise la configuración y, luego, haga clic en **Finalizar**.
 
 9. Aparece un mensaje para indicar que el disco básico se convertirá en un disco dinámico. Haga clic en **Sí**.
 
@@ -251,7 +249,7 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 
 3. En el panel **Resultados**, haga clic con el botón derecho en el volumen reflejado dinámico y después haga clic en **Crear grupo de volúmenes**.
 
-4. En el cuadro de diálogo **Crear grupo de volúmenes**, escriba un nombre para el grupo de volúmenes, asigne el volumen reflejado dinámico a este grupo y después haga clic en**Aceptar**.
+4. En el cuadro de diálogo **Crear grupo de volúmenes**, escriba un nombre para el grupo de volúmenes, asigne el volumen reflejado dinámico a este grupo y después haga clic en **Aceptar**.
 
 5. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**. El nuevo grupo de volúmenes debe aparecer bajo el nodo **Grupos de volúmenes**.
 
@@ -271,4 +269,4 @@ Utilice el siguiente procedimiento para configurar un volumen reflejado dinámic
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

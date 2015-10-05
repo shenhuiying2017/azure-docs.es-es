@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Uso de privilegios raíz en máquinas virtuales de Linux en Azure" 
+	pageTitle="Uso de privilegios raíz en máquinas virtuales de Linux | Microsoft Azure" 
 	description="Aprenda a usar privilegios raíz en una máquina virtual de Linux en Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,15 +18,13 @@
 	ms.author="szark"/>
 
 
-
-
 # Uso de privilegios raíz en máquinas virtuales con Linux en Azure
 
 De forma predeterminada, el usuario `root` está deshabilitado en las máquinas virtuales Linux en Azure. Los usuarios pueden ejecutar comandos con privilegios elevados mediante el comando `sudo`. Sin embargo, la experiencia puede variar dependiendo de la manera en que se aprovisionó el sistema.
 
 1. **Clave SSH y contraseña o solo contraseña**: La máquina virtual se aprovisionó con un certificado (archivo `.CER`) o una clave SSH, además de una contraseña, o solo un nombre de usuario y una contraseña. En este caso `sudo` solicitará la contraseña del usuario antes de ejecutar el comando.
 
-2. **Solo clave SSH**: Se ha aprovisionado la máquina virtual con un certificado (archivo `.cer` o `.pem`) o una clave SSH, pero sin contraseña. En este caso `sudo` **no** solicitará la contraseña del usuario antes de ejecutar el comando.
+2. **Solo clave SSH**: Se ha aprovisionado la máquina virtual con un certificado (archivo `.cer`, `.pem` o `.pub`) o una clave SSH, pero sin contraseña. En este caso `sudo` **no** solicitará la contraseña del usuario antes de ejecutar el comando.
 
 
 ## Clave SSH y contraseña o solo contraseña
@@ -54,4 +53,4 @@ En este caso **no** se solicitará la contraseña al usuario. Después de presio
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

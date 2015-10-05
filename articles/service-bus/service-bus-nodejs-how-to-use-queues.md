@@ -163,10 +163,11 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 ## Pasos siguientes
 
-Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vínculos para obtener más información.
+Para obtener más información, vea los siguientes recursos.
 
--   Vea [Colas, temas y suscripciones][].
--   Visite el repositorio del [SDK de Azure para Node][] en GitHub.
+-   [Colas, temas y suscripciones del Service Bus][]
+-   Repositorio del [SDK de Azure para Node][] en GitHub
+-   [Centro para desarrolladores de Node.js](/develop/nodejs/)
 
   [SDK de Azure para Node]: https://github.com/Azure/azure-sdk-for-node
   [Pasos siguientes]: #next-steps
@@ -183,10 +184,10 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
+  [Colas, temas y suscripciones del Service Bus]: service-bus-queues-topics-subscriptions.md
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servicio de nube de Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Aplicación web de Node.js con almacenamiento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

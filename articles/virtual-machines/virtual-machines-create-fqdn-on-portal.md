@@ -1,23 +1,25 @@
 <properties
    pageTitle="Crear un FQDN para una máquina virtual en el Portal de Azure | Microsoft Azure"
-	description="Aprenda a crear un nombre de dominio completo o FQDN para una máquina virtual basada en el administrador de recursos en el portal de vista previa de Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dsk-2015"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-management"/>
+   description="Aprenda a crear un nombre de dominio completo o FQDN para una máquina virtual basada en el administrador de recursos en el portal de vista previa de Azure."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="dsk-2015"
+   manager="timlt"
+   editor="tysonn"
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/21/2015"
-	ms.author="dkshir"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/21/2015"
+   ms.author="dkshir"/>
 
 # Crear un nombre de dominio completo en el portal de vista previa de Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de FQDN con el modelo de implementación del Administrador de recursos.
 
 Cuando crea una máquina virtual en el [portal de vista previa de Azure](https://portal.azure.com) mediante el modelo de implementación del **Administrador de recursos**, el portal crea un recurso de IP pública para la máquina virtual. Puede usar esta dirección IP para obtener acceso remoto a la máquina virtual. Sin embargo, el portal no crea un [nombre de dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) o FQDN de forma predeterminada. Puesto que sería más sencillo recordar y usar un FQDN en lugar de una dirección IP, en este artículo se muestra cómo puede agregar uno a la máquina virtual.
 
@@ -51,4 +53,4 @@ En el artículo se supone que ha iniciado la sesión en su suscripción en el po
 
     Ahora puede conectarse de manera remota a la máquina virtual con este nombre DNS. Por ejemplo, use `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com` al conectarse a una máquina virtual de Linux que tiene el nombre de dominio completo nombre de `testdnslabel.eastus.cloudapp.azure.com` y el nombre de usuario de `adminuser`.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

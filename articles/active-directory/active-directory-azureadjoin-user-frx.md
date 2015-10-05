@@ -43,7 +43,8 @@ Para unir un dispositivo a Azure AD
 > [AZURE.NOTE]La configuración rápida de Windows no admite la unión a un dominio de Active Directory local. Por lo tanto, si planea unir un equipo a un dominio, debe seleccionar el vínculo "Configurar Windows con una cuenta local en su lugar". Luego, puede unirse al dominio desde la configuración de PC como ya lo hizo anteriormente.
 
 ## Información adicional
+* [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Conozca los escenarios de uso de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

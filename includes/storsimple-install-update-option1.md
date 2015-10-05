@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Opción 1: Uso de Windows PowerShell para StorSimple a fin de instalar la actualización 1.2"
-   description="Explica cómo usar Windows PowerShell para StorSimple a fin de instalar StorSimple 8000 Series Update 1.2."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/09/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar la Actualización 1.2 desde Windows PowerShell para StorSimple
 
@@ -36,7 +21,7 @@
  
         ![Visualización de cesta](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-    6. Haga clic en **Descargar**. Especifique o seleccione una ubicación local en la que quiera que aparezca la descarga. Se descargará la actualización en una carpeta **StorSimple Update 1.2 Appliance Update bundle** (KB3063418) en la ubicación elegida. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
+    6. Haga clic en **Descargar**. Especifique o **busque** una ubicación local en la que quiera que aparezca la descarga. Se descargará la actualización en una carpeta **StorSimple Update 1.2 Appliance Update bundle** (KB3063418) en la ubicación elegida. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
     
 	En este procedimiento se describe cómo instalar la actualización del dispositivo de software como una revisión, las actualizaciones de firmware de disco del servidor de Microsoft Update y el controlador de LSI y las actualizaciones de Windows desde el Portal de administración. Sin embargo, podría elegir instalar las actualizaciones de software, controladores y firmware de disco como revisiones. Luego necesitará descargar la actualización del controlador de StorSimple 1.2 SAS (KB3043005) y la actualización de firmware de disco de StorSimple 1.2 (KB3063416) y copiar en la misma carpeta compartida. Para instalar las actualizaciones de firmware de disco como revisión, siga las instrucciones de [instalar revisiones del modo de mantenimiento a través de Windows PowerShell para StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
     
@@ -127,4 +112,4 @@
  
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

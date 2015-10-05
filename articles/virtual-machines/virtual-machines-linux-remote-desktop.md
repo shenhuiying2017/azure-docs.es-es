@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Uso de Escritorio remoto para conectar una VM Linux de Microsoft Azure."
-	description="Obtenga información acerca de cómo instalar y configurar Escritorio remoto en una VM Linux de Microsoft Azure."
+	pageTitle="Escritorio remoto a una máquina virtual Linux | Microsoft Azure"
+	description="Obtenga información acerca de cómo instalar y configurar Escritorio remoto para conectarse a una máquina virtual Linux de Microsoft Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,16 +18,18 @@
 	ms.author="mingzhan"/>
 
 
-#Uso de Escritorio remoto para conectarse a una VM Linux de Microsoft Azure
+#Uso de Escritorio remoto para conectarse a una máquina virtual Linux de Microsoft Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de un recurso con el modelo de implementación clásica.
 
 ##Información general
 
-RDP (Protocolo de escritorio remoto) es un protocolo propietario que se usa para Windows, ¿cómo podemos usar RDP para conectar la VM (máquina virtual) Linux de forma remota?
+RDP (protocolo de escritorio remoto) es un protocolo propietario que se usa para Windows. ¿Cómo se puede usar RDP para conectarse a una máquina virtual de Linux de forma remota?
 
 Esta guía le proporcionará la respuesta. Le ayudará a instalar y configurar xrdp en su VM Linux de Microsoft Azure y puede conectarlo a Escritorio remoto desde un equipo de Windows. Usaremos la VM Linux que ejecuta Ubuntu u OpenSUSE como en el ejemplo de esta guía.
 
 Xrdp es un servidor RDP de código abierto, que le permite conectar su servidor Linux a Escritorio remoto desde un equipo de Windows. Su rendimiento es mucho mejor que VNC (Virtual Network Computing). VNC tiene esta racha de calidad "JPEG" y comportamiento lento, mientras que RDP es rápido y clarísimo.
- 
+
 
 > [AZURE.NOTE]Ya debe tener una VM de Microsoft Azure que ejecuta Linux. Para crear y configurar una VM Linux, consulte el [tutorial de máquinas virtuales Linux de Azure](virtual-machines-linux-tutorial.md).
 
@@ -87,7 +90,7 @@ Instale `xfce`, use:
     #sudo apt-get install xubuntu-desktop
 
 A continuación, habilite `xfce`, use:
-    
+
     #echo xfce4-session >~/.xsession
 
 Edite el archivo de configuración `/etc/xrdp/startwm.sh`, use:
@@ -112,10 +115,4 @@ Inicie sesión con `user` y `password` de su VM Linux y disfrute de Escritorio r
 ##Pasos siguientes
 Para obtener más información sobre el uso de xrdp, puede consultar [aquí](http://www.xrdp.org/).
 
-
-
-
-
- 
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

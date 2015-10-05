@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Uso de servicios móviles para cargar imágenes en el almacenamiento de blobs (Android) | Servicios móviles"
 	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en Almacenamiento de Azure y acceder a las imágenes desde su aplicación de Android."
 	services="mobile-services"
@@ -7,13 +7,13 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/18/2015"
 	ms.author="ricksal"/>
 
 # Carga de imágenes a Almacenamiento de Azure desde un dispositivo Android
@@ -47,7 +47,8 @@ Cargar la imagen de la fotografía es un proceso de varios pasos:
 
 No es seguro almacenar las credenciales necesarias para cargar datos en el servicio Almacenamiento de Azure dentro de la aplicación cliente. En lugar de eso, estas credenciales se almacenan en su servicio móvil y se usan para generar una firma de acceso compartido (SAS) que da permiso para cargar una imagen nueva. Servicios móviles devuelve de manera segura una SAS, una credencial de expiración en cinco minutos, a la aplicación cliente. Luego la aplicación utiliza esta credencial temporal para cargar la imagen. Para obtener más información, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
 
->[AZURE.NOTE] [Here](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) es la parte completa del código fuente de cliente de esta aplicación.
+## Código de ejemplo
+[Esta](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) es la parte completa del código fuente de cliente de esta aplicación. Para ejecutarlo, debe completar las partes de back-end de Servicios móviles de este tutorial.
 
 ## Actualización del script de inserción registrado en el Portal de administración
 
@@ -130,7 +131,7 @@ No es seguro almacenar las credenciales necesarias para cargar datos en el servi
 	    static final int REQUEST_TAKE_PHOTO = 1;
 	    public Uri mPhotoFileUri = null;
 	    public File mPhotoFile = null;
-		
+
 	    public void takePicture(View view) {
 	        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 	        // Ensure that there's a camera activity to handle the intent
@@ -161,14 +162,14 @@ No es seguro almacenar las credenciales necesarias para cargar datos en el servi
 	     */
 	    @com.google.gson.annotations.SerializedName("imageUri")
 	    private String mImageUri;
-	
+
 	    /**
 	     * Returns the item ImageUri
 	     */
 	    public String getImageUri() {
 	        return mImageUri;
 	    }
-	
+
 	    /**
 	     * Sets the item ImageUri
 	     *
@@ -178,20 +179,20 @@ No es seguro almacenar las credenciales necesarias para cargar datos en el servi
 	    public final void setImageUri(String ImageUri) {
 	        mImageUri = ImageUri;
 	    }
-	
+
 	    /**
 	     * ContainerName - like a directory, holds blobs
 	     */
 	    @com.google.gson.annotations.SerializedName("containerName")
 	    private String mContainerName;
-	
+
 	    /**
 	     * Returns the item ContainerName
 	     */
 	    public String getContainerName() {
 	        return mContainerName;
 	    }
-	
+
 	    /**
 	     * Sets the item ContainerName
 	     *
@@ -201,20 +202,20 @@ No es seguro almacenar las credenciales necesarias para cargar datos en el servi
 	    public final void setContainerName(String ContainerName) {
 	        mContainerName = ContainerName;
 	    }
-	
+
 	    /**
 	     *  ResourceName
 	     */
 	    @com.google.gson.annotations.SerializedName("resourceName")
 	    private String mResourceName;
-	
+
 	    /**
 	     * Returns the item ResourceName
 	     */
 	    public String getResourceName() {
 	        return mResourceName;
 	    }
-	
+
 	    /**
 	     * Sets the item ResourceName
 	     *
@@ -224,20 +225,20 @@ No es seguro almacenar las credenciales necesarias para cargar datos en el servi
 	    public final void setResourceName(String ResourceName) {
 	        mResourceName = ResourceName;
 	    }
-	
+
 	    /**
 	     *  SasQueryString - permission to write to storage
 	     */
 	    @com.google.gson.annotations.SerializedName("sasQueryString")
 	    private String mSasQueryString;
-	
+
 	    /**
 	     * Returns the item SasQueryString
 	     */
 	    public String getSasQueryString() {
 	        return mSasQueryString;
 	    }
-	
+
 	    /**
 	     * Sets the item SasQueryString
 	     *
@@ -297,19 +298,19 @@ No es seguro almacenar las credenciales necesarias para cargar datos en el servi
 	        if (mClient == null) {
 	            return;
 	        }
-	
+
 	        // Create a new item
 	        final ToDoItem item = new ToDoItem();
-	
+
 	        item.setText(mTextNewToDo.getText().toString());
 	        item.setComplete(false);
 	        item.setContainerName("todoitemimages");
-	
+
 	        // Use a unigue GUID to avoid collisions.
 	        UUID uuid = UUID.randomUUID();
 	        String uuidInString = uuid.toString();
 	        item.setResourceName(uuidInString);
-	
+
 	        // Send the item to be inserted. When blob properties are set this
 	        // generates an SAS in the response.
 	        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -317,23 +318,23 @@ No es seguro almacenar las credenciales necesarias para cargar datos en el servi
 	            protected Void doInBackground(Void... params) {
 	                try {
 		                    final ToDoItem entity = addItemInTable(item);
-		
+
 		                    // If we have a returned SAS, then upload the blob.
 		                    if (entity.getSasQueryString() != null) {
-		
+
 	                       // Get the URI generated that contains the SAS
 	                        // and extract the storage credentials.
-	                        StorageCredentials cred = 
+	                        StorageCredentials cred =
 								new StorageCredentialsSharedAccessSignature(entity.getSasQueryString());
 	                        URI imageUri = new URI(entity.getImageUri());
-	
+
 	                        // Upload the new image as a BLOB from a stream.
 	                        CloudBlockBlob blobFromSASCredential =
 	                                new CloudBlockBlob(imageUri, cred);
-	
+
 	                        blobFromSASCredential.uploadFromFile(mPhotoFileUri.getPath());
   	                    }
-	
+
 	                    runOnUiThread(new Runnable() {
 	                        @Override
 	                        public void run() {
@@ -348,17 +349,17 @@ No es seguro almacenar las credenciales necesarias para cargar datos en el servi
 	                return null;
 	            }
 	        };
-	
+
 	        runAsyncTask(task);
-	
+
 	        mTextNewToDo.setText("");
 	    }
-	
+
 
 Este código envía una solicitud al servicio móvil para insertar un nuevo TodoItem. La respuesta contiene la SAS, que se usa para cargar la imagen del almacenamiento local a un blob de Almacenamiento de Azure.
 
 
-## Prueba de carga de imágenes 
+## Prueba de carga de imágenes
 
 1. En Android Studio pulse **Run** (ejecutar). En el cuadro de diálogo, elija el dispositivo que se va a usar.
 
@@ -380,7 +381,7 @@ Este código envía una solicitud al servicio móvil para insertar un nuevo Todo
 Ahora que ha podido cargar de manera segura imágenes al integrar su servicio móvil con el servicio BLOB, revise algunos de los otros temas relacionados con la integración y el servicio back-end:
 
 + [Envío de correo electrónico desde servicios móviles con SendGrid]
- 
+
   Aprenda a agregar la funcionalidad de correo electrónico a su Servicio móvil con el servicio de correo electrónico SendGrid. Este tema demuestra cómo agregar scripts del lado servidor para enviar correo electrónico mediante SendGrid.
 
 + [Programar trabajos de back-end en Servicios móviles]
@@ -390,12 +391,12 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 + [Referencia del script del servidor de servicios móviles]
 
   Temas de referencia para utilizar scripts de servidor con la finalidad de ejecutar tareas del lado servidor e integración con otros componentes de Azure y recursos externos.
- 
+
 + [Referencia conceptual de Servicios móviles con .NET]
 
   Obtenga más información sobre el uso de Servicios móviles con .NET.
-  
- 
+
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -420,6 +421,5 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,16 +1,17 @@
 <properties
-	pageTitle="Ejecución de una tarea de proceso intensivo en .NET en una máquina virtual de Azure"
+	pageTitle="Ejecutar una aplicación .NET de proceso intensivo en una máquina virtual | Microsoft Azure"
 	description="Aprenda a implementar y ejecutar una aplicación .NET de proceso intensivo en una máquina virtual de Azure y a usar colas del Bus de servicio de Azure para supervisar el progreso remotamente."
 	services="virtual-machines"
 	documentationCenter=".net"
 	authors="wadepickett"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor="mollybos"
+	tags=“azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
@@ -19,6 +20,8 @@
 # Ejecución de una tarea de proceso intensivo en .NET en una máquina virtual de Azure
 
 Con Azure puede utilizar una máquina virtual para controlar tareas de proceso intensivo. Por ejemplo, una máquina virtual puede controlar tareas y ofrecer los resultados a equipos cliente o a aplicaciones móviles. Después de completar el tutorial, habrá aprendido a crear una máquina virtual que ejecuta una aplicación .NET de proceso intensivo que otra aplicación .NET puede supervisar.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
 
 En este tutorial se da por hecho que sabe cómo crear aplicaciones de consola .NET. Se presupone que no tiene conocimiento sobre Azure.
 
@@ -546,4 +549,4 @@ En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

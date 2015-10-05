@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Conexión a una plataforma de SaaS desde una aplicación de API de ASP.NET en el Servicio de aplicaciones de Azure
@@ -454,4 +454,4 @@ Vio como se codifica y configura una aplicación de API que se conecta a una pla
 [Azure portal]: https://manage.windowsazure.com/
 [Portal de Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cómo usar VMAccess para las máquinas virtuales de Linux"
-	description="Cómo usar el Portal de vista previa de Azure o la extensión VMAccess de Linux para restablecer las contraseñas y claves de SSH, para volver a enviar las configuraciones de SSH y para eliminar los usuarios de Linux"
+	pageTitle="Restablecimiento de la contraseña de máquinas virtuales Linux desde la CLI de Azure"
+	description="Cómo usar la extensión VMAccess desde el Portal de Azure o la CLI para restablecer las contraseñas de máquina virtual de Linux y claves SSH, configuraciones SSH y eliminar cuentas de usuarios."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -263,4 +263,4 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 [Características y extensiones de máquina virtual de Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conexión a una máquina virtual de Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

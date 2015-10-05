@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/23/2015"
 	ms.author="genemi"/>
 
 
@@ -169,6 +169,7 @@ La base de datos V11 sigue estando disponible para el acceso a los datos durante
 | :--- | :--- |
 | Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tiene bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium <br/><br/>La creación de nuevas bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
 | Sin replicación geográfica | No se admite la replicación geográfica en un servidor V12 que está implicado actualmente en una actualización desde V11. |
+| La base de datos no está disponible brevemente en la fase final de la actualización a V12 | Las bases de datos que pertenecen a su servidor V11 permanecen disponibles durante el proceso de actualización. Sin embargo, la conexión al servidor y las bases de datos no está disponible brevemente en la fase final, cuando el cambio comienza desde la V11 hasta la V12 lista.<br/><br/>El cambio puede tardar entre 40 segundos y 5 minutos. Para la mayoría de los servidores, el cambio se espera completar en 90 segundos. El cambio con el tiempo aumenta para los servidores que tienen un gran número de bases de datos o cuando las bases de datos tienen grandes cargas de trabajo de escritura. |
 
 
 ### Limitación *después de* la actualización a V12
@@ -243,9 +244,6 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 Si la actualización falla por algún extraño motivo, la base de datos V11 permanece activa y disponible como siempre.
 
 
-> [AZURE.NOTE]La base de datos anterior a V12 *sigue estando disponible* para el acceso a los datos durante la actualización a V12.
-
-
 ## Vínculos relacionados
 
 
@@ -256,4 +254,4 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

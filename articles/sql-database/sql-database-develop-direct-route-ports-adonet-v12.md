@@ -114,4 +114,10 @@ En este tema se resaltan las diferencias de conexión de cliente entre la Base d
 
 - [Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO3-->
+
+- [Firewall de Base de datos SQL de Azure](sql-database-firewall-configure.md)
+
+
+- [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md)
+
+<!---HONumber=Sept15_HO4-->

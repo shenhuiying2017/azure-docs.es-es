@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="stevepo"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/03/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
 #Administración del directorio para la suscripción de Office 365 en Azure
@@ -70,4 +70,4 @@ Ahora imaginemos que John Doe necesita iniciar sesión en el Portal de administr
 ##Pasos siguientes
 Para obtener más información sobre la relación entre suscripciones y directorios, vea [Asociación de una suscripción con un directorio](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

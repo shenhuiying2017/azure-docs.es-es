@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="07/14/2015"
+   ms.date="09/22/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -34,19 +34,28 @@ Todas las conexiones a Base de datos SQL de Azure requieren cifrado (SSL/TLS) si
 
 ## Autenticación
 
-La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Base de datos SQL admite la autenticación de SQL con un nombre de usuario y una contraseña.
+La autenticación indica a cómo demostrar su identidad al conectarse a la base de datos. Base de datos SQL admite dos tipos de autenticación:
 
-Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo".
+ - **Autenticación de SQL**, que utiliza un nombre de usuario y una contraseña.
+ - **Autenticación de Azure Active Directory**, que utiliza las identidades administradas por Azure Active Directory y es compatible con los dominios administrados e integrados
 
-Sin embargo, como práctica recomendada su aplicación debe utilizar una cuenta diferente para autenticar; este modo puede limitar los permisos concedidos a la aplicación y reducir los riesgos de actividad malintencionada en caso de que el código de aplicación sea vulnerable a ataques de inyección SQL. El enfoque recomendado es crear un [usuario de base de datos contenido](https://msdn.microsoft.com/library/ff929188), lo que permite a la aplicación autenticarse directamente en una base de datos con un nombre de usuario y una contraseña. Puede crear un usuario de base de datos contenido mediante la ejecución del siguiente comando T-SQL mientras está conectado a su base de datos de usuario con el inicio de sesión de administrador de servidor:
+Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo". Si desea usar la autenticación de Azure Active Directory, debe crear otro administrador de servidor llamado "administrador de Azure AD" con permiso para administrar usuarios y grupos de Azure AD. Este administrador también puede realizar todas las operaciones de un administrador de servidor normal. Vea el tutorial [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md) sobre cómo crear un administrador de Azure AD para habilitar la autenticación de Active Directory de Azure.
+
+Como procedimiento recomendado, la aplicación debe usar una cuenta distinta para autenticar. De esta forma, puede limitar los permisos concedidos a la aplicación y reducir los riesgos de actividad malintencionada en caso de que el código de la aplicación sea vulnerable a ataques por inyección de código SQL. Se recomienda crear un [usuario de base de datos independiente](https://msdn.microsoft.com/library/ff929188), lo que permite a la aplicación autenticarse directamente en una base de datos única. Para crear un usuario de base de datos independiente que utilice la autenticación de SQL, ejecute el comando de T-SQL siguiente cuando haya iniciado sesión como administrador de servidor en la base de datos de usuario a la que está conectado:
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+CREATE USER ApplicationUser WITH PASSWORD = 'strong_password'; -- SQL Authentication
 ```
 
-La cadena de conexión de la aplicación debe especificar este nombre de usuario y contraseña, en lugar del inicio de sesión de administrador de servidor, para conectarse a la base de datos.
+Si creó un administrador de Azure AD, puede crear un usuario de base de datos independiente que use la autenticación de Azure Active Directory mediante la ejecución del comando de T-SQL siguiente mientras esté conectado a la base de datos de usuario como administrador de Azure AD:
 
-Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administración de bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure](https://msdn.microsoft.com/library/ee336235).
+```
+CREATE USER [Azure_AD_principal_name | Azure_AD_group_display_name] FROM EXTERNAL PROVIDER; -- Azure Active Directory Authentication
+```
+
+En cualquiera de los casos, la cadena de conexión de la aplicación debe especificar estas credenciales de usuario para conectarse a la base de datos, en lugar del inicio de sesión de administrador de servidor.
+
+Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administración de bases de datos, inicios de sesión y usuarios en Base de datos SQL de Microsoft Azure](sql-database-manage-logins.md).
 
 
 ## Autorización
@@ -98,4 +107,4 @@ La auditoría y el seguimiento de eventos de la base de datos pueden ayudarle a 
 Además de las anteriores características y funcionalidades que pueden ayudar a su aplicación a cumplir distintos requisitos de cumplimiento de normas de seguridad, la Base de datos SQL de Azure también participa en las auditorías regulares y ha sido certificada con una serie de estándares de cumplimiento normativo. Para obtener más información, consulte el [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de Base de datos SQL](http://azure.microsoft.com/support/trust-center/services/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

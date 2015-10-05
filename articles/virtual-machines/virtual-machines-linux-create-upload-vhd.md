@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación y carga de un VHD de Linux en Azure"
-	description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Linux."
+	pageTitle="Creación y carga de un VHD de Linux | Microsoft Azure"
+	description="Cree y cargue un disco duro virtual de Azure (VHD) con el modelo de implementación clásica que contenga el sistema operativo Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Creación y carga de un disco duro virtual que contiene el sistema operativo Linux
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la carga de un VHD con el modelo de implementación clásica.
 
 En este artículo se muestra cómo puede crear y cargar un disco duro virtual (VHD) que podrá utilizar como imagen propia para crear máquinas virtuales en Azure. Aprenderá a preparar el sistema operativo que podrá utilizar para crear máquinas virtuales basadas en esa imagen. Tenga en cuenta que este artículo se refiere a máquinas virtuales creadas con el modelo de implementación clásica.
 
@@ -159,4 +161,4 @@ Para obtener más información, consulte [Add-AzureVhd]((https://msdn.microsoft.
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

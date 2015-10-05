@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Administración de conjuntos de registros y registros DNS en DNS de Azure | Microsoft Azure"
-	description="Administración de conjuntos de registros y registros DNS en DNS de Azure al hospedar dominios en DNS de Azure. Todos los comandos de PowerShell para operaciones en conjuntos de registros y registros."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Administración de conjuntos de registros y registros DNS en DNS de Azure | Microsoft Azure" 
+   description="Administración de conjuntos de registros y registros DNS en DNS de Azure al hospedar dominios en DNS de Azure. Todos los comandos de PowerShell para operaciones en conjuntos de registros y registros." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="en"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="en"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# Administración de registros DNS
+# Cómo administrar registros DNS con PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -271,4 +271,4 @@ El objeto del conjunto de registros también puede canalizarse en lugar de pasar
 [Introducción sobre la creación de registros y conjuntos de registros](../dns-getstarted-create-recordset)<BR> [Realización de operaciones en zonas DNS](../dns-operations-dnszones)<BR> [Automatización de operaciones con el SDK de .NET](../dns-sdk)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

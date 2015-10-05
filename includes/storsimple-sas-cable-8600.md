@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/23/15-->
+
 #### Conexión de los cables SAS
 
 1. Identifique los receptáculos principal y EBOD Los dos alojamientos pueden identificarse examinando sus respectivos planos posteriores. Consulta la siguiente imagen para obtener instrucciones. 
@@ -23,11 +25,11 @@
 
 3. Después utiliza los cables SAS proporcionados para conectar el alojamiento de EBOD al alojamiento principal de esta manera:
 
-    1. Identifica los cuatro puertos SAS en el alojamiento principal y en el alojamiento de EBOD. Los puertos SAS se etiquetan como EBOD en el alojamiento principal y como CTRL en el alojamiento de EBOD, tal y como se muestra en la ilustración del cableado de SAS.
+    1. Identifica los cuatro puertos SAS en el alojamiento principal y en el alojamiento de EBOD. Los puertos SAS se etiquetan como EBOD en el alojamiento principal y se corresponden con el puerto A en el alojamiento de EBOD, tal y como se muestra en la ilustración del cableado de SAS.
 
-    2. Utilice los cables SAS proporcionados para conectar los puertos EBOD a los puertos CTRL.
+    2. Use los cables SAS proporcionados para conectar el puerto EBOD al puerto A.
 
-    3. El puerto EBOD del controlador 0 debe estar conectado al puerto CTRL del controlador EBOD 0. El puerto EBOD del controlador 1 debe estar conectado al puerto CTRL del controlador EBOD 1. Vea la ilustración siguiente como guía.
+    3. El puerto EBOD del controlador 0 debe estar conectado al puerto A del controlador EBOD 0. El puerto EBOD del controlador 1 debe estar conectado al puerto A del controlador EBOD 1. Vea la ilustración siguiente como guía.
 																	
      ![Cableado SAS para tu dispositivo](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
 
@@ -42,6 +44,6 @@
     |3|Controlador EBOD 0|
     |4|Controlador EBOD 1|
     |5, 6|Puertos SAS del receptáculo principal (con la etiqueta EBOD)|
-    |7, 8|Puertos SAS del receptáculo EBOD (con la etiqueta CTRL)|
+    |7, 8|Puertos SAS del receptáculo EBOD (puerto A)|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Proteger una base de datos en Almacenamiento de datos SQL | Microsoft Azure"
-	description="Sugerencias para proteger una base de datos en Almacenamiento de datos SQL de Azure para desarrollar soluciones."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Sugerencias para proteger una base de datos en Almacenamiento de datos SQL de Azure para desarrollar soluciones."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/22/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="sahajs"/>
 
 # Proteger una base de datos en Almacenamiento de datos SQL
 
@@ -33,10 +33,23 @@ La autenticación indica a cómo demostrar su identidad al conectarse a la base 
 
 Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos, o "dbo".
 
-Sin embargo, como práctica recomendada los usuarios de la organización deben usar una cuenta diferente para autenticarse; de este modo, se pueden limitar los permisos concedidos a la aplicación y reducir los riesgos de actividad malintencionada en caso de que el código de la aplicación sea vulnerable a ataques de inyección SQL. El enfoque recomendado es crear un usuario de base de datos contenido, lo que permite a la aplicación autenticarse directamente en una única base de datos con un nombre de usuario y una contraseña. Puede crear un usuario de base de datos contenido mediante la ejecución del siguiente comando T-SQL mientras está conectado a su base de datos de usuario con el inicio de sesión de administrador de servidor:
+Sin embargo, como práctica recomendada, los usuarios de su organización deben usar una cuenta diferente para autenticar. De esta manera puede limitar los permisos concedidos a la aplicación y reducir los riesgos de actividad malintencionada en caso de que el código de aplicación sea vulnerable a ataques de inyección SQL. Para crear un usuario de base de datos basado en el inicio de sesión de servidor:
+
+En primer lugar, conéctese a la base de datos maestra en el servidor con su inicio de sesión de administrador de servidor y cree un nuevo inicio de sesión de servidor.
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+-- Connect to master database and create a login
+CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
+
+```
+
+Luego, conéctese a la base de datos del Almacenamiento de datos de SQL con el inicio de sesión de administrador de servidor y cree un usuario de base de datos basado en el inicio de sesión de servidor que acaba de crear.
+
+```
+
+-- Connect to SQL DW database and create a database user
+CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
+
 ```
 
 Para obtener más información sobre la autenticación en Base de datos SQL, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][].
@@ -47,13 +60,17 @@ Para obtener más información sobre la autenticación en Base de datos SQL, con
 La autorización hace referencia a lo que se puede hacer en la base de datos de Almacenamiento de datos SQL de Azure, y la controlan los permisos y las pertenencias del rol de la cuenta de usuario. Como procedimiento recomendado, debe conceder a los usuarios los privilegios mínimos necesarios. Almacenamiento de datos SQL de Azure facilita la administración con roles en T-SQL:
 
 ```
-ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser to read data
-ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
+EXEC sp_addrolemember 'db_datareader', 'ApplicationUser'; -- allows ApplicationUser to read data
+EXEC sp_addrolemember 'db_datawriter', 'ApplicationUser'; -- allows ApplicationUser to write data
 ```
 
 La cuenta de administrador de servidor con la que se está conectando forma parte de db\_owner, que tiene autoridad para realizar cualquier acción en la base de datos. Guarde esta cuenta para implementar las actualizaciones de los esquemas y otras operaciones de administración. Utilice la cuenta "ApplicationUser" con permisos más limitados para conectarse desde la aplicación a la base de datos con los privilegios mínimos que necesita la aplicación.
 
-Existen formas para limitar aún más lo que un usuario puede hacer con Base de datos SQL de Azure:- pueden utilizarse [roles de base de datos][] distintos de db\_datareader y db\_datawriter para crear cuentas de usuario de aplicaciones más eficaces o cuentas de administración menos eficaces. - Granular los [permisos][] permite controlar qué operaciones se pueden realizar en columnas, tablas, vistas, procedimientos y otros objetos de la base de datos. - Los [procedimientos almacenados][] se pueden usar para limitar las acciones que se pueden realizar en la base de datos.
+Existen varias formas de limitar aún más lo que los usuarios pueden hacer con Base de datos SQL de Azure:
+
+- Los [roles de base de datos][] que no sean db\_datareader y db\_datawriter se pueden utilizar para crear cuentas de usuario de aplicación más eficaces o cuentas de administración menos eficaces.
+- Los [permisos][] granulares permiten control qué operaciones se pueden realizar en columnas individuales, tablas, vistas, procedimientos y otros objetos de la base de datos.
+- Los [procedimientos almacenados][] puede utilizarse para limitar las acciones que se pueden realizar en la base de datos.
 
 La administración bases de datos y servidores lógicos desde el Portal de administración de Azure o mediante la API del Administrador de recursos de Azure la controlan las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este tema, consulte [Control de acceso basado en roles en el Portal de vista previa de Azure][].
 
@@ -70,7 +87,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal Azure][].
+También puede habilitar el cifrado de datos transparente de la configuración de la base de datos en el [Portal de Azure][].
 
 
 
@@ -97,9 +114,9 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [procedimientos almacenados]: https://msdn.microsoft.com/library/ms190782.aspx
 [cifrado de datos transparente]: http://go.microsoft.com/fwlink/?LinkId=526242
 [Introducción a la auditoría de Base de datos SQL]: sql-database-auditing-get-started.md
-[Portal Azure]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Control de acceso basado en roles en el Portal de vista previa de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

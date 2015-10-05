@@ -1,3 +1,3 @@
-> [AZURE.NOTE]Aunque este artículo se refiere a las aplicaciones web, también se aplica a las aplicaciones de API, las aplicaciones móviles y las aplicaciones lógicas.
+> [AZURE.NOTE]Aunque este artículo se refiere a las aplicaciones web, también se aplica a las aplicaciones de API y las aplicaciones móviles.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

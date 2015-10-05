@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/17/2015"
    ms.author="alkohli" />
 
 # Instalación la actualización 1.2 en el dispositivo StorSimple
@@ -153,4 +153,4 @@ Si ha comprobado que existe conectividad y sigue apareciendo este problema, pón
 
 Obtenga más información sobre la [versión de la actualización 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Creación de un conjunto de registros y registros para una zona DNS | Microsoft Azure"
-	description="Creación de registros host para DNS de Azure. La configuración de conjuntos de registros y registros mediante PowerShell o la CLI"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Creación de un conjunto de registros y registros para una zona DNS con CLI | Microsoft Azure"
+   description="Creación de registros host para DNS de Azure. Configuración de conjuntos de registros y registros mediante CLI"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
-# Creación de registros DNS
+# Creación de registros CON DNS
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
@@ -52,14 +52,14 @@ El período de vida, o TTL, especifica durante cuánto tiempo los clientes almac
 
 
 
-## Creación de registros y conjuntos de registros con la CLI
+## Creación de registros y conjuntos de registros 
 
 En el ejemplo siguiente se mostrará cómo crear registros y un conjunto de registros. Vamos a usar el tipo de registro DNS 'A'; para otros tipos de registros, consulte [Administración de registros DNS](dns-operations-recordsets-cli.md)
 
 
 ### Paso 1
 
-Cree un conjunto de registros con la CLI:
+Creación de un conjunto de registros:
 
 	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
@@ -122,4 +122,4 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

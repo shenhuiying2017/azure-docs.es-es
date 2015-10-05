@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -146,5 +146,11 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
+## Pasos siguientes
 
-<!---HONumber=August15_HO7-->
+* [Configuración general de su servicio en la nube](cloud-services-how-to-configure.md).
+* Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
+* [Administración de su servicio en la nube](cloud-services-how-to-manage.md).
+* Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
+
+<!---HONumber=Sept15_HO4-->

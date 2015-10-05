@@ -26,9 +26,9 @@ Para resaltar cómo pueden aprovechar eficazmente Azure DocumentDB para almacena
 
 Este tutorial muestra cómo utilizar el servicio de DocumentDB proporcionado por Azure para almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Azure.
 
-> [AZURE.TIP]En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si no está familiarizado con ASP.NET o con las [herramientas de requisitos previos](#_Toc395637760), se recomienda que descargue el proyecto del tutorial [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) completo de [GitHub](https://github.com/Azure/azure-documentdb-net) y lo cree mediante las [instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.
+> [AZURE.TIP]En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si no está familiarizado con ASP.NET o con las [herramientas de requisitos previos](#_Toc395637760), se recomienda que descargue el proyecto de ejemplo completo de [GitHub][] y las siguientes instrucciones en este ejemplo. Una vez compilado, puede revisar este artículo para obtener información sobre el código en el contexto del proyecto.
 
-## <a name="_Toc395637760"></a>Requisitos previos para el tutorial
+## <a name="_Toc395637760"></a>Requisitos previos del tutorial de base de datos
 
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener lo siguiente:
 
@@ -581,7 +581,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
 
 	![Captura de pantalla de la aplicación web de lista de tareas pendientes creada con este tutorial](./media/documentdb-dotnet-application/image24.png)
 
-	Si se producen errores en ese momento, puede comparar su código con el tutorial todo en [GitHub][].
+	Si se producen errores en ese momento, puede comparar su código con el proyecto de ejemplo en [GitHub][].
 
 2. Haga clic en el vínculo **Crear nuevo** y agregue valores a los campos **Nombre** y **Descripción**. Deje la casilla **Completado** sin seleccionar; de lo contrario, el **elemento** nuevo se agregará en estado completado y no aparecerá en la lista inicial.
 
@@ -619,44 +619,12 @@ En pocos segundos, Visual Studio terminará de publicar su aplicación web y eje
 
 Para agregar la funcionalidad adicional a la aplicación, revise las API disponibles en la [biblioteca de .NET de DocumentDB](http://msdn.microsoft.com/library/azure/dn783362.aspx) y haga sus aportaciones libremente a la biblioteca de .NET de DocumentDB en [GitHub][].
 
-##<a id="GetProject"></a>Obtención de la solución de GitHub
-
-Si desea para ahorrar tiempo y simplemente desea crear la solución de lista todo completa y no tener que agregar el código, está de suerte. La solución completa está disponible en GitHub y puede generarla e implementarla en pocos minutos mediante las siguientes instrucciones.
-
-1. Asegúrese de que tiene el [software de los requisitos previos](#_Toc395637760) instalado, que incluye Visual Studio y SDK de Azure para .NET versión 2.3 o posterior.
-
-2. Clone el repositorio azure-documentdb-net mediante Git para Windows ([http://www.git-scm.com/](http://www.git-scm.com/)) o descargue el archivo zip de [GitHub](https://github.com/Azure/azure-documentdb-net/).
-
-2. En Visual Studio, abra el archivo todo.sln desde el directorio azure-documentdb-net/tutorials/todo.
-
-3. Para restaurar las referencias al SDK de .NET de DocumentDB de Visual Studio 2013, haga clic con el botón secundario en la solución todo en el **Explorador de soluciones** y, a continuación haga clic en **Habilitar la restauración del paquete NuGet**, que restaurará las referencias.
-
-4. Recupere los valores **URI** y **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja **Claves** de su cuenta de DocumentDB en el [Portal de vista previa de Azure](https://portal.azure.com/).
-
-	
-	Si no dispone de una cuenta, consulte [Creación de una cuenta de base de datos](documentdb-create-account.md) para configurar una.
-
-	![Captura de pantalla del portal de vista previa de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón Claves resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves](media/documentdb-dotnet-application/keys.png)
-
-5. En el archivo Web.config, actualice los valores predeterminados para las claves **endpoint** y **authKey**.
-
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
-
-	- Copie el valor **URI** de la hoja Claves y péguelo en el valor de la propiedad **endpoint**. 
-	- Copie el valor **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja **Claves** y péguelo en el valor de la propiedad **authKey**.
-	
-
-
-7. Ahora puede [ejecutar la aplicación localmente](#_Toc395637773) y después [implementarla en Sitios web Azure](#_Toc395637774).
-
 
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Instalador de plataforma web de Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [Prevención de la falsificación de solicitud entre sitios]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
- 
+[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

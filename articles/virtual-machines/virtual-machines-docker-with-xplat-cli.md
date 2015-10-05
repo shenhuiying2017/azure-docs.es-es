@@ -13,10 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/22/2015"
+	ms.date="09/22/2015"
 	ms.author="rasquill"/>
 
 # Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
 
 En este tema se describe cómo crear una máquina virtual con la extensión de VM Docker desde el modo de administración de servicio (asm) en la CLI de Azure en cualquier plataforma. [Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC) en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de VM Docker para que el [agente Linux de Azure](virtual-machines-linux-agent-user-guide.md) cree una VM Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure. Para ver un análisis de alto nivel de los contenedores y sus ventajas, consulte [Documento de alto nivel de Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -25,7 +27,7 @@ En este tema se describe cómo crear una máquina virtual con la extensión de V
 + [Recursos de contenedor y de gestión de contenedores para Azure]
 + [Pasos siguientes]
 
-## <a id='How to use the Docker VM Extension with Azure'>Uso de la extensión de VM Docker con Azure</a>
+##Uso de la extensión de VM Docker con Azure
 Para utilizar la extensión de VM Docker con Azure, debe instalar una versión de la [línea de comandos de Azure](https://github.com/Azure/azure-sdk-tools-xplat) (CLI de Azure) superior a la 0.8.6 (en el momento de redactar este documento la versión actual es la 0.8.10). Puede instalar CLI de Azure en Mac, Linux y Windows.
 
 
@@ -139,4 +141,4 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

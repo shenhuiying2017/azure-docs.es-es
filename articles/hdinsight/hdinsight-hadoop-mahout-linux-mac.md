@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/22/2015"
 	ms.author="larryfr"/>
 
 #Generación de recomendaciones de películas mediante Apache Mahout con Hadoop basado en Linux en HDInsight (vista previa)
@@ -30,6 +30,14 @@ Mahout es una biblioteca de [aprendizaje automático][ml] para Apache Hadoop. Ma
 ##Requisitos previos
 
 * Un clúster de Hadoop basado en Linux en HDInsight. Para obtener información sobre cómo crear uno, vea [Introducción al uso de Hadoop basado en Linux en HDInsight][getstarted].
+
+##Control de versiones de Mahout
+
+Para obtener más información sobre la versión de Mahout incluida con el clúster de HDInsight, consulte [Versiones de HDInsight y componentes de Hadoop](hdinsight-component-versioning.md).
+
+> [AZURE.WARNING]Aunque es posible cargar una versión diferente de Mahout en el clúster de HDInsight, los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
+>
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/es-ES/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Además, los proyectos de Apache tienen sitios del proyecto en [http://apache.org](http://apache.org), por ejemplo, [Hadoop](http://hadoop.apache.org/) y [Spark](http://spark.apache.org/).
 
 ##<a name="recommendations"></a>Descripción de recomendaciones
 
@@ -256,4 +264,4 @@ Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con da
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

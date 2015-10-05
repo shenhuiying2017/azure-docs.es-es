@@ -1,25 +1,28 @@
 <properties
-   pageTitle="Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure"
-   description="Información general conceptual de proveedores de recursos de procesos, redes y almacenamiento (PRC, NRP y SRP)"
+   pageTitle="Proveedores de proceso, red y almacenamiento | Microsoft Azure"
+   description="Información general conceptual de proveedores de recursos de procesos, redes y almacenamiento (PRC, NRP y SRP) en el Administrador de recursos de Azure"
    services="virtual-machines"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="mahthi"
    manager="timlt"
    editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
    ms.date="04/29/2015"
    ms.author="mahthi"/>
 
-# Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure
+# Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure
 
 La inclusión de capacidades de procesos, redes y almacenamiento con el Administrador de recursos de Azure fundamentalmente simplificará la implementación y administración de aplicaciones complejas que se ejecuta en IaaS. Muchas aplicaciones requieren una combinación de recursos, como una red virtual, una cuenta de almacenamiento, una máquina virtual y una interfaz de red. El Administrador de recursos de Azure ofrece la capacidad de crear una plantilla JSON para implementar y administrar todos estos recursos como una sola aplicación.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la creación de recursos con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
+
 
 ## Ventajas de la integración de procesos, redes y almacenamiento en el Administrador de recursos de Azure
 
@@ -113,4 +116,4 @@ Esto no se admite en este momento. No se pueden conectar las redes virtuales cre
 
 Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido del Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

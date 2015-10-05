@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/20/2015"
+   ms.date="09/18/2015"
    ms.author="tomfitz"/>
 
 # Creación de plantillas del Administrador de recursos de Azure
@@ -232,6 +232,8 @@ Defina recursos con la siguiente estructura:
 
 Si el nombre del recurso no es único, puede usar la función auxiliar **resourceId** (descrita a continuación) para obtener el identificador único para cualquier recurso.
 
+Los valores para el elemento **properties** son exactamente iguales que los valores que ofrece en el cuerpo de la solicitud para que la operación de API de REST (método PUT) cree el recurso. Vea [Referencia de Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) para las operaciones de API de REST para el recurso que quiere implementar.
+
 En el ejemplo siguiente se muestra un recurso **Microsoft.Web/serverfarms** y un recurso **Microsoft.Web/Sites** con un recurso **Extensions** anidado:
 
     "resources": [
@@ -314,9 +316,9 @@ En el ejemplo siguiente se muestra un valor que se devuelve en la sección de sa
 ## Escenarios más avanzados.
 En este tema se ofrece una visión preliminar de la plantilla. Sin embargo, el escenario puede requerir tareas más avanzadas.
 
-Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para obtener más información, vea [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
+Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para obtener más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
 
-Para iterar una cantidad de veces específica al crear un tipo de recurso, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
+Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
 Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Esto es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](../resource-group-template-functions#resourceid).
 
@@ -404,8 +406,8 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 
 ## Pasos siguientes
 - Para obtener información detallada sobre las funciones que puede usar desde una plantilla, vea [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md).
-- Para ver cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
+- Para saber cómo implementar la plantilla que creó, vea [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md).
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

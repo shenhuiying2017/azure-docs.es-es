@@ -34,7 +34,7 @@ Al seguir este tutorial de base de datos, podrá crear una aplicación de admini
 
 ![Captura de pantalla de la aplicación My Todo List creada en este tutorial de Node.js](./media/documentdb-nodejs-application/image1.png)
 
-¿No tiene tiempo para completar el tutorial y solo desea obtener la solución completa de GitHub? Sin problema, [aquí está](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+¿No tiene tiempo para completar el tutorial y solo desea obtener la solución completa? No es un problema, puede obtener la solución de ejemplo completa de [GitHub][].
 
 ## <a name="_Toc395783176"></a>Requisitos previos
 
@@ -554,10 +554,13 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 ¡Enhorabuena! Acaba de generar su primera aplicación web Express de Node.js mediante Azure DocumentDB y publicarlos en los sitios web de Azure.
 
-El código fuente de la aplicación de referencia completa se puede descargar [aquí](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+El código fuente de la aplicación de referencia completa se puede descargar desde [GitHub][].
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+Para obtener más información, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

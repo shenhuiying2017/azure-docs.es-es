@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Creación de un directorio de Azure AD B2C
@@ -67,4 +67,4 @@ Use los pasos siguientes para crear un nuevo directorio de Azure AD B2C. Actualm
 
 Para continuar, [registre una aplicación con Azure AD B2C y cree una aplicación de inicio rápido](active-directory-b2c-app-registration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

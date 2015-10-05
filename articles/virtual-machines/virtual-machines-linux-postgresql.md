@@ -1,34 +1,37 @@
 <properties
-	pageTitle="Instalación y configuración de PostgreSQL en una máquina virtual de Microsoft Azure con Linux | Microsoft Azure"
-	description="Obtenga información acerca de cómo instalar y configurar PostgreSQL en una máquina virtual de Linux en Azure."
+	pageTitle="Configuración de PostgreSQL en una máquina virtual Linux | Microsoft Azure"
+	description="Obtenga información acerca de cómo instalar y configurar PostgreSQL en una máquina virtual de Linux en Azure"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
 	editor=""
-	tags=""/>
+ 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="linux"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
 	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
-#Instalación y configuración de PostgreSQL en Azure
+# Instalación y configuración de PostgreSQL en Azure
 
 PostgreSQL es una base de datos de código abierto avanzada similar a DB2 y Oracle. Incluye características preparadas para el ámbito empresarial, como el cumplimiento de ACID completo, un procesamiento transaccional confiable y un control de simultaneidad de múltiples versiones. También admite estándares como ANSI SQL y SQL/MED (incluidos los contenedores de datos externos para Oracle, MySQL, MongoDB y muchas otras). Es altamente extensible al admitir más de 12 lenguajes procedimentales, índices GIN y GiST, datos espaciales y múltiples características NoSQL para JSON o aplicaciones basadas en clave-valor.
 
 En este artículo aprenderá a instalar y configurar PostgreSQL en una máquina virtual de Azure con Linux.
 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la creación de recursos con el modelo de implementación del Administrador de recursos o el modelo de implementación clásica.
+
+## Instalación de PostgreSQL
+
 > [AZURE.NOTE]Debe tener una máquina virtual de Azure en la que se ejecuta Linux para completar este tutorial. Para crear y configurar una máquina virtual Linux antes de continuar, consulte el [Tutorial de máquinas virtuales Linux de Azure](virtual-machines-linux-tutorial.md).
 
 En este caso, use el puerto 1999 como puerto PostgreSQL.
-
-## Instalación de PostgreSQL
 
 Conéctese a la máquina virtual Linux que creó mediante PuTTY. Si es la primera vez que usa una máquina virtual Linux de Azure, consulte [Utilización de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md) para aprender cómo usar PuTTY para conectarse a una máquina virtual de Linux.
 
@@ -251,4 +254,4 @@ Use el comando siguiente para actualizar los datos de una tabla: En esta ocasió
 ##Obtener más información sobre PostgreSQL
 Ahora que ha completado la instalación de PostgreSQL en una máquina virtual Linux de Azure, puede disfrutar de su uso en Azure. Para obtener más información acerca de PostgreSQL, visite el [sitio web de PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

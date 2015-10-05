@@ -58,7 +58,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &response_mode=query
 &scope=
 https%3A%2F%2Foutlook.office.com%2Fmail.read%20
-https%3A%2F%2Fgraph.windows.net%2Fmail.send
+https%3A%2F%2Foutlook.office.com%2Fmail.send
 &state=12345
 ```
 
@@ -116,4 +116,4 @@ Si tu aplicación no solicita el ámbito `offline_access`, no recibirá tokens d
 
 Para más información sobre cómo obtener y usar tokens de actualización, consulta la [referencia del protocolo de la versión 2.0 del modelo de aplicaciones](active-directory-v2-protocols.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

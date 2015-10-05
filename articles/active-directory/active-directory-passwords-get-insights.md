@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Obtener información sobre los informes de administración de contraseñas de Azure AD | Microsoft Azure" 
-	description="En este artículo se describe cómo usar los informes para obtener información sobre las operaciones de administración de contraseñas en su organización." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Obtener información sobre los informes de administración de contraseñas de Azure AD | Microsoft Azure"
+	description="En este artículo se describe cómo usar los informes para obtener información sobre las operaciones de administración de contraseñas en su organización."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Visión operativa con los informes de la administración de contraseñas
@@ -106,14 +106,14 @@ Detalles|Consulte la tabla siguiente:
 ### Valores permitidos para la columna Detalles
 A continuación se muestra la lista de los tipos de resultados que puede esperar cuando usa el informe de actividad de restablecimiento de contraseña:
 
-Detalles | Tipo de resultado 
+Detalles | Tipo de resultado
 ----|----
 El usuario abandonó tras completar la opción de comprobación de correo electrónico. | Abandonado
-El usuario abandonó tras completar la opción de comprobación por SMS en el teléfono móvil.|Abandonado 
-El usuario abandonó tras completar la opción de comprobación por llamada de voz al teléfono móvil. | Abandonado 
+El usuario abandonó tras completar la opción de comprobación por SMS en el teléfono móvil.|Abandonado
+El usuario abandonó tras completar la opción de comprobación por llamada de voz al teléfono móvil. | Abandonado
 El usuario abandonó tras completar la opción de comprobación por llamada de voz a la oficina. | Abandonado
-El usuario abandonó tras completar la opción de preguntas de seguridad.|Abandonado 
-El usuario abandonó después de escribir su identificador de usuario.| Abandonado 
+El usuario abandonó tras completar la opción de preguntas de seguridad.|Abandonado
+El usuario abandonó después de escribir su identificador de usuario.| Abandonado
 El usuario abandonó tras iniciar la opción de comprobación de correo electrónico.|Abandonado
 El usuario abandonó tras iniciar la opción de comprobación por SMS en el teléfono móvil.|Abandonado
 El usuario abandonó tras iniciar la opción de comprobación por llamada de voz al teléfono móvil.|Abandonado
@@ -141,7 +141,7 @@ La contraseña del usuario se administra en el entorno local. Puede habilitar la
 No pudimos obtener acceso a su servicio de restablecimiento de contraseña local. Compruebe el registro de eventos de su máquina de sincronización.|Con error
 Se encontró un problema durante el restablecimiento de la contraseña local del usuario. Compruebe el registro de eventos de su máquina de sincronización. | Con error
 Este usuario no es miembro del grupo de usuarios de restablecimiento de contraseña. Agregue este usuario a ese grupo para resolver este problema.|Con error
-El restablecimiento de contraseña se ha deshabilitado por completo para este inquilino. Consulte [aquí](http://aka.ms/ssprtroubleshoot) para resolver este problema. | Con error 
+El restablecimiento de contraseña se ha deshabilitado por completo para este inquilino. Consulte [aquí](http://aka.ms/ssprtroubleshoot) para resolver este problema. | Con error
 El usuario restableció la contraseña correctamente.|Succeeded
 
 **Recursos adicionales**
@@ -162,6 +162,5 @@ El usuario restableció la contraseña correctamente.|Succeeded
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

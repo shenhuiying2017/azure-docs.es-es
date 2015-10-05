@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/07/2015"
+   ms.date="09/22/2015"
    ms.author="joliang"/>
 
-# Asociados de la solución de Almacenamiento de datos SQL #
+# Asociados de la solución de Almacenamiento de datos SQL
 
 Para crear la solución de almacenamiento de datos de un extremo a otro, elija entre una amplia variedad de herramientas líderes del sector. En este artículo, se enumeran las empresas asociadas que tienen soluciones para Almacenamiento de datos SQL.
 
@@ -46,6 +46,7 @@ Para crear la solución de almacenamiento de datos de un extremo a otro, elija e
 | ![Yellowfin][21] |**Yellowfin**<br>Yellowfin es un proveedor de inteligencia empresarial de nube para los informes y paneles ad-hoc de The BI Survey de BARC. Conéctese a Almacenamiento de datos SQL de Azure y, a continuación, cree y comparta atractivos informes y paneles con características de inteligencia de ubicación e inteligencia empresarial de colaboración galardonadas. | [Más][yellowfin_more] |
 
 ## Pasos siguientes
+
 Para obtener más información acerca de la integración con Almacenamiento de datos SQL, consulte [Creación de soluciones integradas con Almacenamiento de datos SQL][].
 
 
@@ -100,4 +101,4 @@ Para obtener más información acerca de la integración con Almacenamiento de d
 [targit_more]: http://www.targit.com/en/
 [yellowfin_more]: http://www.yellowfinbi.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

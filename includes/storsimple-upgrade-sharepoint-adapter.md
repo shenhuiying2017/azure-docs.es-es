@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Actualización del adaptador de StorSimple para SharePoint | Microsoft Azure"
-   description="Describe cómo actualizar SharePoint y, a continuación, instalar una nueva versión del adaptador de StorSimple para SharePoint."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/03/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 ### Actualización de SharePoint 2010 a SharePoint 2013 e instalación del Adaptador de StorSimple para SharePoint
 
@@ -48,4 +33,4 @@
  
 2. Instale el nuevo adaptador de StorSimple para SharePoint. El nuevo adaptador reconocerá automáticamente las bases de datos de contenido que se hayan habilitado o deshabilitados para RBS y usará la configuración anterior.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

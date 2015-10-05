@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/17/15-->
+
 #### Para salir del modo de mantenimiento
 
 1. En el símbolo del sistema, escriba:
@@ -8,4 +10,4 @@
 
     Ambos controladores se reiniciarán. Una vez completado el reinicio, aparecerá otro mensaje que indica que el dispositivo está en modo normal.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

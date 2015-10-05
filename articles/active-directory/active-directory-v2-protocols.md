@@ -320,7 +320,7 @@ Recibir un solo id\_token no es suficiente para autenticar al usuario; debe vali
 
 El modelo de aplicaciones v2.0 tiene un extremo de metadatos OpenID Connect, que permite a una aplicación obtener información sobre el modelo de aplicaciones v2.0 en tiempo de ejecución. En esta información se incluyen los extremos, los contenidos del token y las claves de firma de los token. El extremo de metadatos contiene un documento JSON ubicado en:
 
-`https://login.microsoftonline.com/common/v2.0/.well-known/configuration`
+`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
 
 Una de las propiedades de este documento de configuración es el `jwks_uri`, cuyo valor para el modelo de aplicaciones v2.0 será:
 
@@ -475,4 +475,4 @@ Se describe la concesión de credenciales en nombre del flujo o del portador JWT
 
 La vista previa del modelo de aplicaciones v2.0 no admite actualmente este flujo. Para ver cómo funciona en el servicio Azure AD, disponible con carácter general, consulte [este ejemplo de código de Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

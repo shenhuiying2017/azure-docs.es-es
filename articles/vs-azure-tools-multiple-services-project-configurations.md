@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Configuración de su proyecto Azure mediante varias configuraciones de servicio"
-	description="Configuración de su proyecto Azure mediante varias configuraciones de servicio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Configuración de su proyecto Azure mediante varias configuraciones de servicio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Configurar un proyecto de Azure
 
@@ -85,7 +85,7 @@ Un rol de trabajador puede tener un número indeterminado de extremos HTTP, HTTP
 
 ## Pagina Almacenamiento local
 
-Puede usar la página de propiedades **Almacenamiento local** para reservar uno o más recursos de almacenamiento local para un rol. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual de Azure donde se ejecuta una instancia de un rol. Para obtener más información acerca de cómo trabajar con los recursos de almacenamiento local, consulte [Configurar los recursos de almacenamiento local](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+Puede usar la página de propiedades **Almacenamiento local** para reservar uno o más recursos de almacenamiento local para un rol. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual de Azure donde se ejecuta una instancia de un rol. Para obtener más información acerca de cómo trabajar con los recursos de almacenamiento local, vea [Configurar los recursos de almacenamiento local](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ## Página Certificados
 
@@ -114,4 +114,4 @@ Para configurar los valores que se aplican a todo un proyecto de servicio en la 
 
 [Azure Tools para Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

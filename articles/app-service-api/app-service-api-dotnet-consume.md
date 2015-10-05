@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso de una aplicación de API del Servicio de aplicaciones de Azure desde un cliente .NET"
-	description="Aprenda a usar una aplicación de API desde un cliente .NET mediante el SDK del Servicio de aplicaciones."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Uso de una aplicación de API del Servicio de aplicaciones de Azure desde un cliente .NET" 
+	description="Aprenda a usar una aplicación de API desde un cliente .NET mediante el SDK del Servicio de aplicaciones." 
+	services="app-service\api" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Uso de una aplicación de API del Servicio de aplicaciones de Azure desde un cliente .NET 
@@ -205,4 +205,4 @@ Para obtener más ejemplos de código que llama a una aplicación de API de clie
 Para obtener información sobre cómo utilizar la autenticación en aplicaciones de API, consulte [Autenticación para aplicaciones de API y aplicaciones móviles en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

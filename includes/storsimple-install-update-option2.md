@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Opción 2: Uso del Portal de administración de Azure para aplicar la actualización 1.2"
-   description="Explica cómo usar el Portal de administración para instalar la Actualización 1.2 de la serie StorSimple 8000."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Para instalar la Actualización 1.2 desde el Portal de administración de Azure
 
@@ -27,4 +12,4 @@
 
 7. Ya puede [usar el Portal de administración para instalar la Actualización 1.2](#use-the-management-portal-to-install-update-1). Siga las instrucciones a partir del paso 3 de este procedimiento. Después de haber instalado todas las actualizaciones, puede volver a habilitar la interfaz de red que deshabilitó.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

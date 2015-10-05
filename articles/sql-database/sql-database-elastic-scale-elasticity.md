@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh"/>
 
 # Elasticidad de partición 
 
-**Elasticidad de partición** permite que los desarrolladores de aplicaciones aumenten y disminuyan de manera dinámica los recursos de las bases de datos según lo dicte la necesidad, permitiendo así optimizar el rendimiento de las aplicaciones y minimizar los costos. La combinación de **herramientas de bases de datos elásticas** para Base de datos SQL de Azure con los [niveles de servicio Básico, Estándar y Premium](http://msdn.microsoft.com/library/azure/dn741340.aspx) proporciona escenarios de elasticidad muy atractivos. Las herramientas de bases de datos elásticas permiten el escalado horizontal, un patrón de diseño en el que las bases de datos (también [conocidas como "particiones"](sql-database-elastic-scale-glossary.md)) se agregan o eliminan de un conjunto de particiones para aumentar o reducir la capacidad. De manera similar, los niveles de servicio de Base de datos SQL proporcionan capacidades de **escalado vertical**, en las que los recursos de una base de datos se pueden escalar o reducir verticalmente para satisfacer la demanda como corresponde. En conjunto, el escalado vertical de una sola partición y el escalado horizontal de muchas particiones ofrecen a los desarrolladores de aplicaciones un entorno muy flexible que puede escalar para satisfacer las necesidades de rendimiento, capacidad y optimización de costos.
+**Elasticidad de partición** permite que los desarrolladores de aplicaciones aumenten y disminuyan de manera dinámica los recursos de las bases de datos según lo dicte la necesidad, permitiendo así optimizar el rendimiento de las aplicaciones y minimizar los costos. La combinación de **herramientas de bases de datos elásticas** para Base de datos SQL de Azure con los [niveles de servicio Básico, Estándar y Premium](sql-database-service-tiers) proporciona escenarios de elasticidad muy atractivos. Las herramientas de bases de datos elásticas permiten el escalado horizontal, un patrón de diseño en el que las bases de datos (también [conocidas como "particiones"](sql-database-elastic-scale-glossary.md)) se agregan o eliminan de un conjunto de particiones para aumentar o reducir la capacidad. De manera similar, los niveles de servicio de Base de datos SQL proporcionan capacidades de **escalado vertical**, en las que los recursos de una base de datos se pueden escalar o reducir verticalmente para satisfacer la demanda como corresponde. En conjunto, el escalado vertical de una sola partición y el escalado horizontal de muchas particiones ofrecen a los desarrolladores de aplicaciones un entorno muy flexible que puede escalar para satisfacer las necesidades de rendimiento, capacidad y optimización de costos.
 
 Con la funcionalidad de **grupos de bases de datos elásticas** recién presentada, el escalado vertical es incluso más simple de lograr. Los grupos permiten que el consumo individual de los recursos de una base de datos aumente o disminuya *automáticamente* dentro de un presupuesto compartido entre todo el grupo. En el caso de las aplicaciones que decidan no usar los grupos de bases de datos elásticas, en este artículo se describirán otras técnicas para implementar mecánicas basadas en directivas para la administración del escalado vertical, así como algunos escenarios comunes para automatizar las operaciones de escalado horizontal.
 
@@ -147,7 +147,7 @@ Para facilitar la implementación real de ambos escenarios de escalado, horizont
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
+
 
 <!--anchors-->
 [Telemetry]: #telemetry
@@ -155,4 +155,4 @@ Para facilitar la implementación real de ambos escenarios de escalado, horizont
 [Action]: #action
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

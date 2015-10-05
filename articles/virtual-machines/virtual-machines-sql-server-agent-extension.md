@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="Extensión Agente de IaaS de SQL Server"
-	description="Describe la extensión del Agente SQL Server, que permite a las máquinas virtuales que ejecutan SQL Server en la nube en Azure usar las características de automatización y cómo instalar al agente si no se instala automáticamente."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="jeffgoll"
+	pageTitle="Extensión Agente de IaaS de SQL Server | Microsoft Azure" 
+	description="En este tema se usan recursos creados con el modelo de implementación clásica y se describe la extensión del agente SQL Server, que permite que una máquina virtual con SQL Server en Azure use las características de automatización." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="jeffgoll" 
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
+	ms.workload="infrastructure-services" 
 	ms.date="06/17/2015"
 	ms.author="jeffreyg"/>
 
 # Extensión Agente de IaaS de SQL Server
 
 Esta extensión permite que SQL Server en máquinas virtuales de Azure utilice determinados servicios, descritos en este artículo, que solo se puede usar con esta extensión instalada. Esta extensión se instala automáticamente para las imágenes de la galería de SQL Server en el Portal de vista previa de Azure. Se puede instalar en cualquier máquina virtual de SQL Server en Azure que tenga instalado el agente invitado de máquina virtual de Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata el uso de un recurso con el modelo de implementación clásica.
  
 ## Requisitos previos
 Requisitos para usar los cmdlets de Powershell:
@@ -74,4 +77,4 @@ Si desea quitar esta extensión de la máquina virtual, puede utilizar el siguie
 ### Sintaxis
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

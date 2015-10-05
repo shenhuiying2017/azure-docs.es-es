@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +17,7 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-#Administración de la disponibilidad de las máquinas virtuales
+# Administración de la disponibilidad de las máquinas virtuales
 
 ## Descripción del mantenimiento planeado frente al no planeado
 Existen dos tipos de eventos de la plataforma Microsoft Azure que pueden afectar a la disponibilidad de sus máquinas virtuales: el mantenimiento planeado y el mantenimiento no planeado.
@@ -69,4 +70,4 @@ Evite dejar una máquina virtual de instancia única sola en un conjunto de disp
 [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuración de un conjunto de disponibilidad para máquinas virtuales]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

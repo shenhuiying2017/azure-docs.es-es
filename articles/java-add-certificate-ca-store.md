@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Agregar un certificado al almacén de CA de Java | Microsoft Azure"
-	description="Obtenga información acerca de cómo agregar un certificado de entidad de certificación (CA) al almacén de certificados CA de Java (cacerts) para el servicio de Twilio o el Bus de servicio de Azure."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Agregar un certificado al almacén de CA de Java | Microsoft Azure" 
+	description="Obtenga información acerca de cómo agregar un certificado de entidad de certificación (CA) al almacén de certificados CA de Java (cacerts) para el servicio de Twilio o el Bus de servicio de Azure." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Incorporación de un certificado al almacén de certificados CA de Java
@@ -50,6 +50,10 @@ El certificado Baltimore podría estar ya instalado en su almacén de certificad
 
 Si necesita agregar Baltimore CyberTrust Root, tiene el número de serie 02:00:00:b9 y la huella digital SHA1 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2 c: 78:db:28:52:ca:e4:74. Se puede descargar desde <https://cacert.omniroot.com/bc2025.crt>, guardar en un archivo local con la extensión **.cer** y luego importar mediante **keytool** como se mostró anteriormente.
 
+## Pasos siguientes
+
 Para obtener más información sobre los certificados raíz que usa Azure, consulte [Azure Root Certificate Migration (Migración de certificados raíz de Azure)](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=September15_HO1-->
+Para obtener más información sobre Java, consulte el [Centro para desarrolladores de Java](/develop/java/).
+
+<!---HONumber=Sept15_HO4-->

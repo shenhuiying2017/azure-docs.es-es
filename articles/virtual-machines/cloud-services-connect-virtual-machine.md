@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Conexión de máquinas virtuales en un servicio en la nube de Azure"
-	description="Obtenga información acerca de cómo conectar una máquina virtual a un servicio en la nube de Azure."
+	pageTitle="Conectar máquinas virtuales en un servicio en la nube | Microsoft Azure"
+	description="Conecte una máquina virtual a un servicio en la nube de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,8 +18,10 @@
 	ms.author="cynthn"/>
 
 
-# Cómo conectar máquinas virtuales con un servicio de nube o red virtual
+# Conectar máquinas virtuales creadas con el modelo de implementación clásica con un servicio en la nube o red virtual
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación clásica.
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

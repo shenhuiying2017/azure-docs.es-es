@@ -18,7 +18,8 @@
 	ms.author="danlep"/>
 
 # Artículos para máquinas virtuales en la administración de servicios
-Se trata de una lista de artículos para trabajar con máquinas virtuales en Administración de servicios de Azure. Para implementaciones nuevas, se recomienda usar máquinas virtuales basadas en el Administrador de recursos de Azure y otros recursos. Para ver una explicación de las ventajas del Administrador de recursos, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación clásica.
 
 ## Primeros pasos
 
@@ -150,4 +151,4 @@ Se trata de una lista de artículos para trabajar con máquinas virtuales en Adm
 
 [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

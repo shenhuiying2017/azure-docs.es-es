@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Acoplamiento de un disco a una máquina virtual | Microsoft Azure"
-	description="Aprenda como acoplar un disco de datos a una máquina virtual de Azure y a inicializarla para que esté lista para utilizarse."
+	description="Conecte un disco de datos a una máquina virtual creada con el modelo de implementación clásica e inicialícelo."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-# Acoplamiento de un disco de datos a una máquina virtual de Windows
+# Conecte un disco de datos a una máquina virtual de Windows creada con el modelo de implementación clásica
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica. También puede crear recursos con el [modelo de implementación del Administrador de recursos](virtual-machines-attach-disk-preview.md).
 
 Puede acoplar discos vacíos como discos que contienen datos. En ambos casos, se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. También en ambos casos, una vez acoplado el disco, tendrá que inicializarlo para que esté listo para utilizarse.
 
@@ -49,7 +51,7 @@ A continuación se facilita una guía detallada de los pasos de este tutorial.
 
 	![Volumen inicializado correctamente](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]El tamaño de la máquina virtual determina el número de discos que le puede asociar. Para obtener más información, consulte [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
+> [AZURE.NOTE]El tamaño de la máquina virtual determina el número de discos que le puede asociar. Para obtener más información, vea [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 
 ## Recursos adicionales
 
@@ -59,4 +61,4 @@ A continuación se facilita una guía detallada de los pasos de este tutorial.
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

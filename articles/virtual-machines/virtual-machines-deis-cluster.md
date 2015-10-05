@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Implementar un clúster Deis de 3 nodos en Azure"
+   pageTitle="Implementar un clúster Deis de 3 nodos | Microsoft Azure"
    description="En este artículo se describe cómo crear un clúster Deis de 3 nodos en Azure mediante una plantilla de Administrador de recursos de Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="HaishiBai"
    manager="larar"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # Implementar un clúster Deis de 3 nodos
 
 Este artículo le guiará a través de aprovisionamiento de un clúster [Deis](http://deis.io/) en Azure. Abarca todos los pasos de creación de los certificados necesarios para implementar y escalar una aplicación **Go** de ejemplo en el clúster recién suministrado.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos.
 
 El siguiente diagrama muestra la arquitectura del sistema implementado. Un administrador del sistema administra el clúster con herramientas Deis como **deis** y **deisctl**. Las conexiones se establecen a través de un equilibrador de carga de Azure, que reenvía las conexiones a uno de los nodos de los miembros del clúster. Los clientes acceden a aplicaciones implementadas a través del equilibrador de carga también. En este caso, el equilibrador de carga reenvía el tráfico a una malla de enrutador Deis, que enruta el tráfico a los contenedores Docker correspondientes alojados en el clúster.
 
@@ -254,4 +257,4 @@ En este artículo le guiamos a través de todos los pasos para aprovisionar un n
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Firewall de Base de datos SQL de Azure | Microsoft Azure"
-	description="Cómo configurar el firewall de Base de datos SQL de Microsoft Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""
-	tags=""/>
+   description="Cómo configurar el firewall de Base de datos SQL de Microsoft Azure."
+   services="sql-database"
+   documentationCenter=""
+   authors="BYHAM"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="08/04/2015"
-	ms.author="rickbyh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="08/04/2015"
+   ms.author="rickbyh"/>
 
 # Firewall de Base de datos SQL de Azure
 
@@ -114,7 +114,7 @@ Además del Portal de administración de Azure, las reglas de firewall se pueden
 
 Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Base de datos SQL de Microsoft Azure no se comporte de la manera prevista:
 
-- **Configuración del firewall local:** antes de que el equipo puede tener acceso a la Base de datos SQL de Azure, puede que necesite crear una excepción de firewall en el equipo para el puerto 1433 TCP. 
+- **Configuración del firewall local:** antes de que el equipo puede tener acceso a la Base de datos SQL de Azure, puede que necesite crear una excepción de firewall en el equipo para el puerto 1433 TCP. Es posible que tenga que abrir puertos adicionales si está realizando conexiones dentro del límite de la nube de Azure. Para obtener más información, vea la sección **V12 de Base de datos SQL: fuera frente a dentro** de [Puertos más allá de 1433 para ADO.NET 4.5 y Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Traducción de direcciones de red (NAT):** debido a NAT, la dirección IP usada por su equipo para conectarse a la Base de datos SQL de Azure puede diferir de la dirección IP que se muestra en los valores de la configuración de IP del equipo. Para ver la dirección IP que su equipo está usando para conectarse a Azure, inicie sesión en el Portal de administración y navegue hasta la pestaña **Configurar** del servidor que hospeda su base de datos. En la sección **Direcciones IP permitidas**, aparece la sección **Dirección IP del cliente actual**. Haga clic en **Agregar** para las **Direcciones IP permitidas** para permitir que este equipo tenga acceso al servidor.
 
@@ -135,4 +135,4 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Base de da
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

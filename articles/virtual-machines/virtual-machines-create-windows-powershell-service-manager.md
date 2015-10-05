@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Cree y administre una máquina virtual Windows en Administración de servicios con Azure."
-	description="Use Azure PowerShell para crear una nueva máquina virtual basada en Windows rápidamente en la administración de servicios y realizar funciones de administración."
+	pageTitle="Creación y administración de una máquina virtual de Windows mediante Azure PowerShell | Microsoft Azure"
+	description="Cree y administre una máquina virtual de Windows mediante Azure Powershell mediante el modelo de implementación clásica."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,13 +17,13 @@
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Creación y administración de una máquina virtual basada en Windows en Administración de servicios mediante Azure PowerShell
+# Creación y administración de una máquina virtual de Windows mediante Azure PowerShell
 
-En este artículo se describe cómo crear y administrar máquinas virtuales Azure basadas en Windows en Administración de servicios mediante Azure PowerShell.
+En este artículo se describe cómo crear y administrar máquinas virtuales de Windows mediante Azure PowerShell.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de una máquina virtual de Windows con el modelo de implementación clásica. También puede crear una máquina virtual de Windows con el [modelo de implementación del Administrador de recursos](virtual-machines-deploy-rmtemplates-powershell.md).
 
-- [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+
 
 ## Configuración de Azure PowerShell
 
@@ -209,4 +209,4 @@ Para adjuntar discos de datos desde un archivo .vhd existente en el almacenamien
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso de actividades personalizadas en una canalización de Factoría de datos de Azure"
-	description="Obtenga información acerca de cómo crear actividades personalizadas y usarlas en una canalización de la factoría de datos de Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Uso de actividades personalizadas en una canalización de Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo crear actividades personalizadas y usarlas en una canalización de la factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
@@ -53,7 +53,7 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 
 4. Importe el paquete de NuGet de Almacenamiento de Azure en el proyecto.
 
-		Install-Package Azure.Storage
+		Install-Package Azure.Storage -Version 4.3.0 
 
 5. Agregue las siguientes instrucciones **using** al archivo de origen en el proyecto.
 
@@ -244,7 +244,18 @@ Si ya ha ampliado el tutorial [Introducción a Factoría de datos de Azure][adfg
 	4. En la propiedad **version**, especifique la versión de HDInsight que quiere usar. Si excluye esta propiedad, se usa la versión más reciente.  
 	5. En **linkedServiceName**, especifique el elemento **StorageLinkedService** que creó en el tutorial Introducción. 
 
-		{"nombre": "HDInsightOnDemandLinkedService", "propiedades": {"tipo": "HDInsightOnDemand", "typeProperties": {"clusterSize": "1", "timeToLive": "00:05:00", "versión": "3.1", "linkedServiceName": "StorageLinkedService"}}}
+			{
+			  "name": "HDInsightOnDemandLinkedService",
+			  "properties": {
+			    "type": "HDInsightOnDemand",
+			    "typeProperties": {
+			      "clusterSize": "1",
+			      "timeToLive": "00:05:00",
+			      "version": "3.1",
+			      "linkedServiceName": "StorageLinkedService"
+			    }
+			  }
+			}
 
 2. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
    
@@ -405,6 +416,7 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 		    "type": "AzureBatch",
 		    "typeProperties": {
 		      "accountName": "<Azure Batch account name>",
+			  "batchUri": "https://<region>.batch.azure.com",
 		      "accessKey": "<Azure Batch account key>",
 		      "poolName": "<Azure Batch pool name>",
 		      "linkedServiceName": "<Specify associated storage linked service reference here>"
@@ -412,11 +424,10 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 		  }
 		}
 
-	> [AZURE.NOTE]Anexe "**.<nombre de región>**" al nombre de la cuenta de lote para la propiedad **accountName**. Ejemplo: "mybatchaccount.eastus". Otra opción es ofrecer el extremo batchUri tal como se muestra a continuación.
+	> [AZURE.IMPORTANT]La **URL** desde la **hoja de cuenta de Lote de Azure** tiene el formato siguiente: accountname.region.batch.azure.com. Para la propiedad **batchUri** en JSON, necesitará **quitar "accountname."** de la dirección URL y usar el **accountname** para la propiedad JSON **accountName**.
+	  
+	Para la propiedad **poolName**, también puede especificar el id. del grupo en lugar del nombre del grupo.
 
-		accountName: "adfteam",
-		batchUri: "https://eastus.batch.azure.com",
- 
 	Consulte el [tema de MSDN del servicio vinculado de Lote de Azure](https://msdn.microsoft.com/library/mt163609.aspx) para obtener una descripción de estas propiedades.
 
 2.  En el Editor de Factoría de datos, abra la definición de JSON de la canalización que creó en el tutorial y reemplace **HDInsightLinkedService** por **AzureBatchLinkedService**.
@@ -467,4 +478,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->
