@@ -650,4 +650,4 @@ Ahora puede pasar a temas más avanzados de B2C. También puede probar lo siguie
 
 [Personalización de la experiencia de usuario de la aplicación B2C >>]()
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

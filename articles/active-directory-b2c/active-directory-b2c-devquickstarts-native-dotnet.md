@@ -78,16 +78,16 @@ Cuando el `TaskService` recibe solicitudes del `TaskClient`, busca un token de a
   </appSettings>
   ```
 
-If you want to learn how a web API securely authenticates requests using Azure AD B2C, check out our
-[Web API Getting Started article](active-directory-b2c-devquickstarts-api-dotnet.md).
+Si quiere saber de qué forma una aplicación web autentica de forma segura las solicitudes con Azure AD B2C, consulte nuestro 
+[artículo de introducción al inicio de sesión de aplicación web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Execute policies
-Now that the `TaskService` is ready to authenticate requests, we can implement the `TaskClient`.  Your app communicates with Azure AD B2C by sending HTTP authentication requests,
-specifying the policy it wishes to execute as part of the request.  For .NET desktop applications, you can use the **Active Directory Authentication Library (ADAL)**
-to send OAuth 2.0 authentication messages, execute policies, and get tokens for calling web APIs.
+## 6. Ejecución de directivas
+Ahora que `TaskService` está listo para autenticar las solicitudes, podemos implementar `TaskClient`.  
+Su aplicación se comunica con Azure AD B2C mediante el envío de solicitudes de autenticación HTTP, especificando la directiva que desea ejecutar como parte de la solicitud. Para aplicaciones de escritorio .NET, puede usar la **Biblioteca de autenticación de Active Directory (AAL)**
+para enviar mensajes de autenticación OAuth 2.0, ejecutar directivas y obtener tokens para llamar a las API web.
 
-#### Install ADAL
-Begin by adding ADAL to the TaskClient project using the Visual Studio Package Manager Console.
+#### Instalación de AAL
+Para comenzar, agregue ADAL al proyecto TaskClient mediante la Consola del Administrador de paquetes de Visual Studio.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskClient -IncludePrerelease

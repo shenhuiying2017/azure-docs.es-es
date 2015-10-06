@@ -82,13 +82,13 @@ Cuando el `TaskService` recibe solicitudes del `TaskWebApp`, busca un token de a
 </appSettings>
   ```
 
-This article will not cover the details of securing the `TaskService`.  If you want to learn how a web API securely authenticates requests using Azure AD B2C, check out our
-[Web API Getting Started article](active-directory-b2c-devquickstarts-api-dotnet.md).
+Este artículo no aborda los detalles de la protección de `TaskService`. Si quiere saber de qué forma una aplicación web autentica de forma segura las solicitudes con Azure AD B2C, consulte nuestro 
+[artículo de introducción al inicio de sesión de aplicación web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Configure the task web app
+## 6. Configurar la aplicación web de tarea
 
-In order for the `TaskWebApp` to communicate with Azure AD B2C, there are a few common parameters that you will need to provide.  In the `TaskWebApp` project, open up the
-`web.config` file in the root of the project and replace the values in the `<appSettings>` section.  These values will be used throughout the web app.
+Para que `TaskWebApp` se comunique con Azure AD B2C, hay algunos parámetros comunes que debe proporcionar. En el proyecto `TaskWebApp`, abra el archivo 
+`web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`: Estos valores se usarán en toda la aplicación web.
 
 ```
 <appSettings>
