@@ -67,7 +67,7 @@ En la línea de comandos, cambie los directorios a la carpeta raíz si aún no e
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart.
+- Además, hemos usado `passport-azure-ad` para nuestra vista previa en el esqueleto del inicio rápido.
 
 - `npm install passport-azure-ad`
 
