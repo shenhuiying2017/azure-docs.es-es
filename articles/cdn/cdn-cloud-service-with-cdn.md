@@ -180,7 +180,7 @@ Puede especificar una regla de reescritura de URL más restrictiva a fin de limi
 <a name="caching"></a>
 ## Configuración de las opciones de almacenamiento en caché para los archivos estáticos del servicio en la nube ##
 
-Con la integración de la red CDN de Azure en el servicio en la nube, puede especificar cómo quiere que el contenido estático se almacene en la caché en el extremo de red CDN. Para ello, abra *Web.config* desde su proyecto de rol web (por ejemplo, WebRole1) y agregue un elemento `<staticContent>`￼ a `<system.webServer>`. El XML siguiente configura la caché para que caduque en tres días.
+Con la integración de la red CDN de Azure en el servicio en la nube, puede especificar cómo quiere que el contenido estático se almacene en la caché en el extremo de red CDN. Para ello, abra *Web.config* desde su proyecto de rol web (por ejemplo, WebRole1) y agregue un elemento `<staticContent>` a `<system.webServer>`. El XML siguiente configura la caché para que caduque en tres días.
 
 	<system.webServer>
 	  <staticContent>

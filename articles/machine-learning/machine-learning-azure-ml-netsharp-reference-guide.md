@@ -390,7 +390,7 @@ La definición de la siguiente red está diseñada para reconocer los números y
 -	La estructura tiene una sola capa de entrada: _Image_.
 -	La palabra clave **convolve** indica que _Conv1_ y _Conv2_ son capas convolucionales. Cada una de estas declaraciones de capa está seguida por una lista de los atributos de convolución.
 -	La red tiene una tercera capa oculta, _Hid3_, que está totalmente conectada a la segunda capa oculta, _Conv2_.
--	La capa de salida, _Digit_, está conectada solo a la tercera capa oculta, _Hid3_. La palabra clave **￼all￼** indica que la capa de salida está conectada por completo a _Hid3_.
+-	La capa de salida, _Digit_, está conectada solo a la tercera capa oculta, _Hid3_. La palabra clave **all** indica que la capa de salida está conectada por completo a _Hid3_.
 -	La aridad de la convolución es tres (la longitud de las tuplas **InputShape**, **KernelShape**, **Stride** y **Sharing**). 
 -	El número de ponderaciones por kernel es _1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300_.
 -	Puede calcular los nodos en cada capa oculta del modo siguiente:
