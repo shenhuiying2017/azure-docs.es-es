@@ -44,7 +44,10 @@ En una instancia de SQL Server local, las vistas de administración dinámica de
 La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
 
 ```
--- Calcula el tamaño de la base de datos. SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
+-- Calcula el tamaño de la base de datos. SELECT 
+SUM(reserved\_page\_count)*8.0/1024
+FROM sys.dm\_db\_partition\_stats; 
+GO
 ```
 
 La consulta siguiente devuelve el tamaño de objetos individuales (en megabytes) de la base de datos:
@@ -134,4 +137,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Introducción a Base de datos SQL](sql-database-technical-overview.md)
 
-<!-----HONumber=Sept15_HO3-->
+<!------HONumber=Sept15_HO3-->
