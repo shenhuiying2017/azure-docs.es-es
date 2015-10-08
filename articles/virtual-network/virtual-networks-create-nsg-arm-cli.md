@@ -68,7 +68,10 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 		data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
 		info:    network nsg create command OK
 
-	Parámetros:- **-g (o --resource-group)**. Nombre del grupo de recursos donde se creará el grupo de seguridad de red En este escenario, *TestRG*. - **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario,, *westus*. - **-n (o --name)**. Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
+	Parámetros:
+	- **-g (o --resource-group)**. Nombre del grupo de recursos donde se creará el grupo de seguridad de red En este escenario, *TestRG*.
+	- **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario,, *westus*.
+	- **-n (o --name)**. Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
 
 4. Ejecute el comando **azure network nsg rule create** para crear una regla que permita el acceso al puerto 3389 (RDP) desde Internet.
 
@@ -98,11 +101,11 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 
 	Parámetros:
 
-	- **- a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
+	- **-a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
 	- **-n (o --name)**. Nombre de la nueva regla. En este escenario, *rdp-rule*.
 	- **-c (o--access)**. Nivel de acceso de la regla (Denegar o Permitir).
 	- **-p (o --protocol)**. Protocolo (Tcp, Udp o *) para la regla.
-- **- r (o --direction)**. Dirección de conexión (Entrante o Saliente).
+	- **-r (o --direction)**. Dirección de conexión (Entrante o Saliente).
 	- **-y (o --priority)**. Prioridad de la regla.
 	- **-f (o --source-address-prefix)**. Prefijo de dirección de origen en CIDR o con las etiquetas predeterminadas.
 	- **-o (o --source-port-range)**. Puerto de origen, o intervalo de puertos.
@@ -266,4 +269,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

@@ -23,7 +23,9 @@ Escenario 1: Empresas principalmente en la nube
 --------------------------------------------------------
 Azure AD Join puede resultarle ventajoso si actualmente opera y administra identidades para su negocio en la nube o tiene pensado trasladarse a la nube en un futuro cercano. Puede usar una cuenta que haya creado en Azure AD para iniciar sesión en Windows 10. Mediante [el proceso de configuración rápida](active-directory-azureadjoin-user-frx.md) o la unión a Azure AD mediante [la experiencia de configuración básica](active-directory-azureadjoin-user-upgrade.md), sus usuarios pueden unir sus equipos a Azure AD. Ahora, los usuarios disfrutan de acceso SSO a sus recursos de nube, como Office 365 en el explorador o en las aplicaciones de Office.
 
-Escenario 2: Instituciones educativas ---------------------------------------------------------------------------------- Las instituciones educativas tienen habitualmente dos tipos de usuarios: profesores y estudiantes. A los profesores se les considera miembros más a largo plazo de la organización, y lo deseable es crear cuentas locales para ellos. Pero los estudiantes son miembros más a corto plazo de la organización y, por lo tanto, se pueden administrar en Azure AD de modo que la escala de directorio se puede mover a la nube en lugar de al entorno local. Los estudiantes ahora pueden iniciar sesión en Windows con su cuenta de Azure AD y obtener acceso a los recursos de Office 365 en las aplicaciones de Office.
+Escenario 2: Instituciones educativas
+----------------------------------------------------------------------------------
+Las instituciones educativas tienen habitualmente dos tipos de usuarios: profesores y estudiantes. A los profesores se les considera miembros más a largo plazo de la organización, y lo deseable es crear cuentas locales para ellos. Pero los estudiantes son miembros más a corto plazo de la organización y, por lo tanto, se pueden administrar en Azure AD de modo que la escala de directorio se puede mover a la nube en lugar de al entorno local. Los estudiantes ahora pueden iniciar sesión en Windows con su cuenta de Azure AD y obtener acceso a los recursos de Office 365 en las aplicaciones de Office.
 
 Escenario 3: Los negocios minoristas
 ---------------------------------------------------------------------------------------
@@ -85,4 +87,4 @@ Puede configurar a los usuarios y empleados para que usen sus dispositivos perso
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->
