@@ -56,7 +56,7 @@ Este artículo describe varios patrones de aplicación que pueden ser apropiados
 
 - Desee aprovechar las funcionalidades del entorno de Azure, pero Base de datos SQL de Azure no admite todas las características que requiere la aplicación. Esto puede incluir las siguientes áreas:
 
-	- **Tamaño de base de datos**: en el momento en que se actualizó en este artículo, Base de datos SQL admite bases de datos de hasta 500 GB de datos. Si la aplicación requiere más de 500 GB de datos y no desea implementar soluciones de particionamiento personalizadas, se recomienda usar SQL Server en una máquina virtual de Azure. Para obtener la información más reciente, consulte [Ampliar Bases de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx) y [Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx).
+	- **Tamaño de base de datos**: en el momento en que se actualizó en este artículo, Base de datos SQL admite bases de datos de hasta 500 GB de datos. Si la aplicación requiere más de 500 GB de datos y no desea implementar soluciones de particionamiento personalizadas, se recomienda usar SQL Server en una máquina virtual de Azure. Para obtener la información más reciente, consulte [Ampliar Bases de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx) y [Niveles de servicio y niveles de rendimiento de la Base de datos SQL de Azure](../sql-database/sql-database-service-tiers.md).
 	- **Cumplimiento de normas HIPAA**: los clientes de atención de la salud y fabricantes de software independientes (ISV) pueden elegir [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md), en lugar de [Base de datos SQL de Azure](../sql-database/sql-database-technical-overview.md), porque el contrato de asociación comercial (BAA) según las normas HIPAA cubre SQL Server en una máquina virtual de Azure. Para obtener información sobre el cumplimiento, consulte [Centro de confianza de Microsoft Azure: conformidad](http://azure.microsoft.com/support/trust-center/compliance/).
 	- **Características de nivel de instancia**: actualmente, Base de datos SQL no admite las características que se encuentran fuera de la base de datos (por ejemplo, servidores vinculados, trabajos de agente, FileStream, Service Broker, etc.). Para obtener más información, consulte [Instrucciones y limitaciones de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 
@@ -323,4 +323,4 @@ Para obtener más información sobre cuál de estos métodos de programación el
 
 Para obtener más información sobre cómo ejecutar SQL Server en Máquinas virtuales de Azure, consulte [SQL Server en Máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

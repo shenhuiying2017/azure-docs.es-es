@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="07/07/2015"
+	ms.date="09/29/2015"
 	ms.author="kenhoff"/>
 
 # Búsqueda de informes de Azure Active Directory
@@ -28,31 +28,32 @@ Para buscar eventos de actividad o de auditoría para un determinado usuario, se
 
 No todos los informes se incluyen en los resultados de la búsqueda aún. Esta tabla indica qué informes se incluyen.
 
-|	Informe |	Se incluye |
-|	------												|	--------			|
-|	Inicios de sesión desde orígenes desconocidos |	No |
-|	Inicios de sesión tras varios errores |	No |
-|	Inicios de sesión desde varias ubicaciones geográficas |	No |
-|	Inicios de sesión desde direcciones IP con actividad sospechosa |	No |
-|	Inicios de sesión desde dispositivos posiblemente infectados |	No |
-|	Actividad de inicio de sesión irregular |	No |
-|	Usuarios con actividad de inicio de sesión erróneo. |	No |
-|	Usuarios con credenciales perdidas |	No |
-|	Informe de auditoría |	Sí |
-|	Actividad de restablecimiento de contraseña |	Sí |
-|	Actividad de registro de restablecimiento de contraseñas |	Sí |
-|	Actividad de los grupos de autoservicio |	Sí |
-|	Uso de la aplicación |	No |
-|	Actividad de aprovisionamiento de cuentas |	Sí |
-|	Estado de la sustitución de contraseña |	No |
-|	Errores de aprovisionamiento de cuentas |	No |
-|	Uso de RMS |	No |
-|	Usuarios de RMS más activos |	No |
-|	Uso de dispositivos RMS |	No |
+Informe | Se incluye
+--------------------------------------------------- | --------
+Inicios de sesión desde orígenes desconocidos | No
+Inicios de sesión tras varios errores | No
+Inicios de sesión desde varias ubicaciones geográficas | No
+Inicios de sesión desde direcciones IP con actividad sospechosa | No
+Inicios de sesión desde dispositivos posiblemente infectados | No
+Actividad de inicio de sesión irregular | No
+Usuarios con actividad de inicio de sesión erróneo. | No
+Usuarios con credenciales perdidas | No
+Informe de auditoría | Sí
+Actividad de restablecimiento de contraseña | Sí
+Actividad de registro de restablecimiento de contraseñas | Sí
+Actividad de los grupos de autoservicio | Sí
+Uso de la aplicación | No
+Actividad de aprovisionamiento de cuentas | Sí
+Estado de la sustitución de contraseña | No
+Errores de aprovisionamiento de cuentas | No
+Uso de RMS | No
+Usuarios de RMS más activos | No
+Uso de dispositivos RMS | No
+
 
 ## Más información
 
  - [Informes de Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Eventos de auditoría de informes de Azure Active Directory](active-directory-reporting-audit-events.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

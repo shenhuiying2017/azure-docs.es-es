@@ -1,20 +1,20 @@
 <properties
    pageTitle="Desarrollar un servicio de Service Fabric"
-	description="Tutoriales e información de conceptos que le ayudarán a entender cómo desarrollar un servicio de Service Fabric con los modelos de programación de actor confiable o servicios de confianza."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="rwike77"
-	manager="timlt"
-	editor=""/>
+   description="Tutoriales e información de conceptos que le ayudarán a entender cómo desarrollar un servicio de Service Fabric con los modelos de programación de actor confiable o servicios de confianza."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/20/2015"
-	ms.author="ryanwi"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/25/2015"
+   ms.author="ryanwi"/>
 
 # Desarrollar un servicio de Service Fabric
 Esta página tiene vínculos a tutorial y artículos de información general y sobre conceptos para ayudarle a aprender a desarrollar un servicio de Service Fabric. Service Fabric ofrece dos modelos de programación de alto nivel para la creación de servicios: las API de actores confiables y las API de servicios de confianza. Aunque ambas se basan en el mismo núcleo de Service Fabric, hacen diferentes compromisos entre la simplicidad y la flexibilidad en términos de simultaneidad, creación de particiones y comunicación. Es útil comprender ambos modelos para que pueda elegir el marco adecuado para un servicio concreto dentro de la aplicación.
@@ -30,6 +30,7 @@ Esta página tiene vínculos a tutorial y artículos de información general y s
 - [Ciclo de vida de actor y recolección de elementos no utilizados](service-fabric-reliable-actors-lifecycle.md)
 - [Cómo usan los actores de tejido usan la plataforma de Service Fabric](service-fabric-reliable-actors-platform.md)
 - [Notas sobre la serialización del tipo de actores de Service Fabric de Azure](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+- [Node.js y actores confiables](service-fabric-node-and-reliable-actors-an-winning-combination.md)
 
 La comunicación con los agentes se describe en:
 
@@ -69,7 +70,6 @@ Los actores confiables emiten eventos y contadores de rendimiento, que se pueden
 Los servicios de confianza le ofrecen un modelo de programación de nivel superior, sencillo y eficaz para ayudarle a expresar lo que es importante para su aplicación. Para obtener más información, lea:
 
 - [Introducción a los servicios de confianza](service-fabric-reliable-services-quick-start.md)
-- [Información general del modelo de programación](../service-fabric-reliable-services-service-overview.md)  
 - [Arquitectura](service-fabric-reliable-services-platform-architecture.md)
 - [Colecciones confiables](service-fabric-reliable-services-reliable-collections.md)
 - [Configuración de los servicios confiables con estado](../Service-Fabric/service-fabric-reliable-services-configuration.md)
@@ -87,4 +87,4 @@ Los servicios de confianza emiten eventos y contadores de rendimiento, que se pu
 
 - [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -184,4 +184,4 @@ Ahora que puede conectarse y realizar consultas, intente [cargar datos de ejempl
 [cargar datos de ejemplo]: ./sql-data-warehouse-get-started-load-samples.md
 [desarrollar código]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

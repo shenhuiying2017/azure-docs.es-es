@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Uso de los conjuntos de datos de muestra en Estudio de aprendizaje automático | Microsoft Azure"
 	description="Descripciones de los conjuntos de datos que se usan en los modelos de muestras incluidos en Estudio de aprendizaje automático. Puede usar estos conjuntos de datos de ejemplo para los experimentos."
-	services="machine-learning" 
+	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
 	manager="paulettm"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="09/28/2015"
 	ms.author="garye"/>
 
 
@@ -21,7 +21,7 @@
 
 [top]: #machine-learning-sample-datasets
 
-Cuando se crea un área de trabajo nueva en Aprendizaje automático de Azure, de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de muestra. Los modelos de muestra de la [Galería de Aprendizaje automático de Azure](http://azure.microsoft.com/documentation/services/machine-learning/models/) usan muchos de estos conjuntos de datos de muestra, mientras que otros se incluyen como ejemplos de los diversos tipos de datos que suelen usarse en el aprendizaje automático.
+Cuando se crea un área de trabajo nueva en Aprendizaje automático de Azure, de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de muestra. Muchos de estos conjuntos de datos de ejemplo se usan en los modelos de ejemplo de la [Galería de análisis de Cortana de Azure](http://gallery.azureml.net/), y otros se incluyen como ejemplos de diversos tipos de datos que se usan normalmente en el aprendizaje automático.
 
 Algunos de estos conjuntos de datos están disponibles en el almacenamiento de blobs de Azure. Para dichos conjuntos de datos, la tabla siguiente proporciona un vínculo directo. Puede usar estos conjuntos de datos en sus experimentos mediante el módulo [Lector][reader].
 
@@ -173,7 +173,7 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <tr ID=german-credit-card-uci-dataset>
   <td valign=top>Conjunto de datos UCI de tarjeta de crédito alemana</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
   </td>
 </tr>
 
@@ -316,4 +316,4 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

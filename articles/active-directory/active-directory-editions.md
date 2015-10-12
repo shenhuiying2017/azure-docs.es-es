@@ -3,8 +3,8 @@
 	description="Un tema que explica las opciones de las ediciones gratuitas y de pago de Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
-	manager="msStevenPo"
+	authors="markusvi"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
-	ms.author="curtand"/>
+	ms.date="09/28/2015"
+	ms.author="markvi"/>
 
 # Ediciones de Azure Active Directory
 
@@ -36,9 +36,9 @@ La edición Básico de Active Directory es una oferta de pago de Azure Active Di
 
 - **Información de marca** : para mejorar aún más la experiencia de usuario final, puede agregar el logotipo de la empresa o esquemas de color a las páginas del panel de acceso e inicio de sesión de la organización. Una vez que haya añadido el logotipo, también tiene la opción de agregar versiones localizadas del logotipo para diferentes idiomas y configuraciones regionales. Para obtener más información, consulte [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md).
 - **Acceso a las aplicaciones basadas en grupos** : use grupos para aprovisionar usuarios y asignar acceso de usuario de forma masiva a miles de aplicaciones SaaS. Estos grupos pueden crearse únicamente en la nube o puede aprovechar los grupos existentes que se han sincronizado desde Active Directory local. Para obtener más información, consulte [Asignación de acceso de un grupo a la aplicación SaaS en Azure AD](active-directory-accessmanagement-group-saasapps.md).
-- **Restablecimiento de contraseña de autoservicio**: Azure siempre ha permitido a los administradores de directorios restablecer las contraseñas. Con Azure Active Directory Básico, ahora puede reducir las llamadas de soporte técnico cuando los usuarios olviden una contraseña proporcionando a todos los usuarios en el directorio la capacidad de restablecer su contraseña mediante la misma experiencia de inicio de sesión que tienen con Office 365. Para obtener más información, consulte [Administración de contraseñas en Azure AD](https://msdn.microsoft.com/library/azure/dn510386.aspx).
+- **Restablecimiento de contraseña de autoservicio**: Azure siempre ha permitido a los administradores de directorios restablecer las contraseñas. Con Azure Active Directory Básico, ahora puede reducir las llamadas de soporte técnico cuando los usuarios olviden una contraseña proporcionando a todos los usuarios en el directorio la capacidad de restablecer su contraseña mediante la misma experiencia de inicio de sesión que tienen con Office 365. Para obtener más información, consulte [Administración de contraseñas desde cualquier lugar](active-directory-passwords.md).
 - **SLA empresarial del 99,9 %**: garantizamos al menos una disponibilidad del 99,9 % del servicio Azure Active Directory Básico.
-- [**Proxy de aplicación de Azure Active Directory**](https://msdn.microsoft.com/library/azure/dn768214.aspx): proporcione a sus empleados acceso seguro a aplicaciones locales como SharePoint y Exchange/OWA desde la nube con Azure Active Directory.
+- [**Provisión de acceso remoto seguro a aplicaciones locales**](active-directory-application-proxy-get-started.md): proporcione a sus empleados acceso seguro a aplicaciones locales como SharePoint y Exchange/OWA desde la nube con Azure Active Directory.
 
 ## Características de Azure Active Directory Premium
 
@@ -52,9 +52,9 @@ La edición Premium de Active Directory es una oferta de pago de Azure Active Di
 
     Para obtener más información, consulte [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
-- **Multi-Factor Authentication**: Multi-Factor Authentication se incluye ahora con Premium y puede ayudarle a obtener un acceso seguro en aplicaciones locales (VPN, RADIUS, etc.), Azure, Microsoft Online Services como Office 365 y Dynamics CRM Online, y miles de servicios en la nube que no son de MS integrados previamente con Azure Active Directory. Simplemente habilite Multi-Factor Authentication para las identidades de Azure Active Directory y se solicitará a los usuarios que configuren una comprobación adicional la próxima vez que inicien sesión.
+- **Multi-Factor Authentication**: Multi-Factor Authentication se incluye ahora con la edición Premium y puede ayudarle a obtener acceso seguro a aplicaciones locales (VPN, RADIUS, etc.), Azure, Microsoft Online Services como Office 365 y Dynamics CRM Online, y miles de servicios en la nube que no son de MS integrados previamente con Azure Active Directory. Simplemente habilite Multi-Factor Authentication para las identidades de Azure Active Directory y se solicitará a los usuarios que configuren una comprobación adicional la próxima vez que inicien sesión.
 
-    Para obtener más información, consulte [Adición de Multi-Factor Authentication a Azure Active Directory](https://msdn.microsoft.com/library/azure/dn249466.aspx).
+    Para obtener más información, consulte [Qué es Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 - **Microsoft Identity Manager (MIM)**: Premium incorpora la opción para garantizar los derechos de uso de un servidor MIM (y CAL) en la red local para proporcionar cualquier combinación de soluciones de identidad híbrida. Esto es una buena opción si tiene una variación de bases de datos y directorios locales que desea sincronizar directamente con Azure Active Directory. No hay ningún límite en el número de servidores FIM que puede usar, sin embargo, los CAL MIM se conceden basándose en la asignación de una licencia de usuario de Azure Active Directory Premium.
 
@@ -66,40 +66,368 @@ La edición Premium de Active Directory es una oferta de pago de Azure Active Di
 
 - **Restablecimiento de contraseña con reescritura**: puede volver a escribir el restablecimiento de la contraseña de autoservicio en directorios locales.
 
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): permite supervisar el mantenimiento de la infraestructura de Active Directory local y obtener análisis de uso.
+- [Azure Active Directory Connect Health](active-directory-aadconnect-health.md): permite supervisar el mantenimiento de la infraestructura de Active Directory local y obtener análisis de uso.
 
 
 
-## Comparación de las ediciones: capacidades comunes a todas las ediciones
+## Comparación de las ediciones Gratis, Básico y Premium
 
-- En el directorio como servicio en la edición Gratis, hay un límite de objeto de 500.000. El límite de 500.000 objetos no se aplica a Office 365, Microsoft Intune o cualquier otro servicio en línea de Microsoft que se base en Azure Active Directory para servicios de directorio. Las ediciones Básica y Premium no tienen ningún límite de objetos.
-- Administración de usuario y de grupo mediante la interfaz de usuario o cmdlets de Windows PowerShell
-- Registro de dispositivos
-- Portal del panel de acceso para acceso de usuario basado en inicio de sesión único (SSO) para aplicaciones personalizadas y SaaS Con Azure Active Directory Gratis y Azure Active Directory Básico, los usuarios finales a los que se le haya asignado acceso a cada aplicación SaaS, pueden ver hasta 10 aplicaciones en el panel de acceso y obtener acceso de inicio de sesión único a ellas (suponiendo que el administrador las haya configurado primero con SSO). Los administradores pueden configurar SSO y asignar acceso de usuario a tantas aplicaciones SaaS como deseen con la versión gratuita. Sin embargo, los usuarios finales solo verán 10 aplicaciones en su panel de acceso a la vez. Azure Active Directory Premium no tiene ningún límite de aplicación.
-- Aprovisionamiento y administración de acceso a aplicaciones basadas en usuarios
-- Cambio de contraseña de autoservicio para usuarios en la nube
-- Herramienta de sincronización de directorios: para la sincronización entre Azure Active Directory y Active Directory locales.
-- Informes de seguridad estándar
+<br>Disponible en esta edición:![Lista de comprobación](./media/active-directory-editions/ic195031.png)
 
-## Comparación de las ediciones: capacidades de Premium y Basic
 
-- Tiempo de actividad de SLA de alta disponibilidad (99,9 %)
-- Aprovisionamiento y administración de acceso a aplicaciones basadas en grupos
-- Personalización de colores y logotipos empresariales para las páginas de panel de acceso e inicio de sesión
-- Restablecimiento de contraseña de autoservicio para usuarios en la nube
-- Proxy de aplicación: acceso remoto seguro e inicio de sesión único (SSO) en aplicaciones web locales
+<table>
+	<tr>
+		<th>&#160;</th>
+		<th>Características </th>
+		<th>Edición gratuita </th>
+		<th>Edición básica </th>
+		<th>Premium Edition </th>
+	</tr>
+	<tr>
+		<td rowspan="8">
+		<p>Características frecuentes</p>
+		</td>
+		<td>
+		<p>Directorio como servicio</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /><br />
+		Hasta 500 000 objetos [1]</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /><br />
+		Sin límite de objetos</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /><br />
+		Sin límite de objetos</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Administración de usuario y de grupo mediante la interfaz de usuario o cmdlets de Windows PowerShell</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Registro de dispositivos</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Portal de Panel de acceso para el acceso de usuario basado en SSO a aplicaciones SaaS y personalizadas</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /><br />
+		Hasta 10 aplicaciones por usuario [2]</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /><br />
+		Hasta 10 aplicaciones por usuario [2]</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /><br />
+		Sin límite de aplicaciones</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Aprovisionamiento y administración de acceso a aplicaciones basadas en usuarios</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Cambio de contraseña de autoservicio para usuarios en la nube</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Azure AD Connect: para la sincronización entre directorios locales y Azure Active Directory</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Informes de seguridad estándar</p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="5">
+		<p>Características premium y básicas</p>
+		</td>
+		<td>
+		<p>Tiempo de actividad de SLA de alta disponibilidad (99,9&#160;%)</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Aprovisionamiento y administración de acceso a aplicaciones basadas en grupos</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Personalización de colores y logotipos empresariales para las páginas de panel de acceso e inicio de sesión</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Restablecimiento de contraseña de autoservicio para usuarios en la nube</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Proxy de aplicación: acceso remoto seguro y SSO en aplicaciones web locales</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="9">
+		<p>Características exclusivas de Premium</p>
+		</td>
+		<td>
+		<p>Informes de uso avanzado de las aplicaciones</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Administración de grupos de autoservicio para usuarios en la nube</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Restablecimiento de contraseña de autoservicio con reescritura local</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Licencias de usuario de Microsoft Identity Manager (MIM): para la administración de identidades y acceso local</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /> [3]</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Informes de seguridad avanzados de anomalías (basados en aprendizaje automático)</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>
+		<a href="http://channel9.msdn.com/Series/EMS/Azure-Cloud-App-Discovery">Detección de aplicaciones de nube</a> </p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Servicio Multi-Factor Authentication para usuarios en la nube</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>Servicio Multi-Factor Authentication para usuarios locales</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<p>
+		<a href="https://msdn.microsoft.com/es-ES/library/azure/dn906722.aspx">Azure Active Directory Connect Health</a>: permite supervisar el mantenimiento de la infraestructura de Active Directory local y obtener análisis de uso.</p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p></p>
+		</td>
+		<td>
+		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Lista de comprobación" src="./media/active-directory-editions/ic195031.png" title="Lista de comprobación" xmlns="" /></p>
+		</td>
+	</tr>
+</table>
 
-## Comparación de las ediciones: características exclusiva de Premium
 
-- Administración de grupos de autoservicio para usuarios en la nube
-- Restablecimiento de contraseña de autoservicio con reescritura local
-- Licencias de servidor del Administrador de identidades de Microsoft (MIM): para la sincronización entre bases de datos local o directorios locales y Azure Active Directory
-- Informes de seguridad avanzados de anomalías (basados en aprendizaje automático)
-- [Detección de aplicaciones de nube](http://channel9.msdn.com/Series/EMS/Azure-Cloud-App-Discovery)
-- Informes de uso avanzado de las aplicaciones
-- Servicio Multi-Factor Authentication para usuarios en la nube
-- Servicio Multi-Factor Authentication para usuarios locales
-- Azure Active Directory Connect Health
+[1] El límite de 500 000 objetos no se aplica a Office 365, Microsoft Intune o cualquier otro servicio en línea de Microsoft que se base en Azure Active Directory para servicios de directorio.
+
+[2] Con las versiones gratuita y básica de Azure Active Directory, los usuarios finales a los que se les haya asignado acceso a cada aplicación SaaS, pueden ver hasta 10 aplicaciones en el Panel de acceso y obtener acceso SSO a ellas (suponiendo que el administrador las haya configurado primero con SSO). Los administradores pueden configurar SSO y asignar acceso de usuario a tantas aplicaciones SaaS como deseen con Gratis. Sin embargo, los usuarios finales solo verán 10 aplicaciones en su panel de acceso a la vez.
+
+[3] Con las licencias de Windows Server (cualquier edición), se conceden derechos de software de servidor de Microsoft Identity Manager. Dado que Microsoft Identity Manager se ejecuta en el sistema operativo Windows Server, se puede instalar y usarse en ese servidor siempre y cuando el servidor esté ejecutando una copia con licencia válida. No se necesita ninguna otra licencia de servidor de Microsoft Identity Manager.
+
+
+
+<br> <br>
+
+
+
+
+
+
+
+
 
 ## Características actualmente en versión de vista previa pública
 
@@ -114,7 +442,7 @@ Las siguientes características están actualmente en versión de vista previa p
 - Administración de identidad con privilegios: la administración de identidad con privilegios proporciona una supervisión mejorada para ayudar a cumplir los acuerdos de nivel de servicio y los requisitos de cumplimiento de normativas.
 - Solicitudes de aplicación de autoservicio: los administradores pueden proporcionar una lista de aplicaciones SaaS a los usuarios para que puedan elegir las que deseen usar; las aplicaciones estarán disponibles de inmediato o bien tras su aprobación.
 - API de informes de Azure: los datos de cada informe de seguridad de Azure Active Directory estarán disponibles para otras herramientas de supervisión o SIEM.
-- [Azure Active Directory B2C](http://azure.microsoft.com/services/active-directory-b2c/): un nuevo y completo servicio de administración de identidad y acceso y directorios de consumidor, a gran escala y basado en la nube, concebido para satisfacer las necesidades cada vez mayores que tienen las empresas de conectar directamente con sus clientes.
+
 
 ## Pasos siguientes
 
@@ -122,4 +450,4 @@ Las siguientes características están actualmente en versión de vista previa p
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

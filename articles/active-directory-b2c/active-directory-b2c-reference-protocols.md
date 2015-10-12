@@ -49,7 +49,7 @@ En casi todos los flujos de OAuth y OpenID Connect hay cuatro partes implicadas 
 
 ## Directivas
 
-Sin duda, las **directivas** de Azure AD B2C son la característica más importante del servicio. Azure AD B2C extiende los protocolos estándar OAuth 2.0 y OpenID Connect mediante la introducción de directivas que permiten a Azure AD B2C realizar mucho más que simplemente autenticación y autorización. Las directivas describen totalmente experiencias de identidad de consumidor como registro, inicio de sesión y edición de perfil. También se pueden definir en una interfaz de usuario administrativa y se pueden ejecutar con un parámetro de consulta especial en solicitudes de autenticación HTTP. Las directivas no son una característica estándar de OAuth 2.0 y OpenID Connect, así que debe dedicar tiempo a entenderlas. Para obtener más información, lea la [Guía de referencia de directivas de Azure AD B2C](active-directory-b2c-reference-policies).
+Sin duda, las **directivas** de Azure AD B2C son la característica más importante del servicio. Azure AD B2C extiende los protocolos estándar OAuth 2.0 y OpenID Connect mediante la introducción de directivas que permiten a Azure AD B2C realizar mucho más que simplemente autenticación y autorización. Las directivas describen totalmente experiencias de identidad de consumidor como registro, inicio de sesión y edición de perfil. También se pueden definir en una interfaz de usuario administrativa y se pueden ejecutar con un parámetro de consulta especial en solicitudes de autenticación HTTP. Las directivas no son una característica estándar de OAuth 2.0 y OpenID Connect, así que debe dedicar tiempo a entenderlas. Para obtener más información, lea la [Guía de referencia de directivas de Azure AD B2C](active-directory-b2c-reference-policies.md).
 
 
 ## Tokens
@@ -59,7 +59,7 @@ Se pueden encontrar más detalles sobre los diferentes tipos de token que se usa
 
 ## Protocolos
 
-Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los siguiente tutoriales. Cada uno de ellos corresponde a un escenario de autenticación determinado. Si necesita ayuda para determinar cuál es el flujo correcto para usted, vea [los tipos de aplicaciones que puede crear con Azure AD B2C](active-directory-b2c-apps).
+Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los siguiente tutoriales. Cada uno de ellos corresponde a un escenario de autenticación determinado. Si necesita ayuda para determinar cuál es el flujo correcto para usted, vea [los tipos de aplicaciones que puede crear con Azure AD B2C](active-directory-b2c-apps.md).
 
 - [Creación de aplicaciones móviles y nativas con OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 - [Creación de aplicaciones web con OpenID Connect](active-directory-b2c-reference-oidc.md)
@@ -70,4 +70,4 @@ Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los 
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

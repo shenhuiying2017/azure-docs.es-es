@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
@@ -53,7 +53,7 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 
 4. Importe el paquete de NuGet de Almacenamiento de Azure en el proyecto.
 
-		Install-Package Azure.Storage -Version 4.3.0 
+		Install-Package Azure.Storage
 
 5. Agregue las siguientes instrucciones **using** al archivo de origen en el proyecto.
 
@@ -478,4 +478,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

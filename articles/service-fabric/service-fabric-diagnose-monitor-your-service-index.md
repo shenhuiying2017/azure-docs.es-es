@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="09/25/2015"
    ms.author="ryanwi"/>
 
 # Diagnosticar y supervisar un servicio de Service Fabric
@@ -22,7 +22,6 @@ Acciones como supervisar, detectar, diagnosticar y solucionar problemas permite 
 - [Cómo supervisar y diagnosticar servicios localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 - [Configuración de Application Insights para su aplicación de Service Fabric](service-fabric-diagnostics-application-insights-setup.md)
 - [Solucionar problemas de errores de una actualización de aplicación](service-fabric-application-upgrade-troubleshooting.md)
-- [Solucionar problemas de una actualización de aplicación supervisada con error](../service-fabric-application-monitored-upgrade-troubleshooting.md)
 - [Supervisión de diagnósticos y rendimiento para actores confiables](service-fabric-reliable-actors-diagnostics.md)
 - [Supervisión de diagnósticos y rendimiento para servicios de confianza](service-fabric-reliable-services-diagnostics.md)
 
@@ -38,6 +37,5 @@ Service Fabric presenta un modelo de estado que ofrece una funcionalidad de eval
 - [Cómo ver los informes de mantenimiento de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 - [Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Adición de informes de mantenimiento de Service Fabric personalizados](service-fabric-report-health.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

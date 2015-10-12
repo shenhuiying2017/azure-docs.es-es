@@ -101,7 +101,6 @@ Cuando termine de aprovisionar el clúster, siga estos pasos para usar R para re
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
 
-
 	La primera línea llama a rmr2 de la biblioteca de RHadoop, que se usa en las operaciones de MapReduce.
 
 	La segunda línea genera valores del 1 al 100 y luego los almacena en el sistema de archivos de Hadoop mediante `to.dfs`.
@@ -149,4 +148,4 @@ Cuando termine de aprovisionar el clúster, siga estos pasos para usar R para re
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

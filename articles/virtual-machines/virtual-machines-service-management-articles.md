@@ -41,7 +41,7 @@
 
 [Creación de una máquina virtual con la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-xplat-getting-started.md)
 
-[Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+[Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Plan
 
@@ -95,7 +95,7 @@
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
-[Docker](virtual-machines-docker-with-xplat-cli.md)
+[Docker](virtual-machines-docker-with-xplat-cli-install.md)
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
@@ -151,4 +151,4 @@
 
 [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

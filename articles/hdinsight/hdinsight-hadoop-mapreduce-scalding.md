@@ -290,4 +290,4 @@ Ahora que sabe usar Scalding para crear trabajos de MapReduce para HDInsight, us
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

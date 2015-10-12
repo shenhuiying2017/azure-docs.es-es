@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/28/2015"
 	ms.author="asmalser-msft"/>
 
 #¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?
@@ -80,7 +80,7 @@ El SSO con contraseña depende de la extensión del navegador para recuperar inf
 
 Para el SSO basado en contraseña, los exploradores del usuario final pueden ser:
 
-- Internet Explorer 8, 9 y 10 (en Windows 7 o posterior)
+- Internet Explorer 8, 9 y 10, en Windows 7 o posterior (consulte también la [Guía de implementación de extensión de IE](active-directory-saas-ie-group-policy.md))
 - Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 - Firefox 26.0 o posterior (en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior)
 
@@ -112,7 +112,7 @@ La [Galería de aplicaciones de Azure Active Directory](http://azure.microsoft.c
 
 Algunas sugerencias para buscar aplicaciones por las funciones que admiten:
 
-*	Azure AD admite el aprovisionamiento automático y el desaprovisionamiento para todas las aplicaciones de tipo "Destacada" en la [Galería de aplicaciones de Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/).
+*	Azure AD admite el aprovisionamiento y el desaprovisionamiento automático para todas las aplicaciones de tipo "Destacada" en la [Galería de aplicaciones de Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/).
 
 *	[Aquí](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx) se puede consultar una lista de aplicaciones federadas que admiten específicamente el inicio de sesión único federado usando protocolos como SAML, WS-Federation u OpenID Connect.
 
@@ -122,7 +122,7 @@ Una vez que haya encontrado la aplicación, puede comenzar por seguir las instru
 
 Si la aplicación no se encuentra en la Galería de aplicaciones de Azure AD, tienes estas opciones:
 
-*	**Agregar una aplicación que no aparezca en la lista**: utilice la categoría Personalizada de la Galería de aplicaciones del Portal de administración de Azure para conectar una aplicación que usa su organización pero no está incluida en la lista. Puede agregar cualquier aplicación que admita SAML 2.0 como aplicación federada o cualquier aplicación que tenga una página de inicio de sesión basada en HTML para usar SSO con contraseña. Para obtener más información, consulte este artículo en [Agregar su propia aplicación](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Agregar una aplicación que no aparezca en la lista**: use la categoría Personalizada de la Galería de aplicaciones del Portal de administración de Azure para conectar una aplicación que usa su organización pero que no está incluida en la lista. Puede agregar cualquier aplicación que admita SAML 2.0 como aplicación federada o cualquier aplicación que tenga una página de inicio de sesión basada en HTML para usar SSO con contraseña. Para obtener más información, consulte este artículo en [Agregar su propia aplicación](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 
 *	**Agregar una aplicación propia que está desarrollando**: si ha desarrollado la aplicación usted mismo, siga las instrucciones de la documentación para desarrolladores de Azure AD para implementar un inicio de sesión único federado o el aprovisionamiento mediante la API Graph de Azure AD. Para obtener más información, vea estos recursos:
@@ -168,13 +168,13 @@ Los métodos que elija implementar en su organización son criterio suyo.
 
 ###Panel de acceso de Azure AD
 
-El Panel de acceso de https://myapps.microsoft.com es un portal basado en web que permite que los usuarios finales que tengan una cuenta organizativa en Azure Active Directory puedan ver e iniciar aplicaciones basadas en la nube a las que el administrador de Azure AD les haya concedido acceso. Si usted es un usuario final con [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), también puede utilizar las capacidades de autoservicio de administración de grupos a través del Panel de acceso.
+El Panel de acceso de https://myapps.microsoft.com es un portal basado en web que permite que los usuarios finales que tengan una cuenta profesional en Azure Active Directory puedan ver e iniciar aplicaciones basadas en la nube a las que el administrador de Azure AD les haya concedido acceso. Si usted es un usuario final con [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), también puede usar las capacidades de autoservicio de administración de grupos a través del Panel de acceso.
 
 ![][3]
 
 El Panel de acceso es independiente del Portal de administración de Azure y no requiere que los usuarios tengan una suscripción de Azure u Office 365.
 
-Para obtener más información sobre el panel de acceso de Azure AD, consulte la [Introducción al panel de acceso](active-directory-saas-access-panel-introduction.md).
+Para obtener más información sobre el Panel de acceso de Azure AD, consulte la [Introducción al panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 ###Iniciador de aplicaciones de Office 365
 
@@ -220,4 +220,4 @@ Estos vínculos utilizan los mismos mecanismos de control de acceso que el panel
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -1,15 +1,15 @@
 <properties 
 	pageTitle="Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones" 
 	description="Introducción a la arquitectura de la topología de red de los entornos del Servicio de aplicaciones." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -79,4 +79,4 @@ Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

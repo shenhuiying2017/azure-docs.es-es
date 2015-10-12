@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
 #Uso de Sqoop con Hadoop en HDInsight (Windows)
@@ -45,11 +45,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Clúster de Azure HDInsight**: para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Para completar el tutorial, necesita los datos siguientes:
 
 	<table border="1">
-	<tr><th>Propiedad del clúster</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
-	<tr><td>Nombre del clúster de HDInsight</td><td>$clusterName</td><td></td><td>El nombre del clúster de HDInsight.</td></tr>
-	<tr><td>Nombre de la cuenta de almacenamiento de Azure</td><td>$storageAccountName</td><td></td><td>Cuenta de almacenamiento de Azure disponible para el clúster de HDInsight. Para este tutorial, use la cuenta de almacenamiento predeterminada especificada durante el proceso de aprovisionamiento del clúster.</td></tr>
-	<tr><td>Nombre del contenedor de blobs de Azure</td><td>$containerName</td><td></td><td>Para este ejemplo, use el nombre del blob utilizado para el sistema de archivos predeterminado del clúster de HDInsight. De manera predeterminada, tiene el mismo nombre que el del clúster de HDInsight.</td></tr>
-	</table>
+<tr><th>Propiedad del clúster</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
+<tr><td>Nombre del clúster de HDInsight</td><td>$clusterName</td><td></td><td>El nombre del clúster de HDInsight.</td></tr>
+<tr><td>Nombre de la cuenta de almacenamiento de Azure</td><td>$storageAccountName</td><td></td><td>Cuenta de almacenamiento de Azure disponible para el clúster de HDInsight. Para este tutorial, use la cuenta de almacenamiento predeterminada especificada durante el proceso de aprovisionamiento del clúster.</td></tr>
+<tr><td>Nombre del contenedor de blobs de Azure</td><td>$containerName</td><td></td><td>Para este ejemplo, use el nombre del blob utilizado para el sistema de archivos predeterminado del clúster de HDInsight. De manera predeterminada, tiene el mismo nombre que el del clúster de HDInsight.</td></tr>
+</table>
 
 - **Base de datos SQL de Azure**: debe configurar una regla de firewall para que el servidor de base de datos SQL de Azure permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos SQL de Azure y configurar el firewall, consulte [Introducción al uso de la base de datos SQL de Azure][sqldatabase-get-started]. En este artículo se proporciona un script de Windows PowerShell para crear la tabla de base de datos SQL de Azure requerida para este tutorial.
 
@@ -65,30 +65,30 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **SQL Server**: si el clúster de HDInsight se encuentra en la misma red virtual de Azure que un SQL Server, puede seguir los pasos indicados en este artículo para importar y exportar datos a una base de datos de SQL Server.
 
-	> [AZURE.NOTE] HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
+	> [AZURE.NOTE]HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
 
 	* Para crear y configurar una red virtual, consulte [Tareas de configuración de red virtual](../services/virtual-machines/).
 
 		* Cuando use SQL Server en el centro de datos, debe configurar la red virtual como de *sitio a sitio* o de *punto a sitio*.
 
-			> [AZURE.NOTE] En el caso d las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
+			> [AZURE.NOTE]En el caso d las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
 
 		* Si usa SQL Server en una máquina virtual de Azure, se puede usar cualquier configuración de red virtual si la máquina virtual que hospeda SQL Server es miembro de la misma red virtual que HDInsight.
 
 	* Para aprovisionar un clúster de HDInsight en una red virtual, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight usando opciones personalizadas](hdinsight-provision-clusters.md)
 
-	> [AZURE.NOTE] SQL Server también debe permitir la autenticación. Debe usar un inicio de sesión de SQL Server para completar los pasos de este artículo.
+	> [AZURE.NOTE]SQL Server también debe permitir la autenticación. Debe usar un inicio de sesión de SQL Server para completar los pasos de este artículo.
 
 	<table border="1">
-	<tr><th>Propiedad de la base de datos de SQL Server</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
-	<tr><td>Nombre de SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>SQL Server al que Sqoop exportará datos o desde el que los importará. </td></tr>
-	<tr><td>Nombre de inicio de sesión de SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>El nombre de inicio de sesión para SQL Server.</td></tr>
-	<tr><td>Contraseña de inicio de sesión de SQL Server</td><td>$sqlDatabasePassword</td><td></td><td>La contraseña de inicio de sesión para SQL Server.</td></tr>
-	<tr><td>Nombre de la base de datos de SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de datos de SQL Server a la que Sqoop exportará datos o desde la que los importará. </td></tr>
-	</table>
+<tr><th>Propiedad de la base de datos de SQL Server</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
+<tr><td>Nombre de SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>SQL Server al que Sqoop exportará datos o desde el que los importará. </td></tr>
+<tr><td>Nombre de inicio de sesión de SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>El nombre de inicio de sesión para SQL Server.</td></tr>
+<tr><td>Contraseña de inicio de sesión de SQL Server</td><td>$sqlDatabasePassword</td><td></td><td>La contraseña de inicio de sesión para SQL Server.</td></tr>
+<tr><td>Nombre de la base de datos de SQL</td><td>$sqlDatabaseName</td><td></td><td>Base de datos de SQL Server a la que Sqoop exportará datos o desde la que los importará. </td></tr>
+</table>
 
 
-> [AZURE.NOTE] Rellene los valores de las tablas anteriores. Le resultará útil para completar el tutorial.
+> [AZURE.NOTE]Rellene los valores de las tablas anteriores. Le resultará útil para completar el tutorial.
 
 ##Descripción del escenario
 Un clúster de HDInsight incluye algunos datos de ejemplo. Usará los dos ejemplos siguientes:
@@ -103,19 +103,19 @@ Un clúster de HDInsight incluye algunos datos de ejemplo. Usará los dos ejempl
 - Una tabla de Hive denominada *hivesampletable* que hace referencia al archivo de datos ubicado en */hive/warehouse/hivesampletable*. La tabla contiene algunos datos del dispositivo móvil. El esquema de dicha tabla es el siguiente:
 
 	<table border="1">
-	<tr><th>Campo</th><th>Tipo de datos</th></tr>
-	<tr><td>clientid</td><td>cadena</td></tr>
-	<tr><td>querytime</td><td>cadena</td></tr>
-	<tr><td>market</td><td>cadena</td></tr>
-	<tr><td>deviceplatform</td><td>cadena</td></tr>
-	<tr><td>devicemake</td><td>cadena</td></tr>
-	<tr><td>devicemodel</td><td>cadena</td></tr>
-	<tr><td>state</td><td>cadena</td></tr>
-	<tr><td>country</td><td>cadena</td></tr>
-	<tr><td>querydwelltime</td><td>double</td></tr>
-	<tr><td>sessionid</td><td>bigint</td></tr>
-	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-	</table>
+<tr><th>Campo</th><th>Tipo de datos</th></tr>
+<tr><td>clientid</td><td>cadena</td></tr>
+<tr><td>querytime</td><td>cadena</td></tr>
+<tr><td>market</td><td>cadena</td></tr>
+<tr><td>deviceplatform</td><td>cadena</td></tr>
+<tr><td>devicemake</td><td>cadena</td></tr>
+<tr><td>devicemodel</td><td>cadena</td></tr>
+<tr><td>state</td><td>cadena</td></tr>
+<tr><td>country</td><td>cadena</td></tr>
+<tr><td>querydwelltime</td><td>double</td></tr>
+<tr><td>sessionid</td><td>bigint</td></tr>
+<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+</table>
 
 En primer lugar, exportará tanto *sample.log* como *hivesampletable* a la base de datos de SQL de Azure o a SQL Server y, a continuación, importará la tabla que contiene los datos del dispositivo móvil de nuevo en HDInsight con la ruta de acceso siguiente:
 
@@ -131,9 +131,9 @@ Para obtener instrucciones sobre cómo agregar más cuentas de almacenamiento, c
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] La sintaxis **wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis **asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
+> [AZURE.NOTE]La sintaxis **wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La antigua sintaxis **asv://* es compatible con los clústeres de HDInsight 2.1 y 1.6, pero no es compatible con los clústeres de HDInsight 3.0.
 
-> [AZURE.NOTE] La ruta de acceso **wasb://* es una ruta de acceso virtual. Para obtener más información, consulte [Uso de almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
+> [AZURE.NOTE]La ruta de acceso **wasb://* es una ruta de acceso virtual. Para obtener más información, consulte [Uso de almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
 
 Para acceder a un archivo almacenado en el blog del sistema de archivos predeterminado desde HDInsight se puede usar cualquiera de los URI siguientes (en los siguientes ejemplos se usa sample.log):
 
@@ -282,7 +282,7 @@ Esto es válido para otros ejemplos que usan estos datos, pero debemos quitar es
 
 	Se le pedirá que escriba las credenciales de la cuenta de Azure. Este método de agregar una conexión de suscripción expira y, transcurridas 12 horas, tendrá que volver a iniciar sesión.
 
-	> [AZURE.NOTE] Si tiene varias suscripciones de Azure y no desea usar la predeterminada, use el cmdlet <strong>Select-AzureSubscription</strong> para seleccionar la suscripción actual.
+	> [AZURE.NOTE]Si tiene varias suscripciones de Azure y no desea usar la predeterminada, use el cmdlet <strong>Select-AzureSubscription</strong> para seleccionar la suscripción actual.
 
 3. Copie el script siguiente en el panel de scripts y, a continuación, establezca las primeras dos variables:
 
@@ -354,7 +354,7 @@ Esto es válido para otros ejemplos que usan estos datos, pero debemos quitar es
 
 En esta sección, usará Azure PowerShell para ejecutar el comando de exportación de Sqoop a fin de exportar una tabla de Hive y un archivo de datos a una base de datos SQL de Azure o a SQL Server. En la siguiente sección se ofrece un ejemplo de .NET de HDInsight.
 
-> [AZURE.NOTE] Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
+> [AZURE.NOTE]Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
 >
 > * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte[ Configuración de una VPN de punto a sitio en el Portal de administración](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 > * **Azure HDInsight 3.1**: consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight usando opciones personalizadas](hdinsight-provision-clusters.md) para obtener información sobre la creación de un clúster en una red virtual.
@@ -522,14 +522,14 @@ A continuación se muestra un ejemplo de C# en el que se usa el SDK .NET de HDIn
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 
-	            // Submit the Hive job
+	            // Submit the Sqoop job
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
 	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
 
 	            // Wait for the job to complete
 	            WaitForJobCompletion(jobResults, jobClient);
 
-	            // Print the Hive job output
+	            // Print the Sqoop job output
 	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
 
 	            StreamReader reader = new StreamReader(stream);
@@ -648,4 +648,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

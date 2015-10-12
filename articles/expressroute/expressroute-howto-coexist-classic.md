@@ -210,4 +210,4 @@ Si tiene una red virtual conectada a través de una conexión VPN de sitio a sit
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Para validar la red virtual de Azure, haga lo siguiente:
 1. Cree una máquina virtual de Azure dentro de la subred de la red virtual de Azure que quiere usar con Azure RemoteApp.
 
 2. Conéctese a esa máquina virtual mediante la opción **Conectar** del portal de administración.
-3. Conecte la máquina virtual al mismo dominio que desea usar con Azure RemoteApp.
+3. Conecte la máquina virtual al mismo dominio que desea usar con Azure RemoteApp. Si está creando una colección híbrida que se conecta a la red local, una la máquina virtual al dominio local.
 
 Si esto se realiza correctamente, la red virtual de Azure está lista para usarse con RemoteApp.
 
@@ -38,4 +38,4 @@ Para obtener más información sobre el flujo de trabajo completo de la colecci�
 - [Implementación de la colección Azure RemoteApp en la Red virtual de Azure (con compatibilidad para ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

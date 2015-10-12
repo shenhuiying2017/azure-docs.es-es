@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: marco de directiva extensible
@@ -30,7 +30,7 @@ El marco de directiva extensible de Azure Active Directory (AD) B2C es la fuerza
 - La apariencia de todas las páginas de registro.
 - Información (que se manifiesta como notificaciones en un token) que la aplicación recibe cuando se completa la ejecución de la directiva.
 
-Puede crear varias directivas de diferentes tipos en su directorio y usarlas en sus aplicaciones según sea necesario. Las directivas se pueden volver a usar en todas las aplicaciones. Esto permite a los desarrolladores definir y modificar experiencias de identidad de consumidor con cambios mínimos o ningún cambio en su código. Seguiremos agregando más tipos de directivas enriquecidos a nuestro servicio.
+Puede crear varias directivas de diferentes tipos en su inquilino y usarlas en sus aplicaciones según sea necesario. Las directivas se pueden volver a usar en todas las aplicaciones. Esto permite a los desarrolladores definir y modificar experiencias de identidad de consumidor con cambios mínimos o ningún cambio en su código. Seguiremos agregando más tipos de directivas enriquecidos a nuestro servicio.
 
 Las directivas están disponibles para usarlas mediante una interfaz de usuario sencilla. Su aplicación desencadena una directiva mediante una solicitud de autenticación HTTP estándar (pasando un parámetro de directiva en la solicitud) y recibe un token personalizado como respuesta. Por ejemplo, la única diferencia entre las solicitudes que invocan una directiva de registro y una directiva de inicio de sesión es el nombre de la directiva que se usa en el parámetro de cadena de consulta "p":
 
@@ -71,6 +71,9 @@ Para habilitar el registro en su aplicación, deberá crear una directiva de reg
 3. Haga clic en **+ Agregar** en la parte superior de la hoja.
 4. El **Nombre** determina el nombre de la directiva de registro usado por su aplicación. Por ejemplo, escriba "SiUp".
 5. Haga clic en **Proveedores de identidades** y seleccione "Dirección de correo electrónico". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
+
+    > [AZURE.NOTE]Para cuentas locales, las directivas de registro de Azure AD B2C usan contraseñas "Seguras" (se establecen en "No caduca nunca"). Consulte [Directiva de contraseñas de Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obtener información sobre otros valores de configuración (que actualmente no se usan en Azure AD B2C).
+
 6. Haga clic en **Atributos de registro**. Aquí elige atributos que quiere recopilar del consumidor durante el registro. Por ejemplo, seleccione "Ciudad o región", "Nombre para mostrar" y "Código postal". Haga clic en **OK**.
 7. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de registro correcta. Por ejemplo, seleccione "Nombre para mostrar", "Proveedor de identidades", "Código Postal", "El usuario es nuevo" e "Id. de objeto del usuario".
 8. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SiUp**" (el fragmento **B2C\_1\_** está previamente pendiente automáticamente) en la hoja **Directivas de registro**.
@@ -83,12 +86,12 @@ Para habilitar el registro en su aplicación, deberá crear una directiva de reg
 
 Para habilitar el inicio de sesión en la aplicación, deberá crear una directiva de inicio de sesión. Esta directiva describe las experiencias que tendrán los consumidores durante el inicio de sesión y el contenido de los tokens que recibirá la aplicación en inicios de sesión correctos.
 
-1. [Vaya a la hoja de características de B2C del portal de vista previa de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Vaya a la hoja de características B2C del Portal de vista previa de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Haga clic en **Directivas de inicio de sesión**.
-3. Haga clic en **+ Agregar** en la parte superior de la hoja.
+3. Haga clic en **+Agregar** en la parte superior de la hoja.
 4. El **Nombre** determina el nombre de la directiva de inicio de sesión usada por su aplicación. Por ejemplo, escriba "SiIn".
 5. Haga clic en **Proveedores de identidades** y seleccione "Dirección de correo electrónico". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
-6. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de inicio de sesión correcta. Por ejemplo, seleccione "Nombre para mostrar", "Proveedor de identidades", "Código Postal" e "Id. de objeto del usuario". Haga clic en **Aceptar**.
+6. Haga clic en **Notificaciones de aplicación**. Aquí puede elegir las notificaciones que quiere que se devuelvan en los tokens a su aplicación después de una experiencia de inicio de sesión correcta. Por ejemplo, seleccione "Nombre para mostrar", "Proveedor de identidades", "Código Postal" e "Id. de objeto del usuario". Haga clic en **OK**.
 7. Haga clic en **Crear**. Tenga en cuenta que la directiva que se acaba de crear aparece como "**B2C\_1\_SiIn**" (el fragmento **B2C\_1\_** se agrega automáticamente) en la hoja **Directivas de inicio de sesión**.
 8. Para abrir la directiva, haga clic en "**B2C\_1\_SiIn**".
 9. Seleccione "Aplicación Contoso B2C" en el menú desplegable **Aplicaciones** y `https://localhost:44321/` en el menú desplegable **Dirección URL de respuesta/URI de redireccionamiento**. Haga clic en el botón **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá recorrer la experiencia del usuario de iniciar sesión en su aplicación.
@@ -99,9 +102,9 @@ Para habilitar el inicio de sesión en la aplicación, deberá crear una directi
 
 Para habilitar la edición de perfiles en su aplicación, deberá crear una directiva de edición de perfiles. Esta directiva describe las experiencias que tendrán los consumidores durante la edición de perfiles y el contenido de los tokens que recibirá la aplicación al finalizar correctamente.
 
-1. [Vaya a la hoja de características de B2C del portal de vista previa de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Vaya a la hoja de características B2C del Portal de vista previa de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Haga clic en **Directivas de edición de perfiles**.
-3. Haga clic en **+ Agregar** en la parte superior de la hoja.
+3. Haga clic en **+Agregar** en la parte superior de la hoja.
 4. El **Nombre** determina el nombre de la directiva de edición de perfiles usada por su aplicación. Por ejemplo, escriba "SiPe".
 5. Haga clic en **Proveedores de identidades** y seleccione "Dirección de correo electrónico". También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
 6. Haga clic en **Atributos de perfil**. Aquí se eligen los atributos que el consumidor puede ver y editar. Por ejemplo, seleccione "Ciudad o región", "Nombre para mostrar" y "Código postal". Haga clic en **OK**.
@@ -112,4 +115,4 @@ Para habilitar la edición de perfiles en su aplicación, deberá crear una dire
 
     > [AZURE.NOTE]Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -113,4 +113,4 @@ Si no fue posible ejecutar el paquete de diagnóstico de Azure IaaS (Windows) o 
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

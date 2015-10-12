@@ -155,4 +155,4 @@ Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesita
 [Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset.md)<BR> [Administración de zonas DNS](dns-operations-dnszones.md)<BR> [Administración de registros DNS](dns-operations-recordsets.md)<BR> [Automatización de operaciones de Azure con .NET SDK](dns-sdk.md)<BR> [Referencia de la API de REST del DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

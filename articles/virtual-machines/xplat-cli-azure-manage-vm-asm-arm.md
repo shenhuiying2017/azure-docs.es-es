@@ -64,7 +64,7 @@ Obtención de todos los tamaños disponibles de la máquina virtual | No disponi
 
 ## Pasos siguientes
 
-* Para obtener más información acerca del uso de la CLI de Azure para trabajar con recursos del Administrador de recursos, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Administración del control de acceso basado en rol con la interfaz de línea de comandos de Azure](../role-based-access-control-xplat-cli.md).
+* Para obtener más información acerca del uso de la CLI de Azure para trabajar con recursos del Administrador de recursos, vea [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure](../role-based-access-control-xplat-cli-install.md).
 * Para obtener ejemplos adicionales de los comandos CLI, consulte [Uso de la interfaz de la línea de comandos de Azure con la administración de servicios de Azure](../virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

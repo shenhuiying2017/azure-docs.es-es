@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: limitaciones y restricciones
@@ -24,7 +24,7 @@ Hay varias características y funcionalidades de Azure Active Directory (AD) B2C
 
 ## Problemas durante la creación de directorios de Azure AD B2C
 
-Se conocen varios problemas que puedan surgir durante la [creación de un directorio de Azure AD B2C](active-directory-b2c-get-started). Consulte este [artículo](active-directory-b2c-support-create-directory.md) para obtener instrucciones.
+Se conocen varios problemas que pueden surgir durante la [creación de un inquilino de Azure AD B2C](active-directory-b2c-get-started). Consulte este [artículo](active-directory-b2c-support-create-directory.md) para obtener instrucciones.
 
 ## Problemas de personalización de marca en mensajes de correo de verificación y páginas de autoservicio de restablecimiento de contraseña
 
@@ -50,6 +50,12 @@ Las aplicaciones que contienen procesos de larga duración o que funcionan sin l
 
 En la vista previa de Azure AD B2C, tiene la capacidad de [crear una API web que se protege mediante tokens de OAuth 2.0](active-directory-b2c-apps.md#web-apis). Sin embargo, esa API web sólo podrá recibir tokens de un cliente que comparta el mismo id. de aplicación. No se admite la creación de una API web a la que se obtiene acceso desde varios clientes diferentes.
 
+### Cadenas de la API web (en nombre de)
+
+Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es común en los clientes nativos que tienen una API web back-end, que, a su vez, llama a un servicio de Microsoft Online, como la API de Azure AD Graph.
+
+Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en la vista previa de Azure AD B2C.
+
 ## Restricción en bibliotecas y SDK
 
 No todos los lenguajes y plataformas tienen bibliotecas que admitan la vista previa de Azure AD B2C. El conjunto de bibliotecas de autenticación se limita actualmente a. NET, iOS, Android y NodeJS. Los tutoriales de inicio rápido correspondientes para cada uno de ellos están disponibles en nuestra sección [Introducción](active-directory-b2c-overview.md#getting-started).
@@ -66,16 +72,20 @@ Muchos de los tokens emitidos por la vista previa de Azure AD B2C se implementan
 
 ## Problemas con la Administración de usuarios en el Portal de Azure
 
-Las características de B2C son accesibles en el portal de vista previa de Azure. Sin embargo, puede usar el portal de Azure para obtener acceso a otras características de directorio, incluida la administración de usuarios. Actualmente hay un par de problemas conocidos con la administración de usuarios (la pestaña **Usuarios**) en el portal de vista previa de Azure.
+Las características de B2C son accesibles en el portal de vista previa de Azure. Sin embargo, puede usar el Portal de Azure para obtener acceso a otras características de inquilino, incluida la administración de usuarios. Actualmente hay un par de problemas conocidos con la administración de usuarios (la pestaña **Usuarios**) en el Portal de Azure.
 
-- Para un usuario de cuenta local (es decir, un consumidor que se registra con una dirección de correo electrónico y contraseña o un nombre de usuario y contraseña), el campo **Nombre de usuario** no se corresponde con el identificador de inicio de sesión (dirección de correo electrónico o nombre de usuario) usado durante el registro. Esto se debe a que el campo que se muestra en el portal de Azure es en realidad el Nombre principal del usuario (UPN), que no se usa en escenarios de B2C. Para ver el identificador de inicio de sesión de la cuenta local, busque el objeto de usuario en el [Explorador de gráficos](https://graphexplorer.cloudapp.net/). Encontrará el mismo problema con un usuario de cuenta social (es decir, un consumidor que se registre a Facebook, Google +, etc.), pero en ese caso, no hay ningún identificador de inicio de sesión del que hablar.
+- Para un usuario de cuenta local (es decir, un consumidor que se registra con una dirección de correo electrónico y una contraseña o un nombre de usuario y una contraseña), el campo **Nombre de usuario** no se corresponde con el identificador de inicio de sesión (dirección de correo electrónico o nombre de usuario) usado durante el registro. Esto se debe a que el campo que se muestra en el portal de Azure es en realidad el Nombre principal del usuario (UPN), que no se usa en escenarios de B2C. Para ver el identificador de inicio de sesión de la cuenta local, busque el objeto de usuario en el [Explorador de gráficos](https://graphexplorer.cloudapp.net/). Encontrará el mismo problema con un usuario de cuenta social (es decir, un consumidor que se registre a Facebook, Google +, etc.), pero en ese caso, no hay ningún identificador de inicio de sesión del que hablar.
 
     ![Cuenta local: UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
 - Para un usuario de cuenta local, no podrá editar ninguno de los campos y guardará los cambios en la pestaña **Perfiles**. Lo corregiremos pronto.
 
+## Problemas con el restablecimiento de contraseña iniciado por el administrador en el Portal de Azure
+
+Si restablece la contraseña para un consumidor basado en una cuenta local en el Portal de Azure (el comando **Restablecer contraseña** de la pestaña **Usuarios**), ese consumidor no podrá cambiar su contraseña en el siguiente inicio de sesión y será bloqueado en sus aplicaciones. Estamos trabajando para corregir este problema. Para solucionar este problema, use la [API de Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) para restablecer la contraseña del consumidor.
+
 ## Restricción de la eliminación de directorios de Azure AD B2C
 
-No podrá eliminar un directorio de Azure AD B2C en el portal de Azure.
+No podrá eliminar un inquilino de Azure AD B2C en el Portal de Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

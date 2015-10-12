@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
-   ms.author="bwren" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # Inicio de un runbook en Automatización de Azure
 
@@ -49,7 +49,6 @@ La tabla siguiente le ayudará a determinar el método para iniciar el runbook d
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">API de Automatización de Azure</a></td>
   <td>
    <ul>
@@ -62,7 +61,6 @@ La tabla siguiente le ayudará a determinar el método para iniciar el runbook d
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
   <td>
    <ul>
@@ -74,6 +72,16 @@ La tabla siguiente le ayudará a determinar el método para iniciar el runbook d
   </td>
  </tr>
  <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Respuesta a una alerta de Azure</a></td>
+  <td>
+   <ul>
+    <li>Permite iniciar un runbook en respuesta a una alerta de Azure.</li>
+    <li>Permite configurar webhook para el runbook y vincular a la alerta.</li>
+    <li>Autenticado con el token de seguridad de la dirección URL.</li>
+    <li>Actualmente solo admite la alerta para métricas.</li>
+   </ul>
+  </td>
+ </tr>
  <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">Programación</a></td>
   <td>
@@ -232,4 +240,4 @@ Suponiendo que el nombre de usuario de la credencial era *jsmith*, esto da como 
 
 - [Inicio de un runbook desde otro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -40,17 +40,17 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Estación de trabajo**: un equipo con un cliente SSH.
 
-- **Azure CLI**: para obtener más información, consulte [Instalación y configuración de Azure CLI](../xplat-cli.md)
+- **Azure CLI**: para obtener más información, consulte [Instalación y configuración de Azure CLI](../xplat-cli-install.md)
 
 - **Clúster de HDInsight basado en Linux**: para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision].
 
 - **Base de datos SQL de Azure**: en este documento se proporcionan instrucciones para crear una base de datos SQL de ejemplo. Para obtener más información sobre la base de datos SQL, consulte [Introducción al uso de la base de datos SQL de Azure][sqldatabase-get-started].
 
-* **SQL Server**: los pasos descritos en este documento también pueden utilizarse, con algunas modificaciones, con SQL Server. Para obtener más información sobre los requisitos específicos para usar este artículo con SQL Server, consulte la sección [Uso de SQL Server](#using-sql-server).
+* **SQL Server**: los pasos descritos en este documento también se pueden usar, con algunas modificaciones, con SQL Server; Pero el clúster de HDInsight y SQL Server deben estar en la misma Red virtual de Azure. Para obtener más información sobre los requisitos específicos para usar este artículo con SQL Server, consulte la sección [Uso de SQL Server](#using-sql-server).
 
 ##Descripción del escenario
 
-Un clúster de HDInsight incluye algunos datos de ejemplo. Usará una tabla de Hive denominada **hivesampletable** que hace referencia al archivo de datos ubicado en **wasb:///hive/warehouse/hivesampletable**. La tabla contiene algunos datos del dispositivo móvil. El esquema de dicha tabla es el siguiente:
+Un clúster de HDInsight incluye algunos datos de ejemplo. Usará una tabla de Hive denominada **hivesampletable** que hace referencia al archivo de datos ubicado en ****wasb:///hive/warehouse/hivesampletable**. La tabla contiene algunos datos del dispositivo móvil. El esquema de dicha tabla es el siguiente:
 
 | Campo | Tipo de datos |
 | ----- | --------- |
@@ -66,7 +66,7 @@ Un clúster de HDInsight incluye algunos datos de ejemplo. Usará una tabla de H
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Server en una tabla denominada **mobiledata** y, a continuación, volverá a importar la tabla en HDInsight en **wasb:///tutorials/usesqoop/importeddata**.
+Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Server en una tabla denominada **mobiledata** y, a continuación, volverá a importar la tabla en HDInsight en ****wasb:///tutorials/usesqoop/importeddata**.
 
 ##Creación de una base de datos
 
@@ -171,7 +171,7 @@ Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Ser
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Esto indica a Sqoop que debe conectarse a la base de datos SQL, la base de datos **sqooptest**, y exportar los datos de **wasb:///hive/warehouse/hivesampletable** (archivos físicos para *hivesampletable*) en la tabla **mobiledata**.
+    Esto indica a Sqoop que debe conectarse a la base de datos SQL, la base de datos **sqooptest**, y exportar los datos de ****wasb:///hive/warehouse/hivesampletable** (archivos físicos para *hivesampletable*) en la tabla **mobiledata**.
 
 5. Una vez completado el comando, utilice lo siguiente para conectarse a la base de datos mediante TSQL:
 
@@ -186,7 +186,7 @@ Primero exportará **hivesampletable** a la base de datos SQL de Azure o SQL Ser
 
 ##Importación de Sqoop
 
-1. Use lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al directorio **wasb:///tutorials/usesqoop/importeddata** en HDInsight:
+1. Use lo siguiente para importar datos desde la tabla **mobiledata** de la base de datos SQL al directorio ****wasb:///tutorials/usesqoop/importeddata** en HDInsight:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -239,9 +239,9 @@ También puede utilizar Sqoop para importar y exportar datos de SQL Server, tant
 
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
-- [Uso de Oozie con HDInsight][hdinsight-use-oozie]: use la acción Sqoop en un flujo de trabajo de Oozie.
-- [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]: use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
-- [Carga de datos en HDInsight][hdinsight-upload-data]: busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
+- [Uso de Oozie con HDInsight][hdinsight-use-oozie]\: use la acción Sqoop en un flujo de trabajo de Oozie.
+- [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]\: use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
+- [Carga de datos en HDInsight][hdinsight-upload-data]\: busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
 
 
 
@@ -263,4 +263,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

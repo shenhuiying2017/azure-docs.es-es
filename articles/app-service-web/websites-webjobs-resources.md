@@ -1,15 +1,15 @@
 <properties 
 	pageTitle="Recursos de documentación de WebJobs de Azure" 
 	description="Recursos recomendados para aprender a utilizar WebJobs de Azure y el SDK de WebJobs de Azure." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -142,4 +142,4 @@ Consulte también las siguientes secciones en [Implementación de WebJobs](#depl
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

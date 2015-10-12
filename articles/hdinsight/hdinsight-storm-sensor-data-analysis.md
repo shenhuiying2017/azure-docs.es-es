@@ -20,6 +20,8 @@
 
 Aprenda a usar Apache Storm en HDInsight para procesar datos de sensores de los Centros de eventos de Azure y visualizarlos mediante D3.js. En este documento también se describe cómo usar una red virtual para conectar Storm en HDInsight con HBase en HDInsight y almacenar los datos de la topología en HBase.
 
+> [AZURE.NOTE]La información contenida en este documento es específica de los clústeres Storm en HDInsight basados en Windows. Para obtener información sobre cómo trabajar con el Centro de eventos de Azure en Storm basado en Linux en HDInsight, vea [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
+
 ## Requisitos previos
 
 * Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -192,7 +194,7 @@ Antes de las pruebas, debe iniciar el panel para ver el resultado de la topolog�
 
 		Server listening at port 3000
 
-2. Abra un explorador web y escriba ****http://localhost:3000/** como la dirección. Debería ver una página similar a la siguiente:
+2. Abra un explorador web y escriba ****http://localhost:3000/** como dirección. Debería ver una página similar a la siguiente:
 
 	![panel web](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -368,7 +370,7 @@ La parte del nombre de dominio que comienza con el nombre del clúster es el suf
 
 	El bolt de HBase lo usará para comunicarse con el clúster de HBase.
 
-1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** en un editor de texto y quite el comentario de las líneas siguientes, quitando los caracteres `//` del principio. Después de realizar este cambio, guarde el archivo.
+1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** en un editor de texto y quite la marca de comentario de las líneas siguientes quitando los caracteres `//` del principio. Después de realizar este cambio, guarde el archivo.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -420,4 +422,4 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos y
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

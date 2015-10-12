@@ -36,7 +36,8 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 Siga estos pasos para crear una aplicación web y habilitar la publicación Git.
 
-> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](/es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]
+> Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-es/pricing/free-trial/?WT.mc_id=A261C142F).
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
@@ -105,7 +106,8 @@ En esta sección, creará un archivo **server.js** que contiene el ejemplo 'Hell
 
 		git init
 
-	> [AZURE.NOTE]¿No está disponible el comando Git? [Git](http://git-scm.com/%20target="_blank) es un sistema de control de versión distribuida que puede utilizar para implementar la aplicación web de Azure. Para obtener instrucciones de instalación para su plataforma, consulte la [página de descargas de Git](http://git-scm.com/download%20target="_blank").
+	> [AZURE.NOTE]**¿No está disponible el comando Git?** 
+	> [Git](http://git-scm.com/%20target="_blank) es un sistema de control de versión distribuida que puede utilizar para implementar su sitio web de Azure. Para obtener instrucciones de instalación en su plataforma, consulte la [página de descargas de Git](http://git-scm.com/download%20target="_blank").
 
 2. Utilice los siguientes comandos para agregar archivos al repositorio:
 
@@ -161,7 +163,7 @@ En esta sección, creará un archivo **server.js** que contiene el ejemplo 'Hell
 
 ##Pasos siguientes
 
-Si bien los pasos de este artículo usan el Portal de Azure para crear una aplicación web, también es posible usar la [interfaz de línea de comandos de Azure](../xplat-cli.md) para realizar las mismas operaciones.
+Si bien los pasos de este artículo usan el Portal de Azure para crear una aplicación web, también es posible usar la [interfaz de la línea de comandos de Azure](../xplat-cli-install.md) para realizar las mismas operaciones.
 
 Node.js proporciona un abundante ecosistema de módulos que puede utilizar con sus aplicaciones. Para obtener información sobre el funcionamiento de aplicaciones web con módulos, consulte [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md).
 
@@ -173,7 +175,7 @@ Si tiene problemas con la aplicación después de la implementación en Azure, c
 ##Recursos adicionales
 
 * [Azure PowerShell](../install-configure-powershell.md)
-* [Interfaz de la línea de comandos de Azure](../xplat-cli.md)
+* [Interfaz de la línea de comandos de Azure](../xplat-cli-install.md)
 * [Centro para desarrolladores de Node.js](/develop/nodejs/)
 
 ## Lo que ha cambiado
@@ -204,4 +206,4 @@ Si tiene problemas con la aplicación después de la implementación en Azure, c
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

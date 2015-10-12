@@ -72,4 +72,4 @@ No se admite la exportación de una base de datos desde un grupo. Actualmente, n
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

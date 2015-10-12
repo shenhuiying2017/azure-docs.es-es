@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="07/19/2015"
+	ms.date="09/23/2015"
     ms.author="tamram"/>
 
 # Uso de almacenamiento de tablas desde C++
@@ -414,4 +414,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 -	[Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

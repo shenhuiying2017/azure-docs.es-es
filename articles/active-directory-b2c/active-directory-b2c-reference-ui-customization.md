@@ -37,9 +37,9 @@ La característica de personalización de la interfaz de usuario de la página l
 
 A diferencia de otros servicios, donde las opciones se limitan o solo están disponibles a través de API, Azure AD B2C usa un enfoque moderno (y más sencillo) para la personalización de la interfaz de usuario de la página. Funciona de la siguiente manera: Azure AD B2C ejecuta código en el explorador del consumidor y usa un enfoque moderno denominado [Uso compartido de recursos entre orígenes (CORS)](http://www.w3.org/TR/cors/) para cargar el contenido de una dirección URL que especifique en una directiva. Puede especificar diferentes direcciones URL para distintas páginas. El código combina el contenido de Azure AD B2C (denominados elementos de interfaz de usuario) y el contenido cargado desde la dirección URL y muestra la página a su consumidor. Todo lo que tiene que hacer es crear contenido HTML5 con formato correcto con un elemento `<div id="api"></div>` ubicado en algún lugar en el `<body>`; aquí es donde se combina el contenido de Azure AD B2C. Y hospedar este contenido en un extremo HTTPS (con CORS permitido). También puede aplicar estilo completo a elementos de la interfaz de usuario de Azure AD B2C.
 
-## Una herramienta auxiliar que le ayudará a probar la característica de personalización de la interfaz de usuario de página con nuestro contenido de ejemplo.
+## Prueba de la característica de personalización de la interfaz de usuario
 
-Use nuestra herramienta de aplicación auxiliar (que estará disponible próximamente) que le ayudará a probar la característica de personalización de la interfaz de usuario de página con nuestro contenido de ejemplo.
+Si quiere probar la característica de personalización de la experiencia del usuario mediante nuestro contenido HTML y CSS de ejemplo hospedado en el almacenamiento de blobs de Azure, hemos proporcionado [una herramienta auxiliar sencilla](active-directory-b2c-reference-ui-customization-helper-tool.md) para cargar y configurar el contenido estático.
 
 ## Los elementos de interfaz de usuario principales en cada tipo de página
 
@@ -276,4 +276,4 @@ Si piensa usar la característica de personalización de la interfaz de usuario 
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -32,7 +32,7 @@ En los siguientes comandos de CLI de Azure de ejemplo se presupone que ya se ha 
 ## Creación del grupo de seguridad de red para la subred front-end
 Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el escenario anterior, siga estos pasos.
 
-1. Si es la primera vez que utiliza la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde tiene que seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 
 2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
@@ -101,11 +101,11 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 
 	Parámetros:
 
-	- **-a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
+	- **- a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
 	- **-n (o --name)**. Nombre de la nueva regla. En este escenario, *rdp-rule*.
 	- **-c (o--access)**. Nivel de acceso de la regla (Denegar o Permitir).
 	- **-p (o --protocol)**. Protocolo (Tcp, Udp o *) para la regla.
-	- **-r (o --direction)**. Dirección de conexión (Entrante o Saliente).
+- **- r (o --direction)**. Dirección de conexión (Entrante o Saliente).
 	- **-y (o --priority)**. Prioridad de la regla.
 	- **-f (o --source-address-prefix)**. Prefijo de dirección de origen en CIDR o con las etiquetas predeterminadas.
 	- **-o (o --source-port-range)**. Puerto de origen, o intervalo de puertos.
@@ -269,4 +269,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 		data:    
 		info:    network vnet subnet set command OK
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

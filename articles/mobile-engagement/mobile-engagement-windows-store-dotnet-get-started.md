@@ -159,6 +159,8 @@ Ahora está todo listo para enviar un aviso. Ahora comprobaremos que ha llevado 
 
 1. Tendrá que asociar la aplicación con una aplicación de la Tienda Windows para obtener su **Identificador de seguridad de paquete (SID)** y su **Clave secreta** (Secreto de cliente). Puede crear una aplicación desde el [Centro de desarrollo de la Tienda Windows] y, luego, asegúrese de **Asociar la aplicación con la Tienda** desde Visual Studio.
 
+	![][7]
+
 2. Desplácese a la **Configuración** del portal de Mobile Engagement y haga clic en la sección **Inserción nativa** de la izquierda.
 
 3. Haga clic en el botón **Editar** para especificar el **Identificador de seguridad de paquete (SID)** y su **Clave secreta**, tal como se muestra a continuación:
@@ -178,10 +180,11 @@ Ahora debería ver una notificación del sistema de su campaña en el dispositiv
 [Aplicaciones Windows Universal - Integración de superposición]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/UniversalAppCreation.png
+[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
 [2]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-store-dotnet-get-started/add-connection-info.png
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
+[7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

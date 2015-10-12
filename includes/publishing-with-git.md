@@ -276,7 +276,7 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Uso de PowerShell para Azure]: ../articles/install-configure-powershell.md
-[Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: ../articles/xplat-cli.md
+[Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: ../articles/xplat-cli-install.md
 [Documentación de Git]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -298,4 +298,4 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Uso de Dropbox para compartir repositorios de Git]: https://gist.github.com/trey/2722927
 [Entrega continua a Azure con Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

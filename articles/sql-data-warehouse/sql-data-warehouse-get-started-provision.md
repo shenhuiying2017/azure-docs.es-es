@@ -1,177 +1,97 @@
 <properties
-   pageTitle="Introducción al aprovisionamiento de una instancia de Almacenamiento de datos SQL | Microsoft Azure"
-   description="Aprovisione una instancia de Almacenamiento de datos SQL con estos pasos e instrucciones."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
-
+	pageTitle="Creación de una base de datos de almacenamiento de datos SQL en el portal de vista previa de Azure | Microsoft Azure"
+	description="Aprenda a crear un almacenamiento de datos SQL de Azure en el portal de vista previa de Azure"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="lodipalm"
+	manager="barbkess"
+	editor=""
+	tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="09/29/2015"
+   ms.author="lodipalm;barbkess"/>
 
-# Introducción: aprovisionar un Almacenamiento de datos SQL #
+# Crear un almacén de datos de SQL en el portal de vista previa de Azure#
 
-Este artículo es una guía para ayudarle a aprovisionar una instancia de Almacenamiento de datos SQL en Azure. Si sigue esta guía, realizará las siguientes tareas:
+Este tutorial muestra lo fácil que resulta crear un almacén de datos de SQL de Azure en solo unos minutos en el Portal de vista previa de Azure.
 
-1. Creación de una nueva base de datos de Almacenamiento de datos SQL.
-2. Configuración de un servidor lógico nuevo.
-3. Definición de una regla del firewall de Azure para habilitar el acceso de cliente externo.
+En este tutorial realizará lo siguiente:
 
-## Evaluación gratuita de Azure ##
-Debe tener una suscripción de Azure y la aprobación a la vista previa de Almacenamiento de datos SQL para completar las tareas siguientes. Si todavía no tiene acceso a una suscripción a Azure, el primer paso debe ser solucionar esto.
+- Creación de una nueva base de datos SQL.
+- Creación de un servidor para la base de datos.
+- Carga de AdventureWorksDW en la nueva base de datos.
 
-Puede obtener una [evaluación gratuita][] que le permite probar cualquiera de los servicios de Azure, incluido Almacenamiento de datos SQL.
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 
-## Iniciar sesión en el portal de Azure ##
+## Inicio de sesión y búsqueda del almacén de datos de SQL
 
-Cuando tenga una suscripción, puede iniciar sesión en el [portal de Azure][]. Continúe e inicie sesión ahora.
+1. Inicie sesión en el [Portal de vista previa](https://portal.azure.com).
 
-En la siguiente serie de pasos, estableceremos rápidamente un servidor lógico nuevo y crearemos una base de datos de Almacenamiento de datos SQL.
+2. En el menú de concentrador, haga clic en **Nuevo** > **Datos y almacenamiento** > **Almacenamiento de datos SQL**.
 
-## Ubicación del servicio de Almacenamiento de datos SQL
+	![Creación del almacenamiento de datos](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
 
-Lo primero que debemos hacer es ubicar el servicio de Almacenamiento de datos SQL en el portal de Azure.
+## Configuración del rendimiento y otras opciones básicas
 
-El botón Nuevo está en la esquina superior izquierda del Portal de Azure. El botón Nuevo es el punto de partida para crear cualquier servicio en Azure.
+En el panel **Almacenamiento de datos SQL**, rellene los campos siguientes. **Servidor** y **Origen** se configuran en las secciones siguientes.
 
-- Haga clic en el botón Nuevo ahora.
+1. **Nombre de base de datos**: escriba un nombre para la base de datos de almacenamiento de datos SQL.
 
-### Datos + almacenamiento
+2. **Rendimiento**: puede ajustar el rendimiento con el que se iniciará la instancia durante el aprovisionamiento. Se recomienda comenzar con 400 DWU, ya que ello le permitirá ver más de las ventajas MPP que ofrece el almacenamiento de datos SQL.
+     
+    ![Nombre y DWU](./media/sql-data-warehouse-get-started-provision/name-and-dwu.png)
 
-Al hacer clic en el botón Nuevo se abren todas las categorías de servicio de Azure. Almacenamiento de datos SQL reside en la categoría "Datos + almacenamiento".
+    > [AZURE.NOTE]El rendimiento se mide en unidades de almacenamiento de datos (DWU). A medida que aumentan las DWU, el almacenamiento de datos SQL aumenta los recursos informáticos disponibles para las operaciones de bases de datos de almacenamiento de datos.
 
-- Haga clic en **Datos + almacenamiento** para obtener detalles sobre los servicios que Azure ofrece en esta categoría.
+	> [AZURE.NOTE]Puede modificar de manera rápida y sencilla el nivel de rendimiento después de crear la base de datos. Por ejemplo, si no está usando la base de datos, mueva el control deslizante hacia la izquierda para reducir los costes. O bien, puede aumentar el rendimiento cuando sean necesarios más recursos. Estas son las ventajas de escalabilidad que ofrece el almacenamiento de datos SQL.
+	
 
-### Almacenamiento de datos SQL
+2. **Grupos de recursos** Mantenga los valores predeterminados. Los grupos de recursos son contenedores diseñados para ayudarle a administrar una colección de recursos de Azure. Obtenga más información sobre los [grupos de recursos](../azure-portal/resource-group-portal.md).
+3. **Suscripción**. Seleccione la suscripción a la que desea facturar esta base de datos.
 
-Como puede ver, Azure ofrece grandes cantidades de datos y motores de almacenamiento. Sin embargo, esta guía de introducción es para Almacenamiento de datos SQL.
 
-- Continúe y seleccione **Almacenamiento de datos SQL**. 
+## Configuración de un servidor lógico
 
-##Admisión a la vista previa
-Para poder iniciar el proceso de configuración debe ser admitido en el programa de vista previa. Haga clic en la suscripción para la vista previa y envíe. Se le notificará por correo electrónico cuando la suscripción se haya aprobado.
+3. Haga clic en **Servidor** > **Crear un servidor nuevo**. Esto crea un servidor lógico que se asociará a la base de datos. Si ya dispone de un servidor V12 que desee usar, elija el servidor existente y vaya a la sección siguiente.
 
-Cuando reciba la aprobación, puede continuar con los pasos siguientes. Nota: la aprobación puede tardar varios días en procesarse.
+    ![Creación de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
 
-## Configuración de Almacenamiento de datos SQL
+    >[AZURE.NOTE]En el Almacenamiento de datos SQL y en la base de datos SQL, un servidor proporciona una forma coherente de configurar las bases de datos en la nube. En Azure, aunque el servidor se asocia a un solo centro de datos, este no forma parte del hardware físico como en una instancia local de SQL Server, sino que forma parte del software de servicio. Por ello se llama servidor lógico. Tenga en cuenta que, a diferencia de la vida real, las cargas de trabajo que ejecutan las bases de datos y los almacenes de datos en el mismo servidor no tendrán un impacto en el rendimiento entre sí.
 
-Para completar el proceso de aprovisionamiento, simplemente configure Almacenamiento de datos SQL.
+1. En la ventana **Nuevo servidor**, rellene la información solicitada.
 
+    Asegúrese de almacenar el nombre del servidor, el nombre de administrador y la contraseña en algún lugar. Necesitará esta información para iniciar sesión en el servidor. - **Nombre del servidor**. Escriba un nombre para el servidor lógico. - **Nombre de administrador del servidor**. Escriba un nombre de usuario para la cuenta de administrador del servidor. - **Contraseña**. Escriba la contraseña del administrador del servidor. - **Ubicación**. Elija una ubicación geográfica cercana a usted o a los demás recursos de Azure. Esto reducirá la latencia de red, ya que todas las bases de datos y recursos que pertenecen a su servidor lógico se encontrarán físicamente en la misma región.
 
-### Nombre de la base de datos
+    ![Configuración de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
 
-La primera configuración es poner nombre a la base de datos.
+1. Haga clic en **Aceptar** para guardar la configuración del servidor.
 
+## Carga de la base de datos de muestra
 
+1. Elija **Origen** > **Muestra** para inicializar la nueva base de datos con la base de datos de muestra AdventureWorksDW. 
 
-- Para esta guía de inicio rápido, el nombre de la base de datos será "MySQLDW".
+    ![Creación del almacenamiento de datos](./media/sql-data-warehouse-get-started-provision/create-data-warehouse.png)
 
+## Finalización de la creación de la base de datos
 
-> [AZURE.NOTE]Por supuesto, cuando cree su propia base de datos podrá ponerle el nombre que desee. De todos modos, el nombre debe cumplir los requisitos de nomenclatura básicos.
+1. Haga clic en **Crear** para crear la base de datos del almacenamiento de datos SQL. 
 
-### Rendimiento
+1. Ahora, lo único que tiene que hacer es esperar unos minutos. Cuando termine, se mostrará la base de datos de muestra en su página principal.
 
-La opción del rendimiento es *importante*. Almacenamiento de datos SQL proporciona su capacidad de escabilidad mediante este control deslizante. Puede aumentar o disminuir el rendimiento en cualquier momento, no solo cuando configure el almacén de datos. Cuanto más se desliza a la derecha, mayor es la cantidad de recursos a su disposición. Si esos recursos ya no son necesarios, puede mover el control deslizante en la otra dirección, para ahorrar costos. Almacenamiento de datos SQL permite cambiar el perfil de rendimiento a petición, sin tener que volver a crear el clúster o mover los datos.
-
-- Use ahora el control deslizante para ver cómo las unidades de almacenamiento de datos (DWU) aumentan a medida que se desliza a la derecha y disminuyen cuando mueve el control deslizante a la izquierda.
-
-- Antes de dejar este paso, asegúrese de que el control deslizante esté nuevamente a la izquierda. El nuevo almacén de datos es pequeño, por lo que no necesitaremos demasiado; ahorre recursos para el resto de la evaluación.
-
-### Seleccionar origen
-
-Esta opción ofrece la posibilidad de comenzar con una base de datos vacía. Elija la nueva base de datos como punto de partida.
-
-> [AZURE.NOTE]Hay disponible también otra opción. También se puede crear la base de datos a partir de un punto de restauración preexistente; una opción de restauración.
-
-### Servidor lógico
-
-La nueva base de datos de Almacenamiento de datos SQL reside en un servidor lógico. El servidor lógico aporta coherencia a la configuración de diversas bases de datos y ubica el servicio en un centro de datos de Azure.
-
-Las opciones que se deben establecer son: 1. Nombre del servidor 2. Nombre del administrador del servidor 3. Contraseña 4. Ubicación del centro de datos 5. Permiso para que los servicios de Azure obtengan acceso al servidor.
-
-Puede establecer estos valores como considere oportuno. El nombre del servidor debe ser único. Se recomienda elegir un centro de datos cercano para reducir la latencia de red. Almacenamiento de datos SQL también contiene características eficaces que aprovechan los otros servicios de Azure. Por lo tanto, se recomienda dejar habilitada la casilla para el acceso a los servicios de Azure.
-
-> [AZURE.NOTE]Almacenamiento de datos SQL debe usar un servidor V12. Asegúrese de que esta opción esté establecida en SÍ. Además, las bases de datos de Almacenamiento de datos SQL y Bases de datos SQL pueden compartir el servidor lógico. Sin embargo, debe ser un servidor V12.
-
-> [AZURE.NOTE]Anote el nombre del servidor, el nombre del administrador del servidor y la contraseña y guárdelos en un lugar seguro. Necesitará esta información para conectarse a la base de datos de Almacenamiento de datos SQL.
-
-### Grupos de recursos
-Los grupos de recursos son contenedores diseñados para ayudarle a administrar una colección de recursos de Azure.
-
-En esta guía de inicio rápido, el grupo de recursos puede estar configurado en sus valores predeterminados.
-
-Obtenga más información acerca de los [grupos de recursos](../azure-portal/resource-group-portal.md).
-
-### La suscripción
-Un usuario único podría tener una o más suscripciones a Azure. Si tiene más de una suscripción asociada con su inicio de sesión, puede elegir la suscripción que desea utilizar.
-
-Sin embargo, en esta guía es posible usar los valores predeterminados.
-
-Sigamos y creemos la instancia de Almacenamiento de datos SQL.
-
-## Creación del almacenamiento de datos ##
-Para crear el almacenamiento de datos, solo falta hacer clic en el botón Crear.
-
-¡Enhorabuena! Creó su primera base de datos de Almacenamiento de datos SQL.
-
-Ahora debería volver al [portal de Azure][]. Observe que la base de datos de Almacenamiento de datos SQL se agregó a la página.
-
-
-En este punto, nadie tiene acceso a la base de datos de Almacenamiento de datos SQL. De manera predeterminada y por motivos de seguridad, el acceso de clientes a la base de datos todavía no está configurado.
-
-Por lo tanto, el último paso del proceso de aprovisionamiento es configurar el servicio para el acceso externo.
-
-## Configuración del firewall de Azure ##
-
-Para configurar el firewall de Azure por primera vez:
-
-1. Haga clic en **Examinar** en la hoja de navegación de la izquierda.
-
-2. Elija **Servidores SQL Server**.
-
-3. Seleccione el servidor SQL Server lógico.
-
-4. Elija la configuración.
-
-5. Haga clic en **Firewall**.
-
-6. Establezca la regla del firewall.
-
-    Aquí debe hacer un par de cosas: - Ponerle nombre a la regla del firewall - Proporcionar un intervalo de IP
-
-    > [AZURE.NOTE]El intervalo de direcciones IP del cliente que debe incluir es su dirección IP externa o pública. Para conocer su dirección IP externa, puede usar varios sitios web, como <a href="http://www.whatismyip.com" target="\_blank">www.whatismyip.com</a>
-
-7. Guarde la regla del firewall.
-
-
-Ahora que configuró el firewall, podría establecer conexiones desde su escritorio a la instancia de Almacenamiento de datos SQL que acaba de crear.
+    ![Vista del portal del almacenamiento de datos SQL](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
 ## Pasos siguientes
 
-Ahora que se aprovisionó correctamente el servicio Almacenamiento de datos SQL, podemos aprender a usarlo. Pasos siguientes:
+Ahora que ha creado una base de datos de muestra para el almacenamiento de datos SQL, obtenga información sobre cómo usar el almacenamiento de datos SQL en el siguiente tutorial.
 
-1. [Conectar y consultar][] el almacenamiento de datos.
-2. Cargar [datos de ejemplo].
+- [Conexión y consulta](./sql-data-warehouse-get-started-connect-query.md).
 
 	> [AZURE.NOTE]Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
 
-<!--Image references-->
-
-
-<!-- Articles -->
-[Conectar y consultar]: sql-data-warehouse-get-started-connect-query.md
-[datos de ejemplo]: ./sql-data-warehouse-get-started-load-samples.md
-
-<!--External links-->
-[evaluación gratuita]: https://azure.microsoft.com/es-ES/pricing/free-trial/
-[portal de Azure]: https://portal.azure.com/
-
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

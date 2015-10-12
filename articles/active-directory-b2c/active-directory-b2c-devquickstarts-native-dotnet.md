@@ -36,7 +36,7 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 - Escribir el **URI de redirección** `urn:ietf:wg:oauth:2.0:oob`: es la dirección URL predeterminada para este ejemplo de código.
 - Escribir el **Id. de aplicación** asignado a la aplicación. Lo necesitará en breve.
 
-    > [AZURE.IMPORTANT]No puede usar aplicaciones registradas en la pestaña **Aplicaciones** del [Portal de Azure](https://manage.windowsazure.com/) con este fin.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Crear sus directivas
 
@@ -45,7 +45,9 @@ En Azure AD B2C, cada experiencia del usuario se define mediante una [**directiv
 - Elegir **Registro de id. de usuario** o **Registro de correo electrónico** en la hoja de proveedores de identidades.
 - Seleccionar **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
 - Elegir las notificaciones **Nombre para mostrar** e **Id. de objeto** como notificación de aplicación en todas las directivas. Puede elegir también otras notificaciones.
-- Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
+- Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve.
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Cuando tenga tres directivas creadas correctamente, estará listo para crear su aplicación.
 
@@ -59,11 +61,11 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 La aplicación completada también estará [disponible como .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
 
-Cuando haya descargado el código de ejemplo, abra el archivo `.sln` de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskClient` y un proyecto `TaskService`. `TaskClient` es la aplicación de escritorio WPF con la que el usuario interactúa. El `TaskService` es la API web de back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario. En este caso, tanto el `TaskClient` como el `TaskService` se representarán mediante un solo **Id. de aplicación**, ya que ambos conforman una aplicación lógica.
+Cuando haya descargado el código de ejemplo, abra el archivo `.sln` de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskClient` y un proyecto `TaskService`. `TaskClient` es la aplicación de escritorio WPF con la que el usuario interactúa. `TaskService` es la API web de back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario. En este caso, tanto el `TaskClient` como el `TaskService` se representarán mediante un solo **Id. de aplicación**, ya que ambos conforman una aplicación lógica.
 
 ## 5\. Configurar el servicio de tarea
 
-Cuando el `TaskService` recibe solicitudes del `TaskClient`, busca un token de acceso válido para autenticar la solicitud. Para validar el token de acceso, debe proporcionar al `TaskService` algo de información sobre la aplicación. En el proyecto `TaskService`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`:
+Cuando `TaskService` recibe solicitudes de `TaskClient`, busca un token de acceso válido para autenticar la solicitud. Para validar el token de acceso, debe proporcionar a `TaskService` algo de información sobre la aplicación. En el proyecto `TaskService`, abra el archivo `web.config` en la raíz del proyecto y reemplace los valores de la sección `<appSettings>`:
 
 ```
 <appSettings>
@@ -76,17 +78,16 @@ Cuando el `TaskService` recibe solicitudes del `TaskClient`, busca un token de a
     <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
-  ```
+```
+  
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Si quiere saber de qué forma una aplicación web autentica de forma segura las solicitudes con Azure AD B2C, consulte nuestro 
-[artículo de introducción al inicio de sesión de aplicación web](active-directory-b2c-devquickstarts-api-dotnet.md).
+Si quiere saber de qué forma una aplicación web autentica de forma segura las solicitudes con Azure AD B2C, consulte nuestro [artículo de introducción a la API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Ejecución de directivas
-Ahora que `TaskService` está listo para autenticar las solicitudes, podemos implementar `TaskClient`.  
-Su aplicación se comunica con Azure AD B2C mediante el envío de solicitudes de autenticación HTTP, especificando la directiva que desea ejecutar como parte de la solicitud. Para aplicaciones de escritorio .NET, puede usar la **Biblioteca de autenticación de Active Directory (AAL)**
-para enviar mensajes de autenticación OAuth 2.0, ejecutar directivas y obtener tokens para llamar a las API web.
+## 6\. Ejecutar directivas
+Ahora que `TaskService` está listo para autenticar las solicitudes, podemos implementar `TaskClient`. Su aplicación se comunica con Azure AD B2C mediante el envío de solicitudes de autenticación HTTP, especificando la directiva que desea ejecutar como parte de la solicitud. Para aplicaciones de escritorio .NET, puede usar la **Biblioteca de autenticación de Active Directory (AAL)** para enviar mensajes de autenticación OAuth 2.0, ejecutar directivas y obtener tokens para llamar a las API web.
 
-#### Instalación de AAL
+#### Instalar AAL
 Para comenzar, agregue ADAL al proyecto TaskClient mediante la Consola del Administrador de paquetes de Visual Studio.
 
 ```
@@ -94,7 +95,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 ```
 
 #### Especificación de detalles de B2C
-Abra el archivo `Globals.cs` y reemplace cada uno de los valores de propiedad por lo suyos propios. Esta clase se usa en todo el `TaskClient` para hacer referencia a valores de uso frecuente.
+Abra el archivo `Globals.cs` y reemplace cada uno de los valores de propiedad por los suyos propios. Esta clase se usa en todo `TaskClient` para hacer referencia a valores de uso frecuente.
 
 ```C#
 public static class Globals
@@ -112,9 +113,11 @@ public static class Globals
 }
 ``` 
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
 
 #### Creación de un AuthenticationContext
-La clase principal de ADAL es `AuthenticationContext`, que representa la conexión de su aplicación con el directorio de B2C. Cuando se inicie la aplicación, cree una instancia de `AuthenticationContext` en `MainWindow.xaml.cs`, que se pueda usar en la ventana.
+La clase principal de ADAL es `AuthenticationContext`, que representa la conexión de su aplicación con el directorio B2C. Cuando se inicie la aplicación, cree una instancia de `AuthenticationContext` en `MainWindow.xaml.cs`, que se pueda usar en la ventana.
 
 ```C#
 public partial class MainWindow : Window
@@ -307,11 +310,11 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 ## 9\. Ejecutar la aplicación de ejemplo
 
-Por último, compile y ejecute tanto el `TaskClient` como el `TaskService`. Regístrese para la aplicación con una dirección de correo electrónico o nombre de usuario. Cierre la sesión y vuelva a iniciarla como otro usuario. Edite el perfil de ese usuario. Cierre la sesión y regístrese con otro usuario.
+Por último, compile y ejecute tanto `TaskClient` como `TaskService`. Regístrese para la aplicación con una dirección de correo electrónico o nombre de usuario. Cierre la sesión y vuelva a iniciarla como otro usuario. Edite el perfil de ese usuario. Cierre la sesión y regístrese con otro usuario.
 
 ## 10\. Agregar IDP sociales
 
-Actualmente, la aplicación solo admite el registro y el inicio de sesión de usuario con lo que se denominan **cuentas locales** (cuentas almacenadas en el directorio de B2C con un nombre de usuario y una contraseña). Con Azure AD B2C, puede agregar compatibilidad con otros **proveedores de identidades**, o IDP, sin cambiar nada del código.
+Actualmente, la aplicación solo admite el registro y el inicio de sesión de usuario con lo que se denominan **cuentas locales** (cuentas almacenadas en el directorio B2C con un nombre de usuario y una contraseña). Con Azure AD B2C, puede agregar compatibilidad para otros **proveedores de identidades**, o IDP, sin cambiar el código.
 
 Para agregar IDP sociales a su aplicación, comience siguiendo las instrucciones detalladas en uno o dos de estos artículos. Para cada IDP que quiere admitir, necesitará registrar una aplicación en su sistema y obtener un Id. de cliente.
 
@@ -320,7 +323,7 @@ Para agregar IDP sociales a su aplicación, comience siguiendo las instrucciones
 - [Configurar Amazon como una IDP](active-directory-b2c-setup-amzn-app.md)
 - [Configurar LinkedIn como una IDP](active-directory-b2c-setup-li-app.md) 
 
-Después de agregar los proveedores de identidades a su directorio de B2C, tendrá regresar y editar cada una de las tres directivas para incluir los nuevos IDP, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md). Cuando haya guardado las directivas, solo tiene que volver a ejecutar la aplicación. Debería ver los IDP nuevos agregados como una opción de inicio de sesión y registro en cada una de sus experiencias de identidad.
+Cuando haya agregado los proveedores de identidades a su directorio B2C, necesitará regresar y editar cada una de las tres directivas para incluir los nuevos IDP, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md). Cuando haya guardado las directivas, solo tiene que volver a ejecutar la aplicación. Debería ver los IDP nuevos agregados como una opción de inicio de sesión y registro en cada una de sus experiencias de identidad.
 
 Puede experimentar con su directivas con libertad y observar el efecto en su aplicación de ejemplo: agregar o quitar IDP, manipular las notificaciones de la aplicación, cambiar los atributos de registro. Pruebe hasta que comience a comprender de qué manera se vinculan entre sí las directivas, las solicitudes de autenticación y ADAL.
 
@@ -340,4 +343,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

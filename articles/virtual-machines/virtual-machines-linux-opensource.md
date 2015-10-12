@@ -114,7 +114,7 @@ CoreOS es una distro pequeña y optimizada para el escalado de cálculo puro con
 
 ## Conceptos básicos
 
-1. [Conceptos básicos: Interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli.md)
+1. [Conceptos básicos: Interfaz de la línea de comandos de Azure (CLI de Azure)](../xplat-cli-install.md)
 4. [Conceptos básicos: Uso y administración de certificados](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [Conceptos básicos: Selección de nombres de usuario de Linux](virtual-machines-linux-usernames.md)
 6. [Conceptos básicos: Inicio de sesión en una máquina virtual de Linux con el Portal de Azure](virtual-machines-linux-how-to-log-on.md)
@@ -131,7 +131,7 @@ CoreOS es una distro pequeña y optimizada para el escalado de cálculo puro con
 17. [Conceptos básicos: Inserción de datos personalizados en una máquina virtual para su uso con Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Blogs con los conceptos básicos: Creación de Linux de alta disponibilidad en Azure en 12 pasos](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Blogs con los conceptos básicos: Automatización del aprovisionamiento de Linux en Azure con CLI de Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+19. [Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 20. [Conceptos básicos: Extensión de la máquina virtual de Azure Docker](virtual-machines-docker-vm-extension.md)
 23. [Referencia de la API de REST de administración de servicios de Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 24. [GlusterFS en Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
@@ -181,7 +181,7 @@ CoreOS es una distro pequeña y optimizada para el escalado de cálculo puro con
 
 Buscar en esta sección que se llenará rápidamente. Si tiene sugerencias, envíenos un PR o déjelas en los comentarios, a continuación.
 
-1. [Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+1. [Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 2. [Repositorio de Github de Linux y Azure de Patrick Chanezon](https://github.com/chanezon/azure-linux)
 3. [Video: Cómo mover datos de USB locales en Linux a Azure mediante **usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Vídeo: Acceso a la interfaz gráfica de usuario basada en Linux en Azure en el explorador con fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -258,7 +258,7 @@ Esta sección comienza con una entrada de blog que contiene una serie de vídeos
 
 1. Docker
 	- [Extensión de la máquina virtual de Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
-	- [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-docker-with-../xplat-cli.md)
+	- [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-docker-with-../xplat-cli-install.md)
 	- [Uso de la extensión de la máquina virtual de Docker desde el Portal de vista previa de Azure](virtual-machines-docker-with-portal.md)
 	- [Introducción rápida a Docker en Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [Cómo usar una máquina Docker en Azure](virtual-machines-docker-machine.md)
@@ -307,4 +307,4 @@ Esta sección comienza con una entrada de blog que contiene una serie de vídeos
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del almacenamiento de colas de Python | Microsoft Azure"
-	description="Aprenda a usar el servicio de colas de Azure de Python para crear y eliminar colas e insertar, obtener y eliminar mensajes."
-	services="storage"
-	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	pageTitle="Uso del almacenamiento de colas de Python | Microsoft Azure" 
+	description="Aprenda a usar el servicio de colas de Azure de Python para crear y eliminar colas e insertar, obtener y eliminar mensajes." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="emgerner-msft" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="emgerner"/>
 
 # Uso del almacenamiento de colas de Python
@@ -107,10 +107,12 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 -   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
 -   Visite el [Blog del equipo de almacenamiento de Azure][]
 
+Para obtener más información, consulte también el [Centro para desarrolladores de Python](/develop/python/).
+
 [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
 [paquete de almacenamiento de Azure para Python]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

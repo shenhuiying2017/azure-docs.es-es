@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Uso de los niveles de coherencia para maximizar la disponibilidad y el rendimiento en DocumentDB
@@ -56,15 +56,13 @@ La coherencia ocasional proporciona la coherencia de lectura más débil, pero o
 
 ### Cambio del nivel de coherencia de la base de datos
 
-1.  En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar todo**.
+1.  En la barra de accesos directos del [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Cuentas de DocumentDB**.
 
-2.  En la hoja **Examinar todo**, haga clic en **Cuentas de DocumentDB**.
+2. En la hoja **Cuentas de DocumentDB**, seleccione la cuenta de base de datos que se va a modificar.
 
-3. En la hoja **Cuentas de DocumentDB**, seleccione la cuenta de base de datos que se va a modificar.
+3. En la hoja de la cuenta, en la lente **Configuración**, haga clic en el icono **Coherencia predeterminada**.
 
-4. En la hoja de cuenta, en la lente **Configuración**, haga clic en el icono **Coherencia predeterminada**.
-
-5. Seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
+4. En la hoja **Coherencia predeterminada**, seleccione el nuevo nivel de coherencia y haga clic en **Guardar**.
 
 	![Captura de pantalla en la que se resalta el icono de coherencia predeterminada, la configuración de la coherencia y el botón Guardar](./media/documentdb-consistency-levels/database-consistency-level.png)
 
@@ -83,11 +81,11 @@ Al igual que con las solicitudes de lecturas, puede disminuir el nivel de cohere
 
 Si desea leer más sobre los niveles de coherencia y los compromisos, recomendamos los siguientes recursos:
 
--	Doug Terry. Coherencia de datos replicados explicados a través del béisbol. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+-	Doug Terry. Explicación de la coherencia de datos replicados a través del béisbol. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Garantías de sesión para datos replicados con coherencia débil. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 -	Daniel Abadi. Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas: CAP es solo una parte de la historia". [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
 -	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. Uso vinculado probabilístico (PBS) para cuórums parciales prácticos. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. Coherencia ocasional - Revisitado. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+-	Werner Vogels. Coherencia ocasional - Revisión. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

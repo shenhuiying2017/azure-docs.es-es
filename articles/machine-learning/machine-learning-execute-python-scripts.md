@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="Ejecución de scripts de aprendizaje automático de Python | Microsoft Azure"
-	description="Describe los principios de diseño subyacentes a la compatibilidad con scripts de Python en Aprendizaje automático de Azure y los escenarios de uso básico, las funcionalidades y las limitaciones."
+	pageTitle="Ejecución de scripts de aprendizaje automático de Python | Microsoft Azure" 
+	description="Describe los principios de diseño subyacentes a la compatibilidad con scripts de Python en Aprendizaje automático de Azure y los escenarios de uso básico, las funcionalidades y las limitaciones." 
+	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
-	ms.author="bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2015" 
+	ms.author="bradsev" />
 
 
 # Ejecución de scripts de Python en Aprendizaje automático de Azure | Azure
@@ -164,10 +165,13 @@ El módulo [Ejecutar script de Python][execute-python-script] permite que un cie
 
 Durante los próximos meses, esperamos proporcionar una funcionalidad adicional al módulo [Ejecutar script de Python][execute-python-script], como la capacidad de entrenar y hacer operativos los modelos en Python y de agregar una mejor compatibilidad para el desarrollo y código de depuración en Estudio de aprendizaje automático de Azure.
 
+## Pasos siguientes
+
+Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [Herramientas de Python para Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

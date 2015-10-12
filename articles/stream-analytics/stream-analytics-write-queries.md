@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Escribir consultas
@@ -22,9 +22,13 @@ La lógica de procesamiento de secuencia en el Análisis de transmisiones de Azu
 
 ## Para crear una consulta de Análisis de transmisiones: ##
 
-1. En su trabajo de Análisis de transmisiones, haga clic en **Consulta**.
+1. En su trabajo de Análisis de transmisiones en el Portal de administración de Azure, haga clic en **Consulta**.
 
     ![Seleccionar consulta](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
+
+    En el Portal de vista previa de Azure, haga clic en **Consulta**.
+
+    ![Vista previa de selección de consulta](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	Los trabajos nuevos tienen una plantilla de consulta para ayudarle a empezar. La plantilla de consulta realiza una consulta de "paso a través" que proyecta todos los campos de los eventos de entrada a la salida.
 
@@ -37,6 +41,8 @@ La lógica de procesamiento de secuencia en el Análisis de transmisiones de Azu
 
 Puede probar que la consulta se comporta según lo esperado si la ejecuta en el explorador a través de uno o más archivos JSON locales que contienen los datos de prueba. Esto no iniciará el trabajo ni tendrá implicaciones de facturación.
 
+> [AZURE.NOTE]Actualmente no se admiten pruebas de consultas en el explorador en el Portal de vista previa de Azure.
+
 1.	Asegúrese de que no hay errores en la consulta (en caso contrario, se deshabilitará el botón Probar) y luego haga clic en el botón Probar.  
 
     ![Prueba de consulta](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)
@@ -45,7 +51,7 @@ Puede probar que la consulta se comporta según lo esperado si la ejecuta en el 
 
     ![Datos de prueba](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
-3.	Vaya hasta un archivo de prueba. Hay varios archivos de ejemplo disponibles en [github] (Datos de https://github.com/Azure/azure-stream-analytics/tree/master/Sample) y también puede recuperar datos de ejemplo de sus propias entradas de secuencias de datos a través de la función de datos de ejemplo de la pestaña de entradas.
+3.	Vaya hasta un archivo de prueba. Hay varios archivos de ejemplo disponibles en [github] (datos de https://github.com/Azure/azure-stream-analytics/tree/master/Sample) y también puede recuperar datos de ejemplo de sus propias entradas de flujo de datos a través de la función de datos de ejemplo de la pestaña de entradas.
 
     ![Entrada de consulta](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)
 
@@ -64,4 +70,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

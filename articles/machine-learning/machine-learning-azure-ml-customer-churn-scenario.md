@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Análisis del abandono de clientes mediante el Aprendizaje automático | Microsoft Azure" 
-	description="Caso práctico de desarrollo de un modelo integrado para analizar y puntuar el abandono de clientes" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jeannt" 
-	manager="paulettm" 
+<properties
+	pageTitle="Análisis del abandono de clientes mediante el Aprendizaje automático | Microsoft Azure"
+	description="Caso práctico de desarrollo de un modelo integrado para analizar y puntuar el abandono de clientes"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jeannt"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/28/2015" 
 	ms.author="jeannt"/>
 
 # Análisis del el abandono de clientes mediante el Aprendizaje automático de Azure
@@ -54,17 +54,17 @@ En las figuras 1-3 se describe un proceso de solución de problemas común para 
 Este enfoque de previsión es la mejor manera de tratar el abandono, pero resulta complejo: tenemos que desarrollar un arquetipo de varios modelos y realizar un seguimiento de las dependencias entre los modelos. La interacción entre los modelos se puede encapsular como se muestra en el siguiente diagrama:
 
 ![][2]
- 
+
 *Ilustración 4: Arquetipo basado en varios modelos unificado*
 
 La interacción entre los modelos es clave si vamos a proporcionar un enfoque holístico sobre la retención de clientes. Cada modelo se degrada necesariamente con el paso del tiempo; por lo tanto, la arquitectura es un bucle implícito (similar al arquetipo establecido por el estándar de minería de datos de CRISP-DM, [***3***]).
- 
+
 A pesar de todo, el ciclo general de segmentación/descomposición de marketing de decisión de riesgo es una estructura generalizada, que es aplicable a muchos problemas empresariales. El análisis del abandono es simplemente un representante fuerte de este grupo de problemas, dado que presenta todos los rasgos de un problema empresarial complejo que no permite una solución predictiva simplificada. Los aspectos sociales del enfoque moderno hacia el abandono no se destacan particularmente en el enfoque, pero están encapsulados en el arquetipo de creación de modelos como lo estarían en cualquier modelo.
 
 Un interesante aporte aquí es el análisis de Big Data. Las empresas de telecomunicaciones y los comercios minoristas de hoy en día recopilan datos exhaustivos sobre sus clientes, y podemos prever fácilmente que la necesidad de conectividad entre varios modelos se convertirá en una tendencia común, dadas las tendencias emergentes como Internet de los objetos y los dispositivos multifuncionales, que permiten a las empresas emplear soluciones inteligentes a varios niveles.
 
  
-##Implementación del arquetipo de modelado en Machine Learning Studio 
+##Implementación del arquetipo de modelado en Machine Learning Studio
 Dado el problema que acabamos de describir, ¿cómo podemos implementar un enfoque integrado de modelos y puntuación? En esta sección, demostraremos cómo lo hemos conseguido mediante Azure Machine Learning Studio.
 
 El enfoque de varios modelos es imprescindible a la hora de diseñar un arquetipo global para el abandono. Incluso la parte de puntuación (predictiva) del enfoque debe basarse en varios modelos.
@@ -72,7 +72,7 @@ El enfoque de varios modelos es imprescindible a la hora de diseñar un arquetip
 El siguiente diagrama muestra el prototipo que creamos, que emplea cuatro algoritmos puntuación en Machine Learning Studio para predecir el abandono. El motivo de utilizar un enfoque de varios modelos es no crear únicamente un clasificador de conjunto para aumentar la precisión, sino también protegerse frente al exceso de ajustes y mejorar la selección preceptiva de características.
 
 ![][3]
- 
+
 *Ilustración 5: Prototipo de un enfoque de creación de modelos de abandono*
 
 Las secciones siguientes proporcionan más detalles sobre el prototipo de modelo de puntuación que hemos implementado mediante Machine Learning Studio.
@@ -91,23 +91,23 @@ El aspecto más importante es que el proceso entero, incluidos el ETL, la selecc
 Los siguientes diagramas ilustran los datos usados.
 
 ![][4]
- 
+
 *Ilustración 6: Extracto de la fuente de datos (oculta)*
 
 ![][5]
 
- 
+
 *Ilustración 7: Características extraídas de la fuente de datos*
-> Tenga en cuenta que estos datos son privados y, por tanto, no se pueden compartir el modelo y los datos. Sin embargo, para un modelo similar utilizando los datos disponibles públicamente, consulte este experimento de ejemplo en la [Galería de modelos](http://gallery.azureml.net/): [abandono de clientes de telecomunicaciones](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
-> 
+> Tenga en cuenta que estos datos son privados y, por tanto, no se pueden compartir el modelo y los datos. Sin embargo, para un modelo similar utilizando los datos disponibles públicamente, vea este experimento de ejemplo en la [Galería de análisis de Cortana](http://gallery.azureml.net/): [abandono de clientes de telecomunicaciones](http://gallery.azureml.net/Experiment/31c19425ee874f628c847f7e2d93e383).
+>
 
 ###Algoritmos usados en el prototipo
 
 Usamos los siguientes cuatro algoritmos de aprendizaje automático para crear el prototipo (sin personalización):
 
 1.	Regresión logística (LR)
-2.	Árbol de decisiones ampliado (BT) 
-3.	Perceptron promediado (AP) 
+2.	Árbol de decisiones ampliado (BT)
+3.	Perceptron promediado (AP)
 4.	Máquina de vectores de soporte (SVM)  
 
 
@@ -115,7 +115,7 @@ El siguiente diagrama ilustra una parte de la superficie de diseño del experime
 
 ![][6]
 
- 
+
 *Ilustración 8: Creación de modelos en Estudio de aprendizaje automático*
 
 ###Métodos de puntuación
@@ -123,7 +123,7 @@ Puntuamos a los cuatro modelos mediante el uso de un conjunto de datos de entren
 
 También enviamos el conjunto de datos de puntuaciones a un modelo comparable creado mediante la edición de escritorio de SAS Enterprise Miner 12. Hemos medido la exactitud del modelo SAS y de los cuatro modelos de Machine Learning Studio.
 
-##Resultados 
+##Resultados
 En esta sección, presentamos nuestros hallazgos sobre la exactitud de los modelos, según el conjunto de datos de puntuación.
 
 ###Exactitud y precisión de la puntuación
@@ -133,7 +133,7 @@ Sin embargo, la estadística más importante en el abandono es el índice de cla
 
 ![][7]
 
- 
+
 *Ilustración 9: Área del prototipo de Passau situada bajo la curva*
 
 ###Uso de AUC para comparar los resultados
@@ -154,7 +154,7 @@ Del mismo modo, la exactitud es más importante que la precisión porque estamos
 El siguiente diagrama de Wikipedia representa la relación en un gráfico animado fácil de entender:
 
 ![][8]
- 
+
 *Ilustración 10: Balance entre exactitud y precisión*
 
 ###Resultados de precisión del modelo de árbol de decisiones ampliado  
@@ -165,7 +165,7 @@ El siguiente gráfico muestra los resultados sin formato desde la puntuación ut
 
 *Ilustración 11: Características del modelo de árbol de decisión ampliado*
 
-##Comparación del rendimiento 
+##Comparación del rendimiento
 Hemos comparado la velocidad a la que se han calificado los datos mediante Machine Learning Studio y un modelo comparable creado con la edición de escritorio de SAS Enterprise Miner 12.1.
 
 En la siguiente tabla se resume el rendimiento de los algoritmos:
@@ -184,16 +184,16 @@ En el sector de las telecomunicaciones, han surgido varias prácticas para anali
 -	Las métricas se pueden clasificar en cuatro categorías fundamentales:
 	-	**Entidad (por ejemplo, una suscripción)**. Proporcione información básica sobre el abonado y/o cliente que es el sujeto del abandono.
 	-	**Actividad**. Obtenga toda la información de uso posible relacionada con la entidad, por ejemplo, el número de inicios de sesión.
-	-	**Servicio al cliente**. Recoja información de los registros de servicio al cliente para indicar si el abonado tuvo problemas o interacciones con el servicio al cliente. 
+	-	**Servicio al cliente**. Recoja información de los registros de servicio al cliente para indicar si el abonado tuvo problemas o interacciones con el servicio al cliente.
 	-	**Datos competitivos y empresariales**. Obtenga cualquier información posible acerca del cliente (por ejemplo, puede no estar disponible o ser difícil de seguir).
 -	Importancia de uso para conducir la selección de características. Esto implica que el modelo de árbol de decisión ampliado es siempre es un enfoque prometedor.  
 
 El uso de las cuatro categorías anteriores crea la ilusión de que un enfoque *determinista* sencillo, basado en índices creados sobre factores razonables por categoría, debería ser suficiente para identificar a los clientes con riesgo de abandono. Por desgracia, aunque esta noción parece plausible, es una concepción errónea. El motivo es que al abandono es un efecto temporal y los factores que contribuyen a él están normalmente en estado transitorio. Lo que lleva a un cliente a plantearse la idea de abandonar hoy puede ser diferente mañana y seguro que será diferente en los próximos seis meses. Por lo tanto, un modelo *probabilístico* es una necesidad.
- 
+
 Esta importante observación con frecuencia se pasa por alto en las empresas, quienes prefieren generalmente un enfoque del análisis orientado a la inteligencia empresarial, principalmente porque es más comercial y admite una automatización sencilla.
 
 Sin embargo, la promesa del análisis de autoservicio mediante Machine Learning Studio es que las cuatro categorías de información, clasificadas por división o departamento, se convierten en una valiosa fuente de aprendizaje automático sobre el abandono.
- 
+
 Otra capacidad interesante disponible en Aprendizaje automático de Azure es la capacidad de agregar un módulo personalizado al repositorio de módulos predefinidos que ya están disponibles. Esa función crea básicamente una oportunidad para seleccionar bibliotecas y crear plantillas para los mercados verticales. Es un elemento diferenciador importante del Aprendizaje automático de Azure en el mercado.
 
 Esperamos seguir con este tema en el futuro, especialmente en lo relacionado con el análisis de grandes cantidades de datos.
@@ -204,7 +204,7 @@ En este documento se describe un enfoque sensato para abordar el problema común
 
 ¿Le ha ayudado este documento? Proporciónenos sus comentarios. Díganos en una escala de 1 (pobre) a 5 (excelente), cómo valoraría este documento y porqué ha dado esta valoración. Por ejemplo:
 
--	¿Lo va a puntuar alto porque contiene buenos ejemplos, excelentes capturas de pantalla, redacción clara o por otro motivo? 
+-	¿Lo va a puntuar alto porque contiene buenos ejemplos, excelentes capturas de pantalla, redacción clara o por otro motivo?
 -	¿Lo va a puntuar bajo debido a ejemplos pobres, capturas de pantalla borrosas o redacción poco clara?  
 
 Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos que publicamos.
@@ -214,7 +214,7 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 [1] Análisis predictivo: Más allá de las predicciones, W. McKnight, Information Management, julio/agosto de 2011, p.18-20.
 
 [2] [Precisión] (http://en.wikipedia.org/wiki/Accuracy_and_precision) en Wikipedia
- 
+
 [3] [CRISP-DM 1.0: Guía de minería de datos paso a paso](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
 [4] Marketing de Big Data
@@ -223,9 +223,9 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 ##Anexo
 
 ![][10]
- 
+
 *Ilustración 12. Instantánea de una presentación sobre un prototipo de abandono*
-  
+
 
 [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-2.png
@@ -237,6 +237,5 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

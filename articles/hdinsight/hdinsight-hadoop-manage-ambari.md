@@ -33,11 +33,7 @@ De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en
 
 > [AZURE.NOTE]A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, algunos vínculos de la interfaz de usuario web de Ambari (como JobTracker) no estarán expuestos en Internet. Por lo tanto, recibirá errores de "servidor no encontrado" al intentar tener acceso a estas características, a menos que utilice un túnel de Shell seguro (SSH) para canalizar el tráfico web para el nodo principal del clúster.
 
-Use los siguientes artículos para crear un túnel SSH desde un puerto en la máquina local al clúster:
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH en HDInsight basado en Linux desde Linux, Unix u OS X</a>: pasos para crear un túnel SSH con el comando `ssh`.
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows</a>: pasos para usar PuTTY con el fin de crear un túnel SSH.
+Para obtener información sobre cómo crear un túnel SSH para trabajar con Ambari, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Interfaz de usuario web de Ambari
 
@@ -141,11 +137,7 @@ Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explo
 
 > [AZURE.NOTE]Al seleccionar un vínculo **Quick Links** para cualquier servicio se generará un error de "servidor no encontrado", a menos que use un túnel de Capa de sockets seguros (SSL) para autorizar el tráfico web al clúster. Esto es porque las aplicaciones web que se usan para mostrar esta información no se exponen en Internet.
 >
-> Para obtener información sobre el uso de un túnel SSL con HDInsight, consulte uno de los siguientes elementos:
->
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH en HDInsight basado en Linux desde Linux, Unix u OS X</a>: pasos para crear un túnel SSH con el comando `ssh`.
->
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows</a>: pasos para usar PuTTY con el fin de crear un túnel SSH.
+> Para obtener información sobre cómo usar un túnel SSH con HDInsight, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Administración
 
@@ -195,7 +187,7 @@ Desde la página **Panel** o **Servicios**, use el botón **Acciones** que se en
 
 ![acciones de servicio](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]Mientras __Agregar servicio__ aparece en este menú, no debe usarse para agregar servicios al clúster de HDInsight. Se deben agregar nuevos servicios deben mediante una acción de script durante el aprovisionamiento del clúster. Para obtener más información sobre el uso de las acciones de script, consulte [Personalización de un clúster de HDInsight mediante las acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.WARNING]Aunque __Agregar servicio__ aparece en este menú, no debe usarse para agregar servicios al clúster de HDInsight. Se deben agregar nuevos servicios deben mediante una acción de script durante el aprovisionamiento del clúster. Para obtener más información sobre el uso de las acciones de script, vea [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 
 A pesar de que el botón **Actions** puede reiniciar todos los servicios, con frecuencia se desea iniciar, detener o reiniciar un servicio específico. Use los siguientes pasos para realizar acciones sobre un servicio individual:
@@ -236,4 +228,4 @@ Ambari Web se basa en una API de REST subyacente, que puede aprovechar para crea
 
 Para obtener una referencia completa de la API de REST, consulte [Referencia de API de Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

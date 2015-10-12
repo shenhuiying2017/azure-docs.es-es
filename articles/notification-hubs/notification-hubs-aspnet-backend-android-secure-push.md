@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015" 
 	ms.author="wesmc"/>
 
 #Inserción segura de los Centros de notificaciones de Azure
@@ -131,4 +131,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 4. En la interfaz de usuario de la aplicación Android, haga clic en **Log in** (Iniciar sesión). A continuación, haga clic en **Send push** (Enviar inserción).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -9,16 +9,18 @@
 
 
 	- En el cuadro **Id.**, escriba un nombre para identificar la cuenta de DocumentDB. Cuando se valida el **identificador**, aparece una marca de verificación verde en el cuadro **Id.** El valor de **Id.** se convierte en el nombre de host dentro del URI. El **identificador** puede contener solo minúsculas, números y el carácter "-"; debe tener entre 3 y 50 caracteres. Tenga en cuenta que *documents.azure.com* se anexa al nombre de extremo que elija; su resultado se convertirá en el extremo de la cuenta de DocumentDB.
+	
 
-	- La lente **Nivel de cuenta** se bloquea porque DocumentDB admite un único nivel de cuenta Estándar. Para obtener más información, consulte [Precios de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
-
-	- En **Grupo de recursos**, seleccione o cree un grupo de recursos para la cuenta de DocumentDB. De forma predeterminada, se creará un nuevo grupo de recursos. Puede, sin embargo, optar por seleccionar un grupo de recursos existente al que agregar su cuenta de DocumentDB. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure](resource-group-portal.md).
-
+	- El modo **Nivel de cuenta** se bloquea porque DocumentDB admite un único nivel de cuenta estándar. Para obtener más información, consulte [Precios de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
+	
 	- En **Suscripción**, seleccione la suscripción a Azure que quiere usar para la cuenta de DocumentDB. Si la cuenta tiene una sola suscripción, dicha cuenta se selecciona de manera predeterminada.
+
+	- En **Grupo de recursos**, seleccione o cree un grupo de recursos para la cuenta de DocumentDB. De forma predeterminada, se creará un nuevo grupo de recursos. Puede, sin embargo, optar por seleccionar un grupo de recursos existente al que agregar su cuenta de DocumentDB. Para obtener más información, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](resource-group-portal.md).
  
 	- Use **Ubicación** para especificar la ubicación geográfica en la que se hospedará la cuenta de DocumentDB.
 
-4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. La creación de la cuenta puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el Panel de inicio. ![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea](media/documentdb-create-dbaccount/ca4.png)
+4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. La creación de la cuenta puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el Panel de inicio. 
+	![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea](media/documentdb-create-dbaccount/ca4.png)
   
 	O bien, puede supervisar su progreso en el centro de notificaciones.
 
@@ -34,4 +36,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

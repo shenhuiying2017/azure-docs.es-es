@@ -64,8 +64,6 @@ Puede comprobar las propiedades individuales de los recursos en las secciones si
 
 [AZURE.INCLUDE [virtual-networks-nrp-lb-include](../../includes/virtual-networks-nrp-lb-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-appgw-include](../../includes/virtual-networks-nrp-lb-include.md)]
-
 [AZURE.INCLUDE [virtual-networks-nrp-vpn-include](../../includes/virtual-networks-nrp-vpn-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-nrp-dns-include](../../includes/virtual-networks-nrp-dns-include.md)]
@@ -272,4 +270,4 @@ Puede implementar servicios en Azure desde una plantilla mediante PowerShell, CL
 
 [Implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

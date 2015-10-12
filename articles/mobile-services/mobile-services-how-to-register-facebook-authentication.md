@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Registro para la autenticación de Facebook | Microsoft Azure" 
+	pageTitle="Registro para autenticación de Facebook | Servicios móviles de Azure" 
 	description="Aprenda a usar la autenticación de Facebook en la aplicación de Servicios móviles de Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/27/2015" 
+	ms.date="09/25/2015" 
 	ms.author="glenga"/>
 
 # Registro de las aplicaciones para la autenticación de Facebook con Servicios móviles
@@ -22,11 +22,11 @@
 
 En este tema se muestra cómo registrar las aplicaciones a fin de poder usar Facebook para la autenticación con Servicios móviles de Azure.
 
->[AZURE.NOTE]En este tutorial se describen los [Servicios móviles de Azure], una solución que le ayuda a crear aplicaciones móviles escalables para cualquier plataforma. La solución Servicios móviles facilita la sincronización de datos, la autenticación de usuarios y el envío de notificaciones de inserción. En esta página se incluye el tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introducción a la autenticación</a> en el que se muestra cómo registrar usuarios en la aplicación. Si esta es la primera vez que usa Servicios móviles, complete el tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introducción a los Servicios móviles</a>.
+>[AZURE.NOTE]En este tutorial se describen los [Servicios móviles de Azure], una solución que le ayuda a crear aplicaciones móviles escalables para cualquier plataforma. La solución Servicios móviles facilita la sincronización de datos, la autenticación de usuarios y el envío de notificaciones de inserción. En esta página se incluye el tutorial [Introducción a la autenticación](mobile-services-ios-get-started-users.md) en el que se muestra cómo registrar usuarios en la aplicación. Si esta es la primera vez que usa Servicios móviles, complete el tutorial [Introducción a los Servicios móviles](mobile-services-ios-get-started.md).
 	
-Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Facebook asociada a una dirección de correo electrónico verificada y a un número de teléfono móvil. Para crear una cuenta de Facebook, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
+Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Facebook asociada a una dirección de correo electrónico verificada y a un número de teléfono móvil. Para crear una cuenta de Facebook, vaya a [facebook.com](http://go.microsoft.com/fwlink/p/?LinkId=268285).
 
-1. Desplácese hasta el sitio web para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">desarrolladores de Facebook</a> e inicie sesión con las credenciales de su cuenta de Facebook.
+1. Desplácese hasta el sitio web para [desarrolladores de Facebook](http://go.microsoft.com/fwlink/p/?LinkId=268285) e inicie sesión con las credenciales de su cuenta de Facebook.
 
 2. (Opcional) Si aún no está registrado, haga clic en **Mis aplicaciones**, luego en **Registrarse como desarrollador**, acepte la política y siga los pasos de registro.
 
@@ -73,4 +73,4 @@ Ahora ya puede habilitar el uso del inicio de sesión de Facebook para autentica
 [Servicios móviles de Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

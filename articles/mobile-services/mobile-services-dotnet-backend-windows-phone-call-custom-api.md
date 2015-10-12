@@ -8,12 +8,12 @@
 	editor=""/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="mobile-services" 
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # Llamada a una API personalizada desde el cliente
@@ -55,4 +55,4 @@ También, considere la posibilidad de profundizar más en los siguientes temas d
 [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Almacenamiento de scripts de servidor en control de código fuente]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

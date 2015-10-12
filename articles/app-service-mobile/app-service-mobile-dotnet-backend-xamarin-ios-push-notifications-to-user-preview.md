@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/25/2015"
+	ms.date="09/25/2015"
 	ms.author="yuaxu"/>
 
 # Envío de notificaciones entre plataformas a un usuario específico
@@ -110,6 +110,6 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 <!-- URLs. -->
 [Introducción a la autenticación]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
 [Introducción a las notificaciones de inserción]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
-[plantillas]: https://msdn.microsoft.com/es-es/library/dn530748.aspx
+[plantillas]: https://msdn.microsoft.com/es-ES/library/dn530748.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

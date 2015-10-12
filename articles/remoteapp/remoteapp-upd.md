@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Datos de perfil de usuario en Azure RemoteApp"
+    pageTitle="Datos de perfil de usuario en Azure RemoteApp | Microsoft Azure"
 	description="Obtenga información acerca de cómo se almacenan y se accede a los datos de usuario en Azure RemoteApp"
 	services="remoteapp"
 	documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="09/29/2015" 
     ms.author="elizapo" />
 
 
@@ -35,7 +35,7 @@ Si necesita acceder a los datos de uno de los usuarios (para efectuar la recuper
 
 ## ¿Se efectúa una copia de seguridad de los datos?
 
-Sí, se guarda una copia de seguridad de los datos del usuario por ubicación geográfica. Los datos son de solo lectura y se puede tener acceso a ellos de la misma manera que a los datos normales (póngase en contacto con Azure RemoteApp para obtener información) si el centro de datos principal está inactivo.
+Sí, se guarda una copia de seguridad de los datos del usuario por ubicación geográfica. Los datos son de solo lectura y se puede tener acceso a ellos de la misma manera que a los datos normales (póngase en contacto con Azure RemoteApp para conocer la forma de hacerlo) si el centro de datos principal está inactivo. Los datos se copian en tiempo real a la ubicación de copia de seguridad, y no conservamos copias de las distintas versiones. Por lo tanto, en caso de daño en los datos, no podremos restaurarlos a una versión buena conocida anteriormente; sin embargo, si el centro de datos principal está inactivo, podrá obtener los datos del usuario desde la otra ubicación.
 
 ## ¿Cómo ven los usuarios el UPD en el servidor?
 
@@ -54,7 +54,7 @@ Sí, Azure RemoteApp admite el uso de soluciones de datos compartidos (especialm
 Puede configurar Azure RemoteApp para permitir a los usuarios acceder a dispositivos locales configurando el [redireccionamiento](remoteapp-redirection.md). A continuación, los dispositivos locales podrán tener acceso a los datos en el UPD.
 
 ## ¿Puedo usar mi UPD como un recurso compartido de red?
-No, porque el UPD no es persistente. El UPD solo está disponible si el usuario está conectado activamente a Azure RemoteApp.
+No. Los UPD no pueden utilizarse como un recurso compartido de red. Los UPD solo están disponibles si el usuario está conectado activamente a Azure RemoteApp.
 
 ## Si se elimina un usuario de una colección, ¿se elimina su UPD?
 
@@ -69,6 +69,9 @@ Sí, si se pone en contacto con [Azure RemoteApp](mailto:remoteappforum@microsof
 ## ¿Están los UPD disponibles sin conexión?
 
 En estos momentos no proporcionamos acceso sin conexión a UPD, aparte de las 10 horas de acceso descritas anteriormente. Esto significa que actualmente no tenemos manera de proporcionarle acceso durante el tiempo suficiente para completar las tareas más complicadas, como ejecutar software antivirus en los UPD o tener acceso a los datos para efectuar una auditoría.
+
+## ¿La configuración de la clave del Registro se conserva?
+Sí, todo lo escrito en HKEY\_Current\_User forma parte de los UPD.
 
 ## ¿Puedo deshabilitar los UPD para una colección?
 
@@ -123,4 +126,4 @@ No, eso no es compatible con Azure RemoteApp, que usa RDSH, que a su vez tampoco
 
 No, no es compatible con Azure RemoteApp.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

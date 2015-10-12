@@ -51,7 +51,7 @@ Nombre | Script
 **Instalar Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Consulte [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Instalación de Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Consulte [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md).
 
-##Use una acción de script desde el Portal de vista previa de Azure
+## Use una acción de script desde el Portal de vista previa de Azure
 
 1. Inicie el aprovisionamiento de un clúster tal como se describe en [Aprovisionamiento de clústeres mediante opciones personalizadas](hdinsight-provision-clusters.md#portal).
 
@@ -70,7 +70,7 @@ Nombre | Script
 
 3. Haga clic en **Seleccionar** para guardar la configuración de la acción de script y continúe con el aprovisionamiento del clúster.
 
-##Use una acción de script de las plantillas de Administrador de recursos de Azure
+## Use una acción de script de las plantillas de Administrador de recursos de Azure
 
 En esta sección, usamos plantillas de Administrador de recursos de Azure (ARM) para aprovisionar un clúster de HDInsight y usar una acción de script para instalar componentes personalizados (en este ejemplo, R) en el clúster. En esta sección se proporciona una plantilla ARM de ejemplo para aprovisionar un clúster mediante la acción de script.
 
@@ -165,7 +165,6 @@ En esta sección, usamos plantillas de Administrador de recursos de Azure (ARM) 
 		                "osType": "Linux",
 		                "clusterDefinition": {
 		                    "kind": "hadoop",
-
 		                    "configurations": {
 		                        "gateway": {
 		                            "restAuthCredential.isEnabled": true,
@@ -239,8 +238,6 @@ En esta sección, usamos plantillas de Administrador de recursos de Azure (ARM) 
 		    }
 		}
 
-
-
 2. Inicie Azure PowerShell e inicie sesión en su cuenta de Azure. Después de proporcionar sus credenciales, el comando devuelve información acerca de su cuenta.
 
 		Add-AzureAccount
@@ -297,9 +294,9 @@ En esta sección, usamos plantillas de Administrador de recursos de Azure (ARM) 
 
 		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed -DetailedOutput
 
-##Use una acción de script de PowerShell de Azure
+## Use una acción de script de PowerShell de Azure
 
-En esta sección, usamos el cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts usando la acción de script para personalizar un clúster. Antes de continuar, asegúrese de que ha instalado y configurado PowerShell de Azure. Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+En esta sección, usamos el cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts usando la acción de script para personalizar un clúster. Antes de continuar, asegúrese de que ha instalado y configurado PowerShell de Azure. Para obtener información sobre cómo configurar una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 Lleve a cabo los siguiente pasos:
 
@@ -346,15 +343,14 @@ Lleve a cabo los siguiente pasos:
 
 Cuando el sistema lo pida, escriba las credenciales para el clúster. El clúster puede tardar varios minutos en crearse.
 
-##Use una acción de script desde .NET SDK de HDInsight
+## Use una acción de script desde .NET SDK de HDInsight
 
 El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el trabajo con HDInsight desde una aplicación .NET. Los pasos siguientes muestran cómo usar un script para personalizar un clúster desde .NET SDK de HDInsight.
-
 
 > [AZURE.IMPORTANT]Tiene que crear primero un certificado autofirmado, instálelo en su estación de trabajo y cárguelo en su suscripción de Azure. Para obtener instrucciones, consulte [Creación de un certificado autofirmado](http://go.microsoft.com/fwlink/?LinkId=511138).
 
 
-###Creación de un proyecto de Visual Studio
+### Creación de un proyecto de Visual Studio
 
 1. Abra Visual Studio 2013 o 2015
 
@@ -441,7 +437,7 @@ El .NET SDK de HDInsight proporciona bibliotecas de cliente que facilitan el tra
 
 11. Guarde los cambios en la aplicación y genere la solución.
 
-###Ejecución de la aplicación
+### Ejecución de la aplicación
 
 Abra la consola de Azure PowerShell, navegue a la ubicación donde guardó el proyecto, luego al directorio \\bin\\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
 
@@ -471,7 +467,7 @@ El servicio HDInsight proporciona varias maneras de utilizar los componentes per
 
 3. Muestras: para los componentes personalizados más populares, Microsoft y otros pueden proporcionar muestras de cómo estos componentes se pueden utilizar en los clústeres de HDInsight. Estas muestras se proporcionan sin soporte técnico.
 
-##Solución de problemas
+## Solución de problemas
 
 Puede usar la interfaz de usuario web de Ambari para ver la información registrada por los scripts durante el aprovisionamiento del clúster.
 
@@ -503,4 +499,4 @@ Consulte la siguiente información y ejemplos sobre la creación y uso de script
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante el aprovisionamiento del clúster"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

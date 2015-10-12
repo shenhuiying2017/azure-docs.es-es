@@ -184,7 +184,7 @@ Si prefiere usar Visual Studio para completar los pasos de instalación, puede h
 
 Seleccione **Application Insights** en el cuadro de diálogo **Nuevo proyecto**.
 
-Si se le pide que inicie sesión, use las credenciales para la cuenta de Azure (que es independiente de su cuenta de Visual Studio Online).
+Cuando se la pide que inicie sesión, use las credenciales de su cuenta de Azure.
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
@@ -232,4 +232,4 @@ Cuando [se lanza una nueva versión del SDK](app-insights-release-notes-windows.
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # Uso de los Centros de notificaciones para enviar noticias de última hora localizadas a dispositivos iOS
 
 > [AZURE.SELECTOR]
@@ -222,4 +223,4 @@ Puede encontrar una referencia para el lenguaje de la expresión de plantilla en
 [Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

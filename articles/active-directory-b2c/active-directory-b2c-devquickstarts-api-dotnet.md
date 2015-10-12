@@ -36,7 +36,7 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 - Para la aplicación web, use el **Uri de redireccionamiento** `https://localhost:44316/`: es la ubicación predeterminada del cliente de aplicación web para este ejemplo de código.
 - Copie el **Id. de aplicación** asignado a la aplicación. Lo necesitará en breve.
 
-     >[AZURE.IMPORTANT]No puede usar aplicaciones registradas en la pestaña **Aplicaciones** del [Portal de Azure](https://manage.windowsazure.com/) con este fin.
+ [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Crear sus directivas
 
@@ -45,7 +45,9 @@ En Azure AD B2C, cada experiencia del usuario se define mediante una [**directiv
 - Elegir **Registro de id. de usuario** o **Registro de correo electrónico** en la hoja de proveedores de identidades.
 - Seleccionar **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
 - Elegir las notificaciones **Nombre para mostrar** e **Id. de objeto** como notificación de aplicación en todas las directivas. Puede elegir también otras notificaciones.
-- Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
+- Copiar el **Nombre** de cada directiva después de crearla. Necesitará esos nombres de directivas en breve. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Cuando tenga tres directivas creadas correctamente, estará listo para crear su aplicación.
 
@@ -59,7 +61,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 
 La aplicación completada también estará [disponible como .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) o en la rama `complete` del mismo repositorio.
 
-Una vez descargado el código de ejemplo, abra el archivo `.sln` de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskWebApp` y un proyecto `TaskService`. `TaskWebApp` es una aplicación web MVC con la que el usuario interactúa. `TaskService` es la API web de back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario.
+Cuando haya descargado el código de ejemplo, abra el archivo `.sln` de Visual Studio para empezar. Observará que hay dos proyectos en la solución: un proyecto `TaskWebApp` y un proyecto `TaskService`. `TaskWebApp` es una aplicación web MVC con la que el usuario interactúa. `TaskService` es la API web de back-end de la aplicación que almacena la lista de tareas pendientes de cada usuario.
 
 ## 5\. Configurar la aplicación web de tarea
 
@@ -82,6 +84,8 @@ Cuando el usuario interactúa con la `TaskWebApp`, el cliente envía solicitudes
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
 </appSettings>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Hay también dos decoradores `[PolicyAuthorize]` en los que tiene que indicar el nombre de la directiva de inicio de sesión. El atributo `[PolicyAuthorize]` se usa para invocar una directiva concreta cuando el usuario intenta acceder a una página en la aplicación que requiere autenticación.
 
@@ -211,7 +215,7 @@ public IEnumerable<Models.Task> Get()
 
 ## 7\. Ejecutar la aplicación de ejemplo
 
-Por último, compile y ejecute tanto el `TaskWebApp` como el `TaskService`. Regístrese para la aplicación con una dirección de correo electrónico o nombre de usuario. Cree algunas tareas en la lista de tareas del usuario y observe cómo se conservan en la API incluso después de detener y reiniciar el cliente.
+Por último, compile y ejecute tanto `TaskWebApp` como `TaskService`. Regístrese para la aplicación con una dirección de correo electrónico o nombre de usuario. Cree algunas tareas en la lista de tareas del usuario y observe cómo se conservan en la API incluso después de detener y reiniciar el cliente.
 
 ## 8\. Editar sus directivas
 
@@ -232,4 +236,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

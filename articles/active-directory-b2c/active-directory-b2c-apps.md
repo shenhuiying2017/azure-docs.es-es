@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Vista previa de Azure AD B2C: Tipos de aplicaciones
@@ -124,8 +124,8 @@ Las aplicaciones que contienen procesos de larga duración o que funcionan sin l
 Este flujo no es compatible actualmente con Azure AD B2C, lo que quiere decir que las aplicaciones solo pueden obtener tokens una vez producido un flujo de usuario interactivo. El flujo de credenciales de cliente se agregará en un futuro próximo.
 
 ### Cadenas de la API web (en nombre de)
-Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD. Este escenario es común en los clientes nativos que tienen una API web back-end, que, a su vez, llama a un servicio de Microsoft Online, como la API de Azure AD Graph.
+Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante Azure AD B2C. Este escenario es común en los clientes nativos que tienen una API web back-end, que, a su vez, llama a un servicio de Microsoft Online, como la API de Azure AD Graph.
 
 Este escenario de API web encadenadas puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como flujo "en nombre de". Sin embargo, el flujo "en nombre de" no está implementado actualmente en la vista previa de Azure AD B2C.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -32,7 +32,7 @@ En los siguientes comandos de ejemplo de la CLI de Azure se presupone que ya se 
 ## Especificación de una dirección IP privada estática al crear una VM
 Para crear una VM denominada *DNS01* en la subred de *FrontEnd* de una Red virtual denominada *TestVNet* con una IP privada estática de *192.168.1.101*, sigue estos pasos:
 
-1. Si nunca usaste la CLI de Azure, consulta [Instalar y configurar la CLI de Azure](xplat-cli.md) y sigue las instrucciones hasta el punto donde tienes que seleccionar tu cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 
 2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
@@ -264,4 +264,4 @@ Resultado esperado:
 - Encuentra más información sobre las direcciones [IP públicas a nivel de instancia (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Consulta las [API de REST de IP reservadas](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -226,4 +226,4 @@ P: ¿Puedo recuperar una base de datos de SharePoint en la ubicación original s
 - Consulte las [Notas de la versión de System Center 2012: Data Protection Manager versión](https://technet.microsoft.com/library/jj860415.aspx)
 - Consulte las [Notas de la versión de Data Protection Manager en System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Restauración de una aplicación web en el Servicio de aplicaciones de Azure" 
 	description="Aprenda a restaurar la aplicación web desde una copia de seguridad." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -98,4 +98,4 @@ La hoja de detalles mostrará la información disponible relacionada con la oper
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

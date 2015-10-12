@@ -376,12 +376,7 @@ Notas adicionales:
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Estos son los valores que se usarán para los demás proveedores:
-	* "microsoftaccount"
-	* "facebook"
-	* "twitter"
-	* "google"
-<br/><br/>
+	Estos son los valores que se usarán para los demás proveedores: * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
 
 * El segundo parámetro del método `GetConsentLinkAsync()` es la URL de devolución de llamada a la que se redirige el servidor de consentimiento después de que el usuario inicia sesión en Dropbox y da su consentimiento de acceso a la cuenta del usuario.
 
@@ -425,11 +420,11 @@ Si recibe el error HTTP 405 cuando el código llama a GetConsentLinkAsync, compr
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-El error de método no permitido 405 se recibe porque el cliente intenta realizar una solicitud HTTP POST sin SSL, la puerta de enlace se redirige a *https://* y la redirección provoca una solicitud GET. La dirección URL para la recuperación de un vínculo de consentimiento solo acepta solicitudes POST.
+El error de método no permitido 405 se recibe porque el cliente intenta realizar una solicitud HTTP POST sin SSL, la puerta de enlace se redirige a **https://* y la redirección provoca una solicitud GET. La dirección URL para la recuperación de un vínculo de consentimiento solo acepta solicitudes POST.
 
 ### <a id="400"></a> Error HTTP 400 en lugar de la página de inicio de sesión de Dropbox
 
-Asegúrese de que tiene el **identificador de cliente** correcto en hoja **Autenticación** de la aplicación de API y de que no hay espacios iniciales ni finales.
+Asegúrese de que tiene el **identificador de cliente** correcto en la hoja **Autenticación** de la aplicación de API y de que no hay espacios iniciales ni finales.
 
 ### <a id="403"></a> Error HTTP 403 al llamar a la aplicación de API
 
@@ -450,8 +445,6 @@ Si quita %3d%3d del final del valor de cadena de consulta `error`, esta es una c
 Vio como se codifica y configura una aplicación de API que se conecta a una plataforma de SaaS. Para obtener vínculos a otros tutoriales sobre cómo controlar la autenticación de aplicaciones de API, vea [Autenticación para aplicaciones de API y aplicaciones móviles: pasos siguientes](../app-service/app-service-authentication-overview.md#next-steps).
 
 [Azure preview portal]: https://portal.azure.com/
-[Portal de vista previa de Azure]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
-[Portal de Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -50,4 +50,4 @@ En este tutorial se ha descrito cómo crear una máquina virtual con Windows Ser
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

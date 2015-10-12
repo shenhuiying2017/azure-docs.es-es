@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -476,9 +476,9 @@ Para agregar archivos a un proyecto o carpeta, haga clic con el botón secundari
 	- *Web.config*
 	- *Global.asax.cs*  
 	- En la carpeta *Controladores*: *AdController.cs*
-	- En la carpeta *Views\\Shared*: archivo *\_Layout.cshtml*.
-- En la carpeta *Views\\Home*: *Index.cshtml*.
-	- En la carpeta *Views\\Ad* (cree primero la carpeta): cinco archivos *.cshtml*<br/><br/>
+	- En la carpeta *Views\Shared*: archivo *_Layout.cshtml*.
+- En la carpeta *Views\Home*: *Index.cshtml*.
+	- En la carpeta *Views\Ad* (cree primero la carpeta): cinco archivos *.cshtml*<br/><br/>
 
 3. En el proyecto ContosoAdsWebJob, agregue los siguientes archivos desde el proyecto descargado.
 
@@ -613,9 +613,9 @@ El código similar obtiene una referencia a la cola *blobnamerequest* y crea una
 
 El archivo *\_Layout.cshtml* establece el nombre de aplicación en el encabezado y pie de página y crea una entrada de menú "Ads".
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-El archivo *Views\\Home\\Index.cshtml* muestra vínculos de categoría en la página principal. Los vínculos pasan el valor entero de la enumeración `Category` en una variable de cadena de consulta a la página de índice de anuncios.
+El archivo *Views\Home\Index.cshtml* muestra vínculos de categoría en la página principal. Los vínculos pasan el valor entero de la enumeración `Category` en una variable de cadena de consulta a la página de índice de anuncios.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -704,7 +704,7 @@ A continuación se muestra el código que elimina blobs cuando elimina un anunci
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml y Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml y Details.cshtml
 
 El archivo *Index.cshtml* muestra miniaturas con otros datos de anuncio:
 
@@ -714,7 +714,7 @@ El archivo *Details.cshtml* muestra la imagen a tamaño completo:
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml y Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml y Edit.cshtml
 
 Los archivos *Create.cshtml* y *Edit.cshtml* especifican codificación de formularios que permite al controlador obtener el objeto `HttpPostedFileBase`.
 
@@ -816,4 +816,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, vea [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

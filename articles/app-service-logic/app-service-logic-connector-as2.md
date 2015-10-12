@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Uso del conector AS2 en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
-	description="Creación y configuración del conector AS2 o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Uso del conector AS2 en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure" 
+   description="Creación y configuración del conector AS2 o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 # Introducción al conector AS2 y su incorporación a una aplicación lógica
 El conector AS2 se usa para recibir y enviar mensajes a través del protocolo de transporte AS2 (Applicability Statement 2) en comunicaciones de negocio a negocio. Los datos se transportan de forma segura y confiable a través de Internet. La seguridad se consigue mediante el uso de cifrado y certificados digitales.
@@ -99,6 +99,8 @@ La acción devuelve un código de respuesta HTTP 200 de finalización satisfacto
 ## Aplicaciones adicionales del conector
 Encontrará más información sobre las aplicaciones lógicas en [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
+>[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
@@ -115,4 +117,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

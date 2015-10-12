@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="larryfr"/>
 
 #Análisis de datos de retraso de vuelos con Hive en HDInsight
 
-Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en Linux (vista previa) y luego exportar los datos a la Base de datos SQL de Azure con Sqoop.
+Aprenda a analizar datos de retrasos de vuelos con Hive en HDInsight basado en Linux y luego exportar los datos a la Base de datos SQL de Azure con Sqoop.
 
 > [AZURE.NOTE]Aunque se pueden usar distintas partes de este documento con clústeres de HDInsight basados en Windows (Python y Hive, por ejemplo), muchos de los pasos son específicos de los clústeres basados en Linux. Para conocer el procedimiento que funcionará con un clúster basado en Windows, vea [Analizar datos de retrasos de vuelos en Hive en HDInsight](hdinsight-analyze-flight-delay-data.md)
 
@@ -33,7 +33,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - __Base de datos de SQL Azure__. Usará una Base de datos SQL de Azure como almacén de datos de destino. Si aún no dispone una Base de datos SQL, vea [Creación y configuración de una Base de datos SQL de Azure](../sql-database/sql-database-create-configure.md) para crear una.
 
-- __Azure CLI__. Si no ha instalado la CLI de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](../xplat-cli.md) para conocer más pasos.
+- __Azure CLI__. Si no ha instalado la CLI de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](../xplat-cli-install.md) para conocer más pasos.
 
 
 ##Descarga de los datos de vuelo
@@ -305,4 +305,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

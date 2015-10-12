@@ -239,4 +239,4 @@ Se puede usar el modificador opcional “-q” para suprimir el mensaje de confi
 [Introducción sobre la creación de registros y conjuntos de registros](dns-getstarted-create-recordset-cli.md)<BR> [Realización de operaciones en zonas DNS](dns-operations-dnszones-cli.md)<BR> [Automatización de operaciones con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

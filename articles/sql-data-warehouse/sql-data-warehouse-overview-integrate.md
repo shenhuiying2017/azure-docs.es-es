@@ -71,4 +71,4 @@ Consulte [Integración con Análisis de transmisiones de Azure](../sql-data-ware
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

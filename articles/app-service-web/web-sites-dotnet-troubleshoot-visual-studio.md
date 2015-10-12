@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio" 
 	description="Obtenga información acerca de cómo solucionar problemas de una aplicación web de Azure con herramientas de registro, seguimiento y depuración remota que están integradas en Visual Studio 2013." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -111,7 +111,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 	![Mensajes de error detallados](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(El error que aparece se generó al agregar la línea en rojo a *Views\Home\Index.cshtml*).
+	(El error que aparece se generó al agregar la línea en rojo a *Views\\Home\\Index.cshtml*).
 
 Editar el archivo Web.config es solo un ejemplo de las situaciones en las que la capacidad de leer y editar archivos en su aplicación web de Azure facilita la solución de problemas.
 
@@ -521,9 +521,9 @@ Todos los registros que se pueden supervisar en la ventana **Resultados** tambi�
 
 	![Archivo descargado](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\Application*.
-	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
-	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\DetailedErrors*.
+	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\\Application*.
+	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\\http\\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
+	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\\DetailedErrors*.
 
 	(La carpeta de *implementaciones* es para archivos creados por la publicación del control del código fuente; no tiene ninguna relación con la publicación en Visual Studio. La carpeta *Git* es para seguimientos relacionados con la publicación de control de origen y el servicio de transmisión de archivos de registro).
 
@@ -767,4 +767,4 @@ Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

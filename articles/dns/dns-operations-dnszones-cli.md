@@ -76,4 +76,4 @@ Esta operación tiene un modificador opcional “-q” que suprime el mensaje pa
 
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

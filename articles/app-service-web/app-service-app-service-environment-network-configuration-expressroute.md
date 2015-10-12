@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Detalles de configuración de red para trabajar con ExpressRoute" 
 	description="Detalles de configuración de red para ejecutar entornos del Servicio de aplicaciones en las redes virtuales conectadas a un circuito de ExpressRoute." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -126,4 +126,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

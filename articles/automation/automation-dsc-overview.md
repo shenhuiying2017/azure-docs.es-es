@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/16/2015"
+   ms.date="09/24/2015"
    ms.author="coreyp"/>
 
 # Información general de DSC de Automatización de Azure #
@@ -137,11 +137,11 @@ Ir desde una cuenta de automatización vacía a un conjunto administrado de nodo
 
 - Al incorporar una máquina virtual de Azure para la administración con DSC de Automatización de Azure usando `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el Portal de vista previa de Azure, la máquina virtual puede tardar hasta una hora en aparecer como nodo DSC en Automatización de Azure. Esto se debe a la instalación de Windows Management Framework 5.0 en la máquina virtual por la extensión de DSC de la máquina virtual de Azure, que es necesario para incorporar la máquina a DSC de Automatización de Azure.
 
-- El registro de los nodos implica que los nodos negocian automáticamente el certificado que se va a usar para la autenticación de ese nodo concreto en DSC de Automatización de Azure, posteriores al registro. Este certificado tiene una expiración de un año desde la creación y actualmente el protocolo de extracción de PS DSC no tiene ningún método para emitir un nuevo certificado cuando ese certificado esté cerca de expiración. Por este motivo, los nodos deberán registrarse de nuevo con DSC de Automatización de Azure transcurrido un año, hasta que este protocolo se implementa en una futura versión de WMF (esperemos que menos de un año desde ahora).
+- Tras el registro, cada nodo negocia automáticamente un certificado único para la autenticación que expira después de un año. En la actualidad, el protocolo de registro DSC de PowerShell no puede renovar automáticamente los certificados que vayan a expirar, por lo que tendrá que volver a registrar los nodos transcurrido un año. Antes de volver a registrar, asegúrese de que cada nodo ejecute Windows Management Framework 5.0 RTM. Si el certificado de autenticación de un nodo expira y el nodo no se registra de nuevo, este no podrá comunicarse con la Automatización de Azure y se marcará como "No responde". La actualización del registro se realiza de la misma forma que se registró el nodo inicialmente. Si dicha actualización se realiza en un plazo de 90 días o menos desde la fecha de expiración del certificado o en cualquier momento después de dicha fecha, se generará y usará un certificado nuevo.
 
 ##Artículos relacionados##
 
 - [Cmdlets de DSC de Automatización de Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Precios de DSC de Automatización de Azure](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

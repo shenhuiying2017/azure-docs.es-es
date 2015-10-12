@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/09/2015"
+    ms.date="09/28/2015"
     ms.author="cgronlun;tedway;olgali"/>
 
 
@@ -38,7 +38,7 @@ Aprendizaje automático de Azure no solo proporciona herramientas para análisis
 
 El análisis predictivo emplea varias técnicas estadísticas; en este caso, el aprendizaje automático, para analizar los datos recopilados o actuales para patrones o tendencias para la previsión de futuros eventos.
 
-Aprendizaje automático de Azure es una manera muy eficaz de realizar análisis predictivos: puede trabajar desde una biblioteca lista para el uso de algoritmos, crear modelos en un equipo conectado a Internet sin comprar infraestructura o un equipo adicional e implementar rápidamente su solución predictiva. También puede encontrar ejemplos listos para usar y soluciones en [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) o [Galería de aprendizaje automático](http://gallery.azureml.net/).
+Aprendizaje automático de Azure es una manera muy eficaz de realizar análisis predictivos: puede trabajar desde una biblioteca lista para el uso de algoritmos, crear modelos en un equipo conectado a Internet sin comprar infraestructura o un equipo adicional e implementar rápidamente su solución predictiva. También puede encontrar ejemplos y soluciones listos para usar en [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) o en la [Galería de análisis de Cortana](http://gallery.azureml.net/).
 
 ## Generación de completas soluciones de Aprendizaje automático en la nube
 
@@ -51,9 +51,9 @@ Para crear modelos predictivos en [Estudio de aprendizaje automático](machine-l
 ![Descripción de análisis predictivo: ejemplo de un experimento de análisis predictivo en Estudio de aprendizaje automático de Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Utilice una gran biblioteca de [algoritmos y módulos de Aprendizaje automático](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) en Estudio de aprendizaje automático para impulsar sus modelos de predictivos. Elija en la biblioteca de experimentos de ejemplo, paquetes R y Python y los mejores algoritmos de su clase en servicios de Microsoft como Xbox y Bing. Amplíe los módulos de Studio con sus propios scripts de [R](machine-learning-r-quickstart.md) y [Python](machine-learning-execute-python-scripts.md) personalizados.
-* La [Galería de la comunidad de Aprendizaje automático](machine-learning-gallery-how-to-use-contribute-publish.md) es una excelente forma para que los usuarios empiecen a trabajar con Aprendizaje automático de Azure y aprendan de otros usuarios de la comunidad. Pruebe experimentos creados por otros usuarios, formule preguntas o publique comentarios acerca de experimentos o sus propios experimentos. También puede compartir vínculos a experimentos a través de las redes sociales como LinkedIn y Twitter.  
+* En la [Galería de análisis de Cortana](machine-learning-gallery-how-to-use-contribute-publish.md), puede dar sus primeros pasos con el Aprendizaje automático de Azure y aprender de otros miembros de la comunidad. Pruebe experimentos creados por otros usuarios, formule preguntas o publique comentarios acerca de experimentos o sus propios experimentos. También puede compartir vínculos a experimentos a través de las redes sociales como LinkedIn y Twitter.  
 
-	![Pruebe ejemplos de experimentos predictivos o contribuya con los suyos propios en la Galería de Aprendizaje automático de Azure.](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
+	![Pruebe ejemplos de experimentos predictivos o contribuya con los suyos propios en la Galería de análisis de Cortana de Azure.](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
 
 ### Operacionalización de soluciones de análisis predictivos: adquiera servicios web de compra o publique las suyas
 
@@ -116,4 +116,4 @@ Puede aprender los conceptos básicos de análisis predictivos y de aprendizaje 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

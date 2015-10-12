@@ -259,7 +259,15 @@ El ejemplo de código siguiente realiza las siguientes tareas:
 		            try
 		            {
 		                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
-		                destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
+		                destinationBlob.StartCopy(sourceBlob.Uri);
+
+	                    while (destinationBlob.CopyState.Status == CopyStatus.Pending)
+	                    {
+	                        Thread.Sleep(10000);
+	                    }
+	
+	                    Console.WriteLine("Final Copy status = " + destinationBlob.CopyState.Status);
+
 		            }
 		            catch (Exception ex)
 		            {
@@ -293,4 +301,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

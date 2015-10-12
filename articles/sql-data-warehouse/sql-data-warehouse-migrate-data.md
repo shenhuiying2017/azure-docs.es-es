@@ -191,7 +191,7 @@ Para obtener más información sobre la migración, vea [Migración de la soluci
 
 [versión de producción]: http://aka.ms/downloadazcopy/
 [versión de vista previa]: http://aka.ms/downloadazcopypr/
-[Adaptador de destino de ADO.NET]: https://msdn.microsoft.com/es-es/library/bb934041.aspx
-[documentación de SSIS]: https://msdn.microsoft.com/es-es/library/ms141026.aspx
+[Adaptador de destino de ADO.NET]: https://msdn.microsoft.com/es-ES/library/bb934041.aspx
+[documentación de SSIS]: https://msdn.microsoft.com/es-ES/library/ms141026.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

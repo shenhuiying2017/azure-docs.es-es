@@ -27,11 +27,11 @@ El solo hecho de instalar la CLI de Azure y tener una suscripción de Azure le i
 
 ## Instalación de la CLI de Azure
 
-Siga estas instrucciones para [instalar la CLI de Azure](../xplat-cli.md#install).
+Siga estas instrucciones para [instalar la CLI de Azure](../xplat-cli-install.md#install).
 
 ## Conexión a Azure con la CLI de Azure
 
-Puede conectar su instalación de CLI de Azure con una cuenta personal de Azure o con una cuenta de Azure profesional o educativa. Para comprender las diferencias y elegir, consulte [Conexión a su suscripción de Azure](../xplat-cli.md#configure).
+Puede conectar su instalación de CLI de Azure con una cuenta personal de Azure o con una cuenta de Azure profesional o educativa. Para comprender las diferencias y elegir, consulte [Conexión a su suscripción de Azure](../xplat-cli-install.md#configure).
 
 ## Creación y conexión a una máquina virtual en Azure
 
@@ -78,4 +78,4 @@ Un lugar excelente para ver más ejemplos de cómo usar la CLI de Azure para adm
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

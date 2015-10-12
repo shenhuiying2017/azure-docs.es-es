@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/25/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure
@@ -25,10 +25,11 @@ En esta guía se muestra cómo empezar a usar **Caché en Redis de Azure**. Los 
 
 Caché en Redis de Microsoft Azure se basa en la conocida Caché en Redis de código fuente abierto. Le proporciona acceso a una caché en Redis segura y dedicada, administrada por Microsoft. Una caché creada usando Caché en Redis de Azure es accesible desde cualquier aplicación dentro de Microsoft Azure.
 
-Caché en Redis de Microsoft Azure está disponible en dos niveles:
+Caché en Redis de Microsoft Azure está disponible en los siguientes niveles:
 
 -	**Básico** – Nodo único. Varios tamaños de hasta 53 GB.
 -	**Estándar** – Principal/Réplica de dos nodos. Varios tamaños de hasta 53 GB. Contrato de nivel de servicio del 99,9 %.
+-	**Premium**: actualmente en versión de vista previa. Principal/Réplica de dos nodos con hasta 10 particiones. Varios tamaños, desde 6 GB a 530 GB (póngase en contacto con nosotros para obtener más información). Todas las características del nivel Standard y otras más, incluida la compatibilidad con los [clústeres de Redis](cache-how-to-premium-clustering.md), la [persistencia de Redis](cache-how-to-premium-persistence.md) y la [red virtual de Azure](cache-how-to-premium-vnet.md). No hay ningún contrato de nivel de servicio durante el período de vista previa.
 
 Estos niveles difieren en las características y el precio. Las características se tratan más adelante en esta guía; por otro lado, para obtener más información acerca de los precios consulte [Detalles de precios de caché][].
 
@@ -45,7 +46,7 @@ Ponerse en marcha con Caché en Redis de Azure es fácil. En primer lugar, tiene
 <a name="create-cache"></a>
 ## Creación de una caché
 
-Para crear una caché, primero inicie sesión en el [Portal de vista previa de Azure][] y haga clic en **Nuevo**, **Datos + Almacenamiento** y **Caché en Redis**.
+Para crear una memoria caché, primero inicie sesión en el [Portal de vista previa de Azure][] y haga clic en **Nuevo**, **Datos y almacenamiento** y **Caché en Redis**.
 
 ![New cache][NewCacheMenu]
 
@@ -57,7 +58,7 @@ En la hoja **Nueva caché en Redis**, especifique la configuración que desee pa
 
 En **Nombre DNS**, escriba un nombre de subdominio para usar el extremo de caché. El nombre debe tener entre seis y veinte caracteres, solo puede contener números y letras minúsculas, y debe comenzar por una letra.
 
-Use **Nivel de precios** para seleccionar el tamaño y las características de caché que desee. Las cachés **Básicas** tienen un único nodo con varios tamaños hasta 53 GB. Las cachés **Estándar** tienen una configuración principal/de réplica de dos nodos con un contrato de nivel de servicio del 99,9% y varios tamaños hasta 53 GB.
+Use **Nivel de precios** para seleccionar el tamaño y las características de caché que desee.
 
 En **Grupo de recursos**, seleccione o cree un grupo de recursos para su caché.
 
@@ -126,7 +127,7 @@ Para conectarse a una Caché en Redis de Azure y que se devuelva una instancia d
 
 >[AZURE.IMPORTANT]Advertencia: nunca almacene credenciales en el código fuente. Para que este ejemplo resulte sencillo, se muestra en código fuente. Consulte [Cómo funcionan las cadenas de aplicación y las cadenas de conexión][] para obtener información sobre cómo almacenar credenciales.
 
-Si no desea utilizar SSL, establezca `ssl=false` u omita el parámetro `ssl`.
+Si no desea usar SSL, establezca `ssl=false` u omita el parámetro `ssl`.
 
 >[AZURE.NOTE]El puerto no SSL está deshabilitado de forma predeterminada para las cachés nuevas. Para obtener instrucciones acerca de cómo habilitar el puerto no SSL, consulte la sección de puertos de acceso en el tema [Configurar una memoria caché en Caché en Redis de Azure][].
 
@@ -269,7 +270,7 @@ Para obtener más información sobre la configuración y uso del proveedor de es
 
 Ahora que está familiarizado con los aspectos básicos de Caché en Redis de Azure, utilice estos vínculos para obtener más información sobre cómo realizar tareas de almacenamiento en caché más complejas.
 
--	[Habilite los diagnósticos de caché](cache-how-to-monitor.md#enable-cache-diagnostics) para que pueda [cache-how-to-monitor.md) el estado de la memoria caché. Puede ver las métricas en el portal de vista previa y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) usando las herramientas que prefiera.
+-	[Habilite los diagnósticos de caché](cache-how-to-monitor.md#enable-cache-diagnostics) para poder supervisar [cache-how-to-monitor.md) el estado de la memoria caché. Puede ver las métricas en el portal de vista previa y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) con las herramientas que prefiera.
 -	Compruebe la [documentación del cliente de caché StackExchange.Redis][].
 	-	Se puede obtener acceso a Caché en Redis de Azure desde numerosos clientes Redis e idiomas de desarrollo. Para obtener más información, vea [http://redis.io/clients][] y [Desarrollar en otros idiomas para Caché en Redis de Azure][].
 	-	Caché en Redis de Azure también se puede usar con servicios como Redsmin. Para obtener más información, vea [Recuperación de una cadena de conexión de Redis de Azure y su uso con Redsmin][].
@@ -367,4 +368,4 @@ Ahora que está familiarizado con los aspectos básicos de Caché en Redis de Az
 
 [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

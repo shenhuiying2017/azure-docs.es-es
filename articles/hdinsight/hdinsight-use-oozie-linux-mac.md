@@ -34,7 +34,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Suscripción de Azure**: Consulte [ Obtener una versión de evaluación gratuita de Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **CLI de Azure**: consulte [Instalación y configuración de la interfaz de la CLI de Azure](xplat-cli.md).
+- **CLI de Azure**: vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](xplat-cli-install.md).
 
 - **Un clúster de HDInsight**: consulte [Introducción a HDInsight en Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -201,7 +201,7 @@ Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lengu
 
 Los pasos siguientes crean la Base de datos SQL de Azure a donde se exportarán los datos.
 
-> [AZURE.IMPORTANT]Antes de realizar estos pasos, debe [instalar y configurar la CLI de Azure](xplat-cli.md). El procedimiento de instalación de la CLI y del seguimiento de los pasos para crear una base de datos puede realizarse desde el clúster de HDInsight o desde la estación de trabajo local.
+> [AZURE.IMPORTANT]Antes de realizar estos pasos, debe [instalar y configurar la CLI de Azure](xplat-cli-install.md). El procedimiento de instalación de la CLI y del seguimiento de los pasos para crear una base de datos puede realizarse desde el clúster de HDInsight o desde la estación de trabajo local.
 
 1. Utilice el comando siguiente para un nuevo servidor de Base de datos SQL de Azure.
 
@@ -477,19 +477,15 @@ La interfaz de usuario web de Oozie ofrece una vista basada en web en el estado 
 
 Para acceder a la interfaz de usuario web de Oozie, use los pasos siguientes:
 
-1. Cree un túnel SSH para el clúster de HDInsight. Para obtener información acerca de cómo hacerlo, vea una de las opciones siguientes:
-
-	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
-
-	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+1. Cree un túnel SSH para el clúster de HDInsight. Para obtener información sobre cómo hacerlo, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 2. Cuando se ha creado un túnel, abra la interfaz de usuario web de Ambari en el explorador web. El URI del sitio de Ambari es ****https://CLUSTERNAME.azurehdinsight.net**. Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight basado en Linux.
 
-3. En el lado izquierdo de la página, seleccione **Oozie**, luego **Quick Links** (Vínculos rápidos) y por último **Oozie Web UI** (Interfaz de usuario web de Oozie).
+3. En el lado izquierdo de la página, seleccione **Oozie**, luego **Vínculos rápidos** y por último **Oozie Web UI**.
 
 	![imagen de los menús](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
-4. La interfaz de usuario web de Oozie muestra de forma predeterminada los trabajos del flujo de trabajo en ejecución. Para ver todos los trabajos del flujo de trabajo, seleccione **All Jobs** (Todos los trabajos).
+4. La interfaz de usuario web de Oozie muestra de forma predeterminada los trabajos del flujo de trabajo en ejecución. Para ver todos los trabajos del flujo de trabajo, seleccione **All Jobs**.
 
 	![Todos los trabajos mostrados](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
 
@@ -499,7 +495,7 @@ Para acceder a la interfaz de usuario web de Oozie, use los pasos siguientes:
 
 6. En la pestaña Job Info (Información de trabajo), puede ver información básica de trabajo, así como las acciones individuales dentro del trabajo. En las pestañas en la parte superior puede ver la definición de trabajo, la configuración del trabajo, el registro del trabajo o un grafo acíclico dirigido (DAG) del trabajo.
 
-	* **Job Log** (Registro de trabajo): seleccione el botón **GetLogs** para obtener todos los registros del trabajo o use el campo **Enter Search Filter** (Especificar filtro de búsqueda) para filtrar los registros.
+	* **Job Log**: seleccione el botón **GetLogs** para obtener todos los registros del trabajo o use el campo **Enter Search Filter** para filtrar los registros.
 
 		![Registro de trabajo](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
@@ -507,7 +503,7 @@ Para acceder a la interfaz de usuario web de Oozie, use los pasos siguientes:
 
 		![DAG del trabajo](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
-7. Si selecciona una de las acciones en la pestaña **Job Info** (Información de trabajo), aparecerá información para la acción. Por ejemplo, seleccione la acción **RunHiveScript**.
+7. Si selecciona una de las acciones en la pestaña **Job Info**, aparecerá información de la acción. Por ejemplo, seleccione la acción **RunHiveScript**.
 
 	![Información de acción](./media/hdinsight-use-oozie-linux-mac/action.png)
 
@@ -519,7 +515,7 @@ El coordinador le permite especificar un inicio, un fin y la frecuencia de repet
 
 Para definir una programación para el flujo de trabajo, siga estos pasos:
 
-1. Use lo siguiente para crear un nuevo archivo denominado **coordinator.xml**.
+1. Use lo siguiente para crear un archivo denominado **coordinator.xml**:
 
 		nano coordinator.xml
 
@@ -535,11 +531,11 @@ Para definir una programación para el flujo de trabajo, siga estos pasos:
 
 	Tenga en cuenta que usa variables `${...}` que se reemplazarán por los valores de la definición del trabajo. Las variables son las siguientes:
 
-	* **${coordFrequency}**: tiempo entre las instancias de ejecución del trabajo.
+	* **${coordFrequency}**: tiempo entre las instancias en ejecución del trabajo.
 	* **${coordStart}**: hora de inicio del trabajo.
 	* **${coordEnd}**: hora de finalización del trabajo.
 	* **${coordTimezone}**: los trabajos del coordinador se encuentran en una zona horaria fija sin horario de verano (representado normalmente mediante UTC). Esta zona horaria se conoce como la "zona de horaria de procesamiento de Oozie".
-	* **${wfPath}**: ruta de acceso a workflow.xml
+	* **${wfPath}**: ruta de acceso a workflow.xml.
 
 2. Presione Ctrl-X y luego **Y** y **Entrar** para guardar el archivo.
 
@@ -596,17 +592,17 @@ Para definir una programación para el flujo de trabajo, siga estos pasos:
 
 	Esto enviará e iniciará el trabajo.
 
-7. Si visita la interfaz de usuario web de Oozie y selecciona la pestaña **Coordinator Jobs** (Trabajos de coordinador), debe obtener información similar a la siguiente:
+7. Si visita la interfaz de usuario web de Oozie y selecciona la pestaña **Coordinator Jobs**, debe obtener información similar a la siguiente:
 
 	![pestaña de trabajos de coordinador](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
-	Observe la entrada **Next Materialization** (Siguiente materialización); indica cuándo será la siguiente ejecución del trabajo.
+	Observe la entrada **Next Materialization**; indica cuándo será la siguiente ejecución del trabajo.
 
 8. De igual forma que la tarea de flujo de trabajo anterior, si se selecciona la entrada de trabajo en la interfaz de usuario web, se mostrará información sobre el trabajo:
 
 	![información de trabajos de coordinador](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
-	Tenga en cuenta que esto solo muestra ejecuciones correctas del trabajo, no acciones individuales dentro del flujo de trabajo programado. Para ver eso, seleccione una de las entradas **Action** (Acción). Se mostrará información similar a la recuperada para el trabajo de flujo de trabajo anterior.
+	Tenga en cuenta que esto solo muestra ejecuciones correctas del trabajo, no acciones individuales dentro del flujo de trabajo programado. Para ver eso, seleccione una de las entradas **Action**. Se mostrará información similar a la recuperada para el trabajo de flujo de trabajo anterior.
 
 	![Información de acción](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
@@ -616,7 +612,7 @@ Para solucionar problemas con trabajos de Oozie, la interfaz de usuario de Oozie
 
 1. Ver el trabajo en la interfaz de usuario web de Oozie.
 
-2. Si hay un error en una acción determinada, seleccione la acción para ver si el campo **Error Message** (Mensaje de error) ofrece más información sobre el error.
+2. Si hay un error en una acción determinada, seleccione la acción para ver si el campo **Error Message** ofrece más información sobre el error.
 
 3. Si está disponible, use la dirección URL de la acción para ver más detalles (por ejemplo, registros de JobTracker) para la acción.
 
@@ -640,7 +636,7 @@ Las siguientes son errores específicos que pueden surgir y cómo resolverlos.
 
 **Causa**: la configuración actual de permisos no permite a Oozie suplantar la cuenta de usuario especificada.
 
-**Resolución**: Oozie puede suplantar a los usuarios del grupo **users**. Use el `groups USERNAME` para ver los grupos de los que es miembro la cuenta de usuario. Si el usuario no es miembro del grupo **users**, utilice el siguiente comando para agregar el usuario al grupo:
+**Resolución**: Oozie puede suplantar a los usuarios del grupo **users**. Use el `groups USERNAME` para ver los grupos de los que es miembro la cuenta de usuario. Si el usuario no es miembro del grupo **users**, use el siguiente comando para agregar el usuario al grupo:
 
 	sudo adduser USERNAME users
 
@@ -725,4 +721,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

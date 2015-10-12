@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Aprovisionamiento e implementación predecibles de microservicios en Azure"
 	description="Obtenga información sobre cómo implementar una aplicación formada por microservicios en el Servicio de aplicaciones de Azure como una sola unidad y de forma predecible con plantillas de grupo de recursos JSON y scripting de PowerShell."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -305,4 +305,4 @@ Obtenga información sobre cómo [aplicar metodologías ágiles y publicar conti
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/20/2015"   
+	ms.date="09/27/2015"   
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,13 @@ Para obtener información sobre el historial de versiones de la API de REST de S
 
 - Ahora puede usar Media Encoder Estándar para realizar recortes secundarios y extracción de archivos directas. Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
+- Se realizaron las siguientes actualizaciones de filtrado:
+
+	- Ahora puede usar el formato Apple HTTP Live Streaming (HLS) con filtro solo de audio. Esta actualización le permite quitar la pista solo de audio mediante la especificación de (audio-only=false) en la dirección URL.
+	- Al definir filtros para los activos, ahora tiene la posibilidad de combinar varios filtros (hasta 3) en una sola dirección URL.
+
+- AMS admite ahora I-Frames en HLS v4. La compatibilidad con I-Frames optimiza las operaciones de avance rápido y rebobinado. De forma predeterminada, todas las salidas de HLS v4 incluyen la lista de reproducción de I-Frame (EXT-X-I-FRAME-STREAM-INF).
+ 
 ##<a id="august_changes_15"></a>Versión de agosto de 2015
 
 - Ya están disponibles el SDK de Servicios multimedia de Azure para la versión de Java V0.8.0 y nuevos ejemplos. Para más información, consulte:
@@ -97,8 +104,8 @@ Para obtener información sobre el historial de versiones de la API de REST de S
 
 - Anuncia la disponibilidad general de Media Encoder estándar. Para obtener más información, consulte [esta publicación del blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	Media Encoder Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalado de codificación](media-services-portal-encoding-units).
-- Subtítulos en tiempo real con Servicios multimedia de Azure y el Reproductor. Para obtener más información, consulte [esta publicación del blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
+	El Codificador multimedia de nivel Estándar usa valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4k, debe obtener el tipo de unidad reservada **Premium**. Para obtener más información, consulte [Escalación de codificación](media-services-portal-encoding-units).
+- Subtítulos en tiempo real con Servicios multimedia de Azure y el Reproductor. Para obtener más información, consulte [esta publicación del blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Actualizaciones del SDK .NET de Servicios multimedia
 
@@ -108,7 +115,7 @@ Ahora la versión del SDK de Servicios multimedia para .NET de Azure es la 3.4.0
 - Se ha implementado compatibilidad para filtros dinámicos.
 - Se ha implementado compatibilidad una funcionalidad que permite a los usuarios a mantener el contenedor de almacenamiento al eliminar el recurso.
 - Correcciones de errores relacionados con directivas de reintentos en canales.
-- **Flujo de trabajo de Media Encoder Premium** habilitado.
+- **Flujo de trabajo de Codificador multimedia Premium** habilitado.
 
 ##<a id="june_changes_15"></a>Versión de junio de 2015
 
@@ -591,4 +598,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

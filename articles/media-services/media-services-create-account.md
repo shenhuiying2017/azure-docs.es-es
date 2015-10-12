@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -78,7 +78,7 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 - [Introducción a la entrega de contenido de vídeo bajo demanda (VoD) mediante el SDK para .NET](media-services-dotnet-get-started.md)
 
-- [Uso del SDK de .NET para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits (vista previa)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [Uso del SDK de .NET para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
@@ -92,4 +92,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
   [portal de Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

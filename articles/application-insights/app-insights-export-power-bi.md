@@ -239,4 +239,4 @@ Noam Ben Zeev muestra cómo exportar a Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Más ejemplos y tutoriales](app-insights-code-samples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

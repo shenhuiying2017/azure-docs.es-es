@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/27/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,8 @@ Ejemplo
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
+
+
 **Formato Apple HTTP Live Streaming (HLS) V4**
 
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=m3u8-aapl)
@@ -96,6 +98,11 @@ Ejemplo
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
+**Formato Apple HTTP Live Streaming (HLS) con filtro solo de audio**
+
+De forma predeterminada, las pistas solo de audio se incluyen en el manifiesto HLS. Esto es necesario para la certificación de la tienda de Apple para redes celulares. En este caso, si un cliente no tiene suficiente ancho de banda o se conecta a través de una conexión de 2G, se cambia a reproducción solo de audio. De este modo, se ayuda a mantener un streaming continuo sin almacenamiento en búfer, pero con el inconveniente de no disponer de vídeo. Sin embargo, en algunos escenarios, es posible que se prefiera el almacenamiento en búfer del reproductor a solo audio. Si desea quitar la pista de solo audio, puede agregar (audio-only=false) a la dirección URL y quitarla.
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 **Formato Smooth Streaming**
 
@@ -179,4 +186,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [Actualización de los localizadores de Servicios multimedia después de revertir las claves de almacenamiento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

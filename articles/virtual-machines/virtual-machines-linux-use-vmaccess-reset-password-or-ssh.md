@@ -37,7 +37,7 @@ Para restablecer el nombre y la contraseña de la cuenta de usuario con privileg
 Necesitará lo siguiente:
 
 - Agente de Linux de Microsoft Azure versión 2.0.5 o posterior. La mayoría de imágenes de Linux en la Galería de máquinas virtuales incluyen la versión 2.0.5. Para averiguar qué versión está instalada, ejecute **waagent -version**. Para actualizar el agente, siga las instrucciones de la [Guía de usuario del agente de Linux de Azure].
-- Interfaz de la línea de comandos (CLI) de Azure Para obtener más información acerca de cómo configurar la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli.md).
+- Interfaz de la línea de comandos (CLI) de Azure Para obtener más información acerca de cómo configurar la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
 - Azure PowerShell. Utilizará comandos en el cmdlet Set-AzureVMExtension para cargar y configurar automáticamente la extensión VMAccessForLinux. Para obtener más información acerca de cómo configurar Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell].
 - Una nueva contraseña o un conjunto de claves SSH, si desea restablecer cualquiera de ellos. No los necesita si desea restablecer la configuración de SSH.
 
@@ -263,4 +263,4 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 [Características y extensiones de máquina virtual de Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conexión a una máquina virtual de Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

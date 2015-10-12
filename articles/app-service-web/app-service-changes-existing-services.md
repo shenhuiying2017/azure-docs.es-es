@@ -5,12 +5,12 @@
 	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=""/>
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -93,4 +93,4 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 Para obtener más información, visite [Documentación del Servicio de aplicaciones](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

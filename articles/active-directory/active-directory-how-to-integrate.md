@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="mbaldwin"/>
 
 # Integración con Azure Active Directory
@@ -76,7 +76,7 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 
 ### Desarrollo sencillo
 
-**Protocolos estándar del sector.** Microsoft se ha comprometido a admitir los estándares del sector. Azure AD admite los protocolos de autenticación SAML 2.0, OpenID Connect 1.0, OAuth 2.0 y WS-Federation 1.2. Graph API es compatible con OData 4.0. Si la aplicación ya es compatible con los protocolos SAML 2.0 u OpenID Connect 1.0 para el inicio de sesión federado, agregar compatibilidad para Azure AD puede ser sencillo. Obtenga más información sobre [protocolos de autenticación admitidos de Azure AD](../authentication-protocols.md).
+**Protocolos estándar del sector.** Microsoft se ha comprometido a admitir los estándares del sector. Azure AD admite los protocolos de autenticación SAML 2.0, OpenID Connect 1.0, OAuth 2.0 y WS-Federation 1.2. Graph API es compatible con OData 4.0. Si la aplicación ya es compatible con los protocolos SAML 2.0 u OpenID Connect 1.0 para el inicio de sesión federado, agregar compatibilidad para Azure AD puede ser sencillo. Obtenga más información sobre [protocolos de autenticación admitidos de Azure AD](active-directory-authentication-protocols.md).
 
 **Abra las bibliotecas de código abierto.** Microsoft proporciona bibliotecas de código abierto totalmente compatibles para plataformas y lenguajes conocidos para acelerar el desarrollo. El código fuente tiene una licencia de Apache 2.0 y puede realizar la bifurcación y contribución de nuevo a los proyectos. Más información sobre las [bibliotecas de autenticación de Azure AD](active-directory-authentication-libraries.md).
 
@@ -90,4 +90,4 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 
 [Inicio de sesión de usuario con Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

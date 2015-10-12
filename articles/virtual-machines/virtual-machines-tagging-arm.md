@@ -189,4 +189,4 @@ Mediante el análisis de estas junto con el uso, las organizaciones podrán obte
 [Comprender la factura de Azure]: ../billing-understand-your-bill.md
 [Obtención de información sobre el consumo de recursos de Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

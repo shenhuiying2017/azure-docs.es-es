@@ -23,7 +23,7 @@
 
 MongoDB es una base de datos de documentos de código abierto que ofrece alto rendimiento, alta disponibilidad y escalado automático. MongoDB puede instalarse como una base de datos independiente o en un clúster, aprovechando las capacidades integradas de réplica. En algunos casos, puede usar la replicación para aumentar la capacidad de lectura. Los clientes tienen la capacidad de enviar operaciones de lectura y escritura a diferentes servidores. También es posible mantener copias en diferentes centros de datos para aumentar la localidad y la disponibilidad de los datos de las aplicaciones distribuidas. Con MongoDB, la replicación también proporciona redundancia y aumenta la disponibilidad de los datos. Con varias copias de los datos en servidores de bases de datos diferentes, la replicación protege una base de datos de la pérdida de un único servidor. La replicación también permite la recuperación tras errores de hardware e interrupciones del servicio. Con las copias adicionales de los datos, puede dedicar una recuperación ante desastres, creación de informes o copia de seguridad.
 
-Ahora, además de los diversos modelos que ya estaban disponibles en Azure Marketplace, puede implementar fácilmente un nuevo clúster de MongoDB en máquinas virtuales de Ubuntu con una plantilla del Administrador de recursos de Azure mediante [Azure PowerShell](../powershell-install-configure.md) o [CLI de Azure](../xplat-cli.md).
+Ahora, además de los diversos modelos que ya estaban disponibles en Azure Marketplace, puede implementar fácilmente un nuevo clúster de MongoDB en VM de Ubuntu con una plantilla del Administrador de recursos de Azure mediante [Azure PowerShell](../powershell-install-configure.md) o [CLI de Azure](../xplat-cli-install.md).
 
 Los clústeres recién implementados basados en esta plantilla tendrán la topología descrita en el siguiente diagrama, aunque se pueden lograr fácilmente otras topologías personalizando la plantilla presentada en este artículo.
 
@@ -693,4 +693,4 @@ Básicamente, este enfoque sugiere:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

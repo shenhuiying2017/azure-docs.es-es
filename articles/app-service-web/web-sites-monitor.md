@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Supervisión de aplicaciones web en el Servicio de aplicaciones de Azure"
 	description="Aprenda a supervisar Aplicaciones web en el Servicio de aplicaciones de Azure usando el Portal de administración."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -279,4 +279,4 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

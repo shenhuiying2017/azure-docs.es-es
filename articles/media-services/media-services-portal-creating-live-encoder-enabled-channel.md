@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/30/2015" 
 	ms.author="juliako"/>
 
 
-#Uso del Portal de administración para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits (vista previa)
+#Uso del Portal de administración para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits 
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -140,7 +140,7 @@ Si no se especifican direcciones IP y no hay ninguna definición de regla, no se
 
 ![standard4][standard4]
 
->[AZURE.NOTE]Actualmente en vista previa, el inicio de canal puede tardar hasta 30 minutos. El restablecimiento de canal puede tardar hasta 5 minutos.
+>[AZURE.NOTE]Actualmente en versión preliminar; el inicio del canal puede tardar hasta 30 minutos. El restablecimiento de canal puede tardar hasta 5 minutos.
 
 Una vez creado el canal, puede seleccionar la pestaña **CODIFICADOR** donde puede ver las configuraciones de canales. También puede administrar los anuncios y las tabletas.
 
@@ -266,4 +266,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

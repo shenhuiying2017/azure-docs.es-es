@@ -6,7 +6,7 @@
    authors="kundanap"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="top-support-issue,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -84,4 +84,4 @@ Donde "publisher-name" se corresponde con el tipo de extensión de la salida de 
 
 Cuando se ha quitado la extensión, la plantilla puede volver a ejecutarse para ejecutar los scripts en la máquina virtual.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

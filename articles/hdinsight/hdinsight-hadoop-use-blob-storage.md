@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Consultar datos desde el almacenamiento de blobs compatible con HDFS | Microsoft Azure"
 	description="HDInsight usa el almacenamiento de blobs como el almacén de Big Data para HDFS. Obtenga información acerca de cómo realizar consultas de datos desde el almacenamiento de blobs y almacene los resultados de su análisis."
+	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
 	tags="azure-portal"
@@ -100,7 +101,7 @@ Al aprovisionar un clúster de HDInsight desde el portal de vista previa, tiene 
 
 ###Uso de la CLI de Azure
 
-Si ha [instalado y configurado la CLI Azure](../xplat-cli.md), se puede usar el comando siguiente para una cuenta de almacenamiento y contenedor.
+Si ha [instalado y configurado la CLI Azure](../xplat-cli-install.md), se puede usar el comando siguiente para una cuenta de almacenamiento y contenedor.
 
 	azure storage account create <storageaccountname> --type LRS
 
@@ -315,4 +316,4 @@ Para más información, consulte:
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

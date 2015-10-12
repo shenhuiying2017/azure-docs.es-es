@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="09/24/2015" 
+	ms.author="ricksal"/>
 
 
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
@@ -240,4 +240,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

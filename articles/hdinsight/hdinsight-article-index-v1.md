@@ -1,20 +1,20 @@
 <properties
    pageTitle="Índice de artículos de HDInsight para el portal de Azure | Microsoft Azure"
-	description="Una página de índice con vínculos a artículos acerca de HDInsight en el Portal de Azure. Microsoft recomienda usar el Portal de vista previa de Azure para los clústeres de Hadoop nuevos en HDInsight:"
-	services="hdinsight"
-	documentationCenter="na"
-	authors="cjgronlund"
-	manager="pablissima"
-	editor=""/>
+   description="Una página de índice con vínculos a artículos acerca de HDInsight en el Portal de Azure. Microsoft recomienda usar el Portal de vista previa de Azure para los clústeres de Hadoop nuevos en HDInsight:"
+   services="hdinsight"
+   documentationCenter="na"
+   authors="cjgronlund"
+   manager="pablissima"
+   editor=""/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="cjgronlund"/>
+   ms.devlang="na"
+   ms.topic="index-page"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/17/2015"
+   ms.author="cjgronlund"/>
 
 # Índice de artículos de HDInsight para el portal de Azure
 
@@ -102,6 +102,7 @@ Para obtener artículos acerca del uso de clústeres de Apache Spark nativos en 
 * [Generar recomendaciones de películas mediante Apache Mahout con Hadoop](hdinsight-mahout.md)
 * [Ruta de aprendizaje: creación de soluciones de análisis avanzado](machine-learning-data-science-how-to-create-machine-learning-service.md)
 * [Ruta de aprendizaje: procesamiento avanzado de datos](machine-learning-data-science-advanced-data-processing.md)
+* [Predicción de carreras de taxi con HDInsight y aprendizaje automático](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Extensibilidad
 
@@ -132,4 +133,4 @@ Para obtener artículos acerca del uso de clústeres de Apache Spark nativos en 
 * [Interpretación de mensajes de error](hdinsight-debug-jobs.md)
 * [Obtención de ayuda en el foro](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

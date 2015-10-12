@@ -12,14 +12,14 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/21/2015" 
+ms.date="09/29/2015" 
 ms.author="heidist" />
 
-#Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2015-02-28-Preview)
+#Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2015-02-28-Preview)#
 
-> [AZURE.NOTE]En este artículo se describen los indexadores de [2015-02-28-Preview](search-api-2015-02-28-preview.md). Actualmente, la única diferencia entre la versión `2015-02-28` documentada en [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) y la versión `2015-02-28-Preview` descrita aquí es que proporciona la vista previa proporciona *fieldMappings*, como se describe en [Crear indexador](#CreateIndexer).
+> [AZURE.NOTE]En este artículo se describen los indexadores de [2015-02-28-Preview](./search-api-2015-02-28-preview). Actualmente no hay ninguna diferencia entre la versión `2015-02-28` documentada en [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) y la versión `2015-02-28-Preview` descrita aquí. Este artículo se proporciona para darle la documentación completa establecida para `2015-02-28-Preview`, aunque esta API no presenta ningún cambio.
 
-## Información general
+## Información general ##
 
 Búsqueda de Azure puede integrarse directamente con algunos orígenes de datos comunes, eliminando la necesidad de escribir código para indexar los datos. Para configurar esto, puede llamar a la API de Búsqueda de Azure para crear y administrar **indexadores** y **orígenes de datos**.
 
@@ -42,7 +42,7 @@ Estamos considerando agregar compatibilidad con orígenes de datos adicionales e
 
 Consulte [Límites de servicio](search-limits-quotas-capacity.md) para obtener información sobre los límites máximos relacionados con recursos de origen de datos y de indexador.
 
-## Flujo típico de uso
+## Flujo típico de uso ##
 
 Puede crear y administrar indexadores y orígenes de datos mediante solicitudes HTTP sencillas (POST, GET, PUT, DELETE) en un recurso `data source` o `indexer` determinado.
 
@@ -63,9 +63,9 @@ Después de crear un indexador, puede recuperar su estado de ejecución mediante
 <!-- MSDN has 2 art files plus a API topic link list -->
 
 
-## Crear origen de datos
+## Crear origen de datos ##
 
-Puede crear un origen de datos nuevo dentro de un servicio de Búsqueda de Azure mediante una solicitud HTTP POST.
+En Búsqueda de Azure, se utiliza un origen de datos con indexadores, proporcionando la información de conexión para la actualización de datos ad hoc o programada de un índice de destino. Puede crear un origen de datos nuevo dentro de un servicio de Búsqueda de Azure mediante una solicitud HTTP POST.
 	
     POST https://[service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
@@ -75,7 +75,7 @@ Como alternativa, puede usar PUT y especificar el nombre del origen de datos en 
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
-**Nota**: El número máximo de orígenes de datos permitido varía según el nivel de precios. El servicio gratuito permite hasta tres orígenes de datos. El servicio estándar permite 50 orígenes de datos. Consulte [Límites y restricciones](https://msdn.microsoft.com/library/azure/dn798934.aspx) para obtener detalles.
+**Nota**: El número máximo de orígenes de datos permitido varía según el nivel de precios. El servicio gratuito permite hasta tres orígenes de datos. El servicio estándar permite 50 orígenes de datos. Consulte [Límites de servicio](search-limits-quotas-capacity.md) para obtener más información.
 
 **Solicitud**
 
@@ -125,7 +125,8 @@ La solicitud contiene las siguientes propiedades:
 		
 - `container`:
 	- La propiedad `name` obligatoria especifica la tabla o vista (para el origen de datos de SQL Azure) o una colección (para el origen de datos DocumentDB) que se indexarán. 
-	- Los orígenes de datos de DocumentDB también admiten una propiedad `query` opcional que le permite especificar una consulta que convierte un diseño del documento JSON arbitrario en un esquema sin formato que Búsqueda de Azure puede indexar.   
+	- Para los orígenes de datos SQL, omita los prefijos de esquema, como dbo., para que el contenedor se componga solo del nombre de la tabla o la vista.
+	- Los orígenes de datos de DocumentDB admiten una propiedad `query` opcional que le permite especificar una consulta que convierte un diseño del documento JSON arbitrario en un esquema sin formato que Búsqueda de Azure puede indexar.   
 - Los elementos `dataChangeDetectionPolicy` y `dataDeletionDetectionPolicy` opcionales se describen a continuación.
 
 <a name="DataChangeDetectionPolicies"></a> **Directivas de detección de cambios de datos**
@@ -211,7 +212,7 @@ Si solo desea usar el origen de datos para una copia única de los datos, pueden
 Para obtener una solicitud correcta: "201 Creado".
 
 <a name="UpdateDataSource"></a>
-## Actualizar el origen de datos
+## Actualizar el origen de datos ##
 
 Puede actualizar un origen de datos existente mediante una solicitud HTTP PUT. Especifique el nombre del origen de datos a actualizar en el URI de la solicitud:
 
@@ -230,7 +231,7 @@ El `api-key` debe ser una clave de administración (en lugar de una clave de con
 **NOTA:** Algunas propiedades no se pueden actualizar en un origen de datos existente. Por ejemplo, no puede cambiar el tipo de un origen de datos existente.
 
 <a name="ListDataSource"></a>
-## Enumerar orígenes de datos
+## Enumerar orígenes de datos ##
 
 La operación **Enumerar orígenes de datos** devuelve una lista de los orígenes de datos en el servicio de Búsqueda de Azure.
 
@@ -269,7 +270,7 @@ En este caso, la respuesta del ejemplo anterior podría aparecer como sigue:
 Se trata de una técnica útil para ahorrar ancho de banda, si tiene una gran cantidad de orígenes de datos en el servicio de búsqueda.
 
 <a name="GetDataSource"></a>
-## Obtener origen de datos
+## Obtener origen de datos ##
 
 La operación **Obtener origen de datos** permite obtener la definición del origen de datos de Búsqueda de Azure.
 
@@ -304,7 +305,7 @@ La respuesta es similar a los ejemplos de [Solicitudes de ejemplo de crear orige
 **NOTA** No establezca el encabezado de la solicitud `Accept` en `application/json;odata.metadata=none` al llamar a esta API, ya que hacerlo provocará la omisión del atributo `@odata.type` de la respuesta y no será capaz de diferenciar entre los cambios de datos y directivas de detección de eliminación de datos de distintos tipos.
 
 <a name="DeleteDataSource"></a>
-## Eliminar origen de datos
+## Eliminar origen de datos ##
 
 La operación **Eliminar origen de datos** elimina un origen de datos del servicio de Búsqueda de Azure.
 
@@ -322,7 +323,7 @@ El `api-key` debe ser una clave de administración (en lugar de una clave de con
 Código de estado: al obtener una respuesta correcta, se visualiza 204 Sin contenido.
 
 <a name="CreateIndexer"></a>
-## Crear indexador
+## Crear indexador ##
 
 Puede crear un indexador nuevo dentro de un servicio de Búsqueda de Azure mediante una solicitud HTTP POST:
 	
@@ -334,7 +335,7 @@ Como alternativa, puede usar PUT y especificar el nombre del origen de datos en 
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
-**Nota**: El número máximo de indexadores permitido varía según el nivel de precios. El servicio gratuito permite hasta tres indexadores. El servicio estándar permite 50 indexadores. Consulte [Límites y restricciones para obtener detalles](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+**Nota**: El número máximo de indexadores permitido varía según el nivel de precios. El servicio gratuito permite hasta tres indexadores. El servicio estándar permite 50 indexadores. Consulte [Límites de servicio](search-limits-quotas-capacity.md) para obtener más información.
 
 `api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
 
@@ -355,14 +356,15 @@ La sintaxis para estructurar la carga de la solicitud es la siguiente. En este t
         "targetIndexName" : "Required. The name of an existing index",
         "schedule" : { Optional. See Indexing Schedule below. },
         "parameters" : { Optional. See Indexing Parameters below. },
-        "fieldMappings" : { Optional. See Field Mappings below. }
+        "fieldMappings" : { Optional. See Field Mappings below. },
+        "disabled" : Optional boolean value indicating whether the indexer is disabled. False by default.  
 	}
 
 **Programación de indexador**
 
 Un indizador puede especificar opcionalmente una programación. Si existe una programación, el indizador se ejecutará de forma periódica de acuerdo con la misma. Una programación tiene los siguientes atributos:
 
-- `interval`: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
+- `interval`: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P[nD][T[nH][nM]]`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
 
 - `startTime`: obligatorio. Valor de fecha y hora UTC que especifica cuándo debería empezar a ejecutarse el indexador.
 
@@ -370,9 +372,9 @@ Un indizador puede especificar opcionalmente una programación. Si existe una pr
 
 Un indexador puede especificar varios parámetros que afectan a su comportamiento. Todos los parámetros son opcionales.
 
-- `maxFailedItems` : el número de elementos que es posible que no se indexen antes de ejecutar un indexador se consideran un fallo. El valor predeterminado es 0. La operación [Obtener el estado del indexador](#GetIndexerStatus) devuelve información acerca de los elementos no indexados. 
+- `maxFailedItems` : el número de elementos que es posible que no se indexen antes de que la ejecución de un indexador se considere un fallo. El valor predeterminado es 0. La operación [Obtener el estado del indexador](#GetIndexerStatus) devuelve información acerca de los elementos no indexados. 
 
-- `maxFailedItemsPerBatch` : el número de elementos que es posible que no se indexen en cada lote antes de ejecutar un indexador se consideran un fallo. El valor predeterminado es 0.
+- `maxFailedItemsPerBatch` : el número de elementos que es posible que no se indexen en cada lote antes de que la ejecución de un indexador se considere un fallo. El valor predeterminado es 0.
 
 - `base64EncodeKeys`: especifica si las claves de documento estarán codificadas en base 64. Búsqueda de Azure impone restricciones en los caracteres que pueden estar presentes en una clave del documento. Sin embargo, los valores de los datos de origen pueden contener caracteres que no son válidos. Si es necesario indexar estos valores como claves del documento, este indicador puede establecerse en true. El valor predeterminado es `false`.
 
@@ -401,7 +403,7 @@ Actualmente solo se admite una función de este tipo: `jsonArrayToStringCollecti
 
 Por ejemplo, si el campo de origen contiene la cadena `["red", "white", "blue"]`, a continuación, el campo de destino de tipo `Collection(Edm.String)` se rellenará con los tres valores `"red"`, `"white"` y `"blue"`.
 
-NOTA: La propiedad `targetFieldName` es opcional; si se omite, se usará el valor `sourceFieldName`).
+Observe que la propiedad `targetFieldName` es opcional; si se omite, se usará el valor `sourceFieldName`.
 
 <a name="CreateIndexerRequestExamples"></a> **Ejemplo de cuerpo de solicitud**
 
@@ -422,7 +424,7 @@ Para obtener una solicitud correcta: "201 Creado".
 
 
 <a name="UpdateIndexer"></a>
-## Actualizar indexador
+## Actualizar indexador ##
 
 Puede actualizar un indexador existente mediante una solicitud HTTP PUT. Especifique el nombre del indexador que se va a actualizar en el URI de solicitud:
 
@@ -444,7 +446,7 @@ Para efectuar una solicitud correcta: 201 Creado si se ha creado un indexador nu
 
 
 <a name="ListIndexers"></a>
-## Enumerar indexadores
+## Enumerar indexadores ##
 
 La operación **Enumerar indexadores** devuelve una lista de los índices que se encuentran en el servicio de Búsqueda de Azure.
 
@@ -487,7 +489,7 @@ Se trata de una técnica útil para ahorrar ancho de banda, si tiene una gran ca
 
 
 <a name="GetIndexer"></a>
-## Obtener indexador
+## Obtener indexador ##
 
 La operación **Obtener indexador** obtiene la definición del indexador de Búsqueda de Azure.
 
@@ -515,7 +517,7 @@ La respuesta es similar a los ejemplos de [Crear solicitudes de ejemplo de index
 
 
 <a name="DeleteIndexer"></a>
-## Eliminar indexador
+## Eliminar indexador ##
 
 La operación **Eliminar indexador** quita un indexador del servicio de Búsqueda de Azure.
 
@@ -533,7 +535,7 @@ El `api-key` debe ser una clave de administración (en lugar de una clave de con
 Código de estado: al obtener una respuesta correcta, se visualiza 204 Sin contenido.
 
 <a name="RunIndexer"></a>
-## Ejecutar indexador
+## Ejecutar indexador ##
 
 Además de ejecutarse periódicamente según una programación, un indexador también puede invocarse a petición mediante la operación **Ejecutar indexador**:
 
@@ -549,7 +551,7 @@ El `api-key` debe ser una clave de administración (en lugar de una clave de con
 Código de estado: 202 Aceptado se obtiene tras una respuesta correcta.
 
 <a name="GetIndexerStatus"></a>
-## Obtener estado del indexador
+## Obtener estado del indexador ##
 
 La operación **Obtener estado del indexador** recupera el estado actual y el historial de ejecución de un indexador:
 
@@ -617,7 +619,7 @@ El resultado de la ejecución del indexador contiene las siguientes propiedades:
 
 - `endTime`: la hora en UTC en la que se finalizó esta ejecución. Este valor no se establece si la ejecución todavía está en curso.
 
-- `errors`: una lista de errores de nivel de elemento, si los hay.
+- `errors`: una lista de errores de nivel de elemento, si los hay. Cada entrada contiene una clave de documento (propiedad `key`) y un mensaje de error (propiedad `errorMessage`).
 
 - `itemsProcessed`: el número de elementos del origen de datos (por ejemplo, filas de tablas) que el indexador intentó indexar durante esta ejecución.
 
@@ -635,15 +637,14 @@ El estado de la ejecución del indexador captura el estado de una ejecución de 
 
 - `inProgress` indica que la ejecución de indexador está en curso.
 
-- `transientFailure` indica que la ejecución de indexador ha fallado. Consulte la propiedad `errorMessage` para obtener detalles. Es posible que el error requiera o no intervención humana para corregirse, por ejemplo, corregir una incompatibilidad
-- de esquema entre el origen de datos y el índice de destino requiere la acción del usuario, mientras que un tiempo de inactividad del origen de datos temporal no. Las invocaciones del indexador continuarán según la programación, si hay alguna establecida. 
+- `transientFailure` indica que la ejecución de indexador ha fallado. Consulte la propiedad `errorMessage` para obtener detalles. El error puede o no requerir intervención humana para su solución; por ejemplo, corregir una incompatibilidad de esquema entre el origen de datos y el índice de destino requiere acción por parte del usuario, mientras que un tiempo de inactividad temporal de un origen de datos no la requiere. Las invocaciones del indexador continuarán según la programación, si hay alguna establecida.
 
 - `persistentFailure` indica que se ha producido un error en el indexador de manera que requiere la intervención humana. Detención de ejecuciones programadas del indexador. Tras solucionar el problema, use Restablecer la API de indexador para reiniciar las ejecuciones programadas.
 
 - `reset` indica que se ha restablecido el indexador mediante una llamada a la API de restablecimiento del indexador (consultar a continuación).
 
 <a name="ResetIndexer"></a>
-## Restablecer el indexador
+## Restablecer el indexador ##
 
 La operación **Restablecer el indexador** restablece el estado de seguimiento de cambios asociado con el indexador. Esto permite desencadenar la reindexación desde cero (por ejemplo, si ha cambiado el esquema del origen de datos) o para cambiar la directiva de detección de cambios de datos de un origen de datos asociado con el indexador.
 
@@ -658,7 +659,7 @@ El `api-key` debe ser una clave de administración (en lugar de una clave de con
 
 Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 
-## Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure
+## Asignación entre tipos de datos de SQL y tipos de datos de Búsqueda de Azure ##
 
 <table style="font-size:12">
 <tr>
@@ -725,7 +726,7 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 </tr>
 </table>
 
-## asignación entre tipos de datos de JSON y de Búsqueda de Azure
+## asignación entre tipos de datos de JSON y de Búsqueda de Azure ##
 
 <table style="font-size:12">
 <tr>
@@ -775,4 +776,4 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 </tr>
 </table>
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

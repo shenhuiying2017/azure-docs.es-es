@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/09/2015" 
+    ms.date="09/24/2015" 
     ms.author="elizapo" />
 
 
@@ -25,6 +25,9 @@
 ## ¿Puedo usar mi suscripción de Office 365 para ejecutar aplicaciones de Office en Azure RemoteApp?
 
 Sí. De hecho, usar su suscripción de Office 365 es la única manera de traer sus aplicaciones de Office a Azure RemoteApp.
+
+(Nota: si la implementación de Azure RemoteApp se realiza por un socio de hospedaje, es posible que este pueda proporcionarle licencias de Office basadas en un [contrato de licencia de proveedor de servicio](http://www.microsoft.com/es-ES/Licensing/licensing-programs/spla-program.aspx))
+
 
 Lo mejor de su suscripción de Office 365 es que permite usar la misma licencia de usuario en muchas plataformas y entorno diferentes, como la nube de Azure. Cuando usa las aplicaciones de Office en Azure RemoteApp no es necesario adquirir licencias adicionales ni configurar las licencias existentes de ninguna manera especial. Todo lo que necesita es una suscripción de Office 365 que incluya [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
 
@@ -71,7 +74,7 @@ La manera más fácil de implementar Office 365 ProPlus en una colección es [co
 
 ### Uso de una imagen personalizada
 
-Siempre puede crear una imagen personalizada, puede crear una [máquina virtual de Azure](remoteapp-image-on-azurevm.md) o [crear la imagen localmente](remoteapp-create-custom-image.md) y cargarla en Azure. En cualquier caso, asegúrese de instalar Office 365 ProPlus mediante el nodo de activación en equipos compartidos. Use la [Herramienta de implementación de Office](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) y siga las [instrucciones de instalación](https://technet.microsoft.com/library/Dn782858.aspx).
+Siempre puede crear una imagen personalizada: puede crear una [máquina virtual de Azure](remoteapp-image-on-azurevm.md) o [crear la imagen localmente](remoteapp-create-custom-image.md) y cargarla en Azure. En cualquier caso, asegúrese de instalar Office 365 ProPlus mediante el nodo de activación en equipos compartidos. Use la [Herramienta de implementación de Office](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) y siga las [instrucciones](https://technet.microsoft.com/library/Dn782858.aspx) de instalación.
 
 ### Deshabilite las actualizaciones automáticas para Office 365 ProPlus en la imagen personalizada. IMPORTANTE:
 
@@ -84,8 +87,8 @@ Para deshabilitar las actualizaciones automáticas, agregue lo siguiente al arch
 Ahora, el archivo de configuración debe contener estas líneas:
 	
 		<Display Level="NONE" AcceptEULA="TRUE" />
-		<Propery Name="SharedComputerLicensing" Value="1" />
-		<Updated Enabled="FALSE" />
+		<Property Name="SharedComputerLicensing" Value="1" />
+		<Updates Enabled="FALSE" />
 
 ## Entonces, ¿cómo puedo actualizar una imagen con Office 365 ProPlus?
 
@@ -117,4 +120,4 @@ Con esta opción, solo se usan las herramientas estándar de Windows para aplica
 - [Implementación y actualización de Office 365 ProPlus mediante la Herramienta de implementación de Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 - [Configuración de las opciones de actualización de Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

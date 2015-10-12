@@ -23,12 +23,13 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
 
 | Descripción | Muestra | Lenguaje/Marco de trabajo |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
-| [Spout y bolt de Centro de eventos](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Origen de spout y bolt de Centro de eventos | Java |
+| [Origen de spout y bolt de Centro de eventos](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Origen de spout y bolt de Centro de eventos | Java |
 | [Desarrollo de topologías basadas en Java para Apache Storm en HDInsight][5797064f] | Maven | Java |
 | [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio][16fce2d1] | Herramientas de HDInsight para Visual Studio | C#, Java |
 | [Creación de varios flujos de datos en una topología de Storm en C#][ec5a4064] | Varios flujos | C# |
 | [Determinación de los temas más destacados de Twitter con Storm en HDInsight][3c86c7c8] | Trident | Java, Trident |
-| [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight][844d1d81] | Centros de eventos | C# y Java |
+| [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (C#)][844d1d81] | Centros de eventos | C# y Java |
+| [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) | Centros de eventos | Java |
 | [Uso de Power BI (vista previa) para visualizar datos de una topología de Storm][94d15238] | Power BI | C# |
 | [Análisis de los datos de sensor con Storm y HBase en HDInsight][ab894747] | Centros de eventos, HBase, Socket.IO, panel Web | C#, Java, JavaScript, HTML |
 | [Procesamiento de los datos de sensor del vehículo desde Centros de eventos usando Storm en HDInsight][246ee964] | Centros de eventos, DocumentDb, blob de almacenamiento de Azure (WASB) | C#, Java |
@@ -58,4 +59,4 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Este proyecto contiene plantillas para spouts, bolts y topologías para interactuar con distintos servicios de Azure como Centros de eventos, DocumentDB y Base de datos SQL."
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

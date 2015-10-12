@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 
 > [AZURE.SELECTOR]
@@ -237,4 +238,4 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

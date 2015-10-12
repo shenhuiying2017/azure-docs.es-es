@@ -122,4 +122,4 @@ Para empezar a usar la copia de seguridad de máquina virtual, aprenda cómo:
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Administrar copia de seguridad de máquina virtual](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

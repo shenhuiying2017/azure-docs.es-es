@@ -275,6 +275,8 @@ Si por alguna razón no pudo registrar el servidor de destino principal de Linux
 
 Para validar que el servidor de destino principal se ha registrado correctamente en el servidor de configuración, visite la página Detalles del servidor de la página Servidor de configuración de servidor del almacén de Azure Site Recovery.
 
+Nota: después de registrar el destino maestro, es posible que este presente errores de configuración porque se haya eliminado la máquina virtual de Azure o porque los extremos no se hayan configurado correctamente. Esto se debe a que la configuración del destino maestro se detecta por los Extremos de Azure cuando el destino maestro se implementa en Azure. Sin embargo, esto no se mantiene para el destino maestro local y el error se puede ignorar. La conmutación por recuperación no tendrá problemas por este motivo.
+
 
 ## Inicio de la protección de las máquinas virtuales en local
 
@@ -348,7 +350,7 @@ Nota: durante la conmutación por error de Azure a local, la máquina virtual de
 
 ![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
-14.  Para ello, deberá seleccionar el lado recuperación **Almacén de datos**, el almacén de datos en el que se recuperarán las máquinas virtuales.
+14.  Para ello, deberá seleccionar el lado recuperación **Almacén de datos**; se trata del almacén de datos en el que se recuperarán las máquinas virtuales.
 
 Las diferentes opciones que debe proporcionar por máquina virtual son
 
@@ -552,4 +554,4 @@ Una vez completada la conmutación por recuperación, es aconsejable volver a pr
 
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

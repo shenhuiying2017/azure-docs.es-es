@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="08/07/2015"
+   ms.date="09/27/2015"
    ms.author="tamram" />
 
 # Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
@@ -76,4 +76,4 @@ Las particiones afectan al equilibrio de carga y la escalabilidad de cada uno de
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

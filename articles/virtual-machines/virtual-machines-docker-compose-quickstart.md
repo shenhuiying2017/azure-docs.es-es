@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introducción a Docker y Compose en una máquina virtual de Azure"
-	description="Introducción rápida a la utilización de Compose y Docker en Azure"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+   description="Introducción rápida a la utilización de Compose y Docker en Azure"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="08/07/2015"
-	ms.author="danlep"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
+   ms.workload="infrastructure-services"
+   ms.date="08/07/2015"
+   ms.author="danlep"/>
 
 # Introducción a Docker y Compose en una máquina virtual de Azure
 
@@ -24,7 +24,7 @@ Si no tiene experiencia en Docker y contenedores, vea la l[Pizarra de nivel alto
 
 ## Paso 1: Configuración de una máquina virtual de Linux como host de Docker
 
-Puede utilizar una serie de procedimientos de Azure y las imágenes disponibles en Azure Marketplace para crear una máquina virtual de Linux y configurarla como host de Docker. Por ejemplo, consulte [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-docker-with-xplat-cli.md) para obtener un procedimiento rápido crear una VM de Ubuntu con la extensión de máquina virtual de Docker. Cuando utilice la a extensión de máquina virtual de Docker, la máquina virtual se configurará automáticamente como un host de Docker. En el ejemplo de este artículo se muestra cómo usar la [interfaz de línea de comandos de Azure para Mac, Linux y Windows](../xplat-cli.md) (la CLI de Azure) en modo de administración de servicios para crear la máquina virtual.
+Puede utilizar una serie de procedimientos de Azure y las imágenes disponibles en Azure Marketplace para crear una máquina virtual de Linux y configurarla como host de Docker. Por ejemplo, consulte [Uso de la extensión de la VM de Docker desde la interfaz de la línea de comandos de Azure](virtual-machines-docker-with-xplat-cli-install.md) para obtener un procedimiento rápido para crear una VM de Ubuntu con la extensión de VM de Docker. Cuando utilice la a extensión de máquina virtual de Docker, la máquina virtual se configurará automáticamente como un host de Docker. En el ejemplo de este artículo se muestra cómo usar la [interfaz de la línea de comandos de Azure para Mac, Linux y Windows](../xplat-cli-install.md) (CLI de Azure) en modo de administración de servicios para crear la VM.
 
 ## Paso 2: Instalación de Compose
 
@@ -84,9 +84,7 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress_db_1...
-Creating wordpress_wordpress_1...
-```
+Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
 
 >[AZURE.NOTE]Asegúrese de utilizar la opción **-d** al iniciar para que los contenedores se ejecuten continuamente en segundo plano.
 
@@ -125,4 +123,4 @@ Ahora debería ver la pantalla de inicio de WordPress, donde se puede completar 
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

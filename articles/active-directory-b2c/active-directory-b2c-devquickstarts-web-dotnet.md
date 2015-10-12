@@ -36,7 +36,7 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 - Escriba `https://localhost:44316/` como **dirección URL de respuesta**: es la dirección URL predeterminada para este ejemplo de código.
 - Copie el **Id. de aplicación** asignado a la aplicación. Lo necesitará en breve.
 
-    > [AZURE.IMPORTANT]No puede usar aplicaciones registradas en la pestaña **Aplicaciones** del [Portal de Azure](https://manage.windowsazure.com/) con este fin.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Crear sus directivas
 
@@ -45,7 +45,9 @@ En Azure AD B2C, cada experiencia del usuario se define mediante una [**directiv
 - Elegir **Registro de id. de usuario** o **Registro de correo electrónico** en la hoja de proveedores de identidades.
 - Seleccionar **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
 - Elija la notificación de **Nombre para mostrar** como una notificación de aplicación en cada directiva. Puede elegir también otras notificaciones.
-- Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
+- Copie el **Nombre** de cada directiva después de crearla. Necesitará esos nombres de directivas en breve. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Cuando tenga tres directivas creadas correctamente, estará listo para crear su aplicación.
 
@@ -91,7 +93,9 @@ Luego abra el archivo `web.config` en la raíz del proyecto y escriba los valore
 ...
 ```
 
-Ahora, agregue una "Clase de inicio de OWIN" al proyecto llamado `Startup.cs`. Haga clic con el botón derecho en el proyecto --> **Agregar** --> **Nuevo elemento** --> Busque "OWIN". Cambie la declaración de clase a `public partial class Startup` (ya hemos implementado parte de esta clase para usted en otro archivo). El middleware de OWIN invocará el método `Configuration(...)` cuando se inicie la aplicación: en este método, realice una llamada a ConfigureAuth(...), donde configuraremos la autenticación para la aplicación.
+[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
+Ahora, agregue una "Clase de inicio de OWIN" al proyecto llamado `Startup.cs`. Haga clic con el botón derecho en el proyecto --> **Agregar** --> **Nuevo elemento** --> Buscar "OWIN". Cambie la declaración de clase a `public partial class Startup` (ya hemos implementado parte de esta clase para usted en otro archivo). El middleware de OWIN invocará el método `Configuration(...)` cuando se inicie la aplicación; en este método, realice una llamada a ConfigureAuth(...), donde configuraremos la autenticación para la aplicación.
 
 ```C#
 // Startup.cs
@@ -171,7 +175,7 @@ public partial class Startup
 ## 5\. Enviar solicitudes de autenticación a Azure AD
 Ahora la aplicación está correctamente configurada para comunicarse con Azure AD B2C mediante el protocolo de autenticación OpenID Connect. OWIN se ha ocupado de todos los detalles feos de la creación de mensajes de autenticación, validación de tokens de Azure AD y mantenimiento de la sesión de usuario. Todo lo que queda es iniciar cada flujo de usuario.
 
-Cuando un usuario hace clic en los botones "Conectarse", "Iniciar sesión" o "Editar perfil" en la aplicación web, se invocará la acción asociada en el `Controllers\AccountController.cs`. En cada caso, puede usar métodos integrados de OWIN para desencadenar la directiva correcta:
+Cuando un usuario hace clic en los botones "Conectarse", "Iniciar sesión" o "Editar perfil" en la aplicación web, se invocará la acción asociada en `Controllers\AccountController.cs`. En cada caso, puede usar métodos integrados de OWIN para desencadenar la directiva correcta:
 
 ```C#
 // Controllers\AccountController.cs
@@ -229,7 +233,7 @@ public void Profile()
 }
 ```
 
-También puede usar una `PolicyAuthorize` etiqueta personalizada en los controladores para requerir que se ejecute una directiva determinada si el usuario no ha iniciado sesión todavía. Abra `Controllers\HomeController.cs` y agregue la etiqueta `[PolicyAuthorize]` al controlador de notificaciones. Asegúrese de reemplazar la directiva de ejemplo incluida con su propia directiva de inicio de sesión.
+También puede usar una etiqueta `PolicyAuthorize` personalizada en los controladores para exigir que se ejecute una directiva determinada si el usuario no ha iniciado sesión todavía. Abra `Controllers\HomeController.cs` y agregue la etiqueta `[PolicyAuthorize]` al controlador de notificaciones. Asegúrese de reemplazar la directiva de ejemplo incluida con su propia directiva de inicio de sesión.
 
 ```C#
 // Controllers\HomeController.cs
@@ -260,7 +264,7 @@ public void SignOut()
 }
 ```
 
-De forma predeterminada, OWIN no enviará las directivas especificadas en el `AuthenticationProperties` para Azure AD. Sin embargo, puede editar las solicitudes que OWIN genera en la notificación `RedirectToIdentityProvider`. Use esta notificación en `App_Start\Startup.Auth.cs` para capturar el extremo correcto para cada directiva desde los metadatos de la directiva. Esto garantizará que se envía la solicitud correcta a Azure AD para cada directiva que su aplicación quiere ejecutar.
+De forma predeterminada, OWIN no enviará las directivas especificadas en `AuthenticationProperties` para Azure AD. Sin embargo, puede editar las solicitudes que OWIN genera en la notificación `RedirectToIdentityProvider`. Use esta notificación en `App_Start\Startup.Auth.cs` para capturar el extremo correcto para cada directiva desde los metadatos de la directiva. Esto garantizará que se envía la solicitud correcta a Azure AD para cada directiva que su aplicación quiere ejecutar.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -306,7 +310,7 @@ Por último, compile y ejecute su aplicación. Regístrese para la aplicación c
 
 ## 8\. Agregar IDP sociales
 
-Actualmente, la aplicación solo admite el registro y el inicio de sesión de usuario con lo que se denominan **cuentas locales** (cuentas almacenadas en el directorio de B2C con un nombre de usuario y contraseña). Con Azure AD B2C, puede agregar compatibilidad para otros **proveedores de identidades**, o IDP, sin cambiar nada del código.
+Actualmente, la aplicación solo admite el registro y el inicio de sesión de usuario con lo que se denominan **cuentas locales** (cuentas almacenadas en el directorio B2C con un nombre de usuario y una contraseña). Con Azure AD B2C, puede agregar compatibilidad para otros **proveedores de identidades**, o IDP, sin cambiar el código.
 
 Para agregar IDP sociales a su aplicación, comience siguiendo las instrucciones detalladas en uno o dos de estos artículos. Para cada IDP que quiere admitir, necesitará registrar una aplicación en su sistema y obtener un Id. de cliente.
 
@@ -315,7 +319,7 @@ Para agregar IDP sociales a su aplicación, comience siguiendo las instrucciones
 - [Configurar Amazon como una IDP](active-directory-b2c-setup-amzn-app.md)
 - [Configurar LinkedIn como una IDP](active-directory-b2c-setup-li-app.md) 
 
-Cuando haya agregado los proveedores de identidades a su directorio de B2C, necesitará regresar y editar cada una de las tres directivas para incluir los nuevos IDP, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md). Cuando haya guardado las directivas, solo tiene que volver a ejecutar la aplicación. Debería ver los IDP nuevos agregados como una opción de inicio de sesión y registro en cada una de sus experiencias de identidad.
+Cuando haya agregado los proveedores de identidades a su directorio B2C, necesitará regresar y editar cada una de las tres directivas para incluir los nuevos IDP, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md). Cuando haya guardado las directivas, solo tiene que volver a ejecutar la aplicación. Debería ver los IDP nuevos agregados como una opción de inicio de sesión y registro en cada una de sus experiencias de identidad.
 
 Puede experimentar con su directivas con libertad y observar el efecto en su aplicación de ejemplo: agregar o quitar IDP, manipular las notificaciones de la aplicación, cambiar los atributos de registro. Pruebe hasta que comience a comprender de qué manera se vinculan entre sí las directivas, las solicitudes de autenticación y OWIN.
 
@@ -337,4 +341,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="09/27/2015"
 	ms.author="selcint"/>
 
 # Usar Azure PowerShell con Almacenamiento de Azure
@@ -595,9 +595,9 @@ El código quita un mensaje de una cola en dos pasos. Cuando llama al método [M
     $Queue.CloudQueue.DeleteMessage($QueueMessage)
 
 ## Cómo administrar archivos y recursos compartidos de archivos de Azure
-El almacenamiento de archivos de Azure ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB 2.1 estándar. Las máquinas virtuales y los servicios en la nube de Microsoft Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través de la API de Almacenamiento de archivos o Azure PowerShell.
+El Almacenamiento de archivos de Azure ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB estándar. Las máquinas virtuales y los servicios en la nube de Microsoft Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través de la API de Almacenamiento de archivos o Azure PowerShell.
 
-Para obtener más información sobre el almacenamiento de archivos de Azure, vea [Cómo usar el almacenamiento de archivos de Azure](storage-dotnet-how-to-use-files.md) y [API de REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Para obtener más información sobre el Almacenamiento de archivos de Azure, vea [Uso de Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files.md) y [API de REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## Cómo establecer y consultar el análisis de almacenamiento
 Puede usar el [Análisis de almacenamiento de Azure](storage-analytics.md) para recopilar métricas para sus cuentas de almacenamiento de Azure y sus datos de registro acerca de las solicitudes enviadas a su cuenta de almacenamiento. Puede usar las métricas de almacenamiento para supervisar el estado de una cuenta de almacenamiento y los registros de almacenamiento para diagnosticar y solucionar los problemas que surjan con su cuenta de almacenamiento. Las métricas de almacenamiento no están habilitadas de forma predeterminada para los servicios de almacenamiento. Puede habilitar la supervisión mediante el Portal de administración de Azure, Windows PowerShell o mediante programación a través de una API de almacenamiento. Los registros de almacenamiento se dan en el lado servidor y le permiten grabar en la cuenta de almacenamiento detalles de solicitudes correctas e incorrectas. Estos registros le permiten no solo ver detalles de lectura y escritura, sino que también le permitirán eliminar operaciones de tablas, colas, blobs y las razones por las cuales las solicitudes fallaron.
@@ -736,4 +736,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [Next Steps]: #next
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

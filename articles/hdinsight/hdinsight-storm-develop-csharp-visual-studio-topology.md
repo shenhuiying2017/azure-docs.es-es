@@ -23,23 +23,25 @@ Aprenda a crear una topología de Storm de C# mediante las herramientas de HDIns
 
 También aprenderá a crear topologías híbridas que usan componentes de C# y Java.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+
 ##Requisitos previos
 
 -	Una de las siguientes versiones de Visual Studio
 
 	-	Visual Studio 2012 con [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	-	Visual Studio 2013 con [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) o [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+	-	Visual Studio 2013 con [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) o [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	Visual Studio 2015 o [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
+	-	Visual Studio 2015 o [Visual Studio Community 2015](https://go.microsoft.com/fwlink/?LinkId=532606)
 
 -	SDK de Azure 2.5.1 o posterior
 
--	Herramientas de HDInsight para Visual Studio: consulte [Introducción al uso de las herramientas de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para instalar y configurar las herramientas de HDInsight para Visual Studio.
+-	Herramientas de HDInsight para Visual Studio: vea [Introducción al uso de las herramientas de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para instalar y configurar las herramientas de HDInsight para Visual Studio.
 
     > [AZURE.NOTE]No se admite el uso de las herramientas de HDInsight para Visual Studio en Visual Studio Express
 
--	Clúster de Apache Storm en HDInsight: Consulte [Introducción a Apache Storm en HDInsight](hdinsight-storm-getting-started.md) para conocer los pasos para crear un clúster.
+-	Clúster Apache Storm en HDInsight: vea [Introducción a Apache Storm en HDInsight](hdinsight-storm-getting-started.md) para conocer los pasos para crear un clúster.
 
 	> [AZURE.NOTE]Actualmente, las herramientas de HDInsight para Visual Studio solo admiten Storm en los clústeres de versiones 3.2 de HDInsight.
 
@@ -66,7 +68,7 @@ En los pasos de este documento, usará el tipo de proyecto Storm Application bá
 
 ##Creación de una topología de C#
 
-1.	Si todavía no tiene instalada la versión más reciente de las herramientas de HDInsight para Visual Studio, consulte [Introducción al uso de las herramientas de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1.	Si todavía no tiene instalada la versión más reciente de las herramientas de HDInsight para Visual Studio, vea [Introducción al uso de las herramientas de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2.	Abra Visual Studio, seleccione **Archivo** > **Nuevo** y, después, **Proyecto**.
 
@@ -456,12 +458,12 @@ Las versiones recientes de SCP.NET admiten la actualización de paquetes a trav�
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
 
-2. En el administrador de paquetes, seleccione **Actualizaciones**. Si hay disponible una actualización, se mostrará una lista. Haga clic en el botón **Actualizar** para que el paquete lo instale.
+2. En el administrador de paquetes, seleccione **Actualizaciones**. Si hay disponible una actualización, se mostrará una lista. Haga clic en el botón **Actualizar** para que el paquete la instale.
 
 > [AZURE.IMPORTANT]Si el proyecto se creó con una de las versiones anteriores de SCP.NET que no se usó NuGet para las actualizaciones de paquetes, debe realizar los pasos siguientes para actualizar a la nueva versión:
 >
 > 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**.
-> 2. Mediante el campo **Búsqueda** búsquelo y, a continuación, agregue **Microsoft.SCP.Net.SDK** al proyecto.
+> 2. Mediante el campo **Búsqueda** busque **Microsoft.SCP.Net.SDK** y agréguelo al proyecto.
 
 ##Solución de problemas
 
@@ -656,4 +658,4 @@ Para conocer más formas de trabajar con HDInsight y obtener más ejemplos de St
 
 -	[Introducción a HBase en HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

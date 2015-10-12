@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Agile Software Development con el Servicio de aplicaciones de Azure"
 	description="Aprenda a crear aplicaciones complejas de gran escala con el Servicio de aplicaciones de Azure de forma que admita Agile Software Development."
-	services="app-service\web,app-service\api,app-service\mobile"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -277,8 +277,8 @@ Agile Software Development es un componente indispensable para muchas empresas q
 -	[Creación de ramas de Git: combinación y creación de ramas básicas](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Blog de David Ebbo](http://blog.davidebbo.com/)
 -	[Azure PowerShell](powershell-install-configure.md)
--	[Herramientas de línea de comandos multiplataforma de Azure](xplat-cli.md)
+-	[Herramientas de línea de comandos multiplataforma de Azure](xplat-cli-install.md)
 -	[Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

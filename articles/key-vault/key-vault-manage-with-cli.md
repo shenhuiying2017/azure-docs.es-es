@@ -35,7 +35,7 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 Para realizar este tutorial, necesitará lo siguiente:
 
 - Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](../../../pricing/free-trial).
-- Versión 0.9.1 o una posterior de la interfaz de la línea de comandos. Para instalar la última versión y conectarla a su suscripción de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](xplat-cli.md).
+- Versión 0.9.1 o una posterior de la interfaz de la línea de comandos. Para instalar la última versión y conectarla a su suscripción de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](xplat-cli-install.md).
 - Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
 ## Obtención de ayuda con la interfaz de la línea de comandos entre plataformas de Azure
@@ -54,7 +54,7 @@ Si duda de qué parámetros necesita un comando, consulte la ayuda usando --help
 
 También puede leer los tutoriales siguientes para familiarizarse con el Administrador de recursos de Azure en la interfaz de la línea de comandos entre plataformas de Azure:
 
-- [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](xplat-cli.md).
+- [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](xplat-cli-install.md).
 - [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](xplat-cli-azure-resource-manager.md)
 
 
@@ -89,7 +89,7 @@ A continuación, para especificar la suscripción que se debe usar, escriba:
 
     azure account set <subscription name>
 
-Para obtener más información sobre la configuración de la interfaz de la línea de comandos entre plataformas de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](xplat-cli.md).
+Para obtener más información sobre la configuración de la interfaz de la línea de comandos entre plataformas de Azure, vea [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](xplat-cli-install.md).
 
 
 ## Cambio al Administrador de recursos de Azure
@@ -256,4 +256,4 @@ Ejemplo de cómo quitar un secreto específico:
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

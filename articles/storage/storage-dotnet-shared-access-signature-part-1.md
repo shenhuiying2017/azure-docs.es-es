@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/27/2015" 
 	ms.author="tamram"/>
 
 
@@ -24,11 +24,11 @@
 
 Usar una firma de acceso compartido (SAS) es una manera eficaz de conceder acceso limitado a los objetos en la cuenta de almacenamiento a otros clientes sin tener que exponer la clave de cuenta. En la parte 1 de este tutorial sobre firmas de acceso compartido, le ofreceremos información general del modelo SAS y una revisión de las prácticas recomendadas de SAS. [La parte 2](storage-dotnet-shared-access-signature-part-2.md) de este tutorial le guiará a través del proceso de creación de firmas de acceso compartido con el servicio BLOB.
 
-## ¿Qué es una firma de acceso compartido? ##
+## ¿Qué es una firma de acceso compartido?
 
 Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Esto significa que puede conceder permisos limitados de los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. La SAS es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la SAS, el cliente solo tiene que pasar la SAS al método o constructor adecuados.
 
-## ¿Cuándo debe usar una firma de acceso compartido? ##
+## ¿Cuándo debe usar una firma de acceso compartido?
 
 Puede usar una SAS cuando desee proporcionar acceso a los recursos en la cuenta de almacenamiento a un cliente al que no se puede confiar la clave de cuenta. Las claves de cuenta de almacenamiento incluyen una clave primaria y secundaria, que conceden acceso administrativo a la cuenta y a todos los recursos contenidos en ella. La exposición de alguna de las claves de cuenta hace que exista la posibilidad de que se haga un uso negligente o malintencionado de la cuenta. Las firmas de acceso compartido ofrecen una alternativa segura que permite a los demás clientes leer, escribir y eliminar datos en la cuenta de almacenamiento según los permisos que se le hayan concedido y sin que sea necesaria la clave de cuenta.
 
@@ -47,159 +47,91 @@ Muchos servicios en tiempo real pueden usar una combinación de estos dos enfoqu
 
 Además, deberá usar una SAS para autenticar el objeto de origen en una operación de copia en ciertos escenarios:
 
-- Cuando copia un blob en otro blob que reside en otra cuenta de almacenamiento, debe usar una SAS para autenticar el blob de origen. Opcionalmente, puede usar una SAS para autenticar el blob de destino, siempre y cuando use la versión de 2013-08-15 de los servicios de almacenamiento o una posterior.
-- Cuando copia un archivo en otro archivo que reside en otra cuenta de almacenamiento, debe usar una SAS para autenticar el archivo de origen. También puede usar una SAS para autenticar el archivo de destino.
+- Cuando copia un blob en otro blob que reside en otra cuenta de almacenamiento, debe usar una SAS para autenticar el blob de origen. Con la versión 2015-04-05, también puede usar una SAS para autenticar igualmente el blob de destino.
+- Cuando copia un archivo en otro archivo que reside en otra cuenta de almacenamiento, debe usar una SAS para autenticar el archivo de origen. Con la versión 2015-04-05, también puede usar una SAS para autenticar igualmente el archivo de destino.
 - Si va a copiar un blob en un archivo, o un archivo en un blob, tiene que usar una firma de acceso compartido (SAS) para autenticar el objeto de origen, incluso si los objetos de origen y destino residen dentro la misma cuenta de almacenamiento.
 
-## Funcionamiento de una firma de acceso compartido ##
+## Tipos de firmas de acceso compartido
 
-Una firma de acceso compartido es un URI que hace referencia a un recurso de almacenamiento e incluye un conjunto especial de parámetros de consulta que indican cómo el cliente puede obtener acceso al recurso. Uno de estos parámetros, la firma, se construye a partir de parámetros SAS y se firma con la clave de cuenta. Almacenamiento de Azure usa esa firma para autenticar la SAS.
+La versión 2015-04-05 de Almacenamiento de Azure presenta un nuevo tipo de firma de acceso compartido, SAS de cuenta. Ahora puede crear cualquiera de los dos tipos de firmas de acceso compartido:
 
-Las firmas de acceso compartido tienen las siguientes restricciones que las definen, que se representan como un parámetro en el URI:
+- **SAS de cuenta.** SAS de cuenta delega el acceso a los recursos en uno o varios de los servicios de almacenamiento. Todas las operaciones disponibles con una SAS de servicio están también disponibles con una SAS de cuenta. Además, con la SAS de cuenta, puede delegar el acceso a las operaciones que se aplican a un servicio determinado, como **Get/Set Service Properties** y **Get Service Stats**. También puede delegar el acceso para leer, escribir y eliminar operaciones en contenedores de blobs, tablas, colas y recursos compartidos de archivos que no están permitidos con SAS de servicio. Consulte [Constructing an Account SAS](https://msdn.microsoft.com/library/mt584140.aspx) (Construcción de una SAS de cuenta) para obtener información detallada acerca de cómo construir el token de SAS de cuenta.
 
-- **El recurso de almacenamiento.** Los recursos de almacenamiento para los que puede delegar el acceso incluyen:
+- **SAS de servicio.** SAS de servicio delega el acceso a un recurso en solo uno de los servicios de almacenamiento: el servicio Blob, Cola, Tabla o Archivo. Consulte [Construir el URI de la firma de acceso compartido](https://msdn.microsoft.com/library/dn140255.aspx) y [Ejemplos de firmas de acceso compartido](https://msdn.microsoft.com/library/dn140256.aspx) para obtener información detallada acerca de cómo construir el token de SAS de servicio.
+
+## Funcionamiento de una firma de acceso compartido
+
+Una firma de acceso compartido es un URI que señala a uno o más recursos de almacenamiento e incluye un token que contiene un conjunto especial de parámetros de consulta. El token indica cómo puede el cliente tener acceso a los recursos. Uno de los parámetros de consulta, la firma, se construye a partir de parámetros SAS y se firma con la clave de cuenta. Almacenamiento de Azure usa esa firma para autenticar la SAS.
+
+Los tokens de SAS de cuenta y de SAS de servicio incluyen algunos parámetros comunes y también algunos parámetros que son diferentes.
+
+### Parámetros comunes para tokens de SAS de cuenta y de SAS de servicio
+
+- **Versión de API.** Un parámetro opcional que especifica la versión del servicio de almacenamiento que se usa para ejecutar la solicitud. 
+- **Versión del servicio.** Un parámetro necesario que especifica la versión del servicio de almacenamiento que se usa para autenticar la solicitud.
+- **Hora de inicio.** Es la hora en la que la SAS comienza a ser válida. La hora de inicio de una firma de acceso compartido es opcional; si se omite, la SAS se activa de inmediato. 
+- **Hora de expiración.** Es la hora a partir de la que la SAS deja de ser válida. Las prácticas recomendadas aconsejan que especifique una hora de expiración para una SAS o que la asocie a una directiva de acceso almacenada (puede obtener más información a continuación).
+- **Permisos.** Los permisos especificados en una SAS indican qué operaciones puede realizar el cliente en el recurso de almacenamiento con la SAS. Los permisos disponibles son diferentes para SAS de cuenta y SAS de servicio.
+- **Dirección IP.** Un parámetro opcional que especifica una dirección IP o un intervalo de direcciones IP desde la que se aceptan solicitudes. 
+- **Protocolo.** Un parámetro opcional que especifica el protocolo permitido para una solicitud. Los valores posibles son HTTPS y HTTP (https,http), que es el valor predeterminado, o HTTPS solo (https). Tenga en cuenta que HTTP solo no es un valor permitido.
+- **Firma.** La firma se construye a partir de los parámetros especificados como parte del token y, a continuación, se cifra. Se usa para autenticar la SAS.
+
+### Parámetros para un token de SAS de cuenta
+
+- **Servicio o servicios.** SAS de cuenta puede delegar el acceso a uno o varios de los servicios de almacenamiento. Por ejemplo, puede crear una SAS de cuenta que delega el acceso al servicio Blob y Archivo. O bien, puede crear una SAS que delega el acceso a los cuatro servicios (Blob, Cola, Tabla y Archivo).
+- **Tipos de recursos de almacenamiento.** SAS de cuenta se aplica a una o más clases de recursos de almacenamiento, más que a un recurso específico. Puede crear una SAS de cuenta que delega el acceso a:
+	- Las API de nivel de servicio, a las que se llaman en el recurso de la cuenta de almacenamiento. Algunos ejemplos incluyen **Get/Set Service Properties**, **Get Service Stats** y **List Containers/Queues/Tables/Shares**.
+	- Las API de nivel de contenedor, a las que se llaman en los objetos de contenedor para cada servicio: contenedores de blobs, colas, tablas y recursos compartidos de archivos. Algunos ejemplos incluyen **Create/Delete Container**, **Create/Delete Queue**, **Create/Delete Table**, **Create/Delete Share**, y **List Blobs/Files and Directories**.
+	- Las API de nivel de objeto, a las que se llaman en blobs, mensajes de colas, entidades de tablas y archivos. Por ejemplo, **Put Blob**, **Query Entity**, **Get Messages** y **Create File**.
+
+### Parámetros para un token de SAS de servicio
+
+- **Recurso de almacenamiento.** Los recursos de almacenamiento para los que puede delegar el acceso con una SAS de servicio incluyen:
 	- Contenedores y blobs
 	- Archivos y recursos compartidos de archivo
 	- Colas
 	- Las tablas y los intervalos de las entidades de tabla.
-- **Hora de inicio.** Es la hora en la que la SAS comienza a ser válida. La hora de inicio de una firma de acceso compartido es opcional; si se omite, la SAS se activa de inmediato. 
-- **Hora de expiración.** Es la hora a partir de la que la SAS deja de ser válida. Las prácticas recomendadas aconsejan que especifique una hora de expiración para una SAS o que la asocie a una directiva de acceso almacenada (puede obtener más información a continuación).
-- **Permisos.** Los permisos especificados en una SAS indican qué operaciones puede realizar el cliente en el recurso de almacenamiento con la SAS. 
 
-A continuación se muestra un ejemplo de un URI de SAS que ofrece permisos de lectura y escritura en un blob. En la tabla siguiente se divide cada parte del URI para saber cómo contribuye a la SAS:
+## Ejemplos de URI de SAS
 
-	https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
+A continuación se muestra un ejemplo de un URI de SAS de servicio que ofrece permisos de lectura y escritura en un blob. En la tabla siguiente se divide cada parte del URI para saber cómo contribuye a la SAS:
 
-<table border="1" cellpadding="0" cellspacing="0">
-    <tbody>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    URI de blobs
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    La dirección del blob. Tenga en cuenta que se recomienda fehacientemente el uso de HTTPS.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Versión de servicios de almacenamiento
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sv=2012-02-12
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    En la versión de servicios de almacenamiento 2012-02-12 y superiores, este parámetro indica qué versión usar.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Hora de inicio
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    st=2013-04-29T22%3A18%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Se especifica en formato ISO 8061. Si desea que la SAS sea válida de inmediato, omita la hora de inicio.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Hora de expiración
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    se=2013-04-30T02%3A23%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Se especifica en formato ISO 8061.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Recurso
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sr=b
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    El recurso es un blob.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Permisos
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sp=rw
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Los permisos que concede la SAS son de lectura y escritura.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Firma
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Se usa para autenticar el acceso al blob. La firma es un HMAC que se procesa mediante una cadena para firmar y una clave con el algoritmo SHA256, y que se codifica mediante Base64.
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+	https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
-## Control de firmas de acceso compartido con una directiva de acceso almacenada ##
+Nombre|Parte de SAS|Descripción
+---|---|---
+URI de blobs|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |La dirección del blob. Tenga en cuenta que se recomienda fehacientemente el uso de HTTPS.
+Versión de servicios de almacenamiento|sv=2015-04-05|En la versión de servicios de almacenamiento 2012-02-12 y superiores, este parámetro indica qué versión usar.
+Hora de inicio|st=2015-04-29T22%3A18%3A26Z|Se especifica en formato ISO 8061. Si desea que la SAS sea válida de inmediato, omita la hora de inicio.
+Hora de expiración|se=2015-04-30T02%3A23%3A26Z|Se especifica en formato ISO 8061.
+Recurso|sr=b|El recurso es un blob.
+Permisos|sp=rw|Los permisos que concede la SAS son de lectura y escritura.
+Intervalo de IP|sip=168.1.5.60-168.1.5.70|El intervalo de direcciones IP desde el que se aceptará una solicitud.
+Protocolo|spr=https|Solo se permiten solicitudes con HTTPS.
+Firma|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Se usa para autenticar el acceso al blob. La firma es un HMAC que se procesa mediante una cadena para firmar y una clave con el algoritmo SHA256, y que se codifica mediante Base64.
+
+Este es un ejemplo de una SAS de cuenta que usa los mismos parámetros comunes en el token. Como estos parámetros aparecen descritos anteriormente, no los vamos a describir aquí. Solo los parámetros que son específicos de la SAS de cuenta se describen en la tabla siguiente.
+
+	https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
+
+Nombre|Parte de SAS|Descripción
+---|---|---
+URI de recurso|https://myaccount.blob.core.windows.net/?restype=service&comp=properties|The Extremo de servicio Blob, con parámetros para obtener propiedades de servicio (cuando se llama con GET) o para establecer propiedades de servicio (cuando se llama con SET).
+Servicios|ss=bf|La SAS se aplica a los servicios Blob y Archivo
+Tipos de recursos|srt=s|La SAS se aplica a las operaciones de nivel de servicio.
+Permisos|sp=rw|Los permisos conceden acceso para operaciones de lectura y escritura.  
+
+Dado que los permisos están restringidos al nivel de servicio, las operaciones accesibles con esta SAS son **Get Blob Service Properties** (lectura) y **Set Blob Service Properties** (escritura). Sin embargo, con un URI de recurso diferente, el mismo token de SAS también se puede usar para delegar el acceso a **Get Blob Service Stats** (lectura).
+
+## Control de una SAS con una directiva de acceso almacenada ##
 
 Una firma de acceso compartido puede presentar una de estas dos formas:
 
-- **SAS ad-hoc**: cuando cree una SAS ad-hoc, la hora de inicio, la hora de expiración y los permisos para la SAS se especifican en el URI de SAS (o se encuentran implícitos en el caso en el que se omita la hora de inicio). Este tipo de SAS puede crearse en un contenedor, un blob, un archivo compartido, un archivo, una tabla o una cola.
+- **SAS ad-hoc**: cuando cree una SAS ad-hoc, la hora de inicio, la hora de expiración y los permisos para la SAS se especifican en el URI de SAS (o se encuentran implícitos en el caso en el que se omita la hora de inicio). Este tipo de SAS puede crearse como SAS de cuenta o como SAS de servicio. 
+
 - **SAS con directiva de acceso almacenada:** se define una directiva de acceso almacenada en un contenedor de recursos (un contenedor de blobs, un archivo compartido, un archivo, una tabla o una cola) y se puede usar para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
+
+>[AZURE.NOTE]Actualmente, una SAS de cuenta debe ser una SAS ad hoc. Las directivas de acceso almacenadas ya no son compatibles para SAS de cuenta.
 
 La diferencia entre las dos formas es importante para un escenario principal: revocación. Una SAS es una dirección URL, por lo que cualquier persona que obtenga la SAS puede usarla, independientemente de quién la solicitó para comenzar. Si una SAS se encuentra disponible públicamente, cualquier persona del mundo puede usarla. Una SAS distribuida es válida hasta que se produzca una de las cuatro situaciones:
 
@@ -207,8 +139,153 @@ La diferencia entre las dos formas es importante para un escenario principal: re
 2.	Se alcanza el tiempo de expiración especificado en la directiva de acceso almacenada al que hace referencia la SAS (si se hace referencia a una directiva de acceso almacenada y si especifica una hora de expiración). Esto puede producirse porque transcurra el intervalo o porque haya modificado la directiva de acceso almacenado para tener una hora de expiración pasada, que es una forma de revocar la SAS.
 3.	Se elimina la directiva de acceso almacenada a la que hace referencia la SAS, que es otra forma de revocar la SAS. Tenga en cuenta que si vuelve a crear la directiva de acceso almacenada exactamente con el mismo nombre, todos los tokens de la SAS volverán a ser válidos según los permisos asociados a la directiva de acceso almacenada (si se presupone que la hora de expiración en la SAS no ha pasado). Si prevé revocar la SAS, asegúrese de usar un nombre distinto si vuelve a crear la directiva de acceso con una hora de expiración futura.
 4.	Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Tenga en cuenta que la realización de este procedimiento provocará que todos los componentes de la aplicación que usen esa clave de cuenta no puedan autenticarse hasta que se actualicen para usar la otra clave de cuenta válida o la clave de cuenta que se acaba de volver a generar.
- 
-## Prácticas recomendadas para el uso de firmas de acceso compartido ##
+
+>[AZURE.IMPORTANT]Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
+
+## Ejemplos de firmas de acceso compartido
+
+A continuación figuran algunos ejemplos de ambos tipos de firmas de acceso compartido, SAS de cuenta y SAS de servicio.
+
+### Ejemplo de SAS de cuenta
+
+En el ejemplo de código siguiente se crea una SAS de cuenta que es válida para los servicios Blob y Archivo y da al cliente permisos de lectura, escritura y lista para acceder a las API de nivel de servicio. La SAS de cuenta restringe el protocolo a HTTPS, por lo que la solicitud se debe realizar con HTTPS.
+
+    static string GetAccountSASToken()
+    {
+        // To create the account SAS, you need to use your shared key credentials.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+        // Create a new access policy for the account.
+        SharedAccessAccountPolicy policy = new SharedAccessAccountPolicy()
+            {
+                Permissions = SharedAccessAccountPermissions.Read | SharedAccessAccountPermissions.Write | SharedAccessAccountPermissions.List,
+                Services = SharedAccessAccountServices.Blob | SharedAccessAccountServices.File,
+                ResourceTypes = SharedAccessAccountResourceTypes.Service,
+                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+                Protocols = SharedAccessProtocol.HttpsOnly
+            };
+
+        // Return the SAS token.
+        return storageAccount.GetSharedAccessSignature(policy);
+    }
+
+Para usar la SAS de cuenta a fin de acceder a las API de nivel de servicio para el servicio Blob, construya un objeto de cliente Blob con la SAS y el extremo de almacenamiento de Blob para la cuenta de almacenamiento.
+
+    static void UseAccountSAS(string sasToken)
+    {
+        // In this case, we have access to the shared key credentials, so we'll use them
+        // to get the Blob service endpoint.
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+            Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        // Create new storage credentials using the SAS token.
+        StorageCredentials accountSAS = new StorageCredentials(sasToken);
+        // Use these credentials and the Blob storage endpoint to create a new Blob service client.
+        CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, blobClient.StorageUri, null, null, null);
+        CloudBlobClient blobClientWithSAS = accountWithSAS.CreateCloudBlobClient();
+
+        // Now set the service properties for the Blob client created with the SAS.
+        blobClientWithSAS.SetServiceProperties(new ServiceProperties()
+        {
+            HourMetrics = new MetricsProperties()
+            {
+                MetricsLevel = MetricsLevel.ServiceAndApi,
+                RetentionDays = 7,
+                Version = "1.0"
+            },
+            MinuteMetrics = new MetricsProperties()
+            {
+                MetricsLevel = MetricsLevel.ServiceAndApi,
+                RetentionDays = 7,
+                Version = "1.0"
+            },
+            Logging = new LoggingProperties()
+            {
+                LoggingOperations = LoggingOperations.All,
+                RetentionDays = 14,
+                Version = "1.0"
+            }
+        });
+
+        // The permissions granted by the account SAS also permit you to retrieve service properties.
+        ServiceProperties serviceProperties = blobClientWithSAS.GetServiceProperties();
+        Console.WriteLine(serviceProperties.HourMetrics.MetricsLevel);
+        Console.WriteLine(serviceProperties.HourMetrics.RetentionDays);
+        Console.WriteLine(serviceProperties.HourMetrics.Version);
+    }
+
+### Ejemplo de SAS de servicio
+
+En el ejemplo de código siguiente se crea una directiva de acceso almacenada en un contenedor y luego se genera una SAS de servicio para el contenedor. Esta SAS se puede proporcionar luego a los clientes para que tengan permisos de lectura y escritura en el contenedor:
+
+    // The connection string for the storage account.  Modify for your account.
+    string storageConnectionString =
+       "DefaultEndpointsProtocol=https;" +
+       "AccountName=myaccount;" +
+       "AccountKey=<account-key>";
+    
+    // As an alternative, you can retrieve storage account information from an app.config file. 
+    // This is one way to store and retrieve a connection string if you are 
+    // writing an application that will run locally, rather than in Microsoft Azure.
+    
+    // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
+    
+    // Create the storage account with the connection string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+       
+    // Create the blob client object.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    
+    // Get a reference to the container for which shared access signature will be created.
+    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+    container.CreateIfNotExists();
+    
+    // Get the current permissions for the blob container.
+    BlobContainerPermissions blobPermissions = container.GetPermissions();
+    
+    // The new shared access policy provides read/write access to the container for 24 hours.
+    blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
+    {
+       // To ensure SAS is valid immediately, don’t set the start time.
+       // This way, you can avoid failures caused by small clock differences.
+       SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+       Permissions = SharedAccessBlobPermissions.Write |
+      SharedAccessBlobPermissions.Read
+    });
+    
+    // The public access setting explicitly specifies that 
+    // the container is private, so that it can't be accessed anonymously.
+    blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
+    
+    // Set the permission policy on the container.
+    container.SetPermissions(blobPermissions);
+    
+    // Get the shared access signature token to share with users.
+    string sasToken =
+       container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
+
+Un cliente en posesión de una SAS de servicio puede usarla desde el código para autenticar una solicitud de lectura y escritura en un blob del contenedor. Por ejemplo, el código siguiente usa el token de SAS para crear un nuevo blob en bloques en el contenedor:
+
+    Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
+    
+    // Create credentials with the SAS token. The SAS token was created in previous example.
+    StorageCredentials credentials = new StorageCredentials(sasToken);
+    
+    // Create a new blob.
+    CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
+    
+    // Upload the blob. 
+    // If the blob does not yet exist, it will be created. 
+    // If the blob does exist, its existing content will be overwritten.
+    using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
+    {
+    	blob.UploadFromStream(fileStream);
+    }
+
+
+## Prácticas recomendadas para el uso de firmas de acceso compartido
 
 Cuando use firmas de acceso compartido en sus aplicaciones, debe tener en cuenta dos posibles riesgos:
 
@@ -234,17 +311,13 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 
 ## Pasos siguientes ##
 
-[Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB](../storage-dotnet-shared-access-signature-part-2/)
-
-[Administración del acceso a los recursos de almacenamiento de Azure](http://msdn.microsoft.com/library/azure/ee393343.aspx)
-
-[Delegación de acceso con una firma de acceso compartido (API de REST)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-[Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB](storage-dotnet-shared-access-signature-part-2.md)
+- [Uso del Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files.md)
+- [Administración del acceso a los recursos de almacenamiento de Azure](storage-manage-access-to-resources.md)
+- [Delegación de acceso con una firma de acceso compartido](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+- [Presentación de tablas y colas SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

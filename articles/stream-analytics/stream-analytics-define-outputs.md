@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/17/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Descripción de salidas de Análisis de transmisiones
@@ -31,7 +31,6 @@ Puede usarse [Base de datos SQL](http://azure.microsoft.com/services/sql-databas
 | Nombre de propiedad | Descripción |
 |---------------|-------------|
 | Alias de salida | Es el nombre descriptivo usado en las consultas para dirigir la salida de la consulta a esta base de datos. |
-| La suscripción | Puede elegir una base de datos de su propia suscripción o proporcionar la información de conexión a otra en otra suscripción. |
 | Base de datos | El nombre de la base de datos a donde está enviando la salida |
 | Nombre del servidor | El nombre del servidor Base de datos SQL de Azure |
 | Nombre de usuario | El nombre del usuario con permiso para escribir en la base de datos |
@@ -53,10 +52,6 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 <tr>
 <td>Alias de salida</td>
 <td>Es el nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este almacenamiento de blobs.</td>
-</tr>
-<tr>
-<td>La suscripción</td>
-<td>Puede elegir una cuenta del almacenamiento de blobs de su propia suscripción o proporcionar la información de conexión a otra en otra suscripción.</td>
 </tr>
 <tr>
 <td>Cuenta de almacenamiento</td>
@@ -92,7 +87,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 </tr>
 <tr>
 <td>Delimitador</td>
-<td>Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical.</td>
+<td>Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical.</td>
 </tr>
 <tr>
 <td>Formato</td>
@@ -103,14 +98,13 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 
 ## Centro de eventos
 
-[Centros de eventos](https://azure.microsoft.com/services/event-hubs/) es un servicio de introducción de eventos de suscripción-publicación altamente escalable. Puede recopilar millones de eventos por segundo. Un uso del Centro de eventos como salida es cuando la salida de un trabajo de Análisis de transmisiones es la entrada de otro trabajo de streaming.
+[Centros de eventos](https://azure.microsoft.com/services/event-hubs/) es un servicio de introducción de eventos de publicación-suscripción altamente escalable. Puede recopilar millones de eventos por segundo. Un uso del Centro de eventos como salida es cuando la salida de un trabajo de Análisis de transmisiones es la entrada de otro trabajo de streaming.
 
 Hay unos cuantos parámetros que son necesarios para configurar los flujos de datos del Centro de eventos como salida.
 
 | Nombre de propiedad | Descripción |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de salida | Es el nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este Centro de eventos. |
-| La suscripción | Puede elegir un Centro de eventos de su propia suscripción o proporcionar la información de conexión a otro en otra suscripción. |
 | Espacio de nombres de Bus de servicio | Un espacio de nombres del bus de servicio es un contenedor para un conjunto de entidades de mensajería. Al crear un nuevo Centro de eventos, también se crea un espacio de nombres del Bus de servicio. |
 | Centro de eventos | El nombre de la salida del Centro de eventos |
 | Nombre de la directiva del centro de eventos | La directiva de acceso compartido, que se puede crear en la pestaña Configuración de Centro de eventos. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
@@ -118,15 +112,17 @@ Hay unos cuantos parámetros que son necesarios para configurar los flujos de da
 | Columna Clave de partición [opcional] | Esta columna contiene la clave de partición para la salida del Centro de eventos. |
 | Formato de serialización de eventos | Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro. |
 | Codificación | Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
-| Delimitador | Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
+| Delimitador | Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 | Formato | Solo se aplica para el tipo JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. |
 ## Power BI
 
 [Power BI](https://powerbi.microsoft.com/) puede usarse como salida para un trabajo de Análisis de transmisiones para proporcionar una experiencia de visualización enriquecida para usuarios de Análisis de transmisiones. Esta capacidad puede utilizarse para paneles operacionales, generación de informes e informes basados en métricas.
 
+> [AZURE.NOTE]En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de vista previa de Azure.
+
 ### Autorización de una cuenta de Power BI
 
-1.	Cuando se selecciona Power BI como salida, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.  
+1.	Cuando se selecciona Power BI como salida en el Portal de administración de Azure, se le pedirá que autorice a un usuario de Power BI existente o que cree una nueva cuenta de Power BI.  
 
     ![Autorización de un usuario de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -161,14 +157,13 @@ Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida
 
 ## Almacenamiento de tablas
 
-[El almacenamiento de tablas de Azure](./articles/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
+El [almacenamiento de tablas de Azure](./articles/storage-introduction.md) ofrece un tipo de almacenamiento de alta disponibilidad y escalabilidad masiva, de forma que las aplicaciones pueden escalarse automáticamente para ajustarse a la demanda de los usuarios. Almacenamiento de tablas es un almacén de claves/atributos NoSQL de Microsoft que puede aprovechar para datos estructurados con menos restricciones en el esquema. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de tabla.
 
 | Nombre de propiedad | Descripción |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de salida | Es el nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este almacenamiento de tablas. |
-| La suscripción | Puede elegir una cuenta del almacenamiento de tablas de su propia suscripción o proporcionar la información de conexión si la cuenta de almacenamiento procede de otra suscripción. |
 | Cuenta de almacenamiento | El nombre de la cuenta de almacenamiento a donde está enviando la salida |
 | Clave de cuenta de almacenamiento | La clave de acceso asociada con la cuenta de almacenamiento. |
 | Nombre de la tabla | El nombre de la tabla. La tabla se creará si no existe. |
@@ -178,21 +173,20 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 
 ## Colas del Bus de servicio
 
-[Las colas del Bus de servicio](https://msdn.microsoft.com/library/azure/hh367516.aspx) ofrecen una entrega de mensajes según el modelo El primero en entrar es el primero en salir (FIFO) a uno o más destinatarios de la competencia. Normalmente, se espera que los receptores reciban y procesen los mensajes en el orden temporal en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
+Las [colas del Bus de servicio](https://msdn.microsoft.com/library/azure/hh367516.aspx) ofrecen una entrega de mensajes según el modelo El primero en entrar es el primero en salir (FIFO) a uno o más consumidores de la competencia. Normalmente, se espera que los receptores reciban y procesen los mensajes en el orden temporal en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de cola.
 
 | Nombre de propiedad | Descripción |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de salida | Es el nombre descriptivo usado en las consultas para dirigir la salida de la consulta a esta cola del Bus de servicio. |
-| La suscripción | Puede elegir un espacio de nombres del Bus de servicio de su propia suscripción o proporcionar la información de conexión si el espacio de nombres procede de otra suscripción. |
 | Espacio de nombres de Bus de servicio | Un espacio de nombres del bus de servicio es un contenedor para un conjunto de entidades de mensajería. |
 | Nombre de la cola | El nombre de la cola del Bus de servicio |
 | Nombre de la directiva de colas | Al crear una cola, también puede crear directivas de acceso compartidas en la pestaña Configurar cola. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | Clave de la directiva de colas | La clave de acceso compartido usada para autenticar el acceso al espacio de nombres del Bus de servicio. |
 | Formato de serialización de eventos | Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro. |
 | Codificación | Por el momento, UTF-8 es el único formato de codificación compatible para CSV y JSON. |
-| Delimitador | Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
+| Delimitador | Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
 | Formato | Solo se aplica para el tipo JSON. Separado por líneas especifica que la salida se formateará de tal forma que cada objeto JSON esté separado por una línea nueva. Matriz especifica que la salida se formateará como una matriz de objetos JSON. |
 
 ## Temas de Bus de servicio
@@ -204,14 +198,53 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 | Nombre de propiedad | Descripción |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de salida | Es el nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este Tema del Bus de servicio. |
-| La suscripción | Puede elegir un espacio de nombres del Bus de servicio de su propia suscripción o proporcionar la información de la cadena de conexión si el espacio de nombres procede de otra suscripción. |
 | Espacio de nombres de Bus de servicio | Un espacio de nombres del bus de servicio es un contenedor para un conjunto de entidades de mensajería. Al crear un nuevo Centro de eventos, también se crea un espacio de nombres del Bus de servicio. |
 | Nombre del tema | Los temas son entidades de mensajería, similares a los Centros de eventos y colas. Están diseñados para recopilar secuencias de eventos de una serie de diferentes dispositivos y servicios. Cuando se crea un tema, se proporciona también un nombre específico. Los mensajes enviados a un Tema no estarán disponibles a menos que se cree una suscripción, así que asegúrese de que hay una o más suscripciones en el tema. |
 | Nombre de la directiva de temas | Al crear una Tema, también puede crear directivas de acceso compartidas en la pestaña Configurar tema. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso. |
 | Clave de la directiva de temas | La clave de acceso compartido usada para autenticar el acceso al espacio de nombres del Bus de servicio. |
 | Formato de serialización de eventos | Formato de serialización para los datos de salida. Se admiten JSON, CSV y Avro. |
 | Codificación | Si el formato CSV o JSON, debe especificarse una codificación. Por el momento, UTF-8 es el único formato de codificación compatible. |
-| Delimitador | Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
+| Delimitador | Solo se aplica para la serialización de CSV. Análisis de transmisiones admite un número de delimitadores comunes para la serialización de datos en formato CSV. Los valores admitidos son la coma, punto y coma, espacio, tabulador y barra vertical. |
+
+## DocumentDB
+
+[DocumentDB de Azure](http://azure.microsoft.com/services/documentdb/) es un servicio de base de datos de documentos NoSQL totalmente administrado que ofrece consultas y transacciones a través de datos sin esquema, rendimiento predecible y confiable y desarrollo rápido.
+
+En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de DocumentDB.
+
+<table>
+<tbody>
+<tr>
+<td>NOMBRE DE PROPIEDAD</td>
+<td>DESCRIPCIÓN</td>
+</tr>
+<tr>
+<td>Nombre de cuenta</td>
+<td>Nombre de la cuenta de DocumentDB. Esto también puede ser el extremo de la cuenta.</td>
+</tr>
+<tr>
+<td>Clave de cuenta</td>
+<td>Clave de acceso compartido para la cuenta de DocumentDB.</td>
+</tr>
+<tr>
+<td>Base de datos</td>
+<td>Nombre de la base de datos de DocumentDB.</td>
+</tr>
+<tr>
+<td>Patrón de nombre de colección:</td>
+<td>Patrón de nombre de colección para las colecciones que se usará. El formato de nombre de la colección se pueden construir con el token opcional {partition}, donde las particiones comienzan desde 0.<BR>Por ejemplo, Las siguientes son entradas válidas:<BR>MyCollection{partition}<BR>MyCollection<BR>Tenga en cuenta que las colecciones deben existir antes de que el trabajo de Análisis de transmisiones se inicie y no se crearán automáticamente.</td>
+</tr>
+<tr>
+<td>Partition Key</td>
+<td>Nombre del campo en los eventos de salida que se utiliza para especificar la clave de partición de salida entre colecciones.</td>
+</tr>
+<tr>
+<td>Id. de documento</td>
+<td>Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
@@ -232,4 +265,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

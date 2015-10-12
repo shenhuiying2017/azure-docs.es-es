@@ -359,8 +359,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[CTAS]: https://msdn.microsoft.com/es-es/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/es-ES/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

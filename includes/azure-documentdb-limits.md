@@ -12,6 +12,7 @@ Tiempo de ejecución máximo para el procedimiento almacenado y desencadenador|5
 Almacenamiento de documentos máximo/colección|10 GB
 Máximo de colecciones por cuenta de base de datos*|100
 Almacenamiento de documentos máximo por base de datos (100 colecciones)* |1 TB
+
 Longitud máxima de la propiedad de identificador|255 caracteres
 Máximo de elementos por página|Sin límite en la práctica
 Tamaño máximo de solicitud de documentos y anexos |512KB
@@ -30,4 +31,4 @@ Número máximo de operaciones de escala por minuto*|5
 
 Las cuotas que aparecen con un asterisco (*) [se pueden ajustar poniéndose en contacto con el soporte técnico de Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

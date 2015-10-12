@@ -37,7 +37,7 @@ Si necesita ayuda para crear máquinas virtuales Linux en Azure, consulte [Creac
 
 Los comandos de instalación asumen Ubuntu, pero puede adaptar la instalación para cualquier distribución de Linux admitida.
 
-La máquina virtual script-vm debe tener instalada la CLI de Azure, con una conexión activa a Azure. Para obtener ayuda con este procedimiento, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli.md).
+La máquina virtual script-vm debe tener instalada la CLI de Azure, con una conexión activa a Azure. Para obtener ayuda con este procedimiento, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
 
 ## Cargar un script
 
@@ -109,4 +109,4 @@ A continuación, se ofrecen algunos recursos adicionales para la CLI de Azure, L
 
 [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

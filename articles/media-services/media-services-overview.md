@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
 #Información general y escenarios comunes de Servicios multimedia de Azure
@@ -22,12 +22,9 @@ Servicios multimedia de Microsoft Azure es una plataforma extensible basada en l
 
 Puede crear flujos de trabajo de un extremo a otro usando solamente Servicios multimedia. También puede usar componentes de terceros para algunas partes del flujo de trabajo. Por ejemplo, codifique mediante un codificador de terceros. A continuación, cargue, proteja, empaquete y entregue con Servicios multimedia.
 
-
-La siguiente publicación describe flujos de trabajo de Servicios multimedia de Azure, desde la creación de contenido multimedia hasta el consumo. Puede descargar el póster aquí: [Póster de Servicios multimedia de Azure](http://www.microsoft.com/download/details.aspx?id=38195).
-
-![Información general][overview]
-
 Puede elegir entre transmisión del contenido en directo o entrega a petición. En este tema se muestran escenarios comunes para la entrega de contenido [en directo](media-services-overview.md#live_scenarios) o [a petición](media-services-overview.md#vod_scenarios). El tema también incluye vínculos a otros temas de interés.
+
+## SDK y herramientas 
 
 Para compilar soluciones de Servicios multimedia, puede usar:
 
@@ -43,6 +40,10 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##Póster
+
+
+[Aquí](http://azure.microsoft.com/documentation/infographics/media-services/) puede ver el póster de Servicios multimedia de Azure que representa los flujos de trabajo de AMS, desde la creación de medios hasta el consumo.
 
 ##Requisitos previos
 
@@ -60,7 +61,7 @@ Para empezar a usar Servicios multimedia de Azure, debe tener lo siguiente:
 Para obtener más información, vea [Conceptos](media-services-concepts.md).
 
 
-##<a id="vod_scenarios"></a>Entrega de contenido multimedia a petición con Servicios multimedia de Azure: escenarios comunes y tareas
+##<a id="vod_scenarios"></a>Entrega de contenido multimedia a petición con Servicios multimedia de Azure: escenarios y tareas comunes
 
 En esta sección se describe escenarios comunes y se proporcionan vínculos a temas importantes. En el diagrama siguiente se muestran las partes principales de la plataforma de Servicios multimedia que intervienen en la entrega de contenido a petición.
 
@@ -148,19 +149,19 @@ Cuando se trabaja con streaming en vivo, normalmente participan los siguientes c
 	- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución. 
 	
 		
-Con **Servicios multimedia de Microsoft Azure** (AMS) puede introducir, codificar, almacenar y entregar el contenido de streaming en vivo, así como obtener una vista previa de él.
+**Servicios multimedia de Microsoft Azure** (AMS) permite recopilar, codificar, mostrar una vista previa, almacenar y entregar el contenido de streaming en vivo.
 
-Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta calidad a diversos dispositivos en condiciones de red diferentes. Para abordar la calidad y las condiciones de la red, use codificadores en directo para codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa). Para abordar el streaming en diferentes dispositivos, use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Servicios multimedia para volver a empaquetar dinámicamente las secuencias para distintos protocolos. Los Servicios multimedia admiten la entrega de las siguientes tecnologías de transmisión de velocidad de bits adaptativa: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
+Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta calidad a diversos dispositivos en condiciones de red diferentes. Para abordar la calidad y las condiciones de la red, use codificadores en directo para codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa). Para abordar el streaming en diferentes dispositivos, use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Servicios multimedia para volver a empaquetar dinámicamente su secuencia para distintos protocolos. Los Servicios multimedia admiten la entrega de las siguientes tecnologías de transmisión de velocidad de bits adaptativa: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
 
-En Servicios multimedia de Azure, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la introducción, el formato, la grabadora de vídeo digital (DVR), la seguridad, la escalabilidad y la redundancia.
+En Servicios multimedia de Azure, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la recopilación, el formato, DVR, la seguridad, la escalabilidad y la redundancia.
 
 Un **canal** representa una canalización para procesar contenido de streaming en vivo. Actualmente, un canal puede recibir secuencias de entrada en directo de la siguiente manera:
 
 
 - Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Servicios multimedia, con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
-	La codificación de secuencias en directo con Servicios multimedia está en **versión preliminar**.
-- Un codificador en directo local envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
+	La codificación de secuencias en directo con Servicios multimedia está en **vista previa**.
+- Un codificador en directo local envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) con varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
 
 ###Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure
@@ -170,7 +171,7 @@ El diagrama siguiente muestra las partes principales de la plataforma AMS que in
 
 ![Flujo de trabajo activo][live-overview1]
 
-Para obtener más información, vea [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
+Para obtener más información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ###Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
@@ -180,7 +181,7 @@ En el diagrama siguiente se muestran las partes principales de la plataforma AMS
 
 ![Flujo de trabajo activo][live-overview2]
 
-Para obtener más información, vea [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-manage-channels-overview.md).
+Para obtener más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-manage-channels-overview.md).
 
 ##Consumo de contenido
 
@@ -217,7 +218,7 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 - Para la protección de contenido, garantizamos que procesaremos correctamente las solicitudes clave como mínimo el 99,9% del tiempo.
 - Para el indizador, atenderemos correctamente las solicitudes de tarea de indizador procesadas con una unidad reservada de codificación el 99,9% del tiempo.
 
-	Para obtener más información, vea [Contratos de nivel de servicio de Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
+	Para obtener más información, vea el [Contrato de nivel de servicio de Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
@@ -226,4 +227,4 @@ El [Soporte técnico de Azure](http://azure.microsoft.com/support/options/) prop
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -24,7 +24,7 @@ Apache Spark es un motor rápido para el procesamiento de datos a gran escala. S
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la implementación de un recurso con el modelo de implementación del Administrador de recursos. También puede implementar este recurso con el modelo de implementación clásica.
 
 
-Además de ejecutar en los administradores de clústeres de Mesos o YARN, Spark proporciona un modo de implementación independiente simple. Este tutorial le explicará cómo usar una plantilla de ejemplo del Administrador de recursos de Azure para implementar un clúster Spark en máquinas virtuales de Ubuntu mediante [Azure PowerShell](../powershell-install-configure.md) o la [CLI de Azure](../xplat-cli.md).
+Además de ejecutar en los administradores de clústeres de Mesos o YARN, Spark proporciona un modo de implementación independiente simple. Este tutorial le explicará cómo usar una plantilla de ejemplo del Administrador de recursos de Azure para implementar un clúster Spark en máquinas virtuales de Ubuntu mediante [Azure PowerShell](../powershell-install-configure.md) o la [CLI de Azure](../xplat-cli-install.md).
 
 Esta plantilla implementa un clúster Spark en máquinas virtuales de Ubuntu. Esta plantilla proporciona también una cuenta de almacenamiento, red virtual, conjuntos de disponibilidad, las direcciones IP públicas y las interfaces de red requeridas por la instalación. El clúster Spark se crea detrás de una subred, de modo que no hay acceso de IP pública al clúster. Como parte de la implementación, puede implementar un “JumpBox” opcional. Este “JumpBox” es una máquina virtual de Ubuntu que también se implementa en la subred, pero que *expone* una dirección IP pública con un puerto SSH abierto al que se puede conectar. A continuación, desde el “JumpBox”, puede conectarse mediante SSH a todas las máquinas virtuales de Spark de la subred.
 
@@ -847,4 +847,4 @@ Descubra más [marcos de aplicaciones](virtual-machines-app-frameworks.md).
 
 [Solución de problemas de las implementaciones de plantillas](resource-group-deploy-debug.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

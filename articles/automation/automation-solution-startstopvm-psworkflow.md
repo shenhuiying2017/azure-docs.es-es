@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Inicio y detención de máquinas virtuales con Automatización de Azure - Flujo de trabajo de PowerShell | Microsoft Azure"
-   description="Versión gráfica de la solución de Automatización de Azure con runbooks para iniciar y detener las máquinas virtuales clásicas."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="Inicio y detención de máquinas virtuales con Automatización de Azure - Flujo de trabajo de PowerShell | Microsoft Azure"
+	description="Versión gráfica de la solución de Automatización de Azure con runbooks para iniciar y detener las máquinas virtuales clásicas."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
 # Solución Automatización de Azure - inicio y detención de máquinas virtuales
 
@@ -53,7 +53,7 @@ Los runbooks incluyen el texto de ayuda comentada que incluye una descripción y
 Los runbooks requieren los siguientes activos que se deben crear y rellenar con los valores adecuados.
 
 | Tipo de recurso | Nombre de recurso | Descripción |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | Credential: | AzureCredential | Contiene las credenciales para una cuenta que tiene autoridad para iniciar y detener las máquinas virtuales en la suscripción de Azure. Además, puede especificar otro activo de credenciales en el parámetro **Credential** de la actividad **Add-AzureAccount**. |
 | Variable | AzureSubscriptionId | Contiene el identificador de suscripción de su suscripción a Azure. |
 
@@ -64,7 +64,7 @@ Los runbooks requieren los siguientes activos que se deben crear y rellenar con 
 Los runbooks tienen los siguientes parámetros. Debe proporcionar valores para los parámetros obligatorios y opcionalmente puede proporcionar valores para otros parámetros dependiendo de sus requisitos.
 
 | Parámetro | Escriba | Obligatorio | Descripción |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | cadena | No | Si se proporciona un valor, todas las máquinas virtuales con ese nombre de servicio se inician o se detienen. Si no se proporciona un valor, todas las máquinas virtuales clásicas de la suscripción de Azure se inician o se detienen. |
 | AzureSubscriptionIdAssetName | cadena | No | Contiene el nombre del [activo de variables](#installing-the-solution) que contiene el identificador de suscripción de su suscripción de Azure. Si no se especifica un valor, se usa *AzureSubscriptionId*. |
 | AzureCredentialAssetName | cadena | No | Contiene el nombre del [activo de credenciales](#installing-the-solution) que contiene las credenciales que usará el runbook. Si no se especifica un valor, se usa *AzureCredential*. |
@@ -80,7 +80,7 @@ Los siguientes comandos de ejemplo usan Windows PowerShell para ejecutar **Start
 
 ### Salida
 
-Los runbooks le [enviarán un mensaje](automation-runbook-output-and-messages.md) para cada máquina virtual indicando si se ha enviado correctamente la instrucción de iniciar o detener. Puede buscar una cadena concreta en la salida para determinar el resultado de cada runbook. En la tabla siguiente se muestran las posibles cadenas de salida.
+Los runbooks le [enviarán un mensaje](automation-runbook-output-and-messages.md) para cada máquina virtual indicando si se ha enviado correctamente la instrucción de iniciar o detener. Puede buscar una cadena concreta en la salida para determinar el resultado para cada runbook. En la tabla siguiente se muestran las posibles cadenas de salida.
 
 | Runbook | Condición | Message |
 |:---|:---|:---|
@@ -193,4 +193,4 @@ Las líneas siguientes recorren cada máquina virtual. Primero se comprueba el *
 - [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md) 
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Introducción a la autenticación de Aplicaciones móviles en Xamarin iOS" 
 	description="Obtenga información acerca de cómo utilizar Aplicaciones móviles para autenticar usuarios de su aplicación Xamarin iOS a través de una variedad de proveedores de identidad, incluidos AAD, Google, Facebook, Twitter y Microsoft." 
-	services="app-service\mobile" 
+	services="app-service" 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="mobile" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -118,4 +118,4 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

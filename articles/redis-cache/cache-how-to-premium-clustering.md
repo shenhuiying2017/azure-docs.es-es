@@ -1,0 +1,123 @@
+<properties 
+	pageTitle="Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium" 
+	description="Obtener información sobre cómo crear y administrar la agrupación en clústeres de para sus instancias de Caché en Redis de Azure de nivel Premium" 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
+	ms.author="sdanie"/>
+
+# Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium
+Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluido el nuevo nivel Premium, actualmente en vista previa.
+
+El nivel premium de Caché en Redis de Azure incluye la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la agrupación en clústeres en una instancia de Caché en Redis de Azure premium.
+
+Para obtener información sobre otras características de caché premium, vea [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md) y [Cómo configurar la compatibilidad de redes virtuales para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
+
+>[AZURE.NOTE]Actualmente, el nivel Premium de Caché en Redis de Azure está en vista previa.
+
+## ¿Qué es Clúster Redis?
+Caché en Redis de Azure ofrece clúster de Redis como [implementado en Redis](http://redis.io/topics/cluster-tutorial). Con el Clúster de Redis, obtendrá las siguientes ventajas.
+
+-	La capacidad de dividir automáticamente el conjunto de datos entre varios nodos. 
+-	La capacidad de continuar las operaciones cuando un subconjunto de los nodos está teniendo errores o no se pueden comunicar con el resto del clúster. 
+-	Mayor rendimiento: el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones. 
+-	Mayor tamaño de memoria: aumenta de manera lineal a medida que aumenta el número de particiones.  
+
+Consulte las [P+F de Caché en Redis de Azure](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) para obtener más detalles sobre el tamaño, el rendimiento y el ancho de banda con las cachés premium.
+
+En Azure, el clúster de Redis se ofrece como un modelo de principal/réplica donde cada partición tiene un par de principal/réplica con la replicación donde la replicación se administra mediante el servicio de la Caché en Redis de Azure.
+
+## Agrupación en clústeres
+La agrupación en clústeres se configura en la hoja **Nueva caché en Redis** durante la creación de la memoria caché. Para crear una caché, inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y haga clic en **Nuevo**->**Datos y almacenamiento**>**Caché en Redis**.
+
+![Creación de una caché en Redis][redis-cache-new-cache-menu]
+
+Para configurar la agrupación en clústeres, seleccione primero una de las cachés **Premium** en la hoja **Elija su plan de tarifa**.
+
+![Elegir su plan de tarifa][redis-cache-premium-pricing-tier]
+
+La agrupación en clústeres se configura en la hoja **Clúster de Redis**.
+
+![Agrupación en clústeres][redis-cache-clustering]
+
+Puede tener hasta 10 particiones en el clúster. Haga clic en **Habilitado** y deslice el control deslizante o escriba un número comprendido entre 1 y 10 para **Número de particiones** y haga clic en **Aceptar**.
+
+Cada partición es un par de caché principal/réplica administrado por Azure y el tamaño total de la memoria caché se calcula multiplicando el número de particiones por el tamaño de la memoria caché seleccionado en el plan de tarifa.
+
+![Agrupación en clústeres][redis-cache-clustering-selected]
+
+Cuando se haya creado la memoria caché, conéctese a ella y úsela simplemente como una memoria caché no agrupada y Redis distribuirá los datos a través de las particiones de memoria caché.
+
+## P+F de agrupación en clústeres
+
+La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre la agrupación en clústeres de Caché en Redis de Azure.
+
+## ¿Cuál es el mayor tamaño de caché que puedo crear?
+
+El tamaño máximo de caché premium es 53 GB. Puede crear hasta 10 particiones con un tamaño máximo de 530 GB. Si necesita un tamaño mayor puede [solicitar más](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obtener más información, consulte [Precios de Caché en Redis de Azure](https://azure.microsoft.com/pricing/details/cache/).
+
+## Haga que todos los clientes de Redis admitan la agrupación en clústeres
+
+En este momento no todos los clientes admiten la agrupación en clústeres de Redis. StackExchange.Redis es uno de los que los admiten. Para obtener más información sobre otros clientes, consulte la sección [Jugar con el clúster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) del [Tutorial de clúster de Redis](http://redis.io/topics/cluster-tutorial).
+
+>[AZURE.NOTE]Si está usando StackExchange.Redis como su cliente, asegúrese de que está usando la versión más reciente de [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 o posterior para que la agrupación en clústeres funcione correctamente.
+
+## ¿Cómo me conecto a mi memoria caché cuando la agrupación en clústeres esté habilitada?
+
+Puede conectarse a su memoria caché con los mismos [extremos, puertos y claves](cache-configure.md#properties) que usa al conectarse a una memoria caché que no tenga la agrupación en clústeres habilitada. Redis administra la agrupación en clústeres en el back-end para que no tenga que administrarla desde el cliente.
+
+## ¿Puedo conectarme directamente a las particiones individuales de mi memoria caché?
+
+Esto no se admite oficialmente. Dicho esto, cada partición consta de un par de caché principal/réplica que se conoce colectivamente como una instancia de caché. Puede conectarse a estas instancias de caché mediante redis-cli.exe usando el siguiente patrón.
+
+Cuando no sea ssl, use los siguientes comandos:
+
+	Redis-cli.exe –h <<cachename>> -p 13000 (to connect to instance 0)
+	Redis-cli.exe –h <<cachename>> -p 13001 (to connect to instance 1)
+	Redis-cli.exe –h <<cachename>> -p 13002 (to connect to instance 2)
+	...
+	Redis-cli.exe –h <<cachename>> -p 1300N (to connect to instance N)
+
+Para ssl, reemplace `1300N` por `1500N`.
+
+## ¿Puedo configurar la agrupación en clústeres para una memoria caché creada anteriormente?
+
+Durante el período de vista previa solo puede habilitar y configurar la agrupación en clústeres cuando cree una memoria caché.
+
+## ¿Puedo configurar la agrupación en clústeres para una caché básica o estándar?
+
+La agrupación en clústeres solo está disponible para las memorias cachés premium.
+
+## Pasos siguientes
+
+Obtenga información sobre cómo usar más características de caché premium. - [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md) - [Cómo configurar la compatibilidad de redes virtuales para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
+  
+<!-- IMAGES -->
+
+[redis-cache-new-cache-menu]: ./media/cache-how-to-premium-clustering/redis-cache-new-cache-menu.png
+
+[redis-cache-premium-pricing-tier]: ./media/cache-how-to-premium-clustering/redis-cache-premium-pricing-tier.png
+
+[NewCacheMenu]: ./media/cache-how-to-premium-clustering/redis-cache-new-cache-menu.png
+
+[CacheCreate]: ./media/cache-how-to-premium-clustering/redis-cache-cache-create.png
+
+[redis-cache-premium-pricing-group]: ./media/cache-how-to-premium-clustering/redis-cache-premium-pricing-group.png
+
+[redis-cache-premium-features]: ./media/cache-how-to-premium-clustering/redis-cache-premium-features.png
+
+[redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
+
+[redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
+
+<!---HONumber=Oct15_HO1-->

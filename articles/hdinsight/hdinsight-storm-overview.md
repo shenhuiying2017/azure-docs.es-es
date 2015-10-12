@@ -34,6 +34,8 @@ Apache Storm en HDInsight es un clúster administrado integrado en el entorno de
 * Use el lenguaje que prefiera, ya que ofrece compatibilidad con los componentes de Storm escritos en **Java**, **C#**, y **Python**.
 
 	* Admite una variedad de lenguajes de programación: lea datos con Java y procéselos con C#.
+	
+		> [AZURE.NOTE]Solo se admiten topologías de C# en clústeres de HDInsight basados en Windows.
 
 	* Use la interfaz de Java **Trident** para crear topologías de Storm que admitan el procesamiento de mensajes "exactamente una vez", la persistencia del almacén de datos "transaccional" y un conjunto de operaciones comunes de análisis de flujos.
 
@@ -51,13 +53,17 @@ Para ver una introducción al uso de Storm, consulte [Introducción a Storm en H
 
 Puede aprovisionar un nuevo clúster de Storm en HDInsight en minutos. Especifique el nombre del clúster, su tamaño, la cuenta del administrador y la cuenta de almacenamiento. Azure creará el clúster, incluyendo las topologías de ejemplo y un panel de administración web.
 
-> [AZURE.NOTE]También puede aprovisionar clústeres de Storm mediante la [CLI de Azure](../xplat-cli.md) o [Azure PowerShell](../powershell-install-configure.md).
+> [AZURE.NOTE]También puede aprovisionar clústeres Storm mediante la [CLI de Azure](../xplat-cli-install.md) o [Azure PowerShell](../powershell-install-configure.md).
 
 En menos de 15 minutos tras el envío de la solicitud, dispondrá de un nuevo clúster de Storm en ejecución y listo para su primera canalización de análisis en tiempo real.
 
 ###Facilidad de uso
 
-Si usa Visual Studio, las herramientas de HDInsight para Visual Studio permiten crear topologías en C# e híbridas en C# y Java para, después, enviarlas al clúster de Storm en HDInsight.
+__En clústeres Storm basados en Linux en HDInsight__, puede conectarse al clúster mediante SSH y usar el comando `storm` para iniciar y administrar topologías. Además, puede usar Ambari para supervisar el servicio Storm y la interfaz de usuario de Storm para supervisar y administrar topologías en ejecución.
+
+Para obtener más información sobre cómo trabajar con clústeres Storm basados en Linux, vea [Introducción a Apache Storm en HDInsight basado en Linux](hdinsight-apache-storm-tutorial-get-started-linux.md).
+
+__Para clústeres Storm basados en Windows en HDInsight__, las herramientas de HDInsight para Visual Studio permiten crear topologías en C# e híbridas en C# y Java, y luego enviarlas al clúster Storm en HDInsight.
 
 ![Creación de un proyecto de Storm](./media/hdinsight-storm-overview/createproject.png)
 
@@ -75,7 +81,11 @@ Cada clúster de Storm en HDInsight también ofrece un panel de Storm basado en 
 
 Para obtener más información sobre el uso del panel Storm, consulte [Implementación y administración de topologías de Apache Storm en HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-Storm en HDInsight también proporciona una integración sencilla con los Centros de eventos de Azure a través del **Spout de Centro de eventos**. Está disponible en cada clúster de storm en **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Para ver ejemplos del uso de este spout en una topología de Storm, consulte [Introducción a los Centros de eventos](service-bus-event-hubs-c-storm-getstarted.MD) y [Análisis de datos de sensores con Storm y HBase](hdinsight-storm-sensor-data-analysis.MD).
+Storm en HDInsight también proporciona una integración sencilla con los Centros de eventos de Azure a través del **Spout de Centro de eventos**. Está disponible en cada clúster de storm en **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Para obtener ejemplos del uso de este spout en una topología de Storm, vea los siguientes documentos:
+
+* [Desarrollo de una topología de C# que usa Centros de eventos de Azure](hdinsight-storm-develop-csharp-event-hub-topology.md)
+
+* [Desarrollo de una topología de Java que usa Centros de eventos de Azure](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ###Confiabilidad
 
@@ -154,7 +164,9 @@ La mayoría de ejemplos de Java que encuentre serán de Java normal o Trident. T
 
 Para obtener más información sobre Trident, consulte el [Tutorial de Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) en apache.org.
 
-Para obtener ejemplos de topologías de Java y Trident sin procesar, consulte el directorio **%storm\_home%\\contrib\\storm-starter** en su clúster de Storm en HDInsight.
+Para obtener ejemplos de topologías de Java y Trident, vea la [lista de topologías de ejemplo de Storm](hdinsight-storm-example-topology.md) o los ejemplos de storm-starter en el clúster de HDInsight.
+
+Los ejemplos de storm-starter se encuentran en el directorio \_\_ /usr/hdp/current/storm-client/contrib/storm-starter\_\_ en clústeres basados en Linux, y en el directorio **%storm\_home%\\contrib\\storm-starter** en clústeres basados en Windows.
 
 ##¿Cuáles son algunos de los patrones de desarrollo comunes?
 
@@ -205,6 +217,6 @@ Obtenga más información sobre las soluciones de análisis en tiempo real con A
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
-[gettingstarted]: ../hdinsight-storm-getting-started.md
+[gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

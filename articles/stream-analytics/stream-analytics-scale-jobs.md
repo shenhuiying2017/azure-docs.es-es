@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Escalar los trabajos de Análisis de transmisiones para incrementar el rendimiento | Microsoft Azure"
 	description="Aprenda a escalar los trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo."
+	keywords="analytics jobs,data stream,data streaming"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/04/2015"
+	ms.date="09/29/2015"
 	ms.author="jeffstok"/>
 
 # Escalar los trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento #
@@ -153,6 +154,9 @@ Esta consulta se puede escalar hasta 24 unidades de streaming.
 
 ![Escala de las unidades de streaming de Análisis de transmisiones de Azure][img.stream.analytics.streaming.units.scale]
 
+En el Portal de vista previa de Azure, se puede acceder a la configuración Escala bajo Configuración:
+
+![Portal de vista previa de Azure - Configuración de trabajo de Análisis de transmisiones][img.stream.analytics.preview.portal.settings.scale]
 
 ## Supervisión del rendimiento del trabajo ##
 
@@ -228,7 +232,7 @@ A continuación se muestran los resultados por número creciente de unidades de 
 ![IMG.Stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Obtener ayuda ##
-Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes ##
@@ -246,6 +250,7 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
 <!--Link references-->
 
@@ -260,4 +265,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

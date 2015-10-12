@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Escalación de una aplicación web en el Servicio de aplicaciones de Azure" 
 	description="Aprenda a escalar vertical y horizontalmente una aplicación web en Servicios de aplicaciones de Azure, incluido el escalado automático." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -201,4 +201,4 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/29/2015"
 	ms.author="juliako"/>
 
 
-#Uso del SDK de .NET para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits (vista previa)
+#Uso del SDK de .NET para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -37,32 +37,27 @@ Este tutorial le guía por los pasos para crear un **canal** que reciba una secu
 Los pasos siguientes describen las tareas para crear aplicaciones comunes de streaming en vivo.
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
-	
-	Este paso también puede realizarse después de crear el canal.
+
+Este paso también puede realizarse después de crear el canal.
 
 1. Cree e inicie un canal.
 
 1. Recupere la URL de ingesta de canales.
 
-	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-1. Recupere la URL de vista previa de canal. 
+El codificador en directo usa la URL de ingesta para enviar la secuencia al canal. 1. Recupere la URL de vista previa de canal.
 
-	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
+Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en directo.
 
 2. Cree un recurso.
-3. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente: 	
-	
-	1. 	Cree una clave de contenido. 
-	1. 	Configure la directiva de autorización de claves de contenido.
+3. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente:
+
+1. 	Cree una clave de contenido.
+1. 	Configure la directiva de autorización de claves de contenido.
 1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
 3. Cree un programa y especifique que se use el recurso que ha creado.
-1. Publique el recurso asociado al programa mediante la creación de un localizador a petición.  
+1. Publique el recurso asociado al programa mediante la creación de un localizador a petición.
 
-	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
-1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
-2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
-1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el programa (y, opcionalmente, elimine el recurso).   
+Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido. 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo. 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida. 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento. 1. Elimine el programa (y, opcionalmente, elimine el recurso).
 
 ##En este tema
 
@@ -72,15 +67,15 @@ En el tema se muestra cómo:
 
 1. Crear e iniciar un canal. Se usan las API de ejecución prolongada.
 1. Obtener el extremo de ingesta (entrada) de los canales. Este extremo debe proporcionarse al codificador que puede enviar una secuencia en directo de una sola velocidad de bits.
-1. Obtener el extremo de vista previa. Este extremo se usa para obtener una vista previa de la secuencia. 
+1. Obtener el extremo de vista previa. Este extremo se usa para obtener una vista previa de la secuencia.
 1. Crear un recurso que se usará para almacenar el contenido. También deben configurarse las directivas de entrega de recursos, como se muestra en este ejemplo.
 1. Crear un programa y especificar que se use el recurso creado anteriormente. Iniciar el programa. Se usan las API de ejecución prolongada.
 1. Crear un localizador para el recurso, para que el contenido se publique y pueda transmitirse en vivo mediante streaming a los clientes.
 1. Mostrar y ocultar pizarras. Iniciar y detener anuncios. Se usan las API de ejecución prolongada.
 1. Limpiar el canal y todos los recursos asociados.
 
->[AZURE.NOTE]Aunque esta característica está en versión de vista previa, la duración máxima recomendada de un evento en directo es de ocho horas.
->
+>[AZURE.NOTE]La duración máxima recomendada de un evento en directo es de 8 horas. Póngase en contacto con amslived en Microsoft punto com si necesita ejecutar un canal durante largos períodos de tiempo.
+
 ##Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
 
@@ -90,7 +85,7 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 - Una cámara web y un codificador que puede enviar una secuencia en directo de una sola velocidad de bits.
 
 ##Configuración para el desarrollo con el SDK de Servicios multimedia para .NET
- 
+
 1. Cree una aplicación de consola mediante Visual Studio.
 1. Agregue el SDK de Servicios multimedia para .NET a la aplicación de consola mediante el paquete NuGet correspondiente.
 
@@ -98,17 +93,11 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 Se recomienda usar un archivo app.config para almacenar la clave de cuenta y nombre de Servicios multimedia.
 
 >[AZURE.NOTE]Para buscar los valores de nombre y clave, vaya al Portal de Azure, seleccione la cuenta de Servicios multimedia y haga clic en el icono “ADMINISTRAR CLAVES” en la parte inferior de la ventana del portal. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
- 
+
 Agregue la sección appSettings al archivo app.config y establezca los valores de nombre y clave de la cuenta de Servicios multimedia.
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 
@@ -508,4 +497,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso del servicio de correo electrónico SendGrid (PHP) | Microsoft Azure"
-	description="Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos en PHP."
-	documentationCenter="php"
-	services=""
-	manager="sendgrid"
-	editor="mollybos"
+	pageTitle="Uso del servicio de correo electrónico SendGrid (PHP) | Microsoft Azure" 
+	description="Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos en PHP." 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="10/30/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 # Uso del servicio de correo electrónico SendGrid desde PHP
 
@@ -390,6 +390,9 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
 -   Biblioteca de SendGrid PHP: <https://github.com/sendgrid/sendgrid-php>
 -   Oferta especial de SendGrid para clientes de Azure: <https://sendgrid.com/windowsazure.html>
 
+Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
+
+
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -401,4 +404,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Compositor]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

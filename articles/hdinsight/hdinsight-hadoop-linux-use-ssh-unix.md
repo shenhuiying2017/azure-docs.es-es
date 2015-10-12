@@ -35,7 +35,7 @@
 
 OR
 
-* [CLI de Azure para Mac, Linux y Windows](../xplat-cli.md).
+* [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md).
 
 ##¿Qué es SSH?
 
@@ -242,4 +242,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

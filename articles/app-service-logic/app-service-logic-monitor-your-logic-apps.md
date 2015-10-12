@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Supervisión de las aplicaciones lógicas" 
+	pageTitle="Supervisión de las aplicaciones de lógica | Microsoft Azure" 
 	description="Visualización de lo que han hecho las aplicaciones lógicas." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/29/2015"
 	ms.author="stepsic"/>
 
 #Supervisión de las aplicaciones lógicas
@@ -56,4 +56,4 @@ Tenga en cuenta que, para los desencadenadores de *inserción*, *no* verá las v
 Existe una capacidad adicional que actualmente no es posible en la interfaz de usuario (lo será pronto), pero que está disponible a través de la [API de REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). Al actualizar la definición de una aplicación lógica, se almacena la versión anterior de la definición. Esto se hace así porque si ya tiene una ejecución en curso, dicha ejecución hará referencia a la versión de la aplicación lógica que existía cuando se inició la ejecución. Las definiciones de las ejecuciones no se pueden cambiar mientras están en curso. El historial de versiones de la API de REST proporciona acceso a esta información.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

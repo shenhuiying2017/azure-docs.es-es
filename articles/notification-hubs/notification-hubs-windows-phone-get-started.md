@@ -83,7 +83,7 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
 2. En Visual Studio, haga clic con el botón derecho en la solución y, luego, haga clic en **Administrar paquetes de NuGet**.
 
-	Esto muestra el cuadro de diálogo **Administrar paquetes de NuGet**.
+	De este modo aparece el cuadro de diálogo **Administrar paquetes de NuGet**.
 
 3. Busque `WindowsAzure.Messaging.Managed`, haga clic en **Instalar** y acepte los términos de uso.
 
@@ -128,7 +128,7 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
 ##Envío de notificaciones desde su back-end
 
-Puede enviar notificaciones mediante Centros de notificaciones desde cualquier back-end a través de nuestra <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz REST</a>. En este tutorial enviará notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicios móviles de Azure integrado en Centros de notificaciones, consulte "Introducción a las notificaciones push en Servicios móviles" ([back-end .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [back-end JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte "Uso de Centros de notificaciones desde Java o PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+Puede enviar notificaciones mediante Centros de notificaciones desde cualquier back-end a través de nuestra <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz de REST</a>. En este tutorial enviará notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Servicios móviles de Azure integrado en Centros de notificaciones, consulte "Introducción a las notificaciones push en Servicios móviles" ([back-end de .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [back-end de JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte "Uso de Centros de notificaciones desde Java o PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
 1. Haga clic con el botón derecho en la solución, seleccione **Agregar** y **Nuevo proyecto...**, luego, en **Visual C#** haga clic en **Windows**, **Aplicación de consola** y en **Aceptar**.
 
@@ -144,7 +144,7 @@ Puede enviar notificaciones mediante Centros de notificaciones desde cualquier b
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	Se agrega una referencia al SDK de Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete de NuGet Microsoft.Azure.Notification Hubs</a>.
+	Esto agrega una referencia al SDK de los Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete de NuGet de concentradores Microsoft.Azure.Notification</a>.
 
 6. Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
@@ -209,11 +209,11 @@ En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos W
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Portal de Azure]: https://manage.windowsazure.com/
 [Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
-[modo sin autenticar de MPNS]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-windows-phone-send-breaking-news.md
 [catálogo de notificaciones del sistema]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [catálogo de iconos]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

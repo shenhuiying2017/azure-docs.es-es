@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 #Inserción enriquecida de los Centros de notificaciones de Azure
@@ -381,4 +381,4 @@ Ahora que ha modificado el back-end de la aplicación para enviar solo el *id* d
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

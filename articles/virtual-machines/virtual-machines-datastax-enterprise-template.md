@@ -5,7 +5,9 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
+	editor="tysonn"/>
+<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+<tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
@@ -20,7 +22,7 @@ DataStax es un reconocido líder del sector en el desarrollo y la entrega de sol
 
 >[AZURE.NOTE]A diferencia de la versión Community, para implementar DataStax Enterprise, deberá tener una cuenta de DataStax válida (nombre de usuario y contraseña) para pasarla como parámetros durante la implementación de la plantilla. Visite el sitio web de [DataStax](http://www.datastax.com) para configurar la cuenta si todavía no tiene una.
 
-Ahora, además de lo que ya está disponible en Azure Marketplace, puede implementar fácilmente un nuevo clúster de DataStax Enterprise en máquinas virtuales de Ubuntu con una plantilla del Administrador de recursos mediante [Azure PowerShell](../powershell-install-configure.md) o [CLI de Azure](../xplat-cli.md).
+Ahora, además de lo que ya está disponible en Azure Marketplace, puede implementar fácilmente un nuevo clúster de DataStax Enterprise en máquinas virtuales de Ubuntu con una plantilla del Administrador de recursos mediante [Azure PowerShell](../powershell-install-configure.md) o [CLI de Azure](../xplat-cli-install.md).
 
 Los clústeres recién implementados basados en esta plantilla tendrán la topología descrita en el siguiente diagrama, aunque se pueden lograr fácilmente otras topologías personalizando la plantilla presentada en este artículo.
 
@@ -456,7 +458,7 @@ Se da formato a los discos conectados como parte de las actividades de preparaci
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh forma parte de la carpeta shared\_scripts\\ubuntu, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
+vm-disk-utils-0.1.sh forma parte de la carpeta shared_scripts\ubuntu, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
 
 Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de CustomScriptForLinux. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster (y la instancia OpsCenter). Aprovechan el mismo mecanismo de bucle de recursos descrito para las máquinas virtuales.
 
@@ -498,4 +500,4 @@ Este enfoque sugiere:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

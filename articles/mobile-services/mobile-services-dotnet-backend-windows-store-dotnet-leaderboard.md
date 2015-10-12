@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de una aplicación de marcador de Tienda Windows con el back-end .NET | Microsoft Azure" 
+	pageTitle="Creación de una aplicación de marcador de Tienda Windows con el backend .NET | Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo crear una aplicación de marcador de Tienda Windows mediante los Servicios móviles de Azure con un backend. NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/24/2015" 
 	ms.author="glenga"/>
 
 # Creación de una aplicación de marcador con el backend .NET de Servicios móviles de Azure
@@ -589,7 +589,7 @@ Finalmente, agregue métodos que llamen a la capa de servicio.
 
 ## Incorporación de una instancia de MobileServiceClient
 
-Abra el archivo \*App.xaml.cs\* y agregue una instancia de **MobileServiceClient** a la clase `App`.
+Abra el archivo *App.xaml.cs* y agregue una instancia de **MobileServiceClient** a la clase `App`.
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
@@ -763,4 +763,4 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

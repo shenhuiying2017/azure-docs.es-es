@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Habilitar HTTPS para una aplicación web en el servicio de aplicaciones de Azure" 
 	description="Obtenga información sobre cómo habilitar SSL con un servicio de aplicaciones de Azure." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -24,4 +24,4 @@
 [AZURE.INCLUDE [configure-ssl-web-site](../../includes/configure-ssl-web-site.md)]
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

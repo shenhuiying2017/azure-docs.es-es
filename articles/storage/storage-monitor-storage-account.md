@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/27/2015"
 	ms.author="tamram"/>
 
 # Supervisión de una cuenta de almacenamiento en el Portal de Azure
@@ -24,14 +24,14 @@ Puede supervisar su cuenta de almacenamiento en el Portal de Azure. Al configura
 
 > [AZURE.NOTE]Existen costes adicionales asociados con el análisis de los datos de supervisión en el Portal de Azure. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Facturación y análisis de almacenamiento</a>. <br />
 
-> El servicio de archivos de Azure actualmente no admite el análisis de almacenamiento.
+> Almacenamiento de archivos de Azure admite actualmente las métricas del Análisis de almacenamiento, pero aún no admite el registro. Puede habilitar las métricas para el Almacenamiento de archivos de Azure a través del [Portal de vista previa de Azure](https://ms.portal.azure.com).
 
 > Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con el Almacenamiento de Azure, consulte [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/).
 
 
 ## Procedimientos: Configuración de la supervisión para una cuenta de almacenamiento
 
-1. En el [Portal de Azure](https://manage.windowsazure.com/), haga clic en **Almacenamiento** y, luego, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1. En el [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2. Haga clic en **Configurar** y desplácese hacia abajo hasta la configuración de **supervisión** para los servicios Blob, Tabla y Cola.
 
@@ -157,4 +157,4 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

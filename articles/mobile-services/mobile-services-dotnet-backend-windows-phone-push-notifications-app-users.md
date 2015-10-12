@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
@@ -60,4 +60,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

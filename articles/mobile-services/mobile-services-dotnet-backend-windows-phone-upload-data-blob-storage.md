@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
@@ -78,4 +78,4 @@ Para poder utilizar una SAS para cargar imágenes de su aplicación en el almace
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [SDK de Windows Phone 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

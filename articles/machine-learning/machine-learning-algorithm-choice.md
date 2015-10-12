@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/10/2015"
+	ms.date="09/28/2015"
 	ms.author="brohrer;garye" />
 
 # Cómo elegir algoritmos para Aprendizaje automático de Microsoft Azure
@@ -35,7 +35,7 @@ Estas recomendaciones son una recopilación de los comentarios y las sugerencias
 
 Lea las etiquetas de ruta de acceso y algoritmo del gráfico con el siguiente formato: "Para *&lt;etiqueta de ruta de acceso&gt;*, use *&lt;algoritmo&gt;*". Por ejemplo, "Para *velocidad*, use la *regresión logística de dos clases*". Ciertas veces, se aplicará más de una rama. Otras, ninguna de ellas será la ideal. Tienen la finalidad de ser recomendaciones generales, así que no se preocupe si no son exactas. Varios de los científicos de datos con los que hablé dijeron que la única forma de encontrar el mejor algoritmo es probarlos todos.
 
-Este es un ejemplo de la [Galería de Aprendizaje automático de Azure](http://gallery.azureml.net/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+Este es un ejemplo de la [Galería de análisis de Cortana](http://gallery.azureml.net/) de un experimento en el que se prueban varios algoritmos con los mismos datos y se comparan los resultados: [Comparación de clasificadores multiclase: reconocimiento de letras](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
 ## Variantes del aprendizaje automático
 
@@ -112,7 +112,7 @@ Algunos algoritmos de aprendizaje hacen determinadas suposiciones sobre la estru
 |[máquina de vectores de soporte localmente profunda](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Útil para conjuntos de características de gran tamaño|
 |[máquina del punto de Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**Clasificación multiclase**| | | | | |
-|[regresión logística](https://msdn.microsoft.com/es-es/library/azure/dn905853.aspx)| |●|●|5| |
+|[regresión logística](https://msdn.microsoft.com/es-ES/library/azure/dn905853.aspx)| |●|●|5| |
 |[bosque de decisión](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[selva de decisión](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Uso de memoria bajo|
 |[red neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[La personalización adicional es posible](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -222,4 +222,4 @@ Aprendizaje automático de Azure también incluye acceso a un marco de aprendiza
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

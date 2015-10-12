@@ -148,9 +148,11 @@ Asegúrese de que el proceso de compilación genera `buildinfo.config`. En su ar
 Cuando tenga la información de la versión, el módulo web de Application Insights agrega automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Eso le permite filtrar por versión al realizar [búsquedas de diagnósticos][diagnostic] o al [explorar métricas][metrics].
 
 
-## 5\. Adición de contadores de rendimiento y seguimiento de dependencia
+## 5\. Agregar seguimiento de dependencias (y contadores de rendimiento de IIS)
 
 El SDK necesita un poco de ayuda para obtener acceso a algunos datos. En concreto, este paso adicional será necesario para medir automáticamente las llamadas de la aplicación a las bases de datos, las API de REST y otros componentes externos. Estas métricas de dependencia pueden ser inestimables para ayudar a diagnosticar problemas de rendimiento.
+
+Si realiza la ejecución en su propio servidor IIS, este paso también permitirá que los contadores de rendimiento del sistema se muestren en el [Explorador de métricas](app-insights-metrics-explorer.md).
 
 #### Si la aplicación se ejecuta en su servidor IIS
 
@@ -158,7 +160,7 @@ Inicie sesión en el servidor con derechos de administrador e instale [Monitor d
 
 Puede que tenga que [abrir otros puertos de salida en el firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
-Este paso también permite [generar informes de contadores de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters) como ocupación de red, de memoria o de CPU.
+Este paso también permite [generar informes de contadores de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters) como ocupación de red, memoria o CPU.
 
 #### Si la aplicación es una aplicación web de Azure
 
@@ -166,11 +168,10 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 ![En la aplicación web, Configuración, Extensiones, Agregar, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(La extensión solo ayuda a una aplicación compilada con el SDK. A diferencia del Monitor de estado, no puede instrumentar una aplicación existente).
 
 #### Si se trata de un proyecto de servicios en la nube de Azure
 
-[Adición de secuencias de comandos a roles web y de trabajo](app-insights-cloudservices.md)
+[Agregar scripts a roles web y de trabajo](app-insights-cloudservices.md)
 
 
 
@@ -224,7 +225,7 @@ Si el proyecto tiene páginas web, también agrega el [SDK de JavaScript][client
 
 #### ....o si se trata de un proyecto existente
 
-Haga clic con el botón secundario en el Explorador de soluciones y seleccione **Agregar Application Insights**.
+Haga clic con el botón derecho en el Explorador de soluciones y elija **Agregar Application Insights**.
 
 ![Elija Agregar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -234,7 +235,7 @@ En este caso, no se agrega el [SDK de JavaScript][client] a las páginas web: le
 
 #### Opciones de configuración
 
-La primera vez deberá iniciar sesión o registrarse en Microsoft Azure en vista previa. (Al margen de la cuenta de Visual Studio Online).
+La primera vez deberá iniciar sesión o registrarse en Microsoft Azure en vista previa.
 
 Si esta aplicación forma parte de una aplicación mayor, es posible que quiera usar **Configurar valor** para colocarla en el mismo grupo de recursos que los demás componentes.
 
@@ -272,4 +273,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

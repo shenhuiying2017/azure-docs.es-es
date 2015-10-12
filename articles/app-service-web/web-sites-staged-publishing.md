@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure"
 	description="Aprenda a utilizar la publicación de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="cephalin"/>
 
 # Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure
@@ -127,6 +127,11 @@ Es fácil configurar el intercambio automático para un espacio. Siga estos paso
 
 3. Ejecute una inserción de código para este espacio de implementación. El intercambio automático se realizará después de un breve tiempo y la actualización se reflejará en la dirección URL del espacio de destino.
 
+<a name="Multi-Phase"></a>
+## Uso del intercambio de varias fase para la aplicación web ##
+
+El intercambio de varias fase está disponible para simplificar la validación en el contexto de elementos de configuración diseñados para ajustarse a una ranura como cadenas de conexión. En estos casos puede ser útil aplicar tales elementos de configuración desde el destino de intercambio al origen de intercambio y validar antes de que el intercambio realmente surta efecto. Una vez que los elementos de configuración del destino de intercambio se aplican al origen de intercambio las acciones disponibles completan el intercambio o se revierten a la configuración original del origen de intercambio, lo que también tiene el efecto de cancelar el intercambio. En los cmdlets de Azure PowerShell se incluyen ejemplos para los cmdlets de Azure PowerShell disponibles para el intercambio de varias fases se incluyen para la sección de ranuras de implementación.
+
 <a name="Rollback"></a>
 ## Para revertir una aplicación de producción después de un intercambio ##
 Si se identifican errores en producción después del intercambio de espacios, revierta los espacios a sus estados anteriores. Para ello, intercambie los mismos dos espacios inmediatamente.
@@ -147,49 +152,43 @@ PowerShell de Azure es un módulo que proporciona cmdlets para administrar Azure
 
 - Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).  
 
-- Para mostrar los cmdlets disponibles para el Servicio de aplicaciones de Azure en la xplat-cli, llame a `help AzureWebsite`.
+- Para poder utilizar el nuevo modo del Administrador de recursos de Azure para cmdlets de PowerShell, empiece con lo siguiente: `Switch-AzureMode -Name AzureResourceManager`.
 
 ----------
 
-### Get-AzureWebsite
-El cmdlet **Get-AzureWebsite** presenta información acerca de las aplicaciones web de Azure para la suscripción actual, como en el ejemplo siguiente.
+### Crear una aplicación web
 
-`Get-AzureWebsite webappslotstest`
-
-----------
-
-### New-AzureWebsite
-Puede crear una ranura de implementación mediante el cmdlet **New-AzureWebsite** y especificando los nombres de la aplicación web y la ranura. Indique también la misma región que la aplicación web para la creación del espacio de implementación, como en el ejemplo siguiente.
-
-`New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Publish-AzureWebsiteProject
-Puede usar el cmdlet **Publish-AzureWebsiteProject** para la implementación del contenido, como en el ejemplo siguiente.
+### Creación de una ranura de implementación para una aplicación web
 
-`Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip`
-
-----------
-
-### Show-AzureWebsite
-Después de aplicar las actualizaciones del contenido y de la configuración a la nueva ranura, puede validar las actualizaciones examinando la ranura mediante el cmdlet **Show-AzureWebsite**, como en el ejemplo siguiente.
-
-`Show-AzureWebsite -Name webappslotstest -Slot staging`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Switch-AzureWebsiteSlot
-El cmdlet **Switch-AzureWebsiteSlot** puede realizar una operación de intercambio para que la ranura de implementación actualizada se convierta en el sitio de producción, como en el ejemplo siguiente. La aplicación de producción no experimentará tiempos de inactividad ni arranques en frío.
+### Inicio del intercambio de varias fases y aplicación de la configuración de la ranura de destino a ranura de origen
 
-`Switch-AzureWebsiteSlot -Name webappslotstest`
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
 
 ----------
 
-### Remove-AzureWebsite
-Si ya no necesita una ranura de implementación, se puede eliminar usando el cmdlet **Remove-AzureWebsite**, como en el ejemplo siguiente.
+### Reversión de la primera fase de intercambio de varias fase y restauración de la configuración de la ranura de origen
 
-`Remove-AzureWebsite -Name webappslotstest -Slot staging`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+
+----------
+
+### Intercambio de ranuras de implementación
+
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+
+----------
+
+### Eliminación de una ranura de implementación
+
+`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
 
 ----------
 
@@ -200,7 +199,7 @@ Si ya no necesita una ranura de implementación, se puede eliminar usando el cmd
 
 La CLI de Azure proporciona comandos de varias plataformas para trabajar con Azure, incluida la compatibilidad para administrar ranuras de implementación en Aplicaciones web.
 
-- Para obtener instrucciones acerca de cómo instalar y configurar la CLI de Azure, incluyendo la información acerca de cómo conectar la CLI de Azure a su suscripción de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli.md).
+- Para obtener instrucciones acerca de cómo instalar y configurar la CLI de Azure, incluyendo la información acerca de cómo conectar la CLI de Azure a su suscripción de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md).
 
 -  Para mostrar los comandos disponibles para el Servicio de aplicaciones de Azure en la CLI de Azure, llame a `azure site -h`.
 
@@ -261,4 +260,4 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

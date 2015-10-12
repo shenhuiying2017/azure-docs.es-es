@@ -128,23 +128,19 @@ Cada nodo principal puede tener entradas de registro único, por lo que debe com
 
 ###Ambari
 
-> [AZURE.NOTE]Para acceder a los archivos de registro a través de Ambari se requiere un túnel SSH, ya que los sitios web de los servicios individuales no se exponen públicamente en Internet. Para obtener información sobre el uso de un túnel SSL, consulte uno de los siguientes elementos:
->
-> * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
->
-> * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+> [AZURE.NOTE]Para acceder a los archivos de registro a través de Ambari se requiere un túnel SSH, ya que los sitios web de los servicios individuales no se exponen públicamente en Internet. Para obtener información sobre cómo usar un túnel SSH, vea [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-En la interfaz de usuario de la web Ambari, seleccione el servicio cuyos registros desea ver (por ejemplo, YARN) y, a continuación, use **Vínculos rápidos** para seleccionar de qué nodo principal desea ver los registros.
+En la interfaz de usuario web de Ambari, seleccione el servicio cuyos registros quiere ver (por ejemplo, YARN) y luego use **Vínculos rápidos** para seleccionar el nodo principal en el que quiere ver los registros.
 
 ![Uso de vínculos rápidos para ver los registros](./media/hdinsight-high-availability-linux/viewlogs.png)
 
 ## Configuración del tamaño del nodo principal ##
 
-El tamaño del nodo principal solo se puede seleccionar durante la creación del clúster. El tamaño predeterminado para los nodos principal es **A3**, lo cual proporciona 4 núcleos, 7 GB de memoria y 285 GB de almacenamiento local. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight, incluido el principal, memoria y almacenamiento local para cada uno, en la [página de precios de HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
+El tamaño del nodo principal solo se puede seleccionar durante la creación del clúster. El tamaño predeterminado para los nodos principales es **A3**, que proporciona 4 núcleos, 7 gigabytes de memoria y 285 gigabytes de almacenamiento local. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight, incluido el núcleo, la memoria y el almacenamiento local para cada uno, en la [página de precios de HDInsight](http://azure.microsoft.com/pricing/details/hdinsight/).
 
-Al crear un nuevo clúster, puede especificar el tamaño de los nodos. Los siguientes elementos proporcionan información sobre cómo especificar el tamaño mediante el [Portal de vista previa de Azure][preview-portal], [Azure PowerShell][azure-powershell] y la [CLI de Azure][azure-cli]\:
+Al crear un nuevo clúster, puede especificar el tamaño de los nodos. A continuación se ofrece información sobre cómo especificar el tamaño mediante el [Portal de vista previa de Azure][preview-portal], [Azure PowerShell][azure-powershell] y la [CLI de Azure][azure-cli]\:
 
-* **Portal de vista previa de Azure**: al crear un nuevo clúster, tiene la opción de establecer el tamaño (nivel de precios) de los nodos principal y de datos (trabajo) del clúster:
+* **Portal de vista previa de Azure**: al crear un clúster, tiene la opción de establecer el tamaño (nivel de precios) de los nodos principal y de datos (trabajo) del clúster:
 
 	![Imagen del asistente para creación de clústeres con selección del tamaño del nodo](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -158,7 +154,7 @@ En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponi
 
 - [Referencia de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli.md)
+- [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md)
 
 - [Instale y configure Azure PowerShell.](../powershell-install-configure.md)
 
@@ -168,6 +164,6 @@ En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponi
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
-[azure-cli]: ../xplat-cli.md
+[azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

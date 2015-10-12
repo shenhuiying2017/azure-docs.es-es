@@ -13,18 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Personalización del indexador de Búsqueda de Azure#
+#Personalización del indexador de Búsqueda de Azure
 
-En este artículo aprenderá a usar los indexadores de Búsqueda de Azure para implementar estos escenarios:
-
-- Cambio del nombre de campos entre un origen de datos y un índice de destino 
-- Transformación de cadenas desde una tabla de base de datos en colecciones de cadenas
-- Cambio de la directiva de detección de cambios en un origen de datos 
-- Codificación como dirección URL de claves de documento que contienen caracteres no seguros para dirección URL 
-- Tolerancia de errores para indexar algunos documentos 
+La configuración de un indexador en Búsqueda de Azure le permite cambiar el nombre de los campos entre un origen de datos y un índice de destino, transformar cadenas a partir de una tabla de base de datos en colecciones de cadenas, cambiar la directiva de detección de cambios en un origen de datos, codificar como dirección URL claves de documento que contienen caracteres no seguros para direcciones URL y tolerar errores para indexar algunos documentos.
 
 Si no está familiarizado con los indexadores de Búsqueda de Azure, es posible que desee revisar primero los siguientes artículos:
 
@@ -123,4 +117,4 @@ Incluso si intenta tolerar algunos errores, la [API de obtención del estado de 
 Eso es todo por ahora. Si tiene ideas o sugerencias para futuras ideas de contenido, envíenos un mensaje de Twitter con el hashtag #AzureSearch o envíe sus ideas a nuestra [página de UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

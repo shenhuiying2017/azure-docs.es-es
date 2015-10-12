@@ -105,7 +105,9 @@ Para obtener más información acerca del uso de Azure PowerShell, consulte [Có
 
 La interfaz de la línea de comandos de Azure es un conjunto de herramientas que sirve para implementar y administrar servicios de Azure, como Sitios web Azure y Red virtual de Azure. Para obtener información acerca de cómo instalar la CLI de Azure, consulte [Instalar la CLI de Azure](xplat-cli-install.md).
 
+## Pasos siguientes
 
+Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).
 
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -128,4 +130,4 @@ La interfaz de la línea de comandos de Azure es un conjunto de herramientas que
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -120,11 +120,11 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [léame de IISNode]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
 [Uso de módulos Node.js con aplicaciones de Azure]: ../nodejs-use-node-modules-azure-apps.md
 [Especificación de una versión de Node.js en una aplicación de Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

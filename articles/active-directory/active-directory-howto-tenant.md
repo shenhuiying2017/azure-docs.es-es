@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Obtención de un inquilino de Azure Active Directory
@@ -65,4 +65,4 @@ Si todo lo anterior es un galimatías para usted, no se preocupe. Simplemente vi
 
 Como parte del proceso de registro en Azure, se le solicitará que proporcione la información de tarjeta de crédito. Puede continuar con confianza: no se le cobrará por publicar aplicaciones en Azure AD o crear nuevos inquilinos.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/28/2015"
 	ms.author="jgao"/>
 
 
@@ -62,7 +62,7 @@ Microsoft proporciona las utilidades siguientes para trabajar con el almacenamie
 
 La CLI de Azure es una herramienta multiplataforma que le permite administrar los servicios de Azure. Para cargar datos en el almacenamiento de blobs de Azure, siga estos pasos:
 
-1. [Instalación y configuración de la CLI de Azure para Mac, Linux y Windows](../xplat-cli.md).
+1. [Instalación y configuración de la CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md).
 
 2. Abra un símbolo del sistema, bash u otro shell y use lo siguiente para autenticarse en su suscripción de Azure.
 
@@ -178,7 +178,7 @@ También hay varias aplicaciones que proporcionan una interfaz gráfica para tra
 
 | Cliente | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Explorador de almacenamiento de Azure](http://azurestorageexplorer.codeplex.com/) | | | ✔ |
+| [Explorador de almacenamiento de Azure](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
@@ -187,33 +187,31 @@ También hay varias aplicaciones que proporcionan una interfaz gráfica para tra
 
 ###<a id="storageexplorer"></a>Explorador de almacenamiento de Azure
 
-El *Explorador de almacenamiento de Azure* es una herramienta útil para inspeccionar y modificar los datos del almacenamiento de Azure. Se trata de una herramienta gratuita que se puede descargar de CodePlex: [Explorador de almacenamiento de Azure](http://azurestorageexplorer.codeplex.com/ "Explorador de almacenamiento de Azure").
+El *Explorador de almacenamiento de Azure* es una práctica herramienta para inspeccionar y modificar los datos de blobs. Se trata de una herramienta gratuita que se puede descargar de [http://storageexplorer.com/](http://storageexplorer.com/). El código fuente también está disponible en este vínculo.
 
 Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de almacenamiento de Azure. Para ver instrucciones sobre cómo obtener esta información, consulte la sección "Visualización, copia y regeneración de claves de acceso de almacenamiento" de [Creación, administración o eliminación de una cuenta de almacenamiento][azure-create-storage-account].
 
-1. Ejecute el explorador de almacenamiento de Azure.
+1. Ejecute el explorador de almacenamiento de Azure. Si es la primera vez que ejecuta el Explorador de almacenamiento, se le pedirá el ___Nombre de la cuenta de almacenamiento__ y la __Clave de cuenta de almacenamiento__. Si ya lo ejecutó antes, use el botón __Agregar__ para agregar un nombre y una clave de cuenta de almacenamiento nuevos.
+
+    Escriba el nombre y la clave para la cuenta de almacenamiento que usa el clúster de HDinsight y seleccione __GUARDAR Y ABRIR__.
 
 	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 
-2. Haga clic en **Agregar cuenta**. Una vez que agregue la cuenta al explorador de almacenamiento de Azure, no tendrá que volver a realizar este paso.
+5. En la lista de contenedores de la izquierda de la interfaz, haga clic en el nombre del contenedor que esté asociado al clúster de HDInsight. De forma predeterminada, es el nombre del clúster de HDInsight, pero puede ser diferente si especificó un nombre concreto al crear el clúster.
 
-	![HDI.ASEAddAccount][image-ase-addaccount]
+6. En la barra de herramientas, seleccione el icono de carga.
 
-3. Escriba el **nombre de la cuenta de almacenamiento** y la **clave de la cuenta de almacenamiento** y, después, haga clic en **Agregar cuenta de almacenamiento**. Puede agregar varias cuentas de almacenamiento y cada una de ellas aparecerá en una pestaña.
+    ![Barra de herramientas con el icono de carga resaltado](./media/hdinsight-upload-data/toolbar.png)
 
-4. En **Tipo de almacenamiento**, haga clic en **Blobs**.
+7. Especifique el archivo que quiere cargar y haga clic en **Abrir**. Cuando se le pida, seleccione __Cargar__ para cargar el archivo en la raíz del contenedor de almacenamiento. Si quiere cargar el archivo en una ruta de acceso específica, escriba la ruta de acceso en el campo __Destino__ y seleccione __Cargar__.
 
-	![HDI.ASEBlob][image-ase-blob]
-
-5. En **Contenedor**, haga clic en el nombre del contenedor que esté asociado a su clúster de HDInsight. Cuando cree un clúster de HDInsight, debe especificar un contenedor. Si no, el proceso de creación del clúster creará uno automáticamente.
-
-6. En **Blob**, haga clic en **Cargar**.
-
-7. Especifique el archivo que quiere cargar y haga clic en **Abrir**.
+    ![Cuadro de diálogo de carga de archivos](./media/hdinsight-upload-data/fileupload.png)
+    
+    Cuando termine de cargar el archivo, puede usarlo desde trabajos en el clúster de HDInsight.
 
 ##Montar el almacenamiento de blobs de Azure como unidad local
 
-Vea [Montar el almacenamiento de blobs de Azure como unidad local](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Vea [Montaje del almacenamiento de blobs de Azure como unidad local](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ##Servicios
 
@@ -280,11 +278,11 @@ Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguie
 
 [Powershell-install-configure]: ../powershell-install-configure.md
 
-[azurecli]: ../xplat-cli.md
+[azurecli]: ../xplat-cli-install.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

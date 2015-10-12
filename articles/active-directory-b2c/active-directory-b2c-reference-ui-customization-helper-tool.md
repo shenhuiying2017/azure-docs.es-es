@@ -22,9 +22,9 @@ Este artículo es un complemento del [artículo principal sobre personalización
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Obtención de un directorio B2C
+## Obtener un inquilino B2C
 
-Antes de personalizar nada, deberá [obtener un directorio de Azure AD B2C](active-directory-b2c-get-started.md) si todavía no tiene uno.
+Antes de personalizar nada, deberá [obtener un inquilino de Azure AD B2C](active-directory-b2c-get-started.md) si todavía no tiene uno.
 
 ## Creación de una directiva de registro
 
@@ -32,23 +32,23 @@ El contenido de ejemplo que hemos proporcionado personaliza dos páginas de una 
 
 ## Registro de una aplicación
 
-Deberá [registrar la aplicación](active-directory-b2c-app-registration.md) en el directorio B2C que puede usarse para ejecutar la directiva. Después de registrar la aplicación, tiene algunas opciones que puede usar para ejecutar la directiva de registro:
+Deberá [registrar la aplicación](active-directory-b2c-app-registration.md) en el inquilino B2C que puede usarse para ejecutar la directiva. Después de registrar la aplicación, tiene algunas opciones que puede usar para ejecutar la directiva de registro:
 
 - Compilar una de las aplicaciones de inicio rápido de Azure AD B2C que aparecen [aquí](active-directory-b2c-overview.md#getting-started).
-- Usar la aplicación de [área de juegos de Azure AD B2C](https://aadb2cplayground.azurewebsites.net) previamente compilada. Si decide usar el área de juegos, debe registrar una aplicación en el directorio B2C mediante el **URI de redirección** `https://aadb2cplayground.azurewebsites.net/`
+- Usar la aplicación de [área de juegos de Azure AD B2C](https://aadb2cplayground.azurewebsites.net) previamente compilada. Si decide usar el área de juegos, debe registrar una aplicación en el inquilino B2C mediante el **URI de redirección** `https://aadb2cplayground.azurewebsites.net/`
 - Use el botón **Ejecutar ahora** en la directiva en el [Portal de vista previa de Azure](https://portal.azure.com).
 
 ## Personalización de la directiva
 
 Para personalizar la apariencia y comportamiento de las directivas, debe crear primero los archivos HTML y CSS usando las convenciones específicas de Azure AD B2C. Luego, puede cargar su contenido estático en una ubicación disponible públicamente para que Azure AD B2C pueda tener acceso a él. Esta ubicación podría ser su propio servidor web dedicado, el almacenamiento de blobs de Azure, la red CDN de Azure o cualquier otro proveedor de hospedaje de recursos estáticos. Los únicos requisitos son que el contenido esté disponible a través de HTTPS y se pueda tener acceso a él mediante CORS. Una vez que se ha expuesto el contenido estático en la web, puede editar la directiva para que señale a esta ubicación y presentar ese contenido a los usuarios finales. El [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md) describe de forma detallada cómo funciona la característica de personalización de Azure AD B2C.
 
-Para los fines de este tutorial, ya hemos creado algún contenido de ejemplo y lo hemos hospedado en el almacenamiento de blobs de Azure. El contenido de ejemplo es una personalización muy básica del tema de nuestra empresa artificial, "Fabrikam B2C". Para probarlo en su propia directiva, siga estos pasos:
+Para los fines de este tutorial, ya hemos creado algún contenido de ejemplo y lo hemos hospedado en el almacenamiento de blobs de Azure. El contenido de ejemplo es una personalización muy básica del tema de nuestra empresa artificial, "Contoso B2C". Para probarlo en su propia directiva, siga estos pasos:
 
-1. Inicie sesión en el directorio en el [Portal de vista previa de Azure](https://portal.azure.com) y vaya hasta la hoja de características B2C.
+1. Inicie sesión en el inquilino en el [Portal de vista previa de Azure](https://portal.azure.com) y vaya hasta la hoja de características B2C.
 2. Haga clic en **Directivas de registro** y, luego, en la directiva de registro (por ejemplo, "b2c\_1\_sign\_up").
 3. Haga clic en **Personalización de la interfaz de usuario de página** y, luego, en **Página de selección de proveedor de identidades**.
-4. Alterne el conmutador **Usar plantilla personalizada** a **Sí**. En el campo **URI de página personalizada** escriba `https://fabrikamb2c.blob.core.windows.net/aadb2cplayground/Index.html`. Haga clic en **OK**.
-5. Haga clic en **Página de suscripción de cuenta local**. Alterne el conmutador **Usar plantilla personalizada** a **Sí**. En el campo **URI de página personalizada**, escriba `https://fabrikamb2c.blob.core.windows.net/aadb2cplayground/EmailVerification.html`. Haga clic en **Aceptar** dos veces para cerrar las hojas de personalización de la interfaz de usuario.
+4. Alterne el conmutador **Usar plantilla personalizada** a **Sí**. En el campo **URI de página personalizada**, escriba `https://contosob2c.blob.core.windows.net/static/Index.html`. Haga clic en **OK**.
+5. Haga clic en **Página de suscripción de cuenta local**. Alterne el conmutador **Usar plantilla personalizada** a **Sí**. En el campo **URI de página personalizada**, escriba `https://contosob2c.blob.core.windows.net/static/EmailVerification.html`. Haga clic en **Aceptar** dos veces para cerrar las hojas de personalización de la interfaz de usuario.
 6. Haga clic en **Guardar**.
 
 Ahora puede probar la directiva personalizada. Puede usar su propia aplicación o el área de juegos de AAD B2C; también puede hacer simplemente clic en el comando **Ejecutar ahora** en la hoja de directivas. Seleccione la aplicación en la lista desplegable y el URI de redirección correspondiente. Haga clic en el botón **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá pasar por la experiencia del usuario de registrarse para obtener su aplicación con el nuevo contenido implementado.
@@ -72,17 +72,17 @@ Si desea usar el almacenamiento de blobs de Azure para hospedar el contenido de 
 
 #### Descargue la herramienta auxiliar y los archivos de ejemplo.
 
-Puede descargar la [herramienta auxiliar de almacenamiento de blobs de Azure y los archivos de ejemplo como .zip aquí](https://github.com/azureadsamples/b2c-azureblobstorage-client/archive/master.zip) o clonarlos desde GitHub:
+Puede descargar la [herramienta auxiliar de almacenamiento de blobs de Azure y los archivos de ejemplo como .zip aquí](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) o clonarlos desde GitHub:
 
 ```
-git clone https://github.com/azureadsamples/b2c-azureblobstorage-client
+git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
 Este repositorio contiene un `sample_templates\contoso` directorio, que contiene HTML, CSS e imágenes de ejemplo. Para que estas plantillas hagan referencia a su propia cuenta de almacenamiento de blobs de Azure, debe editar los archivos HTML. Abra `Index.htnml` y `EmailValidation.html` y reemplace todas las instancias de `https://localhost` por la dirección URL del contenedor que copió en los pasos anteriores. Es necesario usar la ruta de acceso absoluta de los archivos HTML porque en este caso, el código HTML será atendido por Azure AD, bajo el dominio `https://login.microsoftonline.com`.
 
 #### Carga de los archivos de ejemplo
 
-En el mismo repositorio, descomprima `B2CAzureStorageClient.zip` y ejecute el archivo `B2CAzureStorageClient.exe` que hay dentro. Este programa simplemente carga todos los archivos del directorio especificado en la cuenta de almacenamiento y permite que CORS acceda a esos archivos. Si siguió los pasos anteriores, los archivos HTML y CSS apuntarán ahora a la cuenta de almacenamiento.
+En el mismo repositorio, descomprima `B2CAzureStorageClient.zip` y ejecute el archivo `B2CAzureStorageClient.exe` que hay dentro. Este programa simplemente carga todos los archivos del directorio especificado en la cuenta de almacenamiento y permite que CORS acceda a esos archivos. Si siguió los pasos anteriores, los archivos HTML y CSS apuntarán ahora a la cuenta de almacenamiento. Tenga en cuenta que el nombre de la cuenta de almacenamiento es la parte que precede a `blob.core.windows.net`, por ejemplo, `contoso`. Para comprobar que el contenido se ha cargado correctamente, intente acceder a `https://{storage-account-name}.blob.core.windows.net/{container-name}/Index.html` en un explorador. Use también [http://test-cors.org/](http://test-cors.org/) para asegurarse de que el contenido está ahora habilitado con CORS (busque XHR status: 200 en el resultado).
 
 #### Personalización de la directiva, de nuevo
 
@@ -90,4 +90,4 @@ Ahora que ha cargado el contenido de ejemplo en su propia cuenta de almacenamien
         
 Ahora puede usar el botón **Ejecutar ahora** o su propia aplicación para ejecutar de nuevo la directiva. El resultado debería ser casi exactamente el mismo, ya que usó el mismo HTML y CSS de ejemplo en ambos casos. Sin embargo, las directivas ahora hacen referencia a su propia instancia de almacenamiento de blobs de Azure, y es libre de editar y volver a cargar los archivos a su gusto. Para obtener más información sobre la personalización del contenido HTML y CSS, consulte el [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

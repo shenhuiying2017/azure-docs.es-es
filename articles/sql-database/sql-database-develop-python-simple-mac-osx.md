@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-Este tema presenta un ejemplo de código escrito en Python. El ejemplo se ejecuta en un equipo Mac. El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador **pymssql**.
+Este tema presenta un ejemplo de código escrito en Python. El ejemplo se ejecuta en un equipo Mac. El ejemplo se conecta a una base de datos SQL de Azure mediante el controlador **pymssql**. Adicionalmente, use nuestro vídeo [Introducción a Python en Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) para complementar esta documentación.
 
 
 ## Requisitos
@@ -83,7 +83,7 @@ La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymss
 
 ## Inserción de filas, paso de parámetros y recuperación de la clave principal generada
 
-En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los [valores de clave principal](https://msdn.microsoft.com/library/ms179610.aspx).
+En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los valores de [clave principal](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	import pymssql
@@ -102,11 +102,11 @@ En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
 
 
--Iniciar una transacción
+- Iniciar una transacción
 
--Insertar una fila de datos
+- Insertar una fila de datos
 
--Revertir la transacción para deshacer la inserción
+- Revertir la transacción para deshacer la inserción
 
 
 	import pymssql
@@ -118,4 +118,4 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

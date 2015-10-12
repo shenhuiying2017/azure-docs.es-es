@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Conexión de una aplicación web en una aplicación de API en Servicios de aplicaciones de Azure" 
 	description="En este tutorial se muestra cómo consumir una aplicación de API desde una aplicación web ASP.NET hospedada en Servicio de aplicaciones de Azure." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="syntaxc4" 
 	manager="yochayk" 
@@ -12,7 +12,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.date="09/15/2015"
 	ms.author="cfowler"/>
 
@@ -96,4 +96,4 @@ Siga las instrucciones disponibles en [Implementación de una aplicación web de
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

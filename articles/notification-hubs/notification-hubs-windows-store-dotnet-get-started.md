@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="09/30/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones de la Tienda Windows
@@ -197,6 +197,9 @@ Puede enviar notificaciones mediante Centros de notificaciones desde cualquier b
 
 	Esto agrega una referencia al SDK de los Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete de NuGet de concentradores Microsoft.Azure.Notification</a>.
 
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+
 5. Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
         using Microsoft.Azure.NotificationHubs;
@@ -264,4 +267,4 @@ En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos c
 [catálogo de iconos]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [información general sobre distintivos]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

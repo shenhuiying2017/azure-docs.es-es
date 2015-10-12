@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ejemplo de código: exportar a SQL desde Application Insights mediante un rol de trabajo" 
+	pageTitle="Ejemplo de código: Análisis de los datos exportados desde Application Insights" 
 	description="Codifique su propio análisis de telemetría en Application Insights de código mediante la característica de exportación continua." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
-# Ejemplo de código: exportar a SQL desde Application Insights mediante un rol de trabajo
+# Ejemplo de código: Análisis de los datos exportados desde Application Insights
 
-En este artículo se muestra cómo trasladar los datos de telemetría desde [Application Insights para Visual Studio][start] a una base de datos SQL de Azure mediante [Exportación continua][export] y una pequeña cantidad de código.
+En este artículo se muestra cómo procesar datos JSON exportados desde Application Insights. Como ejemplo, escribiremos código para mover los datos de telemetría desde [Visual Studio Application Insights][start] a una base de datos SQL de Azure mediante [Exportación continua][export]. (También puede realizar esto [con Análisis de transmisiones](app-insights-code-sample-export-sql-stream-analytics.md), pero nuestro objetivo principal aquí es mostrar algo de código).
 
 La Exportación continua traslada la telemetría al Almacenamiento de Azure en formato JSON, por lo que escribiremos algún código para analizar los objetos JSON y crear filas en una tabla de base de datos.
 
-(De manera más general, la Exportación continua es la forma de realizar su propio análisis de la telemetría que las aplicaciones envían a Application Insights. Se puede adaptar este ejemplo de código para realizar otras operaciones con la telemetría exportada).
+De manera más general, la Exportación continua es la forma de realizar su propio análisis de la telemetría que las aplicaciones envían a Application Insights. Se puede adaptar este ejemplo de código para realizar otras operaciones con la telemetría exportada.
 
 Comenzaremos con la suposición de que ya dispone de la aplicación que desea supervisar.
 
@@ -51,7 +51,9 @@ Primeros pasos:
 
 ## Creación de almacenamiento en Azure
 
-1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [portal de Azure][portal].
+Los datos de Application Insights siempre se exportan a una cuenta de almacenamiento de Azure en formato JSON. Es desde este almacenamiento donde el código leerá los datos.
+
+1. Cree una cuenta de almacenamiento "clásica" en su suscripción en el [Portal de Azure][portal].
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
@@ -92,6 +94,8 @@ Primeros pasos:
 Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en escribir código para trasladar los datos a una base de datos SQL. De este modo, será más sencillo ejecutar muchas consultas interesantes.
 
 ## Creación de una Base de datos SQL de Azure
+
+En este ejemplo, escribiremos código para insertar los datos en una base de datos.
 
 Una vez más a partir de su suscripción en el [portal de Azure][portal], cree la base de datos (y un servidor nuevo, a menos que ya tenga uno) en la que va a escribir los datos.
 
@@ -539,4 +543,4 @@ Para ver este ejemplo en acción, [descargue](https://sesitai.codeplex.com/) el 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

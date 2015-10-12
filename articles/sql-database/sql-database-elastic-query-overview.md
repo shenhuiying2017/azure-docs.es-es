@@ -1,8 +1,6 @@
 <properties
-    title="Azure SQL Database elastic database query overview"
     pageTitle="Información general sobre consulta de bases de datos elásticas de Base de datos SQL de Azure"
-    description="Información general de la característica de consultas elásticas"
-    metaKeywords="azure sql database elastic database queries"
+    description="Información general de la característica de consultas elásticas"    
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -15,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="07/09/2015"
-    ms.author="sidneyh" />
+    ms.author="sidneyh;torsteng" />
 
 # Información general sobre consulta de bases de datos elásticas de Base de datos SQL de Azure (vista previa)
 
@@ -81,7 +79,7 @@ Para describir las tablas remotas a las que se puede tener acceso desde un extre
 La característica de consulta de Base de datos elástica se basa en estas cuatro instrucciones de DDL. Normalmente, estas instrucciones de DDL se utilizan una vez o casi nunca cuando se cambia el esquema de la aplicación.
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-*    [CREATE CREDENTIAL](https://msdn.microsoft.com/library/ms189522.aspx)
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -100,7 +98,7 @@ La información sobre las credenciales está visible en la vista de catálogo de
 
 Puede usar la siguiente sintaxis para quitar la clave maestra y las credenciales:
 
-    DROP CREDENTIAL <credential_name> ON DATABASE;
+    DROP DATABASE SCOPED CREDENTIAL <credential_name>;
     DROP MASTER KEY;  
 
 ### Orígenes de datos externos
@@ -267,4 +265,4 @@ Para comenzar a explorar la consulta de Base de datos elástica, pruebe nuestro 
 
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

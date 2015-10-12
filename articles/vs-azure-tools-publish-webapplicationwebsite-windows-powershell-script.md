@@ -58,7 +58,7 @@ El nombre de la suscripción de Azure en la que desea crear el sitio web.
 
 ## WebDeployPackage
 
-La ruta de acceso al paquete de implementación web para publicar en el sitio web. Puede crear este paquete mediante el Asistente de publicación web en Visual Studio. Consulte [Cómo crear un paquete de implementación web en Visual Studio](http://go.microsoft.com/fwlink/p/?LinkID=623089).
+La ruta de acceso al paquete de implementación web para publicar en el sitio web. Puede crear este paquete mediante el Asistente de publicación web en Visual Studio. Para obtener más información, consulte [Introducción a Servicios en la nube de Azure y ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
 |Parámetro|Valor predeterminado|
 |---|---|
@@ -97,7 +97,7 @@ Si es true, imprimir mensajes del script a la secuencia de salida.
 
 ## Comentarios
 
-Para obtener una explicación completa de cómo usar el script para crear entornos de desarrollo y pruebas, consulte [Usar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas](https://msdn.microsoft.com/library/azure/dn642480.aspx).
+Para obtener una explicación completa de cómo usar el script para crear entornos de desarrollo y pruebas, consulte [Utilizar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas](vs-azure-tools-publishing-using-powershell-scripts.md).
 
 El archivo de configuración JSON especifica los detalles de lo que va a implementarse. Incluye la información que especificó cuando creó el proyecto, como el nombre y el nombre de usuario para el sitio web. También incluye la base de datos que se va a aprovisionar, si la hubiera. El código siguiente muestra un archivo de configuración de JSON de ejemplo:
 
@@ -127,6 +127,6 @@ Puede editar el archivo de configuración de JSON para cambiar lo que se impleme
 
 ## Pasos siguientes
 
-[Publish-WebApplicationVM (script de Windows PowerShell)](https://msdn.microsoft.com/library/azure/dn689112.aspx)
+Para obtener más información, consulte [Publish-WebApplicationVM (script de Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

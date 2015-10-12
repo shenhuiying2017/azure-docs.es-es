@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Implementar una aplicación web en el servicio de aplicaciones de Azure"
 	description="Obtenga información sobre los métodos disponibles para la implementación de contenido en aplicaciones web."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -20,60 +20,37 @@
 
 ## Información general
 
-Existen varias opciones para implementar su propio contenido en [Aplicaciones web del servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este tema se proporciona información general abreviada de cada opción y vínculos para obtener más información.
-
-
-###<a name="cloud"></a>Implementación desde un sistema de control de código fuente hospedado en la nube
+Este tema proporciona una breve descripción de las opciones para implementar su propio contenido en [aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 La mejor manera de implementar una aplicación web es configurar un [flujo de trabajo de entrega continua](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) integrado con el [sistema de control de código fuente](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). La automatización no solo permite que el proceso de implementación sea más eficaz, sino que también hace que los procesos de copia de seguridad y restauración sean más controlables y confiables.
 
-Si aún no tiene configurado el control de código fuente, la mejor manera de comenzar es usar un sistema de control de código fuente hospedado en la nube.
+Para obtener información acerca de la implementación de sistemas de control de código fuente hospedado en la nube, consulte las siguientes secciones más adelante en este artículo.
 
 * [Visual Studio Online](#vso)
 * [Sitios web de repositorio con Git](#git)
 * [Sitios web de repositorio con Mercurial](#mercurial)
 * [Dropbox](#dropbox)
 
-###<a name="ide"></a>Implementación desde un IDE
-
-[Visual Studio](http://www.visualstudio.com/) y [WebMatrix](http://www.microsoft.com/web/webmatrix/) son entornos de desarrollo integrado (IDE) de Microsoft que puede utilizar para el desarrollo web. Ambos proporcionan características integradas que facilitan la implementación de una aplicación web. Ambos pueden utilizar [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) para automatizar tareas adicionales relacionadas con la implementación, como implementación de base de datos y cambios en las cadenas de conexión. Ambos también pueden implementarse con el uso de [FTP o FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol)).
-
-WebMatrix es rápido de instalar y fácil de entender, pero Visual Studio ofrece muchas más características para trabajar con aplicaciones web. Desde el IDE de Visual Studio puede crear, detener, iniciar y eliminar aplicaciones web, puede ver registros en tiempo real a medida que se crean, puede realizar una depuración remota, etc. Visual Studio también se integra con sistemas de control de código fuente como [Visual Studio Online](#vso), [Team Foundation Server](#tfs) y [repositorios Git](#git).
-
-* [Visual Studio](#vs)
-* [WebMatrix](#webmatrix)
-
-###<a name="ftp"></a>Implementación mediante una utilidad FTP
-
-Independientemente del IDE que utilice, también puede implementar contenido en su aplicación si usa [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos. Crear credenciales de FTP para una aplicación web es una tarea sencilla y puede usarlas en cualquier aplicación que funcione con FTP, incluidos exploradores, como Internet Explorer, y utilidades gratuitas completas, como [FileZilla](https://filezilla-project.org/). Las aplicaciones web también admiten el protocolo FTPS más seguro.
-
-A pesar de que es fácil copiar los archivos de la aplicación web a Azure con utilidades de FTP, no se ocupan automáticamente de tareas de implementación relacionadas, ni tampoco las coordinan, como la implementación de una base de datos o el cambio de las cadenas de conexión. Además, muchas herramientas de FTP no comparan archivos de origen y archivos de destino para omitir copiar archivos que no se han modificado. En el caso de aplicaciones de gran tamaño, si siempre se copian todos los archivos, la implementación lleva demasiado tiempo incluso para actualizaciones pequeñas, debido a que siempre se copian todos los archivos.
-
-###<a name="onpremises"></a>Implementación desde un sistema de control de código fuente local
-
-Si utiliza TFS, Git o Mercurial en un repositorio local (no hospedado en la nube), puede implementar directamente desde el repositorio a una aplicación web.
+Para obtener información acerca de la implementación de sistemas de control de código fuente locales, consulte las siguientes secciones más adelante en este artículo.
 
 * [Team Foundation Server (TFS)](#tfs)
 * [Repositorios locales Git o Mercurial locales](#onpremises)
 
-###<a name="commandline"></a>Implementación con herramientas de línea de comandos y la API de administración REST de Azure
+También puede automatizar la implementación mediante el uso de herramientas de línea de comandos. Para obtener información acerca de la implementación mediante herramientas de línea de comandos, consulte las siguientes secciones más adelante en este artículo.
 
-Siempre es mejor automatizar el flujo de trabajo del desarrollo, pero si no puede hacerlo directamente en el sistema de control de código fuente, puede configurarlo manualmente a través de herramientas de línea de comandos. Esto generalmente implica usar más de una herramienta o marco de trabajo, dado que la implementación a menudo requiere ejecutar funciones de administración de sitios, además de copiar contenido.
-
-Azure simplifica las tareas de administración de sitios que probablemente tenga que realizar para la implementación al proporcionar una API REST de administración y varios marcos de trabajo que facilitan el trabajo con la API.
-
-* [FTP](#ftp)
 * [MSBuild](#msbuild)
-* [Scripts de FTP](#ftp2)
+* [Scripts y herramientas FTP](#ftp)
 * [Windows PowerShell](#powershell)
 * [API de administración de .NET](#api)
 * [Interfaz de la línea de comandos de Azure (CLI de Azure)](#cli)
 * [Línea de comandos de Web Deploy](#webdeploy)
  
-###<a name="octopus"></a>Octopus Deploy (Implementación de Octopus)
+A veces resulta más conveniente implementar desde el entorno de desarrollo integrado (IDE). Para obtener información acerca de la implementación desde un IDE, consulte las siguientes secciones más adelante en este artículo.
 
-[Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy) (Implementación de Octopus) se puede usar con Aplicaciones web del Servicio de aplicaciones. Para obtener más información, consulte [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites) (Implementación de aplicaciones ASP.NET en Sitios web de Azure).
+* [Visual Studio](#vs)
+* [WebMatrix](#webmatrix)
 
+Otra opción de implementación es usar un servicio basado en la nube como [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Para obtener más información, consulte [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites) (Implementación de aplicaciones ASP.NET en Sitios web de Azure).
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -154,7 +131,6 @@ Para obtener más información, consulte los siguientes recursos:
 * [Foro de Azure para Git, Mercurial y Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 * [Implementación de dos sitios web en Azure desde un repositorio Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Publicación en el blog de Scott Hanselman.
 
-
 ##<a name="msbuild"></a>MSBuild
 
 Si usa el [IDE de Visual Studio](#vs) para desarrollo, puede utilizar [MSBuild](http://msbuildbook.com/) para automatizar todo lo que puede hacer en el IDE. Puede configurar MSBuild para usar [Web Deploy](#webdeploy) o [FTP/FTPS](#ftp) para copiar archivos. Web Deploy también puede automatizar muchas otras tareas relacionadas con la implementación, como implementar bases de datos.
@@ -164,9 +140,11 @@ Para obtener más información acerca de la implementación de la línea de coma
 * [Implementación web de ASP.NET con Visual Studio: Implementación de línea de comandos](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). El décimo tutorial de una serie sobre la implementación en Azure con Visual Studio. Muestra cómo usar la línea de comandos para la implementación después de haber configurado perfiles de publicación en Visual Studio.
 * [Dentro de Microsoft Build Engine: Uso de MSBuild y Team Foundation Build](http://msbuildbook.com/). Copia impresa de un libro que incluye capítulos sobre cómo usar MSBuild para la implementación.
 
-##<a name="ftp2"></a>Scripts de FTP
+##<a name="ftp"></a>Scripts y herramientas FTP
 
-Crear credenciales de [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para una aplicación web es sencillo y puede usarlas con scripts por lotes de FTP.
+Puede implementar contenido en la aplicación mediante el uso de [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos. Crear credenciales de FTP para una aplicación web es una tarea sencilla y puede usarlas en scripts o en aplicaciones que funcionen con FTP, incluidos exploradores, como Internet Explorer, y utilidades gratuitas completas, como [FileZilla](https://filezilla-project.org/). Las aplicaciones web también admiten el protocolo FTPS más seguro.
+
+A pesar de que es fácil copiar los archivos de la aplicación web a Azure con utilidades de FTP, no se ocupan automáticamente de tareas de implementación relacionadas, ni tampoco las coordinan, como la implementación de una base de datos o el cambio de las cadenas de conexión. Además, muchas herramientas de FTP no comparan archivos de origen y archivos de destino para omitir copiar archivos que no se han modificado. En el caso de aplicaciones de gran tamaño, si siempre se copian todos los archivos, la implementación lleva demasiado tiempo incluso para actualizaciones pequeñas, debido a que siempre se copian todos los archivos.
 
 Para obtener más información, consulte el siguiente recurso:
 
@@ -227,4 +205,4 @@ Para obtener información sobre otros temas de implementación, consulte la secc
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

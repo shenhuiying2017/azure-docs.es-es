@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Acerca de máquinas virtuales de Azure | Microsoft Azure"
-	description="Conozca los aspectos básicos de las máquinas virtuales en Azure."
+	description="Conozca los aspectos básicos de las máquinas virtuales en Azure usando ambos modelos de implementación."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#Acerca de máquinas virtuales de Azure creadas con ambos modelos de implementación
+#Acerca de máquinas virtuales de Azure 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se tratan los recursos creados con el modelo de implementación del Administrador de recursos y el modelo de implementación clásica.
 
@@ -47,8 +47,8 @@ Si simplemente está empezando a conocer las máquinas virtuales de Azure, aseg�
 
 
 <!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
+[Servicio de aplicaciones]: app-service-choose-me.md
+[Máquinas virtuales]: #tellmevm
+[Servicios en la nube]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

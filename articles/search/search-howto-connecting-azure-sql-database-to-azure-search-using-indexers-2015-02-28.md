@@ -13,20 +13,22 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indizadores#
+#Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indizadores
 
-El servicio de Búsqueda de Azure le ayuda a proporcionar una experiencia de búsqueda excelente, pero antes de realizar una búsqueda debe rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una Base de datos SQL de Azure, la nueva característica **indizador de Búsqueda de Azure para la Base de datos SQL de Azure** (o **indizador SQL de Azure**, para abreviar) de Búsqueda de Azure puede automatizar el proceso de indización. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
+El servicio de Búsqueda de Azure le ayuda a proporcionar una experiencia de búsqueda excelente, pero antes de realizar una búsqueda debe rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una Base de datos SQL de Azure, el nuevo **indexador de Búsqueda de Azure para la Base de datos SQL de Azure** (o **indexador SQL de Azure**, para abreviar) de Búsqueda de Azure puede automatizar el proceso de indexación. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
 
-Actualmente, los indizadores solo funcionan con la Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure y la Base de datos de documentos de Azure. En este artículo, nos centraremos en los indizadores que funcionan con la Base de datos SQL de Azure. Si le gustaría consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Búsqueda de Azure](http://feedback.azure.com/forums/263029-azure-search).
+Actualmente, los indexadores solo funcionan con la Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure y [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). En este artículo, nos centraremos en los indizadores que funcionan con la Base de datos SQL de Azure. Si le gustaría consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Búsqueda de Azure](http://feedback.azure.com/forums/263029-azure-search).
 
 Este artículo aborda la forma de usar los indizadores, pero también detalla las características y los comportamientos que solo están disponibles con Bases de datos SQL (por ejemplo, seguimiento de cambios integrado).
 
 ## Indizadores y orígenes de datos ##
 
-Para instalar y configurar un indizador de SQL Azure, puede llamar a la [API de REST de Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para crear y administrar **indizadores** y **orígenes de datos**. En el futuro, esta funcionalidad también estará disponible en el Portal de administración de Azure y en el SDK para .NET de Búsqueda de Azure.
+Para instalar y configurar un indizador de SQL Azure, puede llamar a la [API de REST de Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para crear y administrar **indizadores** y **orígenes de datos**.
+
+También puede utilizar la [clase Indexer](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) en el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), o el Asistente para la importación de datos en el [Portal de Azure](https://portal.azure.com), para crear y programar un indexador.
 
 Un **origen de datos** especifica los datos que se deben indizar, las credenciales necesarias para obtener acceso a estos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
@@ -249,9 +251,9 @@ Tenga en cuenta que **softDeleteMarkerValue** debe ser una cadena. Use la repres
 
 ## Personalizar un indizador de SQL Azure ##
  
-Puede personalizar algunos aspectos del comportamiento de indizador (por ejemplo, el tamaño de lote, el número de documentos que se puede omitir antes de que la ejecución de un indizador produzca un error, etc.). Para obtener más información, consulte [Documentación de la API de indizador](http://go.microsoft.com/fwlink/p/?LinkId=528173).
+Puede personalizar algunos aspectos del comportamiento de indexador (por ejemplo, el tamaño de lote, el número de documentos que se puede omitir antes de que la ejecución de un indexador produzca un error, etc.). Para obtener más detalles, vea [Personalización del indexador de Búsqueda de Azure](search-indexers-customization.md).
 
-## Preguntas frecuentes ##
+## Preguntas más frecuentes ##
 
 **P:** ¿Puedo usar un indizador de SQL Azure con Bases de datos SQL que se ejecutan en máquinas virtuales de IaaS en Azure?
 
@@ -277,4 +279,4 @@ R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

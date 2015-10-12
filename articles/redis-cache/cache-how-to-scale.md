@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Escalado de Caché en Redis de Azure
 
->[AZURE.NOTE]Actualmente, la característica de escalado Caché en Redis de Azure está en vista previa.
+>[AZURE.NOTE]Actualmente, la característica de escalado Caché en Redis de Azure está en vista previa. Durante el período de vista previa, las memorias caché de nivel Premium quedan excluidas de las operaciones de escalado.
 
 Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Si los requisitos de la aplicación cambian después de crear una memoria caché, puede escalar el tamaño de la caché mediante la hoja **cambio de nivel de precios** en el [Portal de vista previa de Azure](https://portal.azure.com).
 
@@ -48,8 +48,9 @@ Seleccione el nivel deseado de precios desde la hoja **Nivel de precios** y haga
 
 >[AZURE.NOTE]Puede escalar a un nivel de precios diferente con las siguientes restricciones.
 >
+>-	No puede escalar a una memoria caché de nivel **Premium** o desde esta.
 >-	No puede escalar de una memoria caché **Standard** a una **Basic**.
->-	Puede escalar desde una memoria caché **Basic** a una memoria caché **Standard** pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
+>-	Puede escalar desde una memoria caché **Basic** a una memoria caché **Standard**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
 >-	No puede escalar desde un tamaño mayor hasta el tamaño **C0 (250 MB)**.
 
 Mientras la memoria caché se escala al nuevo nivel de precios, se muestra un estado **Escalado** en la hoja **Caché en Redis**.
@@ -86,6 +87,10 @@ Para obtener más información, consulte el ejemplo [Administrar Caché en Redis
 
 La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre el escalado de Caché en Redis de Azure.
 
+## ¿Puedo realizar operaciones de escalado en una memoria caché Premium?
+
+Durante el período de vista previa, el escalado no está disponible para las memorias caché de nivel **Premium**.
+
 ## Después de escalar, ¿tengo que cambiar el nombre de la memoria caché o las teclas de acceso?
 
 No, el nombre de la memoria caché y las claves no se cambian durante una operación de escalado.
@@ -94,7 +99,7 @@ No, el nombre de la memoria caché y las claves no se cambian durante una operac
 
 Cuando se escala una memoria caché **Basic** a un tamaño diferente, se cierra y se aprovisiona una nueva caché con el nuevo tamaño. Durante este tiempo, la caché no está disponible y se pierden todos los datos en la memoria caché.
 
-Cuando una memoria caché **Basic** se escala a una memoria caché **Standard**, se aprovisiona una caché de réplica y los datos se copian desde la caché principal a la caché de réplica. La memoria caché permanece disponible durante el proceso de escalado.
+Cuando se escala una memoria caché **Basic** a una memoria caché **Standard**, se aprovisiona una caché de réplica y los datos se copian desde la caché principal a la caché de réplica. La memoria caché permanece disponible durante el proceso de escalado.
 
 Cuando se escala una memoria caché **Standard** a un tamaño diferente, una de las réplicas se apaga y se vuelve a aprovisionar para el nuevo tamaño y los datos se transfieren a través de ella; a continuación, la otra réplica realiza una conmutación por error antes de volverse a aprovisionar, similar al proceso que se produce durante un error en uno de los nodos de la memoria caché.
 
@@ -102,9 +107,9 @@ Cuando se escala una memoria caché **Standard** a un tamaño diferente, una de 
 
 Cuando se escala una memoria caché **Basic** a un nuevo tamaño, se pierden todos los datos y la memoria caché no está disponible durante la operación de escalado.
 
-Cuando una memoria caché **Basic** se escala a una memoria caché **Standard**, normalmente se conservan los datos de la memoria caché.
+Cuando se escala una memoria caché **Basic** a una memoria caché **Standard**, normalmente se conservan los datos de la memoria caché.
 
-Cuando se escala una memoria caché **Standard** se escala a un tamaño mayor, normalmente se conservan todos los datos. Al reducir una memoria caché **Standard** a un tamaño menor, los datos se pueden perder según la cantidad de datos que se encuentra en la caché en relación con el nuevo tamaño cuando se escala. Si se pierden datos al reducir, las claves se expulsan mediante el directiva de expulsión [allkeys-lru](http://redis.io/topics/lru-cache).
+Cuando se escala una memoria caché **Standard** a un tamaño mayor, normalmente se conservan todos los datos. Al reducir una memoria caché **Standard** a un tamaño menor, los datos se pueden perder según la cantidad de datos que se encuentra en la caché en relación con el nuevo tamaño cuando se escala. Si se pierden datos al reducir, las claves se expulsan mediante el directiva de expulsión [allkeys-lru](http://redis.io/topics/lru-cache).
 
 Tenga en cuenta que mientras las memorias caché Standard tienen un contrato de nivel de servicio del 99,9% de disponibilidad, no hay ningún contrato de nivel de servicio para la pérdida de datos.
 
@@ -116,9 +121,11 @@ Las memorias caché **Basic** están sin conexión durante las operaciones de es
 
 ## Operaciones que no son compatibles
 
-No puede cambiar de una memoria caché **Estándar** a una **Básica**.
+Las memorias caché **Premium** quedan excluidas de las operaciones de escalado.
 
-Puede escalar desde una memoria caché **Basic** a una memoria caché **Standard** pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
+No puede cambiar de una memoria caché **Standard** a una **Basic**.
+
+Puede escalar desde una memoria caché **Basic** a una memoria caché **Standard**, pero no puede cambiar el tamaño al mismo tiempo. Si necesita un tamaño distinto, puede realizar una operación de escalado posterior hasta el tamaño deseado.
 
 Se puede escalar de una memoria caché **C0** (250 MB) a un tamaño mayor, pero no puede escalar de un tamaño mayor a una memoria caché **C0**.
 
@@ -148,4 +155,4 @@ Estamos lanzando esta característica para obtener comentarios. Nos basaremos en
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="09/25/2015"
 	ms.author="donnam"/>
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
@@ -159,7 +159,7 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 
 <!-- URLs. -->
-[Control de conflictos con compatibilidad sin conexión para Servicios móviles]: ../mobile-services-xamarin-android-handling-conflicts-offline-data.md
+[Control de conflictos con compatibilidad sin conexión para Servicios móviles]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
 [Get started with data]: mobile-services-android-get-started-data.md
 [Introducción a los Servicios móviles]: mobile-services-android-get-started.md
 [Uso del cliente del componente Xamarin para servicios móviles de Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
@@ -172,4 +172,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

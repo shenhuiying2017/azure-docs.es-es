@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="09/28/2015" 
 	ms.author="tamram;selcint"/>
 
 # Introducción en cinco minutos a Almacenamiento de Azure 
@@ -107,4 +107,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

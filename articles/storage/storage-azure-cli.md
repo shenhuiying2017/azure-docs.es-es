@@ -1,19 +1,19 @@
 <properties
     pageTitle="Uso de la CLI de Azure con Almacenamiento de Azure | Microsoft Azure"
-	description="Aprenda a usar la interfaz de línea de comandos (CLI de Azure) de Azure con Almacenamiento de Azure para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure."
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="jdial"/>
+    description="Aprenda a usar la interfaz de línea de comandos (CLI de Azure) de Azure con Almacenamiento de Azure para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure."
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
+    manager="jdial"/>
 
 <tags
     ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="09/28/2015"
+    ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Uso de la CLI de Azure con Almacenamiento de Azure
 
@@ -21,7 +21,7 @@
 
 La CLI de Azure proporciona un conjunto de comandos de código abierto y multiplataforma para trabajar con la plataforma de Azure. Proporciona muchas de las funciones que se encuentran en el Portal de administración de Azure, así como la funcionalidad de acceso a datos completos.
 
-En esta guía, exploraremos cómo usar la [Interfaz de línea de comandos de Azure (CLI de Azure)](../xplat-cli.md) para realizar diversas tareas de desarrollo y administración con Almacenamiento de Azure. Antes de usar esta guía es aconsejable descargar e instalar la CLI de Azure más reciente, o actualizarse a ella.
+En esta guía, exploraremos cómo usar la [Interfaz de línea de comandos de Azure (CLI de Azure)](../xplat-cli-install.md) para realizar diversas tareas de desarrollo y administración con Almacenamiento de Azure. Antes de usar esta guía es aconsejable descargar e instalar la CLI de Azure más reciente, o actualizarse a ella.
 
 En esta guía se supone que conoce los conceptos básicos de Almacenamiento de Azure. La guía incluye varios scripts que muestran cómo se usa la CLI de Azure con Almacenamiento de Azure. Antes de ejecutar cada script, asegúrese de que ha actualizado las variables del mismo según su configuración.
 
@@ -94,7 +94,7 @@ Una vez ejecutado el script, debería tener una carpeta de destino local que inc
 
 ### Conexión a su suscripción de Azure
 
-Aunque la mayoría de los comandos de almacenamiento funcionarán sin suscripción a Azure, es aconsejable que se conecte a su suscripción desde la CLI de Azure. Para configurar la CLI de Azure para que funcione con su suscripción, siga los pasos que se indican en [Conexión con su suscripción de Azure](../xplat-cli.md#how-to-connect-to-your-azure-subscription).
+Aunque la mayoría de los comandos de almacenamiento funcionarán sin suscripción a Azure, es aconsejable que se conecte a su suscripción desde la CLI de Azure. Para configurar la CLI de Azure para que funcione con su suscripción, siga los pasos que se indican en [Conexión con su suscripción de Azure](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription).
 
 ### Creación de una cuenta de almacenamiento nueva
 
@@ -169,13 +169,11 @@ Para eliminar un blob, use el siguiente comando:
 
 ## Creación y administración de recursos compartidos de archivos
 
-El almacenamiento de archivos de Azure ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB 2.1 estándar. Los servicios en la nube y las máquinas virtuales de Microsoft Azure pueden compartir datos de archivos con los componentes de la aplicación a través de recursos compartidos montados. Los recursos compartidos de archivos y datos de archivos se pueden administrar a través de la CLI de Azure. Para obtener más información sobre Almacenamiento de archivos de Azure, consulte [Uso de Almacenamiento de archivos de Azure](storage-dotnet-how-to-use-files).
-
-> [AZURE.NOTE]Almacenamiento de archivos de Azure se encuentra actualmente en vista previa. Para solicitar acceso a la vista previa, navegue a la [página de vista previa de Microsoft Azure](/services/preview/) y solicite acceso a **Archivos de Azure**. Cuando la solicitud esté aprobada, recibirá una notificación de que puede acceder a la vista previa de Almacenamiento de archivos. Después, puede crear una cuenta de almacenamiento para acceder a Almacenamiento de archivos.
+El Almacenamiento de archivos de Azure ofrece almacenamiento compartido para aplicaciones que usan el protocolo SMB estándar. Los servicios en la nube y las máquinas virtuales de Microsoft Azure, así como las aplicaciones locales, pueden compartir datos de archivos a través de recursos compartidos montados. Los recursos compartidos de archivos y datos de archivos se pueden administrar a través de la CLI de Azure. Para obtener más información sobre el Almacenamiento de archivos de Azure, consulte [Uso de Almacenamiento de archivos de Azure con Windows](storage-dotnet-how-to-use-files) o [Uso de Almacenamiento de archivos de Azure con Linux](storage-how-to-use-files-linux.md).
 
 ### Creación de un recurso compartido de archivos
 
-Un recurso compartido de archivos de Azure es un recurso compartido de archivos de SMB 2.1 en Azure. Todos los directorios y archivos se deben crear en un recurso compartido de archivos. Una cuenta puede contener un número ilimitado de recursos compartidos y un recurso compartido puede almacenar un número ilimitado de archivos, hasta los límites de capacidad de la cuenta de almacenamiento. En el siguiente ejemplo se crea un recurso compartido de archivos denominado **myshare**.
+Un recurso compartido de archivos de Azure es un recurso compartido de archivos de SMB en Azure. Todos los directorios y archivos se deben crear en un recurso compartido de archivos. Una cuenta puede contener un número ilimitado de recursos compartidos y un recurso compartido puede almacenar un número ilimitado de archivos, hasta los límites de capacidad de la cuenta de almacenamiento. En el siguiente ejemplo se crea un recurso compartido de archivos denominado **myshare**.
 
         azure storage share create myshare
 
@@ -224,4 +222,4 @@ A continuación encontrará algunos artículos relacionados y recursos para obte
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

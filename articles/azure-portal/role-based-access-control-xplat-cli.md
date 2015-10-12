@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](/role-based-access-control-xplat-cli.md)
+- [Azure CLI](/role-based-access-control-xplat-cli-install.md)
 
 El control de acceso basado en rol (RBAC) del Portal de vista previa de Azure y la API del Administrador de recursos de Azure le permite administrar el acceso a su suscripción y sus recursos en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a usar la CLI de Azure para administrar el control 
 
 Para poder usar la CLI de Azure para administrar RBAC, necesita lo siguiente:
 
-- CLI de Azure versión 0.8.8 o posterior. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli.md).
+- CLI de Azure versión 0.8.8 o posterior. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
 - Lea también los siguientes tutoriales para aprender a configurar y usar el Administrador de recursos de Azure en CLI de Azure: [Uso de la interfaz de la línea de comandos de Azure con Administrador de recursos](../xplat-cli-azure-resource-manager.md)
 
 ## Apartados de este tutorial ##
@@ -64,7 +64,7 @@ Si tiene varias suscripciones y quiere cambiar a otra, escriba:
     # Use the subscription name to select the one you want to work on.
     azure account set <subscription name>
 
-Para más información, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli.md).
+Para más información, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
 
 ## <a id="check"></a>Comprobar asignaciones de roles existentes ##
 
@@ -144,11 +144,11 @@ Si intenta ejecutar otros cmdlets, como `azure group create`, obtendrá un error
 Si quiere más información sobre cómo administrar el control de acceso basado en roles con CLI de Azure y otros temas relacionados:
 
 - [Control de acceso basado en rol de Azure](../role-based-access-control-configure.md)
-- [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli.md).
+- [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
 - [Uso de la interfaz de la línea de comandos de Azure con Administrador de recursos](../xplat-cli-azure-resource-manager.md)
 - [Uso de grupos de recursos para administrar los recursos de Azure](../azure-preview-portal-using-resource-groups.md): obtenga información acerca de la creación y administración de grupos de recursos en el Portal de administración de Azure.
 - [Blog de Azure](http://blogs.msdn.com/windowsazure): obtenga información acerca de las nuevas características de Azure.
 - [Configuración del control de acceso basado en roles usando Windows PowerShell](role-based-access-control-powershell.md)
 - [Solución de problemas de control de acceso basado en roles](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

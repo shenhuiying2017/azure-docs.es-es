@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Migración de una aplicación web de empresa al Servicio de aplicaciones de Azure" 
 	description="Muestra cómo utilizar el Asistente para migración de Aplicaciones web para migrar rápidamente sitios web de IIS existentes a Aplicaciones web del Servicio de aplicaciones de Azure" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -10,7 +10,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -136,4 +136,4 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

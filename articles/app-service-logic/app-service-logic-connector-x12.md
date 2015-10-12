@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Uso del conector X12 de BizTalk en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
-	description="Creación y configuración del conector X12 de BizTalk o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Uso del conector X12 de BizTalk en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure" 
+   description="Creación y configuración del conector X12 de BizTalk o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 # Introducción a la aplicación de API X12 de BizTalk y su incorporación a su aplicación lógica
 Use el servicio X12 de BizTalk para recibir y enviar mensajes mediante el protocolo X12 en comunicaciones de negocio a negocio. X12 se conoce también comúnmente como ASC X12 o Accredited Standards Committee X12 y se usa ampliamente en las industrias.
@@ -63,6 +63,8 @@ La acción devuelve un objeto que contiene la carga X12.
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
+>[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
@@ -81,4 +83,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # Supervisión del rendimiento de aplicaciones web de Azure
@@ -21,7 +21,7 @@ En el [Portal de Azure](http://portal.azure.com), puede configurar la supervisi�
 
 Azure admite que Supervisión de rendimiento de aplicaciones (o *APM*) haga uso de *extensiones*. Dichas extensiones se instalan en la aplicación, donde recopilan datos e informan a los servicios de supervisión.
 
-Application Insights y New Relic son dos de las extensiones de supervisión de rendimiento que hay disponibles. Para usar New Relic, instale a un agente en tiempo de ejecución. Para usar Application Insights, vuelva a compilar el código con un SDK; también puede instalar una extensión que proporciona acceso a datos adicionales. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle.
+Application Insights y New Relic son dos de las extensiones de supervisión de rendimiento que hay disponibles. Para usarlas, instale un agente en tiempo de ejecución. Con Application Insights, también existe la posibilidad de generar el código con un SDK. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle.
 
 ## Habilitación de extensiones
 
@@ -39,7 +39,7 @@ O bien, si utiliza una máquina virtual:
 
 ### En Application Insights: recompilar con el SDK
 
-Application Insights funciona instalando un SDK en la aplicación.
+Application Insights puede proporcionar una telemetría más detallada instalando un SDK en la aplicación.
 
 En Visual Studio, agregue el SDK de Application Insights al proyecto.
 
@@ -83,4 +83,4 @@ Una vez que obtenga la hoja, para Application Insights, por ejemplo, puede reali
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

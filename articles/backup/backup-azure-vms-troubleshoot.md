@@ -7,10 +7,10 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
-# Solución de errores
+# Solución de problemas de copia de seguridad de máquinas virtuales de Azure
 Puede solucionar los errores detectados al usar Copia de seguridad de Azure con la información incluida en la tabla siguiente.
 
 ## Detección
@@ -89,7 +89,7 @@ Para las máquinas virtuales de Windows:
 
 Máquinas virtuales de Linux:
 
-- Instale el [Agente de Linux](https://github.com/Azure/WALinuxAgent) desde Github. 
+- Instale el [Agente de Linux](https://github.com/Azure/WALinuxAgent) desde Github.
 - [Actualice la propiedad de la máquina virtual](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado.
 
 
@@ -100,7 +100,7 @@ Para las máquinas virtuales de Windows:
 
 Máquinas virtuales de Linux:
 
-- Siga las instrucciones proporcionadas en [Actualización del agente de VM de Linux](../virtual-machines-linux-update-agent.md). 
+- Siga las instrucciones proporcionadas en [Actualización del agente de VM de Linux](../virtual-machines-linux-update-agent.md).
 
 
 ### Validación de la instalación del agente de la máquina virtual
@@ -123,4 +123,4 @@ Una vez que la resolución de nombres se haya realizado correctamente, también 
 1. Obtenga la lista de [IP del centro de datos de Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) que van a formar parte de la lista de direcciones IP aprobadas.
 2. Desbloquee las direcciones IP usando el commandlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Ejecute este commandlet en la máquina virtual de Azure, en una ventana de PowerShell con privilegios elevados (realice la ejecución como administrador).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

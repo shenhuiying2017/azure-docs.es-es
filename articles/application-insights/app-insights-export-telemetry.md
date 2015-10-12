@@ -32,7 +32,7 @@ Si aún no tiene una cuenta de almacenamiento "clásica", cree una ahora.
 
     ![En el portal de Azure, elija Nuevo, Datos, Almacenamiento.](./media/app-insights-export-telemetry/030.png)
 
-2. Crear un contenedor
+2. Cree un contenedor.
 
     ![En el nuevo almacenamiento, seleccione Contenedores, haga clic en el icono Contenedores y luego, en Agregar.](./media/app-insights-export-telemetry/040.png)
 
@@ -217,4 +217,4 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

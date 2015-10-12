@@ -71,16 +71,16 @@ Ahora que le hemos dado algún tiempo para */*entusiasmarse con los datos de eje
 <!--Image references-->
 
 <!--Article references-->
-[migrar]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-overview-migrate/
-[desarrollar]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-overview-develop/
-[cargar]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-overview-load/
-[conexión y consulta]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[migrar código]: https://azure.microsoft.com/es-es/documentation/articles/sql-data-warehouse-migrate-code/
+[migrar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-migrate/
+[desarrollar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-develop/
+[cargar]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-overview-load/
+[conexión y consulta]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-get-started-connect-query/
+[migrar código]: https://azure.microsoft.com/es-ES/documentation/articles/sql-data-warehouse-migrate-code/
 
 <!--MSDN references-->
-[Utilidades de la línea de comandos de Microsoft para SQL Server]: http://www.microsoft.com/es-es/download/details.aspx?id=36433
+[Utilidades de la línea de comandos de Microsoft para SQL Server]: http://www.microsoft.com/es-ES/download/details.aspx?id=36433
 
 <!--Other Web references-->
 [Scripts de datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

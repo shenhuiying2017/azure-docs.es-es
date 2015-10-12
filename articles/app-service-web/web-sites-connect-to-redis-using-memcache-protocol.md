@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Conexión de una aplicación web en Servicio de aplicaciones de Azure a Caché en Redis a través del protocolo Memcache | Microsoft Azure"
 	description="Conexión de una aplicación web en Servicio de aplicaciones de Azure a Caché en Redis mediante el protocolo Memcache"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter="php"
 	authors="SyntaxC4"
 	manager="wpickett"
@@ -12,7 +12,7 @@
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
-	ms.workload="web"
+	ms.workload="na"
 	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
@@ -198,4 +198,4 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

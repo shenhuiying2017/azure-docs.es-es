@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/29/2015"
 	ms.author="liviodlc"/>
 
 #Administración de certificados para inicio de sesión único federado en Azure Active Directory
@@ -26,7 +26,7 @@ Este artículo solo es relevante para las aplicaciones que están configuradas p
 
 ##Personalización de la fecha de expiración para el certificado de la federación
 
-De forma predeterminada, los certificados se establecen para que expiren después de dos años. Puede elegir una fecha de expiración diferente para el certificado siguiendo estos pasos. Las capturas de pantalla incluidas usan ServiceNow como ejemplo, pero estos pasos se pueden aplicar a cualquier aplicación SaaS federada.
+De forma predeterminada, los certificados se establecen para que expiren después de dos años. Puede elegir una fecha de expiración diferente para el certificado siguiendo estos pasos. Las capturas de pantalla incluidas usan Salesforce como ejemplo, pero estos pasos se pueden aplicar a cualquier aplicación SaaS federada.
 
 1. En Azure Active Directory, en la página Inicio rápido de la aplicación, haga clic en **Configurar inicio de sesión único**.
 
@@ -76,8 +76,6 @@ Lo ideal es que los pasos de renovación que se muestran a continuación no supo
 
 	![Descarga y carga del certificado](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-##Otras referencias
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-[Acceso a la aplicación e inicio de sesión único en Azure AD](active-directory-appssoaccess-whatis.md)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -96,7 +96,7 @@ El script de implementación de HPC Pack IaaS proporciona otra manera versátil 
 
 **Creación del archivo de configuración**
 
- El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster que consta de un nodo principal y 18 nodos de proceso creados a partir de la imagen del nodo de proceso que incluye Microsoft Excel, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para obtener más información sobre el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script o la [documentación de script](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+ El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster que consta de un nodo principal y 18 nodos de proceso creados a partir de la imagen del nodo de proceso que incluye Microsoft Excel, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para obtener más información sobre el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script y [Creación de un clúster de HPC de Windows con el script de implementación de IaaS de HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -384,4 +384,4 @@ La aplicación cliente de SOA no requiere cambios excepto modificar el nombre pr
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

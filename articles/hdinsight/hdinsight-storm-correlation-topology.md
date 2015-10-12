@@ -1,27 +1,29 @@
 <properties
  pageTitle="Poner en correlación eventos con el tiempo con Storm y HBase en HDInsight"
-	description="Aprenda a poner en correlación los eventos que llegan en distintos momentos con Storm y HBase en HDInsight."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+ description="Aprenda a poner en correlación los eventos que llegan en distintos momentos con Storm y HBase en HDInsight."
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="09/02/2015"
+ ms.author="larryfr"/>
 
 # Poner en correlación eventos con el tiempo con Storm y HBase en HDInsight
 
 Si utiliza un almacén de datos persistente con Apache Storm, puede poner en correlación entradas de datos que llegan en distintos momentos. Por ejemplo, puede vincular eventos de inicio y cierre de sesión de una sesión de usuario para calcular cuánto tiempo duró la sesión.
 
 En este documento, obtendrá información sobre cómo crear una topología básica de Storm de C# que realice un seguimiento de los eventos de inicio y cierre de sesión de las sesiones de usuario y calcule la duración de la sesión. La topología utiliza HBase como un almacén de datos persistente. HBase también permite realizar consultas por lotes en los datos históricos para generar información adicional, como la cantidad de sesiones de usuario que se han iniciado o terminado durante un período de tiempo específico.
+
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
 ## Requisitos previos
 
@@ -198,4 +200,4 @@ Cuando esté listo para detener la topología, vuelva al proyecto **CorrelationT
 Para obtener más ejemplos de Storm, vea [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

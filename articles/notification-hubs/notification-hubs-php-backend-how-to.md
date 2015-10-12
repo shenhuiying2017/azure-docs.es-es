@@ -254,10 +254,11 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 * Continuar aprendiendo sobre la característica de etiquetado de Centros de notificaciones en el [tutorial Noticias de última hora]
 * Obtener más información sobre notificaciones de inserción para usuarios individuales en el [tutorial Notificar a los usuarios]
 
+Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
 
 [ejemplo de contenedor REST para PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [tutorial de introducción]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

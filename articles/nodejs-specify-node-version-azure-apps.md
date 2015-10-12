@@ -93,9 +93,9 @@ Ahora que sabe cómo especificar la versión de Node.js que utiliza su aplicaci�
 
 Para obtener más información, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-[Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: xplat-cli.md
-[herramientas de línea de comandos de Azure]: xplat-cli.md
+[Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: xplat-cli-install.md
+[herramientas de línea de comandos de Azure]: xplat-cli-install.md
 [funcionamiento con módulos]: nodejs-use-node-modules-azure-apps.md
 [compilación e implementación de un sitio web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

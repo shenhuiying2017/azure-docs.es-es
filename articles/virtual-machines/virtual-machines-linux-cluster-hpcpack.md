@@ -1,20 +1,20 @@
 <properties
  pageTitle="Uso de VM de proceso de Linux en un clúster de HPC Pack | Microsoft Azure"
-	description="Aprenda a generar scripts de implementación de un clúster de HPC Pack en Azure que contiene un nodo principal que ejecuta Windows Server con nodos de proceso de Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+ description="Aprenda a generar scripts de implementación de un clúster de HPC Pack en Azure que contiene un nodo principal que ejecuta Windows Server con nodos de proceso de Linux."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="big-compute"
-	ms.date="09/01/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="big-compute"
+ ms.date="09/01/2015"
+ ms.author="danlep"/>
 
 # Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure
 
@@ -43,7 +43,7 @@ Para obtener información general de las opciones de implementación del clúste
 * **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de clúster con tamaños de VM de múltiples núcleos. Por ejemplo, en este artículo, necesitará al menos 24 núcleos. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
 ### Creación del archivo de configuración
-El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster pequeño que consta de un nodo principal y dos nodos de proceso de Linux, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para obtener más información sobre el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script o la [documentación de script](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster pequeño que consta de un nodo principal y dos nodos de proceso de Linux, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para obtener más información sobre el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script y [Creación de un clúster de HPC de Windows con el script de implementación de IaaS de HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -310,4 +310,4 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -125,13 +125,13 @@ Este paso le mostrará cómo agregar compatibilidad para el inicio de sesión fe
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-> [AZURE.NOTE]Los valores **audienceuris** y **realm** deben ir precedidos por "spn:".
+	> [AZURE.NOTE]Los valores **audienceuris** y **realm** deben ir precedidos por "spn:".
 
 4. En Eclipse, haga clic con el botón derecho en el proyecto **phpSample** y luego haga clic en **New** (Nuevo) y, a continuación, en **PHP File** (Archivo PHP).
 
 5. En el cuadro de diálogo **New PHP File** (Nuevo archivo PHP), asigne al archivo el nombre **secureResource.php** y, a continuación, haga clic en **Finish** (Finalizar).
 
-6. En el nuevo archivo **secureResource.php**, escriba el siguiente código y reemplace la ruta de acceso **c:\phpLibraries** por la ubicación raíz donde descargó el código de ejemplo. La ubicación raíz debe incluir el archivo **simpleSAML.php** y la carpeta **federation**:
+6. En el nuevo archivo **secureResource.php**, escriba el siguiente código y reemplace la ruta de acceso **c:\\phpLibraries** por la ubicación raíz donde descargó el código de ejemplo. La ubicación raíz debe incluir el archivo **simpleSAML.php** y la carpeta **federation**:
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -181,13 +181,16 @@ Este paso le mostrará cómo agregar compatibilidad para el inicio de sesión fe
 		</body>
 		</html> 
 
-8. En el menú **Run** (Ejecutar), haga clic en **Run** (Ejecutar). Se le redirigirá automáticamente a la página del proveedor de identidades de Office 365, donde puede iniciar sesión con sus credenciales de inquilino de directorio. Por ejemplo, *john.doe@fabrikam.onmicrosoft.com*.
+8. En el menú **Run** (Ejecutar), haga clic en **Run** (Ejecutar). Se le redirigirá automáticamente a la página del proveedor de identidades de Office 365, donde puede iniciar sesión con sus credenciales de inquilino de directorio. Por ejemplo, **john.doe@fabrikam.onmicrosoft.com*.
 
 ## Resumen
 Este tutorial le ha mostrado cómo crear y configurar una aplicación PHP de un solo inquilino que utiliza las capacidades de inicio de sesión único de Azure Active Directory.
 
 Puede encontrar un ejemplo que muestra cómo usar Azure Active Directory y el inicio de sesión único para sitios web PHP en <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
 
+## Pasos siguientes
+
+Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).
 
 [Step 1: Create a PHP Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
@@ -203,4 +206,4 @@ Puede encontrar un ejemplo que muestra cómo usar Azure Active Directory y el in
 [Código de ejemplo PHP para Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

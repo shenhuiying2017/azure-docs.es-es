@@ -40,7 +40,9 @@ Antes de crear la aplicación, los usuarios o interactuar con Azure AD, necesita
 
 Ahora que ya tiene un directorio de B2C, deberá crear la aplicación de servicio con los cmdlets de Azure AD Powershell. En primer lugar, descargue e instale [Microsoft Online Services - Ayudante para el inicio de sesión](http://go.microsoft.com/fwlink/?LinkID=286152). A continuación, puede descargar e instalar el [módulo de Azure Active Directory de 64 bits para Windows Powershell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-Una vez instalado el módulo de Powershell, abra PowerShell y conéctese al directorio de B2C. Después de ejecutar `Get-Credential`, se le pedirá un nombre de usuario y una contraseña: escriba la información de su cuenta de administrador del directorio de B2C.
+> [AZURE.NOTE]Para usar la API Graph con su directorio B2C, deberá registrar una aplicación dedicada con PowerShell mediante estas instrucciones. No puede volver a usar las aplicaciones B2C ya existentes que registró en el Portal de Azure. Se trata de una limitación de la vista previa de Azure AD B2C que se eliminará en un futuro cercano, momento en el cual actualizaremos este artículo.
+
+Una vez instalado el módulo de Powershell, abra PowerShell y conéctese al directorio de B2C. Después de ejecutar `Get-Credential`, se le pedirá un nombre de usuario y una contraseña: escriba la información de su cuenta de administrador del directorio B2C.
 
 ```
 > $msolcred = Get-Credential
@@ -107,6 +109,8 @@ Abra la solución de Visual Studio `B2CGraphClient\B2CGraphClient.sln` en Visual
 </appSettings>
 ```
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
 Ahora, haga clic en la solución `B2CGraphClient` y vuelva a compilar el ejemplo. Si es correcto, ahora debería tener un archivo ejecutable `B2C.exe` ubicado en `B2CGraphClient\bin\Debug`.
 
 ## CRUD de usuario con la API Graph
@@ -126,7 +130,7 @@ Cualquier solicitud a la API Graph requerirá un token de acceso para la autenti
 
 > [AZURE.NOTE]Este ejemplo de código usa deliberadamente ADAL v2, la versión de ADAL disponible con carácter general. NO usa ADAL v4, que es una versión de vista previa diseñada para funcionar con Azure AD B2C. Para la vista previa de Azure AD B2C, debe usar ADAL v2 para comunicarse con la API Graph. Con el tiempo, habilitaremos el acceso a la API Graph con ADAL v4, por lo que no es necesario que use dos versiones diferentes de ADAL en la solución completa de Azure AD B2C.
 
-Cuando se ejecuta B2CGraphClient, crea una instancia de la clase `B2CGraphClient`. El constructor para esta clase configura scaffolding de autenticación de ADAL:
+Cuando se ejecuta B2CGraphClient, se crea una instancia de la clase `B2CGraphClient`. El constructor para esta clase configura scaffolding de autenticación de ADAL:
 
 ```C#
 public B2CGraphClient(string clientId, string clientSecret, string tenant)
@@ -232,11 +236,12 @@ Content-Length: 338
 	"passwordProfile": {
 		"password": "P@ssword!",
 		"forceChangePasswordNextLogin": false   // always set to false
-	}
+	},
+	"passwordPolicies": "DisablePasswordExpiration"
 }
 ```
 
-Cada una de las propiedades incluidas en la solicitud anterior es necesaria para crear usuarios de consumidor. Se han incluido comentarios `//` para ilustración: no los incluya en una solicitud real.
+Cada una de las propiedades incluidas en la solicitud anterior es necesaria para crear usuarios de consumidor. Se han incluido comentarios `//` para ilustración; no los incluya en una solicitud real.
 
 Para ver esta solicitud en acción, intente ejecutar uno de los siguientes comandos:
 
@@ -343,4 +348,4 @@ Puede usar el nombre completo, por ejemplo `extension_55dc0861f9a44eb999e0a8a872
 
 Si tiene alguna pregunta o solicitud para las acciones que desea realizar con la API Graph en el directorio de B2C, ¡somos todo oídos! Deje un comentario sobre el artículo o genere un caso en el repositorio de GitHub de ejemplo de código.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

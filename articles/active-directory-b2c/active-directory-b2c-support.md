@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/24/2015"
 	ms.author="swkrish"/>
 
 # Vista previa de Azure Active Directory B2C: Presentación de solicitudes de soporte técnico para Azure Active Directory B2C
@@ -23,7 +23,7 @@
 Puede presentar solicitudes de soporte técnico para Azure Active Directory (AD) B2C en el Portal de vista previa de Azure siguiendo estos pasos:
 
 1. [Vaya a la hoja de características de B2C del Portal de vista previa de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Cambie del directorio B2C a otro directorio que tenga asociada una suscripción de Azure. Normalmente, éste es el directorio del empleado o el directorio predeterminado que se crea cuando se registra para una suscripción de Azure. Lea [este artículo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) para obtener más información sobre la relación entre las suscripciones de Azure y los directorios de Azure AD.
+2. Cambie del inquilino B2C a otro inquilino que tenga asociada una suscripción de Azure. Normalmente, éste es el inquilino del empleado o el inquilino predeterminado que se crea cuando se registra para una suscripción de Azure. Lea [este artículo](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad) para obtener más información sobre la relación entre las suscripciones de Azure y los directorios de Azure AD.
 
     > [AZURE.IMPORTANT]Este paso es necesario. El proceso dará error si no realiza este paso.
 
@@ -38,16 +38,16 @@ Puede presentar solicitudes de soporte técnico para Azure Active Directory (AD)
     - **Tipo de solicitud** es **Técnica**.
 	- **Recursos** es **Active Directory**.
 	- En la hoja **Categoría del problema**, seleccione **Vista previa B2C** como **Tipo de problema** y la **Categoría** correspondiente.
-	- En la hoja **Descripción**, describa su problema con detalle. En el cuadro de texto **Recurso**, proporcione el nombre de su directorio B2C; por ejemplo, contosob2c.onmicrosoft.com.
+	- En la hoja **Descripción**, describa su problema con detalle. En el cuadro de texto **Recurso**, proporcione el nombre de su inquilino B2C; por ejemplo, contosob2c.onmicrosoft.com.
 
 5. Después de enviar la solicitud de soporte técnico, puede supervisarla; para ello, haga clic en **Ayuda y soporte técnico** en el panel de inicio y, luego, en **Administrar solicitudes de soporte técnico**.
 
-## Problema conocido: Presentación de una solicitud de soporte técnico en el contexto de un directorio B2C
+## Problema conocido: presentación de una solicitud de soporte técnico en el contexto de un inquilino B2C
 
-Si el paso 2 descrito anteriormente no le ha salido e intenta crear una solicitud de soporte técnico en el contexto de su directorio B2C, verá el siguiente error.
+Si el paso 2 descrito anteriormente no le ha salido e intenta crear una solicitud de soporte técnico en el contexto de su inquilino B2C, verá el siguiente error.
 
-> [AZURE.IMPORTANT]No intente registrarse para una suscripción a Azure en su directorio B2C.
+> [AZURE.IMPORTANT]No intente registrarse para una nueva suscripción a Azure en su inquilino B2C.
 
 ![Soporte técnico - sin suscripción](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

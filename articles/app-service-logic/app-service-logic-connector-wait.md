@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Uso del conector de Wait en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
-	description="Creación y configuración del conector de Wait o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Uso del conector de Wait en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure" 
+   description="Creación y configuración del conector de Wait o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 # Introducción al conector de Wait y su incorporación a su aplicación lógica
 El conector de espera permite que una aplicación retrase su ejecución durante un período de tiempo especificado o hasta la aparición de un tiempo especificado. Puede agregar el conector de Wait a sus datos de flujo de trabajo empresarial y datos de proceso como parte de este flujo de trabajo en una aplicación lógica. Cuando se emplea en una aplicación lógica, se puede usar para retrasar la ejecución.
@@ -42,6 +42,8 @@ Duración en minutos|integer|Duración del retraso en minutos
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
+>[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
@@ -51,4 +53,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

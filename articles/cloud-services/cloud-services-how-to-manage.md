@@ -165,4 +165,4 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

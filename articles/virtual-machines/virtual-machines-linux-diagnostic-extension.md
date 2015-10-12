@@ -48,7 +48,7 @@ Este artículo se centra en habilitar y configurar la extensión mediante comand
 
 ## Requisitos previos
 - Agente Linux de Microsoft Azure versión 2.0.6 o posterior. Tenga en cuenta que la mayoría de las imágenes de la galería de máquina virtual Linux de Azure incluyen la versión 2.0.6 o posterior. Puede ejecutar **WAAgent -version** para confirmar la versión instalada en la máquina virtual. Si la máquina virtual está ejecutando una versión anterior a 2.0.6, puede seguir estas [instrucciones](https://github.com/Azure/WALinuxAgent "instrucciones") para actualizarla.
-- [CLI de Azure](./xplat-cli.md). Siga [esta guía](./xplat-cli-install.md) para configurar el entorno de la CLI de Azure en su equipo. Cuando se haya instalado la CLI de Azure, puede usar el comando **azure** desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Por ejemplo, ejecute **azure vm extension set --help** para un uso detallado, ejecute **azure login** para iniciar sesión en Azure, ejecute **azure vm list** para enumerar todas las máquinas virtuales que tiene en Azure.
+- [CLI de Azure](./xplat-cli-install.md). Siga [esta guía](./xplat-cli-install.md) para configurar el entorno de la CLI de Azure en su equipo. Cuando se haya instalado la CLI de Azure, puede usar el comando **azure** desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema) para obtener acceso a los comandos de la CLI de Azure. Por ejemplo, ejecute **azure vm extension set --help** para un uso detallado, ejecute **azure login** para iniciar sesión en Azure, ejecute **azure vm list** para enumerar todas las máquinas virtuales que tiene en Azure.
 - Una cuenta de almacenamiento para almacenar los datos. Necesitará un nombre de la cuenta de almacenamiento creada previamente y una clave de acceso para cargar los datos en el almacenamiento.
 
 
@@ -143,4 +143,4 @@ Si ha habilitado el archivo fileCfg o perfCfg especificado en los escenarios 2 y
 - En la versión 2.0, solo puede tener acceso a la información de Rsyslog y el archivo de registro del cliente especificado a través de scripts.
 - En la versión 2.0, si ha habilitado la extensión de diagnóstico de Linux mediante un script en primer lugar, después no podrá ver los datos desde el portal de Azure. Si habilita primero la extensión desde el portal, los scripts seguirán funcionando.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

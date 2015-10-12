@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure (GoDaddy)"
 	description="Obtenga información acerca de cómo usar un nombre de dominio de GoDaddy con aplicaciones web de Azure"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -87,4 +87,4 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

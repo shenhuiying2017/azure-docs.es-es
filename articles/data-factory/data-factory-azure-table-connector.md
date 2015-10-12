@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Movimiento de datos hacia y desde Tabla de Azure | Factoría de datos de Azure"
-	description="Obtenga información acerca de cómo mover los datos hacia y desde Almacenamiento de tablas de Azure mediante Factoría de datos de Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Movimiento de datos hacia y desde Tabla de Azure | Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo mover los datos hacia y desde Almacenamiento de tablas de Azure mediante Factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Tabla de Azure mediante Factoría de datos de Azure
@@ -370,8 +370,7 @@ Por otro lado, las propiedades disponibles en la sección typeProperties de la a
 
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utilice la consulta personalizada para leer los datos. | Cadena de consulta de tabla de Azure. Ejemplo: **ColumnA eq ValueA** | No
-azureTableSourceIgnoreTableNotFound | Indica si se omite la excepción de la tabla inexistente. | TRUE<br/>FALSE | No |
+azureTableSourceQuery | Utilice la consulta personalizada para leer los datos. | <p>Cadena de consulta de tabla de Azure.</p>**Ejemplos:****<br/> "azureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\' y PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | Sin azureTableSourceIgnoreTableNotFound | Indica si se omite la excepción de la tabla inexistente. | TRUE<br/>FALSE | No |
 
 **AzureTableSink** admite las siguientes propiedades en la sección typeProperties:
 
@@ -485,4 +484,4 @@ En este caso, la Factoría de datos realizará automáticamente las conversiones
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

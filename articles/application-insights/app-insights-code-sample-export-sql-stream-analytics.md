@@ -314,4 +314,4 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

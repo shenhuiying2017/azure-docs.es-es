@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Uso del conector de SharePoint en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
-	description="Creación y configuración del conector de SharePoint o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Uso del conector de SharePoint en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+   description="Creación y configuración del conector de SharePoint o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.service="app-service-logic"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 # Introducción al conector de SharePoint y su incorporación a su aplicación lógica
 Conéctese a SharePoint Server o SharePoint Online para administrar documentos y enumerar elementos. Puede realizar diversas acciones tales como crear, actualizar, obtener y eliminar documentos y elementos de lista. Cuando se usa el servidor local de SharePoint, puede proporcionar la cadena de conexión del bus de servicio como parte de la configuración del conector e instalar el agente de escucha local para conectarse al servidor.
@@ -76,8 +76,8 @@ Una vez creada la aplicación de API, puede usar el conector de SharePoint como 
 
 3. Si se selecciona el conector de SharePoint al principio de la aplicación lógica, actúa como desencadenador. De lo contrario, podrían realizarse acciones en la cuenta de SharePoint mediante el conector.
 
-4. Al usar el conector de SharePoint Online, se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre. Para iniciar la autorización, haga clic en **Autorizar** en el conector de SharePoint:
-<br/>
+4. Al usar el conector de SharePoint Online, se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre. Para iniciar la autorización, haga clic en **Autorizar** en el conector de SharePoint: 
+
 ![][3]
 
 5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta de SharePoint en la que desea realizar las operaciones: 
@@ -466,6 +466,8 @@ Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybri
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
+>[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](app-service-api-manage-in-portal.md).
@@ -480,4 +482,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -29,4 +29,4 @@
 
 [Uso de la CLI de Azure con la API de administración de servicios](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

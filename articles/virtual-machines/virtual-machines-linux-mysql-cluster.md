@@ -339,4 +339,4 @@ Se aplican las siguientes limitaciones:
 - El ajuste de MySQL es necesario para garantizar que la escritura se realiza a un ritmo apropiado y las memorias caché se vacían en disco con la máxima frecuencia posible para minimizar la pérdida de memoria.
 - El rendimiento de escritura dependerá de la interconexión de las máquinas virtuales en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -40,7 +40,7 @@ Instale [pymssql](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql).
 
 Asegúrese de elegir el archivo whl correcto.
 
-Por ejemplo: si va a usar Python 2.7 en un equipo de 64 bits, elija pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Una vez descargado el archivo .whl, colóquelo en la carpeta C:/Python27.
+Por ejemplo: si va a usar Python 2.7 en un equipo de 64 bits, elija pymssql‑2.1.1‑cp27‑none‑win\_amd64.whl. Una vez descargado el archivo .whl, colóquelo en la carpeta C:/Python27.
 
 A continuación, instale el controlador pymssql con pip desde la línea de comandos. Use el comando cd para tener acceso al directorio C:/Python27 y ejecute lo siguiente
 	
@@ -100,11 +100,11 @@ En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library
 Este ejemplo de código muestra el uso de transacciones con las que podrá realizar lo siguiente:
 
 
--Iniciar una transacción
+- Iniciar una transacción
 
--Insertar una fila de datos
+- Insertar una fila de datos
 
--Revertir la transacción para deshacer la inserción
+- Revertir la transacción para deshacer la inserción
 
 
 	import pymssql
@@ -114,6 +114,8 @@ Este ejemplo de código muestra el uso de transacciones con las que podrá reali
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
- 
+## Pasos siguientes
 
-<!---HONumber=August15_HO6-->
+Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
+
+<!---HONumber=Oct15_HO1-->

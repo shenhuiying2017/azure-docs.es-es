@@ -61,7 +61,7 @@ Escalar verticalmente es aumentar o disminuir el nivel de rendimiento de una bas
 
 La mayoría de las aplicaciones de bases de datos a escala de la nube usarán una combinación de estas dos estrategias. Por ejemplo, una aplicación de software como servicio podría utilizar escalado horizontal para aprovisionar usuarios finales nuevos y escalado vertical para permitir que la base de datos de cada cliente final aumente o disminuya los recursos, según lo requiera la carga de trabajo.
 
-* El escalado horizontal se administra mediante la [biblioteca de cliente de base de datos elástica](sql-database-elastic-client-overview.md).
+* El escalado horizontal se administra mediante la [biblioteca de cliente de bases de datos elásticas](sql-database-elastic-database-client-library.md).
 
 * El escalado vertical se logra mediante cmdlets de Azure PowerShell para cambiar el nivel de servicio o colocando bases de datos en un grupo de bases de datos elásticas.
 
@@ -85,13 +85,13 @@ Algunas aplicaciones usan el enfoque más simple de crear una base de datos inde
 Otros escenarios empaquetan varios inquilinos juntos en bases de datos, en lugar de aislarlos en bases de datos independientes. Se trata de un **patrón de particionamiento multiinquilinos** típico y puede estar impulsado por el hecho de que una aplicación administra grandes cantidades de inquilinos muy pequeños. En el particionamiento de varios inquilinos, las filas de las tablas de bases de datos están diseñadas para contener una clave que identifique la clave de particionamiento o el identificador del inquilino. De nuevo, la capa de aplicación es la responsable de enrutar la solicitud de un inquilino a la base de datos adecuada, y esto puede admitirlo la biblioteca de cliente de bases de datos elásticas. Además, es posible usar seguridad en el nivel de fila para filtrar las filas a las que puede tener acceso cada inquilino; si desea obtener detalles, consulte [Aplicaciones multiinquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila](sql-database-elastic-tools-multi-tenant-row-level-security.md). La redistribución de datos entre las bases de datos puede ser necesaria con el patrón de particionamiento multiinquilinos, lo que se ve facilitado por la herramienta de división y combinación de bases de datos elásticas.
 
 ### Mover datos de bases de datos de multinIiquilino a inquilino único
-Al crear una aplicación SaaS, es típico ofrecer a los clientes potenciales una versión de prueba del software. En este caso, resulta más rentable usar una base de datos multiinquilino para los datos. Sin embargo, cuando un cliente potencial se convierte en un cliente, una base de datos de inquilino único es mejor, puesto que ofrece un mejor rendimiento. Si el cliente había creado datos durante el período de prueba, use la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge) para mover los datos de multiinquilino a la nueva base de datos de inquilino único.
+Al crear una aplicación SaaS, es típico ofrecer a los clientes potenciales una versión de prueba del software. En este caso, resulta más rentable usar una base de datos multiinquilino para los datos. Sin embargo, cuando un cliente potencial se convierte en un cliente, una base de datos de inquilino único es mejor, puesto que ofrece un mejor rendimiento. Si el cliente había creado datos durante el período de prueba, use la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md) para mover los datos de la base de datos multiinquilino a la nueva base de datos de inquilino único.
 
 ## Pasos siguientes
 
 Para una aplicación de ejemplo que demuestra la biblioteca de cliente, consulte [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md).
 
-Para usar la herramienta de división y combinación, debe [configurar la seguridad](sql-database-elastic-scale-split-merge-security-configuration,md).
+Para usar la herramienta de división y combinación, debe [configurar la seguridad](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Para ver los detalles del grupo de bases de datos elásticas, consulte [Consideraciones de precio y rendimiento para un grupo de servidores de bases de datos elásticas](sql-database-elastic-pool-guidance.md) o cree un nuevo grupo con el [tutorial](sql-database-elastic-pool-portal.md).
 
@@ -108,4 +108,4 @@ Para ver los detalles del grupo de bases de datos elásticas, consulte [Consider
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

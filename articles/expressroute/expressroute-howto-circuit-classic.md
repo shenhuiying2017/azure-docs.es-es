@@ -24,7 +24,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 ## Requisitos previos de configuración
 
-- Necesitará la versión más reciente de los módulos de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](http://azure.microsoft.com/downloads). Siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones detalladas sobre cómo configurar el equipo para utilizar los módulos de Azure PowerShell. 
+- Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](http://azure.microsoft.com/downloads). Siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones detalladas sobre cómo configurar el equipo para utilizar los módulos de Azure PowerShell. 
 - Asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md) y la página de [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 
 ## Creación y aprovisionamiento de un circuito ExpressRoute
@@ -324,4 +324,4 @@ Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprov
 - [Configuración del enrutamiento de ExpressRoute (administrar emparejamientos de circuito)](expressroute-howto-routing-classic.md)
 - [Vincular redes virtuales a un circuito ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

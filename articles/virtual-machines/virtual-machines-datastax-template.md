@@ -20,7 +20,7 @@
 
 DataStax es un reconocido líder del sector en el desarrollo y la entrega de soluciones basadas en Apache Cassandra, la tecnología de base de datos distribuida NoSQL preparada para la empresa y admitida comercialmente, bien conocida por ser ágil, siempre activada y escalable de forma predecible a cualquier tamaño. DataStax ofrece las versiones Enterprise (DSE) y Community (DSC). También proporciona capacidades como informática en memoria, seguridad a nivel empresarial, análisis integrados rápidos y potentes, y búsqueda empresarial.
 
-Ahora, además de lo que ya está disponible en Azure Marketplace, puede implementar fácilmente un nuevo clúster de DataStax en máquinas virtuales de Ubuntu con una plantilla del Administrador de recursos mediante [Azure PowerShell](../powershell-install-configure.md) o la [CLI de Azure](../xplat-cli.md).
+Ahora, además de lo que ya está disponible en Azure Marketplace, puede implementar fácilmente un nuevo clúster de DataStax en máquinas virtuales de Ubuntu con una plantilla del Administrador de recursos mediante [Azure PowerShell](../powershell-install-configure.md) o la [CLI de Azure](../xplat-cli-install.md).
 
 Los clústeres recién implementados basados en esta plantilla tendrán la topología descrita en el siguiente diagrama, aunque se pueden lograr fácilmente otras topologías personalizando la plantilla presentada en este artículo:
 
@@ -477,4 +477,4 @@ Básicamente, se sugiere este enfoque para:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

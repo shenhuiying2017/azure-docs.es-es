@@ -290,4 +290,4 @@ Para obtener más información de referencia, vea [Información general de refer
 
 <!--MSDN references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

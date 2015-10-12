@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Autorización en el servicio de usuarios en Servicios móviles
@@ -42,10 +42,10 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 		// Get the logged in user
 		var currentUser = User as ServiceUser;
-	
+
 		// Set the user ID on the item
 		item.UserId = currentUser.Id;
-	
+
 	Este código agrega el identificador de usuario del usuario autenticado al elemento antes de que este se inserte en la tabla TodoItem.
 
 3. Busque el método **GetAllTodoItems** y reemplace la instrucción **return** con esta línea de código:
@@ -54,7 +54,7 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 		var currentUser = User as ServiceUser;
 
 		return Query().Where(todo => todo.UserId == currentUser.Id);
-		
+
 	Esta consulta filtra los objetos TodoItem devueltos de manera que cada usuario solo recibe los elementos que inserte.
 
 4. Vuelva a publicar el proyecto de servicio móvil en Azure.
@@ -78,6 +78,5 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 <!-- URLs. -->
 [Agregar autenticación a la aplicación de Servicios móviles existente]: mobile-services-dotnet-backend-ios-get-started-users.md
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -75,20 +75,24 @@ Por ejemplo, haga clic en gráfico de solicitudes con errores de la aplicación 
 
 ## ¿Qué significan las cifras?
 
-La leyenda del lateral muestra de forma predeterminada el valor agregado durante el período del gráfico.
+La leyenda del lateral muestra normalmente de forma predeterminada el valor agregado durante el período del gráfico. Si mantiene el mouse sobre el gráfico, muestra el valor en ese momento.
 
-Cada punto de datos en el gráfico también es un agregado de los valores de datos recibidos en el intervalo de muestreo anterior o "granularidad". La granularidad se muestra en la parte superior de la hoja y varía en función de la escala de tiempo total del gráfico.
+Cada punto de datos en el gráfico es un agregado de los valores de datos recibidos en el intervalo de muestreo anterior o "granularidad". La granularidad se muestra en la parte superior de la hoja y varía en función de la escala de tiempo total del gráfico.
 
 Se agregan métricas diferentes de distintas maneras:
 
- * Para una métrica como el tiempo de respuesta, los valores se **promedian** durante el período del gráfico.
- * Para los recuentos de eventos, como las solicitudes con error, el valor agregado es la **suma** de recuentos durante el período.
- * Para los recuentos de usuarios, el valor agregado es el número de usuarios **únicos** durante el período. (Si a un usuario se le registra más de una vez en el período, se cuenta solo una vez).
+ * **Suma**: suma los valores de todos los puntos de datos recibidos durante el intervalo de muestreo o el período del gráfico.
+ * **Media**: divide la suma por el número de puntos de datos recibidos durante el intervalo.
+ * Se usan recuentos **únicos** para los recuentos de usuarios y cuentas. Durante el intervalo de muestreo, o durante el período del gráfico, la ilustración muestra el recuento de usuarios diferentes que se ven en ese momento.
 
-Para averiguar si el valor es una suma, promedio o es un valor único, haga clic en el gráfico y desplácese hacia abajo hasta el valor seleccionado. También puede obtener una breve descripción de la métrica.
 
-![Desplace el mouse sobre (i)](./media/app-insights-metrics-explorer/06-total.png)
- 
+Puede cambiar el método de agregación:
+
+![Seleccionar el gráfico y, luego, seleccionar la agregación](./media/app-insights-metrics-explorer/05-aggregation.png)
+
+El método predeterminado para cada métrica se muestra cuando se crea un nuevo gráfico:
+
+![Cancelar la selección de todas las métricas para ver los valores predeterminados](./media/app-insights-metrics-explorer/06-total.png)
 
 
 ## Edición de gráficos y cuadrículas
@@ -128,6 +132,12 @@ Para ver solo las métricas para un conjunto de valores de propiedad seleccionad
 Si no selecciona ningún valor para una propiedad determinada, es lo mismo que seleccionar todas ellas: no hay ningún filtro en esa propiedad.
 
 Observe los recuentos de eventos junto a cada valor de propiedad. Al seleccionar valores de una propiedad, se ajustan los recuentos junto con otros valores de propiedades.
+
+### Para agregar propiedades a la lista de filtros
+
+¿Quiere filtrar telemetría en una categoría de su propia elección? Por ejemplo, quizás divida los usuarios en distintas categorías y quiera segmentar los datos por estas categorías.
+
+[Cree su propia propiedad](app-insights-api-custom-events-metrics.md#properties). Establézcala en un [inicializador de telemetría](app-insights-api-custom-events-metrics.md#telemetry-initializers) para que aparezca en toda la telemetría, incluida la telemetría estándar enviada por distintos módulos SDK.
 
 ## Supresión de bots y de tráfico de prueba web
 
@@ -202,4 +212,4 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

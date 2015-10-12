@@ -36,10 +36,12 @@ La siguiente ilustración muestra la aplicación completada:
 
 Aprenderá a realizar los siguientes procedimientos:
 
-* Habilitación de su equipo para desarrollar contenido de Azure mediante la instalación del SDK de Azure.
-* Creación de un proyecto web de Visual Studio ASP.NET y su posterior implementación en un sitio web de Azure.
-* Realización de cambios en el proyecto web y reimplementación de la aplicación.
+* Cómo preparar su máquina para el desarrollo de Azure mediante la instalación del [SDK de Azure para .NET](../dotnet-sdk/).
+* Cómo configurar Visual Studio para crear una nueva aplicación web de servicio de aplicación mientras crea un proyecto web.
+* Cómo implementar un proyecto web en una aplicación web de servicio de aplicación mediante Visual Studio.
 * Uso del [Portal de Azure](/overview/preview-portal/) para supervisar y administrar la aplicación web.
+
+Este tutorial no muestra cómo escribir código para personalizar la aplicación web. Para obtener un tutorial más avanzado que muestre cómo trabajar con bases de datos y con la autenticación de usuarios, vea [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en una aplicación web de Azure](/develop/net/tutorials/web-site-with-sql-database/).
 
 ##<a name="video"></a>Suscripción a Microsoft Azure
 
@@ -68,11 +70,11 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 	Si usa Visual Studio 2013, las pantallas pueden variar ligeramente con respecto a las capturas de pantalla, pero los procedimientos son básicamente los mismos.
 
-2. En el menú **Archivo**, haga clic en **Nuevo > Proyecto**.
+2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 
 3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **C# > Web > Aplicación Web ASP.NET**. Si lo prefiere, puede elegir **Visual Basic**.
 
-3. Asegúrese de que **.NET Framework 4.5.2** es el marco de destino seleccionado.
+3. Asegúrese de que **.NET Framework 4.5.2** sea el marco de trabajo de destino seleccionado.
 
 4.  [Azure Application Insights](app-insights-overview.md) supervisa la aplicación web en cuanto a disponibilidad, rendimiento y uso. Desactive la casilla **Agregar Application Insights al proyecto** si no desea probarlo.
 
@@ -128,7 +130,7 @@ En el diagrama se muestra lo que se hace en los pasos de creación e implementac
 
 5. En la lista desplegable **Región**, elija la ubicación más cercana.
 
-	Este valor especifica el centro de datos de Azure en el que se ejecutará la aplicación web. Para este tutorial, puede seleccionar cualquier región y no habrá una diferencia notable, pero, para una aplicación web de producción, lo normal es que quiera tener el servidor web lo más cercano posible a los exploradores que accederán al sitio, con el fin de minimizar la [latencia](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
+	Este valor especifica el centro de datos de Azure en el que se ejecutará la aplicación web. Para este tutorial, puede seleccionar cualquier región y no habrá una diferencia notable, sin embargo, para una aplicación web de producción, lo normal es que quiera tener el servidor web lo más cercano posible a los exploradores que accederán al sitio, con el fin de minimizar la [latencia](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
 5. No modifique el campo de la base de datos.
 
@@ -158,17 +160,13 @@ En esta sección implementará el proyecto web en la aplicación web, como se mu
 
 ![Creación e implementación](./media/web-sites-dotnet-get-started/Create_App.png)
 
-7. En la ventana **Actividad del Servicio de aplicaciones de Azure**, haga clic en **Publicar MyExample en esta aplicación web ahora**.
+1. En el **Explorador de soluciones**, haga clic con el botón derecho y seleccione **Publicar**.
 
-	![Aplicación web creada](./media/web-sites-dotnet-get-started/GS13sitecreated.png)
+	![Elija Publicar](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	En unos segundos aparecerá el Asistente para **publicación web**.
-
-	La configuración que Visual Studio necesita para implementar el proyecto en Azure se ha guardado en un *perfil de publicación*. Puede usar el asistente para revisar y cambiar esta configuración.
+	En unos segundos aparecerá el Asistente para **publicación web**. El asistente se abre en un *perfil de publicación* que incluye la configuración para implementar el proyecto web en la nueva aplicación web. Si desea realizar la implementación en otra aplicación web distinta, puede hacer clic en la pestaña **Perfil** ficha para crear un perfil diferente. Para este tutorial, aceptará la configuración que se implementa en la aplicación web que creó anteriormente.
 
 8. En la pestaña **Conexión** del Asistente para **publicación web**, haga clic en **Siguiente**.
-
-	Visual Studio proporciona toda la configuración que hay que implementar en la aplicación web de Azure.
 
 	![Conexión validada correctamente](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
@@ -186,7 +184,7 @@ En esta sección implementará el proyecto web en la aplicación web, como se mu
 
 	![](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
-	Visual Studio comienza el proceso de copiar los archivos en el servidor de Azure.
+	Al hacer clic en **Publicar**, Visual Studio comienza el proceso de copiar los archivos en el servidor de Azure.
 
 	Las ventanas **Salida** y **Actividad de Servicio de aplicaciones de Azure** muestran las acciones de implementación que se realizaron e informan de la correcta finalización de la implementación.
 
@@ -198,39 +196,7 @@ En esta sección implementará el proyecto web en la aplicación web, como se mu
 
 13. Cierre el explorador.
 
-## Realización de cambios y nueva implementación
-
-Esta sección del tutorial es opcional. Lo que hará es cambiar el título **h1** de la página principal, ejecutar el proyecto en modo local en su equipo de desarrollo para comprobar el cambio y luego implementar el cambio en Azure.
-
-2. Abra los archivos **Views/Home/Index.cshtml** o **.vbhtml** en el **Explorador de soluciones**, cambie el título **h1** de "ASP.NET" a "ASP.NET y Azure", y guarde el archivo.
-
-	![MVC index.cshtml](./media/web-sites-dotnet-get-started/index.png)
-
-	![Cambio de h1 de MVC](./media/web-sites-dotnet-get-started/mvcandazure.png)
-
-1. Presione Ctrl + F5 para ver el título actualizado mediante la ejecución de la aplicación web en el equipo local.
-
-	![Aplicación web que se ejecuta localmente](./media/web-sites-dotnet-get-started/localandazure.png)
-
-	La dirección URL `localhost` muestra que se está ejecutando en el equipo local. De forma predeterminada se ejecuta en IIS Express, que es una versión ligera de IIS diseñada para el desarrollo de aplicaciones web.
-
-1. Cierre el explorador.
-
-1. En el **Explorador de soluciones**, haga clic con el botón derecho y seleccione **Publicar**.
-
-	![Elija Publicar](./media/web-sites-dotnet-get-started/choosepublish.png)
-
-	Aparecerá la pestaña **Vista previa** del Asistente para **publicación web**. Si tuviera que cambiar cualquier configuración de publicación podría elegir otra pestaña; sin embargo, ahora todo lo que desea es repetir la implementación con la misma configuración.
-
-2. En el Asistente para **publicación web**, haga clic en **Publicar**.
-
-	![Haga clic en Publicar](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
-
-	Visual Studio implementa el proyecto en Azure y abre la aplicación web en el explorador predeterminado.
-
-	![Aplicación web modificada implementada](./media/web-sites-dotnet-get-started/deployedandazure.png)
-
-**Sugerencia:** puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para que la implementación sea aún más rápida. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Puede usar la barra de herramientas para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el Asistente para **publicación web**.
+**Sugerencia:** puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para agilizar la implementación. Haga clic en **Vista > Barras de herramientas** y seleccione **Publicación en Web con un solo clic**. Puede usar la barra de herramientas para seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el Asistente para **publicación web**.
 
 ![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
@@ -240,7 +206,7 @@ El [Portal de Azure](/services/management-portal/) es una interfaz web que puede
 
 1. En el explorador, vaya a [https://portal.azure.com](https://portal.azure.com) e inicie sesión con sus credenciales de Azure.
 
-2. Haga clic en **Examinar todo > Aplicaciones web** y luego en el nombre de la aplicación web.
+2. Haga clic en **Aplicaciones web** y luego en el nombre de la aplicación web.
 
 	La hoja **Aplicación web** muestra información general de la configuración y las estadísticas de uso de la aplicación web.
 
@@ -249,6 +215,8 @@ El [Portal de Azure](/services/management-portal/) es una interfaz web que puede
 	Por ahora, la aplicación web no ha tenido mucho tráfico y puede que no se muestre nada en el gráfico. Si explora la aplicación, actualiza la página varias veces y después actualiza la página la página del portal, verá que aparecen algunas estadísticas.
 
 3. Haga clic en **Configuración** para ver más opciones para configurar la aplicación web.
+
+	![Hacer clic en Configuración](./media/web-sites-dotnet-get-started/portaldashboard2.png)
 
 	Verá una lista de los tipos de configuración.
 
@@ -266,23 +234,19 @@ Estas son solo algunas de las características del Portal. Puede crear nuevas ap
 
 En este tutorial, aprendió a crear una aplicación web sencilla e implementarla en una aplicación web de Azure. Estos son algunos temas y recursos relacionados que le permitirán obtener más información sobre aplicaciones web del Servicio de aplicaciones de Azure.
 
+* Incorporación de funcionalidad de base de datos y autorización
+
+	Para ver un tutorial que muestra cómo acceder a una base de datos y restringir algunas funciones de aplicación a los usuarios autorizados, consulte [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en una aplicación web de Azure](/develop/net/tutorials/web-site-with-sql-database/).
+
 * Otros métodos de implementar un proyecto web
 
-	En este tutorial vio el método más rápido para crear una aplicación web sencilla e implementarlo en una aplicación web de Azure. Para obtener información general sobre otras formas de implementación, ya sea con Visual Studio o con [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Implementación de una aplicación web de Azure](web-sites-deploy.md).
+	Para obtener información sobre otras formas de implementar proyectos web en aplicaciones web, ya sea con Visual Studio o con [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Implementación de una aplicación web de Azure](web-sites-deploy.md).
 
 	Visual Studio también puede generar scripts de Windows PowerShell que puede usar para automatizar la implementación. Para obtener más información, consulte [Automatizar todo (creación de aplicaciones en la nube para el mundo real con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
-
-* Administración de aplicaciones web en Visual Studio
-
-	Para obtener información sobre las funciones de administración de aplicaciones web que se pueden usar en el **Explorador de servidores**, consulte [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 * Solución de problemas de aplicaciones web
 
 	Visual Studio proporciona características que facilitan la visualización de los registros de Azure conforme se generan, en tiempo real. La ejecución también se puede realizar en modo de depuración de manera remota en Azure. Para obtener más información, consulte [Solución de problemas de aplicaciones web de Azure en Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
-
-* Incorporación de funcionalidad de base de datos y autorización
-
-	Para ver un tutorial que muestra cómo acceder a una base de datos y restringir algunas funciones de aplicación a los usuarios autorizados, consulte [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en una aplicación web de Azure](/develop/net/tutorials/web-site-with-sql-database/).
 
 * Incorporación de un nombre de dominio personalizado y SSL
 
@@ -290,10 +254,6 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 
 	* [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](web-sites-custom-domain-name.md)
 	* [Habilitación de HTTPS en un sitio web de Azure](web-sites-configure-ssl-certificate.md)
-
-* Cómo evitar el tiempo de espera de reactivación después de tiempos de espera de inactividad
-
-	De forma predeterminada, las aplicaciones web se descargan si han estado inactivas durante algún tiempo. La primera solicitud después de cargar una aplicación web tiene que esperar a que la aplicación web se cargue de nuevo. Para evitar el tiempo de espera, puede habilitar la característica AlwaysOn. Para obtener más información, consulte las opciones de configuración de [Configuración de aplicaciones web](web-sites-configure.md).
 
 * Cómo agregar características en tiempo real (por ejemplo, chat)
 
@@ -308,7 +268,7 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
 * [Cómo elegir o crear un grupo de recursos](../azure-preview-portal-using-resource-groups.md)
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte [Servicio de aplicaciones de Azure y los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte la [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obtener directrices sobre el cambio del portal de Azure al portal de vista previa de Azure, vea [Referencia para navegar en el portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

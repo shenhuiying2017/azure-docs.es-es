@@ -33,7 +33,7 @@ A continuación se facilitan métodos que puede usar para crear un clúster de L
 
 * **HPC Pack**: cree un clúster de Microsoft HPC Pack en Azure y agregue nodos de proceso que ejecuten distribuciones de Linux compatibles (el nodo de proceso de Linux se inicia en la HPC Pack 2012 R2 Update 2). Algunos nodos de Linux pueden configurarse para tener acceso a la red RDMA. Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster.md)
 
-* **Scripts de CLI de Azure**: como se muestra en los pasos del resto del artículo, use la [Interfaz de línea de comandos de Azure](../xplat-cli.md) (CLI) para Mac, Linux y Windows para crear los scripts para implementar una red virtual y los demás componentes necesarios para crear un clúster de Linux. La CLI en modo de implementación (Administración de servicios) clásico crea los nodos del clúster en serie, por lo que si va a implementar muchos nodos de proceso, es posible que se tarden varios minutos en completar la implementación.
+* **Scripts de CLI de Azure**: como se muestra en los pasos del resto del artículo, use la [Interfaz de la línea de comandos de Azure](../xplat-cli-install.md) (CLI) para Mac, Linux y Windows para crear los scripts para implementar una red virtual y los demás componentes necesarios para crear un clúster de Linux. La CLI en modo de implementación (Administración de servicios) clásico crea los nodos del clúster en serie, por lo que si va a implementar muchos nodos de proceso, es posible que se tarden varios minutos en completar la implementación.
 
 * **Plantillas de Administrador de recursos de Azure**: mediante la creación de un archivo de plantilla JSON sencilla de Administrador de recursos de Azure y la ejecución de comandos de la CLI de Azure para el Administrador de recursos o mediante el uso del Portal de vista previa de Azure, implementa varias máquinas virtuales Linux A8 y A9 y define redes virtuales, direcciones IP estáticas, configuraciones DNS y otros recursos para crear un clúster de proceso que pueda aprovechar la red RDMA y ejecutar cargas de trabajo MPI. También puede [crear su propia plantilla](../resource-group-authoring-templates.md) o consultar la [página de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/) para obtener plantillas proporcionadas por Microsoft o la comunidad para implementar la solución que desee. Las plantillas del Administrador de recursos generalmente proporcionan la manera más rápida y confiable de implementar un clúster de Linux.
 
@@ -369,4 +369,4 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/es-ES/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

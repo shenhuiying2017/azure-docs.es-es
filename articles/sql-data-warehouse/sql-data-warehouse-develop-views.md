@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="09/28/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
  
@@ -30,7 +30,7 @@ En el ejemplo siguiente se agregan registros de fecha nuevos a una dimensión de
 
 ```
 CREATE TABLE dbo.DimDate_New
-WITH (DISTRIBUTION = REPLICATE
+WITH (DISTRIBUTION = ROUND_ROBIN
 , CLUSTERED INDEX (DateKey ASC)
 )
 AS 
@@ -69,4 +69,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

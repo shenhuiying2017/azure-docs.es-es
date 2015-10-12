@@ -445,7 +445,7 @@ Otra opción para aprovisionar un clúster de HDInsight es la CLI de Azure. La C
 - **SDK de Node.js**: <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **CLI de Azure**: <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-Para obtener información general acerca de cómo usar la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](../xplat-cli.md).
+Para obtener información general acerca de cómo usar la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](../xplat-cli-install.md).
 
 Las instrucciones que aparecen a continuación le guían en la instalación de la CLI de Azure en Linux y Windows y, a continuación, en el uso de la línea de comandos para aprovisionar un clúster.
 
@@ -810,4 +810,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

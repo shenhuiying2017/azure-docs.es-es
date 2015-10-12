@@ -343,6 +343,9 @@ Actualizamos y mejoramos este tema con frecuencia en función de los comentarios
 
 Para agregar funcionalidad adicional a la aplicación, revise las API disponibles en el [SDK de Python de DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
+Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
+
+
   [Haga clic aquí para obtener acceso a los tutoriales de Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [aquí]: http://aka.ms/ptvs
@@ -352,4 +355,4 @@ Para agregar funcionalidad adicional a la aplicación, revise las API disponible
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

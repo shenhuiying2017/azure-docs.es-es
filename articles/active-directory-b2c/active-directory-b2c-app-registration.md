@@ -24,8 +24,7 @@
 
 Para crear una aplicación que acepte registro e inicio de sesión de consumidores, primero deberá registrarla en un directorio de Azure Active Directory B2C. Obtenga su propio directorio siguiendo los pasos descritos [aquí](active-directory-b2c-get-started.md). Si ha seguido todos los pasos de este artículo, debe tener la hoja de características B2C anclada en el panel de inicio.
 
-    > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Navegación a la hoja Características B2C
 
@@ -33,7 +32,7 @@ Puede navegar a la hoja de características B2C de dos maneras.
 
 ### 1\. Directamente en el Portal de vista previa de Azure
 
-Si dispone de la hoja de características B2C anclada en el panel de inicio, la verá en cuanto inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/) como administrador global del directorio B2C.
+Si dispone de la hoja de características B2C anclada en el Panel de inicio, la verá en cuanto inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/) como administrador global del directorio B2C.
 
 También puede tener acceso a la hoja de características B2C yendo directamente a [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft\_AAD\_B2CAdmin=true#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) donde **{directory}** debe sustituirse por el nombre usado al crear el directorio (por ejemplo, contosob2c), e iniciando sesión como administrador global del directorio B2C. Puede marcar este vínculo para futura referencia.
 
@@ -62,4 +61,4 @@ Ahora que tiene una aplicación de Microsoft registrada en Azure AD B2C, puede r
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Soluciones HPC y Lote en la nube | Microsoft Azure"
+   pageTitle="Soluciones HPC y de ejecución por lotes en la nube | Microsoft Azure"
    description="Presenta escenarios (Big Compute) de informática de alto rendimiento y de ejecución por lotes y opciones de solución de Azure"
    services="batch, virtual-machines, cloud-services"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/01/2015"
+   ms.date="09/29/2015"
    ms.author="danlep"/>
 
 # Soluciones HPC y de ejecución por lotes
@@ -94,7 +94,7 @@ Herramientas de administración de clústeres y de programación de trabajos ayu
 
 Azure tiene una amplia gama de servicios de proceso, datos, redes y relacionados que puede usar para soluciones y flujos de trabajo Big Compute. Para obtener información detallada acerca de cada uno de estos servicios, consulte la documentación de los servicios de Azure. Consulte [Escenarios de la solución](#solution-scenarios) en este artículo para obtener algunos enfoques comunes con aplicaciones HPC y Lote.
 
->[AZURE.NOTE]Con frecuencia se introducen nuevos servicios en la plataforma Azure que podrían ser útiles para su escenario. El uso de los servicios de vista previa solo se recomienda para implementaciones de prueba o de prueba de concepto, no para cargas de trabajo de producción. Si tiene alguna pregunta, póngase en contacto con un [asociado de Azure](https://pinpoint.microsoft.com/es-es/search?keyword=azure) o envíe un correo electrónico a **bigcompute@microsoft.com*.
+>[AZURE.NOTE]Con frecuencia se introducen nuevos servicios en la plataforma Azure que podrían ser útiles para su escenario. El uso de los servicios de vista previa solo se recomienda para implementaciones de prueba o de prueba de concepto, no para cargas de trabajo de producción. Si tiene alguna pregunta, póngase en contacto con un [asociado de Azure](https://pinpoint.microsoft.com/es-ES/search?keyword=azure) o envíe un correo electrónico a **bigcompute@microsoft.com*.
 
 ### Servicios de proceso
 
@@ -164,11 +164,11 @@ Puede usar herramientas de automatización de Azure para crear un clúster HPC e
 
 >[AZURE.NOTE]Consulte al proveedor de la solución de clúster local y aplicaciones si hay requisitos adicionales y prácticas recomendadas para ejecutar en una nube pública que proporcione infraestructura como servicio (IaaS).
 
-Por ejemplo, puede crear un clúster HPC basado en Windows Server con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en máquinas virtuales de servicios de infraestructura de Azure (IaaS) para ejecutar las cargas de trabajo, tal y como se muestra en la siguiente ilustración simplificada. Un usuario del clúster puede enviar un trabajo de forma segura al clúster en la nube a través de herramientas de envío de trabajos de HPC Pack estándar que se ejecutan en un equipo cliente. Consulte [Microsoft HPC Pack en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx) para obtener detalles y opciones de implementación.
+Por ejemplo, puede crear un clúster HPC con [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) en máquinas virtuales de servicios de infraestructura de Azure (IaaS) para ejecutar las cargas de trabajo de Windows o Linux, tal y como se muestra en la siguiente ilustración simplificada. Un usuario del clúster puede enviar un trabajo de forma segura al clúster en la nube a través de herramientas de envío de trabajos de HPC Pack estándar que se ejecutan en un equipo cliente. Consulte [Opciones de clúster de HPC con Microsoft HPC Pack en Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 ![Clúster en IaaS][iaas_cluster]
 
-**Implementación automatizada**: para implementar un gran número de máquinas virtuales de Windows Server o Linux, puede usar imágenes de máquina virtual estándar o personalizadas y herramientas de automatización de Azure como la [interfaz de línea de comandos de Azure](../xplat-cli.md) o [Azure PowerShell](../powershell-install-configure.md). Algunos ejemplos son:
+**Implementación automatizada**: para implementar un gran número de máquinas virtuales de Windows Server o Linux, puede usar imágenes de máquina virtual estándar o personalizadas y herramientas de automatización de Azure como la [interfaz de la línea de comandos de Azure](../xplat-cli-install.md) o [Azure PowerShell](../powershell-install-configure.md). Algunos ejemplos son:
 
 * Para implementar un clúster de HPC Pack en servicios de infraestructura de Azure, puede ejecutar un [script de Azure PowerShell](https://msdn.microsoft.com/library/azure/dn864734.aspx) desde un equipo cliente; el script usa una imagen de máquina virtual Windows Server con HPC Pack preinstalado. También puede usar una [plantilla de inicio rápido](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) con Azure PowerShell o la CLI de Azure para implementar un clúster de HPC Pack.
 
@@ -222,4 +222,4 @@ Consulte la figura siguiente para obtener información acerca de un flujo de tra
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

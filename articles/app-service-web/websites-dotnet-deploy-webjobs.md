@@ -1,18 +1,18 @@
 <properties 
 	pageTitle="Implementar trabajos web con Visual Studio" 
 	description="Obtenga información sobre cómo implementar trabajos web de Azure en aplicaciones web del servicio de aplicaciones de Azure con Visual Studio." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
@@ -200,4 +200,4 @@ Este artículo explica cómo implementar WebJobs con Visual Studio. Para obtener
 * Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

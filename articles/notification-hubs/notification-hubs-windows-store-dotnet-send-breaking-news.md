@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 # Uso de los Centros de notificaciones para enviar noticias de última hora
@@ -241,4 +241,4 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

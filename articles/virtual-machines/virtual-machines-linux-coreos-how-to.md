@@ -44,7 +44,7 @@ Actualmente, CoreOS supone que aquellos que pueden aplicar SSH en el clúster ti
 
 ## <a id='usingcoreos'>Uso de CoreOS en Azure</a>
 
-En esta sección se describe cómo crear un servicio en la nube de Azure que contenga tres máquinas virtuales de CoreOS usando la [Interfaz de línea de comandos de Azure (CLI de Azure)]. Los pasos básicos son los siguientes:
+En esta sección se describe cómo crear un servicio en la nube de Azure que contenga tres máquinas virtuales de CoreOS usando la [Interfaz de la línea de comandos de Azure (CLI de Azure)]. Los pasos básicos son los siguientes:
 
 1. Crear los certificados SSH y las claves para proteger la comunicación con la máquina virtual de CoreOS
 2. Obtener el identificador etcd del clúster para la intercomunicación
@@ -102,7 +102,7 @@ coreos:
 ### Usar la CLI de Azure para crear una nueva máquina virtual de CoreOS
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-1. Instale la [Interfaz de línea de comandos de Azure (CLI de Azure)] si aún no lo ha hecho e inicie sesión con un identificador profesional o educativo, o bien descargue un archivo .publishsettings e impórtelo en su cuenta.
+1. Instale la [Interfaz de la línea de comandos de Azure (CLI de Azure)] si aún no lo ha hecho e inicie sesión con un identificador profesional o educativo, o bien descargue un archivo .publishsettings e impórtelo en su cuenta.
 2. Busque la imagen CoreOS. Para ubicar las imágenes disponibles en cualquier momento, escriba `azure vm image list | grep CoreOS` y obtendrá una lista de resultados similar a:
 
 	datos: 2b171e93f07c4903bcad35bda10acf22\_\_CoreOS-Stable-522.6.0 Public Linux
@@ -198,7 +198,7 @@ Ahora debería tener un clúster de CoreOS de tres nodos ejecutándose en Azure.
 
 
 <!--Link references-->
-[Interfaz de línea de comandos de Azure (CLI de Azure)]: ../xplat-cli.md
+[Interfaz de la línea de comandos de Azure (CLI de Azure)]: ../xplat-cli-install.md
 [CoreOS]: https://coreos.com/
 [información general sobre CoreOS]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -208,4 +208,4 @@ Ahora debería tener un clúster de CoreOS de tres nodos ejecutándose en Azure.
 [YAML]: http://yaml.org/
 [Introducción a Fleet en CoreOS de Azure]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

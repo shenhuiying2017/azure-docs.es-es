@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
-#Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure (vista previa)
+#Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure
 
 ##Información general
 
@@ -25,15 +25,11 @@ En Servicios multimedia de Azure, un **canal** representa una canalización para
 - Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 - Una secuencia de una sola velocidad de bits (con uno de los siguientes formatos: **RTP** (MPEG-TS), **RTMP** o **Smooth Streaming** (MP4 fragmentado)) se envía al **canal** habilitado para realizar la codificación en directo con Servicios multimedia. A continuación, el **canal** codifica en directo la secuencia entrante de una sola velocidad de bits como secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes. 
 
-	La codificación de secuencias en directo con Servicios multimedia está actualmente en versión de **vista previa**.
-
 A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
 
 - **Ninguna**: especifique este valor si piensa usar un codificador en directo local que genere una secuencia de varias velocidades de bits. En este caso, el flujo entrante pasa hasta la salida sin codificación alguna. Este es el comportamiento de un canal antes de la versión 2.10. Para obtener información más detallada sobre cómo trabajar con los canales de este tipo, consulte [Trabajo con canales que reciben streams en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
 
-- **Estándar** (vista previa): elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo de una sola velocidad de bits como secuencias de varias velocidades de bits.
-
-	La codificación de una secuencia en directo con Servicios multimedia está actualmente en versión de vista previa.
+- **Estándar**: elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo con una sola velocidad de bits como secuencias de varias velocidades de bits.
 
 >[AZURE.NOTE]En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación **Estándar**). Para obtener información sobre cómo trabajar con los canales no habilitados para realizar la codificación en directo, consulte [Trabajo con canales que reciben streams en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
 
@@ -383,12 +379,12 @@ Deteniéndose|Deteniéndose|No (estado transitorio)
 Detenido|Detenido|No
 
 
->[AZURE.NOTE]Actualmente en versión preliminar; el inicio del canal puede tardar hasta 20 minutos. El restablecimiento de canal puede tardar hasta 5 minutos.
+>[AZURE.NOTE]Actualmente, el inicio del canal puede tardar hasta más 20 minutos. El restablecimiento de canal puede tardar hasta 5 minutos.
 
 
 ##<a id="Considerations"></a>Consideraciones
 
-- Cuando un canal de tipo de codificación **estándar** experimenta una pérdida de origen de entrada/fuente de contribución, la compensa, reemplazando el audio y vídeo de origen por una careta de error y silencio. El canal continuará emitiendo una careta hasta que se reanude la fuente de contribución/entrada. Se recomienda no dejar un canal en directo en este estado durante más de dos horas. A partir de este momento, no se garantiza el comportamiento del canal en la reconexión de entrada, ni su comportamiento en respuesta a un comando de restablecimiento. Tendrá que detener el canal, eliminarlo y crear uno nuevo.
+- Cuando un canal de tipo de codificación **estándar** experimenta una pérdida de origen de entrada/fuente de contribución, la compensa reemplazando el audio y vídeo de origen por una careta de error y silencio. El canal continuará emitiendo una careta hasta que se reanude la fuente de contribución/entrada. Se recomienda no dejar un canal en directo en este estado durante más de dos horas. A partir de este momento, no se garantiza el comportamiento del canal en la reconexión de entrada, ni su comportamiento en respuesta a un comando de restablecimiento. Tendrá que detener el canal, eliminarlo y crear uno nuevo.
 - No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada. 
 - Cada vez que vuelva a configurar el codificador en directo, llame al método **Restablecer** en el canal. Antes de restablecer el canal, debe detener el programa. Después de restablecer el canal, reinicie el programa. 
 - Un canal se puede detener solo cuando está en el estado En ejecución y se han detenido todos los programas en el canal.
@@ -430,4 +426,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

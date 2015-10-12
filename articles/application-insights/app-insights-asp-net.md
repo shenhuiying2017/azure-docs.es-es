@@ -57,7 +57,7 @@ Haga clic con el botón secundario en el Explorador de soluciones y seleccione A
 
 #### Opciones de configuración
 
-La primera vez deberá iniciar sesión o registrarse en Microsoft Azure en vista previa. (Al margen de la cuenta de Visual Studio Online).
+La primera vez deberá iniciar sesión o registrarse en Microsoft Azure.
 
 Si esta aplicación forma parte de una aplicación mayor, es posible que quiera usar **Configurar valor** para colocarla en el mismo grupo de recursos que los demás componentes.
 
@@ -248,4 +248,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -461,6 +461,17 @@ Pero si los usuarios inician sesión en su aplicación, puede obtener un recuent
     }
 ```
 
+En una aplicación MVC web de ASP.NET, por ejemplo:
+
+*Razor*
+
+        @if (Request.IsAuthenticated)
+        {
+            <script>
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+            </script>
+        }
+
 No es necesario usar el nombre de inicio de sesión real del usuario. Solo tiene que ser un identificador único para ese usuario. No debe incluir espacios ni ninguno de los caracteres `,;=|`.
 
 El identificador de usuario también se establece en una cookie de sesión y se envía al servidor. Si está instalado el SDK del servidor, el Id. de usuario autenticado se enviará como parte de las propiedades de contexto tanto de la telemetría del cliente como del servidor, para que pueda filtrar y buscar en ella.
@@ -470,7 +481,9 @@ Si su aplicación agrupa a los usuarios en cuentas, también puede pasar un iden
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-En el [Explorador de métricas](app-insights-metrics-explorer.md), puede crear un gráfico de **Usuarios autenticados** y **Cuentas**.
+En el [Explorador de métricas](app-insights-metrics-explorer.md), puede crear un gráfico que cuente los **Usuarios autenticados** y las **Cuentas de usuario**.
+
+También puede [buscar][diagnostic] puntos de datos de cliente con cuentas y nombres de usuario específicos.
 
 
 ## <a name="defaults"></a>Establecimiento de valores predeterminados para los datos de telemetría personalizados seleccionados
@@ -646,7 +659,7 @@ Inserte un inicializador de telemetría inmediatamente después del código de i
     </script>
 ```
 
-Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, vea el [modelo de datos](app-insights-export-data-model.md/#lttelemetrytypegt).
+Para obtener un resumen de las propiedades no personalizadas disponibles en telemetryItem, consulte el [modelo de datos](app-insights-export-data-model.md/#lttelemetrytypegt).
 
 Puede agregar tantos inicializadores como desee.
 
@@ -699,7 +712,7 @@ Normalmente el SDK envía datos en momentos elegidos para minimizar el impacto e
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Tenga en cuenta que la función es asincrónica.
+Tenga en cuenta que la función es asincrónica para canales en memoria, pero sincrónica si decide usar el [canal persistente](app-insights-windows-desktop.md#persistence-channel).
 
 
 
@@ -741,7 +754,7 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
  * **SyntheticSource**: si no es null o no está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada se excluirá de cálculos en el Explorador de métricas.
 * **Properties** Propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
 * **Session** Identifica la sesión del usuario. El id. se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
-* **User** Información del usuario. 
+* **User**: información del usuario. 
 
 
 ## <a name="default-properties"></a>Inicializadores de contexto: establecimiento de las propiedades predeterminadas para todos los datos de telemetría
@@ -903,4 +916,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

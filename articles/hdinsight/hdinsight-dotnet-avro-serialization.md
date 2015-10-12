@@ -22,6 +22,7 @@
 
 En este tema, se explica el uso de <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> para serializar objetos y otras estructuras de datos en secuencias con el fin de guardarlos en memoria, en una base de datos o en un archivo, y cómo deserializarlos para recuperar los objetos originales.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
 ##<a name="apacheAvro"></a>Apache Avro
 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implementa el sistema de serialización de datos de Apache Avro para el entorno de Microsoft.NET. Apache Avro proporciona un formato compacto de intercambio de datos binarios para la serialización. Utiliza <a href="http://www.json.org" target="_blank">JSON</a> para definir un esquema independiente del lenguaje que garantiza la interoperabilidad de lenguajes. Los datos serializados en un lenguaje se pueden leer en otro. Actualmente, se admiten C, C++, C#, Java, PHP, Python y Ruby. Puede encontrar información detallada sobre el formato en la <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">especificación de Apache Avro</a>. Tenga en cuenta que la versión actual de Microsoft Avro Library no admite la parte de llamadas a procedimientos remotos (RPC) de esta especificación.
@@ -104,12 +105,12 @@ El sexto ejemplo muestra cómo utilizar la serialización de Avro para cargar da
 
 A continuación se muestran los vínjculos a los seis ejemplos tratados en el tema:
 
- * <a href="#Scenario1">\*\*Serialización mediante el uso de reflexión\*\*</a>: el esquema JSON para los tipos que se van a serializar se compila automáticamente a partir de los atributos del contrato de datos.
- * <a href="#Scenario2">\*\*Serialización mediante el uso de un registro genérico\*\*</a>: el esquema JSON se especifica de forma explícita en un registro cuando no hay ningún tipo .NET disponible para reflexión.
- * <a href="#Scenario3">\*\*Serialización mediante el uso de archivos contenedores de objetos con reflexión\*\*</a>: el esquema JSON se compila de manera automática y se comparte junto con los datos serializados mediante el uso de un archivo contenedor de objetos de Avro.
- * <a href="#Scenario4">\*\*Serialización mediante el uso de archivos contenedores de objetos con un registro genérico\*\*</a>: el esquema JSON se especifica explícitamente antes de la serialización y se comparte junto con los datos mediante el uso de un archivo contenedor de objetos de Avro.
- * <a href="#Scenario5">\*\*Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado\*\*</a>: este ejemplo muestra cómo crear un archivo contenedor de objetos de Avro con una implementación .NET personalizada del códec de compresión de datos Deflate.
- * <a href="#Scenario6">\*\*Uso de Avro para cargar datos para el servicio HDInsight de Microsoft Azure\*\*</a>: muestra cómo la serialización de Avro interactúa con el servicio HDInsight. Para ejecutar este ejemplo, se requiere una suscripción activa a Azure y acceso al clúster HDInsight.
+ * <a href="#Scenario1">**Serialización mediante el uso de reflexión**</a>: el esquema JSON para los tipos que se van a serializar se compila automáticamente a partir de los atributos del contrato de datos.
+ * <a href="#Scenario2">**Serialización mediante el uso de un registro genérico**</a>: el esquema JSON se especifica de forma explícita en un registro cuando no hay ningún tipo .NET disponible para reflexión.
+ * <a href="#Scenario3">**Serialización mediante el uso de archivos contenedores de objetos con reflexión**</a>: el esquema JSON se compila de manera automática y se comparte junto con los datos serializados mediante el uso de un archivo contenedor de objetos de Avro.
+ * <a href="#Scenario4">**Serialización mediante el uso de archivos contenedores de objetos con un registro genérico**</a>: el esquema JSON se especifica explícitamente antes de la serialización y se comparte junto con los datos mediante el uso de un archivo contenedor de objetos de Avro.
+ * <a href="#Scenario5">**Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado**</a>: este ejemplo muestra cómo crear un archivo contenedor de objetos de Avro con una implementación .NET personalizada del códec de compresión de datos Deflate.
+ * <a href="#Scenario6">**Uso de Avro para cargar datos para el servicio HDInsight de Microsoft Azure**</a>: muestra cómo la serialización de Avro interactúa con el servicio HDInsight. Para ejecutar este ejemplo, se requiere una suscripción activa a Azure y acceso al clúster HDInsight.
 
 ###<a name="Scenario1"></a>Muestra 1: serialización mediante el uso de reflexión
 
@@ -1404,4 +1405,4 @@ Para limpiar el clúster, ejecute el comando siguiente:
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

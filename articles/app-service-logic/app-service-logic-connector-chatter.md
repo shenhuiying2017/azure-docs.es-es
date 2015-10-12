@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Uso del conector de Chatter en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
-	description="Creación y configuración del conector de Chatter o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Uso del conector de Chatter en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure"
+   description="Creación y configuración del conector de Chatter o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
-	ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.service="app-service-logic"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Introducción al conector de Chatter y su incorporación a su aplicación lógica 
@@ -38,7 +38,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de Chatter", selecciónelo y seleccione **Crear**.
-3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades:
+3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades: 
 	![][1]  
 	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
 	- **Suscripción**: elija una suscripción en la que desee crear este conector.
@@ -55,17 +55,17 @@ Una vez creada la aplicación de API, ahora puede usar el conector de Chatter co
 
 1. En la aplicación lógica, abra **Desencadenadores y acciones** para abrir el diseñador de Aplicaciones lógicas y configure el flujo.
 
-2. El conector de Chatter se muestra en la galería:  
+2. El conector de Chatter se muestra en la galería: 
 	![][4]
-3. Seleccione el conector de Chatter para agregar automáticamente en el diseñador. Seleccione **Autorizar**, escriba sus credenciales y seleccione **Permitir**:  
+3. Seleccione el conector de Chatter para agregar automáticamente en el diseñador. Seleccione **Autorizar**, escriba sus credenciales y seleccione **Permitir**: 
 	![][5] 
 	![][6] 
 	![][7]
 
 Ahora puede usar el conector de Chatter en el flujo. Puede usar el nuevo mensaje recuperado desde el desencadenador de Chatter ("Mensaje nuevo") en otras acciones del flujo. Configure las propiedades de entrada para el desencadenador de Chatter de la forma siguiente:
 
-**Identificador de grupo**: escriba el identificador del grupo desde el que se va a recuperar el nuevo mensaje. Si no se proporciona el identificador de grupo, el nuevo mensaje se recupera de la fuente del usuario:  
-	![][8]
+**Identificador de grupo**: escriba el identificador del grupo desde el que se va a recuperar el nuevo mensaje. Si no se proporciona el identificador de grupo, el nuevo mensaje se recupera de la fuente del usuario: 
+	![][8] 
 	![][9]
 
 
@@ -79,11 +79,13 @@ En la forma similar puede usar la acción Chatter en el flujo para enviar un men
 	- 	**Menciones**: la matriz de los nombres de usuario que se van a etiquetar en este mensaje
 	- 	**Hashtags**: la matriz de los hashtags que se van a enviar junto con el mensaje
 
-![][10]
+![][10] 
 ![][11]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+
+>[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -103,4 +105,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

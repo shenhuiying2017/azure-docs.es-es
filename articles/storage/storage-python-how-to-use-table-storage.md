@@ -136,9 +136,12 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 -   Vea la referencia de MSDN: [Almacenamiento de Azure][]
 -   Visite el [Blog del equipo de Almacenamiento de Azure][]
 
+Para obtener más información, consulte también el [Centro para desarrolladores de Python](/develop/python/).
+
+
 [Almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del equipo de Almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
 [paquete de almacenamiento de Azure para Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -171,7 +171,7 @@ Para obtener más información acerca del desarrollo y la publicación de Sitios
 * [IPython: un bloc de notas/REPL avanzado para Python][]
 * [Bloc de notas de IPython en Azure][]
 * [Python Tools para Visual Studio en GitHub][]
-
+* [Centro para desarrolladores de Python](/develop/python/)
 
 [Distribución de Python de Continuum Analytics]: http://continuum.io
 [Distribución de Python de Enthought]: http://www.enthought.com
@@ -205,4 +205,4 @@ Para obtener más información acerca del desarrollo y la publicación de Sitios
 [almacenamiento de colas]: storage-python-how-to-use-queue-storage.md
 [almacenamiento de blobs]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

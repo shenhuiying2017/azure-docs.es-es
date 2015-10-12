@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Uso de la acción de script para instalar Spark en el clúster de Hadoop| Microsoft Azure"
-	description="Obtenga información para personalizar un clúster de HDInsight con Spark. Va a usar una opción de configuración de la acción de script para usar un script para instalar Spark"
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
+	pageTitle="Uso de la acción de script para instalar Spark en el clúster de Hadoop| Microsoft Azure" 
+	description="Obtenga información para personalizar un clúster de HDInsight con Spark. Va a usar una opción de configuración de la acción de script para usar un script para instalar Spark" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="Blackmist" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/01/2015" 
 	ms.author="larryfr"/>
 
 # Instalación y uso de Spark en clústeres Hadoop de HDInsight
@@ -33,17 +33,17 @@ Este tema proporciona instrucciones sobre cómo personalizar un clúster de HDIn
 
 ## <a name="whatis"></a>¿Qué versión de Spark puedo instalar?
 
-En este tema, se usa un script personalizado de acción de script para instalar Spark en un clúster de HDInsight. Este script instala Spark 1.3.1.
+En este tema, se usa un script personalizado de acción de script para instalar Spark en un clúster de HDInsight. Este script instala Spark 1.5.0.
 
 Puede modificar este script o crear su propio script para instalar otras versiones de Spark.
 
 ## Funcionamiento del script
 
-Este script instala Spark versión 1.3.1 en `/usr/hdp/current/spark`.
+Este script instala Spark versión 1.5.0 en `/usr/hdp/current/spark`.
 
 ## <a name="install"></a>Instalación de Spark mediante acciones de script
 
-Hay un script de ejemplo para instalar Spark en un clúster de HDInsight en un blob de almacenamiento de Azure de solo lectura que se encuentra en [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh). Esta sección proporciona instrucciones sobre cómo utilizar el script de ejemplo durante el aprovisionamiento del clúster mediante el Portal de Azure.
+Hay un script de ejemplo para instalar Spark en un clúster de HDInsight en un blob de almacenamiento de Azure de solo lectura que se encuentra en [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Esta sección proporciona instrucciones sobre cómo utilizar el script de ejemplo durante el aprovisionamiento del clúster mediante el Portal de Azure.
 
 > [AZURE.NOTE]También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, vea [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -52,7 +52,7 @@ Hay un script de ejemplo para instalar Spark en un clúster de HDInsight en un b
 2. En la hoja **Configuración opcional**, seleccione **Acciones de scripts** y proporcione la información siguiente:
 
 	* __NOMBRE__: escriba un nombre sencillo para la acción de script.
-	* __URI DE SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh
+	* __URI DE SCRIPT__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __PRINCIPAL__: active esta opción.
 	* __TRABAJO__: active esta opción.
 	* __ZOOKEEPER__: active esta opción para instalar en el nodo Zookeeper.
@@ -235,4 +235,4 @@ En esta sección se escribe una aplicación de Scala que cuenta el número de l�
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -34,11 +34,11 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 - **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../xplat-cli.md) para obtener información de instalación y configuración.
+- **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../xplat-cli-install.md) para obtener información de instalación y configuración.
 
 ##Instalación
 
-Si no lo ha hecho ya, use el documento [Instalar y configurar la CLI Azure](../xplat-cli.md) para instalar y configurar la CLI de Azure.
+Si no lo ha hecho ya, use el documento [Instalar y configurar la CLI Azure](../xplat-cli-install.md) para instalar y configurar la CLI de Azure.
 
 ##Aprovisionamiento de un clúster de HDInsight
 
@@ -132,8 +132,11 @@ Use el comando siguiente para eliminar un clúster:
 
 	azure hdinsight cluster delete <ClusterName>
 
+##<a name="scaling"></a>Escalado de un clúster
 
+Para cambiar el tamaño del clúster de Hadoop con Azure PowerShell, ejecute el siguiente comando desde un equipo cliente:
 
+	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>
 
 ##Pasos siguientes
 En este artículo, ha aprendido a realizar diferentes tareas administrativas en clústeres de HDInsight. Para obtener más información, consulte los artículos siguientes:
@@ -144,7 +147,7 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 * [Cómo usar la CLI de Azure][azure-command-line-tools]
 
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -160,4 +163,4 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Enumeración y visualización de clústeres"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

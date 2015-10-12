@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="¿Cuáles son los componentes de StorSimple? | Microsoft Azure"
-	description="Describe el dispositivo StorSimple, el dispositivo virtual, los servicios y las tecnologías de administración y define términos clave usados en la solución."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="AdinaH"
-	editor=""/>
+   pageTitle="¿Cuáles son los componentes de StorSimple? | Microsoft Azure" 
+   description="Describe el dispositivo StorSimple, el dispositivo virtual, los servicios y las tecnologías de administración y define términos clave usados en la solución." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="AdinaH" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="08/26/2015"
+   ms.author="v-sharos"/>
 
 
 # ¿Cuáles son los componentes de StorSimple y cómo funcionan? 
@@ -53,9 +53,9 @@ El dispositivo virtual de StorSimple (también conocido como la aplicación virt
 - El dispositivo virtual solo tiene una interfaz, mientras que el dispositivo físico tiene seis interfaces de red. 
 - El dispositivo virtual se registra durante la configuración del dispositivo y no como una tarea independiente.
 - No es posible volver a generar la clave de cifrado de datos de servicio desde un dispositivo virtual. Durante la sustitución de clave, vuelve a generar la clave en el dispositivo físico y, a continuación, actualiza el dispositivo virtual con la clave nueva.
-- Si necesita aplicar actualizaciones al dispositivo virtual, experimentará cierto tiempo de inactividad. Esto no se produce con un dispositivo de StorSimple físico.
+- Actualmente, la aplicación de actualizaciones al dispositivo virtual está deshabilitada. Si necesita un dispositivo virtual con la versión más reciente, puede crear uno nuevo y conmutar por error contenedores de volúmenes al nuevo dispositivo virtual.
 
-Se recomienda usar el dispositivo virtual StorSimple para escenarios de recuperación de desastres en los cuales no hay disponible un dispositivo físico, como en implementaciones de prueba de la nube.
+Se recomienda usar el dispositivo virtual StorSimple para escenarios de recuperación ante desastres en los cuales no hay disponible un dispositivo físico, como en escenarios de desarrollo en la nube y prueba.
 
 Para obtener más información, consulte [Dispositivo virtual StorSimple](storsimple-virtual-device.md).
 
@@ -226,4 +226,4 @@ Obtenga más información acerca de la [Seguridad de StorSimple](storsimple-secu
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

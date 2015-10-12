@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/16/2015"
+	ms.date="09/29/2015"
 	ms.author="heidist"/>
 
 #Búsqueda de Azure: tutoriales, demostraciones de vídeo y ejemplos
@@ -31,6 +31,7 @@ Póngase en marcha más rápidamente con los siguientes vídeos, demostraciones,
 
 Vínculo|Descripción
 ----|-----------
+[Procedimientos recomendados 2015 de AzureCon para Búsqueda de Azure](https://azure.microsoft.com/es-ES/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Consejos prácticos sobre cómo conseguir escalación, un rendimiento óptimo y eficacia en la codificación al crear aplicaciones para escenarios web o móviles. 
 [Academia virtual de Microsoft: adición de la Búsqueda de Azure a sus aplicaciones y sitios web](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|Serie de 7 partes sobre cómo agregar la Búsqueda de Azure a una aplicación, presentada por Liam Cavanagh, Janusz Lembicz y Bernardita Torres Garayar.
 [Compilación 2015: datos modernos](http://channel9.msdn.com/Events/Build/2015/2-663)|Pasados 29 minutos de la sesión se describe cómo se ajusta la Búsqueda de Azure en la revolución de datos moderna, presentada por Shawn Bice y Pablo Castro.
 [Compilación 2015: usar la Búsqueda de Azure para crear excelentes experiencias de búsqueda en aplicaciones web y móviles](http://channel9.msdn.com/Events/Build/2015/2-745)|Pablo Castro presenta en la compilación 2015 de Microsoft.
@@ -70,8 +71,8 @@ Tutorial|Descripción
 - [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
 - [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) es un archivo index.html que ofrece datos en un tutorial.
 - [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) es una aplicación de ASP.NET MVC para Búsqueda de Azure.
-- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) ofrece código fuente para el sitio web activo de demo NYCJobs.
-- [Recomendaciones](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usa Factoría de datos, Base de datos SQL, Almacenamiento de blobs y HDInsight de Active para implementar recomendaciones de productos según la frecuencia con la que se compran juntos.
+- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) ofrece código fuente para el sitio web activo de demostración NYCJobs.
+- [Recommendations](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) usa Factoría de datos, Base de datos SQL, Almacenamiento de blobs y HDInsight de Active para implementar recomendaciones de productos según la frecuencia con la que se compran juntos.
 
 [****https://github.com/AzureSearch**](https://github.com/AzureSearch) es otro repositorio de GitHub para Búsqueda de Azure que contiene ejemplos de código creados por el equipo de desarrollo de Búsqueda de Azure. Puede examinar el repositorio para ver lo que contiene o hacer clic en vínculos que aparecen a continuación para ir directamente a ejemplos concretos.
 
@@ -90,4 +91,4 @@ En CodePlex, puede encontrar varios ejemplos publicados durante la vista previa 
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) es una aplicación de consola de Windows que carga un conjunto de filas de SQL Server desde una base de datos local insertada.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) es una aplicación de consola de Windows que define, ejecuta y actualiza un perfil de puntuación para optimizar los resultados de la búsqueda.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

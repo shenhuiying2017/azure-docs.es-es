@@ -45,9 +45,11 @@ Desde siempre, Microsoft tiene un compromiso con la privacidad, que es una parte
 
 ###Pasos siguientes:
 
+[Prácticas recomendadas y proceso de creación de Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
+
 [Tutoriales introductorios (marketing)](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Tutoriales introductorios (desarrolladores)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

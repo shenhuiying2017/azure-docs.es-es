@@ -83,4 +83,4 @@ Por supuesto, si ya dispone de esos valores, puede encontrar los modificadores a
 
 Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, consulte [Uso de la CLI de Microsoft Azure para Mac, Linux y Windows con administración de recursos de Azure](../xplat-cli-resource-manager.md). Para obtener más información acerca de los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

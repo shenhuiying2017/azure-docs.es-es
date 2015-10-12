@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/21/2015"
+   ms.date="09/24/2015"
    ms.author="alkohli"/>
 
 # Software de StorSimple, alta disponibilidad y requisitos de red
@@ -152,7 +152,7 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 |TCP 443 (HTTPS)<sup>3</sup>| Fuera | WAN | Sí |<ul><li>El puerto de salida se usa para tener acceso a los datos de la nube.</li><li>El proxy web de salida es configurable por el usuario.</li><li>Para permitir las actualizaciones del sistema, este puerto también debe estar abierto para las direcciones IP fijas del controlador.</li></ul>|
 |UDP 53 (DNS) | Fuera | WAN | En algunos casos; consulte las notas. |Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. |
 | UDP 123 (NTP) | Fuera | WAN | En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet. |
-| TCP 9354 | Fuera | WAN | En algunos casos; consulte las notas. |El puerto de salida es utilizado por el servicio StorSimple Manager para comunicarse con el dispositivo. Este puerto es necesario si la red actual no admite el uso de HTTP 1.1 para conectarse a Internet; por ejemplo, si utiliza un servidor proxy basado en HTTP 1.0.<br> Si se conecta a través de un servidor proxy, consulte [requisitos del bus de servicio](https://msdn.microsoft.com/library/azure/ee706729.aspx) para obtener información detallada. |
+| TCP 9354 | Fuera | WAN | En algunos casos; consulte las notas. |El dispositivo StorSimple usa el puerto de salida para comunicarse con el servicio StorSimple Manager. Este puerto es necesario si la red actual no admite el uso de HTTP 1.1 para conectarse a Internet; por ejemplo, si utiliza un servidor proxy basado en HTTP 1.0.<br> Si se conecta a través de un servidor proxy, consulte [requisitos del bus de servicio](https://msdn.microsoft.com/library/azure/ee706729.aspx) para obtener información detallada. |
 | 3260 (iSCSI) | En el | LAN | No | Este puerto se utiliza para tener acceso a datos a través de iSCSI.|
 | 5985 | En el | LAN | No | El puerto de entrada es usado por el StorSimple Snapshot Manager para comunicarse con el dispositivo StorSimple.<br>También se utiliza cuando se conecta de forma remota a Windows PowerShell for StorSimple a través de HTTP. |
 | 5986 | En el | LAN | No | Este puerto se usa al conectarse de forma remota a Windows PowerShell para StorSimple a través de HTTPS. |
@@ -187,12 +187,14 @@ Además de los requisitos de redes anteriores, para obtener un rendimiento ópti
 
 - Aísle el tráfico iSCSI y de la nube mediante interfaces de red específicas en el dispositivo para el acceso a iSCSI y a la nube. Para obtener más información, consulte cómo [modificar interfaces de red](storsimple-modify-device-config.md#modify-network-interfaces) en el dispositivo de StorSimple.
 
+- No utilice una configuración de protocolo de agregación de vínculos (LACP) para las interfaces de red. Se trata de una configuración no admitida.
+
 ## Pasos siguientes
 
-- [Obtenga más información acerca de los límites de StorSimple](storsimple-limits.md).
-- [Obtenga más información acerca de cómo implementar la solución StorSimple](storsimple-deployment-walkthrough.md).
+- [Obtenga más información sobre de los límites del sistema StorSimple](storsimple-limits.md).
+- [Obtenga más información sobre cómo implementar la solución StorSimple](storsimple-deployment-walkthrough.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

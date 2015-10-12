@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones " 
 	description="Obtenga información acerca de cómo configurar las reglas de seguridad de red para controlar el tráfico entrante a un entorno del Servicio de aplicaciones." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -134,4 +134,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

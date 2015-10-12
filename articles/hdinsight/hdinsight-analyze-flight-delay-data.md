@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="08/12/2015"
 	ms.author="jgao"/>
 
 #Análisis de datos de retraso de vuelos con Hive en HDInsight
 
 Hive ofrece un modo de ejecutar trabajos de MapReduce de Hadoop mediante un lenguaje de scripting de tipo SQL, denominado *[HiveQL][hadoop-hiveql]*, que se puede usar para resumir, consultar y analizar grandes volúmenes de datos.
+
+> [AZURE.NOTE]Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Para conocer el procedimiento que funciona con un clúster basado en Linux, vea [Análisis de datos de retraso de vuelos con Hive en HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 Una de las principales ventajas de HDInsight de Azure es la separación del almacenamiento de datos y el proceso. HDInsight usa el almacenamiento de blobs de Azure para el almacenamiento de datos. Un proceso normal de MapReduce se puede dividir en 3 partes:
 
@@ -41,7 +43,7 @@ La parte principal del tutorial le muestra cómo usar un script de Windows Power
 
 En los apéndices, puede encontrar instrucciones para cargar los datos del retraso del vuelo, crear o cargar cadenas de consulta de Hive y preparar la base de datos SQL de Azure para el trabajo de Sqoop.
 
-> [AZURE.NOTE]Los pasos descritos en este documento son específicos de los clústeres de HDInsight basados en Windows. Para conocer el procedimiento que funcionará con un clúster basado en Linux, vea [Analizar datos de retrasos de vuelos en Hive en HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> [AZURE.NOTE]Los pasos descritos en este documento son específicos de los clústeres de HDInsight basados en Windows. Para conocer el procedimiento que funcionará con un clúster basado en Linux, vea [Análisis de datos de retraso de vuelos con Hive en HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ###Requisitos previos
 
@@ -879,4 +881,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

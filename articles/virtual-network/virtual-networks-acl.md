@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="09/22/2015"
    ms.author="telmos" />
 
-# ¿Qué es una lista de control de acceso (ACL) de red?
+# ¿Qué es una lista de control de acceso (ACL) de extremo?
 
-Una lista de control de acceso (ACL) de red es una mejora de seguridad disponible para la implementación de Azure. Una ACL proporciona la capacidad de permitir o denegar tráfico a un extremo de la máquina virtual de forma selectiva. Esta capacidad de filtro de paquetes proporciona un nivel adicional de seguridad. Puede especificar ACL de red solo para extremos. No se puede especificar una ACL para una red virtual o para una subred específica contenida en una red virtual.
+Una lista de control de acceso (ACL) de extremo es una mejora de seguridad disponible para la implementación de Azure. Una ACL proporciona la capacidad de permitir o denegar tráfico a un extremo de la máquina virtual de forma selectiva. Esta capacidad de filtro de paquetes proporciona un nivel adicional de seguridad. Puede especificar ACL de red solo para extremos. No se puede especificar una ACL para una red virtual o para una subred específica contenida en una red virtual.
 
 > [AZURE.IMPORTANT]Siempre que sea posible, se recomienda utilizar grupos de seguridad de red (NSG) en lugar de ACL. Para obtener más información sobre los grupos de seguridad de red, consulte [¿Qué es un grupo de seguridad de red?](../virtual-networks-nsg).
 
@@ -99,4 +99,4 @@ Las ACL de red pueden especificarse en un extremo del conjunto con equilibrio de
 
 [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

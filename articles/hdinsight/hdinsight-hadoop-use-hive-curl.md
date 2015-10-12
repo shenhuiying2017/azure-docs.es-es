@@ -1,21 +1,21 @@
 <properties
    pageTitle="Uso de Hive con Hadoop con Curl en HDInsight | Microsoft Azure"
-	description="Sepa cómo enviar remotamente trabajos de Pig a HDInsight mediante el uso de Curl."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Sepa cómo enviar remotamente trabajos de Pig a HDInsight mediante el uso de Curl."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #Ejecución de consultas de Hive con Hadoop en HDInsight con Curl
 
@@ -106,7 +106,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
         {"id":"job_1415651640909_0026"}
 
-3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fue `{"id":"job_1415651640909_0026"}`, entonces ** JOBID** sería `job_1415651640909_0026`.
+3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fue `{"id":"job_1415651640909_0026"}`, entonces **JOBID** sería `job_1415651640909_0026`.
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
 
@@ -116,7 +116,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 4. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento de blobs de Azure. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida; en este caso, ****wasb:///example/curl**. Esta dirección almacena la salida del trabajo en el directorio **example/curl** en el contenedor de almacenamiento predeterminado que su clúster de HDInsight usa.
 
-    Puede enumerar y descargar estos archivos mediante el [CLI de Azure para Mac, Linux y Windows](xplat-cli.md). Por ejemplo, para enumerar los archivos existentes en **example/curl**, use el siguiente comando.
+    Puede enumerar y descargar estos archivos mediante el [CLI de Azure para Mac, Linux y Windows](xplat-cli-install.md). Por ejemplo, para enumerar los archivos existentes en **example/curl**, use el siguiente comando.
 
 		azure storage blob list <container-name> example/curl
 
@@ -194,4 +194,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

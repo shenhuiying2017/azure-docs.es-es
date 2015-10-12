@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="09/25/2015"
 	ms.author="jgao"/>
 
 
@@ -49,11 +49,13 @@ El complemento de Power Query para Excel facilita la importación de datos desde
 
 2. Cree un libro vacío.
 
-3. Haga clic en el menú **Power Query**. Después, haga clic en **Desde otros orígenes** y, a continuación, en **De HDInsight de Azure**.
+3. Haga clic en el menú **Power Query**, en **De Azure** y, luego, en **De HDInsight de Microsoft Azure **.
 
 	![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
 
-	Nota: si no ve el menú **Power Query**, vaya a **Archivo** > **Opciones** > **Complementos** y elija **Complementos COM** en el cuadro desplegable **Manager** situado al final de la página. Elija el botón **Go...** y compruebe que la casilla del complemento de Power Query para Excel esté activada.
+	**Nota**: Si no ve el menú **Power Query**, vaya a **Archivo** > **Opciones** > **Complementos** y seleccione **Complementos COM** en el cuadro desplegable **Administrador** situado al final de la página. Elija el botón **Go...** y compruebe que la casilla del complemento de Power Query para Excel esté activada.
+
+	**Nota:** Power Query también permite importar datos de HDFS haciendo clic **De otros orígenes**.
 
 3. En **Nombre de cuenta**, escriba el nombre de la cuenta de almacenamiento de blobs de Azure asociada con su clúster y, a continuación, haga clic en **Aceptar**.
 
@@ -86,4 +88,4 @@ En este artículo, ha aprendido a usar Power Query para recuperar datos de HDIns
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

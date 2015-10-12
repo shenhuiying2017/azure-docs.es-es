@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="JennieHubbard"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="spelluru"/>
+	ms.date="09/24/2015"
+	ms.author="jhubbard"/>
 
 
 #Introducción a SQL Data Sync de Azure (vista previa)
@@ -40,7 +40,7 @@ En este tutorial se presupone una experiencia previa mínima en SQL Server y Bas
 
 
 ## Paso 2: Incorporación de un agente cliente
-Este paso solo es necesario si va a incluir en su grupo de sincronización una base de datos de SQL Server local. Puede continuar en el paso 4 de creación de un grupo de sincronización si el grupo de sincronización solo tiene instancias de Base de datos SQL.
+Este paso solo es necesario si va a incluir en su grupo de sincronización una base de datos de SQL Server local. Vaya hasta el paso 4 si su grupo de sincronización solo tiene instancias de Base de datos SQL.
 
 <a id="InstallRequiredSoftware"></a>
 ### Paso 2a: Instalación del software necesario
@@ -202,4 +202,4 @@ Para obtener más información acerca de Base de datos SQL y SQL Data Sync, cons
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

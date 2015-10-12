@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Agregar salidas
@@ -24,13 +24,19 @@ Las salidas del Análisis de transmisiones se pueden usar para generar alertas o
 
 Para agregar una salida a su trabajo del Análisis de transmisiones:
 
-1. En su trabajo de Análisis de transmisiones, haga clic en **Salidas** y luego en **Agregar salida**.
+1. En el portal de Azure, haga clic en **Salidas** y luego en **Agregar salida** en el trabajo de Análisis de transmisiones.
 
     ![Agregar salidas](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
+
+    En el portal de vista previa de Azure, haga clic en el icono **Salidas** en el trabajo de Análisis de transmisiones.
+
+    ![Portal de Azure - Agregar salidas](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
 2. Especifique el tipo de la salida:
 
     ![Elegir tipo de datos](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)
+
+    ![Portal de vista previa de Azure - Elegir tipo de datos](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
 3. Asigne un nombre descriptivo para esta salida en el cuadro **Alias de salida**. Este nombre se puede usar en la consulta de su trabajo más adelante para hacer referencia a la salida.
     
@@ -40,9 +46,11 @@ Para agregar una salida a su trabajo del Análisis de transmisiones:
 
 4. Según el tipo de salida, puede que necesite especificar cómo se serializan o se formatean los datos. La configuración de serialización específica para cada tipo de salida se documenta aquí.
 
-    Rellene el resto de las propiedades de conexión necesarias para conectarse a su origen de datos. Estos campos varían según el tipo de entrada y de origen y se definen en detalle [aquí](stream-analytics-create-a-job.md.).
+    Rellene el resto de las propiedades de conexión necesarias para conectarse a su origen de datos. Estos campos varían según el tipo de entrada y de origen y se definen en detalle [aquí](stream-analytics-create-a-job.md).
 
     ![Agregar centro de eventos](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)
+
+    ![Portal de vista previa de Azure - Agregar centro de eventos](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
 
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
@@ -55,4 +63,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

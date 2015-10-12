@@ -46,4 +46,4 @@ En este documento se supone que tiene una suscripción de Azure y una cuenta de 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

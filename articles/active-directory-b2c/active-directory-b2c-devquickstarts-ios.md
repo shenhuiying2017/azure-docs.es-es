@@ -34,17 +34,17 @@ Ahora debe crear una aplicación en su directorio de B2C, que ofrece a Azure AD 
 - Crear un **Secreto de aplicación ** para la aplicación y copiarlo. Lo necesitará en breve.
 - Escribir el **Id. de aplicación** asignado a la aplicación. También lo necesitará en breve.
 
-    > [AZURE.IMPORTANT]No puede usar aplicaciones registradas en la pestaña **Aplicaciones** del [Portal de Azure](https://manage.windowsazure.com/) con este fin.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Crear sus directivas
-
-> [AZURE.NOTE]En nuestra vista previa de B2C, use las mismas directivas en las instalaciones de cliente y de servidor. Si ya ha realizó un tutorial y creó estas directivas no tiene que volver a crearlas. Puede reutilizar las directivas que creó anteriormente en el portal si coinciden con los requisitos de la aplicación.
 
 En Azure AD B2C, cada experiencia del usuario se define mediante una [**directiva**](active-directory-b2c-reference-policies.md). Esta aplicación contiene tres experiencias de identidad: registro, inicio de sesión e inicio de sesión con Facebook. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de directiva](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Al crear sus tres directivas, asegúrese de:
 
 - Seleccionar **Nombre para mostrar** y algunos otros atributos de registro en la directiva de registro.
 - Elegir las notificaciones de aplicación **Nombre para mostrar** e **Id. de objeto** en todas las directivas. Puede elegir también otras notificaciones.
 - Copiar el **Nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará esos nombres de directivas en breve. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Cuando tenga tres directivas creadas correctamente, estará listo para crear su aplicación.
 
@@ -106,6 +106,8 @@ Para que la aplicación de la tarea de iOS se comunique con Azure AD B2C, hay al
 </dict>
 </plist>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ## 6\. Obtener tokens de acceso y llamar a la API de la tarea
 
@@ -366,7 +368,7 @@ Ahora llegamos a la llamada real a ADAL y aquí es donde la llamada cambia de lo
 
 Puede ver que la llamada es bastante sencilla.
 
-**scopes**: se trata de los ámbitos que pasamos al servidor que queremos solicitar desde el servidor para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento. **addtionalScopes**: se trata de ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro. **clientId**: identificador de aplicación obtenido desde el portal. **redirectURI**: redireccionamiento al que se espera que se envíe de vuelta el token. **identifier**: modo de identificar al usuario, así podemos ver si hay un token que se puede usar en la caché en comparación con tener que solicitar siempre otro token al servidor. Verá que esto se transporta en un tipo denominado `ADUserIdentifier` y podemos especificar lo que queremos usar como Id. Ha de usar el nombre de usuario. **promptBehavior**: esto está en desuso y debe ser AD\_PROMPT\_ALWAYS. **extraQueryParameters**: algo adicional que quiera pasar al servidor en formato codificado de dirección URL. **policy**: directiva que se invoca. La parte más importante de este tutorial.
+**scopes**: se trata de los ámbitos que pasamos al servidor que queremos solicitar desde el servidor para el inicio de sesión del usuario. Para la vista previa de B2C, pasamos client\_id. Sin embargo, esto cambiará la lectura de ámbitos en el futuro. Entonces se actualizará este documento. **addtionalScopes**: se trata de ámbitos adicionales que podemos usar para la aplicación. Esto se usará en el futuro. **clientId**: identificador de aplicación obtenido en el portal. **redirectURI**: redireccionamiento al que se espera que se envíe de vuelta el token. **identifier**: modo de identificar al usuario, así podemos ver si hay un token que se puede usar en la caché en comparación con tener que solicitar siempre otro token al servidor. Verá que esto se transporta en un tipo denominado `ADUserIdentifier` y podemos especificar lo que queremos usar como id. Ha de usar el nombre de usuario. **promptBehavior**: esto está en desuso y debe ser AD\_PROMPT\_ALWAYS. **extraQueryParameters**: algo adicional que quiera pasar al servidor en formato codificado de dirección URL. **policy**: directiva que se invoca. La parte más importante de este tutorial.
 
 Puede ver que en completionBlock pasamos el `ADAuthenticationResult` que tiene nuestro token y la información de perfil (si la llamada se realizó correctamente).
 
@@ -650,4 +652,4 @@ Ahora puede pasar a temas más avanzados de B2C. También puede probar lo siguie
 
 [Personalización de la experiencia de usuario de la aplicación B2C >>]()
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

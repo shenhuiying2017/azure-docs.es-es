@@ -183,7 +183,7 @@ La salida generada por la línea de comandos será la siguiente:
 
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
-1. Si es la primera vez que utiliza la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde tiene que seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
@@ -276,4 +276,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

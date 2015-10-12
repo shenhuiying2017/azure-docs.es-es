@@ -191,6 +191,7 @@ En los siguientes pasos se agregan las aplicaciones de API B2B a las aplicacione
 
 4. Seleccione **Aceptar** para guardar los cambios.
 
+>[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Más recursos B2B
 
@@ -205,4 +206,4 @@ En los siguientes pasos se agregan las aplicaciones de API B2B a las aplicacione
 
 [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

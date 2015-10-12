@@ -159,7 +159,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 * Consulte [Informática de código abierto y Linux en Azure] para obtener más información sobre el uso de entornos de código abierto en máquinas virtuales de Linux en Azure.
 
 <!--Link references-->
-[Azure Command-Line Interface (Azure)]: ../xplat-cli.md
+[Azure Command-Line Interface (Azure)]: ../xplat-cli-install.md
 [CoreOS]: https://coreos.com/
 [información general sobre CoreOS]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -175,4 +175,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [imagen de concentrador de Docker CoreOS / Apache ]: https://registry.hub.docker.com/u/coreos/apache/
 [Informática de código abierto y Linux en Azure]: virtual-machines-linux-opensource.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

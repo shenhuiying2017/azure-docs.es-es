@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/10/2015"
+   ms.date="09/25/2015"
    ms.author="v-sharos"/>
 
 # Protección de datos y seguridad de StorSimple
@@ -52,7 +52,7 @@ Solo los dispositivos de StorSimple autorizados tienen permitido unirse al servi
 
 Para autorizar un dispositivo, debe registrarlo con el servicio StorSimple Manager mediante la clave de registro del servicio. La clave de registro del servicio es una clave aleatoria de 128 bits generada en el portal. Para obtener información sobre cómo obtener una clave de registro del servicio, vaya al [Paso 2: Obtener la clave de registro del servicio](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
-> [AZURE.NOTE]La clave de registro del servicio es una clave larga que contiene más de 100 caracteres. Se recomienda copiar la clave y guardarla en un archivo de texto en una ubicación segura para que pueda utilizarla para autorizar dispositivos adicionales según sea necesario.
+> [AZURE.NOTE]La clave de registro del servicio es una clave larga que contiene más de 100 caracteres. Puede copiar la clave y guardarla en un archivo de texto en una ubicación segura para que pueda utilizarla para autorizar dispositivos adicionales según sea necesario.
 > 
 > * Si se pierde la clave de registro del servicio una vez que registra el primer dispositivo, puede generar una clave nueva desde el servicio StorSimple Manager. Esto no afectará la operación de los dispositivos existentes. 
 > * Una vez que se registra un dispositivo, usa tokens para comunicarse con Microsoft Azure. La clave de registro del servicio no se usa después del registro del dispositivo.
@@ -69,7 +69,7 @@ Las contraseñas son un aspecto importante de la seguridad informática y se usa
 
 ### Contraseñas para el administrador del dispositivo de StorSimple y Windows Powershell para StorSimple
 
-Windows PowerShell para StorSimple es una interfaz de línea de comandos que puede utilizar para administrar el dispositivo de StorSimple. Windows PowerShell para StorSimple tiene características que le permite registrar su dispositivo, configurar la interfaz de red en su dispositivo, instalar ciertos tipos de actualizaciones, solucionar problemas con su dispositivo mediante el acceso a la sesión de soporte y cambiar el estado del dispositivo. Puede tener acceso a Windows PowerShell para StorSimple si se conecta a la consola serial o si usa la comunicación remota de Windows PowerShell.
+Windows PowerShell para StorSimple es una interfaz de línea de comandos que puede utilizar para administrar el dispositivo de StorSimple. Windows PowerShell para StorSimple tiene características que le permite registrar su dispositivo, configurar la interfaz de red en su dispositivo, instalar ciertos tipos de actualizaciones, solucionar problemas con su dispositivo mediante el acceso a la sesión de soporte y cambiar el estado del dispositivo. Puede tener acceso a Windows PowerShell para StorSimple si se conecta a la consola en serie en el dispositivo o si usa la comunicación remota de Windows PowerShell.
 
 La comunicación remota de PowerShell se puede realizar a través de HTTPS o HTTP. Si la administración remota a través de HTTPS está habilitada, deberá descargar el certificado de administración remota desde el dispositivo e instalarlo en el cliente remoto.
 
@@ -129,7 +129,7 @@ Según lo descrito en otras secciones, las contraseñas se utilizan para autoriz
 El propósito principal del servicio StorSimple Manager es administrar y configurar el dispositivo de StorSimple. El servicio StorSimple Manager se ejecuta en Microsoft Azure. El Portal de administración de Azure se utiliza para ingresar los datos de configuración del dispositivo y, a continuación, Microsoft Azure utiliza el servicio StorSimple Manager para enviar los datos al dispositivo. El servicio StorSimple Manager utiliza un sistema de pares de claves asimétricas para ayudar a garantizar que un compromiso del servicio de Azure no generará un compromiso de la seguridad de la información almacenada. El sistema de claves asimétricas ayuda a proteger los datos que fluyen a través del servicio de la siguiente manera:
 
 1. Un certificado de cifrado de datos que utiliza un par de claves asimétricas públicas y privadas se genera en el dispositivo y se utiliza para proteger los datos. Las claves se generar cuando se registra el primer dispositivo. 
-2. Las claves de certificado de cifrado de datos se exportan a un archivo Personal Information Exchange (.pfx) que está protegido por la clave de cifrado de datos del servicio, que es una clave segura de 128 bits que el dispositivo genera de manera aleatoria durante el registro.
+2. Las claves de certificado de cifrado de datos se exportan a un archivo de intercambio de información personal (.pfx) que está protegido por la clave de cifrado de datos del servicio, que es una clave segura de 128 bits que el primer dispositivo genera de manera aleatoria durante el registro.
 3. La clave pública del certificado queda disponible de manera segura para el servicio StorSimple Manager y la clave privada queda dentro del dispositivo.
 4. Los datos que ingresan al servicio se cifran usando la clave pública y se descifran usando la clave privada almacenada en el dispositivo, lo que garantiza que el servicio de Azure no puede descifrar los datos que fluyen al dispositivo.
 
@@ -144,7 +144,7 @@ El propósito principal del servicio StorSimple Manager es administrar y configu
 
 ## Protección de los datos en reposo
 
-El dispositivo de StorSimple administra los datos a través de su almacenamiento en niveles de manera local y en la nube, según la frecuencia de uso. Todos los equipos host que están conectados al dispositivo envían datos al dispositivo, el que luego mueve los datos a la nube, según corresponda. Los datos se transfieren desde el dispositivo a la nube a través del protocolo iSCSI. Cada dispositivo tiene un destino de iSCSI que expone todos los volúmenes compartidos en ese dispositivo. Todos los datos se cifran antes de enviarlos al almacenamiento en la nube. Para ayudar a garantizar la seguridad y la integridad de los datos movidos a la nube, Azure StorSimple le permite definir claves de cifrado de almacenamiento en la nube de la siguiente manera:
+El dispositivo de StorSimple administra los datos a través de su almacenamiento en niveles de manera local y en la nube, según la frecuencia de uso. Todos los equipos host que están conectados al dispositivo envían datos al dispositivo, el que luego mueve los datos a la nube, según corresponda. Los datos se transfieren desde el dispositivo a la nube de forma segura a través de Internet. Cada dispositivo tiene un destino de iSCSI que expone todos los volúmenes compartidos en ese dispositivo. Todos los datos se cifran antes de enviarlos al almacenamiento en la nube. Para ayudar a garantizar la seguridad y la integridad de los datos movidos a la nube, Azure StorSimple le permite definir claves de cifrado de almacenamiento en la nube de la siguiente manera:
 
 - La clave de cifrado de almacenamiento en la nube se especifica cuando se crea un contenedor de volúmenes. No es posible modificar o agregar más adelante la clave. 
 - Todos los volúmenes de un contenedor de volúmenes comparten la misma clave de cifrado. Si desea una forma distinta de cifrado para un volumen específico, se recomienda crear un contenedor de volúmenes nuevo para hospedar ese volumen.
@@ -203,7 +203,7 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 **P:** Perdí mi clave de cifrado de datos de servicio. ¿Qué puedo hacer?
 
-**R:** Póngase en contacto con el soporte técnico de Microsoft. Puede iniciar sesión en una sesión de asistencia en el dispositivo y ayudarle a recuperar la clave. Inmediatamente después de obtener la clave de cifrado de datos de servicio, deberá cambiarla para asegurarse de que solo usted conozca la nueva clave. Para obtener instrucciones, vaya a:
+**R:** Póngase en contacto con el soporte técnico de Microsoft. Puede iniciar sesión en una sesión de asistencia en el dispositivo y ayudarle a recuperar la clave (siempre que haya al menos un dispositivo en línea). Inmediatamente después de obtener la clave de cifrado de datos de servicio, deberá cambiarla para asegurarse de que solo usted conozca la nueva clave. Para obtener instrucciones, vaya a:
 
 - [Cambiar la clave de cifrado de datos de servicio](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
@@ -253,4 +253,4 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 [Implementación del dispositivo StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

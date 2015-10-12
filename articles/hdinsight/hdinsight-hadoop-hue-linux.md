@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Uso de Hue con Hadoop en clústeres de HDInsight Linux | Microsoft Azure" 
-	description="Aprenda a instalar y usar Hue con clústeres de Hadoop en HDInsight Linux." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Uso de Hue con Hadoop en clústeres de HDInsight Linux | Microsoft Azure"
+	description="Aprenda a instalar y usar Hue con clústeres de Hadoop en HDInsight Linux."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
@@ -60,16 +60,11 @@ La acción de script [https://hdiconfigactions.blob.core.windows.net/linuxhuecon
 
 La tunelización de SSH es la única forma de obtener acceso a Hue en el clúster cuando se está ejecutando. La tunelización a través de SSH permite al tráfico ir directamente al nodo principal del clúster en el que se ejecuta Hue. Cuando termine de aprovisionar el clúster, siga estos pasos para usar Hue en un clúster de HDInsight Linux.
 
-> [AZURE.NOTE]Las siguientes instrucciones suponen que tiene un explorador web Firefox con la extensión [FoxyProxy](https://addons.mozilla.org/es-ES/firefox/addon/foxyproxy-standard/) instalada.
+1. Consulte la información de [Uso de la tunelización SSH para acceder a la interfaz de usuario web de Ambari, ResourceManager, JobHistory, NameNode, Oozie y otras interfaces de usuario web](hdinsight-linux-ambari-ssh-tunnel.md) para crear un túnel SSH desde el sistema cliente al clúster de HDInsight y luego configurar el explorador web para usar el túnel SSH como proxy.
 
-1. Habilite la tunelización de SSH desde el equipo de escritorio y configure su explorador Firefox para usar el túnel SSH. Durante la configuración de la tunelización, use un puerto que no sea el puerto 8888.
+2. Tras crear un túnel SSH y configurar el explorador para canalizar el tráfico proxy a través de él, use el explorador para abrir el portal de Hue en http://headnode0:8888.
 
-	* Para obtener instrucciones sobre cómo habilitar la tunelización de SSH desde un equipo Linux, vea [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-linux-ambari-ssh-tunnel.md#usessh).
-	* Para obtener instrucciones sobre cómo habilitar la tunelización de SSH desde un equipo Windows, vea [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows](hdinsight-linux-ambari-ssh-tunnel.md#useputty).
-
-	Mantenga la sesión de PuTTY ejecutándose.
- 
-2. Desde el equipo, utilice el explorador web Firefox con FoxyProxy configurado para iniciar el portal de Hue en http://headnode0:8888. Al iniciar sesión por primera vez, se le pedirá que cree una cuenta para iniciar sesión en el portal de Hue. Las credenciales que especifique aquí se limitarán al portal y no están relacionadas con las credenciales de administrador o de usuario SSH que especificó al aprovisionar el clúster.
+    > [AZURE.NOTE]Al iniciar sesión por primera vez, se le pedirá que cree una cuenta para iniciar sesión en el portal de Hue. Las credenciales que especifique aquí se limitarán al portal y no están relacionadas con las credenciales de administrador o de usuario SSH que especificó al aprovisionar el clúster.
 
 	![Inicio de sesión en el portal de Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Especifique las credenciales para el portal de Hue")
 
@@ -95,8 +90,7 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 3. Haga clic con el botón derecho en un archivo o carpeta para ver las operaciones disponibles. Use el botón **Cargar** situado en la esquina derecha para cargar archivos en el directorio actual. Use el botón **Nuevo** para crear otros archivos o directorios.
 
-> [AZURE.NOTE]El explorador de archivos de Hue solo puede mostrar el contenido del contenedor predeterminado asociado con el clúster de HDInsight. Cualquier cuenta o contenedor de almacenamiento adicional asociados con el clúster no serán accesibles mediante el explorador de archivos. Sin embargo, los contenedores adicionales asociados con el clúster siempre serán accesibles para los trabajos de Hive. Por ejemplo, si escribe el comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` en el editor de Hive, también podrá ver el contenido de los contenedores adicionales. En este comando, **newcontainer** no es el contenedor predeterminado asociado a un clúster.
-
+> [AZURE.NOTE]El explorador de archivos de Hue solo puede mostrar el contenido del contenedor predeterminado asociado con el clúster de HDInsight. Cualquier cuenta o contenedor de almacenamiento adicional asociados con el clúster no serán accesibles mediante el explorador de archivos. Sin embargo, los contenedores adicionales asociados con el clúster siempre serán accesibles para los trabajos de Hive. Por ejemplo, si escribe el comando `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` en el editor de Hive, también podrá ver el contenido de otros contenedores. En este comando, **newcontainer** no es el contenedor predeterminado asociado a un clúster.
 
 ## Consideraciones importantes
 
@@ -114,7 +108,7 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 
 	Este es un problema conocido. Como alternativa, modifique Ambari para que el Administrador de recursos que está activo también se ejecute en HEADNODE0.
 
-5.	Hue entiende WebHDFS, mientras que los clústeres de HDInsight usan Almacenamiento de Azure mediante `wasb://`. Por lo tanto, el script personalizado que se usa con la acción de script instala WebWasb, que es un servicio compatible con WebHDFS para hablar con WASB. Así que aunque el portal de Hue dice HDFS en lugares (como cuando se mueve el mouse sobre el **explorador de archivos**), se debe interpretar como WASB.
+5.	Hue entiende WebHDFS, mientras que los clústeres de HDInsight usan Almacenamiento de Azure mediante `wasb://`. Por lo tanto, el script personalizado que se usa con la acción de script instala WebWasb, que es un servicio compatible con WebHDFS para hablar con WASB. Así que aunque el portal de Hue indique HDFS en algunos lugares (por ejemplo, al mover el puntero sobre **File Browser**), se debe interpretar como WASB.
 
 
 ## Pasos siguientes
@@ -131,6 +125,5 @@ La tunelización de SSH es la única forma de obtener acceso a Hue en el clúste
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure"
 	description="Obtenga información acerca de cómo habilitar el registro de diagnóstico y agregar la instrumentación a su aplicación, así como la manera de acceder a la información registrada por Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -116,7 +116,7 @@ Para descargar los archivos de registro mediante la interfaz de la línea de com
 
 Este comando guardará los registros en la aplicación web denominada "webappname" en un archivo con nombre **diagnostics.zip** en el directorio actual.
 
-> [AZURE.NOTE]Si no tiene instalada la interfaz de la línea de comandos de Azure (CLI de Azure) o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo usar la CLI de Azure](../xplat-cli.md).
+> [AZURE.NOTE]Si no tiene instalada la interfaz de la línea de comandos de Azure (CLI de Azure) o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo usar la CLI de Azure](../xplat-cli-install.md).
 
 ## Visualización de registros en Application Insights
 
@@ -175,7 +175,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--P
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Si no tiene instalada la interfaz de la línea de comandos de Azure o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo utilizar la interfaz de línea de comandos de Azure](../xplat-cli.md).
+> [AZURE.NOTE]Si no tiene instalada la interfaz de la línea de comandos de Azure o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo utilizar la interfaz de línea de comandos de Azure](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> Información sobre los registros de diagnóstico
 
@@ -265,4 +265,4 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -32,7 +32,7 @@ En los siguientes comandos de CLI de Azure de ejemplo se presupone que ya se ha 
 ## Creación del grupo de seguridad de red para la subred front-end
 Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el escenario anterior, siga estos pasos.
 
-1. Si es la primera vez que utiliza la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde tiene que seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 
 2. Ejecute el comando **azure config mode** para cambiar al modo clásico, como se muestra a continuación.
 
@@ -239,4 +239,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

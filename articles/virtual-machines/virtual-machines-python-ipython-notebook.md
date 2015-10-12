@@ -258,8 +258,9 @@ El bloc de notas de IPython ofrece una sólida interfaz para tener acceso de man
 
 Las características centrales de IPython también están disponibles en Visual Studio mediante [Python Tools for Visual Studio][] (PTVS). PTVS es un complemento gratuito y de código abiertode Microsoft que convierte a Visual Studio unentorno de desarrollo avanzado de Python, que incluye un editor avanzado con la integración de IntelliSense, depuración,creación de perfiles y la informática en paralelo.
 
+## Pasos siguientes
 
-
+Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
 [Tornado]: http://www.tornadoweb.org/ "Tornado"
 [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
@@ -272,4 +273,4 @@ Las características centrales de IPython también están disponibles en Visual 
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/28/2015" 
 	ms.author="mahender"/>
 
 # Introducción a la autenticación personalizada
@@ -420,4 +420,4 @@ De este modo finaliza este tutorial.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

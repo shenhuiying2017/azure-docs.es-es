@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Referencia para navegar en el portal de Azure"
 	description="Conozca las distintas experiencias de usuario web del Servicio de aplicaciones entre el portal de administración y el Portal de Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -88,4 +88,4 @@ Aparte de la marca, algunos elementos más del portal se han cambiado de nombre 
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el nuevo portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

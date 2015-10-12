@@ -2,20 +2,20 @@
 <properties
 	pageTitle="Mejora de las aplicaciones de API para las aplicaciones lógicas"
 	description="Este artículo muestra cómo configurar su aplicación de API para que funcione bien con las aplicaciones lógicas."
-	services="app-service\api"
+	services="app-service"
 	documentationCenter=".net"
 	authors="sameerch"
 	manager="wpickett"
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="sameerch;guayan;tarcher"/>
+	ms.date="09/29/2015"
+	ms.author="sameerch"/>
 
 # Mejora de las aplicaciones de API para las aplicaciones lógicas #
 
@@ -235,4 +235,4 @@ Para las aplicaciones de API que usan metadatos dinámicos, puede hacer uso de a
 En este artículo, ha visto cómo mejorar la experiencia del usuario de la aplicación de API cuando se utiliza en el Diseñador de aplicaciones lógicas. Como práctica recomendada, se pueden proporcionar nombres descriptivos adecuados para todas las propiedades y los parámetros de las operaciones (acciones y desencadenadores). También se recomienda que proporcione 5 operaciones básicas como máximo. En cuanto a los parámetros de entrada, la recomendación es restringir el número de propiedades básicas a 4 como máximo. Para las propiedades, la recomendación es 5 o menos. Las demás operaciones y propiedades deberían marcarse como avanzadas.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

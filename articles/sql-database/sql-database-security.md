@@ -107,4 +107,4 @@ La auditoría y el seguimiento de eventos de la base de datos pueden ayudarle a 
 Además de las anteriores características y funcionalidades que pueden ayudar a su aplicación a cumplir distintos requisitos de cumplimiento de normas de seguridad, la Base de datos SQL de Azure también participa en las auditorías regulares y ha sido certificada con una serie de estándares de cumplimiento normativo. Para obtener más información, consulte el [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de Base de datos SQL](http://azure.microsoft.com/support/trust-center/services/).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

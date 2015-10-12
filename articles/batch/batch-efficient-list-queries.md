@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/27/2015"
+	ms.date="09/24/2015"
 	ms.author="davidmu;v-marsma"/>
 
 # Consultas de lista de Lote eficaces
@@ -37,20 +37,22 @@ Es importante tener en cuenta que tanto el número de elementos que devueltos co
 - Cuando hay más elementos, o elementos más grandes, la aplicación que llama a Lote consume más memoria.
 - Un mayor número de elementos o unos elementos de mayor tamaño aumentarán el tráfico de red. Esto tardará más tiempo en transferir y, según la arquitectura de aplicaciones, puede producir un aumento de cargas de red para los datos transferidos fuera de la región de la cuenta de procesamiento por lotes.
 
+> [AZURE.IMPORTANT]Es *muy* recomendable usar *siempre* cláusulas Filter y Select para las llamadas a la API de la lista a fin de garantizar la máxima eficacia y el mejor rendimiento de su aplicación. Estas cláusulas y su uso se describen a continuación.
+
 En todas las API de Lote se aplica lo siguiente:
 
 - Cada nombre de propiedad es una cadena que se asigna a la propiedad del objeto.
 - Todos los nombres de propiedad distinguen mayúsculas de minúsculas, pero los valores de propiedad no.
 - Los nombres y el uso de mayúsculas o minúsculas en las propiedades son como los elementos aparecen en la API de REST de Lote
 - Las cadenas de fecha/hora se pueden especificar en dos formatos y deben ir precedidas de DateTime.
-	- W3CDTF (por ejemplo, *creationTime gt DateTime’2011-05-08T08:49:37Z’*)
-	- RFC1123 (por ejemplo, *creationTime gt DateTime’Sun, 08 May 2011 08:49:37 GMT’*)
+	- W3CDTF (por ejemplo, *creationTime gt DateTime'2011-05-08T08:49:37Z'*)
+	- RFC1123 (por ejemplo, *creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'*)
 - Las cadenas booleanas son "true" o "false".
 - Si se especifica un operador o una propiedad no válidos, aparecerá el error "400 (solicitud incorrecta)"
 
 ## Consultas eficaces en .NET de Lote
 
-La API de .NET de Lote proporciona la capacidad de reducir tanto el número de elementos devueltos en una lista como la cantidad de información devuelta de cada elemento, para lo que se especifica la clase [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) de una consulta. DetailLevel es una clase base abstracta y, de hecho, es necesario crear y pasar un objeto [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) como parámetro en los métodos apropiados.
+La API de .NET de Lote proporciona la capacidad de reducir tanto el número de elementos devueltos en una lista como la cantidad de información devuelta de cada elemento, para lo que se especifica la clase [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) de una consulta. DetailLevel es una clase base abstracta y, de hecho, es necesario crear y pasar un objeto [ODATADetailLevel][odata] como parámetro en los métodos apropiados.
 
 Un objeto ODataDetailLevel tiene tres propiedades de cadena públicas que se pueden especificar en el constructor o establecerse directamente:
 
@@ -66,7 +68,7 @@ El número de elementos devuelto puede reducirse mediante una cadena de filtro. 
 
  [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) es una cadena que se compone de una o varias expresiones, con una expresión que consta de un *nombre de propiedad*, un *operador* y un *valor*. Las propiedades que se pueden especificar son específicas de cada llamada API, como los operadores admitidos para cada propiedad. Con los operadores lógicos **and** y **or** se pueden combinar varias expresiones.
 
-Por ejemplo, esta cadena de filtro devuelve solo las tareas en ejecución cuya *displayName* comienza por "MyTask":
+Por ejemplo, esta cadena de filtro devuelve solo las tareas en ejecución cuyo *displayName* comienza por "MyTask":
 
 	startswith(displayName, 'MyTask') and (state eq 'Running')
 
@@ -83,7 +85,7 @@ Todos los artículos sobre la API de REST de Lote siguientes contienen una tabla
 - [Enumeración de los certificados de una cuenta](https://msdn.microsoft.com/library/azure/dn820154.aspx)
 - [Enumeración de los archivos de un nodo](https://msdn.microsoft.com/library/azure/dn820151.aspx)
 
-> [AZURE.IMPORTANT]Al especificar las propiedades de cualquiera de los tres tipos de cláusula, asegúrese de que el nombre de propiedad y el uso de mayúsculas y minúsculas coinciden con el de sus homólogos del elemento de la API de REST de Lote. Por ejemplo, cuando se trabaja con .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask), es preciso especificar **state**, en lugar de **State**, aun cuando la propiedad de .NET es [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Por ejemplo, para comprobar el nombre y el uso de mayúsculas y minúsculas correctos de la propiedad **estado**, debería comprobar el nombre del elemento de [Obtener una tarea](https://msdn.microsoft.com/library/azure/dn820133.aspx) en la documentación de la API de REST de Lote.
+> [AZURE.IMPORTANT]Al especificar las propiedades de cualquiera de los tres tipos de cláusula, asegúrese de que el nombre de propiedad y el uso de mayúsculas y minúsculas coinciden con el de sus homólogos del elemento de la API de REST de Lote. Por ejemplo, cuando se trabaja con [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) de .NET, es preciso especificar **state** en lugar de **State**, aun cuando la propiedad de .NET sea [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Por ejemplo, para comprobar el nombre y el uso de mayúsculas y minúsculas correctos de la propiedad **state**, debe comprobar el nombre del elemento en [Obtener una tarea](https://msdn.microsoft.com/library/azure/dn820133.aspx) en la documentación de la API de REST de Lote.
 
 ### <a id="select"></a> SelectClause
 
@@ -97,11 +99,11 @@ Un [SelectClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch
 
 El número de llamadas a API se puede reducir con una cláusula Expand. Puede obtener información más detallada sobre cada elemento de la lista con una llamada a API individual, en lugar de obtener la lista y, a continuación, iterar en la lista, mediante la realización de una llamada a cada uno de los elementos de la lista.
 
-[ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.expandclause.aspx) es similar a la cláusula Select en que controla si determinados datos se devuelven en los resultados. La cláusula Expand solo se admite para las listas de tareas, grupos y trabajos, y actualmente solo admite información de estadísticas. Cuando se requieren todas las propiedades y no se especifica una cláusula Select, la cláusula Expand debe usarse para obtener información de estadísticas. Si se usa una cláusula Select para obtener un subconjunto de propiedades, también se pueden especificar "estadísticas" en la cláusula Select y la cláusula Expand puede dejarse en null.
+[ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.expandclause.aspx) es similar a la cláusula Select en que controla si se devuelven determinados datos en los resultados. La cláusula Expand solo se admite para las listas de tareas, grupos y trabajos, y actualmente solo admite información de estadísticas. Cuando se requieren todas las propiedades y no se especifica una cláusula Select, la cláusula Expand debe usarse para obtener información de estadísticas. Si se usa una cláusula Select para obtener un subconjunto de propiedades, también se pueden especificar "estadísticas" en la cláusula Select y la cláusula Expand puede dejarse en null.
 
 ## Ejemplo de consulta eficaz
 
-A continuación encontrará un fragmento de código que usa la API de .NET de Lote para consultar de forma eficaz en el servicio Lote las estadísticas de un conjunto específico de grupos. En este escenario, el usuario de Lote tiene grupos de prueba y de producción; los Id. del grupo de prueba tienen el prefijo "test" y los Id. del grupo de producción tienen el prefijo "prod". En el fragmento, *myBatchClient* es una instancia inicializada correctamente de [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient).
+A continuación encontrará un fragmento de código que usa la API de .NET de Lote para consultar de forma eficaz en el servicio Lote las estadísticas de un conjunto específico de grupos. En este escenario, el usuario de Lote tiene grupos de prueba y de producción; los Id. del grupo de prueba tienen el prefijo "test" y los Id. del grupo de producción tienen el prefijo "prod". En el fragmento de código, *myBatchClient* es una instancia de [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) inicializada correctamente.
 
 	// First we need an ODATADetailLevel instance on which to set the expand, filter, and select
 	// clause strings
@@ -124,13 +126,33 @@ A continuación encontrará un fragmento de código que usa la API de .NET de Lo
 	// detail level we configured above
 	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
 
-> [AZURE.TIP]Se recomienda que usar *siempre* cláusulas Filter y Select para las llamadas a API de la lista para garantizar la máxima eficacia y el mejor rendimiento de su aplicación.
+## Proyecto de ejemplo
+
+Consulte el proyecto de ejemplo [EfficientListQueries][efficient_query_sample] en GitHub para ver cómo una consulta eficaz de la lista puede afectar al rendimiento de una aplicación. Esta aplicación de consola de C# crea un gran número de tareas y las agrega a un trabajo, después consulta el servicio de Lote con distintas especificaciones [ODATADetailLevel][odata] y muestra una salida similar a la siguiente:
+
+		Adding 5000 tasks to job jobEffQuery...
+		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+
+		4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
+		0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
+		59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
+		5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
+
+		Sample complete, hit ENTER to continue...
+
+Como se muestra en la información de tiempo transcurrido, limitar las propiedades y el número de elementos devueltos puede reducir en gran medida los tiempos de respuesta de la consulta. Puede encontrar este y otros proyectos de ejemplo en el repositorio [azure-batch-samples][github_samples] de GitHub.
 
 ## Pasos siguientes
 
 1. Si aún no lo ha hecho, asegúrese de comprobar la documentación de la API de Lote relevante para el escenario de desarrollo
     - [REST de Lote](https://msdn.microsoft.com/library/azure/dn820158.aspx)
     - [.NET de Lote](https://msdn.microsoft.com/library/azure/dn865466.aspx)
-2. Tome las [muestras de Lote de Azure](https://github.com/Azure/azure-batch-samples) en GitHub y profundice en el código
+2. Consulte los [ejemplos de Lote de Azure](https://github.com/Azure/azure-batch-samples) en GitHub y profundice en el código
 
-<!---HONumber=September15_HO1-->
+[efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
+
+<!---HONumber=Oct15_HO1-->

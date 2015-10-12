@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Control de acceso basado en roles en el portal de Microsoft Azure"
 	description="Describe la manera en que funciona el control de acceso basado en roles y cómo configurarlo"
-	services=""
+	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="active-directory"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
@@ -84,7 +84,7 @@ En primer lugar, vamos a agregar el acceso de lectura para todos los recursos de
 
 ![][3]
 
-Haga clic en el *nombre de su suscripción* \*\* > Lector > Agregar\*\*. En la lista de usuarios y grupos, seleccione o escriba el nombre del grupo de Active Directory.
+Haga clic en el *nombre de su suscripción* ** > Lector > Agregar**. En la lista de usuarios y grupos, seleccione o escriba el nombre del grupo de Active Directory.
 
 ![][4]
 
@@ -1275,7 +1275,7 @@ Pruebe el RBAC de Azure y envíenos sus [comentarios](http://aka.ms/azurerbacfee
 Los recursos siguientes le servirán de ayuda para el control de acceso basado en rol:
 
 + [Administrar el control de acceso basado en roles con Windows PowerShell](role-based-access-control-powershell.md)
-+ [Administrar el control de acceso basado en roles con CLI de Azure](role-based-access-control-xplat-cli.md)
++ [Administrar el control de acceso basado en roles con CLI de Azure](role-based-access-control-xplat-cli-install.md)
 + [Solución de problemas de control de acceso basado en roles](role-based-access-control-troubleshooting.md)
 + [Azure Active Directory Premium y Basic](active-directory-editions.md)
 + [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md)
@@ -1293,4 +1293,4 @@ Los recursos siguientes le servirán de ayuda para el control de acceso basado e
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

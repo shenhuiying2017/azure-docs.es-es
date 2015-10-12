@@ -1,20 +1,20 @@
 <properties
    pageTitle="Procesamiento de eventos desde centros de eventos con Storm en HDInsight | Microsoft Azure"
-	description="Aprenda a procesar datos de Centros de eventos con una topología de Storm de C# creada en Visual Studio con las herramientas de HDInsight para Visual Studio."
-	services="hdinsight,notification hubs"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="Aprenda a procesar datos de Centros de eventos con una topología de Storm de C# creada en Visual Studio con las herramientas de HDInsight para Visual Studio."
+   services="hdinsight,notification hubs"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/02/2015"
+   ms.author="larryfr"/>
 
 # Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (C#)
 
@@ -25,6 +25,8 @@ En este tutorial, aprenderá a utilizar las herramientas de HDInsight para Visua
 * **EventHubWriter**: genera datos de manera aleatoria y los escribe en los Centros de eventos.
 
 * **EventHubReader**: lee datos de los Centros de eventos y los almacena en el almacenamiento de tablas de Azure.
+
+[AZURE.NOTE]Los pasos de este tutorial solo se aplican a los clústeres de HDInsight basados en Windows. Para obtener una versión de Java de este proyecto, que funcionará con un clúster basado en Windows o en Linux, vea [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Requisitos previos
 
@@ -555,4 +557,4 @@ En este documento, ha aprendido a usar el spout y bolt de los Centros de eventos
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

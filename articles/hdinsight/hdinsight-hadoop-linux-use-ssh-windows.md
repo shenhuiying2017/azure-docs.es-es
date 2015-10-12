@@ -35,7 +35,7 @@
 
 OR
 
-* [CLI de Azure para Mac, Linux y Windows](../xplat-cli.md).
+* [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md).
 
 ##¿Qué es SSH?
 
@@ -109,7 +109,7 @@ Esta acción crea un inicio de sesión para el usuario especificado y le permite
 
 ###Interfaz de la línea de comandos de Azure para Mac, Linux y Windows
 
-Puede utilizar [CLI de Azure para Mac, Linux y Windows](../xplat-cli.md) con el fin de crear un clúster nuevo con el comando `azure hdinsight cluster create`.
+Puede utilizar [CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md) con el fin de crear un clúster nuevo con el comando `azure hdinsight cluster create`.
 
 Para obtener más información sobre el uso de este comando, vea [Aprovisionamiento de clústeres Hadoop Linux en HDInsight con opciones personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -233,4 +233,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

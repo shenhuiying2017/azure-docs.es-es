@@ -82,11 +82,13 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 	La utilidad post.jar indexa Solr con dos documentos de muestra, **solr.xml** y **monitor.xml**. La utilidad post.jar y los documentos de muestra están disponibles con la instalación de Solr.
 
 3. **Utilice el panel de Solr para buscan dentro de los documentos indexados**. En la sesión de RDP con el clúster de HDInsight, abra Internet Explorer e inicie el panel de Solr en ****http://headnodehost:8983/solr/#/**. En el panel izquierdo, en la lista desplegable **Selector principal**, seleccione **collection1** y, dentro de ella, haga clic en **Consulta**. Por ejemplo, para seleccionar y devolver a todos los documentos de Solr, indique los valores siguientes:
-	1. En el cuadro de texto **q**, escriba ***:***. Se devolverán todos los documentos indizados en Solr. Si desea buscar una cadena específica dentro de los documentos, puede especificar esa cadena aquí.
-	2. En el cuadro de texto **wt**, seleccione el formato de salida. El valor predeterminado es **json**. Haga clic en **Ejecutar consulta**.
 
-		![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Ejecución de una consulta en el panel de Solr")
+	* En el cuadro de texto **q**, escriba ***:***. Se devolverán todos los documentos indizados en Solr. Si desea buscar una cadena específica dentro de los documentos, puede especificar esa cadena aquí.
+	
+	* En el cuadro de texto **wt**, seleccione el formato de salida. El valor predeterminado es **json**. Haga clic en **Ejecutar consulta**.
 
+	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Ejecución de una consulta en el panel de Solr")
+	
 	La salida devuelve los dos documentos utilizados para indizar el Solr. La salida debe ser similar a la siguiente:
 
 			"response": {
@@ -168,11 +170,11 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 		Este comando copia la instantánea en /example/data/ en el contenedor dentro de la cuenta de almacenamiento predeterminada asociada con el clúster.
 
 
-## Consulte también##
+## Consulte también
+
 - [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]. Use la personalización del clúster para instalar Spark en clústeres de Hadoop para HDInsight. Spark es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data.
 - [Instalación de R en clústeres de HDInsight][hdinsight-install-r]. Use la personalización del clúster para instalar R en clústeres de Hadoop para HDInsight. R es un entorno y lenguaje de código abierto para computación estadística. Proporciona cientos de de funciones estadísticas integradas y su propio lenguaje de programación que combina aspectos de la programación funcional y orientada a objetos. También proporciona amplias capacidades gráficas.
 - [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico mediante Hadoop y se puede usar con HDInsight de Azure.
-
 
 
 [powershell-install-configure]: ../install-configure-powershell.md
@@ -181,4 +183,4 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

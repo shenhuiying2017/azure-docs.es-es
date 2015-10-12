@@ -6,7 +6,7 @@
    authors="rashimg"
    manager="mwinkle"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -22,7 +22,9 @@
 
 De manera predeterminada, los clústeres de Hadoop no están optimizados para el rendimiento. En este artículo se tratan algunos de los métodos de optimización de rendimiento de Hive más comunes que se pueden aplicar a nuestras consultas.
 
+
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
 
 * [Optimizar consultas de Hive para Hadoop en HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md).
 
@@ -59,7 +61,7 @@ Puede realizar cualquier consulta de Hive habilitada con Tez anteponiendo a la c
 
 	set hive.execution.engine=tez;
 
-Tez debe estar habilitado en el momento de aprovisionamiento. El siguiente es un script de PowerShell de Azure de ejemplo para el aprovisionamiento de un clúster de Hadoop habilitado con Tez:
+Para los clústeres de HDInsight basados en Windows, Tez debe estar habilitada en el momento del aprovisionamiento. El siguiente es un script de PowerShell de Azure de ejemplo para el aprovisionamiento de un clúster de Hadoop habilitado con Tez:
 
 
 	$clusterName = "[HDInsightClusterName]"
@@ -83,6 +85,10 @@ Tez debe estar habilitado en el momento de aprovisionamiento. El siguiente es un
 	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
 	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+
+    
+> [AZURE.NOTE]Los clústeres de HDInsight basados en Linux tienen Tez habilitada de forma predeterminada.
+    
 
 ## Creación de particiones de Hive
 
@@ -220,4 +226,4 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

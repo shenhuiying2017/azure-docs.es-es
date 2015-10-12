@@ -211,4 +211,4 @@ El precio unitario de eDTU de un grupo elástico es mayor que el precio unitario
 | 40891 | EX_USER | El mínimo de DTU por base de datos (%d) no puede superar el máximo de DTU por base de datos (%d). | Mínimo de DTU por base de datos; máximo de DTU por base de datos. | Intentando establecer el mínimo de DTU por base de datos por encima del máximo de DTU por base de datos. | Asegúrese de que el mínimo de DTU por bases de datos no supera el máximo de DTU por base de datos. |
 | Por determinar | EX_USER | El tamaño de almacenamiento para una base de datos individual en un grupo elástico no puede superar el tamaño máximo permitido por el grupo elástico del nivel de servicio '%.*ls'. | nivel de servicio del grupo elástico | El tamaño máximo de la base de datos supera el tamaño máximo permitido por el nivel de servicio del grupo elástico. | Establezca el tamaño máximo de la base de datos dentro de los límites del tamaño máximo permitido por el nivel de servicio del grupo elástico. |
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

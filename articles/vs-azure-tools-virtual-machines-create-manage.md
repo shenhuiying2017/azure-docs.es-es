@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # Creación y administración de Máquinas virtuales de Azure en Visual Studio
@@ -61,7 +61,7 @@ Si bien puede crear una máquina virtual en el [Portal de administración de Azu
 
     El nombre y la contraseña nuevos se usarán para iniciar sesión en el equipo mediante el escritorio remoto, por lo que se recomienda anotarlos por si se olvidan. Después de crear una máquina virtual de Azure en Visual Studio, puede cambiar su tamaño y otros valores de configuración en el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-   >[AZURE.NOTE]Si elige tamaños mayores para la máquina virtual, es posible que se apliquen cargos adicionales. Para obtener más información, consulte [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/).
+        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
 1. Las máquinas virtuales creadas en Visual Studio requieren un servicio en la nube. En la página **Configuración de servicios en la nube**, seleccione un servicio en la nube para la máquina virtual, o bien haga clic en **<Crear nuevo...>** en la lista desplegable si aún no tiene un servicio en la nube o si desea usar uno nuevo. También se requiere una cuenta de almacenamiento, así que elija una cuenta de almacenamiento (o cree una nueva) en el cuadro de lista desplegable **Cuenta de almacenamiento**. Para obtener más información, consulte [Introducción a Almacenamiento de Microsoft Azure](./storage/storage-introduction/).
 
@@ -69,11 +69,11 @@ Si bien puede crear una máquina virtual en el [Portal de administración de Azu
 
     Las máquinas virtuales que son miembros de un conjunto de disponibilidad se implementan en distintos dominios de error. Para obtener más información, consulte [Red virtual de Azure](http://www.windowsazure.com/services/virtual-network/).
 
-1. Si desea que su máquina virtual pertenezca a un conjunto de disponibilidad (también opcional), active la casilla **Especificar un conjunto de disponibilidad** y, a continuación, elija un conjunto de disponibilidad de la lista desplegable. Cuando haya terminado, elija el botón **Siguiente**.
+1. Si desea que su máquina virtual pertenezca a un conjunto de disponibilidad (también opcional), active la casilla **Especifique un conjunto de disponibilidad** y después elija un conjunto de disponibilidad en la lista desplegable. Cuando haya terminado, elija el botón **Siguiente**.
 
     La adición de la máquina virtual a un conjunto de disponibilidad facilita que la aplicación esté disponible cuando se produzcan fallos de red, fallos del hardware del disco local y cualquier tiempo de inactividad planeado. Debe usar el [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=253103) para crear redes virtuales, subredes y conjuntos de disponibilidad. Para obtener más información, consulte [Administración de la disponibilidad de las máquinas virtuales](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/).
 
-1. En la página **Extremos**, especifique los extremos públicos que desee que estén disponibles para los usuarios de su máquina virtual. Por ejemplo, puede optar por habilitar HTTP (puerto 80), además de los extremos Escritorio remoto y PowerShell, que están habilitados de forma predeterminada. Para agregar un extremo, elija uno en el cuadro de lista desplegable **Nombre de puerto** y, a continuación, elija el botón **Agregar**. Para eliminar un extremo, elija la **X** roja que hay junto al nombre en la lista de extremos.
+1. En la página **Extremos**, especifique los extremos públicos que desee que estén disponibles para los usuarios de la máquina virtual. Por ejemplo, puede optar por habilitar HTTP (puerto 80), además de los extremos Escritorio remoto y PowerShell, que están habilitados de forma predeterminada. Para agregar un extremo, elija uno en el cuadro de lista desplegable **Nombre de puerto** y después elija el botón **Agregar**. Para quitar un extremo, elija la **X** roja que hay junto al nombre en la lista de extremos.
 
     ![La página Extremo del Asistente para máquinas virtuales.](./media/vs-azure-tools-virtual-machines-create-manage/IC718351.png)
 
@@ -91,7 +91,7 @@ Si bien puede crear una máquina virtual en el [Portal de administración de Azu
 
     ![Registro de actividad de máquina virtual: completado.](./media/vs-azure-tools-virtual-machines-create-manage/IC744139.png)
 
-    Si la operación se completa correctamente, la nueva máquina virtual aparecerá en el nodo **Máquinas virtuales** en el Explorador de servidores. Para iniciar sesión en ella, haga clic en el acceso directo **Conectar utilizando Escritorio remoto**.
+    Si la operación se completa correctamente, la nueva máquina virtual aparecerá en el nodo **Máquinas virtuales** en el Explorador de servidores. Para iniciar sesión en ella, haga clic en el acceso directo **Conectar con Escritorio remoto**.
 
     ![Máquina virtual que aparece en el Explorador de servidores.](./media/vs-azure-tools-virtual-machines-create-manage/IC744140.png)
 
@@ -129,7 +129,7 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
 1. En el menú contextual, elija **Configurar** para ver la página de configuración de la máquina virtual.
 
-1. En la página de configuración, pulse el botón **Capturar imagen**.
+1. En la página de configuración, elija el botón **Capturar imagen**.
 
     ![Botón de captura de página de configuración de Azure](./media/vs-azure-tools-virtual-machines-create-manage/IC744142.png)
 
@@ -143,7 +143,7 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
     Sysprep es una herramienta que, entre otras cosas, elimina datos específicos de los sistemas de la versión de Windows de la máquina virtual, lo que la convierte en una plantilla que otros pueden usar. Para obtener más información, consulte [Cómo capturar una máquina virtual Windows para usarla como imagen](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/).
 
-1. Cuando haya terminado la configuración de la captura, pulse el botón **Capturar** para crear el punto de control.
+1. Cuando haya terminado la configuración de la captura, elija el botón **Capturar** para crear el punto de control.
 
     A medida que Azure crea el punto de control, el **Registro de actividad de Azure** muestra el progreso de la operación.
 
@@ -157,15 +157,15 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
 ### Para restaurar una máquina virtual a un estado anterior guardado
 
-- Siga los pasos que se detallan en [Paso a paso: realizar restauraciones en la nube de maquinas virtuales de Microsoft Azure con PowerShell (parte 2)](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+- Siga los pasos que se detallan en [Paso a paso: realizar restauraciones en la nube de Máquinas virtuales de Microsoft Azure con PowerShell (parte 2)](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
 ### Para eliminar un punto de control
 
 1. Vaya al [Portal de administración de Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-1. En la página de configuración de la máquina virtual, elija la pestaña **Imágenes** de la parte superior de la página.
+1. En la página de configuración de la máquina virtual, elija la pestaña **Imágenes** situada en la parte superior de la página.
 
-1. Elija el punto de control que desea eliminar y, a continuación, pulse el botón **Eliminar** de la parte inferior de la página.
+1. Elija el punto de control que desea eliminar y, a continuación, pulse el botón **Eliminar** situado en la parte inferior de la página.
 
 ## Apague la máquina virtual.
 
@@ -175,6 +175,6 @@ Al configurar la máquina virtual e instalarle software, es conveniente guardar 
 
 ## Pasos siguientes
 
-Para obtener más información sobre la creación de máquinas virtuales, vea [Creación de una máquina virtual con Linux](virtual-machines-linux-tutorial.md) y [Creación de una máquina virtual con Windows en el Portal de vista previa de Azure](virtual-machines-windows-tutorial.md).
+Para obtener más información sobre la creación de máquinas virtuales, consulte [Creación de una máquina virtual con Linux](virtual-machines-linux-tutorial.md) y [Creación de una máquina virtual con Windows en el Portal de vista previa de Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

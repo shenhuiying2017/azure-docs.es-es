@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Inicio y detención de máquinas virtuales - gráfico | Microsoft Azure"
-   description="Versión del flujo de trabajo de PowerShell de la solución Automatización de Azure que incluye runbooks para iniciar y detener las máquinas virtuales clásicas."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="Inicio y detención de máquinas virtuales - gráfico | Microsoft Azure"
+	description="Versión del flujo de trabajo de PowerShell de la solución Automatización de Azure que incluye runbooks para iniciar y detener las máquinas virtuales clásicas."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
 # Solución Automatización de Azure - inicio y detención de máquinas virtuales
 
@@ -50,11 +50,11 @@ Después de descargar los runbooks, puede importarlos mediante el procedimiento 
 ### 2\. Revisión de la descripción y los requisitos
 Los runbooks tienen una actividad llamada **Léame** que incluye una descripción y los recursos necesarios. Puede ver esta información seleccionando la actividad **Léame** y, a continuación, el parámetro de **secuencia de comandos de flujo de trabajo**. También puede obtener la misma información en este artículo.
 
-### 3\. Configuración de recursos
+### 3\. Configuración de activos
 Los runbooks requieren los siguientes recursos que se tienen que crear y rellenar con los valores adecuados. Los nombres son predeterminados. Puede utilizar recursos con nombres diferentes si especifica dichos nombres en los [parámetros de entrada](#using-the-solution) al iniciar el runbook.
 
 | Tipo de recurso | Nombre predeterminado | Descripción |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | [Credential:](automation-credentials.md) | AzureCredential | Contiene las credenciales de una cuenta que tiene autoridad para iniciar y detener las máquinas virtuales en la suscripción de Azure. |
 | [Variable](automation-variables.md) | AzureSubscriptionId | Contiene el identificador de suscripción de su suscripción a Azure. |
 
@@ -65,7 +65,7 @@ Los runbooks requieren los siguientes recursos que se tienen que crear y rellena
 Cada runbook tiene los siguientes [parámetros de entrada](automation-starting-a-runbook#runbook-parameters). Tiene que proporcionar valores para los parámetros obligatorios y opcionalmente puede proporcionar valores para otros parámetros dependiendo de sus necesidades.
 
 | Parámetro | Escriba | Obligatorio | Descripción |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | cadena | No | Si se proporciona un valor, todas las máquinas virtuales con ese nombre de servicio se inician o se detienen. Si no se proporciona un valor, todas las máquinas virtuales clásicas de la suscripción de Azure se inician o se detienen. |
 | AzureSubscriptionIdAssetName | cadena | No | Contiene el nombre del [recurso de variables](#installing-the-solution) que contiene a su vez el identificador de suscripción de su suscripción de Azure. Si no se especifica un valor, se usa *AzureSubscriptionId*. |
 | AzureCredentialAssetName | cadena | No | Contiene el nombre del [recurso de credenciales](#installing-the-solution) que contiene a su vez las credenciales que usará el runbook. Si no se especifica un valor, se usa *AzureCredential*. |
@@ -153,4 +153,4 @@ El último paso del runbook es enviar los resultados, tanto si la solicitud de i
 - [Runbooks secundarios en la Automatización de Azure](automation-child-runbooks.md) 
 - [Salidas de runbook y mensajes en la Automatización de Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

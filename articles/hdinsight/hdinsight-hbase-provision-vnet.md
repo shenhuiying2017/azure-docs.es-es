@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Aprovisionamiento de clústeres de HBase en una red virtual | Microsoft Azure"
 	description="Introducción al uso de HBase en HDInsight de Azure Aprenda a crear clústeres de HBase de HDInsight en Red virtual de Azure."
+	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -9,14 +10,14 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/12/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/12/2015"
+   ms.author="jgao"/>
 
-# Aprovisionamiento de clústeres de HBase en Red virtual de Azure
+# Aprovisionamiento de clústeres de HBase en Red virtual de Azure 
 
 Aprenda a crear clústeres de HBase en Azure HDInsight en una [red virtual de Azure][1].
 
@@ -77,7 +78,9 @@ Antes de aprovisionar un clúster de HBase, debe tener una red virtual de Azure.
 2. Haga clic en **NUEVO**, en **Red** y, a continuación, haga clic en **Red virtual**.
 3. En **Seleccionar un modelo de implementación**, seleccione **Clásico** y, a continuación, haga clic en **Crear**.
 
-	>[AZURE.NOTE]El clúster de HDInsight basado en Windows solo se puede implementar en una red virtual clásica.
+	> [AZURE.NOTE]No se puede usar una Red virtual de Azure v1 (clásica) con HDInsight. La Red virtual debe ser v2 (Administrador de recursos de Azure) para se muestre como opción durante el proceso de creación de un clúster de HDInsight en el Portal de vista previa de Azure o para que se pueda usar para crear un clúster en la CLI de Azure o Azure PowerShell.
+> 
+> Si tiene recursos en una red v1 y quiere que dichos recursos puedan acceder directamente a HDInsight a través de una red virtual, vea [Conexión de redes virtuales clásicas con nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md) para obtener información sobre cómo conectar una Red virtual v2 a una Red virtual v1. Una vez establecida la conexión, puede crear el clúster de HDInsight en la Red Virtual v2.
 
 4. Escriba o seleccione los valores siguientes:
 
@@ -108,7 +111,7 @@ Un servidor DNS es opcional, pero es necesario en algunos casos. El procedimient
 **Para crear un clúster de HDInsight**
 
 1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com).
-2. Haga clic en **NUEVO**, haga clic en **Análisis de datos** y, a continuación, haga clic en **HDInsight**.
+2. Haga clic en **NUEVO**, en **Análisis de datos** y, luego, en **HDInsight**.
 
     ![Crear un nuevo clúster en el Portal de vista previa de Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Crear un nuevo clúster en el Portal de vista previa de Azure")
 
@@ -123,12 +126,12 @@ Un servidor DNS es opcional, pero es necesario en algunos casos. El procedimient
   - **Origen de datos**: seleccione una cuenta de almacenamiento de Azure existente o cree una nueva para usar como sistema de archivos predeterminado para el clúster. El nombre predeterminado para el contenedor predeterminado es el nombre del clúster. La ubicación de la cuenta de almacenamiento también determina la ubicación del clúster.
   - **Nivel de precios del nodo**: para fines de aprendizaje o evaluación, seleccione 1 nodo de región para minimizar el costo.
 
-  	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establezca esto en **Tecla de acceso** si desea especificar el **Nombre de almacenamiento** y la **Tecla de acceso** de una cuenta de almacenamiento existente.
-  	- **Seleccionar cuenta de almacenamiento / Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para examinar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una nueva cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
+  	- **Método de selección**: establézcalo en **De todas las suscripciones** para habilitar la exploración de cuentas de almacenamiento en todas sus suscripciones. Establézcalo en **Clave de acceso** si desea especificar el **Nombre de almacenamiento** y la **Clave de acceso** de una cuenta de almacenamiento existente.
+  	- **Seleccionar cuenta de almacenamiento / Crear nueva**: haga clic en **Seleccionar cuenta de almacenamiento** para examinar y seleccionar una cuenta de almacenamiento existente que desee asociar con el clúster. O bien, haga clic en **Crear nueva** para crear una cuenta de almacenamiento. Use el campo que aparece para especificar el nombre de la cuenta de almacenamiento. Si el nombre está disponible, aparecerá una marca de verificación verde.
     - **Elegir contenedor predeterminado**: use esta opción para escribir el nombre del contenedor predeterminado que se usará para el clúster. Aunque se puede escribir cualquier nombre aquí, se recomienda usar el mismo nombre que el del clúster para que pueda reconocer fácilmente que el contenedor se usa para este clúster concreto.
-  	- **Ubicación**: región geográfica en la que se encuentra o donde se creará la cuenta de almacenamiento. Esta ubicación determinará la ubicación del clúster. El clúster y su cuenta de almacenamiento predeterminada debe colocarse en el mismo centro de datos Azure.
+  	- **Ubicación**: región geográfica en la que estará la cuenta de almacenamiento o donde se creará. Esta ubicación determinará la ubicación del clúster. El clúster y su cuenta de almacenamiento predeterminada debe colocarse en el mismo centro de datos Azure.
 
-  - **Niveles de precio de nodo**: establezca el número de nodos de trabajo que necesita para el clúster. El costo estimado del clúster se mostrará en la hoja.
+  - **Niveles de precios de nodo**: establezca el número de nodos de trabajo que requiere para el clúster. El costo estimado del clúster se mostrará en la hoja.
 	- **Configuración opcional**: para este tutorial, solo tendrá que configurar la **red virtual**. Seleccione la red virtual que creó anteriormente en el tutorial. Asegúrese de seleccionar también una subred.
 
 4. Haga clic en **Crear**.
@@ -379,4 +382,6 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalles de aprovisionamiento para el nuevo clúster de HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Uso de la acción de script para personalizar un clúster de HBase"
 
-<!---HONumber=August15_HO9-->
+[azure-preview-portal]: https://portal.azure.com
+
+<!---HONumber=Oct15_HO1-->

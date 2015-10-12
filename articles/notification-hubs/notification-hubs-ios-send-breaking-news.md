@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 # Uso de los Centros de notificaciones para enviar noticias de última hora
@@ -384,4 +384,4 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -155,4 +155,4 @@ Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas
 - Para obtener información sobre cómo usar la interfaz de la línea de comandos de Azure al implementar recursos, vea [Uso de la línea de comandos de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](./xplat-cli-azure-resource-manager.md).
 - Para obtener información sobre cómo usar el Portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](./resource-group-portal.md).  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -79,7 +79,7 @@ Para aprovechar las ventajas de Almacenamiento premium, cree primero una cuenta 
 - Con el Almacenamiento Premium, puede aprovisionar una máquina virtual de serie DS y conectar varios discos de datos persistentes a una máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. Si secciona discos de datos Almacenamiento premium usando [Espacios de almacenamiento](http://technet.microsoft.com/library/hh831739.aspx), será necesario configurarlo con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. De forma predeterminada, la interfaz de usuario (IU) del administrador del servidor permite configurar columnas de hasta 8 discos. Pero si tiene más de 8 discos, necesitará usar PowerShell para crear el volumen y especificar manualmente el número de columnas. De lo contrario, la IU del administrador del servidor sigue usando 8 columnas aunque tenga más discos. Por ejemplo, si tiene 32 discos en un conjunto de bandas único, debe especificar 32 columnas. Puede usar el parámetro *NumberOfColumns* del cmdlet [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) de PowerShell para especificar el número de columnas que usa el disco virtual. Para obtener más información, consulte [Storage Spaces Overview](http://technet.microsoft.com/library/jj822938.aspx) (Introducción a espacios de almacenamiento) y [Storage Spaces Frequently Asked Questions](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx) (Preguntas más frecuentes sobre espacios de almacenamiento).
 - Evite agregar máquinas virtuales de la serie DS a un servicio en la nube existente que incluya máquinas virtuales que no son de la serie DS. Una posible solución consiste en migrar los VHD existentes a un nuevo servicio en la nube ejecutando solo máquinas virtuales de la serie DS. Si desea conservar la misma dirección IP virtual (VIP) para el nuevo servicio en la nube que hospeda las máquinas virtuales de la serie DS, use la característica [Direcciones IP reservadas](virtual-networks-configure-vnet-to-vnet-connection.md). Las VM de la serie GS pueden agregarse a un servicio en la nube existente ejecutando solo VM de la serie G.
 - La serie DS de máquinas virtuales de Azure se puede configurar para utilizar un disco del sistema operativo (SO) hospedado en una cuenta de Almacenamiento estándar o en una cuenta de Almacenamiento premium. Si utiliza el disco del sistema operativo solo para el arranque, puede usar un disco del sistema operativo basado en el almacenamiento estándar. Esto proporciona ventajas económicas y resultados de rendimiento similares al Almacenamiento premium tras el arranque. Si realiza cualquier tarea adicional en el disco del sistema operativo que no sea de arranque, use el Almacenamiento premium ya que proporciona mejores resultados de rendimiento. Por ejemplo, si la aplicación lee y escribe desde y hacia el disco del sistema operativo, el uso del disco del sistema operativo basado en Almacenamiento premium proporciona un mejor rendimiento para la máquina virtual.
-- Puede usar la [Interfaz de línea de comandos de Azure (CLI de Azure)](../xplat-cli.md) con Almacenamiento premium. Para cambiar la directiva de caché en uno de los discos mediante la CLI de Azure, ejecute el siguiente comando:
+- Puede usar la [Interfaz de línea de comandos de Azure (CLI de Azure)](../xplat-cli-install.md) con Almacenamiento premium. Para cambiar la directiva de caché en uno de los discos mediante la CLI de Azure, ejecute el siguiente comando:
 
 	`$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>`
 
@@ -202,7 +202,64 @@ Consulte a continuación instrucciones importantes para configurar las máquinas
 
 - Para discos de Almacenamiento premium con caché de configuración "ReadWrite", deben habilitarse las barreras para la durabilidad de las escrituras.
 
-Las siguientes son las distribuciones de Linux que se validan con Almacenamiento premium. Se recomienda actualizar las máquinas virtuales al menos a una de estas versiones (o posteriores) para mejorar el rendimiento y la estabilidad con Almacenamiento premium. Además, algunas de las versiones requieren el LIS más reciente (Linux Integration Services v4.0 para Microsoft Azure). Siga el vínculo proporcionado para su descarga e instalación. Seguiremos agregando más imágenes a la lista según vayamos completando validaciones adicionales. Tenga en cuenta que nuestras validaciones demostraron que el rendimiento varía para estas imágenes y también depende de las características de carga de trabajo y la configuración de las imágenes. Se optimizan diferentes imágenes para distintos tipos de cargas de trabajo. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Distribución</strong></td> <td><strong>Versión</strong></td> <td><strong>Kernel admitido</strong></td> <td><strong>Imagen admitida</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-es-ES-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-es-ES-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-es-ES-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-es-ES-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requerido</a></br> </td> </tr> <tr>7.1<td> </td>3.10.0-229.1.2.el7<td> </td><td> LIS 4.0 recomendado<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"></a> <br/> *Vea la nota a continuación </td> </tr>
+Las siguientes son las distribuciones de Linux que se validan con Almacenamiento premium. Se recomienda actualizar las máquinas virtuales al menos a una de estas versiones (o posteriores) para mejorar el rendimiento y la estabilidad con Almacenamiento premium. Además, algunas de las versiones requieren el LIS más reciente (Linux Integration Services v4.0 para Microsoft Azure). Siga el vínculo proporcionado para su descarga e instalación. Seguiremos agregando más imágenes a la lista según vayamos completando validaciones adicionales. Tenga en cuenta que nuestras validaciones demostraron que el rendimiento varía para estas imágenes y también depende de las características de carga de trabajo y la configuración de las imágenes. Se optimizan diferentes imágenes para distintos tipos de cargas de trabajo. 
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> 
+<tbody> 
+<tr> 
+	<td><strong>Distribución</strong></td> 
+	<td><strong>Versión</strong></td> 
+	<td><strong>Kernel admitido</strong></td> 
+	<td><strong>Imagen admitida</strong></td> 
+</tr> 
+<tr> 
+	<td rowspan="4"><strong>Ubuntu</strong></td> 
+	<td>12.04</td> 
+	<td>3.2.0-75.110</td> 
+	<td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-es-es-30GB</td> 
+</tr>
+<tr> 
+	<td>14.04</td> 
+	<td>3.13.0-44.73</td> 
+	<td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-es-es-30GB</td> 
+</tr> 
+<tr> 
+	<td>14.10</td> 
+	<td>3.16.0-29.39</td> 
+	<td>Ubuntu-14\_10-amd64-server-20150202-es-es-30GB</td> 
+</tr> 
+<tr> 
+	<td>15.04</td> 
+	<td>3.19.0-15</td> 
+	<td>Ubuntu-15\_04-amd64-server-20150422-es-es-30GB</td> 
+</tr> 
+<tr> 
+	<td><strong>SUSE</strong></td> 
+	<td>SLES 12</td> 
+	<td>3.12.36-38.1</td> 
+	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> 
+</tr> 
+<tr> 
+	<td><strong>CoreOS</strong></td> 
+	<td>584.0.0</td> 
+	<td>3.18.4</td> 
+	<td>CoreOS 584.0.0</td> 
+</tr> 
+<tr> 
+	<td rowspan="2"><strong>CentOS</strong></td> 
+	<td>6.5, 6.6, 7.0</td> 
+	<td></td> 
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 requerido</a>
+	</td> 
+</tr> 
+<tr>
+	<td>7.1</td>
+	<td>3.10.0-229.1.2.el7</td>
+	<td>
+		<a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 4.0 recomendado</a> <br/> 
+		*Vea la nota a continuación 
+	</td> 
+</tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
@@ -215,7 +272,8 @@ Las siguientes son las distribuciones de Linux que se validan con Almacenamiento
 	<td></td>
 	<td>Póngase en contacto con soporte técnico para obtener más información</td>
 </tr>
-</tbody> </table>
+</tbody> 
+</table>
 
 
 ### Controladores de LIS para CentOS Openlogic
@@ -301,7 +359,7 @@ Este ejemplo de PowerShell muestra cómo crear una nueva cuenta de Almacenamient
 
 ### Creación de una máquina virtual de Azure mediante Almacenamiento premium a través de la interfaz de línea de comandos de Azure
 
-La [Interfaz de la línea de comandos de Azure](../xplat-cli.md) (CLI de Azure) proporciona un conjunto de comandos de código abierto multiplataforma para trabajar con la plataforma Azure. Los ejemplos siguientes muestran cómo utilizar la CLI de Azure (versión 0.8.14 y posterior) para crear una cuenta de Almacenamiento premium, una nueva máquina virtual y conectar un nuevo disco de datos desde una cuenta de Almacenamiento premium.
+La [Interfaz de la línea de comandos de Azure](../xplat-cli-install.md) (CLI de Azure) proporciona un conjunto de comandos de código abierto multiplataforma para trabajar con la plataforma Azure. Los ejemplos siguientes muestran cómo utilizar la CLI de Azure (versión 0.8.14 y posterior) para crear una cuenta de Almacenamiento premium, una nueva máquina virtual y conectar un nuevo disco de datos desde una cuenta de Almacenamiento premium.
 
 #### Crear una cuenta de Almacenamiento premium
 
@@ -341,4 +399,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

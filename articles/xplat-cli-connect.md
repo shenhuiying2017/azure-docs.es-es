@@ -128,7 +128,7 @@ Esto cambia la suscripción predeterminada a Azure-sub-2.
 
 Si desea usar una suscripción no predeterminada con la CLI de Azure, pero no quiere cambiar la predeterminada actualmente, puede usar la opción `--subscription` para el comando y proporcionar el nombre de la suscripción que desee usar para la operación.
 
-Una vez que esté conectado a su suscripción de Azure, puede empezar a usar los comandos de la CLI de Azure. Para obtener más información, consulte [Uso de la CLI de Azure](xplat-cli.md).
+Una vez que esté conectado a su suscripción de Azure, puede empezar a usar los comandos de la CLI de Azure. Para obtener más información, consulte [Uso de la CLI de Azure](xplat-cli-install.md).
 
 ## Almacenamiento de la configuración de la CLI
 
@@ -159,4 +159,4 @@ Independientemente de que inicie sesión con una cuenta profesional o educativa 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

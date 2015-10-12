@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Hacer copia de seguridad de una aplicación web en el servicio de aplicaciones de Azure" 
 	description="Obtenga información sobre cómo crear copias de seguridad de sus aplicaciones web en el servicio de aplicaciones de Azure." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -160,7 +160,7 @@ Ahora, los archivos y carpetas que se especifican en `_backup.filter` se excluir
 
 Después de realizar una o varias copias de seguridad de la aplicación web, las copias estarán visibles en la hoja **Contenedores** de la cuenta de almacenamiento, así como la aplicación web. En la cuenta de almacenamiento, cada copia de seguridad consta de un archivo .zip que contiene los datos de copia de seguridad y el archivo .xml que contiene un manifiesto del contenido del archivo zip. Puede descomprimir y examinar estos archivos si desea disponer de acceso a las copias de seguridad sin tener que realizar una restauración de la aplicación web.
 
-La copia de seguridad de la base de datos para la aplicación web se almacena en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una nueva base de datos SQL basándose en la exportación del BACPAC, consulte[Importación de un archivo de BACPAC para crear una nueva base de datos de usuario](http://technet.microsoft.com/library/hh710052.aspx).
+La copia de seguridad de la base de datos para la aplicación web se almacena en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una nueva base de datos SQL basándose en la exportación del BACPAC, vea [Importación de un archivo de BACPAC para crear una nueva base de datos de usuario](http://technet.microsoft.com/library/hh710052.aspx).
 
 > [AZURE.WARNING]La modificación de los archivos del contenedor **websitebackups** puede ocasionar que la base de datos deje de ser válida y, por lo tanto, no se pueda restaurar.
 
@@ -182,11 +182,11 @@ Su estrategia de restauración debe ser similar a la siguiente:
 -	Pruebe la restauración para ver que la aplicación de ensayo funciona correctamente.
 -	[Cambie](web-sites-staged-publishing.md#Swap) la aplicación web de ensayo a la ranura de producción.
 
->[AZURE.NOTE]Pruebe siempre el proceso de restauración. Para obtener más información, consulte [Muy bueno](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/). Por ejemplo, algunas plataformas de blog, como [Ghost](https://ghost.org/) tienen advertencias explícitas sobre su comportamiento durante una copia de seguridad. Al probar el proceso de restauración, puede detectar estas advertencias cuando no se haya producido aún un error o un desastre.
+>[AZURE.NOTE]Pruebe siempre el proceso de restauración. Para obtener más información, vea [Muy bueno](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/). Por ejemplo, algunas plataformas de blog, como [Ghost](https://ghost.org/) tienen advertencias explícitas sobre su comportamiento durante una copia de seguridad. Al probar el proceso de restauración, puede detectar estas advertencias cuando no se haya producido aún un error o un desastre.
 
 <a name="nextsteps"></a>
 ## Pasos siguientes
-Para obtener información sobre cómo restaurar una aplicación web desde la copia de seguridad, consulte [Restauración de una aplicación web en el servicio de aplicaciones de Azure](web-sites-restore.md).
+Para obtener información sobre cómo restaurar una aplicación web desde la copia de seguridad, vea [Restauración de una aplicación web en el servicio de aplicaciones de Azure](web-sites-restore.md).
 
 Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/free-trial/).
 
@@ -222,4 +222,4 @@ Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

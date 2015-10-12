@@ -153,7 +153,7 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
 
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
-1. Si es la primera vez que utiliza la CLI de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](xplat-cli.md) y siga las instrucciones hasta el punto donde tiene que seleccionar su cuenta y suscripción de Azure.
+1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecute el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
 
 		azure config mode arm
@@ -188,4 +188,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 	- **-f (o --template-file)**. Ruta de acceso al archivo de plantilla ARM.
 	- **-e (o --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

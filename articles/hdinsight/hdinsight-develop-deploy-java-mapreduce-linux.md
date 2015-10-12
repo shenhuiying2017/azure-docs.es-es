@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
 
-Estos documentos le ayudarán a usar Apache Maven para crear una aplicación de MapReduce e implementarla y ejecutarla en el marco de trabajo basado en Linux Hadoop, en el clúster de HDInsight.
+Estos documentos le ayudarán a usar Apache Maven para crear una aplicación de MapReduce e implementarla y ejecutarla en el marco de trabajo basado en Linux Hadoop, en el clúster de HDInsight. Para obtener información sobre el uso de un clúster Hadoop basado en Windows en HDInsight, vea [Desarrollo de programas MapReduce de Java para Hadoop en HDInsight (Windows)](hdinsight-develop-deploy-java-mapreduce.md)
 
 ##<a name="prerequisites"></a>Requisitos previos
 
@@ -33,7 +33,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Suscripción de Azure**: Consulte [ Obtener una versión de evaluación gratuita de Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **Azure CLI**: para obtener más información, consulte [Instalación y configuración de Azure CLI](../xplat-cli.md)
+- **Azure CLI**: para obtener más información, consulte [Instalación y configuración de Azure CLI](../xplat-cli-install.md)
 
 ##Configuración de las variables de entorno
 
@@ -250,7 +250,7 @@ De esta manera, se copiarán los archivos del sistema local al nodo principal.
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	Haciendo esto, usará la aplicación WordCount MapReduce para contar las palabras en el archivo davinci.txt y almacenar los resultados en \_\___wasb:///example/data/wordcountout__. Tanto el archivo de entrada como el de salida se almacenan en el almacenamiento predeterminado del clúster.
+	De este modo, se usará la aplicación WordCount MapReduce para contar las palabras del archivo davinci.txt y almacenar los resultados en \_\___wasb:///example/data/wordcountout__. Tanto el archivo de entrada como el de salida se almacenan en el almacenamiento predeterminado del clúster.
 
 3. Una vez completado el trabajo, use lo siguiente para ver los resultados:
 
@@ -270,7 +270,7 @@ Gracias a este documento, ha aprendido a desarrollar un trabajo MapReduce de Jav
 - [Uso de Pig con HDInsight][hdinsight-use-pig]
 - [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-Para obtener más información, consulte también el [Centro para desarrolladores de Java](/develop/java/).
+Para obtener más información, vea también el [Centro para desarrolladores de Java](/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -300,4 +300,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

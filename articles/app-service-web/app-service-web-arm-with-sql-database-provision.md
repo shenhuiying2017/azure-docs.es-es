@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Aprovisionamiento de una aplicación web que usa una base de datos SQL" 
 	description="Use una plantilla de Administrador de recursos de Azure para implementar una aplicación web que incluye una base de datos SQL." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -41,7 +41,7 @@ En esta plantilla, implementará lo siguiente:
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
-[![Implementación en Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![Implementación en Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Parámetros para especificar
 
@@ -452,4 +452,4 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

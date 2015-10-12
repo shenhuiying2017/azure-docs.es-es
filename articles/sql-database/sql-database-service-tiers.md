@@ -16,7 +16,7 @@
    ms.date="09/11/2015"
    ms.author="shkurhek"/>
 
-# Niveles de servicio
+# Niveles de servicio de Base de datos SQL
 
 ## Información general
 [Base de datos SQL de Azure](sql-database-technical-overview.md) proporciona varios niveles de servicio para administrar los diferentes tipos de cargas de trabajo. El usuario tiene la opción de crear una base de datos única con características y precios definidos. O bien, puede crear varias bases de datos en un grupo de bases de datos elásticas. En ambos casos, los niveles son: **Basic**, **Standard** y **Premium**. Pero las características de estas capas varían en función de si se va a crear una base de datos individual o una base de datos dentro de un grupo de bases de datos elásticas. Este artículo proporciona información general de los niveles de servicio en ambos contextos.
@@ -90,4 +90,4 @@ Si está interesado en la administración de varias bases de datos como un grupo
 Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

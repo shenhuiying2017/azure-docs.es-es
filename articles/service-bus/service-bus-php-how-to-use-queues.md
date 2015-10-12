@@ -200,6 +200,8 @@ En caso de que la aplicación se bloquee después de procesar el mensaje y antes
 
 Ahora que ya conoce los aspectos básicos de las colas de bus de servicio, vea el tema [Colas, temas y suscripciones][] para obtener más información.
 
+Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
+
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
@@ -213,4 +215,4 @@ Ahora que ya conoce los aspectos básicos de las colas de bus de servicio, vea e
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

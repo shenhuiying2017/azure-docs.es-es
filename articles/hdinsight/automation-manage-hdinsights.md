@@ -18,7 +18,7 @@
 
 
 
-#Administración de HDInsight de Azure mediante Automatización de Azure
+#Administrar HDInsight de Azure mediante Automatización de Azure
 Esta guía le ofrece el servicio Automatización de Azure y cómo se puede usar para simplificar la administración de clústeres y automatizar tareas comunes en HDInsight de Azure.
 
 ## ¿Qué es Automatización de Azure?
@@ -44,4 +44,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

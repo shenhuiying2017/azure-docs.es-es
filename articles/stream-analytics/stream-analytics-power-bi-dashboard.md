@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Panel de Power BI en Análisis de transmisiones | Microsoft Azure"
-	description="Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Análisis de transmisiones."
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettm"
+	pageTitle="Panel de Power BI en Análisis de transmisiones | Microsoft Azure" 
+	description="Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Análisis de transmisiones." 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="jeffstokes72" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="08/27/2015"
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 	
 # Análisis de transmisiones de Azure y Power BI: panel dinámico para análisis en tiempo real de los datos de streaming
@@ -24,7 +25,7 @@ Utilice [Microsoft Power BI](https://powerbi.com/) para crear rápidamente un pa
 
 En este artículo, aprenderá a crear sus propias herramientas de inteligencia empresarial personalizadas utilizando Power BI como salida para los trabajos de análisis de transmisiones de Azure.
 
-> [AZURE.NOTE]La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure.
+> [AZURE.NOTE]La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure. En este momento, la creación y configuración de salidas de Power BI no se admite en el Portal de vista previa de Azure.
 
 ## Requisitos previos ##
 
@@ -98,11 +99,11 @@ Proporcione valores como sigue:
 * **Nombre del conjunto de datos**: proporcione un nombre del conjunto de datos que desea que tenga la salida de Power BI. Por ejemplo, vamos a usar "pbidemo".
 *	**Nombre de tabla**: proporcione un nombre de tabla en el conjunto de datos de la salida de Power BI. Supongamos que lo llamamos "pbidemo". Actualmente, la salida de Power BI de trabajos de Análisis de transmisiones solo puede tener una tabla en un conjunto de datos.
 
->	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] No debe crear explícitamente este conjunto de datos y esta tabla en su cuenta de Power BI. Se crearán automáticamente cuando empiece su trabajo de Análisis de transmisiones y el trabajo comience a producir salidas en Power BI. Si el trabajo no devuelve resultados, no se creará el conjunto de datos ni la tabla.
 
 *	Haga clic en **Aceptar**, **Probar conexión**; ahora la configuración de la salida ha finalizado.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
+>	[AZURE.WARNING] Tenga en cuenta asimismo que si Power BI ya cuenta con un conjunto de datos y una tabla con el mismo nombre que el proporcionado en este trabajo de Análisis de transmisiones, se sobrescribirán los datos existentes.
 
 
 ## Escritura de una consulta ##
@@ -221,4 +222,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

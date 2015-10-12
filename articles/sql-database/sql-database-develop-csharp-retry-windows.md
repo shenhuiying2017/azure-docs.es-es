@@ -1,37 +1,24 @@
 <properties 
-	pageTitle="Ejemplo de código: lógica de reintento en C# para conectarse a la Base de datos SQL | Microsoft Azure"
-	description="El ejemplo de C# incluye lógica de reintento sólida para interactuar con la Base de datos SQL de Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="MightyPen"
-	manager="jeffreyg"
+	pageTitle="Lógica de reintentos de C# para la conexión a la Base de datos de SQL | Microsoft Azure" 
+	description="La muestra de C# incluye lógica de reintentos para interactuar de manera fiable con la base de datos de SQL de Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jeffreyg" 
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/01/2015" 
 	ms.author="genemi"/>
 
 
 # Ejemplo de código: lógica de reintento en C# para conectarse a la Base de datos SQL
-
-
-<!--
-sql-database-develop-csharp-retry-windows.md  ,  NEW
-mgm4f20150723retryfrommsdn68
-. . . .
-Old Titles on MSDN:  Code sample: Retry logic for connecting to Azure SQL Database with ADO.NET
-.
-How to: Connect to Azure SQL Database by using ADO.NET
-.
-ShortId on MSDN was:  ee336243.aspx
-Dx  4d7936fd-341c-4a37-8796-25e385ae6c5b
--->
 
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
@@ -40,7 +27,10 @@ Dx  4d7936fd-341c-4a37-8796-25e385ae6c5b
 Este tema ofrece un ejemplo de código C# que muestra la lógica de reintento personalizada. La lógica de reintento está diseñada para procesar correctamente los errores temporales o *errores transitorios* que tienden a desaparecer si el programa espera unos segundos y vuelve a intentarlo.
 
 
-Las clases de ADO.NET que se usan para conectarse a su Microsoft SQL Server local también pueden conectarse a la Base de datos SQL de Azure. Sin embargo, por sí mismas las clases ADO.NET no pueden proporcionar la solidez y confiabilidad necesarias en el uso de producción. Su programa cliente puede encontrar errores transitorios de los que debería recuperarse de forma silenciosa y correcta por sí mismo. Un par de ejemplos de errores transitorios:
+Las clases de ADO.NET que se usan para conectarse a su Microsoft SQL Server local también pueden conectarse a la Base de datos SQL de Azure. Sin embargo, por sí mismas las clases ADO.NET no pueden proporcionar la solidez y confiabilidad necesarias en el uso de producción. Su programa cliente puede encontrar errores transitorios de los que debería recuperarse de forma silenciosa y correcta por sí mismo.
+
+
+A continuación se muestran un par de ejemplos de errores transitorios:
 
 
 - Una conexión a través de Internet está sujeta a breves interrupciones de red, tras las cuales se puede volver a crear la conexión.
@@ -58,7 +48,7 @@ La lista de números de error que se clasifican como errores transitorios está 
 
 
 - [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md#bkmk_connection_errors)
- - Vea la sección acerca de *Errores transitorios, errores de pérdida de conexión*.
+ - Vea la sección superior sobre *Errores transitorios, errores de pérdida de conexión*.
 
 
 ## Ejemplo de código C#
@@ -73,422 +63,217 @@ El ejemplo de código sigue unas recomendaciones o directrices básicas que se a
 - [Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md)
 
 
-El ejemplo de código C# consta de los dos archivos. cs cuyo contenido se pega en las secciones siguientes. Sus nombres de archivo son:
+La muestra de código C# consta de un archivo denominado Program.cs. Su código se pega en la sección siguiente.
 
 
-- `Program.cs`
-- `Custom_SqlDatabaseTransientErrorDetectionStrategy.cs`
-
-
-## Compilar y ejecutar el ejemplo de código
+### Captura y compilación de la muestra de código
 
 
 Puede compilar el ejemplo con los pasos siguientes:
 
 
-1. En Visual Studio, cree un nuevo proyecto desde una plantilla de aplicación de consola de C#.
+1. En la [versión gratuita de Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs), cree un nuevo proyecto, cree un nuevo proyecto desde la plantilla de aplicación de consola de C#.
+ - Archivo > Nuevo > Proyecto > Instalado > Plantillas > Visual C# > Windows > Escritorio clásico > Aplicación de consola
+ - Asigne al proyecto el nombre RetryAdo2.
 
-2. Haga clic con el botón secundario en el proyecto y, a continuación, agregue el .cs para el que se ofrece el código fuente en este tema.
+2. Abra el panel del Explorador de soluciones.
+ - Vea el nombre del proyecto.
+ - Vea el nombre del archivo Program.cs.
 
-3. En un ventana de comandos `cmd.exe`, ejecute el programa como se muestra a continuación. También se muestra la salida real de una ejecución.
+3. Abra el archivo Program.cs.
 
+4. Reemplace el contenido del archivo Program.cs por el código siguiente:
 
-		[C:\MyVS\ConsoleApplication1\ConsoleApplication1\bin\Debug]
-		>> ConsoleApplication1.exe
-		database_firewall_rules_table   245575913
-		filestream_tombstone_2073058421 2073058421
-		filetable_updates_2105058535    2105058535
-		
-		[C:\MyVS\ConsoleApplication1\ConsoleApplication1\bin\Debug]
-		>>
+5. Haga clic en el menú Compilar > Compilar solución.
 
 
-El código fuente de C# para los archivos .cs se encuentran en las secciones siguientes.
+#### Código fuente de C# para pegar
 
 
-## Archivo Program.cs
+Pegue este código fuente siguiente en su archivo **Program.cs**.
 
 
-El programa de demostración está diseñado de manera que:
+A continuación, debe modificar las cadenas del nombre de servidor, la contraseña y así sucesivamente. Encontrará estas cadenas en el método denominado **GetSqlConnectionStringBuilder**.
 
 
-- Un error transitorio durante un intento de conexión lleve a un reintento.
+```
+using System;   // C#
+using G = System.Collections.Generic;
+using D = System.Data;
+using C = System.Data.SqlClient;
+using X = System.Text;
+using H = System.Threading;
 
-- Un error transitorio durante un comando de consulta provoca que el programa descarte la conexión y cree una nueva antes de reintentar el comando de consulta.
-
-
-Microsoft no se pronuncia respecto a la recomendación o no de esta opción de diseño. El programa de demostración muestra la flexibilidad del diseño que se encuentra disponible.
-
-
-### Longitud del código fuente
-
-
-La longitud del archivo `Program.cs` se debe principalmente a la lógica que captura excepciones.
-
-
-Al final de este tema se presenta una [versión más breve](#shorter_program_cs) de este archivo `Program.cs`, con toda la lógica de reintento y control de `Exception` eliminados.
-
-
-### Pila de llamadas
-
-
-El método `Main` está en `Program.cs`. La pila de llamadas se ejecuta de la siguiente manera:
-
-
-1. `Main` llama a `ConnectAndQuery`.
-
-2. `ConnectAndQuery` llama a `EstablishConnection`.
-
-3. `EstablishConnection` llama a `IssueQueryCommand`.
-
-
-### Código fuente de Program.cs
-
-
-	using     System;  // C#, pure ADO.NET, no Enterprise Library.
-	using X = System.Text;
-	using D = System.Data;
-	using C = System.Data.SqlClient;
-	using T = System.Threading;
-	
-	namespace ConsoleApplication1
+namespace RetryAdo2
+{
+	class Program
 	{
-	    class Program
-	    {
-	        // Fields, shared among methods.
-	        C.SqlConnection sqlConnection;
-	        C.SqlConnectionStringBuilder scsBuilder;
-	
-	        static void Main(string[] args)
-	        {
-	            new Program().ConnectAndQuery();
-	        }
-	
-	        /// <summary>
-	        /// Prepares values for a connection. Then inside a loop, it calls a method
-	        /// that opens a connection. The called method calls yet another method
-	        /// that issues a query.
-	        /// The loop reiterates only if a transient error is encountered.
-	        /// </summary>
-	        void ConnectAndQuery()
-	        {
-	            int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
-	            int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
-	            int secondsBetweenRetries = 6;  // Simple retry strategy.
-	
-	            // [A.1] Prepare the connection string to Azure SQL Database.
-	            this.scsBuilder = new C.SqlConnectionStringBuilder();
-	            // Change these values to your values.
-	            this.scsBuilder["Server"] = "tcp:myazuresqldbserver.database.windows.net,1433";
-	            this.scsBuilder["User ID"] = "MyLogin";  // @yourservername suffix sometimes.
-	            this.scsBuilder["Password"] = "MyPassword";
-	            this.scsBuilder["Database"] = "MyDatabase";
-	            // Leave these values as they are.
-	            this.scsBuilder["Trusted_Connection"] = false;
-	            this.scsBuilder["Integrated Security"] = false;
-	            this.scsBuilder["Encrypt"] = true;
-	            this.scsBuilder["Connection Timeout"] = connectionTimeoutSeconds;
-	
-	            //-------------------------------------------------------
-	            // Preparations are complete.
-	
-	            for (int cc = 1; cc <= maxCountTriesConnectAndQuery; cc++)
-	            {
-	                try
-	                {
-	                    // [A.2] Connect, which proceeds to issue a query command.
-	                    this.EstablishConnection();
-	
-	                    // [A.3] All has gone well, so let the program end.
-	                    break;
-	                }
-	                catch (C.SqlException sqlExc)
-	                {
-	                    bool isTransientError;
-	
-	                    // [A.4] Check whether sqlExc.Number is on the whitelist of transients.
-	                    isTransientError = Custom_SqlDatabaseTransientErrorDetectionStrategy
-	                        .IsTransientStatic(sqlExc);
-	
-	                    if (isTransientError == false)  // Is a persistent error...
-	                    {
-	                        Console.WriteLine();
-	                        Console.WriteLine("Persistent error suffered, SqlException.Number=={0}.  Will terminate.",
-	                            sqlExc.Number);
-	                        Console.WriteLine(sqlExc.ToString());
-	
-	                        // [A.5] Either the connection attempt or the query command attempt suffered a persistent SqlException.
-	                        // Break the loop, let the hopeless program end.
-	                        break;
-	                    }
-	
-	                    // [A.6] The SqlException identified a transient fault from an attempt to issue a query command.
-	                    // So let this method reloop and try again. However, we recommend that the new query
-	                    // attempt should start at the beginning and establish a new connection.
-	                    Console.WriteLine();
-	                    Console.WriteLine("Transient error encountered.  SqlException.Number=={0}."
-	                        + "  Program might retry by itself.", sqlExc.Number);
-	                    Console.WriteLine("{0} = Attempts so far. Might retry.", cc);
-	                    Console.WriteLine(sqlExc.Message);
-	                }
-	                catch (Exception exc)
-	                {
-	                    Console.WriteLine();
-	                    Console.WriteLine("Unexpected exception type caught in Main. Will terminate.");
-	
-	                    // [A.7] The program must end, so re-throw the unrecognized error.
-	                    throw exc;
-	                }
-	
-	                // [A.8] Throw an application exception if transient SqlExceptions caused us
-	                // to exceed our self-imposed maximum count of retries.
-	                if (cc > maxCountTriesConnectAndQuery)
-	                {
-	                    Console.WriteLine();
-	                    string mesg = String.Format(
-	                        "Transient errors suffered in too many retries ({0}). Will terminate.",
-	                        cc - 1);
-	                    Console.WriteLine(mesg);
-	
-	                    // [A.9] To end the program, throw a new exception of a different type.
-	                    ApplicationException appExc = new ApplicationException(mesg);
-	                    throw appExc;
-	                }
-	                // Else, can retry.
-	
-	                // A very simple retry strategy, a brief pause before looping.
-	                T.Thread.Sleep(1000 * secondsBetweenRetries);
-	            } // for cc
-	            return;
-	        } // method ConnectAndQuery
-	
-	
-	        /// <summary>
-	        /// Open a connection, then call a method that issues a query.
-	        /// </summary>
-	        void EstablishConnection()
-	        {
-	            try
-	            {
-	                // [B.1] The 'using' statement will .Dispose() the connection.
-	                // If you are working with a connection pool, you might want instead
-	                // to merely .Close() the connection.
-	                using (this.sqlConnection = new C.SqlConnection(this.scsBuilder.ToString()))
-	                {
-	                    // [B.2] Open a connection.
-	                    sqlConnection.Open();
-	                    // [B.3]
-	                    this.IssueQueryCommand();
-	                }
-	            }
-	            catch (Exception exc)
-	            {
-	                // [B.4] This re-throw means we discard the connection whenever
-	                // any error occurs during query command, even for a transient error.
-	                throw exc;  // [B.5] Let caller assess any exception, SqlException or any kind.
-	            }
-	            return;
-	        } // method EstablishConnection
-	
-	
-	        /// <summary>
-	        /// Issue a query, then write the result rows to the console.
-	        /// </summary>
-	        void IssueQueryCommand()
-	        {
-	            D.IDataReader dReader = null;
-	            D.IDbCommand dbCommand = null;
-	            X.StringBuilder sBuilder = new X.StringBuilder(512);
-	
-	            try
-	            {
-	                // [C.1] Use the connection to create a query command.
-	                using (dbCommand = this.sqlConnection.CreateCommand())
-	                {
-	                    dbCommand.CommandText =
-	                        @"SELECT TOP 3
-	                              ob.name,
-	                              CAST(ob.object_id as nvarchar(32)) as [object_id]
-	                          FROM sys.objects as ob
-	                          WHERE ob.type='IT'
-	                          ORDER BY ob.name;";
-	
-	                    // [C.2] Issue the query command through the connection.
-	                    using (dReader = dbCommand.ExecuteReader())
-	                    {
-	                        // [C.3] Loop through all returned rows, writing the data to the console.
-	                        while (dReader.Read())
-	                        {
-	                            sBuilder.Length = 0;
-	                            sBuilder.Append(dReader.GetString(0));
-	                            sBuilder.Append("\t");
-	                            sBuilder.Append(dReader.GetString(1));
-	
-	                            Console.WriteLine(sBuilder.ToString());
-	                        }
-	                    }
-	                }
-	            }
-	            catch (Exception exc)
-	            {
-	                throw exc; // Let caller assess any exception.
-	            }
-	            return;
-	        } // method IssueQueryCommand
-	    } // class Program
+		static void Main(string[] args)
+		{
+			Program program = new Program();
+			bool returnBool;
+
+			returnBool = program.Run(args);
+			if (returnBool == false)
+			{
+				Console.WriteLine("Something failed.  :-( ");
+			}
+			return;
+		}
+
+		bool Run(string[] _args)
+		{
+			C.SqlConnectionStringBuilder sqlConnectionSB;
+			C.SqlConnection sqlConnection;
+			D.IDbCommand dbCommand;
+			D.IDataReader dataReader;
+			X.StringBuilder sBuilder = new X.StringBuilder(256);
+			int retryIntervalSeconds = 10;
+			bool returnBool = false;
+
+			Program program = new Program();
+
+			for (int tries = 1; tries <= 5; tries++)
+			{
+				try
+				{
+					if (tries > 1)
+					{
+						H.Thread.Sleep(1000 * retryIntervalSeconds);
+						retryIntervalSeconds = Convert.ToInt32(retryIntervalSeconds * 1.5);
+					}
+
+					program.GetSqlConnectionStringBuilder(out sqlConnectionSB);
+
+					sqlConnection = new C.SqlConnection(sqlConnectionSB.ToString());
+
+					dbCommand = sqlConnection.CreateCommand();
+					dbCommand.CommandText = @"
+SELECT TOP 3
+      ob.name,
+      CAST(ob.object_id as nvarchar(32)) as [object_id]
+   FROM sys.objects as ob
+   WHERE ob.type='IT'
+   ORDER BY ob.name;";
+
+					sqlConnection.Open();
+					dataReader = dbCommand.ExecuteReader();
+
+					while (dataReader.Read())
+					{
+						sBuilder.Length = 0;
+						sBuilder.Append(dataReader.GetString(0));
+						sBuilder.Append("\t");
+						sBuilder.Append(dataReader.GetString(1));
+
+						Console.WriteLine(sBuilder.ToString());
+					}
+					returnBool = true;
+					break;
+				}
+
+				catch (C.SqlException sqlExc)
+				{
+					if (this.m_listTransientErrorNumbers.Contains(sqlExc.Number) == true)
+					{ continue; }
+					else
+					{ throw sqlExc; }
+				}
+			}
+			return returnBool;
+		}
+
+		void GetSqlConnectionStringBuilder(out C.SqlConnectionStringBuilder _sqlConnectionSB)
+		{
+			// Prepare the connection string to Azure SQL Database.
+			_sqlConnectionSB = new C.SqlConnectionStringBuilder();
+
+			// Change these values to your values.
+			_sqlConnectionSB["Server"] = "tcp:myazuresqldbserver.database.windows.net,1433";
+			_sqlConnectionSB["User ID"] = "MyLogin";  // "@yourservername"  as suffix sometimes.
+			_sqlConnectionSB["Password"] = "MyPassword";
+			_sqlConnectionSB["Database"] = "MyDatabase";
+
+			// Leave these values as they are.
+			_sqlConnectionSB["Trusted_Connection"] = false;
+			_sqlConnectionSB["Integrated Security"] = false;
+			_sqlConnectionSB["Encrypt"] = true;
+			_sqlConnectionSB["Connection Timeout"] = 30;
+		}
+
+		Program()   // Constructor.
+		{
+			int[] arrayOfTransientErrorNumbers =
+				{ 4060, 10928, 10929, 40197, 40501, 40613, 49918, 49919, 49920
+					//,11001   // 11001 for testing, pretend network error is transient.
+				};
+			m_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
+		}
+
+		private G.List<int> m_listTransientErrorNumbers;
 	}
+}
+```
 
 
-## Archivo de código Custom\_SqlDatabaseTransientErrorDetectionStrategy.cs
+### Ejecución del programa
 
 
-[`SqlDatabaseTransientErrorDetectionStrategy`](http://msdn.microsoft.com/library/microsoft.practices.enterpriselibrary.transientfaulthandling.sqldatabasetransienterrordetectionstrategy.aspx) es una clase de la API de Enterprise Library (EntLib). El presente ejemplo de código usa la siguiente clase personalizada que toma prestada la idea de la clase EntLib.
+El archivo ejecutable **RetryAdo2.exe** no emite ningún parámetro. Para ejecutar el archivo .exe en Visual Studio:
 
 
-	using     System;
-	using G = System.Collections.Generic;
-	using C = System.Data.SqlClient;
-	
-	namespace ConsoleApplication1
-	{
-	    /// <summary>
-	    /// A custom alternative to class SqlDatabaeTransientErrorDetectionStrategy.
-	    /// </summary>
-	    public class Custom_SqlDatabaseTransientErrorDetectionStrategy
-	    {
-	        static private G.List<int> M_listTransientErrorNumbers;
-	
-	
-	        /// <summary>
-	        /// This method happens to match ITransientErrorDetectionStrategy of EntLib60.
-	        /// </summary>
-	        public bool IsTransient(Exception exc)
-	        {
-	            return IsTransientStatic(exc);
-	        }
-	
-	
-	        /// <summary>
-	        /// For general use beyond formal Enterprise Library classes.
-	        /// </summary>
-	        static public bool IsTransientStatic(Exception exc)
-	        {
-	            bool returnBool = false;  // Assume is a persistent error.
-	            C.SqlException sqlExc;
-	
-	            if (exc is C.SqlException)
-	            {
-	                sqlExc = exc as C.SqlException;
-	                if (M_listTransientErrorNumbers.Contains(sqlExc.Number) == true)
-	                {
-	                    returnBool = true;  // Error is transient, not persistent.
-	                }
-	            }
-	            return returnBool;
-	        }
-	
-	
-	        /// <summary>
-	        /// Lists the SqlException.Number values that are considered
-	        /// to indicate transient errors.
-	        /// </summary>
-	        static Custom_SqlDatabaseTransientErrorDetectionStrategy()
-	        {
-	            int[] arrayOfTransientErrorNumbers =
-	                {4060, 10928, 10929, 40197, 40501, 40613 };
-	
-	            M_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
-	        }
-	    } // class Custom_SqlDatabaseTransientErrorDetectionStrategy
-	}
+1. Establezca un punto de interrupción en la instrucción **return;** del método **Main**.
+
+2. Haga clic en el botón de flecha de inicio de color verde. Se muestra una ventana de consola.
+
+3. Cuando el depurador se detiene al final de **Main**, cambie a la ventana de la consola.
+
+4. Quizás pueda ver tres filas idénticas a las siguientes:
 
 
-<a id="shorter_program_cs" name="shorter_program_cs"></a>
+```
+database_firewall_rules_table   245575913
+filestream_tombstone_2073058421 2073058421
+filetable_updates_2105058535    2105058535
+```
 
 
-&nbsp;
+## Probar su lógica de reintento
 
 
-## Versión abreviada de Program.cs
+A continuación se muestra una forma práctica de probar la lógica de prueba:
 
 
-El código fuente de esta sección es la repetición abreviada del archivo `Program.cs` más largo presentado anteriormente. Se ha quitado toda la lógica de reintento y todo el control de excepciones.
+1. Agregue temporalmente **11001** a la colección de valores **SqlConnection.Number** que se considerarán como errores transitorios.
+
+2. Vuelva a compilar el programa.
+
+3. Desconecte el equipo cliente de la red.
+
+4. Ejecute el programa en un depurador, con un punto de interrupción en el bucle.
+ - El primer bucle producirá el error 11001.
+
+5. Cuando el programa se encuentre en un punto de interrupción durante el segundo bucle, vuelva a conectar el equipo a la red.
+
+6. Reanude la ejecución del programa. La ejecución se realizará correctamente durante el segundo bucle.
 
 
-La versión corta facilita la visualización de las llamadas de ADO.NET, sabiendo que estas suelen funcionar. Normalmente no se producen errores transitorios y no se generan excepciones. Y normalmente un paracaidista no necesita un paracaídas de seguridad.
+### Otra opción de prueba
 
 
-	using     System;  // C#, pure ADO.NET, no retry logic, no Exception handling.
-	using X = System.Text;
-	using D = System.Data;
-	using C = System.Data.SqlClient;
-	
-	namespace ConsoleApplication1_dn864744
-	{
-	    class Program
-	    {
-	        C.SqlConnection sqlConnection;
-	        C.SqlConnectionStringBuilder scsBuilder;
-	
-	        static void Main(string[] args)
-	        {
-	            new Program().ConnectAndQuery();
-	        }
-	
-	        void ConnectAndQuery()
-	        {
-	            this.scsBuilder = new C.SqlConnectionStringBuilder();
-	            // Change these values to your values.
-	            this.scsBuilder["Server"] = "tcp:myazuresqldbserver.database.windows.net,1433";
-	            this.scsBuilder["User ID"] = "MyLogin";
-	            this.scsBuilder["Password"] = "MyPassword";
-	            this.scsBuilder["Database"] = "MyDatabase";
-	            this.scsBuilder["Trusted_Connection"] = false;
-	            this.scsBuilder["Integrated Security"] = false;
-	            this.scsBuilder["Encrypt"] = true;
-	            this.scsBuilder["Connection Timeout"] = 30;
-	
-	            this.EstablishConnection();
-	        } // method ConnectAndQuery
-	
-	        void EstablishConnection()
-	        {
-	            using (this.sqlConnection = new C.SqlConnection(this.scsBuilder.ToString()))
-	            {
-	                sqlConnection.Open();
-	                this.IssueQueryCommand();
-	            }
-	        } // method EstablishConnection
-	
-	        void IssueQueryCommand()
-	        {
-	            D.IDataReader dReader = null;
-	            D.IDbCommand dbCommand = null;
-	            X.StringBuilder sBuilder = new X.StringBuilder(512);
-	
-	            using (dbCommand = this.sqlConnection.CreateCommand())
-	            {
-	                dbCommand.CommandText =
-	                    @"SELECT TOP 3 ob.name, CAST(ob.object_id as nvarchar(32)) as [object_id]
-	                        FROM sys.objects as ob
-	                        WHERE ob.type='IT'
-	                        ORDER BY ob.name;";
-	
-	                using (dReader = dbCommand.ExecuteReader())
-	                {
-	                    while (dReader.Read())
-	                    {
-	                        sBuilder.Length = 0;
-	                        sBuilder.Append(dReader.GetString(0));
-	                        sBuilder.Append("\t");
-	                        sBuilder.Append(dReader.GetString(1));
-	                        Console.WriteLine(sBuilder.ToString());
-	                    }
-	                }
-	            }
-	        } // method IssueQueryCommand
-	    } // class Program
-	}
+Otra posibilidad que existe es la de agregar lógica a su programa para que reconozca un valor de parámetro de la línea de comandos de "test". En respuesta al parámetro, el programa debería hacer lo siguiente:
+
+
+1. Anexar temporalmente letras no deseadas para que el nombre del servidor de la base de datos SQL esté mal escrito.
+
+2. Agregar temporalmente **40615** a la lista de los errores transitorios.
+
+3. Al principio del segundo bucle, lo que implica el primer bucle de reintentos, el programa debería:
+ - Deshacer el error de escritura del nombre del servidor.
+ - Quitar el valor 40615 de la lista de errores transitorios.
+
+
+Ejecute el programa con el parámetro "test" y compruebe en primer lugar si se produce un error, pero se ejecuta correctamente en el segundo bucle.
 
 
 ## Vínculos relacionados
@@ -496,4 +281,4 @@ La versión corta facilita la visualización de las llamadas de ADO.NET, sabiend
 
 - [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

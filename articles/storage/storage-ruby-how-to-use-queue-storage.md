@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/23/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -153,4 +153,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio](/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias](http://msdn.microsoft.com/library/azure/hh767287.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -111,7 +111,7 @@ Como se mencionó anteriomente, al entregar su contenido a los clientes (transmi
 - Reproducir solo una sección de un vídeo (en lugar de reproducir todo el vídeo).
 - Ajustar la ventana de presentación de DVR.
 
-###Filtrado de representaciones 
+##Filtrado de representaciones 
 
 Puede elegir codificar el activo en varios perfiles de codificación (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) y varias velocidades de bits de calidad. Sin embargo, no todos los dispositivos cliente serán compatibles con todos los perfiles y velocidades de bits de su activo. Por ejemplo, los dispositivos Android más antiguos solo admiten H.264 Baseline+AACL. El envío de velocidades de bits más altas a un dispositivo que no puede obtener los beneficios, desperdicia el ancho de banda y el cálculo del dispositivo. Dicho dispositivo debe descodificar toda la información ofrecida, solo para reducirla verticalmente para presentación.
 
@@ -124,20 +124,20 @@ En el ejemplo siguiente, se usó el Codificador multimedia de Azure para codific
 
 ![Filtrado de representaciones][renditions1]
 
-###Quitar pistas de idioma
+##Quitar pistas de idioma
 
 Los activos pueden incluir varios idiomas de audio como inglés, español, francés, etc. Normalmente, los administradores del SDK del reproductor toman como valor predeterminado la selección de pistas de audio y las pistas de audio disponibles por selección de usuario. Es un desafío desarrollar estos SDK del Reproductor; requiere diferentes implementaciones en marcos de reproductores específicos de dispositivos. Además, en algunas plataformas, las API del reproductor están limitadas y no incluyen la característica de selección de audio, donde los usuarios no pueden seleccionar o cambiar la pista de audio predeterminada. Con los filtros de activo, puede controlar el comportamiento creando filtros que solo incluyen idiomas de audio deseados.
 
 ![Filtrado de pistas de idioma][language_filter]
 
 
-###Recorte del inicio de un activo 
+##Recorte del inicio de un activo 
 
 En la mayoría de los eventos de streaming en directo, los operadores ejecutan algunas pruebas antes del evento real. Por ejemplo, podrían incluir una pizarra como esta antes del inicio del evento: "El programa comenzará momentáneamente". Si el programa se está archivando, los datos de pizarra y de prueba también se archivan y se incluirán en la presentación. Sin embargo, esta información no se debe mostrar a los clientes. Con el manifiesto dinámico, puede crear un filtro de tiempo de inicio y quitar los datos no deseados del manifiesto.
 
 ![Inicio de recorte][trim_filter]
 
-###Crear clips secundarios (vistas) desde un archivo en directo
+##Crear clips secundarios (vistas) desde un archivo en directo
 
 Muchos eventos en directo son de larga ejecución y el archivo en directo puede incluir varios eventos. Después de que termine el evento en directo, es posible que los emisores deseen dividir el archivo activo en secuencias de inicio y detención de programa lógicas. Después, publique por separado estos programas virtuales sin procesar posteriormente el archivo activo y sin crear activos separados (que no se beneficiarán de los fragmentos en caché existentes en las CDN). Entre los ejemplos de estos programas virtuales (clips secundarios) se encuentran los cuatro cuartos de un partido de baloncesto o fútbol americano, las entradas en el béisbol o los eventos individuales de una tarde de un programa de las Olimpiadas.
 
@@ -149,24 +149,22 @@ Activo filtrado:
 
 ![Esquí][skiing]
 
-###Ajustar la ventana de presentación (DVR)
+##Ajustar la ventana de presentación (DVR)
 
 En la actualidad, los Servicios multimedia de Azure ofrecen un archivo circular donde la duración se puede configurar entre 5 minutos y 25 horas. El filtrado de manifiestos se puede usar para crear una ventana de DVR dinámica encima del archivo, sin eliminar medios. Hay muchos escenarios en los que los emisores desean proporcionar una ventana de DVR limitada que se mueve con el borde dinámico y al mismo tiempo mantiene una ventana de archivado más grande. Es posible que un emisor desee usar los datos que están fuera de la ventana de DVR para resaltar clips, o que desee proporcionar diferentes ventanas de DVR para dispositivos diferentes. Por ejemplo, la mayoría de los dispositivos móviles no administran grandes ventanas de DVR (puede tener una ventana de DVR de 2 minutos para dispositivos móviles y 1 hora para clientes de escritorio).
 
 ![Ventana de DVR][dvr_filter]
 
-###Ajustar LiveBackoff (posición en directo)
+##Ajustar LiveBackoff (posición en directo)
 
 El filtrado de manifiestos puede usarse para quitar varios segundos del borde directo de un programa activo. Esto permite a los emisores ver la presentación en el punto de publicación de vista previa y crear puntos de inserción de anuncios antes de que los visores reciban la secuencia (normalmente con una interrupción de copia anterior a 30 segundos). Los emisores, entonces, pueden insertar estos anuncios en sus marcos de cliente a tiempo para su recepción y procesar la información antes de la oportunidad de anuncio.
 
 Además de la compatibilidad de anuncio, LiveBackoff se puede usar para ajustar la posición de descarga en directo del cliente para que cuando los clientes se desvíen y lleguen al borde directo puedan obtener todavía fragmentos del servidor en lugar de obtener los errores HTTP 404 o 412.
 
-
-
 ![livebackoff\_filter][livebackoff_filter]
 
 
-###Combinación de varias reglas en un filtro único
+##Combinación de varias reglas en un filtro único
 
 Puede combinar varias reglas de filtrado en un filtro único. Por ejemplo, puede definir una regla de intervalos para quitar la pizarra de un archivo activo y filtrar además velocidades de bits disponibles. Para varias reglas de filtrado, el resultado final es la composición (solo intersección) de estas reglas.
 
@@ -177,6 +175,22 @@ Puede combinar varias reglas de filtrado en un filtro único. Por ejemplo, puede
 En el siguiente tema se describen las entidades de los Servicios multimedia que están relacionadas con los filtros. En el tema también se muestra cómo crear filtros mediante programación.
 
 [Crear filtros con las API de REST](media-services-rest-dynamic-manifest.md).
+
+## Combinar múltiples filtros (composición de filtros)
+
+También puede combinar varios filtros en una sola dirección URL.
+
+En el escenario siguiente se muestra para qué puede resultar útil la combinación de filtros:
+
+1. Necesita filtrar sus calidades de vídeos para dispositivos móviles, como Android o iPAD (con el fin de limitar las calidades de vídeo). Para quitar las calidades no deseadas, debe crear un filtro global que sea adecuado para los perfiles de dispositivo. Como se mencionó anteriormente, los filtros globales pueden utilizarse para todos sus activos en la misma cuenta de servicios multimedia sin ninguna asociación adicional. 
+2. También desea recortar el tiempo de inicio y finalización de un activo. Para hacerlo, debe crear un filtro local y establecer la hora de inicio y fin. 
+3. Desea combinar ambos filtros (sin combinación tendría que agregar el filtrado de calidad al filtro de recorte, lo cual dificultaría el uso del filtro).
+
+Para combinar filtros, deberá establecer los nombres de filtro de la dirección URL del manifiesto o la lista de reproducción separados por punto y coma. Supongamos que tiene un filtro denominado *MyMobileDevice* que filtra cualidades y que tiene otro denominado *MyStartTime* para establecer una determinada hora de inicio. Puede combinarlos así:
+
+	http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
+
+Puede combinar hasta 3 filtros.
 
 ##Problemas conocidos y limitaciones
 
@@ -192,7 +206,9 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##Otras referencias
 
+[Información general de entrega de contenido a los clientes](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png
@@ -214,4 +230,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

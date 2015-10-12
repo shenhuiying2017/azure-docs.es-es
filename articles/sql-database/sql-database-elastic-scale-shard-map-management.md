@@ -106,16 +106,17 @@ En este código, una aplicación intenta abrir un objeto **ShardMapManager** exi
         // for privileges on both the GSM and the shards themselves.
     } 
  
+Como alternativa, puede usar Powershell para crear un nuevo Administrador de mapas de particiones. Hay un ejemplo disponible [aquí](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ### Credenciales de administración de mapas de particiones
 
 Normalmente, las aplicaciones que administran y manipulan mapas de particiones son diferentes de las que usan los mapas de particiones para enrutar conexiones.
 
-En el caso de aplicaciones que administran mapas de particiones (agregar o cambiar particiones, mapas de particiones, asignaciones de particiones, etc.), se deben crear instancias de **ShardMapManager** mediante **credenciales que tengan privilegios de lectura y escritura en la base de datos GSM y en cada base de datos que funciona como partición**. Las credenciales deben permitir escrituras en las tablas del GSM y el LSM cuando se especifica o se cambia información de mapa de particiones, así como al crear tablas del LSM en nuevas particiones.
+En el caso de aplicaciones que administran mapas de particiones (agregar o cambiar particiones, mapas de particiones, asignaciones de particiones, etc.), se deben crear instancias de **ShardMapManager** mediante **credenciales que tengan privilegios de lectura y escritura en la base de datos GSM y en cada base de datos que funcione como partición**. Las credenciales deben permitir escrituras en las tablas del GSM y el LSM cuando se especifica o se cambia información de mapa de particiones, así como al crear tablas del LSM en nuevas particiones.
 
 ### Solo los metadatos afectados 
 
-Los métodos usados para rellenar o cambiar datos de **ShardMapManager** no modifican los datos de usuario almacenados en las propias particiones. Por ejemplos, métodos como **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. afectan solo a los metadatos del mapa de particiones. No quitan, agregan ni modificar los datos contenidos en las particiones. En su lugar, estos métodos están diseñados para usarse conjuntamente con operaciones independientes que se lleven a cabo para crear o quitar bases de datos reales, o para mover filas de una partición a otra con el fin de reequilibrar un entorno particionado. (La herramienta de **división y combinación** incluida en las herramientas de bases de datos elásticas usa estas API junto con la coordinación del movimiento de datos real entre particiones).
+Los métodos usados para rellenar o cambiar datos de **ShardMapManager** no modifican los datos de usuario almacenados en las propias particiones. Por ejemplos, métodos como **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. afectan solo a los metadatos del mapa de particiones. No quitan, agregan ni modificar los datos contenidos en las particiones. En su lugar, estos métodos están diseñados para usarse conjuntamente con operaciones independientes que se lleven a cabo para crear o quitar bases de datos reales, o para mover filas de una partición a otra con el fin de reequilibrar un entorno particionado. (La herramienta de **división y combinación** incluida con las herramientas de bases de datos elásticas usa estas API junto con la coordinación del movimiento de datos real entre particiones).
 
 ## Rellenado de un mapa de particiones: ejemplo
  
@@ -199,7 +200,7 @@ El código está escrito de manera que todo el método puede volverse a ejecutar
             } 
         } 
  
-También puede usar scripts de PowerShell para lograr el mismo resultado.
+También puede usar scripts de PowerShell para lograr el mismo resultado. Algunos de los ejemplos de PowerShell de ejemplo están disponibles [aquí](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 Una vez que se han rellenado los mapas de particiones, se pueden crear o adaptar aplicaciones de acceso a datos para trabajar con los mapas. No es necesario rellenar o manipular los mapas de nuevo hasta que haya que cambiar el **diseño de mapa**.
 
@@ -207,7 +208,7 @@ Una vez que se han rellenado los mapas de particiones, se pueden crear o adaptar
 
 La mayor parte del uso del administrador de mapas de particiones procede de las aplicaciones que requieren conexiones de base de datos para realizar las operaciones de datos específicas de la aplicación. En una aplicación particionada, estas conexiones ahora deben asociarse a la base de datos de destino correcta. Esto se conoce como **Enrutamiento dependiente de los datos**. En estas aplicaciones, cree instancias de un objeto de administrador de mapas de particiones predeterminado con credenciales que tengan acceso de solo lectura en la base de datos GSM. Las solicitudes de conexiones individuales proporcionarán más adelante las credenciales necesarias para conectarse a la base de datos de partición correspondiente.
 
-Tenga en cuenta que estas aplicaciones (mediante **ShardMapManager** abierto con credenciales de solo lectura) no podrán realizar cambios en los mapas ni las asignaciones. Para cubrir esas necesidades, cree aplicaciones específicas de administración o scripts de PowerShell que proporcionen credenciales con más privilegios, como se explicó anteriormente.
+Tenga en cuenta que estas aplicaciones (que usan **ShardMapManager** abierto con credenciales de solo lectura) no podrán realizar cambios en los mapas ni las asignaciones. Para cubrir esas necesidades, cree aplicaciones específicas de administración o scripts de PowerShell que proporcionen credenciales con más privilegios, como se explicó anteriormente.
 
 Para obtener más detalles, consulte [Enrutamiento dependiente de datos](sql-database-elastic-scale-data-dependent-routing.md).
 
@@ -233,9 +234,9 @@ Estos métodos funcionan en conjunto como los bloques de creación disponibles p
 
     Puesto que es posible que necesite mover datos de una partición a otra para ser coherente con las operaciones de **UpdateMapping**, deberá realizar dicho movimiento por separado pero conjuntamente con el uso de estos métodos.
 
-* Para poner las asignaciones en línea y sin conexión, use **MarkMappingOffline** y **MarkMappingOnline** para controlar el estado en línea de una asignación.
+* Para conectar y desconectar las asignaciones, use **MarkMappingOffline** y **MarkMappingOnline** a fin de controlar el estado de conexión de una asignación.
 
-    Solo se permite realizar determinadas operaciones en los mapas de particiones cuando una asignación se encuentra en un estado "sin conexión", incluidas **UpdateMapping** y **DeleteMapping**. Cuando una asignación está sin conexión, una solicitud dependiente de datos basada en una clave incluida en esa asignación devolverá un error. Además, cuando un intervalo se queda sin conexión por primera vez, todas las conexiones a la partición afectada se terminan automáticamente para evitar resultados incoherentes o incompletos para las consultas dirigidas a los intervalos que se están cambiando.
+    Solo se permite realizar determinadas operaciones en las asignaciones de particiones cuando una asignación se encuentra en un estado "sin conexión", incluidas **UpdateMapping** y **DeleteMapping**. Cuando una asignación está sin conexión, una solicitud dependiente de datos basada en una clave incluida en esa asignación devolverá un error. Además, cuando un intervalo se queda sin conexión por primera vez, todas las conexiones a la partición afectada se terminan automáticamente para evitar resultados incoherentes o incompletos para las consultas dirigidas a los intervalos que se están cambiando.
 
 Las asignaciones son objetos inmutables en .NET Todos los métodos mencionados que cambian las asignaciones también invalidan las referencias a ellos en el código. Para facilitar la ejecución de secuencias de operaciones que cambian el estado de una asignación, todos los métodos que cambian una asignación devuelven una referencia de la asignación nueva, por lo que las operaciones se pueden encadenar. Por ejemplo, para eliminar una asignación existente en shardmap sm que contiene la clave 25, puede ejecutar lo siguiente:
 
@@ -247,9 +248,9 @@ Con frecuencia, las aplicaciones simplemente necesitan agregar nuevas particione
 
 Si el nuevo intervalo de valores de clave ya no forma parte de una asignación existente y no se requiere ningún movimiento de datos, es muy sencillo agregar la nueva partición y asociar la nueva clave o el nuevo intervalo a dicha partición. Para obtener más información sobre cómo agregar nuevas particiones, consulte [Incorporación de una nueva partición](sql-database-elastic-scale-add-a-shard.md).
 
-Sin embargo, para escenarios que requieren movimiento de datos, se necesita la herramienta de división y combinación para coordinar el movimiento de datos entre particiones con las actualizaciones necesarias de mapas de particiones. Para obtener más información sobre cómo usar la herramienta de división y combinación, consulte [Información general sobre División y combinación](sql-database-elastic-scale-overview-split-and-merge.md).
+Sin embargo, para escenarios que requieren movimiento de datos, se necesita la herramienta de división y combinación para coordinar el movimiento de datos entre particiones con las actualizaciones necesarias de mapas de particiones. Para obtener más información sobre cómo usar la herramienta de división y combinación, consulte [Información general sobre división y combinación](sql-database-elastic-scale-overview-split-and-merge.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -180,9 +180,9 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/es-es/library/ms177673.aspx
+[GROUP BY]: https://msdn.microsoft.com/es-ES/library/ms177673.aspx
 
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

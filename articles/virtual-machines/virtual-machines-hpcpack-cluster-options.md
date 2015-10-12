@@ -1,0 +1,97 @@
+<properties
+ pageTitle="Opciones de clúster de HPC Pack en la nube | Microsoft Azure"
+ description="Obtenga información sobre opciones con Microsoft HPC Pack para crear y administrar un clúster de informática de alto rendimiento (HPC) en la nube de Azure."
+ services="virtual-machines,cloud-services"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-resource-manager,azure-service-management"/>
+<tags
+ms.service="virtual-machines"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="big-compute"
+ ms.date="09/28/2015"
+ ms.author="danlep"/>
+
+# Opciones para crear y administrar un clúster de computación de alto rendimiento (HPC) en Azure con Microsoft HPC Pack
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Este artículo se aplica a la creación de un recurso con el modelo de implementación del Administrador de recursos o el modelo de implementación clásico.
+
+Aproveche los servicios de infraestructura y proceso de Microsoft HPC Pack para crear y administrar un clúster de informática de alto rendimiento (HPC) basado en la nube. [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) es la solución HPC gratuita de Microsoft que se basa en las tecnologías de Microsoft Azure y Windows Server y admite cargas de trabajo HPC tanto de Windows como de Linux. Un clúster de HPC Pack basado en la nube proporciona un administrador de clústeres o un proveedor de software independiente (ISV) a una plataforma flexible y escalable para ejecutar aplicaciones de proceso intensivo reduciendo al mismo tiempo la inversión en una infraestructura de clúster de proceso local.
+
+<!-- Take advantage of automated tools for HPC Pack cluster deployment in Azure VMs, including an HPC Pack image that can be used with either Azure quickstart templates or Azure PowerShell scripts, or deploy your cluster manually in the Azure portal.-->
+
+
+## Ejecución de un clúster de HPC Pack en VM de Azure
+
+
+### Imágenes de VM de Azure
+
+* [HPC Pack en Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+
+* [Nodo de proceso de HPC Pack en Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
+
+* [Nodo de proceso de HPC Pack con Excel en Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
+
+### Plantillas de inicio rápido de Azure
+
+* [Creación de un clúster de HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+
+* [Crear un clúster de HPC con nodos de proceso de Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+
+* [Creación de un clúster de HPC con una imagen de nodo de proceso personalizada](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
+
+### Script de implementación de PowerShell
+
+* [Creación de un clúster de HPC con el script de implementación de HPC Pack IaaS](virtual-machines-hpcpackcluster-powershell-script.md).
+
+### Tutoriales
+
+* [Tutorial: Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+
+* [Tutorial: Ejecute NAMD con Microsoft HPC Pack en los nodos de proceso de Linux en Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
+
+* [Tutorial: Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+
+
+
+### Implementación manual con el portal de Azure
+
+
+
+* [Configuración del nodo principal de un clúster de HPC Pack en una VM de Azure](virtual-machines-hpcpack-cluster-headnode.md)
+
+### Administración de clústeres
+
+* [Administración de nodos de proceso en un clúster de HPC Pack en Azure](virtual-machines-hpcpack-cluster-node-manage.md)
+
+* [Adición de nodos "ráfaga" de Azure a un nodo principal de HPC Pack en Azure](virtual-machines-hpcpack-cluster-node-burst.md)
+
+* [Aumento y reducción de los recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
+
+* [Envío de trabajos a un clúster de HPC Pack en Azure](virtual-machines-hpcpack-cluster-submit-jobs.md)
+
+
+
+## Adición de nodos de rol de trabajo a un clúster de HPC Pack
+
+
+* [Irrumpir en Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+
+* [Tutorial: Configuración de un clúster híbrido con HPC Pack en Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+
+* [Adición de nodos "ráfaga" de Azure a un nodo principal de HPC Pack en Azure](virtual-machines-hpcpack-cluster-node-burst.md)
+
+* [Aumento y reducción de los recursos de proceso de Azure en un clúster de HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
+
+
+## Creación de clústeres RDMA para cargas de trabajo MPI
+
+* [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md)
+
+<!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
+
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Definición de alertas en Application Insights
@@ -50,6 +50,10 @@ Recibirá un correo electrónico cuando un alerta cambia el estado entre inactiv
 
 En la hoja de reglas Alerta se muestra el estado actual de cada alerta.
 
+Hay un resumen de la actividad reciente en la lista desplegable de alertas:
+
+![](./media/app-insights-alerts/010-alert-drop.png)
+
 El historial de cambios de estado está en el registro Eventos de operaciones:
 
 ![En la hoja Información general, cerca de la parte inferior, haga clic en 'Eventos de la semana pasada'.](./media/app-insights-alerts/09-alerts.png)
@@ -57,6 +61,27 @@ El historial de cambios de estado está en el registro Eventos de operaciones:
 *¿Estos "eventos" están relacionados con eventos de telemetría o eventos personalizados?*
 
 * No. Estos eventos operativos son simplemente un registro de cosas que han ocurrido en este recurso de aplicación. 
+
+
+## Funcionamiento de las alertas
+
+* Una alerta tiene dos estados: "alerta" y "correcto". 
+
+* Se envía un correo electrónico cuando una alerta cambia de estado.
+
+* Una alerta se evalúa cada vez que llega una métrica, pero no en caso contrario.
+
+* La evaluación agrega la métrica durante el período anterior y, luego, la compara con el umbral para determinar el nuevo estado.
+
+* El período que elija especifica el intervalo en el que se agregan métricas. No afecta a la frecuencia con la que se evalúa la alerta: depende de la frecuencia de llegada de métricas.
+
+* Si no llega ningún dato para una métrica concreta durante un tiempo, este intervalo tiene efectos diferentes en la evaluación de la alerta y en los gráficos del Explorador de métricas. En el Explorador de métricas, si no se ve ningún dato durante más tiempo que el intervalo de muestreo del gráfico, el gráfico mostrará un valor de 0. Pero una alerta basada en la misma métrica no se volverá a evaluar, y estado de la alerta permanecerá sin cambios.
+
+    Cuando finalmente llegan datos, el gráfico se desplazará a un valor distinto de cero. La alerta se evaluará en función de los datos disponibles para el período especificado. Si el nuevo punto de datos es el único disponible en el período, el agregado se basará en eso.
+
+* Una alerta puede parpadear con frecuencia entre los estados de alerta y correcto, incluso si se establece un período largo. Esto puede suceder si el valor de métrica se sitúa alrededor del umbral. No hay ninguna histéresis en el umbral: la transición a alerta se produce en el mismo valor que la transición a correcto.
+
+
 
 ## Alertas de disponibilidad
 
@@ -69,8 +94,9 @@ Depende de la aplicación. Para empezar, es mejor no establecer demasiadas métr
 Las alertas más populares son:
 
 * Las [pruebas web][availability] son importantes si la aplicación es un servicio web o un sitio web que está visible en Internet de acceso público. Le indican si el sitio deja de funcionar o responde lentamente, incluso si el problema es del operador y no de la aplicación. Sin embargo, son pruebas sintéticas, por lo que no miden la experiencia real de los usuarios.
-* Las [métricas de explorador][client], especialmente los tiempos de carga de página del explorador, son buenas para aplicaciones web. Si la página tiene una gran cantidad de scripts, deberá tener en cuenta las excepciones de explorador. Para obtener estas métricas y alertas, tiene que configurar [la supervisión de páginas web][client].
-* Tiempo de respuesta de servidor y solicitudes incorrectas para el lado servidor de aplicaciones web. Además de configurar alertas, eche un vistazo a estas métricas para ver si varían desproporcionadamente con tasas de solicitud altas: esto puede indicar que la aplicación se está quedando sin recursos.
+* Las [métricas del explorador][client], especialmente los **tiempos de carga de página del explorador**, son buenas para aplicaciones web. Si la página tiene una gran cantidad de scripts, deberá tener en cuenta las **excepciones del explorador**. Para obtener estas métricas y alertas, tiene que configurar [la supervisión de páginas web][client].
+* **Tiempo de respuesta del servidor** y **Solicitudes incorrectas** para las aplicaciones web del lado servidor. Además de configurar alertas, eche un vistazo a estas métricas para ver si varían desproporcionadamente con tasas de solicitud altas: esto puede indicar que la aplicación se está quedando sin recursos.
+* **Excepciones de servidor**: para verlas, deberá realizar alguna [configuración adicional](app-insights-asp-net-exceptions.md).
 
 ## Establecimiento de alertas mediante PowerShell
 
@@ -81,7 +107,7 @@ En la mayoría de los casos, basta con establecer manualmente las alertas. Pero 
 Si no ha usado PowerShell con su suscripción de Azure antes:
 
 1. Instale el módulo de Azure Powershell en el equipo donde desea ejecutar los scripts. 
- * Instale [Instalador de plataforma web de Microsoft (v5 o superior)](http://www.microsoft.com/web/downloads/platform.aspx).
+ * Instale el [Instalador de plataforma web de Microsoft (v5 o superior)](http://www.microsoft.com/web/downloads/platform.aspx).
  * Úselo para instalar Microsoft Azure Powershell.
 2. Inicie Azure PowerShell y [conéctese a su suscripción](powershell-install-configure.md):
 
@@ -178,7 +204,7 @@ Grupo de métricas | Módulo de recopilador
 basicExceptionBrowser,<br/>clientPerformance,<br/>view | [JavaScript de explorador](app-insights-javascript.md)
 performanceCounter | [Rendimiento](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
 remoteDependencyFailed| [Dependencia](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
-solicitud,<br/>requestFailed|[Solicitud de servidor](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
+request,<br/>requestFailed|[Solicitud de servidor](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
 <!--Link references-->
@@ -191,4 +217,4 @@ solicitud,<br/>requestFailed|[Solicitud de servidor](app-insights-configuration-
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

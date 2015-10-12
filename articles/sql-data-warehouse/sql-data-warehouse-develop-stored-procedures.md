@@ -90,8 +90,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[nest level]: https://msdn.microsoft.com/es-es/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/es-ES/library/ms187371.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

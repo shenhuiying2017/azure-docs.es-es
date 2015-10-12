@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/02/2015"
+ ms.date="09/29/2015"
  ms.author="danlep"/>
 
 # Sobre las instancias de proceso intensivo A8, A9, A10 y A11
@@ -84,7 +84,7 @@ Las instancias A10 y A11 tienen un único adaptador de red Ethernet de 10 Gbps q
 
 HPC Pack no es necesario para usar las instancias A8, A9, A10 y A11 con Windows Server, pero es una herramienta recomendada para crear clústeres basados en Windows HPC Server en Azure. En el caso de las instancias de A8 y A9, HPC Pack es la forma más eficaz de ejecutar aplicaciones de MPI basadas en Windows que tienen acceso a la red RDMA en Azure. HPC Pack incluye un entorno de tiempo de ejecución para la implementación de Microsoft de la interfaz de transferencia de mensajes para Windows.
 
-Para obtener más información y listas de comprobación para implementar y usar instancias de proceso intensivo en escenarios IaaS y PaaS con HPC Pack en Windows Server, consulte [Instancias de proceso intensivo A8 y A9: inicio rápido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
+Para obtener más información y listas de comprobación para usar instancias de proceso intensivo con HPC Pack en Windows Server, vea [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
 ## Acceso a la red RDMA
 
@@ -105,7 +105,7 @@ MPI | Intel MPI Library 5
 
 En un único servicio en la nube o conjunto de disponibilidad, las instancias A8 y A9 pueden tener acceso a la red RDMA de Azure para ejecutar aplicaciones MPI que usan la interfaz Microsoft Network Direct para comunicarse entre instancias. Las instancias A10 y A11 no incluyen el acceso a la red RDMA.
 
-Consulte la siguiente tabla para obtener información acerca de los requisitos previos para que las aplicaciones de MPI tengan acceso a la red RDMA en las implementaciones de máquina virtual (IaaS) y de servicio en la nube (PaaS) de las instancias A8 o A9. Para obtener información de escenarios de implementación típicos, consulte [Instancias de proceso intensivo A8 y A9: inicio rápido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
+Consulte la siguiente tabla para obtener información acerca de los requisitos previos para que las aplicaciones de MPI tengan acceso a la red RDMA en las implementaciones de máquina virtual (IaaS) y de servicio en la nube (PaaS) de las instancias A8 o A9. Para escenarios de implementación típicos, vea [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
 
 Requisito previo | Máquinas virtuales (IaaS) | Servicios en la nube (PaaS)
@@ -131,6 +131,6 @@ MPI | MS-MPI 2012 R2 o versiones posteriores, ya sean independientes o instalada
 
 * Para obtener más información sobre la disponibilidad y los precios de las instancias A8, A9, A10 y A11, consulte [Precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/) y [Precios de servicios en la nube](http://azure.microsoft.com/pricing/details/cloud-services/).
 * Para implementar y configurar un clúster basado en Linux con instancias de A8 y A9 para tener acceso a la red RDMA de Azure, consulte [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](virtual-machines-linux-cluster-rdma.md).
-* Para empezar a implementar y usar instancias A8 y A9 con HPC Pack en Windows, consulte [Instancias de proceso intensivo A8 y A9: inicio rápido con HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) y [Ejecución de aplicaciones de MPI en instancias A8 y A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
+* Para empezar a implementar y usar instancias A8 y A9 con HPC Pack en Windows, vea [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

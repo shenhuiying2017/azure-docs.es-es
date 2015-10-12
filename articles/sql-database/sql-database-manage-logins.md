@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/08/2015"
+   ms.date="09/25/2015"
    ms.author="rickbyh"/>
 
 # Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE]Debe usar una contraseña segura al crear un inicio de sesión. Para obtener más información, consulte [Contraseñas seguras](https://msdn.microsoft.com/library/ms161962.aspx).
 
-En el ejemplo siguiente se muestra cómo crear un usuario de base de datos denominado **login1User** en la base de datos **database1** que corresponde al inicio de sesión **login1**:
+En el ejemplo siguiente se muestra cómo crear un usuario de base de datos denominado **login1User** en la base de datos **database1** que corresponde al inicio de sesión **login1**. Para ejecutar el ejemplo siguiente, primero debe crear una nueva conexión a database1, usando un inicio de sesión con el permiso **ALTER ANY USER** en esa base de datos. Cualquier usuario que se conecte como miembro del rol **db\_owner** tendrá ese permiso, como el inicio de sesión que creó la base de datos.
 
 ```
 -- Establish a new connection to the database1 database
@@ -169,4 +169,4 @@ SELECT * FROM sys.databases;
 
 [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](sql-database-security-guidelines.md) [Conexión a Base de datos SQL con autenticación de Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

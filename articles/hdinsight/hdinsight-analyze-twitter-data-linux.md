@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/12/2015"
 	ms.author="larryfr"/>
 
 # Análisis de datos de Twitter con Hive en HDInsight
 
-En este documento, obtendrá tweets mediante el uso de una API de streaming de Twitter y, luego, use Apache Hive en un clúster de HDInsight basado en Linux (vista previa) para procesar los datos con el formato JSON. El resultado será una lista de usuarios de Twitter que enviaron la mayoría de los tweets que contienen una palabra determinada.
+En este documento, obtendrá tweets mediante una API de streaming de Twitter y, luego, usará Apache Hive en un clúster de HDInsight basado en Linux para procesar los datos con formato JSON. El resultado será una lista de usuarios de Twitter que enviaron la mayoría de los tweets que contienen una palabra determinada.
 
 > [AZURE.NOTE]Aunque distintas partes de este documento se pueden usar con clústeres de HDInsight basados en Windows (Python y Hive, por ejemplo), muchos de los pasos se basan el uso de un clúster de HDInsight basado en Linux. Para obtener pasos específicos para un clúster basado en Windows, vea [Análisis de datos de Twitter con Hive en HDInsight](hdinsight-analyze-twitter-data.md).
 
@@ -37,7 +37,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - __Python__ y [pip](https://pypi.python.org/pypi/pip)
 
-- La __CLI de Azure__. Para más información, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli.md).
+- La __CLI de Azure__. Para obtener más información, vea [Instalación y configuración de la interfaz de la línea de comandos (CLI) de Azure](../xplat-cli-install.md).
 
 ##Obtención de una fuente de Twitter
 
@@ -93,7 +93,7 @@ El siguiente código Python descargará 10.000 tweets de Twitter y los guardará
 		sudo apt-get remove python-openssl
 		sudo pip install tweepy==3.2.0 progressbar pyOpenSSL requests[security]
 		
-	> [AZURE.NOTE]La finalidad de los fragmentos sobre cómo quitar python-openssl, instalar python-dev, libffi-dev, libssl-dev, pyOpenSSL y requests[security\] es evitar una advertencia InsecurePlatform al conectarse a Twitter a través de SSL desde Python.
+	> [AZURE.NOTE]La finalidad de los fragmentos sobre cómo quitar python-openssl, instalar python-dev, libffi-dev, libssl-dev, pyOpenSSL y requests[security] es evitar una advertencia InsecurePlatform al conectarse a Twitter a través de SSL desde Python.
 	>
 	> Tweepy v3.2.0 se usa para evitar [un error](https://github.com/tweepy/tweepy/issues/576) que pueda producirse al procesar tweets.
 
@@ -319,4 +319,4 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

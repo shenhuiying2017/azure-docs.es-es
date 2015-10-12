@@ -27,7 +27,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Busque "Conector de SFTP", selecciónelo y seleccione **Crear**.
 3. Configure el conector de SFTP de la siguiente forma:  
-	![][1]
+![][1]
 	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
 	- **Suscripción**: elija una suscripción en la que desee crear este conector.
 	- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
@@ -43,8 +43,12 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 		- **Puerto del servidor**: especifique el número de puerto del servidor SFTP.
 4. Haga clic en Crear. Se crea un nuevo conector de SFTP.
 
-5. Acceda a la aplicación de API que acaba de crear mediante Examinar -> Aplicaciones de API -> <Name of the API App just created>; puede ver que el componente "Seguridad" no está configurado: ![][2]
-6. Haga clic en el componente "Seguridad" para configurar la seguridad (Nombre de usuario, Contraseña, Clave privada, Contraseña del archivo PPK) para el conector SFTP. Seleccione la pestaña de autorización "Contraseña", "Privatekey" o "MultiFactor" en Seguridad y proporcione las propiedades necesarias:![][3] ![][4] ![][5]  
+5. Acceda a la aplicación de API que acaba de crear mediante Examinar -> Aplicaciones de API -> <Name of the API App just created>; puede ver que el componente "Seguridad" no está configurado:  
+![][2]
+6. Haga clic en el componente "Seguridad" para configurar la seguridad (Nombre de usuario, Contraseña, Clave privada, Contraseña del archivo PPK) para el conector SFTP. Seleccione la pestaña de autorización "Contraseña", "Privatekey" o "MultiFactor" en Seguridad y proporcione las propiedades necesarias:
+![][3]  
+![][4]  
+![][5]  
 6. Una vez guardada la configuración de seguridad, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SFTP.
 
 ## Uso del conector de SFTP en la aplicación lógica ##
@@ -67,7 +71,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 	- **Ruta de la carpeta:**: especifique la ruta de acceso a la carpeta desde la que es necesario recuperar los archivos.
 	- **El tipo de archivo: texto o binario**: seleccione el tipo de archivo.
 	- **Máscara de archivo**: especifique la máscara de archivo que se va a aplicar para recuperar los archivos. '*' recupera todos los archivos de la carpeta especificada.
-	- **Máscara para excluir archivo**: especifique la máscara de archivo que se aplicará para excluir archivos. Si también se ha establecido la propiedad "Máscara de archivo", primero se aplicará la máscara para excluir archivo.
+- **Máscara para excluir archivo**: especifique la máscara de archivo que se aplicará para excluir archivos. Si también se ha establecido la propiedad "Máscara de archivo", primero se aplicará la máscara para excluir archivo.
 
 
 	![][9] 
@@ -80,13 +84,15 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 	- **Ruta de archivo**: especifique la ruta de acceso del archivo que se va a cargar.
 	- **Sobrescribir**: especifique "true" para sobrescribir el archivo si ya existe.
 	- ****Anexar si existe **: especifique "true" o "false". Cuando se establece en "true", los datos se anexan al archivo (si existe). Cuando se establece en "false", se sobrescribe el archivo (si existe)
-	- **Carpeta temporal**: si se proporciona, el adaptador cargará el archivo en la ’Ruta a la carpeta temporal’ y una vez que se realiza la carga, el archivo se moverá a la ’Ruta de carpeta’. La ’Ruta a la carpeta temporal’ debe estar en el mismo disco físico que la ’Ruta de carpeta’ para asegurarse de que la operación de mover es atómica. La carpeta temporal solo puede usarse cuando la propiedad «Anexar si existe» está deshabilitada.
+- **Carpeta temporal**: si se proporciona, el adaptador cargará el archivo en la ’Ruta a la carpeta temporal’ y una vez que se realiza la carga, el archivo se moverá a la ’Ruta de carpeta’. La ’Ruta a la carpeta temporal’ debe estar en el mismo disco físico que la ’Ruta de carpeta’ para asegurarse de que la operación de mover es atómica. La carpeta temporal solo puede usarse cuando la propiedad «Anexar si existe» está deshabilitada.
 
 	![][11] 
 	![][12]
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+
+>[AZURE.NOTE]Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
@@ -107,4 +113,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -618,7 +618,7 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [Git remoto]: http://git-scm.com/docs/git-remote
 
 [Aplicación web Node.js con MongoDB]: web-sites-nodejs-store-data-mongodb.md
-[CLI de Azure]: ../xplat-cli.md
+[CLI de Azure]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -645,4 +645,4 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->
