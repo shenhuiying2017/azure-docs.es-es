@@ -37,30 +37,32 @@ Para ello, deberá hacer lo siguiente:
 
 El código de este tutorial se conserva [en GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet). Para poder continuar, puede [descargar el esqueleto de la aplicación como .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip) o clonar el esqueleto:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
+```
+git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git
+```
 
 La aplicación completa se ofrece también al final de este tutorial.
 
 ## 1. Registrar una aplicación
-Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md).  Asegúrese de:
+Cree una nueva aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o siga estos [pasos detallados](active-directory-v2-app-registration.md). Asegúrese de que:
 
 - Anotar el **Id. de aplicación** asignado a su aplicación; lo necesitará pronto.
-- Agregar la plataforma **Web** para la aplicación.
-- Escribir la **URI de redirección** correcta. La URI de redirección indica a Azure AD a dónde deben redirigirse las respuestas de autenticación: el valor predeterminado de este tutorial es `https://localhost:44326/`.
+- Agregar la plataforma **web** para su aplicación.
+- Escribir el **URI de redireccionamiento** correcto. El identificador URI de redirección indica a Azure AD a dónde se deben dirigir las respuestas de autenticación; el valor predeterminado para este tutorial es `https://localhost:44326/`.
 
 ## 2. Configurar la aplicación para que use la canalización de autenticación OWIN
-Aquí, configuraremos el middleware OWIN para usar el protocolo de autenticación de OpenID Connect.  OWIN se usará para enviar solicitudes de inicio y de cierre de sesión, para administrar la sesión del usuario y para obtener información sobre el usuario, entre otras cosas.
+Aquí configuraremos el middleware OWIN para usar el protocolo de autenticación OpenID Connect. OWIN se usará para emitir solicitudes de inicio y cierre de sesión, administrar la sesión del usuario y obtener información sobre el usuario, entre otras cosas.
 
--    Para comenzar, abra el archivo `web.config` en la raíz del proyecto e introduzca los valores de configuración de la aplicación en la sección `<appSettings>`.
-    -    `ida:ClientId` es el **Id. de aplicación** asignado a la aplicación en el portal de registro.
-    -    `ida:RedirectUri` es la **URI de redirección** que ha introducido en el portal.
+-	Para comenzar, abra el archivo `web.config` en la raíz del proyecto y escriba los valores de configuración de la aplicación en la sección `<appSettings>`.
+    -	El `ida:ClientId` es el **identificador de aplicación** asignado a su aplicación en el portal de registro.
+    -	El `ida:RedirectUri` es el **identificador URI de redireccionamiento** que escribió en el portal.
 
--    A continuación, agregue los paquetes NuGet de middleware al proyecto usando la Consola de Administración de paquetes.
+-	A continuación, agregue los paquetes NuGet de middleware al proyecto usando la Consola de Administración de paquetes.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
-PM> Install-Package Microsoft.Owin.Security.Cookies 
-PM> Install-Package Microsoft.Owin.Host.SystemWeb 
+PM> Install-Package Microsoft.Owin.Security.OpenIdConnect
+PM> Install-Package Microsoft.Owin.Security.Cookies
+PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 -	Agregue una "Clase de inicio OWIN" al proyecto denominado `Startup.cs`. Haga clic con el botón derecho en el proyecto **Agregar** --> **Nuevo elemento** --> Busque "OWIN". El middleware OWIN invocará el método `Configuration(...)` al iniciarse la aplicación.
@@ -197,9 +199,11 @@ public ActionResult About()
 
 Por último, compile y ejecute su aplicación. Inicie sesión con una cuenta personal de Microsoft o con una cuenta profesional o educativa y observe cómo se refleja la identidad del usuario en la barra de navegación superior. Ahora dispone de una aplicación web protegida mediante protocolos estándar del sector que pueden autenticar a los usuarios tanto con sus cuentas personales como con sus cuentas profesionales/educativas.
 
-Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se proporciona como .zip aquí](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/complete.zip); también puede clonarlo desde GitHub:
+Como referencia, el ejemplo finalizado (sin sus valores de configuración) [se proporciona en forma de archivo .zip aquí](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet/archive/complete.zip), aunque también puede clonarlo desde GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git
+```
 
 ## Pasos siguientes
 

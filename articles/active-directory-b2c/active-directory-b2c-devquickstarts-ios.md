@@ -642,7 +642,9 @@ Observe cómo se almacenan las tareas por usuario en la API, puesto que la API e
 
 Como referencia, el ejemplo completado [se ofrece aquí en forma de archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip), aunque también puede clonarlo desde GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS
+```
 
 ## Pasos siguientes
 
@@ -652,4 +654,4 @@ Ahora puede pasar a temas más avanzados de B2C. También puede probar lo siguie
 
 [Personalización de la experiencia de usuario de la aplicación B2C >>]()
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
