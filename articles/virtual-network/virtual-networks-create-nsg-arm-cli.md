@@ -101,11 +101,11 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
 
 	Parámetros:
 
-	- **- a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
+	- **-a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
 	- **-n (o --name)**. Nombre de la nueva regla. En este escenario, *rdp-rule*.
 	- **-c (o--access)**. Nivel de acceso de la regla (Denegar o Permitir).
 	- **-p (o --protocol)**. Protocolo (Tcp, Udp o *) para la regla.
-- **- r (o --direction)**. Dirección de conexión (Entrante o Saliente).
+	- **-r (o --direction)**. Dirección de conexión (Entrante o Saliente).
 	- **-y (o --priority)**. Prioridad de la regla.
 	- **-f (o --source-address-prefix)**. Prefijo de dirección de origen en CIDR o con las etiquetas predeterminadas.
 	- **-o (o --source-port-range)**. Puerto de origen, o intervalo de puertos.
@@ -269,4 +269,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

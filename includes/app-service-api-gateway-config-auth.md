@@ -38,4 +38,4 @@ En el portal de Azure, la pestaña **Configurar** de la aplicación que ha cread
 
 (La URL de respuesta de la imagen muestra la misma dirección URL dos veces, una vez con `http:` y otra con `https:`.)
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
