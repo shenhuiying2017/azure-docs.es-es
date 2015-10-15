@@ -30,13 +30,13 @@ Para crear una aplicación que acepte registro e inicio de sesión de consumidor
 
 Puede navegar a la hoja de características B2C de dos maneras.
 
-### 1\. Directamente en el Portal de vista previa de Azure
+### 1. Directamente en el Portal de vista previa de Azure
 
 Si dispone de la hoja de características B2C anclada en el Panel de inicio, la verá en cuanto inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/) como administrador global del directorio B2C.
 
 También puede tener acceso a la hoja de características B2C yendo directamente a [https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft\_AAD\_B2CAdmin=true#blade/Microsoft\_AAD\_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com](https://portal.azure.com/{directory}.onmicrosoft.com/?Microsoft_AAD_B2CAdmin=true#blade/Microsoft_AAD_B2CAdmin/TenantManagementBlade/id/{directory}.onmicrosoft.com) donde **{directory}** debe sustituirse por el nombre usado al crear el directorio (por ejemplo, contosob2c), e iniciando sesión como administrador global del directorio B2C. Puede marcar este vínculo para futura referencia.
 
-### 2\. Acceso a través del Portal de Azure
+### 2. Acceso a través del Portal de Azure
 
 Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/) como administrador de suscripciones (que es la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para suscribirse a Azure). Vaya a la extensión de Active Directory de la izquierda y haga clic en el directorio B2C. En la pestaña **Inicio rápido** (la primera pestaña que se abre), haga clic en **Administrar la configuración B2C** en **Administar**. Se abrirá la hoja de características B2C en una nueva ventana de explorador o en una nueva pestaña.
 
@@ -49,7 +49,8 @@ También puede encontrar el vínculo **Administrar la configuración B2C** (de l
 3. El **Nombre** de la aplicación servirá de descripción de la aplicación para los consumidores. Por ejemplo, escriba "Contoso B2C app".
 4. Si va a escribir una aplicación basada en web, mueva el conmutador **Incluir aplicación web/API web** a **Sí**. Las **Direcciones URL de respuesta** son extremos en los que Azure AD B2C devolverá los tokens que solicite su aplicación. Por ejemplo, escriba `https://localhost:44321/`. Si la aplicación incluye un componente de servidor (API) que se debe proteger, es conveniente que cree (y copie) también un **Secreto de aplicación** haciendo clic en el botón **Generar clave**.
 
-    > [AZURE.NOTE]El **secreto de aplicación** es una credencial de seguridad importante.
+    > [AZURE.NOTE]
+    El **secreto de aplicación** es una credencial de seguridad importante.
 
 5. Si va a escribir una aplicación móvil, mueva el conmutador **Incluir cliente nativo** a **Sí**. Copie el **URI de redirección** predeterminado creado automáticamente para usted.
 6. Haga clic en **Crear** para registrar la aplicación.
