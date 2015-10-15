@@ -47,9 +47,9 @@ En el panel **Almacenamiento de datos SQL**, rellene los campos siguientes. **Se
      
     ![Nombre y DWU](./media/sql-data-warehouse-get-started-provision/name-and-dwu.png)
 
-    > [AZURE.NOTE]El rendimiento se mide en unidades de almacenamiento de datos (DWU). A medida que aumentan las DWU, el almacenamiento de datos SQL aumenta los recursos informáticos disponibles para las operaciones de bases de datos de almacenamiento de datos.
+    > [AZURE.NOTE] El rendimiento se mide en unidades de almacenamiento de datos (DWU). A medida que aumentan las DWU, el almacenamiento de datos SQL aumenta los recursos informáticos disponibles para las operaciones de bases de datos de almacenamiento de datos.
 
-	> [AZURE.NOTE]Puede modificar de manera rápida y sencilla el nivel de rendimiento después de crear la base de datos. Por ejemplo, si no está usando la base de datos, mueva el control deslizante hacia la izquierda para reducir los costes. O bien, puede aumentar el rendimiento cuando sean necesarios más recursos. Estas son las ventajas de escalabilidad que ofrece el almacenamiento de datos SQL.
+	> [AZURE.NOTE] Puede modificar de manera rápida y sencilla el nivel de rendimiento después de crear la base de datos. Por ejemplo, si no está usando la base de datos, mueva el control deslizante hacia la izquierda para reducir los costes. O bien, puede aumentar el rendimiento cuando sean necesarios más recursos. Estas son las ventajas de escalabilidad que ofrece el almacenamiento de datos SQL.
 	
 
 2. **Grupos de recursos** Mantenga los valores predeterminados. Los grupos de recursos son contenedores diseñados para ayudarle a administrar una colección de recursos de Azure. Obtenga más información sobre los [grupos de recursos](../azure-portal/resource-group-portal.md).
@@ -62,11 +62,15 @@ En el panel **Almacenamiento de datos SQL**, rellene los campos siguientes. **Se
 
     ![Creación de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
 
-    >[AZURE.NOTE]En el Almacenamiento de datos SQL y en la base de datos SQL, un servidor proporciona una forma coherente de configurar las bases de datos en la nube. En Azure, aunque el servidor se asocia a un solo centro de datos, este no forma parte del hardware físico como en una instancia local de SQL Server, sino que forma parte del software de servicio. Por ello se llama servidor lógico. Tenga en cuenta que, a diferencia de la vida real, las cargas de trabajo que ejecutan las bases de datos y los almacenes de datos en el mismo servidor no tendrán un impacto en el rendimiento entre sí.
+    >[AZURE.NOTE] En el Almacenamiento de datos SQL y en la base de datos SQL, un servidor proporciona una forma coherente de configurar las bases de datos en la nube. En Azure, aunque el servidor se asocia a un solo centro de datos, este no forma parte del hardware físico como en una instancia local de SQL Server, sino que forma parte del software de servicio. Por ello se llama servidor lógico. Tenga en cuenta que, a diferencia de la vida real, las cargas de trabajo que ejecutan las bases de datos y los almacenes de datos en el mismo servidor no tendrán un impacto en el rendimiento entre sí.
 
 1. En la ventana **Nuevo servidor**, rellene la información solicitada.
 
-    Asegúrese de almacenar el nombre del servidor, el nombre de administrador y la contraseña en algún lugar. Necesitará esta información para iniciar sesión en el servidor. - **Nombre del servidor**. Escriba un nombre para el servidor lógico. - **Nombre de administrador del servidor**. Escriba un nombre de usuario para la cuenta de administrador del servidor. - **Contraseña**. Escriba la contraseña del administrador del servidor. - **Ubicación**. Elija una ubicación geográfica cercana a usted o a los demás recursos de Azure. Esto reducirá la latencia de red, ya que todas las bases de datos y recursos que pertenecen a su servidor lógico se encontrarán físicamente en la misma región.
+    Asegúrese de almacenar el nombre del servidor, el nombre de administrador y la contraseña en algún lugar. Necesitará esta información para iniciar sesión en el servidor. 
+	- **Nombre del servidor**. Escriba un nombre para el servidor lógico. 
+	- **Nombre de administrador del servidor**. Escriba un nombre de usuario para la cuenta de administrador del servidor. 
+	- **Contraseña**. Escriba la contraseña del administrador del servidor. 
+	- **Ubicación**. Elija una ubicación geográfica cercana a usted o a los demás recursos de Azure. Esto reducirá la latencia de red, ya que todas las bases de datos y recursos que pertenecen a su servidor lógico se encontrarán físicamente en la misma región.
 
     ![Configuración de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
 
@@ -92,6 +96,6 @@ Ahora que ha creado una base de datos de muestra para el almacenamiento de datos
 
 - [Conexión y consulta](./sql-data-warehouse-get-started-connect-query.md).
 
-	> [AZURE.NOTE]Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
+	> [AZURE.NOTE] Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
 
-<!---HONumber=Oct15_HO1-->
+<!-----HONumber=Oct15_HO1-->
