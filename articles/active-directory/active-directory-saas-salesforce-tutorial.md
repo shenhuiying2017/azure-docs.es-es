@@ -220,11 +220,7 @@ Puede seguir este tutorial con los vídeos a continuación.
 
 4. Para probar la configuración de inicio de sesión única, abra el Panel de acceso en[https://myapps.microsoft.com](https://myapps.microsoft.com/) y, a continuación, inicie sesión en la cuenta de prueba y haga clic en **Salesforce**.
 
-##Consulte también
-
-- [Lista de tutoriales sobre la integración de aplicaciones de SaaS](active-directory-saas-tutorial-list.md)
-- [Acceso a la aplicación en Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Introducción al Panel de acceso](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -257,4 +253,4 @@ Puede seguir este tutorial con los vídeos a continuación.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
