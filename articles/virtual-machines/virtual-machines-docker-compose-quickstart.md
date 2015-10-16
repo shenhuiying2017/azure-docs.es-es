@@ -72,7 +72,7 @@ db:
 
 ```
 
-## Step 4: Start the containers with Compose
+## Paso 4: Inicio de los contenedores con Compose
 
 In the working directory on your VM, simply run the following command.
 
@@ -84,7 +84,9 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
+Creating wordpress\_db\_1...
+Creating wordpress\_wordpress\_1...
+```
 
 >[AZURE.NOTE]Asegúrese de utilizar la opción **-d** al iniciar para que los contenedores se ejecuten continuamente en segundo plano.
 
