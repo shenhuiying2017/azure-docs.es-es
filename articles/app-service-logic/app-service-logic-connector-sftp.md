@@ -45,7 +45,8 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 
 5. Acceda a la aplicación de API que acaba de crear mediante Examinar -> Aplicaciones de API -> <Name of the API App just created>; puede ver que el componente "Seguridad" no está configurado:  
 ![][2]
-6. Haga clic en el componente "Seguridad" para configurar la seguridad (Nombre de usuario, Contraseña, Clave privada, Contraseña del archivo PPK) para el conector SFTP. Seleccione la pestaña de autorización "Contraseña", "Privatekey" o "MultiFactor" en Seguridad y proporcione las propiedades necesarias:
+6. Haga clic en el componente "Seguridad" para configurar la seguridad (Nombre de usuario, Contraseña, Clave privada, Contraseña del archivo PPK) para el conector SFTP.
+Seleccione la pestaña de autorización "Contraseña", "Privatekey" o "MultiFactor" en Seguridad y proporcione las propiedades necesarias:  
 ![][3]  
 ![][4]  
 ![][5]  
@@ -55,16 +56,16 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP como desencadenador/acción para la aplicación lógica. Para ello, necesita lo siguiente:
 
 1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de SFTP:  
-	![][6]
+![][6]
 2.	Abra "Desencadenadores y acciones" para abrir el Diseñador de aplicaciones lógicas y configure el flujo:  
-	![][7]
+![][7]
 3.	El conector de SFTP aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho:  
-	![][8]
+![][8]
 4.	Puede quitar la aplicación de API del conector de SFTP en el editor haciendo clic en "Conector de SFTP".
 
 5.	Ahora puede usar el conector de SFTP en el flujo. Puede utilizar el archivo recuperado desde el desencadenador de SFTP ("TriggerOnFileAvailable") en otras acciones del flujo.
 
-	> [AZURE.IMPORTANT]El desencadenador de SFTP "TriggerOnFileAvailable" eliminará el archivo recuperado después de procesarlo.
+	> [AZURE.IMPORTANT] El desencadenador de SFTP "TriggerOnFileAvailable" eliminará el archivo recuperado después de procesarlo.
 
 6.	Configure las propiedades de entrada para el desencadenador de SFTP de la forma siguiente:
 
@@ -74,7 +75,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 	- **Máscara para excluir archivo**: especifique la máscara de archivo que se aplicará para excluir archivos. Si también se ha establecido la propiedad "Máscara de archivo", primero se aplicará la máscara para excluir archivo.
 
 
-	![][9] 
+	![][9]  
 	![][10]
 
 7.	De un modo similar, puede usar las acciones de SFTP en el flujo. Puede usar la acción "Cargar archivo" para cargar un archivo en el servidor de SFTP. Configure las propiedades de entrada para la acción "Cargar archivo" de la siguiente manera:
@@ -86,7 +87,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 	- **Anexar si existe**: especifique "true" o "false". Cuando se establece en "true", los datos se anexan al archivo (si existe). Cuando se establece en "false", se sobrescribe el archivo (si existe)
 	- **Carpeta temporal**: si se proporciona, el adaptador cargará el archivo en la ’Ruta a la carpeta temporal’ y una vez que se realiza la carga, el archivo se moverá a la ’Ruta de carpeta’. La ’Ruta a la carpeta temporal’ debe estar en el mismo disco físico que la ’Ruta de carpeta’ para asegurarse de que la operación de mover es atómica. La carpeta temporal solo puede usarse cuando la propiedad «Anexar si existe» está deshabilitada.
 
-	![][11] 
+	![][11]  
 	![][12]
 
 ## Aplicaciones adicionales del conector
@@ -113,4 +114,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!-----HONumber=Oct15_HO1-->
+<!------HONumber=Oct15_HO1-->
