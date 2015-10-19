@@ -262,7 +262,8 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 
 La siguiente tarea consiste en habilitar la función [Migraciones de Code First](http://msdn.microsoft.com/library/hh770484.aspx) para crear la base de datos a partir del modelo de datos ya establecido.
 
-1. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet ** y, a continuación, **Consola del Administrador de paquetes **. ![Package Manager Console en el menú Herramientas](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
+1. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** y, a continuación, **Consola del Administrador de paquetes**.
+	![Package Manager Console en el menú Herramientas](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
 2. En la ventana **Consola del Administrador de paquetes **, escriba el siguiente comando:
 
@@ -367,7 +368,7 @@ Si desea crear botones de inicio de sesión a través de redes sociales con icon
 ## Uso de la API de suscripción
 En esta sección, agregará un usuario local y el rol *canEdit* a la base de datos de suscripciones. Únicamente los usuarios incluidos en el rol *canEdit* podrán editar los datos. Es recomendable nombrar los roles en función de las acciones que pueden realizar, por lo que el nombre *canEdit* es más aconsejable que *admin*. A medida que la aplicación evoluciona, puede agregar nuevos roles del tipo *canDeleteMembers*, en lugar del escasamente descriptivo *superAdmin*.
 
-1. Abra el archivo *migrations\\configuration.cs* y agregue las siguientes instrucciones `using`:
+1. Abra el archivo *migrations\configuration.cs* y agregue las siguientes instrucciones `using`:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -399,7 +400,7 @@ En esta sección, agregará un usuario local y el rol *canEdit* a la base de dat
 		{
 		    AddUserAndRole(context);
 		    context.Contacts.AddOrUpdate(p => p.Name,
-		        // Code removed for brevity
+	            // Código quitado para reducir el espacio
 		}
 
 	Las imágenes siguientes muestran los cambios en el método *Seed*:

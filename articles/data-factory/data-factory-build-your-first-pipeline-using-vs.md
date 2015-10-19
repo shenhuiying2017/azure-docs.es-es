@@ -39,7 +39,9 @@ Este artículo no ofrece información general conceptual sobre el servicio Facto
 
 ### Requisitos previos
 
-Debe tener instalado en el equipo lo siguiente: - Visual Studio 2013 - Descargue el SDK de Azure para Visual Studio 2013. Vaya a la [página de descargas de Azure](http://azure.microsoft.com/downloads/) y haga clic en el **vínculo de descarga de VS 2013** en la sección **.NET** - Actualice las "Herramientas de Visual Studio para Factoría de datos de Azure" a la versión más reciente; para ello, vaya a Visual Studio 2013--> Herramientas--> Actualizaciones--> Galería de Visual Studio y haga clic en "Actualizar" en la entrada del complemento "Herramientas de Visual Studio para Factoría de datos de Azure".
+Debe tener instalado en el equipo lo siguiente:
+- Visual Studio 2013
+- Descargue el SDK de Azure para Visual Studio 2013. Vaya a la [Página de descargas de Azure](http://azure.microsoft.com/downloads/) y haga clic en **Instalación de VS 2013**en la sección **.NET**.
 
 
 ### Creación del proyecto de Visual Studio 

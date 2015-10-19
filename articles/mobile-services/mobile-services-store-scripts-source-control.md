@@ -36,7 +36,8 @@ Para completar este tutorial, ya debe haber creado un servicio móvil al complet
 
 	Los pasos requeridos para instalar Git varían según los sistemas operativos. Consulte [Installing Git] para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo.
 
-	> [AZURE.NOTE]Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
+	> [AZURE.NOTE]
+	> Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
 
 2. Abra una línea de comandos, como **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal**.
 
@@ -130,7 +131,8 @@ La manera recomendada de agregar módulos Node.js al servicio móvil es agregand
 
 Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el control de código fuente. Considere la posibilidad de obtener más información sobre cómo trabajar con scripts de servidor y con las API personalizadas:
 
-+ [Uso de scripts del servidor en Servicios móviles] <br/>Muestra cómo trabajar con scripts del servidor, el programador de trabajos y las API personalizadas.
++ [Uso de scripts del servidor en Servicios móviles] 
+	<br/>Muestra cómo trabajar con scripts del servidor, el programador de trabajos y las API personalizadas.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
