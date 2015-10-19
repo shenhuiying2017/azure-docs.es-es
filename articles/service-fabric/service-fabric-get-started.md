@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/10/2015"
+   ms.date="10/07/2015"
    ms.author="seanmck"/>
 
 # Configurar el entorno de desarrollo de Service Fabric
@@ -66,7 +66,7 @@ Un clúster local representa la topología de varias máquina que usará eventua
     ```powershell
     cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
     ```
-    
+
 3. Ejecute
 
     ```powershell
@@ -81,7 +81,7 @@ En unos instantes debería ver la salida que muestra información de nodo y la c
 
 Puede comprobar que su clúster se ha creado correctamente mediante la herramienta Explorador de Service Fabric que se distribuye con el SDK.
 
-1. Inicie el Explorador de Service Fabric mediante la ejecución de 
+1. Inicie el Explorador de Service Fabric mediante la ejecución de
 
     ```powershell
     . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
@@ -106,4 +106,4 @@ Ahora que está configurado su entorno de desarrollo, puede iniciar la creación
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Vínculo de WebPI"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

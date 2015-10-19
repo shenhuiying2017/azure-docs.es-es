@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/01/2015" 
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación lógica y una aplicación de API mediante una plantilla
@@ -394,4 +394,4 @@ Observe que la aplicación lógica utiliza el token para llamar a la puerta de e
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

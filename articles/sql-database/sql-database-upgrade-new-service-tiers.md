@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
+	ms.date="09/28/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -19,11 +19,29 @@
 
 # Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos
 
-Las bases de datos SQL Web o Business de Azure se están quedando obsoletas y [se retirarán en septiembre de 2015](http://msdn.microsoft.com/library/azure/dn741330.aspx) por lo que es el momento de comenzar a planear la actualización de las bases de datos Web o Business existentes a los niveles de servicio básico, estándar o premium.
+Las bases de datos SQL [Web o Business de Azure se van a retirar](sql-database-web-business-sunset-faq.md), por lo que llegó el momento de actualizarlas a los [niveles de servicio Basic, Standard, Premium o Elastic](sql-database-service-tiers.md).
 
-Descargue la guía [Web and Business Database Migration Guidance Cookbook](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf) (Guía para la migración de bases de datos Web y Business).
 
-> [AZURE.NOTE] [Pricing tier recommendations]Ahora dispone de (sql-database-service-tier-advisor.md) para bases de datos Web y Business.
+> [AZURE.IMPORTANT]La actualización de bases de datos Web o Business a un nuevo nivel de servicio no desconecta la base de datos. La base de datos seguirá en línea y disponible durante toda la operación de actualización.
+
+
+Para ayudarle con la actualización, el servicio Base de datos SQL recomienda un nivel de servicio apropiado y un nivel de rendimiento (plan de tarifa) para cada base de datos. Al analizar el uso histórico para de base de datos, el servicio recomienda el nivel que mejor se adapte para ejecutar las cargas de trabajo de la base de datos existente.
+
+El plan de tarifa recomendado para cada base de datos se proporciona durante el proceso de cambiar un nivel de servicio de bases de datos Web o Business, o bien durante la actualización a Base de datos de SQL V12.
+
+En función del entorno concreto, el servicio puede recomendar actualizar algunas de las bases de datos, o todas ellas, en un [grupo de bases de datos elásticas](sql-database-elastic-pool.md).
+
+Para ver los niveles de servicio recomendados para las bases de datos retiradas, puede usar el [Portal de vista previa de Azure](https://portal.azure.com) o PowerShell. Para obtener indicaciones detalladas, consulte:
+
+- [Actualización a Base de datos SQL V12 (Portal de vista previa de Azure)](sql-database-v12-upgrade.md)
+- [Actualización a Base de datos SQL V12 (PowerShell)](sql-database-upgrade-server.md)
+
+
+Lo importante es indicar que las bases de datos SQL no están bloqueadas en ningún nivel de servicio ni de rendimiento, por lo que si cambian los requisitos de una base de datos, será muy fácil cambiar de nivel de servicio y rendimiento entre los disponibles. De hecho, las bases de datos SQL Basic, Standard y Premium se facturan por hora, y el usuario tiene la capacidad de escalar horizontalmente o reducir verticalmente cada base de datos cuatro veces en 24 horas. Esto significa que puede ajustar el nivel de servicio y de rendimiento para maximizar las necesidades de rendimiento de la base de datos, el conjunto de características y el coste, según los requisitos y las distintas cargas de trabajo de la aplicación. Esto también significa que evaluar y cambiar el nivel de servicio y de rendimiento de la base de datos (escalado y reducción verticales) es un proceso continuo que debe formar parte de la rutina de optimización del rendimiento y de mantenimiento programado.
+ 
+Para obtener más información acerca de las diferencias entre Web/Business y de los nuevos niveles de servicio, así como para obtener detalles adicionales de migración, descargue la guía [Web and Business Database Migration Guidance Cookbook](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
+
+
 
 ## Información general
 
@@ -36,8 +54,6 @@ Estos cambios vienen acompañados de preguntas acerca de cómo evaluar y decidir
 En última instancia, la mejor opción es la combinación de nivel de rendimiento y nivel de servicio que le proporcione el equilibrio óptimo entre características, rendimiento y coste, y que, además, satisfaga completamente los requisitos y las necesidades empresariales de la aplicación.
 
 Este documento proporciona una metodología guiada para actualizar una base de datos Web o Business a uno de los nuevos niveles de servicio o de rendimiento.
-
-Es importante tener en cuenta que las bases de datos SQL de Azure no se bloquean en ningún nivel de rendimiento o de servicio específico, por lo que si cambian los requisitos de la base de datos, podrá cambiar fácilmente entre los niveles de rendimiento y servicio disponibles. De hecho, las bases de datos SQL de los niveles básico, estándar y premium se facturan por hora, y es posible escalar o reducir verticalmente cada base de datos 4 veces en un período de 24 horas (mediante el [Portal de Azure o mediante programación](http://msdn.microsoft.com/library/azure/ff394116.aspx)). Esto significa que puede ajustar el nivel de servicio y de rendimiento para maximizar las necesidades de rendimiento de la base de datos, el conjunto de características y el coste, según los requisitos y las distintas cargas de trabajo de la aplicación. Esto también significa que evaluar y cambiar el nivel de servicio y de rendimiento de la base de datos (escalado y reducción verticales) es un proceso continuo que debe formar parte de la rutina de optimización del rendimiento y de mantenimiento programado.
 
 
 ## Actualización de las bases de datos Web y Business
@@ -61,7 +77,7 @@ La actualización de una base de datos Web o Business a un nuevo nivel de servic
 
 Los niveles de servicio Basic, Standard y Premium ofrecen diferentes conjuntos de características, por lo que el primer paso a la hora de seleccionar un nivel apropiado es determinar el nivel de servicio que proporciona el nivel mínimo de características necesarias para su aplicación y su empresa.
 
-Por ejemplo, plantéese cuestiones como durante cuánto tiempo deben conservarse las copias de seguridad, si se necesitan características de [replicación geográfica activa o estándar](http://msdn.microsoft.com/library/azure/dn783447.aspx), qué tamaño máximo de base de datos general se necesita, etc. Estos requisitos determinan la elección del nivel de servicio mínimo.
+Por ejemplo, plantéese cuestiones como durante cuánto tiempo deben conservarse las copias de seguridad, si se necesitan características de [replicación geográfica activa o estándar](sql-database-business-continuity.md), qué tamaño máximo de base de datos general se necesita, etc. Estos requisitos determinan la elección del nivel de servicio mínimo.
 
 El nivel "Basic" se usa principalmente para las bases de datos muy pequeñas y de baja actividad. Por lo tanto, para realizar una actualización, normalmente se debe comenzar con el nivel Standard o Premium, según el nivel mínimo de características necesarias.
 
@@ -90,16 +106,16 @@ El servicio de base de datos SQL de Azure expone la información en el portal de
 Puesto que las bases de datos Web o Business no tienen ningún límite de DTU ni recursos garantizados asociados, nosotros normalizamos los valores de porcentaje en función de la cantidad de recursos disponibles para una base de datos de nivel de rendimiento S2. El consumo medio de porcentaje de DTU de una base de datos en cualquier intervalo específico se puede calcular como el valor de porcentaje más alto entre el uso de CPU, E/S y registro en ese intervalo.
 
 
-Use el portal de administración para obtener información general sobre el uso del porcentaje de DTU y, a continuación, profundice en los detalles usando las vistas del sistema.
+Use el Portal de vista previa de Azure para obtener información general de alto nivel sobre el uso del porcentaje de DTU y, a continuación, profundice en los detalles a través de las vistas del sistema.
 
-También puede utilizar el nuevo portal de administración de Azure para ver el nivel de servicio recomendado para la base de datos Web o Business al actualizar un servidor a Base de datos SQL V12 de Azure ([vista previa en algunas regiones](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+También puede usar el Portal de vista previa de Azure para ver el nivel de servicio recomendado para una base de datos Web o Business al actualizar un servidor a Base de datos SQL de Azure V12.
 
-### Visualización del nivel de servicio recomendado en el nuevo Portal de administración de Azure
-El portal de administración recomienda el nivel de servicio adecuado para la base de datos Web o Business durante el proceso de actualización de un servidor a Base de datos SQL V12 de Azure. La recomendación se basa en un análisis histórico del consumo de recursos de la base de datos.
+### Visualización del nivel de servicio recomendado en el Portal de vista previa de Azure
+El Portal de Azure recomienda el nivel de servicio adecuado para la base de datos Web o Business durante el proceso de actualización de un servidor a Base de datos SQL V12. La recomendación se basa en un análisis histórico del consumo de recursos de la base de datos.
 
 **Nuevo portal de administración**
 
-1. Inicie sesión en el [nuevo portal de administración](https://portal.azure.com) y navegue a un servidor que incluya una base de datos Web o Business.
+1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y navegue a un servidor que contenga una base de datos Web o Business.
 2. Haga clic en la parte **Última actualización** en la hoja de servidor.
 3. Haga clic en **Actualizar este servidor**.
 
@@ -243,11 +259,11 @@ Después de determinar el nivel adecuado de servicio y de rendimiento para la ba
 | [API de REST de administración del servicio](http://msdn.microsoft.com/library/azure/dn505719.aspx) | utilice el comando [Actualizar base de datos](http://msdn.microsoft.com/library/dn505718.aspx).|
 | [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | utilice la instrucción [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx). |
 
-Para obtener información más detallada, consulte [Cambio de los niveles de servicio y de rendimiento de la base de datos](http://msdn.microsoft.com/library/dn369872.aspx)
+Para obtener información más detallada, consulte [Cambio de los niveles de servicio y de rendimiento de la base de datos](sql-database-scale-up.md)
 
 
 ## 6\. Supervisar la actualización al nuevo nivel de servicio o de rendimiento
-Base de datos SQL de Azure proporciona información sobre el progreso de las operaciones de administración (como CREATE, ALTER o DROP) realizadas en una base de datos en la vista de administración dinámica sys.dm\_operation\_status en la base de datos maestra del servidor lógico donde se encuentra la base de datos actual [consulte la documentación de sys.dm\_operation\_status.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Use la vista de administración dinámica del estado de la operación para determinar el progreso de la operación de actualización para una base de datos. Esta consulta de ejemplo muestra todas las operaciones de administración realizadas en una base de datos:
+Base de datos SQL de Azure proporciona información sobre el progreso de las operaciones de administración (como CREATE, ALTER o DROP) que se realizan en una base de datos en la vista de administración dinámica sys.dm\_operation\_status en la base de datos maestra del servidor lógico donde se encuentra la base de datos actual [consulte la documentación de sys.dm\_operation\_status.](http://msdn.microsoft.com/library/azure/dn270022.aspx) Use la DMV del estado de la operación para determinar el progreso de la operación de actualización de una base de datos. Esta consulta de ejemplo muestra todas las operaciones de administración realizadas en una base de datos:
 
     SELECT o.operation, o.state_desc, o.percent_complete
     , o.error_code, o.error_desc, o.error_severity, o.error_state
@@ -258,10 +274,6 @@ Base de datos SQL de Azure proporciona información sobre el progreso de las ope
     ORDER BY o.last_modify_time DESC;
 
 Si usa el portal de administración para la actualización, también hay una notificación disponible en el portal para la operación.
-
-### ¿Qué ocurre cuando la carga de trabajo de la base de datos alcanza los límites de recursos después de la actualización?
-Los niveles de rendimiento se calibran y rigen para proporcionar los recursos necesarios para ejecutar la carga de trabajo de la base de datos hasta los límites máximos permitidos para el nivel de rendimiento o de servicio seleccionado (es decir, el consumo de recursos está en un 100 %). Si la carga de trabajo alcanza los límites en uno de los límites de CPU/datos, registro de E/S o E/S, seguirá recibiendo los recursos en el nivel máximo permitido, pero es probable que perciba un aumento de las latencias en las consultas. Alcanzar uno de estos límites no provocará errores, sino una ralentización de la carga de trabajo, a menos que la ralentización sea tan severa que las consultas empiecen a agotar el tiempo de espera. Si alcanza el límite máximo permitido de sesiones y solicitudes de usuario simultáneas (subprocesos de trabajo), se mostrará el [error 10928 o 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx).
-
 
 ## 7\. Supervisar la base de datos después de la actualización
 Después de la actualización de la base de datos Web o Business en el nuevo nivel, se recomienda supervisar activamente la base de datos para asegurar que las aplicaciones se ejecutan con el rendimiento deseado y optimizar el uso según sea necesario. Se recomiendan los siguientes pasos adicionales para supervisar la base de datos.
@@ -284,17 +296,17 @@ La [documentación](http://msdn.microsoft.com/library/dn800981.aspx) adicional c
 
 - **Alertas**: configure "Alertas" en el Portal de administración de Azure para recibir una notificación cuando el consumo de DTU para una base de datos actualizada alcance un determinado nivel alto. Las alertas de la base de datos pueden configurarse en el Portal de administración de Azure para diferentes métricas de rendimiento como DTU, CPU, E/S y registro. 
 
-	Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Procedimiento: recibir notificaciones de alerta y administrar reglas de alerta en Azure](http://msdn.microsoft.com/library/azure/dn306638.aspx) para obtener más información sobre la configuración de notificaciones de alerta.
+	Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Recibir notificaciones de alerta](insights-receive-alert-notifications.md) para obtener más información acerca de cómo configurar las notificaciones de alerta.
 
 
-- **Actualización o degradación programada del nivel de rendimiento**: si su aplicación tiene escenarios específicos que requieren más rendimiento solo a determinadas horas del día o de la semana, puede usar [Automatización de Azure](http://msdn.microsoft.com/library/azure/dn643629.aspx) para actualizar o degradar la base de datos a un nivel de rendimiento superior o inferior, como una operación planeada.
+- **Actualización o degradación programada del nivel de rendimiento**: si su aplicación tiene escenarios específicos que requieren más rendimiento solo a determinadas horas del día o de la semana, puede usar [Automatización de Azure](https://azure.microsoft.com/documentation/services/automation/) para actualizar o degradar la base de datos a un nivel de rendimiento superior o inferior, como una operación planeada.
 
 	Por ejemplo, actualice la base de datos a un nivel más alto de rendimiento durante un trabajo de mantenimiento o por lotes semanal y degrádela cuando se complete el trabajo. Este tipo de programación también es útil para cualquier operación que consuma muchos recursos grandes, como carga de datos, reconstrucción de índices, etc. Tenga en cuenta que el modelo de facturación de la base de datos SQL de Azure se basa en el uso por horas de un nivel de rendimiento o de servicio. Esta flexibilidad permite planear actualizaciones programadas o planeadas de una manera más rápida y económica.
 
 
 
 ## Resumen
-El servicio de la Base de datos SQL de Azure proporciona datos de telemetría y herramientas para evaluar las cargas de trabajo de la base de datos Web o Business y determina el nivel de servicio más adecuado para la actualización. El proceso de actualización es bastante sencillo y se puede realizar sin dejar la base de datos sin conexión y sin pérdida de datos. Las bases de datos actualizadas se benefician de un rendimiento predecible y de características adicionales proporcionadas por los nuevos niveles de servicio.
+El servicio Base de datos SQL de Azure proporciona herramientas y datos de telemetría para evaluar las cargas de trabajo de las bases de datos Web o Business y determina el nivel de servicio más adecuado para la actualización. El proceso de actualización es bastante sencillo y se puede realizar sin dejar la base de datos sin conexión y sin pérdida de datos. Las bases de datos actualizadas se benefician de un rendimiento predecible y de características adicionales proporcionadas por los nuevos niveles de servicio.
 
 
 
@@ -306,4 +318,4 @@ El servicio de la Base de datos SQL de Azure proporciona datos de telemetría y 
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

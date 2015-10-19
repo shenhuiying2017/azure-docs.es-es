@@ -4,7 +4,7 @@
    description="Patrón de diseño de Actores confiables de Service Fabric que usa actores con estado para mantener el estado entre llamadas de servicio, así como almacenar en la memoria caché los resultados de servicio anteriores. El estado puede ser persistente o temporal."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Patrón de diseño de Actores confiables: composición de servicio con estado
 Los desarrolladores se pasaron la última década y media en crear servicios sin estado de N capas en la empresa. Crearon servicios sobre bases de datos, servicios de orden superior sobre otros servicios y motores de orquestación y software intermedio orientado a mensajes para coordinar esos servicios. A medida que evolucionaron las cargas de trabajo de los usuarios, ya fuera solicitando más interactividad o escalado, la arquitectura orientada a servicios sin estado empezó a mostrar sus puntos débiles.
@@ -91,4 +91,4 @@ Se aprecian inconvenientes del "servicio sin estado" en la creación de servicio
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

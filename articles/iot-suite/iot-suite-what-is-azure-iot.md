@@ -13,30 +13,37 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.date="09/29/2015"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Suite
-Azure IoT Suite es una solución de nivel empresarial que le permite comenzar rápidamente a través de un conjunto de soluciones preconfiguradas extensibles que abordan los escenarios IoT comunes como, por ejemplo, *supervisión remota* y *dispositivos conectados*.
 
-The preconfigured solutions:
+El conjunto de aplicaciones de IoT de Microsoft Azure es una solución de clase empresarial que le permite comenzar rápidamente a través de un conjunto de soluciones preconfiguradas extensibles que abordan escenarios IoT comunes como, por ejemplo, *supervisión remota* y *dispositivos conectados*.
 
-- Son soluciones integradas, funcionales y completas que incluyen dispositivos simulados para comenzar, servicios de Azure preconfigurados como el Centro de IoT de Azure, Centros de eventos de Azure, Análisis de transmisiones de Azure, Aprendizaje automático de Azure y consolas de administración específicas de la solución y Almacenamiento de Azure.
+Las soluciones preconfiguradas:
+
+- Son soluciones integradas, funcionales y completas que incluyen dispositivos simulados para comenzar, servicios de Azure preconfigurados como el [Centro de IoT de Azure][], [Centros de eventos de Azure][], [Análisis de transmisiones de Azure][], [Aprendizaje automático de Azure][], [Almacenamiento de Azure][] y consolas de administración específicas de la solución.
 - Contienen código comprobado y listo para producción que puede personalizar y ampliar para implementar sus propios escenarios IoT específicos.
 
-También es posible que le interese el servicio Centro de IoT de Azure que muchas de las soluciones preconfiguradas usan. El servicio Centro de IoT de Azure ofrece muchas de las funciones de "procesamiento y análisis de datos" que se definen en la arquitectura de la solución de ejemplo.
+También es posible que le interese el servicio [Centro de IoT de Azure][] que muchas de las soluciones preconfiguradas usan. El [Centro de IoT de Azure][] ofrece muchas de las funciones de procesamiento y análisis de datos que se definen en la arquitectura de la solución de ejemplo.
 
 ## Pasos siguientes
-Para comenzar a usar IoT en Azure, explore estos recursos:
 
-- [Información general de Azure IoT Suite][lnk-suite-overview].
-- [Introducción a las soluciones IoT preconfiguradas][lnk-preconfigured-solutions].
-- [Conexión del dispositivo a la solución de supervisión remota de Azure IoT Suite][lnk-connecting]
+Examine estos recursos para obtener más información sobre IoT en Azure:
+
+- [Información general del conjunto de aplicaciones de IoT de Azure][lnk-suite-overview].
+- [Introducción a las soluciones preconfiguradas de IoT][lnk-preconfigured-solutions].
+- [Conexión del dispositivo a la solución de supervisión remota del conjunto de aplicaciones de IoT][lnk-connecting]
 
 [lnk-suite-overview]: iot-suite-overview.md
 [lnk-connecting]: iot-suite-connecting-devices.md
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
+[Centro de IoT de Azure]: https://azure.microsoft.com/services/iot-hub/
+[Centros de eventos de Azure]: https://azure.microsoft.com/services/event-hubs/
+[Análisis de transmisiones de Azure]: https://azure.microsoft.com/services/stream-analytics/
+[Aprendizaje automático de Azure]: https://azure.microsoft.com/es-es/services/machine-learning/
+[Almacenamiento de Azure]: https://azure.microsoft.com/es-es/services/storage/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

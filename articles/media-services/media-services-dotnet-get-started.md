@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Introducción a la entrega de contenido de vídeo bajo demanda (VoD) mediante el SDK para .NET"
-	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo a petición (VoD) con Servicios multimedia de Azure mediante. NET."
+	pageTitle="Introducción a la entrega de contenido a petición mediante .NET SDK"
+	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido a petición con Servicios multimedia de Azure mediante la API de REST."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Introducción a la entrega de contenido de vídeo bajo demanda (VoD) mediante el SDK para .NET
+# Introducción a la entrega de contenido a petición mediante .NET SDK
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure</a>.
+>[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure￼</a>.
 
 Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo a petición (VoD) con el SDK de Servicios multimedia (AMS) de Azure para .NET.
 
@@ -34,7 +34,7 @@ Los siguientes requisitos previos son necesarios para iniciar el desarrollo con 
 
 - Sistemas operativos: Windows 8 o posterior, Windows 2008 R2, Windows 7.
 - .NET Framework 4.5 o .NET Framework 4.0
-- Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o posterior.
 
 
 En este tutorial rápido se muestran las siguientes tareas.
@@ -118,14 +118,9 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente. Para obtener el nombre de cuenta y la información de la clave, abra el portal de Azure, seleccione su cuenta de servicios multimedia y luego haga clic en el botón **ADMINISTRAR CLAVES**.
 
-	 <pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>ion & gt; </code></pre>
 
 5. Sobrescriba las instrucciones **using** existentes al comienzo del archivo Program.cs con el siguiente código.
 
@@ -144,7 +139,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 ##Conexión a la cuenta de Servicios multimedia
 
-Cuando se usan Servicios multimedia con .NET, debe usar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Servicios multimedia: conexión a la cuenta de Servicios multimedia; creación, actualización, obtención de acceso y eliminación de los siguientes objetos: recursos, archivos de recursos, trabajos, directivas de acceso, localizadores, etc.
+Cuando se usa Servicios multimedia con .NET, debe usar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Servicios multimedia: conexión a la cuenta de Servicios multimedia; creación, actualización, obtención de acceso y eliminación de los siguientes objetos: activos, archivos de activos, trabajos, directivas de acceso, localizadores, etc.
 
 Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
@@ -199,20 +194,20 @@ La función **Main** llama a métodos que se definirán más adelante en esta se
 
 ##Creación de un nuevo recurso y carga de un archivo de vídeo
 
-En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. Los archivos del recurso se denominan **archivos de recursos**.
+En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Activo** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. Los archivos del recurso se denominan **archivos de recursos**.
 
-El método **UploadFile** definido a continuación llama a **CreateFromFile** (definido en las extensiones del SDK para .NET). **CreateFromFile** crea un nuevo recurso en el que se carga el archivo de origen especificado.
+El método **UploadFile** definido a continuación llama a **CreateFromFile** (definido en las extensiones del SDK para .NET). **CreateFromFile** crea un nuevo activo en el que se carga el archivo de origen especificado.
 
-El método **CreateFromFile** toma **AssetCreationOptions**, que permite especificar una de las siguientes opciones de creación de recursos:
+El método **CreateFromFile** toma **AssetCreationOptions**, que permite especificar una de las siguientes opciones de creación de activos:
 
 - **Ninguno**: no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al usar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
-- **StorageEncrypted**: use esta opción para cifrar el contenido no cifrado de manera local mediante el cifrado Estándar de cifrado avanzado (AES) de 256 bits y luego cargarlo al almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
+- **StorageEncrypted**: use esta opción para cifrar el contenido no cifrado de manera local mediante el cifrado Estándar de cifrado avanzado (AES) de 256 bits y luego cargarlo en el almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 - **CommonEncryptionProtected**: use esta opción si va a cargar contenido que ya se ha cifrado y protegido con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 - **EnvelopeEncryptionProtected**: use esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
 
 El método **CreateFromFile** también permite especificar una devolución de llamada para notificar el progreso de carga del archivo.
 
-En el siguiente ejemplo especificamos **Ninguno** para las opciones del recurso.
+En el siguiente ejemplo especificamos **Ninguno** para las opciones del activo.
 
 Agregue el método siguiente a la clase Program
 
@@ -418,13 +413,18 @@ Para transmitir vídeo, use [Reproductor de Servicios multimedia de Azure](http:
 Para probar la descarga progresiva, pegue una dirección URL en un explorador (por ejemplo, Internet Explorer, Chrome o Safari).
 
 
+##Pasos siguientes
 
-##Rutas de aprendizaje de Servicios multimedia
+###Rutas de aprendizaje de Servicios multimedia
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### ¿Busca alguna otra cosa?
+
+Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
 
 <!-- Anchors. -->
@@ -434,4 +434,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -25,7 +25,7 @@
 
 La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un back-end de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal como se muestra en el tema de referencia [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial se basa en el Centro de notificaciones que creó en el tutorial [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-get-started.md).
 
-> [AZURE.NOTE]En este tutorial se supone que se ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-get-started.md). Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles](../mobile-services-javascript-backend-android-push-notifications-app-users.md) de este tutorial.
+> [AZURE.NOTE]En este tutorial se supone que se ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-get-started.md).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -432,4 +432,4 @@ El paso siguiente es crear la aplicación Android.
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

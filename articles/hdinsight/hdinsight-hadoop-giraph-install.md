@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Instalar y usar Giraph en clústeres de Hadoop en HDInsight | Microsoft Azure"
-	description="Obtenga información acerca de cómo personalizar el clúster de HDInsight con Giraph. Va a usar una opción de configuración de la acción de script para usar un script para instalar Giraph."
+	description="Obtenga información sobre cómo personalizar el clúster de HDInsight con Giraph y cómo usar Giraph."
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -14,22 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2015"
+	ms.date="10/02/2015"
 	ms.author="nitinme"/>
 
-# Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
+# Instalación y uso de Giraph en HDInsight
 
-Puede instalar Giraph en cualquier tipo de clúster de Hadoop en HDInsight de Azure mediante la personalización de clústeres de **acción de script**. La acción de script le permite ejecutar scripts para personalizar un clúster, conforme se crea el clúster. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize].
 
-> [AZURE.NOTE]La información de este artículo es específica de los clústeres de HDInsight basados en Windows. Para obtener información sobre cómo trabajar con clústeres basados en Linux, vea [Instalación de Giraph en clústeres Hadoop de HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+Obtenga información acerca de cómo personalizar un clúster de HDInsight basado en Windows con Giraph mediante la acción de script, y cómo usar Giraph para procesar gráficos a gran escala. Para obtener información sobre el uso de Giraph con un clúster basado en Linux, consulte [Instalación de Giraph en clústeres Hadoop de HDinsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+ 
+Puede instalar Giraph en cualquier tipo de clúster (Hadoop, Storm, HBase, Spark) en HDInsight de Azure mediante la *acción de script*. Hay un script de ejemplo para instalar Giraph en un clúster de HDInsight disponible desde un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). El script de ejemplo solo funciona con el clúster de HDInsight versión 3.1. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
 
-En este tema aprenderá a instalar Giraph con la acción de script. Una vez haya instalado Giraph, aprenderá a utilizarlo en las aplicaciones más habituales, como procesar gráficos de gran escala.
+**Artículos relacionados**
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+- [Instalación de Giraph en clústeres de Hadoop de HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+- [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
+- [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
+- [Desarrollo de scripts de acción de script en HDInsight](hdinsight-hadoop-script-actions.md)
 
-* [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-v1.md)
-
-## <a name="whatis"></a>¿Qué es Giraph?
+## ¿Qué es Giraph?
 
 <a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> permite realizar un procesamiento gráfico mediante Hadoop, y se puede usar con HDInsight de Azure. Los gráficos modelan las relaciones entre los objetos, como las conexiones entre los enrutadores en una red de gran tamaño como Internet, o las relaciones entre personas de las redes sociales (conocidas en ocasiones como gráficos sociales). El procesamiento gráfico le permite razonar sobre las relaciones entre los objetos de un gráfico. En este sentido, le ayuda por ejemplo a:
 
@@ -38,13 +40,13 @@ En este tema aprenderá a instalar Giraph con la acción de script. Una vez haya
 - Calcular la posición de las páginas web.
 
 
-## <a name="install"></a>¿Cómo instalo Giraph?
+## Instalación de Giraph mediante el portal
 
-Hay un script de ejemplo para instalar Giraph en un clúster de HDInsight disponible desde un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Esta sección proporciona instrucciones sobre cómo utilizar el script de ejemplo durante el aprovisionamiento del clúster mediante el Portal de Azure.
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
-> [AZURE.NOTE]El script de ejemplo solo funciona con el clúster de HDInsight versión 3.1. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
+* [Instalación de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-v1.md)
 
-1. Inicie el aprovisionamiento de un clúster con la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Aprovisionamiento de clústeres mediante opciones personalizadas](hdinsight-provision-clusters.md#portal).
+1. Comience a crear un clúster mediante la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md#portal).
 2. En la página **Acciones de script** del asistente, haga clic en **Agregar acción de script** para proporcionar detalles acerca de la acción de script, tal como se muestra a continuación:
 
 	![Uso de la acción de script para personalizar un clúster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Uso de la acción de script para personalizar un clúster")
@@ -59,9 +61,9 @@ Hay un script de ejemplo para instalar Giraph en un clúster de HDInsight dispon
 		<td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo nodos principales</b> o <b>Solo nodos de trabajo</b>.
 	<tr><td>Parámetros</td>
 		<td>Especifique los parámetros, si lo requiere el script. El script para instalar Giraph no requiere ningún parámetro, por lo que puede dejarlo en blanco.</td></tr>
-</table>Puede agregar más de una acción de script para instalar varios componentes en el clúster. Después de haber agregado los scripts, haga clic en la marca de verificación para iniciar el aprovisionamiento del clúster.
+</table>Puede agregar más de una acción de script para instalar varios componentes en el clúster. Después de haber agregado los scripts, haga clic en la marca de verificación para comenzar a crear el clúster.
 
-## <a name="usegiraph"></a>¿Cómo uso Giraph en HDInsight?
+## Uso de Giraph
 
 Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación básica de <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> para encontrar la ruta más corta entre objetos en un gráfico. Use los siguientes pasos para cargar los datos de ejemplo y el jar de muestra, ejecutar un trabajo mediante el ejemplo SimpleShortestPathsComputation y luego ver los resultados.
 
@@ -151,12 +153,24 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 
 	![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
+## Instalación de Giraph con Aure PowerShell
+
+Consulte [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell). El ejemplo muestra cómo instalar Spark con Azure PowerShell. Deberá personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+
+## Instalación de Giraph mediante .NET SDK
+
+Consulte [Personalización de clústeres de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). El ejemplo muestra cómo instalar Spark con .NET SDK. Deberá personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 
-## Consulte también##
-- [Instale y use Spark en clústeres de HDInsight][hdinsight-install-spark] para obtener instrucciones acerca de cómo usar la personalización del clúster para instalar y usar Spark en clústeres de Hadoop para HDInsight. Spark es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data.
-- [Instalación de R en clústeres de HDInsight][hdinsight-install-r] proporciona instrucciones acerca de cómo usar la personalización del clúster para instalar y usar R en clústeres de Hadoop para HDInsight. R es un entorno y lenguaje de código abierto para computación estadística. Proporciona cientos de de funciones estadísticas integradas y su propio lenguaje de programación que combina aspectos de la programación funcional y orientada a objetos. También proporciona amplias capacidades gráficas.
-- [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
+## Consulte también
+
+- [Instalación de Giraph en clústeres de Hadoop de HDInsight (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+- [Creación de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md): información general sobre la creación de clústeres de HDInsight.
+- [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]\: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
+- [Desarrollo de scripts de acción de script en HDInsight](hdinsight-hadoop-script-actions.md)
+- [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]\: ejemplo de acción de script sobre la instalación de Spark.
+- [Instalación de R en clústeres de HDInsight][hdinsight-install-r]\: ejemplo de acción de script sobre la instalación de R.
+- [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md): ejemplo de acción de script sobre la instalación de Solr.
 
 
 
@@ -169,4 +183,4 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

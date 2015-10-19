@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Administración de Service Bus con PowerShell"
+	pageTitle="Administración de Bus de servicio con PowerShell | Microsoft Azure"
 	description="Administración de Service Bus con scripts de PowerShell en lugar de .NET"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Administración de Service Bus con PowerShell
@@ -45,8 +45,7 @@ En primer lugar, asegúrese de que el script puede encontrar el ensamblado **Mic
 
 Aquí se explica cómo se implementan estos pasos en un script de PowerShell:
 
-```powershell
-
+```
 try
 {
     # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
@@ -63,12 +62,11 @@ catch [System.Exception]
 {
     Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
-
 ```
 
 ## Aprovisionar un espacio de nombres de Service Bus
 
-Dos de los cmdlets de PowerShell admiten operaciones de espacio de nombres del Bus de servicio. En lugar de las API .NET SDK, puede usar [Get-AzureSBNamespace] y [New-AzureSBNamespace].
+Dos de los cmdlets de PowerShell admiten operaciones de espacio de nombres del Bus de servicio. En lugar de las API .NET SDK, puede usar [Get-AzureSBNamespace][] y [New-AzureSBNamespace][].
 
 En este ejemplo se crean algunas variables locales en el script: `$Namespace` y `$Location`.
 
@@ -84,8 +82,7 @@ Esta parte del script hace lo siguiente:
 2. Si se encuentra el espacio de nombres, informa de lo que ha encontrado.
 3. Si no se encuentra el espacio de nombres, lo crea y luego recupera el espacio de nombres recién creado.
 
-	``` powershell
-	
+	```
 	$Namespace = "MyServiceBusNS"
 	$Location = "West US"
 	
@@ -105,10 +102,9 @@ Esta parte del script hace lo siguiente:
 	    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
-
 	```
 
-Para aprovisionar otras entidades del Bus de servicio, cree una instancia de la clase `NamespaceManager` a partir del SDK. Puede usar el cmdlet [Get-AzureSBAuthorizationRule] para recuperar una regla de autorización que se usa para proporcionar una cadena de conexión. Almacenaremos una referencia en la instancia `NamespaceManager` en la variable `$NamespaceManager`. Usaremos `$NamespaceManager` más adelante en el script para aprovisionar otras entidades.
+Para aprovisionar otras entidades del Bus de servicio, cree una instancia de la clase [NamespaceManager][] a partir del SDK. Puede usar el cmdlet [Get-AzureSBAuthorizationRule][] para recuperar una regla de autorización que se usa para proporcionar una cadena de conexión. Almacenaremos una referencia a la instancia de `NamespaceManager` en la variable `$NamespaceManager`. Usaremos `$NamespaceManager` más adelante en el script para aprovisionar otras entidades.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -120,7 +116,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ## Aprovisionamiento de otras entidades de Service Bus
 
-Para aprovisionar otras entidades, como colas, temas y centros de eventos, podemos usar la [API .NET para el Bus de servicio]. En este artículo se tratan solo los centros de eventos, pero los pasos para otras entidades son similares. Además, al final de este artículo se hace referencia a ejemplos más detallados, incluidas otras entidades.
+Para aprovisionar otras entidades, como colas, temas y Centros de eventos, podemos usar la [API de .NET para el Bus de servicio][]. En este artículo se tratan solo los centros de eventos, pero los pasos para otras entidades son similares. Además, al final de este artículo se hace referencia a ejemplos más detallados, incluidas otras entidades.
 
 En esta parte del script se crean cuatro variables locales adicionales. Estas variables se usan para crear una instancia de un objeto `EventHubDescription`. El script hace lo siguiente:
 
@@ -128,8 +124,7 @@ En esta parte del script se crean cuatro variables locales adicionales. Estas va
 2. Si no existe, creamos un `EventHubDescription` y lo pasamos al método `CreateEventHubIfNotExists` de la clase `NamespaceManager`.
 3. Cuando sepamos que el centro de eventos está disponible, cree un grupo de consumidores mediante `ConsumerGroupDescription` y `NamespaceManager`.
 
-	``` powershell
-		
+	```
 	$Path  = "MyEventHub"
 	$PartitionCount = 12
 	$MessageRetentionInDays = 7
@@ -170,7 +165,7 @@ Hay ejemplos más detallados en los siguientes artículos de blog:
 - [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerShell del Bus de servicio](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerShell del Bus de servicio](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
 [Opciones de compra]: http://azure.microsoft.com/pricing/purchase-options/
@@ -181,7 +176,7 @@ Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerSh
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API .NET para el Bus de servicio]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
- 
+[API de .NET para el Bus de servicio]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
+[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

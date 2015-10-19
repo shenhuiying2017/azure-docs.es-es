@@ -17,15 +17,11 @@
 	ms.author="yuaxu"/>
 
 # Uso de los Centros de notificaciones desde Java
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible. Este es un proyecto de código abierto; puede ver el código entero en el [SDK de Java].
 
-En general, puede tener acceso a todas las características de los Centros de notificaciones desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST del Centro de notificaciones, como se describe en el tema de MSDN [API de REST de los centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java.
+En general, puede acceder a todas las características de los Centros de notificaciones desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST del Centro de notificaciones, como se describe en el tema de MSDN [API de REST de los Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java.
 
 El SDK admite actualmente:
 
@@ -225,7 +221,7 @@ A veces es necesario para realizar la operación masiva en registros. Normalment
 
 	List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI con firma SAS**: se trata de la dirección URL de algunos archivos de blobs o contenedor de blobs más el conjunto de parámetros, como los permisos y la hora de expiración, más la firma de todas las operaciones realizadas mediante la clave SAS de la cuenta. El SDK de Java de almacenamiento de Azure tiene amplias capacidades, incluida la creación de ese tipo de URI. Como una alternativa sencilla puede echar un vistazo a la clase de prueba ImportExportE2E (desde la ubicación de github) que tiene una implementación muy básica y compacta del algoritmo de firma.
+**URI con firma SAS**: se trata de la dirección URL de algún archivo de blobs o contenedor de blobs más el conjunto de parámetros, como los permisos y la hora de expiración, más la firma de todas las operaciones realizadas mediante la clave SAS de la cuenta. El SDK de Java de almacenamiento de Azure tiene amplias capacidades, incluida la creación de ese tipo de URI. Como una alternativa sencilla puede echar un vistazo a la clase de prueba ImportExportE2E (desde la ubicación de github) que tiene una implementación muy básica y compacta del algoritmo de firma.
 
 ###Envío de notificaciones
 El objeto de notificación es simplemente un cuerpo con encabezados, algunos métodos de utilidad ayudan en la creación de los objetos de notificación nativos y de plantilla.
@@ -307,4 +303,4 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

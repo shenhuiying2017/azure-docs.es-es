@@ -192,6 +192,9 @@ Para combinar filtros, deberá establecer los nombres de filtro de la dirección
 
 Puede combinar hasta 3 filtros.
 
+Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+
+
 ##Problemas conocidos y limitaciones
 
 - El manifiesto dinámico funciona en los límites GOP (fotogramas clave), por lo que el recorte tiene precisión GOP. 
@@ -230,4 +233,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

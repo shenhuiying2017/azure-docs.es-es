@@ -41,7 +41,7 @@ Aprenderá a realizar los siguientes procedimientos:
 
 ## Requisitos previos
 
-Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](../es-ES/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](../es-ES/pricing/free-trial/?WT.mc_id=A261C142F).
+Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](../es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](../es-es/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Para configurar el entorno de desarrollo, debe instalar [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) o superior y la versión más reciente del [SDK de Azure para Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Este artículo se escribió para Visual Studio Update 4 y SDK 2.5.1.
 
@@ -82,7 +82,7 @@ Para configurar el entorno de desarrollo, debe instalar [Visual Studio 2013 Upda
 
 1. En el **Explorador de soluciones**, abra el archivo *Layout.cshtml* de la carpeta *Views\\Shared*.
 
-	![_Layout.cshtm en el Explorador de soluciones][newapp004]
+	![\_Layout.cshtm en el Explorador de soluciones][newapp004]
 
 1. Reemplace el marcado en el archivo *Layout.cshtml* con el código siguiente. Los cambios se resaltan a continuación.
 
@@ -97,7 +97,7 @@ Para configurar el entorno de desarrollo, debe instalar [Visual Studio 2013 Upda
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverase navbar-fixed-top">
+		    <div class="navbar navbar-inverse navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -212,7 +212,7 @@ Se empieza por crear un modelo de datos sencillo en código.
 
 	![Cuadro de diálogo Add New Item][adddb002]
 
-3. Reemplace el contenido del archivo Contacts.cs por el código siguiente.
+3. Reemplace el contenido del archivo Contact.cs por el código siguiente.
 
         using System.ComponentModel.DataAnnotations;
         using System.Globalization;
@@ -230,7 +230,7 @@ Se empieza por crear un modelo de datos sencillo en código.
                 public string Email { get; set; }
             }
         }
-La clase **Contacts** define qué datos se almacenarán para cada contacto, así como una clave primaria, *ContactID*, necesaria para la base de datos.
+La clase **Contact** define qué datos se almacenarán para cada contacto, así como una clave primaria, *ContactID*, necesaria para la base de datos.
 
 ### Creación de páginas web que permiten a los usuarios de aplicaciones utilizar los contactos
 
@@ -262,7 +262,8 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 
 La siguiente tarea consiste en habilitar la función [Migraciones de Code First](http://msdn.microsoft.com/library/hh770484.aspx) para crear la base de datos a partir del modelo de datos ya establecido.
 
-1. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet ** y, a continuación, **Consola del Administrador de paquetes **. ![Package Manager Console en el menú Herramientas](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
+1. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** y, a continuación, **Consola del Administrador de paquetes**.
+	![Package Manager Console en el menú Herramientas](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
 2. En la ventana **Consola del Administrador de paquetes **, escriba el siguiente comando:
 
@@ -399,7 +400,7 @@ En esta sección, agregará un usuario local y el rol *canEdit* a la base de dat
 		{
 		    AddUserAndRole(context);
 		    context.Contacts.AddOrUpdate(p => p.Name,
-		        // Code removed for brevity
+	            // Código quitado para reducir el espacio
 		}
 
 	Las imágenes siguientes muestran los cambios en el método *Seed*:
@@ -720,4 +721,4 @@ Este tutorial y la aplicación de ejemplo fueron desarrollados por [Rick Anderso
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

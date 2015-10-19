@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del [SDK de iOS] de los Servicios móviles de Azure. Si no está familiarizado con los Servicios móviles, complete el [Inicio rápido de Servicios móviles] o [Agregar Servicios móviles a aplicaciones existentes] para configurar su cuenta, crear una tabla y crear un servicio móvil.
+Esta guía muestra cómo realizar algunas tareas comunes a través del [SDK de iOS] de los Servicios móviles de Azure. Si no está familiarizado con los Servicios móviles, complete primero [Inicio rápido de Servicios móviles] para configurar su cuenta, crear una tabla y crear un servicio móvil.
 
 > [AZURE.NOTE]Esta guía usa el último [SDK de Servicios móviles de iOS](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Si el proyecto utiliza una versión anterior del SDK, actualice primero el marco de trabajo en Xcode.
 
@@ -28,7 +28,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del [SDK de i
 
 ##<a name="Setup"></a>Configuración y requisitos previos
 
-En esta guía se asume que ha creado un servicio móvil con una tabla. Para obtener más información, consulte [Creación de una tabla] o reutilice la tabla `TodoItem` creada en [Inicio rápido de Servicios móviles] o en [Adición de Servicios móviles a una aplicación existente]. En esta guía se asume que la tabla tiene el mismo esquema que las tablas de dichos tutoriales. En esta guía también se da por supuesto que el Xcode hace referencia a `WindowsAzureMobileServices.framework` e importa `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
+En esta guía se asume que ha creado un servicio móvil con una tabla. Para obtener más información, vea [Creación de una tabla] o reutilice la tabla `TodoItem` creada en [Inicio rápido de Servicios móviles]. En esta guía se asume que la tabla tiene el mismo esquema que las tablas de dichos tutoriales. En esta guía también se da por supuesto que el Xcode hace referencia a `WindowsAzureMobileServices.framework` e importa `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
 
 ##<a name="create-client"></a>Creación del cliente de Servicios móviles
 
@@ -311,11 +311,8 @@ El archivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 <!-- Images. -->
 
 <!-- URLs. -->
-[Adición de Servicios móviles a una aplicación existente]: /develop/mobile/tutorials/get-started-data
-[Agregar Servicios móviles a aplicaciones existentes]: /develop/mobile/tutorials/get-started-data
-[Inicio rápido de Servicios móviles]: /develop/mobile/tutorials/get-started-ios
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[Inicio rápido de Servicios móviles]: mobile-services-ios-get-started.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Autenticación]: /develop/mobile/tutorials/get-started-with-users-ios
 [SDK de iOS]: https://developer.apple.com/xcode
@@ -324,13 +321,11 @@ El archivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 [SDK de Live Connect]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permisos]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Autorización del servicio]: mobile-services-javascript-backend-service-side-authorization.md
-[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Esquema dinámico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Creación de una tabla]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Controlador de conflictos]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

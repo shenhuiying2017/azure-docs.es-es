@@ -53,6 +53,8 @@ Use el siguiente bloque de comandos de Azure PowerShell para crear las máquinas
 
 Recuerde que definió las tablas V, S, ST y A en [Fase 1: Configuración de Azure](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
+> [AZURE.NOTE]Este artículo contiene comandos para versiones de Azure PowerShell hasta, *pero sin incluir*, las versiones 1.0.0 y versiones posteriores. Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**. Los bloques de comandos de Azure PowerShell de este artículo están en proceso de prueba y actualización para admitir los nuevos cmdlets de las versiones 1.0.0, y posteriores, de Azure PowerShell. Gracias por su paciencia.
+
 Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en el símbolo del sistema de Azure PowerShell.
 
 	# Set up subscription and key variables
@@ -172,7 +174,7 @@ Tiene que actualizar los servidores DNS de la red virtual para que Azure asigne 
 	- Para **Servidor DNS principal**: Tabla V – Elemento 6 – Columna Valor
 	- Para **Servidor DNS secundario**: Tabla V – Elemento 7 – Columna Valor
 5.	En el panel izquierdo del Portal de vista previa de Azure, haga clic en **Examinar todo > Máquinas virtuales**.
-6.	En el panel **Máquinas virtuales**, haga clic en el nombre del primer controlador de dominio (Tabla M – Elemento 1 –Columna Nombre de la máquina virtual).
+6.	En el panel **Máquinas virtuales**, haga clic en el nombre del primer controlador de dominio (Tabla M – Elemento 1 – Columna Nombre de la máquina virtual).
 7.	En el panel de la máquina virtual, haga clic en **Reiniciar**.
 8.	Cuando el primer controlador de dominio se inicie, haga clic en el nombre del segundo controlador de dominio en el panel **Máquinas virtuales** (Tabla M – Elemento 2 –Columna Nombre de la máquina virtual).
 9.	En el panel de la máquina virtual, haga clic en **Reiniciar**. Espere hasta que se inicie el segundo controlador de dominio.
@@ -210,4 +212,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

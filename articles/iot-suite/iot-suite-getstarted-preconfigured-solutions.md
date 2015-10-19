@@ -13,16 +13,16 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
-     ms.date="09/08/2015"
+     ms.date="09/29/2015"
      ms.author="araguila"/>
 
 # Introducción a las soluciones de IoT preconfiguradas
 
 ## Introducción
 
-El conjunto de soluciones de IoT preconfiguradas de Azure conectan varios servicios de Azure IoT juntos para ejemplificar una solución completa válida para un escenario empresarial de Internet de las cosas.
+Las soluciones preconfiguradas del conjunto de soluciones de IoT de Azure conectan varios servicios IoT de Azure para ejemplificar una solución completa que satisface un escenario empresarial de Internet de las cosas.
 
-Este tutorial muestra cómo aprovisionar una solución preconfigurada, la supervisión remota. También muestra cómo ver las características básicas de la solución preconfigurada de supervisión remota.
+Este tutorial muestra cómo aprovisionar una solución preconfigurada, la **supervisión remota**. También muestra cómo ver las características básicas de la solución preconfigurada de supervisión remota.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -30,9 +30,9 @@ Para completar este tutorial, necesitará lo siguiente:
 
     En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
 
-## Aprovisionamiento de una solución de supervisión remota preconfigurada
+## Aprovisionamiento de la solución preconfigurada de supervisión remota
 
-1.  Inicie sesión en <https://azureiotsuite.com> y haga clic en **+** para crear una nueva solución.
+1.  Inicie sesión en https://www.azureiotsuite.com y haga clic en **+** para crear una nueva solución.
 
 2.  Seleccione **Supervisión remota** como el tipo de solución.
 
@@ -44,7 +44,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Visualización del panel de la solución de supervisión remota
 
-1.  Cuando se complete el aprovisionamiento y el mosaico de su solución preconfigurada indique **Listo**, haga clic en **Iniciar** para abrir el panel de su solución de supervisión remota en una nueva pestaña.
+1.  Cuando se complete el aprovisionamiento y el icono de su solución preconfigurada indique **Listo**, haga clic en **Iniciar** para abrir el panel de su solución de supervisión remota en una nueva pestaña.
 
 2.  De forma predeterminada, el **Panel** está seleccionado en el menú izquierdo. Este es el panel de su solución.
 
@@ -60,7 +60,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 1.  Haga clic en **Enviar comando** en el panel de detalles del dispositivo simulado seleccionado.
 
-2.  Seleccione **PingDevice** en la lista desplegable de comandos.
+2.  Seleccione **PingDevice** en la lista de comandos.
 
 3.  Haga clic en **Enviar comando**.
 
@@ -84,15 +84,15 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Visualización y edición de reglas de solución
 
-1.  Observe la tabla **Historial de alarma** en el **Panel de la solución.**
+1.  Observe la tabla **Historial de alarmas** en el **Panel de la solución.**
 
 2.  Estas alarmas se desencadenan con el resultado de la regla **AlarmTemp** especificado en **Reglas**.
 
 3.  Haga clic en **Reglas** en el menú izquierdo para ir a las reglas de esta solución.
 
-4.  En el aprovisionamiento verá que 1 regla ya está habilitada.
+4.  Tras el aprovisionamiento verá que ya hay una regla habilitada.
 
-5.  Haga clic en la **regla** en la lista de reglas para ver las propiedades asociadas a la regla.
+5.  Haga clic en la **regla** en la lista de reglas para ver las propiedades asociadas.
 
 6.  Haga clic en **Editar** en el panel de propiedades de la regla.
 
@@ -106,10 +106,13 @@ Para completar este tutorial, necesitará lo siguiente:
 
 Ahora que ha creado una solución preconfigurada que funciona, puede pasar a las situaciones siguientes:
 
--   Directrices de personalización de soluciones preconfiguradas
+-   [Directrices de personalización de soluciones preconfiguradas][]
 
--   Información general del conjunto de IoT
+-   [Información general del conjunto de IoT][]
 
-[Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
+[Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
 
-<!---HONumber=Oct15_HO1-->
+[Directrices de personalización de soluciones preconfiguradas]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
+[Información general del conjunto de IoT]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
+
+<!---HONumber=Oct15_HO2-->

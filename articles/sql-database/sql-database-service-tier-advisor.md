@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="sstein"/>
 
 # Recomendaciones sobre el nivel de precios de Base de datos SQL
@@ -27,12 +27,16 @@ Obtenga recomendaciones del plan de tarifa durante las siguientes tareas:
 
 - [Cambio del nivel de servicio y del nivel de rendimiento (nivel de precios) de una base de datos SQL](sql-database-scale-up.md)
 - [Actualizar un servidor SQL de Azure a V12](sql-database-v12-upgrade.md)
+- Vaya a su servidor V12: si las bases de datos pueden [beneficiarse de un grupo de bases de datos elásticas](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), la hoja del servidor mostrará un mensaje que indica un grupo recomendado. Haga clic en el mensaje para crear el grupo recomendado.
 - [Creación de un grupo de bases de datos elásticas](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+
+
+
 
 
 ## Información general
 
-El servicio de Base de datos de SQL analiza el rendimiento actual y los requisitos de características mediante la evaluación del uso de recursos históricos para una base de datos SQL. Además, el nivel de servicio mínimo aceptable se determina en función del tamaño de la base de datos y las características de [continuidad del negocio](https://msdn.microsoft.com/library/azure/hh852669.aspx) habilitadas.
+El servicio de Base de datos de SQL analiza el rendimiento actual y los requisitos de características mediante la evaluación del uso de recursos históricos para una base de datos SQL. Además, el nivel de servicio mínimo aceptable se determina en función del tamaño de la base de datos y las características de [continuidad del negocio](sql-database-business-continuity.md) habilitadas.
 
 Esta información se analiza y se recomienda el nivel de servicio y el nivel de rendimiento que mejor se adapte para ejecutar la carga de trabajo típica de la base de datos y para mantener el conjunto de características actual.
 
@@ -52,12 +56,11 @@ Según el uso de la base de datos, se pueden encontrar dos categorías de recome
 
 ## Obtención de recomendaciones de nivel de precios
 
-Para obtener recomendaciones sobre los niveles de precios, seleccione una base de datos Web o Business existente y haga clic en el icono **Nivel de precios**. (Las recomendaciones del plan de tarifa también están disponibles al [Actualizar SQL Server de Azure a V12](sql-database-v12-upgrade.md).)
+Para obtener recomendaciones sobre los niveles de precios, seleccione una base de datos Web o Business existente y haga clic en el icono **Nivel de precios**. (Las recomendaciones del plan de tarifa también están disponibles durante la [Actualización de SQL Server de Azure a V12](sql-database-v12-upgrade.md)).
 
 1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/).
-2. Haga clic en **EXAMINAR** en el menú de la izquierda.
-3. Haga clic en **Bases de datos SQL** en la hoja **Examinar**.
-4. En la hoja **Bases de datos SQL**, haga clic en la base de datos en la que desea que se analice el servicio.
+2. Haga clic en **EXAMINAR** > **Bases de datos SQL**.
+4. En la hoja **Bases de datos SQL**, haga clic en la base de datos para la que quiere ver una recomendación:
 
     ![Seleccionar base de datos][1]
 
@@ -97,4 +100,4 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

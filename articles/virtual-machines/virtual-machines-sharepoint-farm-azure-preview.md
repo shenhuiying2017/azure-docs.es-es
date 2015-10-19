@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Granja de servidores SharePoint
@@ -52,7 +52,8 @@ Para crear una granja de SharePoint con la plantilla de la granja de servidores 
 7. Para configurar servidores SharePoint, haga clic en la flecha. Puede especificar un prefijo de nombre de host (el predeterminado es el nombre del grupo de recursos), el tamaño de los servidores SharePoint (el predeterminado es A2), una cuenta de usuario (el predeterminado es sp\_setup) y una contraseña de SharePoint, un nombre de cuenta para la granja de SharePoint (el predeterminado es sp\_farm) y una contraseña y una frase de contraseña para la granja de SharePoint. La opción predeterminada es usar la contraseña de administrador para la cuenta de usuario de SharePoint, la cuenta para la granja y la frase de contraseña.
 8. Para establecer la configuración opcional para la red virtual, la cuenta de almacenamiento o los diagnósticos, haga clic en la flecha correspondiente.
 9. Para especificar la suscripción, haga clic en la flecha.
-10. Cuando haya terminado, haga clic en **Crear**.
+10. Para especificar la ubicación de Azure, haga clic en la flecha.
+11. Cuando haya terminado, haga clic en **Crear**.
 
 > [AZURE.NOTE]El controlador de dominio no tiene las herramientas de administración de Active Directory que se instalan de forma predeterminada. Para instalarlas, ejecute el comando **Install-WindowsFeature AD-Domain-Services -IncludeManagementTools** desde el símbolo del sistema de Windows PowerShell en un nivel de administrador en la máquina virtual del controlador de dominio.
 
@@ -81,9 +82,8 @@ En el sitio de Administración central de SharePoint, puede configurar Mis sitio
 
 Notas:
 
-- El portal de Azure en vista previa crea estas máquinas virtuales en la suscripción especificada.
 - El portal de Azure en vista previa crea los dos tipos de granja en una red virtual solo en la nube con presencia web orientada a Internet. No hay una conexión VPN de sitio a sitio o conexión ExpressRoute con la red de su organización.
-- Puede administrar estos servidores a través de conexiones de Escritorio remoto. Para obtener más información, consulte [Inicio de sesión en una máquina virtual con Windows Server](virtual-machines-log-on-windows-server.md).
+- Puede administrar estos servidores a través de conexiones de Escritorio remoto. Para obtener más información, vea [Inicio de sesión en la máquina virtual](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine).
 
 ## Administrador de recursos de Azure
 
@@ -93,10 +93,8 @@ La función Granja de servidores SharePoint del Portal de vista previa de Azure 
 
 [Detalles de configuración de una granja de servidores de SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
-[SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

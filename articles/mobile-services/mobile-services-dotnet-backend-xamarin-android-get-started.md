@@ -12,13 +12,15 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="08/18/2015"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación Xamarin Android usando Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de _Lista de pendientes_ que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que cree utilizará los lenguajes .NET compatibles y recurrirá a Visual Studio para la lógica de negocios de servidor y para las tareas de administración. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la [versión back-end de JavaScript] de este tema.
 
@@ -30,7 +32,7 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones Xamarin Android.
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started" target="_blank">Evaluación gratuita de Azure</a>.<br />Este tutorial requiere <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Hay disponible una versión de prueba gratuita.
+>[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started). Este tutorial requiere [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546). Hay disponible una versión de prueba gratuita.
 
 ## Creación de un servicio móvil
 
@@ -52,7 +54,7 @@ En esta sección va a descargar una nueva aplicación Xamarin Android y un proye
 
   	![][7]
 
-3. Si todavía no lo ha hecho, descargue e instale <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> en el equipo local o máquina virtual.
+3. Si todavía no lo ha hecho, descargue e instale [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546) en el equipo local o máquina virtual.
 
 4. Si aún no lo ha hecho, descargue e instale [Xamarin Studio] o Xamarin para Visual Studio.
 
@@ -76,11 +78,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 1. Navegue al proyecto de cliente en la solución del servicio móvil, en Visual Studio o en Xamarin Studio.
 
-	![][8]
-
-	![][9]
-
-2. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación. Se le solicitará que seleccione un emulador o un dispositivo USB conectado.
+2. Presione el botón **Run** para compilar el proyecto e iniciar la aplicación. Se le solicitará que seleccione un emulador o un dispositivo USB conectado.
 
 	> [AZURE.NOTE]Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual de Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.
 
@@ -102,6 +100,8 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 * [Introducción a las notificaciones de inserción] <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 * [Solución de problemas de un back-end de .NET de Servicios móviles] <br/> Aprenda a diagnosticar y corregir los problemas que pueden surgir con un back-end de .NET de Servicios móviles.
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -127,7 +127,6 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Management Portal]: https://manage.windowsazure.com/
 [versión back-end de JavaScript]: mobile-services-android-get-started.md
-[Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 [Solución de problemas de un back-end de .NET de Servicios móviles]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
@@ -135,4 +134,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

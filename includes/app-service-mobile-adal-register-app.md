@@ -22,9 +22,9 @@
 
    ![](./media/app-service-mobile-adal-register-app/aad-native-client-add-permissions.png)
 
-La aplicación ya está configurada en AAD para que los usuarios puedan iniciar sesión con el inicio de sesión único de AAD.
+La aplicación ya está configurada en AAD para que los usuarios puedan iniciar sesión con el inicio de sesión de AAD.
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Configuración de aplicaciones móviles con Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

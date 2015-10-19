@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
-   editor=""/>
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="azure-security"
@@ -17,7 +18,6 @@
    ms.author="yurid"/>
 
 #Prácticas recomendadas para actualizaciones de software en IaaS de Microsoft Azure
-
 
 Antes de profundizar en cualquier tipo de discusión acerca de los procedimientos recomendados para un entorno de IaaS de Azure, es importante comprender cuáles son los escenarios en los que tendrá que administrar actualizaciones de software. El diagrama siguiente debería ayudarle con esto:
 
@@ -71,11 +71,11 @@ En organizaciones grandes, a menudo resulta útil dividir los equipos de la empr
 
 Después de realizar una auditoría inicial del software en uso en su empresa, debe determinar el mejor método para recibir notificaciones de nuevas actualizaciones de software para cada producto y versión de software. Según el producto de software, el mejor método de notificaciones podría ser notificaciones de correo electrónico, sitios web o publicaciones del equipo.
 
-Por ejemplo, Microsoft Security Response Center (MSRC) responde a todos los aspectos relacionados con la seguridad acerca de los productos de Microsoft y proporciona el servicio de boletines de seguridad de Microsoft, una notificación de correo electrónico gratuita sobre vulnerabilidades recién identificadas y actualizaciones de software que se publican para corregir estas vulnerabilidades. Puede suscribirse a este servicio en <http://www.microsoft.com/technet/security/bulletin/notify.mspx>
+Por ejemplo, Microsoft Security Response Center (MSRC) responde a todos los aspectos relacionados con la seguridad acerca de los productos de Microsoft y proporciona el servicio de boletines de seguridad de Microsoft, una notificación de correo electrónico gratuita sobre vulnerabilidades recién identificadas y actualizaciones de software que se publican para corregir estas vulnerabilidades. Puede suscribirse a este servicio en http://www.microsoft.com/technet/security/bulletin/notify.mspx
 
 ## Consideraciones sobre actualización de software
 
-Después de realizar una auditoría inicial del software en uso en su empresa, debe determinar los requisitos para configurar el sistema de administración de actualizaciones de software, que depende del sistema de administración de actualizaciones de software que esté usando. Para WSUS, lea [Prácticas recomendadas con Windows Server Update Services](https://technet.microsoft.com/es-ES/library/Cc708536) y para System Center, lea [Planeación de actualizaciones de software en Configuration Manager](https://technet.microsoft.com/es-ES/library/gg712696).
+Después de realizar una auditoría inicial del software en uso en su empresa, debe determinar los requisitos para configurar el sistema de administración de actualizaciones de software, que depende del sistema de administración de actualizaciones de software que esté usando. Para WSUS, lea [Prácticas recomendadas con Windows Server Update Services](https://technet.microsoft.com/es-es/library/Cc708536) y para System Center, lea [Planeación de actualizaciones de software en Configuration Manager](https://technet.microsoft.com/es-es/library/gg712696).
 
 Sin embargo, hay algunas consideraciones generales y prácticas recomendadas que se pueden aplicar sin tener en cuenta la solución que esté usando tal como se muestra en las secciones siguientes.
 
@@ -87,19 +87,19 @@ Tenga en cuenta las siguientes prácticas al planear la instalación del entorno
 
 -   **Crear recopilaciones de preproducción que incluyan equipos de referencia**: la recopilación de preproducción debe incluir configuraciones representativas de las versiones del sistema operativo, el software relacionado con una determinada línea de negocio y otros tipos de software en ejecución en la empresa.
 
-También debe tener en cuenta dónde se ubicará el servidor de actualizaciones de software, si va a estar en la infraestructura de IaaS de Azure en la nube o si va estar de forma local. Se trata de una decisión importante, ya que necesita evaluar la cantidad de tráfico entre los recursos locales y la infraestructura de Azure. Lea [Conectar una red local con una red virtual de Microsoft Azure](https://technet.microsoft.com/es-ES/library/Dn786406.aspx) para obtener más información acerca de cómo conectar la infraestructura local a Azure.
+También debe tener en cuenta dónde se ubicará el servidor de actualizaciones de software, si va a estar en la infraestructura de IaaS de Azure en la nube o si va estar de forma local. Se trata de una decisión importante, ya que necesita evaluar la cantidad de tráfico entre los recursos locales y la infraestructura de Azure. Lea [Conectar una red local con una red virtual de Microsoft Azure](https://technet.microsoft.com/es-es/library/Dn786406.aspx) para obtener más información acerca de cómo conectar la infraestructura local a Azure.
 
-Las opciones de diseño que determinarán dónde estará ubicado el servidor de actualizaciones también varían en función de la infraestructura actual y del sistema de actualizaciones de software que está usando actualmente. Para WSUS, lea [Implementación de Windows Server Update Services en la organización](https://technet.microsoft.com/es-ES/library/hh852340.aspx) y para System Center Configuration Manager, lea [Planeación de sitios y jerarquías en Configuration Manager](https://technet.microsoft.com/es-ES/library/Gg712681.aspx).
+Las opciones de diseño que determinarán dónde estará ubicado el servidor de actualizaciones también varían en función de la infraestructura actual y del sistema de actualizaciones de software que está usando actualmente. Para WSUS, lea [Implementación de Windows Server Update Services en la organización](https://technet.microsoft.com/es-es/library/hh852340.aspx) y para System Center Configuration Manager, lea [Planeación de sitios y jerarquías en Configuration Manager](https://technet.microsoft.com/es-es/library/Gg712681.aspx).
 
 ### Copia de seguridad
 
-Las copias de seguridad periódicas son importantes no solo para la plataforma de administración de actualizaciones de software en sí, sino también para los servidores que se van a actualizar. Las organizaciones que tienen un [proceso de administración de cambios](https://technet.microsoft.com/es-ES/library/cc543216.aspx) existente requerirán TI para justificar las razones de por qué el servidor necesita actualizarse, el tiempo de inactividad estimado y el posible impacto. Para asegurarse de que cuenta con una configuración de reversión en caso de que se produzca un error en una actualización, asegúrese de hacer una copia de seguridad del sistema con regularidad.
+Las copias de seguridad periódicas son importantes no solo para la plataforma de administración de actualizaciones de software en sí, sino también para los servidores que se van a actualizar. Las organizaciones que tienen un [proceso de administración de cambios](https://technet.microsoft.com/es-es/library/cc543216.aspx) existente requerirán TI para justificar las razones de por qué el servidor necesita actualizarse, el tiempo de inactividad estimado y el posible impacto. Para asegurarse de que cuenta con una configuración de reversión en caso de que se produzca un error en una actualización, asegúrese de hacer una copia de seguridad del sistema con regularidad.
 
 Algunas opciones de copia de seguridad de IaaS de Azure incluyen:
 
 -   [Protección de cargas de trabajo de IaaS de Azure con Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Copia de seguridad de máquinas virtuales de Azure](https://azure.microsoft.com/es-ES/documentation/articles/backup-azure-vms/)
+-   [Copia de seguridad de máquinas virtuales de Azure](../backup/backup-azure-vms.md)
 
 ### Supervisión
 
@@ -119,4 +119,4 @@ Además de las consideraciones generales explicadas en este artículo, también 
 
 Use las instrucciones descritas en este artículo para determinar las mejores opciones sobre actualizaciones de software para máquinas virtuales dentro de IaaS de Azure. Hay muchas similitudes entre las prácticas recomendadas de actualización de software en un centro de datos tradicional y en IaaS de Azure, por lo tanto, se recomienda evaluar las directivas de actualización de software actuales para incluir máquinas virtuales de Azure y aplicar las prácticas recomendadas relevantes de este artículo en el proceso de actualización de software global.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

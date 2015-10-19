@@ -3,7 +3,7 @@
    description="Introducción al modelo de programación de Actores confiables de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Introducción a Actores confiables de Service Fabric.
 La API de Actores confiables es uno de los dos marcos de alto nivel proporcionados por [Service Fabric](service-fabric-technical-overview.md), junto con la [API de servicios confiables](service-fabric-reliable-services-introduction.md).
@@ -198,4 +198,4 @@ Las devoluciones de llamada de temporizador se pueden marcar con el atributo `Re
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

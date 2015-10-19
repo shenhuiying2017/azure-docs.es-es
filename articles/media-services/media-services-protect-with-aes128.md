@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/16/2015"
+	ms.date="10/07/2015"
 	ms.author="juliako"/>
 
 #Uso del cifrado dinámico AES-128 y del servicio de entrega de claves
@@ -66,95 +66,27 @@ Si agrega o actualiza la directiva de entrega de recursos, debe eliminar un loca
 
 Para administrar, codificar y transmitir por secuencias sus vídeos, primero debe cargar el contenido en Servicios multimedia de Microsoft Azure. Una vez cargado, el contenido se almacena de forma segura en la nube para su posterior procesamiento y transmisión.
 
-El siguiente fragmento de código muestra cómo crear un recurso y cargar el archivo especificado en el recurso.
-	
-	static public IAsset UploadFileAndCreateAsset(string singleFilePath)
-	{
-	    if(!File.Exists(singleFilePath))
-	    {
-	        Console.WriteLine("File does not exist.");
-	        return null;
-	    }
-	
-	    var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-	    IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.StorageEncrypted);
-	
-	    var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-	
-	    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-	
-	    var policy = _context.AccessPolicies.Create(
-	                            assetName,
-	                            TimeSpan.FromDays(30),
-	                            AccessPermissions.Write | AccessPermissions.List);
-	
-	    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-	
-	    Console.WriteLine("Upload {0}", assetFile.Name);
-	
-	    assetFile.Upload(singleFilePath);
-	    Console.WriteLine("Done uploading {0}", assetFile.Name);
-	
-	    locator.Delete();
-	    policy.Delete();
-	
-	    return inputAsset;
-	}
+Para obtener información detallada, consulte [Carga de archivos en una cuenta de Servicios multimedia](media-services-dotnet-upload-files.md).
 
-##<a id="encode_asset"></a>Codificación del recurso que contiene el archivo con Adaptive Bitrate MP4 Set
+##<a id="encode_asset"></a>Codificación del activo que contiene el archivo con Adaptive Bitrate MP4 Set.
 
 Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegurará de que reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para obtener más información, consulte el tema [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
-El fragmento de código siguiente muestra cómo codificar un recurso con Adaptive Bitrate MP4 Set:
-	
-	static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-	{
-	    var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-	
-	    IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-	                            inputAsset.Name,
-	                            encodingPreset));
-	
-	    var mediaProcessors = 
-	        _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-	
-	    var latestMediaProcessor = 
-	        mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-	
-	
-	
-	    ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-	    encodeTask.InputAssets.Add(inputAsset);
-	    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-	
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-	    job.Submit();
-	    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-	
-	    return job.OutputMediaAssets[0];
-	}
-	
-	static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
-	{
-	    Console.WriteLine(string.Format("{0}\n  State: {1}\n  Time: {2}\n\n",
-	        ((IJob)sender).Name,
-	        e.CurrentState,
-	        DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
-	}
+Para obtener instrucciones sobre cómo codificar, consulte [Cómo codificar un activo mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el recurso codificado
+##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
 
 En Servicios multimedia, la clave de contenido contiene la clave con la que desea cifrar un recurso.
 
 Para obtener más información, consulte [Creación de la clave de contenido](media-services-dotnet-create-contentkey.md).
 
-##<a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de la clave de contenido
+##<a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido.
 
 Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave. La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP.
 
 Para obtener información detallada, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-dotnet-configure-content-key-auth-policy.md).
 
-##<a id="configure_asset_delivery_policy"></a>Configuración de la directiva de entrega de recursos 
+##<a id="configure_asset_delivery_policy"></a>Configuración de la directiva de entrega de activos 
 
 Configure la directiva de entrega de sus recursos. Algunos de los elementos que incluye la configuración de la directiva de entrega de recursos son:
 
@@ -163,7 +95,7 @@ Configure la directiva de entrega de sus recursos. Algunos de los elementos que 
 - El protocolo de entrega de recursos (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos).
 - El tipo de cifrado dinámico (por ejemplo, AES Envelope) o sin cifrado dinámico. 
 
-Para obtener más información, consulte [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
+Para obtener más información, consulte [Configuración de la directiva de entrega de activos](media-services-rest-configure-asset-delivery-policy.md).
 
 ##<a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
 
@@ -188,7 +120,7 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
 	string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
-Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
+Puede usar el [reproductor de AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la transmisión.
 
 ##<a id="client_request"></a>Cómo el cliente puede solicitar una clave al servicio de entrega de claves
 
@@ -196,7 +128,7 @@ En el paso anterior, creó la URL que apunta a un archivo de manifiesto. El clie
 
 ###Archivos de manifiesto
 
-El cliente debe extraer el valor de la URL (que también contiene el identificador de la clave de contenido) del archivo de manifiesto. El cliente intentará entonces obtener la clave de cifrado del servicio de entrega de claves. El cliente también debe extraer el valor de IV y usarlo para descifrar la secuencia. El siguiente fragmento de código muestra el elemento <Protection> del manifiesto de Smooth Streaming.
+El cliente debe extraer el valor de la URL (que también contiene el identificador de la clave de contenido) del archivo de manifiesto. El cliente intentará entonces obtener la clave de cifrado del servicio de entrega de claves. El cliente también debe extraer el valor de IV y usarlo para descifrar la transmisión. El siguiente fragmento de código muestra el elemento <Protection> del manifiesto de Smooth Streaming.
 
 	<Protection>
 	  <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
@@ -671,4 +603,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

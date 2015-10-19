@@ -1,20 +1,20 @@
 <properties 
    pageTitle="Configuración de Expressroute con NSP"
-	description="Este tutorial le guiará por el proceso de configuración de ExpressRoute a través de NSP"
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Este tutorial le guiará por el proceso de configuración de ExpressRoute a través de NSP"
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="adinah"
+   editor="tysonn"/>
 
 <tags 
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/29/2015"
+   ms.author="cherylmc"/>
 
 #  Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red
 
@@ -150,4 +150,4 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 		
 		Provisioned 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
+   ms.date="10/05/2015"
    ms.author="cherylmc" />
 
 # Acerca de la conectividad segura entre locales de redes virtuales
@@ -44,7 +44,7 @@ La tabla siguiente puede ayudarle a decidir la mejor opción de conectividad par
 | **Documentación técnica**  | [Documentación de puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)                                               | [Documentación de puerta de enlace de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)                                                                         | [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)                                                                                                      | [Documentación de ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)                                                                                                      |
 | **Preguntas más frecuentes**                      | [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md)                                                         | [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md)                                                                                   | [Preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md)                                                                                                                | [Preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md)                                                                                                                |
                                                                                  
-                                                                                 
+
 
 
 ## Conexiones de sitio a sitio
@@ -102,4 +102,4 @@ Para obtener más información sobre ExpressRoute, consulte la [Información té
 
 Consulte las [Preguntas más frecuentes sobre ExpressRoute](../expressroute/expressroute-faqs.md) y las [Preguntas más frecuentes de la puerta de enlace de VPN](vpn-gateway-vpn-faq.md) para obtener más información.
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

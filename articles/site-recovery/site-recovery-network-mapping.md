@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 
@@ -135,4 +135,4 @@ Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a 
 
 Ahora que tiene una mejor comprensión de la asignación de redes, lea las [prácticas recomendadas](site-recovery-best-practices.md) para preparar la implementación.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

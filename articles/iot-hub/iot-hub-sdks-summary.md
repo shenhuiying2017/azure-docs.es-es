@@ -37,13 +37,13 @@ En este [documento][OS Platforms and hardware compatibility] se describe la comp
 
 ## SDK de servicios de Centro de IoT
 
-Los SDK de servicios IoT de Microsoft Azure contienen código que facilitan la creación de aplicaciones que interactúan directamente con el Centro de IoT para administrar dispositivos y seguridad.
+Los SDK de servicios IoT de Microsoft Azure contienen código que facilitan la creación de aplicaciones que interactúan directamente con el Centro de IoT para administrar los dispositivos y la seguridad.
 
 El siguiente SDK de servicios IoT está disponible para su descarga desde GitHub:
 
 - [SDK de servicios IoT de Azure para Node.js][]
 
-## Documentación de referencia de API
+## Documentación de referencia de la API en línea
 
 La siguiente es una lista de vínculos a documentación en línea de referencia de API para bibliotecas de dispositivos IoT de Azure:
 
@@ -73,4 +73,4 @@ La siguiente es una lista de vínculos a documentación en línea de referencia 
 [SDK de dispositivos IoT de Microsoft Azure para Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [REST de Centro de IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

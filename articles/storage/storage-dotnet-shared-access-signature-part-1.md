@@ -72,7 +72,7 @@ Los tokens de SAS de cuenta y de SAS de servicio incluyen algunos parámetros co
 - **Hora de inicio.** Es la hora en la que la SAS comienza a ser válida. La hora de inicio de una firma de acceso compartido es opcional; si se omite, la SAS se activa de inmediato. 
 - **Hora de expiración.** Es la hora a partir de la que la SAS deja de ser válida. Las prácticas recomendadas aconsejan que especifique una hora de expiración para una SAS o que la asocie a una directiva de acceso almacenada (puede obtener más información a continuación).
 - **Permisos.** Los permisos especificados en una SAS indican qué operaciones puede realizar el cliente en el recurso de almacenamiento con la SAS. Los permisos disponibles son diferentes para SAS de cuenta y SAS de servicio.
-- **Dirección IP.** Un parámetro opcional que especifica una dirección IP o un intervalo de direcciones IP desde la que se aceptan solicitudes. 
+- **Dirección IP.** Un parámetro opcional que especifica una dirección IP o un intervalo de direcciones IP fuera de Azure (consulte la sección [Estado de configuración de sesión de enrutamiento](../expressroute/expressroute-workflows.md#routing-session-configuration-state) para Express Route) desde el que aceptar solicitudes. 
 - **Protocolo.** Un parámetro opcional que especifica el protocolo permitido para una solicitud. Los valores posibles son HTTPS y HTTP (https,http), que es el valor predeterminado, o HTTPS solo (https). Tenga en cuenta que HTTP solo no es un valor permitido.
 - **Firma.** La firma se construye a partir de los parámetros especificados como parte del token y, a continuación, se cifra. Se usa para autenticar la SAS.
 
@@ -81,7 +81,7 @@ Los tokens de SAS de cuenta y de SAS de servicio incluyen algunos parámetros co
 - **Servicio o servicios.** SAS de cuenta puede delegar el acceso a uno o varios de los servicios de almacenamiento. Por ejemplo, puede crear una SAS de cuenta que delega el acceso al servicio Blob y Archivo. O bien, puede crear una SAS que delega el acceso a los cuatro servicios (Blob, Cola, Tabla y Archivo).
 - **Tipos de recursos de almacenamiento.** SAS de cuenta se aplica a una o más clases de recursos de almacenamiento, más que a un recurso específico. Puede crear una SAS de cuenta que delega el acceso a:
 	- Las API de nivel de servicio, a las que se llaman en el recurso de la cuenta de almacenamiento. Algunos ejemplos incluyen **Get/Set Service Properties**, **Get Service Stats** y **List Containers/Queues/Tables/Shares**.
-	- Las API de nivel de contenedor, a las que se llaman en los objetos de contenedor para cada servicio: contenedores de blobs, colas, tablas y recursos compartidos de archivos. Algunos ejemplos incluyen **Create/Delete Container**, **Create/Delete Queue**, **Create/Delete Table**, **Create/Delete Share**, y **List Blobs/Files and Directories**.
+	- Las API de nivel de contenedor, a las que se llaman en los objetos de contenedor para cada servicio: contenedores de blobs, colas, tablas y recursos compartidos de archivos. Algunos ejemplos incluyen **Create/Delete Container**, **Create/Delete Queue**, **Create/Delete Table**, **Create/Delete Share** y **List Blobs/Files and Directories**.
 	- Las API de nivel de objeto, a las que se llaman en blobs, mensajes de colas, entidades de tablas y archivos. Por ejemplo, **Put Blob**, **Query Entity**, **Get Messages** y **Create File**.
 
 ### Parámetros para un token de SAS de servicio
@@ -116,7 +116,7 @@ Este es un ejemplo de una SAS de cuenta que usa los mismos parámetros comunes e
 
 Nombre|Parte de SAS|Descripción
 ---|---|---
-URI de recurso|https://myaccount.blob.core.windows.net/?restype=service&comp=properties|The Extremo de servicio Blob, con parámetros para obtener propiedades de servicio (cuando se llama con GET) o para establecer propiedades de servicio (cuando se llama con SET).
+URI de recurso|https://myaccount.blob.core.windows.net/?restype=service&comp=properties|The Extremo de servicio BLOB, con parámetros para obtener propiedades de servicio (cuando se llama con GET) o para establecer propiedades de servicio (cuando se llama con SET).
 Servicios|ss=bf|La SAS se aplica a los servicios Blob y Archivo
 Tipos de recursos|srt=s|La SAS se aplica a las operaciones de nivel de servicio.
 Permisos|sp=rw|Los permisos conceden acceso para operaciones de lectura y escritura.  
@@ -320,4 +320,4 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

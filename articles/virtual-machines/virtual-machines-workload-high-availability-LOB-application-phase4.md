@@ -29,6 +29,8 @@ Debe completar esta fase antes de pasar a la [fase 5](virtual-machines-workload-
 
 Hay dos máquinas virtuales de servidor web en las que puede implementar aplicaciones ASP.NET o aplicaciones más antiguas que pueden hospedarse en Internet Information Services (IIS) 8 en Windows Server 2012 R2.
 
+> [AZURE.NOTE]Este artículo contiene comandos para versiones de Azure PowerShell hasta, *pero sin incluir*, las versiones 1.0.0 y versiones posteriores. Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**. Los bloques de comandos de Azure PowerShell de este artículo están en proceso de prueba y actualización para admitir los nuevos cmdlets de las versiones 1.0.0, y posteriores, de Azure PowerShell. Gracias por su paciencia.
+
 En primer lugar, configure el equilibrio de carga interno para que Azure distribuya el tráfico de cliente a la aplicación de línea de negocio de manera uniforme entre los dos servidores web. Esto requiere que especifique una instancia de equilibrio de carga que conste de un nombre y su propia dirección IP, y se asigne en el espacio de direcciones de subred que asignó a la red virtual de Azure. Para determinar si una dirección IP que elija para el equilibrador de carga interno está disponible, use los siguientes comandos en el símbolo del sistema de Azure PowerShell: Especifique los valores de las variables y quite los caracteres < and >.
 
 	Switch-AzureMode AzureServiceManagement
@@ -135,14 +137,14 @@ Cuando se reinicien, vuelva a conectarse a ellas con una cuenta que tenga privil
 En cada servidor web, instale y configure IIS.
 
 1. Ejecute el Administrador del servidor y haga clic en **Agregar roles y características**.
-2. En la página Antes de comenzar, haga clic en **Siguiente**.
-3. En la página Selección del tipo de instalación, haga clic en **Siguiente**.
-4. En la página Selección del servidor de destino, haga clic en **Siguiente**.
-5. En la página Roles de servidor, haga clic en **Servidor web (IIS)** en la lista de **Roles**.
+2. En la página Antes de empezar, haga clic en **Siguiente**.
+3. En la página Seleccionar tipo de instalación, haga clic en **Siguiente**.
+4. En la página Seleccionar servidor de destino, haga clic en **Siguiente**.
+5. En la página Roles del servidor, haga clic en **Servidor web (IIS)** en la lista **Roles**.
 6. Cuando se le solicite, haga clic en **Agregar características** y después en **Siguiente**.
-7. En la página Selección de características, haga clic en **Siguiente**.
+7. En la página Seleccionar características, haga clic en **Siguiente**.
 8. En la página Servidor web (IIS), haga clic en **Siguiente**.
-9. En la página Seleccionar servicios de rol, seleccione o desactive las casillas de los servicios que necesita para la aplicación de línea de negocio y haga clic en **Siguiente**. 10. En la página Confirmar selecciones de instalación, haga clic en **Instalar**.
+9. En la página Seleccionar servicios de rol, seleccione o desactive las casillas de los servicios que necesita para la aplicación de LOB y haga clic en **Siguiente**. 10. En la página Confirmar selecciones de instalación, haga clic en **Instalar**.
 
 ## Implemente la aplicación de línea de negocio en las máquinas virtuales de servidor web.
 
@@ -172,4 +174,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: granja de SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

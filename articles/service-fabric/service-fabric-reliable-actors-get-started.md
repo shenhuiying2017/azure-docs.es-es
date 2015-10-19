@@ -3,7 +3,7 @@
    description="Este tutorial le guiará a través de los pasos para crear, depurar e implementar un servicio HelloWorld canónico con los actores confiables de Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Actores confiables: el escenario de tutorial de HelloWorld canónico
 En este artículo se explican los conceptos básicos de los actores confiables de Service Fabric, además de ofrecer orientación sobre cómo completar los pasos para crear, depurar e implementar una aplicación HelloWorld sencilla en Visual Studio.
@@ -158,4 +158,4 @@ Las herramientas de Service Fabric para Visual Studio admiten la depuración en 
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

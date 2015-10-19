@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.date="09/30/2015"
 	ms.author="nitinme"/>
 
 
@@ -104,15 +104,21 @@ Después de haber aprovisionado un clúster, puede usar un cuaderno de Zeppelin 
 
 >[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Zeppelin, encontrará el cuaderno con el nombre **Zeppelin HVAC tutorial**.
 
-1. Inicie el cuaderno de Zeppelin. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, a continuación, desde la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Zeppelin**. Cuando se le pida, escriba las credenciales de administrador para el clúster. Siga las instrucciones de la página que se abre para iniciar el cuaderno.
+1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
-2. Cree un nuevo cuaderno. En el panel de encabezado, haga clic en **Notebook** y luego en **Create New Note** (Crear nueva nota).
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y después, en la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Zeppelin**. Cuando se le pida, escriba las credenciales del clúster.
+
+	> [AZURE.NOTE]También puede comunicarse con su equipo portátil ligero Zeppelin en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
+
+2. Cree un nuevo notebook. En el panel de encabezado, haga clic en **Notebook** y luego en **Create New Note** (Crear nueva nota).
 
 	![Crear un nuevo cuaderno de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.CreateNewNote.png "Crear un nuevo cuaderno de Zeppelin")
 
 	En la misma página, en el encabezado **Notebook**, debería ver un nuevo cuaderno con un nombre que empiece por **Note XXXXXXXXX** (Nota XXXXXXXXX). Haga clic en el nuevo cuaderno.
 
-3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado del cuaderno muestre el estado **Connected** (Conectado) en la esquina superior derecha.
+3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado de cuaderno muestre el estado **Connected** (Conectado) en la esquina superior derecha.
 
 	![Estado del cuaderno de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Estado del cuaderno de Zeppelin")
 
@@ -139,7 +145,7 @@ Después de haber aprovisionado un clúster, puede usar un cuaderno de Zeppelin 
 		// Register as a temporary table called "hvac"
 		hvac.registerTempTable("hvac")
 
-	Presione **MAYÚS + INTRO** en el teclado o haga clic en el botón **Reproducir** del párrafo para ejecutar el código. El estado en la esquina superior derecha del párrafo debería avanzar de READY (LISTO), PENDING (PENDIENTE) o RUNNING (En Ejecución) a FINISHED (FINALIZADO). El resultado aparece en la parte inferior del mismo párrafo. La captura de pantalla es similar a la siguiente:
+	Presione **MAYÚS + ENTRAR** en el teclado o haga clic en el botón **Reproducir** del párrafo para ejecutar el código. El estado en la esquina superior derecha del párrafo debería avanzar de READY (LISTO), PENDING (PENDIENTE) o RUNNING (En Ejecución) a FINISHED (FINALIZADO). El resultado aparece en la parte inferior del mismo párrafo. La captura de pantalla es similar a la siguiente:
 
 	![Crear una tabla temporal de datos sin procesar](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.LoadDataIntoTable.png "Crear una tabla temporal de datos sin procesar")
 
@@ -167,7 +173,7 @@ Después de haber aprovisionado un clúster, puede usar un cuaderno de Zeppelin 
 		from hvac
 		where targettemp > "${Temp = 65,65|75|85}"
 
-	Pegue este ejemplo de código en un nuevo párrafo y presione **MAYÚS + INTRO**. En la captura de pantalla siguiente se muestra el resultado.
+	Pegue este ejemplo de código en un nuevo párrafo y presione **MAYÚS + ENTRAR**. En la captura de pantalla siguiente se muestra el resultado.
 
 	![Ejecutar una instrucción Spark SQL mediante el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery2.png "Ejecutar una instrucción Spark SQL mediante el cuaderno")
 
@@ -181,11 +187,17 @@ Después de haber aprovisionado un clúster, puede usar un cuaderno de Zeppelin 
 
 En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark SQL en un clúster Spark.
 
->[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Jupyter, encontrará el cuaderno con el nombre **HVACTutorial.ipynb**.
+>[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Jupyter, encontrará este cuaderno por el nombre **HVACTutorial.ipynb**.
 
-1. Inicie el cuaderno de Jupyter. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, a continuación, desde la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Jupyter**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
+1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
-2. Cree un nuevo cuaderno. Haga clic en **New** (Nuevo) y, a continuación, en **Python 2**.
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel del clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+
+	> [AZURE.NOTE]También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y, luego, en **Python2**.
 
 	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.CreateNotebook.png "Crear un nuevo cuaderno de Jupyter")
 
@@ -193,7 +205,7 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 
 	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.Notebook.Name.png "Proporcionar un nombre para el cuaderno")
 
-4. Importe los módulos requeridos y cree los contextos Spark y SQL. Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + INTRO**.
+4. Importe los módulos requeridos y cree los contextos Spark y SQL. Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + ENTRAR**.
 
 		from pyspark import SparkContext
 		from pyspark.sql import SQLContext
@@ -209,7 +221,7 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 
 4. Cargue los datos de ejemplo en una tabla temporal. Cuando aprovisiona un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\\HdiSamples\\SensorSampleData\\hvac**.
 
-	En una celda vacía, pegue el siguiente ejemplo de código y presione **MAYÚS + INTRO**. Este ejemplo de código registra los datos en una tabla temporal llamada **hvac**.
+	En una celda vacía, pegue el siguiente ejemplo de código y presione **MAYÚS + ENTRAR**. Este ejemplo de código registra los datos en una tabla temporal llamada **hvac**.
 
 		# Load the data
 		hvacText = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -280,4 +292,4 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

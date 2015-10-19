@@ -33,7 +33,7 @@ Este tutorial requiere lo siguiente:
 + Visual Studio 2013
 + Paquete de Nuget [MicrosoftAzure.MobileEngagement]
 
-> [AZURE.IMPORTANT]Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones Windows Universal. Para completarlo, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.IMPORTANT]Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones Windows Universal. Para completarlo, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ##<a id="setup-azme"></a>Configure Mobile Engagement para su aplicación Windows Universal
 
@@ -103,21 +103,21 @@ Ahora ha creado un nuevo proyecto de aplicación universal de Windows en el que 
 
 Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, debe enviar al menos una pantalla (Actividad) al back-end de Mobile Engagement.
 
-1. 	En **MainPage.xaml.cs**, agregue la instrucción `using`:
+1. 	En **MainPage.xaml.cs**, agregue la siguiente instrucción `using`:
 
-		using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement.Overlay;
 
-2. Reemplace la clase base de **MainPage** de **Page** a **EngagementPage**:
+2. Reemplace la clase base de **MainPage** de **Page** por **EngagementPage**:
 
-		class MainPage : EngagementPage
+		class MainPage : EngagementPageOverlay
 
 3. En el archivo `MainPage.xaml`:
 
 	a. Agregue a las declaraciones de espacios de nombres:
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-	b. Reemplace **Page** en el nombre de etiqueta XML por **engagement:EngagementPage**.
+	b. Reemplace **Page** en el nombre de etiqueta XML por **engagement:EngagementPageOverlay**.
 	
 > [AZURE.IMPORTANT]Si la página invalida el método `OnNavigatedTo`, no olvide llamar a `base.OnNavigatedTo(e)`. De lo contrario, no se informará de la actividad (`EngagementPage` llama a `StartActivity` en su método `OnNavigatedTo`). Esto es especialmente importante en un proyecto de Windows Phone, donde la plantilla predeterminada tiene un método `OnNavigatedTo`.
 
@@ -171,13 +171,15 @@ Ahora está todo listo para enviar un aviso. Ahora comprobaremos que ha llevado 
 
 [AZURE.INCLUDE [Crear campaña de inserción de Windows](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Ahora debería ver una notificación del sistema de su campaña en el dispositivo (la aplicación debe cerrarse para ver esta notificación). Si se estaba ejecutando la aplicación, asegúrese de que esté cerrada durante dos minutos antes de activar la campaña para poder recibir la notificación del sistema. Si desea integrar la notificación de la aplicación para que la notificación se muestre en la aplicación cuando se abre, consulte [Aplicaciones Windows Universal - Integración de superposición].
+Si la aplicación se estaba ejecutando, verá entonces una notificación desde la aplicación; si, por el contrario, la aplicación estaba cerrada, verá una notificación del sistema. Si ve una notificación desde la aplicación pero no una notificación del sistema y está ejecutando la aplicación en modo de depuración en Visual Studio, debería probar **Eventos de ciclo de vida -> Suspender** en la barra de herramientas para asegurarse de que realmente se suspende la aplicación. Si acaba de hacer clic en el botón de inicio mientras se depura la aplicación en Visual Studio, no siempre se suspenderá y, mientras vea la notificación como desde la aplicación, no se mostrará como notificación del sistema.
+
+![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
 [Centro de desarrollo de la Tienda Windows]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
-[Aplicaciones Windows Universal - Integración de superposición]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
+[Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
@@ -186,5 +188,6 @@ Ahora debería ver una notificación del sistema de su campaña en el dispositiv
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
+[8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

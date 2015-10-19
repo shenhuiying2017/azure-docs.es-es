@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="10/04/2015"
 	ms.author="awills"/>
 
 
@@ -66,7 +66,7 @@ Los pasos que acaba de realizar para crear un recurso nuevo son una excelente ma
 
 Instalar y configurar el SDK de Application Insights varía en función de la plataforma en la que trabaja. En el caso de las aplicaciones de ASP.NET, es fácil.
 
-1. En Visual Studio, edite los paquetes de NuGet de su proyecto de aplicación de escritorio.
+1. En Visual Studio, edite los paquetes de NuGet de su proyecto de aplicación web.
 
     ![Haga clic con el botón secundario en el proyecto y seleccione Administrar paquetes de Nuget.](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
 
@@ -110,8 +110,8 @@ Haga clic en cualquier gráfico para ver métricas más detalladas. [Más inform
 
 #### ¿No hay datos?
 
-* Abra el icono [Buscar][diagnostic] para ver los eventos individuales.
 * Use la aplicación y abra varias páginas para generar telemetría.
+* Abra el icono [Buscar][diagnostic] para ver los eventos individuales. A veces, los eventos tardan un poco en llegar a través de la canalización de métricas.
 * Espere unos segundos y haga clic en **Actualizar**. Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente si espera que aparezcan algunos datos.
 * Vea [Solución de problemas][qna].
 
@@ -119,7 +119,9 @@ Haga clic en cualquier gráfico para ver métricas más detalladas. [Más inform
 
 Implemente ahora la aplicación en IIS o en Azure y observe cómo se acumulan los datos.
 
-Si se trabaja en modo de depuración, la telemetría se agiliza a través de la canalización y los datos aparecen en cuestión de segundos. Cuando se implementa una aplicación, los datos se acumulan a menor velocidad.
+![Uso de Visual Studio para publicar la aplicación](./media/app-insights-start-monitoring-app-health-usage/15-publish.png)
+
+Si se trabaja en modo de depuración, la telemetría se agiliza a través de la canalización y los datos aparecen en cuestión de segundos. Al implementar la aplicación en la configuración de lanzamiento, los datos se acumulan más lentamente.
 
 #### ¿No hay datos después de publicar en el servidor?
 
@@ -134,33 +136,20 @@ Abra estos puertos para el tráfico de salida en el firewall del servidor:
 Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
 
-## Versión de la aplicación de seguimiento
-
-Asegúrese de que el proceso de compilación genera `buildinfo.config`. En su archivo .csproj, agregue:
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
-```
-
-Cuando tenga la información de la versión, el módulo web de Application Insights agrega automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Eso le permite filtrar por versión al realizar [búsquedas de diagnósticos][diagnostic] o al [explorar métricas][metrics].
-
 
 ## 5\. Agregar seguimiento de dependencias (y contadores de rendimiento de IIS)
 
 El SDK necesita un poco de ayuda para obtener acceso a algunos datos. En concreto, este paso adicional será necesario para medir automáticamente las llamadas de la aplicación a las bases de datos, las API de REST y otros componentes externos. Estas métricas de dependencia pueden ser inestimables para ayudar a diagnosticar problemas de rendimiento.
 
-Si realiza la ejecución en su propio servidor IIS, este paso también permitirá que los contadores de rendimiento del sistema se muestren en el [Explorador de métricas](app-insights-metrics-explorer.md).
+Si realiza la ejecución en su propio servidor IIS, este paso también permitirá que los contadores de rendimiento del sistema se muestren en el [explorador de métricas](app-insights-metrics-explorer.md).
 
 #### Si la aplicación se ejecuta en su servidor IIS
 
-Inicie sesión en el servidor con derechos de administrador e instale [Monitor de estado de Application Insights](http://go.microsoft.com/fwlink/?LinkId=506648).
+Inicie sesión en el servidor con derechos de administrador e instale el [Monitor de estado de Application Insights](http://go.microsoft.com/fwlink/?LinkId=506648).
 
 Puede que tenga que [abrir otros puertos de salida en el firewall](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
-Este paso también permite [generar informes de contadores de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters) como ocupación de red, memoria o CPU.
+Este paso también permite [generar informes de contadores de rendimiento](app-insights-web-monitor-performance.md#system-performance-counters) como ocupación de red, de memoria o de CPU.
 
 #### Si la aplicación es una aplicación web de Azure
 
@@ -171,19 +160,16 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 #### Si se trata de un proyecto de servicios en la nube de Azure
 
-[Agregar scripts a roles web y de trabajo](app-insights-cloudservices.md)
+[Agregue scripts a roles web y de trabajo](app-insights-cloudservices.md).
 
 
 
 ## 6\. Adición de la supervisión del lado cliente
 
-Instaló el SDK que envía datos de telemetría desde el servidor (back-end) de la aplicación. Ahora puede agregar la supervisión del lado cliente. Esto proporciona datos de los usuarios, sesiones, vistas de página y excepciones o bloqueos que se producen en el cliente.
+Instaló el SDK que envía datos de telemetría desde el servidor (back-end) de la aplicación. Ahora puede agregar la supervisión del lado cliente. Esto proporciona datos sobre usuarios, sesiones, vistas de página y cualquier excepción o bloqueo que se produce en el explorador. También podrá escribir su propio código para realizar un seguimiento de cómo trabajan los usuarios con su aplicación, hasta el nivel detallado de clics y pulsaciones de teclas.
 
-También podrá escribir su propio código para realizar un seguimiento de cómo los usuarios trabajan con la aplicación, incluidos el nivel detallado de clics y las pulsaciones de teclas.
 
-#### Si los clientes son exploradores web
-
-Si la aplicación muestra páginas web, agregar un fragmento de código de JavaScript en cada página. Obtenga el código del recurso de Application Insights:
+Agregue un fragmento de código de JavaScript a cada página. Obtenga el código del recurso de Application Insights:
 
 ![En la aplicación web, abra Inicio rápido y haga clic en ''Obtener código para supervisar mis páginas web''](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
@@ -191,12 +177,21 @@ Observe que el código contiene la clave de instrumentación que identifica al r
 
 [Obtenga más información sobre el seguimiento de páginas web.](app-insights-web-track-usage.md)
 
-#### Si los clientes son aplicaciones de dispositivos
 
-Si la aplicación atiende a clientes como teléfonos u otros dispositivos, agregue el [SDK adecuado](app-insights-platforms.md) a la aplicación del dispositivo.
+## Versión de la aplicación de seguimiento
 
-Si configura el SDK del cliente con la misma clave de instrumentación que el SDK del servidor, las dos secuencias se integrarán de modo que podrá verlas juntas.
+Asegúrese de que el proceso de MSBuild genera `buildinfo.config`. En su archivo .csproj, agregue:
 
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+Cuando tenga la información de la compilación, el módulo web de Application Insights agrega automáticamente la **versión de la aplicación** como una propiedad a cada elemento de telemetría. Eso le permite filtrar por versión al realizar [búsquedas de diagnósticos][diagnostic] o al [explorar métricas][metrics].
+
+Sin embargo, tenga en cuenta que el número de versión de compilación la genera únicamente MS Build, no la compilación de desarrollador en Visual Studio.
 
 ## 7\. Finalización de la instalación.
 
@@ -225,7 +220,7 @@ Si el proyecto tiene páginas web, también agrega el [SDK de JavaScript][client
 
 #### ....o si se trata de un proyecto existente
 
-Haga clic con el botón derecho en el Explorador de soluciones y elija **Agregar Application Insights**.
+Haga clic con el botón secundario en el Explorador de soluciones y seleccione **Agregar Application Insights**.
 
 ![Elija Agregar Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -273,4 +268,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

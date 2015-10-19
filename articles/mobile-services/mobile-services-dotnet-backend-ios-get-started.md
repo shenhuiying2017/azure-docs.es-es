@@ -58,8 +58,6 @@ Con esto se muestra cómo ejecutar la nueva aplicación cliente contra el servic
 
 Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 
-* [Incorporación de Servicios móviles a una aplicación existente] <br/>Obtenga más información sobre cómo almacenar y consultar datos con Servicios móviles.
-
 * [Introducción a la sincronización de datos sin conexión] <br/>Obtenga información sobre cómo usar la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de su aplicación.
 
 * [Incorporación de autenticación a una aplicación existente] <br/>Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
@@ -88,7 +86,6 @@ Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 
 
 <!-- URLs. -->
-[Incorporación de Servicios móviles a una aplicación existente]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Introducción a la sincronización de datos sin conexión]: mobile-services-ios-get-started-offline-data.md
 [Incorporación de autenticación a una aplicación existente]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Incorporación de notificaciones push a una aplicación existente]: mobile-services-dotnet-backend-ios-get-started-push.md
@@ -100,4 +97,4 @@ Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [versión back-end de JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

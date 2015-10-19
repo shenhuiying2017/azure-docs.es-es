@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Administración de máquinas virtuales de Azure con el Administrador de recursos y con PowerShell | Microsoft Azure"
+	pageTitle="Administrar VM del Administrador de recursos de Azure | Microsoft Azure"
 	description="Administración de máquinas virtuales con el Administrador de recursos de Azure, con plantillas y con PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
@@ -379,4 +379,4 @@ Si quieres ver un vídeo en el que se realiza esta tarea, mira aquí:
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

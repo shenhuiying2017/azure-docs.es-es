@@ -19,7 +19,7 @@
 
 ## Información general
 
-El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. El almacenamiento de archivos ya está disponible y es compatible con SMB 3.0 y SMB 2.1.
+El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. El almacenamiento de archivos ya está disponible y es compatible con SMB 2.1 y SMB 3.0.
 
 Puede crear recursos compartidos de archivos de Azure mediante el portal de vista previa de Azure, los cmdlets de PowerShell de Almacenamiento de Azure, las bibliotecas de cliente de Almacenamiento de Azure o la API de REST de Almacenamiento de Azure. Además, dado que los recursos compartidos de archivos son recursos compartidos de SMB, puede tener acceso a ellos a través de la API del sistema de archivos estándar y familiar.
 
@@ -61,7 +61,7 @@ El [Portal de vista previa de Azure](https://ms.portal.azure.com/) proporciona u
 
 ## Uso de PowerShell para administrar un recurso compartido de archivos
 
-A continuación, utilizaremos Azure PowerShell para crear un recurso compartido de archivos. Una vez que se ha creado el recurso compartido de archivos, se puede montar desde cualquier sistema de archivos que admita SMB 2.1.
+A continuación, utilizaremos Azure PowerShell para crear un recurso compartido de archivos. Una vez que se ha creado el recurso compartido de archivos, se puede montar desde cualquier sistema de archivos que admita SMB 2.1 o SMB 3.0.
 
 ### Instalación de cmdlets de PowerShell para Almacenamiento de Azure
 
@@ -162,14 +162,14 @@ Tenga en cuenta que las credenciales solo persisten en el contexto en el que `cm
 
 Una vez que tenga una conexión remota con la máquina virtual, puede ejecutar el comando `net use` para montar el recurso compartido de archivos, para lo que usará la sintaxis siguiente. Reemplace `<storage-account-name>` por el nombre de su cuenta de almacenamiento y `<share-name>` por el nombre del recurso compartido de Almacenamiento de archivos:
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
 Dado que hizo persistir las credenciales de la cuenta de almacenamiento en el paso anterior, no necesita proporcionarlas con el comando `net use`. Si aún no conservó las credenciales, inclúyalas como parámetro, que se pasará al comando `net use`, como se muestra en el siguiente ejemplo.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
@@ -540,4 +540,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) (Introducción al servicio de archivos de Microsoft Azure)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

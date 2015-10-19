@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Directivas de retención de informes de Azure Active Directory"
+	pageTitle="Directivas de retención de informes de Azure Active Directory | Microsoft Azure"
 	description="Directivas de retención de datos de informes en Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/21/2015"
+	ms.date="10/02/2015"
 	ms.author="kenhoff"/>
 
 # Directivas de retención de informes de Azure Active Directory
 Los informes de Azure AD conservan los datos durante un número determinado de días, que indicamos a continuación.
 
 Informe | Descripción
---------------------------------------------------- | -----------
+------------------------------------------------------- | -----------
 Inicios de sesión desde orígenes desconocidos | 30 días
 Inicios de sesión tras varios errores | 30 días
 Inicios de sesión desde varias ubicaciones geográficas | 30 días
@@ -30,9 +30,12 @@ Actividad de inicio de sesión irregular | 30 días
 Usuarios con actividad de inicio de sesión erróneo. | 30 días
 Usuarios con credenciales perdidas | 30 días
 Informe de auditoría | 180 días
-Actividad de restablecimiento de contraseña | 30 días
-Actividad de registro de restablecimiento de contraseñas | 30 días
-Actividad de los grupos de autoservicio | 30 días
+Actividad de restablecimiento de contraseña (Azure AD) | 30 días
+Actividad de restablecimiento de contraseña (Identity Manager) | 30 días
+Actividad de registro de restablecimiento de contraseña (Azure AD) | 30 días
+Actividad de registro de restablecimiento de contraseña (Identity Manager) | 30 días
+Actividad de los grupos de autoservicio (Azure AD) | 30 días
+Actividad de los grupos de autoservicio (Identity Manager) | 30 días
 Uso de la aplicación | 30 días
 Actividad de aprovisionamiento de cuentas | 30 días
 Estado de la sustitución de contraseña | 30 días
@@ -42,4 +45,4 @@ Usuarios de RMS más activos | 30 días
 Uso de dispositivos RMS | 30 días
 Uso de aplicaciones habilitadas para RMS | 30 días
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

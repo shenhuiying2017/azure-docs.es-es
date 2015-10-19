@@ -7,7 +7,14 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/05/2015"
+	ms.author="jimpark; aashishr; giridham"/>
 
 
 # Administración de almacenes y servidores de Copia de seguridad
@@ -33,15 +40,18 @@ Haga clic en **Elementos protegidos** para ver los elementos de los que se han h
 ![Elementos protegidos](./media/backup-azure-manage-windows-server/RS_protecteditems.png)
 
 ## Elementos registrados
-Seleccione la opción **Elementos registrados** para ver los nombres de los servidores que se registraron en este almacén.
+Seleccione la opción **Elementos registrados** para ver los nombres de los servidores que se registraron en este almacén de claves.
 
 ![Servidor eliminado](./media/backup-azure-manage-windows-server/RS_deletedserver.png)
 
-Aquí podrá realizar las siguientes tareas: -**Permitir que se realice el registro de nuevo** - Cuando se selecciona esta opción para un servidor, puede usar el **Asistente de registro** que encontrará en el agente, para registrar el servidor por segunda vez con el almacén de copia de seguridad. Es posible que necesite volver a registrarse debido a un error en el certificado o si un servidor tuvo que reconstruirse. Puede volver a realizar el registro una sola vez por nombre de servidor. - **Eliminar** - Elimina un servidor del almacén de copia de seguridad. Todos los datos almacenados asociados con el servidor se eliminan inmediatamente.
+Aquí puede realizar las siguientes tareas:
+
+- **Permitir nuevo registro**: cuando se selecciona esta opción para un servidor, puede usar el **Asistente para registro** en el agente para registrar el servidor en el almacén de copia de seguridad por segunda vez. Es posible que necesite volver a registrarse debido a un error en el certificado o si un servidor tuvo que reconstruirse.
+- **Eliminar**: elimina un servidor del almacén de copias seguridad. Todos los datos almacenados asociados con el servidor se eliminan inmediatamente.
 
 ## Pasos siguientes
 - [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
-- Para obtener más información sobre la Copia de seguridad de Azure, consulte la [Información general de la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
-- Visite el [Foro de la Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
+- Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

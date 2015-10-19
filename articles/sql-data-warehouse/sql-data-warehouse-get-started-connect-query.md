@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Introducción a la conexión a Almacenamiento de datos SQL de Azure
@@ -179,9 +179,9 @@ Ahora que registramos el servidor, continuemos y escribamos una consulta.
 	Para ejecutar la consulta, haga clic en la flecha verde o use la combinación de teclas `CTRL`+`SHIFT`+`F5`.
 
 ## Pasos siguientes ##
-Ahora que puede conectarse y realizar consultas, intente [cargar datos de ejemplo][] o [desarrollar código][].
+Ahora que puede conectarse y realizar consultas, intente [cargar datos de ejemplo][].
 
 [cargar datos de ejemplo]: ./sql-data-warehouse-get-started-load-samples.md
-[desarrollar código]: ./articles/sql-data-warehouse-overview-develop/
+[developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

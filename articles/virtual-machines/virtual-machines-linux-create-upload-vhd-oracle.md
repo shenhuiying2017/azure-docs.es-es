@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="10/05/2015" 
 	ms.author="szark"/>
 
 # Preparación de una máquina virtual Oracle Linux para Azure
@@ -230,4 +230,4 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

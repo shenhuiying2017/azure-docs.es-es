@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mensajería retransmitida del Bus de servicio"
+	pageTitle="Información general sobre la mensajería retransmitida del Bus de servicio | Microsoft Azure"
 	description="Información general sobre Retransmisión de bus de servicio."
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/04/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 
@@ -31,12 +31,12 @@ Inicie la conexión entre el servicio local y el servicio de retransmisión medi
 
 ## Pasos siguientes
 
-Para obtener más información sobre Retransmisión de bus de servicio, consulte los temas siguientes.
+Para obtener más información sobre Retransmisión de bus de servicio, vea los temas siguientes.
 
-- [Información general sobre la arquitectura de Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
+- [Información general sobre la arquitectura de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 
 - [Cómo usar el servicio de retransmisión del Bus de servicio](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

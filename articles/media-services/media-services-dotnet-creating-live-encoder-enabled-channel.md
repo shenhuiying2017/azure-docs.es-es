@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/29/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
@@ -487,14 +487,17 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
 	
 
 
+##Pasos siguientes
 
-##Rutas de aprendizaje de Servicios multimedia
+###Rutas de aprendizaje de Servicios multimedia
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
+### ¿Busca alguna otra cosa?
 
-<!---HONumber=Oct15_HO1-->
+Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
+
+<!---HONumber=Oct15_HO2-->

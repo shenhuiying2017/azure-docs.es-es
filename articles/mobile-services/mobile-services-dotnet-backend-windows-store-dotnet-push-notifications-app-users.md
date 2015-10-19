@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Envío de notificaciones push a usuarios autenticados (Windows universal 8.1) | Microsoft Azure" 
+	pageTitle="Envío de notificaciones push a usuarios autenticados (Universal Windows 8.1) | Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones push a un usuario autenticado específico que esté ejecutando su aplicación de Universal Windows 8.1." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="10/05/2015" 
 	ms.author="glenga"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
@@ -30,9 +30,9 @@ Este tutorial es válido para aplicaciones de la Tienda Windows y la Tienda de W
 
 Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales de Servicios móviles:
 
-+ [Introducción a la autenticación]<br/>Agrega un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
++ [Introducción a la autenticación] Agrega un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
 
-+ [Introducción a las notificaciones de inserción]<br/>Configura la aplicación de ejemplo TodoList para notificaciones de inserción usando Centros de notificaciones.
++ [Introducción a las notificaciones de inserción] Configura la aplicación de ejemplo TodoList para notificaciones push usando Centros de notificaciones.
 
 Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autorizados se registren para notificaciones de inserción desde su servicio móvil.
 
@@ -66,4 +66,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Crear una aplicación web de .NET MVC en Servicio de aplicaciones de Azure con autenticación de Azure Active Directory #
@@ -83,11 +83,7 @@ La aplicación de ejemplo de este tutorial, [WebApp-GroupClaims-DotNet](https://
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]En Views\Roles\Index.cshtml, verá que la vista utiliza un objeto de JavaScript denominado <code>AadPicker</code> (definido en Scripts\AadPickerLibrary.js) para tener acceso a la acción <code>Search</code> en el controlador <code>Roles</code>.
-		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
-	...
-    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
-		En Controllers\RolesController.cs, verá la acción <code>Search</code>, que envía la solicitud real a la API de Azure Active Directory Graph y devuelve la respuesta a la página. Más adelante, utilizará el mismo método para crear una funcionalidad sencilla en la aplicación.
+	> [AZURE.NOTE]En Views\\Roles\\Index.cshtml, verá que la vista utiliza un objeto de JavaScript denominado <code>AadPicker</code> (definido en Scripts\\AadPickerLibrary.js) para tener acceso a la acción <code>Search</code> en el controlador <code>Roles</code>. <pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> En Controllers\\RolesController.cs, verá la acción <code>Search</code>, que envía la solicitud real a la API de Azure Active Directory Graph y devuelve la respuesta a la página. Más adelante, utilizará el mismo método para crear una funcionalidad sencilla en la aplicación.
 
 6.	Seleccione un usuario o grupo en la lista desplegable, elija un rol y haga clic en **Asignar rol**.
 
@@ -170,7 +166,7 @@ Si desea asociar la aplicación web publicada al depurador (debe cargar los sím
 <a name="bkmk_crud"></a>
 ## Agregar funcionalidad de línea de negocio a la aplicación de ejemplo
 
-En esta parte del tutorial, aprenderá a crear la funcionalidad de línea de negocio deseada según la aplicación de ejemplo. Creará un rastreador de elementos de trabajo CRUD sencillo, similar al controlador TaskTracker pero utilizando el modelo de diseño y scaffolding de CRUD estándar. También utilizará el archivo Scripts\AadPickerLibrary.js incluido para enriquecer su aplicación con datos de la API de Azure Active Directory Graph.
+En esta parte del tutorial, aprenderá a crear la funcionalidad de línea de negocio deseada según la aplicación de ejemplo. Creará un rastreador de elementos de trabajo CRUD sencillo, similar al controlador TaskTracker pero utilizando el modelo de diseño y scaffolding de CRUD estándar. También utilizará el archivo Scripts\\AadPickerLibrary.js incluido para enriquecer su aplicación con datos de la API de Azure Active Directory Graph.
 
 5.	En la carpeta Models, cree un nuevo modelo llamado WorkItem.cs y reemplace el código con el código siguiente:
 
@@ -199,15 +195,15 @@ En esta parte del tutorial, aprenderá a crear la funcionalidad de línea de neg
 
 6.	Abra DAL\GroupClaimContext.cs y agregue el código resaltado:
 	<pre class="prettyprint">
-    public class GroupClaimContext : DbContext
-    {
-        public GroupClaimContext() : base("GroupClaimContext") { }
+public class GroupClaimContext : DbContext
+{
+    public GroupClaimContext() : base("GroupClaimContext") { }
 
-        public DbSet&lt;RoleMapping> RoleMappings { get; set; }
-        public DbSet&lt;Task> Tasks { get; set; }
-        <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
-        public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
-    }</pre>
+    public DbSet&lt;RoleMapping> RoleMappings { get; set; }
+    public DbSet&lt;Task> Tasks { get; set; }
+    <mark>public DbSet&lt;WorkItem> WorkItems { get; set; }</mark>
+    public DbSet&lt;TokenCacheEntry> TokenCacheEntries { get; set; }
+}</pre>
 
 7.	Compile el proyecto para que su nuevo modelo sea accesible a la lógica de scaffolding en Visual Studio.
 
@@ -223,32 +219,32 @@ En esta parte del tutorial, aprenderá a crear la funcionalidad de línea de neg
 
 11. Agregue las representaciones [Authorize] resaltadas a las acciones respectivas siguientes.
 	<pre class="prettyprint">
+...
+
+<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+public class WorkItemsController : Controller
+{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-    public class WorkItemsController : Controller
-    {
-		...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public ActionResult Create()
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public ActionResult Create()
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Edit(int? id)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult> Edit(int? id)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+    ...
 
-        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-        public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-        ...
-
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult> Delete(int? id)
-        ...
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    public async Task&lt;ActionResult> Delete(int? id)
+    ...
 
         <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
         public async Task&lt;ActionResult> DeleteConfirmed(int id)
@@ -377,4 +373,4 @@ Ahora que ha configurado las autorizaciones y la funcionalidad de línea de nego
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

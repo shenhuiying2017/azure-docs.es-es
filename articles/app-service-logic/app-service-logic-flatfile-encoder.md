@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 # Codificador de archivos sin formato de BizTalk
 
-El conector Codificador/decodificador de archivos sin formato de BizTalk contribuye a la interoperabilidad de aplicaciones entre los datos de archivos sin formato (por ejemplo, Excel, csv) y datos XML. En este sentido, puede convertir una instancia de archivo sin formato a XML y viceversa.
+Use el conector Codificador de archivos sin formato de BizTalk para interoperar entre datos de archivos sin formato (por ejemplo, Excel, csv) y datos XML. En este sentido, puede convertir una instancia de archivo sin formato a XML y viceversa.
 
 ##Uso del Codificador de archivos sin formato de BizTalk
-1. Para usar el Codificador de archivos sin formato de BizTalk, primero debe crear una instancia de la aplicación de API del Codificador de archivos sin formato de BizTalk. Esta operación puede realizarse en línea, mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API del Codificador de archivos sin formato de BizTalk en Azure Marketplace.
+Para usar el Codificador de archivos sin formato de BizTalk, primero debe crear una instancia de la aplicación de API del Codificador de archivos sin formato de BizTalk. Esta operación puede realizarse en línea, mediante la creación de una aplicación lógica, o bien seleccionando la aplicación de API del Codificador de archivos sin formato de BizTalk en Azure Marketplace.
 
 ###Configuración del Codificador de archivos sin formato de BizTalk
 El Codificador de archivos sin formato de BizTalk adopta esquemas como parte de su configuración. Para iniciar la hoja de configuración de la aplicación de API, los usuarios pueden iniciar la aplicación de API directamente desde el Portal de Azure, o bien pueden hacer clic en dicha aplicación en la superficie del diseñador.
@@ -74,4 +74,4 @@ La acción devuelve la salida como una cadena: archivo sin formato. La salida co
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

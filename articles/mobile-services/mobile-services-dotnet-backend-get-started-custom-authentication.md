@@ -390,7 +390,7 @@ En esta sección se describen los pasos necesarios para tener acceso a los extre
 
 	Solo necesita llamar al extremo **CustomRegistration** una vez para crear una cuenta para un usuario determinado, siempre y cuando tenga la información de inicio de sesión de usuario en la tabla de cuentas. Para obtener ejemplos acerca de cómo llamar a una API personalizada en las diferentes plataformas de cliente admitidas, consulte el artículo [API personalizada en Servicios móviles de Azure: SDK de cliente](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 	 
-	> [AZURE.IMPORTANT]Dado que este paso de aprovisionamiento de usuario se produce solo una vez, considere la posibilidad de crear la cuenta de usuario de algún modo fuera de banda. Para un extremo de registro público, también debe considerar la implementación de un proceso de comprobación basado en correo electrónico o SMS o alguna otra medida de seguridad para evitar la generación de las cuentas fraudulentas. Puede usar Twilio para enviar mensajes SMS desde Servicios móviles. Para obtener más información, consulte [Envío de mensajes SMS](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms). También puede usar SendGrid para enviar correos electrónicos desde Servicios móviles. Para obtener más información, consulte [Envío de correo electrónico desde los Servicios móviles con SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	> [AZURE.IMPORTANT]Dado que este paso de aprovisionamiento de usuario se produce solo una vez, considere la posibilidad de crear la cuenta de usuario de algún modo fuera de banda. Para un extremo de registro público, también debe considerar la implementación de un proceso de comprobación basado en correo electrónico o SMS o alguna otra medida de seguridad para evitar la generación de las cuentas fraudulentas. Puede usar Twilio para enviar mensajes SMS desde Servicios móviles. También puede usar SendGrid para enviar correos electrónicos desde Servicios móviles. Para obtener más información sobre el uso de SendGrid, consulte [Envío de correo electrónico desde Servicios móviles con SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
 	
 3. Vuelva a usar el método **invokeApi** adecuado, esta vez para llamar al extremo **CustomLogin**, pasando el nombre de usuario proporcionado por el tiempo de ejecución y la contraseña en el cuerpo del mensaje.
 
@@ -420,4 +420,4 @@ De este modo finaliza este tutorial.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

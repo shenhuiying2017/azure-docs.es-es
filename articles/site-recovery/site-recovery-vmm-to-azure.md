@@ -156,7 +156,7 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 >
 >1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta, por ejemplo, C:\\ASR.
 >2. Detenga el servicio System Center Virtual Machine Manager.
->3. Ejecute los siguientes comandos con privilegios de **Administrador** desde el símbolo del sistema para extraer el instalador del proveedor: 
+>3. Ejecute los siguientes comandos con privilegios de **Administrador** desde el símbolo del sistema para extraer el instalador del proveedor:
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -175,9 +175,9 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
  - **/proxyAddress**: parámetro opcional que especifica la dirección del servidor proxy.
  - **/proxyport**: parámetro opcional que especifica el puerto del servidor proxy.
  - **/proxyUsername**: parámetro opcional que especifica el nombre de usuario de proxy (si el proxy requiere autenticación).
- - **/proxyPassword**: parámetro opcional que especifica la contraseña para autenticarse con el servidor proxy (si el proxy requiere autenticación). 
+ - **/proxyPassword**: parámetro opcional que especifica la contraseña para autenticarse con el servidor proxy (si el proxy requiere autenticación).
 
-  
+
 ## Paso 4: Creación de una cuenta de almacenamiento de Azure
 
 Si no dispone de una cuenta de almacenamiento de Azure, haga clic en **Agregar cuenta de almacenamiento de Azure**. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción.
@@ -349,6 +349,5 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 
 
 <LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Foro de Servicios de recuperación de Azure</a>.</LI> </UL>
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="07/24/2015" />
+	ms.date="10/01/2015" />
 
 # Perfiles de puntuación (API de REST de Búsqueda de Azure: 2015-02-28-Preview)
 
@@ -300,7 +300,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 </tr><tr>
 <td>magnitud | constantBoostBeyondRange</td>	<td>Los valores válidos son true o false (valor predeterminado). Cuando se establece en true, la potenciación completa continuará aplicándose a los documentos que tienen un valor para el campo de destino superior al extremo superior del intervalo. Si es false, la potenciación de esta función no se aplicará a los documentos que tengan un valor para el campo de destino que se encuentre fuera del intervalo.</td>
 </tr><tr>
-<td>índice de actualización</td>	<td>La función de puntuación del índice de actualización se usa para modificar las puntuaciones de clasificación de los elementos basados en valores de campos de DateTimeOffset. Por ejemplo, un elemento con una fecha más reciente puede clasificarse por encima de los elementos más antiguos. En la versión actual del servicio, uno de los extremos del intervalo se corregirá a la hora actual. La velocidad a la que cambia la potenciación desde un intervalo máximo y mínimo viene determinada por la interpolación aplicada al perfil de puntuación (consulte la figura siguiente). Para invertir el factor de potenciación aplicado, seleccione un factor de potenciación de menos de 1.</td>
+<td>índice de actualización</td>	<td>La función de puntuación del índice de actualización se usa para modificar las puntuaciones de clasificación de los elementos basados en valores de campos de DateTimeOffset. Por ejemplo, un elemento con una fecha más reciente puede clasificarse por encima de los elementos más antiguos. (Tenga en cuenta que también es posible clasificar elementos, como eventos del calendario con fechas futuras, de manera que los elementos más cercanos al presente tengan una clasificación más alta que los elementos más alejados en el futuro). En la versión actual del servicio, uno de los extremos del intervalo se corregirá a la hora actual. El otro extremo es un momento en el pasado basado en el elemento "boostingDuration". Para elevar un intervalo de horas en el futuro use un "boostingDuration" negativo. La velocidad a la que cambia la potenciación desde un intervalo máximo y mínimo viene determinada por la interpolación aplicada al perfil de puntuación (consulte la figura siguiente). Para invertir el factor de potenciación aplicado, seleccione un factor de potenciación de menos de 1.</td>
 </tr><tr>
 <td>índice de actualización | boostingDuration</td>	<td>Establece un período de caducidad después del que se detendrá la potenciación de un documento determinado. Consulte [Establecer boostingDuration ][#bkmk_boostdur] en la sección siguiente para obtener información sobre la sintaxis y ejemplos.</td>
 </tr><tr>
@@ -338,9 +338,9 @@ Las interpolaciones le permiten definir la pendiente con la que la potenciación
 <a name="bkmk_boostdur"></a>
 ##Establecer boostingDuration
 
-`boostingDuration` es un atributo de la función de índice de actualización. Se usa para establecer un período de caducidad después del que se detendrá la potenciación de un documento determinado. Por ejemplo, para potenciar una línea de productos o marca durante un período de promoción de 10 días, debe especificar el período de 10 días como "P10D" para dichos documentos.
+`boostingDuration` es un atributo de la función de índice de actualización. Se usa para establecer un período de caducidad después del que se detendrá la potenciación de un documento determinado. Por ejemplo, para potenciar una línea de productos o marca durante un período de promoción de 10 días, debe especificar el período de 10 días como "P10D" para dichos documentos. O bien, para elevar próximos eventos en la próxima semana, especifique "-P7D".
 
-`boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es: "P[nD][T[nH][nM][nS]]".
+`boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es: "[-]P[nD][T[nH][nM][nS]]".
 
 La tabla siguiente proporciona varios ejemplos.
 
@@ -370,4 +370,4 @@ Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

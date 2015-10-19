@@ -104,6 +104,9 @@ De forma predeterminada, las pistas solo de audio se incluyen en el manifiesto H
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
+Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+
+
 **Formato Smooth Streaming**
 
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{filename}.ism/Manifest
@@ -186,4 +189,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [Actualización de los localizadores de Servicios multimedia después de revertir las claves de almacenamiento](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

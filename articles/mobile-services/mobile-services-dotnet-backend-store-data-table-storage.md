@@ -20,7 +20,7 @@
 
 Este tema muestra cómo usar un almacén de datos no relacional para su servicio móvil de back-end de .NET. En este tutorial, modificará el proyecto de inicio rápido de Servicios móviles de Azure para usar el almacenamiento de tabla de Azure en lugar de la base de datos de Azure SQL Server predeterminada.
 
-Este tutorial requiere que se complete el tutorial [Introducción a Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente]. También necesitará una cuenta de almacenamiento de Azure.
+El tutorial requiere haber realizado el tutorial [Introducción a Servicios móviles]. También necesitará una cuenta de almacenamiento de Azure.
 
 ##Configuración del almacenamiento de tabla de Azure en el servicio móvil de back-end de .NET
 
@@ -40,7 +40,7 @@ En primer lugar, deberá configurar el servicio móvil y el proyecto de código 
 
 5. Tome nota de los valores en los campos **Nombre de cuenta de almacenamiento** y **Clave de acceso**.
  
-6. En el servicio móvil, haga clic en la pestaña **Configurar**, vaya a **Cadenas de conexión** y escriba una nueva cadena de conexión con el **Nombre** `StorageConnectionString` y un **Valor** que sea su cadena de conexión de almacenamiento con el formato siguiente.
+6. En el servicio móvil, haga clic en la pestaña **Configurar**, vaya a **Cadenas de conexión** y escriba una nueva cadena de conexión con el **Nombre** `StorageConnectionString` y un **Valor** que sea su cadena de conexión de cuenta de almacenamiento con el formato siguiente.
 
 		DefaultEndpointsProtocol=https;AccountName=<ACCOUNT_NAME>;AccountKey=<ACCESS_KEY>;
 
@@ -101,7 +101,7 @@ Como el proyecto de inicio rápido TodoList está diseñado para trabajar con un
             return DomainManager.QueryAsync(options);
         } 
 
-	A diferencia de una base de datos de SQL, esta versión no devuelve IQueryable<TEntity>, por lo que se puede enlazar al resultado pero no componerse una consulta.
+	A diferencia de una base de datos SQL, esta versión no devuelve IQueryable<TEntity>, por lo que se puede enlazar al resultado pero no componerse una consulta.
 
 ## Actualización de la aplicación de cliente
 
@@ -135,8 +135,6 @@ Ahora ya está preparado para probar la aplicación.
 
 Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el back-end de .NET, considere la posibilidad de explorar otras opciones de almacenamiento de información de back-end:
 
-+ [Uso de MongoDB como almacén de datos con el back-end de .NET de Servicios móviles](mobile-services-dotnet-backend-use-non-relational-data-store.md)</br>Al igual que el tutorial que acaba de completar, este tema muestra cómo usar un almacén de datos no relacional para el servicio móvil. En este tutorial, modificará el proyecto de inicio rápido de Servicios móviles para que use MongoDB en lugar de la base de datos de SQL como almacén de datos.
- 
 + [Conexión a un servidor SQL Server local mediante conexiones híbridas](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>Las conexiones híbridas permiten que su servicio móvil se conecte de forma segura a los recursos locales. De este modo, puede hacer que los datos locales sean accesibles para los clientes móviles mediante el uso de Azure. Entre los activos admitidos se incluye cualquier recurso que se ejecute en un puerto TCP estático, como Microsoft SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados.
 
 + [Carga de imágenes en Almacenamiento de Azure mediante Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Muestra cómo ampliar el proyecto de ejemplo TodoList para poder cargar imágenes desde su aplicación al almacenamiento de blobs de Azure.
@@ -152,10 +150,9 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 
 <!-- URLs. -->
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Incorporación de Servicios móviles a una aplicación existente]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Compilación de la primera canalización mediante Azure PowerShell
@@ -31,6 +31,8 @@ En este artículo, aprenderá a usar Azure PowerShell para crear su primera cana
 3.	Creación de la canalización.
 
 Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para obtener información general detallada del servicio, vea el artículo [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
+
+> [AZURE.IMPORTANT]Revise el artículo [Información general del tutorial](data-factory-build-your-first-pipeline.md) y realice los pasos de requisitos previos antes de completar este tutorial.
 
 ## Paso 1: Creación de la factoría de datos
 
@@ -80,7 +82,7 @@ En este paso, vinculará su cuenta de almacenamiento de Azure y un clúster de H
 
 		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
-4.	Ahora, ejecute el cmdlet **New-AzureDataFactoryLinkedService** para crear el servicio vinculado:**StorageLinkedService**.
+4.	Ahora, ejecute el cmdlet **New-AzureDataFactoryLinkedService** para crear el servicio vinculado **StorageLinkedService**.
 
 		New-AzureDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
@@ -159,7 +161,7 @@ En este paso, creará la primera canalización:
 
 1.	Cree un archivo JSON con el nombre MyFirstPipelinePSH.json en la carpeta C:\\ADFGetStartedPSH con el siguiente contenido:
 
-	> [AZURE.IMPORTANT]Reemplace **storageaccountname** por el nombre de la cuenta de almacenamiento en el código JSON.
+	> [AZURE.IMPORTANT]Reemplace **storageaccountname** por el nombre de la cuenta de almacenamiento en JSON.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -195,7 +197,7 @@ En este paso, creará la primera canalización:
 
 	En el ejemplo anterior, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
 
-	El archivo de script de Hive, partitionweblogs.hql se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, denominada StorageLinkedService) y en un contenedor llamado **script**.
+	El archivo de script de Hive, partitionweblogs.hql, se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, denominada StorageLinkedService) y en un contenedor llamado **script**.
 
 	La sección **extendedProperties** se usa para especificar la configuración de tiempo de ejecución que se pasará al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:PartitionedData}).
 
@@ -266,4 +268,4 @@ En este artículo, creó una canalización con una actividad de transformación 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

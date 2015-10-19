@@ -12,19 +12,23 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
-	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.topic="hero-article"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # Introducción a Servicios móviles para Android (back-end JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
 En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación Android mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de **Lista de pendientes** que almacena datos de la aplicación en el servicio móvil nuevo.
 
-> [AZURE.VIDEO android-support-in-windows-azure-mobile-services]
+> [AZURE.VIDEO mobile-get-started-android]
 
-La siguiente captura de pantalla muestra la aplicación final: ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+A continuación se muestra una captura de pantalla de la aplicación completada: ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## Requisitos previos
 
@@ -87,7 +91,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 * [Introducción a las notificaciones de inserción] <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 
-
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -117,4 +121,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

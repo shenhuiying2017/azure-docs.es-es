@@ -3,7 +3,7 @@
    description="Diseñar el patrón sobre la forma en que los actores de Service Fabric pueden usarse para modelar la aplicación como gráficos y redes distribuidas"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Patrón de diseño de Actores confiables: redes y gráficos distribuidos
 Actores confiables de Service Fabric es una solución natural para las complejas soluciones de modelado que implican relaciones y el modelado de dichas relaciones como objetos.
@@ -224,4 +224,4 @@ Lo que realmente hace es aprovechar la capacidad de los actores confiables para 
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

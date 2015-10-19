@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="07/08/2015"
+   ms.date="10/06/2015"
    ms.author="brjohnst"/>
 
 # Cómo usar Búsqueda de Azure desde una aplicación .NET #
@@ -31,7 +31,7 @@ La biblioteca de cliente define clases como `Index`, `Field` y `Document`, adem�
 
 La versión actual del SDK de .NET de Búsqueda de Azure es una versión preliminar. Si desea enviarnos comentarios para que los tengamos en cuenta en la primera versión estable, visite nuestra [página de comentarios](http://feedback.azure.com/forums/263029-azure-search).
 
-El SDK para .NET es compatible con la versión `2015-02-28` de la API de REST de Búsqueda de Azure, documentada en [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Las nuevas características que *no* forman parte de esta versión, como la compatibilidad con procesadores de lenguaje natural de Microsoft o el parámetro de búsqueda `moreLikeThis`, se encuentran en [vista previa](search-api-2015-02-28-preview.md) y no están disponibles todavía en el SDK. Puede consultar [Versiones del servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn864560.aspx) o [Actualizaciones más recientes de Búsqueda de Azure](search-latest-updates.md) para ver las actualizaciones de estado de cada característica.
+El SDK para .NET es compatible con la versión `2015-02-28` de la API de REST de Búsqueda de Azure, documentada en [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). Esta versión incluye ahora compatibilidad con analizadores de idioma de Microsoft. Las nuevas características que *no* forman parte de esta versión, como el parámetro de búsqueda `moreLikeThis`, se encuentran en [vista previa](search-api-2015-02-28-preview.md) y no están disponibles todavía en el SDK. Puede consultar [Versiones del servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn864560.aspx) o [Actualizaciones más recientes de Búsqueda de Azure](search-latest-updates.md) para ver las actualizaciones de estado de cada característica.
 
 Estas son otras características no admitidas en este SDK:
 
@@ -335,7 +335,9 @@ Quizás se pregunte cómo consigue el SDK de Azure para .NET cargar en el índic
 
 Lo primero que debe tener en cuenta es que cada propiedad pública de `Hotel` corresponde a un campo de la definición del índice, pero con una diferencia fundamental: el nombre de cada campo comienza con una letra minúscula ("mayúsculas y minúsculas Camel"), mientras que el nombre de cada propiedad pública de `Hotel` comienza con una letra mayúscula ("mayúsculas y minúsculas Pascal"). Se trata de un escenario común en las aplicaciones .NET que realizan enlaces de datos cuando el esquema de destino está fuera del control del desarrollador de la aplicación. En lugar de tener que infringir las directrices de nomenclatura de .NET utilizando mayúsculas y minúsculas Camel para los nombres de las propiedades, puede usar el atributo `[SerializePropertyNamesAsCamelCase]` para indicar al SDK que asigne los nombres de las propiedades automáticamente a mayúsculas y minúsculas Camel.
 
-La segunda cosa importante acerca de la clase `Hotel` son los tipos de datos de las propiedades públicas. Los tipos .NET de esas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `Edm.String`. Se dan asignaciones de tipos semejantes entre `bool?` y `Edm.Boolean`, `DateTimeOffset?` y `Edm.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx). Tenga en cuenta que los tipos de valores como `bool` y `int` admiten valores null en la clase `Hotel` porque todos los tipos de campo primitivos de Búsqueda de Azure admiten valores null.
+La segunda cosa importante acerca de la clase `Hotel` son los tipos de datos de las propiedades públicas. Los tipos .NET de esas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `Edm.String`. Se dan asignaciones de tipos semejantes entre `bool?` y `Edm.Boolean`, `DateTimeOffset?` y `Edm.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
+ 
+> [AZURE.NOTE]Al diseñar sus propias clases de modelo para asignar a un índice de Búsqueda de Azure, asegúrese de declarar propiedades de tipos de valor como `bool` y `int` que aceptan valores null (p. ej.: `bool?` en lugar de `bool`). Esto es necesario porque todos los tipos primitivos de campo en la búsqueda de Azure admiten valores NULL. Si se usan tipos que no aceptan valores NULL, puede obtener resultados inesperados al indexar valores predeterminados como `0` y `false`.
 
 Esta posibilidad de usar sus propias clases como documentos funciona en ambas direcciones: también puede recuperar los resultados de la búsqueda y hacer que el SDK los deserialice automáticamente a un tipo de su elección, como veremos en la siguiente sección.
 
@@ -625,4 +627,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

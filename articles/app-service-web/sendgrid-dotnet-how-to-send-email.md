@@ -139,9 +139,8 @@ En los siguientes ejemplos se muestra la forma de enviar un mensaje con la API W
     // Create an Web transport for sending email.
     var transportWeb = new Web(credentials);
 
-    // Send the email.
-    // You can also use the **DeliverAsync** method, which returns an awaitable task.
-    transportWeb.Deliver(myMessage);
+    // Send the email, which returns an awaitable task.
+    transportWeb.DeliverAsync(myMessage);
 
 ## Incorporación de un archivo adjunto
 
@@ -240,4 +239,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

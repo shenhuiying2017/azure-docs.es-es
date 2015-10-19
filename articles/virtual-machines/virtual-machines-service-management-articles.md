@@ -14,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="07/28/2015"
+	ms.date="10/01/2015"
 	ms.author="danlep"/>
 
 # Artículos para máquinas virtuales en la administración de servicios
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Se trata de una lista de artículos sobre la creación y administración de recursos con el modelo de implementación clásico.
 
 ## Primeros pasos
 
@@ -39,7 +39,7 @@
 
 [Creación y administración de una máquina virtual basada en Windows mediante Azure PowerShell](virtual-machines-create-windows-powershell-service-manager.md)
 
-[Creación de una máquina virtual con la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-xplat-getting-started.md)
+[Creación de una VM con Linux usando la interfaz de la línea de comandos de Azure (CLI de Azure)](virtual-machines-linux-create-custom.md)
 
 [Creación de una implementación de varias máquinas virtuales mediante la CLI de Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
@@ -87,11 +87,13 @@
 
 [Configuración de extremos en una máquina virtual](virtual-machines-set-up-endpoints.md)
 
+[Administración de máquinas virtuales mediante la CLI de Azure para Mac, Linux y Windows](virtual-machines-manage-vms-azure-cli.md)
+
 ## Creación de cargas de trabajo
 
-[Active Directory](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+[Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
 
-[BizTalk Server](https://msdn.microsoft.com/library/azure/jj248689)
+<!-- [BizTalk Server](https://msdn.microsoft.com/library/azure/jj248689) -->
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
@@ -99,11 +101,11 @@
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
-[HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+[HPC Pack](virtual-machines-hpcpack-cluster-options.md)
 
 [Pila LAMP](virtual-machines-linux-install-lamp-stack.md)
 
-[Message Queue Server (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx)
+<!-- [Message Queuing (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx) -->
 
 [Microsoft Dynamics AX](https://technet.microsoft.com/library/dn741581.aspx)
 
@@ -115,7 +117,7 @@
 
 [Oracle](virtual-machines-oracle-azure-virtual-machines.md)
 
-[SAP](https://msdn.microsoft.com/library/azure/dn745892.aspx)
+<!-- [SAP](https://msdn.microsoft.com/library/azure/dn745892.aspx) -->
 
 [SharePoint Server](virtual-machines-workload-intranet-sharepoint-farm.md)
 
@@ -125,15 +127,15 @@
 
 [System Center Operations Manager](https://technet.microsoft.com/library/dn249696.aspx#BKMK_Azure)
 
-[Team Foundation Server](https://msdn.microsoft.com/library/azure/dn769056.aspx)
+<!-- [Team Foundation Server](https://msdn.microsoft.com/library/azure/dn769056.aspx) -->
 
-[Windows Server Essentials Experience](https://msdn.microsoft.com/library/azure/dn520827.aspx)
+<!-- [Windows Server Essentials Experience](https://msdn.microsoft.com/library/azure/dn520827.aspx) -->
 
 ## Supervisión
 
 [Habilitación de diagnósticos en servicios en la nube y máquinas virtuales de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-[Depurar un servicio en la nube o una máquina virtual en Visual Studio](https://msdn.microsoft.com/library/azure/ff683670.aspx)
+<!-- [Debugging a cloud service or virtual machine in Visual Studio](https://msdn.microsoft.com/library/azure/ff683670.aspx) -->
 
 [Utilizar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas](https://msdn.microsoft.com/library/azure/dn642480.aspx)
 
@@ -147,8 +149,8 @@
 
 [cmdlets de Administración de servicios de Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
-[Referencia de la API de REST de Administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx)
-
 [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Oct15_HO1-->
+[Referencia de la API de REST de Administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx)
+
+<!---HONumber=Oct15_HO2-->

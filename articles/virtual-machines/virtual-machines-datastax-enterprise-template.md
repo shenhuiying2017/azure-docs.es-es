@@ -1,12 +1,13 @@
 <properties
-	pageTitle="DataStax Enterprise en Ubuntu con una plantilla del Administrador de recursos"
+	pageTitle="DataStax Enterprise en Ubuntu con una plantilla del Administrador de recursos | Microsoft Azure"
 	description="Aprenda a implementar fácilmente un nuevo clúster de DataStax Enterprise en máquinas virtuales de Ubuntu con Azure PowerShell o CLI de Azure y una plantilla del Administrador de recursos."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -17,6 +18,8 @@
 	ms.author="scoriani"/>
 
 # DataStax Enterprise en Ubuntu con una plantilla del Administrador de recursos
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos.
 
 DataStax es un reconocido líder del sector en el desarrollo y la entrega de soluciones basadas en Apache Cassandra™ comercialmente admitido y preparado para el ámbito empresarial, la tecnología de bases de datos distribuida NoSQL ampliamente reconocida por ser ágil, siempre activada y escalable de forma predecible a cualquier tamaño. DataStax ofrece las versiones Enterprise (DSE) y Community (DSC). Además de todo lo que proporciona la versión Community, DataStax Enterprise incluye Cassandra certificado para la producción, con capacidades como informática en memoria, seguridad a nivel empresarial, análisis integrados rápidos y potentes y administración empresarial.
 
@@ -46,7 +49,7 @@ Siga estos pasos para crear un clúster de Apache Cassandra basado en DataStax E
 
 ### Paso 1-a: Descargar los archivos de plantilla con PowerShell
 
-Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\Azure\Templates\DataStax).
+Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\\Azure\\Templates\\DataStax).
 
 Sustituya el nombre de carpeta de la carpeta local y ejecute el siguiente conjunto de comandos:
 
@@ -458,7 +461,7 @@ Se da formato a los discos conectados como parte de las actividades de preparaci
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh forma parte de la carpeta shared_scripts\ubuntu, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
+vm-disk-utils-0.1.sh forma parte de la carpeta shared\_scripts\\ubuntu, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
 
 Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de CustomScriptForLinux. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster (y la instancia OpsCenter). Aprovechan el mismo mecanismo de bucle de recursos descrito para las máquinas virtuales.
 
@@ -500,4 +503,4 @@ Este enfoque sugiere:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

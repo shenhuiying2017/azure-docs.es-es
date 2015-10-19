@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="10/01/2015"
    ms.author="andalmia"/>
 
 #Reglas de BizTalk
@@ -34,11 +34,9 @@ Existen 3 motivos principales para usar las reglas de negocios de BizTalk en el 
 
 ##Vocabulario
 
-Los términos usados para definir condiciones y acciones de reglas se expresan normalmente mediante nomenclatura específica del dominio o de la industria. Por ejemplo, un usuario de correo electrónico escribe reglas en términos de mensajes "recibidos de" y mensajes "recibidos después de", mientras que un analista de una compañía de seguros escribe reglas en términos de "factores de riesgo" e "importe de cobertura". 
-Subyacentes a esta terminología específica del dominio se encuentran los artefactos de tecnología (objetos, tablas de base de datos y documentos XML) que implementan condiciones de reglas y acciones de reglas. Se designan vocabularios para salvar las distancias entre la semántica de negocio y la implementación.
-
-Por ejemplo, un enlace de datos para un estado de aprobación podría señalar a una determinada columna de una determinada fila de una determinada base de datos, representada como una consulta SQL. En lugar de insertar este tipo de representación compleja en una regla, podría crear una definición de vocabulario asociada con ese enlace de datos, con el nombre descriptivo de "Estado". Posteriormente, puede incluir "Estado" en cualquier número de reglas y el motor de reglas puede recuperar los datos correspondientes de la tabla. 
 Un _vocabulario_ es una colección de definiciones que constan de nombres descriptivos de los objetos de cálculo usados en las condiciones y acciones de reglas. Las definiciones de vocabulario hacen que las reglas sean más fáciles de leer, entender y compartir por la gente de un dominio de negocio en particular.
+
+Se designan vocabularios para salvar las distancias entre la semántica de negocio y la implementación. Por ejemplo, un enlace de datos para un estado de aprobación podría señalar a una determinada columna de una determinada fila de una determinada base de datos, representada como una consulta SQL. En lugar de insertar este tipo de representación compleja en una regla, podría crear una definición de vocabulario asociada con ese enlace de datos, con el nombre descriptivo de "Estado". Posteriormente, puede incluir "Estado" en cualquier número de reglas y el motor de reglas puede recuperar los datos correspondientes de la tabla.
 
 ##Regla
 
@@ -111,7 +109,7 @@ Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería
 
    ![Texto alternativo][4]
 
-2.A continuación, haga clic en "Definiciones de vocabulario". Se mostrará la pantalla para la creación de vocabulario. Haga clic en “Agregar” para comenzar a agregar nuevas definiciones de vocabulario. 
+2. A continuación, haga clic en "Definiciones de vocabulario". Se mostrará la pantalla para la creación de vocabulario. Haga clic en “Agregar” para comenzar a agregar nuevas definiciones de vocabulario. 
 Actualmente se admiten dos tipos de definiciones de vocabulario: literal y XML.
 
 ##Definición literal
@@ -250,4 +248,4 @@ Una de las principales ventajas del uso de reglas de negocios es que los cambios
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

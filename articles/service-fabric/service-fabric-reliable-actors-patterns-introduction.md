@@ -3,7 +3,7 @@
    description="patrones de diseño que funcionan bien con los actores de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Introducción a los patrones de diseño de Actores confiables
 El modelo de programación Actores confiables de Service Fabric es una plataforma que se basa en el modelo de actor para solucionar problemas del mundo real en la escala de la nube. Service Fabric de Azure es una plataforma para crear aplicaciones escalables altamente confiables de forma local y en la nube que son fáciles de desarrollar y administrar. Este artículo pretende ser un artículo práctico sobre problemas prácticos. Después de leer sobre los diversos patrones, debe entender cómo puede usar el modelo de actor de Service Fabric para crear soluciones "empresariales" o "en la nube".
@@ -70,4 +70,4 @@ Las principales ventajas de los actores de Fabric de Azure son: 1) **la producti
 
 * *Asincronía explícita.* El modelo de programación de los actores de Fabric de Azure hace que la naturaleza asincrónica de una aplicación distribuida sea explícita y ayuda a los programadores a escribir código asincrónico sin bloqueo. Esto permite un alto grado de paralelismo distribuido y de rendimiento general sin el uso explícito de subprocesamiento múltiple.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

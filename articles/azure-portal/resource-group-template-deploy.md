@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/02/2015"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
@@ -240,9 +240,10 @@ El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 ## Pasos siguientes
 - Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca cliente .NET, vea [Implementación de recursos mediante bibliotecas .NET y una plantilla](../arm-template-deployment.md).
 - Para obtener un ejemplo en profundidad de la implementación de una aplicación, vea [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](../solution-dev-test-environments-preview-portal.md).
 - Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, vea [Creación de plantillas](../resource-group-authoring-templates.md).
 - Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, vea [Funciones de plantillas](../resource-group-template-functions.md).
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

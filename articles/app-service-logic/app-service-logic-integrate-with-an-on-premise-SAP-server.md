@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="sameerch"/>
 
 
 # Integración con un servidor SAP local
-Mediante el conector SAP, puede conectar aplicaciones web, móviles y lógicas de Servicios de aplicaciones de Azure al servidor SAP existente. Puede invocar RFC, BAPI, tRFC y enviar IDOC al servidor SAP.
+Mediante el conector SAP, puede conectar aplicaciones web, móviles y lógicas de Servicios de aplicaciones de Azure al servidor SAP existente. Esto permite invocar RFC, BAPI y tRFC, así como enviar IDocs al servidor SAP, incluso si se sitúa detrás del firewall local.
 
-El servidor SAP puede estar incluso detrás de su firewall localmente. En el caso de un servidor local, la conectividad se establece a través de un agente de escucha híbrido, tal como se muestra:
+Si tiene un servidor de SAP local, use un agente de escucha híbrido para establecer la conexión con el conector de SAP como se muestra:
 
 ![Flujo de conectividad híbrida][1]
 
-Un conector SAP en la nube no se puede conectar directamente a un servidor SAP detrás de un firewall. El agente de escucha híbrido salva la distancia alojando un extremo de retransmisión que permite al conector establecer conectividad con el servidor SAP de manera segura.
+Mientras que un conector de SAP en la nube no se puede conectar directamente a un servidor de SAP detrás de un firewall local, puede utilizar el agente de escucha híbrido para salvar la distancia. Esto se configura hospedando un extremo de retransmisión que permite al conector establecer conectividad con el servidor de SAP de manera segura.
 
 
 ## Diferentes formas de integrar con SAP
 Se admiten las siguientes acciones:
 
 - Llamar a RFC
-- Llamar a TRFC
+- Llamar a tRFC
 - Llamar a BAPI
 - Enviar IDoc
 
@@ -39,7 +39,7 @@ Se admiten las siguientes acciones:
 Las bibliotecas de cliente específicas de SAP son necesarias en el equipo cliente donde el agente de escucha híbrida está instalado y en ejecución. Los detalles precisos se capturan [aquí][9] en la sección titulada **Para el adaptador SAP**.
 
 
-## Creación de un nuevo adaptador SAP
+## Creación de un nuevo conector de SAP
 1. Inicie sesión en el Portal de administración de Microsoft Azure.
 2. Seleccione **Nuevo**.
 3. En la hoja Crear, seleccione **Equipo** > **Azure Marketplace**.
@@ -77,13 +77,13 @@ En la hoja del conector, observe que el estado de la conexión híbrida es pendi
 
 ![Hoja de conexión híbrida][3]
 
-Copie la cadena de configuración de puerta de enlace principal. Se utilizará posteriormente como parte de la configuración de instalación del agente de escucha híbrido.
+Copie la cadena de configuración de puerta de enlace principal. Se utilizará más adelante como parte de la configuración del agente de escucha híbrido.
 
-Seleccione el vínculo **Descargar y configurar** y haga clic una vez en el instalador:
+Haga clic en el vínculo **Descargar y configurar**. Se abre el instalador ClickOnce.
 
 ![Instalador de clic único de conexión híbrida][4]
 
-Seleccione **Instalar** y, a continuación, escriba el valor de configuración de puerta de enlace que copió anteriormente:
+Seleccione **Instalar** y, a continuación, escriba el valor de configuración de la puerta de enlace principal que copió anteriormente:
 
 ![Cadena de conexión de escucha de retransmisión][5]
 
@@ -102,9 +102,7 @@ En la hoja del conector, observe que el estado de la conexión híbrida es *Cone
 
 
 ## Uso del conector SAP en aplicaciones lógicas
-Una vez creado el conector SAP, se puede usar dentro del flujo de trabajo de aplicaciones lógicas.
-
-Cree una nueva aplicación lógica a través de **Nuevo** > **Aplicaciones lógicas** > **Crear**. Escriba los metadatos para la aplicación lógica, incluido el grupo de recursos.
+Una vez creado el conector SAP, se puede usar dentro del flujo de trabajo de aplicaciones lógicas. Para ello, cree una nueva aplicación lógica a través de **Nuevo** > **Aplicaciones lógicas** > **Crear**. Escriba los metadatos para la aplicación lógica, incluido el grupo de recursos.
 
 Seleccione **Desencadenadores y acciones**. Se abrirá el diseñador de flujo de trabajo de aplicaciones lógicas.
 
@@ -125,4 +123,4 @@ Para la acción seleccionada, consulte los parámetros de entrada y salida. Pued
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

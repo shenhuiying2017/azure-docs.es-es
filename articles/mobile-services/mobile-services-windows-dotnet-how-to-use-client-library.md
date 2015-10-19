@@ -22,7 +22,7 @@
 
 ##Información general
 
-Esta guía le muestra cómo realizar algunas tareas comunes a través del cliente .NET de Servicios móviles de Azure, en las aplicaciones de la Tienda Windows y las aplicaciones de Windows Phone. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en el uso de Servicios móviles, considere primero realizar el tutorial [Inicio rápido de Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) o el tutorial [Agregar Servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
+Esta guía le muestra cómo realizar algunas tareas comunes a través del cliente .NET de Servicios móviles de Azure, en las aplicaciones de la Tienda Windows y las aplicaciones de Windows Phone. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en el uso de Servicios móviles, considere primero la opción de completar el tutorial [Guía de inicio rápido de Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -442,7 +442,7 @@ Se admiten dos flujos de autenticación: un _server flow_ y un _client flow_. El
 ###Flujo de servidor
 Para que Servicios móviles administre el proceso de autenticación en la aplicación de la Tienda Windows o Windows Phone, debe registrar la aplicación con el proveedor de identidades. A continuación, en el servicio móvil, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor. Para obtener más información, consulte el tutorial [Incorporación de la autenticación a su aplicación].
 
-Una vez que haya registrado el proveedor de identidades, simplemente llame al [método LoginAsync] con el valor [MobileServiceAuthenticationProvider] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
+Una vez que haya registrado el proveedor de identidades, simplemente llame al método [LoginAsync] con el valor [MobileServiceAuthenticationProvider] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -729,6 +729,7 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [Incorporación de la autenticación a su aplicación]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
+[LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [método LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
@@ -743,7 +744,6 @@ Esta propiedad convierte todas las propiedades en minúsculas durante la seriali
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [API personalizada en los SDK del cliente de Servicios móviles de Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

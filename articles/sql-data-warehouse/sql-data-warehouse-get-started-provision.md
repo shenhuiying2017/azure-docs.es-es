@@ -3,99 +3,126 @@
 	description="Aprenda a crear un almacenamiento de datos SQL de Azure en el portal de vista previa de Azure"
 	services="sql-data-warehouse"
 	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
+	authors="barbkess"
+	manager="jhubbard"
 	editor=""
 	tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/29/2015"
+   ms.date="10/01/2015"
    ms.author="lodipalm;barbkess"/>
 
-# Crear un almacén de datos de SQL en el portal de vista previa de Azure#
+# Creación de un Almacenamiento de datos SQL con el Portal de vista previa de Azure#
 
-Este tutorial muestra lo fácil que resulta crear un almacén de datos de SQL de Azure en solo unos minutos en el Portal de vista previa de Azure.
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-data-warehouse-get-started-provision.md)
+- [TSQL](sql-data-warehouse-get-started-create-TSQL.md)
+- [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
+
+Este tutorial muestra cómo crear un Almacenamiento de datos SQL de Azure en solo unos minutos con el Portal de vista previa de Azure.
 
 En este tutorial realizará lo siguiente:
 
-- Creación de una nueva base de datos SQL.
-- Creación de un servidor para la base de datos.
-- Carga de AdventureWorksDW en la nueva base de datos.
+- Crear un servidor que hospedará la base de datos.
+- Crear una base de datos que contenga la base de datos de ejemplo AdventureWorksDW.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-
-## Inicio de sesión y búsqueda del almacén de datos de SQL
+## Paso 1: Iniciar sesión y comenzar
 
 1. Inicie sesión en el [Portal de vista previa](https://portal.azure.com).
 
-2. En el menú de concentrador, haga clic en **Nuevo** > **Datos y almacenamiento** > **Almacenamiento de datos SQL**.
+2. Haga clic en **Nuevo** > **Datos y almacenamiento** > **Almacenamiento de datos SQL**.
 
 	![Creación del almacenamiento de datos](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
 
-## Configuración del rendimiento y otras opciones básicas
+1. Escriba un nombre para la base de datos en la hoja de Almacenamiento de datos SQL. En este ejemplo, llamaremos a la base de datos AdventureWorksDW.
 
-En el panel **Almacenamiento de datos SQL**, rellene los campos siguientes. **Servidor** y **Origen** se configuran en las secciones siguientes.
-
-1. **Nombre de base de datos**: escriba un nombre para la base de datos de almacenamiento de datos SQL.
-
-2. **Rendimiento**: puede ajustar el rendimiento con el que se iniciará la instancia durante el aprovisionamiento. Se recomienda comenzar con 400 DWU, ya que ello le permitirá ver más de las ventajas MPP que ofrece el almacenamiento de datos SQL.
-     
-    ![Nombre y DWU](./media/sql-data-warehouse-get-started-provision/name-and-dwu.png)
-
-    > [AZURE.NOTE] El rendimiento se mide en unidades de almacenamiento de datos (DWU). A medida que aumentan las DWU, el almacenamiento de datos SQL aumenta los recursos informáticos disponibles para las operaciones de bases de datos de almacenamiento de datos.
-
-	> [AZURE.NOTE] Puede modificar de manera rápida y sencilla el nivel de rendimiento después de crear la base de datos. Por ejemplo, si no está usando la base de datos, mueva el control deslizante hacia la izquierda para reducir los costes. O bien, puede aumentar el rendimiento cuando sean necesarios más recursos. Estas son las ventajas de escalabilidad que ofrece el almacenamiento de datos SQL.
-	
-
-2. **Grupos de recursos** Mantenga los valores predeterminados. Los grupos de recursos son contenedores diseñados para ayudarle a administrar una colección de recursos de Azure. Obtenga más información sobre los [grupos de recursos](../azure-portal/resource-group-portal.md).
-3. **Suscripción**. Seleccione la suscripción a la que desea facturar esta base de datos.
+    ![Escriba un nombre de base de datos](./media/sql-data-warehouse-get-started-provision/database-name.png)
 
 
-## Configuración de un servidor lógico
+## Paso 2: Configurar y crear un servidor
+En la base de datos SQL y Almacenamiento de datos SQL, cada base de datos se asigna a un servidor y cada servidor se asigna a una ubicación geográfica. El servidor se llama a un servidor lógico de SQL.
 
-3. Haga clic en **Servidor** > **Crear un servidor nuevo**. Esto crea un servidor lógico que se asociará a la base de datos. Si ya dispone de un servidor V12 que desee usar, elija el servidor existente y vaya a la sección siguiente.
+> [AZURE.NOTE]<a name="note"></a>Un servidor lógico de SQL: >> + proporciona una manera coherente para configurar varias bases de datos dentro de la misma ubicación geográfica. > + No es un hardware físico como en un servidor local que hospeda una base de datos. Forma parte del software de servicio. Por eso lo llamamos un *servidor lógico*. > + Puede hospedar varias bases de datos sin afectar a su rendimiento. > + Usa una minúscula *s* en su nombre. Un **s**ervidor SQL es un servidor lógico de Azure, mientras que SQL **S**server es el nombre de un producto.
 
-    ![Creación de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
+1. Haga clic en **Servidor** > **Crear un nuevo servidor**. No se aplica ningún cargo por el servidor. Si ya dispone de un servidor V12 que desee usar, elija el servidor existente y vaya al paso siguiente. 
 
-    >[AZURE.NOTE] En el Almacenamiento de datos SQL y en la base de datos SQL, un servidor proporciona una forma coherente de configurar las bases de datos en la nube. En Azure, aunque el servidor se asocia a un solo centro de datos, este no forma parte del hardware físico como en una instancia local de SQL Server, sino que forma parte del software de servicio. Por ello se llama servidor lógico. Tenga en cuenta que, a diferencia de la vida real, las cargas de trabajo que ejecutan las bases de datos y los almacenes de datos en el mismo servidor no tendrán un impacto en el rendimiento entre sí.
+    ![Creación de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/create-server.png)
 
-1. En la ventana **Nuevo servidor**, rellene la información solicitada.
+3. Rellene la información del nuevo servidor.
+    
+	- **Nombre del servidor**. Escriba un nombre para el servidor lógico.
+	- **Nombre del administrador del servidor**. Escriba un nombre de usuario para la cuenta de administrador del servidor.
+	- **Contraseña** Escriba la contraseña del administrador del servidor. 
+	- **Ubicación**. Elija una ubicación geográfica para el servidor. Para reducir el tiempo de transferencia de datos, es mejor ubicar su servidor en proximidad geográfica a otros recursos de datos a los que tenga acceso esta base de datos.
+	- **Crear servidor V12**. SÍ, es la opción para Almacenamiento de datos SQL. 
+	- **Permitir que los servicios de Azure accedan al servidor**. Esto siempre está seleccionado para Almacenamiento de datos SQL
 
-    Asegúrese de almacenar el nombre del servidor, el nombre de administrador y la contraseña en algún lugar. Necesitará esta información para iniciar sesión en el servidor. 
-	- **Nombre del servidor**. Escriba un nombre para el servidor lógico. 
-	- **Nombre de administrador del servidor**. Escriba un nombre de usuario para la cuenta de administrador del servidor. 
-	- **Contraseña**. Escriba la contraseña del administrador del servidor. 
-	- **Ubicación**. Elija una ubicación geográfica cercana a usted o a los demás recursos de Azure. Esto reducirá la latencia de red, ya que todas las bases de datos y recursos que pertenecen a su servidor lógico se encontrarán físicamente en la misma región.
+    >[AZURE.NOTE]Asegúrese de almacenar el nombre del servidor, el nombre del administrador y la contraseña en algún lugar. Necesitará esta información para iniciar sesión en el servidor.
 
-    ![Configuración de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
+1. Haga clic en **Aceptar** para guardar la configuración del servidor y volver a la hoja Almacenamiento de datos SQL.
 
-1. Haga clic en **Aceptar** para guardar la configuración del servidor.
+    ![Configuración de un servidor nuevo](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
-## Carga de la base de datos de muestra
+## Paso 3: Configurar y crear una base de datos
+Ahora que seleccionó el servidor, está listo para terminar de crear la base de datos.
+ 
+2. En la hoja **Almacenamiento de datos SQL**, rellene los campos que quedan. 
 
-1. Elija **Origen** > **Muestra** para inicializar la nueva base de datos con la base de datos de muestra AdventureWorksDW. 
+    ![Crear base de datos](./media/sql-data-warehouse-get-started-provision/create-database.png)
+    
+    - **Rendimiento**: se recomienda empezar con 400 DWU. Puede mover el control deslizante hacia la izquierda o la derecha para ajustar el nivel de rendimiento de la base de datos, tanto ahora como una vez que la haya creado. 
 
-    ![Creación del almacenamiento de datos](./media/sql-data-warehouse-get-started-provision/create-data-warehouse.png)
+        > [AZURE.NOTE]El rendimiento se mide en unidades de almacenamiento de datos (DWU). A medida que aumentan las DWU, Almacenamiento de datos SQL aumenta los recursos informáticos disponibles para las operaciones de bases de datos. Cuando ejecute la carga de trabajo, podrá ver cómo se relacionan las DWU con el rendimiento de la carga de trabajo.
+        > 
+        > Puede modificar de manera rápida y sencilla el nivel de rendimiento después de crear la base de datos. Por ejemplo, si no está usando la base de datos, mueva el control deslizante hacia la izquierda para reducir los costes. O bien, puede aumentar el rendimiento cuando sean necesarios más recursos. Estas son las ventajas de escalabilidad que ofrece el almacenamiento de datos SQL.
 
-## Finalización de la creación de la base de datos
+    - **Seleccionar origen**. Haga clic en **Seleccionar origen** > **Ejemplo**. Puesto que hay solo una base de datos de ejemplo disponible en este momento, al seleccionar Ejemplo, Azure rellena automáticamente el valor para **Seleccionar Ejemplo** con AdventureWorksDW.
+  
+        ![Seleccionar Ejemplo.](./media/sql-data-warehouse-get-started-provision/select-source.png)
 
-1. Haga clic en **Crear** para crear la base de datos del almacenamiento de datos SQL. 
+    - **Grupo de recursos** Mantenga los valores predeterminados. Los grupos de recursos son contenedores diseñados para ayudarle a administrar una colección de recursos de Azure. Obtenga más información sobre los [grupos de recursos](../azure-portal/resource-group-portal.md).
+    
+    - **Suscripción**. Seleccione la suscripción a la que desea facturar esta base de datos.
 
-1. Ahora, lo único que tiene que hacer es esperar unos minutos. Cuando termine, se mostrará la base de datos de muestra en su página principal.
+1. Haga clic en **Crear** para crear la base de datos de Almacenamiento de datos SQL.
 
-    ![Vista del portal del almacenamiento de datos SQL](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
+1. Espere unos minutos y la base de datos estará lista. Cuando termine, puede ver la base de datos en el panel. Ahora debería volver al [Portal de vista previa de Azure](https://portal.azure.com). Observe que la base de datos de Almacenamiento de datos SQL se agregó a la página.
+
+    ![Vista del portal](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
+
+
+## Paso 4: Configurar el acceso al servidor de firewall para la dirección IP de cliente
+Para poder conectarse al servidor desde la dirección IP actual, tiene que agregar su dirección IP de cliente a las reglas de firewall. Este paso muestra cómo hacerlo.
+
+1. Haga clic en **Examinar** > **Servidores SQL Server** > elija el servidor > **Configuración** > **Firewall**.
+
+    ![Encontrar la configuración de firewall](./media/sql-data-warehouse-get-started-provision/find-firewall-settings.png)
+
+4. Haga clic en **Agregar IP de cliente** para que Azure cree una regla para esa dirección IP y, luego, haga clic en **Guardar**.
+
+	![Agregar la dirección IP](./media/sql-data-warehouse-get-started-provision/add-client-ip.png)
+
+1. Crear una regla de firewall con un intervalo de direcciones IP. Puede hacerlo ahora o más tarde.
+
+	>[AZURE.IMPORTANT]Probablemente su dirección IP cambie de vez en cuando, y es posible que no pueda tener acceso al servidor hasta que cree una nueva regla de firewall. Puede comprobar la dirección IP con [Bing](http://www.bing.com/search?q=my%20ip%20address) y, luego, agregar una dirección IP o un intervalo de direcciones IP. Vea [Configuración del firewal](../sql-database/sql-database-configure-firewall-settings.md) para obtener más detalles.
+
+    Para crear una regla, escriba un nombre y el intervalo de direcciones IP y haga clic en **Guardar**.
+
+    ![Agregar una regla de firewall](./media/sql-data-warehouse-get-started-provision/add-rule.png)
+
+Una vez configurado el firewall, podrá establecer conexiones desde su escritorio a la base de datos de Almacenamiento de datos SQL que acaba de crear.
+
 
 ## Pasos siguientes
 
-Ahora que ha creado una base de datos de muestra para el almacenamiento de datos SQL, obtenga información sobre cómo usar el almacenamiento de datos SQL en el siguiente tutorial.
+Ahora que ha creado una base de datos de ejemplo para Almacenamiento de datos SQL, obtenga información sobre cómo usar Almacenamiento de datos SQL en [Introducción a la conexión](./sql-data-warehouse-get-started-connect-query.md).
 
-- [Conexión y consulta](./sql-data-warehouse-get-started-connect-query.md).
+>[AZURE.NOTE]Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
 
-	> [AZURE.NOTE] Queremos mejorar este artículo. Si elige responder que no a la pregunta de si le resultó útil este artículo, incluya una sugerencia breve sobre lo que falta o cómo piensa que se podría mejorar el artículo. Gracias de antemano.
-
-<!-----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

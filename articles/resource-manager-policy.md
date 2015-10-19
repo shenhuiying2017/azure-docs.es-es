@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="09/29/2015"
+	ms.date="10/06/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Uso de directivas para administrar los recursos y controlar el acceso
@@ -26,7 +26,7 @@ En este artículo se explica la estructura básica del lenguaje de definición d
 
 ## Escenarios comunes
 
-Un escenario común es exigir etiquetas departamentales para contracargos. Es posible que una organización que desee permitir operaciones solo cuando se asocia el centro de costes correcto. De lo contrario, se denegará la solicitud. Esto ayudaría a aplicar el cargo al centro de costes correcto para las operaciones realizadas.
+Un escenario común es exigir etiquetas departamentales para contracargos. Es posible que una organización solo quiera permitir operaciones cuando se asocie el centro de coste correcto.; en caso contrario, denegará la solicitud. Esto ayudaría a aplicar el cargo al centro de costes correcto para las operaciones realizadas.
 
 Otro escenario común es que la organización que desee controlar las ubicaciones en las que se crean los recursos. O bien, puede que desee controlar el acceso a los recursos al permitir el aprovisionamiento solo de determinados tipos de recursos.
 
@@ -42,7 +42,7 @@ Básicamente, una directiva contiene lo siguiente:
 
 **Operadores lógicos/condicionales:** contiene un conjunto de condiciones que se pueden manipular mediante un conjunto de operadores lógicos.
 
-**Efecto:** describe cuál será el efecto cuando se cumpla la condición: denegar o auditoría. Un efecto de auditoría emitirá un registro de servicio de eventos de advertencia. Por ejemplo, un administrador puede crear una directiva que indique auditoría si alguien crea una máquina virtual de gran tamaño. Más adelante es posible revisar estos registros.
+**Efecto:** describe cuál será el efecto cuando se cumpla la condición: denegar o auditoría. Un efecto de auditoría emitirá un registro de servicio de eventos de advertencia. Por ejemplo, un administrador puede crear una directiva que provoque una auditoría si alguien crea una máquina virtual grande, y revisar los registros más adelante.
 
     {
       "if" : {
@@ -177,17 +177,17 @@ Las directivas se pueden aplicar en distintos ámbitos como, por ejemplo, la sus
 
 ## Creación de una directiva
 
-Esta sección proporciona detalles sobre cómo se puede crear una directiva usando la API de REST y PowerShell.
+En esta sección se ofrecen detalles sobre cómo se puede crear una directiva usando la API de REST.
 
 ### Crear una definición de directiva con la API de REST
 
-Puede crear una directiva con la API de REST para directivas. La API de REST permite crear y eliminar directivas, así como recuperar información sobre las directivas existentes.
+Puede crear una directiva con la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx). La API de REST permite crear y eliminar definiciones de directiva, así como recuperar información sobre las definiciones existentes.
 
 Para crear una nueva directiva, ejecute lo siguiente:
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-A continuación se muestra un ejemplo de cómo quedaría el cuerpo de la solicitud:
+Con un cuerpo de solicitud similar al siguiente:
 
     {
       "properties":{
@@ -211,21 +211,21 @@ A continuación se muestra un ejemplo de cómo quedaría el cuerpo de la solicit
     }
 
 
-La definición de la directiva puede definirse como uno de los ejemplos anteriores. Para obtener la versión de la API, use *2015-10-01-preview*. Para obtener más ejemplos y más detalles, consulte la API de REST para directivas.
+La definición de la directiva puede definirse como uno de los ejemplos anteriores. Para obtener la versión de la API, use *2015-10-01-preview*. Para obtener más ejemplos y más detalles, vea la [API de REST para definiciones de directiva](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ## Aplicación de una directiva
 
 ### Asignación de directivas con la API de REST
 
-Puede aplicar la definición de la directiva en el ámbito deseado a través de la API de REST para la asignación de directivas. La API de REST permite crear y eliminar las asignaciones de directivas, así como obtener información sobre las asignaciones existentes.
+Puede aplicar la definición de la directiva en el ámbito deseado a través de la [API de REST para asignaciones de directivas](https://msdn.microsoft.com/library/azure/mt588466.aspx). La API de REST permite crear y eliminar asignaciones de directiva, así como recuperar información sobre las asignaciones existentes.
 
 Para crear una nueva asignación de directiva, ejecute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} es el nombre de la asignación de directiva. Para obtener la versión de la API, use *2015-10-01-preview*. Para obtener más ejemplos y más detalles, consulte la API de REST para asignaciones de directivas.
+{policy-assignment} es el nombre de la asignación de directiva. Para obtener la versión de la API, use *2015-10-01-preview*.
 
-A continuación se muestra un ejemplo de cómo quedaría el cuerpo de la solicitud:
+Con un cuerpo de solicitud similar al siguiente:
 
     {
       "properties":{
@@ -238,4 +238,6 @@ A continuación se muestra un ejemplo de cómo quedaría el cuerpo de la solicit
       "name":"VMPolicyAssignment"
     }
 
-<!---HONumber=Oct15_HO1-->
+Para obtener más ejemplos y más detalles, consulte la [API de REST para asignaciones de directivas](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+
+<!---HONumber=Oct15_HO2-->

@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Introducción a la API de centros de eventos"
-	description="Resumen de algunas de las API de cliente de .NET de los centros de eventos clave."
-	services="event-hubs"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+   description="Resumen de algunas de las API de cliente de .NET de los centros de eventos clave."
+   services="event-hubs"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="" />
 <tags 
    ms.service="event-hubs"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="07/10/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="07/10/2015"
+   ms.author="sethm" />
 
 # Introducción a la API de Centros de eventos
 
 Este artículo resume algunas de las API de cliente de .NET de los centros de eventos. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar el estado de la entidad de los centros de eventos mediante la creación, actualización y eliminación de entidades.
 
-Los escenarios de supervisión abarcan la administración y el tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias de la [biblioteca de clases .NET](https://msdn.microsoft.com/library/jj933431.aspx) y de la [API EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.aspx).
+Los escenarios de supervisión abarcan la administración y el tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias de la [biblioteca de clases .NET](https://msdn.microsoft.com/library/azure/jj933431.aspx) y de la [API EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx).
 
 ## API de REST de administración de Búsqueda de Azure
 
@@ -50,7 +50,7 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ### Eliminar
 
 ```
-namespaceManager.DeleteEventHubAsync("event hub name").Wait();
+namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
 ## API de tiempo de ejecución
@@ -59,7 +59,7 @@ namespaceManager.DeleteEventHubAsync("event hub name").Wait();
 
 ```
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-EventHubClient eventHubClient = EventHubClient.Create("event hub name");
+EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### Publicar mensaje
@@ -131,7 +131,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-La interfaz [IEventProcessor](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.ieventprocessor.aspx) se define como sigue:
+La interfaz [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) se define como sigue:
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -180,11 +180,11 @@ Para obtener más información acerca de los escenarios de los centros de evento
 
 - [Guía de programación de Centros de eventos](event-hubs-programming-guide.md)
 - [Información general de los Centros de eventos](event-hubs-overview.md)
-- [Ejemplos de código de los centros de eventos](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
+- [Ejemplos de código de Centros de eventos](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 
 A continuación se incluyen referencias de API de .NET:
 
-- [Referencia de Bus de servicio y API de .NET de los centros de eventos](https://msdn.microsoft.com/library/jj933424.aspx)
-- [Referencia de la API de host del procesador de eventos](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [Referencia de Bus de servicio y API de .NET de los centros de eventos](https://msdn.microsoft.com/library/azure/jj933424.aspx)
+- [Referencia de la API de host del procesador de eventos](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

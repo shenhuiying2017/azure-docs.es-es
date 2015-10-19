@@ -1,20 +1,22 @@
-<properties 
+<properties
 	pageTitle="Mover datos desde un servidor SQL Server local a SQL Azure con la Factoría de datos de Azure | Azure"
 	description="Configure una canalización de ADF que componga dos actividades de migración de datos que se combinen para mover datos diariamente entre bases de datos locales y de nube."
 	services="machine-learning"
 	documentationCenter=""
 	authors="fashah"
 	manager="jacob.spoelstra"
-	editor=""/>
+	editor=""
+	videoId=""
+	scriptId="" />
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="fashah;bradsev"/>
+	ms.date="10/06/2015"
+	ms.author="fashah;bradsev" />
 
 
 # Mover datos desde un servidor SQL Server local a SQL Azure con la Factoría de datos de Azure
@@ -33,7 +35,7 @@ Considere el uso de la ADF cuando los datos deban migrarse continuamente en un e
 
 Configuramos una canalización de ADF que compone dos actividades de migración de datos que se combinan para mover datos diariamente entre una base de datos SQL local y una base de datos SQL de Azure en la nube. Las dos actividades son:
 
-* copiar datos de una base de datos SQL Server local a una cuenta de almacenamiento de blobs de Azure. 
+* copiar datos de una base de datos SQL Server local a una cuenta de almacenamiento de blobs de Azure.
 * copiar datos de la cuenta de almacenamiento de blobs de Azure a una base de datos SQL de Azure.
 
 **Referencia**: los pasos mostrados aquí se han adaptado de un tutorial más detallado [Habilitación de canalizaciones para trabajar con datos locales](data-factory-use-onpremises-datasources.md) que proporciona el equipo de ADF, y las referencias a las secciones asociadas de ese tema se proporcionarán cuando corresponda.
@@ -49,10 +51,10 @@ En este tutorial se asume que dispone de:
 
 > [AZURE.NOTE]En este procedimiento se usa el [Portal de vista previa de Azure](https://ms.portal.azure.com/).
 
-##<a name="upload-data"></a> Cargar los datos al servidor SQL Server local 
+##<a name="upload-data"></a> Cargar los datos al servidor SQL Server local
 
 Usamos el [conjunto de datos de taxis de Nueva York](http://chriswhong.com/open-data/foil_nyc_taxi/) para demostrar el proceso de migración. El conjunto de datos de taxis de Nueva York está disponible, como se especificó en esa publicación, en el almacenamiento de blobs de Azure [aquí](http://www.andresmh.com/nyctaxitrips/). Los datos tienen dos archivos, el archivo trip\_data.csv, que contiene detalles de carreras, y el archivo trip\_far.csv, que contiene detalles de la tarifa de cada carrera. En [Descripción del conjunto de datos de carreras de taxi de Nueva York](machine-learning-data-science-process-sql-walkthrough.md#dataset), se proporciona un ejemplo y una descripción de estos archivos.
- 
+
 
 Puede adaptar el procedimiento que se proporciona aquí para un conjunto de datos propios o seguir los pasos descritos para el uso del conjunto de datos de taxis de Nueva York. Para cargar el conjunto de datos de taxis de Nueva York en la base de datos de SQL Server local, siga el procedimiento descrito en [Importación masiva de datos en una base de datos de SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Estas instrucciones son para un servidor SQL Server en una máquina virtual de Azure, pero el procedimiento para realizar la carga en el servidor SQL Server local es el mismo.
 
@@ -67,7 +69,7 @@ Para permitir que las canalizaciones de una factoría de datos de Azure trabajen
 Para obtener instrucciones y detalles de instalación en Data Management Gateway, vea [Habilitación de canalizaciones para trabajar con datos locales](data-factory-use-onpremises-datasources.md).
 
 
-## <a name="adflinkedservices"></a>Crear servicios vinculados para conectarse a los recursos de datos 
+## <a name="adflinkedservices"></a>Crear servicios vinculados para conectarse a los recursos de datos
 
 Un servicio vinculado define la información necesaria para que la Factoría de datos de Azure se conecte a un recurso de datos. El procedimiento paso a paso para crear servicios vinculados se proporciona en [Crear servicios vinculados](data-factory-use-onpremises-datasources.md#step-2-create-linked-services).
 
@@ -92,8 +94,8 @@ Para crear el servicio vinculado para la base de datos SQL de Azure, haga clic e
 
 Cree tablas que especifiquen la estructura, la ubicación y la disponibilidad de los conjuntos de datos con los siguientes procedimientos de scripts. Los archivos JSON se usan para definir las tablas. Para obtener más información sobre la estructura de estos archivos, vea [Conjuntos de datos](data-factory-create-datasets.md).
 
-> [AZURE.NOTE]Debe ejecutar `Switch-AzureMode -Name AzureResourceManager`y los cmdlets `Add-AzureAccount` antes de ejecutar el cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que los cmdlets de Azure PowerShell están disponibles y que está seleccionada la suscripción de Azure correcta para la ejecución del comando. Para obtener la documentación sobre estos cmdlets, vea [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) y [Add-AzureAccoun](https://msdn.microsoft.com/library/azure/dn790372.aspx).
- 
+> [AZURE.NOTE]Debe ejecutar el cmdlet `Add-AzureAccount` antes de ejecutar el cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que se selecciona la suscripción de Azure adecuada para la ejecución del comando. Para obtener documentación sobre este cmdlet, consulte [Add-AzureAccount](https://msdn.microsoft.com/library/azure/dn790372.aspx).
+
 Las definiciones basadas en JSON de las tablas usan los siguientes nombres:
 
 * el **nombre de la tabla** del servidor SQL Server local es *nyctaxi\_data*
@@ -105,7 +107,7 @@ Se necesitan tres definiciones de tabla para esta canalización de ADF:
 2. [Tabla Blob](#adf-table-blob-store)
 3. [Tabla SQL de Azure](#adf-table-azure-sql)
 
-> [AZURE.NOTE]Los siguientes procedimientos usan Azure PowerShell para definir y crear las actividades de ADF. Sin embargo, estas tareas también se pueden realizar en el portal de vista previa de Azure. Para obtener detalles, vea [Crear conjuntos de datos de entrada y salida](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
+> [AZURE.NOTE]Los siguientes procedimientos usan Azure PowerShell para definir y crear las actividades de ADF. Sin embargo, estas tareas también se pueden realizar en el portal de vista previa de Azure. Para obtener detalles, consulte [Creación de conjuntos de datos de entrada y salida](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
 
 ###<a name="adf-table-onprem-sql"></a>Tabla SQL local
 
@@ -121,7 +123,7 @@ La definición de tabla del servidor SQL Server local se especifica en el siguie
 		    	"tableName": "nyctaxi_data",
 		    	"linkedServiceName": "adfonpremsql"
 		    	},
-		    	"availability": 
+		    	"availability":
 		    	{
 		    	"frequency": "Day",
 		    	"interval": 1,   
@@ -131,13 +133,13 @@ La definición de tabla del servidor SQL Server local se especifica en el siguie
 		    	"retryTimeout": "00:10:00",
 		    	"maximumRetry": 3
 		    	}
-		    	
+
 		    	}
 	    	}
     	}
 Tenga en cuenta que los nombres de columna no se han incluido aquí. Para subseleccionar los nombres de columna, inclúyalos aquí (para obtener detalles, vea la [documentación de ADF](data-factory-copy-activity.md)).
 
-Copie la definición de JSON de la tabla en un archivo denominado *onpremtabledef.json* y guarde el archivo en una ubicación conocida (aquí se asume que es *C:\\temp\\onpremtabledef.json*). Cree la tabla en la ADF con el siguiente cmdlet de Azure PowerShell.
+Copie la definición de JSON de la tabla en un archivo denominado *onpremtabledef.json* y guarde el archivo en una ubicación conocida (aquí se supone que es *C:\\temp\\onpremtabledef.json*). Cree la tabla en la ADF con el siguiente cmdlet de Azure PowerShell.
 
 	New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
@@ -149,7 +151,7 @@ La definición de la tabla para la ubicación del blob de salida se encuentra en
 		    "name": "OutputBlobTable",
 		    "properties":
 		    {
-			    "location": 
+			    "location":
 			    {
 			    "type": "AzureBlobLocation",
 			    "folderPath": "containername",
@@ -160,15 +162,15 @@ La definición de la tabla para la ubicación del blob de salida se encuentra en
 			    },
 			    "linkedServiceName": "adfds"
 			    },
-			    "availability": 
+			    "availability":
 			    {
 			    "frequency": "Day",
 			    "interval": 1
 			    }
 		    }
 	    }
- 
-Copie la definición de JSON de la tabla en un archivo denominado *bloboutputtabledef.json* y guarde el archivo en una ubicación conocida (aquí se asume que es *C:\\temp\\bloboutputtabledef.json*). Cree la tabla en la ADF con el siguiente cmdlet de Azure PowerShell.
+
+Copie la definición de JSON de la tabla en un archivo denominado *bloboutputtabledef.json* y guarde el archivo en una ubicación conocida (aquí se supone que es *C:\\temp\\bloboutputtabledef.json*). Cree la tabla en la ADF con el siguiente cmdlet de Azure PowerShell.
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
@@ -190,29 +192,29 @@ La definición de la tabla para la salida SQL de Azure se encuentra en la siguie
 	            "tableName": "your_db_name",
 	            "linkedServiceName": "adfdssqlazure_linked_servicename"
 	        },
-	        "availability": 
+	        "availability":
 	        {
 	            "frequency": "Day",
 	            "interval": 1            
 	        }
 	    }
 	}
-  
-Copie la definición de JSON de la tabla en un archivo denominado *AzureSqlTable.json* y guarde el archivo en una ubicación conocida (aquí se asume que es *C:\\temp\\AzureSqlTable.json*). Cree la tabla en la ADF con el siguiente cmdlet de Azure PowerShell.
+
+Copie la definición de JSON de la tabla en un archivo denominado *AzureSqlTable.json* y guarde el archivo en una ubicación conocida (aquí se supone que es *C:\\temp\\AzureSqlTable.json*). Cree la tabla en la ADF con el siguiente cmdlet de Azure PowerShell.
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
 
-##<a name="adf-pipeline"></a>Definir y crear la canalización
+##<a name="adf-pipeline"></a>Definición y creación de la canalización
 
 Especifique las actividades que pertenecen a la canalización y cree la canalización con los siguientes procedimientos de scripts. Un archivo JSON se usa para definir las propiedades de la canalización.
 
-* El script asume que el **nombre de la canalización** es *AMLDSProcessPipeline*.
+* En el script se supone que el **nombre de la canalización** es *AMLDSProcessPipeline*.
 * Además, tenga en cuenta que la periodicidad de la canalización que se va a ejecutar se establece como diaria y que se usa el tiempo de ejecución predeterminado para el trabajo (12 a.m. UTC).
 
-> [AZURE.NOTE]Los siguientes procedimientos usan Azure PowerShell para definir y crear la canalización de ADF. Sin embargo, esta tarea también se puede realizar en el portal de vista previa de Azure. Para obtener detalles, vea [Creación y ejecución de una canalización](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
+> [AZURE.NOTE]Los siguientes procedimientos usan Azure PowerShell para definir y crear la canalización de ADF. Sin embargo, esta tarea también se puede realizar en el portal de vista previa de Azure. Para obtener detalles, consulte [Creación y ejecución de una canalización](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
 
 Mediante las definiciones de tabla proporcionadas anteriormente, la definición de la canalización para la ADF se especifica de la siguiente manera:
-    
+
 		{
 		    "name": "AMLDSProcessPipeline",
 		    "properties":
@@ -246,7 +248,7 @@ Mediante las definiciones de tabla proporcionadas anteriormente, la definición 
 		                    "retry": 0,
 		                    "timeout": "01:00:00"
 		                }       
-		
+
 		             },
 
 					{
@@ -254,7 +256,7 @@ Mediante las definiciones de tabla proporcionadas anteriormente, la definición 
 						"description": "Push data to Sql Azure",		
 						"type": "CopyActivity",
 						"inputs": [ {"name": "OutputBlobTable"} ],
-						"outputs": [ {"name": "OutputSQLAzureTable"} ],	
+						"outputs": [ {"name": "OutputSQLAzureTable"} ],
 						"transformation":
 						{
 							"source":
@@ -280,23 +282,23 @@ Mediante las definiciones de tabla proporcionadas anteriormente, la definición 
 		    }
 		}
 
-Copie esta definición de JSON de la canalización en un archivo denominado *pipelinedef.json* y guarde el archivo en una ubicación conocida (aquí se asume que es *C:\\temp\\pipelinedef.json*). Cree la canalización en la ADF con el siguiente cmdlet de Azure PowerShell.
+Copie esta definición de JSON de la canalización en un archivo denominado *pipelinedef.json* y guarde el archivo en una ubicación conocida (aquí se supone que es *C:\\temp\\pipelinedef.json*). Cree la canalización en la ADF con el siguiente cmdlet de Azure PowerShell.
 
-	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json 
+	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
 Confirme que puede ver la canalización en el ADF en la presentación del portal de Azure de la siguiente manera (al hacer clic en el diagrama).
 
-![](http://i.imgur.com/DJP1kji.png)
+![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
-##<a name="adf-pipeline-start"></a>Iniciar la canalización
+##<a name="adf-pipeline-start"></a>Inicio de la canalización
 La canalización ya se puede ejecutar mediante el comando siguiente:
 
-	Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline 
+	Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
 
 Los valores de los parámetros *startdate* y *enddate* deben reemplazarse por las fechas reales entre las que desea que se ejecute la canalización.
 
 Una vez que se ejecuta la canalización, debe poder ver los datos que aparecen en el contenedor seleccionado para el blob, en este caso, un archivo por día.
 
-Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para obtener más detalles sobre cómo hacer esto y sobre otras capacidades que proporciona la ADF, vea la [documentación de ADF](http://azure.microsoft.com/services/data-factory/).
+Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para canalizar los datos de forma incremental. Para obtener más detalles sobre cómo hacer esto y sobre otras capacidades que proporciona la ADF, consulte la [documentación de ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

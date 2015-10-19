@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="09/29/2015" 
 	ms.author="huguesv"/>
 
 
@@ -137,8 +137,8 @@ Ejemplo `web.config` para Python 2.7:
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -157,6 +157,7 @@ Ejemplo `web.config` para Python 2.7:
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite"
                       url="handler.fcgi/{R:1}"
@@ -186,8 +187,8 @@ Ejemplo `web.config` para Python 3.4:
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -206,6 +207,7 @@ Ejemplo `web.config` para Python 3.4:
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite" url="handler.fcgi/{R:1}" appendQueryString="true" />
             </rule>
@@ -218,13 +220,6 @@ Ejemplo `web.config` para Python 3.4:
 Los archivos estáticos los administra el servidor web directamente, sin pasar por el código de Python, para obtener un rendimiento mejorado.
 
 En los ejemplos anteriores, la ubicación de los archivos estáticos en disco debe coincidir con la ubicación de la dirección URL. Esto significa que una solicitud de `http://pythonapp.azurewebsites.net/static/site.css` servirá el archivo en disco en `\static\site.css`.
-
-Es posible configurar la regla `Static Files` para servir archivos desde una ubicación de disco distinta de la ubicación en la dirección URL. En la siguiente definición de regla, una solicitud de `http://pythonapp.azurewebsites.net/static/site.css` servirá el archivo en disco en `\FlaskWebProject\static\site.css`, en lugar de `\static\site.css`.
-
-    <rule name="Static Files" stopProcessing="true">
-      <match url="^/static/.*" ignoreCase="true" />
-      <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
-    </rule>
 
 `WSGI_ALT_VIRTUALENV_HANDLER` es donde especifica el controlador WSGI. En los ejemplos anteriores, es `app.wsgi_app` porque el controlador es una función denominada `wsgi_app` en `app.py` en la carpeta raíz.
 
@@ -254,6 +249,7 @@ Contenido de `ptvs_virtualenv_proxy.py`:
     import datetime
     import os
     import sys
+    import traceback
 
     if sys.version_info[0] == 3:
         def to_str(value):
@@ -294,20 +290,22 @@ Contenido de `ptvs_virtualenv_proxy.py`:
 
     def get_wsgi_handler(handler_name):
         if not handler_name:
-            raise Exception('WSGI_HANDLER env var must be set')
-        
+            raise Exception('WSGI_ALT_VIRTUALENV_HANDLER env var must be set')
+    
         if not isinstance(handler_name, str):
             handler_name = to_str(handler_name)
-
+    
         module_name, _, callable_name = handler_name.rpartition('.')
         should_call = callable_name.endswith('()')
         callable_name = callable_name[:-2] if should_call else callable_name
         name_list = [(callable_name, should_call)]
         handler = None
+        last_tb = ''
 
         while module_name:
             try:
                 handler = __import__(module_name, fromlist=[name_list[0][0]])
+                last_tb = ''
                 for name, should_call in name_list:
                     handler = getattr(handler, name)
                     if should_call:
@@ -319,10 +317,11 @@ Contenido de `ptvs_virtualenv_proxy.py`:
                 callable_name = callable_name[:-2] if should_call else callable_name
                 name_list.insert(0, (callable_name, should_call))
                 handler = None
-
+                last_tb = ': ' + traceback.format_exc()
+    
         if handler is None:
-            raise ValueError('"%s" could not be imported' % handler_name)
-
+            raise ValueError('"%s" could not be imported%s' % (handler_name, last_tb))
+    
         return handler
 
     activate_this = os.getenv('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS')
@@ -343,9 +342,9 @@ Contenido de `ptvs_virtualenv_proxy.py`:
         import site
         sys.executable = activate_this
         old_sys_path, sys.path = sys.path, []
-        
+    
         site.main()
-        
+    
         sys.path.insert(0, '')
         for item in old_sys_path:
             if item not in sys.path:
@@ -375,7 +374,7 @@ Contenido de `ptvs_virtualenv_proxy.py`:
 
 Para obtener más información, consulte el [Centro para desarrolladores de Python](/develop/python/).
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -387,4 +386,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

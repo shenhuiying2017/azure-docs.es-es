@@ -3,7 +3,7 @@
 	description="Implemente fácilmente una granja de SharePoint de tres o nueve servidores con plantillas del Administrador de recursos y el portal de Azure, Azure PowerShell o la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/29/2015"
-	ms.author="davidmu"/>
+	ms.date="10/05/2015"
+	ms.author="josephd"/>
 
 # Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure
 
@@ -37,17 +37,18 @@ Para implementar esta carga de trabajo mediante una plantilla del Administrador 
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Para el panel **Plantilla**, haga clic en **Guardar**.
-2.	Haga clic en **Parámetros**. En el panel **Parámetros**, escriba nuevos valores, seleccione de valores permitidos o acepte los valores predeterminados y, a continuación, haga clic en **Aceptar**.
-3.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
-4.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
-5.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
-6.	Si es necesario, haga clic en **Condiciones legales** para revisar los términos y el contrato para usar la plantilla.
+1.	Haga clic en **Parámetros**. En el panel **Parámetros**, escriba nuevos valores, seleccione de valores permitidos o acepte los valores predeterminados y, a continuación, haga clic en **Aceptar**.
+2.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
+3.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
+4.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
+6.	Haga clic en **Términos legales** para revisar los términos y el contrato para usar la plantilla.
 7.	Haga clic en **Crear**.
 
 Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar la carga de trabajo. Cuando haya finalizado, tendrá una nueva granja SharePoint de tres servidores en el grupo de recursos nuevo o existente.
 
 ### Azure PowerShell
+
+> [AZURE.NOTE]Este artículo contiene comandos para versiones de Azure PowerShell hasta, *pero sin incluir*, las versiones 1.0.0 y versiones posteriores. Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**. Los bloques de comandos de Azure PowerShell de este artículo están en proceso de prueba y actualización para admitir los nuevos cmdlets de las versiones 1.0.0, y posteriores, de Azure PowerShell. Gracias por su paciencia.
 
 Antes de comenzar, asegúrese de tener la versión correcta de Azure PowerShell instalada, de haber iniciado sesión y de haber cambiado al nuevo modo de Administrador de recursos. Para obtener detalles, haga clic [aquí](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
 
@@ -108,13 +109,12 @@ Para implementar esta carga de trabajo mediante una plantilla del Administrador 
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Para el panel **Plantilla**, haga clic en **Guardar**.
-2.	Haga clic en **Parámetros**. En el panel **Parámetros**, escriba nuevos valores, seleccione de valores permitidos o acepte los valores predeterminados y, a continuación, haga clic en **Aceptar**.
-3.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
-4.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
-5.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
-6.	Si es necesario, haga clic en **Condiciones legales** para revisar los términos y el contrato para usar la plantilla.
-7.	Haga clic en **Crear**.
+1.	Haga clic en **Parámetros**. En el panel **Parámetros**, escriba nuevos valores, seleccione de valores permitidos o acepte los valores predeterminados y después haga clic en **Aceptar**.
+2.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
+3.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
+4.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
+5.	Haga clic en **Términos legales** para revisar los términos y el contrato para usar la plantilla.
+6.	Haga clic en **Crear**.
 
 Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar la carga de trabajo. Cuando haya finalizado, tendrá una nueva granja SharePoint de nueve servidores en el grupo de recursos nuevo o existente.
 
@@ -170,6 +170,8 @@ Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja S
 
 ## Recursos adicionales
 
+[Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
+
 [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Proveedores de proceso, red y almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
@@ -182,4 +184,4 @@ Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja S
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->
