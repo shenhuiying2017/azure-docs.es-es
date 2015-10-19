@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/05/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 # Creación de salidas de Análisis de transmisiones
@@ -254,7 +254,7 @@ Compruebe que el formato de datos y la serialización sean correctos.
 
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -306,4 +306,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic37]: ./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png
 [graphic38]: ./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

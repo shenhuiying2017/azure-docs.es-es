@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Requisitos de QoS ExpressRoute
@@ -44,9 +44,10 @@ En la tabla siguiente se proporciona una lista de marcados de DSCP usados por Sk
 ## Pasos siguientes
 
 - Consulte los requisitos de [enrutamiento](expressroute-routing.md) y [NAT](expressroute-nat.md).
-- Configure su conexión ExpressRoute.
+- Consulte los vínculos siguientes para configurar la conexión ExpressRoute.
+
 	- [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

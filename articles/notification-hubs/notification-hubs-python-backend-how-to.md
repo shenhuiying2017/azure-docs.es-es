@@ -17,11 +17,7 @@
 	ms.author="yuaxu"/>
 
 # Uso de los centros de notificaciones desde Python
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 Puede tener acceso a todas las características de los Centros de notificaciones desde un back-end Java/PHP/Python/Ruby mediante la interfaz REST del Centro de notificaciones, tal como se describe en el tema de MSDN [API de REST de los Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx).
 
@@ -354,4 +350,4 @@ En este tema hemos visto cómo crear a un cliente REST de Python sencillo para c
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

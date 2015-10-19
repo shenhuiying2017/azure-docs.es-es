@@ -1,7 +1,25 @@
-<properties pageTitle="Creación de una máquina virtual Oracle WebLogic Server 12c en Azure" description="Revise paso a paso un ejemplo de creación de una máquina virtual de Oracle WebLogic Server 12c que esté ejecutando Windows Server 2012 en Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Creación de una máquina virtual de Oracle WebLogic Server 12c | Microsoft Azure"
+	description="Cree una máquina virtual de Oracle WebLogic Server 12c que ejecute Windows Server 2012 en Microsoft Azure, usando el modelo de implementación del Administrador de recursos."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
 #Creación de una máquina virtual Oracle WebLogic Server 12c en Azure
 En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada en una imagen Oracle WebLogic Server 12c que se ejecuta en Microsoft con Windows Server 2012 en Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describe la creación de un servidor Oracle WebLogic Server con el modelo de implementación del Administrador de recursos.
+
 
 ##Para crear una máquina virtual Oracle WebLogic Server 12c en Azure
 
@@ -9,7 +27,7 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 2. Haga clic en **Marketplace**, en **Proceso** y, a continuación, escriba **Oracle** en el cuadro de búsqueda.
 
-3.	Seleccione la imagen de **Oracle WebLogic Server 12c Standard Edition en Windows Server 2012** o **Oracle WebLogic Server 12c Enterprise Edition en Windows Server 2012**. Revise la información sobre esta imagen (por ejemplo, el tamaño mínimo recomendado) y, a continuación, haga clic en **Siguiente**.
+3.	Seleccione la imagen **Oracle WebLogic Server 12c Standard Edition en Windows Server 2012** o **Oracle WebLogic Server 12c Enterprise Edition en Windows Server 2012**. Revise la información sobre esta imagen (por ejemplo, el tamaño mínimo recomendado) y, a continuación, haga clic en **Siguiente**.
 
 4.	Especifique un **Nombre de host** para la máquina virtual.
 
@@ -17,18 +35,18 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 6.	Especifique y confirme una contraseña para la máquina virtual o proporcione una clave pública SSH.
 
-7.	Elija un **Nivel de precios**. Tenga en cuenta que los niveles de precios recomendados se muestran de forma predeterminada. Para ver todas las opciones de configuración, haga clic en **Ver todo** en la parte superior derecha.
+7.	Elija un **Plan de tarifas**. Tenga en cuenta que los planes de tarifas recomendados se muestran de forma predeterminada. Para ver todas las opciones de configuración, haga clic en **Ver todo** en la parte superior derecha.
 
 8.	Establezca la configuración opcional según sea necesario, con estas consideraciones:
-	1. Deje **Cuenta de almacenamiento** tal y como se encuentra para crear una nueva cuenta de almacenamiento con el nombre de la VM.
+	1. Deje **Cuenta de almacenamiento** tal y como se encuentra para crear una nueva cuenta de almacenamiento con el nombre de la máquina virtual.
 	2. Deje **Conjunto de disponibilidad** como "No configurado".
 	3. No agregue ningún **extremo** en este momento.
 
-9.	Elija o cree un [grupo de recursos](resource-group-portal.md)
+9.	Elija o cree un [Grupo de recursos](resource-group-portal.md).
 
-10. Elija una **suscripción**
+10. Elija una **Suscripción**.
 
-11. Elija una **ubicación**
+11. Elija una **Ubicación**.
 
 
 ##Para configurar su máquina virtual Oracle WebLogic Server 12c en Azure
@@ -92,13 +110,13 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 3.	Dentro de la **Consola de administración de WebLogic Server**, haga clic en **Bloquear y editar**, haga clic en **Implementaciones** y, a continuación, haga clic en **Instalar**.
 
-4.	Para **Ruta de acceso**, escriba **c:\\mywar\\shoppingcart.war.**
+4.	En **Ruta de acceso**, escriba **c:\\mywar\\shoppingcart.war.**
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
 
 	Haga clic en **Siguiente**.
 
-5.	Seleccione I**nstalar esta implementación como una aplicación** y, a continuación, haga clic en **Siguiente**.
+5.	Seleccione **Instalar esta implementación como una aplicación** y, a continuación, haga clic en **Siguiente**.
 
 6.	Haga clic en **Finalizar**
 
@@ -112,13 +130,13 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 	1. Inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/).
 
-	2.	Haga clic en **Examinar**
+	2.	Haga clic en **Examinar**.
 
-	3.	Haga clic en **Máquinas virtuales**
+	3.	Haga clic en **Máquinas virtuales**.
 
 	4.	Seleccione la máquina virtual
 
-	5.	Haga clic en **Configuración**
+	5.	Haga clic en **Configuración**.
 
 	6.	Haga clic en **Extremos**.
 
@@ -126,9 +144,9 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 	8.	Escriba un nombre para el extremo
 
-		1. Use **TCP** para el protocolo
+		1. Use **TCP** para el protocolo.
 
-		2. Use **80** para el puerto público
+		2. Use **80** para el puerto público.
 
 		3. Use **7001** para el puerto privado.
 
@@ -144,15 +162,15 @@ En el ejemplo siguiente se muestra cómo puede crear una máquina virtual basada
 
 	3.	En la consola de administración de firewall, haga clic en **Reglas de entrada** en el panel izquierdo (si no ve **Reglas de entrada**, expanda el nodo superior en el panel izquierdo) y, a continuación, haga clic en Nueva regla en el panel derecho.
 
-	4.	Para **Tipo de regla**, seleccione **Puerto** y haga clic en **Siguiente**.
+	4.	En **Tipo de regla**, seleccione **Puerto** y haga clic en **Siguiente**.
 
-	5.	Para **Protocolo y puerto**, seleccione **TCP** y **Puertos locales específicos**, escriba **7001** para el puerto y, a continuación, haga clic en **Siguiente**.
+	5.	En **Protocolo y puerto**, seleccione **TCP** y **Puertos locales específicos**, escriba **7001** para el puerto y, luego, haga clic en **Siguiente**.
 
 	6.	Seleccione **Permitir la conexión** y haga clic en **Siguiente**.
 
 	7.	Acepte los valores predeterminados para los perfiles para los que se aplica la regla y haga clic en **Siguiente**.
 
-	8.	Especifique un nombre para la regla y, opcionalmente, una descripción y, a continuación, haga clic en **Finalizar**.
+	8.	Especifique un nombre para la regla y, opcionalmente, una descripción y, luego, haga clic en **Finalizar**.
 
 12.	Para ver la aplicación de carro de la compra que se ejecuta en Internet, abra un explorador en la dirección URL en forma de `http://<<unique_domain_name>>/shoppingcart`. (Para determinar el valor de <<*unique\_domain\_name*>> dentro del [Portal de Azure](https://ms.portal.azure.com/), haga clic en **Máquinas virtuales** y después seleccione la máquina virtual que está usando para ejecutar Oracle WebLogic Server).
 
@@ -168,4 +186,4 @@ Ahora que ha configurado la máquina virtual que se está ejecutando en el Oracl
 
 -	[Imágenes de máquina virtual de Oracle para Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

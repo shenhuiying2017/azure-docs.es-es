@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Preguntas más frecuentes sobre la disponibilidad y el soporte técnico de los Centros de eventos"
-   description="Preguntas más frecuentes y detalles de precios de los Centros de eventos."
+   pageTitle="Disponibilidad y el soporte técnico de los Centros de eventos | Microsoft Azure"
+   description="Preguntas más frecuentes sobre la disponibilidad y el soporte técnico de los Centros de eventos"
    services="event-hubs"
    documentationCenter="na"
    authors="sethmanheim"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="sethm" />
 
 # Preguntas más frecuentes sobre la disponibilidad y el soporte técnico de los Centros de eventos
 
 Los Centros de eventos ofrecen consumo a gran escala, persistencia y procesamiento de eventos de datos de orígenes de datos de alto rendimiento o millones de dispositivos. Cuando se emparejan con temas y colas de Bus de servicio, los Centros de eventos permiten comandos persistentes e implementaciones de control para los escenarios de Internet de las cosas.
 
-En esta sección se ofrece información de disponibilidad y respuestas a algunas preguntas frecuentes.
+En esta sección se proporciona información sobre disponibilidad y respuestas a algunas preguntas frecuentes.
 
 ## Información de precios
 
-Para obtener información sobre los precios de los Centros de eventos, consulte los [detalles de precios de los Centros de eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
+Para obtener una completa información sobre los precios de los Centros de eventos, consulte los [detalles de precios de los Centros de eventos](http://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## ¿Cómo se calculan los eventos de entrada de los Centros de eventos?
 
@@ -100,15 +100,14 @@ Para obtener más información sobre nuestro SLA, visite la página [Acuerdos de
 
 ## Pasos siguientes
 
-Para obtener más información sobre los Centros de eventos, visite los siguientes temas:
+Para obtener más información sobre los Centros de eventos, consulte los siguientes artículos:
 
 - [Información general de los Centros de eventos]
 - Una [aplicación de ejemplo completa que usa Centros de eventos].
 - Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
 
 [Información general de los Centros de eventos]: event-hubs-overview.md
-[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[solución de mensajería en cola]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
- 
+[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[solución de mensajería en cola]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

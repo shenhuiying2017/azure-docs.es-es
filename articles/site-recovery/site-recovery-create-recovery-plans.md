@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 # Creación de planes de recuperación
@@ -79,7 +79,7 @@ Antes de comenzar, tenga en cuenta lo siguiente:
 - Escriba los scripts con Windows PowerShell.
 - Los cmdlets de VMM se entregan en un módulo de Windows PowerShell. El módulo de Windows PowerShell de VMM se instala al instalar la consola VMM. El módulo VMM se puede cargar en el script, para lo que es preciso usar el siguiente comando en el script: Import-Module -Name virtualmachinemanager. [Obtenga más detalles](hhttps://technet.microsoft.com/library/hh875013.aspx).
 - Asegúrese de que tiene al menos un servidor de biblioteca en la implementación de VMM. De forma predeterminada, la ruta de acceso del recurso compartido de biblioteca para un servidor VMM se encuentra localmente en el servidor VMM con el nombre de carpeta MSCVMMLibrary.
-- Si la ruta de acceso del recurso compartido de biblioteca es remota, o local pero no se comparte con MSCVMMLibrary, configure el recurso compartido como se indica a continuación (por ejemplo, con \\libserver2.contoso.com\\share\):
+- Si la ruta de acceso del recurso compartido de biblioteca es remota, o local pero no se comparte con MSCVMMLibrary, configure el recurso compartido como se indica a continuación (por ejemplo, con \\libserver2.contoso.com\\share\\):
 	- Abra el Editor del registro.
 	- Navegue a HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration.
 	- Edite el valor ScriptLibraryPath.
@@ -124,4 +124,4 @@ Puede ejecutar diferentes tipos de plan de recuperación de conmutaciones por er
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Funcionalidad del sistema operativo en Aplicaciones web del Servicio de aplicaciones de Azure #
@@ -111,4 +111,4 @@ El acceso de escritura al registro está bloqueado, incluido el acceso a las cla
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

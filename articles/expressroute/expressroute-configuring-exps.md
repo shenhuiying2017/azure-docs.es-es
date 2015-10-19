@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
+   ms.date="09/28/2015"
    ms.author="cherylmc"/>
 
 #  Configuración de una conexión ExpressRoute a través de un proveedor de Exchange
@@ -231,4 +231,4 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 - Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

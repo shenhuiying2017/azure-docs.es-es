@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Uso de la extensión de VM Docker para Linux en Azure"
-	description="Describe Docker y las extensiones de máquinas virtuales de Azure y muestra cómo crear máquinas virtuales en Azure mediante programación que son host de Docker desde la línea de comandos usando la CLI de Azure."
+	pageTitle="Uso de la extensión de VM Docker para Linux | Microsoft Azure"
+	description="Describe Docker y las extensiones de máquinas virtuales de Azure y cómo crear máquinas virtuales en Azure que son host de Docker mediante la CLI de Azure en el modelo de implementación clásico."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,9 +20,9 @@
 
 # Uso de la extensión de VM Docker con el portal de Azure
 
-[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC) en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de máquina virtual Docker que administra el [agente Linux de Azure] para crear una máquina virtual Docker que hospede un número cualquiera de contenedores para sus aplicaciones en Azure.
-
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación clásica.
+
+[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC) en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de máquina virtual Docker que administra el [agente Linux de Azure] para crear una máquina virtual Docker que hospede un número cualquiera de contenedores para sus aplicaciones en Azure.
 
 > [AZURE.NOTE]En este tema se describe cómo crear una máquina virtual Docker desde el Portal de Azure. Para ver cómo crear una máquina virtual de Docker en la línea de comandos, consulte [Uso de la extensión de VM Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)]. Para ver un análisis de alto nivel de los contenedores y sus ventajas, consulte [Documento de alto nivel de Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -145,6 +146,5 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 
 [Ejecución de Docker con https]: http://docs.docker.com/articles/https/
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
- 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

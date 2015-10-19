@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Movimiento de datos hacia y desde Tabla de Azure mediante Factoría de datos de Azure
 
-En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos a tablas de Azure desde otro almacén de datos y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
+En este artículo se describe cómo puede usar la actividad de copia en la Factoría de datos de Azure para mover datos desde otro almacén de datos a Tabla de Azure y viceversa. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
 ## Ejemplo: copia de datos de una tabla de Azure a un blob de Azure
 
@@ -384,16 +384,36 @@ azureTableInsertType | Modo de insertar datos en la tabla de Azure. | merge<br/>
 writeBatchSize | Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. | Entero de 1 a 100 (unidad = recuento de filas) | No (predeterminado = 100) 
 writeBatchTimeout | Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. | (Unidad = intervalo de tiempo)Ejemplo: “00:20:00” (20 minutos) | No (el valor predeterminado de intervalo de tiempo del cliente de almacenamiento es 90 segundos)
 
+### azureTablePartitionKeyName
+Debe asignar una columna de origen a una columna de destino con la propiedad JSON de traductor para poder utilizar la columna de destino como azureTablePartitionKeyName.
+
+En el ejemplo siguiente, la columna de origen DivisionID se asigna a la columna de destino DivisionID.
+
+	"translator": {
+		"type": "TabularTranslator",
+		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
+	} 
+
+El valor EmpID se especifica como clave de partición.
+
+	"sink": {
+		"type": "AzureTableSink",
+		"azureTablePartitionKeyName": "DivisionID",
+		"writeBatchSize": 100,
+		"writeBatchTimeout": "01:00:00"
+	}
+
+
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Asignación de tipos para tabla de Azure
 
-Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de los tipos de origen a los tipos de receptor con el siguiente enfoque de dos pasos.
+Como se mencionó en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md), la actividad de copia realiza conversiones automáticas de tipos de origen a tipos de receptor con el siguiente método de dos pasos:
 
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Al mover datos a y desde Tabla de Azure, se usarán las siguientes [asignaciones definidas por el servicio Tabla de Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) desde tipos OData de Tabla de Azure al tipo .NET y viceversa.
+Al mover datos a Tabla de Azure y desde este servicio, se usarán las siguientes [asignaciones definidas por el servicio Tabla de Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) desde tipos OData de Tabla de Azure al tipo .NET y viceversa.
 
 | Tipo de datos OData | Tipo .NET | Detalles |
 | --------------- | --------- | ------- |
@@ -484,4 +504,4 @@ En este caso, la Factoría de datos realizará automáticamente las conversiones
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

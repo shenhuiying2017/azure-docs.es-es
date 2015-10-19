@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="10/05/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles 
@@ -26,7 +26,7 @@ Este tema muestra cómo autenticar usuarios en Servicios móviles de Azure desde
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar también el tutorial [Introducción a Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
->[AZURE.NOTE]Este tutorial muestra cómo utilizar autenticación dirigida al servidor para usuarios en aplicaciones de la Tienda Windows y la Tienda de Windows Phone 8.1. Para una aplicación de Windows Phone 8.0 o Windows Phone Silverlight 8.1, consulte esta versión de [Introducción a la autenticación en Servicios móviles](mobile-services-dotnet-backend-windows-phone-get-started-users.md). Para más información acerca de la autenticación dirigida al cliente, consulte [Iniciando sesión con Google, Microsoft y SDK de Facebook para Servicios móviles de Azure](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
+>[AZURE.NOTE]Este tutorial muestra cómo utilizar autenticación dirigida al servidor para usuarios en aplicaciones de la Tienda Windows y la Tienda de Windows Phone 8.1. Para más información sobre la autenticación dirigida al cliente, vea [Inicio de sesión con los SDK de Google, Microsoft y Facebook en Servicios móviles de Azure](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
@@ -46,7 +46,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 
 &nbsp;&nbsp;8. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows y compruebe que, cuando esta se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado).
    
-&nbsp;&nbsp;Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
+&nbsp;&nbsp;Esto se produce porque la aplicación intenta acceder a Servicios móviles como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
@@ -67,7 +67,7 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 
 ##Consulte también
 
-+ [Característica de usuarios mejorada](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Puede obtener datos de usuario adicionales mantenidos por el proveedor de identidades en el servicio móvil, mediante el método **ServiceUser.GetIdentitiesAsync()** en un back-end de .NET. 
++ [Característica de usuarios mejorada](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Puede obtener datos de usuario adicionales mantenidos por el proveedor de identidades del servicio móvil llamando al método **ServiceUser.GetIdentitiesAsync()** en un back-end de .NET. 
 
 + [Referencia conceptual de Servicios móviles con .NET] <br/>Obtenga más información sobre cómo utilizar Servicios móviles con un cliente .NET.
 
@@ -84,7 +84,6 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: mobile-services-windows-store-dotnet-single-sign-on.md
 [Introducción a Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Get started with authentication]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
@@ -97,4 +96,4 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

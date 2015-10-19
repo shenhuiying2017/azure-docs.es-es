@@ -24,11 +24,11 @@ En este artículo se describe cómo puede usar la actividad de copia en la Facto
 
 El ejemplo siguiente muestra:
 
-1. Un servicio vinculado de tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+1. Un servicio vinculado de tipo [AzureSqlDatabase](#azure-sql-linked-service-properties).
 2. Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. Un[ conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties). 
+3. Un [conjunto de datos](data-factory-create-datasets.md) de entrada de tipo [AzureSqlTable](#azure-sql-dataset-type-properties). 
 4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-4. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+4. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [SqlSource](#azure-sql-copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 El ejemplo copia los datos que pertenecen a una serie temporal desde una tabla de una base de datos SQL de Azure a un blob cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
@@ -44,6 +44,8 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde una tabla d
 	  }
 	}
 
+Consulte la sección [Servicio vinculado SQL de Azure](#azure-sql-linked-service-properties) para obtener la lista de propiedades admitidas por este servicio vinculado.
+
 **Servicio vinculado de almacenamiento de blobs de Azure**
 
 	{
@@ -55,6 +57,8 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde una tabla d
 	    }
 	  }
 	}
+
+Consulte la sección [Blob de Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) para obtener la lista de propiedades admitidas por este servicio vinculado.
 
 **Conjunto de datos de entrada SQL de Azure**
 
@@ -84,6 +88,8 @@ Si se establece "external": "true" y se especifica la directiva externalData, se
 	    }
 	  }
 	}
+
+Consulte la sección [Propiedades de tipo de conjunto de datos SQL de Azure](#azure-sql-dataset-type-properties) para obtener la lista de propiedades admitidas por este tipo de conjunto de datos.
 
 **Conjunto de datos de salida de blob de Azure**
 
@@ -143,6 +149,8 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 	  }
 	}
 
+Consulte la sección [Propiedades de tipo de conjunto de datos Blob de Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para obtener la lista de propiedades admitidas por este tipo de conjunto de datos.
+
 **Canalización con actividad de copia**
 
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **SqlSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
@@ -192,6 +200,16 @@ La canalización contiene una actividad de copia que está configurada para usar
 	   }
 	}
 
+> [AZURE.NOTE]En el ejemplo anterior, **sqlReaderQuery** se especifica para SqlSource. La actividad de copia ejecuta esta consulta en el origen de Base de datos SQL de Azure para obtener los datos.
+>  
+> Como alternativa, puede especificar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
+>  
+> Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas definidas en la sección sobre la estructura del conjunto de datos JSON se usan para crear una consulta (seleccione column1, column2 en mytable) y ejecutarla en la base de datos SQL de Azure. Si la definición de conjunto de datos no tiene la estructura, se seleccionan todas las columnas de la tabla.
+
+
+Consulte la sección [SqlSource](#sqlsource) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) para obtener la lista de propiedades admitidas por SqlSource y BlobSink.
+
+
 ## Ejemplo: copia de datos de un blob de Azure a SQL de Azure
 
 El ejemplo siguiente muestra:
@@ -217,6 +235,8 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde un blob de 
 	  }
 	}
 
+Consulte la sección [Servicio vinculado SQL de Azure](#azure-sql-linked-service-properties) para obtener la lista de propiedades admitidas por este servicio vinculado.
+
 **Servicio vinculado de almacenamiento de blobs de Azure**
 
 	{
@@ -228,6 +248,8 @@ El ejemplo copia los datos que pertenecen a una serie temporal desde un blob de 
 	    }
 	  }
 	}
+
+Consulte la sección [Blob de Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) para obtener la lista de propiedades admitidas por este servicio vinculado.
 
 **Conjunto de datos de entrada de blob de Azure**
 
@@ -296,6 +318,8 @@ Los datos se seleccionan de un nuevo blob cada hora (frecuencia: hora, intervalo
 	  }
 	}
 
+Consulte la sección [Propiedades de tipo de conjunto de datos Blob de Azure](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) para obtener la lista de propiedades admitidas por este tipo de conjunto de datos.
+
 **Conjunto de datos de salida SQL de Azure**
 
 El ejemplo copia los datos a una tabla denominada "MyTable" en SQL de Azure. Debe crear la tabla en SQL de Azure con el mismo número de columnas que espera que contenga el archivo CSV de blob. Se agregan nuevas filas a la tabla cada hora.
@@ -314,6 +338,8 @@ El ejemplo copia los datos a una tabla denominada "MyTable" en SQL de Azure. Deb
 	    }
 	  }
 	}
+
+Consulte la sección [Propiedades de tipo de conjunto de datos SQL de Azure](#azure-sql-dataset-type-properties) para obtener la lista de propiedades admitidas por este tipo de conjunto de datos.
 
 **Canalización con actividad de copia**
 
@@ -364,6 +390,9 @@ La canalización contiene una actividad de copia que está configurada para usar
 	   }
 	}
 
+Consulte la sección [Sql Sink](#sqlsink) y [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) para obtener la lista de propiedades admitidas por SqlSink y BlobSource.
+
+
 ## Propiedades del servicio vinculado SQL de Azure
 
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado SQL de Azure.
@@ -373,7 +402,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | type | La propiedad type debe establecerse en: AzureSqlDatabase | Sí |
 | connectionString | Especifique la información necesaria para conectarse a la instancia de Base de datos SQL de Azure para la propiedad connectionString. | Sí |
 
-**Nota**: tendrá que configurar [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Tendrá que configurar el servidor de base de datos para [permitir que los servicios de Azure tengan acceso al servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Además, si va a copiar datos a SQL de Azure desde fuera de Azure, incluidos orígenes de datos locales con puerta de enlace de la factoría de datos, debe configurar el intervalo de direcciones IP adecuado para el equipo que envía datos a SQL de Azure.
+**Nota:** tendrá que configurar [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Tendrá que configurar el servidor de base de datos para [permitir que los servicios de Azure tengan acceso al servidor](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Además, si va a copiar datos a SQL de Azure desde fuera de Azure, incluidos orígenes de datos locales con puerta de enlace de la factoría de datos, debe configurar el intervalo de direcciones IP adecuado para el equipo que envía datos a SQL de Azure.
 
 ## Propiedades de tipo de conjunto de datos SQL de Azure
 
@@ -401,7 +430,13 @@ En caso de la actividad de copia si el origen es de tipo **SqlSource**, están d
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Utilice la consulta personalizada para leer los datos. | Cadena de consulta SQL. Por ejemplo: select * from MyTable. Si no se especifica, la instrucción SQL que se ejecuta: select from MyTable. | No |
 | sqlReaderStoredProcedureName | Nombre del procedimiento almacenado que lee datos de la tabla de origen. | Nombre del procedimiento almacenado. | No |
-| storedProcedureParameters | Parámetros del procedimiento almacenado. | Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | No | 
+| storedProcedureParameters | Parámetros del procedimiento almacenado. | Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | No |
+
+Si se especifica **sqlReaderQuery** para SqlSource, la actividad de copia ejecuta la consulta en el origen de Base de datos SQL de Azure para obtener los datos.
+
+Como alternativa, puede especificar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
+
+Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas definidas en la sección sobre la estructura del conjunto de datos JSON se usan para crear una consulta (seleccione column1, column2 en mytable) y ejecutarla en la base de datos SQL de Azure. Si la definición de conjunto de datos no tiene la estructura, se seleccionan todas las columnas de la tabla.
 
 ### Ejemplo de SqlSource
 
@@ -527,4 +562,4 @@ Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar 
 
 	 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

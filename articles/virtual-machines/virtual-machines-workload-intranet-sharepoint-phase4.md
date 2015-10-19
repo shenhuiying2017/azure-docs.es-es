@@ -102,36 +102,38 @@ Use el procedimiento [Inicio de sesión en una máquina virtual con una conexió
 
 Use el procedimiento [Para probar la conectividad](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) cuatro veces, uno para cada servidor de SharePoint, para probar la conectividad en las ubicaciones de la red de la organización.
 
+> [AZURE.NOTE]Los servidores de SharePoint se crean a partir de la imagen de la versión de evaluación de SharePoint Server 2013. Necesita convertir la instalación para que utilice una clave de licencia de minorista o de licencia por volumen para las ediciones Standard o Enterprise de SharePoint Server 2013.
+
 ## Configuración de la granja de servidores de SharePoint
 
 Siga estos pasos para configurar el primer servidor de SharePoint en la granja de servidores:
 
 1.	Desde el escritorio del primer servidor de aplicaciones de SharePoint, haga doble clic en **Asistente para configuración de productos de SharePoint 2013**. Cuando se le pida que permita al programa realizar cambios en el equipo, haga clic en **Sí**.
-2.	En la página de **productos de SharePoint**, haga clic en **Siguiente**.
+2.	En la página **Productos de SharePoint**, haga clic en **Siguiente**.
 3.	Aparece un cuadro de diálogo **Asistente para configuración de productos de SharePoint** que le advierte que se reiniciarán o restablecerán los servicios (como IIS). Haga clic en **Sí**.
-4.	En la página **Conectar a una granja de servidores**, seleccione **Crear una nueva granja de servidores** y, a continuación, haga clic en **Siguiente**.
-5.	En la página **Especificar configuración de base de datos**:
+4.	En la página **Conectar a una granja de servidores**, seleccione **Crear una nueva granja de servidores** y después haga clic en **Siguiente**.
+5.	En la página **Especificar las opciones de la base de datos de configuración**:
  - En **Servidor de base de datos**, escriba el nombre del servidor de la base de datos principal.
  - En **Nombre de usuario**, escriba [dominio]** \\sp\_farm\_db** (creado en [Fase 2: Configuración de controladores de dominio](virtual-machines-workload-intranet-sharepoint-phase2.md)). Recuerde que la cuenta de sp\_farm\_db tiene privilegios de sysadmin en el servidor de la base de datos.
  - En **Contraseña**, escriba la contraseña de la cuenta de sp\_farm\_db.
 6.	Haga clic en **Siguiente**.
-7.	En la página **Especificación de la configuración de seguridad de la granja de servidores**, escriba una frase de contraseña dos veces. Registre la frase de contraseña y almacénela en una ubicación segura para futuras referencias. Haga clic en **Siguiente**.
-8.	En la página **Configuración de la aplicación web de administración central de SharePoint**, haga clic en **Siguiente**.
-9.	Aparecerá la página **Finalización del Asistente para configuración de productos de SharePoint**. Haga clic en **Siguiente**.
-10.	Aparecerá la página **Configuración de productos de SharePoint**. Espere hasta que se complete el proceso de configuración, aproximadamente 8 minutos.
+7.	En la página **Especificar configuración de seguridad del conjunto de servidores**, escriba una frase de contraseña dos veces. Registre la frase de contraseña y almacénela en una ubicación segura para futuras referencias. Haga clic en **Siguiente**.
+8.	En la página **Configurar la aplicación web de Administración central de SharePoint**, haga clic en **Siguiente**.
+9.	Aparecerá la página **Finalizando el Asistente para configuración de Productos de SharePoint**. Haga clic en **Siguiente**.
+10.	Aparecerá la página **Configurando Productos de SharePoint**. Espere hasta que se complete el proceso de configuración, aproximadamente 8 minutos.
 11.	Después de configurar correctamente la granja de servidores, haga clic en **Finalizar**. Se iniciará el nuevo sitio web de administración.
 12.	Para empezar a configurar la granja de servidores de SharePoint, haga clic en **Iniciar el Asistente**.
 
 Realice el procedimiento siguiente en el segundo servidor de aplicaciones de SharePoint y los dos servidores web front-end:
 
 1.	En el escritorio, haga doble clic en ** Asistente para la configuración de productos de SharePoint 2013**. Cuando se le pida que permita al programa realizar cambios en el equipo, haga clic en **Sí**.
-2.	En la página de **productos de SharePoint**, haga clic en **Siguiente**.
+2.	En la página **Productos de SharePoint**, haga clic en **Siguiente**.
 3.	Aparece un cuadro de diálogo **Asistente para configuración de productos de SharePoint** que le advierte que se reiniciarán o restablecerán los servicios (como IIS). Haga clic en **Sí**.
-4.	En la página **Conexión a una granja de servidores**, haga clic en **Conectar con un conjunto de servidores existente** y, a continuación, haga clic en **Siguiente**.
-5.	En la página **Especificación de la configuración de base de datos**, escriba el nombre del servidor de base de datos principal en **Servidor de base de datos** y, a continuación, haga clic en **Recuperar nombres de base de datos**.
-6.	Haga clic en **SharePoint\_Config** en la lista de nombres de la base de datos y, a continuación, haga clic en **Siguiente**.
-7.	En la página **Especificación de la configuración de seguridad de granjas de servidores**, escriba la frase de contraseña del procedimiento anterior. Haga clic en **Siguiente**.
-8.	Aparecerá la página **Finalización del Asistente para configuración de productos de SharePoint**. Haga clic en **Siguiente**.
+4.	En la página **Conectar a una granja de servidores**, haga clic en **Conectar con un conjunto de servidores existente** y después haga clic en **Siguiente**.
+5.	En la página **Especificar las opciones de la base de datos de configuración**, escriba el nombre del servidor de base de datos principal en **Servidor de base de datos** y después haga clic en **Recuperar nombres de base de datos**.
+6.	Haga clic en **SharePoint\_Config** en la lista de nombres de la base de datos y después haga clic en **Siguiente**.
+7.	En la página **Especificar configuración de seguridad del conjunto de servidores**, escriba la frase de contraseña del procedimiento anterior. Haga clic en **Siguiente**.
+8.	Aparecerá la página **Finalizando el Asistente para configuración de Productos de SharePoint**. Haga clic en **Siguiente**.
 9.	En la página **Configuración realizada correctamente**, haga clic en **Finalizar**.
 
 Cuando SharePoint crea la granja de servidores, configura un conjunto de inicios de sesión de servidor en la máquina virtual principal de SQL Server. SQL Server 2012 introduce el concepto de usuarios con contraseñas para bases de datos independientes. La base de datos almacena todos los metadatos de la base de datos y la información de usuario, y un usuario que se define en esta base de datos no necesita tener un inicio de sesión correspondiente. La información de esta base de datos se replica mediante el grupo de disponibilidad y está disponible después de una conmutación por error. Para obtener más información, consulte [Bases de datos independientes](http://go.microsoft.com/fwlink/p/?LinkId=262794).
@@ -195,4 +197,4 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: C
 
 [Carga de trabajo de servicios de infraestructura de Azure: aplicación de línea de negocio de alta disponibilidad](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

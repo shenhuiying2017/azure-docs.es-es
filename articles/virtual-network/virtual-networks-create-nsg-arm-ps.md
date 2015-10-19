@@ -209,7 +209,6 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
 
 6. Asocie el grupo de seguridad de red creado anteriormente a la subred *Back-end*.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
@@ -236,4 +235,4 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
                         "ProvisioningState": "Succeeded"
                       }
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

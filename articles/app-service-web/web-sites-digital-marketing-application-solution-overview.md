@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Creación de una campaña de marketing digital en Aplicaciones web del Servicio de aplicaciones de Azure
@@ -140,4 +140,4 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

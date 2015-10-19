@@ -30,7 +30,7 @@ En este tema se muestra cómo usar Azure Mobile Engagement para comprender el us
 
 En este tutorial, se creará una aplicación de Cordova vacía usando Mac y, después, se integrará el SDK de Mobile Engagement. Recopila datos de análisis básicos y recibe notificaciones push usando Apple Push Notification System (APNS) para iOS y Google Cloud Messaging (GCM) para Android. Se implementará en un dispositivo iOS o Android para las pruebas.
 
-> [AZURE.IMPORTANT]Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure￼</a>.
+> [AZURE.IMPORTANT]Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure￼</a>.
 
 Este tutorial requiere lo siguiente:
 
@@ -86,6 +86,10 @@ Crearemos una aplicación básica con Cordova para demostrar la integración:
 	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
 	        --variable AZME_ENABLE_LOG=true|false
 
+*Icono de cobertura de Android*: debe ser el nombre del recurso sin ninguna extensión, ni prefijo dibujable (por ejemplo, mynotificationicon), y el archivo de icono se debe copiar en su proyecto Android (platforms/android/res/drawable)
+
+*Icono de cobertura de iOS*: debe ser el nombre del recurso con la extensión (por ejemplo, mynotificationicon.png), y el archivo de icono debe agregarse al proyecto de iOS con XCode (mediante el menú Agregar archivos)
+
 ##<a id="monitor"></a>Habilitar supervisión en tiempo real
 
 1. En el proyecto Cordova, edite **www/js/index.js** para agregar la llamada a Mobile Engagement para declarar una nueva actividad después de recibir el evento *deviceReady*.
@@ -118,7 +122,7 @@ Crearemos una aplicación básica con Cordova para demostrar la integración:
 		[Engagement] Connection: Sent: startSession
 		[Engagement] Connection: Sent: activity name='myPage'
 
-##<a id="monitor"></a>Conectar la aplicación con la supervisión en tiempo real
+##<a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 
 [AZURE.INCLUDE [Conectar la aplicación con la supervisión en tiempo real](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
@@ -202,13 +206,13 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 4. Especifique entradas para crear la campaña **[iOS]**.
 
 	- Proporcione un **Nombre** para la campaña. 
-	- Configure Plazo de entrega como *Fuera de la aplicación solo*.
+	- Configure Plazo de entrega como *Solo fuera de la aplicación*.
 	- Especifique un **Título** para la notificación que será la primera línea en la inserción.
 	- Especifique un **Mensaje** para la notificación que servirá como el cuerpo del mensaje. 
  
 	![][12]
 
-5. Desplácese hacia abajo y, en la sección de contenido, seleccione **Solo notificación**.
+5. Desplácese hacia abajo y en la sección Contenido, seleccione **Solo notificación**.
 
 	![][8]
 
@@ -241,4 +245,4 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 
@@ -64,9 +64,9 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 
 ####<a name="land"></a> ¿Qué hizo "Agregar Application Insights"?
 
-El comando realizó estos pasos (que puede hacer manualmente si lo prefiere):
+El comando realizó estos pasos (que puede [hacer manualmente](app-insights-start-monitoring-app-health-usage.md) si lo prefiere):
 
-* Crea un recurso de Application Insights en el [Portal de Azure][portal]. Es donde verá los datos. Recupera la *clave de instrumentación* que identifica el recurso.
+* Crea un recurso de Application Insights en el [Portal de Azure][portal]. Es donde verá los datos. Recupera la *clave de instrumentación*, que identifica el recurso.
 * Agrega el paquete NuGet del SDK web de Application Insights al proyecto. Para verlo en Visual Studio, haga clic con el botón secundario en el proyecto y elija Administrar paquetes de NuGet.
 * Coloca la clave de instrumentación en `ApplicationInsights.config`.
 
@@ -99,8 +99,9 @@ Si se trabaja en modo de depuración, la telemetría se agiliza a través de la 
 
 #### ¿No hay datos?
 
-* Abra el icono [Buscar][diagnostic] para ver los eventos individuales.
+* Asegúrese de que está viendo lo correcto. Inicie sesión en el [portal de Azure](https://portal.azure.com), haga clic en "Examinar" >, "Application Insights" y, a continuación, seleccione la aplicación.
 * Use la aplicación y abra varias páginas para generar telemetría.
+* Abra la hoja [Buscar][diagnostic] para ver los eventos individuales. A veces, los eventos tardan un poco en llegar a través de la canalización de métricas.
 * Espere unos segundos y haga clic en Actualizar.
 * Vea [Solución de problemas][qna].
 
@@ -111,15 +112,13 @@ Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-
 
 ## Adición de supervisión de explorador
 
-La supervisión de explorador o cliente le da datos sobre usuarios, sesiones, vistas de página y excepciones o bloqueos que se producen en el explorador.
+La supervisión de explorador le ofrece datos sobre usuarios, sesiones, vistas de página y cualquier excepción o bloqueo que se produce en el explorador.
 
 ![Seleccione Nuevo, Servicios para desarrolladores, Application Insights.](./media/app-insights-asp-net/16-page-views.png)
 
 También podrá escribir su propio código para realizar un seguimiento de cómo trabajan los usuarios con su aplicación, hasta el nivel detallado de clics y pulsaciones de teclas.
 
-#### Si los clientes son exploradores web
-
-Si la aplicación muestra páginas web, agregar un fragmento de código de JavaScript en cada página. Obtenga el código del recurso de Application Insights:
+Agregue un fragmento de código de JavaScript a cada página. Obtenga el código del recurso de Application Insights:
 
 ![En la aplicación web, abra Inicio rápido y haga clic en 'Obtener código para supervisar mis páginas web'](./media/app-insights-asp-net/02-monitor-web-page.png)
 
@@ -127,11 +126,6 @@ Observe que el código contiene la clave de instrumentación que identifica al r
 
 [Obtenga más información sobre el seguimiento de páginas web.](app-insights-web-track-usage.md)
 
-#### Si los clientes son aplicaciones de dispositivos
-
-Si la aplicación atiende a clientes como teléfonos u otros dispositivos, agregue el [SDK adecuado](app-insights-platforms.md) a la aplicación del dispositivo.
-
-Si configura el SDK de cliente con la misma clave de instrumentación que el SDK de servidor, se integrarán las dos secuencias para poderlas ver juntas.
 
 ## Seguimiento de uso
 
@@ -196,7 +190,7 @@ En el panel de control de la aplicación web de Azure, agregue la extensión App
 
 ![En la aplicación web, Configuración, Extensiones, Agregar, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-(La extensión solo ayuda a una aplicación que se ha compilado con el SDK. A diferencia del Monitor de estado, no puede instrumentar una aplicación existente).
+(También puede agregar la extensión a una aplicación que ya esté en funcionamiento, incluso si no instaló el SDK en ella).
 
 #### Para supervisar roles de servicios en la nube de Azure
 
@@ -248,4 +242,4 @@ Si ha realizado personalizaciones en ApplicationInsights.config, guarde una copi
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,14 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Creación y modificación de un circuito ExpressRoute
 
 Este artículo le guiará por los pasos necesarios para crear un circuito ExpressRoute con los cmdlets de PowerShell y el modelo clásico de implementación. Los siguientes pasos también le mostrarán cómo comprobar el estado, actualizar, o eliminar y desaprovisionar un circuito ExpressRoute.
 
->[AZURE.IMPORTANT]Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+>[AZURE.IMPORTANT]Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulte [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 ## Requisitos previos de configuración
 
@@ -153,21 +153,21 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 	Cuando se crea un nuevo circuito ExpressRoute, el circuito estará en el siguiente estado:
 	
-		**ServiceProviderProvisioningState :** NotProvisioned
+		ServiceProviderProvisioningState : NotProvisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
-	ServiceProviderProvisioningState proporciona información sobre el estado actual de aprovisionamiento en la parte del proveedor del servicio y el estado proporciona el estado en Microsoft. Un circuito ExpressRoute tiene que estar en el siguiente estado para poder utilizarlo.
+	*ServiceProviderProvisioningState* proporciona información sobre el estado actual de aprovisionamiento en la parte del proveedor del servicios y el estado proporciona el estado en Microsoft. Un circuito ExpressRoute tiene que estar en el siguiente estado para poder usarlo.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 	El circuito pasará al estado siguiente cuando el proveedor de conectividad se encuentre en el proceso de habilitarlo.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 
 
@@ -188,7 +188,7 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 
 6. **Cree la configuración de enrutamiento.**
 	
-	Consulte la página de [Configuración de enrutamiento de circuitos ExpressRoute (crear y modificar emparejamientos de circuito)](expressroute-howto-routing-classic.md) para obtener instrucciones paso a paso.
+	Consulte la página [Configuración de enrutamiento de circuitos ExpressRoute (crear y modificar emparejamientos de circuito)](expressroute-howto-routing-classic.md) para obtener instrucciones paso a paso.
 
 7. **Vincule una red virtual a un circuito ExpressRoute.**
 
@@ -276,8 +276,8 @@ Puede deshabilitar el complemento ExpressRoute Premium en el circuito existente 
 		ServiceKey                       : *********************************
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Premium
-		Status                           : Standard
+		Sku                              : Standard
+		Status                           : Enabled
 
 El complemento Premium ahora está deshabilitado para el circuito.
 
@@ -321,7 +321,7 @@ Si el proveedor de servicios ha desaprovisionado el circuito (el estado de aprov
 
 ## Pasos siguientes
 
-- [Configuración del enrutamiento de ExpressRoute (administrar emparejamientos de circuito)](expressroute-howto-routing-classic.md)
-- [Vincular redes virtuales a un circuito ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
+- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
+- [Vinculación de una red virtual a un circuito ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="10/05/2015" 
 	ms.author="wesmc"/>
 
 # Control de conflictos de escritura de bases de datos
@@ -366,4 +366,4 @@ Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows pa
 [propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

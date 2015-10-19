@@ -44,8 +44,6 @@ Este tutorial requiere lo siguiente:
 
 Durante el tutorial [Incorporación de autenticación a la aplicación], creó un registro para la aplicación integrada cuando realizó el paso [Registro para usar un inicio de sesión de Azure Active Directory]. En esta sección, generará una clave que se usará cuando se lea información de directorios con el identificador de cliente de esa aplicación integrada.
 
-Si ha realizado el tutorial [Acceso a información de Azure Active Directory Graph], ya ha completado este paso y puede omitir esta sección.
-
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
@@ -384,13 +382,11 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 [Incorporación de autenticación a la aplicación]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Portal de administración de Azure]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [Registro para usar un inicio de sesión de Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [API de REST Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-[Acceso a información de Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL para .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

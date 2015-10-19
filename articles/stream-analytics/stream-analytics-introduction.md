@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -43,7 +43,7 @@ En la actualidad, grandes cantidades de datos se transmiten a alta velocidad por
 -   **Conectividad**: Análisis de transmisiones de Azure se conecta actualmente con Centros de eventos de Azure de forma directa para la ingesta de streaming y con el servicio BLOB de Azure para los datos históricos. Los resultados se pueden escribir de Análisis de transmisiones en tablas o blobs de Azure, Base de datos SQL de Azure, Centros de eventos, temas o colas de Bus de servicio de Azure y Power BI, donde se podrán visualizar, seguir procesándose por flujos de trabajo, usarse en el análisis por lotes a través de [HDInsight de Azure](http://azure.microsoft.com/services/hdinsight/) o procesarse de nuevo como una serie de eventos. Cuando se usan los Centros de eventos, es posible integrar varios Análisis de transmisiones con otros orígenes de datos y motores de procesamiento sin perder el carácter de streaming de los cálculos.
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 Ya conoce Análisis de transmisiones, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
@@ -53,4 +53,4 @@ Ya conoce Análisis de transmisiones, un servicio administrado para el análisis
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

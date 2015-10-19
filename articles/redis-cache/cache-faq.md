@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -30,18 +30,22 @@ Las siguientes son consideraciones para elegir una oferta de caché.
 -	**Rendimiento de la red**: si tiene una carga de trabajo que requiere un rendimiento alto, el nivel Premium ofrece más ancho de banda en comparación con Estándar o Básico. También dentro de cada nivel, las cachés de mayor tamaño tienen más ancho de banda debido a la máquina virtual subyacente que hospeda la memoria caché. Para obtener más información, vea la tabla siguiente.
 -	**Rendimiento**: el nivel Premium ofrece el máximo rendimiento disponible. Si el servidor o el cliente de caché alcanza los límites del ancho de banda, recibirá los tiempos de espera del cliente. Para obtener más información, vea la tabla siguiente.
 -	**Alta disponibilidad/SLA**: Caché en Redis de Azure garantiza que una caché Estándar/Premium (ningún SLA para Premium hasta después del período de vista previa) estará disponible al menos un 99,9 % del tiempo. Para obtener más información sobre nuestro SLA, consulte [Precios de Caché en Redis de Azure](https://azure.microsoft.com/pricing/details/cache/). El SLA solo cubre la conectividad para los extremos de la memoria caché. El SLA no cubre la protección frente a la pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos.
--	**Persistencia de datos de Redis**: el nivel Premium le permite conservar los datos de la memoria caché en una cuenta de Almacenamiento de Azure. En una caché Básico/Estándar todos los datos se almacenan solo en la memoria. En el caso de la infraestructura subyacente, puede haber posible pérdida de datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Caché en Redis de Azure ofrece opciones de RDB y AOF (próximamente) en la persistencia de Redis. Para obtener más información, vea [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md).
+-	**Persistencia de datos de Redis**: el nivel Premium le permite conservar los datos de la memoria caché en una cuenta de Almacenamiento de Azure. En una caché Básico/Estándar todos los datos se almacenan solo en la memoria. En caso de problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Caché en Redis de Azure ofrece opciones de RDB y AOF (próximamente) en la persistencia de Redis. Para obtener más información, vea [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md).
 -	**Clúster de Redis**: si quiere crear memorias caché de más de 53 GB o quiere realizar particiones de datos en varios nodos de Redis, puede usar la agrupación en clústeres de Redis que está disponible en el nivel Premium. Cada nodo consta de un par de caché principal/réplica para alta disponibilidad. Para obtener más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
 -	**Aislamiento de red y seguridad mejorado**: la implementación de la Red virtual de Azure ofrece seguridad mejorada y aislamiento para su Caché en Redis de Azure, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso. Para obtener más información, vea [Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
 -	**Configurar Redis**: tanto en los niveles Estándar como Premium, puede configurar Redis para las notificaciones de Keyspace.
--	**Número máximo de conexiones de cliente**: el nivel Premium la ofrece el número máximo de clientes que se pueden conectar a Redis, con un número mayor de conexiones para memorias caché de mayor tamaño. [Consulte la página de información de precios para obtener detalles](TODO).
+-	**Número máximo de conexiones de cliente**: el nivel Premium la ofrece el número máximo de clientes que se pueden conectar a Redis, con un número mayor de conexiones para memorias caché de mayor tamaño. [Consulte la página de información de precios para obtener detalles](https://azure.microsoft.com/pricing/details/cache/).
 -	**Núcleo dedicado para servidor Redis**: en el nivel Premium todos los tamaños de caché tienen un núcleo dedicado para Redis. En los niveles Básico/Estándar el tamaño C1 y superiores tienen un núcleo dedicado para el servidor de Redis.
 -	**Redis es de subproceso único**, por tanto tener dos o más núcleos no proporciona una ventaja adicional sobre tener solo dos núcleos, pero las máquinas virtuales de mayor tamaño suelen tener más ancho de banda que las de menor tamaño. Si el servidor o el cliente de caché alcanza a los límites del ancho de banda, recibirá los tiempos de espera del cliente.
 -	**Mejoras de rendimiento**: las memorias caché en el nivel Premium se implementan en el hardware que tienen procesadores más rápidos y ofrecen un mejor rendimiento en comparación con el nivel Básico o Estándar. Las cachés de nivel Premium tienen un mayor rendimiento y latencias más bajas.
 
 En la tabla siguiente se muestran los valores máximos del ancho de banda observados durante la comprobación de los diversos tamaños de memorias caché Estándar y Premium mediante `redis-benchmark.exe` desde una máquina virtual de Iaas en el extremo de Caché en Redis de Azure. Tenga en cuenta que estos valores no se garantizan y no hay ningún SLA para estos números, pero deben ser los habituales. Debe realizar la prueba de carga de su propia aplicación para determinar el tamaño adecuado de caché para la aplicación.
 
-Desde esta tabla podemos obtener las siguientes conclusiones. -El rendimiento para la caché de igual tamaño es mayor en Premium en comparación con el nivel Estándar. Por ejemplo, para una memoria caché de 6 GB, el rendimiento de P1 es 140 K RPS en comparación con 49 K para C3. -Con la agrupación en clústeres de Redis, el rendimiento aumenta linealmente a medida que aumenta el número de particiones (nodos) en el clúster. Por ejemplo, si crea un clúster P4 de 10 particiones, el rendimiento disponible es 250 K * 10 = 2,5 millones RPS - El rendimiento para los tamaños de clave mayores es más alto en el nivel de Premium en comparación con el nivel Estándar.
+A partir de esta tabla, podemos extraer las conclusiones siguientes.
+
+-	El rendimiento de una memoria caché de nivel Premium es superior al de una memoria caché de nivel Standard del mismo tamaño . Por ejemplo, en el caso de una caché de 6 GB, el rendimiento de P1 es de 140K solicitudes por segundo frente a las 49K para C3.
+-	Con la agrupación en clústeres de Redis, el rendimiento aumenta de manera lineal a medida que aumenta el número de particiones (nodos) del clúster. Por ejemplo, si se crea un clúster P4 de 10 particiones, el rendimiento disponible es de 250.000 * 10 = 2,5 millones de solicitudes por segundo.
+-	El rendimiento para los tamaños de clave más grandes es más alto en el nivel Premium que en el nivel Estándar.
 
 | Nivel de precios | Tamaño | Ancho de banda disponible (Mbps) | Tamaño de clave de 1 KB |
 |----------------------|--------|----------------------------|--------------------------------|
@@ -153,7 +157,7 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 <a name="cache-benchmarking"></a>
 ## ¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?
 
--	[Habilite los diagnósticos de caché](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que pueda [supervisar](https://msdn.microsoft.com/library/azure/dn763945.aspx) el estado de la memoria caché. Puede ver las métricas en el portal de vista previa y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) usando las herramientas que prefiera.
+-	[Habilite los diagnósticos de caché](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) para que pueda [supervisar](https://msdn.microsoft.com/library/azure/dn763945.aspx) el estado de la memoria caché. Puede ver las métricas en el portal de vista previa y también [descargarlas y revisarlas](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) con las herramientas que prefiera.
 -	Puede utilizar redis-benchmark.exe para la prueba de carga del servidor Redis.
 	-	Asegúrese de que la prueba de carga del cliente y de la caché de Redis se encuentran la misma región.
 -	Use redis cli.exe y supervise la memoria caché mediante el comando INFO.
@@ -163,9 +167,9 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 <a name="cache-commands"></a>
 ## ¿Cómo puedo ejecutar comandos de Redis?
 
-Puede usar cualquiera de los comandos enumerados en [Comandos de Redis](http://redis.io/commands#), excepto los comandos mostrados en [No se admiten comandos de Redis en Caché en Redis de Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Para ejecutar los comandos de Redis tiene varias opciones.
+Puede usar cualquiera de los comandos enumerados en [Comandos de Redis](http://redis.io/commands#), excepto los comandos mostrados en [Comandos de Redis no admitidos en Caché en Redis de Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Para ejecutar los comandos de Redis tiene varias opciones.
 
--	Si tiene una caché Estándar o Premium, puede ejecutar comandos de Redis mediante la [consola de Redis](cache-configure.md#redis-console). Esto ofrece una manera segura de ejecutar comandos de Redis en el portal de vista previa.
+-	Si tiene una caché Estándar o Premium, puede ejecutar comandos de Redis mediante la [Consola de Redis](cache-configure.md#redis-console). Esto ofrece una manera segura de ejecutar comandos de Redis en el portal de vista previa.
 -	Use las herramientas de línea de comandos de Redis. Para usarlas, realizará los siguientes pasos.
 	-	Descargue las [herramientas de línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
 	-	Conexión a la memoria caché mediante `redis-cli.exe`. Pase el extremo de caché mediante que el modificador -h y la clave mediante - a, tal como se muestra en el ejemplo siguiente.
@@ -187,4 +191,4 @@ Caché en Redis de Microsoft Azure se basa en la popular Caché de Redis de cód
 
 Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; en cambio, cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales en Azure.com que muestra cómo empezar a trabajar con Caché en Redis de Azure con distintos idiomas y clientes de la caché en la página [Documentación de Caché de Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

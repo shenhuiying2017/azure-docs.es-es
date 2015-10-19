@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="lauraa"/>
 
 # Pruebas de rendimiento y escalado: de local a local
@@ -104,7 +104,7 @@ El siguiente gráfico muestra el rendimiento de las máquinas virtuales que ejec
 
 ### Conclusión
 
-Los resultados muestran claramente que Azure Site Recovery, junto con la réplica de Hyper-V, se escala bien con una sobrecarga mínima para un clúster grande. Azure Site Recovery proporciona una implementación, replicación, administración y supervisión simples. La réplica de Hyper-V proporciona la infraestructura necesaria para el escalado de replicación correcta. Para planear una implementación óptima, sugerimos descargar el [Programador de capacidad de la réplica de Hyper-V](https://www.microsoft.com/es-es/download/details.aspx?id=39057).
+Los resultados muestran claramente que Azure Site Recovery, junto con la réplica de Hyper-V, se escala bien con una sobrecarga mínima para un clúster grande. Azure Site Recovery proporciona una implementación, replicación, administración y supervisión simples. La réplica de Hyper-V proporciona la infraestructura necesaria para el escalado de replicación correcta. Para planear una implementación óptima, sugerimos descargar el [Programador de capacidad de la réplica de Hyper-V](https://www.microsoft.com/ES-ES/download/details.aspx?id=39057).
 
 ## Entorno de implementación de prueba
 
@@ -208,4 +208,4 @@ Para empezar a implementar ASR:
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

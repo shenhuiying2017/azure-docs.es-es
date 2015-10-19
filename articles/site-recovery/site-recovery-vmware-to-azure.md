@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 # Configuración de la protección entre las máquinas virtuales de VMware locales o servidores físicos y Azure
@@ -23,8 +23,7 @@ En este tutorial se describe cómo implementar Site Recovery para:
 - **Proteger máquinas virtuales de VMware**: coordinar la replicación, la conmutación por error y la recuperación de máquinas virtuales locales de VMware en Azure.
 - **Proteger servidores físicos**: coordinar la replicación, la conmutación por error y la recuperación de los servidores físicos locales de Windows y Linux en Azure con el servicio Azure Site Recovery.
 
-El artículo incluye una introducción, los requisitos previos a la implementación e instrucciones de configuración. Al final del artículo se replicarán a Azure los servidores físicos o las máquinas virtuales de VMware. 
-Si tiene problemas, envíe sus preguntas al [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+El artículo incluye una introducción, los requisitos previos a la implementación e instrucciones de configuración. Al final del artículo se replicarán a Azure los servidores físicos o las máquinas virtuales de VMware. Si tiene problemas, envíe sus preguntas al [Foro de servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## ¿Qué es Azure Site Recovery?
@@ -249,7 +248,7 @@ Compruebe la barra de estado para confirmar que el almacén se ha creado correct
 	
 	![Extremos de VM](./media/site-recovery-vmware-to-azure/ASRVMWare_VMEndpoints.png)
 
-    >[AZURE.WARNING] No eliminar o cambiar el número de puerto público o privado de cualquiera de los extremos creados durante la implementación del servidor de configuración.
+    >[AZURE.WARNING]No eliminar o cambiar el número de puerto público o privado de cualquiera de los extremos creados durante la implementación del servidor de configuración.
 
 El servidor de configuración se implementa en un servicio en la nube de Azure creado automáticamente con una dirección IP reservada. Se necesita la dirección reservada para garantizar que la dirección IP del servicio en la nube del servidor de configuración es la misma al arrancar las máquinas virtuales (incluido el servidor de configuración) en el servicio en la nube. Es necesario anular manualmente la reserva de la dirección IP pública reservada cuando se retira el servidor de configuración o permanecerá reservada. Hay un límite predeterminado de 20 direcciones IP públicas reservadas por suscripción. [Más información](../virtual-network/virtual-networks-reserved-private-ip.md) sobre las direcciones IP reservadas.
 
@@ -283,7 +282,7 @@ El servidor de configuración se implementa en un servicio en la nube de Azure c
 
 	![Registro de proxy](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
-6. En **Configuración de localización de mensajes de error de proveedores**, especifique en qué idiomas desea que aparezcan los mensajes de error.
+6. En **Configuración de localización de mensajes de error de proveedores**, especifique en qué idioma desea que aparezcan los mensajes de error.
 
 	![Registro de mensajes de error](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationLocale.png)
 
@@ -347,7 +346,7 @@ Observe lo siguiente:
 
 Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están reservadas para uso interno de Azure. Especifique cualquier dirección IP disponible.
 
->[AZURE.NOTE] Seleccione DS4 estándar al configurar la protección para cargas de trabajo que requieren un alto rendimiento de E/S y latencia baja coherentes para hospedar cargas de trabajo intensivas de E/S mediante [cuenta de almacenamiento premium](../storage/storage-premium-storage-preview-portal.md).
+>[AZURE.NOTE]Seleccione DS4 estándar al configurar la protección para cargas de trabajo que requieren un alto rendimiento de E/S y latencia baja coherentes para hospedar cargas de trabajo intensivas de E/S mediante [cuenta de almacenamiento premium](../storage/storage-premium-storage-preview-portal.md).
 
 
 3. Se crea una máquina virtual de servidor de destino maestro de Windows con estos extremos (los extremos públicos solo se crean si el tipo de implementación es Internet pública):
@@ -363,7 +362,7 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
 	- Custom1: el puerto público lo utiliza el servidor de procesos para enviar metadatos de control a través de Internet. El puerto privado 9080 lo utiliza el servidor de procesos para enviar datos de control al servidor de destino principal a través de VPN.
 	- SSH: puerto privado 22
 
-    >[AZURE.WARNING] No elimine ni cambie el número de puerto público o privado de cualquiera de los extremos creados durante la implementación del servidor de destino principal.
+    >[AZURE.WARNING]No elimine ni cambie el número de puerto público o privado de cualquiera de los extremos creados durante la implementación del servidor de destino principal.
 
 5. En **Máquinas virtuales**, espere a que se inicie la máquina virtual.
 
@@ -380,9 +379,9 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
 	![Servidor de destino principal de Windows](./media/site-recovery-vmware-to-azure/ASRVMWare_TSRegister.png)
 
 8. Si ejecuta Linux:
-	1. Asegúrese de que ha instalado los Linux Integration Services (LIS) más recientes antes de instalar el software de servidor de destino maestro. Encontrará la versión más reciente de LIS junto con instrucciones sobre cómo instalar [aquí](https://www.microsoft.com/es-es/download/details.aspx?id=46842). Reinicie el equipo después de instalar LIS.
+	1. Asegúrese de que ha instalado los Linux Integration Services (LIS) más recientes antes de instalar el software de servidor de destino maestro. Encontrará la versión más reciente de LIS junto con instrucciones sobre cómo instalar [aquí](https://www.microsoft.com/ES-ES/download/details.aspx?id=46842). Reinicie el equipo después de instalar LIS.
 	2. En **Preparar los recursos de destino (Azure)**, haga clic en **Descargar e instalar software adicional (solo para el servidor de destino principal de Linux)** para descargar el paquete de servidor de destino principal de Linux. Copie el archivo tar descargado en la máquina virtual mediante un cliente sftp. También puede iniciar sesión en el servidor de destino principal de Linux implementado y usar *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* para descargar el archivo.
-	2. Inicie sesión en el servidor mediante un cliente de Secure Shell. Tenga en cuenta que si está conectado a la red de Azure a través de VPN, utilice la dirección IP interna. En caso contrario, utilice la dirección IP externa y el extremo público SSH.
+2. Inicie sesión en el servidor mediante un cliente de Secure Shell. Tenga en cuenta que si está conectado a la red de Azure a través de VPN, utilice la dirección IP interna. En caso contrario, utilice la dirección IP externa y el extremo público SSH.
 	3. Extraiga los archivos del instalador comprimidos con gzip ejecutando: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Servidor de destino principal de Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Asegúrese de que se encuentra en el directorio en el que extrajo el contenido del archivo tar.
 	5. Copie la frase de contraseña del servidor de configuración en un archivo local con el comando **echo *`<passphrase>`* >passphrase.txt**
@@ -394,17 +393,17 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
 
 	![Verificar servidor de destino](./media/site-recovery-vmware-to-azure/ASRVMWare_TSList.png)
 
->[AZURE.NOTE] Tenga en cuenta que pueden pasar 15 minutos después de completar el registro para que el servidor de destino principal se muestre en el servidor de configuración. Para actualizar inmediatamente, actualice al servidor de configuración haciendo clic en el botón Actualizar en la parte inferior de la página de los servidores de configuración.
+>[AZURE.NOTE]Tenga en cuenta que pueden pasar 15 minutos después de completar el registro para que el servidor de destino principal se muestre en el servidor de configuración. Para actualizar inmediatamente, actualice al servidor de configuración haciendo clic en el botón Actualizar en la parte inferior de la página de los servidores de configuración.
 
 ## Paso 4: Implementación de un servidor de proceso local
 
->[AZURE.NOTE] Se recomienda que configure una dirección IP estática en el servidor de proceso para garantizar la persistencia en los reinicios.
+>[AZURE.NOTE]Se recomienda que configure una dirección IP estática en el servidor de proceso para garantizar la persistencia en los reinicios.
 
 1. Haga clic en Inicio rápido > **Instalar el servidor de proceso local** > **Descargar e instalar el servidor de proceso**.
 
 	![Instalar servidor de procesos](./media/site-recovery-vmware-to-azure/ASRVMWare_PSDeploy.png)
 
-2. Copie el archivo comprimido descargado en el servidor en el que va a instalar al servidor de proceso. El archivo comprimido contiene dos archivos de instalación:
+2.  Copie el archivo comprimido descargado en el servidor en el que va a instalar al servidor de proceso. El archivo comprimido contiene dos archivos de instalación:
 
 	- Microsoft-ASR_CX_TP_8.4.0.0_Windows*
 	- Microsoft-ASR_CX_8.4.0.0_Windows*
@@ -450,7 +449,7 @@ Tenga en cuenta que las cuatro primeras direcciones IP en las subredes están re
 
 12. Tenga en cuenta que debe reiniciar el equipo para completar la instalación. En **Servidor de configuración** > **Detalles del servidor**, compruebe que el servidor de proceso aparece y que está correctamente registrado en el almacén.
 
->[AZURE.NOTE] Pueden pasar 15 minutos después de completar el registro para que el servidor de proceso se muestre en el servidor de configuración. Para actualizar inmediatamente, actualice al servidor de configuración haciendo clic en el botón Actualizar en la parte inferior de la página del servidor de configuración.
+>[AZURE.NOTE]Pueden pasar 15 minutos después de completar el registro para que el servidor de proceso se muestre en el servidor de configuración. Para actualizar inmediatamente, actualice al servidor de configuración haciendo clic en el botón Actualizar en la parte inferior de la página del servidor de configuración.
  
 ![Validar servidor de procesos](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerRegister.png)
 
@@ -667,15 +666,15 @@ Agregue las máquinas como sigue:
 
 	![Servidor vCenter](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
-4. En **Especificar cuentas**, seleccione la cuenta que desea utilizar para instalar Mobility Service en equipos protegidos. Las credenciales de cuenta son necesarias para la instalación automática de Mobility Service. Si no puede seleccionar una cuenta, asegúrese configurar una tal y como se describe en el paso 2. Tenga en cuenta que Azure no puede tener acceso a esta cuenta. En Windows Server, la cuenta debe tener privilegios de administrador en el servidor de origen. Para Linux, la cuenta debe ser raíz.
+5. En **Especificar cuentas**, seleccione la cuenta que desea utilizar para instalar Mobility Service en equipos protegidos. Las credenciales de cuenta son necesarias para la instalación automática de Mobility Service. Si no puede seleccionar una cuenta, asegúrese configurar una tal y como se describe en el paso 2. Tenga en cuenta que Azure no puede tener acceso a esta cuenta. En Windows Server, la cuenta debe tener privilegios de administrador en el servidor de origen. Para Linux, la cuenta debe ser raíz.
 
 	![Credenciales de Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_VMMobilityInstall.png)
 
-5. Haga clic en la marca de verificación para terminar de agregar equipos al grupo de protección y para iniciar la replicación inicial en cada equipo. Puede supervisar el estado en la página **Trabajos**.
+6. Haga clic en la marca de verificación para terminar de agregar equipos al grupo de protección y para iniciar la replicación inicial en cada equipo. Puede supervisar el estado en la página **Trabajos**.
 
 	![Agregar servidor V-Center](./media/site-recovery-vmware-to-azure/ASRVMWare_PGJobs2.png)
 
-5. Además puede supervisar el estado de protección; para ello, haga clic en **Elementos protegidos** > Nombre del grupo de protección > **Máquinas virtuales**. Cuando se completa la replicación inicial y las máquinas están sincronizando datos, mostrarán el estado **protegido**.
+7. Además puede supervisar el estado de protección; para ello, haga clic en **Elementos protegidos** > Nombre del grupo de protección > **Máquinas virtuales**. Cuando se completa la replicación inicial y las máquinas están sincronizando datos, mostrarán el estado **protegido**.
 
 	![Trabajos de máquina virtual](./media/site-recovery-vmware-to-azure/ASRVMWare_PGJobs.png)
 
@@ -765,12 +764,12 @@ Si un servidor de procesos está en un estado crítico, se mostrará una adverte
 
 Do Not Translate or Localize
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”). Microsoft is the not original author of the Third Party Code. The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+El software y el firmware que se ejecuta en el producto o servicio de Microsoft incorpora o está basado en material de los proyectos indicados más abajo (conjuntamente, "Código de terceros"). Microsoft is the not original author of the Third Party Code. Microsoft no es el autor original del Código de terceros. El aviso de derechos de autor original y la licencia bajo la cual Microsoft recibió el Código de terceros se exponen a continuación.
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only. This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only. Microsoft le otorga la licencia de este Código de terceros según los términos de la concesión de licencias de software de Microsoft para el producto o servicio de Microsoft.
 
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+Se puede encontrar el archivo completo en el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft se reserva todos los derechos no otorgados expresamente en este documento, ya sea por implicación, desestimación o de otro modo.
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

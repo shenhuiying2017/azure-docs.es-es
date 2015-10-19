@@ -3,7 +3,7 @@
    description="Patrón de diseño sobre cómo se pueden usar los actores de Service Fabric para modelar la aplicación que se necesita escalar, pero con el uso de recursos restringidos"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Patrón de diseño de Actores confiables: gobernanza de recursos
 Este patrón y los escenarios relacionados son fácilmente reconocibles para los desarrolladores (empresariales o de otro tipo) que tienen limitaciones de recursos locales o en la nube, que no puede escalar inmediatamente o que quieren incorporar aplicaciones de gran escala y datos en la nube.
@@ -417,4 +417,4 @@ Este patrón es muy habitual en escenarios en los que los desarrolladores tienen
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Entorno de prueba de la configuración básica
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de recursos con el modelo de implementación clásica. También puede crear estos recursos con el [modelo de implementación del Administrador de recursos](virtual-machines-base-configuration-test-environment-resource-manager.md).
 
-En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Azure, con máquinas virtuales creadas en la administración de servicios.
+En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Azure.
 
 Puede utilizar el entorno de prueba resultante:
 
@@ -51,7 +51,7 @@ Hay cuatro fases de configuración de la subred de la red corporativa del entorn
 3.	Configuración de APP1.
 4.	Configuración de CLIENT1.
 
-Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si no dispone de ninguna cuenta de Azure, puede registrarse para una evaluación gratuita en [Evaluación gratuita de un mes](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE]Las máquinas virtuales en Azure suponen en un costo económico constante cuando se están ejecutando. Este costo se factura en su prueba gratuita, la suscripción de MSDN o la suscripción de pago. Para obtener más información acerca de los costos de ejecutar máquinas virtuales de Azure, consulte [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/) y [Calculadora de precios de Azure](http://azure.microsoft.com/pricing/calculator/). Para reducir los costos, consulte [Reducción del costo de las máquinas virtuales del entorno de prueba en Azure](#costs).
 
@@ -59,7 +59,7 @@ Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba grat
 
 En primer lugar, cree la red virtual TestLab, que va a hospedar la subred de la red corporativa de la configuración básica.
 
-1.	En la barra de tareas del Portal de administración de Azure, haga clic en **Nuevo > Servicios de red > Red virtual > Creación personalizada**.
+1.	En la barra de tareas del [Portal de Azure](https://manage.windowsazure.com), haga clic en **Nuevo > Servicios de red > Red virtual > Creación personalizada**.
 2.	En la página Detalles de redes virtuales, escriba **TestLab** en **Nombre**.
 3.	En **Ubicación**, seleccione la región adecuada.
 4.	Haga clic en la flecha Siguiente.
@@ -131,7 +131,7 @@ A continuación, conéctese a la máquina virtual DC1.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **DC1\**[Nombre de la cuenta de administrador local]
+- Nombre: **DC1\**[nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -160,7 +160,7 @@ Una vez reiniciado DC1, vuelva a conectar la máquina virtual de DC1.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **CORP\**[Nombre de la cuenta de administrador local]
+- Nombre: **CORP\**[nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando se lo solicite un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
@@ -239,7 +239,7 @@ A continuación, compruebe que puede tener acceso a recursos compartidos de arch
 2.	En **Propiedades de CLIENT1**, haga clic en **Activo** al lado de **Configuración de seguridad mejorada de IE**.
 3.	En **Configuración de seguridad mejorada de IE**, haga clic en **Desactivar** para **Administradores** y **Usuarios** y, a continuación, haga clic en **Aceptar**.
 4.	En la pantalla Inicio, haga clic en **Internet Explorer** y, a continuación, en **Aceptar**.
-5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
+5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y después presione INTRO. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
 6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
 7.	En la barra de direcciones, escriba **\\\app1\\Files** y, a continuación, presione ENTRAR.
 8.	Debería ver una ventana de carpeta con el contenido de la carpeta compartida Archivos.
@@ -253,6 +253,8 @@ Se trata de la configuración final.
 La configuración básica de Azure ahora está lista para entornos de desarrollo y prueba de aplicaciones o para entornos de prueba adicionales, como el [entorno de nube híbrida simulado](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 
 ## Recursos adicionales
+
+[Laboratorio de pruebas de Azure](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
 
 [Entornos de prueba de nube híbrida](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
@@ -286,4 +288,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

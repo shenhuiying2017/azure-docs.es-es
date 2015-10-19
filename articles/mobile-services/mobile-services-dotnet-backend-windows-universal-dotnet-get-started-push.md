@@ -23,8 +23,6 @@
 ##Información general
 Este tema muestra cómo usar Servicios móviles de Azure con un back-end de .NET para enviar notificaciones de inserción a una aplicación universal para Windows. Aprenderá a habilitar las notificaciones de inserción con los Centros de notificaciones de Azure en un proyecto de aplicación universal para Windows. Cuando termine, el servicio móvil enviará una notificación de inserción desde el back-end de .NET a todas las aplicaciones de la Tienda Windows y de la Tienda de Windows Phone, siempre que se inserte un registro en la tabla TodoList. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
 
->[AZURE.NOTE]Este tema muestra cómo usar las herramientas de Visual Studio Professional 2013 Update 3 para agregar la compatibilidad con las notificaciones de inserción de Servicios móviles para una aplicación universal para Windows. Se pueden seguir estos mismos pasos para agregar notificaciones de inserción de Servicios móviles a una aplicación de la Tienda Windows o de la Tienda de Windows Phone 8.1. Para agregar notificaciones de inserción a una aplicación de Windows Phone 8 o Windows Phone Silverlight 8.1, consulte esta versión de [Introducción a las notificaciones de inserción en Servicios móviles](mobile-services-dotnet-backend-windows-phone-get-started-push.md).
-
 Para completar este tutorial, necesitará lo siguiente:
 
 * Una [cuenta Microsoft Store activa](http://go.microsoft.com/fwlink/p/?LinkId=280045).
@@ -38,9 +36,9 @@ Para completar este tutorial, necesitará lo siguiente:
  
 &nbsp;&nbsp;7. Abra el archivo de código App.xaml.cs compartido y observe que se ha agregado una llamada al nuevo método **UploadChannel** en el controlador de eventos **OnLaunched**. Así se garantiza que se intentará registrar el dispositivo siempre que se inicie la aplicación.
 
-&nbsp;&nbsp;8. Repita los pasos anteriores para agregar las notificaciones de inserción al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra a **UploadChannel** y el contenedor condicional `#if...#endif` restante. Ahora los dos proyectos pueden compartir una misma llamada a **UploadChannel**.
+&nbsp;&nbsp;8. Repita los pasos anteriores para agregar las notificaciones push al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra a **UploadChannel** y el contenedor condicional `#if...#endif` restante. Ahora los dos proyectos pueden compartir una misma llamada a **UploadChannel**.
 
-> [AZURE.NOTE]Si quiere simplificar el código generado, unifique las definiciones [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) del contenedor `#if...#endif` en una única definición sin contenedor, que deben usar las dos versiones de la aplicación.
+> [AZURE.NOTE]Si quiere simplificar el código generado, unifique las definiciones de [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) ajustadas `#if...#endif` en una única definición sin ajustar que usen las dos versiones de la aplicación.
 
 Tras habilitar las notificaciones de inserción en la aplicación, actualice el servicio móvil para enviarlas.
 
@@ -68,7 +66,7 @@ Los pasos pendientes de esta sección son opcionales. Permiten probar la aplicac
 		"http://localhost:4584"
 	);
 
-&nbsp;&nbsp;Con esta clase [MobileServiceClient], la aplicación conectará con el servicio local en lugar de con la versión que se hospeda en Azure. Para volver y ejecutar la aplicación con el servicio móvil que se hospeda en Azure, cambie las definiciones [MobileServiceClient] por las originales.
+&nbsp;&nbsp;Con esta clase [MobileServiceClient], la aplicación se conectará al servicio local y no a la versión que se hospeda en Azure. Para volver y ejecutar la aplicación con el servicio móvil que se hospeda en Azure, cambie las definiciones [MobileServiceClient] por las originales.
 
 ##<a id="test"></a> Prueba de las notificaciones push en su aplicación
 
@@ -109,4 +107,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Uso de un cliente .NET para Servicios móviles de Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

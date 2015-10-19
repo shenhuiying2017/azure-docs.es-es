@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/02/2015"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -83,6 +83,8 @@ Para obtener información acerca del uso de una plantilla para la implementació
 
 Para obtener instrucciones sobre cómo estructurar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
+Para obtener instrucciones sobre cómo implementar la solución en diferentes entornos, vea [Entornos de desarrollo y pruebas en Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+
 ## Etiquetas
 
 Administrador de recursos proporciona una característica de etiquetado que permite clasificar los recursos de acuerdo con los requisitos de administración o facturación. Es recomendable usar etiquetas cuando se tiene un conjunto complejo de grupos de recursos y de recursos, y se necesitan visualizar estos activos de la manera más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento.
@@ -103,7 +105,7 @@ Para obtener ejemplos de configuración de directivas de acceso, consulte [Admin
 
 También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-Para conocer las prácticas recomendadas, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
+Para conocer las prácticas recomendadas, vea [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
 
 ## Capa de administración coherente
 
@@ -115,18 +117,18 @@ Para obtener información sobre CLI de Azure, consulte [Uso de la CLI de Azure p
 
 Para obtener información acerca de la API de REST, consulte [Referencia de la API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-Para obtener información sobre cómo usar el portal de vista previa, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
+Para obtener información sobre cómo usar el portal de vista previa, vea [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
 
 
 ## Pasos siguientes
 
-- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas](./resource-group-authoring-templates.md).
-- Para implementar la plantilla que creó, consulte [Implementación de plantillas](azure-portal/resource-group-template-deploy.md).
-- Para comprender las funciones que puede usar en una plantilla, consulte [Funciones de plantillas](./resource-group-template-functions.md)
-- Para obtener instrucciones sobre cómo diseñar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
+- Para obtener información sobre cómo crear plantillas, vea [Creación de plantillas](./resource-group-authoring-templates.md).
+- Para implementar la plantilla que creó, vea [Implementación de plantillas](azure-portal/resource-group-template-deploy.md).
+- Para comprender las funciones que puede usar en una plantilla, vea [Funciones de plantillas](./resource-group-template-functions.md)
+- Para obtener instrucciones sobre cómo diseñar las plantillas, vea [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
 
 La siguiente es una demostración de esta introducción.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

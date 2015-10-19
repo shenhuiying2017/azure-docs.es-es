@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="10/01/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -34,7 +34,7 @@ Comencemos.
 
 ## Permitir multisitio
 
-Primero necesita habilitar el multisitio mediante el archivo `wp-config.php` con la constante **WP\\\_ALLOW\\\_MULTISITE**. Hay dos métodos para editar los archivos de aplicaciones web: el primero es a través de FTP y el segundo mediante Git. Si no está familiarizado con la configuración de alguno de estos métodos, consulte los siguientes tutoriales:
+Primero necesita habilitar el multisitio mediante el archivo `wp-config.php` con la constante **WP\\_ALLOW\\_MULTISITE**. Hay dos métodos para editar los archivos de aplicaciones web: el primero es a través de FTP y el segundo mediante Git. Si no está familiarizado con la configuración de alguno de estos métodos, consulte los siguientes tutoriales:
 
 * [Sitio web PHP con MySQL y FTP][website-w-mysql-and-ftp-ftp-setup]
 
@@ -154,4 +154,4 @@ Aplicaciones web de Azure permite agregar un número ilimitado de dominios a un 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Movimiento de datos hacia y desde Oracle | Factoría de datos de Azure"
-	description="Obtenga información acerca de cómo mover los datos hacia y desde la base de datos de Oracle local mediante Factoría de datos de Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Movimiento de datos desde Oracle | Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo mover los datos hacia y desde la base de datos de Oracle local mediante Factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# Movimiento de datos a Oracle local mediante Factoría de datos de Azure 
+# Movimiento de datos desde Oracle local mediante Factoría de datos de Azure 
 
 En este artículo se describe cómo se puede usar la actividad de copia de la Factoría de datos para mover datos de Oracle a otro almacén de datos. Este artículo se basa en el artículo sobre [actividades de movimiento de datos](data-factory-data-movement-activities.md) que presenta una introducción general del movimiento de datos con la actividad de copia y las combinaciones del almacén de datos admitidas.
 
@@ -177,7 +177,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 	        "typeProperties": {
 	          "source": {
 	            "type": "OracleSource",
-	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -274,4 +274,4 @@ XML | String
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

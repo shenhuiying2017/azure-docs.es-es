@@ -19,7 +19,7 @@
 
 # Incorporación de Servicios móviles a una aplicación existente
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ##Información general
 
@@ -193,4 +193,4 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 [sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 # Arquitectura de referencia: procesado de eventos en tiempo real con Análisis de transmisiones de Microsoft Azure
@@ -50,7 +50,7 @@ Microsoft Azure proporciona un catálogo muy amplio de tecnologías de análisis
 
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -62,4 +62,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

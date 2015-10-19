@@ -58,7 +58,7 @@ No hay ningún límite en el número de subredes que se pueden usar en una red v
 
 ### ¿Hay alguna restricción en el uso de direcciones IP dentro de estas subredes?
 
-Azure reserva algunas direcciones IP dentro de cada subred. La primera y la última dirección IP de las subredes están reservadas para la conformidad con el protocolo, junto con otras dos direcciones usadas para los servicios de Azure.
+Azure reserva algunas direcciones IP dentro de cada subred. La primera y la última dirección IP de las subredes están reservadas para la conformidad con el protocolo, junto con otras 3 direcciones usadas para los servicios de Azure.
 
 ### ¿Qué tamaños mínimo y máximo pueden tener las redes virtuales y las subredes?
 
@@ -221,7 +221,8 @@ Solo se admiten servicios de proceso en las redes virtuales. Los servicios de pr
 
 No. No se puede implementar Aplicación web de Azure en una red virtual. Sin embargo, Aplicaciones web puede conectarse con seguridad y tener acceso a recursos de la red virtual de Azure si ha realizado la configuración de la conexión de punto a sitio para la red virtual. Para obtener más información, consulte los temas siguientes:
 
-- [Integración de la red virtual con Aplicaciones web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Integración de la red virtual con Aplicaciones web](http://azure.microsoft.com/blog/
+- 014/09/15/azure-websites-virtual-network-integration/)
 
 - [Uso de la integración de la red virtual y de conexiones híbridas con Aplicaciones web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
@@ -264,4 +265,4 @@ Sí. Existen API de REST para administrar redes virtuales y la conectividad entr
 
 Sí. Puede usar herramientas de la línea de comandos y PowerShell para diferentes plataformas. Puede encontrar más información [aquí](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

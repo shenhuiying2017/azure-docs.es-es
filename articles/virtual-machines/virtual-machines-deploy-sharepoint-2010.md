@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -58,7 +58,7 @@ Las máquinas virtuales de Azure brindan a los desarrolladores la flexibilidad p
 
 ## Proceso de aprovisionamiento
 
-La biblioteca de imágenes en Azure proporciona la lista de máquinas virtuales preconfiguradas disponibles. Los usuarios pueden publicar discos duros virtuales o imágenes ISO de SharePoint Server, SQL Server, Windows Server y otros en la biblioteca de imágenes. Para simplificar la creación de máquinas virtuales, las imágenes base se crean y publican en la biblioteca. Los usuarios autorizados pueden utilizar estas imágenes para generar la máquina virtual deseada. Para obtener más información, vaya a [Creación de una máquina virtual que ejecuta Windows en el Portal de vista previa de Azure](virtual-machines-windows-tutorial.md). La ilustración 1 muestra los pasos básicos para crear una máquina virtual mediante el portal de Azure.
+La biblioteca de imágenes en Azure proporciona la lista de máquinas virtuales preconfiguradas disponibles. Los usuarios pueden publicar discos duros virtuales o imágenes ISO de SharePoint Server, SQL Server, Windows Server y otros en la biblioteca de imágenes. Para simplificar la creación de máquinas virtuales, las imágenes base se crean y publican en la biblioteca. Los usuarios autorizados pueden utilizar estas imágenes para generar la máquina virtual deseada. Para obtener más información, vaya a [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](virtual-machines-windows-tutorial-classic-portal.md). La ilustración 1 muestra los pasos básicos para crear una máquina virtual mediante el portal de Azure.
 
 ![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
 
@@ -222,7 +222,7 @@ Para escalar horizontalmente la implementación de componentes de BI, se debe in
 Siga estos pasos para escalar horizontalmente un entorno de BI en Azure:
 
 1. Aprovisionamiento:
-	- Aprovisione una conexión VPN entre la instalación local y Azure a través de Red virtual de Azure. Para obtener más información, consulte [Información general sobre redes virtuales](http://msdn.microsoft.com/library/jj156007.aspx).
+	- Aprovisione una conexión VPN entre la instalación local y Azure a través de Red virtual de Azure. Para obtener más información, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 	- Use el portal de Azure para aprovisionar una máquina virtual nueva a través de una imagen de archivo desde la biblioteca de imágenes. Puede cargar imágenes de carga de trabajo de BI de SharePoint Server o SQL Server en la biblioteca de imágenes y cualquier usuario autorizado puede elegir esas máquinas virtuales de componentes de BI para crear el entorno de escalamiento horizontal.
 2. Instalación: 
 	- Si su organización no tiene imágenes prediseñadas de componentes de BI de SharePoint Server o SQL Server, instale SharePoint Server y SQL Server en las máquinas virtuales a través de la conexión de Escritorio remoto.
@@ -261,7 +261,7 @@ Los siguientes pasos muestran cómo crear un entorno de granjas de SharePoint pe
 	- Configure SQL Server en la máquina virtual. Para obtener más información, vaya a [Instalar SQL Server mediante SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 	- Una la máquina virtual al dominio de Active Directory recién creado.
 3. Implemente una granja multiservidor de SharePoint:
-	- Cree una red virtual. Para obtener más información, vaya a [Información general de la red virtual](http://msdn.microsoft.com/library/jj156007.aspx).
+	- Cree una red virtual. Para obtener más información, consulte [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 	- Cuando implementa las máquinas virtuales de SharePoint, necesita subredes para SharePoint Server para que las direcciones de DNS en el cuadro de Active Directory local estén disponibles durante el aprovisionamiento.
 	- Use el portal de Azure para crear una máquina virtual.
 	- Instale SharePoint Server en esta máquina virtual y genere una imagen reutilizable. Para obtener más información acerca de la instalación de SharePoint Server, vaya a [Instalación de SharePoint Server 2010 mediante Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) o [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/).
@@ -287,4 +287,4 @@ La correcta implementación de SharePoint Server en Máquinas virtuales de Azure
 
 [Probar la vista previa de TI de SharePoint Server 2016 en Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

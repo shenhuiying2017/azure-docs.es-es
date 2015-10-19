@@ -13,23 +13,23 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="cherylmc"/>
 
 # Creación y modificación de la configuración de enrutamiento de ExpressRoute
 
 Este artículo le guiará por los pasos necesarios para crear y administrar la configuración de enrutamiento para un circuito ExpressRoute con los cmdlets de PowerShell y el modelo clásico de implementación. Los siguientes pasos también le mostrarán cómo comprobar el estado, actualizar, o eliminar y desaprovisionar las configuraciones entre pares para un circuito ExpressRoute.
 
->[AZURE.IMPORTANT]Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+>[AZURE.IMPORTANT]Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulte [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 
 ## Requisitos previos de configuración
 
 - Necesitará la versión más reciente de los cmdlets de Azure PowerShell. Puede descargar el módulo de PowerShell más reciente desde la sección de PowerShell en la [página de descargas de Azure](http://azure.microsoft.com/downloads). Siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener una orientación paso a paso sobre cómo configurar el equipo para usar los módulos de Azure PowerShell. 
 - Asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
-- Tiene que tener un circuito ExpressRoute activo. Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite el circuito a través del proveedor de conectividad antes de seguir con las instrucciones a continuación. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los cmdlets que se describen a continuación.
+- Tiene que tener un circuito ExpressRoute activo. Siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite el circuito mediante el proveedor de conectividad antes de continuar. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los cmdlets que se describen a continuación.
 
->[AZURE.IMPORTANT]Estas instrucciones se aplican solo a circuitos creados con proveedores de servicios que ofrece servicios de conectividad de capa 2. Si utiliza un proveedor de servicios que ofrece servicios administrados de nivel 3 (normalmente IPVPN), el mismo proveedor de conectividad configurará y administrará el enrutamiento. En estos casos no podrá crear ni administrar las configuraciones entre pares.
+>[AZURE.IMPORTANT]Estas instrucciones se aplican solo a circuitos creados con proveedores de servicios que ofrece servicios de conectividad de capa 2. Si usa un proveedor de servicios que ofrece servicios administrados de nivel 3 (normalmente IPVPN, como MPLS), el mismo proveedor de conectividad configurará y administrará el enrutamiento. En estos casos no podrá crear ni administrar las configuraciones entre pares.
 
 Puede configurar una, dos o las tres configuraciones entre pares (Azure privado, Azure público y Microsoft) para un circuito ExpressRoute. Puede establecer las configuraciones entre pares en cualquier orden. Pero tiene que asegurarse de que completa cada configuración entre pares de una en una.
 
@@ -258,16 +258,16 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 
 4. **Establecimiento de la configuración entre pares de Microsoft para el circuito**
 
-	Asegúrese de que tiene la siguiente información antes de continuar:
+	Asegúrese de que tiene la siguiente información antes de empezar:
 
 	- Una subred /30 para el vínculo principal. Debe ser un prefijo de IPv4 público válido que sea de su propiedad y esté registrado en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
 	- Una subred /30 para el vínculo secundario. Debe ser un prefijo de IPv4 público válido que sea de su propiedad y esté registrado en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
 	- Un identificador VLAN válido para establecer esta configuración entre pares. Asegúrese de que ninguna otra configuración entre pares en el circuito usa el mismo identificador de VLAN.
 	- Número de sistema autónomo (AS) para la configuración entre pares. Puede usar 2 bytes o 4 bytes como números AS. Debe utilizar solamente números AS públicos. El número AS tiene que ser propiedad suya.
-	- **Prefijos anunciados:** tiene que proporcionar una lista de todos los prefijos que planea anunciar en la sesión BGP. Se aceptan solo prefijos de direcciones IP públicas. Puede enviar una lista separada por comas si tiene pensado enviar un conjunto de prefijos. Estos prefijos tienen que estar registrados a su nombre en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
-	- **Cliente ASN:** si los prefijos anunciados están registrados en el número AS de configuración entre pares, puede especificar el número de AS en el que están registrados. **Esto es opcional**.
-	- **Nombre del enrutamiento del registro:** puede especificar el RIR o TIR en el que están registrados el número AS y los prefijos.
-	- Un hash MD5 si opta por utilizar uno. **Esto es opcional**.
+	- Prefijos anunciados: tiene que proporcionar una lista de todos los prefijos que planea anunciar en la sesión BGP. Se aceptan solo prefijos de direcciones IP públicas. Puede enviar una lista separada por comas si tiene pensado enviar un conjunto de prefijos. Estos prefijos tienen que estar registrados a su nombre en un Registro regional de Internet (RIR) o un Registro de enrutamiento de Internet (IRR).
+	- Cliente ASN: si los prefijos anunciados están registrados en el número AS de configuración entre pares, puede especificar el número de AS en el que están registrados. **Esto es opcional**.
+	- Nombre del enrutamiento del Registro: puede especificar el RIR o TIR en el que están registrados el número AS y los prefijos.
+	- Un hash MD5 si opta por usar uno. **Esto es opcional.**
 	
 	Puede ejecutar el siguiente cmdlet para establecer la configuración entre pares de Microsoft para el circuito.
 
@@ -308,6 +308,8 @@ Puede quitar el establecimiento de configuración entre pares ejecutando el sigu
 
 ## Pasos siguientes
 
-Para obtener más información acerca de la configuración entre pares de circuito, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md)
+-  A continuación, [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
+-  Para obtener más información sobre los flujos de trabajo, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
+-  Para obtener más información sobre el emparejamiento de circuitos, consulte [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

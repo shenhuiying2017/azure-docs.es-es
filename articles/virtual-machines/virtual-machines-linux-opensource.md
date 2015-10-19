@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Informática de código abierto y Linux en Azure"
-	description="En este tema se incluye de informática de código abierto y Linux en Azure, como el uso básico de Linux, algunos conceptos fundamentales acerca de cómo ejecutar o cargar imágenes de Linux en Azure y otros contenidos sobre tecnologías concretas y optimizaciones."
+	pageTitle="Linux y computación de código abierto en Azure | Microsoft Azure"
+	description="Incluye artículos de Linux y computación de código abierto en Azure, como el uso básico de Linux, algunos conceptos fundamentales sobre cómo ejecutar o cargar imágenes de Linux en Azure y otros contenidos sobre tecnologías concretas y optimizaciones."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,6 +22,8 @@
 # Informática de código abierto y Linux en Azure
 
 El objeto de este documento es reunir en un solo lugar todos los temas que Microsoft y sus partners han escrito sobre la ejecución de máquinas virtuales basadas en Linux, así como otros entornos y aplicaciones informáticas de código abierto en Microsoft Azure. Dado que Azure y el mundo de la informática de código abierto son destinos muy cambiantes, es prácticamente seguro que este documento no esté actualizado, *a pesar de* que hacemos todo lo posible para seguir agregando nuevos temas y eliminar los desactualizados. Si hemos omitido alguno, comuníquenoslo en los comentarios o envíe una solicitud de extracción a nuestro [Repositorio de Github](https://github.com/Azure/azure-content/).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se enumeran temas con independencia del modelo de implementación.
 
 ## Notas generales
 Las secciones se desglosan a la derecha de esta página. (Los vínculos pueden aparecer en más de una sección, dado que los temas pueden tratar sobre más de un concepto, distribución o tecnología). Además, hay varios temas que describen diversas opciones de Linux, repositorios de imágenes, casos prácticos y temas de procedimientos para cargar sus propias imágenes personalizadas:
@@ -244,7 +247,7 @@ La autenticación y el cifrado son aspectos cruciales del desarrollo de software
 
 Ejecute cargas de trabajo de HPC en clústeres de VM de Linux creados con herramientas de código abierto o con Microsoft HPC Pack.
 
-1.	[Plantilla de inicio rápido: Establecimiento de un clúster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) (y [una entrada de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
+1.	[Plantilla de inicio rápido: establecimiento de un clúster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) (y [una entrada de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
 2.	[Plantilla de inicio rápido: Establecimiento de un clúster Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
 3.	[Plantilla de inicio rápido: Crear un clúster de HPC con nodos de proceso de Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
 4.	[Tutorial: Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](virtual-machines-linux-cluster-hpcpack.md)
@@ -307,4 +310,4 @@ Esta sección comienza con una entrada de blog que contiene una serie de vídeos
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

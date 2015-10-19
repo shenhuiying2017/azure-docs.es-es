@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 #  Configuración de la protección con un único servidor VMM
@@ -100,4 +100,4 @@ En caso de desastre, las cargas de trabajo pueden recuperarse mediante los sigui
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

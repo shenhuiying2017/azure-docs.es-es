@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="08/21/2015"
+   	ms.date="10/05/2015"
    	ms.author="nitinme"/>
 
 # Tutorial de Hadoop: Introducción al uso de Hadoop con Hive en HDInsight en Linux
@@ -37,7 +37,7 @@ Antes de empezar este tutorial de Linux para Hadoop, debe contar con lo siguient
 
     > [AZURE.NOTE]En los pasos descritos en este documento se usa SSH para conectarse al clúster de HDInsight, ya que SSH está disponible para todos los sistemas operativos de cliente. Para otros métodos de conexión al clúster de HDInsight, como el uso de las herramientas de HDInsight para Visual Studio o las API de REST, vea los vínculos de Hive, Pig y MapReduce en la sección [Pasos](#nextsteps) de este documento.
     
-- **Claves de Shell seguro (SSH)** (opcional): puede proteger la cuenta de SSH usada para conectarse al clúster mediante una contraseña o una clave pública. Usar una clave es el método recomendado, puesto que es más seguro. Sin embargo, requiere configuración adicional. Para obtener instrucciones sobre cómo crear y usar claves SSH con HDInsight, consulte los siguientes artículos:
+- **Claves de Shell seguro (SSH)** (opcional): puede proteger la cuenta de SSH usada para conectarse al clúster mediante una contraseña o una clave pública. El uso de una contraseña le permite comenzar rápidamente, y debe usar esta opción si desea aprovisionar un clúster y ejecutar algunos trabajos de prueba rápidamente. El uso de una clave es un método más seguro, sin embargo, requiere configuración adicional. Puede ser conveniente usar este enfoque al aprovisionar un clúster en producción. En este artículo, se usa el enfoque de contraseña. Para obtener instrucciones sobre cómo crear y usar claves SSH con HDInsight, consulte los siguientes artículos:
 
 	-  Desde un equipo con Linux: [Utilización de SSH con HDInsight basado en Linux (Hadoop) desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
     
@@ -66,11 +66,11 @@ Utilice los pasos siguientes para crear un clúster nuevo:
 
 	> [AZURE.NOTE]Esta entrada se establecerá de manera predeterminada en uno de sus grupos de recursos existentes, si hay alguno disponible.
 
-6. Haga clic en **Credenciales** y luego escriba una contraseña para el usuario administrador. También debe especificar un **Nombre de usuario de SSH** y una **CONTRASEÑA** o una **CLAVE PÚBLICA**, que se usarán para autenticar al usuario de SSH. Es recomendable usar una clave pública. Haga clic en **Seleccionar** en la parte inferior para guardar la configuración de las credenciales.
+6. Haga clic en **Credenciales** y luego escriba una contraseña para el usuario administrador. También debe especificar un **nombre de usuario de SSH**. En **Tipo de autenticación SSH**, haga clic en **CONTRASEÑA** y especifique una contraseña para el usuario de SSH. Haga clic en **Seleccionar** en la parte inferior para guardar la configuración de las credenciales.
 
 	![Proporcione las credenciales del clúster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Proporcione las credenciales del clúster")
 
-    > [AZURE.NOTE]SSH sirve para tener acceso remoto a un clúster de HDInsight mediante una línea de comandos. El nombre de usuario y la contraseña o la clave pública que se use aquí se usará al conectarse al clúster a través de SSH. Además, el nombre de usuario SSH debe ser único, ya que crea una cuenta de usuario en todos los nodos del clúster de HDInsight. A continuación se indican algunos de los nombres de cuenta reservados para su uso en los servicios que se ejecutan en el clúster y no pueden usarse como nombre de usuario SSH:
+    > [AZURE.NOTE]SSH sirve para tener acceso remoto a un clúster de HDInsight mediante una línea de comandos. El nombre de usuario y la contraseña que usa aquí se emplean al conectarse al clúster a través de SSH. Además, el nombre de usuario SSH tiene que ser único, ya que crea una cuenta de usuario en todos los nodos del clúster de HDInsight. A continuación se indican algunos de los nombres de cuenta reservados para su uso en los servicios que se ejecutan en el clúster y no pueden usarse como nombre de usuario SSH:
     >
     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
@@ -282,4 +282,4 @@ Si desea información sobre cómo crear o administrar un clúster de HDInsight, 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Uso de Hive de Hadoop y SSH en HDInsight | Microsoft Azure"
-	description="Aprenda a usar SSH para conectarse a un clúster de Hadoop en HDInsight y, a continuación, envíe interactivamente consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Aprenda a usar SSH para conectarse a un clúster de Hadoop en HDInsight y, a continuación, envíe interactivamente consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #Uso de Hive con Hadoop en HDInsight con SSH
 
@@ -23,7 +23,7 @@
 
 En este artículo, aprenderá a usar Secure Shell (SSH) para conectarse a un clúster de Hadoop en HDInsight de Azure y, a continuación, envíe de manera interactiva consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive.
 
-> [AZURE.NOTE]Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero no conoce HDInsight, consulte [Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.IMPORTANT]Si bien el comando de Hive está disponible en los clústeres de HDInsight basados en Linux, considere la posibilidad de usar Beeline. Beeline es un cliente más reciente para trabajar con Hive y se incluye con el clúster de HDInsight. Para obtener más información sobre su uso, consulte [Uso de Hive con Hadoop en HDInsight con Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
 ##<a id="prereq"></a>Requisitos previos
 
@@ -147,4 +147,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

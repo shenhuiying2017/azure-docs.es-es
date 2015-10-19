@@ -3,7 +3,7 @@
    description="Patrón de diseño sobre cómo usar Actores confiables como infraestructura de almacenamiento en memoria caché de aplicaciones basadas en web"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Patrón de diseño de Actores confiables: memoria caché inteligente
 La combinación de una capa web, una capa de almacenamiento en memoria caché, una capa de almacenamiento y, ocasionalmente, una capa de trabajador son prácticamente las partes estándares de las aplicaciones actuales. La capa de almacenamiento en memoria caché normalmente es esencial para el rendimiento y puede, de hecho, constar de varias capas ella misma. Muchas de las memorias caché son pares de clave y valor simples, mientras que otros sistemas como [Redis](http://redis.io), que se usan como memorias caché, ofrecen una semántica más enriquecida. Aun así, cualquier capa de almacenamiento en memoria caché especial tendrá una semántica limitada y, lo que es más importante, es otra capa más que se debe administrar. ¿Y si en su lugar los objetos solo mantuvieran el estado en variables locales y a esos objetos se les pudiera hacer una instantánea o se pudieran almacenar de forma persistente en un almacén duradero automáticamente? Además, las colecciones enriquecidas, como las listas, los conjuntos ordenados, las colas y cualquier otro tipo personalizado para este tema se modelan simplemente como métodos y variables de miembro.
@@ -302,4 +302,4 @@ Principalmente, la memoria caché inteligente ofrece:
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

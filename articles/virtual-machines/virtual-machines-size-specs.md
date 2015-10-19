@@ -1,5 +1,5 @@
 <properties
- pageTitle="Tamaños de máquina virtual"
+ pageTitle="Tamaños de máquina virtual | Microsoft Azure"
  description="Enumera los distintos tamaños de máquinas virtuales y sus capacidades."
  services="virtual-machines"
  documentationCenter=""
@@ -49,7 +49,7 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 *   Seleccione una máquina virtual que tenga cuatro u ocho núcleos de CPU al utilizar SQL Server Enterprise Edition.
 
-*   Puede que algunos de los hosts físicos de los centros de datos de Azure no admitan tamaños de máquinas virtuales grandes, como A5 – A11. En consecuencia, puede ver el mensaje de error **No se pudo configurar la máquina virtual <machine name>** o **No se pudo crear la máquina virtual <machine name>** al cambiar el tamaño de una máquina virtual existente a un nuevo tamaño, al crear una nueva máquina virtual en una red virtual creada antes de 16 de abril de 2013 o al agregar una nueva máquina virtual a un servicio en la nube existente. Consulte el tema [Error: "No se pudo configurar la máquina virtual"](https://social.msdn.microsoft.com/Forums/es-ES/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) en el foro de soporte técnico para ver una lista de soluciones alternativas para cada escenario de implementación.
+*   Puede que algunos de los hosts físicos de los centros de datos de Azure no admitan tamaños de máquinas virtuales grandes, como A5 – A11. En consecuencia, puede ver el mensaje de error **No se pudo configurar la máquina virtual <machine name>** o **No se pudo crear la máquina virtual <machine name>** al cambiar el tamaño de una máquina virtual existente a un nuevo tamaño, al crear una nueva máquina virtual en una red virtual creada antes de 16 de abril de 2013 o al agregar una nueva máquina virtual a un servicio en la nube existente. Consulte el tema [Error: "No se pudo configurar la máquina virtual"](https://social.msdn.microsoft.com/Forums/es-es/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) en el foro de soporte técnico para ver una lista de soluciones alternativas para cada escenario de implementación.
 
 *   Los tamaños de máquina virtual A8/A10 y A9/A11 tienen las mismas capacidades. Las instancias de máquina virtual A8 y A9 incluyen otro adaptador de red que se conecta a una red de acceso de memoria directa remota (RDMA) para una rápida comunicación entre máquinas virtuales. Las instancias A8 y A9 están diseñadas para aplicaciones informáticas de alto rendimiento que requieren una comunicación constante y de baja latencia entre nodos durante la ejecución, por ejemplo, aplicaciones que utilizan la interfaz de paso de mensajes (MPI). Las instancias de máquina virtual A10 y A11 no incluyen el adaptador de red adicional. Las instancias A10 y A11 están diseñadas para aplicaciones informáticas de alto rendimiento que no requieren la comunicación constante y de baja latencia entre nodos, también conocidas como aplicaciones paramétricas o embarazosamente paralelas.
 
@@ -85,11 +85,11 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
 |Tamaño: Portal de Azure\\cmdlets y API|Núcleos de CPU|Memoria|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|
-|A0\\extra pequeño|1|768 MB|<p>SO = 1023 GB</p><p>Temporal = 20 GB</p>|1|1x500|
-|A1\\pequeño|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporal = 70 GB</p>|2|2 x 500|
-|A2\\mediano|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporal = 135 GB</p>|4|4x500|
-|A3\\grande|4|7 GB|<p>SO = 1023 GB</p><p>Temporal = 285 GB</p>|8|8x500|
-|A4\\extra grande|8|14 GB|<p>SO = 1023 GB</p><p>Temporal = 605 GB</p>|16|16x500|
+|A0\\ExtraSmall|1|768 MB|<p>SO = 1023 GB</p><p>Temporal = 20 GB</p>|1|1x500|
+|A1\\Small|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporal = 70 GB</p>|2|2 x 500|
+|A2\\Medium|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporal = 135 GB</p>|4|4x500|
+|A3\\Large|4|7 GB|<p>SO = 1023 GB</p><p>Temporal = 285 GB</p>|8|8x500|
+|A4\\ExtraLarge|8|14 GB|<p>SO = 1023 GB</p><p>Temporal = 605 GB</p>|16|16x500|
 |A5\\igual|2|14 GB|<p>SO = 1023 GB</p><p>Temporal = 135 GB</p>|4|4x500|
 |A6\\igual|4|28 GB|<p>SO = 1023 GB</p><p>Temporal = 285 GB</p>|8|8x500|
 |A7\\igual|8|56 GB|<p>SO = 1023 GB</p><p>Temporal = 605 GB</p>|16|16x500|
@@ -167,4 +167,4 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen.
 
 [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

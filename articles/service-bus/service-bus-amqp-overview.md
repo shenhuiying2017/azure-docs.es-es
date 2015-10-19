@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Información general sobre AMQP para el Bus de servicio | Microsoft Azure"
-	description="Obtenga información acerca de cómo utilizar Advanced Message Queuing Protocol (AMQP) 1.0 en Azure."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
+	pageTitle="Información general sobre AMQP para el Bus de servicio | Microsoft Azure" 
+	description="Obtenga información acerca de cómo utilizar Advanced Message Queuing Protocol (AMQP) 1.0 en Azure." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/05/2015" 
 	ms.author="sethm"/>
 
 
@@ -81,21 +81,28 @@ En este momento las siguientes bibliotecas de cliente están trabajando con el B
 
 **Figura 2: Tabla de bibliotecas de cliente de AMQP 1.0**
 
-Para obtener más información sobre cómo obtener y usar estas bibliotecas con el Bus de servicio, consulte la [Guía del desarrollador de AMQP del Bus de servicio][]. Consulte a continuación la sección "Referencias" para más información.
-
 ## Resumen
 
 *    AMQP 1.0 es un protocolo de mensajes confiable y abierto que se puede utilizar para crear aplicaciones híbridas, entre plataformas. AMQP 1.0 es un estándar de OASIS.
 *    La compatibilidad con AMQP 1.0 ahora está disponible en el Bus de servicio de Azure, así como en el Bus de servicio para Windows Server (Bus de servicio 1.1). El precio es el mismo que el de los protocolos existentes.
 
-## Referencias
+## Pasos siguientes
 
-*    [Uso de AMQP 1.0 con la API .NET del bus de servicio](http://aka.ms/lym3vk)
-*    [Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0](http://aka.ms/ll1fm3)
-*    [Guía para desarrolladores sobre AMQP del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx)
-*    [Especificación de la versión 1.0 del Protocolo de colas de mensajes avanzados de OASIS (AMQP)](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
+¿Listo para obtener más información? Vaya a los siguientes vínculos:
 
-[0]: ./media/service-bus-amqp-overview/Example1.png
-[Guía del desarrollador de AMQP del Bus de servicio]: http://msdn.microsoft.com/library/jj841071.aspx
+- [Uso del Bus de servicio desde .NET con AMQP]
+- [Uso del Bus de servicio desde Java con AMQP]
+- [Uso del Bus de servicio desde Python con AMQP]
+- [Uso del Bus de servicio desde PHP con AMQP]
+- [Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure]
+- [AMQP de Bus de servicio para Windows Server]
 
-<!---HONumber=August15_HO9-->
+[0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
+[Uso del Bus de servicio desde .NET con AMQP]: service-bus-amqp-dotnet.md
+[Uso del Bus de servicio desde Java con AMQP]: service-bus-amqp-java.md
+[Uso del Bus de servicio desde Python con AMQP]: service-bus-amqp-python.md
+[Uso del Bus de servicio desde PHP con AMQP]: service-bus-amqp-php.md
+[Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure]: service-bus-amqp-apache.md
+[AMQP de Bus de servicio para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+
+<!---HONumber=Oct15_HO2-->

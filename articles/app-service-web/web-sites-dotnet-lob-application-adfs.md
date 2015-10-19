@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Crear una aplicación web de .NET MVC en Servicio de aplicaciones de Azure con autenticación de AD FS
@@ -61,9 +61,9 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 
 	> [AZURE.NOTE]Las instrucciones de [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) muestran cómo configurar la aplicación con Azure Active Directory, pero en este tutorial lo configurará con AD FS, por lo que, en su lugar, debe seguir los pasos siguientes.
 
-3.	Abra la solución y, a continuación, Controllers\AccountController.cs en el **Explorador de soluciones**.
+3.	Abra la solución y, a continuación, Controllers\\AccountController.cs en el **Explorador de soluciones**.
 
-	Verá que el código simplemente emite un desafío de autenticación para autenticar al usuario con WS-Federation. Toda la autenticación se configura en App_Start\Startup.Auth.cs.
+	Verá que el código simplemente emite un desafío de autenticación para autenticar al usuario con WS-Federation. Toda la autenticación se configura en App\_Start\\Startup.Auth.cs.
 
 4.  Abra App_Start\Startup.Auth.cs. En el método `ConfigureAuth`, observe la línea:
 
@@ -82,14 +82,14 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 5.	En App_Start\Startup.Auth.cs, cambie las definiciones de cadena estática como se resalta a continuación:
 
 	<pre class="prettyprint">
-		private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-		<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-		<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-		<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-		<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-		<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-	</pre>
+<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+</pre>
 
 6.	Ahora realizará los cambios correspondientes en Web.config. Abra Web.config y modifique la configuración de la aplicación como se resalta a continuación:
 	<pre class="prettyprint">
@@ -353,4 +353,4 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

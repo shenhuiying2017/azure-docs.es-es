@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok" />
 
 
@@ -182,7 +182,7 @@ Puede ajustar los siguientes valores de nivel superior para un trabajo de Stream
 - **Iniciar salida**: use esta opción para especificar cuándo comenzará el trabajo a producir la salida resultante. Si la consulta asociada incluye una ventana, el trabajo comenzará a seleccionar entradas de los orígenes de entrada al principio de la duración de ventana necesaria con el fin de producir el primer evento de salida en el tiempo especificado. Hay dos opciones: **Hora de inicio del trabajo** y **Personalizada**. El valor predeterminado es la **Hora de inicio del trabajo**. Para la opción **Personalizada**, debe especificar una fecha y una hora. Esta configuración es útil para especificar cuántos datos históricos de los orígenes de entrada se consumirán o para seleccionar la ingesta de datos a partir de una hora específica, por ejemplo, cuándo un trabajo se detuvo por última vez. 
 - **Directiva de fuera de orden**: configuración para gestionar eventos que no llegan de manera secuencial al trabajo de Análisis de transmisiones. Puede designar un umbral de tiempo para reordenar los eventos especificando una ventana de tolerancia y también determinar la acción que se realizará en eventos fuera de esta ventana: **Eliminar** o **Ajustar**. **Eliminar** quitará todos los eventos recibidos sin orden y **Ajustar** cambiará el sistema. Marca de tiempo de eventos fuera de secuencia para la marca de tiempo del evento ordenado recibido más recientemente. 
 - **Directiva de llegadas tarde** : al leer en orígenes de entrada que tienen varias particiones, y una o más particiones se retrasa o no tiene datos, el trabajo de streaming debe determinar cómo gestionar esta situación para que los eventos continúen fluyendo a través del sistema. La opción de entrada 'Máximo retraso de llegada permitido' controla ese comportamiento y se establece de forma predeterminada para esperar por los datos indefinidamente, lo que significa que las marcas de tiempo de los eventos no se alterarán, pero también que los eventos fluirán en función de la partición de entrada más lenta y dejarán de fluir si una o más particiones de entrada no tienen datos. Esto resulta útil si los datos se distribuyen uniformemente entre particiones de entrada y la coherencia de la hora entre eventos es fundamental. El usuario también puede optar por esperar solo durante un tiempo limitado; 'Máximo retraso de llegada permitido' determina el retraso tras el cual el trabajo decidirá avanzar, dejando atrás las particiones de entrada atrasadas y actuar en los eventos según la opción 'Acción en eventos con retraso', quitar los eventos o ajustar las marcas de tiempo de los eventos si llegan datos más adelante. Esto resulta útil si la latencia es decisiva y se tolera el cambio de marca de tiempo , pero es posible que la entrada no se distribuya uniformemente.
-- **Configuración regional**: use este valor para especificar la preferencia de internacionalización para el trabajo de Análisis de transmisiones. Aunque las marcas de tiempo de los datos no dependen de la configuración regional, los valores de esta opción afectan al modo en que el trabajo analizará, comparará y ordenará los datos. En la versión preliminar, solo se admite **es-ES**.
+- **Configuración regional**: use este valor para especificar la preferencia de internacionalización para el trabajo de Análisis de transmisiones. Aunque las marcas de tiempo de los datos no dependen de la configuración regional, los valores de esta opción afectan al modo en que el trabajo analizará, comparará y ordenará los datos. En la versión preliminar, solo se admite **ES-ES**.
 
 ### Estado
 
@@ -193,7 +193,7 @@ El estado de los trabajos de Análisis de transmisiones se puede inspeccionar en
 
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -207,4 +207,4 @@ Ahora que está familiarizado con los conceptos básicos de Análisis de transmi
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

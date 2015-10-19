@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/29/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Compilación de la primera canalización mediante la Factoría de datos de Azure
@@ -25,7 +25,7 @@
 
 Este artículo le ayuda a comenzar a crear su primera canalización e implementarla en la Factoría de datos de Azure.
 
-> [AZURE.NOTE] Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para obtener información general detallada del servicio, vea el artículo [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
+> [AZURE.NOTE]Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para obtener información general detallada del servicio, vea el artículo [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
 
 ## Información general del tutorial
 Este tutorial le guiará por los pasos necesarios para poner en funcionamiento la primera canalización. Se pueden crear canalizaciones y especificar todos los recursos necesarios desde el principio.
@@ -145,7 +145,7 @@ Antes de comenzar el tutorial, tendrá que preparar el almacenamiento de Azure c
 	
  
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de **AzCopy**](http://aka.ms/downloadazcopy) o la [versión más reciente de vista preliminar](http://aka.ms/downloadazcopypr). Vea el artículo [Cómo usar AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre el uso de la utilidad.
+	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión más reciente de vista preliminar**. Vea el artículo [Cómo usar AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre el uso de la utilidad.
 	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
@@ -154,7 +154,7 @@ Antes de comenzar el tutorial, tendrá que preparar el almacenamiento de Azure c
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE] El comando anterior crea un contenedor denominado **script** en el almacenamiento de blobs de Azure y copia el archivo **partitionweblogs.hql** en el contenedor.
+		> [AZURE.NOTE]El comando anterior crea un contenedor denominado **script** en el almacenamiento de blobs de Azure y copia el archivo **partitionweblogs.hql** en el contenedor.
 	>
 	5. Una vez cargado correctamente el archivo, verá el siguiente resultado de AzCopy.
 	
@@ -176,4 +176,4 @@ Haga lo siguiente:
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!------HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

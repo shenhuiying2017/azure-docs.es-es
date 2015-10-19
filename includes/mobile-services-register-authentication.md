@@ -8,7 +8,7 @@
    * [Microsoft](mobile-services-how-to-register-microsoft-authentication.md)
    * [Azure Active Directory](mobile-services-how-to-register-active-directory-authentication.md). 
    
-   Anote los valores de secreto de cliente e identidad de cliente generados por el proveedor. No puede distribuir o compartir el secreto de cliente.
+    Anote los valores de secreto de cliente e identidad de cliente generados por el proveedor. No puede distribuir o compartir el secreto de cliente.
 
 3. En el portal de Azure, haga clic en **Servicios móviles** > el servicio móvil > **Identidad** > la configuración del proveedor de identidades y, a continuación, escriba el Id. de cliente y el valor de secreto de su proveedor. 
  
@@ -16,4 +16,4 @@ Ahora ha configurado la aplicación y el servicio móvil para funcionar con su p
 
 > [AZURE.IMPORTANT]Compruebe que ha establecido el URI de redirección correcto en el sitio para desarrolladores del proveedor de identidades. Como se describe en las instrucciones vinculadas para cada proveedor anterior, el URI de redirección puede ser diferente para un servicio de back-end de .NET frente a un servicio de back-end de JavaScript. Es posible que un URI de redirección configurado incorrectamente en la pantalla de inicio de sesión no se muestre correctamente y que la aplicación funcione mal de maneras inesperadas.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

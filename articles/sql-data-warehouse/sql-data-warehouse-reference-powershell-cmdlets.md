@@ -101,7 +101,7 @@ Para obtener más información de referencia, vea [Información general de refer
 
 <!--Article references-->
 [Información general de referencia de Almacenamiento de datos SQL]: sql-data-warehouse-overview-reference.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
+[How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -111,4 +111,4 @@ Para obtener más información de referencia, vea [Información general de refer
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

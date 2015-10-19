@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Información general de los Centros de eventos"
+   pageTitle="Información general de los Centros de eventos de Azure | Microsoft Azure"
    description="Introducción e información general sobre los Centros de eventos de Azure."
    services="event-hubs"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="09/30/2015"
    ms.author="sethm" />
 
 # Información general de los Centros de eventos de Azure
@@ -41,9 +41,9 @@ Las particiones retienen datos durante un tiempo de retención configurado que s
 
 ![Centros de eventos](./media/event-hubs-overview/IC759858.png)
 
-El número de particiones se especifica en el momento de la creación del Centro de eventos y debe ser entre 8 y 32. Las particiones son un mecanismo de organización de datos y están más relacionadas con el grado de paralelismo de bajada necesario para consumir las aplicaciones que con el procesamiento de los Centros de eventos. Esto hace que la elección del número de particiones en un Centro de eventos esté directamente relacionada con el número de lectores simultáneos que se espera que tengan. Tras la creación del Centro de eventos, el recuento de particiones no es modificable; debe considerar este número en función de la escala esperada a largo plazo. Puede aumentar el límite de 32 particiones si se pone en contacto con el equipo del Bus de servicio de Azure.
+El número de particiones se especifica en el momento de la creación del centro de eventos y debe ser entre 2 y 32 (el valor predeterminado es 4). Las particiones son un mecanismo de organización de datos y están más relacionadas con el grado de paralelismo de bajada necesario para consumir las aplicaciones que con el procesamiento de los Centros de eventos. Esto hace que la elección del número de particiones en un Centro de eventos esté directamente relacionada con el número de lectores simultáneos que se espera que tengan. Tras la creación del Centro de eventos, el recuento de particiones no es modificable; debe considerar este número en función de la escala esperada a largo plazo. Puede aumentar el límite de 32 particiones si se pone en contacto con el equipo del Bus de servicio de Azure.
 
-Aunque las particiones son identificables y se pueden enviar directamente a ellas, normalmente es preferible evitar el envío de datos a particiones concretas. En su lugar, puede usar construcciones de nivel superior que se presentan en las secciones [Publicador de eventos](#Event-publisher) y [Directiva del publicador](#Capacity-and-security).
+Aunque las particiones son identificables y se pueden enviar directamente a ellas, normalmente es preferible evitar el envío de datos a particiones concretas. En su lugar, puede usar construcciones de nivel superior que se presentan en las secciones [Publicador de eventos](#event-publisher) y [Directiva del publicador](#capacity-and-security).
 
 En el contexto de los Centros de eventos, los mensajes se conocen como *datos de eventos*. Los datos de eventos contienen el cuerpo del evento, un contenedor de propiedades definido por el usuario y diversos metadatos sobre el evento, como su desplazamiento en la partición y su número en el flujo de la secuencia. Las particiones se rellenan con una secuencia de datos de eventos.
 
@@ -51,7 +51,7 @@ En el contexto de los Centros de eventos, los mensajes se conocen como *datos de
 
 Cualquier entidad que envíe eventos o datos a un Centro de eventos es un *publicador de eventos*. Los publicadores de eventos pueden publicar eventos mediante HTTPS o AMQP 1.0. Los publicadores de eventos usan un token de firma de acceso compartido (SAS) para identificarse en un Centro de eventos y pueden tener una identidad única o usar un token de SAS común, según los requisitos del escenario.
 
-Para obtener más información sobre el funcionamiento con SAS, consulte [Autenticación con firma de acceso compartido en Bus de servicio](https://msdn.microsoft.com/library/dn170477.aspx).
+Para obtener más información sobre el funcionamiento con SAS, consulte [Autenticación con firma de acceso compartido en Bus de servicio](service-bus-shared-access-signature-authentication.md).
 
 ### Tareas comunes del publicador
 
@@ -59,7 +59,7 @@ En esta sección se describen tareas comunes de los publicadores de eventos.
 
 #### Adquisición de un token de SAS
 
-La firma de acceso compartido (SAS) es el mecanismo de autenticación de los Centros de eventos. El Bus de servicio ofrece directivas SAS a nivel de Centro de eventos y de espacio de nombres. Un token de SAS se genera a partir de una clave de SAS y es un hash SHA de una dirección URL, codificado en un formato concreto. Con el nombre de la clave (directiva) y el token, el Bus de servicio puede volver a generar el hash y así autenticar al remitente. Normalmente, los tokens de SAS para publicadores de eventos se crean solo con privilegios de **envío** en un Centro de eventos concreto. Este mecanismo de dirección URL del token de SAS es la base para la identificación del publicador introducida en la directiva del publicador. Para obtener más información sobre el funcionamiento con SAS, consulte [Autenticación con firma de acceso compartido en Bus de servicio](https://msdn.microsoft.com/library/dn170477.aspx).
+La firma de acceso compartido (SAS) es el mecanismo de autenticación de los Centros de eventos. El Bus de servicio ofrece directivas SAS a nivel de Centro de eventos y de espacio de nombres. Un token de SAS se genera a partir de una clave de SAS y es un hash SHA de una dirección URL, codificado en un formato concreto. Con el nombre de la clave (directiva) y el token, el Bus de servicio puede volver a generar el hash y así autenticar al remitente. Normalmente, los tokens de SAS para publicadores de eventos se crean solo con privilegios de **envío** en un Centro de eventos concreto. Este mecanismo de dirección URL del token de SAS es la base para la identificación del publicador introducida en la directiva del publicador. Para obtener más información sobre el funcionamiento con SAS, consulte [Autenticación con firma de acceso compartido en Bus de servicio](service-bus-shared-access-signature-authentication.md).
 
 #### Publicación de un evento
 
@@ -112,7 +112,7 @@ En esta sección se describen tareas comunes para los lectores o consumidores de
 
 Para consumir eventos de un Centro de eventos, un consumidor debe conectarse a una partición. Como se mencionó anteriormente, siempre se obtiene acceso a las particiones a través de un grupo de consumidores. Como parte del modelo de consumidor con particiones, solo debe estar activo un único lector a la vez en una partición dentro de un grupo de consumidores. Es una práctica habitual al conectarse directamente a particiones usar un mecanismo de concesiones para coordinar las conexiones de lector para particiones concretas. De este modo, es posible que cada partición de un grupo de consumidores solo tenga un lector activo. La administración de la posición en la secuencia de un lector es una tarea importante que se logra mediante los puntos de comprobación. Esta funcionalidad se simplifica mediante el uso de la clase [EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx) para los clientes de .NET. [EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx) es un agente de consumidor inteligente que se describe en la sección siguiente.
 
-##### Eventos de lectura
+##### Lectura de eventos
 
 Después de abrir una sesión de AMQP 1.0 y el vínculo de una partición específica, el servicio de Centros de eventos entrega los eventos al cliente de AMQP 1.0. Este mecanismo de entrega permite un mayor procesamiento y una menor latencia que los mecanismos basados en extracción como HTTP GET. Los eventos se envían al cliente, cada instancia de datos de eventos contiene metadatos importantes, como el número de secuencia y el desplazamiento que se usan para facilitar la creación de puntos de comprobación en la secuencia de eventos.
 
@@ -132,7 +132,7 @@ La capacidad de procesamiento de los Centros de eventos se controla mediante uni
 
 - Salida: hasta 2 MB por segundo.
 
-La entrada está limitada a la cantidad de capacidad que ofrece el número de unidades de procesamiento adquiridas. El envío de datos por encima de esta cantidad provoca una excepción de "cuota superada". Esta cantidad es de 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero. La salida no produce excepciones de limitación, pero está limitada a la cantidad de transferencia de datos que ofrecen las unidades de procesamiento adquiridas: 2 MB por segundo por unidad de procesamiento. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de procesamiento adquirió para el espacio de nombres en que se creó el Centro de eventos. Para obtener más unidades de procesamiento, puede ajustar la configuración en la página **Espacios de nombres**, en la pestaña **Configurar** del portal de administración de Azure. También puede cambiar esta configuración mediante las API de Azure.
+La entrada está limitada a la cantidad de capacidad que ofrece el número de unidades de procesamiento adquiridas. El envío de datos por encima de esta cantidad provoca una excepción de "cuota superada". Esta cantidad es de 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero. La salida no produce excepciones de limitación, pero está limitada a la cantidad de transferencia de datos que ofrecen las unidades de procesamiento adquiridas: 2 MB por segundo por unidad de procesamiento. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de procesamiento adquirió para el espacio de nombres en que se creó el Centro de eventos. Para obtener más unidades de procesamiento, puede ajustar la configuración en la página **Espacios de nombres**, en la pestaña **Escala** del Portal de administración de Azure. También puede cambiar esta configuración mediante las API de Azure.
 
 Aunque las particiones son un concepto de organización de datos, las unidades de procesamiento son puramente un concepto de capacidad. Las unidades de procesamiento se facturan por hora y se adquieren previamente. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres del Bus de servicio y hay un límite de cuenta de Azure de 20 unidades de procesamiento. Estas unidades de procesamiento se comparten entre todos los Centros de eventos de un espacio de nombres determinado.
 
@@ -148,11 +148,11 @@ Los Centros de eventos permiten un control granular sobre los productores de eve
 
 	//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-No tiene que crear nombres de publicador con antelación, pero deben coincidir con el token de SAS que se usa al publicar un evento, con el fin de garantizar las identidades de publicador independientes. Para obtener más información sobre SAS, consulte [Autenticación con firma de acceso compartido en Bus de servicio](https://msdn.microsoft.com/library/dn170477.aspx). Al usar directivas de publicador, el valor **PartitionKey** se establece como el nombre del publicador. Para que funcione correctamente, estos valores deben coincidir.
+No tiene que crear nombres de publicador con antelación, pero deben coincidir con el token de SAS que se usa al publicar un evento, con el fin de garantizar las identidades de publicador independientes. Para obtener más información sobre SAS, consulte [Autenticación con firma de acceso compartido en Bus de servicio](service-bus-shared-access-signature-authentication.md). Al usar directivas de publicador, el valor **PartitionKey** se establece como el nombre del publicador. Para que funcione correctamente, estos valores deben coincidir.
 
 ## Resumen
 
-Centros de eventos Azure ofrece un servicio de procesamiento de eventos de gran escala y telemetría que se puede usar para la supervisión del flujo de trabajo de usuarios y aplicaciones comunes a cualquier escala. Con la capacidad para ofrecer capacidades de publicación y suscripción con una latencia baja y a gran escala, los Centros de eventos sirven como una "vía de entrada" para los datos de gran tamaño. Con la identidad basada en el publicador y las listas de revocación, estas capacidades se extienden en escenarios comunes de Internet de las cosas. Para obtener más información sobre cómo desarrollar aplicaciones de Centros de eventos, consulte la [Guía de programación de Centros de eventos](https://msdn.microsoft.com/library/dn789972.aspx).
+Centros de eventos Azure ofrece un servicio de procesamiento de eventos de gran escala y telemetría que se puede usar para la supervisión del flujo de trabajo de usuarios y aplicaciones comunes a cualquier escala. Con la capacidad para ofrecer capacidades de publicación y suscripción con una latencia baja y a gran escala, los Centros de eventos sirven como una "vía de entrada" para los datos de gran tamaño. Con la identidad basada en el publicador y las listas de revocación, estas capacidades se extienden en escenarios comunes de Internet de las cosas. Para obtener más información sobre cómo desarrollar aplicaciones de Centros de eventos, consulte la [Guía de programación de Centros de eventos](event-hubs-programming-guide.md).
 
 ## Pasos siguientes
 
@@ -162,9 +162,9 @@ Ahora que ha aprendido conceptos sobre los Centros de eventos, puede continuar c
 - Una [aplicación de ejemplo completa que usa Centros de eventos].
 - Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
 
-[tutorial de Centros de eventos]: service-bus-event-hubs-csharp-ephcs-getstarted.md
+[tutorial de Centros de eventos]: event-hubs-csharp-ephcs-getstarted.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[solución de mensajería en cola]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
+[solución de mensajería en cola]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

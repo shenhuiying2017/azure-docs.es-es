@@ -93,17 +93,17 @@ Los módulos de PowerShell contienen cmdlets que puede usar en sus runbooks; los
 6. Se le devuelve al Portal de vista previa de Azure, al panel **Implementación personalizada**. Especifique si va a instalar el módulo en una **Cuenta de automatización nueva o existente** y el **Nombre de cuenta de automatización**. La **Ubicación de cuenta de automatización** se pasa por alto si usa una cuenta existente. 
 7. Seleccione **Grupo de recursos** y especifique un grupo de recursos existente o cree uno nuevo para el módulo.
 6. Debe seleccionar **Términos legales** y hacer clic en **Comprar**. Tenga en cuenta que, a pesar del nombre del botón, realmente no se le cobra por instalar un módulo.
-7. Haga clic en **Crear** para importar el módulo.  
+7. Haga clic en **Crear** para importar el módulo. Esto puede tardar un par de minutos, ya que cada actividad debe extraerse.  
 8. Recibirá una notificación de que se va a implementar el módulo y otra cuando se haya completado. 
 
 
 ## Solicitud de un runbook o módulo
 
-Puede enviar solicitudes a [User Voice](http://feedback.azure.com/[forum](http://social.msdn.microsoft.com/Forums/windowsazure/es-ES/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)s/246290-azure-automation). Si necesita ayuda para escribir un runbook o se plantea preguntas acerca de PowerShell, publique una pregunta en nuestro [foro](http://social.msdn.microsoft.com/Forums/windowsazure/es-ES/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+Puede enviar solicitudes a [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Si necesita ayuda para escribir un runbook o se plantea preguntas acerca de PowerShell, publique una pregunta en nuestro [foro](http://social.msdn.microsoft.com/Forums/windowsazure/es-es/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Artículos relacionados
 
 - [Creación o importación de un runbook en Automatización de Azure](automation-creating-importing-runbook.md)
 - [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

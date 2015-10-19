@@ -17,11 +17,7 @@
 	ms.author="yuaxu"/>
 
 # Uso de los Centros de notificaciones desde PHP
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 Puede acceder a todas las características de los Centros de notificaciones desde un back-end de Java, PHP o Ruby usando la interfaz REST de Centros de notificaciones tal como se describe en el tema de MSDN [API de REST de Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx).
 
@@ -261,4 +257,4 @@ Para obtener más información, consulte también el [Centro para desarrolladore
 [tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

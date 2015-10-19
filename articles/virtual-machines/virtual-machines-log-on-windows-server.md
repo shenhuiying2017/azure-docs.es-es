@@ -14,31 +14,38 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/05/2015"
 	ms.author="cynthn"/>
 
 
-# Inicie sesión en una máquina virtual de Windows creada con el modelo de implementación clásica
+# Inicie sesión en una máquina virtual de Windows mediante el Portal de Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación clásica.
 
-Usará el botón **Conectar** en el Portal de vista previa de Azure para iniciar una sesión de Escritorio remoto. En primer lugar, se conectará a la máquina virtual y, a continuación, iniciará sesión.
+
+En el Portal de Azure, usará el botón **Conectar** para iniciar una sesión de Escritorio remoto e iniciar sesión en una VM de Windows.
 
 ¿Desea conectarse a una máquina virtual Linux? Consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md).
 
-## Conexión a la máquina virtual
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de recursos con el modelo de implementación clásica.
 
-A continuación se facilita una guía detallada de los pasos de este tutorial.
+## Tutorial en vídeo
+
+A continuación se facilita una guía detallada en vídeo de los pasos de este tutorial. También se tratan los extremos y los puertos públicos y privados utilizados para conectarse a una VM de Windows en Azure.
 
 [AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
 
-1. Si no lo ha hecho todavía, inicie sesión en el [Portal de Azure](http://manage.windowsazure.com).
 
-2. Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual correspondiente.
+## Conexión a la máquina virtual
 
-3. En la barra de comandos, haga clic en **Conectar**.
+1. Inicie sesión en el [Portal de Azure](http://manage.windowsazure.com).
+
+2. Haga clic en **Máquinas virtuales** y después seleccione la máquina virtual.
+
+3. En la barra de comandos situada en la parte inferior de la página, haga clic en **Conectar**.
 
 	![Iniciar sesión en la nueva máquina virtual](./media/virtual-machines-log-on-windows-server/connectwindows.png)
+	
+> [AZURE.TIP]Si el botón Conectar no está disponible, vea las sugerencias de solución de problemas al final de este artículo.
 
 ## Iniciar sesión en la nueva máquina virtual
 
@@ -46,11 +53,11 @@ A continuación se facilita una guía detallada de los pasos de este tutorial.
 
 ## Sugerencias de solución de problemas
 
-Existen algunas acciones que se pueden intentar rápidamente en el portal:
+A continuación se indican algunas cosas que puede probar:
 
--	Si experimenta problemas con la conexión a Escritorio remoto, intente restablecer la configuración. Desde el panel de la máquina virtual, en **Vista rápida**, haga clic en **Restablecer configuración remota**.
+-	Si el botón **Conectar** está inactivo o tiene otros problemas con la conexión a Escritorio remoto, pruebe a restablecer la configuración. Desde el panel de la máquina virtual, en **Vista rápida**, haga clic en **Restablecer configuración remota**.
 -	Si experimenta problemas con la contraseña, intente restablecerla. Desde el panel de la máquina virtual, en **Vista rápida**, haga clic en **Restablecer contraseña**.
 
-Si esas sugerencias no funcionan o no son lo que necesita, vea [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
+Si esas sugerencias no funcionan o no son lo que necesita, vea [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -113,7 +113,7 @@ A continuación se indican los detalles de configuración:
 -	Servidores de bases de datos:
 	-	Imagen de máquina virtual: SQL Server 2014 RTM Enterprise en Windows Server 2012 R2.
 	-	Prefijo de nombre de host: se especifica durante la configuración inicial.
-	-	Tamaño: A5 (predeterminado) para servidores de bases de datos, A0 (predeterminado) para el testigo del recurso compartido de archivos
+	-	Tamaño: A5 (predeterminado) para servidores de bases de datos, A0 (predeterminado) para el testigo del recurso compartido de archivos (SQL0).
 	-	Nombre de cuenta de acceso de la base de datos: Se especifica durante la configuración inicial.
 	-	Contraseña de cuenta de acceso de la base de datos: Se especifica durante la configuración inicial.
 	-	Nombre de cuenta de servicio de SQL Server: sqlservice (predeterminado).
@@ -137,8 +137,8 @@ La función Granja de servidores SharePoint del Portal de vista previa de Azure 
 
 [Granja de servidores SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[SharePoint en máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

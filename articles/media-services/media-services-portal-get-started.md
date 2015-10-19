@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a la entrega de vídeo bajo demanda (VoD) mediante el Portal de Azure | Microsoft Azure"
+	pageTitle="Introducción a la entrega de contenido a petición mediante el Portal de Azure | Microsoft Azure"
 	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo bajo demanda (VoD) con Servicios multimedia de Azure mediante el Portal de Azure."
 	services="media-services"
 	documentationCenter=""
@@ -11,13 +11,14 @@
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Introducción a la entrega de vídeo bajo demanda (VoD) mediante el Portal de Azure
+# Introducción a la entrega de contenido a petición mediante el Portal de Azure
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -222,12 +223,18 @@ Se aplican algunas consideraciones:
 
 
 
-##Rutas de aprendizaje de Servicios multimedia
+##Pasos siguientes
+
+###Rutas de aprendizaje de Servicios multimedia
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### ¿Busca alguna otra cosa?
+
+Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
 ### Recursos adicionales
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servicios multimedia de Azure 101 - ¡Obtenga el vídeo en línea ahora!</a>
@@ -254,4 +261,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

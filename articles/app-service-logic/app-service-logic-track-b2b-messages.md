@@ -13,36 +13,36 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 
 # Seguimiento de mensajes B2B
 
 ## Información sobre el seguimiento B2B
-La comunicación B2B (del inglés Business-to-Business) implica el procesamiento de mensajes entre socios comerciales. Las relaciones se definen como "acuerdos entre dos socios comerciales". Una vez establecida la comunicación, hay que supervisar si la comunicación se produce según lo esperado. Al comercializar las aplicaciones de API de B2B como parte de los servicios de aplicaciones de Azure, hemos habilitado datos de seguimiento, que están también disponibles a través de la interfaz del Portal de Azure.
+La comunicación B2B (del inglés Business-to-Business) implica el procesamiento de mensajes entre socios comerciales. Las relaciones se definen como "acuerdos entre dos socios comerciales". Una vez establecida la comunicación, hay que supervisar si la comunicación se produce según lo esperado.
+
+Hemos implementado el seguimiento de mensajes para los siguientes escenarios B2B: AS2, EDIFACT y X 12.
 
 ## AS2
-Después de crear una instancia de una aplicación de API de AS2, vaya a esa instancia y acceda a la parte Seguimiento. Aquí podrá ver toda la información de seguimiento de AS2, así como filtrarla a través de las hojas de filtros mostrados.
+Después de crear una instancia de una aplicación de API de AS2, vaya a esa instancia y seleccione Seguimiento. En este documento, podrá ver y filtrar la información de seguimiento de AS2
 
 ![][1]
 
 ## EDIFACT
-Después de crear una instancia de una aplicación de API de EDIFACT, vaya a esa instancia y acceda a la parte Seguimiento. Aquí podrá ver toda la información de seguimiento de EDIFACT, así como filtrarla a través de los filtros mostrados. Además, se pueden ver los datos de intercambio, de grupo y de conjunto de transacciones como pasos en la vista.
+Después de crear una instancia de una aplicación de API de EDIFACT, vaya a esa instancia y acceda a la parte Seguimiento. Aquí podrá ver y filtrar toda la información de seguimiento de EDIFACT. Además, podrá ver el nivel de intercambio, el nivel de grupo y los datos del nivel de conjunto de transacciones, todo ello en una sola vista.
 
-Si los lotes se han creado como parte de los acuerdos de EDIFACT en la aplicación asociada de API de administración de socios comerciales, la parte Procesamiento por lotes mostrará una lista con todos los lotes. Esto permite acceder a un lote para ver el mensaje que constituye el mensaje activo (si existe) y también la información de los lotes completados en el pasado.
+Si los lotes se crean como parte de los contratos de EDIFACT en la aplicación asociada de API de administración de socios comerciales, la sección Procesamiento por lotes mostrará una lista con todos los lotes. Puede seleccionar un lote para ver el mensaje activo (si hubiera) así como la información para los lotes que se hayan completado.
 
 ![][2]
 
 ## X12
-Después de crear una instancia de una aplicación de API de X12, vaya a esa instancia y acceda a la parte Seguimiento. Aquí podrá ver toda la información de seguimiento de X12, así como filtrarla a través de los filtros mostrados. Además, se pueden ver los datos de intercambio, de grupo y de conjunto de transacciones como pasos en la vista.
+Después de crear una instancia de una aplicación de API de X12, vaya a esa instancia y seleccione Seguimiento. Aquí podrá ver y filtrar toda la información de seguimiento de X12. Además, podrá ver el nivel de intercambio, el nivel de grupo y los datos del nivel de conjunto de transacciones, todo ello en una sola vista.
 
-Si los lotes se han creado como parte de los acuerdos de X12 en la aplicación asociada de API de administración de socios comerciales, la parte Procesamiento por lotes mostrará una lista con todos los lotes. Esto permite acceder a un lote para ver el mensaje que constituye el mensaje activo (si existe) y también la información de los lotes completados en el pasado.
-
-X12 y EDIFACT tienen vistas similares de seguimiento.
+Si los lotes se crean como parte de los contratos de X12 en la aplicación de API asociada de administración de socios comerciales, la sección Procesamiento por lotes mostrará una lista con todos los lotes. Puede seleccionar un lote para ver el mensaje activo (si hubiera) así como la información para los lotes que se hayan completado.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

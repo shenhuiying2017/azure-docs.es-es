@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de Android" 
-	description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de Android." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de Android"
+	description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de Android."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="get-started-article"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
@@ -26,7 +26,7 @@ En este tutorial se muestra cómo agregar un servicio back-end basado en la nube
 
 La siguiente captura de pantalla muestra la aplicación final:
 
-![][0]
+![](./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png)
 
 Para completar este tutorial se requieren la [Herramientas para desarrolladores de Android][Android Studio], que incluyen el entorno de desarrollo integrado de Android Studio y la última plataforma de Android. Se requiere Android 4.2 o versiones posteriores.
 
@@ -71,7 +71,7 @@ En esta sección se creará una nueva aplicación Android que se conecta al serv
 1. En el [Portal de administración], haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
 2. En la pestaña de inicio rápido, haga clic en **Android** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación Android**.
- 
+
 	![][2]
 
 3. Si aún no lo ha hecho, descargue las [herramientas para desarrolladores de Android][Android SDK] (en inglés) e instálelas en el equipo local o la máquina virtual.
@@ -87,9 +87,9 @@ En esta sección se creará una nueva aplicación Android que se conecta al serv
 ## <a name="next-steps"> </a>Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
-* [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Incorporación de notificaciones de inserción a la aplicación] <br/>Aprenda a enviar una notificación push muy básica a la aplicación.
 
-* [Introducción a las notificaciones de inserción] <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
+* [Incorporación de autenticación a la aplicación] <br/>Obtenga información sobre cómo restringir el acceso a los datos de back-end a determinados usuarios registrados de la aplicación.
 
 * [Solución de problemas de un back-end de .NET de Servicios móviles] <br/> Aprenda a diagnosticar y corregir los problemas que pueden surgir con un back-end de .NET de Servicios móviles.
 
@@ -118,15 +118,13 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 <!-- URLs. -->
 [Introducción (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
-[Introducción a la autenticación]: mobile-services-dotnet-backend-android-get-started-users.md
-[Introducción a las notificaciones de inserción]: mobile-services-dotnet-backend-android-get-started-push.md
+[Incorporación de notificaciones de inserción a la aplicación]: mobile-services-dotnet-backend-android-get-started-push.md
+[Incorporación de autenticación a la aplicación]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Solución de problemas de un back-end de .NET de Servicios móviles]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Portal de administración]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -3,7 +3,7 @@
    description="Algunos obstáculos potenciales para los clientes que están aprendiendo sobre los actores de Service Fabric de Azure"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Patrón de diseño de Actores de confiables: algunos antipatrones
 
@@ -30,4 +30,4 @@ Identificamos los siguientes obstáculos potenciales que se encuentran los clien
 
 * Asignar los modelos de entidad ciegamente. Esto suele pasarle a los desarrolladores que proceden de un universo relacional en el que los problemas se modelan mediante entidades y sus relaciones. Aunque este enfoque sigue siendo útil para entender el dominio del asunto, debe combinarse con un pensamiento orientado a servicios y mezclado con el comportamiento.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

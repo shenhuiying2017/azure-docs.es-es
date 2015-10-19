@@ -20,7 +20,7 @@
 
 ## Información general ##
 
-Los entornos del Servicio de aplicaciones son una nueva funcionalidad de nivel Premium que se ofrece en vista previa. Ofrece nuevas funcionalidades de acceso de red y de escalado. Esta nueva funcionalidad de escalado permite colocar una instancia del Servicio de aplicaciones de Azure en la red virtual. Si no está familiarizado con la funcionalidad del entorno del Servicio de aplicaciones (ASE), lea aquí el documento [¿Qué es un entorno del Servicio de aplicaciones?]/app-service-app-service-environment-intro.md). Para obtener información sobre la creación de un ASE lea el documento [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md).
+Entorno del Servicio de aplicaciones es una nueva capacidad del nivel Premium del Servicio de aplicaciones de Azure que ofrece nuevas funciones de escalado y acceso de red. Esta nueva funcionalidad de escalado permite colocar una instancia del Servicio de aplicaciones de Azure en la red virtual. Si está familiarizado con la funcionalidad del entorno del Servicio de aplicaciones (ASE), lea el documento [¿Qué es un entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md). Para obtener información sobre la creación de un ASE lea el documento [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md).
 
 A un alto nivel, un entorno del Servicio de aplicaciones consta de varios componentes principales:
 
@@ -133,4 +133,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

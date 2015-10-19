@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="sahajs"/>
 
 # Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL
 
 Aprendizaje automático de Azure es un servicio de análisis predictivo que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, lea [Introducción a Aprendizaje automático en Azure][]. Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][].
 
-En este artículo, aprenderá a realizar las siguientes acciones con [Estudio de aprendizaje automático de Azure][]\: - Leer datos desde la base de datos para crear, entrenar y puntuar un modelo predictivo - Escribir datos en la base de datos
+En este artículo, aprenderá cómo hacer lo siguiente utilizando [Estudio de aprendizaje automático de Azure][]\:
+
+- Leer datos de la base de datos para crear, entrenar y puntuar un modelo predictivo
+- Escribir datos en la base de datos 
 
 
 ## Lectura de datos desde Almacenamiento de datos SQL
@@ -72,8 +75,13 @@ FROM dbo.DimProduct;
 
 ## Creación, entrenamiento y puntuación de un modelo
 
-Ahora puede usar este conjunto de datos para: - Crear un modelo: procese los datos y defina las características - Entrenar el modelo: elija un algoritmo de aprendizaje y aplíquelo - Puntuar y probar el modelo: realice una predicción de un nuevo precio para las bicicletas
-	
+Ahora puede utilizar este conjunto de datos para:
+
+- Crear un modelo: procesar datos y definir características
+- Entrenar el modelo: elegir y aplicar un algoritmo de aprendizaje
+- Puntuar y probar el modelo: predecir el nuevo precio de bicicleta
+ 
+
 ![][model]
 
 Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][].
@@ -130,8 +138,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop/
 [Información general de la integración de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-integration/
-[Tutorial para crear un experimento]: ./machine-learning-create-experiment/
-[Introducción a Aprendizaje automático en Azure]: ./machine-learning-what-is-machine-learning/
+[Tutorial para crear un experimento]: https://azure.microsoft.com/es-es/documentation/articles/machine-learning-create-experiment/
+[Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/es-es/documentation/articles/machine-learning-what-is-machine-learning/
 [Estudio de aprendizaje automático de Azure]: https://studio.azureml.net/Home
 [Portal de Azure]: https://portal.azure.com/
 
@@ -141,4 +149,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

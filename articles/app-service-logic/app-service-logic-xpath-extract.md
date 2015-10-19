@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 #Extractor XPath de BizTalk
@@ -36,23 +36,10 @@ El conector Extractor XPath de BizTalk ayuda a su aplicación a buscar y extraer
 
 ![Entrada de Extractor XPath de BizTalk][2]
 
-<table>
-	<tr>
-		<th>Parámetro</th>
-		<th>Tipo</th>
-		<th>Descripción del parámetro</th>
-	</tr>
-	<tr>
-		<td>XPath</td>
-		<td>cadena</td>
-		<td>Ruta de la consulta dentro de XML.</td>
-	</tr>
-	<tr>
-		<td>Input Xml</td>
-		<td>cadena</td>
-		<td>Contenido XML de entrada.</td>
-	</tr>
-</table>
+Parámetro|Tipo|Descripción del parámetro
+---|---|---
+XPath|cadena|Ruta de la consulta dentro de XML.
+Input Xml|cadena|Contenido XML de entrada.
 
 La acción devuelve la salida como una cadena - resultado. El resultado contiene el valor de la ruta de la consulta dentro de XML.
 
@@ -63,4 +50,4 @@ La acción devuelve la salida como una cadena - resultado. El resultado contiene
 <!-- Links -->
 [Creación de una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->
