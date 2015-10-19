@@ -3,7 +3,7 @@
 	description="Implemente una base de datos de SQL Server en Base de datos SQL de Azure mediante el Asistente de SQL Server 2016 Management Studio." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sidneyh" 
+	authors="CarlRabeler" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
-	ms.author="sidneyh"/>
+	ms.date="10/08/2015" 
+	ms.author="carlrab"/>
 
 
 # Implementación de una base de datos de SQL Server en Base de datos SQL de Azure.
@@ -593,4 +593,4 @@ Para obtener un tutorial sobre cómo crear una nueva base de datos SQL de Azure,
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Uso de datos sin conexión en Servicios móviles (Xamarin iOS) | Microsoft Azure"
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin iOS"
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	editor="wesmc"
-	manager="dwrede"
+	pageTitle="Uso de datos sin conexión en Servicios móviles (Xamarin iOS) | Microsoft Azure" 
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin iOS" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	editor="wesmc" 
+	manager="dwrede" 
 	services="mobile-services"/>
 
 <tags 
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
 	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
@@ -174,7 +174,6 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 <!-- URLs. -->
 [Control de conflictos con compatibilidad sin conexión para Servicios móviles]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Introducción a los Servicios móviles]: mobile-services-ios-get-started.md
 [Uso del cliente del componente Xamarin para servicios móviles de Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [eliminación temporal]: mobile-services-using-soft-delete.md
@@ -183,4 +182,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [extensión Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # Incorporación de autenticación a la aplicación Android de Servicios móviles (back-end JavaScript)
@@ -108,4 +108,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

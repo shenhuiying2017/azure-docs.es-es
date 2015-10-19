@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Uso del SDK de iOS para Aplicaciones móviles de Azure"
 	description="Uso del SDK de iOS para Aplicaciones móviles de Azure"
-	services="mobile-services"
+	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
@@ -18,9 +18,7 @@
 
 # Uso de la biblioteca de cliente de iOS para Aplicaciones móviles de Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 Esta guía muestra cómo realizar algunas tareas comunes a través del [SDK de iOS de Aplicaciones móviles de Azure](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Si está familiarizado con Aplicaciones móviles de Azure, complete primero [Inicio rápido de Aplicaciones móviles de Azure] para crear un back-end, crear una tabla y descargar un proyecto de Xcode para iOS pregenerada. En esta guía, nos centramos en el SDK de iOS de cliente. Para obtener más información sobre el SDK del lado servidor de .NET para el back-end, consulte [Trabajo con el back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
@@ -249,4 +247,4 @@ El archivo [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Controlador de conflictos]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 
@@ -124,4 +124,4 @@ En el nivel **Estándar**, supervise la capacidad de respuesta de la aplicación
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

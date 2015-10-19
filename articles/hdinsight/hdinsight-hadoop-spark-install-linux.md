@@ -22,7 +22,6 @@ En este documento, aprenderá a instalar Spark mediante una acción de script. L
 
 > [AZURE.NOTE]HDInsight también proporciona Spark como tipo de clúster, lo que significa que ahora puede aprovisionar directamente un clúster de Spark sin modificar un clúster de Hadoop. Sin embargo, esto se limita actualmente a los clústeres basados en Windows. Con el tipo de clúster Spark, se obtiene un clúster de HDInsight versión 3.2 basado en Windows con Spark versión 1.3.1. Para obtener más información, vea [Introducción a Apache Spark en HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md).
 
-
 ## <a name="whatis"></a>¿Qué es Spark?
 
 <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a> es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data. Las capacidades de cálculo en memoria de Spark lo convierten en una buena opción para algoritmos iterativos en los cálculos de gráficos y aprendizaje automático.
@@ -33,21 +32,21 @@ Este tema proporciona instrucciones sobre cómo personalizar un clúster de HDIn
 
 ## <a name="whatis"></a>¿Qué versión de Spark puedo instalar?
 
-En este tema, se usa un script personalizado de acción de script para instalar Spark en un clúster de HDInsight. Este script instala Spark 1.5.0.
+En este tema, se usa un script personalizado de acción de script para instalar Spark en un clúster de HDInsight. Este script instala Spark 1.5.1.
 
 Puede modificar este script o crear su propio script para instalar otras versiones de Spark.
 
 ## Funcionamiento del script
 
-Este script instala Spark versión 1.5.0 en `/usr/hdp/current/spark`.
+Este script instala Spark versión 1.5.1 en `/usr/hdp/current/spark`.
 
 ## <a name="install"></a>Instalación de Spark mediante acciones de script
 
-Hay un script de ejemplo para instalar Spark en un clúster de HDInsight en un blob de almacenamiento de Azure de solo lectura que se encuentra en [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Esta sección proporciona instrucciones sobre cómo utilizar el script de ejemplo durante el aprovisionamiento del clúster mediante el Portal de Azure.
+Hay un script de ejemplo para instalar Spark en un clúster de HDInsight en un blob de almacenamiento de Azure de solo lectura que se encuentra en [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Esta sección proporciona instrucciones sobre cómo usar el script de ejemplo al crear el clúster mediante el Portal de Azure.
 
 > [AZURE.NOTE]También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, vea [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Inicie el aprovisionamiento de un clúster siguiendo los pasos que se describen en [Aprovisionamiento de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal), pero no complete la operación.
+1. Comience a crear un clúster siguiendo los pasos que se describen en [Creación de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal), pero no complete la operación.
 
 2. En la hoja **Configuración opcional**, seleccione **Acciones de scripts** y proporcione la información siguiente:
 
@@ -60,11 +59,11 @@ Hay un script de ejemplo para instalar Spark en un clúster de HDInsight en un b
 
 3. En la parte inferior de **Acciones de scripts**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
 
-4. Continúe aprovisionando el clúster tal como se describe en [Aprovisionamiento de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continúe creando el clúster, tal como se describe en [Creación de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usespark"></a>¿Cómo uso Spark en HDInsight?
 
-Spark proporciona las API en Scala, Python y Java. También puede usar el shell de Spark interactivo para ejecutar consultas de Spark. Una vez que el clúster ha terminado de aprovisionarse, use lo siguiente para conectarse a su clúster de HDInsight:
+Spark proporciona las API en Scala, Python y Java. También puede usar el shell de Spark interactivo para ejecutar consultas de Spark. Una vez que el clúster ha terminado de crearse, use lo siguiente para conectarse a su clúster de HDInsight:
 
 	ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 	
@@ -109,7 +108,7 @@ Una vez conectado, use las siguientes secciones para obtener pasos específicos 
 
 ###<a name="sparksql"></a>Uso del shell de Spark para ejecutar consultas de Spark SQL
 
-Spark SQL le permite usar Spark para ejecutar consultas relacionales expresadas en Lenguaje de consulta estructurado (SQL), HiveQL o Scala. En esta sección, veremos el uso de Spark para ejecutar una consulta de Hive en una tabla de Hive de ejemplo. La tabla de Hive usada en esta sección (llamada **hivesampletable**) está disponible de forma predeterminada cuando se aprovisiona un clúster.
+Spark SQL le permite usar Spark para ejecutar consultas relacionales expresadas en Lenguaje de consulta estructurado (SQL), HiveQL o Scala. En esta sección, veremos el uso de Spark para ejecutar una consulta de Hive en una tabla de Hive de ejemplo. La tabla de Hive usada en esta sección (llamada **hivesampletable**) está disponible de forma predeterminada cuando se crea un clúster.
 
 1. Ejecute el siguiente comando para iniciar el shell de Spark:
 
@@ -131,9 +130,9 @@ Spark SQL le permite usar Spark para ejecutar consultas relacionales expresadas 
 
 6. Debe ver algo parecido a lo siguiente:
 
-		[820,11:35:17,es-ES,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
-		[1055,17:24:08,es-ES,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
-		[1067,03:42:29,es-ES,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
+		[820,11:35:17,es-es,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
+		[1055,17:24:08,es-es,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
+		[1067,03:42:29,es-es,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
 
 7. Escriba: q para salir del símbolo del sistema de Scala.
 
@@ -235,4 +234,4 @@ En esta sección se escribe una aplicación de Scala que cuenta el número de l�
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

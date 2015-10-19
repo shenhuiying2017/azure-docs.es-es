@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso del cifrado dinámico DRM de PlayReady y del servicio de entrega de licencias"
-	description="Servicios multimedia de Microsoft Azure le permute entregar secuencias MPEG-DASH, Smooth Streaming y Http-Live-Streaming (HLS) protegidas con DRM de Microsoft PlayReady. En este tema se muestra cómo cifrar dinámicamente con DRM de PlayReady y usar el servicio de entrega de claves."
+	pageTitle="Uso de cifrado dinámico común de PlayReady o Widevine"
+	description="Servicios multimedia de Microsoft Azure le permute entregar secuencias MPEG-DASH, Smooth Streaming y Http-Live-Streaming (HLS) protegidas con DRM de Microsoft PlayReady. AMS también le permite entregar DASH cifrado con DRM de Widevine. En este tema se muestra cómo cifrar dinámicamente con DRM de PlayReady y Widevine."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,18 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/16/2015"
+	ms.date="10/07/2015"
 	ms.author="juliako"/>
 
-#Uso del cifrado dinámico DRM de PlayReady y del servicio de entrega de licencias
+
+#Uso de cifrado dinámico común de PlayReady o Widevine
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-drm.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
-Servicios multimedia de Microsoft Azure permite entregar secuencias MPEG-DASH, Smooth Streaming y Http-Live-Streaming (HLS) protegidas con [DRM de Microsoft PlayReady](https://www.microsoft.com/playready/overview/).
+Servicios multimedia de Microsoft Azure permite entregar secuencias MPEG-DASH, Smooth Streaming y Http-Live-Streaming (HLS) protegidas con [DRM de Microsoft PlayReady](https://www.microsoft.com/playready/overview/). AMS también le permite entregar DASH cifrado con DRM de Widevine. PlayReady y Widewine se cifran según la especificación de cifrado común (CENC). Puede usar el [.NET SDK de AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine.
 
 Servicios multimedia proporciona un servicio de entrega de licencias de Microsoft PlayReady. Servicios multimedia también proporciona API que le permiten configurar los derechos y las restricciones que desee para que se apliquen en tiempo de ejecución de DRM de PlayReady cuando un usuario intente reproducir contenido protegido. Cuando un usuario solicita ver el contenido protegido de PlayReady, la aplicación de reproducción cliente solicita este a Servicios multimedia de Azure. A continuación, Servicios multimedia de Azure redirige al cliente a un servidor de licencias de PlayReady de Servicios multimedia de Azure que autentica y autoriza el acceso del usuario al contenido. Una licencia de PlayReady contiene la clave de descifrado que puede usar el reproductor cliente para descifrar y transmitir el contenido.
+
+>[AZURE.NOTE]Actualmente, Servicios multimedia no proporciona un servidor de licencias de Widevine. Puede usar los siguientes partners de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+>
+> Para obtener más información, consulte: integración con [Axinom](media-services-axinom-integration.md) y [castLabs](media-services-castlabs-integration.md).
 
 Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato [Token de web simple](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) y en formato [Token de web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para obtener más información, consulte Configuración de la directiva de autorización de la clave de contenido.
 
@@ -34,13 +39,13 @@ Este tema será útil para los desarrolladores que trabajan en aplicaciones que 
 
 >[AZURE.NOTE]Para empezar a usar el cifrado dinámico, primero debe obtener al menos una unidad de escalado (también conocida como unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
 
-##Flujo de trabajo del cifrado dinámico de PlayReady y del servicio de entrega de licencias
+##Configuración del cifrado dinámico común y el servicio de entrega de licencias de PlayReady
 
 Éstos son los pasos generales que deberá realizar al proteger sus recursos con PlayReady, mediante el servicio de entrega de licencias de Servicios multimedia y también mediante cifrado dinámico.
 
 1. Creación de un recurso y carga de los archivos en el recurso. 
 1. Codificación del recurso que contiene el archivo con Adaptive Bitrate MP4 Set.
-1. Creación de una clave de contenido y su asociación con el recurso codificado. En Servicios multimedia, la clave de contenido contiene la clave de cifrado del recurso. Para obtener más información, consulte ContentKey.
+1. Creación de una clave de contenido y su asociación con el recurso codificado. En Servicios multimedia, la clave de contenido contiene la clave de cifrado del activo.
 1. Configuración de la directiva de autorización de la clave de contenido. El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave de contenido. 
 1. Configuración de la directiva de entrega para un recurso. La configuración de la directiva de entrega incluye: el protocolo de entrega (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos), el tipo de cifrado dinámico (por ejemplo, cifrado común) y la URL de adquisición de licencias de PlayReady. 
  
@@ -51,7 +56,7 @@ Encontrará un ejemplo completo para .NET al final del tema.
 
 La siguiente imagen muestra el flujo de trabajo que se ha descrito anteriormente. Aquí el token se usa para la autenticación.
 
-![Protección con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-playready.png)
+![Protección con PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
 El resto de este tema proporciona explicaciones detalladas, ejemplos de código y vínculos a temas que le muestran cómo lograr las tareas descritas arriba.
 
@@ -63,96 +68,29 @@ Si agrega o actualiza la directiva de entrega de recursos, debe eliminar un loca
 
 Para administrar, codificar y transmitir por secuencias sus vídeos, primero debe cargar el contenido en Servicios multimedia de Microsoft Azure. Una vez cargado, el contenido se almacena de forma segura en la nube para su posterior procesamiento y transmisión.
 
-El siguiente fragmento de código muestra cómo crear un recurso y cargar el archivo especificado en el recurso.
-
-	static public IAsset UploadFileAndCreateAsset(string singleFilePath)
-	{
-	    if(!File.Exists(singleFilePath))
-	    {
-	        Console.WriteLine("File does not exist.");
-	        return null;
-	    }
-	
-	    var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-	    IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.StorageEncrypted);
-	
-	    var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-	
-	    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-	
-	    var policy = _context.AccessPolicies.Create(
-	                            assetName,
-	                            TimeSpan.FromDays(30),
-	                            AccessPermissions.Write | AccessPermissions.List);
-	
-	    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-	
-	    Console.WriteLine("Upload {0}", assetFile.Name);
-	
-	    assetFile.Upload(singleFilePath);
-	    Console.WriteLine("Done uploading {0}", assetFile.Name);
-	
-	    locator.Delete();
-	    policy.Delete();
-	
-	    return inputAsset;
-	}
+Para obtener información detallada, consulte [Carga de archivos en una cuenta de Servicios multimedia](media-services-dotnet-upload-files.md).
 
 ##Codificación del recurso que contiene el archivo con Adaptive Bitrate MP4 Set.
 
 Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegurará de que reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para obtener más información, consulte el tema [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
-El fragmento de código siguiente muestra cómo codificar un recurso con Adaptive Bitrate MP4 Set:
+Para obtener instrucciones sobre cómo codificar, consulte [Cómo codificar un activo mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
+	
 
-	static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-	{
-	    var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-	
-	    IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-	                            inputAsset.Name,
-	                            encodingPreset));
-	
-	    var mediaProcessors = 
-	        _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-	
-	    var latestMediaProcessor = 
-	        mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-	
-	
-	
-	    ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-	    encodeTask.InputAssets.Add(inputAsset);
-	    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-	
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-	    job.Submit();
-	    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-	
-	    return job.OutputMediaAssets[0];
-	}
-	
-	static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
-	{
-	    Console.WriteLine(string.Format("{0}\n  State: {1}\n  Time: {2}\n\n",
-	        ((IJob)sender).Name,
-	        e.CurrentState,
-	        DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
-	}
-
-##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el recurso codificado
+##<a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
 
 En Servicios multimedia, la clave de contenido contiene la clave con la que desea cifrar un recurso.
 
 Para obtener más información, consulte [Creación de la clave de contenido](media-services-dotnet-create-contentkey.md).
 
 
-##<a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de la clave de contenido
+##<a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido.
 
 Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave. La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP.
 
 Para obtener información detallada, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-##<a id="configure_asset_delivery_policy"></a>Configuración de la directiva de entrega de recursos 
+##<a id="configure_asset_delivery_policy"></a>Configuración de la directiva de entrega de activos 
 
 Configure la directiva de entrega de sus recursos. Algunos de los elementos que incluye la configuración de la directiva de entrega de recursos son:
 
@@ -160,7 +98,7 @@ Configure la directiva de entrega de sus recursos. Algunos de los elementos que 
 - El protocolo de entrega de recursos (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos). 
 - El tipo de cifrado dinámico (en este caso, cifrado común). 
 
-Para obtener más información, consulte [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
+Para obtener más información, consulte [Configuración de la directiva de entrega de activos](media-services-rest-configure-asset-delivery-policy.md).
 
 ##<a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
 
@@ -186,12 +124,13 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
 	Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
 	
-Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
+Puede usar el [reproductor de AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la transmisión.
 
 ##<a id="example"></a>Ejemplo
 
 1. Creación de un nuevo proyecto de consola
 1. Use NuGet para instalar y agregar Extensiones del SDK de Servicios multimedia de Azure para .NET. Al instalar este paquete, también se instala el SDK de Servicios multimedia para .NET y agrega todas las demás dependencias necesarias.
+2. Agregue referencias adicionales: System.Runtime.Serialization y System.Configuration.
 2. Agregue el archivo de configuración que contiene el nombre de cuenta y la información de clave:
 
 	
@@ -213,7 +152,7 @@ Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediapla
 1. Sobrescriba el código del archivo Program.cs con el código mostrado en esta sección.
 	
 	Asegúrese de actualizar las variables para que apunten a las carpetas donde se encuentran los archivos de entrada.
-
+		
 		using System;
 		using System.Collections.Generic;
 		using System.Configuration;
@@ -222,12 +161,11 @@ Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediapla
 		using System.Text;
 		using System.Threading;
 		using System.Threading.Tasks;
-		using System.Xml.Linq;
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 		
-		namespace PlayReadyDynamicEncryptAndKeyDeliverySvc
+		namespace CommonDynamicEncryptAndKeyDeliverySvc
 		{
 		    class Program
 		    {
@@ -306,11 +244,9 @@ Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediapla
 		                Console.WriteLine();
 		            }
 		
-		            // You can use the http://smf.cloudapp.net/healthmonitor player 
-		            // to test the smoothStreamURL URL.
-		            //
+
 		            string url = GetStreamingOriginLocator(encodedAsset);
-		            Console.WriteLine("Encrypted Smooth Streaming URL: {0}/manifest", url);
+		            Console.WriteLine("Encrypted MPEG-DASH URL: {0}/Manifest(format=mpd-time-csf) ", url);
 		
 		
 		            Console.ReadLine();
@@ -349,38 +285,41 @@ Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediapla
 		            return inputAsset;
 		        }
 		
-		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-		        {
-		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-		
-		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-		                                    inputAsset.Name,
-		                                    encodingPreset));
-		
-		            var mediaProcessors =
-		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-		
-		            var latestMediaProcessor =
-		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-		
-		
-		
-		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-		            encodeTask.InputAssets.Add(inputAsset);
-		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-		
-		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-		            job.Submit();
-		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
-		
-		            return job.OutputMediaAssets[0];
-		        }
-		
+	
+				static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+				{
+				    // Declare a new job.
+				    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+				    // Get a media processor reference, and pass to it the name of the 
+				    // processor to use for the specific task.
+				    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+				
+				    // Create a task with the encoding details, using a string preset.
+				    // In this case "H264 Multiple Bitrate 720p" preset is used.
+				    ITask task = job.Tasks.AddNew("My encoding task",
+				        processor,
+				        "H264 Multiple Bitrate 720p",
+				        TaskOptions.None);
+				
+				    // Specify the input asset to be encoded.
+				    task.InputAssets.Add(asset);
+				    // Add an output asset to contain the results of the job. 
+				    // This output is specified as AssetCreationOptions.None, which 
+				    // means the output asset is not encrypted. 
+				    task.OutputAssets.AddNew("Output asset",
+				        AssetCreationOptions.None);
+				
+				    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+				    job.Submit();
+				    job.GetExecutionProgressTask(CancellationToken.None).Wait();
+				
+				    return job.OutputMediaAssets[0];
+				}
+
 		
 		        static public IContentKey CreateCommonTypeContentKey(IAsset asset)
 		        {
-		            // Create envelope encryption content key
+		            // Create common encryption content key
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		
@@ -502,30 +441,30 @@ Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediapla
 		            return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
 		        }
 		
-		        static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-		        {
-		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 		
-		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-		            {
-		                {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-		            };
-		
-		            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-		                    "AssetDeliveryPolicy",
-		                AssetDeliveryPolicyType.DynamicCommonEncryption,
-		                AssetDeliveryProtocol.SmoothStreaming,
-		                assetDeliveryPolicyConfiguration);
-		
-		            // Add AssetDelivery Policy to the asset
-		            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-		
-		            Console.WriteLine();
-		            Console.WriteLine("Adding Asset Delivery Policy: " +
-		                assetDeliveryPolicy.AssetDeliveryPolicyType);
-		        }
-		
+				static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+				{
+				    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+				
+				    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+				        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+				    {
+				        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+				        {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl,"http://testurl"},
+				        
+				    };
+				
+				    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+				            "AssetDeliveryPolicy",
+				        AssetDeliveryPolicyType.DynamicCommonEncryption,
+				        AssetDeliveryProtocol.Dash,
+				        assetDeliveryPolicyConfiguration);
+				
+				   
+				    // Add AssetDelivery Policy to the asset
+				    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+				
+				}
 		
 		        /// <summary>
 		        /// Gets the streaming origin locator.
@@ -556,14 +495,6 @@ Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediapla
 		            return originLocator.Path + assetFile.Name;
 		        }
 		
-		        static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
-		        {
-		            Console.WriteLine(string.Format("{0}\n  State: {1}\n  Time: {2}\n\n",
-		                ((IJob)sender).Name,
-		                e.CurrentState,
-		                DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
-		        }
-		
 		        static private byte[] GetRandomBuffer(int length)
 		        {
 		            var returnValue = new byte[length];
@@ -576,6 +507,49 @@ Puede usar el [reproductor AMS](http://amsplayer.azurewebsites.net/azuremediapla
 		
 		            return returnValue;
 		        }
+
+
+				static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
+				{
+				    Console.WriteLine("Job state changed event:");
+				    Console.WriteLine("  Previous state: " + e.PreviousState);
+				    Console.WriteLine("  Current state: " + e.CurrentState);
+				    switch (e.CurrentState)
+				    {
+				        case JobState.Finished:
+				            Console.WriteLine();
+				            Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+				            break;
+				        case JobState.Canceling:
+				        case JobState.Queued:
+				        case JobState.Scheduled:
+				        case JobState.Processing:
+				            Console.WriteLine("Please wait...\n");
+				            break;
+				        case JobState.Canceled:
+				        case JobState.Error:
+				
+				            // Cast sender as a job.
+				            IJob job = (IJob)sender;
+				
+				            // Display or log error details as needed.
+				            break;
+				        default:
+				            break;
+				    }
+				}
+				
+				
+				static private IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+				{
+				    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+				    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+				
+				    if (processor == null)
+				        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+				
+				    return processor;
+				}
 		    }
 		}
 
@@ -587,4 +561,8 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO3-->
+##Consulte también
+
+[Configuración del empaquetado Widevine con AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
+
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Desarrollar un servicio de Service Fabric"
+   pageTitle="Desarrollo de un servicio Service Fabric | Microsoft Azure"
    description="Tutoriales e información de conceptos que le ayudarán a entender cómo desarrollar un servicio de Service Fabric con los modelos de programación de actor confiable o servicios de confianza."
    services="service-fabric"
    documentationCenter=".net"
@@ -87,4 +87,4 @@ Los servicios de confianza emiten eventos y contadores de rendimiento, que se pu
 
 - [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

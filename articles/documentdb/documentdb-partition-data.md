@@ -1,6 +1,6 @@
 <properties      
     pageTitle="Partición y escalado de datos en DocumentDB con particionamiento | Microsoft Azure"      
-    description="Consulte cómo se escalan datos con una técnica denominada particionamiento. Obtenga información sobre cómo crear particiones de datos en DocumentDB y cuándo usar particiones por búsqueda, rangos y hash."         
+    description="Consulte cómo se escalan datos con una técnica denominada particionamiento. Obtenga información sobre cómo crear particiones de datos en DocumentDB y cuándo usar particiones por rango y hash."         
     keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
 	services="documentdb"      
     authors="arramac"      
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="09/14/2015"      
+    ms.date="10/05/2015"      
     ms.author="arramac"/>
 
 # Partición y escalado de datos en DocumentDB
@@ -24,7 +24,7 @@ Puede lograr una escala casi infinita en términos de almacenamiento y capacidad
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:
 
- - ¿Qué son las particiones por búsquedas, rangos y hash?
+ - ¿Qué es el hash y la creación de particiones por rangos?
  - ¿Cuándo se usa cada técnica de partición y por qué?
  - ¿Sabe cómo compilar una aplicación particionada en Azure DocumentDB?
 
@@ -56,13 +56,13 @@ Un caso especial de la creación de particiones por rangos se da cuando el rango
 
 En la creación de particiones por hash, las particiones se asignan en función del valor de una función hash, lo que permite distribuir uniformemente las solicitudes y los datos entre una cantidad determinada de particiones. Normalmente, se usa para la partición de datos producidos o consumidos en un gran número de clientes distintos, y resulta útil para almacenar perfiles de usuario, elementos de catálogo y datos de telemetría de dispositivos de IoT ("Internet de las cosas").
 
-> [AZURE.TIP]La creación de particiones por hash se debe usar siempre que haya demasiadas entidades para enumerarlas mediante las particiones por búsquedas (por ejemplo, si se trata de usuarios o dispositivos) y también cuando la tasa de solicitudes sea bastante uniforme entre las entidades.
+> [AZURE.TIP]La creación de particiones por hash se debe usar siempre que haya demasiadas entidades para enumerar (por ejemplo, si se trata de usuarios o dispositivos) y también cuando la tasa de solicitudes sea bastante uniforme entre las entidades.
 
 ## Elección de la técnica adecuada para crear las particiones
 
 Entonces, ¿qué técnica de partición es la adecuada para usted? Todo depende del tipo de datos y de sus patrones de acceso habituales. El hecho de elegir la técnica adecuada para crear las particiones al efectuar el diseño permite evitar la "deuda técnica" y controlar el crecimiento del tamaño de los datos y los volúmenes de solicitudes.
 
-- La **creación de particiones por rangos** se usa generalmente en el contexto de las fechas, puesto que ofrece un mecanismo fácil y natural para determinar la antigüedad de las particiones en función de la marca de tiempo. También es útil cuando las consultas suelen estar limitadas a un rango de tiempo, ya que este se alinea con los límites de la partición. También permite agrupar y organizar conjuntos de datos desordenados y sin relacionar de una forma natural, por ejemplo, agrupar los inquilinos por organización o los estados por región geográfica. La búsqueda también ofrece un control detallado a la hora de migrar los datos entre una colección y otra. 
+- La **creación de particiones por rangos** se usa generalmente en el contexto de las fechas, puesto que ofrece un mecanismo fácil y natural para determinar la antigüedad de las particiones en función de la marca de tiempo. También es útil cuando las consultas suelen estar limitadas a un rango de tiempo, ya que este se alinea con los límites de la partición. También permite agrupar y organizar conjuntos de datos desordenados y sin relacionar de una forma natural, por ejemplo, agrupar los inquilinos por organización o los estados por región geográfica. El rango también ofrece un control detallado a la hora de migrar los datos entre una colección y otra. 
 - La creación de **particiones por hash** es útil a fin de lograr un equilibrio de carga uniforme de las solicitudes y hacer un uso eficaz de la capacidad de proceso y del almacenamiento aprovisionado. El uso *coherente de algoritmos de hash* permite minimizar la cantidad de datos que se deben mover cuando se agrega o elimina una partición.
 
 No tiene por qué elegir solo una técnica de partición. Una *combinación* de estas técnicas también puede ser útil, según la situación. Por ejemplo, si almacena los datos de telemetría de un vehículo, un buen enfoque podría ser dividir los datos de telemetría del dispositivo por rangos según la marca de tiempo para facilitar la administración de las particiones y, a continuación, subdividir los datos según el número de identificación del vehículo con el fin de lograr un escalado horizontal para la capacidad de proceso (partición combinada por rango y hash).
@@ -78,7 +78,7 @@ Profundicemos un poco en estas áreas.
 
 ## Enrutamiento de creaciones y consultas
 
-El enrutamiento de solicitudes de creación de documentos es directo para la creación de particiones por hash y por rangos. El documento se crea en la partición a partir del valor de hash, de la búsqueda o del rango que corresponda a la clave de partición.
+El enrutamiento de solicitudes de creación de documentos es directo para la creación de particiones por hash y por rangos. El documento se crea en la partición a partir del valor de hash o del rango que corresponda a la clave de partición.
 
 Normalmente, las consultas y las lecturas deberían tener un ámbito de una clave de partición única, por lo que las consultas pueden aplicarse solo a las particiones coincidentes. Las consultas referidas a todos los datos, sin embargo, requieren la *dispersión* de la solicitud por varias particiones y la posterior combinación de los resultados. Tenga en cuenta que es posible que algunas consultas tengan que aplicar una lógica personalizada para combinar los resultados, por ejemplo, a la hora recuperar los N resultados principales.
 
@@ -92,7 +92,7 @@ De lo contrario, puede guardarlo en cualquier almacén persistente. Un patrón d
 
 Con DocumentDB, puede agregar y quitar colecciones en cualquier momento y usarlas para almacenar nuevos datos entrantes, así como reequilibrar los datos disponibles en las colecciones existentes. Consulte la página [Límites](documentdb-limits.md) para conocer el número de colecciones. También puede llamarnos siempre que desee aumentar dichos límites.
 
-Es muy fácil agregar y eliminar una nueva partición con los procesos de creación de particiones por búsquedas y rangos. Por ejemplo, para agregar una nueva región geográfica o un nuevo rango de tiempo para los datos recientes, basta con anexar las particiones nuevas al mapa de particiones. Para dividir una partición existente en varias particiones o mezclar dos particiones se requiere un poco más esfuerzo. Hay que hacer lo siguiente:
+Es muy fácil agregar y eliminar una nueva partición con el proceso de creación de particiones por rango. Por ejemplo, para agregar una nueva región geográfica o un nuevo rango de tiempo para los datos recientes, basta con anexar las particiones nuevas al mapa de particiones. Para dividir una partición existente en varias particiones o mezclar dos particiones se requiere un poco más esfuerzo. Hay que hacer lo siguiente:
 
 - Desconectar la partición para las lecturas.
 - Enrutar las lecturas a las particiones (usando la antigua configuración de particiones) y también a la nueva configuración de particiones durante la migración. Tenga en cuenta que las garantías de nivel de coherencia y las transacciones no estarán disponibles hasta que se complete la migración.
@@ -112,4 +112,4 @@ En este artículo, hemos presentado algunas técnicas habituales para efectuar p
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

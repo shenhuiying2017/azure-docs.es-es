@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -43,11 +43,15 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 
 ##<a name="app"></a>Escritura de una aplicación de Aprendizaje automático mediante Spark MLlib
 
-1. Desde el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ha fijado en el panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**. 
- 
-2. Inicie el cuaderno de [Jupyter](https://jupyter.org). En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, a continuación, desde la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Jupyter**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
+1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
-2. Cree un nuevo cuaderno. Haga clic en **New** (Nuevo) y, a continuación, en **Python 2**.
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel del clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+
+	> [AZURE.NOTE]También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y, luego, en **Python 2**.
 
 	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.CreateNotebook.png "Crear un nuevo cuaderno de Jupyter")
 
@@ -129,7 +133,7 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 		training = documents.toDF()
 
 
-5. Configure la canalización de aprendizaje automático de Spark, que consta de tres fases: tokenizer, hashingTF e lr. Para obtener más información acerca de qué es una canalización y cómo funciona, consulte <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a> (Canalización de aprendizaje automático de Spark).
+5. Configure la canalización de aprendizaje automático de Spark, que consta de tres fases: tokenizer, hashingTF e lr. Para obtener más información sobre qué es una canalización y cómo funciona, consulte <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning pipeline</a> (Canalización de aprendizaje automático de Spark).
 
 	Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + ENTRAR**.
 
@@ -176,7 +180,7 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 
 	Observe que la temperatura real es menor que la temperatura objetivo, lo que indica que el edificio está frío. Por lo tanto, en los resultados de formación, el valor de **label** en la primera fila es **0.0**, lo que significa que el edificio no está cálido.
 
-8.  Prepare un conjunto de datos con el que ejecutar el modelo entrenado. Para ello, deberá pasar un identificador del sistema y la antigüedad del sistema (representados en **SystemInfo**en los resultados de formación), y el modelo predirá si el edificio con ese identificador y esa antigüedad del sistema es más cálido (indicado por 1.0) o frío (indicado por 0.0).
+8.  Prepare un conjunto de datos con el que ejecutar el modelo entrenado. Para ello, deberá pasar un identificador del sistema y la antigüedad del sistema (representados en **SystemInfo** en los resultados de formación), y el modelo predirá si el edificio con ese identificador y esa antigüedad del sistema es más cálido (indicado por 1.0) o frío (indicado por 0.0).
 
 	Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + ENTRAR**.
 		
@@ -214,7 +218,7 @@ Estos datos se usarán para predecir si un edificio será más cálido o frío e
 	![Reiniciar el kernel de Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "Reiniciar el kernel de Jupyter")
 	  	   
 
-##<a name="anaconda"></a>Use la biblioteca scikit-learn de Anaconda para el Aprendizaje automático
+##<a name="anaconda"></a>Uso de la biblioteca scikit-learn de Anaconda para Aprendizaje automático
 
 Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre ellas la biblioteca **scikit-learn** para el aprendizaje automático. La biblioteca también contiene diversos conjuntos de datos que puede usar para crear aplicaciones de ejemplo directamente a partir de un cuaderno de Jupyter. Para obtener ejemplos sobre cómo usar la biblioteca scikit-learn, consulte [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
@@ -243,4 +247,4 @@ Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, entre
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

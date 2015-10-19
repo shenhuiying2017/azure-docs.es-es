@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="10/06/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Windows 8.1 universal
@@ -22,11 +22,9 @@
 
 En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde la aplicación de Windows 8.1. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar también el tutorial [Introducción a Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles].
 
 >[AZURE.NOTE]Este tutorial muestra cómo autenticar usuarios en aplicaciones de la Tienda Windows y la Tienda de Windows Phone 8.1. Para una aplicación de Windows Phone 8.0 o Windows Phone Silverlight 8.1, consulte esta versión de [Introducción a la autenticación en Servicios móviles](mobile-services-windows-phone-get-started-users.md).
-
->Este tutorial muestra el flujo de autenticación administrado por servicios mediante varios proveedores de identidades. Este método es fácil de configurar y es compatible con varios proveedores. En lugar de usar un flujo administrado por un cliente mediante Live SDK en la aplicación de la Tienda Windows, consulte el tema [Autenticación de la aplicación de la Tienda Windows con la autenticación administrada por el cliente mediante la cuenta de Microsoft](mobile-services-windows-store-dotnet-single-sign-on.md).
 
 ##<a name="register"></a> Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
@@ -72,16 +70,14 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Introducción a Servicios móviles]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
-[Get started with data]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-data.md
+[Introducción a los Servicios móviles]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 [Get started with authentication]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: mobile-services-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 
 # Creación de un acuerdo entre socios comerciales   
 
-Los socios comerciales son las entidades implicadas en comunicaciones B2B (negocio a negocio). Cuando dos asociados establecen una relación, esto se conoce como un *acuerdo*. El acuerdo definido se basa en la comunicación que los dos socios desean lograr y es específico del protocolo o el transporte. Los distintos protocolos y transportes B2B compatibles con el Servicio de aplicaciones de Azure incluyen:
+Los socios comerciales son las entidades implicadas en comunicaciones B2B (negocio a negocio). Cuando dos asociados establecen una relación, esto se conoce como un *acuerdo*. El contrato definido se basa en la comunicación que los dos socios desean lograr y es específico del protocolo o el transporte. Los distintos protocolos y transportes B2B compatibles con el Servicio de aplicaciones de Azure incluyen:
 
 - AS2 (Applicability Statement 2)
 - EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
@@ -30,7 +30,7 @@ Las siguientes aplicaciones de API permiten estas funcionalidades gracias a la e
 
 
 ## Administración de socios comerciales (TPM) de BizTalk
-- Creación y administración de socios, perfiles y identidades
+- Creación y administración de socios, perfiles e identidades
 - Almacenamiento y administración de esquemas EDI
 - Almacenamiento y administración de certificados (usados en el protocolo AS2)
 - Creación y administración de acuerdos de AS2
@@ -63,10 +63,10 @@ Como se indicó anteriormente, las aplicaciones de API AS2, X12 y EDIFACT requie
 Para crear acuerdos entre socios comerciales:
 
 1. Cree una instancia del conector **Administración de socios comerciales de BizTalk**. Para que esto funcione, se necesita una base de datos SQL en blanco. Antes de iniciar asegúrese de tener una base de datos en blanco disponible y lista para su uso.
-2. Cargue esquemas y certificados según lo requieran los acuerdos. Esto se hace examinando la instancia de TPM creada y entrando en la parte 'Esquemas' y/o 'Certificados'.
+2. Cargue esquemas y certificados según lo requieran los acuerdos. Esto se hace examinando la instancia de TPM creada y entrando en la parte "Esquemas" o "Certificados".
 3. Vaya a la instancia de TPM creada y entre en la parte **Socios**.
 4. Cree socios como desee. Edite también los perfiles según corresponda y agregue las identidades necesarias.
-5. Ahora use la parte **Acuerdos** para crear acuerdos. Durante la creación del acuerdo uno de los pasos iniciales es elegir el protocolo. El resto de la configuración del acuerdo se realiza según el protocolo elegido.
+5. Ahora use la parte **Acuerdos** para crear acuerdos. Cuando se crea un contrato, debe seleccionar el protocolo que se utilizará. Las opciones de configuración restantes se basan en el protocolo seleccionado.
 
 ![][2]
 
@@ -78,4 +78,4 @@ Para crear acuerdos entre socios comerciales:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="anuragdalmia"/>
 
 #Transformación de BizTalk
@@ -22,7 +22,7 @@
 ## Información general
 En pocas palabras, la aplicación de API de transformación de BizTalk convierte los datos de un formato a otro. Por ejemplo, puede tomar las direcciones de envío y facturación de un pedido de compra e insertarlas en un documento de factura. También puede darse el caso de que tenga un mensaje entrante en el que la fecha actual tenga el formato *YearMonthDay*. Si lo desea, puede cambiar el formato de la fecha a *MonthDayYear*.
 
-Puede hacerlo mediante la aplicación de API de transformación incluida en el servicio de aplicaciones de Microsoft Azure. Una transformación o una asignación están formadas por un esquema XML de origen (la entrada) y un esquema XML de destino (la salida). Puede utilizar las diferentes funciones integradas para administrar o controlar los datos, incluidos aspectos como las manipulaciones de cadenas, las asignaciones condicionales, las expresiones aritméticas, los formateadores de tiempo y fecha e, incluso, las construcciones en bucle.
+Puede hacerlo mediante la aplicación de API de transformación incluida en el servicio de aplicaciones de Microsoft Azure. Una Transformación, que se conoce también como asignación, está formada por un esquema XML de origen (la entrada) y un esquema XML de destino (la salida). Puede utilizar las diferentes funciones integradas para administrar o controlar los datos, incluidos aspectos como las manipulaciones de cadenas, las asignaciones condicionales, las expresiones aritméticas, los formateadores de tiempo y fecha e, incluso, las construcciones en bucle.
 
 Las asignaciones se crean en Visual Studio mediante el [SDK de los servicios de BizTalk de Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087). Cuando haya terminado de crear y probar la asignación, cárguela (.trfm) en la aplicación de API de transformación de BizTalk.
 
@@ -116,4 +116,4 @@ Una vez que se haya creado y probado la asignación, estará lista para su uso.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

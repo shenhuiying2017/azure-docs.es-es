@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Compilación de la primera canalización mediante el Editor de la Factoría de datos (Portal de Azure)
@@ -31,6 +31,8 @@ En este artículo, aprenderá a usar el [Portal de vista previa de Azure](https:
 3.	Creación de la canalización
 
 Este artículo no ofrece información general conceptual sobre el servicio Factoría de datos de Azure. Para obtener información general detallada del servicio, vea el artículo [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
+
+> [AZURE.IMPORTANT]Revise el artículo [Información general del tutorial](data-factory-build-your-first-pipeline.md) y realice los pasos de requisitos previos antes de completar este tutorial.
 
 ## Paso 1: Creación de la factoría de datos
 
@@ -55,7 +57,7 @@ Este artículo no ofrece información general conceptual sobre el servicio Facto
 		![Creación de un grupo de recursos](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.	Una vez seleccionado el grupo de recursos, compruebe que usa la suscripción correcta en la que quiere crear la factoría de datos.
 5.	Haga clic en **Crear** en la hoja **Nueva factoría de datos**.
-6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de vista previa de Azure, de la manera siguiente:   
+6.	Verá que la factoría de datos se crea en el **Panel de inicio** del Portal de vista previa de Azure de la manera siguiente:   
 
 	![Creación de estado de la factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. ¡Enhorabuena! Ya creó correctamente su primera factoría de datos. Tras crear correctamente la factoría de datos, verá la página Factoría de datos, que muestra el contenido de la misma. 	
@@ -76,7 +78,7 @@ En este paso, vinculará su cuenta de almacenamiento de Azure y un clúster de H
 	![Servicio vinculado de Almacenamiento de Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Debería ver el script JSON para crear un servicio vinculado de Almacenamiento de Azure en el editor. 
-4. Reemplace **accountname** por el nombre de la cuenta de almacenamiento de Azure y **accountkey** por la clave de acceso de la cuenta de almacenamiento de Azure. Para obtener información sobre cómo obtener la clave de acceso de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
+4. Reemplace **account name** por el nombre de la cuenta de almacenamiento de Azure y **account key** por la clave de acceso de la cuenta de almacenamiento de Azure. Para obtener información sobre cómo obtener la clave de acceso de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
 5. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
 	![Botón Implementar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -157,7 +159,7 @@ En este paso, creará la primera canalización:
 	![Botón Nueva canalización](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Copie y pegue el fragmento de código siguiente en la ventana Borrador 1.
 
-	> [AZURE.IMPORTANT]Reemplace **storageaccountname** por el nombre de la cuenta de almacenamiento en el código JSON.
+	> [AZURE.IMPORTANT]Reemplace **storageaccountname** por el nombre de la cuenta de almacenamiento en JSON.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -197,7 +199,7 @@ En este paso, creará la primera canalización:
  
 	En el fragmento de código JSON, se crea una canalización que consta de una sola actividad que usa Hive para procesar los datos en un clúster de HDInsight.
 	
-	El archivo de script de Hive, **partitionweblogs.hql** se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, denominada **StorageLinkedService**) y en un contenedor denominado **script**.
+	El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de almacenamiento de Azure (especificada mediante scriptLinkedService, denominada **StorageLinkedService**), y en un contenedor llamado **script**.
 
 	La sección **extendedProperties** se usa para especificar la configuración de tiempo de ejecución que se pasará al script de Hive como valores de configuración de Hive (por ejemplo, ${hiveconf:PartitionedData}).
 
@@ -227,10 +229,10 @@ En este paso, creará la primera canalización:
  
 
 ## Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un blob de Azure a SQL de Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Si desea ver cómo se usa una actividad de copia para copiar datos de un blob de Azure a SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](./data-factory-get-started.md).
   
 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

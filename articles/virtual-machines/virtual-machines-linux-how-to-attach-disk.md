@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Acoplamiento de un disco a una máquina virtual Linux | Microsoft Azure"
-	description="Aprenda cómo acoplar un disco de datos a una máquina virtual Linux que se esté ejecutando en Azure e iníciela para que esté lista para usarse."
+	description="Obtenga información sobre cómo acoplar un disco de datos a una máquina virtual de Azure que esté ejecutando Linux e inicialícelo para que esté listo para usarse."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -150,7 +150,7 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 
 	O bien, en sistemas basados en SUSE Linux, es posible que tenga que utilizar un formato diferente:
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	Ahora puede probar que el sistema de archivos está correctamente montado con solo desmontar y volver a montar el sistema de archivos, es decir, usando el punto de montaje de ejemplo `/datadrive` que se creó en los pasos anteriores:
 
@@ -173,4 +173,4 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

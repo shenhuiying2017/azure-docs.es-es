@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/03/2015" 
+    ms.date="10/05/2015" 
     ms.author="mimig"/>
 
 
@@ -480,7 +480,7 @@ DocumentDB admite los tipos de índice Hash e Intervalo para cada ruta de acceso
 - **Hash** admite consultas de igualdad y JOIN eficientes. Para la mayoría de los casos de uso, los índices hash no requieren una precisión mayor que el valor predeterminado de 3 bytes.
 - **Intervalo** admite consultas de igualdad, consultas de intervalo (con >, <, >=, <=, !=) y consultas por Order By eficientes. De forma predeterminada, las consultas Order By también requieren una precisión índice máximo (-1).
 
-DocumentDB también admite el tipo de índice Espacial para cada ruta de acceso que se pueden especificar para el tipo de datos Punto. El valor en la ruta especificada debe ser un punto de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+DocumentDB también admite la clase de índice Espacial para cada ruta de acceso, que se puede especificar para el tipo de datos Punto. El valor en la ruta especificada debe ser un punto de GeoJSON válido como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Espacial** admite consultas espaciales eficaces (internas y a distancia).
 
@@ -541,7 +541,7 @@ Estos son las variantes de índice admitidas, con ejemplos de consultas que se p
 
 De forma predeterminada, se devuelve un error para las consultas con operadores de intervalo como > = si no hay ningún índice de intervalo (de ninguna precisión) para indicar que podría ser necesario realizar un examen para atender la consulta. Las consultas de intervalo se pueden realizar sin un índice de intervalo mediante el uso del encabezado x-ms-documentdb-allow-scans en la API de REST o con la opción de solicitud EnableScanInQuery mediante el SDK de .NET. Si hay otros filtros en la consulta en los que DocumentDB pueda usar el índice para realizar el filtrado, no se devolverá ningún error.
 
-Se aplican las mismas reglas para las consultas espaciales. De forma predeterminada, si no hay ningún índice espacial se devuelve un error para las consultas espaciales. Se pueden realizar como un análisis mediante x-ms-documentdb-enable-examen/EnableScanInQuery.
+Se aplican las mismas reglas para las consultas espaciales. De forma predeterminada, se devuelve un error para las consultas espaciales si no hay ningún índice espacial y no hay ningún otro filtro que pueda obtenerse del índice. Se pueden realizar como un análisis mediante x-ms-documentdb-enable-examen/EnableScanInQuery.
 
 #### Índice de precisión
 
@@ -664,6 +664,8 @@ Puede quitar el índice de una colección moviendo al modo de indexación Ningun
 - Optimización de la precisión de indexación para mejorar el rendimiento de las consultas o reducir el almacenamiento usado
 
 >[AZURE.NOTE]Para modificar la directiva de indexación con ReplaceDocumentCollectionAsync, necesita la versión >= 1.3.0 de .NET SDK
+>
+> Para que la transformación del índice se complete correctamente, debe asegurarse de que haya suficiente espacio libre de almacenamiento disponible en la colección. Si la colección alcanza su cuota de almacenamiento, se pausará la transformación del índice. La transformación del índice se reanudará automáticamente una vez que haya espacio de almacenamiento disponible, por ejemplo, si elimina algunos documentos.
 
 ## Optimización del rendimiento
 
@@ -767,4 +769,4 @@ Siga los vínculos que aparecen a continuación para obtener ejemplos de adminis
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -97,7 +97,7 @@ Si tiene una base de datos existente, compruebe que esté alojada en Base de dat
 
 Si la base de datos no se hospeda en Base de datos SQL V12, consulte [Planeación y preparación para actualizar a SQL Database V12](sql-database-v12-plan-prepare-upgrade.md), y visite el Portal de Azure para migrar la base de datos a Base de datos SQL V12.
 
-Como alternativa, puede crear una nueva base de datos en Base de datos SQL V12 siguiendo los pasos que se muestran en [Crear una base de datos SQL V12](sql-database-create.md). **Sugerencia**: Lea el paso siguiente antes de seleccionar una suscripción para la nueva base de datos.
+También puede crear una base de datos en Base de datos SQL V12 siguiendo los pasos que se muestran en [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md). **Sugerencia**: Lea el paso siguiente antes de seleccionar una suscripción para la nueva base de datos.
 
 ## 3\. Opcional: asociar o cambiar el Active Directory que está asociado actualmente a la suscripción de Azure.
 
@@ -322,4 +322,4 @@ Para obtener ejemplos de código específico relacionados con la autenticación 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

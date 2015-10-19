@@ -4,7 +4,7 @@
    description="Actores confiables de Service Fabric es el bloque de creación clave (como nivel intermedio) en un sistema que combina un front-end del sistema de mensajería que admite varios transportes como HTTPS, MQTT o AMQP y, a continuación, se comunica con los actores que representan dispositivos individuales."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Patrón de diseño de Actores confiables: Internet de las cosas
 Dado que IoT se ha convertido en la tendencia nueva junto con los avances tecnológicos en dispositivos y servicios en la nube, los desarrolladores empezaron a considerar los bloques de creación clave en los que desarrollar sus sistemas. En el siguiente diagrama se ilustran los escenarios principales que se consiguen mediante Actores confiables de Service Fabric:
@@ -217,4 +217,4 @@ La conclusión es que cada vez más clientes considerarán Actores de Service Fa
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

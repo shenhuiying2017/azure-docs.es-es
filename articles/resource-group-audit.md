@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tomfitz"/>
 
 # Operaciones de auditoría con el Administrador de recursos
@@ -26,15 +26,15 @@ Puede recuperar información de los registros de auditoría a través de Azure P
 
 ## PowerShell
 
-Para recuperar las entradas de registro, ejecute el comando **Get-AzureResourceGroupLog**. Ofrezca parámetros adicionales para filtrar la lista de entradas.
+Para recuperar las entradas del registro, ejecute el comando **AzureRmLog Get** (o **Get-AzureResourceGroupLog** para versiones anteriores a la versión 1.0 de vista previa de PowerShell). Ofrezca parámetros adicionales para filtrar la lista de entradas.
 
 En el ejemplo siguiente se muestra cómo usar el registro de auditoría para investigar acciones llevadas a cabo durante el ciclo de vida de la solución. Puede ver cuándo se produjo la acción y quién la solicitó.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
 
-En función de la hora de inicio que especifique, el comando anterior puede devolver una lista larga de acciones para ese grupo de recursos. Puede filtrar los resultados para lo que busca ofreciendo criterios de búsqueda. Por ejemplo, si está intentando investigar cómo se ha detenido una aplicación web, podría ejecutar el siguiente comando y ver que someone@example.com realizado una acción de detención.
+En función de la hora de inicio que especifique, el comando anterior puede devolver una lista larga de acciones para ese grupo de recursos. Puede filtrar los resultados para lo que busca ofreciendo criterios de búsqueda. Por ejemplo, si intenta investigar cómo se detuvo una aplicación web, podría ejecutar el siguiente comando y ver que someone@example.com realizó una acción de detención.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -54,11 +54,11 @@ En función de la hora de inicio que especifique, el comando anterior puede devo
 
 En el siguiente ejemplo, solo buscaremos acciones erróneas después de la hora de inicio especificada. También incluiremos el parámetro **DetailedOutput** para ver los mensajes de error.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
     
 Si este comando devuelve demasiadas entradas y propiedades, puede centrarse en sus esfuerzos de auditoría mediante la recuperación de la propiedad **properties**.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
 
     Content
     -------
@@ -68,7 +68,7 @@ Si este comando devuelve demasiadas entradas y propiedades, puede centrarse en s
 
 Además, puede restringir los resultados examinando el mensaje de estado.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -131,7 +131,7 @@ Si la lista de operaciones desde la última implementación es demasiado larga, 
 
 ## API de REST
 
-Las operaciones REST para trabajar con el registro de auditoría forman parte de la [API de REST de Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar los eventos de registro de auditoría, vea [Enumerar los eventos de administración en una suscripción](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+Las operaciones REST para trabajar con el registro de auditoría forman parte de la [API de REST de Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Para recuperar los eventos de registro de auditoría, vea [Lista de los eventos de administración de una suscripción](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## Portal de vista previa
 
@@ -148,7 +148,7 @@ Puede seleccionar cualquier operación para obtener más detalles sobre ella.
 ## Pasos siguientes
 
 - Para obtener información sobre cómo establecer directivas de seguridad, vea [Administración del acceso a los recursos](./azure-portal/resource-group-rbac.md).
-- Para obtener información sobre la concesión del acceso a una entidad de servicio, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
-- Para aprender sobre las acciones en un recurso para todos los usuarios, vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
+- Para obtener información sobre la concesión del acceso a una entidad de servicio, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
+- Para aprender a realizar acciones en un recurso para todos los usuarios, vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

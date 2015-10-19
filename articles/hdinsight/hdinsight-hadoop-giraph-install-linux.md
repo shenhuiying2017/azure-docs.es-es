@@ -42,11 +42,11 @@ Este script realiza las acciones siguientes:
 
 ## <a name="install"></a>Instalación de Giraph mediante acciones de script
 
-Hay un script de ejemplo para instalar Giraph en un clúster de HDInsight disponible en un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Esta sección proporciona instrucciones sobre cómo utilizar el script de ejemplo durante el aprovisionamiento del clúster mediante el Portal de Azure.
+Hay un script de ejemplo para instalar Giraph en un clúster de HDInsight disponible en un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh). Esta sección proporciona instrucciones sobre cómo usar el script de ejemplo al crear el clúster mediante el Portal de Azure.
 
 > [AZURE.NOTE]También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, consulte [Personalización de clústeres de HDInsight mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Inicie el aprovisionamiento de un clúster siguiendo los pasos que se describen en [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-provision-linux-clusters.md#portal), pero no complete la operación.
+1. Comience a crear un clúster siguiendo los pasos que se describen en [Creación de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal), pero no complete la operación.
 
 2. En la hoja **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
 
@@ -59,17 +59,17 @@ Hay un script de ejemplo para instalar Giraph en un clúster de HDInsight dispon
 
 3. En la parte inferior de **Acciones de script**, use el botón **Seleccionar** para guardar la configuración. Por último, use el botón **Seleccionar** situado en la parte inferior de la hoja **Configuración opcional** para guardar la información de configuración opcional.
 
-4. Siga aprovisionando el clúster como se describe en [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continúe creando el clúster, tal como se describe en [Creación de clústeres de HDInsight basados en Linux](hdinsight-provision-linux-clusters.md#portal).
 
 ## <a name="usegiraph"></a>¿Cómo uso Giraph en HDInsight?
 
-Una vez terminado el aprovisionamiento del clúster, siga estos pasos para ejecutar el ejemplo SimpleShortestPathsComputation incluido con Giraph. Así se realiza la implementación de <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> básica para buscar la ruta más corta entre los objetos de un gráfico.
+Una vez terminada la creación del clúster, siga estos pasos para ejecutar el ejemplo SimpleShortestPathsComputation incluido con Giraph. Así se realiza la implementación de <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> básica para buscar la ruta más corta entre los objetos de un gráfico.
 
 1. Conéctese al clúster de HDInsight con SSH:
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-	Para obtener más información sobre el uso de SSH con HDInsight, consulte:
+	Para obtener más información sobre el uso de SSH con HDInsight, vea lo siguiente:
 
 	* [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
@@ -148,4 +148,4 @@ Una vez terminado el aprovisionamiento del clúster, siga estos pasos para ejecu
 
 - [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

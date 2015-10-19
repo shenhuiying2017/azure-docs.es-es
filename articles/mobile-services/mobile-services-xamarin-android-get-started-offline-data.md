@@ -160,7 +160,6 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 
 <!-- URLs. -->
 [Control de conflictos con compatibilidad sin conexión para Servicios móviles]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Introducción a los Servicios móviles]: mobile-services-android-get-started.md
 [Uso del cliente del componente Xamarin para servicios móviles de Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [eliminación temporal]: mobile-services-using-soft-delete.md
@@ -172,4 +171,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

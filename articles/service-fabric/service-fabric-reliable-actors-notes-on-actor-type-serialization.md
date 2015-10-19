@@ -3,7 +3,7 @@
    description="Examina los requisitos básicos para la definición de clases serializables que se pueden usar para definir interfaces y estados de Actores confiable de Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Notas sobre la serialización del tipo de Actores confiables de Service Fabric
 
@@ -82,4 +82,4 @@ public class VoicemailBox
 
 ```
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

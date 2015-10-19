@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="10/02/2015" 
 	ms.author="omark"/>
 
 # ¿Qué es Servicios de aplicaciones de Azure?
@@ -43,20 +43,20 @@ Servicios de aplicaciones le permite crear los siguientes tipos de aplicaciones 
 
 - [**Aplicaciones web**](../app-service-web-overview): cree e implemente rápidamente aplicaciones web críticas que se escalan con su empresa.
 - [**Aplicaciones móviles**](../app-service-mobile-value-prop-preview): póngase en contacto con empleados, socios y clientes en cualquier dispositivo en cualquier momento.
-- [**Aplicaciones de la API**](../app-service-api-apps-why-best-platform): genere y consuma fácilmente las API en la nube y participe en la economía de la API.
+- [**Aplicaciones de API**](../app-service-api-apps-why-best-platform): cree y consuma API en la nube con facilidad.
 - [**Lógica de aplicaciones**](../app-service-logic-what-are-logic-apps): automatice el acceso y el uso de datos a través de nubes sin escribir código.
 
 Como un servicio integrado único, Servicios de aplicaciones facilita la creación de los tipos de aplicación anteriores en una única solución, lo que le permite crear fácilmente aplicaciones destinadas a web y clientes móviles usando el mismo back-end y realizando la integración con sistemas locales, así como servicios populares, como Office 365 y salesforce.com.
 
 ### Planes del Servicio de aplicaciones
-Los planes de Servicios de aplicaciones representan un conjunto de características y capacidades que puede compartir mediante sus aplicaciones. Los planes de Servicios de aplicaciones son compatibles con algunos niveles de precios (por ejemplo, gratis, compartido, básico y estándar), donde cada uno de ellos tiene sus propias funcionalidades. Puede cambiar rápidamente el plan de Servicio de aplicaciones que se hospeda en la aplicación sin que exista tiempo de inactividad. [Obtenga más información acerca de los planes de Servicios de aplicaciones](../web-sites-web-hosting-plan-overview.md).
+Los planes de Servicios de aplicaciones representan un conjunto de características y capacidades que puede compartir mediante sus aplicaciones. Los planes de Servicio de aplicaciones son compatibles con algunos niveles de precios (por ejemplo, Gratis, Compartido, Básico y Estándar), donde cada uno de ellos tiene sus propias funcionalidades. Puede cambiar rápidamente el plan de Servicio de aplicaciones que se hospeda en la aplicación sin que exista tiempo de inactividad. [Obtenga más información acerca de los planes de Servicios de aplicaciones](../web-sites-web-hosting-plan-overview.md).
 
 ##Introducción a Servicios de aplicaciones
 ¿Quiere probar? Póngase en marcha en cuestión de segundos.
 
 Con Servicios de aplicaciones Azure, es tan fácil como seleccionar un idioma.
 
-[Cree una nueva aplicación web](http://go.microsoft.com/fwlink/?LinkId=523751) inmediatamente de forma gratuita. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso. Sin complicaciones.
+[Cree una nueva aplicación](http://go.microsoft.com/fwlink/?LinkId=523751) inmediatamente de forma gratuita. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso. Sin complicaciones.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium
@@ -81,8 +81,10 @@ El intervalo de frecuencia de copia de seguridad no se inicia hasta que el proce
 Todas las copias de seguridad excepto la más reciente se eliminan automáticamente. Es posible que esta eliminación no se produzca inmediatamente pero las copias de seguridad anteriores no se guardan de manera indefinida.
 
 ## Pasos siguientes
+Obtenga información sobre cómo usar más características de la memoria caché del nivel Premium.
 
-Obtenga información sobre cómo usar más características de caché premium. - [Cómo configurar la agrupación en clústeres para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md) - [Cómo configurar la compatibilidad de redes virtuales para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
+-	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
+-	[Cómo configurar la compatibilidad de red virtual para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md)
   
 <!-- IMAGES -->
 
@@ -94,4 +96,4 @@ Obtenga información sobre cómo usar más características de caché premium. -
 
 [redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

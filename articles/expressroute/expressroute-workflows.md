@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Flujos de trabajo de aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
@@ -30,9 +30,9 @@ Tanto la ilustración como los pasos correspondientes siguientes muestran las ta
 
 4. Configure los dominios de enrutamiento. Si el proveedor de conectividad administra el nivel 3, configurará el enrutamiento del circuito. Si el proveedor de conectividad solo ofrece servicios de nivel 2, debe configurar el enrutamiento según las instrucciones que se describen en las páginas de [requisitos de enrutamiento](expressroute-routing.md) y [configuración de enrutamiento](expressroute-howto-routing-classic.md).
 
-	1. Habilitar la configuración entre pares privados de Azure: debe habilitar esta configuración entre pares para conectarse a las máquinas virtuales/servicios en la nube implementados en redes virtuales. 
-	2. Habilitar la configuración entre pares públicos de Azure: debe habilitar la configuración entre pares públicos de Azure si desea conectarse a los servicios de Azure hospedados en direcciones IP públicas. Se trata de un requisito para acceder a los recursos de Azure si ha elegido habilitar el enrutamiento predeterminado para la configuración entre pares privados de Azure.
-	3. Habilitar la configuración entre pares de Microsoft: debe habilitarlo para acceder a Office 365 y a los servicios en línea de CRM. 
+	-  Habilitar la configuración entre pares privados de Azure: debe habilitar esta configuración entre pares para conectarse a las máquinas virtuales/servicios en la nube implementados en redes virtuales.
+	-  Habilitar la configuración entre pares públicos de Azure: debe habilitar la configuración entre pares públicos de Azure si desea conectarse a los servicios de Azure hospedados en direcciones IP públicas. Se trata de un requisito para acceder a los recursos de Azure si ha elegido habilitar el enrutamiento predeterminado para la configuración entre pares privados de Azure.
+	-  Habilitar la configuración entre pares de Microsoft: debe habilitarlo para acceder a Office 365 y a los servicios en línea de CRM. 
 	
 	>[AZURE.IMPORTANT]Si va a habilitar la configuración entre pares de Microsoft, asegúrese de que la configuración entre pares públicos de Azure también está habilitada para acceder a Azure AD. Debe asegurarse de que usa un proxy o borde independientes para conectarse a Microsoft distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
 
@@ -116,8 +116,9 @@ Si el estado de los prefijos públicos anunciados se establece en el estado de *
 ## Pasos siguientes
 
 - Configure su conexión ExpressRoute.
+
 	- [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones HTML 5"
+	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de HTML/JavaScript | Microsoft Azure"
 	description="Siga este tutorial para introducirse en el uso de Servicios móviles de Azure para el desarrollo de HTML."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,14 +12,16 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
-	ms.topic="article" 
-	ms.date="07/25/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Información general 
 
@@ -117,13 +119,12 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 ## <a name="next-steps"> </a>Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
-* **[Introducción a los datos]** <br/>Obtenga más información sobre cómo almacenar y consultar datos con Servicios móviles.
+* **[Incorporación de autenticación a la aplicación]** Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* **[Llamada a una API personalizada desde una aplicación HTML]** <br/>Conéctese a su aplicación HTML mediante una API personalizada hospedada en Servicios móviles.
+* **[Referencia conceptual de Servicios móviles con HTML/JavaScript]** Obtenga más información sobre cómo usar Servicios móviles con HTML/JavaScript.
 
-* **[Introducción a la autenticación]** <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* **[Referencia conceptual de Servicios móviles con HTML/JavaScript]** <br/>Obtenga más información acerca de cómo utilizar Servicios móviles con HTML/JavaScript.
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -144,9 +145,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 
 <!-- URLs. -->
-[Introducción a los datos]: mobile-services-html-get-started-data.md
-[Introducción a la autenticación]: mobile-services-html-get-started-users.md
-[Llamada a una API personalizada desde una aplicación HTML]: mobile-services-html-call-custom-api.md
+[Incorporación de autenticación a la aplicación]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [instalador de plataforma web de Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
@@ -155,4 +154,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

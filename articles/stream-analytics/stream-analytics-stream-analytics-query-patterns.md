@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Patrones de consulta de Análisis de transmisiones de Azure | Microsoft Azure"
 	description="Patrones de consulta de Análisis de transmisiones de Azure comunes"
+	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/19/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok"/>
 
 
@@ -443,7 +444,7 @@ Usando lo que aprendimos en "Combinación externa izquierda para incluir valores
 Al componer juntas estas funciones, obtenemos la secuencia correcto -> incorrecto -> correcto sin ningún evento correcto entre medio. Ahora podemos calcular la duración entre el principio y el final de los eventos correctos, lo que nos da la duración del error.
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -454,4 +455,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

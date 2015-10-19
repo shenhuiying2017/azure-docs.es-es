@@ -24,7 +24,7 @@
 
 En este tema se muestra cómo utilizar el control de código fuente que proporcionan los servicios móviles de Azure para almacenar el proyecto de servicio de back-end. NET. Para publicar el proyecto, basta con cargarlo desde el repositorio Git local al servicio móvil de producción.
 
-Para completar este tutorial, debe haber creado un servicio móvil tras completar los tutoriales [Introducción a los servicios móviles] o [Incorporación de servicios móviles a una aplicación existente].
+Para completar este tutorial, ya debe haber creado un servicio móvil tras completar el tutorial [Introducción a Servicios móviles].
 
 ##<a name="enable-source-control"></a>Habilitación del control de código fuente en el servicio móvil
 
@@ -95,10 +95,8 @@ Ahora, el proyecto de servicio móvil se mantiene en el control de código fuent
 [Git website]: http://git-scm.com
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Introducción a los servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
-[Incorporación de servicios móviles a una aplicación existente]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Introducción a Servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Modificación del modelo de datos de un servicio móvil back-end de .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

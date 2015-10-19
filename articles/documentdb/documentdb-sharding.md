@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="10/05/2015" 
 	ms.author="arramac"/>
 
 # Creación de particiones de datos en DocumentDB con el SDK de .NET
@@ -167,4 +167,4 @@ Puede encadenar PartitionResolvers implementando su propio valor de IPartitionRe
 * [Blog de DocumentDB sobre sugerencias de rendimiento](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

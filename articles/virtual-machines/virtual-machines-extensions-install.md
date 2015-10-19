@@ -1,32 +1,36 @@
-<properties 
+<properties
  pageTitle="Administración de extensiones de máquina virtual | Microsoft Azure"
-	description="Describe cómo agregar, encontrar, actualizar y quitar extensiones."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
-<tags 
+ description="Describe cómo agregar, buscar, actualizar y quitar extensiones para máquinas virtuales de Azure, en el modelo de implementación clásico."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="squillace"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
+<tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="rasquill"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="infrastructure-services"
+ ms.date="08/25/2015"
+ ms.author="rasquill"/>
 #Administración de extensiones de máquina virtual
 Describe cómo encontrar, agregar, modificar o quitar extensiones de VM con máquinas virtuales de Windows o Linux en Azure.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la administración de extensiones con el modelo de implementación clásico.
+
+
 ##Uso de extensiones de máquina virtual
 
-Las extensiones de máquina virtual de Azure implementan comportamientos o características que bien ayudan a otros programas a funcionar en máquinas virtuales de Azure (por ejemplo, la extensión **WebDeployForVSDevTest** permite Visual Studio en soluciones Web Deploy en la máquina virtual de Azure) o bien ofrecen la posibilidad de interactuar con la máquina virtual para que admita algún otro comportamiento (por ejemplo, puede usar las extensiones de acceso de máquina virtual desde Powershell, la CLI de Azure y clientes REST para restablecer o modificar valores de acceso remoto en la máquina virtual de Azure).
+Las extensiones de VM de Azure implementan comportamientos o características que bien ayudan a otros programas a funcionar en máquinas virtuales de Azure (por ejemplo, la extensión **WebDeployForVSDevTest** permite Visual Studio en soluciones Web Deploy en la VM de Azure), o bien ofrecen la posibilidad de interactuar con la VM para que admita algún otro comportamiento (por ejemplo, puede usar las extensiones de acceso de VM desde Powershell, la CLI de Azure y clientes REST para restablecer o modificar valores de acceso remoto en la VM de Azure).
 
 >[AZURE.IMPORTANT]Para obtener una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](https://msdn.microsoft.com/library/dn606311.aspx). Dado que cada extensión de máquina virtual admite una característica específica, lo que se puede y no se puede hacer exactamente con una extensión depende de la extensión. Por lo tanto, antes de modificar la máquina virtual, asegúrese de leer la documentación de la extensión de máquina virtual que quiera usar. Algunas extensiones de máquina virtual no admiten que se quiten; otras tienen propiedades que se pueden establecer y cambian radicalmente el comportamiento de la máquina virtual.
 
 Las tareas más comunes son:
 
 1.  Buscar extensiones disponibles
-    
+
 2.  Actualizar extensiones cargadas
 
 3.  Agregar extensiones
@@ -35,7 +39,7 @@ Las tareas más comunes son:
 
 ##Búsqueda de extensiones disponibles
 
-Son extensiones de máquina virtual de Azure (Para obtener una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](https://msdn.microsoft.com/library/dn606311.aspx)). Puede buscar la extensión e información extendida con:
+Son extensiones de máquina virtual de Azure (para obtener una lista completa de extensiones por las características que admiten, vea [Características y extensiones de máquina virtual de Azure](https://msdn.microsoft.com/library/dn606311.aspx)). Puede buscar la extensión e información extendida con:
 
 -   PowerShell
 -   Interfaz entre plataformas de Azure (CLI de Azure)
@@ -53,7 +57,7 @@ Puede usar los cmdlets siguientes para obtener información sobre las extensione
 -   Para instancias de máquinas virtuales, puede usar el cmdlet [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx).
 
      En el ejemplo de código siguiente se indica cómo se muestra la información de la extensión **IaaSDiagnostics** con PowerShell.
-    
+
         PS C:\PowerShell> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
         VERBOSE: 5:09:01 PM - Begin Operation: Get-AzureVMAvailableExtension
         VERBOSE: 5:09:06 PM - Completed Operation: Get-AzureVMAvailableExtension
@@ -106,9 +110,9 @@ En el ejemplo de código siguiente se indica cómo se muestra la información de
 
 Puede usar las API de REST siguientes para obtener información sobre las extensiones disponibles:
 
--   Para instancias de roles web o roles de trabajo, puede usar la operación [Mostrar las extensiones disponibles](https://msdn.microsoft.com/library/dn169559.aspx). Para mostrar las versiones de las extensiones disponibles, puede usar [Mostrar versiones de extensiones](https://msdn.microsoft.com/library/dn495437.aspx).
+-   Para instancias de roles web o roles de trabajo, puede usar la operación [Enumerar extensiones disponibles](https://msdn.microsoft.com/library/dn169559.aspx). Para mostrar las versiones de las extensiones disponibles, puede usar [Enumerar versiones de extensión](https://msdn.microsoft.com/library/dn495437.aspx).
 
--   Para instancias de máquinas virtuales, puede usar la operación [Mostrar extensiones del recurso](https://msdn.microsoft.com/library/dn495441.aspx). Para mostrar las versiones de las extensiones disponibles, puede usar [Mostrar versiones de extensiones del recurso](https://msdn.microsoft.com/library/dn495440.aspx).
+-   Para instancias de máquinas virtuales, puede usar la operación [Enumerar extensiones de recursos](https://msdn.microsoft.com/library/dn495441.aspx). Para mostrar las versiones de las extensiones disponibles, puede usar [Enumerar versiones de extensiones de recursos](https://msdn.microsoft.com/library/dn495440.aspx).
 
 ##Adición, actualización o deshabilitación de extensiones
 
@@ -131,10 +135,10 @@ Cuando recupera una lista de extensiones disponibles mediante las API de REST, r
 
 Puede usar las API de REST siguientes para saber si una extensión requiere una configuración de parámetros públicos o privados:
 
--   Para las instancias de roles web o roles de trabajo, los elementos **PublicConfigurationSchema** y **PrivateConfigurationSchema** contienen la información de la respuesta en la operación [Mostrar las extensiones disponibles](https://msdn.microsoft.com/library/dn169559.aspx).
+-   Para las instancias de roles web o roles de trabajo, los elementos **PublicConfigurationSchema** y **PrivateConfigurationSchema** contienen la información de la respuesta en la operación [Enumerar extensiones disponibles](https://msdn.microsoft.com/library/dn169559.aspx).
 
--   Para las instancias de máquinas virtuales, los elementos **PublicConfigurationSchema** y **PrivateConfigurationSchema** contienen la información de la respuesta en la operación [Mostrar extensiones del recurso](https://msdn.microsoft.com/library/dn495441.aspx).
+-   Para las instancias de máquinas virtuales, los elementos **PublicConfigurationSchema** y **PrivateConfigurationSchema** contienen la información de la respuesta en la operación [Enumerar extensiones de recursos](https://msdn.microsoft.com/library/dn495441.aspx).
 
 >[AZURE.NOTE]Las extensiones también pueden usar configuraciones que se definen con JSON. Cuando se utilizan estos tipos de extensiones, solo se usa el elemento **SampleConfig**.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

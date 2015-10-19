@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="10/01/2015" 
 	ms.author="nitinme"/>
 
 
@@ -70,15 +70,21 @@ Después de haber aprovisionado un clúster, puede usar un cuaderno de Zeppelin 
 
 >[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Zeppelin, encontrará el cuaderno con el nombre **Zeppelin HVAC tutorial**.
 
-1. Inicie el cuaderno de Zeppelin. Seleccione el clúster Spark recién creado en el Portal de Azure y, en la barra de tareas del portal en la parte inferior, haga clic en **Zeppelin Notebook**. Cuando se le pida, escriba las credenciales de administrador para el clúster. Siga las instrucciones de la página que se abre para iniciar el cuaderno.
+1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
-2. Cree un nuevo cuaderno. En el panel de encabezado, haga clic en **Notebook** y luego en **Create New Note** (Crear nueva nota).
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y después, en la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Zeppelin**. Cuando se le pida, escriba las credenciales del clúster.
+
+	> [AZURE.NOTE]También puede comunicarse con su equipo portátil ligero Zeppelin en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
+
+2. Cree un nuevo notebook. En el panel de encabezado, haga clic en **Notebook** y luego en **Create New Note** (Crear nueva nota).
 
 	![Crear un nuevo cuaderno de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.Spark.CreateNewNote.png "Crear un nuevo cuaderno de Zeppelin")
 
 	En la misma página, en el encabezado **Notebook**, debería ver un nuevo cuaderno con un nombre que empiece por **Note XXXXXXXXX** (Nota XXXXXXXXX). Haga clic en el nuevo cuaderno.
 
-3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado del cuaderno muestre el estado **Connected** (Conectado) en la esquina superior derecha.
+3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado de cuaderno muestre el estado **Connected** (Conectado) en la esquina superior derecha.
 
 	![Estado del cuaderno de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.Spark.NewNote.Connected.png "Estado del cuaderno de Zeppelin")
 
@@ -148,10 +154,17 @@ Después de haber aprovisionado un clúster, puede usar un cuaderno de Zeppelin 
 
 En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark SQL en un clúster Spark.
 
->[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Jupyter, encontrará el cuaderno con el nombre **HVACTutorial.ipynb**.
+>[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Jupyter, encontrará este cuaderno por el nombre **HVACTutorial.ipynb**.
 
-1. Inicie el cuaderno de Jupyter. Seleccione el clúster Spark en el Portal de Azure y, en la barra de tareas del portal en la parte inferior, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
-2. Cree un nuevo cuaderno. Haga clic en **New** (Nuevo) y, a continuación, en **Python 2**.
+1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
+
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel del clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+
+	> [AZURE.NOTE]También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y, luego, en **Python2**.
 
 	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.Spark.Note.Jupyter.CreateNotebook.png "Crear un nuevo cuaderno de Jupyter")
 
@@ -247,4 +260,4 @@ En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark S
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

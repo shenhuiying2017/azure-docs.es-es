@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -40,11 +40,15 @@ En esta sección, usamos el cuaderno de [Jupyter](https://jupyter.org) asociado 
 
 Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, nos conectaremos a la tabla de Hive mediante herramientas de BI como Power BI y Tableau.
 
-1. Desde el [Portal de vista previa de Azure](https://ms.portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ha fijado en el panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**. 
- 
-2. Inicie el cuaderno de [Jupyter](https://jupyter.org). En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, a continuación, desde la hoja **Panel de clúster**, haga clic en **Equipo portátil ligero Jupyter**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
+1. En el [Portal de vista previa de Azure](https://portal.azure.com/), en el panel de inicio, haga clic en el icono del clúster Spark (si lo ancló al panel de inicio). También puede navegar hasta el clúster en **Examinar todo** > **Clústeres de HDInsight**.   
 
-2. Cree un nuevo cuaderno. Haga clic en **New** (Nuevo) y, a continuación, en **Python 2**.
+2. En la hoja del clúster Spark, haga clic en **Vínculos rápidos** y, luego, en la hoja **Panel del clúster**, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales del clúster.
+
+	> [AZURE.NOTE]También puede comunicarse con el equipo Jupyter Notebook en el clúster si abre la siguiente dirección URL en el explorador. Reemplace __CLUSTERNAME__ por el nombre del clúster.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y, luego, en **Python 2**.
 
 	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.CreateNotebook.png "Crear un nuevo cuaderno de Jupyter")
 
@@ -116,7 +120,7 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 
 3. En la siguiente pantalla, haga clic en **Spark** y luego en **Connect** (Conectar).
 
-4. En la página Spark on Azure HDInsight (Spark en HDInsight de Azure), proporcione los valores para conectarse al clúster Spark y luego haga clic en**Connect** (Conectar).
+4. En la página Spark on Azure HDInsight (Spark en HDInsight de Azure), proporcione los valores para conectarse al clúster Spark y luego haga clic en **Connect** (Conectar).
 
 	![Conectarse a un clúster Spark en HDInsight](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Connect.Spark.png "Conectarse a un clúster Spark en HDInsight")
 
@@ -130,7 +134,7 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 
 	  ![Lista de tablas de Hive](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Display.Tables.png "Lista de tablas de Hive")
 
-7. Cree una visualización para mostrar la variación entre la temperatura objetivo y la real para cada edificio. Para ello, arrastre y coloque el campo **BuildingID**en **Axis** (Eje) y los campos **ActualTemp**/**TargetTemp** en **Value** (Valor).
+7. Cree una visualización para mostrar la variación entre la temperatura objetivo y la real para cada edificio. Para ello, arrastre y coloque el campo **BuildingID** en **Axis** (Eje) y los campos **ActualTemp**/**TargetTemp** en **Value** (Valor).
 
 	![Crear visualizaciones](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "Crear visualizaciones")
 
@@ -144,7 +148,7 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 
 	![Crear visualizaciones](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.3.png "Crear visualizaciones")
 
-10. Haga clic en **Save** (Guardar) en el menú superior y proporcione un nombre de informe. También puede anclar la visualización. Cuando se ancla una visualización, se almacenará en el panel para que pueda seguir el valor más reciente de un vistazo.
+10. Haga clic en **Save** (Guardar) en el menú superior y proporcione un nombre para el informe. También puede anclar la visualización. Cuando se ancla una visualización, se almacenará en el panel para que pueda seguir el valor más reciente de un vistazo.
 
 	Puede agregar tantas visualizaciones como quiera para el mismo conjunto de datos y anclarlas al panel para ver una instantánea de los datos. Además, los clústeres Spark en HDInsight están conectados a Power BI con conexión directa. Esto significa que Power BI siempre tiene la copia más actualizada del clúster, por lo que no es necesario programar actualizaciones del conjunto de datos.
 
@@ -208,4 +212,4 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

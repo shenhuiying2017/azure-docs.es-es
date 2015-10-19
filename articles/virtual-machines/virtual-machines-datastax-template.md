@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,9 +18,11 @@
 
 # DataStax en Ubuntu con una plantilla del Administrador de recursos
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos.
+
 DataStax es un reconocido líder del sector en el desarrollo y la entrega de soluciones basadas en Apache Cassandra, la tecnología de base de datos distribuida NoSQL preparada para la empresa y admitida comercialmente, bien conocida por ser ágil, siempre activada y escalable de forma predecible a cualquier tamaño. DataStax ofrece las versiones Enterprise (DSE) y Community (DSC). También proporciona capacidades como informática en memoria, seguridad a nivel empresarial, análisis integrados rápidos y potentes, y búsqueda empresarial.
 
-Ahora, además de lo que ya está disponible en Azure Marketplace, puede implementar fácilmente un nuevo clúster de DataStax en máquinas virtuales de Ubuntu con una plantilla del Administrador de recursos mediante [Azure PowerShell](../powershell-install-configure.md) o la [CLI de Azure](../xplat-cli-install.md).
+Ahora, además de lo que ya está disponible en Azure Marketplace, puede implementar fácilmente un nuevo clúster de DataStax en VM de Ubuntu con una plantilla del Administrador de recursos mediante [Azure PowerShell](../powershell-install-configure.md) o la [CLI de Azure](../xplat-cli-install.md).
 
 Los clústeres recién implementados basados en esta plantilla tendrán la topología descrita en el siguiente diagrama, aunque se pueden lograr fácilmente otras topologías personalizando la plantilla presentada en este artículo:
 
@@ -28,7 +30,7 @@ Los clústeres recién implementados basados en esta plantilla tendrán la topol
 
 Con el uso de parámetros, puede definir el número de nodos que se implementarán en el nuevo clúster de Apache Cassandra. También se implementará una instancia del servicio del centro de operaciones de DataStax en una máquina virtual independiente dentro de la misma red virtual, lo que proporciona la capacidad de supervisar el estado del clúster y todos los nodos individuales, agregar o quitar nodos y llevar a cabo todas las tareas administrativas relacionadas con ese clúster.
 
-Una vez completada la implementación, puede tener acceso a la instancia de máquina virtual del centro de operaciones de DataStax con la dirección DNS configurada. La máquina virtual de OpsCenter tiene el puerto SSH 22 habilitado, así como el puerto 8443 para HTTPS. La dirección DNS del centro de operaciones incluirá el *dnsName* y la *región* especificados como parámetros, lo que da como resultado el formato `{dnsName}.{region}.cloudapp.azure.com`. Si creó una implementación con el parámetro *dnsName* establecido en "datastax" en la región "West US", podría tener acceso a la máquina virtual del centro de operaciones de DataStax para la implementación en `https://datastax.westus.cloudapp.azure.com:8443`.
+Una vez completada la implementación, puede tener acceso a la instancia de máquina virtual del centro de operaciones de DataStax con la dirección DNS configurada. La máquina virtual de OpsCenter tiene el puerto SSH 22 habilitado, así como el puerto 8443 para HTTPS. La dirección DNS del centro de operaciones incluirá el *dnsName* y la *región* especificados como parámetros, lo que da como resultado el formato `{dnsName}.{region}.cloudapp.azure.com`. Si creó una implementación con el parámetro *dnsName* establecido en "datastax" en la región "Oeste de EE. UU.", podría tener acceso a la máquina virtual del centro de operaciones de DataStax para la implementación en `https://datastax.westus.cloudapp.azure.com:8443`.
 
 > [AZURE.NOTE]El certificado usado en la implementación es un certificado autofirmado que creará una advertencia de explorador. Puede seguir el proceso en el sitio web de [DataStax](http://www.datastax.com/) para reemplazar el certificado por su propio certificado SSL.
 
@@ -231,7 +233,7 @@ Durante la implementación y después de ella, puede comprobar todas las solicit
 
 Para ello, vaya al [Portal de Azure](https://portal.azure.com) y haga lo siguiente:
 
-- Haga clic en **Examinar** en la barra de navegación de la izquierda y, luego, desplácese hacia abajo y haga clic en **Grupos de recursos**.  
+- Haga clic en **Examinar** en la barra de navegación de la izquierda y luego desplácese hacia abajo y haga clic en **Grupos de recursos**.  
 - Haga clic en el grupo de recursos que acaba de crear para abrir la hoja "Grupo de recursos".  
 - Al hacer clic en el gráfico de barras "Eventos" en la parte **Supervisión** de la hoja "Grupo de recursos", puede ver los eventos para la implementación.
 - Al hacer clic en eventos individuales, puede profundizar más en los detalles de cada operación que se realiza en nombre de la plantilla.
@@ -362,8 +364,8 @@ A partir de este primer ejemplo está claro que azuredeploy.json se organizó en
 En particular, las siguientes plantillas vinculadas se usarán para esta implementación:
 
 -	**shared-resource.json**: contiene la definición de todos los recursos que se van a compartir en la implementación. Algunos ejemplos son las cuentas de almacenamiento que se usan para almacenar discos del sistema operativo de la máquina virtual y las redes virtuales.
--	**opscenter-resources.json**: implementa una máquina virtual de OpsCenter y todos los recursos relacionados, incluida la interfaz de red y la dirección IP pública.
--	**opscenter-install-resources.json**: implementa la extensión de máquina virtual de OpsCenter (script personalizado para Linux) que invocará el archivo de script Bash específico (opscenter.sh) necesario para configurar el servicio de OpsCenter dentro de esa máquina virtual.
+-	**opscenter-resources.json**: implementa una VM OpsCenter y todos los recursos relacionados, incluida la interfaz de red y la dirección IP pública.
+-	**opscenter-install-resources.json**: implementa la extensión de VM de OpsCenter (script personalizado para Linux) que invocará el archivo de script Bash específico (opscenter.sh) necesario para configurar el servicio de OpsCenter dentro de esa VM.
 -	**ephemeral-nodes-resources.json**: implementa todas las máquinas virtuales de nodo del clúster y los recursos conectados (tarjetas de red, IP privadas, etc.). Esta plantilla también implementará extensiones de máquinas virtuales (scripts personalizados para Linux) e invocará un script Bash (dsenode.sh) para instalar físicamente los bits de Apache Cassandra en cada nodo.
 
 Analicemos cómo se usa esta última plantilla, ya que es una de las más interesantes desde el punto de vista del desarrollo de una plantilla. Un concepto importante que se debe resaltar es cómo puede una sola plantilla implementar varias copias de un tipo de recurso único y puede establecer para cada instancia valores únicos para la configuración requerida. Este concepto se conoce como **bucle de recursos**.
@@ -477,4 +479,4 @@ Básicamente, se sugiere este enfoque para:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

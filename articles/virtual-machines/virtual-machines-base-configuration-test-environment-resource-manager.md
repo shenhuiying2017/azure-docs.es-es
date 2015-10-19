@@ -58,12 +58,14 @@ Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba grat
 
 En primer lugar, si es preciso, siga las instrucciones en [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md) para instalar Azure PowerShell en el equipo local. Abra un símbolo del sistema de Azure PowerShell.
 
+> [AZURE.NOTE]Este artículo contiene comandos para versiones de Azure PowerShell hasta, *pero sin incluir*, las versiones 1.0.0 y versiones posteriores. Puede comprobar la versión de Azure PowerShell con el comando **Get-Module azure | format-table version**. Los bloques de comandos de Azure PowerShell de este artículo están en proceso de prueba y actualización para admitir los nuevos cmdlets de las versiones 1.0.0, y posteriores, de Azure PowerShell. Gracias por su paciencia.
+
 A continuación, seleccione la suscripción de Azure correcta con estos comandos. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por el nombre correcto.
 
 	$subscr="<Subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 
-Puede obtener el nombre de la suscripción en la propiedad SubscriptionName de la visualización del comando **Get-AzureSubscription**.
+Puede obtener el nombre de la suscripción a partir de la propiedad SubscriptionName de la visualización del comando **Get-AzureSubscription**.
 
 A continuación, cambie Azure PowerShell al modo Administrador de recursos.
 
@@ -141,7 +143,7 @@ En primer lugar, proporcione el nombre del grupo de recursos, la ubicación de A
 
 A continuación, conéctese a la máquina virtual DC1.
 
-1.	En el Portal de vista previa de Azure, haga clic en **Examinar todo** en el panel izquierdo, en **Máquinas virtuales** en la lista **Examinar** y, a continuación, en la máquina virtual **DC1**.  
+1.	En el Portal de vista previa de Azure, haga clic en **Examinar todo** en el panel izquierdo, haga clic en **Máquinas virtuales** en la lista **Examinar** y después haga clic en la máquina virtual **DC1**.  
 2.	En el panel **DC1**, haga clic en **Conectar**.
 3.	Cuando se le pida, abra el archivo DC1.rdp descargado.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
@@ -286,7 +288,7 @@ A continuación, compruebe que puede tener acceso a recursos compartidos de arch
 2.	En **Propiedades de CLIENT1**, haga clic en **Activo** al lado de **Configuración de seguridad mejorada de IE**.
 3.	En **Configuración de seguridad mejorada de IE**, haga clic en **Desactivar** para **Administradores** y **Usuarios** y, a continuación, haga clic en **Aceptar**.
 4.	En la pantalla Inicio, haga clic en **Internet Explorer** y, a continuación, en **Aceptar**.
-5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
+5.	En la barra de direcciones, escriba ****http://app1.corp.contoso.com/** y después presione INTRO. Debe ver la página web de Internet Information Services de forma predeterminada para APP1.
 6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
 7.	En la barra de direcciones, escriba **\\\app1\\Files** y, a continuación, presione ENTRAR.
 8.	Debería ver una ventana de carpeta con el contenido de la carpeta compartida Archivos.
@@ -333,4 +335,4 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

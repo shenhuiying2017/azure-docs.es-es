@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
@@ -60,6 +60,7 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 		using System.IO;
 		using System.Globalization;
 		using System.Diagnostics;
+		using System.Linq;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.Azure.Management.DataFactories.Runtime;
@@ -77,10 +78,9 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 
 8. Implemente (agregue) el método **Execute** de la interfaz **IDotNetActivity** en la clase **MyDotNetActivity** y copie el siguiente código de ejemplo en el método.
 
-
 	El código de ejemplo siguiente cuenta el número de líneas del blob de entrada y genera el siguiente contenido en el blob de salida: ruta de acceso al blob, número de líneas del blob, equipo donde se ejecutó la actividad, fecha y hora actual.
 
-        public IDictionary<string, string> Execute(IEnumerable<LinkedService> linkedServices, IEnumerable<Table> tables, Activity activity, IActivityLogger logger)
+		public IDictionary<string, string> Execute(IEnumerable<LinkedService> linkedServices, IEnumerable<Dataset> datasets, Activity activity, IActivityLogger logger)
         {
             IDictionary<string, string> extendedProperties = ((DotNetActivity)activity.TypeProperties).ExtendedProperties;
 
@@ -88,13 +88,12 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
             CustomDataset inputLocation;
             AzureBlobDataset outputLocation;
 
-            Table inputTable = tables.Single(table => table.Name == activity.Inputs.Single().Name);
-            inputLocation = inputTable.Properties.TypeProperties as CustomDataset;
+            Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
+            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
 
-			// using First method instead of Single since we are using the same 
-			// Azure Storage linked service for input and output. 
-            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
-
+            // using First method instead of Single since we are using the same 
+            // Azure Storage linked service for input and output. 
+            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputDataset.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             string output = string.Empty;
 
@@ -107,7 +106,7 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
             }
 
             string connectionString = GetConnectionString(inputLinkedService);
-            string folderPath = GetFolderPath(inputTable);
+            string folderPath = GetFolderPath(inputDataset);
 
             logger.Write("Reading blob from: {0}", folderPath);
 
@@ -159,12 +158,12 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 
             } while (continuationToken != null);
 
-            Table outputTable = tables.Single(table => table.Name == activity.Outputs.Single().Name);
-            outputLocation = outputTable.Properties.TypeProperties as AzureBlobDataset;
-            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+            Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
+            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputDataset.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             connectionString = GetConnectionString(outputLinkedService);
-            folderPath = GetFolderPath(outputTable);
+            folderPath = GetFolderPath(outputDataset);
 
             logger.Write("Writing blob to: {0}", folderPath);
 
@@ -192,8 +191,7 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
             return asset.ConnectionString;
         }
 
-        
-        private static string GetFolderPath(Table dataArtifact)
+        private static string GetFolderPath(Dataset dataArtifact)
         {
             if (dataArtifact == null || dataArtifact.Properties == null)
             {
@@ -478,4 +476,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

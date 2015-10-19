@@ -170,7 +170,7 @@ Antes de implementar la extensión, compruebe la versión más reciente de la ex
               "protectedSettings": {
                 "workspaceKey"  : "The Workspace Key is a string that is available from within the Direct Agent Configuration section of the Azure Operational Insights portal"
               }
-          }
+              }
             }
 
 ### McAfee EndpointSecurity
@@ -305,4 +305,4 @@ Este es un ejemplo de una plantilla de máquina virtual completa con la extensi�
 
 [Extensión de script personalizada en una máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

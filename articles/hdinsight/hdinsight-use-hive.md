@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Aprender qué es Hive y cómo usar HiveQL | Microsoft Azure"
 	description="Obtenga información sobre Apache Hive y sobre cómo usarlo con Hadoop en HDInsight. Elija cómo ejecutar el trabajo de Hive y use HiveQL para analizar un archivo log4j de Apache de ejemplo."
+	keywords="hiveql,what is hive"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/28/2015"
+	ms.date="10/05/2015"
 	ms.author="larryfr"/>
 
 # Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra
@@ -97,15 +98,13 @@ Estas instrucciones realizan las acciones siguientes:
 
 ##<a id="usetez"></a>Use Apache Tez para un mejor rendimiento
 
-[Apache Tez](http://tez.apache.org) es un marco que permite que aplicaciones con uso intensivo de datos, como Hive, se ejecuten con mucha más eficacia a escala. En la última versión de HDInsight, Hive admite la ejecución en Tez.
+[Apache Tez](http://tez.apache.org) es un marco que permite que aplicaciones con uso intensivo de datos, como Hive, se ejecuten con mucha más eficacia a escala. En la última versión de HDInsight, Hive admite la ejecución en Tez. Tez está habilitado de manera predeterminada para los clústeres de HDInsight basados en Linux.
 
-Tez actualmente está desactivado de forma predeterminada para clústeres de HDInsight basados en Windows y debe estar habilitado. Para aprovechar Tez, debe establecerse el siguiente valor en una consulta de Hive:
-
-	set hive.execution.engine=tez;
-
-Este valor puede enviarse por consulta insertándolo al comienzo de la consulta. También se puede establecer para que se active de manera predeterminada en un clúster estableciendo el valor de configuración en el momento de la creación del clúster. Puede encontrar más detalles en [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md).
-
-Tez es activado de manera predeterminada para los clústeres de HDInsight basados en Linux.
+> [AZURE.NOTE]Tez actualmente está desactivado de forma predeterminada para clústeres de HDInsight basados en Windows y debe estar habilitado. Para aprovechar Tez, debe establecerse el siguiente valor en una consulta de Hive:
+>
+> ```set hive.execution.engine=tez;```
+>
+>Este valor puede enviarse por consulta insertándolo al comienzo de la consulta. También se puede establecer para que se active de manera predeterminada en un clúster estableciendo el valor de configuración en el momento de la creación del clúster. Puede encontrar más detalles en [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md).
 
 Los [documentos de diseño de Hive en Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) incluyen varios detalles sobre las opciones de implementación y las configuraciones de ajuste.
 
@@ -116,7 +115,8 @@ HDInsight puede ejecutar trabajos de HiveQL mediante una variedad de métodos. U
 
 | **Utilícelo** si desea... | ...un shell **interactivo** | ...procesamiento por **lotes** | ...con este **sistema operativo de clúster** | ...desde este **sistema operativo de cliente** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
-| [SSH](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X o Windows |
+| [Comando de Beeline (desde una sesión de SSH)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X o Windows |
+| [Comando de Hive (desde una sesión de SSH)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X o Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux o Windows | Linux, Unix, Mac OS X o Windows |
 | [Consola de consultas](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | Basado en explorador |
 | [Herramientas de HDInsight para Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux o Windows | Windows |
@@ -159,9 +159,9 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/es-ES/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/es-ES/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/es-ES/library/mt146770(v=sql.120).aspx
+[hivetask]: http://msdn.microsoft.com/es-es/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/es-es/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/es-es/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -183,4 +183,4 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

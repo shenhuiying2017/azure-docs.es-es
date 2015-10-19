@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Supervisar y administrar los trabajos de Análisis de transmisiones con PowerShell | Microsoft Azure" 
 	description="Aprenda a usar los cmdlets de Azure PowerShell para supervisar y administrar trabajos de Análisis de transmisiones." 
+	keywords="azure powershell,azure powershell cmdlets,powershell command"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -258,7 +259,7 @@ Comprueba la capacidad de Análisis de transmisiones para conectarse a una salid
 Este comando de PowerShell comprueba el estado de conexión de la salida Output en StreamingJob.
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -287,4 +288,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

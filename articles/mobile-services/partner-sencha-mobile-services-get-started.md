@@ -12,17 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.topic="get-started-article"
+	ms.date="10/09/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"></a>Introducción a Servicios móviles y Sencha Touch
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Información general
 
-Este tutorial muestra cómo sacar provecho de los Servicios móviles de Azure en la aplicación Sencha Touch. Creará una aplicación Lista de pendientes simple mediante Sencha Touch que utiliza un servicio móvil definido a través del Portal de administración. Este tutorial se ha creado para desarrolladores de aplicaciones web intermedios y avanzados que conozcan bien JavaScript y que estén familiarizados con el marco de Sencha Touch.
+Este tutorial muestra cómo sacar provecho de los Servicios móviles de Azure en la aplicación Sencha Touch. Creará una aplicación *Lista de pendientes* simple mediante Sencha Touch que utiliza un servicio móvil definido a través del Portal de administración. Este tutorial se ha creado para desarrolladores de aplicaciones web intermedios y avanzados que conozcan bien JavaScript y que estén familiarizados con el marco de Sencha Touch.
 
 Si prefiere ver un vídeo, este clip sigue los mismos pasos que este tutorial. En el vídeo, Arthur Kay explica cómo generar una aplicación Sencha Touch mediante un back-end de Servicios móviles de Azure.
 
@@ -708,7 +710,10 @@ El ejemplo descrito aquí se proporciona en el paquete de Sencha Touch Extension
 
 Para obtener información sobre las tareas iniciales de Sencha Touch, consulte el conjunto completo de [guías](http://docs.sencha.com/touch/#!/guide)
 
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

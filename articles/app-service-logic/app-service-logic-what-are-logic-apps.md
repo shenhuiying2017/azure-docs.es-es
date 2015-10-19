@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="10/08/2015"
 	ms.author="klam"/>
 
 #¿Qué son las aplicaciones lógicas?
@@ -21,8 +21,8 @@
 | Referencia rápida |
 | --------------- |
 | [Lenguaje de definición de aplicaciones lógicas](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Documentación del conector de aplicaciones lógicas](https://azure.microsoft.com/es-ES/documentation/articles/app-service-logic-connectors-list/) |
-| [Foro de aplicaciones lógicas](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=azurelogicapps) |
+| [Documentación del conector de aplicaciones lógicas](https://azure.microsoft.com/ES-ES/documentation/articles/app-service-logic-connectors-list/) |
+| [Foro de aplicaciones lógicas](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=azurelogicapps) |
 
 Servicio de aplicaciones de Azure cuenta con una administración PaaS (plataforma como servicio) completa para los desarrolladores que hace que sea más fácil crear aplicaciones web, móviles y de integración. Las aplicaciones lógicas forman parte de este conjunto y permiten a cualquier usuario técnico o el desarrollador automatizar la ejecución de procesos de negocio y flujo de trabajo a través de un diseñador visual fácil de usar.
 
@@ -75,4 +75,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

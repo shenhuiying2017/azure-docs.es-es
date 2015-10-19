@@ -1,6 +1,6 @@
 <properties
    pageTitle="API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview | Microsoft Azure"
-   description="La API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview incluye funciones experimentales como analizadores de lenguaje Natural y búsquedas moreLikeThis."
+   description="La API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview incluye funciones experimentales como sintaxis de consulta de Lucene y búsquedas moreLikeThis."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,20 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="heidist"/>
 
 # API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview
 
 Este artículo es la documentación de referencia de `api-version=2015-02-28-Preview`. Esta vista previa amplía la versión disponible generalmente actual, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), proporcionando las siguientes funciones experimentales:
 
-- `moreLikeThis` es un un parámetro de consulta que se usa en [Operaciones de búsqueda](#SearchDocs) que busca otros documentos que son relevantes para otro documento específico.
+- [Sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) es una implementación de [Analizador de consultas de Lucene](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), que puede especificar mediante el parámetro queryType en [Operaciones de búsqueda](#SearchDocs).
+- `moreLikeThis` es un parámetro de consulta usado en [Operaciones de búsqueda](#SearchDocs) que busca otros documentos que son pertinentes para otro documento específico.
+
+Algunas funciones adicionales de `2015-02-28-Preview` se documentan por separado. Entre ellos se incluyen los siguientes:
+
+- [Perfiles de puntuación](search-api-scoring-profiles-2015-02-28-preview.md)
+- [Indexadores](search-api-indexers-2015-02-28-preview.md)
 
 El servicio de Búsqueda de Azure está disponible en varias versiones. Consulte [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información.
 
 ##API incluidas en este documento
 
-La API del servicio Búsqueda de Azure admite dos sintaxis para la búsqueda de entidades: sintaxis de OData [simple](https://msdn.microsoft.com/library/dn798920.aspx) y alternativa. Consulte [Compatibilidad con OData (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798932.aspx) para obtener más información. La lista siguiente muestra la sintaxis simple.
+La API del servicio Búsqueda de Azure admite dos sintaxis de URL para operaciones de API: simple y OData (consulte [Compatibilidad con OData (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798932.aspx) para obtener más información). La lista siguiente muestra la sintaxis simple.
 
 [Crear índice](#CreateIndex)
 
@@ -129,7 +135,7 @@ Como alternativa, puede usar PUT y especificar el nombre del índice en el URI. 
 
 Crear un índice determina la estructura de los documentos almacenados y usados en operaciones de búsqueda. Rellenar el índice es una operación independiente. En este paso, puede usar un [indexador](https://msdn.microsoft.com/library/azure/mt183328.aspx) (disponible para orígenes de datos admitidos) o una operación [Agregar, actualizar o eliminar documentos](https://msdn.microsoft.com/library/azure/dn798930.aspx). El índice invertido se genera cuando se publican los documentos.
 
-**Nota**: El número máximo de índices permitido varía según el nivel de precios. El servicio gratuito permite hasta tres índices. El servicio estándar permite 50 índices por servicio de búsqueda. Consulte [Límites de servicio](search-limits-quota-capacity.md) para obtener más información.
+**Nota**: El número máximo de índices permitido varía según el nivel de precios. El servicio gratuito permite hasta tres índices. El servicio estándar permite 50 índices por servicio de búsqueda. Consulte [Límites y restricciones](http://msdn.microsoft.com/library/azure/dn798934.aspx) para obtener detalles.
 
 **Solicitud**
 
@@ -283,13 +289,13 @@ Es posible que algunos desarrolladores prefieran la solución más familiar, sim
 
 El analizador de Lucene para inglés amplía el analizador estándar. Elimina los posesivos (los ’s finales) de las palabras, aplica la lematización conforme al [Algoritmo de lematización Porter](http://tartarus.org/~martin/PorterStemmer/) y elimina las [palabras no significativas](http://en.wikipedia.org/wiki/Stop_words) del inglés.
 
-En comparación, el analizador de Microsoft realiza la lematización en lugar del stemming. Significa que puede controlar mucho mejor formas de palabras derivadas e irregulares, lo que da como resultado unos resultados de búsqueda más relevantes (consulte el módulo 7 de [presentación MVA de Búsqueda de Azure](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) para obtener más detalles).
+En comparación, el analizador de Microsoft realiza la lematización en lugar del stemming. Significa que puede controlar mucho mejor formas de palabras derivadas e irregulares, lo que da como resultado unos resultados de búsqueda más pertinentes (consulte el módulo 7 de [presentación MVA de Búsqueda de Azure](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps) para obtener más detalles).
 
 La indexación con analizadores de Microsoft es entre dos y tres veces más lenta de media que sus equivalentes de Lucene en función del idioma. El rendimiento de la búsqueda no debería verse afectado significativamente en las consultas de tamaño medio.
 
 ***Configuración***
 
-Para cada campo de la definición del índice, puede establecer la propiedad `analyzer` en un nombre de analizador que especifica el idioma y el proveedor. Se aplicará el mismo analizador durante la búsqueda e indización de ese campo. Por ejemplo, puede tener campos separados para descripciones de hoteles en inglés, francés y español que existen en paralelo dentro del mismo índice. Use el [parámetro de consulta “searchFields”](#SearchQueryParameters) para especificar qué campo específico del lenguaje buscar en las consultas. Puede revisar ejemplos de consultas que incluyan la propiedad `analyzer` en [Buscar documentos](#SearchDocs).
+Para cada campo de la definición del índice, puede establecer la propiedad `analyzer` en un nombre de analizador que especifica el idioma y el proveedor. Se aplicará el mismo analizador durante la búsqueda e indización de ese campo. Por ejemplo, puede tener campos separados para descripciones de hoteles en inglés, francés y español que existen en paralelo dentro del mismo índice. Use el [parámetro de consulta “searchFields”](#SearchQueryParameters) para especificar qué campo concreto del lenguaje buscar en las consultas. Puede revisar ejemplos de consultas que incluyan la propiedad `analyzer` en [Buscar documentos](#SearchDocs).
 
 ***Lista de analizadores***
 
@@ -697,7 +703,7 @@ Un proveedor de sugerencias forma parte del índice. Solo un proveedor de sugere
 		  ]
 		}
 
-> [AZURE.NOTE]Si ha usado la versión de vista previa pública de Búsqueda de Azure, `suggesters` sustituirá a una propiedad booleana anterior (`"suggestions": false`) que solo admitía sugerencias de prefijos para cadenas cortas (3-25 caracteres). Su reemplazo, `suggesters`, admite la detección de coincidencias de infijos que encuentra términos coincidentes al principio o en medio del contenido del campo, con una mejor tolerancia a errores en las cadenas de búsqueda. A partir de la versión disponible con carácter general, esta es ahora la única implementación de la API de sugerencias. La antigua propiedad `suggestions` que se introdujo en `api-version=2014-07-31-Preview` continúa funcionando en esa versión, pero no está operativa en `2015-02-28` o en versiones posteriores de Búsqueda de Azure.
+> [AZURE.NOTE]Si ha usado la versión de vista previa pública de Búsqueda de Azure, `suggesters` sustituirá a una propiedad booleana anterior (`"suggestions": false`) que solo admitía sugerencias de prefijos para cadenas cortas (3-25 caracteres). Su reemplazo, `suggesters`, admite la detección de coincidencias de infijos que encuentra términos coincidentes al principio o en medio del contenido del campo, con una mejor tolerancia a errores en las cadenas de búsqueda. A partir de la versión disponible con carácter general, esta es ahora la única implementación de la API de sugerencias. La propiedad `suggestions` anterior que se introdujo en `api-version=2014-07-31-Preview` continúa funcionando en esa versión, pero no está operativa en la versión `2015-02-28` o posteriores de Búsqueda de Azure.
 
 <a name="UpdateIndex"></a>
 ## Actualizar índice
@@ -984,7 +990,7 @@ ________________________________________
 
 En Búsqueda de Azure, se almacena un índice en la nube y se rellena con documentos JSON que se cargan en el servicio. Todos los documentos que se cargan comprenden el corpus de los datos de búsqueda. Los documentos contienen campos, algunos de los cuales se acortan en términos de búsqueda cuando se cargan. El segmento de URL `/docs` de la API de Búsqueda de Azure representa la colección de documentos en un índice. Todas las operaciones realizadas en la colección, como cargar, combinar, eliminar o consultar documentos se producen en el contexto de un índice único, por lo que las direcciones URL de estas operaciones siempre se iniciarán mediante `/indexes/[index name]/docs` para un nombre de índice especificado.
 
-El código de aplicación debe generar documentos JSON para cargar en Búsqueda de Azure o puede usar un [indexador](https://msdn.microsoft.com/library/dn946891.aspx) para cargar documentos si el origen de datos es Base de datos SQL de Azure o DocumentDB. Normalmente, los índices se rellenan desde un único conjunto de datos que suministre.
+El código de aplicación debe generar documentos JSON para cargarlos en la búsqueda de Azure o se puede usar un [indizador](https://msdn.microsoft.com/library/dn946891.aspx) para cargar documentos si el origen de datos es la Base de datos SQL de Azure o DocumentDB. Normalmente, los índices se rellenan desde un único conjunto de datos que suministre.
 
 Debe planear disponer de un documento para cada elemento que desee buscar. Una aplicación de alquiler de películas puede disponer de un documento por película, una aplicación de escaparate podría tener un documento por SKU, una aplicación de software con fines pedagógicos en línea podría tener un documento por curso, una empresa de investigación podría tener un documento para cada documento académico de su repositorio, y así sucesivamente.
 
@@ -1143,7 +1149,7 @@ HTTPS es necesario para las solicitudes de servicio. La solicitud **Búsqueda** 
 
 El URI de solicitud especifica qué índice se va a consultar para todos los documentos que coinciden con los parámetros de consulta. Los parámetros se especifican en la cadena de consulta en el caso de solicitudes GET y en el cuerpo de la solicitud en el caso de las solicitudes POST.
 
-Como práctica recomendada al crear solicitudes GET, recuerde [codificar con URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) los parámetros de consulta específicos al llamar a la API de REST directamente. Entre las operaciones de **búsqueda**, se incluyen las siguientes:
+Como práctica recomendada al crear solicitudes GET, recuerde [codificar con URL](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) parámetros de consulta específicos al llamar a la API de REST directamente. Para las operaciones de **búsqueda**, esto incluye:
 
 - `$filter`
 - `facet`
@@ -1154,11 +1160,11 @@ Como práctica recomendada al crear solicitudes GET, recuerde [codificar con URL
 
 Solo se recomienda la codificación de direcciones URL en los parámetros de consulta anterior. Si codifica con URL involuntariamente la cadena de consulta completa (todo lo situado después de la?), las solicitudes se dividirán.
 
-Además, la codificación con URL solo es necesaria cuando se llama directamente a la API de REST directamente con GET. No se necesita ninguna codificación de URL cuando se llama a la **búsqueda** mediante POST o cuando se usa la [biblioteca de cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) que controla la codificación de direcciones URL.
+Además, la codificación con URL solo es necesaria cuando se llama directamente a la API de REST directamente con GET. Ninguna codificación de URL es necesaria cuando se llama a la **búsqueda** mediante POST o cuando se usa la [biblioteca de cliente .NET](https://msdn.microsoft.com/library/dn951165.aspx) que controla la codificación de direcciones URL para usted.
 
-<a name="SearchQueryParameters"></a> **Parámetros de consulta**
+<a name="SearchQueryParameters"></a> **Query Parameters**
 
-La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y que también especifican el comportamiento de la búsqueda. Estos parámetros se especifican en la cadena de consulta URL al llamar a la **búsqueda** mediante GET y como propiedades JSON en el cuerpo de solicitud al llamar a la **búsqueda** mediante POST. La sintaxis de algunos parámetros es algo diferente entre GET y POST. Estas diferencias se indican como aplicables a continuación:
+La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y que también especifican el comportamiento de búsqueda. Estos parámetros se especifican en la cadena de consulta URL al llamar a la **búsqueda** mediante GET y como propiedades JSON en el cuerpo de solicitud al llamar a la **búsqueda** mediante POST. La sintaxis de algunos parámetros es algo diferente entre GET y POST. Estas diferencias se indican como aplicables a continuación:
 
 `search=[string]` (opcional): el texto que se debe buscar. Se busca en los campos `searchable` de forma predeterminada a menos que se especifique `searchFields`. Al realizar búsquedas en campos `searchable`, se limita el propio texto de la búsqueda, por lo que los distintos términos pueden separarse mediante un espacio en blanco (por ejemplo: `search=hello world`). Para encontrar un término, use `*` (esto puede ser útil para las consultas de filtro booleano). Omitir este parámetro tiene el mismo efecto que establecerlo en `*`. Para obtener información específica sobre la sintaxis de búsqueda, consulte [Sintaxis de consulta simple](https://msdn.microsoft.com/library/dn798920.aspx).
 
@@ -1167,6 +1173,10 @@ La **búsqueda** acepta varios parámetros que ofrecen criterios de consulta y q
 `searchMode=any|all` (opcional, tiene como valor predeterminado `any`): si alguno o todos los términos de búsqueda deben coincidir con el fin de contar el documento como una coincidencia.
 
 `searchFields=[string]` (opcional): la lista separada por comas de nombres de campo para buscar el texto especificado. Los campos de destino deben estar marcados como `searchable`.
+
+`queryType=simple|full` (opcional, tiene como valor predeterminado `simple`): cuando se establece en "simple", el texto de búsqueda se interpreta mediante un lenguaje de consulta simple que permite símbolos como +, * y "". Las consultas se evalúan en todos los campos de búsqueda (o campos indicados en `searchFields`) en cada documento de manera predeterminada. Cuando se establece el tipo de consulta en `full`, el texto de búsqueda se interpreta mediante el lenguaje de consulta de Lucene que permite realizar búsquedas específicas de campos y ponderadas. Para obtener información específica sobre las sintaxis de búsqueda, consulte [Sintaxis de consulta simple](https://msdn.microsoft.com/library/dn798920.aspx) y [Sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx).
+ 
+> [AZURE.NOTE]No está admitido el intervalo de búsqueda en el lenguaje de consulta de Lucene, es preferible usar $filter que ofrece una funcionalidad similar.
 
 `moreLikeThis=[key]` (opcional) **Importante:** esta función solo está disponible en `2015-02-28-Preview`. Esta opción no se puede usar en una consulta que contiene el parámetro de búsqueda de texto, `search=[string]`. El parámetro `moreLikeThis` busca documentos que son similares al documento especificado por la clave del documento. Cuando se realiza una solicitud de búsqueda con `moreLikeThis`, se genera una lista de términos de búsqueda en función de la frecuencia y la rareza de los términos en el documento de origen. Estos términos se usan a continuación para realizar la solicitud. De forma predeterminada, se considera el contenido de todos los campos `searchable` a menos que se use `searchFields` para restringir los campos que se buscan.
 
@@ -1476,6 +1486,16 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
 
 Tenga en cuenta el uso de `searchMode=all` anteriormente. Incluyendo este parámetro se invalida el valor predeterminado de `searchMode=any`, lo que asegura que `-motel` significa "Y NO" en lugar de "O NO". Sin `searchMode=all`, obtendrá "O NO", que expandirá en lugar de restringir los resultados de la búsqueda, lo cual puede resultar contradictorio para algunos usuarios.
 
+15) Busque documentos en el índice usando la [sintaxis de consulta simple](http://lucene.apache.org/core/4_10_4/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview). Esta consulta devuelve los hoteles en los que el campo de categoría contiene el término "budget" y todos los campos de búsqueda que incluyen la expresión "recently renovated". Los documentos que contienen la expresión "recently renovated" tienen una clasificación más alta como resultado del valor de aumento del término (3)
+
+    GET /indexes/hotels/docs?search=category:budget AND "recently renovated"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "category:budget AND "recently renovated"^3",
+      "queryType": "full",
+      "searchMode": "all"
+    }
 
 <a name="LookupAPI"></a>
 ##Buscar documento
@@ -1722,4 +1742,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
       "suggesterName": "sg"
     }
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

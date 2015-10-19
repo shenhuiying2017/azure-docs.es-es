@@ -18,7 +18,7 @@
 
 # Creación de un entorno del Servicio de aplicaciones #
 
-Los entornos del Servicio de aplicaciones (ASE) son una opción del servicio Premium del Servicio de aplicaciones de Azure que se encuentra actualmente en vista previa. Ofrece una capacidad de configuración mejorada que no está disponible en las marcas multiempresa. Para comprender mejor las capacidades ofrecidas por los entornos del Servicio de aplicaciones lea la [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE].
+Entornos del Servicio de aplicaciones es una opción del nivel Premium del Servicio de aplicaciones de Azure que ofrece una mejor funcionalidad de configuración que no está disponible en las marcas de varios inquilinos. Para comprender mejor las capacidades ofrecidas por los entornos del Servicio de aplicaciones lea la [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE].
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -145,4 +145,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

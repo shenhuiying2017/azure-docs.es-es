@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de Xamarin iOS"
+	pageTitle="Introducción a Servicios móviles para aplicaciones de Xamarin iOS | Microsoft Azure"
 	description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de Xamarin iOS."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -12,23 +12,23 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="hero-article"
+	ms.date="10/06/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación Xamarin.iOS mediante Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de <em>Lista de pendientes</em> que almacena datos de la aplicación en el servicio móvil nuevo.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación Xamarin.iOS mediante Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de pendientes* que almacena datos de la aplicación en el servicio móvil nuevo.
 
 Si prefiere ver un vídeo, el clip que aparece a continuación muestra los mismos pasos que este tutorial.
 
 Vídeo: "Getting Started with Xamarin and Azure Mobile Services" (Introducción a Xamarin con Servicios móviles de Azure) con Craig Dunn, desarrollador evangelista de Xamarin (duración: 10:05 min)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
-
-
 
 La siguiente captura de pantalla muestra la aplicación final:
 
@@ -98,13 +98,16 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 ## Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
-* [Empezar a trabajar con datos]<br/>Obtenga información sobre cómo agregar una nueva tabla a un servicio móvil y, después, leer y escribir en esa tabla.
+* [Introducción a la sincronización de datos sin conexión] Obtenga información sobre cómo el inicio rápido usa la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de la aplicación.
 
-* [Introducción a la sincronización de datos sin conexión] <br/>Obtenga información sobre cómo el inicio rápido usa la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de la aplicación.
+* [Introducción a la autenticación] Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Introducción a las notificaciones push] Obtenga información sobre cómo enviar una notificación push muy básica a la aplicación.
 
-* [Introducción a las notificaciones de inserción] <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
+* [Uso del cliente del componente Xamarin para Servicios móviles de Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Obtenga información sobre cómo consultar el servicio móvil, trabajar con datos y acceder a las API personalizadas.
+  
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -124,14 +127,13 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 
 <!-- URLs. -->
-[Empezar a trabajar con datos]: partner-xamarin-mobile-services-ios-get-started-data.md
 [Introducción a la sincronización de datos sin conexión]: mobile-services-xamarin-ios-get-started-offline-data.md
 [Introducción a la autenticación]: partner-xamarin-mobile-services-ios-get-started-users.md
-[Introducción a las notificaciones de inserción]: partner-xamarin-mobile-services-ios-get-started-push.md
+[Introducción a las notificaciones push]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

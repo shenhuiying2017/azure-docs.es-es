@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -51,10 +51,12 @@ Site Recovery se puede integrar con las tecnologías nativas de SQL Server BCDR 
 
 
 
+
+
 La siguiente tabla resume nuestras recomendaciones para integrar las tecnologías de SQL Server BCDR en la implementación de Site Recovery.
 
 **Versión** |**Edición** | **Implementación** | **De local a local** | **De local a Azure** 
----|---|---|---|
+---|---|---|---|---
 SQL Server 2014 o 2012 | Enterprise | Instancia de clúster de conmutación por error | Grupos de disponibilidad AlwaysOn | Grupos de disponibilidad AlwaysOn
  | Enterprise | Grupos de disponibilidad AlwaysOn para alta disponibilidad | Grupo de disponibilidad AlwaysOn | Grupo de disponibilidad AlwaysOn
  | Standard | Instancia de clúster de conmutación por error | Replicación de Site Recovery con un reflejo local | Replicación de Site Recovery con un reflejo local
@@ -362,4 +364,4 @@ Para los clústeres SQL estándar, la conmutación por recuperación después de
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -12,17 +12,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 
 # Requisitos de enrutamiento de ExpressRoute  
 
-Para conectar a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece dicho servicio. Si no lo hace, debe cumplir los requisitos que se describen a continuación.
+Para conectar a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no lo hace, debe cumplir los requisitos que se describen a continuación.
 
-Para ver una descripción de las sesiones de enrutamiento que es preciso configurar para facilitar la conectividad, consulte el artículo sobre [circuitos y dominios de enrutamiento](expressroute-circuit-peerings.md).
+Para ver una descripción de las sesiones de enrutamiento que es preciso configurar para facilitar la conectividad, consulte el artículo [Circuitos y dominios de enrutamiento](expressroute-circuit-peerings.md).
 
-**Note:** Microsoft no admite protocolos de redundancia de enrutador (HSRP o VRRP, por nombrar algunos) en las configuraciones de alta disponibilidad. Confiamos en un par redundante de sesiones BGP por configuración entre pares para la alta disponibilidad.
+**Nota:** Microsoft no admite protocolos de redundancia de enrutador (HSRP o VRRP, por nombrar algunos) en configuraciones de alta disponibilidad. Confiamos en un par redundante de sesiones BGP por configuración entre pares para la alta disponibilidad.
 
 ## Direcciones IP para las configuraciones entre pares
 
@@ -36,9 +36,9 @@ Para establecer la configuración entre pares se pueden usar direcciones IP priv
  - Las subredes usadas para el enrutamiento pueden ser direcciones IP privadas o direcciones IP públicas.
  - Las subredes no deben entrar en conflicto con el intervalo reservado por el cliente para su uso en la nube de Microsoft.
  - Si se usa una subred /29, se dividirá en dos /30 subredes. 
- - La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
- - Para cada uno de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
- - Para que el [contrato de nivel de servicio de disponibilidad](http://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.  
+	 - La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
+	 - Para cada uno de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
+	 - Para que el [contrato de nivel de servicio de disponibilidad](http://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.  
 
 #### Ejemplo de configuración entre pares privados
 
@@ -46,7 +46,7 @@ Si elige usar a.b.c.d/29 para establecer la configuración entre pares, se divid
 
 a.b.c.d/29 se divide en a.b.c.d/30 y a.b.c.d+4/30 y se pasa a Microsoft a través de las API de aprovisionamiento. Usará a.b.c.d+1 como IP VRF para el PE principal y Microsoft consumirá a.b.c.d+2 como IP VRF para el MSEE principal. Usará a.b.c.d+5 como IP VRF para el PE secundario y Microsoft usará a.b.c.d+6 como IP VRF para el MSEE secundario.
 
-Considere el caso en que seleccionó 192.168.100.128/29 para establecer la configuración entre pares privados. 192.168.100.128/29 incluye direcciones desde 192.168.100.128 hasta 192.168.100.133, entre los que:
+Considere el caso en que selecciona 192.168.100.128/29 para configurar el emparejamiento privado. 192.168.100.128/29 incluye direcciones desde 192.168.100.128 hasta 192.168.100.135, entre los que:
 
 - 192\.168.100.128/30 se asignará a link1, donde el proveedor usa 192.168.100.129 y Microsoft usa 192.168.100.130.
 - 192\.168.100.132/30 se asignará a link2, donde el proveedor usa 192.168.100.133 y Microsoft usa 192.168.100.134.
@@ -58,7 +58,7 @@ Para configurar las sesiones BGP, debe usar las direcciones IP públicas que pos
 - Debe usar una única subred /29 o dos subredes /30 para establecer la configuración entre pares BGP para cada configuración entre pares por circuito ExpressRoute (si tiene más de uno). 
 - Si se usa una subred /29, se dividirá en dos /30 subredes. 
 	- La primera subred /30 se usará para el vínculo principal, mientras que la segunda subred /30 se usará para el vínculo secundario.
-	- Para cada uno de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
+	- Para cada una de las subredes /30, debe usar la primera dirección IP de la subred /30 en el enrutador. Para configurar sesiones BGP, Microsoft usará la segunda dirección IP de la subred /30.
 	- Para que el [contrato de nivel de servicio de disponibilidad](http://azure.microsoft.com/support/legal/sla/) sea válido, es preciso configurar las dos sesiones BGP.
 
 Asegúrese de que la dirección IP y el número AS se registran en uno de los registros que se muestran a continuación.
@@ -70,12 +70,12 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](rr.Level3.net)
+- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Cambio de ruta dinámica
 
-El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen sesiones EBGP entre los MSEE y los enrutadores. La autenticación de sesiones de BGP no es un requisito. Si se requiere, se puede configurar un hash MD5. Examine el flujo de trabajo de la configuración de enrutamiento para obtener información acerca de cómo configurar sesiones BGP.
+El cambio de enrutamiento se realizará sobre el protocolo eBGP. Se establecen sesiones EBGP entre los MSEE y los enrutadores. La autenticación de sesiones de BGP no es un requisito. Si es necesario, se puede configurar un hash MD5. Consulte las secciones [Configuración del enrutamiento](expressroute-howto-routing-classic.md) y [Flujos de trabajo de aprovisionamiento de circuitos y estados de circuito](expressroute-workflows.md) para obtener información sobre la configuración de las sesiones BGP.
 
 ## Números de sistema autónomo
 
@@ -91,7 +91,7 @@ Si el número de prefijos supera el límite, se eliminará la sesión BGP. Acept
 
 ## Enrutamiento de tránsito y enrutamiento entre regiones
 
-ExpressRoute no puede configurarse como los enrutadores de tránsito. Tendrá que confiar en su proveedor de conectividad para los servicios de rutas de tránsito.
+ExpressRoute no puede configurarse como los enrutadores de tránsito. Tendrá que confiar en su proveedor de conectividad para los servicios de enrutamiento de tránsito.
 
 ## Anuncio de rutas predeterminadas
 
@@ -102,7 +102,7 @@ Las rutas predeterminadas solo se permiten en sesiones de configuración de pare
  - La configuración de pares públicos de Azure está habilitada para enrutar el tráfico a los extremos públicos.
  - Usa un enrutamiento definido por el usuario para permitir la conectividad a Internet a todas las subredes que requieran dicha conectividad.
 
-**Nota:** el anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras VM. Para solucionar este problema, siga las instrucciones que se indican [aquí](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx).
+**Nota:** el anuncio de rutas predeterminadas interrumpirá la activación de la licencia de Windows y de otras máquinas virtuales. Para solucionar este problema, siga las instrucciones que se indican [aquí](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx).
 
 ## Soporte técnico para las comunidades de BGP
 
@@ -112,7 +112,7 @@ Si se conecta a Microsoft a través de ExpressRoute en cualquier ubicación de c
 
 Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en Europa del Norte y Europa occidental.
 
-Consulte la página [Asociados de ExpressRoute de Azure y ubicaciones de emparejamiento](expressroute-locations.md) para obtener una lista detallada de las regiones geopolíticas, regiones de Azure asociadas y las ubicaciones de configuración de pares de ExpressRoute correspondientes.
+Consulte la página [Partners de ExpressRoute de Azure y ubicaciones de emparejamiento](expressroute-locations.md) para obtener una lista detallada de las regiones geopolíticas, regiones de Azure asociadas y las ubicaciones de emparejamiento de ExpressRoute correspondientes.
 
 Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener varias conexiones ofrece importantes ventajas para la alta disponibilidad debido a la redundancia geográfica. En los casos en que tenga varios circuitos de ExpressRoute, recibirá el mismo conjunto de prefijos anunciados de Microsoft en las rutas de acceso de la configuración de pares públicos y de la configuración de pares de Microsoft. Esto significa que tendrá varias rutas de acceso desde su red a Microsoft. Potencialmente, esto puede provocar que se tomen decisiones de enrutamiento en la red que no sean óptimas. Como consecuencia, puede sufrir una conectividad con los diferentes servicios que no sea óptima.
 
@@ -156,13 +156,14 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 
 ### Manipulación de preferencias de enrutamiento
 
-Microsoft no admite los valores de las comunidades de BGP que defina. Se requiere que configure un par de sesiones BGP por configuración de pares para asegurarse de que se cumplen los requisitos del [contrato de nivel de servicio de disponibilidad ](http://azure.microsoft.com/support/legal/sla/). Sin embargo, puede configurar la red para que prefiera un vínculo a otro mediante el uso de técnicas de manipulación de ruta BGP estándar. Puede aplicar diferentes preferencias locales de BGP a cada vínculo para favorecer un vínculo sobre otro de la red a Microsoft. Puede anteponer la ruta de acceso AS en los anuncios de las rutas para modificar el flujo de tráfico de Microsoft a su red.
+Microsoft no admite los valores de las comunidades de BGP que defina. Se requiere que configure un par de sesiones BGP por emparejamiento para asegurarse de que se cumplen los requisitos del [contrato de nivel de servicio de disponibilidad ](http://azure.microsoft.com/support/legal/sla/). Sin embargo, puede configurar la red para que prefiera un vínculo a otro mediante el uso de técnicas de manipulación de ruta BGP estándar. Puede aplicar diferentes preferencias locales de BGP a cada vínculo para favorecer un vínculo sobre otro de la red a Microsoft. Puede anteponer la ruta de acceso AS en los anuncios de las rutas para modificar el flujo de tráfico de Microsoft a su red.
 
 ## Pasos siguientes
 
 - Configure su conexión ExpressRoute.
+
 	- [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

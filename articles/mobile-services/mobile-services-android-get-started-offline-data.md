@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="ricksal"/>
 
 # Incorporación de sincronización de datos sin conexión a la aplicación de Servicios móviles de Android
@@ -33,7 +33,6 @@ Tanto si está conectado como no, pueden surgir conflictos en cualquier momento 
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-
 ## Actualización de la aplicación para que admita la sincronización sin conexión
 
 Con la sincronización sin conexión, se lee y se escribe desde una *tabla de sincronización* (usando la interfaz *IMobileServiceSyncTable*), que forma parte de una base de datos **SQL Light** en el dispositivo.
@@ -48,14 +47,14 @@ Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de
 2. Agregue las siguientes instrucciones **import** a *ToDoActivity.java*:
 
 		import java.util.Map;
-		
+
 		import android.widget.Toast;
-		
-		import com.microsoft.windowsazure.mobileservices.table.query.Query; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore; 
+
+		import com.microsoft.windowsazure.mobileservices.table.query.Query;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 
 3. Cerca de la parte superior de la clase `ToDoActivity`, cambie la declaración de la variable `mToDoTable` de una clase `MobileServiceTable<ToDoItem>` a una clase `MobileServiceSyncTable<ToDoItem>`.
 
@@ -109,7 +108,7 @@ Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
 				new AsyncTask<Void, Void, Void>() {
-	
+
 					@Override
 					protected Void doInBackground(Void... params) {
 						try {
@@ -136,7 +135,7 @@ Para insertar y extraer los cambios entre el dispositivo y Servicios móviles de
 	Esto hace que, al iniciarse, el dispositivo se sincronice con la tabla de Azure. En caso contrario, se mostrará el último contenido sin conexión del almacén local.
 
 
- 
+
 9. Actualice el código en el método `refreshItemsFromTable` para que use esta consulta (primera línea de código dentro del bloque `try`):
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
@@ -162,8 +161,8 @@ Al presionar este botón, se inicia una nueva tarea en segundo plano que primero
 
 Permite probar los escenarios siguientes.
 
-1. Agregue algunos elementos nuevos a su dispositivo. 
-2. Compruebe que los elementos no se muestran en el portal. 
+1. Agregue algunos elementos nuevos a su dispositivo.
+2. Compruebe que los elementos no se muestran en el portal.
 3. Después, presione **Actualizar** y compruebe que se muestran.
 4. Cambie o agregue un elemento en el portal, después presione **Actualizar** y compruebe que los cambios aparecen en el dispositivo.
 
@@ -212,7 +211,6 @@ One thing which is important to point out: if there are pending changes in the l
 
 
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]: mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
@@ -221,4 +219,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [tutorial del Inicio rápido de Servicios móviles]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

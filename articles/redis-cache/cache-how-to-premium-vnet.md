@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la compatibilidad de red virtual para una Caché en Redis de Azure Premium
@@ -26,7 +26,7 @@ Para obtener información sobre otras características de caché premium, vea [C
 >[AZURE.NOTE]Actualmente, el nivel Premium de Caché en Redis de Azure está en vista previa.
 
 ## ¿Por qué la red virtual?
-La implementación de la [Red virtual de Azure](https://azure.microsoft.com/es-ES/services/virtual-network/) ofrece seguridad mejorada y aislamiento para su Caché en Redis de Azure, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso a Caché en Redis de Azure.
+La implementación de la [Red virtual de Azure](https://azure.microsoft.com/es-es/services/virtual-network/) ofrece seguridad mejorada y aislamiento para su Caché en Redis de Azure, así como subredes, directivas de control de acceso y otras características para restringir aún más el acceso a Caché en Redis de Azure.
 
 ## Compatibilidad con redes virtuales
 La compatibilidad de la red virtual está configurada en la hoja **Nueva caché en Redis** durante la creación de la memoria caché. Para crear una caché, inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y haga clic en **Nuevo**->**Datos y almacenamiento**>**Caché en Redis**.
@@ -72,15 +72,17 @@ En la lista siguiente se incluyen algunos errores de configuración comunes que 
 -	Máquinas virtuales de instancia de rol de Redis bloqueadas frente a la comunicación entre sí dentro de la red virtual. Se debe permitir a las instancias de rol de Redis comunicarse entre sí mediante TCP en cualquiera de los puertos usados, lo cual puede estar sujeto a cambios, pero como mínimo se puede suponer que son todos los puertos usados en el archivo CSDEF de Redis.
 -	El equilibrador de carga de Azure bloqueado frente a la conexión a las máquinas virtuales de Redis en el puerto TCP/HTTP 16001. Caché en Redis de Azure depende del sondeo de equilibrador de carga de Azure predeterminado para determinar qué instancias de rol están activas. El sondeo del equilibrador de carga predeterminado funciona de sondeo de equilibrador al hacer ping en el agente de invitado de Azure en el puerto 16001. Solo las instancias de rol que responden al ping se colocarán en rotación para recibir el tráfico reenviado por el ILB. Cuando no haya ninguna instancia en rotación porque los pings generen error al estar los puertos bloqueados, el ILB no aceptará conexiones TCP entrantes.
 -	Tráfico web de la aplicación de cliente bloqueada usado para la validación de clave pública de SSL. Los clientes de Redis (dentro de la red virtual) deben poder hacer el tráfico HTTP a la Internet pública para descargar certificados de entidades de certificados y listas de revocación de certificados para realizar la validación de certificados SSL al usar el puerto 6380 para conectarse a Redis y realizar la autenticación del servidor SSL.
--	Equilibrador de carga de Azure bloqueado de la conexión a máquinas virtuales de Redis en un clúster mediante TCP en el puerto 1300x (13000, 13001, etc.) o 1500x (15000, 15001, etc.). Las redes virtuales se configuran en el archivo csdef con un sondeo del equilibrador de carga para abrir estos puertos. El equilibrador de carga de Azure debe permitirse por NSG, los NSG predeterminados hacen esto mediante la etiqueta AZURE\_LOADBALANCER. El equilibrador de carga de Azure tiene una sola dirección IP estática de 168.63.126.16. Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](..\virtual-network\virtual-networks-nsg.md)
+-	Equilibrador de carga de Azure bloqueado de la conexión a máquinas virtuales de Redis en un clúster mediante TCP en el puerto 1300x (13000, 13001, etc.) o 1500x (15000, 15001, etc.). Las redes virtuales se configuran en el archivo csdef con un sondeo del equilibrador de carga para abrir estos puertos. El equilibrador de carga de Azure debe permitirse por NSG, los NSG predeterminados hacen esto mediante la etiqueta AZURE\_LOADBALANCER. El equilibrador de carga de Azure tiene una sola dirección IP estática de 168.63.126.16. Para obtener más información, vea [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
 
 ## ¿Puedo usar las redes virtuales con una memoria caché básica o estándar?
 
 Las redes virtuales solo se pueden usar con memoria caché premium.
 
 ## Pasos siguientes
+Obtenga información sobre cómo usar más características de la memoria caché del nivel Premium.
 
-Obtenga información sobre cómo usar más características de caché premium. - [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md) - [Cómo configurar la agrupación en clústeres para una Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md).
+-	[Cómo configurar la persistencia para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md)
+-	[Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-clustering.md)
 
 
 
@@ -101,4 +103,4 @@ Obtenga información sobre cómo usar más características de caché premium. -
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Uso de VM de proceso de Linux en un clúster de HPC Pack | Microsoft Azure"
- description="Aprenda a generar scripts de implementación de un clúster de HPC Pack en Azure que contiene un nodo principal que ejecuta Windows Server con nodos de proceso de Linux."
+ pageTitle="Uso de máquinas virtuales de proceso de Linux en un clúster de HPC Pack | Microsoft Azure"
+ description="Cómo generar scripts de implementación de un clúster de HPC Pack en Azure que contiene un nodo principal que ejecuta Windows Server con nodos de proceso de Linux."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -20,13 +20,15 @@
 
 En este artículo se muestra cómo usar un script de PowerShell de Azure para configurar un clúster de Microsoft HPC Pack en Azure que contiene un nodo principal que ejecuta Windows Server y varios nodos de proceso que ejecutan una distribución de CentOS Linux. También le mostramos varias maneras de mover archivos de datos a los nodos de cálculo de Linux. Puede usar este clúster para ejecutar cargas de trabajo de Linux HPC en Azure.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se describen los recursos creados con el modelo de implementación clásico.
+
 En un nivel alto el diagrama siguiente muestra el clúster de HPC Pack que creará.
 
 ![Clúster HPC con nodos de Linux][scenario]
 
 ## Implementación de un clúster de HPC Pack con nodos de proceso de Linux
 
-Usará el script de implementación de Microsoft HPC Pack IaaS (**New-HpcIaaSCluster.ps1**) para automatizar la implementación del clúster en servicios de infraestructura de Azure (IaaS). Este script de PowerShell de Azure usa una imagen de VM de HPC Pack en Azure Marketplace para una implementación rápida y proporciona un conjunto completo de parámetros de configuración para que la implementación sea sencilla y flexible. El script implementa la red virtual de Azure, las cuentas de almacenamiento, los servicios en la nube, el controlador de dominio, el servidor de base de datos de SQL Server independiente opcional, el nodo principal del clúster, los nodos de proceso, los nodos de agente, los nodos de PaaS de Azure ("irrupción") y los nodos de proceso de Linux (compatibilidad con Linux introducida en [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
+Usará el script de implementación de Microsoft HPC Pack IaaS (**New-HpcIaaSCluster.ps1**) para automatizar la implementación del clúster en Servicios de infraestructura de Azure (IaaS). Este script de PowerShell de Azure usa una imagen de VM de HPC Pack en Azure Marketplace para una implementación rápida y proporciona un conjunto completo de parámetros de configuración para que la implementación sea sencilla y flexible. El script implementa la red virtual de Azure, las cuentas de almacenamiento, los servicios en la nube, el controlador de dominio, el servidor de base de datos de SQL Server independiente opcional, el nodo principal del clúster, los nodos de proceso, los nodos de agente, los nodos de PaaS de Azure ("ráfaga") y los nodos de proceso de Linux (compatibilidad con Linux introducida en [HPC Pack 2012 R2 Update 2](https://technet.microsoft.com/library/mt269417.aspx)).
 
 Para obtener información general de las opciones de implementación del clúster de HPC Pack, consulte la [Guía de introducción para HPC Pack 2012 R2 y HPC Pack 2012](https://technet.microsoft.com/library/jj884144.aspx).
 
@@ -40,7 +42,7 @@ Para obtener información general de las opciones de implementación del clúste
 
 * **Suscripción de Azure**: puede usar una suscripción en el servicio Azure Global o Azure China. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de clúster con tamaños de VM de múltiples núcleos. Por ejemplo, en este artículo, necesitará al menos 24 núcleos. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
+* **Cuota de núcleos**: tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de clúster con tamaños de máquina virtual de múltiples núcleos. Por ejemplo, en este artículo, necesitará al menos 24 núcleos. Para aumentar una cuota, [abra una solicitud de soporte técnico al cliente en línea](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) sin cargo alguno.
 
 ### Creación del archivo de configuración
 El script de implementación de HPC Pack IaaS usa un archivo de configuración XML como entrada que describe la infraestructura del clúster HPC. Para implementar un clúster pequeño que consta de un nodo principal y dos nodos de proceso de Linux, sustituya los valores para el entorno en el siguiente archivo de configuración de ejemplo. Para obtener más información sobre el archivo de configuración, vea el archivo Manual.rtf en la carpeta de script y [Creación de un clúster de HPC de Windows con el script de implementación de IaaS de HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md).
@@ -189,7 +191,7 @@ En este ejemplo, creamos un recurso compartido de Archivo de Azure denominado rd
 
 En este ejemplo, allvhdsje es el nombre de la cuenta de almacenamiento, storageaccountkey es la clave de la cuenta de almacenamiento y rdma es el nombre del recurso compartido de Archivo de Azure. El recurso compartido de Archivo de Azure se montará en Z: en el nodo principal.
 
-Para montar el recurso compartido de Archivo de Azure en los nodos de Linux, ejecute un comando **clusrun** en el nodo principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** es una herramienta útil de HPC Pack para llevar a cabo tareas administrativas en varios nodos (vea también [CLusrun para los nodos de Linux](#CLusrun-for-Linux-nodes)en este artículo).
+Para montar el recurso compartido de Archivo de Azure en los nodos de Linux, ejecute un comando **clusrun** en el nodo principal. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** es una herramienta útil de HPC Pack para llevar a cabo tareas administrativas en varios nodos (consulte también [CLusrun para los nodos de Linux](#CLusrun-for-Linux-nodes) en este artículo).
 
 Abra una ventana de Windows PowerShell y escriba los comandos siguientes.
 
@@ -310,4 +312,4 @@ La herramienta **clusrun** de HPC Pack se puede usar para ejecutar comandos en l
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

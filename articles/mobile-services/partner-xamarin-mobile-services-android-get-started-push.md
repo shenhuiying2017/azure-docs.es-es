@@ -28,7 +28,7 @@ Este tutorial requiere lo siguiente:
 + Una cuenta de Google activa.
 + [Componente cliente Servicio de mensajería en la nube de Google] Agregará este componente durante este tutorial.
 
-Ya debe tener instalados [Xamarin.Android] y el componente [Servicios móviles de Azure] en el proyecto desde el momento en que completó [Introducción a los Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente].
+Ya debe tener instalados los componentes [Xamarin.Android] y [Servicios móviles de Azure] en el proyecto desde el momento en que completó [Introducción a Servicios móviles].
 
 ##<a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
@@ -65,9 +65,7 @@ Ha completado correctamente este tutorial.
 
 Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
 
-* [Incorporación de Servicios móviles a una aplicación existente] <br/>Obtenga más información sobre cómo almacenar y consultar datos con servicios móviles.
-
-* [Introducción a la autenticación](mobile-services-android-get-started-users.md) <br/>Aprenda a autenticar a usuarios de su aplicación con distintos tipos de cuentas mediante los servicios móviles.
+* [Introducción a la autenticación](mobile-services-android-get-started-users.md) <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
 * [¿Qué son los Centros de notificaciones?](../notification-hubs-overview.md) <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
 
@@ -79,12 +77,10 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 <!-- URLs. -->
 [Introducción a Servicios móviles]: mobile-services-ios-get-started.md
-[Introducción a los Servicios móviles]: mobile-services-ios-get-started.md
-[Incorporación de Servicios móviles a una aplicación existente]: mobile-services-android-get-started-data.md
 
 [Componente cliente Servicio de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

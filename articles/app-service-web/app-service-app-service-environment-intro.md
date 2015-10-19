@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="10/06/2015"
 	ms.author="stefsch"/>
 
 # Introducción al entorno del Servicio de aplicaciones
@@ -29,6 +29,10 @@ Los entornos del Servicio de aplicaciones son ideales para cargas de trabajo de 
 Los clientes pueden crear varios entornos del Servicio de aplicaciones en una o varias regiones de Azure. Esto hace que sean perfectos para los niveles de aplicación sin estado de escalado horizontal en el respaldo de cargas de trabajo RPS elevadas.
 
 Los entornos del Servicios de aplicaciones están aislados para ejecutar únicamente las aplicaciones de un solo cliente, y siempre se implementan en una red virtual. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de las aplicaciones, y las aplicaciones pueden establecer conexiones seguras de alta velocidad a los recursos corporativos locales a través de redes virtuales.
+
+Para obtener información general del modo en que los Entornos del Servicio de aplicaciones permiten el acceso de red a alta escala y seguro, consulte el [vídeo Deep Dive de AzureCon][AzureConDeepDive] sobre Entornos del Servicio de aplicaciones.
+
+Para profundizar en el escalado horizontal con varios Entornos del Servicio de aplicaciones, consulte el artículo sobre cómo configurar una [superficie de aplicaciones con distribución geográfica][GeodistributedAppFootprint].
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -48,15 +52,15 @@ Para obtener más detalles sobre la cantidad de recursos de proceso disponibles 
 Para obtener más detalles sobre los tamaños de los recursos de proceso disponibles admitidos en un entorno del Servicio de aplicaciones, consulte la página de [Precios de Servicio de aplicaciones][AppServicePricing] y revise las opciones disponibles para este tipo de entornos en el nivel de precios Premium.
 
 ## Compatibilidad con redes virtuales ##
-Un entorno del Servicio de aplicaciones puede crearse en una red virtual regional clásica "v1" existente o bien en una nueva red virtual regional clásica "v1" ([más información sobre redes virtuales][MoreInfoOnVirtualNetworks]). Puesto que los entornos de este tipo residen siempre en una red virtual regional y, más concretamente, en una subred de una red virtual regional, puede aprovechar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes.
+Un Entorno del Servicio de aplicaciones puede crearse en una red virtual regional clásica "v1" existente o bien en una nueva red virtual regional clásica "v1" ([más información sobre redes virtuales][MoreInfoOnVirtualNetworks]). Puesto que los entornos de este tipo residen siempre en una red virtual regional y, más concretamente, en una subred de una red virtual regional, puede aprovechar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes.
 
 Puede usar [grupos de seguridad de red][NetworkSecurityGroups] para restringir las comunicaciones de red entrantes a la subred donde reside el entorno del Servicio de aplicaciones. Esto le permite ejecutar aplicaciones tras dispositivos y servicios ascendentes, como firewalls de aplicaciones web y proveedores de SaaS de red.
 
 Las aplicaciones, además, suelen requerir acceso a recursos corporativos, como bases de datos internas y servicios web. Un enfoque común consiste en poner estos extremos a disposición únicamente del flujo de tráfico de red interno de una red virtual de Azure. Una vez que un entorno del Servicio de aplicaciones se une a la misma red virtual que los servicios internos, las aplicaciones que se ejecutan en el entorno pueden tener acceso a ellos, incluidos los extremos accesibles mediante conexiones [De sitio a sitio][SiteToSite] y [Azure ExpressRoute][ExpressRoute].
 
-Para obtener más detalles sobre cómo funcionan los entornos del Servicio de aplicaciones con redes virtuales y redes locales, consulte los siguientes artículos en [Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones][NetworkArchitectureOverview], [Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones][ControllingInboundTraffic] y [Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones][SecurelyConnectingToBackends].
+Para obtener más detalles sobre cómo funcionan los Entornos del Servicio de aplicaciones con redes virtuales y redes locales, consulte los siguientes artículos en [Información general sobre la arquitectura de red de los Entornos del Servicio de aplicaciones][NetworkArchitectureOverview], [Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones][ControllingInboundTraffic] y [Conexión segura a los recursos de back-end desde un entorno del Servicio de aplicaciones][SecurelyConnectingToBackends].
 
-**Nota:** no se puede crear un entorno del Servicio de aplicaciones en una red virtual "v2".
+**Nota:** no se puede crear un Entorno del Servicio de aplicaciones en una red virtual "v2".
 
 ## Introducción
 
@@ -64,9 +68,9 @@ Para empezar a trabajar con los entornos del Servicio de aplicaciones, vea [Crea
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure][AzureAppService].
 
-Para obtener información general sobre la arquitectura de red del entorno del Servicio de aplicaciones, consulte el artículo [Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones][NetworkArchitectureOverview].
+Para obtener información general sobre la arquitectura de red del entorno del Servicio de aplicaciones, consulte el artículo [Información general sobre la arquitectura de red de los Entornos del Servicio de aplicaciones][NetworkArchitectureOverview].
 
-Para obtener información detallada sobre el uso de un entorno del Servicio de aplicaciones con ExpressRoute, consulte el siguiente artículo sobre [Detalles de configuración de red para entornos del Servicio de aplicaciones con ExpressRoute][NetworkConfigDetailsForExpressRoute].
+Para obtener información detallada sobre el uso de un Entorno del Servicio de aplicaciones con ExpressRoute, consulte el siguiente artículo sobre [Detalles de configuración de red para Entornos del Servicio de aplicaciones con ExpressRoute][NetworkConfigDetailsForExpressRoute].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -83,6 +87,8 @@ Para obtener información detallada sobre el uso de un entorno del Servicio de a
 [MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
 [APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
 [LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
+[AzureConDeepDive]: https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
+[GeodistributedAppFootprint]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
@@ -95,4 +101,4 @@ Para obtener información detallada sobre el uso de un entorno del Servicio de a
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

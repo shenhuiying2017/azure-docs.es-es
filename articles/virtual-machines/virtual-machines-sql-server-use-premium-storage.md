@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/02/2015"
+	ms.date="10/02/2015"
 	ms.author="jroth"/>
 
 # Usar el almacenamiento Premium de Azure con SQL Server en máquinas virtuales
@@ -148,7 +148,7 @@ Una vez asignados los VHD a discos físicos en los grupos de almacenamiento, pue
 
 El nivel de rendimiento del almacenamiento depende del tamaño especificado de la máquina virtual DS* y de los tamaños del VHD. Las máquinas virtuales tienen diferentes asignaciones para el número de VHD que se pueden conectar y el ancho de banda máximo que admitirán (MB/s). Para obtener las cifras específicas del ancho de banda, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](virtual-machines-size-specs.md).
 
-El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cuenta al considerar la ruta de acceso de la migración. Para obtener más información, [vea la tabla de IOPS y tipos de discos](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-ESing-premium-storage).
+El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cuenta al considerar la ruta de acceso de la migración. Para obtener más información, [vea la tabla de IOPS y tipos de discos](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whES-ESing-premium-storage).
 
 Por último, tenga en cuenta que las máquinas virtuales admiten diferentes anchos de banda de disco máximos para todos los discos conectados. Con una carga elevada, podría saturar el ancho de banda de disco máximo disponible para ese tamaño de rol de máquina virtual. Por ejemplo, un Standard\_DS14 admitirá hasta 512 MB/s; por lo tanto, con tres discos P30 podría saturar el ancho de banda de disco de la máquina virtual. No obstante, en este ejemplo, se puede superar el límite de rendimiento en función de la combinación de E/S de lectura y escritura.
 
@@ -679,7 +679,7 @@ Dado que va a quitar como mínimo un servidor SQL Server de cada vez, debe modif
 
     Set-ClusterQuorum -NodeMajority  
 
-Para obtener más información sobre la administración y la configuración del cuórum de clúster, consulte [Configurar y administrar el cuórum en un clúster de conmutación por error de Windows Server 2012](https://technet.microsoft.com/es-ES/library/jj612870.aspx).
+Para obtener más información sobre la administración y la configuración del cuórum de clúster, consulte [Configurar y administrar el cuórum en un clúster de conmutación por error de Windows Server 2012](https://technet.microsoft.com/ES-ES/library/jj612870.aspx).
 
 #### Paso 6: Extraer los extremos y las ACL existentes
     #GET Endpoint info
@@ -1148,4 +1148,4 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

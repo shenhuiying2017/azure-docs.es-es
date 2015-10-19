@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="10/05/2015"
 	ms.author="szarkos"/>
 
 # <a id="nonendorsed"> </a>Información para las distribuciones no aprobadas #
@@ -191,4 +191,4 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) (waage
 
 - A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

@@ -19,7 +19,7 @@
 
 # Domine el crecimiento explosivo con bases de datos elásticas
 
-Si es un desarrollador de SaaS con decenas, cientos o incluso miles de bases de datos, los grupos de bases de datos elásticos simplifican el proceso de creación, mantenimiento y administración del rendimiento de las bases de datos según el presupuesto que usted mismo controlará.
+Si es desarrollador de SaaS con decenas, cientos o incluso miles de bases de datos, los grupos de bases de datos elásticas simplifican el proceso de creación, mantenimiento y administración del rendimiento de las bases de datos según el presupuesto que usted mismo controlará.
 
 Un patrón común de aplicación SaaS es que cada base de datos tenga un cliente distinto, cada uno con un consumo de recursos distinto e imprevisible (CPU, E/S y memoria resumidos con DTU). Estos altos y bajos de demanda de cada base de dato puede hacer que resulte difícil predecir y, por lo tanto, aprovisionar los recursos. Con esta situación, existen dos opciones: puede aprovisionar en exceso los recursos para las bases de datos según los picos de demanda, con el consiguiente exceso de pago; o bien puede aprovisionar en defecto para ahorrar costes en detrimento del rendimiento y la satisfacción del cliente durante los picos.
 
@@ -72,4 +72,4 @@ No se admite la exportación de una base de datos desde un grupo. Actualmente, n
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

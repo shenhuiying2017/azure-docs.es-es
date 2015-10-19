@@ -158,7 +158,7 @@ El filtro predeterminado **MatchAll** se usa en caso de que no se haya especific
 
 También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción a un tema determinado.
 
-El tipo de filtro más flexible compatible con suscripciones es la clase [SqlFilter], que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, consulte la sintaxis de [SqlFilter.SqlExpression][].
+El tipo de filtro más flexible compatible con suscripciones es la clase [SqlFilter][], que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, consulte la sintaxis de [SqlFilter.SqlExpression][].
 
 En el ejemplo siguiente, se crea una suscripción denominada **HighMessages** con un objeto [SqlFilter] que solo selecciona los mensajes con una propiedad **MessageNumber** personalizada con un valor superior a 3:
 
@@ -300,4 +300,4 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
   [Tutorial de .NET de mensajería asíncrona de Bus de servicio]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Ejemplos de Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

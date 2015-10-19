@@ -44,8 +44,8 @@ Eliminar usuario | Eliminó un usuario del directorio.
 Establecer propiedades de la licencia | Estableció las propiedades de la licencia para un usuario en el directorio.
 Restablecer contraseña de usuario | Restableció la contraseña de un usuario en el directorio.
 Cambiar la contraseña de usuario | Cambió la contraseña de un usuario en el directorio.
-Cambiar la licencia de usuario | Cambió la licencia asignada a un usuario en el directorio.
-Actualizar usuario | Actualizó un usuario en el directorio.
+Cambiar la licencia de usuario | Cambió la licencia asignada a un usuario en el directorio. Para ver qué licencias se han actualizado, examine el evento "Actualizar usuario" inmediatamente antes o después de este evento.
+Actualizar usuario | Actualizó un usuario en el directorio. [Vea a continuación](#quotupdate-userquot-attributes) los atributos que se pueden actualizar.
 Establecer el cambio forzado de la contraseña de usuario | Estableció la propiedad que fuerza a un usuario a cambiar su contraseña en el inicio de sesión.
 **Eventos de grupo** |
 Crear grupo | Se crea un grupo en el directorio.
@@ -58,9 +58,9 @@ Agregar entidad de servicio | Agregó una entidad de servicio al directorio.
 Quitar entidad de servicio | Quitó una entidad de servicio del directorio.
 Agregar credenciales de la entidad de servicio | Agregó credenciales a una entidad de servicio.
 Quitar credenciales de la entidad de servicio | Quitó las credenciales de una entidad de servicio.
-Agregar entrada de delegación | Agregó una entrada de delegación al directorio.
-Establecer entrada de delegación | Actualizó una entrada de delegación en el directorio.
-Quitar entrada de delegación | Quitó una entrada de delegación del directorio.
+Agregar entrada de delegación | Se crea [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) en el directorio.
+Establecer entrada de delegación | Se actualiza [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) en el directorio.
+Quitar entrada de delegación | Se elimina [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) en el directorio.
 **Eventos de rol** |
 Agregar miembro de rol a Rol | Agregó un usuario a un rol del directorio.
 Quitar miembro de rol de Rol | Quitó un usuario de un rol del directorio.
@@ -89,7 +89,7 @@ Promote tenant to partner
 
 --->
 
-### Atributos de usuario que se incluyen en el evento de auditoría Actualizar usuario
+## Atributos de "Actualizar usuario"
 El evento de auditoría "Actualizar usuario" incluye información adicional sobre los atributos de usuario que se actualizaron. Para cada atributo, se incluye el valor anterior y el valor nuevo.
 
 Atributo | Descripción
@@ -108,4 +108,4 @@ TelephoneNumber | Número de teléfono del usuario.
 
 Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](http://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

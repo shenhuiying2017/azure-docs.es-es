@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Requisitos de NAT ExpressRoute
@@ -59,9 +59,11 @@ El emparejamiento de Microsoft le permite conectarse a Servicios en la nube de M
 ## Pasos siguientes
 
 - Consulte los requisitos de [enrutamiento](expressroute-routing.md) y [QoS](expressroute-qos.md).
+- Para obtener información sobre los flujos de trabajo, consulte [Flujos de trabajo de aprovisionamiento de circuitos y estados de circuito de ExpressRoute](expressroute-workflows.md).
 - Configure su conexión ExpressRoute.
+
 	- [Creación de un circuito ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

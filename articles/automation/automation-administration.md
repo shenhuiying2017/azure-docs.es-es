@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
+   ms.date="10/01/2015"
    ms.author="bwren" />
 
 # Administración de Automatización de Azure
@@ -60,4 +60,4 @@ No es posible recuperar el valor de variables cifradas o del campo de contraseñ
 
 No es posible exportar certificados desde Automatización de Azure. Debe asegurarse de que todos los certificados estén disponibles fuera de Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

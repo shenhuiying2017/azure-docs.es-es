@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # Cómo configurar la agrupación en clústeres de Redis para una Caché en Redis de Azure Premium
@@ -56,19 +56,38 @@ Cada partición es un par de caché principal/réplica administrado por Azure y 
 
 ![Agrupación en clústeres][redis-cache-clustering-selected]
 
-Cuando se haya creado la memoria caché, conéctese a ella y úsela simplemente como una memoria caché no agrupada y Redis distribuirá los datos a través de las particiones de memoria caché.
+Cuando se haya creado la memoria caché, conéctese a ella y úsela simplemente como una memoria caché no agrupada y Redis distribuirá los datos a través de las particiones de memoria caché. Si el diagnóstico está [habilitado](cache-how-to-monitor.md#enable-cache-diagnostics), las métricas se capturan por separado para cada partición y pueden [verse](cache-how-to-monitor.md) en la hoja Caché en Redis.
 
 ## P+F de agrupación en clústeres
 
 La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre la agrupación en clústeres de Caché en Redis de Azure.
 
+## ¿Es necesario realizar algún cambio en mi aplicación cliente para usar la agrupación en clústeres?
+
+-	Cuando la agrupación en clústeres está habilitada, solo está disponible la base de datos 0. Si la aplicación cliente usa varias bases de datos e intenta leer o escribir en una base de datos distinta de 0, se produce la siguiente excepción. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+-	Si está usando [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), debe usar la versión 1.0.481 o posterior. Se conecta a la memoria caché con los mismos [extremos, puertos y claves](cache-configure.md#properties) que usa al conectarse a una memoria caché que no tenga la agrupación en clústeres habilitada. La única diferencia es que se deben realizar todas las lecturas y escrituras en la base de datos 0.
+	-	Otros clientes pueden tener requisitos diferentes. Consulte [¿Todos los clientes de Redis admiten la agrupación en clústeres?](#do-all-redis-clients-support-clustering)
+-	Si la aplicación usa varias operaciones de claves por lotes en un solo comando, todas las claves deben estar ubicadas en la misma partición. Para lograr esto, consulte [¿Cómo se distribuyen las claves en un clúster?](#how-are-keys-distributed-in-a-cluster).
+-	Si está usando el proveedor de estado de sesión de ASP.NET de Redis, debe usar 2.0.0 o posterior. Consulte [¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers).
+
+## ¿Cómo se distribuyen las claves en un clúster?
+
+Según la documentación [Keys distribution model](http://redis.io/topics/cluster-spec#keys-distribution-model) (Modelo de distribución de claves) de Redis: el espacio de claves se divide en 16384 ranuras. Cada clave tiene un hash y se asigna a una de estas ranuras, que se distribuyen por todos los nodos del clúster. Puede configurar qué parte de la clave está con hash para asegurarse de que varias claves se encuentran en la misma partición con etiquetas hash.
+
+-	Claves con una etiqueta hash: si cualquier parte de la clave está encerrada entre `{` y `}`, se aplica un algoritmo hash únicamente a esa parte de la clave para determinar la ranura hash de una clave. Por ejemplo, las siguientes tres claves se encontrarían en la misma partición: `{key}1`, `{key}2` y `{key}3` ya que solo la parte `key` del nombre está con hash. Para obtener una lista completa de especificaciones de etiquetas hash de claves, consulte [Keys hash tags](http://redis.io/topics/cluster-spec#keys-hash-tags) (Etiquetas hash de claves).
+-	Claves sin etiquetas hash: se usa todo el nombre de la clave para aplicar el hash. Esto produce una distribución estadísticamente uniforme entre las particiones de la memoria caché.
+
+Para optimizar el rendimiento, se recomienda distribuir las claves de manera uniforme. Si usa claves con etiquetas hash, es responsabilidad de la aplicación asegurarse de que las claves se distribuyan de manera uniforme.
+
+Para obtener más información, consulte [Keys distribution model](http://redis.io/topics/cluster-spec#keys-distribution-model) (Modelo de distribución de claves), [Redis Cluster data sharding](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding) (Particionamiento de datos de clúster Redis) y [Keys hash tags](http://redis.io/topics/cluster-spec#keys-hash-tags) (Etiquetas hash de claves).
+
 ## ¿Cuál es el mayor tamaño de caché que puedo crear?
 
 El tamaño máximo de caché premium es 53 GB. Puede crear hasta 10 particiones con un tamaño máximo de 530 GB. Si necesita un tamaño mayor puede [solicitar más](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obtener más información, consulte [Precios de Caché en Redis de Azure](https://azure.microsoft.com/pricing/details/cache/).
 
-## Haga que todos los clientes de Redis admitan la agrupación en clústeres
+## ¿Todos los clientes de Redis admiten la agrupación en clústeres?
 
-En este momento no todos los clientes admiten la agrupación en clústeres de Redis. StackExchange.Redis es uno de los que los admiten. Para obtener más información sobre otros clientes, consulte la sección [Jugar con el clúster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) del [Tutorial de clúster de Redis](http://redis.io/topics/cluster-tutorial).
+En este momento no todos los clientes admiten la agrupación en clústeres de Redis. StackExchange.Redis es uno de los que los admiten. Para obtener más información sobre otros clientes, consulte la sección [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Jugar con el clúster) de [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial) (Tutorial de clúster de Redis).
 
 >[AZURE.NOTE]Si está usando StackExchange.Redis como su cliente, asegúrese de que está usando la versión más reciente de [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 o posterior para que la agrupación en clústeres funcione correctamente.
 
@@ -98,9 +117,16 @@ Durante el período de vista previa solo puede habilitar y configurar la agrupac
 
 La agrupación en clústeres solo está disponible para las memorias cachés premium.
 
-## Pasos siguientes
+## ¿Puedo usar la agrupación en clústeres con los proveedores de estado de sesión y de almacenamiento en caché de salida de ASP.NET de Redis?.
 
-Obtenga información sobre cómo usar más características de caché premium. - [Cómo configurar la persistencia para una Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md) - [Cómo configurar la compatibilidad de redes virtuales para una Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md).
+-	**Proveedor de caché de salida de Redis**: no se requieren cambios.
+-	**Proveedor de estado de sesión de Redis** : para usar la agrupación en clústeres, debe usar [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 o superior o se iniciará una excepción. Esto es un cambio brusco; para obtener más información, consulte [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details) (Detalles de cambios bruscos de v2.0.0).
+
+## Pasos siguientes
+Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
+
+-	[Cómo configurar la persistencia para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-persistence.md)
+-	[Cómo configurar la compatibilidad de red virtual para una memoria Caché en Redis de Azure Premium](cache-how-to-premium-vnet.md)
   
 <!-- IMAGES -->
 
@@ -120,4 +146,4 @@ Obtenga información sobre cómo usar más características de caché premium. -
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

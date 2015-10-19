@@ -20,7 +20,7 @@
 #Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo
 
 ##Información general
-El **Diseñador de flujo de trabajo** es una herramienta independiente que se usa para crear flujos de trabajo y gráficos para la codificación con el **flujo de trabajo del Codificador multimedia Premium**.
+El **Diseñador de flujo de trabajo** es una herramienta de escritorio de Windows que se usa para diseñar y crear flujos de trabajo personalizados para la codificación con el **Flujo de trabajo premium de codificación de medios**.
 
 Esta herramienta también se puede usar para modificar [flujos de trabajo existentes](media-services-workflow-designer.md#existing_workflows).
 
@@ -79,4 +79,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Azure Premium Encoder Workflow Designer Training Videos](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/) (Vídeos de aprendizaje del Diseñador de flujo de trabajo del codificador de Azure Premium)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

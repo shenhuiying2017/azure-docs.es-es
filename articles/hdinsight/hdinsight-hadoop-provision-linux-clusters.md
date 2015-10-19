@@ -96,7 +96,7 @@ Para obtener más información sobre las características, las ventajas y la fun
 >
 > Actualmente (25/08/2015), solo puede aprovisionar un clúster basado en Linux en una red virtual de Azure.
 >
-> No se puede usar v1 (clásica), red virtual de Azure con HDInsight basado en Linux. La versión de Red virtual debe ser v2 (Administrador de recursos de Azure) para que se muestre como opción durante el proceso de creación de un clúster de HDInsight en el Portal de vista previa de Azure o que se pueda usar para crear un clúster en la CLI de Azure o Azure PowerShell.
+> No se puede usar v1 (clásica), red virtual de Azure con HDInsight basado en Linux. La Red virtual debe ser v2 (Administrador de recursos de Azure) para se muestre como opción durante el proceso de creación de un clúster de HDInsight en el Portal de vista previa de Azure o para que se pueda usar para crear un clúster en la CLI de Azure o Azure PowerShell.
 >
 > Si tiene recursos en una red v1 y quiere que dichos recursos puedan obtener acceso directamente a HDInsight a través de una red virtual, vea [Conexión de redes virtuales clásicas con nuevas redes virtuales](../virtual-network/virtual-networks-arm-asm-s2s.md) para obtener información sobre cómo conectar una Red virtual v2 a una Red virtual v1. Cuando se establezca la conexión, puede crear el clúster de HDInsight en la Red virtual v2.
 
@@ -386,7 +386,7 @@ El aprovisionamiento del clúster puede durar varios minutos en completarse.
 ###<a id="sdk"></a> Uso del SDK de .NET de HDInsight
 El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan el trabajo con HDInsight desde una aplicación .NET Framework. Siga las instrucciones siguientes para crear una aplicación de consola de Visual Studio y pegar el código para crear un clúster.
 
-**Para crear una aplicación de consola de Visual Studio**
+**Para crear una aplicación de consola de Visual Studio en C#**
 
 1. Abra Visual Studio 2013 o 2015
 2. Crear un nuevo proyecto de Visual Studio con la siguiente configuración
@@ -406,6 +406,8 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
 6. En el Explorador de soluciones, haga doble clic en **Program.cs** para abrirlo, pegue el siguiente código y proporcione valores para las variables:
 
+		using System;
+		using System.Security;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
@@ -512,7 +514,7 @@ El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan e
 
 
 
-##<a id="nextsteps"></a> Pasos siguientes
+## Pasos siguientes
 En este artículo, ha aprendido varias maneras de aprovisionar un clúster de HDInsight en Linux. Para obtener más información, consulte los artículos siguientes:
 
 - [Trabajo con HDInsight en Linux](hdinsight-hadoop-linux-information.md): conozca los matices que implica trabajar con un clúster de HDInsight en Linux.
@@ -571,4 +573,4 @@ En este artículo, ha aprendido varias maneras de aprovisionar un clúster de HD
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

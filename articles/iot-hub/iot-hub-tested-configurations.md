@@ -42,7 +42,7 @@ Las bibliotecas de Azure IoT se han probado en las siguientes plataformas de sis
 
 |Otras plataformas | Versión|
 |:---------------|:------------:|
-|mbed OS| 2\.0 |
+|mbed | 2\.0 |
 |TI-RTOS | 2\.x |
 
 
@@ -125,7 +125,7 @@ Encontrará más información sobre el desarrollo de soluciones con dispositivos
 |TI CC3200 | TI-RTOS 2.x|C|
 |Intel Edison |Yocto |C, Javascript|
 |Minnowboard Max |Windows 7,8, 10 |C#|
-|Arrow Dragonboard |Windows 10 IoT Core | C#|
-|Freescale FRDM K64 |mbedOS | C|
+|Arrow DragonBoard 410c |Windows 10 IoT Core | C#|
+|Freescale FRDM K64 |mbed 2.0 | C|
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

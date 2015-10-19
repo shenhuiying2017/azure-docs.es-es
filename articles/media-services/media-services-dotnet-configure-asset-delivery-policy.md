@@ -127,7 +127,7 @@ Los Servicios multimedia de Azure también permiten agregar el cifrado de Widevi
 	
 	}
 
->[AZURE.NOTE]Al cifrar con Widevine, solo podría entregar con DASH. Asegúrese de especificar DASH (2) en el protocolo de entrega de recursos.
+>[AZURE.NOTE]Al cifrar con Widevine, solo podría entregar con DASH. Asegúrese de especificar DASH en el protocolo de entrega de activos.
 
 
 ##Directiva de entrega de recursos DynamicEnvelopeEncryption 
@@ -328,4 +328,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

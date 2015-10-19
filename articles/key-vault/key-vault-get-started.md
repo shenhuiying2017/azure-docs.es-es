@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="cabailey"/>
 
 # Introducción al Almacén de claves de Azure #
@@ -35,8 +35,8 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 Para realizar este tutorial, necesitará lo siguiente:
 
 - Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](../../../../pricing/free-trial).
-- Azure PowerShell versión 0.9.1 o posterior. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
-- Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/es-ES/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
+- Azure PowerShell, de la versión 0.9.1 a la 0.9.8. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+- Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/es-es/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
 
 Este tutorial está diseñado para los principiantes de Windows PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones. Para obtener más información acerca de Windows PowerShell, consulte [Introducción a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -244,4 +244,4 @@ Para obtener una lista de los cmdlets de Windows PowerShell para el Almacén de 
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

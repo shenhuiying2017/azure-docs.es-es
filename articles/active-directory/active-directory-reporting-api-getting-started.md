@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introducción a la API de informes de Azure AD"
-	description="Introducción a la API de informes de Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
-	editor=""/>
+   description="Introducción a la API de informes de Azure Active Directory"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/17/2015"
-	ms.author="kenhoff;yossib"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # Introducción a la API de informes de Azure AD
@@ -157,10 +157,15 @@ Una vez que termine de editar el script, ejecútelo y compruebe que el informe A
 
 El script devuelve listas de todos los informes disponibles y devuelve los resultados del informe AccountProvisioningEvents en la ventana de PowerShell en formato JSON. También crea archivos con la misma salida en JSON, texto y XML. Puede comentar la experiencia de modificar el script para devolver datos de otros informes y puede comentar los formatos de salida que no necesita.
 
+## Notas
+
+- No hay ningún límite en el número de eventos devueltos por la API de informes de Azure AD (mediante la paginación de OData).
+	- Para ver los límites de retención de los datos de informes, consulte [Directivas de retención de informes](active-directory-reporting-retention.md).
+
 
 ## Pasos siguientes
 - ¿Tiene curiosidad sobre qué informes de actividad, auditoría y seguridad están disponibles? Consulte [Informes de actividad, auditoría y seguridad de Azure AD](active-directory-view-access-usage-reports.md).
 - Consulte [Eventos del informe de auditoría de Azure AD](active-directory-reporting-audit-events.md) para obtener más detalles sobre el informe de auditoría.
 - Consulte [Informes y eventos de Azure AD (vista previa)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obtener más detalles sobre el servicio REST de API Graph.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción a la autenticación (Android) | Microsoft Azure" 
-	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación de la Tienda Windows a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introducción a la autenticación (Android) | Microsoft Azure"
+	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación de la Tienda Windows a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="10/05/2015" 
 	ms.author="ricksal"/>
 
 # Incorporación de autenticación a la aplicación Android de Servicios móviles
@@ -41,7 +41,7 @@ Este tutorial le guiará a través de los pasos básicos para habilitar la auten
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-3. Abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles]. 
+3. Abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles].
 
 4. En el menú **Run** (Ejecutar), haga clic en **Run app** (Ejecutar aplicación) para iniciar la aplicación y, a continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.
 
@@ -76,7 +76,6 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 
 <!-- URLs. -->
 [Introducción a los Servicios móviles]: mobile-services-dotnet-backend-android-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
@@ -84,6 +83,5 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

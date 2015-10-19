@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="08/01/2015"
 	ms.author="glenga"/>
 
 
@@ -613,6 +613,6 @@ Observe que ambas implementaciones de controlador hacen un uso exclusivo de los 
 
     }
 
-Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio. Para obtener más información, consulte [Incorporación de Servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
+Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

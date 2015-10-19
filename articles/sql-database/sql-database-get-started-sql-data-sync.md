@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/01/2015"
 	ms.author="jhubbard"/>
 
 
@@ -195,11 +195,11 @@ Siempre podrá sincronizar un grupo de sincronización haciendo clic en SYNC en 
 ## Pasos siguientes
 Para obtener más información acerca de Base de datos SQL y SQL Data Sync, consulte:
 
-* [Contenido sobre SQL Data Sync en MSDN Library](https://msdn.microsoft.com/library/azure/hh456371.aspx)
+* [Descarga de documentación técnica de SQL Data Sync](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [Información general de Base de datos SQL](sql-database-technical-overview.md)
 * [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

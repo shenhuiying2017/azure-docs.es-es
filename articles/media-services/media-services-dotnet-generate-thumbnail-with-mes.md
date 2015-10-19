@@ -21,10 +21,7 @@
 
 En este tema, se muestra cómo usar el SDK de los Servicios multimedia de .NET para codificar un activo y generar vistas en miniatura mediante el Codificador multimedia estándar. El tema define los valores predeterminados de las miniaturas de XML y JSON que se pueden utilizar para crear una tarea que codifique y genere vistas en miniatura al mismo tiempo. [Este](https://msdn.microsoft.com/library/mt269962.aspx) documento contiene descripciones de elementos que utilizan estos valores predeterminados.
 
-Se aplican las siguientes consideraciones:
-
-- El uso de marcas de tiempo explícitas para inicio/paso/intervalo asume que el origen de la entrada tiene al menos 1 minuto de duración.
-
+Asegúrese de revisar la sección [Consideraciones](media-services-dotnet-generate-thumbnail-with-mes.md#considerations).
 
 ##Ejemplo
 
@@ -32,7 +29,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 
 - Crear un trabajo de codificación.
 - Obtener una referencia al codificador Codificador multimedia estándar.
-- Cargue el valor preestablecido [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) o [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contiene los valores predeterminados de la codificación, así como la información necesaria para generar vistas en miniatura. Puede guardar este [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) o [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) en un archivo y utilizar el siguiente código para cargar el archivo.
+- Cargue el valor preestablecido [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) o [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) que contiene los valores preestablecidos de codificación, así como la información necesaria para generar vistas en miniatura. Puede guardar este [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) o [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) en un archivo y usar el siguiente código para cargar el archivo.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
@@ -175,9 +172,9 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
 		    }
 		}
 
-##<a id="json"></a>Valor predeterminado JSON en miniatura
+##<a id="json"></a>Valor preestablecido JSON de miniatura
 
-Para obtener información acerca del esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
+Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
 
 	{
 	  "Version": 1.0,
@@ -278,9 +275,9 @@ Para obtener información acerca del esquema, consulte [este](https://msdn.micro
 	}
 
 
-##<a id="xml"></a>Valor predeterminado XML en miniatura
+##<a id="xml"></a>Valor preestablecido XML de miniatura
 
-Para obtener información acerca del esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
+Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
 	
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -355,6 +352,25 @@ Para obtener información acerca del esquema, consulte [este](https://msdn.micro
 	  </Outputs>
 	</Preset>
 
+##Consideraciones
+
+Se aplican las siguientes consideraciones:
+
+- El uso de marcas de tiempo explícitas para inicio/paso/intervalo asume que el origen de la entrada tiene al menos 1 minuto de duración.
+- Los elementos Jpg/Png/BmpVideo tienen atributos de cadena Start, Step y Range, que se pueden interpretar como:
+
+	- Número de marco si son enteros no negativos, por ejemplo, "Start": "120",
+	- Relativos a la duración de origen si se expresan como sufijo de %, por ejemplo, "Start": "15%", O
+	- Marca de tiempo si se expresan como formato HH:MM:SS… P. ej. "Start" : "00:01:00"
+
+	Puede mezclar y hacer coincidir notaciones a su conveniencia.
+	
+	Además, Start también admite una macro especial:{Best}, que intenta determinar el primer marco "interesante" del contenido. NOTA: (Step y Range se omiten cuando Start se establece en {Best}).
+	
+	- Valores predeterminados: Start:{Best}
+- Es necesario proporcionar explícitamente el formato de salida para cada formato de imagen: Jpg, Png o BmpFormat. Cuando está presente, AMS hará coincidir JpgVideo con JpgFormat y así sucesivamente. OutputFormat presenta una nueva macro específica de códec de imagen: {Index}, que debe estar presente (una vez y sólo una vez) para formatos de salida de imagen.
+
+
 ##Rutas de aprendizaje de Servicios multimedia
 
 Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
@@ -366,4 +382,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

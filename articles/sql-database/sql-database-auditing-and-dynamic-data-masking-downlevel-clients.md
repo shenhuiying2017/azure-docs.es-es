@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Base de datos SQL: compatibilidad con clientes de nivel inferior de enmascaramiento de datos dinámicos y auditoría | Microsoft Azure" 
-	description="Base de datos SQL: compatibilidad con clientes de nivel inferior de enmascaramiento de datos dinámicos y auditoría" 
+	pageTitle="Base de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría | Microsoft Azure" 
+	description="Obtenga información sobre compatibilidad de Base de datos SQL con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="09/01/2015" 
 	ms.author="nadavhelfman"/>
  
-# Base de datos SQL: compatibilidad con clientes de nivel inferior de enmascaramiento de datos dinámicos y auditoría 
+# Base de datos SQL: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría 
 
 
 [Auditoría](sql-database-auditing-get-started.md) y [Enmascaramiento de datos dinámicos](sql-database-dynamic-data-masking-get-started.md) funcionan con los clientes SQL que admiten el redireccionamiento de TDS.
@@ -33,11 +33,11 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 
 - .NET 4.0 y versiones posteriores,
 - ODBC 10.0 y versiones posteriores.
-- JDBC 4.0 y versiones posteriores (aunque JDBC 4.0 admite TDS 7.4, la función de redireccionamiento de TDS no es totalmente compatible)
+- JDBC (aunque JDBC admite TDS 7.4, la característica de redireccionamiento de TDS no es totalmente compatible)
 - Tedious (para Node.JS)
 
 **Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

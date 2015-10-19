@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 #Desarrollo de Servicios multimedia con .NET 
@@ -28,9 +28,9 @@ La **biblioteca del SDK de Servicios multimedia de Azure para .NET** le permite 
 ##Requisitos previos
 
 -   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Consulte el tema [Cómo crear una cuenta de Servicios multimedia](media-services-create-account.md).
--   Sistemas operativos: Windows 7, Windows 2008 R2 o Windows 8.
+-   Sistemas operativos: Windows 10, Windows 7, Windows 2008 R2 o Windows 8.
 -   .NET Framework 4.5.
--   Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express). 
+-    Visual Studio 2015, Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express). 
   
 
 ##Creación y configuración de un proyecto de Visual Studio 
@@ -75,15 +75,9 @@ También puede obtener los bits más recientes del SDK de Servicios multimedia p
 	Para obtener la información de **nombre de cuenta** y **clave de cuenta**, abra el **Portal de administración de Azure**, seleccione la cuenta de Servicios multimedia y haga clic en el botón **ADMINISTRAR CLAVES**.
 
 
-	<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
-
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>
 
 5. Sobrescriba los valores existentes siguiendo las instrucciones al comienzo del archivo Program.cs con el siguiente código.
 
@@ -108,4 +102,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 - [Flujo de trabajo de streaming en vivo de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Flujo de trabajo de streaming a petición de Servicios multimedia de Azure](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

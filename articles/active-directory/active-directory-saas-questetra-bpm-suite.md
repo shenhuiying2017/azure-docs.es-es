@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/02/2015"
 	ms.author="markusvi"/>
 
 
@@ -77,7 +77,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Questetra B
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on)**: para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Questetra BPM Suite](#creating-a-halogen-software-test-user)**: para tener un homólogo de Britta Simon en Questetra BPM Suite que esté vinculado a la representación de ella en Azure AD.
+4. **[Creación de un usuario de prueba de Questetra BPM Suite](#creating-a-questetra-bpm-suite-test-user)**: para tener un homólogo de Britta Simon en Questetra BPM Suite que esté vinculado a la representación de ella en Azure AD.
 5. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
@@ -103,17 +103,17 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
  
     a. En el sitio de la compañía de **Questetra BPM Suite**, en la sección de información de SP, copie la **ACS URL** (URL de ACS) y, a continuación, péguela en el cuadro de texto **Sign On URL** (URL de inicio de sesión).
 
-    b. En el sitio de la compañía de **Questetra BPM Suite**, en la sección de información de SP, copie el **Entity ID** (Id. de entidad) y, a continuación, péguelo en el cuadro de texto **Issuer URL** (URL del emisor) y en el cuadro de texto **Reply URL** (URL de respuesta).
+    b. En el sitio de la compañía **Questetra BPM Suite**, en la sección de información de SP, copie el valor de **Entity ID** (Id. de entidad) y, a continuación, péguelo en el cuadro de texto **Issuer URL** (URL del emisor).
 
-    c. En el sitio de la compañía de **Questetra BPM Suite**, en la sección de información de SP, copie el **Entity ID** (Id. de entidad) y, a continuación, péguelo en el cuadro de texto **Reply URL** (URL de respuesta) y en el cuadro de texto **Reply URL** (URL de respuesta).
+    c. En el sitio de la compañía **Questetra BPM Suite**, en la sección de información de SP, copie el valor de **ACS URL** (URL de ACS) y, a continuación, péguelo en el cuadro de texto **Reply URL** (URL de respuesta).
 
     d. Haga clic en **Siguiente**.
 
  
-7. En la página **Configure single sign-on at Questetra BPM Suite** (Configuración de inicio de sesión único en Questetra BPM Suite), haga clic en **Download certificate** (Descargar certificado) y, a continuación, guarde el archivo de certificado localmente en el equipo.<br><br>![Configurar inicio de sesión único][14]
+7. En la página **Configure single sign-on at Questetra BPM Suite** (Configurar inicio de sesión único en Questetra BPM Suite), haga clic en **Download certificate** (Descargar certificado) y, a continuación, guarde el archivo de certificado localmente en el equipo.<br><br>![Configurar inicio de sesión único][14]
 
 
-8. En el sitio de la compañía de **Questetra BPM Suite**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único][15]
+8. En el sitio de la compañía **Questetra BPM Suite**, realice los pasos siguientes: <br><br>![Configurar inicio de sesión único][15]
 
     a. Seleccione **Enable Single Sign-On** (Habilitar inicio de sesión único).
      
@@ -121,24 +121,24 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     c. En el Portal de Azure, copie el valor de **URL del servicio de inicio de sesión único** y péguelo en el cuadro de texto **URL de la página de inicio de sesión**.
 
-    d. En el Portal de Azure, copie el valor de **URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **URL de la página de cierre de sesión**.
+    d. En el Portal de Azure, copie el valor de **URL del servicio de cierre de sesión único** y péguelo en el cuadro de texto **Dirección URL de la página de cierre de sesión**.
 
-    e. En el cuadro de texto **NameID format** (Formato Id. de nombre), escriba **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+    e. En el cuadro de texto **Formato de NameID**, escriba **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
 
     f. Cree un archivo codificado en base 64 a partir del certificado descargado.
 
     >[AZURE.TIP]Para obtener más información, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o).
 
-    g. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Validation certificate** (Certificado de validación).
+    g. Abra el certificado codificado en base 64 en el Bloc de notas, copie su contenido en el Portapapeles y, a continuación, péguelo en el cuadro de texto **Certificado de validación**.
 
     h. Haga clic en **Guardar**.
 
 
-9. En el Portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Qué es Azure AD Connect][17]
+9. En el portal de Azure AD, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**. <br><br>![Qué es Azure AD Connect][17]
 
 
-10. En la página **Single sign-on confirmation** (Confirmación del inicio de sesión único), haga clic en **Completar**. <br><br>![Qué es Azure AD Connect][18]
+10. En la página **Confirmación de inicio de sesión único**, haga clic en **Completo**.<br><br>![Qué es Azure AD Connect][18]
 
 
 
@@ -152,33 +152,33 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
 
-3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**. <br><br>![Creación de un usuario de prueba de Azure AD][101]
+3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.<br><br>![Creación de un usuario de prueba de Azure AD][101]
 
-4. Para abrir el cuadro de diálogo **Add User** (Agregar usuario), en la barra de herramientas de la parte inferior, haga clic en **Add User** (Agregar usuario). <br><br>![Creación de un usuario de prueba de Azure AD][102]
+4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.<br><br>![Creación de un usuario de prueba de Azure AD][102]
 
-5. En la página de diálogo **Tell us about this user** (Proporcione información sobre este usuario), realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD][103]
+5. En la página del cuadro de diálogo **Proporcione información sobre este usuario**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD][103]
  
-    a. Como **Type Of User** (Tipo de usuario), seleccione **New user in your organization** (Nuevo usuario de la organización).
+    a. En **Tipo de usuario**, seleccione **Nuevo usuario de la organización**.
   
-    b. En el cuadro de texto **User Name** (Nombre de usuario), escriba **BrittaSimon**.
+    b. En el cuadro de texto **Nombre de usuario**, escriba **BrittaSimon**.
 
     c. Haga clic en Siguiente.
-6.  En la página de diálogo **User Profile** (Perfil de usuario), realice los siguientes pasos: <br><br>![Creación de un usuario de prueba de Azure AD][104] 
+6.  En la página del cuadro de diálogo **Perfil de usuario**, realice los siguientes pasos: <br><br>![Creación de un usuario de prueba de Azure AD][104] 
   
-    a. En el cuadro de texto **First Name** (Nombre), escriba **Britta**.
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.
  
-    b. En el cuadro de texto **Last Name** (Apellidos), escriba **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
 
-    c. En el cuadro de texto **Display Name** (Nombre para mostrar), escriba **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
 
-    d. En la lista **Role** (Rol), seleccione **User** (Usuario).
+    d. En la lista **Rol**, seleccione **Usuario**.
 
     e. Haga clic en **Siguiente**.
 
-7. En la página de diálogo **Get temporary password** (Obtener contraseña temporal), haga clic en **create** (Crear). <br><br>![Creación de un usuario de prueba de Azure AD][105]
+7. En la página del cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**. <br><br>![Creación de un usuario de prueba de Azure AD][105]
 
-8. En la página de diálogo **Get temporary password** (Obtener contraseña temporal), realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD][106]
-  1. Anote el valor de **New Password** (Nueva contraseña).
+8. En la página del cuadro de diálogo **Obtener contraseña temporal**, realice los pasos siguientes: <br><br>![Creación de un usuario de prueba de Azure AD][106]
+  1. Anote el valor del campo **Nueva contraseña**.
   2. Haga clic en **Completo**.   
   
  
@@ -208,9 +208,9 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
 
 **Para asignar Britta Simon a Questetra BPM Suite, realice los pasos siguientes:**
 
-1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú superior.<br><br>![Qué es Azure AD Connect][201]
+1. En el Portal de Azure, abra la vista de aplicaciones; para ello, en la vista de directorio, haga clic en **Aplicaciones** en el menú de la parte superior.<br><br>![Qué es Azure AD Connect][201]
 2. En la lista de aplicaciones, seleccione **Questetra BPM Suite**. <br><br>![Qué es Azure AD Connect][205]
-1. En el menú superior, haga clic en **Usuarios**. <br><br>![Qué es Azure AD Connect][202]
+1. En el menú de la parte superior, haga clic en **Usuarios**. <br><br>![Qué es Azure AD Connect][202]
 1. En la lista Usuarios, seleccione **Britta Simon**. <br><br>![Qué es Azure AD Connect][203]
 2. En la barra de herramientas de la parte inferior, haga clic en **Asignar**. <br><br>![Qué es Azure AD Connect][204]
 
@@ -265,4 +265,4 @@ El objetivo de esta sección es probar la configuración del inicio de sesión �
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -140,8 +140,6 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 
 En este tutorial hemos presentado las nociones para habilitar una aplicación de la Tienda Windows para que envíe notificaciones de inserción con Servicios móviles y Centros de notificaciones. A continuación, considere completar uno de los siguientes tutoriales:
 
-+ [Enviar notificaciones de inserción a los usuarios autenticados](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md) <br/>Aprenda a usar las etiquetas para enviar notificaciones de inserción desde su servicio móvil solo a un usuario autenticado.
-
 + [Enviar notificaciones de difusión a los suscriptores](../notification-hubs-windows-phone-send-breaking-news.md) <br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
 + [Envío de notificaciones independientes de la plataforma a los suscriptores](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde su servicio móvil sin tener que diseñar cargas específicas de plataforma en el backend.
@@ -180,4 +178,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

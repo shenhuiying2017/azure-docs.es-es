@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/01/2015"
 	ms.author="genemi"/>
 
 
@@ -33,8 +33,7 @@ En la tabla siguiente se enumeran otros temas de Ayuda de V12.
 | Título y vínculo | Descripción del contenido |
 | :--- | :--- |
 | [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md) | Describe con detalle la forma en que la versión V12 acerca de Base de datos SQL de Azure a la paridad completa con Microsoft SQL Server. |
-| [Tutorial: regístrese para obtener la actualización más reciente de Base de datos SQL V12](sql-database-v12-sign-up.md) | Describe los pasos que debe realizar si desea actualizar las bases de datos SQL de Azure a V12. |
-| [Creación de una base de datos en la actualización de Base de datos SQL V12](sql-database-create.md) | Describe cómo se puede crear una nueva Base de datos SQL Azure en la versión V12. Describe varias opciones que van más allá de una base de datos vacía. |
+| [Crear una base de datos SQL V12](sql-database-get-started.md) | Describe cómo se puede crear una nueva Base de datos SQL Azure en la versión V12. Describe varias opciones que van más allá de una base de datos vacía. |
 
 
 ## Planificación por adelantado
@@ -60,9 +59,9 @@ A partir de V12, la Base de datos SQL de Azure solo será compatible con los niv
 
 Para obtener información detallada acerca de los niveles de servicio Basic, Standard y Premium, consulte:
 
-
+- [Niveles de servicio de Base de datos SQL](sql-database-service-tiers.md)
 - [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-new-service-tiers.md)
-- [Precios de Base de datos SQL de Azure](http://azure.microsoft.com/pricing/details/sql-database/)
+
 
 
 ### Revisión de la configuración de replicación geográfica
@@ -116,7 +115,7 @@ Si su programa cliente se conecta a Base de datos SQL V12, mientras el cliente s
 - 14000-14999
 
 
-Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información acerca de los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
+Haga clic [aquí](sql-database-develop-direct-route-ports-adonet-v12.md) para obtener más información sobre los puertos para Base de datos SQL V12. Los puertos son necesarios por las mejoras de rendimiento en Base de datos SQL V12.
 
 
 ##<a id="limitations"></a>Limitaciones durante la actualización a V12 y después de ella
@@ -150,7 +149,7 @@ Se recomienda conectarse a las bases de datos SQL de Azure con Visual Studio 201
 - Para desarrollar una base de datos, en línea o sin conexión.
 
 
-En su lugar, puede conectarse con [Visual Studio Community 2013](https://www.visualstudio.com/es-ES/news/vs2013-community-vs.aspx/), que es una versión gratuita y completa de VS2013.
+En su lugar, puede conectarse con [Visual Studio Community 2013](https://www.visualstudio.com/es-es/news/vs2013-community-vs.aspx/), que es una versión gratuita y completa de VS2013.
 
 
 En el Portal de Azure anterior, en la página de la base de datos, puede hacer clic en **Abrir en Visual Studio** para iniciar VS2013 en el equipo para conectarse a Base de datos SQL de Azure.
@@ -167,9 +166,9 @@ La base de datos V11 sigue estando disponible para el acceso a los datos durante
 
 | Limitación | Descripción |
 | :--- | :--- |
-| Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tiene bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium <br/><br/>La creación de nuevas bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
+| Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tiene bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium <br/><br/>La creación de bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
 | Sin replicación geográfica | No se admite la replicación geográfica en un servidor V12 que está implicado actualmente en una actualización desde V11. |
-| La base de datos no está disponible brevemente en la fase final de la actualización a V12 | Las bases de datos que pertenecen a su servidor V11 permanecen disponibles durante el proceso de actualización. Sin embargo, la conexión al servidor y las bases de datos no está disponible brevemente en la fase final, cuando el cambio comienza desde la V11 hasta la V12 lista.<br/><br/>El cambio puede tardar entre 40 segundos y 5 minutos. Para la mayoría de los servidores, el cambio se espera completar en 90 segundos. El cambio con el tiempo aumenta para los servidores que tienen un gran número de bases de datos o cuando las bases de datos tienen grandes cargas de trabajo de escritura. |
+| La base de datos no está disponible brevemente en la fase final de la actualización a V12 | Las bases de datos que pertenecen a su servidor V11 permanecen disponibles durante el proceso de actualización. Pero la conexión al servidor y las bases de datos no está disponible brevemente en la fase final, cuando el cambio comienza desde la V11 hasta la V12 lista.<br/><br/>El cambio puede tardar entre 40 segundos y 5 minutos. Para la mayoría de los servidores, el cambio se espera completar en 90 segundos. El cambio con el tiempo aumenta para los servidores que tienen un gran número de bases de datos o cuando las bases de datos tienen grandes cargas de trabajo de escritura. |
 
 
 ### Limitación *después de* la actualización a V12
@@ -254,4 +253,4 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

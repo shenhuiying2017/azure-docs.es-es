@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="06/10/2015"
-	ms.author="normesta"/>
+	ms.date="10/05/2015"
+	ms.author="wesmc"/>
 
 # Incorporación de notificaciones push a la aplicación de Xamarin.Forms
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
@@ -293,7 +293,7 @@ El servicio móvil está configurado ahora para que funcione con APNS.
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("es-ES"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("ES-ES"));
 
             var push = client.GetPush();
 
@@ -847,4 +847,4 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 [ejemplo de notificación push de Xamarin.Forms Azure completada]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->
