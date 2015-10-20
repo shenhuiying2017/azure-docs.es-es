@@ -33,14 +33,14 @@ Puede utilizar una serie de procedimientos de Azure y las imágenes disponibles 
 
 Después de que la máquina virtual de Linux se ejecute con Docker, conéctela desde el equipo cliente con SSH. Si fuese necesario, instale [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md) ejecutando los dos comandos siguientes.
 
->[AZURE.TIP]Si usó la extensión de máquina virtual de Docker para crear la máquina virtual, Compose ya está instalado para usted. Omita estos comandos y vaya al paso 3. Solo tiene que instalar Compose si ha instalado Docker en la máquina virtual usted mismo.
+>[AZURE.TIP] Si usó la extensión de máquina virtual de Docker para crear la máquina virtual, Compose ya está instalado para usted. Omita estos comandos y vaya al paso 3. Solo tiene que instalar Compose si ha instalado Docker en la máquina virtual usted mismo.
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 
 $ chmod +x /usr/local/bin/docker-compose
 ```
->[AZURE.NOTE]Si recibe un error "Permiso denegado", el directorio /usr/local/bin en la máquina virtual probablemente no es modificable y necesitará instalar Compose como superusuario. Ejecute `sudo -i`; a continuación, los dos comandos anteriores; a continuación, `exit`.
+>[AZURE.NOTE] Si recibe un error "Permiso denegado", el directorio /usr/local/bin en la máquina virtual probablemente no es modificable y necesitará instalar Compose como superusuario. Ejecute `sudo -i`; a continuación, los dos comandos anteriores; a continuación, `exit`.
 
 Para probar la instalación de Compose, ejecute el siguiente comando.
 
@@ -48,7 +48,8 @@ Para probar la instalación de Compose, ejecute el siguiente comando.
 $ docker-compose --version
 ```
 
-Verá un resultado similar a ```
+Verá un resultado similar a
+```
 docker-compose 1.3.2
 ```
 
@@ -74,23 +75,23 @@ db:
 
 ```
 
-## Step 4: Start the containers with Compose
+## Paso 4: Inicio de los contenedores con Compose
 
-In the working directory on your VM, simply run the following command.
+En el directorio de trabajo de la máquina virtual, ejecute el comando siguiente.
 
 ```
 $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
+Se inician los contenedores de Docker especificados en `docker-compose.yml`. Verá una salida similar a la siguiente:
 
 ```
 Creating wordpress_db_1...
 Creating wordpress_wordpress_1...
 ```
 
->[AZURE.NOTE]Asegúrese de utilizar la opción **-d** al iniciar para que los contenedores se ejecuten continuamente en segundo plano.
+>[AZURE.NOTE] Asegúrese de utilizar la opción **-d** al iniciar para que los contenedores se ejecuten continuamente en segundo plano.
 
 Para comprobar que los contenedores están activos, escriba `docker-compose ps`. Debería ver algo parecido a lo siguiente:
 
@@ -126,4 +127,4 @@ Ahora debería ver la pantalla de inicio de WordPress, donde se puede completar 
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO2-->
+<!----HONumber=Oct15_HO2-->
