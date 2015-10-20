@@ -41,9 +41,9 @@ Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](docume
 
 Para obtener más información acerca de DocumentDB, explore estos recursos:
 
--	[Mapa de aprendizaje para DocumentDB](documentdb-learning-map.md)
+-	[Ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modelo de recursos y conceptos de DocumentDB](documentdb-resources.md)
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -171,7 +171,7 @@ En esta sección, la aplicación se ejecuta localmente para comprobar que funcio
 
 En esta sección, se crea un repositorio Git local e inserta desde ese repositorio en Azure para implementar su aplicación de ejemplo en la aplicación de API que se ejecuta en el Servicio de aplicaciones de Azure.
 
-1. Si Git no está instalado, instálelo desde [la página de descarga de Git](http://git-scm.com/download%20target="_blank").
+1. Si Git no está instalado, instálelo desde [la página de descarga de Git](http://git-scm.com/download).
 
 1. Desde la línea de comandos, cambie los directorios al directorio de aplicaciones de ejemplo y escriba los siguientes comandos para inicializar el repositorio Git local.
 
@@ -249,4 +249,4 @@ Ha implementado una aplicación web de Node.js que usa el back-end de una aplica
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

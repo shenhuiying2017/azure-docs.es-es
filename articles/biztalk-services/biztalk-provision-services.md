@@ -237,4 +237,4 @@ Ahora que se crea un servicio de BizTalk, familiarícese con [Servicios de BizTa
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

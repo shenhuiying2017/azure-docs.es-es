@@ -58,4 +58,4 @@ Puede descargar la plantilla ARM existente para crear una red virtual y dos subr
 11. Guarde el archivo .
   
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

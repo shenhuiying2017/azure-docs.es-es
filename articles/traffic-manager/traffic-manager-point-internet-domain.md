@@ -1,19 +1,19 @@
 <properties
    pageTitle="Selección de un dominio de Internet de la compañía para un dominio del Administrador de tráfico | Microsoft Azure"
-	description="Este artículo le ayudará a que el nombre de dominio de la empresa indique un nombre de dominio del Administrador de tráfico."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Este artículo le ayudará a que el nombre de dominio de la empresa indique un nombre de dominio del Administrador de tráfico."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Orientar un dominio de Internet de la compañía a un dominio del Administrador de tráfico de Azure
 
@@ -37,4 +37,4 @@ Todas las solicitudes de tráfico de *www.contoso.com* se redirigirán ahora a *
 
 [¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

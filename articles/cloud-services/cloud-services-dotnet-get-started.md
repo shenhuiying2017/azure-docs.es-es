@@ -813,4 +813,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Administración de servicios en la nube](cloud-services-how-to-manage.md)
 * [Almacenamiento de Azure](/documentation/services/storage/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

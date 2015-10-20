@@ -89,4 +89,4 @@ Ahora que completó el tutorial, aprenderá a trabajar con el [Cliente de Servic
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

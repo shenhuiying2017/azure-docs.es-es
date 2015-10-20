@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@ En este tutorial detallado, seguiremos el proceso de desarrollar un modelo de an
 
 Abra Estudio de aprendizaje automático: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Para obtener más información acerca de cómo empezar a utilizar Estudio de aprendizaje automático, consulte [Inicio de Estudio de aprendizaje automático de Microsoft Azure](https://studio.azureml.net/).
 
+>[AZURE.TIP]Para descargar e imprimir un diagrama con información general de las funcionalidades de Estudio de aprendizaje automático, consulte [Diagrama de información general de las funcionalidades de Estudio de aprendizaje automático de Azure](machine-learning-studio-overview-diagram.md).
+
 Para crear una solución de evaluación del riesgo de crédito, seguiremos estos pasos:
 
 1.	[Creación de un área de trabajo de Aprendizaje automático](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -41,4 +43,4 @@ Para crear una solución de evaluación del riesgo de crédito, seguiremos estos
 
 Este tutorial se basa en una versión simplificada del [experimento de ejemplo de predicción de riesgo de crédito](../machine-learning-sample-credit-risk-prediction.md) que se incluye en el Estudio de aprendizaje automático.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -147,4 +147,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -136,4 +136,4 @@ En el ejemplo siguiente, agregará un equilibrador de carga denominado "webfarm"
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

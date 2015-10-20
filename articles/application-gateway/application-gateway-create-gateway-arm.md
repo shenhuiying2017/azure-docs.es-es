@@ -18,7 +18,7 @@
 
 # Creación, inicio o eliminación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure
 
-La puerta de enlace de aplicaciones es el equilibrador de carga de nivel 7. Ofrece conmutación por error, enrutamiento de rendimiento de solicitudes HTTP entra distintos servidores, ya se que se encuentren en la nube o en una implementación local. La puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesión basado en cookies, descarga SSL.
+La puerta de enlace de aplicaciones es el equilibrador de carga de nivel 7. Ofrece conmutación por error, enrutamiento del rendimiento de solicitudes HTTP entra distintos servidores, ya se que se encuentren en la nube o en una implementación local. La puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesión basado en cookies, descarga SSL.
 
 
 > [AZURE.SELECTOR]
@@ -33,7 +33,7 @@ La puerta de enlace de aplicaciones es el equilibrador de carga de nivel 7. Ofre
 Este artículo le guiará por los pasos necesarios para crear y configurar, iniciar y eliminar una puerta de enlace de aplicaciones.
 
 
->[AZURE.IMPORTANT]Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el Administrador de recursos y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las fichas en la parte superior de este artículo. Este documento tratará de la creación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure. Para usar la versión básica, vaya a [crear una implementación clásica de la puerta de enlace de aplicaciones mediante PowerShell](application-gateway-create-gateway.md).
+>[AZURE.IMPORTANT]Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: el Administrador de recursos y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las pestañas de la parte superior de este artículo. Este documento tratará de la creación de una Puerta de enlace de aplicaciones con el Administrador de recursos de Azure. Para usar la versión básica, vaya a [crear una implementación clásica de la puerta de enlace de aplicaciones mediante PowerShell](application-gateway-create-gateway.md).
 
 
 
@@ -414,4 +414,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

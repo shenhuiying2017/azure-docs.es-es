@@ -46,4 +46,4 @@ Siga los pasos mencionados en el vídeo [Introducción a Copia de seguridad de A
 - [Copia de seguridad de servidores Windows](backup-azure-backup-windows-server.md)
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

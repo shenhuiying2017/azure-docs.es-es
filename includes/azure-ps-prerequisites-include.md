@@ -3,4 +3,4 @@ Para seguir los pasos de este artículo, tendrá que [instalar y configurar Azur
 
 > [AZURE.NOTE]Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](sign-up-organization.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

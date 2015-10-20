@@ -237,4 +237,4 @@ En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Vis
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

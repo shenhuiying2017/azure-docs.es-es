@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introducción a Azure Multi-Factor Authentication en la nube"
-	description="En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA en la nube."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Introducción a Azure Multi-Factor Authentication en la nube" 
+	description="En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Azure MFA en la nube." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Introducción a Azure Multi-Factor Authentication en la nube
@@ -156,4 +156,4 @@ Una vez habilitados los usuarios, se recomienda enviarles un correo electrónico
 ## Pasos siguientes
 Ahora que ha configurado la autenticación multifactor en la nube, puede desplazarse a lo siguiente en [Configuración de Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md) Obtendrá información acerca de los informes, alerta de fraudes, personalización de mensajes de voz y todas las características que ofrece Azure Multi-Factor Authentication.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

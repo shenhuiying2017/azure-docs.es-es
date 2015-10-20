@@ -1,19 +1,19 @@
 <properties
  pageTitle="¿Qué es el Programador de Azure? | Microsoft Azure"
-	description="Programador de Azure le permite describir mediante declaración las acciones para ejecutar en la nube. A continuación, programa y ejecuta esas acciones de forma automática."
-	services="scheduler"
-	documentationCenter=".NET"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+ description="Programador de Azure le permite describir mediante declaración las acciones para ejecutar en la nube. A continuación, programa y ejecuta esas acciones de forma automática."
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
+ editor=""/>
 <tags
  ms.service="scheduler"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="08/04/2015"
-	ms.author="krisragh"/>
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="get-started-article"
+ ms.date="08/04/2015"
+ ms.author="krisragh"/>
 
 # ¿Qué es el Programador de Azure?
 
@@ -50,4 +50,4 @@ Programador permite crear, actualizar, eliminar, ver y administrar [colecciones 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

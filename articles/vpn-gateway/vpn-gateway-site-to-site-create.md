@@ -25,16 +25,16 @@
 
 Este artículo le guiará a través de la creación de una red virtual y una conexión VPN de sitio a sitio con la red local. Este artículo se aplica al modelo de implementación clásico.
 
->[AZURE.IMPORTANT]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrese de que comprende los modelos de implementación y las herramientas. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
+>[AZURE.IMPORTANT]Es importante que sepa que Azure actualmente funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información acerca de los modelos de implementación, vea [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 Puede seleccionar el artículo para el modelo de implementación y la herramienta de implementación mediante las pestañas situadas encima. Por ejemplo, si desea crear una conexión de puerta de enlace de VPN de sitio a sitio mediante el modelo del Administrador de recursos de Azure en lugar de usar el modelo clásico, haga clic en la pestaña **PowerShell - Administrador de recursos** (anterior) para ir a [Crear una conexión VPN de sitio a sitio mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
  
 ## Antes de comenzar
 
-Antes de comenzar con la configuración, compruebe que dispone de lo siguientes elementos:
+Antes de comenzar con la configuración, comprueba que dispones de los elementos siguientes:
 
-- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
+- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulta [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
 - Una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
 - Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -99,4 +99,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 
 Si desea configurar una conexión entre una red virtual clásica y una red virtual creada con el modo de Administrador de recursos de Azure, consulte [Conectar redes virtuales clásicas con redes virtuales del Administrador de recursos de Azure](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

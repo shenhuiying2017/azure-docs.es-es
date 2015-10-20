@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="09/30/2015" 
+	ms.date="10/13/2015" 
 	ms.author="sdanie"/>
 
 # Uso de Caché en Redis de Azure
@@ -368,4 +368,4 @@ Ahora que está familiarizado con los aspectos básicos de Caché en Redis de Az
 
 [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="msStevenPo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -212,4 +212,4 @@ Si agrega el nombre de dominio personalizado al servicio en la nube después de 
 - [Registro en Azure como una organización](sign-up-organization.md)
 - [Administración de dominios en Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

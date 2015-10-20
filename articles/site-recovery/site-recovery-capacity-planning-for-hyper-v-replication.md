@@ -239,4 +239,4 @@ Para empezar a implementar ASR:
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,13 @@
 
 # Creación de una aplicación web de Java mediante DocumentDB
 
-En este tutorial de aplicación web Java aprenderá a usar el servicio de [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para almacenar datos y obtener acceso a ellos desde una aplicación Java hospedada en Sitios web Azure. En este tema, aprenderá:
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
+En este tutorial de aplicación web de Java aprenderá a usar el servicio [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para almacenar datos y obtener acceso a ellos desde una aplicación Java hospedada en Sitios web Azure. En este tema, aprenderá:
 
 - Cómo crear una aplicación de JSP básica en Eclipse.
 - Uso del servicio de Azure DocumentDB mediante el [SDK de Java de DocumentDB](https://github.com/Azure/azure-documentdb-java).
@@ -49,7 +55,7 @@ Para aprovisionar una cuenta de base de datos de DocumentDB en Azure:
 ![Creación de una cuenta de DocumentDB | Tutorial de base de datos. Captura de pantalla del portal de vista previa de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón Claves resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][1]
 
 
-##<a id="CreateJSP"></a>Paso 2: Creación de la aplicación Java JSP
+##<a id="CreateJSP"></a>Paso 2: Creación de la aplicación JSP de Java
 
 Para crear la aplicación JSP:
 
@@ -119,7 +125,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 
 	En este proyecto, estamos usando [Project Lombok](http://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere.
 
-2. Para invocar el servicio de DocumentDB, debe crear instancias de un nuevo **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient**, en lugar de construir un nuevo cliente para cada solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**. Aquí es también donde tiene que pegar el valor URI y CLAVE PRINCIPAL que guardó en el portapapeles en el [paso 1](#CreateDB). Reemplace [YOUR\_ENDPOINT\_HERE] por el URI y reemplace [YOUR\_KEY\_HERE] por su CLAVE PRINCIPAL.
+2. Para invocar el servicio de DocumentDB, debe crear instancias de un nuevo **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient**, en lugar de construir un nuevo cliente para cada solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**. Aquí es también donde tienes que pegar el valor URI y CLAVE PRINCIPAL que guardó en el portapapeles en el [paso 1](#CreateDB). Reemplace [YOUR\_ENDPOINT\_HERE] por el URI y reemplace [YOUR\_KEY\_HERE] por su CLAVE PRINCIPAL.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -733,9 +739,9 @@ Ahora que hemos terminado la parte divertida, todo lo que queda por hacer es cre
 
 5. ¡Increíble! Ahora todo lo que queda por hacer es probar la aplicación. Ejecute la aplicación localmente y agregue algunos elementos Todo rellenando el nombre del elemento y la categoría y haciendo clic en **Agregar tarea**.
 
-6. Una vez que aparece el elemento, puede actualizar si está completo alternando la casilla y haciendo clic en **Actualizar tareas**.
+6. Una vez que aparece el elemento, puede actualizar si está completo. Para ello, alterne la casilla y haga clic en **Actualizar tareas**.
 
-##<a id="Deploy"></a>Paso 6: Implementación de su aplicación Java en sitios web de Azure
+##<a id="Deploy"></a>Paso 6: Implementación de la aplicación Java en Sitios web de Azure
 
 Sitios web de Azure hace que la implementación de aplicaciones de Java sean tan sencillas como exportar su aplicación como un archivo WAR y cargarla mediante el control de código fuente (por ejemplo, GIT) o FTP.
 
@@ -780,4 +786,4 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

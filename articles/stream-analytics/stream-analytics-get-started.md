@@ -246,7 +246,7 @@ Use una herramienta como [Explorador de almacenamiento de Azure](https://azurest
 ![Detección de fraudes: eventos fraudulentos vistos en tiempo real](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/ES-ES/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -257,4 +257,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

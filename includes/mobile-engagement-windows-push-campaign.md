@@ -30,4 +30,4 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

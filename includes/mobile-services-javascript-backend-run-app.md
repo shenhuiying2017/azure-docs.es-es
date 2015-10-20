@@ -19,4 +19,4 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -68,4 +68,4 @@ Otras formas de aprender HDInsight son:
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://manage.windowsazure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

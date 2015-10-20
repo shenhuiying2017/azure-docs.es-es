@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Introducción a la Factoría de datos de Azure"
-	description="Obtenga información acerca de cómo puede usar el servicio de la factoría de datos de Azure para componer el procesamiento de datos, el almacenamiento de datos y los servicios de movimiento de datos para crear canalizaciones que generen información de confianza."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Introducción a la Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo puede usar el servicio de la factoría de datos de Azure para componer el procesamiento de datos, el almacenamiento de datos y los servicios de movimiento de datos para crear canalizaciones que generen información de confianza." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="spelluru"/>
 
 # Introducción al servicio Factoría de datos de Azure
@@ -58,4 +58,4 @@ Con los cuatro conceptos sencillos de conjuntos de datos, actividades, canalizac
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-introduction.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

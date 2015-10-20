@@ -162,4 +162,4 @@ Si desea configurar una conexión VPN de sitio a sitio, consulte [Configurar una
 
 Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

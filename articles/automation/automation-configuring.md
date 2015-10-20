@@ -67,4 +67,4 @@ Deberá repetir estas líneas después de cada [punto de control](http://technet
 - [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) (Automatización de Azure: autenticación en Azure mediante Azure Active Directory)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -105,4 +105,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | N/D | No hay ninguna asignación, por 
 
 Ahora que tiene una mejor comprensión de la asignación del almacenamiento, lea las [prácticas recomendadas](site-recovery-best-practices.md) para preparar la implementación.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

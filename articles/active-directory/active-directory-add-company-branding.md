@@ -185,4 +185,4 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

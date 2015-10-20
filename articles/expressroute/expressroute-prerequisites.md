@@ -71,4 +71,4 @@ Revise los siguientes recursos para obtener más información acerca de los requ
 	- [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
 	- [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

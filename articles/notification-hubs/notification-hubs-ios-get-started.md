@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones iOS
@@ -26,12 +26,19 @@ Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azur
 
 En este tutorial se demuestra el escenario de difusión sencillo con centros de notificaciones.
 
+
+## Antes de empezar
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+El código completo de este tutorial se puede encontrar en GitHub [aquí](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted).
+
 ##Requisitos previos
 
 Este tutorial requiere lo siguiente:
 
 + [SDK de iOS para Servicios móviles]
-+ [XCode 6][Install Xcode]
++ [Xcode 7][Install Xcode]
 + Un dispositivo compatible con iOS 8 (o una versión posterior)
 + Pertenencia al programa para desarrolladores de iOS
 
@@ -58,7 +65,7 @@ Esta sección le guía en la creación y configuración de un nuevo centro de no
 
 2. Inicie sesión en el [Portal de Azure] y haga clic en **+NUEVO** en la parte inferior de la pantalla.
 
-3. Haga clic sucesivamente en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y, finalmente, en **Creación rápida**.
+3. Haga clic sucesivamente en **Servicios de aplicaciones**, en **Bus de servicio**, en **Centro de notificaciones** y, finalmente, en **Creación rápida**.
 
    	![][2]
 
@@ -70,15 +77,17 @@ Esta sección le guía en la creación y configuración de un nuevo centro de no
 
    	![][4]
 
-6. Haga clic en la pestaña **Centros de notificaciones** en la parte superior y, luego, haga clic en el centro de notificaciones que acaba de crear.
+6. Haga clic en la pestaña **Centros de notificaciones** en la parte superior y, a continuación, haga clic en el centro de notificaciones que acaba de crear.
 
    	![][5]
 
-7. Haga clic en la pestaña **Configurar** en la parte superior y luego haga clic en el botón **Cargar** en la configuración de notificaciones de Apple para cargar la huella digital del certificado. A continuación, seleccione el certificado **.p12** que exportó anteriormente y la contraseña para el certificado. Asegúrese de seleccionar si desea usar el servicio de inserción **Producción** (si desea enviar notificaciones push a usuarios que adquirieron la aplicación en la tienda) o **Espacio aislado** (durante el desarrollo).
+7. Haga clic en la pestaña **Configurar** en la parte superior y luego haga clic en el botón **Cargar** en los ajustes de notificaciones de Apple para cargar la huella digital del certificado. A continuación, seleccione el certificado **.p12** que exportó anteriormente y la contraseña del certificado.
+ 
+	Asegúrese de seleccionar el modo **Espacio aislado** porque esto es para desarrollo. Use el modo **Producción** únicamente si desea enviar notificaciones push a los usuarios que compraron la aplicación en la tienda.
 
-   	![][6]
+   	![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
 
-8. Haga clic en la pestaña **Panel** en la parte superior y luego haga clic en **Ver cadena de conexión**. Anote las dos cadenas de conexión.
+8. Haga clic en la pestaña **Panel** en la parte superior y, a continuación, haga clic en **Ver cadena de conexión**. Anote las dos cadenas de conexión. Usará las cadenas de conexión en la sección de codificación siguiente.
 
    	![][7]
 
@@ -90,13 +99,13 @@ Su Centro de notificaciones está ahora configurado para funcionar con APN y tie
 
    	![][8]
 
-2. Al configurar las opciones para su nuevo proyecto, asegúrese de usar el mismo **nombre de producto** e **identificador organizativo** que usó cuando estableció anteriormente el id. de paquete en el portal de desarrollo de Apple.
+2. Al configurar las opciones para su nuevo proyecto, asegúrese de usar el mismo **nombre de producto** e **identificador de organización** que usó cuando estableció anteriormente el identificador de paquete en el portal de desarrollo de Apple.
 
 	![][11]
 
-3. En **Targets** (Destinos), haga clic en el nombre de proyecto, luego haga clic en la pestaña **Build Settings** (Compilar configuración) y expanda **Code Signing Identity** (Identidad de firma de código); a continuación, en **Debug** (Depurar), establezca la identidad de firma de código. Alterne los **niveles** entre **Basic** (Básico) hasta **All** (Todos) y establezca el **perfil de aprovisionamiento** en el perfil de aprovisionamiento que creó anteriormente.
+3. En **Targets** (Destinos), haga clic en el nombre de proyecto, luego haga clic en la pestaña **Build Settings** (Compilar configuración) y expanda **Code Signing Identity** (Identidad de firma de código); a continuación, en **Debug** (Depurar), establezca la identidad de firma de código. Cambie el valor de **Levels** (Niveles) de **Basic** (Básico) a **All** (Todos) y establezca **Provisioning Profile** en el perfil de aprovisionamiento que creó anteriormente.
 
-	Si no ve el nuevo perfil de aprovisionamiento que creó en Xcode, intente actualizar los perfiles de la identidad de firma. Haga clic en **Xcode** en la barra de menús, haga clic en **Preferences** (Preferencias), haga clic en la pestaña **Account** (Cuenta), haga clic en el botón **View Details** (Ver detalles), haga clic en la identidad de firma y, luego, haga clic en el botón Refresh (Actualizar) en la esquina inferior derecha.
+	Si no ve el nuevo perfil de aprovisionamiento que creó en Xcode, intente actualizar los perfiles de la identidad de firma. Haga clic en **Xcode** en la barra de menús, en **Preferences** (Preferencias), en la pestaña **Account** (Cuenta), en el botón **View Details** (Ver detalles), en la identidad de firma y, por último, en el botón Refresh (Actualizar) en la esquina inferior derecha.
 
    	![][9]
 
@@ -123,7 +132,7 @@ Su Centro de notificaciones está ahora configurado para funcionar con APN y tie
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
 
-7. En el mismo archivo, agregue los métodos siguientes y reemplace los marcadores de posición de literal de cadena por su *nombre del concentrador* y el valor de *DefaultListenSharedAccessSignature* que anotó anteriormente. Este código proporciona el token del dispositivo al centro de notificaciones para que el centro de notificaciones pueda enviar notificaciones:
+7. En el mismo archivo, agregue los métodos siguientes y reemplace los marcadores de posición de literal de cadena por su *nombre de concentrador* y el valor de *DefaultListenSharedAccessSignature* que anotó anteriormente. Este código proporciona el token del dispositivo al centro de notificaciones para que el centro de notificaciones pueda enviar notificaciones:
 
 	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
 		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<Enter your listen connection string>"
@@ -161,24 +170,29 @@ Su Centro de notificaciones está ahora configurado para funcionar con APN y tie
 
 
 Para probar la recepción de notificaciones en su aplicación, envíe notificaciones en el Portal de Azure usando la pestaña de depuración en el centro de notificaciones, tal como se muestra en la pantalla que aparece a continuación.
+
 ![][30]
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-![][31]
+
+
+## (Opcional) Enviar notificaciones desde la aplicación
+
+Si desea enviar notificaciones dentro de una aplicación. Esta sección proporciona un ejemplo de cómo hacerlo mediante la interfaz de REST.
 
 1. En XCode, abra Main.storyboard y agregue los siguientes componentes de interfaz de usuario de la biblioteca de objetos para permitir que el usuario envíe notificaciones push en la aplicación:
 
-	- Una etiqueta sin texto de etiqueta. Se usará para notificar errores al enviar notificaciones. La propiedad **Lines** se debe establecer en **0** para que el redimensionamiento automático se restrinja a los márgenes derecho e izquierdo y a la parte superior de la vista.
-	- Un campo de texto con el texto de **marcador de posición** establecido en **Enter Notification Message** (Escribir mensaje de notificación). Restrinja el campo justo debajo de la etiqueta, tal como se muestra a continuación. Establezca el Controlador de vista como delegado de salida.
-	- Un botón denominado **Send Notification** (Enviar notificación) se restringió justo debajo del campo de texto y en el centro horizontal.
+	- Una etiqueta sin texto de etiqueta. Se usará para notificar errores al enviar notificaciones. La propiedad **Lines** se debe establecer en **0** para que el tamaño se ajuste automáticamente a los márgenes derecho e izquierdo y a la parte superior de la vista.
+	- Un campo de texto con el texto de **Placeholder** (marcador de posición) establecido en **Enter Notification Message** (Escribir mensaje de notificación). Restrinja el campo justo debajo de la etiqueta, tal como se muestra a continuación. Establezca el Controlador de vista como delegado de salida.
+	- Un botón llamado **Send Notification** (Enviar notificación) se restringió justo debajo del campo de texto y horizontalmente en el centro.
 
 	La vista debe tener el aspecto siguiente:
 
 	![][32]
 
 
-2. Abra el archivo ViewController.h y agregue las siguientes instrucciones `#import` y `#define`. Sustituya el literal de cadena de marcador de posición por la cadena de conexión *DefaultFullSharedAccessSignature* real y el *nombre del centro*.
+2. Abra el archivo ViewController.h y agregue las siguientes instrucciones `#import` y `#define`. Reemplace el literal de cadena de marcador de posición por la cadena de conexión *DefaultFullSharedAccessSignature* real y el *nombre del centro*.
 
 
 		#import <CommonCrypto/CommonHMAC.h>
@@ -450,7 +464,7 @@ Para probar las notificaciones push en iOS, debe implementar la aplicación en u
 
 	![][33]
 
-2. Toque en el campo de texto para escribir un mensaje de notificación. Luego, presione el botón **Send** (Enviar) en el teclado, o el botón **Send Notification** (Enviar notificación) de la vista para enviar el mensaje de notificación.
+2. Puede enviar una notificación de prueba desde el Portal de Azure. Si agrega código para enviar la notificación en la aplicación, pulse dentro del campo de texto para escribir un mensaje de notificación. Luego, presione el botón **Send** (Enviar) en el teclado, o el botón **Send Notification** (Enviar notificación) en la vista, para enviar el mensaje de notificación.
 
 	![][34]
 
@@ -463,7 +477,11 @@ Si tiene algún problema o alguna recomendación que sirva para mejorar este tut
 
 ##Pasos siguientes
 
-En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]. Si desea segmentar a sus usuarios por grupos de interés, puede leer [Uso de Centros de notificaciones para enviar noticias de último minuto]. Obtenga más información sobre el uso de Centros de notificaciones en la [Orientación sobre los Centros de notificaciones].
+En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Le recomendamos que siga el tutorial [Notificación a los usuarios con los Centros de notificaciones de Azure] como siguiente paso de aprendizaje. Ese tutorial le guiará en la creación de un back-end para enviar las notificaciones mediante etiquetas.
+
+Si desea segmentar sus usuarios por grupos de interés, puede leer también [Uso de Centros de notificaciones para enviar noticias de última hora].
+
+Para obtener más información general sobre los Centros de notificaciones, consulte [Introducción a los centros de notificaciones].
 
 
 
@@ -499,14 +517,14 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
 [Portal de Azure]: https://manage.windowsazure.com/
-[Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-ios-send-breaking-news.md
+[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Uso de Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
 
 [guía de programación de notificaciones push y locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 # Introducción a Centros de notificaciones para aplicaciones Android
@@ -26,11 +26,18 @@ Este tutorial muestra cómo puede usar Centros de notificaciones de Azure para e
 En este tutorial se demuestra el escenario de difusión sencillo con centros de notificaciones. Asegúrese de seguirlo junto con el próximo tutorial para saber cómo usar los Centros de notificaciones para abordar usuarios y grupos de dispositivos específicos.
 
 
+## Antes de empezar
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+El código completo de este tutorial se puede encontrar en GitHub [aquí](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
+
+
 ##Requisitos previos
 
 Este tutorial requiere lo siguiente:
 
-+ Android Studio, que puede descargar en <a href="http://go.microsoft.com/fwlink/?LinkId=389797">el sitio de Android</a>.
++ Android Studio, que puede descargar en el <a href="http://go.microsoft.com/fwlink/?LinkId=389797">sitio de Android</a>.
 + Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 
@@ -46,7 +53,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 
 [AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
 
-##<a id="connecting-app"></a>Conexión de la aplicación al centro de notificaciones
+##<a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
 
 ###Creación de un nuevo proyecto de Android
 
@@ -62,17 +69,11 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 
 ###Incorporación de los servicios de Google Play al proyecto
 
-[AZURE.INCLUDE [Incorporación de Play Services](../../includes/mobile-services-add-google-play-services.md)]
+[AZURE.INCLUDE [Incorporación de Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
 ###Incorporación de código
 
-1. Descargue el <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">SDK para Android de Centros de notificaciones</a>. Extraiga el archivo .zip y copie **notificationhubs\\notification-hubs-0.4.jar** y **notifications\\notifications-1.0.1.jar** en el directorio **app\\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta **libs**.
-
-
-
-	La documentación de referencia de estos dos paquetes se encuentra en los vínculos siguientes:
-	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
-	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+1. Descargue el <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">SDK de Android para Centros de notificaciones</a>. Extraiga el archivo .zip y copie **notificationhubs\\notification-hubs-0.3.jar** y **notifications\\notifications-1.0.1.jar** en el directorio **app\\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta **libs**.
 
 
     > [AZURE.NOTE]Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.
@@ -109,14 +110,11 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 	    private static Boolean isVisible = false;
 
 
-	Asegúrese de actualizar los tres marcadores de posición:
-	* **SENDER\_ID**: defina `SENDER_ID` en el número de proyecto que obtuvo anteriormente desde el proyecto que creó en la [Consola de la nube de Google](http://cloud.google.com/console).
-	* **HubListenConnectionString**: defina `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión con un clic en **Ver cadena de conexión** en la pestaña **Panel** del centro en el [Portal de Azure].
-	* **HubName**: el nombre del centro de notificaciones que aparece en la parte superior de la página en Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
+	Asegúrese de actualizar los tres marcadores de posición: * **SENDER\_ID**: establezca `SENDER_ID` en el número de proyecto que obtuvo anteriormente del proyecto que creó en la [Consola de Google Cloud](http://cloud.google.com/console). * **HubListenConnectionString**: establezca `HubListenConnectionString` en la cadena de conexión **DefaultListenAccessSignature** correspondiente a su centro. Puede copiar esa cadena de conexión haciendo clic en **Ver cadena de conexión** en la pestaña **Panel** de su centro en el [Portal de Azure]. * **HubName**: use el nombre del centro de notificaciones que aparece en la parte superior de la página en Azure correspondiente a su centro (**no** la dirección URL completa). Por ejemplo, use `"myhub"`.
 
 
 
-5. En el método **OnCreate** de la clase **MainActivity**, agregue el código siguiente para realizar el registro sobre la creación de la actividad.
+5. En el método **OnCreate** de la clase **MainActivity**, agregue el código siguiente para realizar el registro de la creación de la actividad en el centro de notificaciones.
 
         MyHandler.mainActivity = this;
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
@@ -211,7 +209,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 
 	![][6]
 
-10. En el campo **Nombre** de la nueva clase, escriba **MyHandler** y, luego, haga clic en **Aceptar**.
+10. En el campo **Nombre** de la nueva clase, escriba **MyHandler** y haga clic en **Aceptar**.
 
 
 11. Agregue las siguientes instrucciones import en la parte superior de **MyHandler.java**:
@@ -225,14 +223,14 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-12. Actualice la declaración de clase de la siguiente manera para hacer de `MyHandler` una subclase de `com.microsoft.windowsazure.notifications.NotificationsHandler`, tal como se muestra a continuación.
+12. Actualice la declaración de clase de la siguiente manera para hacer de `MyHandler` una subclase de `com.microsoft.windowsazure.notifications.NotificationsHandler`, tal y como se muestra a continuación.
 
 		public class MyHandler extends NotificationsHandler {
 
 
 13. Agregue el siguiente código para la clase `MyHandler`.
 
-	Este código reemplaza al método `OnReceive`, por lo que el controlador generará una ventana emergente con `AlertDialog` para mostrar las notificaciones recibidas. El controlador también envía la notificación al administrador de notificaciones de Android con el método `sendNotification()`.
+	Este código invalida el método `OnReceive`, por lo que el controlador mostrará un `AlertDialog` para mostrar las notificaciones recibidas. El controlador también envía la notificación al administrador de notificaciones de Android con el método `sendNotification()`.
 
     	public static final int NOTIFICATION_ID = 1;
     	private NotificationManager mNotificationManager;
@@ -281,7 +279,9 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-![][31]
+
+## (Opcional) Enviar notificaciones desde la aplicación
+
 
 1. En la vista de proyecto de Android Studio, expanda **App** -> **src** -> **main** -> **res** -> **layout**. Abra el archivo de diseño **activity\_main.xml** y haga clic en la pestaña **Texto** para actualizar los contenidos de texto del archivo. Actualícelo con el siguiente código, que agrega nuevos controles `Button` y `EditText` para enviar mensajes de notificación al centro de notificaciones. Agregue este código al final, justo antes de `</RelativeLayout>`.
 
@@ -328,7 +328,7 @@ Para probar la recepción de notificaciones en su aplicación, envíe notificaci
 
 3. En el archivo **MainActivity.java**, agregue los siguientes miembros en la parte superior de la clase `MainActivity`.
 
-	Escriba el nombre del centro en `HubName`, no el espacio de nombres. Por ejemplo, escriba "myhub". Además, escriba la cadena de conexión **DefaultFullSharedAccessSignature**. Esta cadena de conexión se puede copiar desde el [Portal de Azure] mediante un clic en **Ver cadena de conexión** en la pestaña **Panel** correspondiente al centro de notificaciones.
+	Actualice `HubFullAccess` con la cadena de conexión **DefaultFullSharedAccessSignature** para su centro. Esta cadena de conexión se puede copiar desde el [Portal de Azure] mediante un clic en **Ver cadena de conexión** en la pestaña **Panel** correspondiente al centro de notificaciones.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
@@ -493,7 +493,13 @@ Asegúrese también de haber agregado su cuenta de Google al emulador en ejecuci
 
 ##Pasos siguientes
 
-En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Android. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]. Si desea segmentar a sus usuarios por grupos de interés, puede leer [Uso de Centros de notificaciones para enviar noticias de último minuto]. Obtenga más información sobre el uso de Centros de notificaciones en la [Orientación sobre los Centros de notificaciones].
+En este sencillo ejemplo, ha difundido notificaciones a todos los dispositivos con Windows mediante el portal o aplicación de consola. Se recomienda seguir el tutorial [Notificación a los usuarios con los Centros de notificaciones de Azure] como paso siguiente. Le mostrará cómo enviar notificaciones desde un back-end de ASP.NET mediante etiquetas para dirigirse a usuarios específicos.
+
+Si desea segmentar los usuarios por grupos de interés, consulte [Uso de los Centros de notificaciones para enviar noticias de última hora].
+
+Para obtener más información sobre los Centros de notificaciones, consulte [Introducción a los Centros de notificaciones].
+
+
 
 
 <!-- Images. -->
@@ -527,12 +533,12 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 
 
 <!-- URLs. -->
-[Introducción a las notificaciones push en Servicios móviles]: ../mobile-services-javascript-backend-android-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portal de Azure]: https://manage.windowsazure.com/
-[Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
-[Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-android-notify-users.md
-[Uso de Centros de notificaciones para enviar noticias de último minuto]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Introducción a los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-android-notify-users.md
+[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->
