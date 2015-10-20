@@ -145,9 +145,9 @@ Este procedimiento le guiará a través de la creación de una red virtual y cre
 
 	Use el ejemplo siguiente y reemplace los valores por los suyos propios:
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
 
-	**Nota:** si la red local tiene varias rutas, puede pasar todas ellas en una matriz. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+	> [AZURE.NOTE]Si la red local tiene varias rutas, puede pasar todas ellas en una matriz. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
 
 	Para recuperar la configuración de la puerta de enlace de red virtual, incluido el identificador de puerta de enlace y la dirección IP pública, use el cmdlet `Get-AzureVirtualNetworkGateway`. Consulte el ejemplo siguiente.
@@ -204,10 +204,10 @@ Si tiene una red virtual conectada a través de una conexión VPN de sitio a sit
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. Ya tiene una red virtual sin puertas de enlace. Para crear nuevas puertas de enlace y completar las conexiones, puede dirigirse al **paso 3** de esta sección del artículo: [Creación de una nueva red virtual con conectividad de sitio a sitio y ExpressRoute](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
+5. Ya tiene una red virtual sin puertas de enlace. Para crear nuevas puertas de enlace y completar las conexiones, puede continuar en el **paso 3** de esta sección del artículo, [Creación de una nueva red virtual con conectividad de sitio a sitio y ExpressRoute](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
 
 ## Pasos siguientes
 
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

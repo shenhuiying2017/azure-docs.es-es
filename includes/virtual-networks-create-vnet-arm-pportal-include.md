@@ -35,4 +35,4 @@ Para crear una red virtual basada en el escenario anterior por medio del portal 
 
 	![Lista de subredes en la red virtual](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

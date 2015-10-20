@@ -19,7 +19,7 @@
 
 # Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]En este artículo se trata la creación de un recurso con el modelo de implementación del Administrador de recursos. No puede crear este recurso con el modelo de implementación clásica.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modelo de implementación clásica. No puede crear este recurso con el modelo de implementación clásica.
 
 Siga las instrucciones de este artículo para implementar una granja de servidores SharePoint Server 2013 de tres o nueve servidores mediante plantillas de administrador de recursos.
 
@@ -184,4 +184,4 @@ Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja S
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

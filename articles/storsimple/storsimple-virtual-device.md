@@ -388,4 +388,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 Para administrar el dispositivo virtual, vea la lista detallada de flujos de trabajo en [Administración del dispositivo StorSimple mediante el servicio StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties
     pageTitle="¿Cuáles son las imágenes de plantilla de Azure RemoteApp?"
-	description="Obtenga información sobre las imágenes de plantilla incluidas con Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="Obtenga información sobre las imágenes de plantilla incluidas con Azure RemoteApp."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
+    manager="mbaldwin" />
 
 <tags
     ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 # ¿Cuáles son las imágenes de plantilla de Azure RemoteApp?
 
@@ -105,4 +105,4 @@ Esta imagen es una extensión de la vanilla image y tiene los siguientes compone
 > [AZURE.IMPORTANT]**Información legal:** esta imagen no incluye una licencia de Microsoft Office y *no se puede usar para producción*. La imagen de Office 2013 Professional Plus solo tiene fines de prueba. Si quiere usar aplicaciones de Office en RemoteApp de Azure para producción, deberá usar la imagen de Office 365 ProPlus. Para obtener más detalles sobre las licencias de Office, consulte [Uso de Office 365 con Azure RemoteApp](remoteapp-o365.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

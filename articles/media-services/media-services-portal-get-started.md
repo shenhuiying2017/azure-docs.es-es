@@ -261,4 +261,4 @@ Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna fo
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

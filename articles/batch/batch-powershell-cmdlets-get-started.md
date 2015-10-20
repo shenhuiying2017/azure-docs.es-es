@@ -1,20 +1,20 @@
 <properties
    pageTitle="Introducción a los cmdlets de Lote de Azure PowerShell | Microsoft Azure"
-	description="Presenta los cmdlets de Azure PowerShell usados para administrar el servicio de lotes de Azure"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+   description="Presenta los cmdlets de Azure PowerShell usados para administrar el servicio de lotes de Azure"
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="08/07/2015"
-	ms.author="danlep"/>
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="08/07/2015"
+   ms.author="danlep"/>
 
 # Introducción a los cmdlets de lotes PowerShell de Azure
 Este artículo es una breve introducción a los cmdlets de Azure PowerShell que puede usar para administrar sus cuentas de Lote y obtener información acerca de sus trabajos de Lote y otros detalles.
@@ -162,4 +162,4 @@ Para quitar el límite superior, establezca **MaxCount** en 0 o menos.
 * [Referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

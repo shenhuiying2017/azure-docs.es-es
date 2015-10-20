@@ -103,4 +103,4 @@ Para ver la página de prueba de la API, realice los pasos siguientes.
 
 3. En Visual Studio, haga clic en **Depurar > Detener depuración**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="10/14/2015"
 	ms.author="cabailey"/>
 
 # Introducción al Almacén de claves de Azure #
 Almacén de claves de Azure está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios del Almacén de claves](../../../../pricing/details/key-vault/).
 
 ## Introducción  
-Use este tutorial para empezar a trabajar con el Almacén de claves de Azure para crear un contenedor (un almacén) reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure. Se describe el proceso para usar Windows PowerShell a fin de crear un almacén en el que se guardará una clave o una contraseña para usarla con una aplicación de Azure. A continuación, se explica cómo usa una aplicación esa clave o contraseña.
+Use este tutorial para empezar a trabajar con el Almacén de claves de Azure para crear un contenedor (un almacén) reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure. Describe cómo usar Azure PowerShell para crear un almacén que contiene una clave o una contraseña que se puede usar con una aplicación de Azure. A continuación, se explica cómo usa una aplicación esa clave o contraseña.
 
 *Tiempo estimado para completar el tutorial:** 20 minutos
 
@@ -36,10 +36,10 @@ Para realizar este tutorial, necesitará lo siguiente:
 
 - Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](../../../../pricing/free-trial).
 - Azure PowerShell, de la versión 0.9.1 a la 0.9.8. Para instalar Azure PowerShell y asociarla con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
-- Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/es-es/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
+- Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/es-ES/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
 
-Este tutorial está diseñado para los principiantes de Windows PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones. Para obtener más información acerca de Windows PowerShell, consulte [Introducción a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
+Este tutorial está diseñado para usuarios principiantes de Azure PowerShell, pero se presupone que conocen conceptos básicos tales como módulos, cmdlets y sesiones. Para obtener más información, consulte [Introducción a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
 
 Para obtener ayuda detallada con cualquier cmdlet que aparezca en este tutorial, use el cmdlet **Get-Help**.
 
@@ -49,10 +49,10 @@ Por ejemplo, para obtener ayuda para el cmdlet **Add-AzureAccount**, escriba:
 
 	Get-Help Add-AzureAccount -Detailed
 
-Lea también los siguientes tutoriales para familiarizarse con el Administrador de recursos de Azure en Windows PowerShell:
+Lea también los siguientes tutoriales para familiarizarse con el Administrador de recursos de Azure en Azure PowerShell:
 
 - [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
-- [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md)
+- [Uso de Azure PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md)
 
 
 ## <a id="connect"></a>Conexión a las suscripciones ##
@@ -61,7 +61,7 @@ Inicie una sesión de PowerShell de Azure e inicie sesión en su cuenta de Azure
 
     Add-AzureAccount
 
-En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. Windows PowerShell recuperará todas las suscripciones que están asociadas a esta cuenta y, de forma predeterminada, utilizará la primera.
+En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. Azure PowerShell obtendrá todas las suscripciones que están asociadas a esta cuenta y, de forma predeterminada, usará la primera.
 
 Si tiene varias suscripciones y desea especificar una en concreto para que use el Almacén de claves de Azure, escriba lo siguiente para ver las suscripciones de su cuenta:
 
@@ -75,7 +75,7 @@ Para obtener más información sobre cómo configurar PowerShell de Azure, consu
 
 ## <a id="switch"></a>Cambio al Administrador de recursos de Azure ##
 
-Los cmdlets del Almacén de claves necesitan el Administrador de recursos de Azure. Por lo tanto, escriba lo siguiente para cambiar al modo del Administrador de recursos de Azure:
+Las versiones de los cmdlets del Almacén de claves de Azure de este tutorial necesitan el Administrador de recursos de Azure. Por lo tanto, escriba lo siguiente para cambiar al modo de Administrador de recursos de Azure:
 
 	Switch-AzureMode AzureResourceManager
 
@@ -90,7 +90,7 @@ Para el parámetro **- Location**, use el comando [Get-AzureLocation](https://ms
 
 ## <a id="vault"></a>Creación de un Almacén de claves ##
 
-Utilice el cmdlet [New-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903602.aspx) para crear un Almacén de claves. Este cmdlet tiene tres parámetros obligatorios: el **nombre del grupo de recursos**, el **nombre del Almacén de claves** y la **ubicación geográfica**.
+Utilice el cmdlet [New-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903602(v=azure.98).aspx) para crear un Almacén de claves. Este cmdlet tiene tres parámetros obligatorios: el **nombre del grupo de recursos**, el **nombre del Almacén de claves** y la **ubicación geográfica**.
 
 Por ejemplo, si utiliza el nombre del almacén de **ContosoKeyVault**, el nombre del grupo de recursos **ContosoResourceGroup** y la ubicación **East Asia**, deberá escribir:
 
@@ -105,7 +105,7 @@ Su cuenta de Azure ahora está autorizada para realizar operaciones en este Alma
 
 ## <a id="add"></a>Adición de una clave o un secreto al Almacén de claves ##
 
-Si desea que el Almacén de claves de Azure cree una clave protegida mediante software, utilice el cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) y escriba lo siguiente:
+Si desea que el Almacén de claves de Azure cree una clave protegida mediante software, utilice el cmdlet [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048(v=azure.98).aspx) y escriba lo siguiente:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -173,7 +173,7 @@ Para registrar la aplicación en Azure Active Directory:
 
 ## <a id="authorize"></a>Autorización de la aplicación para que use la clave o el secreto ##
 
-Para que la aplicación pueda tener acceso a la clave o el secreto en el almacén, utilice el cmdlet [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607.aspx).
+Para que la aplicación pueda tener acceso a la clave o el secreto en el almacén, utilice el cmdlet [Set-AzureKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/dn903607(v=azure.98).aspx).
 
 Por ejemplo, si el nombre del almacén es **ContosoKeyVault** y la aplicación que desea autorizar tiene el identificador de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed y desea que la aplicación tenga autorización para descifrar y firmar con claves en el almacén, ejecute lo siguiente:
 
@@ -216,7 +216,7 @@ Para obtener instrucciones detalladas sobre cómo generar el paquete BYOK, consu
 
 ## <a id="delete"></a>Eliminación del Almacén de claves junto con las claves y secretos asociados ##
 
-Si ya no necesita el Almacén de claves ni la clave o el secreto que contiene, puede eliminar el Almacén de claves utilizando el cmdlet [Remove-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903603.aspx):
+Si ya no necesita el Almacén de claves ni la clave o el secreto que contiene, puede eliminar el Almacén de claves utilizando el cmdlet [Remove-AzureKeyVault](https://msdn.microsoft.com/library/azure/dn903603(v=azure.98).aspx):
 
 	Remove-AzureKeyVault -VaultName 'ContosoKeyVault'
 
@@ -240,8 +240,16 @@ Estos son otros comandos que pueden resultar útiles para administrar el Almacé
 
 Para obtener un tutorial de seguimiento que usa el Almacén de claves de Azure en una aplicación web, consulte [Uso del Almacén de claves de Azure desde una aplicación web](key-vault-use-from-web-application.md).
 
-Para obtener una lista de los cmdlets de Windows PowerShell para el Almacén de claves de Azure, consulte [Cmdlets del Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
+Para obtener una lista de los cmdlets de Azure PowerShell para el Almacén de claves de Azure, consulte [Cmdlets del Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052(v=azure.98).aspx).
+
+Si desea probar la nueva versión de Azure PowerShell (versión 1.0) que está actualmente en versión preliminar, ya no necesitará ejecutar `Switch-AzureMode AzureResourceManager` y algunos de los cmdlets de Almacén de claves cambian de nombre. Para obtener más información acerca de esta versión preliminar, consulte la entrada [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/es-ES/blog/azps-1-0-pre/) en el blog de Microsoft Azure. Para obtener una lista de los cmdlets de Azure PowerShell para esta versión de Azure PowerShell, consulte [Cmdlets del Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx). Si instala esta nueva versión de Azure PowerShell, puede usar las instrucciones de este tutorial con los siguientes cambios:
+
+* No ejecute **Switch-AzureMode AzureResourceManager**
+* En lugar de **New-AzureKeyVault**, ejecute `New-AzureRMKeyVault`
+* En lugar de **Get-AzureKeyVault**, ejecute `Get-AzureRMKeyVault`
+* En lugar de **Remove-AzureKeyVault**, ejecute `Remove-AzureRMKeyVault`
+* En lugar de **Set-AzureKeyVaultAccessPolicy**, ejecute `Set-AzureRMKeyVaultAccessPolicy`   
 
 Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

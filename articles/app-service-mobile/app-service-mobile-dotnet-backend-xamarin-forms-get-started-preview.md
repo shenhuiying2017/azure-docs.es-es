@@ -176,4 +176,4 @@ Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil h
 [Instalación de Xamarin.iOS en Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!-----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -171,4 +171,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

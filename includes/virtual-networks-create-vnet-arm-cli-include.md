@@ -106,4 +106,4 @@ Puede utilizar la CLI de Azure para administrar los recursos de Azure desde el s
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

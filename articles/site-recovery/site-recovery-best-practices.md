@@ -82,7 +82,7 @@ Sea cual sea el escenario VMM que desee implementar con Site Recovery, tendrá q
 - [Novedades en la nube privada con System Center 2012 R2 VMM](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=)
 - [VMM 2012 y las nubes](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
 - [Configuración del tejido de nube de VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-- [Creación de una nube privada en VMM](https://technet.microsoft.com/es-es/library/jj860425.aspx)
+- [Creación de una nube privada en VMM](https://technet.microsoft.com/es-ES/library/jj860425.aspx)
 - [Tutorial: Creación de nubes privadas con System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 
 
@@ -157,7 +157,7 @@ Los proveedores y los agentes se instalan en servidores locales para que puedan 
 ## Optimización del rendimiento
 
 - **Tamaño del volumen del sistema operativo**: al replicar una máquina virtual a Azure, el volumen del sistema operativo tiene que ser inferior a 1 TB. Si tiene más volúmenes, puede moverlos manualmente a otro disco antes de comenzar la implementación.
-- **Tamaño de disco de datos**: si se está replicando en Azure, podrá tener hasta 32 discos de datos en una máquina virtual, cada una con un máximo de 1 TB. Puede replicar y conmutar por error de manera eficaz una máquina virtual de \~32 TB.
+- **Tamaño de disco de datos**: si se está replicando en Azure, podrá tener hasta 32 discos de datos en una máquina virtual, cada una con un máximo de 1 TB. Puede replicar y conmutar por error de manera eficaz una máquina virtual de ~32 TB.
 - **Límites del plan de recuperación**: Site Recovery puede escalar a miles de máquinas virtuales. Los planes de recuperación están diseñados como un modelo para las aplicaciones que deben conmutar por error entre sí por lo que se limita el número de máquinas en un plan de recuperación a 50.
 - **Límites del servicio Azure**: cada suscripción de Azure incluye un conjunto de límites predeterminados sobre núcleos, servicios en la nube, etc. Le recomendamos que ejecute una conmutación por error de prueba para validar la disponibilidad de los recursos de la suscripción. Puede modificar estos límites a través de soporte técnico de Azure.
 - **Planificación de capacidad**: para obtener instrucciones, use la [Planificación de capacidad para la réplica de Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=39057).
@@ -194,4 +194,4 @@ Después de revisar estas prácticas recomendadas, puede iniciar la implementaci
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -194,4 +194,4 @@ El código siguiente muestra una implementación sencilla de ParallelTaskProcess
 ###Envío de trabajos a Aplicaciones de Lote
 Un trabajo describe una carga de trabajo que se ejecutará y debe incluir toda la información sobre la carga de trabajo excepto el contenido del archivo. Por ejemplo, el trabajo contiene opciones de configuración que fluyen desde el cliente a través del divisor de trabajo y las tareas. Los ejemplos proporcionados en MSDN muestran cómo enviar trabajos y proporcionan varios clientes, incluyendo un portal web y un cliente de línea de comandos.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

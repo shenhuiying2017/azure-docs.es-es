@@ -69,4 +69,4 @@ Se recomienda eliminar el entorno virtual existente en la aplicación para evita
 [compilador de Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

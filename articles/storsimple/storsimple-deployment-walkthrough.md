@@ -290,4 +290,4 @@ Siga estos pasos en el Portal de Azure para crear una copia de seguridad manual 
 
 - Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

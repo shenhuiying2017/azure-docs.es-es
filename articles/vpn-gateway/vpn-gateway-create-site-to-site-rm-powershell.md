@@ -14,54 +14,59 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2015"
+   ms.date="10/13/2015"
    ms.author="cherylmc"/>
 
 # Crear una red virtual con una conexión VPN de sitio a sitio mediante PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-site-to-site-create.md)
+- [Azure Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Este artículo te guiará por la creación de una red virtual y una conexión VPN de sitio a sitio a tu red local mediante el modelo de implementación del Administrador de recursos de Azure.
+Este artículo te guiará por la creación de una red virtual y una conexión VPN de sitio a sitio a tu red local mediante el modelo de implementación del Administrador de recursos de Azure. Puedes seleccionar el artículo para el modelo de implementación y la herramienta de implementación usando las pestañas superiores.
 
->[AZURE.IMPORTANT]Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulta [Modelos de implementación de Azure](../azure-classic-rm.md).
-
-Puedes seleccionar el artículo para el modelo de implementación y la herramienta de implementación usando las pestañas superiores. Por ejemplo, si quieres crear una conexión de puerta de enlace de VPN de sitio a sitio mediante el modelo de implementación clásico del portal de Azure en lugar de usar el modelo de Administrador de recursos, haz clic en la pestaña **Portal de Azure** (anterior) para abrir [Crear una conexión VPN de sitio a sitio en el portal de Azure](vpn-gateway-site-to-site-create.md).
-
-
+>[AZURE.NOTE]Es importante saber que, actualmente, Azure funciona con dos modelos de implementación: el Administrador de recursos y el clásico. Antes de comenzar con la configuración, asegúrate de que comprendes los modelos y las herramientas de implementación. Para obtener información sobre los modelos de implementación, consulta [Modelos de implementación de Azure](../azure-classic-rm.md).
 
 ## Antes de comenzar
 
 Antes de comenzar con la configuración, comprueba que dispones de los elementos siguientes:
 
-- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulta [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
+- Un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN](vpn-gateway-about-vpn-devices.md).
+
 - Una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
-- La versión más reciente de los cmdlets de Azure PowerShell Puedes descargar e instalar la versión más reciente desde la sección de Windows PowerShell de la [Página de descargas](http://azure.microsoft.com/downloads/). 
-- Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 >[AZURE.IMPORTANT]Si no estás familiarizado con la configuración de tu dispositivo VPN o con los intervalos de direcciones IP, ubicados en la configuración de la red local, tendrás que trabajar con alguien que pueda proporcionar estos detalles por ti.
+	
+- Una suscripción de Azure. Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
-## su suscripción 
+- La versión más reciente de los cmdlets de Azure PowerShell Puede descargar e instalar la versión más reciente desde la sección Windows PowerShell de la [Página de descarga](http://azure.microsoft.com/downloads/). Este artículo está escrito para Azure PowerShell *0.9.8*.
+
+>[AZURE.NOTE]Si está ejecutando aplicaciones críticas, siga usando Azure PowerShell 0.9.8. En la mayoría de los casos, la única diferencia entre las dos versiones es que el nombre del cmdlet de la versión 1.0 Preview sigue el patrón {verbo}-AzureRm {nombre}, mientras que el nombre de la versión 0.9.8 no incluye RM. Por ejemplo, New-AzureRmResourceGroup en lugar de New-AzureResourceGroup. Para obtener información acerca de Azure PowerShell 1.0 Preview, consulte esta [entrada de blog](https://azure.microsoft.com/blog/azps-1-0-pre/). Para obtener más información acerca de los cmdlets de Azure PowerShell 1.0 Preview, consulte [Cmdlets de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt125356.aspx).
 
 
-Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
+## 1\. su suscripción 
+
+
+Abre la consola de PowerShell y conéctate a tu cuenta.
+
+**Nota:** las instrucciones siguientes se basan en la versión 0.9.8 de los cmdlets de Azure PowerShell.
+
+Use el siguiente ejemplo para ayudarle a conectarse:
 
 		Add-AzureAccount
 
-Si tienes más de una suscripción, usa *Select-AzureSubscription* para conectarte a la suscripción que quieres usar.
+Si tiene más de una suscripción, use *Select-AzureSubscription* para conectarse a la suscripción que quiere usar.
 
 		Select-AzureSubscription "yoursubscription"
 
-Después, cambia al modo de Administrador de recursos de Azure. En un futuro cercano no será necesario cambiar a este modo y los cmdlets de ambos modos estarán disponibles automáticamente.
-
+Después, cambia al modo de Administrador de recursos de Azure.
+		
 		Switch-AzureMode -Name AzureResourceManager
 
+## 2\. Creación de una red virtual y una puerta de enlace
 
-## Creación de una red virtual y una puerta de enlace
-
-- Si ya tienes una red virtual con una subred de puerta de enlace, puedes avanzar a [Incorporación del sitio local](#add-your-local-site). 
-- Si ya tienes una red virtual y quieres agregar una subred de puerta de enlace a tu red virtual, consulta [Incorporación de una subred de puerta de enlace a una red virtual](#gatewaysubnet).
+- Si ya tiene una red virtual con una subred de puerta de enlace, puede ir directamente a **Paso 3: Incorporación del sitio local**. 
+- Si ya tiene una red virtual y quiere agregar una subred de puerta de enlace a la red virtual, consulte [Incorporación de una subred de puerta de enlace a una red virtual](#gatewaysubnet).
 
 ### Para crear una red virtual y una subred de puerta de enlace
 
@@ -74,11 +79,11 @@ En primer lugar, crea un grupo de recursos:
 
 A continuación, cree su red virtual Compruebe que los espacios de direcciones especificados no se superponen con los espacios de direcciones que existen en la red local.
 
-En el ejemplo siguiente se crea una red virtual llamada *testvnet* y dos subredes: *GatewaySubnet* y *subred1*. Es importante crear una subred denominada específicamente *GatewaySubnet*. Si la asigna otro nombre, se producirá un error en la configuración de la conexión.
+En el ejemplo siguiente se crea una red virtual llamada *testvnet* y dos subredes: *GatewaySubnet* y *Subnet1*. Es importante crear una subred denominada específicamente *GatewaySubnet*. Si la asigna otro nombre, se producirá un error en la configuración de la conexión.
 
 		$subnet1 = New-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
 		$subnet2 = New-AzureVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
-		New-AzurevirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
+		New-AzureVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
 ### <a name="gatewaysubnet"></a>Para agregar una subred de puerta de enlace a una red virtual (opcional)
 
@@ -93,7 +98,7 @@ Ahora, puedes establecer la configuración.
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
-## Incorporación del sitio local
+## 3\. Incorporación del sitio local
 
 En una red virtual, el *sitio local* suele hacer referencia a la ubicación local. Asigne a ese sitio un nombre por el que Azure pueda hacer referencia a él.
 
@@ -112,14 +117,12 @@ Para agregar un sitio local con varios prefijos de dirección:
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
 
-
 ### Para modificar los prefijos de direcciones IP de tu sitio local
 
-Algunas veces pueden cambiar los prefijos tu sitio local. Los pasos necesarios para modificar los prefijos de direcciones IP dependen de si creaste o no una conexión de Puerta de enlace de VPN. Consulta [Modificar los prefijos de direcciones IP de un sitio local](#modify-ip-address-prefixes-for-a-local-site).
+Algunas veces pueden cambiar los prefijos tu sitio local. Los pasos necesarios para modificar los prefijos de direcciones IP dependen de si creaste o no una conexión de Puerta de enlace de VPN. Consulte [Modificar los prefijos de direcciones IP de un sitio local](#to-modify-ip-address-prefixes-for-a-local-site).
 
 
-
-## Solicitar una dirección IP pública para la puerta de enlace
+## 4\. Solicitar una dirección IP pública para la puerta de enlace
 
 A continuación, solicitará que se asigne una dirección IP pública a la puerta de enlace de VPN de la red virtual de Azure. No es la misma dirección IP que se asigna al dispositivo VPN, sino que se asigna a la puerta de enlace de VPN de Azure en sí. No puede especificar la dirección IP que desea usar; se asigna dinámicamente a la puerta de enlace. Usará esta dirección IP al configurar el dispositivo VPN local para conectarse a la puerta de enlace.
 
@@ -127,7 +130,7 @@ Use el siguiente ejemplo de PowerShell. El método de asignación para esta dire
 
 		$gwpip= New-AzurePublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
-## Creación de la configuración de direccionamiento IP de la puerta de enlace
+## 5\. Creación de la configuración de direccionamiento IP de la puerta de enlace
 
 La configuración de puerta de enlace define la subred y la dirección IP pública. Use el ejemplo siguiente para crear la configuración de la puerta de enlace.
 
@@ -136,26 +139,26 @@ La configuración de puerta de enlace define la subred y la dirección IP públi
 		$subnet = Get-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 		$gwipconfig = New-AzureVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
-## Creación de la puerta de enlace
+## 6\. Creación de la puerta de enlace
 
 En este paso, creará la puerta de enlace de red virtual. Ten en cuenta que la creación de una puerta de enlace lleva un tiempo en completarse.
 
 Use los valores siguientes:
 
 - El tipo de puerta de enlace es *Vpn*.
-- El VpnType puede ser RouteBased* (llamado puerta de enlace dinámica en algunos documentos) o *Basado en directivas* (llamado puerta de enlace estática en algunos documentos). Para obtener más información sobre los tipos de Puertas de enlace de VPN, consulta [Información sobre las Puertas de enlace de VPN](vpn-gateway-about-vpngateways.md). 	
+- El VpnType puede ser RouteBased* (llamado puerta de enlace dinámica en algunos documentos) o *Basado en directivas* (llamado puerta de enlace estática en algunos documentos). Para obtener más información sobre los tipos de Puertas de enlace de VPN, consulte [Información acerca las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md). 	
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## Configurar el dispositivo VPN
+## 7\. Configurar el dispositivo VPN
 
-En este momento, necesitará la dirección IP pública de la puerta de enlace de red virtual para configurar el dispositivo VPN local. Trabaje con el fabricante del dispositivo para obtener información de configuración específica. Para obtener más información también puedes consultar [Dispositivos VPN](http://go.microsoft.com/fwlink/p/?linkid=615099).
+En este momento, necesitará la dirección IP pública de la puerta de enlace de red virtual para configurar el dispositivo VPN local. Trabaje con el fabricante del dispositivo para obtener información de configuración específica. Para obtener más información, también puede consultar [Dispositivos VPN](http://go.microsoft.com/fwlink/p/?linkid=615099).
 
 Para buscar la dirección IP pública de la puerta de enlace de red virtual, use el siguiente ejemplo:
 
 	Get-AzurePublicIpAddress -Name gwpip -ResourceGroupName testrg
 
-## Creación de la conexión VPN
+## 8\. Creación de la conexión VPN
 
 A continuación, creará la conexión VPN de sitio a sitio entre la puerta de enlace de red virtual y el dispositivo VPN. Asegúrese de reemplazar los valores por los suyos. La clave compartida debe coincidir con el valor usado para la configuración del dispositivo VPN.
 
@@ -166,15 +169,15 @@ A continuación, creará la conexión VPN de sitio a sitio entre la puerta de en
 
 Pasado un momento, se establecerá la conexión.
 
-## Comprobar una conexión VPN
+## 9\. Comprobar una conexión VPN
 
-En este momento, las conexiones VPN de sitio a sitio creadas con el Administrador de recursos no están visibles en el Portal de vista previa. Sin embargo, se puede comprobar que la conexión se ha realizado correctamente usando *get-azurevirtualnetworkgatewayconnection –Debug*. En el futuro, tendremos un cmdlet para esto, así como la capacidad para ver la conexión en el Portal de vista previa.
+En este momento, las conexiones VPN de sitio a sitio creadas con el Administrador de recursos no están visibles en el Portal de vista previa. Sin embargo, se puede comprobar que la conexión se realizó correctamente mediante *Get-AzureVirtualNetworkGatewayConnection –Debug*. En el futuro, tendremos un cmdlet para esto, así como la capacidad para ver la conexión en el Portal de vista previa.
 
-Puedes usar el siguiente ejemplo de cmdlet, configurando los valores para que coincidan con los tuyos. Cuando se te pida, selecciona *A* para poder ejecutar Todo.
+Puedes usar el siguiente ejemplo de cmdlet, configurando los valores para que coincidan con los tuyos. Cuando se le pida, seleccione *A* para poder ejecutar Todo.
 
 		Get-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
- Cuando el cmdlet haya finalizado, desplázate para ver los valores. En el ejemplo siguiente, se muestra el estado de conexión como *Conectado* y puedes ver los bytes de entrada y salida.
+ Cuando el cmdlet haya finalizado, desplázate para ver los valores. En el ejemplo siguiente, se muestra el estado de conexión como *Conectado* y puede ver los bytes de entrada y salida.
 
 	Body:
 	{
@@ -204,21 +207,20 @@ Puedes usar el siguiente ejemplo de cmdlet, configurando los valores para que co
 	  }
 
 
-## Modificar los prefijos de direcciones IP de un sitio local
+## Para modificar los prefijos de direcciones IP de un sitio local
 
 Si tienes que cambiar los prefijos de sitio local, usa las instrucciones siguientes. Se proporcionan dos conjuntos de instrucciones y dependen de si ya creaste o no la conexión VPN de puerta de enlace.
 
 ### Agregar o quitar los prefijos sin una conexión de Puerta de enlace de VPN
 
 
-- **Para agregar** prefijos de dirección adicionales a un sitio local que creaste, pero que todavía no disponga de una conexión de Puerta de enlace de VPN, usa el ejemplo siguiente.
+- **Para agregar** prefijos de dirección adicionales a un sitio local que creó, pero que todavía no dispone de una conexión de Puerta de enlace de VPN, use el ejemplo siguiente.
 
 		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 
 
-
-- **Para quitar** un prefijo de dirección de un sitio local que no disponga de una conexión VPN, usa el ejemplo siguiente. Omita los prefijos que ya no necesite. En este ejemplo, ya no necesitamos el prefijo 20.0.0.0/24 (del ejemplo anterior), por lo que se actualizará el sitio local y se excluirá ese prefijo.
+- **Para quitar** un prefijo de dirección de un sitio local que no dispone de una conexión VPN, use el ejemplo siguiente. Omita los prefijos que ya no necesite. En este ejemplo, ya no necesitamos el prefijo 20.0.0.0/24 (del ejemplo anterior), por lo que se actualizará el sitio local y se excluirá ese prefijo.
 
 		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
@@ -247,9 +249,8 @@ Puedes usar el ejemplo siguiente como guía.
 		New-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
-
 ## Pasos siguientes
 
 Agregue una máquina virtual a una red virtual. [Creación de una máquina virtual](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

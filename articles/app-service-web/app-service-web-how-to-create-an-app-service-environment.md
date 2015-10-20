@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+	ms.date="10/13/2015" 
 	ms.author="ccompy"/>
 
 # Creación de un entorno del Servicio de aplicaciones #
@@ -39,12 +39,12 @@ Cada implementación de ASE es un servicio hospedado que Azure administra y mant
 Hay dos maneras de obtener acceso a la IU de creación de ASE. Puede encontrarlo buscando ***entorno del Servicio de aplicaciones*** en Azure Marketplace o a través de Nuevo -> Web + Móvil.
 
 ### Creación rápida ###
-Después de entrar en la IU de creación puede crear rápidamente un ASE simplemente escribiendo un nombre para la implementación. A su vez se creará una red virtual con 512 direcciones, una subred con 256 direcciones en esa red virtual y un entorno ASE con 2 servidores front-end y lo 2 trabajos en el grupo de trabajo 1. Asegúrese de seleccionar la ubicación donde desea que se encuentre el sistema y la suscripción en la que desee que esté. Las únicas cuentas que puede usar el ASE para hospedar contenido deben encontrarse en la suscripción utilizada para crearlo.
+Después de entrar en la IU de creación puede crear rápidamente un ASE simplemente escribiendo un nombre para la implementación. A su vez se creará una red virtual con 512 direcciones, una subred con 256 direcciones en esa red virtual y un entorno ASE con 2 servidores front-end y lo 2 trabajos en el grupo de trabajo 1. Asegúrese de crear un nuevo *plan de servicio de aplicaciones* o seleccione uno existente y la suscripción en la que quiera que esté. Las únicas cuentas que puede usar el ASE para hospedar contenido deben encontrarse en la suscripción utilizada para crearlo.
 
 El nombre especificado para el ASE se utilizará para las aplicaciones web creadas en el ASE. Si el nombre del ASE es appsvcenvdemo, el nombre de dominio sería .*appsvcenvdemo.p.azurewebsites.net*. Si creó una aplicación web llamada mytestapp, sería podría obtener acceso a ella a través de la dirección *mytestapp.appsvcenvdemo.p.azurewebsites.net*. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas en el nombre, el nombre de dominio será la versión en minúsculas total de ese nombre.
 
 
-![][1]
+![][1] ![][4]
 
 ### Grupos de recursos de proceso ###
 
@@ -138,6 +138,7 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseappserviceplan.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -145,4 +146,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -89,4 +89,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

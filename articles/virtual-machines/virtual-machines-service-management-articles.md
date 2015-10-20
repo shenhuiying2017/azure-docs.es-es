@@ -14,12 +14,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="10/01/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Artículos para máquinas virtuales en la administración de servicios
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Se trata de una lista de artículos sobre la creación y administración de recursos con el modelo de implementación clásico.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modelo del Administrador de recursos.
+
 
 ## Primeros pasos
 
@@ -87,8 +88,6 @@
 
 [Configuración de extremos en una máquina virtual](virtual-machines-set-up-endpoints.md)
 
-[Administración de máquinas virtuales mediante la CLI de Azure para Mac, Linux y Windows](virtual-machines-manage-vms-azure-cli.md)
-
 ## Creación de cargas de trabajo
 
 [Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
@@ -153,4 +152,4 @@
 
 [Referencia de la API de REST de Administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

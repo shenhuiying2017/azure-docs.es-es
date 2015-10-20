@@ -10,6 +10,6 @@ A continuación, presentamos una lista de algunos otros tutoriales que podría i
 - PHP: [Uso de los Centros de notificaciones desde PHP](../articles/notification-hubs/notification-hubs-php-backend-how-to.md).
 
 
-En esta siguiente sección del tutorial, aprenderá a usar la [Interfaz de REST de Centros de notificaciones](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) para enviar el mensaje de notificación directamente en su aplicación. Todos los dispositivos registrados reciben la notificación que envía cualquier dispositivo.
+En la siguiente sección del tutorial, aprenderá a usar la [Interfaz de REST de Centros de notificaciones](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) para enviar el mensaje de notificación directamente en su aplicación. Todos los dispositivos registrados reciben la notificación que envía cualquier dispositivo.
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->
