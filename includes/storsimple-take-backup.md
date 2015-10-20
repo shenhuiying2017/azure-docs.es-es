@@ -29,4 +29,4 @@ Ahora ya acabó de configurar el dispositivo.
 
 Para ver un vídeo que muestra cómo tomar una copia de seguridad de StorSimple, haga clic [aquí](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

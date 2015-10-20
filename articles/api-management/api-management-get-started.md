@@ -243,4 +243,4 @@ La sección **Análisis** consta de las cuatro pestañas siguientes:
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

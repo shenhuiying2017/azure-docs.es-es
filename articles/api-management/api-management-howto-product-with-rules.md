@@ -46,7 +46,7 @@ En el cuadro **Título** escriba **Prueba gratuita**.
 
 En el cuadro **Descripción**, escriba **Los suscriptores podrán realizar 10 llamadas/minuto hasta un máximo de 200 llamadas/semana; después, el acceso se denegará**.
 
-Los productos de Administración de API pueden estar abiertos o protegidos. Para poder usar los productos protegidos es necesario suscribirse antes a ellos, mientras que los productos abiertos pueden usarse sin suscripción. Asegúrese de que la opción **Requerir suscripción** está seleccionada para crear un producto protegido que requiera una suscripción. Esta es la configuración predeterminada.
+Los productos de Administración de API pueden estar abiertos o protegidos. Para poder usar los productos protegidos es necesario suscribirse antes a ellos, mientras que los productos abiertos pueden usarse sin suscripción. Asegúrese de que la opción **￼Requerir suscripción￼** está seleccionada para crear un producto protegido que requiera una suscripción. Esta es la configuración predeterminada.
 
 Si desea que un administrador revise y acepte o rechace los intentos de suscripción a este producto, active **Requerir aprobación de suscripción**. Si la casilla no está seleccionada, los intentos de suscripción se autoaprobarán. En este ejemplo, las suscripciones se aprueban automáticamente, por lo que no tiene que seleccionar la casilla.
 
@@ -78,7 +78,7 @@ Haga clic en **Agregar API al producto**.
 
 ![Add API to product][api-management-add-api]
 
-Seleccione **API Eco ** y luego haga clic en **Guardar**.
+Seleccione **API Eco ** y luego haga clic en **￼Guardar￼**.
 
 ![Add Echo API][api-management-add-echo-api]
 
@@ -207,7 +207,7 @@ Ahora que el producto Prueba gratuita está configurado y publicado, podemos lla
 
 ![Portal para desarrolladores][api-management-developer-portal-menu]
 
-Haga clic en **API** en el menú superior y después en **API eco**.
+Haga clic en **API** en el menú superior y después en **API eco￼**.
 
 ![Portal para desarrolladores][api-management-developer-portal-api-menu]
 
@@ -292,4 +292,4 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [Limitar frecuencia de llamadas]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Establecer cuota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

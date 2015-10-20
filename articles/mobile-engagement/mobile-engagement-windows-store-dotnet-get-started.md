@@ -33,7 +33,7 @@ Este tutorial requiere lo siguiente:
 + Visual Studio 2013
 + Paquete de Nuget [MicrosoftAzure.MobileEngagement]
 
-> [AZURE.IMPORTANT]Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones Windows Universal. Para completarlo, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.IMPORTANT]Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones Windows Universal. Para completarlo, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ##<a id="setup-azme"></a>Configure Mobile Engagement para su aplicación Windows Universal
 
@@ -190,4 +190,4 @@ Si la aplicación se estaba ejecutando, verá entonces una notificación desde l
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 [8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

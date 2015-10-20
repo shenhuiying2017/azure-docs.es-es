@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/09/2015"
 	ms.author="genemi"/>
 
 
 # Conexión y consultas a Base de datos SQL con C&#x23;
 
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
 Desea escribir un programa de C# que usa ADO.NET para conectarse a una base de datos de la Base de datos SQL de Azure en la nube.
 
@@ -31,7 +35,7 @@ Este tema describe cada paso para las personas que son nuevas en la Base de dato
 Para ejecutar el ejemplo de código de C#, debe tener:
 
 
-- Una cuenta y una suscripción de Azure. Puede registrarse para una [prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 
 - Una base de datos de demostración **AdventureWorksLT** en el servicio Base de datos SQL de Azure.
@@ -60,7 +64,7 @@ Si necesita instalar Visual Studio, puede:
 ### Visual Studio a través del Portal de vista previa de Azure
 
 
-1. Inicie sesión a través del [Portal de vista previa de Azure](http://portal.azure.com/), http://portal.azure.com/.
+1. Inicie sesión en el [Portal de vista previa de Azure](http://portal.azure.com/), http://portal.azure.com/.
 
 2. Haga clic en **EXAMINAR* TODO** > **Bases de datos SQL**. Se abre una hoja que busca bases de datos.
 
@@ -116,7 +120,7 @@ Nuestro ejemplo de C# usa el ensamblado de .NET Framework **System.Configuration
 
 4. Haga clic en **Aceptar**.
 
-5. Compile el programa mediante el menú **GENERAR** > **Generar solución**.
+5. Compile el programa mediante el menú **COMPILAR** > **Compilar solución**.
 
 
 ## Paso 4: Obtención de la cadena de conexión
@@ -173,7 +177,7 @@ Su primer uso será conectar Visual Studio a la base de datos **AdventureWorksLT
 	![Pegar en nuestro código de programa de C# de ejemplo][40-VSProgramCsOverlay]
 
 2. Para sobrescribir todo el código de inicio en Program.cs, pegue el siguiente código de C# de ejemplo.
- - Si desea un código de ejemplo más corto, puede asignar la cadena de conexión completa como un literal para la variable **SQLConnectionString**. A continuación, puede borrar los dos métodos **GetConnectionStringFromExeConfig** y **GatherPasswordFromConsole**.
+ - Si desea un código de ejemplo más corto, puede asignar la cadena de conexión completa como un literal a la variable **SQLConnectionString**. A continuación, puede borrar los dos métodos **GetConnectionStringFromExeConfig** y **GatherPasswordFromConsole**.
 
 
 ```
@@ -280,7 +284,7 @@ namespace ConnectAndQuery_Example
 ### Compilación del programa
 
 
-1. En Visual Studio, para compilar el programa, haga clic en el menú **Generar** > **Generar solución**.
+1. En Visual Studio, para compilar el programa, haga clic en el menú **Compilar** > **Compilar solución**.
 
 
 ### Resumen de acciones en el programa de ejemplo
@@ -319,7 +323,7 @@ Puede usar el [Portal de vista previa de Azure](http://portal.azure.com/) para a
 
 
 
-Para obtener más información, consulte<br/> [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md)
+Para obtener más información, consulte <br/> [Configuración del firewall en Base de datos SQL](sql-database-configure-firewall-settings.md).
 
 
 
@@ -353,4 +357,4 @@ Para obtener más información, consulte<br/> [Configuración del firewall en Ba
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

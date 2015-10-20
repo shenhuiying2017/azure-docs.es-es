@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Uso de Azure AD Connect Health con AD FS | Microsoft Azure"
-	description="Esta es la página de Azure AD Connect Health sobre cómo supervisar la infraestructura de AD FS local."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Uso de Azure AD Connect Health con AD FS | Microsoft Azure" 
+	description="Esta es la página de Azure AD Connect Health sobre cómo supervisar la infraestructura de AD FS local." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/14/2015" 
 	ms.author="billmath"/>
 
 # Uso de Azure AD Connect Health con AD FS 
@@ -73,4 +73,4 @@ Al seleccionar la opción Filtro en la parte superior de la hoja, puede filtrar 
 * [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Preguntas más frecuentes de Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

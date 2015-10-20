@@ -12,12 +12,10 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="awills"/>
 
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 Después de haber implementado la aplicación web, puede configurar pruebas web para supervisar su disponibilidad y capacidad de respuesta. Application Insights enviará solicitudes web a intervalos regulares desde puntos de todo el mundo y puede alertarle si la aplicación responde lentamente o no responde en absoluto.
 
@@ -51,19 +49,21 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **La dirección URL** debe ser visible desde la red pública de Internet. Puede incluir una cadena de consulta, así por ejemplo se puede ejercitar un poco la base de datos. Si la dirección URL se resuelve en una redirección, la seguiremos, con un máximo de 10 redirecciones.
-
-- Si **Habilitar reintentos** está activado, cuando se produce un error en la prueba, esta se vuelve a intentar después de un intervalo corto. Se notifica un error únicamente si los tres intentos sucesivos producen un error. Si es así, las pruebas siguientes se realizan con el intervalo habitual. El reintento se suspende temporalmente hasta que uno se complete correctamente. Esta regla se aplica independientemente en cada ubicación de la prueba.
-
+- **Analizar solicitudes dependientes**: imágenes, scripts, archivos de estilo y otros recursos de la página se solicitan como parte de la prueba. La prueba da error si todos estos recursos no se pueden descargar correctamente dentro del tiempo de espera de la prueba entera.
+- **Habilitar reintentos**: cuando la prueba da error, se reintenta tras un corto intervalo. Se notifica un error únicamente si los tres intentos sucesivos producen un error. Las sucesivas pruebas se realizan según la frecuencia habitual de la prueba. El reintento se suspende temporalmente hasta que uno se complete correctamente. Esta regla se aplica independientemente en cada ubicación de la prueba. (Se recomienda esta configuración. Como media, cerca del 80 % de los errores desaparecen al reintentar).
+- **Frecuencia de prueba**: establece la frecuencia con que se ejecuta la prueba desde cada ubicación de prueba. Con una frecuencia de cinco minutos y cinco ubicaciones de prueba, el sitio se prueba cada minuto por término medio.
 - Las **ubicaciones de prueba** son los lugares desde donde nuestros servidores envían solicitudes web a la dirección URL. Elija más de una de tal forma que pueda distinguir los problemas del sitio web a partir de los problemas de red. Puede seleccionar hasta 16 ubicaciones.
 
 - **Criterios de éxito**:
 
-    **Código de estado HTTP**: 200 es el habitual.
+    **Tiempo de espera de prueba**: reduzca este valor para recibir una alerta sobre las respuestas lentas. La prueba se considera un error si no se han recibido respuestas de su sitio dentro de este período. Si seleccionó **Analizar solicitudes dependientes**, todas las imágenes, archivos de estilo, scripts y otros recursos dependientes se deben haber recibido durante este período.
+
+    **Respuesta HTTP**: el código de estado devuelto que se considera correcto. 200 es el código que indica que se ha devuelto una página web normal.
 
     **Coincidencia de contenido**: una cadena, como "Bienvenido". Realizaremos una prueba que tenga lugar en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla.
 
 
-- Las **alertas** se envían, de manera predeterminada, si hay errores repetidos cada 15 minutos. No obstante, puede cambiar este ajuste para aumentar su sensibilidad, y también puede cambiar las direcciones de correo electrónico de notificación.
+- De forma predeterminada, las **alertas** se le envían cuando hay errores en tres ubicaciones durante cinco minutos. Es probable que un error en una ubicación sea un problema de red y no un problema con su sitio. No obstante, puede cambiar el umbral a más o menos sensible, y también puede cambiar las personas a quienes se deben enviar los correos electrónicos.
 
 #### Prueba de más URL
 
@@ -72,7 +72,7 @@ Agregue más pruebas. Por ejemplo, además de probar la página principal, puede
 
 ### <a name="monitor"></a>3. Ver informes de disponibilidad
 
-Después de 1 o 2 minutos, haga clic en **Actualizar** en la hoja de pruebas de disponibilidad/web. (No se actualiza automáticamente).
+Después de uno o dos minutos, haga clic en **Actualizar** en la hoja de pruebas de disponibilidad o web. (No se actualiza automáticamente).
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -242,6 +242,6 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

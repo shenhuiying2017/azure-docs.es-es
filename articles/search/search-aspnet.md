@@ -462,4 +462,4 @@ Para fomentar el conocimiento de Búsqueda de Azure y la integración con ASP.NE
 - [Caso práctico para desarrolladores de Búsqueda de Azure](search-dev-case-study-whattopedia.md)
 - [Flujo de trabajo de desarrollo típico para Búsqueda de Azure](search-workflow.md) 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

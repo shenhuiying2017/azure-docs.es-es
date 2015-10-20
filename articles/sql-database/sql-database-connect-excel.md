@@ -4,8 +4,8 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="joseidz"
-	manager="joseidz"
-	editor="joseidz"/>
+	manager="jeffreyg"
+	editor="jeffreyg"/>
 
 
 <tags
@@ -14,47 +14,58 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/09/2015"
+	ms.date="10/09/2015"
 	ms.author="joseidz"/>
 
 
-# Conexión a una base de datos SQL de Azure con Excel
-Conecte Excel a una Base de datos SQL de Azure y cree un informe de los datos de la base de datos.
+# Conexión a una Base de datos SQL de Azure con Excel
 
-## Requisitos previos
-- Una base de datos SQL de Azure SQL aprovisionada y en ejecución. Para crear una nueva base de datos SQL, vea [Introducción a la base de datos SQL de Microsoft Azure](sql-database-get-started.md).
-- [Microsoft Excel 2013](https://products.office.com/en-US/) (o Microsoft Excel 2010)
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
-## Conexión a Base de datos SQL y creación de informes
-1.	Abra Excel.
-2.	En la barra de menús en la parte superior de la página, haga clic en **Datos**.
-3.	Haga clic en **De otros orígenes** y, después, en **De SQL Server**. El **Asistente para la conexión de datos** se abre.
+En este artículo se muestra cómo conectar Excel a una Base de datos SQL de Azure y crear un informe de los datos de la base de datos. En primer lugar necesitará una Base de datos SQL. Si no tiene una, consulte [Crear la primera Base de datos SQL](sql-database-get-started.md) para poner en marcha y en unos minutos una base de datos con datos de ejemplo. Este artículo se basa en los datos de ejemplo de ese artículo, pero puede seguir estos pasos con sus propios datos.
 
-	![Asistente para la conexión de datos][1]
-4.	En el cuadro **Nombre del servidor**, escriba el nombre del servidor de Base de datos SQL de Azure. Ejemplo:
+También necesitará una copia de Excel. Este artículo usa [Microsoft Excel 2016](https://products.office.com/es-ES/).
 
-	 	adventureserver.database.windows.net
-5.	En la sección **Credenciales de inicio de sesión**, seleccione**Usar el nombre de usuario y la contraseña siguientes** y escriba las credenciales adecuadas para el servidor de Base de datos SQL. A continuación, haga clic en **Siguiente**.
+## Conexión y creación de un informe
 
-	Nota: ambos complementos para Excel, [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) y [Power Query](https://www.microsoft.com/download/details.aspx?id=39379), ofrecen experiencias muy similares.
+1.	Abra Excel y cree un nuevo libro o bien abra el libro que desea conectar.
 
-6. En el cuadro de diálogo **Seleccionar base de datos y tabla**, seleccione la base de datos **AdventureWorks** en el menú desplegable y seleccione **vGetAllCategories** en la lista de tablas y vistas; después, haga clic en **Siguiente**.
+2.	En la barra de menús de la parte superior de la página, haga clic sucesivamente en **Datos**, en **De otros orígenes** y en **Desde SQL Server**.
+	
+	![Selección de origen de datos](./media/sql-database-connect-excel/excel_data_source.png)
+
+	Se abre el Asistente para la conexión de datos.
+
+3.	En el cuadro de diálogo **Conectar con el servidor de la base de datos**, escriba el **Nombre de servidor** que hospeda el servidor lógico al que quiere conectarse con este formato **<*nombreDeServidor*>.database.windows.net**. Por ejemplo, **adventureserver.database.windows.net**.
+
+4.	En la sección **Credenciales de inicio de sesión**, haga clic en **Usar el nombre de usuario y la contraseña siguientes**, escriba el **Nombre de usuario** y la **Contraseña** que haya configurado para el servidor de Base de datos SQL cuando la creó y, finalmente, haga clic en **Siguiente**.
+
+	> [AZURE.TIP]Ambos complementos para Excel, [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102) y [Power Query](https://www.microsoft.com/download/details.aspx?id=39379), ofrecen experiencias similares.
+
+5. En el cuadro de diálogo **Seleccionar base de datos y tabla**, seleccione la base de datos **AdventureWorks** en el menú desplegable y seleccione **vGetAllCategories** en la lista de tablas y vistas; después, haga clic en **Siguiente**.
 
 	![Selección de una base de datos y una tabla][5]
-7. En el cuadro de diálogo **Guardar archivo de conexión de datos y finalizar**, haga clic en **Finalizar**.
-8. En el cuadro de diálogo **Importar datos**, seleccione **Gráfico dinámico** y haga clic en **Aceptar**.
+
+6. En el cuadro de diálogo **Guardar archivo de conexión de datos y finalizar**, haga clic en **Finalizar**.
+
+7. En el cuadro de diálogo **Importar datos**, seleccione **Gráfico dinámico** y haga clic en **Aceptar**.
 
 	![Selección de los datos para importar][2]
-9. En el cuadro de diálogo **Campos de gráfico dinámico**, seleccione la configuración siguiente para crear un informe del recuento de productos por categoría.
+
+8. En el cuadro de diálogo **Campos de gráfico dinámico**, seleccione la configuración siguiente para crear un informe del recuento de productos por categoría.
 
 	![Configuración][3]
-10.	Un resultado correcto tiene este aspecto:
+
+	Un resultado correcto tiene este aspecto:
 
 	![Correcto][4]
 
 ## Pasos siguientes
 
-Si es un desarrollador de Software como servicio (SaaS), obtenga información sobre los [grupos de bases de datos elásticas](sql-database-elastic-pool.md). Puede administrar fácilmente grandes colecciones de bases de datos usando [trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md).
+Si es un desarrollador de software como servicio (SaaS), obtenga información sobre los [grupos de bases de datos elásticas](sql-database-elastic-pool.md). Puede administrar fácilmente grandes colecciones de bases de datos usando [trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-connect-excel/connect-to-database-server.png
@@ -63,4 +74,4 @@ Si es un desarrollador de Software como servicio (SaaS), obtenga información so
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

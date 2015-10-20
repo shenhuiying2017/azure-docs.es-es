@@ -207,4 +207,4 @@ Para obtener más información acerca de cómo empezar a usar Copia de seguridad
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Administración de máquinas virtuales](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

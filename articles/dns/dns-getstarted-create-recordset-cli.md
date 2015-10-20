@@ -37,7 +37,7 @@ Un nombre _completo_ incluye el nombre de zona, mientras que un nombre _relativo
 
 Los registros se presentan en distintos tipos en función de los datos que contienen. El tipo más común es un registro "A", que asigna un nombre a una dirección IPv4. Otro tipo es un registro "MX", que asigna un nombre a un servidor de correo.
 
-DNS de Azure es compatible con todos los tipos de registro DNS comunes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT.
+DNS de Azure es compatible con todos los tipos de registro DNS comunes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. (Tenga en cuenta que [los registros SPF deben crearse mediante el tipo de registro TXT](http://tools.ietf.org/html/rfc7208#section-3.1)).
 
 En ocasiones, necesitará crear más de un registro DNS con un nombre y un tipo concretos. Por ejemplo, supongamos que el sitio web www.contoso.com se hospeda en dos direcciones IP diferentes. Esto requiere dos registros A diferentes, uno para cada dirección IP:
 
@@ -122,4 +122,4 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

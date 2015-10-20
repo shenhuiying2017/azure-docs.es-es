@@ -256,4 +256,4 @@ Para crear los Servicios de BizTalk de Azure en el portal de Azure, vaya a [Serv
 - [Servicios de BizTalk: nombre del emisor y clave del emisor](biztalk-issuer-name-issuer-key.md)<br/>
 - [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

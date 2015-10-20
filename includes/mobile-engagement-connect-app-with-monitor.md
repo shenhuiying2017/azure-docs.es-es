@@ -14,4 +14,4 @@ En esta sección se muestra cómo asegurarse de que la aplicación se conecta al
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

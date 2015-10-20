@@ -34,4 +34,4 @@ Para hacer una copia de seguridad de los archivos y los datos de Windows Server 
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 - [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

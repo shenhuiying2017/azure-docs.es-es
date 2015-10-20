@@ -26,4 +26,4 @@ El servicio Cola contiene los siguientes componentes:
 
 - **Mensaje:** un mensaje, en cualquier formato, de hasta 64 KB.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

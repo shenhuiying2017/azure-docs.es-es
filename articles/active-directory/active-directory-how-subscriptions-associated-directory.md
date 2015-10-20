@@ -124,4 +124,4 @@ Para administrar ambos directorios en el Portal de administración, siga estos p
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -118,4 +118,4 @@ Ahora que ha aprendido a crear una colección, intente crear una [colección que
 
 <!--Image references-->
 
-<!-------HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -62,8 +62,8 @@ La disponibilidad definida en el conjunto de datos **AzureBlobOutput** determina
 ## Preparar el almacenamiento de Azure para el tutorial
 Antes de comenzar el tutorial, tendrá que preparar el almacenamiento de Azure con los archivos necesarios para el tutorial.
 
-1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **partitionweblogs.hql** en la carpeta C:\\adfgettingstarted del disco duro. Estos scripts de Hive crean dos tablas externas: **WebLogsRaw** y **WebLogsPartitioned**.
-
+1. Inicie el **Bloc de notas** y pegue el siguiente script HQL. Estos scripts de Hive crean dos tablas externas: **WebLogsRaw** y **WebLogsPartitioned**. Haga clic en **Archivo** en el menú y seleccione **Guardar como**. Cambie a la carpeta **C:\\adfgettingstarted** en el disco duro. Seleccione **Todos los archivos (*.*)** en el campo **Guardar como tipo**. Escriba **partitionweblogs.hql** en **Nombre de archivo**. Confirme que el campo **Codificación** en la parte inferior del cuadro de diálogo está establecido en **ANSI**. Si no es así, establézcalo en **ANSI**.  
+	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -142,19 +142,18 @@ Antes de comenzar el tutorial, tendrá que preparar el almacenamiento de Azure c
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-	
- 
+	 
 2. Para preparar el almacenamiento de Azure para el tutorial:
-	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión más reciente de vista preliminar**. Vea el artículo [Cómo usar AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre el uso de la utilidad.
+	1. Descargue la [versión más reciente de [AzCopy](http://aka.ms/downloadazcopypr)](http://aka.ms/downloadazcopy) o la **versión preliminar más reciente**. Consulte el artículo [Cómo usar AzCopy](../storage/storage-use-azcopy.md) para obtener instrucciones sobre cómo usar la utilidad.
 	2. Después de instalar AzCopy, puede agregarlo a la ruta de acceso del sistema ejecutando el comando siguiente en un símbolo del sistema. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
-	3. Navegue hasta la carpeta c:\\adfgettingstarted y ejecute el comando siguiente para cargar el archivo .HQL de Hive a la cuenta de almacenamiento. Reemplace **StorageAccountName** con el nombre de la cuenta de almacenamiento y **Storage Key** con la clave de la cuenta de almacenamiento.
+	3. Navegue hasta la carpeta c:\\adfgettingstarted y ejecute el comando siguiente para cargar el archivo .HQL de Hive a la cuenta de almacenamiento. Reemplace **StorageAccountName** por el nombre de la cuenta de almacenamiento y **Storage Key** por la clave de la cuenta de almacenamiento.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]El comando anterior crea un contenedor denominado **script** en el almacenamiento de blobs de Azure y copia el archivo **partitionweblogs.hql** en el contenedor.
+		> [AZURE.NOTE]El comando anterior crea un contenedor llamado **script** en su almacenamiento de blobs de Azure y copia el archivo **partitionweblogs.hql** desde la unidad local en el contenedor.
 	>
 	5. Una vez cargado correctamente el archivo, verá el siguiente resultado de AzCopy.
 	
@@ -171,9 +170,9 @@ Haga lo siguiente:
 
 - Haga clic en el vínculo [Uso del editor de la Factoría de datos](data-factory-build-your-first-pipeline-using-editor.md) en la parte superior para realizar el tutorial con el Editor de Factoría de datos, que forma parte del Portal de Azure.
 - Haga clic en el vínculo [Uso de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) en la parte superior para realizar el tutorial con PowerShell de Azure.
-- Haga clic en el vínculo [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) de la parte superior para realizar el tutorial con Visual Studio. 
+- Haga clic en el vínculo [Uso de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) en la parte superior para realizar el tutorial con Visual Studio. 
 
 ## Enviar comentarios
 Agradecemos sus comentarios sobre este artículo. Dedique unos minutos a enviar sus comentarios por [correo electrónico](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

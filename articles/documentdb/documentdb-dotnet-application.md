@@ -20,13 +20,19 @@
 
 #<a name="_Toc395809351"></a>Desarrollo de una aplicación Web ASP.NET MVC usando DocumentDB
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md) 
+
 Para resaltar cómo pueden aprovechar eficazmente Azure DocumentDB para almacenar y consultar documentos JSON, este artículo proporciona un tutorial completo que muestra cómo crear una aplicación de web de lista todo mediante Azure DocumentDB. Las tareas se almacenarán como documentos JSON en Azure DocumentDB.
 
 ![Captura de pantalla de la aplicación web todo list creada por este tutorial](./media/documentdb-dotnet-application/image1.png)
 
 Este tutorial muestra cómo utilizar el servicio de DocumentDB proporcionado por Azure para almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Azure.
 
-> [AZURE.TIP]En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si no está familiarizado con ASP.NET o con las [herramientas de requisitos previos](#_Toc395637760), se recomienda que descargue el proyecto de ejemplo completo de [GitHub][] y las siguientes instrucciones en este ejemplo. Una vez compilado, puede revisar este artículo para obtener información sobre el código en el contexto del proyecto.
+> [AZURE.TIP]En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si no está familiarizado con ASP.NET o con las [herramientas de requisitos previos](#_Toc395637760), le recomendamos que descargue el proyecto de ejemplo completo de [GitHub][] y siga las instrucciones de este ejemplo. Una vez compilado, puede revisar este artículo para obtener información sobre el código en el contexto del proyecto.
 
 ## <a name="_Toc395637760"></a>Requisitos previos del tutorial de base de datos
 
@@ -77,7 +83,7 @@ Ahora que tiene una cuenta, creemos nuestro nuevo proyecto de ASP.NET.
 
   	No he elegido "Servidor de base de datos" aquí porque no estamos usando un servidor de Base de datos SQL de Azure aquí, vamos a crear una nueva cuenta de Azure DocumentDB más adelante en el Portal de vista previa de Azure.
 
-	Para obtener más información acerca de la elección de un **plan del Servicio de aplicaciones** y **Grupo de recursos**, vea [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Para obtener más información sobre cómo elegir un **plan del Servicio de aplicaciones** y un **grupo de recursos**, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   	![Captura de pantalla del cuadro de diálogo Configurar sitio web de Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -493,7 +499,7 @@ Agreguemos algo de código a DocumentDBRepository e ItemController para mantener
 		}
 	Este código llama a DocumentDBRepository y usa el método CreateItemAsync para conservar el nuevo elemento todo en la base de datos.
  
-	**Security Note**: el atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para obtener más información acerca del tema, así como ejemplos de cómo implementarlo correctamente, consulte [Prevención de la falsificación de solicitud entre sitios][]. El código de origen proporcionado en [GitHub][] tiene la implementación completa en su lugar.
+	**Security Note**: el atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para obtener más información acerca del tema, así como ejemplos de cómo implementarlo correctamente, consulte [Prevención de la falsificación de solicitud entre sitios][]. El código fuente proporcionado en [GitHub][] ya tiene la implementación completa.
 
 	**Nota de seguridad**: también usamos el atributo **Bind** en el parámetro de método para ayudar a proteger contra ataques de publicación en exceso. Para obtener más información, consulte [Operaciones CRUD básicas en ASP.NET MVC][].
 
@@ -627,4 +633,4 @@ Para agregar la funcionalidad adicional a la aplicación, revise las API disponi
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

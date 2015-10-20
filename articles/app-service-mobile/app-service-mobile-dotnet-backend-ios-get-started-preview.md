@@ -79,4 +79,4 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!-----HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties
  pageTitle="Conceptos, términos y entidades del programador | Microsoft Azure"
-	description="Conceptos del Programador de Azure, terminología y jerarquía de entidades, incluidos trabajos y colecciones de trabajos. Proporciona un ejemplo completo de un trabajo programado."
-	services="scheduler"
-	documentationCenter=".NET"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+ description="Conceptos del Programador de Azure, terminología y jerarquía de entidades, incluidos trabajos y colecciones de trabajos. Proporciona un ejemplo completo de un trabajo programado."
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
+ editor=""/>
 <tags
  ms.service="scheduler"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="08/04/2015"
-	ms.author="krisragh"/>
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="get-started-article"
+ ms.date="08/04/2015"
+ ms.author="krisragh"/>
 
 # Conceptos, terminología y jerarquía de entidades de Programador
 
@@ -207,4 +207,4 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

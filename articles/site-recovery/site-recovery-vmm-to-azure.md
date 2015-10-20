@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/23/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 #  Configuración de la protección entre un sitio de VMM local y Azure
@@ -306,13 +306,10 @@ Hay dos maneras de ejecutar una prueba de conmutación por error en Azure.
 - Probar la conmutación por error sin una red de Azure: este tipo de conmutación por error de prueba comprueba que la máquina virtual incluye correctamente en Azure. La máquina virtual no estará conectada a ninguna red de Azure después de la conmutación por error.
 - Probar la conmutación por error con una red de Azure: este tipo de conmutación por error comprueba que todo el entorno de replicación se incluye como se esperaba y que conmutan las máquinas virtuales se conectarán al red de Azure de destino especificada. En el caso del control de subredes, para probar la conmutación por error de la subred se averiguará la máquina virtual de prueba de acuerdo con la subred de la máquina virtual de réplica. Esto es diferente a la replicación normal cuando la subred de una máquina virtual de réplica se basa en la subred de la máquina virtual de origen.
 
-Si desea ejecutar una conmutación por error de prueba para una máquina virtual habilitada para protección en Azure sin especificar una red de Azure de destino, no es necesario preparar nada. Para ejecutar una prueba de conmutación por error con una red de Azure de destino, es necesario crear una nueva red de Azure que esté aislada de su red de Azure de producción (el comportamiento predeterminado cuando se crea una nueva red de Azure) y configurar la infraestructura de la máquina virtual replicada para que funcione como se espera. Por ejemplo, una máquina virtual con controlador de dominio y DNS se pueden replicar en Azure con Azure Site Recovery y se puede crear en la red de prueba mediante pruebas de conmutación por error. Para ejecutar una conmutación por error de prueba siga estos pasos:
+Si desea ejecutar una conmutación por error de prueba para una máquina virtual habilitada para protección en Azure sin especificar una red de Azure de destino, no es necesario preparar nada. Para ejecutar una prueba de conmutación por error con una red de Azure de destino, es necesario crear una nueva red de Azure que esté aislada de su red de Azure de producción (el comportamiento predeterminado cuando se crea una nueva red de Azure). Veamos cómo [ejecutar una prueba de conmutación por error](site-recovery-failover.md#run-a-test-failover) para obtener más detalles.
 
-1. Realice una conmutación por error de prueba de la máquina virtual con controlador de dominio y DNS en la misma red que se usará para la conmutación por error de prueba real de la máquina virtual local.
-2. Anote las direcciones IP que se asignaron a los errores en la máquina virtual de DNS.
-3. En la red virtual de Azure que se utilizará para la conmutación por error, agregue la dirección IP como dirección del servidor DNS.
-4. Ejecute la conmutación por error de prueba de las máquinas virtuales locales de origen, especificando la red de prueba de Azure.
-5. Después de comprobar que el error de prueba funciona según lo esperado, marque la conmutación por error de prueba como completada para el plan de recuperación y, a continuación, marque la conmutación por error de prueba como completada para las máquinas virtuales de controlador de dominio y DNS.
+
+También necesitará configurar la infraestructura de la máquina virtual replicada para que funcione según lo previsto. Por ejemplo, una máquina virtual con controlador de dominio y DNS se pueden replicar en Azure con Azure Site Recovery y se puede crear en la red de prueba mediante pruebas de conmutación por error. Consulte la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) para obtener más información.
 
 Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 
@@ -345,9 +342,9 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 
 ##<a id="next" name="next" href="#next"></a>Pasos siguientes
 <UL>
-<LI>Para planificar e implementar Azure Site Recovery en un entorno completo de producción, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guía de planeación de Azure Site Recovery</a> y la <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guía de implementación de Azure Site Recovery</a>.</LI>
+<LI>Para planear e implementar Azure Site Recovery en un entorno completo de producción, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guía de planeación de Azure Site Recovery</a> y la <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guía de implementación de Azure Site Recovery</a>.</LI>
 
 
-<LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Foro de Servicios de recuperación de Azure</a>.</LI> </UL>
+<LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

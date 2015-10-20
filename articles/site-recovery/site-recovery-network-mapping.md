@@ -135,4 +135,4 @@ Se cambia la asignación de redes de VMNetwork1-Chicago. | VM-1 se conectará a 
 
 Ahora que tiene una mejor comprensión de la asignación de redes, lea las [prácticas recomendadas](site-recovery-best-practices.md) para preparar la implementación.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

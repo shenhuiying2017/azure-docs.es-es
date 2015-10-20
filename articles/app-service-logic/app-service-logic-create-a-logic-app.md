@@ -46,7 +46,7 @@ En primer lugar, deberá crear los dos conectores que se van a usar: el [conecto
 4. Seleccione **Configuración del paquete**: aquí deberá especificar la información de su aplicación de Twitter. Puede configurar una aplicación gratuita siguiendo estos pasos:
 	1. Vaya a la [página de registro de la aplicación de Twitter](http://apps.twitter.com).
 	2. Cree una nueva aplicación.
-	3. Asígnele un nombre y una descripción Puede especificar cualquier dirección URL para el sitio web y dejar en blanco la dirección URL de devolución de llamada.
+	3. Asígnele un nombre y una descripción Puede especificar cualquier dirección URL para el sitio web y cualquier dirección URL para la dirección URL de devolución de llamada (no dejar en blanco).
 	4. Una vez registrado, copie la **Clave de consumidor** de Twitter en el campo **clientId** de Azure y el **Secreto de consumidor** de Twitter en **clientSecret.**
 	5. Haga clic en **Aceptar** en el panel de Azure para volver a las demás configuraciones de API.
 
@@ -184,4 +184,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

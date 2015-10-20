@@ -62,7 +62,7 @@ En caso de desastre, las cargas de trabajo pueden recuperarse siguiendo estos pa
 ### Servidor VMM en clúster
 
 
-[La implementación de VMM en un clúster](https://technet.microsoft.com/es-es/library/gg610675.aspx) proporciona alta disponibilidad y protección contra la conmutación por error de hardware. Si va a implementar el clúster de VMM con Recovery Site tenga en cuenta lo siguiente:
+[La implementación de VMM en un clúster](https://technet.microsoft.com/es-ES/library/gg610675.aspx) proporciona alta disponibilidad y protección contra la conmutación por error de hardware. Si va a implementar el clúster de VMM con Recovery Site tenga en cuenta lo siguiente:
 
 El servidor VMM debe implementarse en un clúster estirado en sitios separados geográficamente. La Base de datos de SQL Server utilizada por VMM debe estar protegida con grupos de disponibilidad AlwaysOn de SQL Server con una réplica en el sitio secundario. Si se produce un desastre, el servidor VMM y su correspondiente SQL Server conmutarán por error automáticamente en el sitio de recuperación. A continuación, puede conmutar las cargas de trabajo con Site Recovery.
 
@@ -190,4 +190,4 @@ La [entrada de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infra
 
 [Aprenda](site-recovery-network-mapping.md) cómo Site Recovery asigna las redes de origen y de destino.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

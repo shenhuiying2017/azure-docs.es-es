@@ -497,4 +497,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Componente del Cliente de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
 [Componente de mensajería de Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

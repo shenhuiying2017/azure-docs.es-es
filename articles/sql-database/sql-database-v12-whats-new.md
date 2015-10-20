@@ -161,4 +161,4 @@ Si aún no está ejecutando en V12, puede actualizar el servidor lógico siguien
 
 [Términos de uso complementarios para versiones de vista previa de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

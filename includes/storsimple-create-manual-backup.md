@@ -24,4 +24,4 @@
 
   La copia de seguridad debe aparecer en la lista de conjuntos de copia de seguridad que se muestra en el catálogo.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

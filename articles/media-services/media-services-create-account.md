@@ -92,4 +92,4 @@ Puede ver las rutas de aprendizaje de Servicios multimedia de Azure aquí:
 
   [portal de Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

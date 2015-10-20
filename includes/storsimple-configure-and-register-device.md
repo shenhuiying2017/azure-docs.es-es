@@ -76,4 +76,4 @@ Después de que el dispositivo se haya registrado correctamente y no esté en l�
 
 Para ver un vídeo que muestra cómo configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple, haga clic [aquí](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

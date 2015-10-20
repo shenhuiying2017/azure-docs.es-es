@@ -332,4 +332,4 @@ Para obtener información adicional sobre los cmdlets de Equilibrio de carga int
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

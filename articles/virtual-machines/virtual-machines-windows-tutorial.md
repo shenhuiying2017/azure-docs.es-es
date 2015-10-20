@@ -107,4 +107,4 @@ Una vez creada la máquina virtual, podrá iniciar sesión en ella para administ
 * Use Azure PowerShell y la CLI de Azure para [buscar y seleccionar imágenes de máquina virtual](resource-groups-vm-searching.md).
 * Automatice la implementación y administración de máquinas virtuales y cargas de trabajo con el [Administrador de recursos de Azure](virtual-machines-how-to-automate-azure-resource-manager.md) y las [plantillas de Administrador de recursos de Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

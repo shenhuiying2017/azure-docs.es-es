@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Tutorial de Apache Storm: Introducción a Storm | Microsoft Azure"
-	description="Introducción al análisis de grandes cantidades de datos con Apache Storm y muestras de inicio de Storm en HDInsight. Aprenda a usar Storm para procesar datos en tiempo real."
+	pageTitle="Tutorial de Apache Storm: Introducción a Storm basado en Linux en HDInsight | Microsoft Azure"
+	description="Introducción al análisis de macrodatos con Apache Storm y los ejemplos de storm-starter en HDInsight basado en Linux. Aprenda a usar Storm para procesar datos en tiempo real."
 	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 
@@ -233,4 +233,4 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

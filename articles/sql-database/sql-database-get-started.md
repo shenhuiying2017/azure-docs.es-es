@@ -3,7 +3,7 @@
 	description="Cree la primera base de datos en la nube en cuestión de minutos con Base de datos SQL de Azure, el servicio de administración de bases de datos relacionales de Microsoft (RDBMS) en la nube mediante el portal de Azure y la base de datos de ejemplo AdventureWorks."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
+	authors="jeffgoll"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
-	ms.author="genemi"/>
+	ms.date="10/09/2015"
+	ms.author="jeffreyg"/>
 
 # Creación de la primera base de datos SQL de Azure
 
@@ -26,33 +26,35 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-En este artículo se muestra cómo crear una base de datos SQL de Azure de ejemplo en menos de cinco minutos mediante el Portal de Azure. Aprenderá a:
+En este artículo se muestra cómo crear una base de datos SQL de Azure de ejemplo en menos de cinco minutos mediante el Portal de vista previa de Azure. Aprenderá a:
 
 - Crear un servidor para hospedar la base de datos que cree y, luego, configurar una regla de firewall para él.
 - Crear una base de datos a partir de un ejemplo de AdventureWorks, que tiene datos con los que puede jugar.
 
 Necesitará una cuenta de Azure y una suscripción antes de empezar. Si no tiene una, suscríbase para [una prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
+> [AZURE.NOTE]Este tema de procedimientos describe la configuración de la base de datos mediante el servicio de base de datos relacional de Microsoft en la nube, Base de datos SQL de Azure. Otra opción consiste en ejecutar un servidor SQL Server en una máquina virtual de Azure. Consulte en [Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure](data-management-azure-sql-database-and-sql-server-iaas.md) una comparación rápida, o bien consulte [Aprovisionamiento de una máquina virtual de SQL Server](virtual-machines-provision-sql-server.md) para comenzar a usar una máquina virtual.
+
 ## Paso 1: Iniciar sesión y comenzar a configurar la base de datos SQL.
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com/).
+1. Inicie sesión en el [Portal de vista previa de Azure](http://portal.azure.com/).
 2. Haga clic en **Nuevo** > **Datos + almacenamiento** > **Base de datos SQL**.
 
 	![Crear una nueva base de datos SQL](./media/sql-database-get-started/create-db.png)
 	
-	La hoja de configuración **Base de datos SQL** que aparece es donde podrá configurar la información del servidor y de la base de datos.
+	En la hoja de configuración **Base de datos SQL** que aparece podrá configurar la información del servidor y de la base de datos.
 
 	![Configuración de la base de datos y el servidor para una base de datos SQL](./media/sql-database-get-started/get-started-dbandserversettings.png)
 
 ## Paso 2: Seleccionar la configuración del servidor.
 Una base de datos SQL de Azure reside en un servidor de base de datos. Un servidor puede hospedar varias bases de datos. Al configurar una base de datos, también puede crear y configurar el servidor que va a hospedarla, o puede usar uno que creó anteriormente. Configuraremos uno nuevo.
 
-1. Escriba un **nombre** para la base de datos (usaremos **AdventureWorks**). Volveremos a tratar la configuración de la base de datos más adelante.
+1. Escriba un **Nombre** para la base de datos (usaremos **AdventureWorks**). Volveremos a tratar la configuración de la base de datos más adelante.
 2. En **Servidor**, haga clic en **Configurar los valores obligatorios** y, luego, haga clic en **Crear un nuevo servidor**.
 
 	![Nombre de la base de datos](./media/sql-database-get-started/name-and-newserver.png)
 
 3. En la hoja **Nuevo servidor**, escriba un **Nombre de servidor** que sea único en todo Azure y que sea fácil de recordar. Necesitará este nombre más adelante al conectarse y trabajar con la base de datos.
-4. Escriba un **inicio de sesión de administrador de servidor** que sea fácil de recordar (usaremos **AdventureAdmin**). A continuación, escriba una **Contraseña** segura y escríbala de nuevo en **Confirmar contraseña**.
+4. Escriba un **Inicio de sesión de administrador de servidor** que sea fácil de recordar (usaremos **AdventureAdmin**). A continuación, escriba una **Contraseña** segura y escríbala de nuevo en **Confirmar contraseña**.
 
 	![Configuración del nuevo servidor de base de datos](./media/sql-database-get-started/get-started-serversettings.png)
 
@@ -64,7 +66,7 @@ Una base de datos SQL de Azure reside en un servidor de base de datos. Un servid
 
 La base de datos y el servidor todavía no están creados. Para ello, es necesario realizar el paso siguiente, donde elige crear la base de datos partir del ejemplo de AdventureWorks y confirmar la configuración.
 
-## Paso 4: Configurar y crear la base de datos.
+## Paso 3: Configurar y crear la base de datos.
 1. En la hoja **Base de datos SQL**, haga clic en **Seleccionar origen** y, luego, haga clic en **Ejemplo**. 
 
 	![Crear una base de datos a partir de un ejemplo](./media/sql-database-get-started/new-sample-db.png)
@@ -73,17 +75,17 @@ La base de datos y el servidor todavía no están creados. Para ello, es necesar
 
 	![Crear una base de datos de ejemplo](./media/sql-database-get-started/adworks_create.png)
 
-	>[AZURE.NOTE]Para este procedimiento rápido, no cambiamos la configuración de **Nivel de precios**, **Intercalación** y **Grupo de recursos**. Puede cambiar el nivel de precios de una base de datos y escalar y reducir verticalmente en cualquier momento, sin tiempo de inactividad. Vea [Base de datos SQL Precios](http://azure.microsoft.com/pricing/details/sql-database/) y [Niveles de precios de base de datos SQL](sql-database-service-tiers.md) para obtener más información. No se podrá cambiar la intercalación de una base de datos una vez ahí configurada. Vea [Compatibilidad con la intercalación y Unicode](https://msdn.microsoft.com/library/ms143726.aspx) para obtener más información sobre la intercalación. Vea [Información general del Administrador de recursos de Azure](resource-group-overview.md) para obtener más información sobre los grupos de recursos de Azure.
+	>[AZURE.NOTE]Para este procedimiento rápido, no cambiamos la configuración de **Plan de tarifa**, **Intercalación** y **Grupo de recursos**. Puede cambiar el nivel de precios de una base de datos y escalar y reducir verticalmente en cualquier momento, sin tiempo de inactividad. Consulte [Precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/) y [Planes de tarifas de Base de datos SQL](sql-database-service-tiers.md) para obtener más información. No se podrá cambiar la intercalación de una base de datos una vez ahí configurada. Consulte [Compatibilidad con la intercalación y Unicode](https://msdn.microsoft.com/library/ms143726.aspx) para obtener más información sobre la intercalación. Consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md) para obtener más información sobre los grupos de recursos de Azure.
 
 Volverá al panel de inicio de Azure, donde un icono muestra el progreso hasta que se crea la base de datos y está en línea. También puede hacer clic en **Examinar todo** y, luego, en **Base de datos SQL** para confirmar que la base de datos está en línea.
 	
 ¡Enhorabuena! Ahora dispone de una base de datos que se ejecuta en la nube. Ya casi ha terminado. Queda aún un paso importante. Deberá crear una regla en el servidor de base de datos para que pueda conectarse a la base de datos.
 
-## Paso 5: Configuración del firewall
+## Paso 4: Configurar el firewall
 
 Deberá configurar una regla de firewall en el servidor, que permita realizar conexiones desde la dirección IP del equipo cliente para que pueda trabajar con la base de datos. De esta forma, no solo se asegura de que puede conectarse, sino que es una excelente manera de ver el área donde puede obtener otros detalles sobre los servidores SQL en Azure.
 
-1. Haga clic en **Examinar todo**, desplácese hacia abajo y, luego, haga clic en **Servidores SQL Server** y, luego, haga clic en el nombre del servidor que creó anteriormente en la lista de **Servidores SQL Server**.
+1. Haga clic en **Examinar todo**, desplácese hacia abajo y haga clic en **Servidores SQL Server** y, finalmente, haga clic en el nombre del servidor que creó anteriormente en la lista de **Servidores SQL Server**.
 
 	![Seleccionar el servidor de base de datos](./media/sql-database-get-started/browse_dbservers.png)
 
@@ -93,7 +95,7 @@ Deberá configurar una regla de firewall en el servidor, que permita realizar co
 	![Abrir la configuración del firewall](./media/sql-database-get-started/db_settings.png)
 
 
-	La **Configuración del firewall** muestra su **Dirección IP de cliente** actual.
+	La **configuración del firewall** muestra su **Dirección IP de cliente** actual.
 
 	![Dirección IP actual](./media/sql-database-get-started/firewall_config_client_ip.png)
 
@@ -101,17 +103,17 @@ Deberá configurar una regla de firewall en el servidor, que permita realizar co
 
 	![Agregar la dirección IP](./media/sql-database-get-started/firewall_config_new_rule.png)
 
-	>[AZURE.IMPORTANT]Probablemente la dirección IP de su cliente cambie de vez en cuando, y es posible que no pueda acceder al servidor hasta que cree una regla de firewall. Puede comprobar la dirección IP con [Bing](http://www.bing.com/search?q=my%20ip%20address) y, luego, agregue una dirección IP o un intervalo de direcciones IP. Vea [Configuración del firewall](sql-database-configure-firewall-settings.md) para obtener más detalles.
+	>[AZURE.IMPORTANT]Probablemente la dirección IP de su cliente cambie de vez en cuando, y es posible que no pueda acceder al servidor hasta que cree una regla de firewall. Puede comprobar la dirección IP con [Bing](http://www.bing.com/search?q=my%20ip%20address) y, después, agregue una dirección IP o un intervalo de direcciones IP. Consulte [Configuración del firewall](sql-database-configure-firewall-settings.md) para obtener más detalles.
 
 ## Pasos siguientes
 Ahora que tiene una base de datos con algunos datos de ejemplo, está listo para explorar con sus herramientas favoritas.
 
-- Si está familiarizado con Transact-SQL y SQL Server Management Studio, vea [Conexión y consulta de una base de datos SQL con SSMS](sql-database-connect-query-ssms.md).
+- Si está familiarizado con Transact-SQL y SQL Server Management Studio, consulte [Conexión y consulta de una base de datos SQL con SSMS](sql-database-connect-query-ssms.md).
 
-- Si sabe Excel, vea [Conexión a Base de datos SQL con Excel](sql-database-connect-excel.md).
+- Si conoce Excel, consulte [Conexión a Base de datos SQL con Excel](sql-database-connect-excel.md).
 
-- Si está listo para comenzar a codificar, vea [Conexión y consulta de la base de datos SQL con C#](sql-database-connect-query.md) y [Uso de bases de datos SQL de .NET (C#)](sql-database-develop-dotnet-simple.md). Consulte los [ejemplos de código de inicio rápido para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md) para Node.js, Python, Ruby, Java, PHP y C++ y los procedimientos al margen de C#.
+- Si está listo para comenzar a codificar, consulte [Conexión y realización de consultas de la base de datos SQL con C#](sql-database-connect-query.md) y [Uso de bases de datos SQL de .NET (C#)](sql-database-develop-dotnet-simple.md). Consulte los [ejemplos de código de inicio rápido para Base de datos SQL](sql-database-develop-quick-start-client-code-samples.md) para Node.js, Python, Ruby, Java, PHP y C++ y los procedimientos al margen de C#.
 
-- Si desea mover las bases de datos de SQL Server local a Azure, consulte [Migración de una base de datos a Base de datos SQL de Azure](sql-database-cloud-migrate.md) para obtener más información.
+- Si desea mover las bases de datos de SQL Server locales a Azure, consulte [Migrar una base de datos a Base de datos SQL de Azure](sql-database-cloud-migrate.md) para obtener más información.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

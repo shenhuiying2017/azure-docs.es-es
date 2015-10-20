@@ -19,6 +19,12 @@
 
 # <a name="_Toc395783175"></a>Compilación de una aplicación web Node.js mediante DocumentDB
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 En este tutorial de Node.js aprenderá a usar el servicio de Azure DocumentDB para almacenar datos desde una aplicación Node.js Express hospedada en sitios web de Azure y obtener acceso a ellos.
 
 Se recomienda comenzar por ver el vídeo siguiente, donde aprenderá a aprovisionar una cuenta de base de datos de Azure DocumentDB y almacenar documentos JSON en su aplicación Node.js.
@@ -34,7 +40,7 @@ Al seguir este tutorial de base de datos, podrá crear una aplicación de admini
 
 ![Captura de pantalla de la aplicación My Todo List creada en este tutorial de Node.js](./media/documentdb-nodejs-application/image1.png)
 
-¿No tiene tiempo para completar el tutorial y solo desea obtener la solución completa? No es un problema, puede obtener la solución de ejemplo completa de [GitHub][].
+¿No tiene tiempo para completar el tutorial y solo desea obtener la solución completa? No es un problema, puede obtener la solución de ejemplo completa en [GitHub][].
 
 ## <a name="_Toc395783176"></a>Requisitos previos
 
@@ -57,7 +63,7 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 ## <a name="_Toc395783178"></a>Paso 2: Creación de una nueva aplicación Node.js
 
-Ahora aprendamos a crear un proyecto Node.js básico de Hello World usando el marco [Express](http://expressjs.com/).
+Ahora aprenderemos a crear un proyecto básico de Node.js Hello World usando el marco [Express](http://expressjs.com/).
 
 1. Abra su terminal favorito.
 
@@ -390,7 +396,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		
 		module.exports = config;
 
-3. En el archivo **config.js**, actualice los valores de HOST y AUTH\_KEY mediante los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de vista previa de Azure de Microsoft](http://portal.azure.com):
+3. En el archivo **config.js**, actualice los valores de HOST y AUTH\_KEY usando los valores encontrados en la hoja Claves de la cuenta de DocumentDB en el [Portal de vista previa de Microsoft Azure](http://portal.azure.com):
 
 4. Guarde y cierre el archivo **config.js**.
  
@@ -451,7 +457,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 
 
-	Esto indica al motor **Jade** de forma efectiva que represente HTML de nuestra aplicación y cree un **bloque** llamado **content** donde podemos especificar el diseño para nuestras páginas de contenido. Guarde y cierre el archivo **layout.jade**.
+	Esto indica al motor **Jade** que represente HTML de nuestra aplicación y que cree un **block** llamado **content** donde podemos especificar el diseño de nuestras páginas de contenido. Guarde y cierre este archivo **layout.jade**.
 
 4. Ahora abra el archivo **index.jade**, la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por lo siguiente:
 
@@ -536,7 +542,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 4. Para completar una tarea, simplemente marque la casilla en la columna Complete y, a continuación, haga clic en **Actualizar tareas**.
 
-## <a name="_Toc395783182"></a>Paso 7: Implementación de su proyecto de desarrollo de aplicación en sitios web de Azure
+## <a name="_Toc395783182"></a>Paso 7: Implementación del proyecto de desarrollo de aplicación en Sitios web de Azure
 
 1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. Encontrará información sobre cómo hacerlo [aquí](../web-sites-publish-source-control-git.md#step4).
 
@@ -554,7 +560,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 ¡Enhorabuena! Acaba de generar su primera aplicación web Express de Node.js mediante Azure DocumentDB y publicarlos en los sitios web de Azure.
 
-El código fuente de la aplicación de referencia completa se puede descargar desde [GitHub][].
+El código fuente de la aplicación de referencia completa se puede descargar en [GitHub][].
 
 Para obtener más información, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
@@ -563,4 +569,4 @@ Para obtener más información, consulte el [Centro para desarrolladores de Node
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->
